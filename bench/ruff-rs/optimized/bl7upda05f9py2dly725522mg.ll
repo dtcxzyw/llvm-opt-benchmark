@@ -18638,563 +18638,535 @@ define internal fastcc noundef zeroext i1 @"_ZN72_$LT$ty_python_semantic..types.
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN73_$LT$ty_python_semantic..types..Type$u20$as$u20$salsa..update..Update$GT$12maybe_update17h5aaff5a234249d07E"(ptr noundef %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 8, !range !709, !noundef !3
+  %4 = load i8, ptr %1, align 8, !range !709, !noundef !3
   switch i8 %3, label %default.unreachable32 [
-    i8 0, label %4
+    i8 0, label %5
     i8 1, label %7
-    i8 2, label %10
-    i8 3, label %13
-    i8 4, label %16
-    i8 5, label %19
-    i8 6, label %22
-    i8 7, label %25
-    i8 8, label %28
-    i8 9, label %31
-    i8 10, label %34
-    i8 11, label %37
-    i8 12, label %40
-    i8 13, label %43
-    i8 14, label %46
-    i8 15, label %49
-    i8 16, label %52
-    i8 17, label %55
-    i8 18, label %58
-    i8 19, label %61
-    i8 20, label %64
-    i8 21, label %67
-    i8 22, label %70
-    i8 23, label %73
-    i8 24, label %76
-    i8 25, label %79
-    i8 26, label %82
-    i8 27, label %85
-    i8 28, label %88
+    i8 2, label %9
+    i8 3, label %11
+    i8 4, label %13
+    i8 5, label %15
+    i8 6, label %17
+    i8 7, label %19
+    i8 8, label %21
+    i8 9, label %23
+    i8 10, label %25
+    i8 11, label %27
+    i8 12, label %29
+    i8 13, label %31
+    i8 14, label %33
+    i8 15, label %35
+    i8 16, label %37
+    i8 17, label %39
+    i8 18, label %41
+    i8 19, label %43
+    i8 20, label %45
+    i8 21, label %47
+    i8 22, label %49
+    i8 23, label %51
+    i8 24, label %53
+    i8 25, label %55
+    i8 26, label %57
+    i8 27, label %59
+    i8 28, label %61
   ]
 
-default.unreachable32:                            ; preds = %120, %2
+default.unreachable32:                            ; preds = %92, %2
   unreachable
 
-4:                                                ; preds = %2
-  %5 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %6 = icmp eq i8 %5, 0
-  br i1 %6, label %91, label %96
+5:                                                ; preds = %2
+  %6 = icmp eq i8 %4, 0
+  br i1 %6, label %63, label %68
 
 7:                                                ; preds = %2
-  %8 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %9 = icmp eq i8 %8, 1
-  br i1 %9, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %97
+  %8 = icmp eq i8 %4, 1
+  br i1 %8, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %69
 
-10:                                               ; preds = %2
-  %11 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %12 = icmp eq i8 %11, 2
-  br i1 %12, label %98, label %104
+9:                                                ; preds = %2
+  %10 = icmp eq i8 %4, 2
+  br i1 %10, label %70, label %76
+
+11:                                               ; preds = %2
+  %12 = icmp eq i8 %4, 3
+  br i1 %12, label %77, label %83
 
 13:                                               ; preds = %2
-  %14 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %15 = icmp eq i8 %14, 3
-  br i1 %15, label %105, label %111
+  %14 = icmp eq i8 %4, 4
+  br i1 %14, label %84, label %91
 
-16:                                               ; preds = %2
-  %17 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %18 = icmp eq i8 %17, 4
-  br i1 %18, label %112, label %119
+15:                                               ; preds = %2
+  %16 = icmp eq i8 %4, 5
+  br i1 %16, label %92, label %103
+
+17:                                               ; preds = %2
+  %18 = icmp eq i8 %4, 6
+  br i1 %18, label %104, label %109
 
 19:                                               ; preds = %2
-  %20 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %21 = icmp eq i8 %20, 5
-  br i1 %21, label %120, label %131
+  %20 = icmp eq i8 %4, 7
+  br i1 %20, label %110, label %115
 
-22:                                               ; preds = %2
-  %23 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %24 = icmp eq i8 %23, 6
-  br i1 %24, label %132, label %137
+21:                                               ; preds = %2
+  %22 = icmp eq i8 %4, 8
+  br i1 %22, label %116, label %122
+
+23:                                               ; preds = %2
+  %24 = icmp eq i8 %4, 9
+  br i1 %24, label %123, label %129
 
 25:                                               ; preds = %2
-  %26 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %27 = icmp eq i8 %26, 7
-  br i1 %27, label %138, label %143
+  %26 = icmp eq i8 %4, 10
+  br i1 %26, label %130, label %135
 
-28:                                               ; preds = %2
-  %29 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %30 = icmp eq i8 %29, 8
-  br i1 %30, label %144, label %150
+27:                                               ; preds = %2
+  %28 = icmp eq i8 %4, 11
+  br i1 %28, label %136, label %141
+
+29:                                               ; preds = %2
+  %30 = icmp eq i8 %4, 12
+  br i1 %30, label %142, label %146
 
 31:                                               ; preds = %2
-  %32 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %33 = icmp eq i8 %32, 9
-  br i1 %33, label %151, label %157
+  %32 = icmp eq i8 %4, 13
+  br i1 %32, label %147, label %154
 
-34:                                               ; preds = %2
-  %35 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %36 = icmp eq i8 %35, 10
-  br i1 %36, label %158, label %163
+33:                                               ; preds = %2
+  %34 = icmp eq i8 %4, 14
+  br i1 %34, label %155, label %159
+
+35:                                               ; preds = %2
+  %36 = icmp eq i8 %4, 15
+  br i1 %36, label %160, label %164
 
 37:                                               ; preds = %2
-  %38 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %39 = icmp eq i8 %38, 11
-  br i1 %39, label %164, label %169
+  %38 = icmp eq i8 %4, 16
+  br i1 %38, label %165, label %171
 
-40:                                               ; preds = %2
-  %41 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %42 = icmp eq i8 %41, 12
-  br i1 %42, label %170, label %174
+39:                                               ; preds = %2
+  %40 = icmp eq i8 %4, 17
+  br i1 %40, label %172, label %178
+
+41:                                               ; preds = %2
+  %42 = icmp eq i8 %4, 18
+  br i1 %42, label %179, label %185
 
 43:                                               ; preds = %2
-  %44 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %45 = icmp eq i8 %44, 13
-  br i1 %45, label %175, label %182
+  %44 = icmp eq i8 %4, 19
+  br i1 %44, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %186
 
-46:                                               ; preds = %2
-  %47 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %48 = icmp eq i8 %47, 14
-  br i1 %48, label %183, label %187
+45:                                               ; preds = %2
+  %46 = icmp eq i8 %4, 20
+  br i1 %46, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %187
+
+47:                                               ; preds = %2
+  %48 = icmp eq i8 %4, 21
+  br i1 %48, label %188, label %193
 
 49:                                               ; preds = %2
-  %50 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %51 = icmp eq i8 %50, 15
-  br i1 %51, label %188, label %192
+  %50 = icmp eq i8 %4, 22
+  br i1 %50, label %194, label %200
 
-52:                                               ; preds = %2
-  %53 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %54 = icmp eq i8 %53, 16
-  br i1 %54, label %193, label %199
+51:                                               ; preds = %2
+  %52 = icmp eq i8 %4, 23
+  br i1 %52, label %201, label %207
+
+53:                                               ; preds = %2
+  %54 = icmp eq i8 %4, 24
+  br i1 %54, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %208
 
 55:                                               ; preds = %2
-  %56 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %57 = icmp eq i8 %56, 17
-  br i1 %57, label %200, label %206
+  %56 = icmp eq i8 %4, 25
+  br i1 %56, label %209, label %215
 
-58:                                               ; preds = %2
-  %59 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %60 = icmp eq i8 %59, 18
-  br i1 %60, label %207, label %213
+57:                                               ; preds = %2
+  %58 = icmp eq i8 %4, 26
+  br i1 %58, label %216, label %222
+
+59:                                               ; preds = %2
+  %60 = icmp eq i8 %4, 27
+  br i1 %60, label %223, label %229
 
 61:                                               ; preds = %2
-  %62 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %63 = icmp eq i8 %62, 19
-  br i1 %63, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %214
+  %62 = icmp eq i8 %4, 28
+  br i1 %62, label %230, label %236
 
-64:                                               ; preds = %2
-  %65 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %66 = icmp eq i8 %65, 20
-  br i1 %66, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %215
-
-67:                                               ; preds = %2
-  %68 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %69 = icmp eq i8 %68, 21
-  br i1 %69, label %216, label %221
-
-70:                                               ; preds = %2
-  %71 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %72 = icmp eq i8 %71, 22
-  br i1 %72, label %222, label %228
-
-73:                                               ; preds = %2
-  %74 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %75 = icmp eq i8 %74, 23
-  br i1 %75, label %229, label %235
-
-76:                                               ; preds = %2
-  %77 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %78 = icmp eq i8 %77, 24
-  br i1 %78, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %236
-
-79:                                               ; preds = %2
-  %80 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %81 = icmp eq i8 %80, 25
-  br i1 %81, label %237, label %243
-
-82:                                               ; preds = %2
-  %83 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %84 = icmp eq i8 %83, 26
-  br i1 %84, label %244, label %250
-
-85:                                               ; preds = %2
-  %86 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %87 = icmp eq i8 %86, 27
-  br i1 %87, label %251, label %257
-
-88:                                               ; preds = %2
-  %89 = load i8, ptr %1, align 8, !range !709, !noundef !3
-  %90 = icmp eq i8 %89, 28
-  br i1 %90, label %258, label %264
-
-91:                                               ; preds = %4
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %93 = load i8, ptr %92, align 1, !range !127, !noundef !3
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %95 = tail call noundef zeroext i1 @_ZN5salsa6update15update_fallback17h3a7506fdcc9c446fE(ptr noundef nonnull %94, i8 noundef %93)
+63:                                               ; preds = %5
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %65 = load i8, ptr %64, align 1, !range !127, !noundef !3
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %67 = tail call noundef zeroext i1 @_ZN5salsa6update15update_fallback17h3a7506fdcc9c446fE(ptr noundef nonnull %66, i8 noundef %65)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-96:                                               ; preds = %4
+68:                                               ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit": ; preds = %263, %258, %256, %251, %249, %244, %242, %237, %234, %229, %212, %207, %205, %200, %198, %193, %156, %151, %149, %144, %.sink.split.i, %129, %127, %125, %110, %105, %103, %98, %76, %64, %61, %7, %264, %257, %250, %243, %236, %235, %228, %222, %221, %216, %215, %214, %213, %206, %199, %192, %188, %187, %183, %182, %175, %174, %170, %169, %164, %163, %158, %157, %150, %143, %138, %137, %132, %131, %119, %112, %111, %104, %97, %96, %91
-  %.sroa.0.0.shrunk = phi i1 [ %95, %91 ], [ true, %96 ], [ true, %97 ], [ true, %104 ], [ true, %111 ], [ %118, %112 ], [ true, %119 ], [ true, %131 ], [ %136, %132 ], [ true, %137 ], [ %142, %138 ], [ true, %143 ], [ true, %150 ], [ true, %157 ], [ %162, %158 ], [ true, %163 ], [ %168, %164 ], [ true, %169 ], [ %173, %170 ], [ true, %174 ], [ %181, %175 ], [ true, %182 ], [ %186, %183 ], [ true, %187 ], [ %191, %188 ], [ true, %192 ], [ true, %199 ], [ true, %206 ], [ true, %213 ], [ true, %214 ], [ true, %215 ], [ %220, %216 ], [ true, %221 ], [ %227, %222 ], [ true, %228 ], [ true, %235 ], [ true, %236 ], [ true, %243 ], [ true, %250 ], [ true, %257 ], [ true, %264 ], [ false, %7 ], [ false, %61 ], [ false, %64 ], [ false, %76 ], [ false, %98 ], [ true, %103 ], [ false, %105 ], [ true, %110 ], [ false, %125 ], [ false, %127 ], [ false, %129 ], [ true, %.sink.split.i ], [ false, %144 ], [ true, %149 ], [ false, %151 ], [ true, %156 ], [ false, %193 ], [ true, %198 ], [ false, %200 ], [ true, %205 ], [ false, %207 ], [ true, %212 ], [ false, %229 ], [ true, %234 ], [ false, %237 ], [ true, %242 ], [ false, %244 ], [ true, %249 ], [ false, %251 ], [ true, %256 ], [ false, %258 ], [ true, %263 ]
+"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit": ; preds = %235, %230, %228, %223, %221, %216, %214, %209, %206, %201, %184, %179, %177, %172, %170, %165, %128, %123, %121, %116, %.sink.split.i, %101, %99, %97, %82, %77, %75, %70, %53, %45, %43, %7, %236, %229, %222, %215, %208, %207, %200, %194, %193, %188, %187, %186, %185, %178, %171, %164, %160, %159, %155, %154, %147, %146, %142, %141, %136, %135, %130, %129, %122, %115, %110, %109, %104, %103, %91, %84, %83, %76, %69, %68, %63
+  %.sroa.0.0.shrunk = phi i1 [ %67, %63 ], [ true, %68 ], [ true, %69 ], [ true, %76 ], [ true, %83 ], [ %90, %84 ], [ true, %91 ], [ true, %103 ], [ %108, %104 ], [ true, %109 ], [ %114, %110 ], [ true, %115 ], [ true, %122 ], [ true, %129 ], [ %134, %130 ], [ true, %135 ], [ %140, %136 ], [ true, %141 ], [ %145, %142 ], [ true, %146 ], [ %153, %147 ], [ true, %154 ], [ %158, %155 ], [ true, %159 ], [ %163, %160 ], [ true, %164 ], [ true, %171 ], [ true, %178 ], [ true, %185 ], [ true, %186 ], [ true, %187 ], [ %192, %188 ], [ true, %193 ], [ %199, %194 ], [ true, %200 ], [ true, %207 ], [ true, %208 ], [ true, %215 ], [ true, %222 ], [ true, %229 ], [ true, %236 ], [ false, %7 ], [ false, %43 ], [ false, %45 ], [ false, %53 ], [ false, %70 ], [ true, %75 ], [ false, %77 ], [ true, %82 ], [ false, %97 ], [ false, %99 ], [ false, %101 ], [ true, %.sink.split.i ], [ false, %116 ], [ true, %121 ], [ false, %123 ], [ true, %128 ], [ false, %165 ], [ true, %170 ], [ false, %172 ], [ true, %177 ], [ false, %179 ], [ true, %184 ], [ false, %201 ], [ true, %206 ], [ false, %209 ], [ true, %214 ], [ false, %216 ], [ true, %221 ], [ false, %223 ], [ true, %228 ], [ false, %230 ], [ true, %235 ]
   ret i1 %.sroa.0.0.shrunk
 
-97:                                               ; preds = %7
+69:                                               ; preds = %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-98:                                               ; preds = %10
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %100 = load i32, ptr %99, align 4, !range !669, !noundef !3
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %102 = load i32, ptr %101, align 4, !range !669, !noundef !3
-  %.not.i.not = icmp eq i32 %102, %100
-  br i1 %.not.i.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %103
+70:                                               ; preds = %9
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %72 = load i32, ptr %71, align 4, !range !669, !noundef !3
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %74 = load i32, ptr %73, align 4, !range !669, !noundef !3
+  %.not.i.not = icmp eq i32 %74, %72
+  br i1 %.not.i.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %75
 
-103:                                              ; preds = %98
-  store i32 %100, ptr %101, align 4
+75:                                               ; preds = %70
+  store i32 %72, ptr %73, align 4
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-104:                                              ; preds = %10
+76:                                               ; preds = %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-105:                                              ; preds = %13
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %107 = load i32, ptr %106, align 4, !range !669, !noundef !3
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %109 = load i32, ptr %108, align 4, !range !669, !noundef !3
-  %.not.i10.not = icmp eq i32 %109, %107
-  br i1 %.not.i10.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %110
+77:                                               ; preds = %11
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %79 = load i32, ptr %78, align 4, !range !669, !noundef !3
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %81 = load i32, ptr %80, align 4, !range !669, !noundef !3
+  %.not.i10.not = icmp eq i32 %81, %79
+  br i1 %.not.i10.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %82
 
-110:                                              ; preds = %105
-  store i32 %107, ptr %108, align 4
+82:                                               ; preds = %77
+  store i32 %79, ptr %80, align 4
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-111:                                              ; preds = %13
+83:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-112:                                              ; preds = %16
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %114 = load i32, ptr %113, align 4, !range !2180, !noundef !3
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %116 = load i32, ptr %115, align 8, !noundef !3
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %118 = tail call noundef zeroext i1 @"_ZN86_$LT$ty_python_semantic..types..MethodWrapperKind$u20$as$u20$salsa..update..Update$GT$12maybe_update17h0f5af6e660be5ca8E"(ptr noundef nonnull %117, i32 noundef %114, i32 noundef %116)
+84:                                               ; preds = %13
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %86 = load i32, ptr %85, align 4, !range !2180, !noundef !3
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %88 = load i32, ptr %87, align 8, !noundef !3
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %90 = tail call noundef zeroext i1 @"_ZN86_$LT$ty_python_semantic..types..MethodWrapperKind$u20$as$u20$salsa..update..Update$GT$12maybe_update17h0f5af6e660be5ca8E"(ptr noundef nonnull %89, i32 noundef %86, i32 noundef %88)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-119:                                              ; preds = %16
+91:                                               ; preds = %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-120:                                              ; preds = %19
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %122 = load i8, ptr %121, align 1, !range !119, !noundef !3
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %124 = load i8, ptr %123, align 1, !range !119, !noundef !3
-  switch i8 %124, label %default.unreachable32 [
-    i8 0, label %125
-    i8 1, label %127
-    i8 2, label %129
+92:                                               ; preds = %15
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %94 = load i8, ptr %93, align 1, !range !119, !noundef !3
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %96 = load i8, ptr %95, align 1, !range !119, !noundef !3
+  switch i8 %96, label %default.unreachable32 [
+    i8 0, label %97
+    i8 1, label %99
+    i8 2, label %101
   ]
 
-125:                                              ; preds = %120
-  %126 = icmp eq i8 %122, 0
-  br i1 %126, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %.sink.split.i
+97:                                               ; preds = %92
+  %98 = icmp eq i8 %94, 0
+  br i1 %98, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %.sink.split.i
 
-127:                                              ; preds = %120
-  %128 = icmp eq i8 %122, 1
-  br i1 %128, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %.sink.split.i
+99:                                               ; preds = %92
+  %100 = icmp eq i8 %94, 1
+  br i1 %100, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %.sink.split.i
 
-129:                                              ; preds = %120
-  %130 = icmp eq i8 %122, 2
-  br i1 %130, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %.sink.split.i
+101:                                              ; preds = %92
+  %102 = icmp eq i8 %94, 2
+  br i1 %102, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %129, %127, %125
-  store i8 %122, ptr %123, align 1
+.sink.split.i:                                    ; preds = %101, %99, %97
+  store i8 %94, ptr %95, align 1
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-131:                                              ; preds = %19
+103:                                              ; preds = %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-132:                                              ; preds = %22
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %134 = load i16, ptr %133, align 2, !noundef !3
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %136 = tail call noundef zeroext i1 @_ZN5salsa6update15update_fallback17h0fcfa2bcef1db1eeE(ptr noundef nonnull %135, i16 noundef %134)
+104:                                              ; preds = %17
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %106 = load i16, ptr %105, align 2, !noundef !3
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %108 = tail call noundef zeroext i1 @_ZN5salsa6update15update_fallback17h0fcfa2bcef1db1eeE(ptr noundef nonnull %107, i16 noundef %106)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-137:                                              ; preds = %22
+109:                                              ; preds = %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-138:                                              ; preds = %25
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %140 = load i8, ptr %139, align 1, !noundef !3
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %142 = tail call noundef zeroext i1 @_ZN5salsa6update15update_fallback17hb22c9eb6fff3d694E(ptr noundef nonnull %141, i8 noundef %140)
+110:                                              ; preds = %19
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %112 = load i8, ptr %111, align 1, !noundef !3
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %114 = tail call noundef zeroext i1 @_ZN5salsa6update15update_fallback17hb22c9eb6fff3d694E(ptr noundef nonnull %113, i8 noundef %112)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-143:                                              ; preds = %25
+115:                                              ; preds = %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-144:                                              ; preds = %28
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %146 = load i32, ptr %145, align 4, !range !669, !noundef !3
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %148 = load i32, ptr %147, align 4, !range !669, !noundef !3
-  %.not.i11.not = icmp eq i32 %148, %146
-  br i1 %.not.i11.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %149
+116:                                              ; preds = %21
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %118 = load i32, ptr %117, align 4, !range !669, !noundef !3
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %120 = load i32, ptr %119, align 4, !range !669, !noundef !3
+  %.not.i11.not = icmp eq i32 %120, %118
+  br i1 %.not.i11.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %121
 
-149:                                              ; preds = %144
-  store i32 %146, ptr %147, align 4
+121:                                              ; preds = %116
+  store i32 %118, ptr %119, align 4
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-150:                                              ; preds = %28
+122:                                              ; preds = %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-151:                                              ; preds = %31
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %153 = load i32, ptr %152, align 4, !range !669, !noundef !3
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %155 = load i32, ptr %154, align 4, !range !669, !noundef !3
-  %.not.i12.not = icmp eq i32 %155, %153
-  br i1 %.not.i12.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %156
+123:                                              ; preds = %23
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %125 = load i32, ptr %124, align 4, !range !669, !noundef !3
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %127 = load i32, ptr %126, align 4, !range !669, !noundef !3
+  %.not.i12.not = icmp eq i32 %127, %125
+  br i1 %.not.i12.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %128
 
-156:                                              ; preds = %151
-  store i32 %153, ptr %154, align 4
+128:                                              ; preds = %123
+  store i32 %125, ptr %126, align 4
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-157:                                              ; preds = %31
+129:                                              ; preds = %23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-158:                                              ; preds = %34
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %160 = load i32, ptr %159, align 4, !range !669, !noundef !3
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %162 = tail call noundef zeroext i1 @"_ZN18ty_python_semantic5types5class1_98_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..class..ClassLiteral$GT$12maybe_update17h3f7f3947b57bf3baE"(ptr noundef nonnull %161, i32 noundef %160)
+130:                                              ; preds = %25
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %132 = load i32, ptr %131, align 4, !range !669, !noundef !3
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %134 = tail call noundef zeroext i1 @"_ZN18ty_python_semantic5types5class1_98_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..class..ClassLiteral$GT$12maybe_update17h3f7f3947b57bf3baE"(ptr noundef nonnull %133, i32 noundef %132)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-163:                                              ; preds = %34
+135:                                              ; preds = %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-164:                                              ; preds = %37
-  %165 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %166 = load i32, ptr %165, align 4, !range !669, !noundef !3
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %168 = tail call noundef zeroext i1 @"_ZN18ty_python_semantic5types5class1_98_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..class..GenericAlias$GT$12maybe_update17hb756ba868fcfbc63E"(ptr noundef nonnull %167, i32 noundef %166)
+136:                                              ; preds = %27
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %138 = load i32, ptr %137, align 4, !range !669, !noundef !3
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %140 = tail call noundef zeroext i1 @"_ZN18ty_python_semantic5types5class1_98_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..class..GenericAlias$GT$12maybe_update17hb756ba868fcfbc63E"(ptr noundef nonnull %139, i32 noundef %138)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-169:                                              ; preds = %37
+141:                                              ; preds = %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-170:                                              ; preds = %40
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.01.0.copyload = load i64, ptr %171, align 4
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %173 = tail call noundef zeroext i1 @"_ZN96_$LT$ty_python_semantic..types..subclass_of..SubclassOfType$u20$as$u20$salsa..update..Update$GT$12maybe_update17ha3edb8a31ddcc098E"(ptr noundef nonnull %172, i64 %.sroa.01.0.copyload)
+142:                                              ; preds = %29
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.01.0.copyload = load i64, ptr %143, align 4
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %145 = tail call noundef zeroext i1 @"_ZN96_$LT$ty_python_semantic..types..subclass_of..SubclassOfType$u20$as$u20$salsa..update..Update$GT$12maybe_update17ha3edb8a31ddcc098E"(ptr noundef nonnull %144, i64 %.sroa.01.0.copyload)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-174:                                              ; preds = %40
+146:                                              ; preds = %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-175:                                              ; preds = %43
-  %176 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %177 = load i32, ptr %176, align 4, !range !113, !noundef !3
-  %178 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %179 = load i32, ptr %178, align 8, !noundef !3
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %181 = tail call noundef zeroext i1 @"_ZN98_$LT$ty_python_semantic..types..instance..NominalInstanceType$u20$as$u20$salsa..update..Update$GT$12maybe_update17he796101ac385e17cE"(ptr noundef nonnull %180, i32 noundef %177, i32 noundef %179)
+147:                                              ; preds = %31
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %149 = load i32, ptr %148, align 4, !range !113, !noundef !3
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %151 = load i32, ptr %150, align 8, !noundef !3
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %153 = tail call noundef zeroext i1 @"_ZN98_$LT$ty_python_semantic..types..instance..NominalInstanceType$u20$as$u20$salsa..update..Update$GT$12maybe_update17he796101ac385e17cE"(ptr noundef nonnull %152, i32 noundef %149, i32 noundef %151)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-182:                                              ; preds = %43
+154:                                              ; preds = %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-183:                                              ; preds = %46
-  %184 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.03.0.copyload = load i64, ptr %184, align 4
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %186 = tail call noundef zeroext i1 @"_ZN99_$LT$ty_python_semantic..types..instance..ProtocolInstanceType$u20$as$u20$salsa..update..Update$GT$12maybe_update17h4516d97040eb1207E"(ptr noundef nonnull %185, i64 %.sroa.03.0.copyload)
+155:                                              ; preds = %33
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.03.0.copyload = load i64, ptr %156, align 4
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %158 = tail call noundef zeroext i1 @"_ZN99_$LT$ty_python_semantic..types..instance..ProtocolInstanceType$u20$as$u20$salsa..update..Update$GT$12maybe_update17h4516d97040eb1207E"(ptr noundef nonnull %157, i64 %.sroa.03.0.copyload)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-187:                                              ; preds = %46
+159:                                              ; preds = %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-188:                                              ; preds = %49
-  %189 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.05.0.copyload = load i64, ptr %189, align 4
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %191 = tail call noundef zeroext i1 @"_ZN102_$LT$ty_python_semantic..types..known_instance..KnownInstanceType$u20$as$u20$salsa..update..Update$GT$12maybe_update17he0d985630559c468E"(ptr noundef nonnull %190, i64 %.sroa.05.0.copyload)
+160:                                              ; preds = %35
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.05.0.copyload = load i64, ptr %161, align 4
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %163 = tail call noundef zeroext i1 @"_ZN102_$LT$ty_python_semantic..types..known_instance..KnownInstanceType$u20$as$u20$salsa..update..Update$GT$12maybe_update17he0d985630559c468E"(ptr noundef nonnull %162, i64 %.sroa.05.0.copyload)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-192:                                              ; preds = %49
+164:                                              ; preds = %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-193:                                              ; preds = %52
-  %194 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %195 = load i32, ptr %194, align 4, !range !669, !noundef !3
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %197 = load i32, ptr %196, align 4, !range !669, !noundef !3
-  %.not.i13.not = icmp eq i32 %197, %195
-  br i1 %.not.i13.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %198
+165:                                              ; preds = %37
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %167 = load i32, ptr %166, align 4, !range !669, !noundef !3
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %169 = load i32, ptr %168, align 4, !range !669, !noundef !3
+  %.not.i13.not = icmp eq i32 %169, %167
+  br i1 %.not.i13.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %170
 
-198:                                              ; preds = %193
-  store i32 %195, ptr %196, align 4
+170:                                              ; preds = %165
+  store i32 %167, ptr %168, align 4
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-199:                                              ; preds = %52
+171:                                              ; preds = %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-200:                                              ; preds = %55
-  %201 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %202 = load i32, ptr %201, align 4, !range !669, !noundef !3
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %204 = load i32, ptr %203, align 4, !range !669, !noundef !3
-  %.not.i14.not = icmp eq i32 %204, %202
-  br i1 %.not.i14.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %205
+172:                                              ; preds = %39
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %174 = load i32, ptr %173, align 4, !range !669, !noundef !3
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %176 = load i32, ptr %175, align 4, !range !669, !noundef !3
+  %.not.i14.not = icmp eq i32 %176, %174
+  br i1 %.not.i14.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %177
 
-205:                                              ; preds = %200
-  store i32 %202, ptr %203, align 4
+177:                                              ; preds = %172
+  store i32 %174, ptr %175, align 4
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-206:                                              ; preds = %55
+178:                                              ; preds = %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-207:                                              ; preds = %58
-  %208 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %209 = load i32, ptr %208, align 4, !range !669, !noundef !3
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 4
+179:                                              ; preds = %41
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %181 = load i32, ptr %180, align 4, !range !669, !noundef !3
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %183 = load i32, ptr %182, align 4, !range !669, !noundef !3
+  %.not.i15.not = icmp eq i32 %183, %181
+  br i1 %.not.i15.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %184
+
+184:                                              ; preds = %179
+  store i32 %181, ptr %182, align 4
+  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
+
+185:                                              ; preds = %41
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
+
+186:                                              ; preds = %43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
+
+187:                                              ; preds = %45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
+
+188:                                              ; preds = %47
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %190 = load i64, ptr %189, align 8, !noundef !3
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %192 = tail call noundef zeroext i1 @"_ZN45_$LT$i64$u20$as$u20$salsa..update..Update$GT$12maybe_update17hc0b09334e3dfab2bE"(ptr noundef nonnull %191, i64 noundef %190)
+  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
+
+193:                                              ; preds = %47
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
+
+194:                                              ; preds = %49
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %196 = load i8, ptr %195, align 1, !range !75, !noundef !3
+  %197 = trunc nuw i8 %196 to i1
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %199 = tail call noundef zeroext i1 @"_ZN46_$LT$bool$u20$as$u20$salsa..update..Update$GT$12maybe_update17hd3cf4196883ad4ebE"(ptr noundef nonnull %198, i1 noundef zeroext %197)
+  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
+
+200:                                              ; preds = %49
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
+
+201:                                              ; preds = %51
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %203 = load i32, ptr %202, align 4, !range !669, !noundef !3
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %205 = load i32, ptr %204, align 4, !range !669, !noundef !3
+  %.not.i16.not = icmp eq i32 %205, %203
+  br i1 %.not.i16.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %206
+
+206:                                              ; preds = %201
+  store i32 %203, ptr %204, align 4
+  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
+
+207:                                              ; preds = %51
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
+
+208:                                              ; preds = %53
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
+  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
+
+209:                                              ; preds = %55
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %211 = load i32, ptr %210, align 4, !range !669, !noundef !3
-  %.not.i15.not = icmp eq i32 %211, %209
-  br i1 %.not.i15.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %212
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %213 = load i32, ptr %212, align 4, !range !669, !noundef !3
+  %.not.i17.not = icmp eq i32 %213, %211
+  br i1 %.not.i17.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %214
 
-212:                                              ; preds = %207
-  store i32 %209, ptr %210, align 4
+214:                                              ; preds = %209
+  store i32 %211, ptr %212, align 4
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-213:                                              ; preds = %58
+215:                                              ; preds = %55
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-214:                                              ; preds = %61
+216:                                              ; preds = %57
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %218 = load i32, ptr %217, align 4, !range !669, !noundef !3
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %220 = load i32, ptr %219, align 4, !range !669, !noundef !3
+  %.not.i18.not = icmp eq i32 %220, %218
+  br i1 %.not.i18.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %221
+
+221:                                              ; preds = %216
+  store i32 %218, ptr %219, align 4
+  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
+
+222:                                              ; preds = %57
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-215:                                              ; preds = %64
+223:                                              ; preds = %59
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %225 = load i32, ptr %224, align 4, !range !669, !noundef !3
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %227 = load i32, ptr %226, align 4, !range !669, !noundef !3
+  %.not.i19.not = icmp eq i32 %227, %225
+  br i1 %.not.i19.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %228
+
+228:                                              ; preds = %223
+  store i32 %225, ptr %226, align 4
+  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
+
+229:                                              ; preds = %59
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-216:                                              ; preds = %67
-  %217 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %218 = load i64, ptr %217, align 8, !noundef !3
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %220 = tail call noundef zeroext i1 @"_ZN45_$LT$i64$u20$as$u20$salsa..update..Update$GT$12maybe_update17hc0b09334e3dfab2bE"(ptr noundef nonnull %219, i64 noundef %218)
+230:                                              ; preds = %61
+  %231 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %232 = load i32, ptr %231, align 4, !range !669, !noundef !3
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %234 = load i32, ptr %233, align 4, !range !669, !noundef !3
+  %.not.i20.not = icmp eq i32 %234, %232
+  br i1 %.not.i20.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %235
+
+235:                                              ; preds = %230
+  store i32 %232, ptr %233, align 4
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 
-221:                                              ; preds = %67
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
-
-222:                                              ; preds = %70
-  %223 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %224 = load i8, ptr %223, align 1, !range !75, !noundef !3
-  %225 = trunc nuw i8 %224 to i1
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %227 = tail call noundef zeroext i1 @"_ZN46_$LT$bool$u20$as$u20$salsa..update..Update$GT$12maybe_update17hd3cf4196883ad4ebE"(ptr noundef nonnull %226, i1 noundef zeroext %225)
-  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
-
-228:                                              ; preds = %70
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
-
-229:                                              ; preds = %73
-  %230 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %231 = load i32, ptr %230, align 4, !range !669, !noundef !3
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %233 = load i32, ptr %232, align 4, !range !669, !noundef !3
-  %.not.i16.not = icmp eq i32 %233, %231
-  br i1 %.not.i16.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %234
-
-234:                                              ; preds = %229
-  store i32 %231, ptr %232, align 4
-  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
-
-235:                                              ; preds = %73
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
-
-236:                                              ; preds = %76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
-
-237:                                              ; preds = %79
-  %238 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %239 = load i32, ptr %238, align 4, !range !669, !noundef !3
-  %240 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %241 = load i32, ptr %240, align 4, !range !669, !noundef !3
-  %.not.i17.not = icmp eq i32 %241, %239
-  br i1 %.not.i17.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %242
-
-242:                                              ; preds = %237
-  store i32 %239, ptr %240, align 4
-  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
-
-243:                                              ; preds = %79
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
-
-244:                                              ; preds = %82
-  %245 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %246 = load i32, ptr %245, align 4, !range !669, !noundef !3
-  %247 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %248 = load i32, ptr %247, align 4, !range !669, !noundef !3
-  %.not.i18.not = icmp eq i32 %248, %246
-  br i1 %.not.i18.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %249
-
-249:                                              ; preds = %244
-  store i32 %246, ptr %247, align 4
-  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
-
-250:                                              ; preds = %82
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
-
-251:                                              ; preds = %85
-  %252 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %253 = load i32, ptr %252, align 4, !range !669, !noundef !3
-  %254 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %255 = load i32, ptr %254, align 4, !range !669, !noundef !3
-  %.not.i19.not = icmp eq i32 %255, %253
-  br i1 %.not.i19.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %256
-
-256:                                              ; preds = %251
-  store i32 %253, ptr %254, align 4
-  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
-
-257:                                              ; preds = %85
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
-
-258:                                              ; preds = %88
-  %259 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %260 = load i32, ptr %259, align 4, !range !669, !noundef !3
-  %261 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %262 = load i32, ptr %261, align 4, !range !669, !noundef !3
-  %.not.i20.not = icmp eq i32 %262, %260
-  br i1 %.not.i20.not, label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit", label %263
-
-263:                                              ; preds = %258
-  store i32 %260, ptr %261, align 4
-  br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
-
-264:                                              ; preds = %88
+236:                                              ; preds = %61
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br label %"_ZN18ty_python_semantic5types1_91_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..FunctionType$GT$12maybe_update17h56dda78bf8055019E.exit"
 }

@@ -90831,23 +90831,23 @@ define void @_ZN14polars_compute11comparisons9dyn_array27array_tot_eq_missing_ke
     i8 0, label %26
     i8 1, label %38
     i8 2, label %50
-    i8 3, label %51
-    i8 4, label %63
-    i8 5, label %75
-    i8 6, label %87
-    i8 7, label %99
-    i8 8, label %111
-    i8 9, label %123
-    i8 10, label %135
-    i8 11, label %147
-    i8 12, label %159
-    i8 13, label %164
-    i8 14, label %169
-    i8 15, label %170
-    i8 16, label %182
+    i8 3, label %60
+    i8 4, label %72
+    i8 5, label %84
+    i8 6, label %96
+    i8 7, label %108
+    i8 8, label %120
+    i8 9, label %132
+    i8 10, label %144
+    i8 11, label %156
+    i8 12, label %168
+    i8 13, label %173
+    i8 14, label %178
+    i8 15, label %188
+    i8 16, label %200
   ], !prof !7488
 
-25:                                               ; preds = %169, %50, %20
+25:                                               ; preds = %178, %50, %20
   unreachable
 
 26:                                               ; preds = %20
@@ -90864,7 +90864,7 @@ define void @_ZN14polars_compute11comparisons9dyn_array27array_tot_eq_missing_ke
   %36 = extractvalue { i64, i64 } %33, 1
   %37 = icmp ne i64 %36, 1787045636924429069
   %.sroa.0.0.i.not = select i1 %35, i1 true, i1 %37
-  br i1 %.sroa.0.0.i.not, label %206, label %194, !prof !30
+  br i1 %.sroa.0.0.i.not, label %224, label %212, !prof !30
 
 38:                                               ; preds = %20
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -90880,1709 +90880,1479 @@ define void @_ZN14polars_compute11comparisons9dyn_array27array_tot_eq_missing_ke
   %48 = extractvalue { i64, i64 } %45, 1
   %49 = icmp ne i64 %48, 6984851860647661607
   %.sroa.0.0.i379.not = select i1 %47, i1 true, i1 %49
-  br i1 %.sroa.0.0.i379.not, label %222, label %210, !prof !30
+  br i1 %.sroa.0.0.i379.not, label %240, label %228, !prof !30
 
 50:                                               ; preds = %20
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %52 = load ptr, ptr %51, align 8, !invariant.load !6, !nonnull !6
+  %53 = tail call { ptr, ptr } %52(ptr noundef nonnull align 1 %1)
+  %54 = extractvalue { ptr, ptr } %53, 0
+  %55 = extractvalue { ptr, ptr } %53, 1
+  %56 = getelementptr i8, ptr %55, i64 24
+  %.val330 = load ptr, ptr %56, align 8
+  %57 = tail call { i64, i64 } %.val330(ptr noundef nonnull align 1 %54)
+  %58 = extractvalue { i64, i64 } %57, 0
+  %59 = extractvalue { i64, i64 } %57, 1
   switch i8 %24, label %25 [
-    i8 0, label %225
-    i8 1, label %237
+    i8 0, label %243
+    i8 1, label %246
     i8 2, label %249
-    i8 3, label %261
-    i8 4, label %273
-    i8 5, label %285
-    i8 6, label %297
-    i8 7, label %309
-    i8 8, label %321
-    i8 9, label %333
-    i8 10, label %345
-    i8 11, label %357
-    i8 12, label %369
-    i8 13, label %381
-    i8 14, label %393
-    i8 15, label %405
+    i8 3, label %252
+    i8 4, label %255
+    i8 5, label %258
+    i8 6, label %261
+    i8 7, label %264
+    i8 8, label %267
+    i8 9, label %270
+    i8 10, label %273
+    i8 11, label %276
+    i8 12, label %279
+    i8 13, label %282
+    i8 14, label %285
+    i8 15, label %288
   ]
 
-51:                                               ; preds = %20
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %53 = load ptr, ptr %52, align 8, !invariant.load !6, !nonnull !6
-  %54 = tail call { ptr, ptr } %53(ptr noundef nonnull align 1 %1)
-  %55 = extractvalue { ptr, ptr } %54, 0
-  %56 = extractvalue { ptr, ptr } %54, 1
-  %57 = getelementptr i8, ptr %56, i64 24
-  %.val312 = load ptr, ptr %57, align 8
-  %58 = tail call { i64, i64 } %.val312(ptr noundef nonnull align 1 %55)
-  %59 = extractvalue { i64, i64 } %58, 0
-  %60 = icmp ne i64 %59, 8324995987993682601
-  %61 = extractvalue { i64, i64 } %58, 1
-  %62 = icmp ne i64 %61, 1761299767984946403
-  %.sroa.0.0.i380.not = select i1 %60, i1 true, i1 %62
-  br i1 %.sroa.0.0.i380.not, label %669, label %657, !prof !30
+60:                                               ; preds = %20
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %62 = load ptr, ptr %61, align 8, !invariant.load !6, !nonnull !6
+  %63 = tail call { ptr, ptr } %62(ptr noundef nonnull align 1 %1)
+  %64 = extractvalue { ptr, ptr } %63, 0
+  %65 = extractvalue { ptr, ptr } %63, 1
+  %66 = getelementptr i8, ptr %65, i64 24
+  %.val312 = load ptr, ptr %66, align 8
+  %67 = tail call { i64, i64 } %.val312(ptr noundef nonnull align 1 %64)
+  %68 = extractvalue { i64, i64 } %67, 0
+  %69 = icmp ne i64 %68, 8324995987993682601
+  %70 = extractvalue { i64, i64 } %67, 1
+  %71 = icmp ne i64 %70, 1761299767984946403
+  %.sroa.0.0.i380.not = select i1 %69, i1 true, i1 %71
+  br i1 %.sroa.0.0.i380.not, label %543, label %531, !prof !30
 
-63:                                               ; preds = %20
-  %64 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %65 = load ptr, ptr %64, align 8, !invariant.load !6, !nonnull !6
-  %66 = tail call { ptr, ptr } %65(ptr noundef nonnull align 1 %1)
-  %67 = extractvalue { ptr, ptr } %66, 0
-  %68 = extractvalue { ptr, ptr } %66, 1
-  %69 = getelementptr i8, ptr %68, i64 24
-  %.val314 = load ptr, ptr %69, align 8
-  %70 = tail call { i64, i64 } %.val314(ptr noundef nonnull align 1 %67)
-  %71 = extractvalue { i64, i64 } %70, 0
-  %72 = icmp ne i64 %71, 8681598169992528476
-  %73 = extractvalue { i64, i64 } %70, 1
-  %74 = icmp ne i64 %73, -4953751849895023436
-  %.sroa.0.0.i381.not = select i1 %72, i1 true, i1 %74
-  br i1 %.sroa.0.0.i381.not, label %684, label %672, !prof !30
+72:                                               ; preds = %20
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %74 = load ptr, ptr %73, align 8, !invariant.load !6, !nonnull !6
+  %75 = tail call { ptr, ptr } %74(ptr noundef nonnull align 1 %1)
+  %76 = extractvalue { ptr, ptr } %75, 0
+  %77 = extractvalue { ptr, ptr } %75, 1
+  %78 = getelementptr i8, ptr %77, i64 24
+  %.val314 = load ptr, ptr %78, align 8
+  %79 = tail call { i64, i64 } %.val314(ptr noundef nonnull align 1 %76)
+  %80 = extractvalue { i64, i64 } %79, 0
+  %81 = icmp ne i64 %80, 8681598169992528476
+  %82 = extractvalue { i64, i64 } %79, 1
+  %83 = icmp ne i64 %82, -4953751849895023436
+  %.sroa.0.0.i381.not = select i1 %81, i1 true, i1 %83
+  br i1 %.sroa.0.0.i381.not, label %558, label %546, !prof !30
 
-75:                                               ; preds = %20
-  %76 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %77 = load ptr, ptr %76, align 8, !invariant.load !6, !nonnull !6
-  %78 = tail call { ptr, ptr } %77(ptr noundef nonnull align 1 %1)
-  %79 = extractvalue { ptr, ptr } %78, 0
-  %80 = extractvalue { ptr, ptr } %78, 1
-  %81 = getelementptr i8, ptr %80, i64 24
-  %.val304 = load ptr, ptr %81, align 8
-  %82 = tail call { i64, i64 } %.val304(ptr noundef nonnull align 1 %79)
-  %83 = extractvalue { i64, i64 } %82, 0
-  %84 = icmp ne i64 %83, -2388166395891534354
-  %85 = extractvalue { i64, i64 } %82, 1
-  %86 = icmp ne i64 %85, 5666521950768639164
-  %.sroa.0.0.i382.not = select i1 %84, i1 true, i1 %86
-  br i1 %.sroa.0.0.i382.not, label %699, label %687, !prof !30
+84:                                               ; preds = %20
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %86 = load ptr, ptr %85, align 8, !invariant.load !6, !nonnull !6
+  %87 = tail call { ptr, ptr } %86(ptr noundef nonnull align 1 %1)
+  %88 = extractvalue { ptr, ptr } %87, 0
+  %89 = extractvalue { ptr, ptr } %87, 1
+  %90 = getelementptr i8, ptr %89, i64 24
+  %.val304 = load ptr, ptr %90, align 8
+  %91 = tail call { i64, i64 } %.val304(ptr noundef nonnull align 1 %88)
+  %92 = extractvalue { i64, i64 } %91, 0
+  %93 = icmp ne i64 %92, -2388166395891534354
+  %94 = extractvalue { i64, i64 } %91, 1
+  %95 = icmp ne i64 %94, 5666521950768639164
+  %.sroa.0.0.i382.not = select i1 %93, i1 true, i1 %95
+  br i1 %.sroa.0.0.i382.not, label %573, label %561, !prof !30
 
-87:                                               ; preds = %20
-  %88 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %89 = load ptr, ptr %88, align 8, !invariant.load !6, !nonnull !6
-  %90 = tail call { ptr, ptr } %89(ptr noundef nonnull align 1 %1)
-  %91 = extractvalue { ptr, ptr } %90, 0
-  %92 = extractvalue { ptr, ptr } %90, 1
-  %93 = getelementptr i8, ptr %92, i64 24
-  %.val316 = load ptr, ptr %93, align 8
-  %94 = tail call { i64, i64 } %.val316(ptr noundef nonnull align 1 %91)
-  %95 = extractvalue { i64, i64 } %94, 0
-  %96 = icmp ne i64 %95, -4243404910065975496
-  %97 = extractvalue { i64, i64 } %94, 1
-  %98 = icmp ne i64 %97, -2431153680986591934
-  %.sroa.0.0.i383.not = select i1 %96, i1 true, i1 %98
-  br i1 %.sroa.0.0.i383.not, label %714, label %702, !prof !30
+96:                                               ; preds = %20
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %98 = load ptr, ptr %97, align 8, !invariant.load !6, !nonnull !6
+  %99 = tail call { ptr, ptr } %98(ptr noundef nonnull align 1 %1)
+  %100 = extractvalue { ptr, ptr } %99, 0
+  %101 = extractvalue { ptr, ptr } %99, 1
+  %102 = getelementptr i8, ptr %101, i64 24
+  %.val316 = load ptr, ptr %102, align 8
+  %103 = tail call { i64, i64 } %.val316(ptr noundef nonnull align 1 %100)
+  %104 = extractvalue { i64, i64 } %103, 0
+  %105 = icmp ne i64 %104, -4243404910065975496
+  %106 = extractvalue { i64, i64 } %103, 1
+  %107 = icmp ne i64 %106, -2431153680986591934
+  %.sroa.0.0.i383.not = select i1 %105, i1 true, i1 %107
+  br i1 %.sroa.0.0.i383.not, label %588, label %576, !prof !30
 
-99:                                               ; preds = %20
-  %100 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %101 = load ptr, ptr %100, align 8, !invariant.load !6, !nonnull !6
-  %102 = tail call { ptr, ptr } %101(ptr noundef nonnull align 1 %1)
-  %103 = extractvalue { ptr, ptr } %102, 0
-  %104 = extractvalue { ptr, ptr } %102, 1
-  %105 = getelementptr i8, ptr %104, i64 24
-  %.val318 = load ptr, ptr %105, align 8
-  %106 = tail call { i64, i64 } %.val318(ptr noundef nonnull align 1 %103)
-  %107 = extractvalue { i64, i64 } %106, 0
-  %108 = icmp ne i64 %107, 6585618511097865896
-  %109 = extractvalue { i64, i64 } %106, 1
-  %110 = icmp ne i64 %109, 8901751938577251091
-  %.sroa.0.0.i384.not = select i1 %108, i1 true, i1 %110
-  br i1 %.sroa.0.0.i384.not, label %729, label %717, !prof !30
+108:                                              ; preds = %20
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %110 = load ptr, ptr %109, align 8, !invariant.load !6, !nonnull !6
+  %111 = tail call { ptr, ptr } %110(ptr noundef nonnull align 1 %1)
+  %112 = extractvalue { ptr, ptr } %111, 0
+  %113 = extractvalue { ptr, ptr } %111, 1
+  %114 = getelementptr i8, ptr %113, i64 24
+  %.val318 = load ptr, ptr %114, align 8
+  %115 = tail call { i64, i64 } %.val318(ptr noundef nonnull align 1 %112)
+  %116 = extractvalue { i64, i64 } %115, 0
+  %117 = icmp ne i64 %116, 6585618511097865896
+  %118 = extractvalue { i64, i64 } %115, 1
+  %119 = icmp ne i64 %118, 8901751938577251091
+  %.sroa.0.0.i384.not = select i1 %117, i1 true, i1 %119
+  br i1 %.sroa.0.0.i384.not, label %603, label %591, !prof !30
 
-111:                                              ; preds = %20
-  %112 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %113 = load ptr, ptr %112, align 8, !invariant.load !6, !nonnull !6
-  %114 = tail call { ptr, ptr } %113(ptr noundef nonnull align 1 %1)
-  %115 = extractvalue { ptr, ptr } %114, 0
-  %116 = extractvalue { ptr, ptr } %114, 1
-  %117 = getelementptr i8, ptr %116, i64 24
-  %.val320 = load ptr, ptr %117, align 8
-  %118 = tail call { i64, i64 } %.val320(ptr noundef nonnull align 1 %115)
-  %119 = extractvalue { i64, i64 } %118, 0
-  %120 = icmp ne i64 %119, 5612233841538967008
-  %121 = extractvalue { i64, i64 } %118, 1
-  %122 = icmp ne i64 %121, -7856419302706516822
-  %.sroa.0.0.i385.not = select i1 %120, i1 true, i1 %122
-  br i1 %.sroa.0.0.i385.not, label %744, label %732, !prof !30
+120:                                              ; preds = %20
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %122 = load ptr, ptr %121, align 8, !invariant.load !6, !nonnull !6
+  %123 = tail call { ptr, ptr } %122(ptr noundef nonnull align 1 %1)
+  %124 = extractvalue { ptr, ptr } %123, 0
+  %125 = extractvalue { ptr, ptr } %123, 1
+  %126 = getelementptr i8, ptr %125, i64 24
+  %.val320 = load ptr, ptr %126, align 8
+  %127 = tail call { i64, i64 } %.val320(ptr noundef nonnull align 1 %124)
+  %128 = extractvalue { i64, i64 } %127, 0
+  %129 = icmp ne i64 %128, 5612233841538967008
+  %130 = extractvalue { i64, i64 } %127, 1
+  %131 = icmp ne i64 %130, -7856419302706516822
+  %.sroa.0.0.i385.not = select i1 %129, i1 true, i1 %131
+  br i1 %.sroa.0.0.i385.not, label %618, label %606, !prof !30
 
-123:                                              ; preds = %20
-  %124 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %125 = load ptr, ptr %124, align 8, !invariant.load !6, !nonnull !6
-  %126 = tail call { ptr, ptr } %125(ptr noundef nonnull align 1 %1)
-  %127 = extractvalue { ptr, ptr } %126, 0
-  %128 = extractvalue { ptr, ptr } %126, 1
-  %129 = getelementptr i8, ptr %128, i64 24
-  %.val322 = load ptr, ptr %129, align 8
-  %130 = tail call { i64, i64 } %.val322(ptr noundef nonnull align 1 %127)
-  %131 = extractvalue { i64, i64 } %130, 0
-  %132 = icmp ne i64 %131, 5209533364377202164
-  %133 = extractvalue { i64, i64 } %130, 1
-  %134 = icmp ne i64 %133, 7812553468775375572
-  %.sroa.0.0.i386.not = select i1 %132, i1 true, i1 %134
-  br i1 %.sroa.0.0.i386.not, label %759, label %747, !prof !30
+132:                                              ; preds = %20
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %134 = load ptr, ptr %133, align 8, !invariant.load !6, !nonnull !6
+  %135 = tail call { ptr, ptr } %134(ptr noundef nonnull align 1 %1)
+  %136 = extractvalue { ptr, ptr } %135, 0
+  %137 = extractvalue { ptr, ptr } %135, 1
+  %138 = getelementptr i8, ptr %137, i64 24
+  %.val322 = load ptr, ptr %138, align 8
+  %139 = tail call { i64, i64 } %.val322(ptr noundef nonnull align 1 %136)
+  %140 = extractvalue { i64, i64 } %139, 0
+  %141 = icmp ne i64 %140, 5209533364377202164
+  %142 = extractvalue { i64, i64 } %139, 1
+  %143 = icmp ne i64 %142, 7812553468775375572
+  %.sroa.0.0.i386.not = select i1 %141, i1 true, i1 %143
+  br i1 %.sroa.0.0.i386.not, label %633, label %621, !prof !30
 
-135:                                              ; preds = %20
-  %136 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %137 = load ptr, ptr %136, align 8, !invariant.load !6, !nonnull !6
-  %138 = tail call { ptr, ptr } %137(ptr noundef nonnull align 1 %1)
-  %139 = extractvalue { ptr, ptr } %138, 0
-  %140 = extractvalue { ptr, ptr } %138, 1
-  %141 = getelementptr i8, ptr %140, i64 24
-  %.val324 = load ptr, ptr %141, align 8
-  %142 = tail call { i64, i64 } %.val324(ptr noundef nonnull align 1 %139)
-  %143 = extractvalue { i64, i64 } %142, 0
-  %144 = icmp ne i64 %143, -1285076804561215877
-  %145 = extractvalue { i64, i64 } %142, 1
-  %146 = icmp ne i64 %145, -3530592277402597310
-  %.sroa.0.0.i387.not = select i1 %144, i1 true, i1 %146
-  br i1 %.sroa.0.0.i387.not, label %774, label %762, !prof !30
+144:                                              ; preds = %20
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %146 = load ptr, ptr %145, align 8, !invariant.load !6, !nonnull !6
+  %147 = tail call { ptr, ptr } %146(ptr noundef nonnull align 1 %1)
+  %148 = extractvalue { ptr, ptr } %147, 0
+  %149 = extractvalue { ptr, ptr } %147, 1
+  %150 = getelementptr i8, ptr %149, i64 24
+  %.val324 = load ptr, ptr %150, align 8
+  %151 = tail call { i64, i64 } %.val324(ptr noundef nonnull align 1 %148)
+  %152 = extractvalue { i64, i64 } %151, 0
+  %153 = icmp ne i64 %152, -1285076804561215877
+  %154 = extractvalue { i64, i64 } %151, 1
+  %155 = icmp ne i64 %154, -3530592277402597310
+  %.sroa.0.0.i387.not = select i1 %153, i1 true, i1 %155
+  br i1 %.sroa.0.0.i387.not, label %648, label %636, !prof !30
 
-147:                                              ; preds = %20
-  %148 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %149 = load ptr, ptr %148, align 8, !invariant.load !6, !nonnull !6
-  %150 = tail call { ptr, ptr } %149(ptr noundef nonnull align 1 %1)
-  %151 = extractvalue { ptr, ptr } %150, 0
-  %152 = extractvalue { ptr, ptr } %150, 1
-  %153 = getelementptr i8, ptr %152, i64 24
-  %.val326 = load ptr, ptr %153, align 8
-  %154 = tail call { i64, i64 } %.val326(ptr noundef nonnull align 1 %151)
-  %155 = extractvalue { i64, i64 } %154, 0
-  %156 = icmp ne i64 %155, -4229490849536239523
-  %157 = extractvalue { i64, i64 } %154, 1
-  %158 = icmp ne i64 %157, 1926123703779822909
-  %.sroa.0.0.i388.not = select i1 %156, i1 true, i1 %158
-  br i1 %.sroa.0.0.i388.not, label %789, label %777, !prof !30
+156:                                              ; preds = %20
+  %157 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %158 = load ptr, ptr %157, align 8, !invariant.load !6, !nonnull !6
+  %159 = tail call { ptr, ptr } %158(ptr noundef nonnull align 1 %1)
+  %160 = extractvalue { ptr, ptr } %159, 0
+  %161 = extractvalue { ptr, ptr } %159, 1
+  %162 = getelementptr i8, ptr %161, i64 24
+  %.val326 = load ptr, ptr %162, align 8
+  %163 = tail call { i64, i64 } %.val326(ptr noundef nonnull align 1 %160)
+  %164 = extractvalue { i64, i64 } %163, 0
+  %165 = icmp ne i64 %164, -4229490849536239523
+  %166 = extractvalue { i64, i64 } %163, 1
+  %167 = icmp ne i64 %166, 1926123703779822909
+  %.sroa.0.0.i388.not = select i1 %165, i1 true, i1 %167
+  br i1 %.sroa.0.0.i388.not, label %663, label %651, !prof !30
 
-159:                                              ; preds = %20
+168:                                              ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @anon.ea237b04ddb17f09807800ed703f3a93.372, ptr %8, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 1, ptr %160, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr null, ptr %161, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %6, ptr %162, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 0, ptr %163, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 1, ptr %169, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr null, ptr %170, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %6, ptr %171, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 0, ptr %172, align 8
   call void @_ZN4core9panicking9panic_fmt17hba2a7e099ecca125E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-164:                                              ; preds = %20
+173:                                              ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @anon.ea237b04ddb17f09807800ed703f3a93.374, ptr %7, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %165, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %166, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %6, ptr %167, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 0, ptr %168, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 1, ptr %174, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr null, ptr %175, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %6, ptr %176, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 0, ptr %177, align 8
   call void @_ZN4core9panicking9panic_fmt17hba2a7e099ecca125E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-169:                                              ; preds = %20
+178:                                              ; preds = %20
+  %179 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %180 = load ptr, ptr %179, align 8, !invariant.load !6, !nonnull !6
+  %181 = tail call { ptr, ptr } %180(ptr noundef nonnull align 1 %1)
+  %182 = extractvalue { ptr, ptr } %181, 0
+  %183 = extractvalue { ptr, ptr } %181, 1
+  %184 = getelementptr i8, ptr %183, i64 24
+  %.val362 = load ptr, ptr %184, align 8
+  %185 = tail call { i64, i64 } %.val362(ptr noundef nonnull align 1 %182)
+  %186 = extractvalue { i64, i64 } %185, 0
+  %187 = extractvalue { i64, i64 } %185, 1
   switch i8 %24, label %25 [
-    i8 0, label %792
-    i8 1, label %804
-    i8 2, label %816
-    i8 3, label %828
-    i8 4, label %840
-    i8 5, label %852
-    i8 6, label %864
-    i8 7, label %876
-    i8 8, label %888
+    i8 0, label %666
+    i8 1, label %669
+    i8 2, label %672
+    i8 3, label %675
+    i8 4, label %678
+    i8 5, label %681
+    i8 6, label %684
+    i8 7, label %687
+    i8 8, label %690
   ]
 
-170:                                              ; preds = %20
-  %171 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %172 = load ptr, ptr %171, align 8, !invariant.load !6, !nonnull !6
-  %173 = tail call { ptr, ptr } %172(ptr noundef nonnull align 1 %1)
-  %174 = extractvalue { ptr, ptr } %173, 0
-  %175 = extractvalue { ptr, ptr } %173, 1
-  %176 = getelementptr i8, ptr %175, i64 24
-  %.val306 = load ptr, ptr %176, align 8
-  %177 = tail call { i64, i64 } %.val306(ptr noundef nonnull align 1 %174)
-  %178 = extractvalue { i64, i64 } %177, 0
-  %179 = icmp ne i64 %178, -5133974785058079944
-  %180 = extractvalue { i64, i64 } %177, 1
-  %181 = icmp ne i64 %180, -2115088211549721928
-  %.sroa.0.0.i389.not = select i1 %179, i1 true, i1 %181
-  br i1 %.sroa.0.0.i389.not, label %1047, label %1035, !prof !30
+188:                                              ; preds = %20
+  %189 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %190 = load ptr, ptr %189, align 8, !invariant.load !6, !nonnull !6
+  %191 = tail call { ptr, ptr } %190(ptr noundef nonnull align 1 %1)
+  %192 = extractvalue { ptr, ptr } %191, 0
+  %193 = extractvalue { ptr, ptr } %191, 1
+  %194 = getelementptr i8, ptr %193, i64 24
+  %.val306 = load ptr, ptr %194, align 8
+  %195 = tail call { i64, i64 } %.val306(ptr noundef nonnull align 1 %192)
+  %196 = extractvalue { i64, i64 } %195, 0
+  %197 = icmp ne i64 %196, -5133974785058079944
+  %198 = extractvalue { i64, i64 } %195, 1
+  %199 = icmp ne i64 %198, -2115088211549721928
+  %.sroa.0.0.i389.not = select i1 %197, i1 true, i1 %199
+  br i1 %.sroa.0.0.i389.not, label %840, label %828, !prof !30
 
-182:                                              ; preds = %20
-  %183 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %184 = load ptr, ptr %183, align 8, !invariant.load !6, !nonnull !6
-  %185 = tail call { ptr, ptr } %184(ptr noundef nonnull align 1 %1)
-  %186 = extractvalue { ptr, ptr } %185, 0
-  %187 = extractvalue { ptr, ptr } %185, 1
-  %188 = getelementptr i8, ptr %187, i64 24
-  %.val328 = load ptr, ptr %188, align 8
-  %189 = tail call { i64, i64 } %.val328(ptr noundef nonnull align 1 %186)
-  %190 = extractvalue { i64, i64 } %189, 0
-  %191 = icmp ne i64 %190, -4691702406351074806
-  %192 = extractvalue { i64, i64 } %189, 1
-  %193 = icmp ne i64 %192, -766443083152007247
-  %.sroa.0.0.i390.not = select i1 %191, i1 true, i1 %193
-  br i1 %.sroa.0.0.i390.not, label %1062, label %1050, !prof !30
+200:                                              ; preds = %20
+  %201 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %202 = load ptr, ptr %201, align 8, !invariant.load !6, !nonnull !6
+  %203 = tail call { ptr, ptr } %202(ptr noundef nonnull align 1 %1)
+  %204 = extractvalue { ptr, ptr } %203, 0
+  %205 = extractvalue { ptr, ptr } %203, 1
+  %206 = getelementptr i8, ptr %205, i64 24
+  %.val328 = load ptr, ptr %206, align 8
+  %207 = tail call { i64, i64 } %.val328(ptr noundef nonnull align 1 %204)
+  %208 = extractvalue { i64, i64 } %207, 0
+  %209 = icmp ne i64 %208, -4691702406351074806
+  %210 = extractvalue { i64, i64 } %207, 1
+  %211 = icmp ne i64 %210, -766443083152007247
+  %.sroa.0.0.i390.not = select i1 %209, i1 true, i1 %211
+  br i1 %.sroa.0.0.i390.not, label %855, label %843, !prof !30
 
-194:                                              ; preds = %26
-  %195 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %196 = load ptr, ptr %195, align 8, !invariant.load !6, !nonnull !6
-  %197 = tail call { ptr, ptr } %196(ptr noundef nonnull align 1 %3)
-  %198 = extractvalue { ptr, ptr } %197, 0
-  %199 = extractvalue { ptr, ptr } %197, 1
-  %200 = getelementptr i8, ptr %199, i64 24
-  %.val307 = load ptr, ptr %200, align 8
-  %201 = tail call { i64, i64 } %.val307(ptr noundef nonnull align 1 %198)
-  %202 = extractvalue { i64, i64 } %201, 0
-  %203 = icmp ne i64 %202, 5363630497828824621
-  %204 = extractvalue { i64, i64 } %201, 1
-  %205 = icmp ne i64 %204, 1787045636924429069
-  %.sroa.0.0.i391.not = select i1 %203, i1 true, i1 %205
-  br i1 %.sroa.0.0.i391.not, label %208, label %207, !prof !30
+212:                                              ; preds = %26
+  %213 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %214 = load ptr, ptr %213, align 8, !invariant.load !6, !nonnull !6
+  %215 = tail call { ptr, ptr } %214(ptr noundef nonnull align 1 %3)
+  %216 = extractvalue { ptr, ptr } %215, 0
+  %217 = extractvalue { ptr, ptr } %215, 1
+  %218 = getelementptr i8, ptr %217, i64 24
+  %.val307 = load ptr, ptr %218, align 8
+  %219 = tail call { i64, i64 } %.val307(ptr noundef nonnull align 1 %216)
+  %220 = extractvalue { i64, i64 } %219, 0
+  %221 = icmp ne i64 %220, 5363630497828824621
+  %222 = extractvalue { i64, i64 } %219, 1
+  %223 = icmp ne i64 %222, 1787045636924429069
+  %.sroa.0.0.i391.not = select i1 %221, i1 true, i1 %223
+  br i1 %.sroa.0.0.i391.not, label %226, label %225, !prof !30
 
-206:                                              ; preds = %26
+224:                                              ; preds = %26
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-207:                                              ; preds = %194
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17he285819996c96409E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %30, ptr noundef nonnull align 8 %198)
-  br label %209
+225:                                              ; preds = %212
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17he285819996c96409E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %30, ptr noundef nonnull align 8 %216)
+  br label %227
 
-208:                                              ; preds = %194
+226:                                              ; preds = %212
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-209:                                              ; preds = %1063, %1048, %1033, %1018, %1003, %988, %973, %958, %943, %928, %913, %790, %775, %760, %745, %730, %715, %700, %685, %670, %655, %640, %625, %610, %595, %580, %565, %550, %535, %520, %505, %490, %475, %460, %445, %430, %223, %207
+227:                                              ; preds = %856, %841, %826, %811, %796, %781, %766, %751, %736, %721, %706, %664, %649, %634, %619, %604, %589, %574, %559, %544, %529, %514, %499, %484, %469, %454, %439, %424, %409, %394, %379, %364, %349, %334, %319, %304, %241, %225
   ret void
 
-210:                                              ; preds = %38
-  %211 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %212 = load ptr, ptr %211, align 8, !invariant.load !6, !nonnull !6
-  %213 = tail call { ptr, ptr } %212(ptr noundef nonnull align 1 %3)
-  %214 = extractvalue { ptr, ptr } %213, 0
-  %215 = extractvalue { ptr, ptr } %213, 1
-  %216 = getelementptr i8, ptr %215, i64 24
-  %.val309 = load ptr, ptr %216, align 8
-  %217 = tail call { i64, i64 } %.val309(ptr noundef nonnull align 1 %214)
-  %218 = extractvalue { i64, i64 } %217, 0
-  %219 = icmp ne i64 %218, 9047506222392209442
-  %220 = extractvalue { i64, i64 } %217, 1
-  %221 = icmp ne i64 %220, 6984851860647661607
-  %.sroa.0.0.i392.not = select i1 %219, i1 true, i1 %221
-  br i1 %.sroa.0.0.i392.not, label %224, label %223, !prof !30
+228:                                              ; preds = %38
+  %229 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %230 = load ptr, ptr %229, align 8, !invariant.load !6, !nonnull !6
+  %231 = tail call { ptr, ptr } %230(ptr noundef nonnull align 1 %3)
+  %232 = extractvalue { ptr, ptr } %231, 0
+  %233 = extractvalue { ptr, ptr } %231, 1
+  %234 = getelementptr i8, ptr %233, i64 24
+  %.val309 = load ptr, ptr %234, align 8
+  %235 = tail call { i64, i64 } %.val309(ptr noundef nonnull align 1 %232)
+  %236 = extractvalue { i64, i64 } %235, 0
+  %237 = icmp ne i64 %236, 9047506222392209442
+  %238 = extractvalue { i64, i64 } %235, 1
+  %239 = icmp ne i64 %238, 6984851860647661607
+  %.sroa.0.0.i392.not = select i1 %237, i1 true, i1 %239
+  br i1 %.sroa.0.0.i392.not, label %242, label %241, !prof !30
 
-222:                                              ; preds = %38
+240:                                              ; preds = %38
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-223:                                              ; preds = %210
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17he4b4a08377b5c1cfE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %42, ptr noundef nonnull align 8 %214)
-  br label %209
+241:                                              ; preds = %228
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17he4b4a08377b5c1cfE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %42, ptr noundef nonnull align 8 %232)
+  br label %227
 
-224:                                              ; preds = %210
+242:                                              ; preds = %228
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-225:                                              ; preds = %50
-  %226 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %227 = load ptr, ptr %226, align 8, !invariant.load !6, !nonnull !6
-  %228 = tail call { ptr, ptr } %227(ptr noundef nonnull align 1 %1)
-  %229 = extractvalue { ptr, ptr } %228, 0
-  %230 = extractvalue { ptr, ptr } %228, 1
-  %231 = getelementptr i8, ptr %230, i64 24
-  %.val330 = load ptr, ptr %231, align 8
-  %232 = tail call { i64, i64 } %.val330(ptr noundef nonnull align 1 %229)
-  %233 = extractvalue { i64, i64 } %232, 0
-  %234 = icmp ne i64 %233, 1096384672038350596
-  %235 = extractvalue { i64, i64 } %232, 1
-  %236 = icmp ne i64 %235, 324221538485535341
-  %.sroa.0.0.i393.not = select i1 %234, i1 true, i1 %236
-  br i1 %.sroa.0.0.i393.not, label %429, label %417, !prof !30
+243:                                              ; preds = %50
+  %244 = icmp ne i64 %58, 1096384672038350596
+  %245 = icmp ne i64 %59, 324221538485535341
+  %.sroa.0.0.i393.not = select i1 %244, i1 true, i1 %245
+  br i1 %.sroa.0.0.i393.not, label %303, label %291, !prof !30
 
-237:                                              ; preds = %50
-  %238 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %239 = load ptr, ptr %238, align 8, !invariant.load !6, !nonnull !6
-  %240 = tail call { ptr, ptr } %239(ptr noundef nonnull align 1 %1)
-  %241 = extractvalue { ptr, ptr } %240, 0
-  %242 = extractvalue { ptr, ptr } %240, 1
-  %243 = getelementptr i8, ptr %242, i64 24
-  %.val332 = load ptr, ptr %243, align 8
-  %244 = tail call { i64, i64 } %.val332(ptr noundef nonnull align 1 %241)
-  %245 = extractvalue { i64, i64 } %244, 0
-  %246 = icmp ne i64 %245, -1112271358999739462
-  %247 = extractvalue { i64, i64 } %244, 1
-  %248 = icmp ne i64 %247, 5733367817700488089
-  %.sroa.0.0.i394.not = select i1 %246, i1 true, i1 %248
-  br i1 %.sroa.0.0.i394.not, label %444, label %432, !prof !30
+246:                                              ; preds = %50
+  %247 = icmp ne i64 %58, -1112271358999739462
+  %248 = icmp ne i64 %59, 5733367817700488089
+  %.sroa.0.0.i394.not = select i1 %247, i1 true, i1 %248
+  br i1 %.sroa.0.0.i394.not, label %318, label %306, !prof !30
 
 249:                                              ; preds = %50
-  %250 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %251 = load ptr, ptr %250, align 8, !invariant.load !6, !nonnull !6
-  %252 = tail call { ptr, ptr } %251(ptr noundef nonnull align 1 %1)
-  %253 = extractvalue { ptr, ptr } %252, 0
-  %254 = extractvalue { ptr, ptr } %252, 1
-  %255 = getelementptr i8, ptr %254, i64 24
-  %.val334 = load ptr, ptr %255, align 8
-  %256 = tail call { i64, i64 } %.val334(ptr noundef nonnull align 1 %253)
-  %257 = extractvalue { i64, i64 } %256, 0
-  %258 = icmp ne i64 %257, 1682257576593402022
-  %259 = extractvalue { i64, i64 } %256, 1
-  %260 = icmp ne i64 %259, 2828938412468723074
-  %.sroa.0.0.i395.not = select i1 %258, i1 true, i1 %260
-  br i1 %.sroa.0.0.i395.not, label %459, label %447, !prof !30
+  %250 = icmp ne i64 %58, 1682257576593402022
+  %251 = icmp ne i64 %59, 2828938412468723074
+  %.sroa.0.0.i395.not = select i1 %250, i1 true, i1 %251
+  br i1 %.sroa.0.0.i395.not, label %333, label %321, !prof !30
+
+252:                                              ; preds = %50
+  %253 = icmp ne i64 %58, -4525060659037450304
+  %254 = icmp ne i64 %59, -7941504528371888260
+  %.sroa.0.0.i396.not = select i1 %253, i1 true, i1 %254
+  br i1 %.sroa.0.0.i396.not, label %348, label %336, !prof !30
+
+255:                                              ; preds = %50
+  %256 = icmp ne i64 %58, 1976741281623731233
+  %257 = icmp ne i64 %59, 8518587958317350804
+  %.sroa.0.0.i397.not = select i1 %256, i1 true, i1 %257
+  br i1 %.sroa.0.0.i397.not, label %363, label %351, !prof !30
+
+258:                                              ; preds = %50
+  %259 = icmp ne i64 %58, 3243027725903489877
+  %260 = icmp ne i64 %59, 5183688042913934999
+  %.sroa.0.0.i398.not = select i1 %259, i1 true, i1 %260
+  br i1 %.sroa.0.0.i398.not, label %378, label %366, !prof !30
 
 261:                                              ; preds = %50
-  %262 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %263 = load ptr, ptr %262, align 8, !invariant.load !6, !nonnull !6
-  %264 = tail call { ptr, ptr } %263(ptr noundef nonnull align 1 %1)
-  %265 = extractvalue { ptr, ptr } %264, 0
-  %266 = extractvalue { ptr, ptr } %264, 1
-  %267 = getelementptr i8, ptr %266, i64 24
-  %.val336 = load ptr, ptr %267, align 8
-  %268 = tail call { i64, i64 } %.val336(ptr noundef nonnull align 1 %265)
-  %269 = extractvalue { i64, i64 } %268, 0
-  %270 = icmp ne i64 %269, -4525060659037450304
-  %271 = extractvalue { i64, i64 } %268, 1
-  %272 = icmp ne i64 %271, -7941504528371888260
-  %.sroa.0.0.i396.not = select i1 %270, i1 true, i1 %272
-  br i1 %.sroa.0.0.i396.not, label %474, label %462, !prof !30
+  %262 = icmp ne i64 %58, 5220108315440958501
+  %263 = icmp ne i64 %59, -3520716040411414515
+  %.sroa.0.0.i399.not = select i1 %262, i1 true, i1 %263
+  br i1 %.sroa.0.0.i399.not, label %393, label %381, !prof !30
+
+264:                                              ; preds = %50
+  %265 = icmp ne i64 %58, -8363051946164901273
+  %266 = icmp ne i64 %59, -7502566692738070478
+  %.sroa.0.0.i400.not = select i1 %265, i1 true, i1 %266
+  br i1 %.sroa.0.0.i400.not, label %408, label %396, !prof !30
+
+267:                                              ; preds = %50
+  %268 = icmp ne i64 %58, 4396411619942343068
+  %269 = icmp ne i64 %59, -1068963039459253755
+  %.sroa.0.0.i401.not = select i1 %268, i1 true, i1 %269
+  br i1 %.sroa.0.0.i401.not, label %423, label %411, !prof !30
+
+270:                                              ; preds = %50
+  %271 = icmp ne i64 %58, -1775404271045328892
+  %272 = icmp ne i64 %59, -2754534380838266005
+  %.sroa.0.0.i402.not = select i1 %271, i1 true, i1 %272
+  br i1 %.sroa.0.0.i402.not, label %438, label %426, !prof !30
 
 273:                                              ; preds = %50
-  %274 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %275 = load ptr, ptr %274, align 8, !invariant.load !6, !nonnull !6
-  %276 = tail call { ptr, ptr } %275(ptr noundef nonnull align 1 %1)
-  %277 = extractvalue { ptr, ptr } %276, 0
-  %278 = extractvalue { ptr, ptr } %276, 1
-  %279 = getelementptr i8, ptr %278, i64 24
-  %.val338 = load ptr, ptr %279, align 8
-  %280 = tail call { i64, i64 } %.val338(ptr noundef nonnull align 1 %277)
-  %281 = extractvalue { i64, i64 } %280, 0
-  %282 = icmp ne i64 %281, 1976741281623731233
-  %283 = extractvalue { i64, i64 } %280, 1
-  %284 = icmp ne i64 %283, 8518587958317350804
-  %.sroa.0.0.i397.not = select i1 %282, i1 true, i1 %284
-  br i1 %.sroa.0.0.i397.not, label %489, label %477, !prof !30
+  %274 = icmp ne i64 %58, 6309901568988151921
+  %275 = icmp ne i64 %59, -3963255778901701068
+  %.sroa.0.0.i403.not = select i1 %274, i1 true, i1 %275
+  br i1 %.sroa.0.0.i403.not, label %453, label %441, !prof !30
+
+276:                                              ; preds = %50
+  %277 = icmp ne i64 %58, 3749815279303437041
+  %278 = icmp ne i64 %59, -7778057943976946246
+  %.sroa.0.0.i404.not = select i1 %277, i1 true, i1 %278
+  br i1 %.sroa.0.0.i404.not, label %468, label %456, !prof !30
+
+279:                                              ; preds = %50
+  %280 = icmp ne i64 %58, 8322892714386034678
+  %281 = icmp ne i64 %59, 6301257885181549575
+  %.sroa.0.0.i405.not = select i1 %280, i1 true, i1 %281
+  br i1 %.sroa.0.0.i405.not, label %483, label %471, !prof !30
+
+282:                                              ; preds = %50
+  %283 = icmp ne i64 %58, 6939381404861589916
+  %284 = icmp ne i64 %59, -6498690218077430559
+  %.sroa.0.0.i406.not = select i1 %283, i1 true, i1 %284
+  br i1 %.sroa.0.0.i406.not, label %498, label %486, !prof !30
 
 285:                                              ; preds = %50
-  %286 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %287 = load ptr, ptr %286, align 8, !invariant.load !6, !nonnull !6
-  %288 = tail call { ptr, ptr } %287(ptr noundef nonnull align 1 %1)
-  %289 = extractvalue { ptr, ptr } %288, 0
-  %290 = extractvalue { ptr, ptr } %288, 1
-  %291 = getelementptr i8, ptr %290, i64 24
-  %.val340 = load ptr, ptr %291, align 8
-  %292 = tail call { i64, i64 } %.val340(ptr noundef nonnull align 1 %289)
-  %293 = extractvalue { i64, i64 } %292, 0
-  %294 = icmp ne i64 %293, 3243027725903489877
-  %295 = extractvalue { i64, i64 } %292, 1
-  %296 = icmp ne i64 %295, 5183688042913934999
-  %.sroa.0.0.i398.not = select i1 %294, i1 true, i1 %296
-  br i1 %.sroa.0.0.i398.not, label %504, label %492, !prof !30
+  %286 = icmp ne i64 %58, -2609889106096071515
+  %287 = icmp ne i64 %59, 139408408525529811
+  %.sroa.0.0.i407.not = select i1 %286, i1 true, i1 %287
+  br i1 %.sroa.0.0.i407.not, label %513, label %501, !prof !30
 
-297:                                              ; preds = %50
-  %298 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %299 = load ptr, ptr %298, align 8, !invariant.load !6, !nonnull !6
-  %300 = tail call { ptr, ptr } %299(ptr noundef nonnull align 1 %1)
-  %301 = extractvalue { ptr, ptr } %300, 0
-  %302 = extractvalue { ptr, ptr } %300, 1
-  %303 = getelementptr i8, ptr %302, i64 24
-  %.val342 = load ptr, ptr %303, align 8
-  %304 = tail call { i64, i64 } %.val342(ptr noundef nonnull align 1 %301)
-  %305 = extractvalue { i64, i64 } %304, 0
-  %306 = icmp ne i64 %305, 5220108315440958501
-  %307 = extractvalue { i64, i64 } %304, 1
-  %308 = icmp ne i64 %307, -3520716040411414515
-  %.sroa.0.0.i399.not = select i1 %306, i1 true, i1 %308
-  br i1 %.sroa.0.0.i399.not, label %519, label %507, !prof !30
+288:                                              ; preds = %50
+  %289 = icmp ne i64 %58, -4316476227272319578
+  %290 = icmp ne i64 %59, 946429527588125030
+  %.sroa.0.0.i408.not = select i1 %289, i1 true, i1 %290
+  br i1 %.sroa.0.0.i408.not, label %528, label %516, !prof !30
 
-309:                                              ; preds = %50
-  %310 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %311 = load ptr, ptr %310, align 8, !invariant.load !6, !nonnull !6
-  %312 = tail call { ptr, ptr } %311(ptr noundef nonnull align 1 %1)
-  %313 = extractvalue { ptr, ptr } %312, 0
-  %314 = extractvalue { ptr, ptr } %312, 1
-  %315 = getelementptr i8, ptr %314, i64 24
-  %.val344 = load ptr, ptr %315, align 8
-  %316 = tail call { i64, i64 } %.val344(ptr noundef nonnull align 1 %313)
-  %317 = extractvalue { i64, i64 } %316, 0
-  %318 = icmp ne i64 %317, -8363051946164901273
-  %319 = extractvalue { i64, i64 } %316, 1
-  %320 = icmp ne i64 %319, -7502566692738070478
-  %.sroa.0.0.i400.not = select i1 %318, i1 true, i1 %320
-  br i1 %.sroa.0.0.i400.not, label %534, label %522, !prof !30
+291:                                              ; preds = %243
+  %292 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %293 = load ptr, ptr %292, align 8, !invariant.load !6, !nonnull !6
+  %294 = tail call { ptr, ptr } %293(ptr noundef nonnull align 1 %3)
+  %295 = extractvalue { ptr, ptr } %294, 0
+  %296 = extractvalue { ptr, ptr } %294, 1
+  %297 = getelementptr i8, ptr %296, i64 24
+  %.val329 = load ptr, ptr %297, align 8
+  %298 = tail call { i64, i64 } %.val329(ptr noundef nonnull align 1 %295)
+  %299 = extractvalue { i64, i64 } %298, 0
+  %300 = icmp ne i64 %299, 1096384672038350596
+  %301 = extractvalue { i64, i64 } %298, 1
+  %302 = icmp ne i64 %301, 324221538485535341
+  %.sroa.0.0.i409.not = select i1 %300, i1 true, i1 %302
+  br i1 %.sroa.0.0.i409.not, label %305, label %304, !prof !30
 
-321:                                              ; preds = %50
-  %322 = getelementptr inbounds nuw i8, ptr %2, i64 32
+303:                                              ; preds = %243
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
+
+304:                                              ; preds = %291
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17he1b7c49791077187E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %295)
+  br label %227
+
+305:                                              ; preds = %291
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
+
+306:                                              ; preds = %246
+  %307 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %308 = load ptr, ptr %307, align 8, !invariant.load !6, !nonnull !6
+  %309 = tail call { ptr, ptr } %308(ptr noundef nonnull align 1 %3)
+  %310 = extractvalue { ptr, ptr } %309, 0
+  %311 = extractvalue { ptr, ptr } %309, 1
+  %312 = getelementptr i8, ptr %311, i64 24
+  %.val331 = load ptr, ptr %312, align 8
+  %313 = tail call { i64, i64 } %.val331(ptr noundef nonnull align 1 %310)
+  %314 = extractvalue { i64, i64 } %313, 0
+  %315 = icmp ne i64 %314, -1112271358999739462
+  %316 = extractvalue { i64, i64 } %313, 1
+  %317 = icmp ne i64 %316, 5733367817700488089
+  %.sroa.0.0.i410.not = select i1 %315, i1 true, i1 %317
+  br i1 %.sroa.0.0.i410.not, label %320, label %319, !prof !30
+
+318:                                              ; preds = %246
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
+
+319:                                              ; preds = %306
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h6b24392759b166f9E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %310)
+  br label %227
+
+320:                                              ; preds = %306
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
+
+321:                                              ; preds = %249
+  %322 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %323 = load ptr, ptr %322, align 8, !invariant.load !6, !nonnull !6
-  %324 = tail call { ptr, ptr } %323(ptr noundef nonnull align 1 %1)
+  %324 = tail call { ptr, ptr } %323(ptr noundef nonnull align 1 %3)
   %325 = extractvalue { ptr, ptr } %324, 0
   %326 = extractvalue { ptr, ptr } %324, 1
   %327 = getelementptr i8, ptr %326, i64 24
-  %.val346 = load ptr, ptr %327, align 8
-  %328 = tail call { i64, i64 } %.val346(ptr noundef nonnull align 1 %325)
+  %.val333 = load ptr, ptr %327, align 8
+  %328 = tail call { i64, i64 } %.val333(ptr noundef nonnull align 1 %325)
   %329 = extractvalue { i64, i64 } %328, 0
-  %330 = icmp ne i64 %329, 4396411619942343068
+  %330 = icmp ne i64 %329, 1682257576593402022
   %331 = extractvalue { i64, i64 } %328, 1
-  %332 = icmp ne i64 %331, -1068963039459253755
-  %.sroa.0.0.i401.not = select i1 %330, i1 true, i1 %332
-  br i1 %.sroa.0.0.i401.not, label %549, label %537, !prof !30
+  %332 = icmp ne i64 %331, 2828938412468723074
+  %.sroa.0.0.i411.not = select i1 %330, i1 true, i1 %332
+  br i1 %.sroa.0.0.i411.not, label %335, label %334, !prof !30
 
-333:                                              ; preds = %50
-  %334 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %335 = load ptr, ptr %334, align 8, !invariant.load !6, !nonnull !6
-  %336 = tail call { ptr, ptr } %335(ptr noundef nonnull align 1 %1)
-  %337 = extractvalue { ptr, ptr } %336, 0
-  %338 = extractvalue { ptr, ptr } %336, 1
-  %339 = getelementptr i8, ptr %338, i64 24
-  %.val348 = load ptr, ptr %339, align 8
-  %340 = tail call { i64, i64 } %.val348(ptr noundef nonnull align 1 %337)
-  %341 = extractvalue { i64, i64 } %340, 0
-  %342 = icmp ne i64 %341, -1775404271045328892
-  %343 = extractvalue { i64, i64 } %340, 1
-  %344 = icmp ne i64 %343, -2754534380838266005
-  %.sroa.0.0.i402.not = select i1 %342, i1 true, i1 %344
-  br i1 %.sroa.0.0.i402.not, label %564, label %552, !prof !30
+333:                                              ; preds = %249
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
 
-345:                                              ; preds = %50
-  %346 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %347 = load ptr, ptr %346, align 8, !invariant.load !6, !nonnull !6
-  %348 = tail call { ptr, ptr } %347(ptr noundef nonnull align 1 %1)
-  %349 = extractvalue { ptr, ptr } %348, 0
-  %350 = extractvalue { ptr, ptr } %348, 1
-  %351 = getelementptr i8, ptr %350, i64 24
-  %.val350 = load ptr, ptr %351, align 8
-  %352 = tail call { i64, i64 } %.val350(ptr noundef nonnull align 1 %349)
-  %353 = extractvalue { i64, i64 } %352, 0
-  %354 = icmp ne i64 %353, 6309901568988151921
-  %355 = extractvalue { i64, i64 } %352, 1
-  %356 = icmp ne i64 %355, -3963255778901701068
-  %.sroa.0.0.i403.not = select i1 %354, i1 true, i1 %356
-  br i1 %.sroa.0.0.i403.not, label %579, label %567, !prof !30
+334:                                              ; preds = %321
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h1e28924a1d22f91dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %325)
+  br label %227
 
-357:                                              ; preds = %50
-  %358 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %359 = load ptr, ptr %358, align 8, !invariant.load !6, !nonnull !6
-  %360 = tail call { ptr, ptr } %359(ptr noundef nonnull align 1 %1)
-  %361 = extractvalue { ptr, ptr } %360, 0
-  %362 = extractvalue { ptr, ptr } %360, 1
-  %363 = getelementptr i8, ptr %362, i64 24
-  %.val352 = load ptr, ptr %363, align 8
-  %364 = tail call { i64, i64 } %.val352(ptr noundef nonnull align 1 %361)
-  %365 = extractvalue { i64, i64 } %364, 0
-  %366 = icmp ne i64 %365, 3749815279303437041
-  %367 = extractvalue { i64, i64 } %364, 1
-  %368 = icmp ne i64 %367, -7778057943976946246
-  %.sroa.0.0.i404.not = select i1 %366, i1 true, i1 %368
-  br i1 %.sroa.0.0.i404.not, label %594, label %582, !prof !30
+335:                                              ; preds = %321
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
 
-369:                                              ; preds = %50
-  %370 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %371 = load ptr, ptr %370, align 8, !invariant.load !6, !nonnull !6
-  %372 = tail call { ptr, ptr } %371(ptr noundef nonnull align 1 %1)
-  %373 = extractvalue { ptr, ptr } %372, 0
-  %374 = extractvalue { ptr, ptr } %372, 1
-  %375 = getelementptr i8, ptr %374, i64 24
-  %.val354 = load ptr, ptr %375, align 8
-  %376 = tail call { i64, i64 } %.val354(ptr noundef nonnull align 1 %373)
-  %377 = extractvalue { i64, i64 } %376, 0
-  %378 = icmp ne i64 %377, 8322892714386034678
-  %379 = extractvalue { i64, i64 } %376, 1
-  %380 = icmp ne i64 %379, 6301257885181549575
-  %.sroa.0.0.i405.not = select i1 %378, i1 true, i1 %380
-  br i1 %.sroa.0.0.i405.not, label %609, label %597, !prof !30
+336:                                              ; preds = %252
+  %337 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %338 = load ptr, ptr %337, align 8, !invariant.load !6, !nonnull !6
+  %339 = tail call { ptr, ptr } %338(ptr noundef nonnull align 1 %3)
+  %340 = extractvalue { ptr, ptr } %339, 0
+  %341 = extractvalue { ptr, ptr } %339, 1
+  %342 = getelementptr i8, ptr %341, i64 24
+  %.val335 = load ptr, ptr %342, align 8
+  %343 = tail call { i64, i64 } %.val335(ptr noundef nonnull align 1 %340)
+  %344 = extractvalue { i64, i64 } %343, 0
+  %345 = icmp ne i64 %344, -4525060659037450304
+  %346 = extractvalue { i64, i64 } %343, 1
+  %347 = icmp ne i64 %346, -7941504528371888260
+  %.sroa.0.0.i412.not = select i1 %345, i1 true, i1 %347
+  br i1 %.sroa.0.0.i412.not, label %350, label %349, !prof !30
 
-381:                                              ; preds = %50
-  %382 = getelementptr inbounds nuw i8, ptr %2, i64 32
+348:                                              ; preds = %252
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
+
+349:                                              ; preds = %336
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h8338e1cee8d484b1E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %340)
+  br label %227
+
+350:                                              ; preds = %336
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
+
+351:                                              ; preds = %255
+  %352 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %353 = load ptr, ptr %352, align 8, !invariant.load !6, !nonnull !6
+  %354 = tail call { ptr, ptr } %353(ptr noundef nonnull align 1 %3)
+  %355 = extractvalue { ptr, ptr } %354, 0
+  %356 = extractvalue { ptr, ptr } %354, 1
+  %357 = getelementptr i8, ptr %356, i64 24
+  %.val337 = load ptr, ptr %357, align 8
+  %358 = tail call { i64, i64 } %.val337(ptr noundef nonnull align 1 %355)
+  %359 = extractvalue { i64, i64 } %358, 0
+  %360 = icmp ne i64 %359, 1976741281623731233
+  %361 = extractvalue { i64, i64 } %358, 1
+  %362 = icmp ne i64 %361, 8518587958317350804
+  %.sroa.0.0.i413.not = select i1 %360, i1 true, i1 %362
+  br i1 %.sroa.0.0.i413.not, label %365, label %364, !prof !30
+
+363:                                              ; preds = %255
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
+
+364:                                              ; preds = %351
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hb6eeaba6b5155bdbE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %355)
+  br label %227
+
+365:                                              ; preds = %351
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
+
+366:                                              ; preds = %258
+  %367 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %368 = load ptr, ptr %367, align 8, !invariant.load !6, !nonnull !6
+  %369 = tail call { ptr, ptr } %368(ptr noundef nonnull align 1 %3)
+  %370 = extractvalue { ptr, ptr } %369, 0
+  %371 = extractvalue { ptr, ptr } %369, 1
+  %372 = getelementptr i8, ptr %371, i64 24
+  %.val339 = load ptr, ptr %372, align 8
+  %373 = tail call { i64, i64 } %.val339(ptr noundef nonnull align 1 %370)
+  %374 = extractvalue { i64, i64 } %373, 0
+  %375 = icmp ne i64 %374, 3243027725903489877
+  %376 = extractvalue { i64, i64 } %373, 1
+  %377 = icmp ne i64 %376, 5183688042913934999
+  %.sroa.0.0.i414.not = select i1 %375, i1 true, i1 %377
+  br i1 %.sroa.0.0.i414.not, label %380, label %379, !prof !30
+
+378:                                              ; preds = %258
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
+
+379:                                              ; preds = %366
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h8de1d923186beaddE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %370)
+  br label %227
+
+380:                                              ; preds = %366
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
+
+381:                                              ; preds = %261
+  %382 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %383 = load ptr, ptr %382, align 8, !invariant.load !6, !nonnull !6
-  %384 = tail call { ptr, ptr } %383(ptr noundef nonnull align 1 %1)
+  %384 = tail call { ptr, ptr } %383(ptr noundef nonnull align 1 %3)
   %385 = extractvalue { ptr, ptr } %384, 0
   %386 = extractvalue { ptr, ptr } %384, 1
   %387 = getelementptr i8, ptr %386, i64 24
-  %.val356 = load ptr, ptr %387, align 8
-  %388 = tail call { i64, i64 } %.val356(ptr noundef nonnull align 1 %385)
+  %.val341 = load ptr, ptr %387, align 8
+  %388 = tail call { i64, i64 } %.val341(ptr noundef nonnull align 1 %385)
   %389 = extractvalue { i64, i64 } %388, 0
-  %390 = icmp ne i64 %389, 6939381404861589916
+  %390 = icmp ne i64 %389, 5220108315440958501
   %391 = extractvalue { i64, i64 } %388, 1
-  %392 = icmp ne i64 %391, -6498690218077430559
-  %.sroa.0.0.i406.not = select i1 %390, i1 true, i1 %392
-  br i1 %.sroa.0.0.i406.not, label %624, label %612, !prof !30
+  %392 = icmp ne i64 %391, -3520716040411414515
+  %.sroa.0.0.i415.not = select i1 %390, i1 true, i1 %392
+  br i1 %.sroa.0.0.i415.not, label %395, label %394, !prof !30
 
-393:                                              ; preds = %50
-  %394 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %395 = load ptr, ptr %394, align 8, !invariant.load !6, !nonnull !6
-  %396 = tail call { ptr, ptr } %395(ptr noundef nonnull align 1 %1)
-  %397 = extractvalue { ptr, ptr } %396, 0
-  %398 = extractvalue { ptr, ptr } %396, 1
-  %399 = getelementptr i8, ptr %398, i64 24
-  %.val358 = load ptr, ptr %399, align 8
-  %400 = tail call { i64, i64 } %.val358(ptr noundef nonnull align 1 %397)
-  %401 = extractvalue { i64, i64 } %400, 0
-  %402 = icmp ne i64 %401, -2609889106096071515
-  %403 = extractvalue { i64, i64 } %400, 1
-  %404 = icmp ne i64 %403, 139408408525529811
-  %.sroa.0.0.i407.not = select i1 %402, i1 true, i1 %404
-  br i1 %.sroa.0.0.i407.not, label %639, label %627, !prof !30
-
-405:                                              ; preds = %50
-  %406 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %407 = load ptr, ptr %406, align 8, !invariant.load !6, !nonnull !6
-  %408 = tail call { ptr, ptr } %407(ptr noundef nonnull align 1 %1)
-  %409 = extractvalue { ptr, ptr } %408, 0
-  %410 = extractvalue { ptr, ptr } %408, 1
-  %411 = getelementptr i8, ptr %410, i64 24
-  %.val360 = load ptr, ptr %411, align 8
-  %412 = tail call { i64, i64 } %.val360(ptr noundef nonnull align 1 %409)
-  %413 = extractvalue { i64, i64 } %412, 0
-  %414 = icmp ne i64 %413, -4316476227272319578
-  %415 = extractvalue { i64, i64 } %412, 1
-  %416 = icmp ne i64 %415, 946429527588125030
-  %.sroa.0.0.i408.not = select i1 %414, i1 true, i1 %416
-  br i1 %.sroa.0.0.i408.not, label %654, label %642, !prof !30
-
-417:                                              ; preds = %225
-  %418 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %419 = load ptr, ptr %418, align 8, !invariant.load !6, !nonnull !6
-  %420 = tail call { ptr, ptr } %419(ptr noundef nonnull align 1 %3)
-  %421 = extractvalue { ptr, ptr } %420, 0
-  %422 = extractvalue { ptr, ptr } %420, 1
-  %423 = getelementptr i8, ptr %422, i64 24
-  %.val329 = load ptr, ptr %423, align 8
-  %424 = tail call { i64, i64 } %.val329(ptr noundef nonnull align 1 %421)
-  %425 = extractvalue { i64, i64 } %424, 0
-  %426 = icmp ne i64 %425, 1096384672038350596
-  %427 = extractvalue { i64, i64 } %424, 1
-  %428 = icmp ne i64 %427, 324221538485535341
-  %.sroa.0.0.i409.not = select i1 %426, i1 true, i1 %428
-  br i1 %.sroa.0.0.i409.not, label %431, label %430, !prof !30
-
-429:                                              ; preds = %225
+393:                                              ; preds = %261
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-430:                                              ; preds = %417
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17he1b7c49791077187E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %229, ptr noundef nonnull align 8 %421)
-  br label %209
+394:                                              ; preds = %381
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17he65ac70434a73d9cE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %385)
+  br label %227
 
-431:                                              ; preds = %417
+395:                                              ; preds = %381
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-432:                                              ; preds = %237
-  %433 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %434 = load ptr, ptr %433, align 8, !invariant.load !6, !nonnull !6
-  %435 = tail call { ptr, ptr } %434(ptr noundef nonnull align 1 %3)
-  %436 = extractvalue { ptr, ptr } %435, 0
-  %437 = extractvalue { ptr, ptr } %435, 1
-  %438 = getelementptr i8, ptr %437, i64 24
-  %.val331 = load ptr, ptr %438, align 8
-  %439 = tail call { i64, i64 } %.val331(ptr noundef nonnull align 1 %436)
-  %440 = extractvalue { i64, i64 } %439, 0
-  %441 = icmp ne i64 %440, -1112271358999739462
-  %442 = extractvalue { i64, i64 } %439, 1
-  %443 = icmp ne i64 %442, 5733367817700488089
-  %.sroa.0.0.i410.not = select i1 %441, i1 true, i1 %443
-  br i1 %.sroa.0.0.i410.not, label %446, label %445, !prof !30
+396:                                              ; preds = %264
+  %397 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %398 = load ptr, ptr %397, align 8, !invariant.load !6, !nonnull !6
+  %399 = tail call { ptr, ptr } %398(ptr noundef nonnull align 1 %3)
+  %400 = extractvalue { ptr, ptr } %399, 0
+  %401 = extractvalue { ptr, ptr } %399, 1
+  %402 = getelementptr i8, ptr %401, i64 24
+  %.val343 = load ptr, ptr %402, align 8
+  %403 = tail call { i64, i64 } %.val343(ptr noundef nonnull align 1 %400)
+  %404 = extractvalue { i64, i64 } %403, 0
+  %405 = icmp ne i64 %404, -8363051946164901273
+  %406 = extractvalue { i64, i64 } %403, 1
+  %407 = icmp ne i64 %406, -7502566692738070478
+  %.sroa.0.0.i416.not = select i1 %405, i1 true, i1 %407
+  br i1 %.sroa.0.0.i416.not, label %410, label %409, !prof !30
 
-444:                                              ; preds = %237
+408:                                              ; preds = %264
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-445:                                              ; preds = %432
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h6b24392759b166f9E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %241, ptr noundef nonnull align 8 %436)
-  br label %209
+409:                                              ; preds = %396
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h9d68c1e38ce2e366E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %400)
+  br label %227
 
-446:                                              ; preds = %432
+410:                                              ; preds = %396
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-447:                                              ; preds = %249
-  %448 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %449 = load ptr, ptr %448, align 8, !invariant.load !6, !nonnull !6
-  %450 = tail call { ptr, ptr } %449(ptr noundef nonnull align 1 %3)
-  %451 = extractvalue { ptr, ptr } %450, 0
-  %452 = extractvalue { ptr, ptr } %450, 1
-  %453 = getelementptr i8, ptr %452, i64 24
-  %.val333 = load ptr, ptr %453, align 8
-  %454 = tail call { i64, i64 } %.val333(ptr noundef nonnull align 1 %451)
-  %455 = extractvalue { i64, i64 } %454, 0
-  %456 = icmp ne i64 %455, 1682257576593402022
-  %457 = extractvalue { i64, i64 } %454, 1
-  %458 = icmp ne i64 %457, 2828938412468723074
-  %.sroa.0.0.i411.not = select i1 %456, i1 true, i1 %458
-  br i1 %.sroa.0.0.i411.not, label %461, label %460, !prof !30
+411:                                              ; preds = %267
+  %412 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %413 = load ptr, ptr %412, align 8, !invariant.load !6, !nonnull !6
+  %414 = tail call { ptr, ptr } %413(ptr noundef nonnull align 1 %3)
+  %415 = extractvalue { ptr, ptr } %414, 0
+  %416 = extractvalue { ptr, ptr } %414, 1
+  %417 = getelementptr i8, ptr %416, i64 24
+  %.val345 = load ptr, ptr %417, align 8
+  %418 = tail call { i64, i64 } %.val345(ptr noundef nonnull align 1 %415)
+  %419 = extractvalue { i64, i64 } %418, 0
+  %420 = icmp ne i64 %419, 4396411619942343068
+  %421 = extractvalue { i64, i64 } %418, 1
+  %422 = icmp ne i64 %421, -1068963039459253755
+  %.sroa.0.0.i417.not = select i1 %420, i1 true, i1 %422
+  br i1 %.sroa.0.0.i417.not, label %425, label %424, !prof !30
 
-459:                                              ; preds = %249
+423:                                              ; preds = %267
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-460:                                              ; preds = %447
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h1e28924a1d22f91dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %253, ptr noundef nonnull align 8 %451)
-  br label %209
+424:                                              ; preds = %411
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hdfdfc2ff52e65402E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %415)
+  br label %227
 
-461:                                              ; preds = %447
+425:                                              ; preds = %411
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-462:                                              ; preds = %261
-  %463 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %464 = load ptr, ptr %463, align 8, !invariant.load !6, !nonnull !6
-  %465 = tail call { ptr, ptr } %464(ptr noundef nonnull align 1 %3)
-  %466 = extractvalue { ptr, ptr } %465, 0
-  %467 = extractvalue { ptr, ptr } %465, 1
-  %468 = getelementptr i8, ptr %467, i64 24
-  %.val335 = load ptr, ptr %468, align 8
-  %469 = tail call { i64, i64 } %.val335(ptr noundef nonnull align 1 %466)
-  %470 = extractvalue { i64, i64 } %469, 0
-  %471 = icmp ne i64 %470, -4525060659037450304
-  %472 = extractvalue { i64, i64 } %469, 1
-  %473 = icmp ne i64 %472, -7941504528371888260
-  %.sroa.0.0.i412.not = select i1 %471, i1 true, i1 %473
-  br i1 %.sroa.0.0.i412.not, label %476, label %475, !prof !30
+426:                                              ; preds = %270
+  %427 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %428 = load ptr, ptr %427, align 8, !invariant.load !6, !nonnull !6
+  %429 = tail call { ptr, ptr } %428(ptr noundef nonnull align 1 %3)
+  %430 = extractvalue { ptr, ptr } %429, 0
+  %431 = extractvalue { ptr, ptr } %429, 1
+  %432 = getelementptr i8, ptr %431, i64 24
+  %.val347 = load ptr, ptr %432, align 8
+  %433 = tail call { i64, i64 } %.val347(ptr noundef nonnull align 1 %430)
+  %434 = extractvalue { i64, i64 } %433, 0
+  %435 = icmp ne i64 %434, -1775404271045328892
+  %436 = extractvalue { i64, i64 } %433, 1
+  %437 = icmp ne i64 %436, -2754534380838266005
+  %.sroa.0.0.i418.not = select i1 %435, i1 true, i1 %437
+  br i1 %.sroa.0.0.i418.not, label %440, label %439, !prof !30
 
-474:                                              ; preds = %261
+438:                                              ; preds = %270
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-475:                                              ; preds = %462
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h8338e1cee8d484b1E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %265, ptr noundef nonnull align 8 %466)
-  br label %209
+439:                                              ; preds = %426
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h615033ecaafc7d82E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %430)
+  br label %227
 
-476:                                              ; preds = %462
+440:                                              ; preds = %426
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-477:                                              ; preds = %273
-  %478 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %479 = load ptr, ptr %478, align 8, !invariant.load !6, !nonnull !6
-  %480 = tail call { ptr, ptr } %479(ptr noundef nonnull align 1 %3)
-  %481 = extractvalue { ptr, ptr } %480, 0
-  %482 = extractvalue { ptr, ptr } %480, 1
-  %483 = getelementptr i8, ptr %482, i64 24
-  %.val337 = load ptr, ptr %483, align 8
-  %484 = tail call { i64, i64 } %.val337(ptr noundef nonnull align 1 %481)
-  %485 = extractvalue { i64, i64 } %484, 0
-  %486 = icmp ne i64 %485, 1976741281623731233
-  %487 = extractvalue { i64, i64 } %484, 1
-  %488 = icmp ne i64 %487, 8518587958317350804
-  %.sroa.0.0.i413.not = select i1 %486, i1 true, i1 %488
-  br i1 %.sroa.0.0.i413.not, label %491, label %490, !prof !30
+441:                                              ; preds = %273
+  %442 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %443 = load ptr, ptr %442, align 8, !invariant.load !6, !nonnull !6
+  %444 = tail call { ptr, ptr } %443(ptr noundef nonnull align 1 %3)
+  %445 = extractvalue { ptr, ptr } %444, 0
+  %446 = extractvalue { ptr, ptr } %444, 1
+  %447 = getelementptr i8, ptr %446, i64 24
+  %.val349 = load ptr, ptr %447, align 8
+  %448 = tail call { i64, i64 } %.val349(ptr noundef nonnull align 1 %445)
+  %449 = extractvalue { i64, i64 } %448, 0
+  %450 = icmp ne i64 %449, 6309901568988151921
+  %451 = extractvalue { i64, i64 } %448, 1
+  %452 = icmp ne i64 %451, -3963255778901701068
+  %.sroa.0.0.i419.not = select i1 %450, i1 true, i1 %452
+  br i1 %.sroa.0.0.i419.not, label %455, label %454, !prof !30
 
-489:                                              ; preds = %273
+453:                                              ; preds = %273
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-490:                                              ; preds = %477
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hb6eeaba6b5155bdbE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %277, ptr noundef nonnull align 8 %481)
-  br label %209
+454:                                              ; preds = %441
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h1a88a0b746085fb1E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %445)
+  br label %227
 
-491:                                              ; preds = %477
+455:                                              ; preds = %441
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-492:                                              ; preds = %285
-  %493 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %494 = load ptr, ptr %493, align 8, !invariant.load !6, !nonnull !6
-  %495 = tail call { ptr, ptr } %494(ptr noundef nonnull align 1 %3)
-  %496 = extractvalue { ptr, ptr } %495, 0
-  %497 = extractvalue { ptr, ptr } %495, 1
-  %498 = getelementptr i8, ptr %497, i64 24
-  %.val339 = load ptr, ptr %498, align 8
-  %499 = tail call { i64, i64 } %.val339(ptr noundef nonnull align 1 %496)
-  %500 = extractvalue { i64, i64 } %499, 0
-  %501 = icmp ne i64 %500, 3243027725903489877
-  %502 = extractvalue { i64, i64 } %499, 1
-  %503 = icmp ne i64 %502, 5183688042913934999
-  %.sroa.0.0.i414.not = select i1 %501, i1 true, i1 %503
-  br i1 %.sroa.0.0.i414.not, label %506, label %505, !prof !30
+456:                                              ; preds = %276
+  %457 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %458 = load ptr, ptr %457, align 8, !invariant.load !6, !nonnull !6
+  %459 = tail call { ptr, ptr } %458(ptr noundef nonnull align 1 %3)
+  %460 = extractvalue { ptr, ptr } %459, 0
+  %461 = extractvalue { ptr, ptr } %459, 1
+  %462 = getelementptr i8, ptr %461, i64 24
+  %.val351 = load ptr, ptr %462, align 8
+  %463 = tail call { i64, i64 } %.val351(ptr noundef nonnull align 1 %460)
+  %464 = extractvalue { i64, i64 } %463, 0
+  %465 = icmp ne i64 %464, 3749815279303437041
+  %466 = extractvalue { i64, i64 } %463, 1
+  %467 = icmp ne i64 %466, -7778057943976946246
+  %.sroa.0.0.i420.not = select i1 %465, i1 true, i1 %467
+  br i1 %.sroa.0.0.i420.not, label %470, label %469, !prof !30
 
-504:                                              ; preds = %285
+468:                                              ; preds = %276
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-505:                                              ; preds = %492
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h8de1d923186beaddE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %289, ptr noundef nonnull align 8 %496)
-  br label %209
+469:                                              ; preds = %456
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hb0d581258db7164eE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %460)
+  br label %227
 
-506:                                              ; preds = %492
+470:                                              ; preds = %456
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-507:                                              ; preds = %297
-  %508 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %509 = load ptr, ptr %508, align 8, !invariant.load !6, !nonnull !6
-  %510 = tail call { ptr, ptr } %509(ptr noundef nonnull align 1 %3)
-  %511 = extractvalue { ptr, ptr } %510, 0
-  %512 = extractvalue { ptr, ptr } %510, 1
-  %513 = getelementptr i8, ptr %512, i64 24
-  %.val341 = load ptr, ptr %513, align 8
-  %514 = tail call { i64, i64 } %.val341(ptr noundef nonnull align 1 %511)
-  %515 = extractvalue { i64, i64 } %514, 0
-  %516 = icmp ne i64 %515, 5220108315440958501
-  %517 = extractvalue { i64, i64 } %514, 1
-  %518 = icmp ne i64 %517, -3520716040411414515
-  %.sroa.0.0.i415.not = select i1 %516, i1 true, i1 %518
-  br i1 %.sroa.0.0.i415.not, label %521, label %520, !prof !30
+471:                                              ; preds = %279
+  %472 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %473 = load ptr, ptr %472, align 8, !invariant.load !6, !nonnull !6
+  %474 = tail call { ptr, ptr } %473(ptr noundef nonnull align 1 %3)
+  %475 = extractvalue { ptr, ptr } %474, 0
+  %476 = extractvalue { ptr, ptr } %474, 1
+  %477 = getelementptr i8, ptr %476, i64 24
+  %.val353 = load ptr, ptr %477, align 8
+  %478 = tail call { i64, i64 } %.val353(ptr noundef nonnull align 1 %475)
+  %479 = extractvalue { i64, i64 } %478, 0
+  %480 = icmp ne i64 %479, 8322892714386034678
+  %481 = extractvalue { i64, i64 } %478, 1
+  %482 = icmp ne i64 %481, 6301257885181549575
+  %.sroa.0.0.i421.not = select i1 %480, i1 true, i1 %482
+  br i1 %.sroa.0.0.i421.not, label %485, label %484, !prof !30
 
-519:                                              ; preds = %297
+483:                                              ; preds = %279
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-520:                                              ; preds = %507
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17he65ac70434a73d9cE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %301, ptr noundef nonnull align 8 %511)
-  br label %209
+484:                                              ; preds = %471
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h87109b44b9967f01E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %475)
+  br label %227
 
-521:                                              ; preds = %507
+485:                                              ; preds = %471
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-522:                                              ; preds = %309
-  %523 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %524 = load ptr, ptr %523, align 8, !invariant.load !6, !nonnull !6
-  %525 = tail call { ptr, ptr } %524(ptr noundef nonnull align 1 %3)
-  %526 = extractvalue { ptr, ptr } %525, 0
-  %527 = extractvalue { ptr, ptr } %525, 1
-  %528 = getelementptr i8, ptr %527, i64 24
-  %.val343 = load ptr, ptr %528, align 8
-  %529 = tail call { i64, i64 } %.val343(ptr noundef nonnull align 1 %526)
-  %530 = extractvalue { i64, i64 } %529, 0
-  %531 = icmp ne i64 %530, -8363051946164901273
-  %532 = extractvalue { i64, i64 } %529, 1
-  %533 = icmp ne i64 %532, -7502566692738070478
-  %.sroa.0.0.i416.not = select i1 %531, i1 true, i1 %533
-  br i1 %.sroa.0.0.i416.not, label %536, label %535, !prof !30
+486:                                              ; preds = %282
+  %487 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %488 = load ptr, ptr %487, align 8, !invariant.load !6, !nonnull !6
+  %489 = tail call { ptr, ptr } %488(ptr noundef nonnull align 1 %3)
+  %490 = extractvalue { ptr, ptr } %489, 0
+  %491 = extractvalue { ptr, ptr } %489, 1
+  %492 = getelementptr i8, ptr %491, i64 24
+  %.val355 = load ptr, ptr %492, align 8
+  %493 = tail call { i64, i64 } %.val355(ptr noundef nonnull align 1 %490)
+  %494 = extractvalue { i64, i64 } %493, 0
+  %495 = icmp ne i64 %494, 6939381404861589916
+  %496 = extractvalue { i64, i64 } %493, 1
+  %497 = icmp ne i64 %496, -6498690218077430559
+  %.sroa.0.0.i422.not = select i1 %495, i1 true, i1 %497
+  br i1 %.sroa.0.0.i422.not, label %500, label %499, !prof !30
 
-534:                                              ; preds = %309
+498:                                              ; preds = %282
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-535:                                              ; preds = %522
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h9d68c1e38ce2e366E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %313, ptr noundef nonnull align 8 %526)
-  br label %209
+499:                                              ; preds = %486
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h1243b617b113beeaE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %490)
+  br label %227
 
-536:                                              ; preds = %522
+500:                                              ; preds = %486
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-537:                                              ; preds = %321
-  %538 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %539 = load ptr, ptr %538, align 8, !invariant.load !6, !nonnull !6
-  %540 = tail call { ptr, ptr } %539(ptr noundef nonnull align 1 %3)
-  %541 = extractvalue { ptr, ptr } %540, 0
-  %542 = extractvalue { ptr, ptr } %540, 1
-  %543 = getelementptr i8, ptr %542, i64 24
-  %.val345 = load ptr, ptr %543, align 8
-  %544 = tail call { i64, i64 } %.val345(ptr noundef nonnull align 1 %541)
-  %545 = extractvalue { i64, i64 } %544, 0
-  %546 = icmp ne i64 %545, 4396411619942343068
-  %547 = extractvalue { i64, i64 } %544, 1
-  %548 = icmp ne i64 %547, -1068963039459253755
-  %.sroa.0.0.i417.not = select i1 %546, i1 true, i1 %548
-  br i1 %.sroa.0.0.i417.not, label %551, label %550, !prof !30
+501:                                              ; preds = %285
+  %502 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %503 = load ptr, ptr %502, align 8, !invariant.load !6, !nonnull !6
+  %504 = tail call { ptr, ptr } %503(ptr noundef nonnull align 1 %3)
+  %505 = extractvalue { ptr, ptr } %504, 0
+  %506 = extractvalue { ptr, ptr } %504, 1
+  %507 = getelementptr i8, ptr %506, i64 24
+  %.val357 = load ptr, ptr %507, align 8
+  %508 = tail call { i64, i64 } %.val357(ptr noundef nonnull align 1 %505)
+  %509 = extractvalue { i64, i64 } %508, 0
+  %510 = icmp ne i64 %509, -2609889106096071515
+  %511 = extractvalue { i64, i64 } %508, 1
+  %512 = icmp ne i64 %511, 139408408525529811
+  %.sroa.0.0.i423.not = select i1 %510, i1 true, i1 %512
+  br i1 %.sroa.0.0.i423.not, label %515, label %514, !prof !30
 
-549:                                              ; preds = %321
+513:                                              ; preds = %285
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-550:                                              ; preds = %537
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hdfdfc2ff52e65402E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %325, ptr noundef nonnull align 8 %541)
-  br label %209
+514:                                              ; preds = %501
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h4e2ac8df2ef516a7E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %505)
+  br label %227
 
-551:                                              ; preds = %537
+515:                                              ; preds = %501
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-552:                                              ; preds = %333
-  %553 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %554 = load ptr, ptr %553, align 8, !invariant.load !6, !nonnull !6
-  %555 = tail call { ptr, ptr } %554(ptr noundef nonnull align 1 %3)
-  %556 = extractvalue { ptr, ptr } %555, 0
-  %557 = extractvalue { ptr, ptr } %555, 1
-  %558 = getelementptr i8, ptr %557, i64 24
-  %.val347 = load ptr, ptr %558, align 8
-  %559 = tail call { i64, i64 } %.val347(ptr noundef nonnull align 1 %556)
-  %560 = extractvalue { i64, i64 } %559, 0
-  %561 = icmp ne i64 %560, -1775404271045328892
-  %562 = extractvalue { i64, i64 } %559, 1
-  %563 = icmp ne i64 %562, -2754534380838266005
-  %.sroa.0.0.i418.not = select i1 %561, i1 true, i1 %563
-  br i1 %.sroa.0.0.i418.not, label %566, label %565, !prof !30
+516:                                              ; preds = %288
+  %517 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %518 = load ptr, ptr %517, align 8, !invariant.load !6, !nonnull !6
+  %519 = tail call { ptr, ptr } %518(ptr noundef nonnull align 1 %3)
+  %520 = extractvalue { ptr, ptr } %519, 0
+  %521 = extractvalue { ptr, ptr } %519, 1
+  %522 = getelementptr i8, ptr %521, i64 24
+  %.val359 = load ptr, ptr %522, align 8
+  %523 = tail call { i64, i64 } %.val359(ptr noundef nonnull align 1 %520)
+  %524 = extractvalue { i64, i64 } %523, 0
+  %525 = icmp ne i64 %524, -4316476227272319578
+  %526 = extractvalue { i64, i64 } %523, 1
+  %527 = icmp ne i64 %526, 946429527588125030
+  %.sroa.0.0.i424.not = select i1 %525, i1 true, i1 %527
+  br i1 %.sroa.0.0.i424.not, label %530, label %529, !prof !30
 
-564:                                              ; preds = %333
+528:                                              ; preds = %288
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-565:                                              ; preds = %552
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h615033ecaafc7d82E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %337, ptr noundef nonnull align 8 %556)
-  br label %209
+529:                                              ; preds = %516
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h2390f4c25a6ff76bE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %520)
+  br label %227
 
-566:                                              ; preds = %552
+530:                                              ; preds = %516
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-567:                                              ; preds = %345
-  %568 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %569 = load ptr, ptr %568, align 8, !invariant.load !6, !nonnull !6
-  %570 = tail call { ptr, ptr } %569(ptr noundef nonnull align 1 %3)
-  %571 = extractvalue { ptr, ptr } %570, 0
-  %572 = extractvalue { ptr, ptr } %570, 1
-  %573 = getelementptr i8, ptr %572, i64 24
-  %.val349 = load ptr, ptr %573, align 8
-  %574 = tail call { i64, i64 } %.val349(ptr noundef nonnull align 1 %571)
-  %575 = extractvalue { i64, i64 } %574, 0
-  %576 = icmp ne i64 %575, 6309901568988151921
-  %577 = extractvalue { i64, i64 } %574, 1
-  %578 = icmp ne i64 %577, -3963255778901701068
-  %.sroa.0.0.i419.not = select i1 %576, i1 true, i1 %578
-  br i1 %.sroa.0.0.i419.not, label %581, label %580, !prof !30
+531:                                              ; preds = %60
+  %532 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %533 = load ptr, ptr %532, align 8, !invariant.load !6, !nonnull !6
+  %534 = tail call { ptr, ptr } %533(ptr noundef nonnull align 1 %3)
+  %535 = extractvalue { ptr, ptr } %534, 0
+  %536 = extractvalue { ptr, ptr } %534, 1
+  %537 = getelementptr i8, ptr %536, i64 24
+  %.val311 = load ptr, ptr %537, align 8
+  %538 = tail call { i64, i64 } %.val311(ptr noundef nonnull align 1 %535)
+  %539 = extractvalue { i64, i64 } %538, 0
+  %540 = icmp ne i64 %539, 8324995987993682601
+  %541 = extractvalue { i64, i64 } %538, 1
+  %542 = icmp ne i64 %541, 1761299767984946403
+  %.sroa.0.0.i425.not = select i1 %540, i1 true, i1 %542
+  br i1 %.sroa.0.0.i425.not, label %545, label %544, !prof !30
 
-579:                                              ; preds = %345
+543:                                              ; preds = %60
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-580:                                              ; preds = %567
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h1a88a0b746085fb1E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %349, ptr noundef nonnull align 8 %571)
-  br label %209
+544:                                              ; preds = %531
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h5694d6243c551cedE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %64, ptr noundef nonnull align 8 %535)
+  br label %227
 
-581:                                              ; preds = %567
+545:                                              ; preds = %531
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-582:                                              ; preds = %357
-  %583 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %584 = load ptr, ptr %583, align 8, !invariant.load !6, !nonnull !6
-  %585 = tail call { ptr, ptr } %584(ptr noundef nonnull align 1 %3)
-  %586 = extractvalue { ptr, ptr } %585, 0
-  %587 = extractvalue { ptr, ptr } %585, 1
-  %588 = getelementptr i8, ptr %587, i64 24
-  %.val351 = load ptr, ptr %588, align 8
-  %589 = tail call { i64, i64 } %.val351(ptr noundef nonnull align 1 %586)
-  %590 = extractvalue { i64, i64 } %589, 0
-  %591 = icmp ne i64 %590, 3749815279303437041
-  %592 = extractvalue { i64, i64 } %589, 1
-  %593 = icmp ne i64 %592, -7778057943976946246
-  %.sroa.0.0.i420.not = select i1 %591, i1 true, i1 %593
-  br i1 %.sroa.0.0.i420.not, label %596, label %595, !prof !30
+546:                                              ; preds = %72
+  %547 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %548 = load ptr, ptr %547, align 8, !invariant.load !6, !nonnull !6
+  %549 = tail call { ptr, ptr } %548(ptr noundef nonnull align 1 %3)
+  %550 = extractvalue { ptr, ptr } %549, 0
+  %551 = extractvalue { ptr, ptr } %549, 1
+  %552 = getelementptr i8, ptr %551, i64 24
+  %.val313 = load ptr, ptr %552, align 8
+  %553 = tail call { i64, i64 } %.val313(ptr noundef nonnull align 1 %550)
+  %554 = extractvalue { i64, i64 } %553, 0
+  %555 = icmp ne i64 %554, 8681598169992528476
+  %556 = extractvalue { i64, i64 } %553, 1
+  %557 = icmp ne i64 %556, -4953751849895023436
+  %.sroa.0.0.i426.not = select i1 %555, i1 true, i1 %557
+  br i1 %.sroa.0.0.i426.not, label %560, label %559, !prof !30
 
-594:                                              ; preds = %357
+558:                                              ; preds = %72
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-595:                                              ; preds = %582
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hb0d581258db7164eE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %361, ptr noundef nonnull align 8 %586)
-  br label %209
+559:                                              ; preds = %546
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hef27d15b282fc8e3E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %76, ptr noundef nonnull align 8 %550)
+  br label %227
 
-596:                                              ; preds = %582
+560:                                              ; preds = %546
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-597:                                              ; preds = %369
-  %598 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %599 = load ptr, ptr %598, align 8, !invariant.load !6, !nonnull !6
-  %600 = tail call { ptr, ptr } %599(ptr noundef nonnull align 1 %3)
-  %601 = extractvalue { ptr, ptr } %600, 0
-  %602 = extractvalue { ptr, ptr } %600, 1
-  %603 = getelementptr i8, ptr %602, i64 24
-  %.val353 = load ptr, ptr %603, align 8
-  %604 = tail call { i64, i64 } %.val353(ptr noundef nonnull align 1 %601)
-  %605 = extractvalue { i64, i64 } %604, 0
-  %606 = icmp ne i64 %605, 8322892714386034678
-  %607 = extractvalue { i64, i64 } %604, 1
-  %608 = icmp ne i64 %607, 6301257885181549575
-  %.sroa.0.0.i421.not = select i1 %606, i1 true, i1 %608
-  br i1 %.sroa.0.0.i421.not, label %611, label %610, !prof !30
+561:                                              ; preds = %84
+  %562 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %563 = load ptr, ptr %562, align 8, !invariant.load !6, !nonnull !6
+  %564 = tail call { ptr, ptr } %563(ptr noundef nonnull align 1 %3)
+  %565 = extractvalue { ptr, ptr } %564, 0
+  %566 = extractvalue { ptr, ptr } %564, 1
+  %567 = getelementptr i8, ptr %566, i64 24
+  %.val = load ptr, ptr %567, align 8
+  %568 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %565)
+  %569 = extractvalue { i64, i64 } %568, 0
+  %570 = icmp ne i64 %569, -2388166395891534354
+  %571 = extractvalue { i64, i64 } %568, 1
+  %572 = icmp ne i64 %571, 5666521950768639164
+  %.sroa.0.0.i427.not = select i1 %570, i1 true, i1 %572
+  br i1 %.sroa.0.0.i427.not, label %575, label %574, !prof !30
 
-609:                                              ; preds = %369
+573:                                              ; preds = %84
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-610:                                              ; preds = %597
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h87109b44b9967f01E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %373, ptr noundef nonnull align 8 %601)
-  br label %209
+574:                                              ; preds = %561
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h000f3ad22bda0952E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %88, ptr noundef nonnull align 8 %565)
+  br label %227
 
-611:                                              ; preds = %597
+575:                                              ; preds = %561
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-612:                                              ; preds = %381
-  %613 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %614 = load ptr, ptr %613, align 8, !invariant.load !6, !nonnull !6
-  %615 = tail call { ptr, ptr } %614(ptr noundef nonnull align 1 %3)
-  %616 = extractvalue { ptr, ptr } %615, 0
-  %617 = extractvalue { ptr, ptr } %615, 1
-  %618 = getelementptr i8, ptr %617, i64 24
-  %.val355 = load ptr, ptr %618, align 8
-  %619 = tail call { i64, i64 } %.val355(ptr noundef nonnull align 1 %616)
-  %620 = extractvalue { i64, i64 } %619, 0
-  %621 = icmp ne i64 %620, 6939381404861589916
-  %622 = extractvalue { i64, i64 } %619, 1
-  %623 = icmp ne i64 %622, -6498690218077430559
-  %.sroa.0.0.i422.not = select i1 %621, i1 true, i1 %623
-  br i1 %.sroa.0.0.i422.not, label %626, label %625, !prof !30
+576:                                              ; preds = %96
+  %577 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %578 = load ptr, ptr %577, align 8, !invariant.load !6, !nonnull !6
+  %579 = tail call { ptr, ptr } %578(ptr noundef nonnull align 1 %3)
+  %580 = extractvalue { ptr, ptr } %579, 0
+  %581 = extractvalue { ptr, ptr } %579, 1
+  %582 = getelementptr i8, ptr %581, i64 24
+  %.val315 = load ptr, ptr %582, align 8
+  %583 = tail call { i64, i64 } %.val315(ptr noundef nonnull align 1 %580)
+  %584 = extractvalue { i64, i64 } %583, 0
+  %585 = icmp ne i64 %584, -4243404910065975496
+  %586 = extractvalue { i64, i64 } %583, 1
+  %587 = icmp ne i64 %586, -2431153680986591934
+  %.sroa.0.0.i428.not = select i1 %585, i1 true, i1 %587
+  br i1 %.sroa.0.0.i428.not, label %590, label %589, !prof !30
 
-624:                                              ; preds = %381
+588:                                              ; preds = %96
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-625:                                              ; preds = %612
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h1243b617b113beeaE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %385, ptr noundef nonnull align 8 %616)
-  br label %209
+589:                                              ; preds = %576
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h84a17988692a8e42E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %100, ptr noundef nonnull align 8 %580)
+  br label %227
 
-626:                                              ; preds = %612
+590:                                              ; preds = %576
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-627:                                              ; preds = %393
-  %628 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %629 = load ptr, ptr %628, align 8, !invariant.load !6, !nonnull !6
-  %630 = tail call { ptr, ptr } %629(ptr noundef nonnull align 1 %3)
-  %631 = extractvalue { ptr, ptr } %630, 0
-  %632 = extractvalue { ptr, ptr } %630, 1
-  %633 = getelementptr i8, ptr %632, i64 24
-  %.val357 = load ptr, ptr %633, align 8
-  %634 = tail call { i64, i64 } %.val357(ptr noundef nonnull align 1 %631)
-  %635 = extractvalue { i64, i64 } %634, 0
-  %636 = icmp ne i64 %635, -2609889106096071515
-  %637 = extractvalue { i64, i64 } %634, 1
-  %638 = icmp ne i64 %637, 139408408525529811
-  %.sroa.0.0.i423.not = select i1 %636, i1 true, i1 %638
-  br i1 %.sroa.0.0.i423.not, label %641, label %640, !prof !30
+591:                                              ; preds = %108
+  %592 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %593 = load ptr, ptr %592, align 8, !invariant.load !6, !nonnull !6
+  %594 = tail call { ptr, ptr } %593(ptr noundef nonnull align 1 %3)
+  %595 = extractvalue { ptr, ptr } %594, 0
+  %596 = extractvalue { ptr, ptr } %594, 1
+  %597 = getelementptr i8, ptr %596, i64 24
+  %.val317 = load ptr, ptr %597, align 8
+  %598 = tail call { i64, i64 } %.val317(ptr noundef nonnull align 1 %595)
+  %599 = extractvalue { i64, i64 } %598, 0
+  %600 = icmp ne i64 %599, 6585618511097865896
+  %601 = extractvalue { i64, i64 } %598, 1
+  %602 = icmp ne i64 %601, 8901751938577251091
+  %.sroa.0.0.i429.not = select i1 %600, i1 true, i1 %602
+  br i1 %.sroa.0.0.i429.not, label %605, label %604, !prof !30
 
-639:                                              ; preds = %393
+603:                                              ; preds = %108
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-640:                                              ; preds = %627
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h4e2ac8df2ef516a7E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %397, ptr noundef nonnull align 8 %631)
-  br label %209
+604:                                              ; preds = %591
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hc280c37c17b6b7e2E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %112, ptr noundef nonnull align 8 %595)
+  br label %227
 
-641:                                              ; preds = %627
+605:                                              ; preds = %591
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-642:                                              ; preds = %405
-  %643 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %644 = load ptr, ptr %643, align 8, !invariant.load !6, !nonnull !6
-  %645 = tail call { ptr, ptr } %644(ptr noundef nonnull align 1 %3)
-  %646 = extractvalue { ptr, ptr } %645, 0
-  %647 = extractvalue { ptr, ptr } %645, 1
-  %648 = getelementptr i8, ptr %647, i64 24
-  %.val359 = load ptr, ptr %648, align 8
-  %649 = tail call { i64, i64 } %.val359(ptr noundef nonnull align 1 %646)
-  %650 = extractvalue { i64, i64 } %649, 0
-  %651 = icmp ne i64 %650, -4316476227272319578
-  %652 = extractvalue { i64, i64 } %649, 1
-  %653 = icmp ne i64 %652, 946429527588125030
-  %.sroa.0.0.i424.not = select i1 %651, i1 true, i1 %653
-  br i1 %.sroa.0.0.i424.not, label %656, label %655, !prof !30
+606:                                              ; preds = %120
+  %607 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %608 = load ptr, ptr %607, align 8, !invariant.load !6, !nonnull !6
+  %609 = tail call { ptr, ptr } %608(ptr noundef nonnull align 1 %3)
+  %610 = extractvalue { ptr, ptr } %609, 0
+  %611 = extractvalue { ptr, ptr } %609, 1
+  %612 = getelementptr i8, ptr %611, i64 24
+  %.val319 = load ptr, ptr %612, align 8
+  %613 = tail call { i64, i64 } %.val319(ptr noundef nonnull align 1 %610)
+  %614 = extractvalue { i64, i64 } %613, 0
+  %615 = icmp ne i64 %614, 5612233841538967008
+  %616 = extractvalue { i64, i64 } %613, 1
+  %617 = icmp ne i64 %616, -7856419302706516822
+  %.sroa.0.0.i430.not = select i1 %615, i1 true, i1 %617
+  br i1 %.sroa.0.0.i430.not, label %620, label %619, !prof !30
 
-654:                                              ; preds = %405
+618:                                              ; preds = %120
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-655:                                              ; preds = %642
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h2390f4c25a6ff76bE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %409, ptr noundef nonnull align 8 %646)
-  br label %209
+619:                                              ; preds = %606
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h68462e05a32af746E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %124, ptr noundef nonnull align 8 %610)
+  br label %227
 
-656:                                              ; preds = %642
+620:                                              ; preds = %606
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-657:                                              ; preds = %51
-  %658 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %659 = load ptr, ptr %658, align 8, !invariant.load !6, !nonnull !6
-  %660 = tail call { ptr, ptr } %659(ptr noundef nonnull align 1 %3)
-  %661 = extractvalue { ptr, ptr } %660, 0
-  %662 = extractvalue { ptr, ptr } %660, 1
-  %663 = getelementptr i8, ptr %662, i64 24
-  %.val311 = load ptr, ptr %663, align 8
-  %664 = tail call { i64, i64 } %.val311(ptr noundef nonnull align 1 %661)
-  %665 = extractvalue { i64, i64 } %664, 0
-  %666 = icmp ne i64 %665, 8324995987993682601
-  %667 = extractvalue { i64, i64 } %664, 1
-  %668 = icmp ne i64 %667, 1761299767984946403
-  %.sroa.0.0.i425.not = select i1 %666, i1 true, i1 %668
-  br i1 %.sroa.0.0.i425.not, label %671, label %670, !prof !30
+621:                                              ; preds = %132
+  %622 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %623 = load ptr, ptr %622, align 8, !invariant.load !6, !nonnull !6
+  %624 = tail call { ptr, ptr } %623(ptr noundef nonnull align 1 %3)
+  %625 = extractvalue { ptr, ptr } %624, 0
+  %626 = extractvalue { ptr, ptr } %624, 1
+  %627 = getelementptr i8, ptr %626, i64 24
+  %.val321 = load ptr, ptr %627, align 8
+  %628 = tail call { i64, i64 } %.val321(ptr noundef nonnull align 1 %625)
+  %629 = extractvalue { i64, i64 } %628, 0
+  %630 = icmp ne i64 %629, 5209533364377202164
+  %631 = extractvalue { i64, i64 } %628, 1
+  %632 = icmp ne i64 %631, 7812553468775375572
+  %.sroa.0.0.i431.not = select i1 %630, i1 true, i1 %632
+  br i1 %.sroa.0.0.i431.not, label %635, label %634, !prof !30
 
-669:                                              ; preds = %51
+633:                                              ; preds = %132
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-670:                                              ; preds = %657
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h5694d6243c551cedE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %55, ptr noundef nonnull align 8 %661)
-  br label %209
+634:                                              ; preds = %621
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h217f5d8144cee788E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %136, ptr noundef nonnull align 8 %625)
+  br label %227
 
-671:                                              ; preds = %657
+635:                                              ; preds = %621
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-672:                                              ; preds = %63
-  %673 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %674 = load ptr, ptr %673, align 8, !invariant.load !6, !nonnull !6
-  %675 = tail call { ptr, ptr } %674(ptr noundef nonnull align 1 %3)
-  %676 = extractvalue { ptr, ptr } %675, 0
-  %677 = extractvalue { ptr, ptr } %675, 1
-  %678 = getelementptr i8, ptr %677, i64 24
-  %.val313 = load ptr, ptr %678, align 8
-  %679 = tail call { i64, i64 } %.val313(ptr noundef nonnull align 1 %676)
-  %680 = extractvalue { i64, i64 } %679, 0
-  %681 = icmp ne i64 %680, 8681598169992528476
-  %682 = extractvalue { i64, i64 } %679, 1
-  %683 = icmp ne i64 %682, -4953751849895023436
-  %.sroa.0.0.i426.not = select i1 %681, i1 true, i1 %683
-  br i1 %.sroa.0.0.i426.not, label %686, label %685, !prof !30
+636:                                              ; preds = %144
+  %637 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %638 = load ptr, ptr %637, align 8, !invariant.load !6, !nonnull !6
+  %639 = tail call { ptr, ptr } %638(ptr noundef nonnull align 1 %3)
+  %640 = extractvalue { ptr, ptr } %639, 0
+  %641 = extractvalue { ptr, ptr } %639, 1
+  %642 = getelementptr i8, ptr %641, i64 24
+  %.val323 = load ptr, ptr %642, align 8
+  %643 = tail call { i64, i64 } %.val323(ptr noundef nonnull align 1 %640)
+  %644 = extractvalue { i64, i64 } %643, 0
+  %645 = icmp ne i64 %644, -1285076804561215877
+  %646 = extractvalue { i64, i64 } %643, 1
+  %647 = icmp ne i64 %646, -3530592277402597310
+  %.sroa.0.0.i432.not = select i1 %645, i1 true, i1 %647
+  br i1 %.sroa.0.0.i432.not, label %650, label %649, !prof !30
 
-684:                                              ; preds = %63
+648:                                              ; preds = %144
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-685:                                              ; preds = %672
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hef27d15b282fc8e3E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %67, ptr noundef nonnull align 8 %676)
-  br label %209
+649:                                              ; preds = %636
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hd8052263cb0389deE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %148, ptr noundef nonnull align 8 %640)
+  br label %227
 
-686:                                              ; preds = %672
+650:                                              ; preds = %636
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-687:                                              ; preds = %75
-  %688 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %689 = load ptr, ptr %688, align 8, !invariant.load !6, !nonnull !6
-  %690 = tail call { ptr, ptr } %689(ptr noundef nonnull align 1 %3)
-  %691 = extractvalue { ptr, ptr } %690, 0
-  %692 = extractvalue { ptr, ptr } %690, 1
-  %693 = getelementptr i8, ptr %692, i64 24
-  %.val = load ptr, ptr %693, align 8
-  %694 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %691)
-  %695 = extractvalue { i64, i64 } %694, 0
-  %696 = icmp ne i64 %695, -2388166395891534354
-  %697 = extractvalue { i64, i64 } %694, 1
-  %698 = icmp ne i64 %697, 5666521950768639164
-  %.sroa.0.0.i427.not = select i1 %696, i1 true, i1 %698
-  br i1 %.sroa.0.0.i427.not, label %701, label %700, !prof !30
+651:                                              ; preds = %156
+  %652 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %653 = load ptr, ptr %652, align 8, !invariant.load !6, !nonnull !6
+  %654 = tail call { ptr, ptr } %653(ptr noundef nonnull align 1 %3)
+  %655 = extractvalue { ptr, ptr } %654, 0
+  %656 = extractvalue { ptr, ptr } %654, 1
+  %657 = getelementptr i8, ptr %656, i64 24
+  %.val325 = load ptr, ptr %657, align 8
+  %658 = tail call { i64, i64 } %.val325(ptr noundef nonnull align 1 %655)
+  %659 = extractvalue { i64, i64 } %658, 0
+  %660 = icmp ne i64 %659, -4229490849536239523
+  %661 = extractvalue { i64, i64 } %658, 1
+  %662 = icmp ne i64 %661, 1926123703779822909
+  %.sroa.0.0.i433.not = select i1 %660, i1 true, i1 %662
+  br i1 %.sroa.0.0.i433.not, label %665, label %664, !prof !30
 
-699:                                              ; preds = %75
+663:                                              ; preds = %156
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-700:                                              ; preds = %687
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h000f3ad22bda0952E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %79, ptr noundef nonnull align 8 %691)
-  br label %209
+664:                                              ; preds = %651
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17he9b437d19b0dabfeE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %160, ptr noundef nonnull align 8 %655)
+  br label %227
 
-701:                                              ; preds = %687
+665:                                              ; preds = %651
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-702:                                              ; preds = %87
-  %703 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %704 = load ptr, ptr %703, align 8, !invariant.load !6, !nonnull !6
-  %705 = tail call { ptr, ptr } %704(ptr noundef nonnull align 1 %3)
-  %706 = extractvalue { ptr, ptr } %705, 0
-  %707 = extractvalue { ptr, ptr } %705, 1
-  %708 = getelementptr i8, ptr %707, i64 24
-  %.val315 = load ptr, ptr %708, align 8
-  %709 = tail call { i64, i64 } %.val315(ptr noundef nonnull align 1 %706)
-  %710 = extractvalue { i64, i64 } %709, 0
-  %711 = icmp ne i64 %710, -4243404910065975496
-  %712 = extractvalue { i64, i64 } %709, 1
-  %713 = icmp ne i64 %712, -2431153680986591934
-  %.sroa.0.0.i428.not = select i1 %711, i1 true, i1 %713
-  br i1 %.sroa.0.0.i428.not, label %716, label %715, !prof !30
+666:                                              ; preds = %178
+  %667 = icmp ne i64 %186, 341849809492262473
+  %668 = icmp ne i64 %187, 611862421737265251
+  %.sroa.0.0.i434.not = select i1 %667, i1 true, i1 %668
+  br i1 %.sroa.0.0.i434.not, label %705, label %693, !prof !30
 
-714:                                              ; preds = %87
+669:                                              ; preds = %178
+  %670 = icmp ne i64 %186, 2513640661813068704
+  %671 = icmp ne i64 %187, 6724818707647989319
+  %.sroa.0.0.i435.not = select i1 %670, i1 true, i1 %671
+  br i1 %.sroa.0.0.i435.not, label %720, label %708, !prof !30
+
+672:                                              ; preds = %178
+  %673 = icmp ne i64 %186, 3937964684542098673
+  %674 = icmp ne i64 %187, -2221653167821116500
+  %.sroa.0.0.i436.not = select i1 %673, i1 true, i1 %674
+  br i1 %.sroa.0.0.i436.not, label %735, label %723, !prof !30
+
+675:                                              ; preds = %178
+  %676 = icmp ne i64 %186, 2392607815245497461
+  %677 = icmp ne i64 %187, 1275985459044189422
+  %.sroa.0.0.i437.not = select i1 %676, i1 true, i1 %677
+  br i1 %.sroa.0.0.i437.not, label %750, label %738, !prof !30
+
+678:                                              ; preds = %178
+  %679 = icmp ne i64 %186, 7090791848143539004
+  %680 = icmp ne i64 %187, 5073570680214212543
+  %.sroa.0.0.i438.not = select i1 %679, i1 true, i1 %680
+  br i1 %.sroa.0.0.i438.not, label %765, label %753, !prof !30
+
+681:                                              ; preds = %178
+  %682 = icmp ne i64 %186, 5516153207483644272
+  %683 = icmp ne i64 %187, 275732463827437843
+  %.sroa.0.0.i439.not = select i1 %682, i1 true, i1 %683
+  br i1 %.sroa.0.0.i439.not, label %780, label %768, !prof !30
+
+684:                                              ; preds = %178
+  %685 = icmp ne i64 %186, 4615118761646258390
+  %686 = icmp ne i64 %187, 3173253621429432647
+  %.sroa.0.0.i440.not = select i1 %685, i1 true, i1 %686
+  br i1 %.sroa.0.0.i440.not, label %795, label %783, !prof !30
+
+687:                                              ; preds = %178
+  %688 = icmp ne i64 %186, -8242311478931178162
+  %689 = icmp ne i64 %187, -6749062287969796718
+  %.sroa.0.0.i441.not = select i1 %688, i1 true, i1 %689
+  br i1 %.sroa.0.0.i441.not, label %810, label %798, !prof !30
+
+690:                                              ; preds = %178
+  %691 = icmp ne i64 %186, 2541767739881155333
+  %692 = icmp ne i64 %187, -4423643634179343665
+  %.sroa.0.0.i442.not = select i1 %691, i1 true, i1 %692
+  br i1 %.sroa.0.0.i442.not, label %825, label %813, !prof !30
+
+693:                                              ; preds = %666
+  %694 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %695 = load ptr, ptr %694, align 8, !invariant.load !6, !nonnull !6
+  %696 = tail call { ptr, ptr } %695(ptr noundef nonnull align 1 %3)
+  %697 = extractvalue { ptr, ptr } %696, 0
+  %698 = extractvalue { ptr, ptr } %696, 1
+  %699 = getelementptr i8, ptr %698, i64 24
+  %.val361 = load ptr, ptr %699, align 8
+  %700 = tail call { i64, i64 } %.val361(ptr noundef nonnull align 1 %697)
+  %701 = extractvalue { i64, i64 } %700, 0
+  %702 = icmp ne i64 %701, 341849809492262473
+  %703 = extractvalue { i64, i64 } %700, 1
+  %704 = icmp ne i64 %703, 611862421737265251
+  %.sroa.0.0.i443.not = select i1 %702, i1 true, i1 %704
+  br i1 %.sroa.0.0.i443.not, label %707, label %706, !prof !30
+
+705:                                              ; preds = %666
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-715:                                              ; preds = %702
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h84a17988692a8e42E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %91, ptr noundef nonnull align 8 %706)
-  br label %209
+706:                                              ; preds = %693
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h6d857b6059ec58a8E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %697)
+  br label %227
 
-716:                                              ; preds = %702
+707:                                              ; preds = %693
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-717:                                              ; preds = %99
-  %718 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %719 = load ptr, ptr %718, align 8, !invariant.load !6, !nonnull !6
-  %720 = tail call { ptr, ptr } %719(ptr noundef nonnull align 1 %3)
-  %721 = extractvalue { ptr, ptr } %720, 0
-  %722 = extractvalue { ptr, ptr } %720, 1
-  %723 = getelementptr i8, ptr %722, i64 24
-  %.val317 = load ptr, ptr %723, align 8
-  %724 = tail call { i64, i64 } %.val317(ptr noundef nonnull align 1 %721)
-  %725 = extractvalue { i64, i64 } %724, 0
-  %726 = icmp ne i64 %725, 6585618511097865896
-  %727 = extractvalue { i64, i64 } %724, 1
-  %728 = icmp ne i64 %727, 8901751938577251091
-  %.sroa.0.0.i429.not = select i1 %726, i1 true, i1 %728
-  br i1 %.sroa.0.0.i429.not, label %731, label %730, !prof !30
+708:                                              ; preds = %669
+  %709 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %710 = load ptr, ptr %709, align 8, !invariant.load !6, !nonnull !6
+  %711 = tail call { ptr, ptr } %710(ptr noundef nonnull align 1 %3)
+  %712 = extractvalue { ptr, ptr } %711, 0
+  %713 = extractvalue { ptr, ptr } %711, 1
+  %714 = getelementptr i8, ptr %713, i64 24
+  %.val363 = load ptr, ptr %714, align 8
+  %715 = tail call { i64, i64 } %.val363(ptr noundef nonnull align 1 %712)
+  %716 = extractvalue { i64, i64 } %715, 0
+  %717 = icmp ne i64 %716, 2513640661813068704
+  %718 = extractvalue { i64, i64 } %715, 1
+  %719 = icmp ne i64 %718, 6724818707647989319
+  %.sroa.0.0.i444.not = select i1 %717, i1 true, i1 %719
+  br i1 %.sroa.0.0.i444.not, label %722, label %721, !prof !30
 
-729:                                              ; preds = %99
+720:                                              ; preds = %669
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-730:                                              ; preds = %717
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hc280c37c17b6b7e2E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %103, ptr noundef nonnull align 8 %721)
-  br label %209
+721:                                              ; preds = %708
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h5b064d0978a77184E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %712)
+  br label %227
 
-731:                                              ; preds = %717
+722:                                              ; preds = %708
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-732:                                              ; preds = %111
-  %733 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %734 = load ptr, ptr %733, align 8, !invariant.load !6, !nonnull !6
-  %735 = tail call { ptr, ptr } %734(ptr noundef nonnull align 1 %3)
-  %736 = extractvalue { ptr, ptr } %735, 0
-  %737 = extractvalue { ptr, ptr } %735, 1
-  %738 = getelementptr i8, ptr %737, i64 24
-  %.val319 = load ptr, ptr %738, align 8
-  %739 = tail call { i64, i64 } %.val319(ptr noundef nonnull align 1 %736)
-  %740 = extractvalue { i64, i64 } %739, 0
-  %741 = icmp ne i64 %740, 5612233841538967008
-  %742 = extractvalue { i64, i64 } %739, 1
-  %743 = icmp ne i64 %742, -7856419302706516822
-  %.sroa.0.0.i430.not = select i1 %741, i1 true, i1 %743
-  br i1 %.sroa.0.0.i430.not, label %746, label %745, !prof !30
+723:                                              ; preds = %672
+  %724 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %725 = load ptr, ptr %724, align 8, !invariant.load !6, !nonnull !6
+  %726 = tail call { ptr, ptr } %725(ptr noundef nonnull align 1 %3)
+  %727 = extractvalue { ptr, ptr } %726, 0
+  %728 = extractvalue { ptr, ptr } %726, 1
+  %729 = getelementptr i8, ptr %728, i64 24
+  %.val365 = load ptr, ptr %729, align 8
+  %730 = tail call { i64, i64 } %.val365(ptr noundef nonnull align 1 %727)
+  %731 = extractvalue { i64, i64 } %730, 0
+  %732 = icmp ne i64 %731, 3937964684542098673
+  %733 = extractvalue { i64, i64 } %730, 1
+  %734 = icmp ne i64 %733, -2221653167821116500
+  %.sroa.0.0.i445.not = select i1 %732, i1 true, i1 %734
+  br i1 %.sroa.0.0.i445.not, label %737, label %736, !prof !30
 
-744:                                              ; preds = %111
+735:                                              ; preds = %672
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-745:                                              ; preds = %732
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h68462e05a32af746E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %115, ptr noundef nonnull align 8 %736)
-  br label %209
+736:                                              ; preds = %723
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h13a5ec446587b441E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %727)
+  br label %227
 
-746:                                              ; preds = %732
+737:                                              ; preds = %723
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-747:                                              ; preds = %123
-  %748 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %749 = load ptr, ptr %748, align 8, !invariant.load !6, !nonnull !6
-  %750 = tail call { ptr, ptr } %749(ptr noundef nonnull align 1 %3)
-  %751 = extractvalue { ptr, ptr } %750, 0
-  %752 = extractvalue { ptr, ptr } %750, 1
-  %753 = getelementptr i8, ptr %752, i64 24
-  %.val321 = load ptr, ptr %753, align 8
-  %754 = tail call { i64, i64 } %.val321(ptr noundef nonnull align 1 %751)
-  %755 = extractvalue { i64, i64 } %754, 0
-  %756 = icmp ne i64 %755, 5209533364377202164
-  %757 = extractvalue { i64, i64 } %754, 1
-  %758 = icmp ne i64 %757, 7812553468775375572
-  %.sroa.0.0.i431.not = select i1 %756, i1 true, i1 %758
-  br i1 %.sroa.0.0.i431.not, label %761, label %760, !prof !30
+738:                                              ; preds = %675
+  %739 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %740 = load ptr, ptr %739, align 8, !invariant.load !6, !nonnull !6
+  %741 = tail call { ptr, ptr } %740(ptr noundef nonnull align 1 %3)
+  %742 = extractvalue { ptr, ptr } %741, 0
+  %743 = extractvalue { ptr, ptr } %741, 1
+  %744 = getelementptr i8, ptr %743, i64 24
+  %.val367 = load ptr, ptr %744, align 8
+  %745 = tail call { i64, i64 } %.val367(ptr noundef nonnull align 1 %742)
+  %746 = extractvalue { i64, i64 } %745, 0
+  %747 = icmp ne i64 %746, 2392607815245497461
+  %748 = extractvalue { i64, i64 } %745, 1
+  %749 = icmp ne i64 %748, 1275985459044189422
+  %.sroa.0.0.i446.not = select i1 %747, i1 true, i1 %749
+  br i1 %.sroa.0.0.i446.not, label %752, label %751, !prof !30
 
-759:                                              ; preds = %123
+750:                                              ; preds = %675
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-760:                                              ; preds = %747
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h217f5d8144cee788E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %127, ptr noundef nonnull align 8 %751)
-  br label %209
+751:                                              ; preds = %738
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hea1b4fecc0bb7322E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %742)
+  br label %227
 
-761:                                              ; preds = %747
+752:                                              ; preds = %738
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-762:                                              ; preds = %135
-  %763 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %764 = load ptr, ptr %763, align 8, !invariant.load !6, !nonnull !6
-  %765 = tail call { ptr, ptr } %764(ptr noundef nonnull align 1 %3)
-  %766 = extractvalue { ptr, ptr } %765, 0
-  %767 = extractvalue { ptr, ptr } %765, 1
-  %768 = getelementptr i8, ptr %767, i64 24
-  %.val323 = load ptr, ptr %768, align 8
-  %769 = tail call { i64, i64 } %.val323(ptr noundef nonnull align 1 %766)
-  %770 = extractvalue { i64, i64 } %769, 0
-  %771 = icmp ne i64 %770, -1285076804561215877
-  %772 = extractvalue { i64, i64 } %769, 1
-  %773 = icmp ne i64 %772, -3530592277402597310
-  %.sroa.0.0.i432.not = select i1 %771, i1 true, i1 %773
-  br i1 %.sroa.0.0.i432.not, label %776, label %775, !prof !30
+753:                                              ; preds = %678
+  %754 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %755 = load ptr, ptr %754, align 8, !invariant.load !6, !nonnull !6
+  %756 = tail call { ptr, ptr } %755(ptr noundef nonnull align 1 %3)
+  %757 = extractvalue { ptr, ptr } %756, 0
+  %758 = extractvalue { ptr, ptr } %756, 1
+  %759 = getelementptr i8, ptr %758, i64 24
+  %.val369 = load ptr, ptr %759, align 8
+  %760 = tail call { i64, i64 } %.val369(ptr noundef nonnull align 1 %757)
+  %761 = extractvalue { i64, i64 } %760, 0
+  %762 = icmp ne i64 %761, 7090791848143539004
+  %763 = extractvalue { i64, i64 } %760, 1
+  %764 = icmp ne i64 %763, 5073570680214212543
+  %.sroa.0.0.i447.not = select i1 %762, i1 true, i1 %764
+  br i1 %.sroa.0.0.i447.not, label %767, label %766, !prof !30
 
-774:                                              ; preds = %135
+765:                                              ; preds = %678
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-775:                                              ; preds = %762
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hd8052263cb0389deE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %139, ptr noundef nonnull align 8 %766)
-  br label %209
+766:                                              ; preds = %753
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h3a95232af32d533aE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %757)
+  br label %227
 
-776:                                              ; preds = %762
+767:                                              ; preds = %753
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-777:                                              ; preds = %147
-  %778 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %779 = load ptr, ptr %778, align 8, !invariant.load !6, !nonnull !6
-  %780 = tail call { ptr, ptr } %779(ptr noundef nonnull align 1 %3)
-  %781 = extractvalue { ptr, ptr } %780, 0
-  %782 = extractvalue { ptr, ptr } %780, 1
-  %783 = getelementptr i8, ptr %782, i64 24
-  %.val325 = load ptr, ptr %783, align 8
-  %784 = tail call { i64, i64 } %.val325(ptr noundef nonnull align 1 %781)
-  %785 = extractvalue { i64, i64 } %784, 0
-  %786 = icmp ne i64 %785, -4229490849536239523
-  %787 = extractvalue { i64, i64 } %784, 1
-  %788 = icmp ne i64 %787, 1926123703779822909
-  %.sroa.0.0.i433.not = select i1 %786, i1 true, i1 %788
-  br i1 %.sroa.0.0.i433.not, label %791, label %790, !prof !30
+768:                                              ; preds = %681
+  %769 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %770 = load ptr, ptr %769, align 8, !invariant.load !6, !nonnull !6
+  %771 = tail call { ptr, ptr } %770(ptr noundef nonnull align 1 %3)
+  %772 = extractvalue { ptr, ptr } %771, 0
+  %773 = extractvalue { ptr, ptr } %771, 1
+  %774 = getelementptr i8, ptr %773, i64 24
+  %.val371 = load ptr, ptr %774, align 8
+  %775 = tail call { i64, i64 } %.val371(ptr noundef nonnull align 1 %772)
+  %776 = extractvalue { i64, i64 } %775, 0
+  %777 = icmp ne i64 %776, 5516153207483644272
+  %778 = extractvalue { i64, i64 } %775, 1
+  %779 = icmp ne i64 %778, 275732463827437843
+  %.sroa.0.0.i448.not = select i1 %777, i1 true, i1 %779
+  br i1 %.sroa.0.0.i448.not, label %782, label %781, !prof !30
 
-789:                                              ; preds = %147
+780:                                              ; preds = %681
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-790:                                              ; preds = %777
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17he9b437d19b0dabfeE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %151, ptr noundef nonnull align 8 %781)
-  br label %209
+781:                                              ; preds = %768
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17haa616cd18d736db1E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %772)
+  br label %227
 
-791:                                              ; preds = %777
+782:                                              ; preds = %768
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-792:                                              ; preds = %169
-  %793 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %794 = load ptr, ptr %793, align 8, !invariant.load !6, !nonnull !6
-  %795 = tail call { ptr, ptr } %794(ptr noundef nonnull align 1 %1)
-  %796 = extractvalue { ptr, ptr } %795, 0
-  %797 = extractvalue { ptr, ptr } %795, 1
-  %798 = getelementptr i8, ptr %797, i64 24
-  %.val362 = load ptr, ptr %798, align 8
-  %799 = tail call { i64, i64 } %.val362(ptr noundef nonnull align 1 %796)
-  %800 = extractvalue { i64, i64 } %799, 0
-  %801 = icmp ne i64 %800, 341849809492262473
-  %802 = extractvalue { i64, i64 } %799, 1
-  %803 = icmp ne i64 %802, 611862421737265251
-  %.sroa.0.0.i434.not = select i1 %801, i1 true, i1 %803
-  br i1 %.sroa.0.0.i434.not, label %912, label %900, !prof !30
+783:                                              ; preds = %684
+  %784 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %785 = load ptr, ptr %784, align 8, !invariant.load !6, !nonnull !6
+  %786 = tail call { ptr, ptr } %785(ptr noundef nonnull align 1 %3)
+  %787 = extractvalue { ptr, ptr } %786, 0
+  %788 = extractvalue { ptr, ptr } %786, 1
+  %789 = getelementptr i8, ptr %788, i64 24
+  %.val373 = load ptr, ptr %789, align 8
+  %790 = tail call { i64, i64 } %.val373(ptr noundef nonnull align 1 %787)
+  %791 = extractvalue { i64, i64 } %790, 0
+  %792 = icmp ne i64 %791, 4615118761646258390
+  %793 = extractvalue { i64, i64 } %790, 1
+  %794 = icmp ne i64 %793, 3173253621429432647
+  %.sroa.0.0.i449.not = select i1 %792, i1 true, i1 %794
+  br i1 %.sroa.0.0.i449.not, label %797, label %796, !prof !30
 
-804:                                              ; preds = %169
-  %805 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %806 = load ptr, ptr %805, align 8, !invariant.load !6, !nonnull !6
-  %807 = tail call { ptr, ptr } %806(ptr noundef nonnull align 1 %1)
-  %808 = extractvalue { ptr, ptr } %807, 0
-  %809 = extractvalue { ptr, ptr } %807, 1
-  %810 = getelementptr i8, ptr %809, i64 24
-  %.val364 = load ptr, ptr %810, align 8
-  %811 = tail call { i64, i64 } %.val364(ptr noundef nonnull align 1 %808)
-  %812 = extractvalue { i64, i64 } %811, 0
-  %813 = icmp ne i64 %812, 2513640661813068704
-  %814 = extractvalue { i64, i64 } %811, 1
-  %815 = icmp ne i64 %814, 6724818707647989319
-  %.sroa.0.0.i435.not = select i1 %813, i1 true, i1 %815
-  br i1 %.sroa.0.0.i435.not, label %927, label %915, !prof !30
+795:                                              ; preds = %684
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
 
-816:                                              ; preds = %169
-  %817 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %818 = load ptr, ptr %817, align 8, !invariant.load !6, !nonnull !6
-  %819 = tail call { ptr, ptr } %818(ptr noundef nonnull align 1 %1)
-  %820 = extractvalue { ptr, ptr } %819, 0
-  %821 = extractvalue { ptr, ptr } %819, 1
-  %822 = getelementptr i8, ptr %821, i64 24
-  %.val366 = load ptr, ptr %822, align 8
-  %823 = tail call { i64, i64 } %.val366(ptr noundef nonnull align 1 %820)
-  %824 = extractvalue { i64, i64 } %823, 0
-  %825 = icmp ne i64 %824, 3937964684542098673
-  %826 = extractvalue { i64, i64 } %823, 1
-  %827 = icmp ne i64 %826, -2221653167821116500
-  %.sroa.0.0.i436.not = select i1 %825, i1 true, i1 %827
-  br i1 %.sroa.0.0.i436.not, label %942, label %930, !prof !30
+796:                                              ; preds = %783
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hb0e09d5344514595E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %787)
+  br label %227
 
-828:                                              ; preds = %169
-  %829 = getelementptr inbounds nuw i8, ptr %2, i64 32
+797:                                              ; preds = %783
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
+
+798:                                              ; preds = %687
+  %799 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %800 = load ptr, ptr %799, align 8, !invariant.load !6, !nonnull !6
+  %801 = tail call { ptr, ptr } %800(ptr noundef nonnull align 1 %3)
+  %802 = extractvalue { ptr, ptr } %801, 0
+  %803 = extractvalue { ptr, ptr } %801, 1
+  %804 = getelementptr i8, ptr %803, i64 24
+  %.val375 = load ptr, ptr %804, align 8
+  %805 = tail call { i64, i64 } %.val375(ptr noundef nonnull align 1 %802)
+  %806 = extractvalue { i64, i64 } %805, 0
+  %807 = icmp ne i64 %806, -8242311478931178162
+  %808 = extractvalue { i64, i64 } %805, 1
+  %809 = icmp ne i64 %808, -6749062287969796718
+  %.sroa.0.0.i450.not = select i1 %807, i1 true, i1 %809
+  br i1 %.sroa.0.0.i450.not, label %812, label %811, !prof !30
+
+810:                                              ; preds = %687
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
+
+811:                                              ; preds = %798
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hb32e12c97b221d5eE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %802)
+  br label %227
+
+812:                                              ; preds = %798
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
+
+813:                                              ; preds = %690
+  %814 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %815 = load ptr, ptr %814, align 8, !invariant.load !6, !nonnull !6
+  %816 = tail call { ptr, ptr } %815(ptr noundef nonnull align 1 %3)
+  %817 = extractvalue { ptr, ptr } %816, 0
+  %818 = extractvalue { ptr, ptr } %816, 1
+  %819 = getelementptr i8, ptr %818, i64 24
+  %.val377 = load ptr, ptr %819, align 8
+  %820 = tail call { i64, i64 } %.val377(ptr noundef nonnull align 1 %817)
+  %821 = extractvalue { i64, i64 } %820, 0
+  %822 = icmp ne i64 %821, 2541767739881155333
+  %823 = extractvalue { i64, i64 } %820, 1
+  %824 = icmp ne i64 %823, -4423643634179343665
+  %.sroa.0.0.i451.not = select i1 %822, i1 true, i1 %824
+  br i1 %.sroa.0.0.i451.not, label %827, label %826, !prof !30
+
+825:                                              ; preds = %690
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
+
+826:                                              ; preds = %813
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hee077e09fc21fa02E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %817)
+  br label %227
+
+827:                                              ; preds = %813
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
+  unreachable
+
+828:                                              ; preds = %188
+  %829 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %830 = load ptr, ptr %829, align 8, !invariant.load !6, !nonnull !6
-  %831 = tail call { ptr, ptr } %830(ptr noundef nonnull align 1 %1)
+  %831 = tail call { ptr, ptr } %830(ptr noundef nonnull align 1 %3)
   %832 = extractvalue { ptr, ptr } %831, 0
   %833 = extractvalue { ptr, ptr } %831, 1
   %834 = getelementptr i8, ptr %833, i64 24
-  %.val368 = load ptr, ptr %834, align 8
-  %835 = tail call { i64, i64 } %.val368(ptr noundef nonnull align 1 %832)
+  %.val305 = load ptr, ptr %834, align 8
+  %835 = tail call { i64, i64 } %.val305(ptr noundef nonnull align 1 %832)
   %836 = extractvalue { i64, i64 } %835, 0
-  %837 = icmp ne i64 %836, 2392607815245497461
+  %837 = icmp ne i64 %836, -5133974785058079944
   %838 = extractvalue { i64, i64 } %835, 1
-  %839 = icmp ne i64 %838, 1275985459044189422
-  %.sroa.0.0.i437.not = select i1 %837, i1 true, i1 %839
-  br i1 %.sroa.0.0.i437.not, label %957, label %945, !prof !30
+  %839 = icmp ne i64 %838, -2115088211549721928
+  %.sroa.0.0.i452.not = select i1 %837, i1 true, i1 %839
+  br i1 %.sroa.0.0.i452.not, label %842, label %841, !prof !30
 
-840:                                              ; preds = %169
-  %841 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %842 = load ptr, ptr %841, align 8, !invariant.load !6, !nonnull !6
-  %843 = tail call { ptr, ptr } %842(ptr noundef nonnull align 1 %1)
-  %844 = extractvalue { ptr, ptr } %843, 0
-  %845 = extractvalue { ptr, ptr } %843, 1
-  %846 = getelementptr i8, ptr %845, i64 24
-  %.val370 = load ptr, ptr %846, align 8
-  %847 = tail call { i64, i64 } %.val370(ptr noundef nonnull align 1 %844)
-  %848 = extractvalue { i64, i64 } %847, 0
-  %849 = icmp ne i64 %848, 7090791848143539004
-  %850 = extractvalue { i64, i64 } %847, 1
-  %851 = icmp ne i64 %850, 5073570680214212543
-  %.sroa.0.0.i438.not = select i1 %849, i1 true, i1 %851
-  br i1 %.sroa.0.0.i438.not, label %972, label %960, !prof !30
-
-852:                                              ; preds = %169
-  %853 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %854 = load ptr, ptr %853, align 8, !invariant.load !6, !nonnull !6
-  %855 = tail call { ptr, ptr } %854(ptr noundef nonnull align 1 %1)
-  %856 = extractvalue { ptr, ptr } %855, 0
-  %857 = extractvalue { ptr, ptr } %855, 1
-  %858 = getelementptr i8, ptr %857, i64 24
-  %.val372 = load ptr, ptr %858, align 8
-  %859 = tail call { i64, i64 } %.val372(ptr noundef nonnull align 1 %856)
-  %860 = extractvalue { i64, i64 } %859, 0
-  %861 = icmp ne i64 %860, 5516153207483644272
-  %862 = extractvalue { i64, i64 } %859, 1
-  %863 = icmp ne i64 %862, 275732463827437843
-  %.sroa.0.0.i439.not = select i1 %861, i1 true, i1 %863
-  br i1 %.sroa.0.0.i439.not, label %987, label %975, !prof !30
-
-864:                                              ; preds = %169
-  %865 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %866 = load ptr, ptr %865, align 8, !invariant.load !6, !nonnull !6
-  %867 = tail call { ptr, ptr } %866(ptr noundef nonnull align 1 %1)
-  %868 = extractvalue { ptr, ptr } %867, 0
-  %869 = extractvalue { ptr, ptr } %867, 1
-  %870 = getelementptr i8, ptr %869, i64 24
-  %.val374 = load ptr, ptr %870, align 8
-  %871 = tail call { i64, i64 } %.val374(ptr noundef nonnull align 1 %868)
-  %872 = extractvalue { i64, i64 } %871, 0
-  %873 = icmp ne i64 %872, 4615118761646258390
-  %874 = extractvalue { i64, i64 } %871, 1
-  %875 = icmp ne i64 %874, 3173253621429432647
-  %.sroa.0.0.i440.not = select i1 %873, i1 true, i1 %875
-  br i1 %.sroa.0.0.i440.not, label %1002, label %990, !prof !30
-
-876:                                              ; preds = %169
-  %877 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %878 = load ptr, ptr %877, align 8, !invariant.load !6, !nonnull !6
-  %879 = tail call { ptr, ptr } %878(ptr noundef nonnull align 1 %1)
-  %880 = extractvalue { ptr, ptr } %879, 0
-  %881 = extractvalue { ptr, ptr } %879, 1
-  %882 = getelementptr i8, ptr %881, i64 24
-  %.val376 = load ptr, ptr %882, align 8
-  %883 = tail call { i64, i64 } %.val376(ptr noundef nonnull align 1 %880)
-  %884 = extractvalue { i64, i64 } %883, 0
-  %885 = icmp ne i64 %884, -8242311478931178162
-  %886 = extractvalue { i64, i64 } %883, 1
-  %887 = icmp ne i64 %886, -6749062287969796718
-  %.sroa.0.0.i441.not = select i1 %885, i1 true, i1 %887
-  br i1 %.sroa.0.0.i441.not, label %1017, label %1005, !prof !30
-
-888:                                              ; preds = %169
-  %889 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %890 = load ptr, ptr %889, align 8, !invariant.load !6, !nonnull !6
-  %891 = tail call { ptr, ptr } %890(ptr noundef nonnull align 1 %1)
-  %892 = extractvalue { ptr, ptr } %891, 0
-  %893 = extractvalue { ptr, ptr } %891, 1
-  %894 = getelementptr i8, ptr %893, i64 24
-  %.val378 = load ptr, ptr %894, align 8
-  %895 = tail call { i64, i64 } %.val378(ptr noundef nonnull align 1 %892)
-  %896 = extractvalue { i64, i64 } %895, 0
-  %897 = icmp ne i64 %896, 2541767739881155333
-  %898 = extractvalue { i64, i64 } %895, 1
-  %899 = icmp ne i64 %898, -4423643634179343665
-  %.sroa.0.0.i442.not = select i1 %897, i1 true, i1 %899
-  br i1 %.sroa.0.0.i442.not, label %1032, label %1020, !prof !30
-
-900:                                              ; preds = %792
-  %901 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %902 = load ptr, ptr %901, align 8, !invariant.load !6, !nonnull !6
-  %903 = tail call { ptr, ptr } %902(ptr noundef nonnull align 1 %3)
-  %904 = extractvalue { ptr, ptr } %903, 0
-  %905 = extractvalue { ptr, ptr } %903, 1
-  %906 = getelementptr i8, ptr %905, i64 24
-  %.val361 = load ptr, ptr %906, align 8
-  %907 = tail call { i64, i64 } %.val361(ptr noundef nonnull align 1 %904)
-  %908 = extractvalue { i64, i64 } %907, 0
-  %909 = icmp ne i64 %908, 341849809492262473
-  %910 = extractvalue { i64, i64 } %907, 1
-  %911 = icmp ne i64 %910, 611862421737265251
-  %.sroa.0.0.i443.not = select i1 %909, i1 true, i1 %911
-  br i1 %.sroa.0.0.i443.not, label %914, label %913, !prof !30
-
-912:                                              ; preds = %792
+840:                                              ; preds = %188
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-913:                                              ; preds = %900
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h6d857b6059ec58a8E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %796, ptr noundef nonnull align 8 %904)
-  br label %209
+841:                                              ; preds = %828
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hf53defe7a079e182E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %192, ptr noundef nonnull align 8 %832)
+  br label %227
 
-914:                                              ; preds = %900
+842:                                              ; preds = %828
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-915:                                              ; preds = %804
-  %916 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %917 = load ptr, ptr %916, align 8, !invariant.load !6, !nonnull !6
-  %918 = tail call { ptr, ptr } %917(ptr noundef nonnull align 1 %3)
-  %919 = extractvalue { ptr, ptr } %918, 0
-  %920 = extractvalue { ptr, ptr } %918, 1
-  %921 = getelementptr i8, ptr %920, i64 24
-  %.val363 = load ptr, ptr %921, align 8
-  %922 = tail call { i64, i64 } %.val363(ptr noundef nonnull align 1 %919)
-  %923 = extractvalue { i64, i64 } %922, 0
-  %924 = icmp ne i64 %923, 2513640661813068704
-  %925 = extractvalue { i64, i64 } %922, 1
-  %926 = icmp ne i64 %925, 6724818707647989319
-  %.sroa.0.0.i444.not = select i1 %924, i1 true, i1 %926
-  br i1 %.sroa.0.0.i444.not, label %929, label %928, !prof !30
+843:                                              ; preds = %200
+  %844 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %845 = load ptr, ptr %844, align 8, !invariant.load !6, !nonnull !6
+  %846 = tail call { ptr, ptr } %845(ptr noundef nonnull align 1 %3)
+  %847 = extractvalue { ptr, ptr } %846, 0
+  %848 = extractvalue { ptr, ptr } %846, 1
+  %849 = getelementptr i8, ptr %848, i64 24
+  %.val327 = load ptr, ptr %849, align 8
+  %850 = tail call { i64, i64 } %.val327(ptr noundef nonnull align 1 %847)
+  %851 = extractvalue { i64, i64 } %850, 0
+  %852 = icmp ne i64 %851, -4691702406351074806
+  %853 = extractvalue { i64, i64 } %850, 1
+  %854 = icmp ne i64 %853, -766443083152007247
+  %.sroa.0.0.i453.not = select i1 %852, i1 true, i1 %854
+  br i1 %.sroa.0.0.i453.not, label %857, label %856, !prof !30
 
-927:                                              ; preds = %804
+855:                                              ; preds = %200
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 
-928:                                              ; preds = %915
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h5b064d0978a77184E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %808, ptr noundef nonnull align 8 %919)
-  br label %209
+856:                                              ; preds = %843
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h9aaa0f086e20e820E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %204, ptr noundef nonnull align 8 %847)
+  br label %227
 
-929:                                              ; preds = %915
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-930:                                              ; preds = %816
-  %931 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %932 = load ptr, ptr %931, align 8, !invariant.load !6, !nonnull !6
-  %933 = tail call { ptr, ptr } %932(ptr noundef nonnull align 1 %3)
-  %934 = extractvalue { ptr, ptr } %933, 0
-  %935 = extractvalue { ptr, ptr } %933, 1
-  %936 = getelementptr i8, ptr %935, i64 24
-  %.val365 = load ptr, ptr %936, align 8
-  %937 = tail call { i64, i64 } %.val365(ptr noundef nonnull align 1 %934)
-  %938 = extractvalue { i64, i64 } %937, 0
-  %939 = icmp ne i64 %938, 3937964684542098673
-  %940 = extractvalue { i64, i64 } %937, 1
-  %941 = icmp ne i64 %940, -2221653167821116500
-  %.sroa.0.0.i445.not = select i1 %939, i1 true, i1 %941
-  br i1 %.sroa.0.0.i445.not, label %944, label %943, !prof !30
-
-942:                                              ; preds = %816
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-943:                                              ; preds = %930
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h13a5ec446587b441E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %820, ptr noundef nonnull align 8 %934)
-  br label %209
-
-944:                                              ; preds = %930
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-945:                                              ; preds = %828
-  %946 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %947 = load ptr, ptr %946, align 8, !invariant.load !6, !nonnull !6
-  %948 = tail call { ptr, ptr } %947(ptr noundef nonnull align 1 %3)
-  %949 = extractvalue { ptr, ptr } %948, 0
-  %950 = extractvalue { ptr, ptr } %948, 1
-  %951 = getelementptr i8, ptr %950, i64 24
-  %.val367 = load ptr, ptr %951, align 8
-  %952 = tail call { i64, i64 } %.val367(ptr noundef nonnull align 1 %949)
-  %953 = extractvalue { i64, i64 } %952, 0
-  %954 = icmp ne i64 %953, 2392607815245497461
-  %955 = extractvalue { i64, i64 } %952, 1
-  %956 = icmp ne i64 %955, 1275985459044189422
-  %.sroa.0.0.i446.not = select i1 %954, i1 true, i1 %956
-  br i1 %.sroa.0.0.i446.not, label %959, label %958, !prof !30
-
-957:                                              ; preds = %828
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-958:                                              ; preds = %945
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hea1b4fecc0bb7322E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %832, ptr noundef nonnull align 8 %949)
-  br label %209
-
-959:                                              ; preds = %945
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-960:                                              ; preds = %840
-  %961 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %962 = load ptr, ptr %961, align 8, !invariant.load !6, !nonnull !6
-  %963 = tail call { ptr, ptr } %962(ptr noundef nonnull align 1 %3)
-  %964 = extractvalue { ptr, ptr } %963, 0
-  %965 = extractvalue { ptr, ptr } %963, 1
-  %966 = getelementptr i8, ptr %965, i64 24
-  %.val369 = load ptr, ptr %966, align 8
-  %967 = tail call { i64, i64 } %.val369(ptr noundef nonnull align 1 %964)
-  %968 = extractvalue { i64, i64 } %967, 0
-  %969 = icmp ne i64 %968, 7090791848143539004
-  %970 = extractvalue { i64, i64 } %967, 1
-  %971 = icmp ne i64 %970, 5073570680214212543
-  %.sroa.0.0.i447.not = select i1 %969, i1 true, i1 %971
-  br i1 %.sroa.0.0.i447.not, label %974, label %973, !prof !30
-
-972:                                              ; preds = %840
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-973:                                              ; preds = %960
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h3a95232af32d533aE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %844, ptr noundef nonnull align 8 %964)
-  br label %209
-
-974:                                              ; preds = %960
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-975:                                              ; preds = %852
-  %976 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %977 = load ptr, ptr %976, align 8, !invariant.load !6, !nonnull !6
-  %978 = tail call { ptr, ptr } %977(ptr noundef nonnull align 1 %3)
-  %979 = extractvalue { ptr, ptr } %978, 0
-  %980 = extractvalue { ptr, ptr } %978, 1
-  %981 = getelementptr i8, ptr %980, i64 24
-  %.val371 = load ptr, ptr %981, align 8
-  %982 = tail call { i64, i64 } %.val371(ptr noundef nonnull align 1 %979)
-  %983 = extractvalue { i64, i64 } %982, 0
-  %984 = icmp ne i64 %983, 5516153207483644272
-  %985 = extractvalue { i64, i64 } %982, 1
-  %986 = icmp ne i64 %985, 275732463827437843
-  %.sroa.0.0.i448.not = select i1 %984, i1 true, i1 %986
-  br i1 %.sroa.0.0.i448.not, label %989, label %988, !prof !30
-
-987:                                              ; preds = %852
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-988:                                              ; preds = %975
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17haa616cd18d736db1E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %856, ptr noundef nonnull align 8 %979)
-  br label %209
-
-989:                                              ; preds = %975
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-990:                                              ; preds = %864
-  %991 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %992 = load ptr, ptr %991, align 8, !invariant.load !6, !nonnull !6
-  %993 = tail call { ptr, ptr } %992(ptr noundef nonnull align 1 %3)
-  %994 = extractvalue { ptr, ptr } %993, 0
-  %995 = extractvalue { ptr, ptr } %993, 1
-  %996 = getelementptr i8, ptr %995, i64 24
-  %.val373 = load ptr, ptr %996, align 8
-  %997 = tail call { i64, i64 } %.val373(ptr noundef nonnull align 1 %994)
-  %998 = extractvalue { i64, i64 } %997, 0
-  %999 = icmp ne i64 %998, 4615118761646258390
-  %1000 = extractvalue { i64, i64 } %997, 1
-  %1001 = icmp ne i64 %1000, 3173253621429432647
-  %.sroa.0.0.i449.not = select i1 %999, i1 true, i1 %1001
-  br i1 %.sroa.0.0.i449.not, label %1004, label %1003, !prof !30
-
-1002:                                             ; preds = %864
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-1003:                                             ; preds = %990
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hb0e09d5344514595E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %868, ptr noundef nonnull align 8 %994)
-  br label %209
-
-1004:                                             ; preds = %990
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-1005:                                             ; preds = %876
-  %1006 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %1007 = load ptr, ptr %1006, align 8, !invariant.load !6, !nonnull !6
-  %1008 = tail call { ptr, ptr } %1007(ptr noundef nonnull align 1 %3)
-  %1009 = extractvalue { ptr, ptr } %1008, 0
-  %1010 = extractvalue { ptr, ptr } %1008, 1
-  %1011 = getelementptr i8, ptr %1010, i64 24
-  %.val375 = load ptr, ptr %1011, align 8
-  %1012 = tail call { i64, i64 } %.val375(ptr noundef nonnull align 1 %1009)
-  %1013 = extractvalue { i64, i64 } %1012, 0
-  %1014 = icmp ne i64 %1013, -8242311478931178162
-  %1015 = extractvalue { i64, i64 } %1012, 1
-  %1016 = icmp ne i64 %1015, -6749062287969796718
-  %.sroa.0.0.i450.not = select i1 %1014, i1 true, i1 %1016
-  br i1 %.sroa.0.0.i450.not, label %1019, label %1018, !prof !30
-
-1017:                                             ; preds = %876
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-1018:                                             ; preds = %1005
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hb32e12c97b221d5eE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %880, ptr noundef nonnull align 8 %1009)
-  br label %209
-
-1019:                                             ; preds = %1005
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-1020:                                             ; preds = %888
-  %1021 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %1022 = load ptr, ptr %1021, align 8, !invariant.load !6, !nonnull !6
-  %1023 = tail call { ptr, ptr } %1022(ptr noundef nonnull align 1 %3)
-  %1024 = extractvalue { ptr, ptr } %1023, 0
-  %1025 = extractvalue { ptr, ptr } %1023, 1
-  %1026 = getelementptr i8, ptr %1025, i64 24
-  %.val377 = load ptr, ptr %1026, align 8
-  %1027 = tail call { i64, i64 } %.val377(ptr noundef nonnull align 1 %1024)
-  %1028 = extractvalue { i64, i64 } %1027, 0
-  %1029 = icmp ne i64 %1028, 2541767739881155333
-  %1030 = extractvalue { i64, i64 } %1027, 1
-  %1031 = icmp ne i64 %1030, -4423643634179343665
-  %.sroa.0.0.i451.not = select i1 %1029, i1 true, i1 %1031
-  br i1 %.sroa.0.0.i451.not, label %1034, label %1033, !prof !30
-
-1032:                                             ; preds = %888
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-1033:                                             ; preds = %1020
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hee077e09fc21fa02E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %892, ptr noundef nonnull align 8 %1024)
-  br label %209
-
-1034:                                             ; preds = %1020
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-1035:                                             ; preds = %170
-  %1036 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %1037 = load ptr, ptr %1036, align 8, !invariant.load !6, !nonnull !6
-  %1038 = tail call { ptr, ptr } %1037(ptr noundef nonnull align 1 %3)
-  %1039 = extractvalue { ptr, ptr } %1038, 0
-  %1040 = extractvalue { ptr, ptr } %1038, 1
-  %1041 = getelementptr i8, ptr %1040, i64 24
-  %.val305 = load ptr, ptr %1041, align 8
-  %1042 = tail call { i64, i64 } %.val305(ptr noundef nonnull align 1 %1039)
-  %1043 = extractvalue { i64, i64 } %1042, 0
-  %1044 = icmp ne i64 %1043, -5133974785058079944
-  %1045 = extractvalue { i64, i64 } %1042, 1
-  %1046 = icmp ne i64 %1045, -2115088211549721928
-  %.sroa.0.0.i452.not = select i1 %1044, i1 true, i1 %1046
-  br i1 %.sroa.0.0.i452.not, label %1049, label %1048, !prof !30
-
-1047:                                             ; preds = %170
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-1048:                                             ; preds = %1035
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17hf53defe7a079e182E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 8 %1039)
-  br label %209
-
-1049:                                             ; preds = %1035
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-1050:                                             ; preds = %182
-  %1051 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %1052 = load ptr, ptr %1051, align 8, !invariant.load !6, !nonnull !6
-  %1053 = tail call { ptr, ptr } %1052(ptr noundef nonnull align 1 %3)
-  %1054 = extractvalue { ptr, ptr } %1053, 0
-  %1055 = extractvalue { ptr, ptr } %1053, 1
-  %1056 = getelementptr i8, ptr %1055, i64 24
-  %.val327 = load ptr, ptr %1056, align 8
-  %1057 = tail call { i64, i64 } %.val327(ptr noundef nonnull align 1 %1054)
-  %1058 = extractvalue { i64, i64 } %1057, 0
-  %1059 = icmp ne i64 %1058, -4691702406351074806
-  %1060 = extractvalue { i64, i64 } %1057, 1
-  %1061 = icmp ne i64 %1060, -766443083152007247
-  %.sroa.0.0.i453.not = select i1 %1059, i1 true, i1 %1061
-  br i1 %.sroa.0.0.i453.not, label %1064, label %1063, !prof !30
-
-1062:                                             ; preds = %182
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
-  unreachable
-
-1063:                                             ; preds = %1050
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_eq_missing_kernel17h9aaa0f086e20e820E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %186, ptr noundef nonnull align 8 %1054)
-  br label %209
-
-1064:                                             ; preds = %1050
+857:                                              ; preds = %843
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.370) #25
   unreachable
 }
@@ -92621,23 +92391,23 @@ define void @_ZN14polars_compute11comparisons9dyn_array27array_tot_ne_missing_ke
     i8 0, label %26
     i8 1, label %38
     i8 2, label %50
-    i8 3, label %51
-    i8 4, label %63
-    i8 5, label %75
-    i8 6, label %87
-    i8 7, label %99
-    i8 8, label %111
-    i8 9, label %123
-    i8 10, label %135
-    i8 11, label %147
-    i8 12, label %159
-    i8 13, label %164
-    i8 14, label %169
-    i8 15, label %170
-    i8 16, label %182
+    i8 3, label %60
+    i8 4, label %72
+    i8 5, label %84
+    i8 6, label %96
+    i8 7, label %108
+    i8 8, label %120
+    i8 9, label %132
+    i8 10, label %144
+    i8 11, label %156
+    i8 12, label %168
+    i8 13, label %173
+    i8 14, label %178
+    i8 15, label %188
+    i8 16, label %200
   ], !prof !7488
 
-25:                                               ; preds = %169, %50, %20
+25:                                               ; preds = %178, %50, %20
   unreachable
 
 26:                                               ; preds = %20
@@ -92654,7 +92424,7 @@ define void @_ZN14polars_compute11comparisons9dyn_array27array_tot_ne_missing_ke
   %36 = extractvalue { i64, i64 } %33, 1
   %37 = icmp ne i64 %36, 1787045636924429069
   %.sroa.0.0.i.not = select i1 %35, i1 true, i1 %37
-  br i1 %.sroa.0.0.i.not, label %206, label %194, !prof !30
+  br i1 %.sroa.0.0.i.not, label %224, label %212, !prof !30
 
 38:                                               ; preds = %20
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -92670,1709 +92440,1479 @@ define void @_ZN14polars_compute11comparisons9dyn_array27array_tot_ne_missing_ke
   %48 = extractvalue { i64, i64 } %45, 1
   %49 = icmp ne i64 %48, 6984851860647661607
   %.sroa.0.0.i379.not = select i1 %47, i1 true, i1 %49
-  br i1 %.sroa.0.0.i379.not, label %222, label %210, !prof !30
+  br i1 %.sroa.0.0.i379.not, label %240, label %228, !prof !30
 
 50:                                               ; preds = %20
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %52 = load ptr, ptr %51, align 8, !invariant.load !6, !nonnull !6
+  %53 = tail call { ptr, ptr } %52(ptr noundef nonnull align 1 %1)
+  %54 = extractvalue { ptr, ptr } %53, 0
+  %55 = extractvalue { ptr, ptr } %53, 1
+  %56 = getelementptr i8, ptr %55, i64 24
+  %.val330 = load ptr, ptr %56, align 8
+  %57 = tail call { i64, i64 } %.val330(ptr noundef nonnull align 1 %54)
+  %58 = extractvalue { i64, i64 } %57, 0
+  %59 = extractvalue { i64, i64 } %57, 1
   switch i8 %24, label %25 [
-    i8 0, label %225
-    i8 1, label %237
+    i8 0, label %243
+    i8 1, label %246
     i8 2, label %249
-    i8 3, label %261
-    i8 4, label %273
-    i8 5, label %285
-    i8 6, label %297
-    i8 7, label %309
-    i8 8, label %321
-    i8 9, label %333
-    i8 10, label %345
-    i8 11, label %357
-    i8 12, label %369
-    i8 13, label %381
-    i8 14, label %393
-    i8 15, label %405
+    i8 3, label %252
+    i8 4, label %255
+    i8 5, label %258
+    i8 6, label %261
+    i8 7, label %264
+    i8 8, label %267
+    i8 9, label %270
+    i8 10, label %273
+    i8 11, label %276
+    i8 12, label %279
+    i8 13, label %282
+    i8 14, label %285
+    i8 15, label %288
   ]
 
-51:                                               ; preds = %20
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %53 = load ptr, ptr %52, align 8, !invariant.load !6, !nonnull !6
-  %54 = tail call { ptr, ptr } %53(ptr noundef nonnull align 1 %1)
-  %55 = extractvalue { ptr, ptr } %54, 0
-  %56 = extractvalue { ptr, ptr } %54, 1
-  %57 = getelementptr i8, ptr %56, i64 24
-  %.val312 = load ptr, ptr %57, align 8
-  %58 = tail call { i64, i64 } %.val312(ptr noundef nonnull align 1 %55)
-  %59 = extractvalue { i64, i64 } %58, 0
-  %60 = icmp ne i64 %59, 8324995987993682601
-  %61 = extractvalue { i64, i64 } %58, 1
-  %62 = icmp ne i64 %61, 1761299767984946403
-  %.sroa.0.0.i380.not = select i1 %60, i1 true, i1 %62
-  br i1 %.sroa.0.0.i380.not, label %669, label %657, !prof !30
+60:                                               ; preds = %20
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %62 = load ptr, ptr %61, align 8, !invariant.load !6, !nonnull !6
+  %63 = tail call { ptr, ptr } %62(ptr noundef nonnull align 1 %1)
+  %64 = extractvalue { ptr, ptr } %63, 0
+  %65 = extractvalue { ptr, ptr } %63, 1
+  %66 = getelementptr i8, ptr %65, i64 24
+  %.val312 = load ptr, ptr %66, align 8
+  %67 = tail call { i64, i64 } %.val312(ptr noundef nonnull align 1 %64)
+  %68 = extractvalue { i64, i64 } %67, 0
+  %69 = icmp ne i64 %68, 8324995987993682601
+  %70 = extractvalue { i64, i64 } %67, 1
+  %71 = icmp ne i64 %70, 1761299767984946403
+  %.sroa.0.0.i380.not = select i1 %69, i1 true, i1 %71
+  br i1 %.sroa.0.0.i380.not, label %543, label %531, !prof !30
 
-63:                                               ; preds = %20
-  %64 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %65 = load ptr, ptr %64, align 8, !invariant.load !6, !nonnull !6
-  %66 = tail call { ptr, ptr } %65(ptr noundef nonnull align 1 %1)
-  %67 = extractvalue { ptr, ptr } %66, 0
-  %68 = extractvalue { ptr, ptr } %66, 1
-  %69 = getelementptr i8, ptr %68, i64 24
-  %.val314 = load ptr, ptr %69, align 8
-  %70 = tail call { i64, i64 } %.val314(ptr noundef nonnull align 1 %67)
-  %71 = extractvalue { i64, i64 } %70, 0
-  %72 = icmp ne i64 %71, 8681598169992528476
-  %73 = extractvalue { i64, i64 } %70, 1
-  %74 = icmp ne i64 %73, -4953751849895023436
-  %.sroa.0.0.i381.not = select i1 %72, i1 true, i1 %74
-  br i1 %.sroa.0.0.i381.not, label %684, label %672, !prof !30
+72:                                               ; preds = %20
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %74 = load ptr, ptr %73, align 8, !invariant.load !6, !nonnull !6
+  %75 = tail call { ptr, ptr } %74(ptr noundef nonnull align 1 %1)
+  %76 = extractvalue { ptr, ptr } %75, 0
+  %77 = extractvalue { ptr, ptr } %75, 1
+  %78 = getelementptr i8, ptr %77, i64 24
+  %.val314 = load ptr, ptr %78, align 8
+  %79 = tail call { i64, i64 } %.val314(ptr noundef nonnull align 1 %76)
+  %80 = extractvalue { i64, i64 } %79, 0
+  %81 = icmp ne i64 %80, 8681598169992528476
+  %82 = extractvalue { i64, i64 } %79, 1
+  %83 = icmp ne i64 %82, -4953751849895023436
+  %.sroa.0.0.i381.not = select i1 %81, i1 true, i1 %83
+  br i1 %.sroa.0.0.i381.not, label %558, label %546, !prof !30
 
-75:                                               ; preds = %20
-  %76 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %77 = load ptr, ptr %76, align 8, !invariant.load !6, !nonnull !6
-  %78 = tail call { ptr, ptr } %77(ptr noundef nonnull align 1 %1)
-  %79 = extractvalue { ptr, ptr } %78, 0
-  %80 = extractvalue { ptr, ptr } %78, 1
-  %81 = getelementptr i8, ptr %80, i64 24
-  %.val304 = load ptr, ptr %81, align 8
-  %82 = tail call { i64, i64 } %.val304(ptr noundef nonnull align 1 %79)
-  %83 = extractvalue { i64, i64 } %82, 0
-  %84 = icmp ne i64 %83, -2388166395891534354
-  %85 = extractvalue { i64, i64 } %82, 1
-  %86 = icmp ne i64 %85, 5666521950768639164
-  %.sroa.0.0.i382.not = select i1 %84, i1 true, i1 %86
-  br i1 %.sroa.0.0.i382.not, label %699, label %687, !prof !30
+84:                                               ; preds = %20
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %86 = load ptr, ptr %85, align 8, !invariant.load !6, !nonnull !6
+  %87 = tail call { ptr, ptr } %86(ptr noundef nonnull align 1 %1)
+  %88 = extractvalue { ptr, ptr } %87, 0
+  %89 = extractvalue { ptr, ptr } %87, 1
+  %90 = getelementptr i8, ptr %89, i64 24
+  %.val304 = load ptr, ptr %90, align 8
+  %91 = tail call { i64, i64 } %.val304(ptr noundef nonnull align 1 %88)
+  %92 = extractvalue { i64, i64 } %91, 0
+  %93 = icmp ne i64 %92, -2388166395891534354
+  %94 = extractvalue { i64, i64 } %91, 1
+  %95 = icmp ne i64 %94, 5666521950768639164
+  %.sroa.0.0.i382.not = select i1 %93, i1 true, i1 %95
+  br i1 %.sroa.0.0.i382.not, label %573, label %561, !prof !30
 
-87:                                               ; preds = %20
-  %88 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %89 = load ptr, ptr %88, align 8, !invariant.load !6, !nonnull !6
-  %90 = tail call { ptr, ptr } %89(ptr noundef nonnull align 1 %1)
-  %91 = extractvalue { ptr, ptr } %90, 0
-  %92 = extractvalue { ptr, ptr } %90, 1
-  %93 = getelementptr i8, ptr %92, i64 24
-  %.val316 = load ptr, ptr %93, align 8
-  %94 = tail call { i64, i64 } %.val316(ptr noundef nonnull align 1 %91)
-  %95 = extractvalue { i64, i64 } %94, 0
-  %96 = icmp ne i64 %95, -4243404910065975496
-  %97 = extractvalue { i64, i64 } %94, 1
-  %98 = icmp ne i64 %97, -2431153680986591934
-  %.sroa.0.0.i383.not = select i1 %96, i1 true, i1 %98
-  br i1 %.sroa.0.0.i383.not, label %714, label %702, !prof !30
+96:                                               ; preds = %20
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %98 = load ptr, ptr %97, align 8, !invariant.load !6, !nonnull !6
+  %99 = tail call { ptr, ptr } %98(ptr noundef nonnull align 1 %1)
+  %100 = extractvalue { ptr, ptr } %99, 0
+  %101 = extractvalue { ptr, ptr } %99, 1
+  %102 = getelementptr i8, ptr %101, i64 24
+  %.val316 = load ptr, ptr %102, align 8
+  %103 = tail call { i64, i64 } %.val316(ptr noundef nonnull align 1 %100)
+  %104 = extractvalue { i64, i64 } %103, 0
+  %105 = icmp ne i64 %104, -4243404910065975496
+  %106 = extractvalue { i64, i64 } %103, 1
+  %107 = icmp ne i64 %106, -2431153680986591934
+  %.sroa.0.0.i383.not = select i1 %105, i1 true, i1 %107
+  br i1 %.sroa.0.0.i383.not, label %588, label %576, !prof !30
 
-99:                                               ; preds = %20
-  %100 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %101 = load ptr, ptr %100, align 8, !invariant.load !6, !nonnull !6
-  %102 = tail call { ptr, ptr } %101(ptr noundef nonnull align 1 %1)
-  %103 = extractvalue { ptr, ptr } %102, 0
-  %104 = extractvalue { ptr, ptr } %102, 1
-  %105 = getelementptr i8, ptr %104, i64 24
-  %.val318 = load ptr, ptr %105, align 8
-  %106 = tail call { i64, i64 } %.val318(ptr noundef nonnull align 1 %103)
-  %107 = extractvalue { i64, i64 } %106, 0
-  %108 = icmp ne i64 %107, 6585618511097865896
-  %109 = extractvalue { i64, i64 } %106, 1
-  %110 = icmp ne i64 %109, 8901751938577251091
-  %.sroa.0.0.i384.not = select i1 %108, i1 true, i1 %110
-  br i1 %.sroa.0.0.i384.not, label %729, label %717, !prof !30
+108:                                              ; preds = %20
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %110 = load ptr, ptr %109, align 8, !invariant.load !6, !nonnull !6
+  %111 = tail call { ptr, ptr } %110(ptr noundef nonnull align 1 %1)
+  %112 = extractvalue { ptr, ptr } %111, 0
+  %113 = extractvalue { ptr, ptr } %111, 1
+  %114 = getelementptr i8, ptr %113, i64 24
+  %.val318 = load ptr, ptr %114, align 8
+  %115 = tail call { i64, i64 } %.val318(ptr noundef nonnull align 1 %112)
+  %116 = extractvalue { i64, i64 } %115, 0
+  %117 = icmp ne i64 %116, 6585618511097865896
+  %118 = extractvalue { i64, i64 } %115, 1
+  %119 = icmp ne i64 %118, 8901751938577251091
+  %.sroa.0.0.i384.not = select i1 %117, i1 true, i1 %119
+  br i1 %.sroa.0.0.i384.not, label %603, label %591, !prof !30
 
-111:                                              ; preds = %20
-  %112 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %113 = load ptr, ptr %112, align 8, !invariant.load !6, !nonnull !6
-  %114 = tail call { ptr, ptr } %113(ptr noundef nonnull align 1 %1)
-  %115 = extractvalue { ptr, ptr } %114, 0
-  %116 = extractvalue { ptr, ptr } %114, 1
-  %117 = getelementptr i8, ptr %116, i64 24
-  %.val320 = load ptr, ptr %117, align 8
-  %118 = tail call { i64, i64 } %.val320(ptr noundef nonnull align 1 %115)
-  %119 = extractvalue { i64, i64 } %118, 0
-  %120 = icmp ne i64 %119, 5612233841538967008
-  %121 = extractvalue { i64, i64 } %118, 1
-  %122 = icmp ne i64 %121, -7856419302706516822
-  %.sroa.0.0.i385.not = select i1 %120, i1 true, i1 %122
-  br i1 %.sroa.0.0.i385.not, label %744, label %732, !prof !30
+120:                                              ; preds = %20
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %122 = load ptr, ptr %121, align 8, !invariant.load !6, !nonnull !6
+  %123 = tail call { ptr, ptr } %122(ptr noundef nonnull align 1 %1)
+  %124 = extractvalue { ptr, ptr } %123, 0
+  %125 = extractvalue { ptr, ptr } %123, 1
+  %126 = getelementptr i8, ptr %125, i64 24
+  %.val320 = load ptr, ptr %126, align 8
+  %127 = tail call { i64, i64 } %.val320(ptr noundef nonnull align 1 %124)
+  %128 = extractvalue { i64, i64 } %127, 0
+  %129 = icmp ne i64 %128, 5612233841538967008
+  %130 = extractvalue { i64, i64 } %127, 1
+  %131 = icmp ne i64 %130, -7856419302706516822
+  %.sroa.0.0.i385.not = select i1 %129, i1 true, i1 %131
+  br i1 %.sroa.0.0.i385.not, label %618, label %606, !prof !30
 
-123:                                              ; preds = %20
-  %124 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %125 = load ptr, ptr %124, align 8, !invariant.load !6, !nonnull !6
-  %126 = tail call { ptr, ptr } %125(ptr noundef nonnull align 1 %1)
-  %127 = extractvalue { ptr, ptr } %126, 0
-  %128 = extractvalue { ptr, ptr } %126, 1
-  %129 = getelementptr i8, ptr %128, i64 24
-  %.val322 = load ptr, ptr %129, align 8
-  %130 = tail call { i64, i64 } %.val322(ptr noundef nonnull align 1 %127)
-  %131 = extractvalue { i64, i64 } %130, 0
-  %132 = icmp ne i64 %131, 5209533364377202164
-  %133 = extractvalue { i64, i64 } %130, 1
-  %134 = icmp ne i64 %133, 7812553468775375572
-  %.sroa.0.0.i386.not = select i1 %132, i1 true, i1 %134
-  br i1 %.sroa.0.0.i386.not, label %759, label %747, !prof !30
+132:                                              ; preds = %20
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %134 = load ptr, ptr %133, align 8, !invariant.load !6, !nonnull !6
+  %135 = tail call { ptr, ptr } %134(ptr noundef nonnull align 1 %1)
+  %136 = extractvalue { ptr, ptr } %135, 0
+  %137 = extractvalue { ptr, ptr } %135, 1
+  %138 = getelementptr i8, ptr %137, i64 24
+  %.val322 = load ptr, ptr %138, align 8
+  %139 = tail call { i64, i64 } %.val322(ptr noundef nonnull align 1 %136)
+  %140 = extractvalue { i64, i64 } %139, 0
+  %141 = icmp ne i64 %140, 5209533364377202164
+  %142 = extractvalue { i64, i64 } %139, 1
+  %143 = icmp ne i64 %142, 7812553468775375572
+  %.sroa.0.0.i386.not = select i1 %141, i1 true, i1 %143
+  br i1 %.sroa.0.0.i386.not, label %633, label %621, !prof !30
 
-135:                                              ; preds = %20
-  %136 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %137 = load ptr, ptr %136, align 8, !invariant.load !6, !nonnull !6
-  %138 = tail call { ptr, ptr } %137(ptr noundef nonnull align 1 %1)
-  %139 = extractvalue { ptr, ptr } %138, 0
-  %140 = extractvalue { ptr, ptr } %138, 1
-  %141 = getelementptr i8, ptr %140, i64 24
-  %.val324 = load ptr, ptr %141, align 8
-  %142 = tail call { i64, i64 } %.val324(ptr noundef nonnull align 1 %139)
-  %143 = extractvalue { i64, i64 } %142, 0
-  %144 = icmp ne i64 %143, -1285076804561215877
-  %145 = extractvalue { i64, i64 } %142, 1
-  %146 = icmp ne i64 %145, -3530592277402597310
-  %.sroa.0.0.i387.not = select i1 %144, i1 true, i1 %146
-  br i1 %.sroa.0.0.i387.not, label %774, label %762, !prof !30
+144:                                              ; preds = %20
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %146 = load ptr, ptr %145, align 8, !invariant.load !6, !nonnull !6
+  %147 = tail call { ptr, ptr } %146(ptr noundef nonnull align 1 %1)
+  %148 = extractvalue { ptr, ptr } %147, 0
+  %149 = extractvalue { ptr, ptr } %147, 1
+  %150 = getelementptr i8, ptr %149, i64 24
+  %.val324 = load ptr, ptr %150, align 8
+  %151 = tail call { i64, i64 } %.val324(ptr noundef nonnull align 1 %148)
+  %152 = extractvalue { i64, i64 } %151, 0
+  %153 = icmp ne i64 %152, -1285076804561215877
+  %154 = extractvalue { i64, i64 } %151, 1
+  %155 = icmp ne i64 %154, -3530592277402597310
+  %.sroa.0.0.i387.not = select i1 %153, i1 true, i1 %155
+  br i1 %.sroa.0.0.i387.not, label %648, label %636, !prof !30
 
-147:                                              ; preds = %20
-  %148 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %149 = load ptr, ptr %148, align 8, !invariant.load !6, !nonnull !6
-  %150 = tail call { ptr, ptr } %149(ptr noundef nonnull align 1 %1)
-  %151 = extractvalue { ptr, ptr } %150, 0
-  %152 = extractvalue { ptr, ptr } %150, 1
-  %153 = getelementptr i8, ptr %152, i64 24
-  %.val326 = load ptr, ptr %153, align 8
-  %154 = tail call { i64, i64 } %.val326(ptr noundef nonnull align 1 %151)
-  %155 = extractvalue { i64, i64 } %154, 0
-  %156 = icmp ne i64 %155, -4229490849536239523
-  %157 = extractvalue { i64, i64 } %154, 1
-  %158 = icmp ne i64 %157, 1926123703779822909
-  %.sroa.0.0.i388.not = select i1 %156, i1 true, i1 %158
-  br i1 %.sroa.0.0.i388.not, label %789, label %777, !prof !30
+156:                                              ; preds = %20
+  %157 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %158 = load ptr, ptr %157, align 8, !invariant.load !6, !nonnull !6
+  %159 = tail call { ptr, ptr } %158(ptr noundef nonnull align 1 %1)
+  %160 = extractvalue { ptr, ptr } %159, 0
+  %161 = extractvalue { ptr, ptr } %159, 1
+  %162 = getelementptr i8, ptr %161, i64 24
+  %.val326 = load ptr, ptr %162, align 8
+  %163 = tail call { i64, i64 } %.val326(ptr noundef nonnull align 1 %160)
+  %164 = extractvalue { i64, i64 } %163, 0
+  %165 = icmp ne i64 %164, -4229490849536239523
+  %166 = extractvalue { i64, i64 } %163, 1
+  %167 = icmp ne i64 %166, 1926123703779822909
+  %.sroa.0.0.i388.not = select i1 %165, i1 true, i1 %167
+  br i1 %.sroa.0.0.i388.not, label %663, label %651, !prof !30
 
-159:                                              ; preds = %20
+168:                                              ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @anon.ea237b04ddb17f09807800ed703f3a93.372, ptr %8, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 1, ptr %160, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr null, ptr %161, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %6, ptr %162, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 0, ptr %163, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 1, ptr %169, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr null, ptr %170, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %6, ptr %171, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 0, ptr %172, align 8
   call void @_ZN4core9panicking9panic_fmt17hba2a7e099ecca125E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-164:                                              ; preds = %20
+173:                                              ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @anon.ea237b04ddb17f09807800ed703f3a93.374, ptr %7, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %165, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %166, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %6, ptr %167, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 0, ptr %168, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 1, ptr %174, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr null, ptr %175, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %6, ptr %176, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 0, ptr %177, align 8
   call void @_ZN4core9panicking9panic_fmt17hba2a7e099ecca125E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-169:                                              ; preds = %20
+178:                                              ; preds = %20
+  %179 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %180 = load ptr, ptr %179, align 8, !invariant.load !6, !nonnull !6
+  %181 = tail call { ptr, ptr } %180(ptr noundef nonnull align 1 %1)
+  %182 = extractvalue { ptr, ptr } %181, 0
+  %183 = extractvalue { ptr, ptr } %181, 1
+  %184 = getelementptr i8, ptr %183, i64 24
+  %.val362 = load ptr, ptr %184, align 8
+  %185 = tail call { i64, i64 } %.val362(ptr noundef nonnull align 1 %182)
+  %186 = extractvalue { i64, i64 } %185, 0
+  %187 = extractvalue { i64, i64 } %185, 1
   switch i8 %24, label %25 [
-    i8 0, label %792
-    i8 1, label %804
-    i8 2, label %816
-    i8 3, label %828
-    i8 4, label %840
-    i8 5, label %852
-    i8 6, label %864
-    i8 7, label %876
-    i8 8, label %888
+    i8 0, label %666
+    i8 1, label %669
+    i8 2, label %672
+    i8 3, label %675
+    i8 4, label %678
+    i8 5, label %681
+    i8 6, label %684
+    i8 7, label %687
+    i8 8, label %690
   ]
 
-170:                                              ; preds = %20
-  %171 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %172 = load ptr, ptr %171, align 8, !invariant.load !6, !nonnull !6
-  %173 = tail call { ptr, ptr } %172(ptr noundef nonnull align 1 %1)
-  %174 = extractvalue { ptr, ptr } %173, 0
-  %175 = extractvalue { ptr, ptr } %173, 1
-  %176 = getelementptr i8, ptr %175, i64 24
-  %.val306 = load ptr, ptr %176, align 8
-  %177 = tail call { i64, i64 } %.val306(ptr noundef nonnull align 1 %174)
-  %178 = extractvalue { i64, i64 } %177, 0
-  %179 = icmp ne i64 %178, -5133974785058079944
-  %180 = extractvalue { i64, i64 } %177, 1
-  %181 = icmp ne i64 %180, -2115088211549721928
-  %.sroa.0.0.i389.not = select i1 %179, i1 true, i1 %181
-  br i1 %.sroa.0.0.i389.not, label %1047, label %1035, !prof !30
+188:                                              ; preds = %20
+  %189 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %190 = load ptr, ptr %189, align 8, !invariant.load !6, !nonnull !6
+  %191 = tail call { ptr, ptr } %190(ptr noundef nonnull align 1 %1)
+  %192 = extractvalue { ptr, ptr } %191, 0
+  %193 = extractvalue { ptr, ptr } %191, 1
+  %194 = getelementptr i8, ptr %193, i64 24
+  %.val306 = load ptr, ptr %194, align 8
+  %195 = tail call { i64, i64 } %.val306(ptr noundef nonnull align 1 %192)
+  %196 = extractvalue { i64, i64 } %195, 0
+  %197 = icmp ne i64 %196, -5133974785058079944
+  %198 = extractvalue { i64, i64 } %195, 1
+  %199 = icmp ne i64 %198, -2115088211549721928
+  %.sroa.0.0.i389.not = select i1 %197, i1 true, i1 %199
+  br i1 %.sroa.0.0.i389.not, label %840, label %828, !prof !30
 
-182:                                              ; preds = %20
-  %183 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %184 = load ptr, ptr %183, align 8, !invariant.load !6, !nonnull !6
-  %185 = tail call { ptr, ptr } %184(ptr noundef nonnull align 1 %1)
-  %186 = extractvalue { ptr, ptr } %185, 0
-  %187 = extractvalue { ptr, ptr } %185, 1
-  %188 = getelementptr i8, ptr %187, i64 24
-  %.val328 = load ptr, ptr %188, align 8
-  %189 = tail call { i64, i64 } %.val328(ptr noundef nonnull align 1 %186)
-  %190 = extractvalue { i64, i64 } %189, 0
-  %191 = icmp ne i64 %190, -4691702406351074806
-  %192 = extractvalue { i64, i64 } %189, 1
-  %193 = icmp ne i64 %192, -766443083152007247
-  %.sroa.0.0.i390.not = select i1 %191, i1 true, i1 %193
-  br i1 %.sroa.0.0.i390.not, label %1062, label %1050, !prof !30
+200:                                              ; preds = %20
+  %201 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %202 = load ptr, ptr %201, align 8, !invariant.load !6, !nonnull !6
+  %203 = tail call { ptr, ptr } %202(ptr noundef nonnull align 1 %1)
+  %204 = extractvalue { ptr, ptr } %203, 0
+  %205 = extractvalue { ptr, ptr } %203, 1
+  %206 = getelementptr i8, ptr %205, i64 24
+  %.val328 = load ptr, ptr %206, align 8
+  %207 = tail call { i64, i64 } %.val328(ptr noundef nonnull align 1 %204)
+  %208 = extractvalue { i64, i64 } %207, 0
+  %209 = icmp ne i64 %208, -4691702406351074806
+  %210 = extractvalue { i64, i64 } %207, 1
+  %211 = icmp ne i64 %210, -766443083152007247
+  %.sroa.0.0.i390.not = select i1 %209, i1 true, i1 %211
+  br i1 %.sroa.0.0.i390.not, label %855, label %843, !prof !30
 
-194:                                              ; preds = %26
-  %195 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %196 = load ptr, ptr %195, align 8, !invariant.load !6, !nonnull !6
-  %197 = tail call { ptr, ptr } %196(ptr noundef nonnull align 1 %3)
-  %198 = extractvalue { ptr, ptr } %197, 0
-  %199 = extractvalue { ptr, ptr } %197, 1
-  %200 = getelementptr i8, ptr %199, i64 24
-  %.val307 = load ptr, ptr %200, align 8
-  %201 = tail call { i64, i64 } %.val307(ptr noundef nonnull align 1 %198)
-  %202 = extractvalue { i64, i64 } %201, 0
-  %203 = icmp ne i64 %202, 5363630497828824621
-  %204 = extractvalue { i64, i64 } %201, 1
-  %205 = icmp ne i64 %204, 1787045636924429069
-  %.sroa.0.0.i391.not = select i1 %203, i1 true, i1 %205
-  br i1 %.sroa.0.0.i391.not, label %208, label %207, !prof !30
+212:                                              ; preds = %26
+  %213 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %214 = load ptr, ptr %213, align 8, !invariant.load !6, !nonnull !6
+  %215 = tail call { ptr, ptr } %214(ptr noundef nonnull align 1 %3)
+  %216 = extractvalue { ptr, ptr } %215, 0
+  %217 = extractvalue { ptr, ptr } %215, 1
+  %218 = getelementptr i8, ptr %217, i64 24
+  %.val307 = load ptr, ptr %218, align 8
+  %219 = tail call { i64, i64 } %.val307(ptr noundef nonnull align 1 %216)
+  %220 = extractvalue { i64, i64 } %219, 0
+  %221 = icmp ne i64 %220, 5363630497828824621
+  %222 = extractvalue { i64, i64 } %219, 1
+  %223 = icmp ne i64 %222, 1787045636924429069
+  %.sroa.0.0.i391.not = select i1 %221, i1 true, i1 %223
+  br i1 %.sroa.0.0.i391.not, label %226, label %225, !prof !30
 
-206:                                              ; preds = %26
+224:                                              ; preds = %26
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-207:                                              ; preds = %194
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h1238a12909d9accaE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %30, ptr noundef nonnull align 8 %198)
-  br label %209
+225:                                              ; preds = %212
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h1238a12909d9accaE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %30, ptr noundef nonnull align 8 %216)
+  br label %227
 
-208:                                              ; preds = %194
+226:                                              ; preds = %212
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-209:                                              ; preds = %1063, %1048, %1033, %1018, %1003, %988, %973, %958, %943, %928, %913, %790, %775, %760, %745, %730, %715, %700, %685, %670, %655, %640, %625, %610, %595, %580, %565, %550, %535, %520, %505, %490, %475, %460, %445, %430, %223, %207
+227:                                              ; preds = %856, %841, %826, %811, %796, %781, %766, %751, %736, %721, %706, %664, %649, %634, %619, %604, %589, %574, %559, %544, %529, %514, %499, %484, %469, %454, %439, %424, %409, %394, %379, %364, %349, %334, %319, %304, %241, %225
   ret void
 
-210:                                              ; preds = %38
-  %211 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %212 = load ptr, ptr %211, align 8, !invariant.load !6, !nonnull !6
-  %213 = tail call { ptr, ptr } %212(ptr noundef nonnull align 1 %3)
-  %214 = extractvalue { ptr, ptr } %213, 0
-  %215 = extractvalue { ptr, ptr } %213, 1
-  %216 = getelementptr i8, ptr %215, i64 24
-  %.val309 = load ptr, ptr %216, align 8
-  %217 = tail call { i64, i64 } %.val309(ptr noundef nonnull align 1 %214)
-  %218 = extractvalue { i64, i64 } %217, 0
-  %219 = icmp ne i64 %218, 9047506222392209442
-  %220 = extractvalue { i64, i64 } %217, 1
-  %221 = icmp ne i64 %220, 6984851860647661607
-  %.sroa.0.0.i392.not = select i1 %219, i1 true, i1 %221
-  br i1 %.sroa.0.0.i392.not, label %224, label %223, !prof !30
+228:                                              ; preds = %38
+  %229 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %230 = load ptr, ptr %229, align 8, !invariant.load !6, !nonnull !6
+  %231 = tail call { ptr, ptr } %230(ptr noundef nonnull align 1 %3)
+  %232 = extractvalue { ptr, ptr } %231, 0
+  %233 = extractvalue { ptr, ptr } %231, 1
+  %234 = getelementptr i8, ptr %233, i64 24
+  %.val309 = load ptr, ptr %234, align 8
+  %235 = tail call { i64, i64 } %.val309(ptr noundef nonnull align 1 %232)
+  %236 = extractvalue { i64, i64 } %235, 0
+  %237 = icmp ne i64 %236, 9047506222392209442
+  %238 = extractvalue { i64, i64 } %235, 1
+  %239 = icmp ne i64 %238, 6984851860647661607
+  %.sroa.0.0.i392.not = select i1 %237, i1 true, i1 %239
+  br i1 %.sroa.0.0.i392.not, label %242, label %241, !prof !30
 
-222:                                              ; preds = %38
+240:                                              ; preds = %38
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-223:                                              ; preds = %210
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hd6c82aae6669808dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %42, ptr noundef nonnull align 8 %214)
-  br label %209
+241:                                              ; preds = %228
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hd6c82aae6669808dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %42, ptr noundef nonnull align 8 %232)
+  br label %227
 
-224:                                              ; preds = %210
+242:                                              ; preds = %228
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-225:                                              ; preds = %50
-  %226 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %227 = load ptr, ptr %226, align 8, !invariant.load !6, !nonnull !6
-  %228 = tail call { ptr, ptr } %227(ptr noundef nonnull align 1 %1)
-  %229 = extractvalue { ptr, ptr } %228, 0
-  %230 = extractvalue { ptr, ptr } %228, 1
-  %231 = getelementptr i8, ptr %230, i64 24
-  %.val330 = load ptr, ptr %231, align 8
-  %232 = tail call { i64, i64 } %.val330(ptr noundef nonnull align 1 %229)
-  %233 = extractvalue { i64, i64 } %232, 0
-  %234 = icmp ne i64 %233, 1096384672038350596
-  %235 = extractvalue { i64, i64 } %232, 1
-  %236 = icmp ne i64 %235, 324221538485535341
-  %.sroa.0.0.i393.not = select i1 %234, i1 true, i1 %236
-  br i1 %.sroa.0.0.i393.not, label %429, label %417, !prof !30
+243:                                              ; preds = %50
+  %244 = icmp ne i64 %58, 1096384672038350596
+  %245 = icmp ne i64 %59, 324221538485535341
+  %.sroa.0.0.i393.not = select i1 %244, i1 true, i1 %245
+  br i1 %.sroa.0.0.i393.not, label %303, label %291, !prof !30
 
-237:                                              ; preds = %50
-  %238 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %239 = load ptr, ptr %238, align 8, !invariant.load !6, !nonnull !6
-  %240 = tail call { ptr, ptr } %239(ptr noundef nonnull align 1 %1)
-  %241 = extractvalue { ptr, ptr } %240, 0
-  %242 = extractvalue { ptr, ptr } %240, 1
-  %243 = getelementptr i8, ptr %242, i64 24
-  %.val332 = load ptr, ptr %243, align 8
-  %244 = tail call { i64, i64 } %.val332(ptr noundef nonnull align 1 %241)
-  %245 = extractvalue { i64, i64 } %244, 0
-  %246 = icmp ne i64 %245, -1112271358999739462
-  %247 = extractvalue { i64, i64 } %244, 1
-  %248 = icmp ne i64 %247, 5733367817700488089
-  %.sroa.0.0.i394.not = select i1 %246, i1 true, i1 %248
-  br i1 %.sroa.0.0.i394.not, label %444, label %432, !prof !30
+246:                                              ; preds = %50
+  %247 = icmp ne i64 %58, -1112271358999739462
+  %248 = icmp ne i64 %59, 5733367817700488089
+  %.sroa.0.0.i394.not = select i1 %247, i1 true, i1 %248
+  br i1 %.sroa.0.0.i394.not, label %318, label %306, !prof !30
 
 249:                                              ; preds = %50
-  %250 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %251 = load ptr, ptr %250, align 8, !invariant.load !6, !nonnull !6
-  %252 = tail call { ptr, ptr } %251(ptr noundef nonnull align 1 %1)
-  %253 = extractvalue { ptr, ptr } %252, 0
-  %254 = extractvalue { ptr, ptr } %252, 1
-  %255 = getelementptr i8, ptr %254, i64 24
-  %.val334 = load ptr, ptr %255, align 8
-  %256 = tail call { i64, i64 } %.val334(ptr noundef nonnull align 1 %253)
-  %257 = extractvalue { i64, i64 } %256, 0
-  %258 = icmp ne i64 %257, 1682257576593402022
-  %259 = extractvalue { i64, i64 } %256, 1
-  %260 = icmp ne i64 %259, 2828938412468723074
-  %.sroa.0.0.i395.not = select i1 %258, i1 true, i1 %260
-  br i1 %.sroa.0.0.i395.not, label %459, label %447, !prof !30
+  %250 = icmp ne i64 %58, 1682257576593402022
+  %251 = icmp ne i64 %59, 2828938412468723074
+  %.sroa.0.0.i395.not = select i1 %250, i1 true, i1 %251
+  br i1 %.sroa.0.0.i395.not, label %333, label %321, !prof !30
+
+252:                                              ; preds = %50
+  %253 = icmp ne i64 %58, -4525060659037450304
+  %254 = icmp ne i64 %59, -7941504528371888260
+  %.sroa.0.0.i396.not = select i1 %253, i1 true, i1 %254
+  br i1 %.sroa.0.0.i396.not, label %348, label %336, !prof !30
+
+255:                                              ; preds = %50
+  %256 = icmp ne i64 %58, 1976741281623731233
+  %257 = icmp ne i64 %59, 8518587958317350804
+  %.sroa.0.0.i397.not = select i1 %256, i1 true, i1 %257
+  br i1 %.sroa.0.0.i397.not, label %363, label %351, !prof !30
+
+258:                                              ; preds = %50
+  %259 = icmp ne i64 %58, 3243027725903489877
+  %260 = icmp ne i64 %59, 5183688042913934999
+  %.sroa.0.0.i398.not = select i1 %259, i1 true, i1 %260
+  br i1 %.sroa.0.0.i398.not, label %378, label %366, !prof !30
 
 261:                                              ; preds = %50
-  %262 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %263 = load ptr, ptr %262, align 8, !invariant.load !6, !nonnull !6
-  %264 = tail call { ptr, ptr } %263(ptr noundef nonnull align 1 %1)
-  %265 = extractvalue { ptr, ptr } %264, 0
-  %266 = extractvalue { ptr, ptr } %264, 1
-  %267 = getelementptr i8, ptr %266, i64 24
-  %.val336 = load ptr, ptr %267, align 8
-  %268 = tail call { i64, i64 } %.val336(ptr noundef nonnull align 1 %265)
-  %269 = extractvalue { i64, i64 } %268, 0
-  %270 = icmp ne i64 %269, -4525060659037450304
-  %271 = extractvalue { i64, i64 } %268, 1
-  %272 = icmp ne i64 %271, -7941504528371888260
-  %.sroa.0.0.i396.not = select i1 %270, i1 true, i1 %272
-  br i1 %.sroa.0.0.i396.not, label %474, label %462, !prof !30
+  %262 = icmp ne i64 %58, 5220108315440958501
+  %263 = icmp ne i64 %59, -3520716040411414515
+  %.sroa.0.0.i399.not = select i1 %262, i1 true, i1 %263
+  br i1 %.sroa.0.0.i399.not, label %393, label %381, !prof !30
+
+264:                                              ; preds = %50
+  %265 = icmp ne i64 %58, -8363051946164901273
+  %266 = icmp ne i64 %59, -7502566692738070478
+  %.sroa.0.0.i400.not = select i1 %265, i1 true, i1 %266
+  br i1 %.sroa.0.0.i400.not, label %408, label %396, !prof !30
+
+267:                                              ; preds = %50
+  %268 = icmp ne i64 %58, 4396411619942343068
+  %269 = icmp ne i64 %59, -1068963039459253755
+  %.sroa.0.0.i401.not = select i1 %268, i1 true, i1 %269
+  br i1 %.sroa.0.0.i401.not, label %423, label %411, !prof !30
+
+270:                                              ; preds = %50
+  %271 = icmp ne i64 %58, -1775404271045328892
+  %272 = icmp ne i64 %59, -2754534380838266005
+  %.sroa.0.0.i402.not = select i1 %271, i1 true, i1 %272
+  br i1 %.sroa.0.0.i402.not, label %438, label %426, !prof !30
 
 273:                                              ; preds = %50
-  %274 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %275 = load ptr, ptr %274, align 8, !invariant.load !6, !nonnull !6
-  %276 = tail call { ptr, ptr } %275(ptr noundef nonnull align 1 %1)
-  %277 = extractvalue { ptr, ptr } %276, 0
-  %278 = extractvalue { ptr, ptr } %276, 1
-  %279 = getelementptr i8, ptr %278, i64 24
-  %.val338 = load ptr, ptr %279, align 8
-  %280 = tail call { i64, i64 } %.val338(ptr noundef nonnull align 1 %277)
-  %281 = extractvalue { i64, i64 } %280, 0
-  %282 = icmp ne i64 %281, 1976741281623731233
-  %283 = extractvalue { i64, i64 } %280, 1
-  %284 = icmp ne i64 %283, 8518587958317350804
-  %.sroa.0.0.i397.not = select i1 %282, i1 true, i1 %284
-  br i1 %.sroa.0.0.i397.not, label %489, label %477, !prof !30
+  %274 = icmp ne i64 %58, 6309901568988151921
+  %275 = icmp ne i64 %59, -3963255778901701068
+  %.sroa.0.0.i403.not = select i1 %274, i1 true, i1 %275
+  br i1 %.sroa.0.0.i403.not, label %453, label %441, !prof !30
+
+276:                                              ; preds = %50
+  %277 = icmp ne i64 %58, 3749815279303437041
+  %278 = icmp ne i64 %59, -7778057943976946246
+  %.sroa.0.0.i404.not = select i1 %277, i1 true, i1 %278
+  br i1 %.sroa.0.0.i404.not, label %468, label %456, !prof !30
+
+279:                                              ; preds = %50
+  %280 = icmp ne i64 %58, 8322892714386034678
+  %281 = icmp ne i64 %59, 6301257885181549575
+  %.sroa.0.0.i405.not = select i1 %280, i1 true, i1 %281
+  br i1 %.sroa.0.0.i405.not, label %483, label %471, !prof !30
+
+282:                                              ; preds = %50
+  %283 = icmp ne i64 %58, 6939381404861589916
+  %284 = icmp ne i64 %59, -6498690218077430559
+  %.sroa.0.0.i406.not = select i1 %283, i1 true, i1 %284
+  br i1 %.sroa.0.0.i406.not, label %498, label %486, !prof !30
 
 285:                                              ; preds = %50
-  %286 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %287 = load ptr, ptr %286, align 8, !invariant.load !6, !nonnull !6
-  %288 = tail call { ptr, ptr } %287(ptr noundef nonnull align 1 %1)
-  %289 = extractvalue { ptr, ptr } %288, 0
-  %290 = extractvalue { ptr, ptr } %288, 1
-  %291 = getelementptr i8, ptr %290, i64 24
-  %.val340 = load ptr, ptr %291, align 8
-  %292 = tail call { i64, i64 } %.val340(ptr noundef nonnull align 1 %289)
-  %293 = extractvalue { i64, i64 } %292, 0
-  %294 = icmp ne i64 %293, 3243027725903489877
-  %295 = extractvalue { i64, i64 } %292, 1
-  %296 = icmp ne i64 %295, 5183688042913934999
-  %.sroa.0.0.i398.not = select i1 %294, i1 true, i1 %296
-  br i1 %.sroa.0.0.i398.not, label %504, label %492, !prof !30
+  %286 = icmp ne i64 %58, -2609889106096071515
+  %287 = icmp ne i64 %59, 139408408525529811
+  %.sroa.0.0.i407.not = select i1 %286, i1 true, i1 %287
+  br i1 %.sroa.0.0.i407.not, label %513, label %501, !prof !30
 
-297:                                              ; preds = %50
-  %298 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %299 = load ptr, ptr %298, align 8, !invariant.load !6, !nonnull !6
-  %300 = tail call { ptr, ptr } %299(ptr noundef nonnull align 1 %1)
-  %301 = extractvalue { ptr, ptr } %300, 0
-  %302 = extractvalue { ptr, ptr } %300, 1
-  %303 = getelementptr i8, ptr %302, i64 24
-  %.val342 = load ptr, ptr %303, align 8
-  %304 = tail call { i64, i64 } %.val342(ptr noundef nonnull align 1 %301)
-  %305 = extractvalue { i64, i64 } %304, 0
-  %306 = icmp ne i64 %305, 5220108315440958501
-  %307 = extractvalue { i64, i64 } %304, 1
-  %308 = icmp ne i64 %307, -3520716040411414515
-  %.sroa.0.0.i399.not = select i1 %306, i1 true, i1 %308
-  br i1 %.sroa.0.0.i399.not, label %519, label %507, !prof !30
+288:                                              ; preds = %50
+  %289 = icmp ne i64 %58, -4316476227272319578
+  %290 = icmp ne i64 %59, 946429527588125030
+  %.sroa.0.0.i408.not = select i1 %289, i1 true, i1 %290
+  br i1 %.sroa.0.0.i408.not, label %528, label %516, !prof !30
 
-309:                                              ; preds = %50
-  %310 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %311 = load ptr, ptr %310, align 8, !invariant.load !6, !nonnull !6
-  %312 = tail call { ptr, ptr } %311(ptr noundef nonnull align 1 %1)
-  %313 = extractvalue { ptr, ptr } %312, 0
-  %314 = extractvalue { ptr, ptr } %312, 1
-  %315 = getelementptr i8, ptr %314, i64 24
-  %.val344 = load ptr, ptr %315, align 8
-  %316 = tail call { i64, i64 } %.val344(ptr noundef nonnull align 1 %313)
-  %317 = extractvalue { i64, i64 } %316, 0
-  %318 = icmp ne i64 %317, -8363051946164901273
-  %319 = extractvalue { i64, i64 } %316, 1
-  %320 = icmp ne i64 %319, -7502566692738070478
-  %.sroa.0.0.i400.not = select i1 %318, i1 true, i1 %320
-  br i1 %.sroa.0.0.i400.not, label %534, label %522, !prof !30
+291:                                              ; preds = %243
+  %292 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %293 = load ptr, ptr %292, align 8, !invariant.load !6, !nonnull !6
+  %294 = tail call { ptr, ptr } %293(ptr noundef nonnull align 1 %3)
+  %295 = extractvalue { ptr, ptr } %294, 0
+  %296 = extractvalue { ptr, ptr } %294, 1
+  %297 = getelementptr i8, ptr %296, i64 24
+  %.val329 = load ptr, ptr %297, align 8
+  %298 = tail call { i64, i64 } %.val329(ptr noundef nonnull align 1 %295)
+  %299 = extractvalue { i64, i64 } %298, 0
+  %300 = icmp ne i64 %299, 1096384672038350596
+  %301 = extractvalue { i64, i64 } %298, 1
+  %302 = icmp ne i64 %301, 324221538485535341
+  %.sroa.0.0.i409.not = select i1 %300, i1 true, i1 %302
+  br i1 %.sroa.0.0.i409.not, label %305, label %304, !prof !30
 
-321:                                              ; preds = %50
-  %322 = getelementptr inbounds nuw i8, ptr %2, i64 32
+303:                                              ; preds = %243
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
+
+304:                                              ; preds = %291
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h1cc8b9c7fb7a46a5E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %295)
+  br label %227
+
+305:                                              ; preds = %291
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
+
+306:                                              ; preds = %246
+  %307 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %308 = load ptr, ptr %307, align 8, !invariant.load !6, !nonnull !6
+  %309 = tail call { ptr, ptr } %308(ptr noundef nonnull align 1 %3)
+  %310 = extractvalue { ptr, ptr } %309, 0
+  %311 = extractvalue { ptr, ptr } %309, 1
+  %312 = getelementptr i8, ptr %311, i64 24
+  %.val331 = load ptr, ptr %312, align 8
+  %313 = tail call { i64, i64 } %.val331(ptr noundef nonnull align 1 %310)
+  %314 = extractvalue { i64, i64 } %313, 0
+  %315 = icmp ne i64 %314, -1112271358999739462
+  %316 = extractvalue { i64, i64 } %313, 1
+  %317 = icmp ne i64 %316, 5733367817700488089
+  %.sroa.0.0.i410.not = select i1 %315, i1 true, i1 %317
+  br i1 %.sroa.0.0.i410.not, label %320, label %319, !prof !30
+
+318:                                              ; preds = %246
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
+
+319:                                              ; preds = %306
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h399341307bc2b8bfE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %310)
+  br label %227
+
+320:                                              ; preds = %306
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
+
+321:                                              ; preds = %249
+  %322 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %323 = load ptr, ptr %322, align 8, !invariant.load !6, !nonnull !6
-  %324 = tail call { ptr, ptr } %323(ptr noundef nonnull align 1 %1)
+  %324 = tail call { ptr, ptr } %323(ptr noundef nonnull align 1 %3)
   %325 = extractvalue { ptr, ptr } %324, 0
   %326 = extractvalue { ptr, ptr } %324, 1
   %327 = getelementptr i8, ptr %326, i64 24
-  %.val346 = load ptr, ptr %327, align 8
-  %328 = tail call { i64, i64 } %.val346(ptr noundef nonnull align 1 %325)
+  %.val333 = load ptr, ptr %327, align 8
+  %328 = tail call { i64, i64 } %.val333(ptr noundef nonnull align 1 %325)
   %329 = extractvalue { i64, i64 } %328, 0
-  %330 = icmp ne i64 %329, 4396411619942343068
+  %330 = icmp ne i64 %329, 1682257576593402022
   %331 = extractvalue { i64, i64 } %328, 1
-  %332 = icmp ne i64 %331, -1068963039459253755
-  %.sroa.0.0.i401.not = select i1 %330, i1 true, i1 %332
-  br i1 %.sroa.0.0.i401.not, label %549, label %537, !prof !30
+  %332 = icmp ne i64 %331, 2828938412468723074
+  %.sroa.0.0.i411.not = select i1 %330, i1 true, i1 %332
+  br i1 %.sroa.0.0.i411.not, label %335, label %334, !prof !30
 
-333:                                              ; preds = %50
-  %334 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %335 = load ptr, ptr %334, align 8, !invariant.load !6, !nonnull !6
-  %336 = tail call { ptr, ptr } %335(ptr noundef nonnull align 1 %1)
-  %337 = extractvalue { ptr, ptr } %336, 0
-  %338 = extractvalue { ptr, ptr } %336, 1
-  %339 = getelementptr i8, ptr %338, i64 24
-  %.val348 = load ptr, ptr %339, align 8
-  %340 = tail call { i64, i64 } %.val348(ptr noundef nonnull align 1 %337)
-  %341 = extractvalue { i64, i64 } %340, 0
-  %342 = icmp ne i64 %341, -1775404271045328892
-  %343 = extractvalue { i64, i64 } %340, 1
-  %344 = icmp ne i64 %343, -2754534380838266005
-  %.sroa.0.0.i402.not = select i1 %342, i1 true, i1 %344
-  br i1 %.sroa.0.0.i402.not, label %564, label %552, !prof !30
+333:                                              ; preds = %249
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
 
-345:                                              ; preds = %50
-  %346 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %347 = load ptr, ptr %346, align 8, !invariant.load !6, !nonnull !6
-  %348 = tail call { ptr, ptr } %347(ptr noundef nonnull align 1 %1)
-  %349 = extractvalue { ptr, ptr } %348, 0
-  %350 = extractvalue { ptr, ptr } %348, 1
-  %351 = getelementptr i8, ptr %350, i64 24
-  %.val350 = load ptr, ptr %351, align 8
-  %352 = tail call { i64, i64 } %.val350(ptr noundef nonnull align 1 %349)
-  %353 = extractvalue { i64, i64 } %352, 0
-  %354 = icmp ne i64 %353, 6309901568988151921
-  %355 = extractvalue { i64, i64 } %352, 1
-  %356 = icmp ne i64 %355, -3963255778901701068
-  %.sroa.0.0.i403.not = select i1 %354, i1 true, i1 %356
-  br i1 %.sroa.0.0.i403.not, label %579, label %567, !prof !30
+334:                                              ; preds = %321
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17he9bcd3ac0ec0cc87E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %325)
+  br label %227
 
-357:                                              ; preds = %50
-  %358 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %359 = load ptr, ptr %358, align 8, !invariant.load !6, !nonnull !6
-  %360 = tail call { ptr, ptr } %359(ptr noundef nonnull align 1 %1)
-  %361 = extractvalue { ptr, ptr } %360, 0
-  %362 = extractvalue { ptr, ptr } %360, 1
-  %363 = getelementptr i8, ptr %362, i64 24
-  %.val352 = load ptr, ptr %363, align 8
-  %364 = tail call { i64, i64 } %.val352(ptr noundef nonnull align 1 %361)
-  %365 = extractvalue { i64, i64 } %364, 0
-  %366 = icmp ne i64 %365, 3749815279303437041
-  %367 = extractvalue { i64, i64 } %364, 1
-  %368 = icmp ne i64 %367, -7778057943976946246
-  %.sroa.0.0.i404.not = select i1 %366, i1 true, i1 %368
-  br i1 %.sroa.0.0.i404.not, label %594, label %582, !prof !30
+335:                                              ; preds = %321
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
 
-369:                                              ; preds = %50
-  %370 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %371 = load ptr, ptr %370, align 8, !invariant.load !6, !nonnull !6
-  %372 = tail call { ptr, ptr } %371(ptr noundef nonnull align 1 %1)
-  %373 = extractvalue { ptr, ptr } %372, 0
-  %374 = extractvalue { ptr, ptr } %372, 1
-  %375 = getelementptr i8, ptr %374, i64 24
-  %.val354 = load ptr, ptr %375, align 8
-  %376 = tail call { i64, i64 } %.val354(ptr noundef nonnull align 1 %373)
-  %377 = extractvalue { i64, i64 } %376, 0
-  %378 = icmp ne i64 %377, 8322892714386034678
-  %379 = extractvalue { i64, i64 } %376, 1
-  %380 = icmp ne i64 %379, 6301257885181549575
-  %.sroa.0.0.i405.not = select i1 %378, i1 true, i1 %380
-  br i1 %.sroa.0.0.i405.not, label %609, label %597, !prof !30
+336:                                              ; preds = %252
+  %337 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %338 = load ptr, ptr %337, align 8, !invariant.load !6, !nonnull !6
+  %339 = tail call { ptr, ptr } %338(ptr noundef nonnull align 1 %3)
+  %340 = extractvalue { ptr, ptr } %339, 0
+  %341 = extractvalue { ptr, ptr } %339, 1
+  %342 = getelementptr i8, ptr %341, i64 24
+  %.val335 = load ptr, ptr %342, align 8
+  %343 = tail call { i64, i64 } %.val335(ptr noundef nonnull align 1 %340)
+  %344 = extractvalue { i64, i64 } %343, 0
+  %345 = icmp ne i64 %344, -4525060659037450304
+  %346 = extractvalue { i64, i64 } %343, 1
+  %347 = icmp ne i64 %346, -7941504528371888260
+  %.sroa.0.0.i412.not = select i1 %345, i1 true, i1 %347
+  br i1 %.sroa.0.0.i412.not, label %350, label %349, !prof !30
 
-381:                                              ; preds = %50
-  %382 = getelementptr inbounds nuw i8, ptr %2, i64 32
+348:                                              ; preds = %252
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
+
+349:                                              ; preds = %336
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hf909887e1825e7bdE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %340)
+  br label %227
+
+350:                                              ; preds = %336
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
+
+351:                                              ; preds = %255
+  %352 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %353 = load ptr, ptr %352, align 8, !invariant.load !6, !nonnull !6
+  %354 = tail call { ptr, ptr } %353(ptr noundef nonnull align 1 %3)
+  %355 = extractvalue { ptr, ptr } %354, 0
+  %356 = extractvalue { ptr, ptr } %354, 1
+  %357 = getelementptr i8, ptr %356, i64 24
+  %.val337 = load ptr, ptr %357, align 8
+  %358 = tail call { i64, i64 } %.val337(ptr noundef nonnull align 1 %355)
+  %359 = extractvalue { i64, i64 } %358, 0
+  %360 = icmp ne i64 %359, 1976741281623731233
+  %361 = extractvalue { i64, i64 } %358, 1
+  %362 = icmp ne i64 %361, 8518587958317350804
+  %.sroa.0.0.i413.not = select i1 %360, i1 true, i1 %362
+  br i1 %.sroa.0.0.i413.not, label %365, label %364, !prof !30
+
+363:                                              ; preds = %255
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
+
+364:                                              ; preds = %351
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hd101b42e9fb02a1fE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %355)
+  br label %227
+
+365:                                              ; preds = %351
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
+
+366:                                              ; preds = %258
+  %367 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %368 = load ptr, ptr %367, align 8, !invariant.load !6, !nonnull !6
+  %369 = tail call { ptr, ptr } %368(ptr noundef nonnull align 1 %3)
+  %370 = extractvalue { ptr, ptr } %369, 0
+  %371 = extractvalue { ptr, ptr } %369, 1
+  %372 = getelementptr i8, ptr %371, i64 24
+  %.val339 = load ptr, ptr %372, align 8
+  %373 = tail call { i64, i64 } %.val339(ptr noundef nonnull align 1 %370)
+  %374 = extractvalue { i64, i64 } %373, 0
+  %375 = icmp ne i64 %374, 3243027725903489877
+  %376 = extractvalue { i64, i64 } %373, 1
+  %377 = icmp ne i64 %376, 5183688042913934999
+  %.sroa.0.0.i414.not = select i1 %375, i1 true, i1 %377
+  br i1 %.sroa.0.0.i414.not, label %380, label %379, !prof !30
+
+378:                                              ; preds = %258
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
+
+379:                                              ; preds = %366
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h4206a363a7da35d0E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %370)
+  br label %227
+
+380:                                              ; preds = %366
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
+
+381:                                              ; preds = %261
+  %382 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %383 = load ptr, ptr %382, align 8, !invariant.load !6, !nonnull !6
-  %384 = tail call { ptr, ptr } %383(ptr noundef nonnull align 1 %1)
+  %384 = tail call { ptr, ptr } %383(ptr noundef nonnull align 1 %3)
   %385 = extractvalue { ptr, ptr } %384, 0
   %386 = extractvalue { ptr, ptr } %384, 1
   %387 = getelementptr i8, ptr %386, i64 24
-  %.val356 = load ptr, ptr %387, align 8
-  %388 = tail call { i64, i64 } %.val356(ptr noundef nonnull align 1 %385)
+  %.val341 = load ptr, ptr %387, align 8
+  %388 = tail call { i64, i64 } %.val341(ptr noundef nonnull align 1 %385)
   %389 = extractvalue { i64, i64 } %388, 0
-  %390 = icmp ne i64 %389, 6939381404861589916
+  %390 = icmp ne i64 %389, 5220108315440958501
   %391 = extractvalue { i64, i64 } %388, 1
-  %392 = icmp ne i64 %391, -6498690218077430559
-  %.sroa.0.0.i406.not = select i1 %390, i1 true, i1 %392
-  br i1 %.sroa.0.0.i406.not, label %624, label %612, !prof !30
+  %392 = icmp ne i64 %391, -3520716040411414515
+  %.sroa.0.0.i415.not = select i1 %390, i1 true, i1 %392
+  br i1 %.sroa.0.0.i415.not, label %395, label %394, !prof !30
 
-393:                                              ; preds = %50
-  %394 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %395 = load ptr, ptr %394, align 8, !invariant.load !6, !nonnull !6
-  %396 = tail call { ptr, ptr } %395(ptr noundef nonnull align 1 %1)
-  %397 = extractvalue { ptr, ptr } %396, 0
-  %398 = extractvalue { ptr, ptr } %396, 1
-  %399 = getelementptr i8, ptr %398, i64 24
-  %.val358 = load ptr, ptr %399, align 8
-  %400 = tail call { i64, i64 } %.val358(ptr noundef nonnull align 1 %397)
-  %401 = extractvalue { i64, i64 } %400, 0
-  %402 = icmp ne i64 %401, -2609889106096071515
-  %403 = extractvalue { i64, i64 } %400, 1
-  %404 = icmp ne i64 %403, 139408408525529811
-  %.sroa.0.0.i407.not = select i1 %402, i1 true, i1 %404
-  br i1 %.sroa.0.0.i407.not, label %639, label %627, !prof !30
-
-405:                                              ; preds = %50
-  %406 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %407 = load ptr, ptr %406, align 8, !invariant.load !6, !nonnull !6
-  %408 = tail call { ptr, ptr } %407(ptr noundef nonnull align 1 %1)
-  %409 = extractvalue { ptr, ptr } %408, 0
-  %410 = extractvalue { ptr, ptr } %408, 1
-  %411 = getelementptr i8, ptr %410, i64 24
-  %.val360 = load ptr, ptr %411, align 8
-  %412 = tail call { i64, i64 } %.val360(ptr noundef nonnull align 1 %409)
-  %413 = extractvalue { i64, i64 } %412, 0
-  %414 = icmp ne i64 %413, -4316476227272319578
-  %415 = extractvalue { i64, i64 } %412, 1
-  %416 = icmp ne i64 %415, 946429527588125030
-  %.sroa.0.0.i408.not = select i1 %414, i1 true, i1 %416
-  br i1 %.sroa.0.0.i408.not, label %654, label %642, !prof !30
-
-417:                                              ; preds = %225
-  %418 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %419 = load ptr, ptr %418, align 8, !invariant.load !6, !nonnull !6
-  %420 = tail call { ptr, ptr } %419(ptr noundef nonnull align 1 %3)
-  %421 = extractvalue { ptr, ptr } %420, 0
-  %422 = extractvalue { ptr, ptr } %420, 1
-  %423 = getelementptr i8, ptr %422, i64 24
-  %.val329 = load ptr, ptr %423, align 8
-  %424 = tail call { i64, i64 } %.val329(ptr noundef nonnull align 1 %421)
-  %425 = extractvalue { i64, i64 } %424, 0
-  %426 = icmp ne i64 %425, 1096384672038350596
-  %427 = extractvalue { i64, i64 } %424, 1
-  %428 = icmp ne i64 %427, 324221538485535341
-  %.sroa.0.0.i409.not = select i1 %426, i1 true, i1 %428
-  br i1 %.sroa.0.0.i409.not, label %431, label %430, !prof !30
-
-429:                                              ; preds = %225
+393:                                              ; preds = %261
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-430:                                              ; preds = %417
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h1cc8b9c7fb7a46a5E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %229, ptr noundef nonnull align 8 %421)
-  br label %209
+394:                                              ; preds = %381
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h2b4260d176b64ea4E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %385)
+  br label %227
 
-431:                                              ; preds = %417
+395:                                              ; preds = %381
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-432:                                              ; preds = %237
-  %433 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %434 = load ptr, ptr %433, align 8, !invariant.load !6, !nonnull !6
-  %435 = tail call { ptr, ptr } %434(ptr noundef nonnull align 1 %3)
-  %436 = extractvalue { ptr, ptr } %435, 0
-  %437 = extractvalue { ptr, ptr } %435, 1
-  %438 = getelementptr i8, ptr %437, i64 24
-  %.val331 = load ptr, ptr %438, align 8
-  %439 = tail call { i64, i64 } %.val331(ptr noundef nonnull align 1 %436)
-  %440 = extractvalue { i64, i64 } %439, 0
-  %441 = icmp ne i64 %440, -1112271358999739462
-  %442 = extractvalue { i64, i64 } %439, 1
-  %443 = icmp ne i64 %442, 5733367817700488089
-  %.sroa.0.0.i410.not = select i1 %441, i1 true, i1 %443
-  br i1 %.sroa.0.0.i410.not, label %446, label %445, !prof !30
+396:                                              ; preds = %264
+  %397 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %398 = load ptr, ptr %397, align 8, !invariant.load !6, !nonnull !6
+  %399 = tail call { ptr, ptr } %398(ptr noundef nonnull align 1 %3)
+  %400 = extractvalue { ptr, ptr } %399, 0
+  %401 = extractvalue { ptr, ptr } %399, 1
+  %402 = getelementptr i8, ptr %401, i64 24
+  %.val343 = load ptr, ptr %402, align 8
+  %403 = tail call { i64, i64 } %.val343(ptr noundef nonnull align 1 %400)
+  %404 = extractvalue { i64, i64 } %403, 0
+  %405 = icmp ne i64 %404, -8363051946164901273
+  %406 = extractvalue { i64, i64 } %403, 1
+  %407 = icmp ne i64 %406, -7502566692738070478
+  %.sroa.0.0.i416.not = select i1 %405, i1 true, i1 %407
+  br i1 %.sroa.0.0.i416.not, label %410, label %409, !prof !30
 
-444:                                              ; preds = %237
+408:                                              ; preds = %264
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-445:                                              ; preds = %432
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h399341307bc2b8bfE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %241, ptr noundef nonnull align 8 %436)
-  br label %209
+409:                                              ; preds = %396
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17he000709da953a658E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %400)
+  br label %227
 
-446:                                              ; preds = %432
+410:                                              ; preds = %396
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-447:                                              ; preds = %249
-  %448 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %449 = load ptr, ptr %448, align 8, !invariant.load !6, !nonnull !6
-  %450 = tail call { ptr, ptr } %449(ptr noundef nonnull align 1 %3)
-  %451 = extractvalue { ptr, ptr } %450, 0
-  %452 = extractvalue { ptr, ptr } %450, 1
-  %453 = getelementptr i8, ptr %452, i64 24
-  %.val333 = load ptr, ptr %453, align 8
-  %454 = tail call { i64, i64 } %.val333(ptr noundef nonnull align 1 %451)
-  %455 = extractvalue { i64, i64 } %454, 0
-  %456 = icmp ne i64 %455, 1682257576593402022
-  %457 = extractvalue { i64, i64 } %454, 1
-  %458 = icmp ne i64 %457, 2828938412468723074
-  %.sroa.0.0.i411.not = select i1 %456, i1 true, i1 %458
-  br i1 %.sroa.0.0.i411.not, label %461, label %460, !prof !30
+411:                                              ; preds = %267
+  %412 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %413 = load ptr, ptr %412, align 8, !invariant.load !6, !nonnull !6
+  %414 = tail call { ptr, ptr } %413(ptr noundef nonnull align 1 %3)
+  %415 = extractvalue { ptr, ptr } %414, 0
+  %416 = extractvalue { ptr, ptr } %414, 1
+  %417 = getelementptr i8, ptr %416, i64 24
+  %.val345 = load ptr, ptr %417, align 8
+  %418 = tail call { i64, i64 } %.val345(ptr noundef nonnull align 1 %415)
+  %419 = extractvalue { i64, i64 } %418, 0
+  %420 = icmp ne i64 %419, 4396411619942343068
+  %421 = extractvalue { i64, i64 } %418, 1
+  %422 = icmp ne i64 %421, -1068963039459253755
+  %.sroa.0.0.i417.not = select i1 %420, i1 true, i1 %422
+  br i1 %.sroa.0.0.i417.not, label %425, label %424, !prof !30
 
-459:                                              ; preds = %249
+423:                                              ; preds = %267
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-460:                                              ; preds = %447
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17he9bcd3ac0ec0cc87E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %253, ptr noundef nonnull align 8 %451)
-  br label %209
+424:                                              ; preds = %411
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hf795cf45ae6d1adcE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %415)
+  br label %227
 
-461:                                              ; preds = %447
+425:                                              ; preds = %411
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-462:                                              ; preds = %261
-  %463 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %464 = load ptr, ptr %463, align 8, !invariant.load !6, !nonnull !6
-  %465 = tail call { ptr, ptr } %464(ptr noundef nonnull align 1 %3)
-  %466 = extractvalue { ptr, ptr } %465, 0
-  %467 = extractvalue { ptr, ptr } %465, 1
-  %468 = getelementptr i8, ptr %467, i64 24
-  %.val335 = load ptr, ptr %468, align 8
-  %469 = tail call { i64, i64 } %.val335(ptr noundef nonnull align 1 %466)
-  %470 = extractvalue { i64, i64 } %469, 0
-  %471 = icmp ne i64 %470, -4525060659037450304
-  %472 = extractvalue { i64, i64 } %469, 1
-  %473 = icmp ne i64 %472, -7941504528371888260
-  %.sroa.0.0.i412.not = select i1 %471, i1 true, i1 %473
-  br i1 %.sroa.0.0.i412.not, label %476, label %475, !prof !30
+426:                                              ; preds = %270
+  %427 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %428 = load ptr, ptr %427, align 8, !invariant.load !6, !nonnull !6
+  %429 = tail call { ptr, ptr } %428(ptr noundef nonnull align 1 %3)
+  %430 = extractvalue { ptr, ptr } %429, 0
+  %431 = extractvalue { ptr, ptr } %429, 1
+  %432 = getelementptr i8, ptr %431, i64 24
+  %.val347 = load ptr, ptr %432, align 8
+  %433 = tail call { i64, i64 } %.val347(ptr noundef nonnull align 1 %430)
+  %434 = extractvalue { i64, i64 } %433, 0
+  %435 = icmp ne i64 %434, -1775404271045328892
+  %436 = extractvalue { i64, i64 } %433, 1
+  %437 = icmp ne i64 %436, -2754534380838266005
+  %.sroa.0.0.i418.not = select i1 %435, i1 true, i1 %437
+  br i1 %.sroa.0.0.i418.not, label %440, label %439, !prof !30
 
-474:                                              ; preds = %261
+438:                                              ; preds = %270
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-475:                                              ; preds = %462
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hf909887e1825e7bdE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %265, ptr noundef nonnull align 8 %466)
-  br label %209
+439:                                              ; preds = %426
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h79c74be25b01375cE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %430)
+  br label %227
 
-476:                                              ; preds = %462
+440:                                              ; preds = %426
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-477:                                              ; preds = %273
-  %478 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %479 = load ptr, ptr %478, align 8, !invariant.load !6, !nonnull !6
-  %480 = tail call { ptr, ptr } %479(ptr noundef nonnull align 1 %3)
-  %481 = extractvalue { ptr, ptr } %480, 0
-  %482 = extractvalue { ptr, ptr } %480, 1
-  %483 = getelementptr i8, ptr %482, i64 24
-  %.val337 = load ptr, ptr %483, align 8
-  %484 = tail call { i64, i64 } %.val337(ptr noundef nonnull align 1 %481)
-  %485 = extractvalue { i64, i64 } %484, 0
-  %486 = icmp ne i64 %485, 1976741281623731233
-  %487 = extractvalue { i64, i64 } %484, 1
-  %488 = icmp ne i64 %487, 8518587958317350804
-  %.sroa.0.0.i413.not = select i1 %486, i1 true, i1 %488
-  br i1 %.sroa.0.0.i413.not, label %491, label %490, !prof !30
+441:                                              ; preds = %273
+  %442 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %443 = load ptr, ptr %442, align 8, !invariant.load !6, !nonnull !6
+  %444 = tail call { ptr, ptr } %443(ptr noundef nonnull align 1 %3)
+  %445 = extractvalue { ptr, ptr } %444, 0
+  %446 = extractvalue { ptr, ptr } %444, 1
+  %447 = getelementptr i8, ptr %446, i64 24
+  %.val349 = load ptr, ptr %447, align 8
+  %448 = tail call { i64, i64 } %.val349(ptr noundef nonnull align 1 %445)
+  %449 = extractvalue { i64, i64 } %448, 0
+  %450 = icmp ne i64 %449, 6309901568988151921
+  %451 = extractvalue { i64, i64 } %448, 1
+  %452 = icmp ne i64 %451, -3963255778901701068
+  %.sroa.0.0.i419.not = select i1 %450, i1 true, i1 %452
+  br i1 %.sroa.0.0.i419.not, label %455, label %454, !prof !30
 
-489:                                              ; preds = %273
+453:                                              ; preds = %273
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-490:                                              ; preds = %477
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hd101b42e9fb02a1fE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %277, ptr noundef nonnull align 8 %481)
-  br label %209
+454:                                              ; preds = %441
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h03246c9d7d109501E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %445)
+  br label %227
 
-491:                                              ; preds = %477
+455:                                              ; preds = %441
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-492:                                              ; preds = %285
-  %493 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %494 = load ptr, ptr %493, align 8, !invariant.load !6, !nonnull !6
-  %495 = tail call { ptr, ptr } %494(ptr noundef nonnull align 1 %3)
-  %496 = extractvalue { ptr, ptr } %495, 0
-  %497 = extractvalue { ptr, ptr } %495, 1
-  %498 = getelementptr i8, ptr %497, i64 24
-  %.val339 = load ptr, ptr %498, align 8
-  %499 = tail call { i64, i64 } %.val339(ptr noundef nonnull align 1 %496)
-  %500 = extractvalue { i64, i64 } %499, 0
-  %501 = icmp ne i64 %500, 3243027725903489877
-  %502 = extractvalue { i64, i64 } %499, 1
-  %503 = icmp ne i64 %502, 5183688042913934999
-  %.sroa.0.0.i414.not = select i1 %501, i1 true, i1 %503
-  br i1 %.sroa.0.0.i414.not, label %506, label %505, !prof !30
+456:                                              ; preds = %276
+  %457 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %458 = load ptr, ptr %457, align 8, !invariant.load !6, !nonnull !6
+  %459 = tail call { ptr, ptr } %458(ptr noundef nonnull align 1 %3)
+  %460 = extractvalue { ptr, ptr } %459, 0
+  %461 = extractvalue { ptr, ptr } %459, 1
+  %462 = getelementptr i8, ptr %461, i64 24
+  %.val351 = load ptr, ptr %462, align 8
+  %463 = tail call { i64, i64 } %.val351(ptr noundef nonnull align 1 %460)
+  %464 = extractvalue { i64, i64 } %463, 0
+  %465 = icmp ne i64 %464, 3749815279303437041
+  %466 = extractvalue { i64, i64 } %463, 1
+  %467 = icmp ne i64 %466, -7778057943976946246
+  %.sroa.0.0.i420.not = select i1 %465, i1 true, i1 %467
+  br i1 %.sroa.0.0.i420.not, label %470, label %469, !prof !30
 
-504:                                              ; preds = %285
+468:                                              ; preds = %276
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-505:                                              ; preds = %492
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h4206a363a7da35d0E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %289, ptr noundef nonnull align 8 %496)
-  br label %209
+469:                                              ; preds = %456
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hf0add123eff863c4E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %460)
+  br label %227
 
-506:                                              ; preds = %492
+470:                                              ; preds = %456
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-507:                                              ; preds = %297
-  %508 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %509 = load ptr, ptr %508, align 8, !invariant.load !6, !nonnull !6
-  %510 = tail call { ptr, ptr } %509(ptr noundef nonnull align 1 %3)
-  %511 = extractvalue { ptr, ptr } %510, 0
-  %512 = extractvalue { ptr, ptr } %510, 1
-  %513 = getelementptr i8, ptr %512, i64 24
-  %.val341 = load ptr, ptr %513, align 8
-  %514 = tail call { i64, i64 } %.val341(ptr noundef nonnull align 1 %511)
-  %515 = extractvalue { i64, i64 } %514, 0
-  %516 = icmp ne i64 %515, 5220108315440958501
-  %517 = extractvalue { i64, i64 } %514, 1
-  %518 = icmp ne i64 %517, -3520716040411414515
-  %.sroa.0.0.i415.not = select i1 %516, i1 true, i1 %518
-  br i1 %.sroa.0.0.i415.not, label %521, label %520, !prof !30
+471:                                              ; preds = %279
+  %472 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %473 = load ptr, ptr %472, align 8, !invariant.load !6, !nonnull !6
+  %474 = tail call { ptr, ptr } %473(ptr noundef nonnull align 1 %3)
+  %475 = extractvalue { ptr, ptr } %474, 0
+  %476 = extractvalue { ptr, ptr } %474, 1
+  %477 = getelementptr i8, ptr %476, i64 24
+  %.val353 = load ptr, ptr %477, align 8
+  %478 = tail call { i64, i64 } %.val353(ptr noundef nonnull align 1 %475)
+  %479 = extractvalue { i64, i64 } %478, 0
+  %480 = icmp ne i64 %479, 8322892714386034678
+  %481 = extractvalue { i64, i64 } %478, 1
+  %482 = icmp ne i64 %481, 6301257885181549575
+  %.sroa.0.0.i421.not = select i1 %480, i1 true, i1 %482
+  br i1 %.sroa.0.0.i421.not, label %485, label %484, !prof !30
 
-519:                                              ; preds = %297
+483:                                              ; preds = %279
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-520:                                              ; preds = %507
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h2b4260d176b64ea4E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %301, ptr noundef nonnull align 8 %511)
-  br label %209
+484:                                              ; preds = %471
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hd417af579bc15deaE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %475)
+  br label %227
 
-521:                                              ; preds = %507
+485:                                              ; preds = %471
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-522:                                              ; preds = %309
-  %523 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %524 = load ptr, ptr %523, align 8, !invariant.load !6, !nonnull !6
-  %525 = tail call { ptr, ptr } %524(ptr noundef nonnull align 1 %3)
-  %526 = extractvalue { ptr, ptr } %525, 0
-  %527 = extractvalue { ptr, ptr } %525, 1
-  %528 = getelementptr i8, ptr %527, i64 24
-  %.val343 = load ptr, ptr %528, align 8
-  %529 = tail call { i64, i64 } %.val343(ptr noundef nonnull align 1 %526)
-  %530 = extractvalue { i64, i64 } %529, 0
-  %531 = icmp ne i64 %530, -8363051946164901273
-  %532 = extractvalue { i64, i64 } %529, 1
-  %533 = icmp ne i64 %532, -7502566692738070478
-  %.sroa.0.0.i416.not = select i1 %531, i1 true, i1 %533
-  br i1 %.sroa.0.0.i416.not, label %536, label %535, !prof !30
+486:                                              ; preds = %282
+  %487 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %488 = load ptr, ptr %487, align 8, !invariant.load !6, !nonnull !6
+  %489 = tail call { ptr, ptr } %488(ptr noundef nonnull align 1 %3)
+  %490 = extractvalue { ptr, ptr } %489, 0
+  %491 = extractvalue { ptr, ptr } %489, 1
+  %492 = getelementptr i8, ptr %491, i64 24
+  %.val355 = load ptr, ptr %492, align 8
+  %493 = tail call { i64, i64 } %.val355(ptr noundef nonnull align 1 %490)
+  %494 = extractvalue { i64, i64 } %493, 0
+  %495 = icmp ne i64 %494, 6939381404861589916
+  %496 = extractvalue { i64, i64 } %493, 1
+  %497 = icmp ne i64 %496, -6498690218077430559
+  %.sroa.0.0.i422.not = select i1 %495, i1 true, i1 %497
+  br i1 %.sroa.0.0.i422.not, label %500, label %499, !prof !30
 
-534:                                              ; preds = %309
+498:                                              ; preds = %282
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-535:                                              ; preds = %522
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17he000709da953a658E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %313, ptr noundef nonnull align 8 %526)
-  br label %209
+499:                                              ; preds = %486
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h919b4087628666b7E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %490)
+  br label %227
 
-536:                                              ; preds = %522
+500:                                              ; preds = %486
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-537:                                              ; preds = %321
-  %538 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %539 = load ptr, ptr %538, align 8, !invariant.load !6, !nonnull !6
-  %540 = tail call { ptr, ptr } %539(ptr noundef nonnull align 1 %3)
-  %541 = extractvalue { ptr, ptr } %540, 0
-  %542 = extractvalue { ptr, ptr } %540, 1
-  %543 = getelementptr i8, ptr %542, i64 24
-  %.val345 = load ptr, ptr %543, align 8
-  %544 = tail call { i64, i64 } %.val345(ptr noundef nonnull align 1 %541)
-  %545 = extractvalue { i64, i64 } %544, 0
-  %546 = icmp ne i64 %545, 4396411619942343068
-  %547 = extractvalue { i64, i64 } %544, 1
-  %548 = icmp ne i64 %547, -1068963039459253755
-  %.sroa.0.0.i417.not = select i1 %546, i1 true, i1 %548
-  br i1 %.sroa.0.0.i417.not, label %551, label %550, !prof !30
+501:                                              ; preds = %285
+  %502 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %503 = load ptr, ptr %502, align 8, !invariant.load !6, !nonnull !6
+  %504 = tail call { ptr, ptr } %503(ptr noundef nonnull align 1 %3)
+  %505 = extractvalue { ptr, ptr } %504, 0
+  %506 = extractvalue { ptr, ptr } %504, 1
+  %507 = getelementptr i8, ptr %506, i64 24
+  %.val357 = load ptr, ptr %507, align 8
+  %508 = tail call { i64, i64 } %.val357(ptr noundef nonnull align 1 %505)
+  %509 = extractvalue { i64, i64 } %508, 0
+  %510 = icmp ne i64 %509, -2609889106096071515
+  %511 = extractvalue { i64, i64 } %508, 1
+  %512 = icmp ne i64 %511, 139408408525529811
+  %.sroa.0.0.i423.not = select i1 %510, i1 true, i1 %512
+  br i1 %.sroa.0.0.i423.not, label %515, label %514, !prof !30
 
-549:                                              ; preds = %321
+513:                                              ; preds = %285
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-550:                                              ; preds = %537
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hf795cf45ae6d1adcE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %325, ptr noundef nonnull align 8 %541)
-  br label %209
+514:                                              ; preds = %501
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h94d410ea3475862dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %505)
+  br label %227
 
-551:                                              ; preds = %537
+515:                                              ; preds = %501
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-552:                                              ; preds = %333
-  %553 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %554 = load ptr, ptr %553, align 8, !invariant.load !6, !nonnull !6
-  %555 = tail call { ptr, ptr } %554(ptr noundef nonnull align 1 %3)
-  %556 = extractvalue { ptr, ptr } %555, 0
-  %557 = extractvalue { ptr, ptr } %555, 1
-  %558 = getelementptr i8, ptr %557, i64 24
-  %.val347 = load ptr, ptr %558, align 8
-  %559 = tail call { i64, i64 } %.val347(ptr noundef nonnull align 1 %556)
-  %560 = extractvalue { i64, i64 } %559, 0
-  %561 = icmp ne i64 %560, -1775404271045328892
-  %562 = extractvalue { i64, i64 } %559, 1
-  %563 = icmp ne i64 %562, -2754534380838266005
-  %.sroa.0.0.i418.not = select i1 %561, i1 true, i1 %563
-  br i1 %.sroa.0.0.i418.not, label %566, label %565, !prof !30
+516:                                              ; preds = %288
+  %517 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %518 = load ptr, ptr %517, align 8, !invariant.load !6, !nonnull !6
+  %519 = tail call { ptr, ptr } %518(ptr noundef nonnull align 1 %3)
+  %520 = extractvalue { ptr, ptr } %519, 0
+  %521 = extractvalue { ptr, ptr } %519, 1
+  %522 = getelementptr i8, ptr %521, i64 24
+  %.val359 = load ptr, ptr %522, align 8
+  %523 = tail call { i64, i64 } %.val359(ptr noundef nonnull align 1 %520)
+  %524 = extractvalue { i64, i64 } %523, 0
+  %525 = icmp ne i64 %524, -4316476227272319578
+  %526 = extractvalue { i64, i64 } %523, 1
+  %527 = icmp ne i64 %526, 946429527588125030
+  %.sroa.0.0.i424.not = select i1 %525, i1 true, i1 %527
+  br i1 %.sroa.0.0.i424.not, label %530, label %529, !prof !30
 
-564:                                              ; preds = %333
+528:                                              ; preds = %288
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-565:                                              ; preds = %552
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h79c74be25b01375cE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %337, ptr noundef nonnull align 8 %556)
-  br label %209
+529:                                              ; preds = %516
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h74c6cf7d7ba69d94E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %54, ptr noundef nonnull align 8 %520)
+  br label %227
 
-566:                                              ; preds = %552
+530:                                              ; preds = %516
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-567:                                              ; preds = %345
-  %568 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %569 = load ptr, ptr %568, align 8, !invariant.load !6, !nonnull !6
-  %570 = tail call { ptr, ptr } %569(ptr noundef nonnull align 1 %3)
-  %571 = extractvalue { ptr, ptr } %570, 0
-  %572 = extractvalue { ptr, ptr } %570, 1
-  %573 = getelementptr i8, ptr %572, i64 24
-  %.val349 = load ptr, ptr %573, align 8
-  %574 = tail call { i64, i64 } %.val349(ptr noundef nonnull align 1 %571)
-  %575 = extractvalue { i64, i64 } %574, 0
-  %576 = icmp ne i64 %575, 6309901568988151921
-  %577 = extractvalue { i64, i64 } %574, 1
-  %578 = icmp ne i64 %577, -3963255778901701068
-  %.sroa.0.0.i419.not = select i1 %576, i1 true, i1 %578
-  br i1 %.sroa.0.0.i419.not, label %581, label %580, !prof !30
+531:                                              ; preds = %60
+  %532 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %533 = load ptr, ptr %532, align 8, !invariant.load !6, !nonnull !6
+  %534 = tail call { ptr, ptr } %533(ptr noundef nonnull align 1 %3)
+  %535 = extractvalue { ptr, ptr } %534, 0
+  %536 = extractvalue { ptr, ptr } %534, 1
+  %537 = getelementptr i8, ptr %536, i64 24
+  %.val311 = load ptr, ptr %537, align 8
+  %538 = tail call { i64, i64 } %.val311(ptr noundef nonnull align 1 %535)
+  %539 = extractvalue { i64, i64 } %538, 0
+  %540 = icmp ne i64 %539, 8324995987993682601
+  %541 = extractvalue { i64, i64 } %538, 1
+  %542 = icmp ne i64 %541, 1761299767984946403
+  %.sroa.0.0.i425.not = select i1 %540, i1 true, i1 %542
+  br i1 %.sroa.0.0.i425.not, label %545, label %544, !prof !30
 
-579:                                              ; preds = %345
+543:                                              ; preds = %60
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-580:                                              ; preds = %567
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h03246c9d7d109501E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %349, ptr noundef nonnull align 8 %571)
-  br label %209
+544:                                              ; preds = %531
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h61d6dd1b3787a649E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %64, ptr noundef nonnull align 8 %535)
+  br label %227
 
-581:                                              ; preds = %567
+545:                                              ; preds = %531
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-582:                                              ; preds = %357
-  %583 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %584 = load ptr, ptr %583, align 8, !invariant.load !6, !nonnull !6
-  %585 = tail call { ptr, ptr } %584(ptr noundef nonnull align 1 %3)
-  %586 = extractvalue { ptr, ptr } %585, 0
-  %587 = extractvalue { ptr, ptr } %585, 1
-  %588 = getelementptr i8, ptr %587, i64 24
-  %.val351 = load ptr, ptr %588, align 8
-  %589 = tail call { i64, i64 } %.val351(ptr noundef nonnull align 1 %586)
-  %590 = extractvalue { i64, i64 } %589, 0
-  %591 = icmp ne i64 %590, 3749815279303437041
-  %592 = extractvalue { i64, i64 } %589, 1
-  %593 = icmp ne i64 %592, -7778057943976946246
-  %.sroa.0.0.i420.not = select i1 %591, i1 true, i1 %593
-  br i1 %.sroa.0.0.i420.not, label %596, label %595, !prof !30
+546:                                              ; preds = %72
+  %547 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %548 = load ptr, ptr %547, align 8, !invariant.load !6, !nonnull !6
+  %549 = tail call { ptr, ptr } %548(ptr noundef nonnull align 1 %3)
+  %550 = extractvalue { ptr, ptr } %549, 0
+  %551 = extractvalue { ptr, ptr } %549, 1
+  %552 = getelementptr i8, ptr %551, i64 24
+  %.val313 = load ptr, ptr %552, align 8
+  %553 = tail call { i64, i64 } %.val313(ptr noundef nonnull align 1 %550)
+  %554 = extractvalue { i64, i64 } %553, 0
+  %555 = icmp ne i64 %554, 8681598169992528476
+  %556 = extractvalue { i64, i64 } %553, 1
+  %557 = icmp ne i64 %556, -4953751849895023436
+  %.sroa.0.0.i426.not = select i1 %555, i1 true, i1 %557
+  br i1 %.sroa.0.0.i426.not, label %560, label %559, !prof !30
 
-594:                                              ; preds = %357
+558:                                              ; preds = %72
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-595:                                              ; preds = %582
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hf0add123eff863c4E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %361, ptr noundef nonnull align 8 %586)
-  br label %209
+559:                                              ; preds = %546
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17he51353aa393a1de5E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %76, ptr noundef nonnull align 8 %550)
+  br label %227
 
-596:                                              ; preds = %582
+560:                                              ; preds = %546
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-597:                                              ; preds = %369
-  %598 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %599 = load ptr, ptr %598, align 8, !invariant.load !6, !nonnull !6
-  %600 = tail call { ptr, ptr } %599(ptr noundef nonnull align 1 %3)
-  %601 = extractvalue { ptr, ptr } %600, 0
-  %602 = extractvalue { ptr, ptr } %600, 1
-  %603 = getelementptr i8, ptr %602, i64 24
-  %.val353 = load ptr, ptr %603, align 8
-  %604 = tail call { i64, i64 } %.val353(ptr noundef nonnull align 1 %601)
-  %605 = extractvalue { i64, i64 } %604, 0
-  %606 = icmp ne i64 %605, 8322892714386034678
-  %607 = extractvalue { i64, i64 } %604, 1
-  %608 = icmp ne i64 %607, 6301257885181549575
-  %.sroa.0.0.i421.not = select i1 %606, i1 true, i1 %608
-  br i1 %.sroa.0.0.i421.not, label %611, label %610, !prof !30
+561:                                              ; preds = %84
+  %562 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %563 = load ptr, ptr %562, align 8, !invariant.load !6, !nonnull !6
+  %564 = tail call { ptr, ptr } %563(ptr noundef nonnull align 1 %3)
+  %565 = extractvalue { ptr, ptr } %564, 0
+  %566 = extractvalue { ptr, ptr } %564, 1
+  %567 = getelementptr i8, ptr %566, i64 24
+  %.val = load ptr, ptr %567, align 8
+  %568 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %565)
+  %569 = extractvalue { i64, i64 } %568, 0
+  %570 = icmp ne i64 %569, -2388166395891534354
+  %571 = extractvalue { i64, i64 } %568, 1
+  %572 = icmp ne i64 %571, 5666521950768639164
+  %.sroa.0.0.i427.not = select i1 %570, i1 true, i1 %572
+  br i1 %.sroa.0.0.i427.not, label %575, label %574, !prof !30
 
-609:                                              ; preds = %369
+573:                                              ; preds = %84
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-610:                                              ; preds = %597
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hd417af579bc15deaE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %373, ptr noundef nonnull align 8 %601)
-  br label %209
+574:                                              ; preds = %561
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hc73e6bb57eecb337E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %88, ptr noundef nonnull align 8 %565)
+  br label %227
 
-611:                                              ; preds = %597
+575:                                              ; preds = %561
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-612:                                              ; preds = %381
-  %613 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %614 = load ptr, ptr %613, align 8, !invariant.load !6, !nonnull !6
-  %615 = tail call { ptr, ptr } %614(ptr noundef nonnull align 1 %3)
-  %616 = extractvalue { ptr, ptr } %615, 0
-  %617 = extractvalue { ptr, ptr } %615, 1
-  %618 = getelementptr i8, ptr %617, i64 24
-  %.val355 = load ptr, ptr %618, align 8
-  %619 = tail call { i64, i64 } %.val355(ptr noundef nonnull align 1 %616)
-  %620 = extractvalue { i64, i64 } %619, 0
-  %621 = icmp ne i64 %620, 6939381404861589916
-  %622 = extractvalue { i64, i64 } %619, 1
-  %623 = icmp ne i64 %622, -6498690218077430559
-  %.sroa.0.0.i422.not = select i1 %621, i1 true, i1 %623
-  br i1 %.sroa.0.0.i422.not, label %626, label %625, !prof !30
+576:                                              ; preds = %96
+  %577 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %578 = load ptr, ptr %577, align 8, !invariant.load !6, !nonnull !6
+  %579 = tail call { ptr, ptr } %578(ptr noundef nonnull align 1 %3)
+  %580 = extractvalue { ptr, ptr } %579, 0
+  %581 = extractvalue { ptr, ptr } %579, 1
+  %582 = getelementptr i8, ptr %581, i64 24
+  %.val315 = load ptr, ptr %582, align 8
+  %583 = tail call { i64, i64 } %.val315(ptr noundef nonnull align 1 %580)
+  %584 = extractvalue { i64, i64 } %583, 0
+  %585 = icmp ne i64 %584, -4243404910065975496
+  %586 = extractvalue { i64, i64 } %583, 1
+  %587 = icmp ne i64 %586, -2431153680986591934
+  %.sroa.0.0.i428.not = select i1 %585, i1 true, i1 %587
+  br i1 %.sroa.0.0.i428.not, label %590, label %589, !prof !30
 
-624:                                              ; preds = %381
+588:                                              ; preds = %96
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-625:                                              ; preds = %612
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h919b4087628666b7E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %385, ptr noundef nonnull align 8 %616)
-  br label %209
+589:                                              ; preds = %576
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h42261316ed47db1bE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %100, ptr noundef nonnull align 8 %580)
+  br label %227
 
-626:                                              ; preds = %612
+590:                                              ; preds = %576
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-627:                                              ; preds = %393
-  %628 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %629 = load ptr, ptr %628, align 8, !invariant.load !6, !nonnull !6
-  %630 = tail call { ptr, ptr } %629(ptr noundef nonnull align 1 %3)
-  %631 = extractvalue { ptr, ptr } %630, 0
-  %632 = extractvalue { ptr, ptr } %630, 1
-  %633 = getelementptr i8, ptr %632, i64 24
-  %.val357 = load ptr, ptr %633, align 8
-  %634 = tail call { i64, i64 } %.val357(ptr noundef nonnull align 1 %631)
-  %635 = extractvalue { i64, i64 } %634, 0
-  %636 = icmp ne i64 %635, -2609889106096071515
-  %637 = extractvalue { i64, i64 } %634, 1
-  %638 = icmp ne i64 %637, 139408408525529811
-  %.sroa.0.0.i423.not = select i1 %636, i1 true, i1 %638
-  br i1 %.sroa.0.0.i423.not, label %641, label %640, !prof !30
+591:                                              ; preds = %108
+  %592 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %593 = load ptr, ptr %592, align 8, !invariant.load !6, !nonnull !6
+  %594 = tail call { ptr, ptr } %593(ptr noundef nonnull align 1 %3)
+  %595 = extractvalue { ptr, ptr } %594, 0
+  %596 = extractvalue { ptr, ptr } %594, 1
+  %597 = getelementptr i8, ptr %596, i64 24
+  %.val317 = load ptr, ptr %597, align 8
+  %598 = tail call { i64, i64 } %.val317(ptr noundef nonnull align 1 %595)
+  %599 = extractvalue { i64, i64 } %598, 0
+  %600 = icmp ne i64 %599, 6585618511097865896
+  %601 = extractvalue { i64, i64 } %598, 1
+  %602 = icmp ne i64 %601, 8901751938577251091
+  %.sroa.0.0.i429.not = select i1 %600, i1 true, i1 %602
+  br i1 %.sroa.0.0.i429.not, label %605, label %604, !prof !30
 
-639:                                              ; preds = %393
+603:                                              ; preds = %108
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-640:                                              ; preds = %627
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h94d410ea3475862dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %397, ptr noundef nonnull align 8 %631)
-  br label %209
+604:                                              ; preds = %591
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h952811c55a05fca7E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %112, ptr noundef nonnull align 8 %595)
+  br label %227
 
-641:                                              ; preds = %627
+605:                                              ; preds = %591
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-642:                                              ; preds = %405
-  %643 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %644 = load ptr, ptr %643, align 8, !invariant.load !6, !nonnull !6
-  %645 = tail call { ptr, ptr } %644(ptr noundef nonnull align 1 %3)
-  %646 = extractvalue { ptr, ptr } %645, 0
-  %647 = extractvalue { ptr, ptr } %645, 1
-  %648 = getelementptr i8, ptr %647, i64 24
-  %.val359 = load ptr, ptr %648, align 8
-  %649 = tail call { i64, i64 } %.val359(ptr noundef nonnull align 1 %646)
-  %650 = extractvalue { i64, i64 } %649, 0
-  %651 = icmp ne i64 %650, -4316476227272319578
-  %652 = extractvalue { i64, i64 } %649, 1
-  %653 = icmp ne i64 %652, 946429527588125030
-  %.sroa.0.0.i424.not = select i1 %651, i1 true, i1 %653
-  br i1 %.sroa.0.0.i424.not, label %656, label %655, !prof !30
+606:                                              ; preds = %120
+  %607 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %608 = load ptr, ptr %607, align 8, !invariant.load !6, !nonnull !6
+  %609 = tail call { ptr, ptr } %608(ptr noundef nonnull align 1 %3)
+  %610 = extractvalue { ptr, ptr } %609, 0
+  %611 = extractvalue { ptr, ptr } %609, 1
+  %612 = getelementptr i8, ptr %611, i64 24
+  %.val319 = load ptr, ptr %612, align 8
+  %613 = tail call { i64, i64 } %.val319(ptr noundef nonnull align 1 %610)
+  %614 = extractvalue { i64, i64 } %613, 0
+  %615 = icmp ne i64 %614, 5612233841538967008
+  %616 = extractvalue { i64, i64 } %613, 1
+  %617 = icmp ne i64 %616, -7856419302706516822
+  %.sroa.0.0.i430.not = select i1 %615, i1 true, i1 %617
+  br i1 %.sroa.0.0.i430.not, label %620, label %619, !prof !30
 
-654:                                              ; preds = %405
+618:                                              ; preds = %120
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-655:                                              ; preds = %642
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h74c6cf7d7ba69d94E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %409, ptr noundef nonnull align 8 %646)
-  br label %209
+619:                                              ; preds = %606
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h3617fc74b41a9dc2E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %124, ptr noundef nonnull align 8 %610)
+  br label %227
 
-656:                                              ; preds = %642
+620:                                              ; preds = %606
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-657:                                              ; preds = %51
-  %658 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %659 = load ptr, ptr %658, align 8, !invariant.load !6, !nonnull !6
-  %660 = tail call { ptr, ptr } %659(ptr noundef nonnull align 1 %3)
-  %661 = extractvalue { ptr, ptr } %660, 0
-  %662 = extractvalue { ptr, ptr } %660, 1
-  %663 = getelementptr i8, ptr %662, i64 24
-  %.val311 = load ptr, ptr %663, align 8
-  %664 = tail call { i64, i64 } %.val311(ptr noundef nonnull align 1 %661)
-  %665 = extractvalue { i64, i64 } %664, 0
-  %666 = icmp ne i64 %665, 8324995987993682601
-  %667 = extractvalue { i64, i64 } %664, 1
-  %668 = icmp ne i64 %667, 1761299767984946403
-  %.sroa.0.0.i425.not = select i1 %666, i1 true, i1 %668
-  br i1 %.sroa.0.0.i425.not, label %671, label %670, !prof !30
+621:                                              ; preds = %132
+  %622 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %623 = load ptr, ptr %622, align 8, !invariant.load !6, !nonnull !6
+  %624 = tail call { ptr, ptr } %623(ptr noundef nonnull align 1 %3)
+  %625 = extractvalue { ptr, ptr } %624, 0
+  %626 = extractvalue { ptr, ptr } %624, 1
+  %627 = getelementptr i8, ptr %626, i64 24
+  %.val321 = load ptr, ptr %627, align 8
+  %628 = tail call { i64, i64 } %.val321(ptr noundef nonnull align 1 %625)
+  %629 = extractvalue { i64, i64 } %628, 0
+  %630 = icmp ne i64 %629, 5209533364377202164
+  %631 = extractvalue { i64, i64 } %628, 1
+  %632 = icmp ne i64 %631, 7812553468775375572
+  %.sroa.0.0.i431.not = select i1 %630, i1 true, i1 %632
+  br i1 %.sroa.0.0.i431.not, label %635, label %634, !prof !30
 
-669:                                              ; preds = %51
+633:                                              ; preds = %132
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-670:                                              ; preds = %657
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h61d6dd1b3787a649E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %55, ptr noundef nonnull align 8 %661)
-  br label %209
+634:                                              ; preds = %621
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hdc809b8d2d386435E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %136, ptr noundef nonnull align 8 %625)
+  br label %227
 
-671:                                              ; preds = %657
+635:                                              ; preds = %621
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-672:                                              ; preds = %63
-  %673 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %674 = load ptr, ptr %673, align 8, !invariant.load !6, !nonnull !6
-  %675 = tail call { ptr, ptr } %674(ptr noundef nonnull align 1 %3)
-  %676 = extractvalue { ptr, ptr } %675, 0
-  %677 = extractvalue { ptr, ptr } %675, 1
-  %678 = getelementptr i8, ptr %677, i64 24
-  %.val313 = load ptr, ptr %678, align 8
-  %679 = tail call { i64, i64 } %.val313(ptr noundef nonnull align 1 %676)
-  %680 = extractvalue { i64, i64 } %679, 0
-  %681 = icmp ne i64 %680, 8681598169992528476
-  %682 = extractvalue { i64, i64 } %679, 1
-  %683 = icmp ne i64 %682, -4953751849895023436
-  %.sroa.0.0.i426.not = select i1 %681, i1 true, i1 %683
-  br i1 %.sroa.0.0.i426.not, label %686, label %685, !prof !30
+636:                                              ; preds = %144
+  %637 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %638 = load ptr, ptr %637, align 8, !invariant.load !6, !nonnull !6
+  %639 = tail call { ptr, ptr } %638(ptr noundef nonnull align 1 %3)
+  %640 = extractvalue { ptr, ptr } %639, 0
+  %641 = extractvalue { ptr, ptr } %639, 1
+  %642 = getelementptr i8, ptr %641, i64 24
+  %.val323 = load ptr, ptr %642, align 8
+  %643 = tail call { i64, i64 } %.val323(ptr noundef nonnull align 1 %640)
+  %644 = extractvalue { i64, i64 } %643, 0
+  %645 = icmp ne i64 %644, -1285076804561215877
+  %646 = extractvalue { i64, i64 } %643, 1
+  %647 = icmp ne i64 %646, -3530592277402597310
+  %.sroa.0.0.i432.not = select i1 %645, i1 true, i1 %647
+  br i1 %.sroa.0.0.i432.not, label %650, label %649, !prof !30
 
-684:                                              ; preds = %63
+648:                                              ; preds = %144
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-685:                                              ; preds = %672
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17he51353aa393a1de5E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %67, ptr noundef nonnull align 8 %676)
-  br label %209
+649:                                              ; preds = %636
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h90aab2c7f40382e3E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %148, ptr noundef nonnull align 8 %640)
+  br label %227
 
-686:                                              ; preds = %672
+650:                                              ; preds = %636
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-687:                                              ; preds = %75
-  %688 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %689 = load ptr, ptr %688, align 8, !invariant.load !6, !nonnull !6
-  %690 = tail call { ptr, ptr } %689(ptr noundef nonnull align 1 %3)
-  %691 = extractvalue { ptr, ptr } %690, 0
-  %692 = extractvalue { ptr, ptr } %690, 1
-  %693 = getelementptr i8, ptr %692, i64 24
-  %.val = load ptr, ptr %693, align 8
-  %694 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %691)
-  %695 = extractvalue { i64, i64 } %694, 0
-  %696 = icmp ne i64 %695, -2388166395891534354
-  %697 = extractvalue { i64, i64 } %694, 1
-  %698 = icmp ne i64 %697, 5666521950768639164
-  %.sroa.0.0.i427.not = select i1 %696, i1 true, i1 %698
-  br i1 %.sroa.0.0.i427.not, label %701, label %700, !prof !30
+651:                                              ; preds = %156
+  %652 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %653 = load ptr, ptr %652, align 8, !invariant.load !6, !nonnull !6
+  %654 = tail call { ptr, ptr } %653(ptr noundef nonnull align 1 %3)
+  %655 = extractvalue { ptr, ptr } %654, 0
+  %656 = extractvalue { ptr, ptr } %654, 1
+  %657 = getelementptr i8, ptr %656, i64 24
+  %.val325 = load ptr, ptr %657, align 8
+  %658 = tail call { i64, i64 } %.val325(ptr noundef nonnull align 1 %655)
+  %659 = extractvalue { i64, i64 } %658, 0
+  %660 = icmp ne i64 %659, -4229490849536239523
+  %661 = extractvalue { i64, i64 } %658, 1
+  %662 = icmp ne i64 %661, 1926123703779822909
+  %.sroa.0.0.i433.not = select i1 %660, i1 true, i1 %662
+  br i1 %.sroa.0.0.i433.not, label %665, label %664, !prof !30
 
-699:                                              ; preds = %75
+663:                                              ; preds = %156
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-700:                                              ; preds = %687
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hc73e6bb57eecb337E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %79, ptr noundef nonnull align 8 %691)
-  br label %209
+664:                                              ; preds = %651
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h839348f183c5d0ebE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %160, ptr noundef nonnull align 8 %655)
+  br label %227
 
-701:                                              ; preds = %687
+665:                                              ; preds = %651
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-702:                                              ; preds = %87
-  %703 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %704 = load ptr, ptr %703, align 8, !invariant.load !6, !nonnull !6
-  %705 = tail call { ptr, ptr } %704(ptr noundef nonnull align 1 %3)
-  %706 = extractvalue { ptr, ptr } %705, 0
-  %707 = extractvalue { ptr, ptr } %705, 1
-  %708 = getelementptr i8, ptr %707, i64 24
-  %.val315 = load ptr, ptr %708, align 8
-  %709 = tail call { i64, i64 } %.val315(ptr noundef nonnull align 1 %706)
-  %710 = extractvalue { i64, i64 } %709, 0
-  %711 = icmp ne i64 %710, -4243404910065975496
-  %712 = extractvalue { i64, i64 } %709, 1
-  %713 = icmp ne i64 %712, -2431153680986591934
-  %.sroa.0.0.i428.not = select i1 %711, i1 true, i1 %713
-  br i1 %.sroa.0.0.i428.not, label %716, label %715, !prof !30
+666:                                              ; preds = %178
+  %667 = icmp ne i64 %186, 341849809492262473
+  %668 = icmp ne i64 %187, 611862421737265251
+  %.sroa.0.0.i434.not = select i1 %667, i1 true, i1 %668
+  br i1 %.sroa.0.0.i434.not, label %705, label %693, !prof !30
 
-714:                                              ; preds = %87
+669:                                              ; preds = %178
+  %670 = icmp ne i64 %186, 2513640661813068704
+  %671 = icmp ne i64 %187, 6724818707647989319
+  %.sroa.0.0.i435.not = select i1 %670, i1 true, i1 %671
+  br i1 %.sroa.0.0.i435.not, label %720, label %708, !prof !30
+
+672:                                              ; preds = %178
+  %673 = icmp ne i64 %186, 3937964684542098673
+  %674 = icmp ne i64 %187, -2221653167821116500
+  %.sroa.0.0.i436.not = select i1 %673, i1 true, i1 %674
+  br i1 %.sroa.0.0.i436.not, label %735, label %723, !prof !30
+
+675:                                              ; preds = %178
+  %676 = icmp ne i64 %186, 2392607815245497461
+  %677 = icmp ne i64 %187, 1275985459044189422
+  %.sroa.0.0.i437.not = select i1 %676, i1 true, i1 %677
+  br i1 %.sroa.0.0.i437.not, label %750, label %738, !prof !30
+
+678:                                              ; preds = %178
+  %679 = icmp ne i64 %186, 7090791848143539004
+  %680 = icmp ne i64 %187, 5073570680214212543
+  %.sroa.0.0.i438.not = select i1 %679, i1 true, i1 %680
+  br i1 %.sroa.0.0.i438.not, label %765, label %753, !prof !30
+
+681:                                              ; preds = %178
+  %682 = icmp ne i64 %186, 5516153207483644272
+  %683 = icmp ne i64 %187, 275732463827437843
+  %.sroa.0.0.i439.not = select i1 %682, i1 true, i1 %683
+  br i1 %.sroa.0.0.i439.not, label %780, label %768, !prof !30
+
+684:                                              ; preds = %178
+  %685 = icmp ne i64 %186, 4615118761646258390
+  %686 = icmp ne i64 %187, 3173253621429432647
+  %.sroa.0.0.i440.not = select i1 %685, i1 true, i1 %686
+  br i1 %.sroa.0.0.i440.not, label %795, label %783, !prof !30
+
+687:                                              ; preds = %178
+  %688 = icmp ne i64 %186, -8242311478931178162
+  %689 = icmp ne i64 %187, -6749062287969796718
+  %.sroa.0.0.i441.not = select i1 %688, i1 true, i1 %689
+  br i1 %.sroa.0.0.i441.not, label %810, label %798, !prof !30
+
+690:                                              ; preds = %178
+  %691 = icmp ne i64 %186, 2541767739881155333
+  %692 = icmp ne i64 %187, -4423643634179343665
+  %.sroa.0.0.i442.not = select i1 %691, i1 true, i1 %692
+  br i1 %.sroa.0.0.i442.not, label %825, label %813, !prof !30
+
+693:                                              ; preds = %666
+  %694 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %695 = load ptr, ptr %694, align 8, !invariant.load !6, !nonnull !6
+  %696 = tail call { ptr, ptr } %695(ptr noundef nonnull align 1 %3)
+  %697 = extractvalue { ptr, ptr } %696, 0
+  %698 = extractvalue { ptr, ptr } %696, 1
+  %699 = getelementptr i8, ptr %698, i64 24
+  %.val361 = load ptr, ptr %699, align 8
+  %700 = tail call { i64, i64 } %.val361(ptr noundef nonnull align 1 %697)
+  %701 = extractvalue { i64, i64 } %700, 0
+  %702 = icmp ne i64 %701, 341849809492262473
+  %703 = extractvalue { i64, i64 } %700, 1
+  %704 = icmp ne i64 %703, 611862421737265251
+  %.sroa.0.0.i443.not = select i1 %702, i1 true, i1 %704
+  br i1 %.sroa.0.0.i443.not, label %707, label %706, !prof !30
+
+705:                                              ; preds = %666
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-715:                                              ; preds = %702
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h42261316ed47db1bE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %91, ptr noundef nonnull align 8 %706)
-  br label %209
+706:                                              ; preds = %693
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17he2b546414e772571E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %697)
+  br label %227
 
-716:                                              ; preds = %702
+707:                                              ; preds = %693
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-717:                                              ; preds = %99
-  %718 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %719 = load ptr, ptr %718, align 8, !invariant.load !6, !nonnull !6
-  %720 = tail call { ptr, ptr } %719(ptr noundef nonnull align 1 %3)
-  %721 = extractvalue { ptr, ptr } %720, 0
-  %722 = extractvalue { ptr, ptr } %720, 1
-  %723 = getelementptr i8, ptr %722, i64 24
-  %.val317 = load ptr, ptr %723, align 8
-  %724 = tail call { i64, i64 } %.val317(ptr noundef nonnull align 1 %721)
-  %725 = extractvalue { i64, i64 } %724, 0
-  %726 = icmp ne i64 %725, 6585618511097865896
-  %727 = extractvalue { i64, i64 } %724, 1
-  %728 = icmp ne i64 %727, 8901751938577251091
-  %.sroa.0.0.i429.not = select i1 %726, i1 true, i1 %728
-  br i1 %.sroa.0.0.i429.not, label %731, label %730, !prof !30
+708:                                              ; preds = %669
+  %709 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %710 = load ptr, ptr %709, align 8, !invariant.load !6, !nonnull !6
+  %711 = tail call { ptr, ptr } %710(ptr noundef nonnull align 1 %3)
+  %712 = extractvalue { ptr, ptr } %711, 0
+  %713 = extractvalue { ptr, ptr } %711, 1
+  %714 = getelementptr i8, ptr %713, i64 24
+  %.val363 = load ptr, ptr %714, align 8
+  %715 = tail call { i64, i64 } %.val363(ptr noundef nonnull align 1 %712)
+  %716 = extractvalue { i64, i64 } %715, 0
+  %717 = icmp ne i64 %716, 2513640661813068704
+  %718 = extractvalue { i64, i64 } %715, 1
+  %719 = icmp ne i64 %718, 6724818707647989319
+  %.sroa.0.0.i444.not = select i1 %717, i1 true, i1 %719
+  br i1 %.sroa.0.0.i444.not, label %722, label %721, !prof !30
 
-729:                                              ; preds = %99
+720:                                              ; preds = %669
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-730:                                              ; preds = %717
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h952811c55a05fca7E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %103, ptr noundef nonnull align 8 %721)
-  br label %209
+721:                                              ; preds = %708
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h0b26a39e00b6afb8E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %712)
+  br label %227
 
-731:                                              ; preds = %717
+722:                                              ; preds = %708
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-732:                                              ; preds = %111
-  %733 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %734 = load ptr, ptr %733, align 8, !invariant.load !6, !nonnull !6
-  %735 = tail call { ptr, ptr } %734(ptr noundef nonnull align 1 %3)
-  %736 = extractvalue { ptr, ptr } %735, 0
-  %737 = extractvalue { ptr, ptr } %735, 1
-  %738 = getelementptr i8, ptr %737, i64 24
-  %.val319 = load ptr, ptr %738, align 8
-  %739 = tail call { i64, i64 } %.val319(ptr noundef nonnull align 1 %736)
-  %740 = extractvalue { i64, i64 } %739, 0
-  %741 = icmp ne i64 %740, 5612233841538967008
-  %742 = extractvalue { i64, i64 } %739, 1
-  %743 = icmp ne i64 %742, -7856419302706516822
-  %.sroa.0.0.i430.not = select i1 %741, i1 true, i1 %743
-  br i1 %.sroa.0.0.i430.not, label %746, label %745, !prof !30
+723:                                              ; preds = %672
+  %724 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %725 = load ptr, ptr %724, align 8, !invariant.load !6, !nonnull !6
+  %726 = tail call { ptr, ptr } %725(ptr noundef nonnull align 1 %3)
+  %727 = extractvalue { ptr, ptr } %726, 0
+  %728 = extractvalue { ptr, ptr } %726, 1
+  %729 = getelementptr i8, ptr %728, i64 24
+  %.val365 = load ptr, ptr %729, align 8
+  %730 = tail call { i64, i64 } %.val365(ptr noundef nonnull align 1 %727)
+  %731 = extractvalue { i64, i64 } %730, 0
+  %732 = icmp ne i64 %731, 3937964684542098673
+  %733 = extractvalue { i64, i64 } %730, 1
+  %734 = icmp ne i64 %733, -2221653167821116500
+  %.sroa.0.0.i445.not = select i1 %732, i1 true, i1 %734
+  br i1 %.sroa.0.0.i445.not, label %737, label %736, !prof !30
 
-744:                                              ; preds = %111
+735:                                              ; preds = %672
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-745:                                              ; preds = %732
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h3617fc74b41a9dc2E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %115, ptr noundef nonnull align 8 %736)
-  br label %209
+736:                                              ; preds = %723
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h9d38b65fc07e51ddE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %727)
+  br label %227
 
-746:                                              ; preds = %732
+737:                                              ; preds = %723
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-747:                                              ; preds = %123
-  %748 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %749 = load ptr, ptr %748, align 8, !invariant.load !6, !nonnull !6
-  %750 = tail call { ptr, ptr } %749(ptr noundef nonnull align 1 %3)
-  %751 = extractvalue { ptr, ptr } %750, 0
-  %752 = extractvalue { ptr, ptr } %750, 1
-  %753 = getelementptr i8, ptr %752, i64 24
-  %.val321 = load ptr, ptr %753, align 8
-  %754 = tail call { i64, i64 } %.val321(ptr noundef nonnull align 1 %751)
-  %755 = extractvalue { i64, i64 } %754, 0
-  %756 = icmp ne i64 %755, 5209533364377202164
-  %757 = extractvalue { i64, i64 } %754, 1
-  %758 = icmp ne i64 %757, 7812553468775375572
-  %.sroa.0.0.i431.not = select i1 %756, i1 true, i1 %758
-  br i1 %.sroa.0.0.i431.not, label %761, label %760, !prof !30
+738:                                              ; preds = %675
+  %739 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %740 = load ptr, ptr %739, align 8, !invariant.load !6, !nonnull !6
+  %741 = tail call { ptr, ptr } %740(ptr noundef nonnull align 1 %3)
+  %742 = extractvalue { ptr, ptr } %741, 0
+  %743 = extractvalue { ptr, ptr } %741, 1
+  %744 = getelementptr i8, ptr %743, i64 24
+  %.val367 = load ptr, ptr %744, align 8
+  %745 = tail call { i64, i64 } %.val367(ptr noundef nonnull align 1 %742)
+  %746 = extractvalue { i64, i64 } %745, 0
+  %747 = icmp ne i64 %746, 2392607815245497461
+  %748 = extractvalue { i64, i64 } %745, 1
+  %749 = icmp ne i64 %748, 1275985459044189422
+  %.sroa.0.0.i446.not = select i1 %747, i1 true, i1 %749
+  br i1 %.sroa.0.0.i446.not, label %752, label %751, !prof !30
 
-759:                                              ; preds = %123
+750:                                              ; preds = %675
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-760:                                              ; preds = %747
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hdc809b8d2d386435E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %127, ptr noundef nonnull align 8 %751)
-  br label %209
+751:                                              ; preds = %738
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hfa624a2c08083e81E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %742)
+  br label %227
 
-761:                                              ; preds = %747
+752:                                              ; preds = %738
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-762:                                              ; preds = %135
-  %763 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %764 = load ptr, ptr %763, align 8, !invariant.load !6, !nonnull !6
-  %765 = tail call { ptr, ptr } %764(ptr noundef nonnull align 1 %3)
-  %766 = extractvalue { ptr, ptr } %765, 0
-  %767 = extractvalue { ptr, ptr } %765, 1
-  %768 = getelementptr i8, ptr %767, i64 24
-  %.val323 = load ptr, ptr %768, align 8
-  %769 = tail call { i64, i64 } %.val323(ptr noundef nonnull align 1 %766)
-  %770 = extractvalue { i64, i64 } %769, 0
-  %771 = icmp ne i64 %770, -1285076804561215877
-  %772 = extractvalue { i64, i64 } %769, 1
-  %773 = icmp ne i64 %772, -3530592277402597310
-  %.sroa.0.0.i432.not = select i1 %771, i1 true, i1 %773
-  br i1 %.sroa.0.0.i432.not, label %776, label %775, !prof !30
+753:                                              ; preds = %678
+  %754 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %755 = load ptr, ptr %754, align 8, !invariant.load !6, !nonnull !6
+  %756 = tail call { ptr, ptr } %755(ptr noundef nonnull align 1 %3)
+  %757 = extractvalue { ptr, ptr } %756, 0
+  %758 = extractvalue { ptr, ptr } %756, 1
+  %759 = getelementptr i8, ptr %758, i64 24
+  %.val369 = load ptr, ptr %759, align 8
+  %760 = tail call { i64, i64 } %.val369(ptr noundef nonnull align 1 %757)
+  %761 = extractvalue { i64, i64 } %760, 0
+  %762 = icmp ne i64 %761, 7090791848143539004
+  %763 = extractvalue { i64, i64 } %760, 1
+  %764 = icmp ne i64 %763, 5073570680214212543
+  %.sroa.0.0.i447.not = select i1 %762, i1 true, i1 %764
+  br i1 %.sroa.0.0.i447.not, label %767, label %766, !prof !30
 
-774:                                              ; preds = %135
+765:                                              ; preds = %678
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-775:                                              ; preds = %762
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h90aab2c7f40382e3E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %139, ptr noundef nonnull align 8 %766)
-  br label %209
+766:                                              ; preds = %753
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hf41462f1781f1a57E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %757)
+  br label %227
 
-776:                                              ; preds = %762
+767:                                              ; preds = %753
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-777:                                              ; preds = %147
-  %778 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %779 = load ptr, ptr %778, align 8, !invariant.load !6, !nonnull !6
-  %780 = tail call { ptr, ptr } %779(ptr noundef nonnull align 1 %3)
-  %781 = extractvalue { ptr, ptr } %780, 0
-  %782 = extractvalue { ptr, ptr } %780, 1
-  %783 = getelementptr i8, ptr %782, i64 24
-  %.val325 = load ptr, ptr %783, align 8
-  %784 = tail call { i64, i64 } %.val325(ptr noundef nonnull align 1 %781)
-  %785 = extractvalue { i64, i64 } %784, 0
-  %786 = icmp ne i64 %785, -4229490849536239523
-  %787 = extractvalue { i64, i64 } %784, 1
-  %788 = icmp ne i64 %787, 1926123703779822909
-  %.sroa.0.0.i433.not = select i1 %786, i1 true, i1 %788
-  br i1 %.sroa.0.0.i433.not, label %791, label %790, !prof !30
+768:                                              ; preds = %681
+  %769 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %770 = load ptr, ptr %769, align 8, !invariant.load !6, !nonnull !6
+  %771 = tail call { ptr, ptr } %770(ptr noundef nonnull align 1 %3)
+  %772 = extractvalue { ptr, ptr } %771, 0
+  %773 = extractvalue { ptr, ptr } %771, 1
+  %774 = getelementptr i8, ptr %773, i64 24
+  %.val371 = load ptr, ptr %774, align 8
+  %775 = tail call { i64, i64 } %.val371(ptr noundef nonnull align 1 %772)
+  %776 = extractvalue { i64, i64 } %775, 0
+  %777 = icmp ne i64 %776, 5516153207483644272
+  %778 = extractvalue { i64, i64 } %775, 1
+  %779 = icmp ne i64 %778, 275732463827437843
+  %.sroa.0.0.i448.not = select i1 %777, i1 true, i1 %779
+  br i1 %.sroa.0.0.i448.not, label %782, label %781, !prof !30
 
-789:                                              ; preds = %147
+780:                                              ; preds = %681
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-790:                                              ; preds = %777
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h839348f183c5d0ebE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %151, ptr noundef nonnull align 8 %781)
-  br label %209
+781:                                              ; preds = %768
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hfaff366a17290690E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %772)
+  br label %227
 
-791:                                              ; preds = %777
+782:                                              ; preds = %768
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-792:                                              ; preds = %169
-  %793 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %794 = load ptr, ptr %793, align 8, !invariant.load !6, !nonnull !6
-  %795 = tail call { ptr, ptr } %794(ptr noundef nonnull align 1 %1)
-  %796 = extractvalue { ptr, ptr } %795, 0
-  %797 = extractvalue { ptr, ptr } %795, 1
-  %798 = getelementptr i8, ptr %797, i64 24
-  %.val362 = load ptr, ptr %798, align 8
-  %799 = tail call { i64, i64 } %.val362(ptr noundef nonnull align 1 %796)
-  %800 = extractvalue { i64, i64 } %799, 0
-  %801 = icmp ne i64 %800, 341849809492262473
-  %802 = extractvalue { i64, i64 } %799, 1
-  %803 = icmp ne i64 %802, 611862421737265251
-  %.sroa.0.0.i434.not = select i1 %801, i1 true, i1 %803
-  br i1 %.sroa.0.0.i434.not, label %912, label %900, !prof !30
+783:                                              ; preds = %684
+  %784 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %785 = load ptr, ptr %784, align 8, !invariant.load !6, !nonnull !6
+  %786 = tail call { ptr, ptr } %785(ptr noundef nonnull align 1 %3)
+  %787 = extractvalue { ptr, ptr } %786, 0
+  %788 = extractvalue { ptr, ptr } %786, 1
+  %789 = getelementptr i8, ptr %788, i64 24
+  %.val373 = load ptr, ptr %789, align 8
+  %790 = tail call { i64, i64 } %.val373(ptr noundef nonnull align 1 %787)
+  %791 = extractvalue { i64, i64 } %790, 0
+  %792 = icmp ne i64 %791, 4615118761646258390
+  %793 = extractvalue { i64, i64 } %790, 1
+  %794 = icmp ne i64 %793, 3173253621429432647
+  %.sroa.0.0.i449.not = select i1 %792, i1 true, i1 %794
+  br i1 %.sroa.0.0.i449.not, label %797, label %796, !prof !30
 
-804:                                              ; preds = %169
-  %805 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %806 = load ptr, ptr %805, align 8, !invariant.load !6, !nonnull !6
-  %807 = tail call { ptr, ptr } %806(ptr noundef nonnull align 1 %1)
-  %808 = extractvalue { ptr, ptr } %807, 0
-  %809 = extractvalue { ptr, ptr } %807, 1
-  %810 = getelementptr i8, ptr %809, i64 24
-  %.val364 = load ptr, ptr %810, align 8
-  %811 = tail call { i64, i64 } %.val364(ptr noundef nonnull align 1 %808)
-  %812 = extractvalue { i64, i64 } %811, 0
-  %813 = icmp ne i64 %812, 2513640661813068704
-  %814 = extractvalue { i64, i64 } %811, 1
-  %815 = icmp ne i64 %814, 6724818707647989319
-  %.sroa.0.0.i435.not = select i1 %813, i1 true, i1 %815
-  br i1 %.sroa.0.0.i435.not, label %927, label %915, !prof !30
+795:                                              ; preds = %684
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
 
-816:                                              ; preds = %169
-  %817 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %818 = load ptr, ptr %817, align 8, !invariant.load !6, !nonnull !6
-  %819 = tail call { ptr, ptr } %818(ptr noundef nonnull align 1 %1)
-  %820 = extractvalue { ptr, ptr } %819, 0
-  %821 = extractvalue { ptr, ptr } %819, 1
-  %822 = getelementptr i8, ptr %821, i64 24
-  %.val366 = load ptr, ptr %822, align 8
-  %823 = tail call { i64, i64 } %.val366(ptr noundef nonnull align 1 %820)
-  %824 = extractvalue { i64, i64 } %823, 0
-  %825 = icmp ne i64 %824, 3937964684542098673
-  %826 = extractvalue { i64, i64 } %823, 1
-  %827 = icmp ne i64 %826, -2221653167821116500
-  %.sroa.0.0.i436.not = select i1 %825, i1 true, i1 %827
-  br i1 %.sroa.0.0.i436.not, label %942, label %930, !prof !30
+796:                                              ; preds = %783
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17ha17035e7cba7075aE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %787)
+  br label %227
 
-828:                                              ; preds = %169
-  %829 = getelementptr inbounds nuw i8, ptr %2, i64 32
+797:                                              ; preds = %783
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
+
+798:                                              ; preds = %687
+  %799 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %800 = load ptr, ptr %799, align 8, !invariant.load !6, !nonnull !6
+  %801 = tail call { ptr, ptr } %800(ptr noundef nonnull align 1 %3)
+  %802 = extractvalue { ptr, ptr } %801, 0
+  %803 = extractvalue { ptr, ptr } %801, 1
+  %804 = getelementptr i8, ptr %803, i64 24
+  %.val375 = load ptr, ptr %804, align 8
+  %805 = tail call { i64, i64 } %.val375(ptr noundef nonnull align 1 %802)
+  %806 = extractvalue { i64, i64 } %805, 0
+  %807 = icmp ne i64 %806, -8242311478931178162
+  %808 = extractvalue { i64, i64 } %805, 1
+  %809 = icmp ne i64 %808, -6749062287969796718
+  %.sroa.0.0.i450.not = select i1 %807, i1 true, i1 %809
+  br i1 %.sroa.0.0.i450.not, label %812, label %811, !prof !30
+
+810:                                              ; preds = %687
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
+
+811:                                              ; preds = %798
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h9435fb03240860cfE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %802)
+  br label %227
+
+812:                                              ; preds = %798
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
+
+813:                                              ; preds = %690
+  %814 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %815 = load ptr, ptr %814, align 8, !invariant.load !6, !nonnull !6
+  %816 = tail call { ptr, ptr } %815(ptr noundef nonnull align 1 %3)
+  %817 = extractvalue { ptr, ptr } %816, 0
+  %818 = extractvalue { ptr, ptr } %816, 1
+  %819 = getelementptr i8, ptr %818, i64 24
+  %.val377 = load ptr, ptr %819, align 8
+  %820 = tail call { i64, i64 } %.val377(ptr noundef nonnull align 1 %817)
+  %821 = extractvalue { i64, i64 } %820, 0
+  %822 = icmp ne i64 %821, 2541767739881155333
+  %823 = extractvalue { i64, i64 } %820, 1
+  %824 = icmp ne i64 %823, -4423643634179343665
+  %.sroa.0.0.i451.not = select i1 %822, i1 true, i1 %824
+  br i1 %.sroa.0.0.i451.not, label %827, label %826, !prof !30
+
+825:                                              ; preds = %690
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
+
+826:                                              ; preds = %813
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h67c8b03883ab4e2cE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %182, ptr noundef nonnull align 8 %817)
+  br label %227
+
+827:                                              ; preds = %813
+  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
+  unreachable
+
+828:                                              ; preds = %188
+  %829 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %830 = load ptr, ptr %829, align 8, !invariant.load !6, !nonnull !6
-  %831 = tail call { ptr, ptr } %830(ptr noundef nonnull align 1 %1)
+  %831 = tail call { ptr, ptr } %830(ptr noundef nonnull align 1 %3)
   %832 = extractvalue { ptr, ptr } %831, 0
   %833 = extractvalue { ptr, ptr } %831, 1
   %834 = getelementptr i8, ptr %833, i64 24
-  %.val368 = load ptr, ptr %834, align 8
-  %835 = tail call { i64, i64 } %.val368(ptr noundef nonnull align 1 %832)
+  %.val305 = load ptr, ptr %834, align 8
+  %835 = tail call { i64, i64 } %.val305(ptr noundef nonnull align 1 %832)
   %836 = extractvalue { i64, i64 } %835, 0
-  %837 = icmp ne i64 %836, 2392607815245497461
+  %837 = icmp ne i64 %836, -5133974785058079944
   %838 = extractvalue { i64, i64 } %835, 1
-  %839 = icmp ne i64 %838, 1275985459044189422
-  %.sroa.0.0.i437.not = select i1 %837, i1 true, i1 %839
-  br i1 %.sroa.0.0.i437.not, label %957, label %945, !prof !30
+  %839 = icmp ne i64 %838, -2115088211549721928
+  %.sroa.0.0.i452.not = select i1 %837, i1 true, i1 %839
+  br i1 %.sroa.0.0.i452.not, label %842, label %841, !prof !30
 
-840:                                              ; preds = %169
-  %841 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %842 = load ptr, ptr %841, align 8, !invariant.load !6, !nonnull !6
-  %843 = tail call { ptr, ptr } %842(ptr noundef nonnull align 1 %1)
-  %844 = extractvalue { ptr, ptr } %843, 0
-  %845 = extractvalue { ptr, ptr } %843, 1
-  %846 = getelementptr i8, ptr %845, i64 24
-  %.val370 = load ptr, ptr %846, align 8
-  %847 = tail call { i64, i64 } %.val370(ptr noundef nonnull align 1 %844)
-  %848 = extractvalue { i64, i64 } %847, 0
-  %849 = icmp ne i64 %848, 7090791848143539004
-  %850 = extractvalue { i64, i64 } %847, 1
-  %851 = icmp ne i64 %850, 5073570680214212543
-  %.sroa.0.0.i438.not = select i1 %849, i1 true, i1 %851
-  br i1 %.sroa.0.0.i438.not, label %972, label %960, !prof !30
-
-852:                                              ; preds = %169
-  %853 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %854 = load ptr, ptr %853, align 8, !invariant.load !6, !nonnull !6
-  %855 = tail call { ptr, ptr } %854(ptr noundef nonnull align 1 %1)
-  %856 = extractvalue { ptr, ptr } %855, 0
-  %857 = extractvalue { ptr, ptr } %855, 1
-  %858 = getelementptr i8, ptr %857, i64 24
-  %.val372 = load ptr, ptr %858, align 8
-  %859 = tail call { i64, i64 } %.val372(ptr noundef nonnull align 1 %856)
-  %860 = extractvalue { i64, i64 } %859, 0
-  %861 = icmp ne i64 %860, 5516153207483644272
-  %862 = extractvalue { i64, i64 } %859, 1
-  %863 = icmp ne i64 %862, 275732463827437843
-  %.sroa.0.0.i439.not = select i1 %861, i1 true, i1 %863
-  br i1 %.sroa.0.0.i439.not, label %987, label %975, !prof !30
-
-864:                                              ; preds = %169
-  %865 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %866 = load ptr, ptr %865, align 8, !invariant.load !6, !nonnull !6
-  %867 = tail call { ptr, ptr } %866(ptr noundef nonnull align 1 %1)
-  %868 = extractvalue { ptr, ptr } %867, 0
-  %869 = extractvalue { ptr, ptr } %867, 1
-  %870 = getelementptr i8, ptr %869, i64 24
-  %.val374 = load ptr, ptr %870, align 8
-  %871 = tail call { i64, i64 } %.val374(ptr noundef nonnull align 1 %868)
-  %872 = extractvalue { i64, i64 } %871, 0
-  %873 = icmp ne i64 %872, 4615118761646258390
-  %874 = extractvalue { i64, i64 } %871, 1
-  %875 = icmp ne i64 %874, 3173253621429432647
-  %.sroa.0.0.i440.not = select i1 %873, i1 true, i1 %875
-  br i1 %.sroa.0.0.i440.not, label %1002, label %990, !prof !30
-
-876:                                              ; preds = %169
-  %877 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %878 = load ptr, ptr %877, align 8, !invariant.load !6, !nonnull !6
-  %879 = tail call { ptr, ptr } %878(ptr noundef nonnull align 1 %1)
-  %880 = extractvalue { ptr, ptr } %879, 0
-  %881 = extractvalue { ptr, ptr } %879, 1
-  %882 = getelementptr i8, ptr %881, i64 24
-  %.val376 = load ptr, ptr %882, align 8
-  %883 = tail call { i64, i64 } %.val376(ptr noundef nonnull align 1 %880)
-  %884 = extractvalue { i64, i64 } %883, 0
-  %885 = icmp ne i64 %884, -8242311478931178162
-  %886 = extractvalue { i64, i64 } %883, 1
-  %887 = icmp ne i64 %886, -6749062287969796718
-  %.sroa.0.0.i441.not = select i1 %885, i1 true, i1 %887
-  br i1 %.sroa.0.0.i441.not, label %1017, label %1005, !prof !30
-
-888:                                              ; preds = %169
-  %889 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %890 = load ptr, ptr %889, align 8, !invariant.load !6, !nonnull !6
-  %891 = tail call { ptr, ptr } %890(ptr noundef nonnull align 1 %1)
-  %892 = extractvalue { ptr, ptr } %891, 0
-  %893 = extractvalue { ptr, ptr } %891, 1
-  %894 = getelementptr i8, ptr %893, i64 24
-  %.val378 = load ptr, ptr %894, align 8
-  %895 = tail call { i64, i64 } %.val378(ptr noundef nonnull align 1 %892)
-  %896 = extractvalue { i64, i64 } %895, 0
-  %897 = icmp ne i64 %896, 2541767739881155333
-  %898 = extractvalue { i64, i64 } %895, 1
-  %899 = icmp ne i64 %898, -4423643634179343665
-  %.sroa.0.0.i442.not = select i1 %897, i1 true, i1 %899
-  br i1 %.sroa.0.0.i442.not, label %1032, label %1020, !prof !30
-
-900:                                              ; preds = %792
-  %901 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %902 = load ptr, ptr %901, align 8, !invariant.load !6, !nonnull !6
-  %903 = tail call { ptr, ptr } %902(ptr noundef nonnull align 1 %3)
-  %904 = extractvalue { ptr, ptr } %903, 0
-  %905 = extractvalue { ptr, ptr } %903, 1
-  %906 = getelementptr i8, ptr %905, i64 24
-  %.val361 = load ptr, ptr %906, align 8
-  %907 = tail call { i64, i64 } %.val361(ptr noundef nonnull align 1 %904)
-  %908 = extractvalue { i64, i64 } %907, 0
-  %909 = icmp ne i64 %908, 341849809492262473
-  %910 = extractvalue { i64, i64 } %907, 1
-  %911 = icmp ne i64 %910, 611862421737265251
-  %.sroa.0.0.i443.not = select i1 %909, i1 true, i1 %911
-  br i1 %.sroa.0.0.i443.not, label %914, label %913, !prof !30
-
-912:                                              ; preds = %792
+840:                                              ; preds = %188
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-913:                                              ; preds = %900
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17he2b546414e772571E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %796, ptr noundef nonnull align 8 %904)
-  br label %209
+841:                                              ; preds = %828
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h3072d4955aac6675E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %192, ptr noundef nonnull align 8 %832)
+  br label %227
 
-914:                                              ; preds = %900
+842:                                              ; preds = %828
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-915:                                              ; preds = %804
-  %916 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %917 = load ptr, ptr %916, align 8, !invariant.load !6, !nonnull !6
-  %918 = tail call { ptr, ptr } %917(ptr noundef nonnull align 1 %3)
-  %919 = extractvalue { ptr, ptr } %918, 0
-  %920 = extractvalue { ptr, ptr } %918, 1
-  %921 = getelementptr i8, ptr %920, i64 24
-  %.val363 = load ptr, ptr %921, align 8
-  %922 = tail call { i64, i64 } %.val363(ptr noundef nonnull align 1 %919)
-  %923 = extractvalue { i64, i64 } %922, 0
-  %924 = icmp ne i64 %923, 2513640661813068704
-  %925 = extractvalue { i64, i64 } %922, 1
-  %926 = icmp ne i64 %925, 6724818707647989319
-  %.sroa.0.0.i444.not = select i1 %924, i1 true, i1 %926
-  br i1 %.sroa.0.0.i444.not, label %929, label %928, !prof !30
+843:                                              ; preds = %200
+  %844 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %845 = load ptr, ptr %844, align 8, !invariant.load !6, !nonnull !6
+  %846 = tail call { ptr, ptr } %845(ptr noundef nonnull align 1 %3)
+  %847 = extractvalue { ptr, ptr } %846, 0
+  %848 = extractvalue { ptr, ptr } %846, 1
+  %849 = getelementptr i8, ptr %848, i64 24
+  %.val327 = load ptr, ptr %849, align 8
+  %850 = tail call { i64, i64 } %.val327(ptr noundef nonnull align 1 %847)
+  %851 = extractvalue { i64, i64 } %850, 0
+  %852 = icmp ne i64 %851, -4691702406351074806
+  %853 = extractvalue { i64, i64 } %850, 1
+  %854 = icmp ne i64 %853, -766443083152007247
+  %.sroa.0.0.i453.not = select i1 %852, i1 true, i1 %854
+  br i1 %.sroa.0.0.i453.not, label %857, label %856, !prof !30
 
-927:                                              ; preds = %804
+855:                                              ; preds = %200
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 
-928:                                              ; preds = %915
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h0b26a39e00b6afb8E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %808, ptr noundef nonnull align 8 %919)
-  br label %209
+856:                                              ; preds = %843
+  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hf68dc27645a93382E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %204, ptr noundef nonnull align 8 %847)
+  br label %227
 
-929:                                              ; preds = %915
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-930:                                              ; preds = %816
-  %931 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %932 = load ptr, ptr %931, align 8, !invariant.load !6, !nonnull !6
-  %933 = tail call { ptr, ptr } %932(ptr noundef nonnull align 1 %3)
-  %934 = extractvalue { ptr, ptr } %933, 0
-  %935 = extractvalue { ptr, ptr } %933, 1
-  %936 = getelementptr i8, ptr %935, i64 24
-  %.val365 = load ptr, ptr %936, align 8
-  %937 = tail call { i64, i64 } %.val365(ptr noundef nonnull align 1 %934)
-  %938 = extractvalue { i64, i64 } %937, 0
-  %939 = icmp ne i64 %938, 3937964684542098673
-  %940 = extractvalue { i64, i64 } %937, 1
-  %941 = icmp ne i64 %940, -2221653167821116500
-  %.sroa.0.0.i445.not = select i1 %939, i1 true, i1 %941
-  br i1 %.sroa.0.0.i445.not, label %944, label %943, !prof !30
-
-942:                                              ; preds = %816
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-943:                                              ; preds = %930
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h9d38b65fc07e51ddE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %820, ptr noundef nonnull align 8 %934)
-  br label %209
-
-944:                                              ; preds = %930
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-945:                                              ; preds = %828
-  %946 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %947 = load ptr, ptr %946, align 8, !invariant.load !6, !nonnull !6
-  %948 = tail call { ptr, ptr } %947(ptr noundef nonnull align 1 %3)
-  %949 = extractvalue { ptr, ptr } %948, 0
-  %950 = extractvalue { ptr, ptr } %948, 1
-  %951 = getelementptr i8, ptr %950, i64 24
-  %.val367 = load ptr, ptr %951, align 8
-  %952 = tail call { i64, i64 } %.val367(ptr noundef nonnull align 1 %949)
-  %953 = extractvalue { i64, i64 } %952, 0
-  %954 = icmp ne i64 %953, 2392607815245497461
-  %955 = extractvalue { i64, i64 } %952, 1
-  %956 = icmp ne i64 %955, 1275985459044189422
-  %.sroa.0.0.i446.not = select i1 %954, i1 true, i1 %956
-  br i1 %.sroa.0.0.i446.not, label %959, label %958, !prof !30
-
-957:                                              ; preds = %828
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-958:                                              ; preds = %945
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hfa624a2c08083e81E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %832, ptr noundef nonnull align 8 %949)
-  br label %209
-
-959:                                              ; preds = %945
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-960:                                              ; preds = %840
-  %961 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %962 = load ptr, ptr %961, align 8, !invariant.load !6, !nonnull !6
-  %963 = tail call { ptr, ptr } %962(ptr noundef nonnull align 1 %3)
-  %964 = extractvalue { ptr, ptr } %963, 0
-  %965 = extractvalue { ptr, ptr } %963, 1
-  %966 = getelementptr i8, ptr %965, i64 24
-  %.val369 = load ptr, ptr %966, align 8
-  %967 = tail call { i64, i64 } %.val369(ptr noundef nonnull align 1 %964)
-  %968 = extractvalue { i64, i64 } %967, 0
-  %969 = icmp ne i64 %968, 7090791848143539004
-  %970 = extractvalue { i64, i64 } %967, 1
-  %971 = icmp ne i64 %970, 5073570680214212543
-  %.sroa.0.0.i447.not = select i1 %969, i1 true, i1 %971
-  br i1 %.sroa.0.0.i447.not, label %974, label %973, !prof !30
-
-972:                                              ; preds = %840
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-973:                                              ; preds = %960
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hf41462f1781f1a57E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %844, ptr noundef nonnull align 8 %964)
-  br label %209
-
-974:                                              ; preds = %960
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-975:                                              ; preds = %852
-  %976 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %977 = load ptr, ptr %976, align 8, !invariant.load !6, !nonnull !6
-  %978 = tail call { ptr, ptr } %977(ptr noundef nonnull align 1 %3)
-  %979 = extractvalue { ptr, ptr } %978, 0
-  %980 = extractvalue { ptr, ptr } %978, 1
-  %981 = getelementptr i8, ptr %980, i64 24
-  %.val371 = load ptr, ptr %981, align 8
-  %982 = tail call { i64, i64 } %.val371(ptr noundef nonnull align 1 %979)
-  %983 = extractvalue { i64, i64 } %982, 0
-  %984 = icmp ne i64 %983, 5516153207483644272
-  %985 = extractvalue { i64, i64 } %982, 1
-  %986 = icmp ne i64 %985, 275732463827437843
-  %.sroa.0.0.i448.not = select i1 %984, i1 true, i1 %986
-  br i1 %.sroa.0.0.i448.not, label %989, label %988, !prof !30
-
-987:                                              ; preds = %852
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-988:                                              ; preds = %975
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hfaff366a17290690E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %856, ptr noundef nonnull align 8 %979)
-  br label %209
-
-989:                                              ; preds = %975
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-990:                                              ; preds = %864
-  %991 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %992 = load ptr, ptr %991, align 8, !invariant.load !6, !nonnull !6
-  %993 = tail call { ptr, ptr } %992(ptr noundef nonnull align 1 %3)
-  %994 = extractvalue { ptr, ptr } %993, 0
-  %995 = extractvalue { ptr, ptr } %993, 1
-  %996 = getelementptr i8, ptr %995, i64 24
-  %.val373 = load ptr, ptr %996, align 8
-  %997 = tail call { i64, i64 } %.val373(ptr noundef nonnull align 1 %994)
-  %998 = extractvalue { i64, i64 } %997, 0
-  %999 = icmp ne i64 %998, 4615118761646258390
-  %1000 = extractvalue { i64, i64 } %997, 1
-  %1001 = icmp ne i64 %1000, 3173253621429432647
-  %.sroa.0.0.i449.not = select i1 %999, i1 true, i1 %1001
-  br i1 %.sroa.0.0.i449.not, label %1004, label %1003, !prof !30
-
-1002:                                             ; preds = %864
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-1003:                                             ; preds = %990
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17ha17035e7cba7075aE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %868, ptr noundef nonnull align 8 %994)
-  br label %209
-
-1004:                                             ; preds = %990
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-1005:                                             ; preds = %876
-  %1006 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %1007 = load ptr, ptr %1006, align 8, !invariant.load !6, !nonnull !6
-  %1008 = tail call { ptr, ptr } %1007(ptr noundef nonnull align 1 %3)
-  %1009 = extractvalue { ptr, ptr } %1008, 0
-  %1010 = extractvalue { ptr, ptr } %1008, 1
-  %1011 = getelementptr i8, ptr %1010, i64 24
-  %.val375 = load ptr, ptr %1011, align 8
-  %1012 = tail call { i64, i64 } %.val375(ptr noundef nonnull align 1 %1009)
-  %1013 = extractvalue { i64, i64 } %1012, 0
-  %1014 = icmp ne i64 %1013, -8242311478931178162
-  %1015 = extractvalue { i64, i64 } %1012, 1
-  %1016 = icmp ne i64 %1015, -6749062287969796718
-  %.sroa.0.0.i450.not = select i1 %1014, i1 true, i1 %1016
-  br i1 %.sroa.0.0.i450.not, label %1019, label %1018, !prof !30
-
-1017:                                             ; preds = %876
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-1018:                                             ; preds = %1005
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h9435fb03240860cfE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %880, ptr noundef nonnull align 8 %1009)
-  br label %209
-
-1019:                                             ; preds = %1005
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-1020:                                             ; preds = %888
-  %1021 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %1022 = load ptr, ptr %1021, align 8, !invariant.load !6, !nonnull !6
-  %1023 = tail call { ptr, ptr } %1022(ptr noundef nonnull align 1 %3)
-  %1024 = extractvalue { ptr, ptr } %1023, 0
-  %1025 = extractvalue { ptr, ptr } %1023, 1
-  %1026 = getelementptr i8, ptr %1025, i64 24
-  %.val377 = load ptr, ptr %1026, align 8
-  %1027 = tail call { i64, i64 } %.val377(ptr noundef nonnull align 1 %1024)
-  %1028 = extractvalue { i64, i64 } %1027, 0
-  %1029 = icmp ne i64 %1028, 2541767739881155333
-  %1030 = extractvalue { i64, i64 } %1027, 1
-  %1031 = icmp ne i64 %1030, -4423643634179343665
-  %.sroa.0.0.i451.not = select i1 %1029, i1 true, i1 %1031
-  br i1 %.sroa.0.0.i451.not, label %1034, label %1033, !prof !30
-
-1032:                                             ; preds = %888
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-1033:                                             ; preds = %1020
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h67c8b03883ab4e2cE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %892, ptr noundef nonnull align 8 %1024)
-  br label %209
-
-1034:                                             ; preds = %1020
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-1035:                                             ; preds = %170
-  %1036 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %1037 = load ptr, ptr %1036, align 8, !invariant.load !6, !nonnull !6
-  %1038 = tail call { ptr, ptr } %1037(ptr noundef nonnull align 1 %3)
-  %1039 = extractvalue { ptr, ptr } %1038, 0
-  %1040 = extractvalue { ptr, ptr } %1038, 1
-  %1041 = getelementptr i8, ptr %1040, i64 24
-  %.val305 = load ptr, ptr %1041, align 8
-  %1042 = tail call { i64, i64 } %.val305(ptr noundef nonnull align 1 %1039)
-  %1043 = extractvalue { i64, i64 } %1042, 0
-  %1044 = icmp ne i64 %1043, -5133974785058079944
-  %1045 = extractvalue { i64, i64 } %1042, 1
-  %1046 = icmp ne i64 %1045, -2115088211549721928
-  %.sroa.0.0.i452.not = select i1 %1044, i1 true, i1 %1046
-  br i1 %.sroa.0.0.i452.not, label %1049, label %1048, !prof !30
-
-1047:                                             ; preds = %170
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-1048:                                             ; preds = %1035
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17h3072d4955aac6675E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %174, ptr noundef nonnull align 8 %1039)
-  br label %209
-
-1049:                                             ; preds = %1035
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-1050:                                             ; preds = %182
-  %1051 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %1052 = load ptr, ptr %1051, align 8, !invariant.load !6, !nonnull !6
-  %1053 = tail call { ptr, ptr } %1052(ptr noundef nonnull align 1 %3)
-  %1054 = extractvalue { ptr, ptr } %1053, 0
-  %1055 = extractvalue { ptr, ptr } %1053, 1
-  %1056 = getelementptr i8, ptr %1055, i64 24
-  %.val327 = load ptr, ptr %1056, align 8
-  %1057 = tail call { i64, i64 } %.val327(ptr noundef nonnull align 1 %1054)
-  %1058 = extractvalue { i64, i64 } %1057, 0
-  %1059 = icmp ne i64 %1058, -4691702406351074806
-  %1060 = extractvalue { i64, i64 } %1057, 1
-  %1061 = icmp ne i64 %1060, -766443083152007247
-  %.sroa.0.0.i453.not = select i1 %1059, i1 true, i1 %1061
-  br i1 %.sroa.0.0.i453.not, label %1064, label %1063, !prof !30
-
-1062:                                             ; preds = %182
-  tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
-  unreachable
-
-1063:                                             ; preds = %1050
-  tail call void @_ZN14polars_compute11comparisons13TotalEqKernel21tot_ne_missing_kernel17hf68dc27645a93382E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 %186, ptr noundef nonnull align 8 %1054)
-  br label %209
-
-1064:                                             ; preds = %1050
+857:                                              ; preds = %843
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea237b04ddb17f09807800ed703f3a93.375) #25
   unreachable
 }

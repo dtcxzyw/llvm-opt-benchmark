@@ -47020,16 +47020,16 @@ switch.lookup:
   %10 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr %1, align 4, !noundef !24
-  %12 = shl nuw nsw i8 %6, 3
-  %switch.shiftamt = zext nneg i8 %12 to i24
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %13 = shl nuw nsw i8 %6, 3
+  %switch.shiftamt = zext nneg i8 %13 to i24
   %switch.downshift = lshr i24 513, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
-  %13 = tail call { i64, i64 } @_ZN16ruff_source_file10line_index9LineIndex15source_location17ha617b2f9988a8bf2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i32 noundef %11, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i8 noundef %switch.masked)
-  %14 = extractvalue { i64, i64 } %13, 0
-  %15 = extractvalue { i64, i64 } %13, 1
-  store i64 %14, ptr %10, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %15, ptr %16, align 8
+  %14 = tail call { i64, i64 } @_ZN16ruff_source_file10line_index9LineIndex15source_location17ha617b2f9988a8bf2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i32 noundef %11, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i8 noundef %switch.masked)
+  %15 = extractvalue { i64, i64 } %14, 0
+  %16 = extractvalue { i64, i64 } %14, 1
+  store i64 %15, ptr %10, align 8
+  store i64 %16, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %.in, align 4, !noundef !24
@@ -47039,34 +47039,34 @@ switch.lookup:
   store i64 %19, ptr %9, align 8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %20, ptr %21, align 8
-  %22 = tail call noundef i64 @_ZN13ruff_notebook5index13NotebookIndex4cell17h8d41295b8dfb4c22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5, i64 noundef %14)
+  %22 = tail call noundef i64 @_ZN13ruff_notebook5index13NotebookIndex4cell17h8d41295b8dfb4c22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5, i64 noundef %15)
   %23 = tail call noundef i64 @_ZN13ruff_notebook5index13NotebookIndex4cell17h8d41295b8dfb4c22E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5, i64 noundef %19)
   %.not = icmp eq i64 %23, 0
   br i1 %.not, label %26, label %24
 
 24:                                               ; preds = %switch.lookup
   %25 = icmp eq i64 %23, %22
-  br i1 %25, label %33, label %switch.lookup31
+  br i1 %25, label %33, label %switch.lookup30
 
 26:                                               ; preds = %switch.lookup
   %27 = icmp eq i64 %22, 0
-  br i1 %27, label %33, label %switch.lookup31
+  br i1 %27, label %33, label %switch.lookup30
 
-switch.lookup31:                                  ; preds = %24, %26
+switch.lookup30:                                  ; preds = %24, %26
   %28 = tail call noundef i64 @_ZN16ruff_source_file10line_index10OneIndexed14saturating_sub17h8f3e7e3e240a2acfE(i64 noundef %19, i64 noundef 1)
   store i64 %28, ptr %9, align 8
   %29 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef 1)
   %.sroa.012.0 = tail call i32 @llvm.usub.sat.i32(i32 %17, i32 %29)
   %30 = shl nuw nsw i8 %6, 3
-  %switch.shiftamt33 = zext nneg i8 %30 to i24
-  %switch.downshift34 = lshr i24 513, %switch.shiftamt33
-  %switch.masked35 = trunc i24 %switch.downshift34 to i8
-  %31 = tail call { i64, i64 } @_ZN16ruff_source_file10line_index9LineIndex15source_location17ha617b2f9988a8bf2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i32 noundef %.sroa.012.0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i8 noundef %switch.masked35)
+  %switch.shiftamt32 = zext nneg i8 %30 to i24
+  %switch.downshift33 = lshr i24 513, %switch.shiftamt32
+  %switch.masked34 = trunc i24 %switch.downshift33 to i8
+  %31 = tail call { i64, i64 } @_ZN16ruff_source_file10line_index9LineIndex15source_location17ha617b2f9988a8bf2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i32 noundef %.sroa.012.0, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i8 noundef %switch.masked34)
   %32 = extractvalue { i64, i64 } %31, 1
   store i64 %32, ptr %21, align 8
   br label %33
 
-33:                                               ; preds = %24, %26, %switch.lookup31
+33:                                               ; preds = %24, %26, %switch.lookup30
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %34 = call { i64, i64 } @_ZN13ruff_notebook5index13NotebookIndex25translate_source_location17h890820768674c3a0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
   %35 = extractvalue { i64, i64 } %34, 0

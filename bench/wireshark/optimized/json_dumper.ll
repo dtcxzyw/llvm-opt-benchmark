@@ -892,7 +892,7 @@ define internal fastcc void @json_dumper_end_nested_element(ptr noundef %0, i32 
 
 json_dumper_check_previous_error.exit:            ; preds = %2
   tail call fastcc void @json_dumper_bad(ptr noundef %0, ptr noundef nonnull @.str.7)
-  br label %115
+  br label %113
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -910,228 +910,226 @@ json_dumper_check_previous_error.exit:            ; preds = %2
 
 json_dumper_get_prev_state.exit:                  ; preds = %7, %10
   %16 = phi i8 [ %15, %10 ], [ 0, %7 ]
+  %17 = and i8 %16, 7
   switch i32 %1, label %default.unreachable52 [
-    i32 2, label %17
+    i32 2, label %18
     i32 3, label %20
-    i32 4, label %23
+    i32 4, label %22
   ]
 
-17:                                               ; preds = %json_dumper_get_prev_state.exit
-  %18 = and i8 %16, 7
-  %.not28 = icmp eq i8 %18, 2
-  br i1 %.not28, label %26, label %19
+18:                                               ; preds = %json_dumper_get_prev_state.exit
+  %.not28 = icmp eq i8 %17, 2
+  br i1 %.not28, label %24, label %19
 
-19:                                               ; preds = %17
+19:                                               ; preds = %18
   tail call fastcc void @json_dumper_bad(ptr noundef %0, ptr noundef nonnull @.str.20)
-  br label %115
+  br label %113
 
 20:                                               ; preds = %json_dumper_get_prev_state.exit
-  %21 = and i8 %16, 7
-  %.not27 = icmp eq i8 %21, 3
-  br i1 %.not27, label %26, label %22
+  %.not27 = icmp eq i8 %17, 3
+  br i1 %.not27, label %24, label %21
 
-22:                                               ; preds = %20
+21:                                               ; preds = %20
   tail call fastcc void @json_dumper_bad(ptr noundef %0, ptr noundef nonnull @.str.21)
-  br label %115
+  br label %113
 
-23:                                               ; preds = %json_dumper_get_prev_state.exit
-  %24 = and i8 %16, 7
-  %.not = icmp eq i8 %24, 4
-  br i1 %.not, label %26, label %25
+22:                                               ; preds = %json_dumper_get_prev_state.exit
+  %.not = icmp eq i8 %17, 4
+  br i1 %.not, label %24, label %23
 
-25:                                               ; preds = %23
+23:                                               ; preds = %22
   tail call fastcc void @json_dumper_bad(ptr noundef %0, ptr noundef nonnull @.str.22)
-  br label %115
+  br label %113
 
-default.unreachable52:                            ; preds = %36, %json_dumper_get_prev_state.exit
+default.unreachable52:                            ; preds = %34, %json_dumper_get_prev_state.exit
   unreachable
 
-26:                                               ; preds = %23, %20, %17
-  %27 = and i8 %16, 8
-  %.not29 = icmp eq i8 %27, 0
-  br i1 %.not29, label %29, label %28
+24:                                               ; preds = %22, %20, %18
+  %25 = and i8 %16, 8
+  %.not29 = icmp eq i8 %25, 0
+  br i1 %.not29, label %27, label %26
 
-28:                                               ; preds = %26
+26:                                               ; preds = %24
   tail call fastcc void @json_dumper_bad(ptr noundef %0, ptr noundef nonnull @.str.24)
-  br label %115
+  br label %113
 
-29:                                               ; preds = %26
+27:                                               ; preds = %24
   br i1 %.not.i31, label %json_dumper_stack_would_underflow.exit.thread, label %json_dumper_stack_would_underflow.exit
 
-json_dumper_stack_would_underflow.exit.thread:    ; preds = %29
+json_dumper_stack_would_underflow.exit.thread:    ; preds = %27
   tail call fastcc void @json_dumper_bad(ptr noundef %0, ptr noundef nonnull @.str.25)
-  br label %115
+  br label %113
 
-json_dumper_stack_would_underflow.exit:           ; preds = %29
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = zext i32 %9 to i64
-  %32 = getelementptr i8, ptr %30, i64 %31
-  %33 = load i8, ptr %32, align 1
-  %.not30 = icmp eq i8 %33, 0
-  br i1 %.not30, label %36, label %34
+json_dumper_stack_would_underflow.exit:           ; preds = %27
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %29 = zext i32 %9 to i64
+  %30 = getelementptr i8, ptr %28, i64 %29
+  %31 = load i8, ptr %30, align 1
+  %.not30 = icmp eq i8 %31, 0
+  br i1 %.not30, label %34, label %32
 
-34:                                               ; preds = %json_dumper_stack_would_underflow.exit
-  %35 = add i32 %9, -1
-  tail call fastcc void @print_newline_indent(ptr noundef %0, i32 noundef %35)
-  br label %36
+32:                                               ; preds = %json_dumper_stack_would_underflow.exit
+  %33 = add i32 %9, -1
+  tail call fastcc void @print_newline_indent(ptr noundef %0, i32 noundef %33)
+  br label %34
 
-36:                                               ; preds = %34, %json_dumper_stack_would_underflow.exit
+34:                                               ; preds = %32, %json_dumper_stack_would_underflow.exit
   switch i32 %1, label %default.unreachable52 [
-    i32 2, label %37
-    i32 3, label %59
-    i32 4, label %81
+    i32 2, label %35
+    i32 3, label %57
+    i32 4, label %79
   ]
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %0, align 8
-  %.not.i32 = icmp eq ptr %38, null
-  br i1 %.not.i32, label %41, label %39
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %0, align 8
+  %.not.i32 = icmp eq ptr %36, null
+  br i1 %.not.i32, label %39, label %37
 
-39:                                               ; preds = %37
-  %40 = tail call i32 @fputc(i32 noundef 125, ptr noundef nonnull %38)
-  br label %41
+37:                                               ; preds = %35
+  %38 = tail call i32 @fputc(i32 noundef 125, ptr noundef nonnull %36)
+  br label %39
 
-41:                                               ; preds = %39, %37
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %.not6.i = icmp eq ptr %43, null
-  br i1 %.not6.i, label %jd_putc.exit, label %44
+39:                                               ; preds = %37, %35
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %.not6.i = icmp eq ptr %41, null
+  br i1 %.not6.i, label %jd_putc.exit, label %42
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %46 = load i64, ptr %45, align 8
-  %47 = add i64 %46, 1
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %49 = load i64, ptr %48, align 8
-  %50 = icmp ult i64 %47, %49
-  br i1 %50, label %51, label %57
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %44 = load i64, ptr %43, align 8
+  %45 = add i64 %44, 1
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %47 = load i64, ptr %46, align 8
+  %48 = icmp ult i64 %45, %47
+  br i1 %48, label %49, label %55
 
-51:                                               ; preds = %44
-  %52 = load ptr, ptr %43, align 8
-  store i64 %47, ptr %45, align 8
-  %53 = getelementptr i8, ptr %52, i64 %46
-  store i8 125, ptr %53, align 1
-  %54 = load ptr, ptr %43, align 8
-  %55 = load i64, ptr %45, align 8
-  %56 = getelementptr i8, ptr %54, i64 %55
-  store i8 0, ptr %56, align 1
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %41, align 8
+  store i64 %45, ptr %43, align 8
+  %51 = getelementptr i8, ptr %50, i64 %44
+  store i8 125, ptr %51, align 1
+  %52 = load ptr, ptr %41, align 8
+  %53 = load i64, ptr %43, align 8
+  %54 = getelementptr i8, ptr %52, i64 %53
+  store i8 0, ptr %54, align 1
   br label %jd_putc.exit
 
-57:                                               ; preds = %44
-  %58 = tail call ptr @g_string_insert_c(ptr noundef nonnull %43, i64 noundef -1, i8 noundef signext 125)
+55:                                               ; preds = %42
+  %56 = tail call ptr @g_string_insert_c(ptr noundef nonnull %41, i64 noundef -1, i8 noundef signext 125)
   br label %jd_putc.exit
 
-59:                                               ; preds = %36
-  %60 = load ptr, ptr %0, align 8
-  %.not.i33 = icmp eq ptr %60, null
-  br i1 %.not.i33, label %63, label %61
+57:                                               ; preds = %34
+  %58 = load ptr, ptr %0, align 8
+  %.not.i33 = icmp eq ptr %58, null
+  br i1 %.not.i33, label %61, label %59
 
-61:                                               ; preds = %59
-  %62 = tail call i32 @fputc(i32 noundef 93, ptr noundef nonnull %60)
-  br label %63
+59:                                               ; preds = %57
+  %60 = tail call i32 @fputc(i32 noundef 93, ptr noundef nonnull %58)
+  br label %61
 
-63:                                               ; preds = %61, %59
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %.not6.i34 = icmp eq ptr %65, null
-  br i1 %.not6.i34, label %jd_putc.exit, label %66
+61:                                               ; preds = %59, %57
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %.not6.i34 = icmp eq ptr %63, null
+  br i1 %.not6.i34, label %jd_putc.exit, label %64
 
-66:                                               ; preds = %63
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %68 = load i64, ptr %67, align 8
-  %69 = add i64 %68, 1
-  %70 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %71 = load i64, ptr %70, align 8
-  %72 = icmp ult i64 %69, %71
-  br i1 %72, label %73, label %79
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %66 = load i64, ptr %65, align 8
+  %67 = add i64 %66, 1
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %69 = load i64, ptr %68, align 8
+  %70 = icmp ult i64 %67, %69
+  br i1 %70, label %71, label %77
 
-73:                                               ; preds = %66
-  %74 = load ptr, ptr %65, align 8
-  store i64 %69, ptr %67, align 8
-  %75 = getelementptr i8, ptr %74, i64 %68
-  store i8 93, ptr %75, align 1
-  %76 = load ptr, ptr %65, align 8
-  %77 = load i64, ptr %67, align 8
-  %78 = getelementptr i8, ptr %76, i64 %77
-  store i8 0, ptr %78, align 1
+71:                                               ; preds = %64
+  %72 = load ptr, ptr %63, align 8
+  store i64 %67, ptr %65, align 8
+  %73 = getelementptr i8, ptr %72, i64 %66
+  store i8 93, ptr %73, align 1
+  %74 = load ptr, ptr %63, align 8
+  %75 = load i64, ptr %65, align 8
+  %76 = getelementptr i8, ptr %74, i64 %75
+  store i8 0, ptr %76, align 1
   br label %jd_putc.exit
 
-79:                                               ; preds = %66
-  %80 = tail call ptr @g_string_insert_c(ptr noundef nonnull %65, i64 noundef -1, i8 noundef signext 93)
+77:                                               ; preds = %64
+  %78 = tail call ptr @g_string_insert_c(ptr noundef nonnull %63, i64 noundef -1, i8 noundef signext 93)
   br label %jd_putc.exit
 
-81:                                               ; preds = %36
+79:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %84 = call i64 @g_base64_encode_close(i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %82, ptr noundef nonnull %83)
-  %85 = load ptr, ptr %0, align 8
-  %.not.i36 = icmp eq ptr %85, null
-  br i1 %.not.i36, label %88, label %86
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %82 = call i64 @g_base64_encode_close(i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %80, ptr noundef nonnull %81)
+  %83 = load ptr, ptr %0, align 8
+  %.not.i36 = icmp eq ptr %83, null
+  br i1 %.not.i36, label %86, label %84
 
-86:                                               ; preds = %81
-  %87 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 1, i64 noundef %84, ptr noundef nonnull %85)
-  br label %88
+84:                                               ; preds = %79
+  %85 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 1, i64 noundef %82, ptr noundef nonnull %83)
+  br label %86
 
-88:                                               ; preds = %86, %81
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %.not8.i = icmp eq ptr %90, null
-  br i1 %.not8.i, label %jd_puts_len.exit, label %91
+86:                                               ; preds = %84, %79
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %.not8.i = icmp eq ptr %88, null
+  br i1 %.not8.i, label %jd_puts_len.exit, label %89
 
-91:                                               ; preds = %88
-  %92 = call ptr @g_string_append_len(ptr noundef nonnull %90, ptr noundef nonnull %3, i64 noundef %84)
+89:                                               ; preds = %86
+  %90 = call ptr @g_string_append_len(ptr noundef nonnull %88, ptr noundef nonnull %3, i64 noundef %82)
   br label %jd_puts_len.exit
 
-jd_puts_len.exit:                                 ; preds = %88, %91
-  %93 = load ptr, ptr %0, align 8
-  %.not.i37 = icmp eq ptr %93, null
-  br i1 %.not.i37, label %96, label %94
+jd_puts_len.exit:                                 ; preds = %86, %89
+  %91 = load ptr, ptr %0, align 8
+  %.not.i37 = icmp eq ptr %91, null
+  br i1 %.not.i37, label %94, label %92
 
-94:                                               ; preds = %jd_puts_len.exit
-  %95 = call i32 @fputc(i32 noundef 34, ptr noundef nonnull %93)
-  br label %96
+92:                                               ; preds = %jd_puts_len.exit
+  %93 = call i32 @fputc(i32 noundef 34, ptr noundef nonnull %91)
+  br label %94
 
-96:                                               ; preds = %94, %jd_puts_len.exit
-  %97 = load ptr, ptr %89, align 8
-  %.not6.i38 = icmp eq ptr %97, null
-  br i1 %.not6.i38, label %jd_putc.exit39, label %98
+94:                                               ; preds = %92, %jd_puts_len.exit
+  %95 = load ptr, ptr %87, align 8
+  %.not6.i38 = icmp eq ptr %95, null
+  br i1 %.not6.i38, label %jd_putc.exit39, label %96
 
-98:                                               ; preds = %96
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %100 = load i64, ptr %99, align 8
-  %101 = add i64 %100, 1
-  %102 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %103 = load i64, ptr %102, align 8
-  %104 = icmp ult i64 %101, %103
-  br i1 %104, label %105, label %111
+96:                                               ; preds = %94
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %98 = load i64, ptr %97, align 8
+  %99 = add i64 %98, 1
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %101 = load i64, ptr %100, align 8
+  %102 = icmp ult i64 %99, %101
+  br i1 %102, label %103, label %109
 
-105:                                              ; preds = %98
-  %106 = load ptr, ptr %97, align 8
-  store i64 %101, ptr %99, align 8
-  %107 = getelementptr i8, ptr %106, i64 %100
-  store i8 34, ptr %107, align 1
-  %108 = load ptr, ptr %97, align 8
-  %109 = load i64, ptr %99, align 8
-  %110 = getelementptr i8, ptr %108, i64 %109
-  store i8 0, ptr %110, align 1
+103:                                              ; preds = %96
+  %104 = load ptr, ptr %95, align 8
+  store i64 %99, ptr %97, align 8
+  %105 = getelementptr i8, ptr %104, i64 %98
+  store i8 34, ptr %105, align 1
+  %106 = load ptr, ptr %95, align 8
+  %107 = load i64, ptr %97, align 8
+  %108 = getelementptr i8, ptr %106, i64 %107
+  store i8 0, ptr %108, align 1
   br label %jd_putc.exit39
 
-111:                                              ; preds = %98
-  %112 = call ptr @g_string_insert_c(ptr noundef nonnull %97, i64 noundef -1, i8 noundef signext 34)
+109:                                              ; preds = %96
+  %110 = call ptr @g_string_insert_c(ptr noundef nonnull %95, i64 noundef -1, i8 noundef signext 34)
   br label %jd_putc.exit39
 
-jd_putc.exit39:                                   ; preds = %96, %105, %111
+jd_putc.exit39:                                   ; preds = %94, %103, %109
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %jd_putc.exit
 
-jd_putc.exit:                                     ; preds = %79, %73, %63, %57, %51, %41, %jd_putc.exit39
-  %113 = load i32, ptr %8, align 4
-  %114 = add i32 %113, -1
-  store i32 %114, ptr %8, align 4
-  br label %115
+jd_putc.exit:                                     ; preds = %77, %71, %61, %55, %49, %39, %jd_putc.exit39
+  %111 = load i32, ptr %8, align 4
+  %112 = add i32 %111, -1
+  store i32 %112, ptr %8, align 4
+  br label %113
 
-115:                                              ; preds = %json_dumper_stack_would_underflow.exit.thread, %json_dumper_check_previous_error.exit, %19, %22, %25, %28, %jd_putc.exit
+113:                                              ; preds = %json_dumper_stack_would_underflow.exit.thread, %json_dumper_check_previous_error.exit, %19, %21, %23, %26, %jd_putc.exit
   ret void
 }
 

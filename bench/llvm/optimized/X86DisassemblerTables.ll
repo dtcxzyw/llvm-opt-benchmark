@@ -833,8 +833,8 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit86:         ; preds = %94, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i85
   %113 = phi ptr [ %90, %94 ], [ %107, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i85 ]
   %.promoted190 = phi ptr [ %89, %94 ], [ %112, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i85 ]
-  %.pn269 = phi ptr [ %88, %94 ], [ %108, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i85 ]
-  %.promoted189 = getelementptr inbounds nuw i8, ptr %.pn269, i64 4
+  %.pn268 = phi ptr [ %88, %94 ], [ %108, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i85 ]
+  %.promoted189 = getelementptr inbounds nuw i8, ptr %.pn268, i64 4
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 8
   %114 = icmp samesign ult i64 %indvars.iv202, 56
   br i1 %114, label %87, label %.preheader, !llvm.loop !61
@@ -1495,27 +1495,27 @@ _ZN4llvm11raw_ostreamlsEPKc.exit142:              ; preds = %413, %415
 
 427:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit142
   %428 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %421, ptr noundef nonnull @.str.7, i64 noundef 1) #19
-  br label %switch.lookup276
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit145
 
 429:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit142
   store i8 125, ptr %425, align 1
   %430 = load ptr, ptr %424, align 8, !tbaa !53
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 1
   store ptr %431, ptr %424, align 8, !tbaa !53
-  br label %switch.lookup276
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit145
 
-switch.lookup276:                                 ; preds = %429, %427
-  %432 = zext nneg i32 %.036.i to i64
-  %switch.gep277 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecision.1, i64 %432
-  %switch.load278 = load i64, ptr %switch.gep277, align 8
-  %433 = load i64, ptr @_ZZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecisionE12sEntryNumber, align 8, !tbaa !81
-  %434 = add i64 %433, %switch.load278
+_ZN4llvm11raw_ostreamlsEPKc.exit145:              ; preds = %427, %429
+  %432 = load i64, ptr @_ZZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecisionE12sEntryNumber, align 8, !tbaa !81
+  %433 = zext nneg i32 %.036.i to i64
+  %switch.gep276 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecision.1, i64 %433
+  %switch.load277 = load i64, ptr %switch.gep276, align 8
+  %434 = add i64 %432, %switch.load277
   store i64 %434, ptr @_ZZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecisionE12sEntryNumber, align 8, !tbaa !81
   %435 = load ptr, ptr %10, align 8, !tbaa !56
   %.not.i.i.i = icmp eq ptr %435, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %436
 
-436:                                              ; preds = %switch.lookup276
+436:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit145
   %437 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %438 = load ptr, ptr %437, align 8, !tbaa !60
   %439 = ptrtoint ptr %438 to i64
@@ -1524,7 +1524,7 @@ switch.lookup276:                                 ; preds = %429, %427
   call void @_ZdlPvm(ptr noundef nonnull %435, i64 noundef %441) #18
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %switch.lookup276, %436
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit145, %436
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit62
 

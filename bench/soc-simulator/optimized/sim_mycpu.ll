@@ -20505,7 +20505,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %52 = load i8, ptr %51, align 8, !tbaa !386, !range !54, !noundef !55
   %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %2105, label %54
+  br i1 %53, label %2067, label %54
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -20570,12 +20570,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %105 = load i8, ptr %3, align 1, !tbaa !52, !range !54, !noundef !55
   %106 = trunc nuw i8 %105 to i1
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %101, i32 noundef %104, i1 noundef zeroext %106) #27
-  br label %2105
+  br label %2067
 
 107:                                              ; preds = %87
   %108 = load i32, ptr %4, align 4
   %109 = lshr i32 %108, 26
-  switch i32 %109, label %2104 [
+  switch i32 %109, label %2066 [
     i32 0, label %110
     i32 28, label %758
     i32 8, label %953
@@ -20604,17 +20604,17 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
     i32 41, label %1758
     i32 43, label %1786
     i32 42, label %1814
-    i32 46, label %1898
-    i32 16, label %1982
-    i32 47, label %2105
-    i32 51, label %2105
-    i32 48, label %2033
-    i32 56, label %2069
+    i32 46, label %1879
+    i32 16, label %1944
+    i32 47, label %2067
+    i32 51, label %2067
+    i32 48, label %1995
+    i32 56, label %2031
   ]
 
 110:                                              ; preds = %107
   %111 = and i32 %108, 63
-  switch i32 %111, label %2104 [
+  switch i32 %111, label %2066 [
     i32 32, label %112
     i32 33, label %143
     i32 34, label %164
@@ -20643,7 +20643,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
     i32 19, label %617
     i32 13, label %628
     i32 12, label %629
-    i32 15, label %2105
+    i32 15, label %2067
     i32 11, label %630
     i32 10, label %652
     i32 52, label %674
@@ -20657,7 +20657,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
 112:                                              ; preds = %110
   %113 = and i32 %108, 1984
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %115, label %2104
+  br i1 %114, label %115, label %2066
 
 115:                                              ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -20683,7 +20683,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
 
 135:                                              ; preds = %115
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 12, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 136:                                              ; preds = %115
   %137 = lshr i32 %108, 11
@@ -20696,12 +20696,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %139, ptr %25, align 1, !tbaa !329
   store i32 %140, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 143:                                              ; preds = %110
   %144 = and i32 %108, 1984
   %145 = icmp eq i32 %144, 0
-  br i1 %145, label %146, label %2104
+  br i1 %145, label %146, label %2066
 
 146:                                              ; preds = %143
   %147 = lshr i32 %108, 11
@@ -20725,12 +20725,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %149, ptr %25, align 1, !tbaa !329
   store i32 %161, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 164:                                              ; preds = %110
   %165 = and i32 %108, 1984
   %166 = icmp eq i32 %165, 0
-  br i1 %166, label %167, label %2104
+  br i1 %166, label %167, label %2066
 
 167:                                              ; preds = %164
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -20756,7 +20756,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
 
 187:                                              ; preds = %167
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 12, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 188:                                              ; preds = %167
   %189 = lshr i32 %108, 11
@@ -20769,12 +20769,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %191, ptr %25, align 1, !tbaa !329
   store i32 %192, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 195:                                              ; preds = %110
   %196 = and i32 %108, 1984
   %197 = icmp eq i32 %196, 0
-  br i1 %197, label %198, label %2104
+  br i1 %197, label %198, label %2066
 
 198:                                              ; preds = %195
   %199 = lshr i32 %108, 11
@@ -20798,12 +20798,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %201, ptr %25, align 1, !tbaa !329
   store i32 %213, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 216:                                              ; preds = %110
   %217 = and i32 %108, 1984
   %218 = icmp eq i32 %217, 0
-  br i1 %218, label %219, label %2104
+  br i1 %218, label %219, label %2066
 
 219:                                              ; preds = %216
   %220 = lshr i32 %108, 11
@@ -20828,12 +20828,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %222, ptr %25, align 1, !tbaa !329
   store i32 %235, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 238:                                              ; preds = %110
   %239 = and i32 %108, 1984
   %240 = icmp eq i32 %239, 0
-  br i1 %240, label %241, label %2104
+  br i1 %240, label %241, label %2066
 
 241:                                              ; preds = %238
   %242 = lshr i32 %108, 11
@@ -20858,12 +20858,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %244, ptr %25, align 1, !tbaa !329
   store i32 %257, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 260:                                              ; preds = %110
   %261 = and i32 %108, 65472
   %262 = icmp eq i32 %261, 0
-  br i1 %262, label %263, label %2104
+  br i1 %262, label %263, label %2066
 
 263:                                              ; preds = %260
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -20887,12 +20887,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %281 = trunc nuw i64 %280 to i32
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 316
   store i32 %281, ptr %282, align 4, !tbaa !743
-  br label %2105
+  br label %2067
 
 283:                                              ; preds = %110
   %284 = and i32 %108, 1984
   %285 = icmp eq i32 %284, 0
-  br i1 %285, label %286, label %2104
+  br i1 %285, label %286, label %2066
 
 286:                                              ; preds = %283
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -20916,12 +20916,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %304 = trunc nuw i64 %303 to i32
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 316
   store i32 %304, ptr %305, align 4, !tbaa !743
-  br label %2105
+  br label %2067
 
 306:                                              ; preds = %110
   %307 = and i32 %108, 1984
   %308 = icmp eq i32 %307, 0
-  br i1 %308, label %309, label %2104
+  br i1 %308, label %309, label %2066
 
 309:                                              ; preds = %306
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -20945,12 +20945,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %327 = trunc nsw i64 %326 to i32
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 316
   store i32 %327, ptr %328, align 4, !tbaa !743
-  br label %2105
+  br label %2067
 
 329:                                              ; preds = %110
   %330 = and i32 %108, 1984
   %331 = icmp eq i32 %330, 0
-  br i1 %331, label %332, label %2104
+  br i1 %331, label %332, label %2066
 
 332:                                              ; preds = %329
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -20970,12 +20970,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %346 = urem i32 %338, %343
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 316
   store i32 %346, ptr %347, align 4, !tbaa !743
-  br label %2105
+  br label %2067
 
 348:                                              ; preds = %110
   %349 = and i32 %108, 1984
   %350 = icmp eq i32 %349, 0
-  br i1 %350, label %351, label %2104
+  br i1 %350, label %351, label %2066
 
 351:                                              ; preds = %348
   %352 = lshr i32 %108, 11
@@ -20999,12 +20999,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %354, ptr %25, align 1, !tbaa !329
   store i32 %366, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 369:                                              ; preds = %110
   %370 = and i32 %108, 1984
   %371 = icmp eq i32 %370, 0
-  br i1 %371, label %372, label %2104
+  br i1 %371, label %372, label %2066
 
 372:                                              ; preds = %369
   %373 = lshr i32 %108, 11
@@ -21029,12 +21029,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %375, ptr %25, align 1, !tbaa !329
   store i32 %388, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 391:                                              ; preds = %110
   %392 = and i32 %108, 1984
   %393 = icmp eq i32 %392, 0
-  br i1 %393, label %394, label %2104
+  br i1 %393, label %394, label %2066
 
 394:                                              ; preds = %391
   %395 = lshr i32 %108, 11
@@ -21058,12 +21058,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %397, ptr %25, align 1, !tbaa !329
   store i32 %409, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 412:                                              ; preds = %110
   %413 = and i32 %108, 1984
   %414 = icmp eq i32 %413, 0
-  br i1 %414, label %415, label %2104
+  br i1 %414, label %415, label %2066
 
 415:                                              ; preds = %412
   %416 = lshr i32 %108, 11
@@ -21087,12 +21087,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %418, ptr %25, align 1, !tbaa !329
   store i32 %430, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 433:                                              ; preds = %110
   %434 = and i32 %108, 1984
   %435 = icmp eq i32 %434, 0
-  br i1 %435, label %436, label %2104
+  br i1 %435, label %436, label %2066
 
 436:                                              ; preds = %433
   %437 = lshr i32 %108, 11
@@ -21117,12 +21117,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %439, ptr %25, align 1, !tbaa !329
   store i32 %452, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 455:                                              ; preds = %110
   %456 = and i32 %108, 65011712
   %457 = icmp eq i32 %456, 0
-  br i1 %457, label %458, label %2104
+  br i1 %457, label %458, label %2066
 
 458:                                              ; preds = %455
   %459 = lshr i32 %108, 11
@@ -21143,12 +21143,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %461, ptr %25, align 1, !tbaa !329
   store i32 %470, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 473:                                              ; preds = %110
   %474 = and i32 %108, 1984
   %475 = icmp eq i32 %474, 0
-  br i1 %475, label %476, label %2104
+  br i1 %475, label %476, label %2066
 
 476:                                              ; preds = %473
   %477 = lshr i32 %108, 11
@@ -21173,12 +21173,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %479, ptr %25, align 1, !tbaa !329
   store i32 %492, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 495:                                              ; preds = %110
   %496 = and i32 %108, 65011712
   %497 = icmp eq i32 %496, 0
-  br i1 %497, label %498, label %2104
+  br i1 %497, label %498, label %2066
 
 498:                                              ; preds = %495
   %499 = lshr i32 %108, 11
@@ -21199,12 +21199,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %501, ptr %25, align 1, !tbaa !329
   store i32 %510, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 513:                                              ; preds = %110
   %514 = and i32 %108, 1984
   %515 = icmp eq i32 %514, 0
-  br i1 %515, label %516, label %2104
+  br i1 %515, label %516, label %2066
 
 516:                                              ; preds = %513
   %517 = lshr i32 %108, 11
@@ -21229,12 +21229,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %519, ptr %25, align 1, !tbaa !329
   store i32 %532, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 535:                                              ; preds = %110
   %536 = and i32 %108, 65011712
   %537 = icmp eq i32 %536, 0
-  br i1 %537, label %538, label %2104
+  br i1 %537, label %538, label %2066
 
 538:                                              ; preds = %535
   %539 = lshr i32 %108, 11
@@ -21255,13 +21255,13 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %541, ptr %25, align 1, !tbaa !329
   store i32 %550, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 553:                                              ; preds = %110
   store i8 1, ptr %15, align 4, !tbaa !736
   %554 = and i32 %108, 2097088
   %555 = icmp eq i32 %554, 0
-  br i1 %555, label %556, label %2104
+  br i1 %555, label %556, label %2066
 
 556:                                              ; preds = %553
   %557 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21273,13 +21273,13 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %563 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %562, ptr %563, align 8, !tbaa !744
   store i8 1, ptr %18, align 2, !tbaa !738
-  br label %2105
+  br label %2067
 
 564:                                              ; preds = %110
   store i8 1, ptr %15, align 4, !tbaa !736
   %565 = and i32 %108, 2033600
   %566 = icmp eq i32 %565, 0
-  br i1 %566, label %567, label %2104
+  br i1 %566, label %567, label %2066
 
 567:                                              ; preds = %564
   %568 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21302,12 +21302,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %576, ptr %25, align 1, !tbaa !329
   store i32 %578, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 582:                                              ; preds = %110
   %583 = and i32 %108, 67045312
   %584 = icmp eq i32 %583, 0
-  br i1 %584, label %585, label %2104
+  br i1 %584, label %585, label %2066
 
 585:                                              ; preds = %582
   %586 = lshr i32 %108, 11
@@ -21322,12 +21322,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %587, ptr %25, align 1, !tbaa !329
   store i32 %589, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 594:                                              ; preds = %110
   %595 = and i32 %108, 67045312
   %596 = icmp eq i32 %595, 0
-  br i1 %596, label %597, label %2104
+  br i1 %596, label %597, label %2066
 
 597:                                              ; preds = %594
   %598 = lshr i32 %108, 11
@@ -21342,12 +21342,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %599, ptr %25, align 1, !tbaa !329
   store i32 %601, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 606:                                              ; preds = %110
   %607 = and i32 %108, 2097088
   %608 = icmp eq i32 %607, 0
-  br i1 %608, label %609, label %2104
+  br i1 %608, label %609, label %2066
 
 609:                                              ; preds = %606
   %610 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21358,12 +21358,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %615 = load i32, ptr %614, align 4, !tbaa !56
   %616 = getelementptr inbounds nuw i8, ptr %0, i64 316
   store i32 %615, ptr %616, align 4, !tbaa !743
-  br label %2105
+  br label %2067
 
 617:                                              ; preds = %110
   %618 = and i32 %108, 2097088
   %619 = icmp eq i32 %618, 0
-  br i1 %619, label %620, label %2104
+  br i1 %619, label %620, label %2066
 
 620:                                              ; preds = %617
   %621 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21374,20 +21374,20 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %626 = load i32, ptr %625, align 4, !tbaa !56
   %627 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 %626, ptr %627, align 8, !tbaa !742
-  br label %2105
+  br label %2067
 
 628:                                              ; preds = %110
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 9, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 629:                                              ; preds = %110
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 8, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 630:                                              ; preds = %110
   %631 = and i32 %108, 1984
   %632 = icmp eq i32 %631, 0
-  br i1 %632, label %633, label %2104
+  br i1 %632, label %633, label %2066
 
 633:                                              ; preds = %630
   %634 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21397,7 +21397,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %638 = getelementptr inbounds nuw i32, ptr %634, i64 %637
   %639 = load i32, ptr %638, align 4, !tbaa !56
   %640 = icmp eq i32 %639, 0
-  br i1 %640, label %2105, label %641
+  br i1 %640, label %2067, label %641
 
 641:                                              ; preds = %633
   %642 = lshr i32 %108, 11
@@ -21414,12 +21414,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %644, ptr %25, align 1, !tbaa !329
   store i32 %649, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 652:                                              ; preds = %110
   %653 = and i32 %108, 1984
   %654 = icmp eq i32 %653, 0
-  br i1 %654, label %655, label %2104
+  br i1 %654, label %655, label %2066
 
 655:                                              ; preds = %652
   %656 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21429,7 +21429,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %660 = getelementptr inbounds nuw i32, ptr %656, i64 %659
   %661 = load i32, ptr %660, align 4, !tbaa !56
   %662 = icmp eq i32 %661, 0
-  br i1 %662, label %663, label %2105
+  br i1 %662, label %663, label %2067
 
 663:                                              ; preds = %655
   %664 = lshr i32 %108, 11
@@ -21446,7 +21446,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %666, ptr %25, align 1, !tbaa !329
   store i32 %671, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 674:                                              ; preds = %110
   %675 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21461,11 +21461,11 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %684 = getelementptr inbounds nuw i32, ptr %675, i64 %683
   %685 = load i32, ptr %684, align 4, !tbaa !56
   %686 = icmp eq i32 %680, %685
-  br i1 %686, label %687, label %2105
+  br i1 %686, label %687, label %2067
 
 687:                                              ; preds = %674
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 13, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 688:                                              ; preds = %110
   %689 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21480,11 +21480,11 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %698 = getelementptr inbounds nuw i32, ptr %689, i64 %697
   %699 = load i32, ptr %698, align 4, !tbaa !56
   %700 = icmp slt i32 %694, %699
-  br i1 %700, label %2105, label %701
+  br i1 %700, label %2067, label %701
 
 701:                                              ; preds = %688
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 13, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 702:                                              ; preds = %110
   %703 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21499,11 +21499,11 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %712 = getelementptr inbounds nuw i32, ptr %703, i64 %711
   %713 = load i32, ptr %712, align 4, !tbaa !56
   %714 = icmp ult i32 %708, %713
-  br i1 %714, label %2105, label %715
+  br i1 %714, label %2067, label %715
 
 715:                                              ; preds = %702
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 13, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 716:                                              ; preds = %110
   %717 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21518,11 +21518,11 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %726 = getelementptr inbounds nuw i32, ptr %717, i64 %725
   %727 = load i32, ptr %726, align 4, !tbaa !56
   %728 = icmp slt i32 %722, %727
-  br i1 %728, label %729, label %2105
+  br i1 %728, label %729, label %2067
 
 729:                                              ; preds = %716
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 13, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 730:                                              ; preds = %110
   %731 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21537,11 +21537,11 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %740 = getelementptr inbounds nuw i32, ptr %731, i64 %739
   %741 = load i32, ptr %740, align 4, !tbaa !56
   %742 = icmp ult i32 %736, %741
-  br i1 %742, label %743, label %2105
+  br i1 %742, label %743, label %2067
 
 743:                                              ; preds = %730
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 13, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 744:                                              ; preds = %110
   %745 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21556,15 +21556,15 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %754 = getelementptr inbounds nuw i32, ptr %745, i64 %753
   %755 = load i32, ptr %754, align 4, !tbaa !56
   %756 = icmp eq i32 %750, %755
-  br i1 %756, label %2105, label %757
+  br i1 %756, label %2067, label %757
 
 757:                                              ; preds = %744
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 13, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 758:                                              ; preds = %107
   %759 = and i32 %108, 63
-  switch i32 %759, label %2104 [
+  switch i32 %759, label %2066 [
     i32 2, label %760
     i32 0, label %781
     i32 1, label %811
@@ -21577,7 +21577,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
 760:                                              ; preds = %758
   %761 = and i32 %108, 1984
   %762 = icmp eq i32 %761, 0
-  br i1 %762, label %763, label %2104
+  br i1 %762, label %763, label %2066
 
 763:                                              ; preds = %760
   %764 = lshr i32 %108, 11
@@ -21601,12 +21601,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %766, ptr %25, align 1, !tbaa !329
   store i32 %778, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 781:                                              ; preds = %758
   %782 = and i32 %108, 65472
   %783 = icmp eq i32 %782, 0
-  br i1 %783, label %784, label %2104
+  br i1 %783, label %784, label %2066
 
 784:                                              ; preds = %781
   %785 = getelementptr inbounds nuw i8, ptr %0, i64 316
@@ -21637,12 +21637,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %809 = lshr i64 %807, 32
   %810 = trunc nuw i64 %809 to i32
   store i32 %810, ptr %785, align 4, !tbaa !743
-  br label %2105
+  br label %2067
 
 811:                                              ; preds = %758
   %812 = and i32 %108, 65472
   %813 = icmp eq i32 %812, 0
-  br i1 %813, label %814, label %2104
+  br i1 %813, label %814, label %2066
 
 814:                                              ; preds = %811
   %815 = getelementptr inbounds nuw i8, ptr %0, i64 316
@@ -21673,12 +21673,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %839 = lshr i64 %837, 32
   %840 = trunc nuw i64 %839 to i32
   store i32 %840, ptr %815, align 4, !tbaa !743
-  br label %2105
+  br label %2067
 
 841:                                              ; preds = %758
   %842 = and i32 %108, 65472
   %843 = icmp eq i32 %842, 0
-  br i1 %843, label %844, label %2104
+  br i1 %843, label %844, label %2066
 
 844:                                              ; preds = %841
   %845 = getelementptr inbounds nuw i8, ptr %0, i64 316
@@ -21709,12 +21709,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %869 = lshr i64 %867, 32
   %870 = trunc nuw i64 %869 to i32
   store i32 %870, ptr %845, align 4, !tbaa !743
-  br label %2105
+  br label %2067
 
 871:                                              ; preds = %758
   %872 = and i32 %108, 65472
   %873 = icmp eq i32 %872, 0
-  br i1 %873, label %874, label %2104
+  br i1 %873, label %874, label %2066
 
 874:                                              ; preds = %871
   %875 = getelementptr inbounds nuw i8, ptr %0, i64 316
@@ -21745,12 +21745,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %899 = lshr i64 %897, 32
   %900 = trunc nuw i64 %899 to i32
   store i32 %900, ptr %875, align 4, !tbaa !743
-  br label %2105
+  br label %2067
 
 901:                                              ; preds = %758
   %902 = and i32 %108, 1984
   %903 = icmp eq i32 %902, 0
-  br i1 %903, label %904, label %2104
+  br i1 %903, label %904, label %2066
 
 904:                                              ; preds = %901
   %905 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21788,12 +21788,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %924, ptr %25, align 1, !tbaa !329
   store i32 %921, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 927:                                              ; preds = %758
   %928 = and i32 %108, 1984
   %929 = icmp eq i32 %928, 0
-  br i1 %929, label %930, label %2104
+  br i1 %929, label %930, label %2066
 
 930:                                              ; preds = %927
   %931 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21831,7 +21831,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %950, ptr %25, align 1, !tbaa !329
   store i32 %947, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 953:                                              ; preds = %107
   %954 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21854,7 +21854,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
 
 970:                                              ; preds = %953
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 12, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 971:                                              ; preds = %953
   %972 = lshr i32 %108, 16
@@ -21867,7 +21867,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %974, ptr %25, align 1, !tbaa !329
   store i32 %975, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 978:                                              ; preds = %107
   %979 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21888,7 +21888,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %990, ptr %25, align 1, !tbaa !329
   store i32 %987, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 993:                                              ; preds = %107
   %994 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21910,7 +21910,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1006, ptr %25, align 1, !tbaa !329
   store i32 %1003, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 1009:                                             ; preds = %107
   %1010 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21932,7 +21932,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1022, ptr %25, align 1, !tbaa !329
   store i32 %1019, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 1025:                                             ; preds = %107
   %1026 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21952,12 +21952,12 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1036, ptr %25, align 1, !tbaa !329
   store i32 %1033, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 1039:                                             ; preds = %107
   %1040 = and i32 %108, 65011712
   %1041 = icmp eq i32 %1040, 0
-  br i1 %1041, label %1042, label %2104
+  br i1 %1041, label %1042, label %2066
 
 1042:                                             ; preds = %1039
   %1043 = shl i32 %108, 16
@@ -21971,7 +21971,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1045, ptr %25, align 1, !tbaa !329
   store i32 %1043, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 1050:                                             ; preds = %107
   %1051 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -21991,7 +21991,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1061, ptr %25, align 1, !tbaa !329
   store i32 %1058, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 1064:                                             ; preds = %107
   %1065 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22011,7 +22011,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 %1075, ptr %25, align 1, !tbaa !329
   store i32 %1072, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 1078:                                             ; preds = %107
   store i8 1, ptr %15, align 4, !tbaa !736
@@ -22034,7 +22034,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1094 = getelementptr inbounds nuw i32, ptr %1085, i64 %1093
   %1095 = load i32, ptr %1094, align 4, !tbaa !56
   %1096 = icmp eq i32 %1090, %1095
-  br i1 %1096, label %1097, label %2105
+  br i1 %1096, label %1097, label %2067
 
 1097:                                             ; preds = %1078
   store i8 1, ptr %18, align 2, !tbaa !738
@@ -22052,14 +22052,14 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1106 = load i32, ptr %1105, align 4, !tbaa !747
   %1107 = add i32 %1106, 1
   store i32 %1107, ptr %1105, align 4, !tbaa !747
-  br label %2105
+  br label %2067
 
 1108:                                             ; preds = %1097
   %1109 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1110 = load i32, ptr %1109, align 4, !tbaa !748
   %1111 = add i32 %1110, 1
   store i32 %1111, ptr %1109, align 4, !tbaa !748
-  br label %2105
+  br label %2067
 
 1112:                                             ; preds = %107
   %1113 = and i32 %108, 32768
@@ -22082,7 +22082,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1128 = getelementptr inbounds nuw i32, ptr %1119, i64 %1127
   %1129 = load i32, ptr %1128, align 4, !tbaa !56
   %1130 = icmp eq i32 %1124, %1129
-  br i1 %1130, label %2105, label %1131
+  br i1 %1130, label %2067, label %1131
 
 1131:                                             ; preds = %1112
   store i8 1, ptr %18, align 2, !tbaa !738
@@ -22100,14 +22100,14 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1140 = load i32, ptr %1139, align 4, !tbaa !747
   %1141 = add i32 %1140, 1
   store i32 %1141, ptr %1139, align 4, !tbaa !747
-  br label %2105
+  br label %2067
 
 1142:                                             ; preds = %1131
   %1143 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1144 = load i32, ptr %1143, align 4, !tbaa !748
   %1145 = add i32 %1144, 1
   store i32 %1145, ptr %1143, align 4, !tbaa !748
-  br label %2105
+  br label %2067
 
 1146:                                             ; preds = %107
   store i8 1, ptr %15, align 4, !tbaa !736
@@ -22120,7 +22120,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i32 %1152, ptr %1150, align 8, !tbaa !56
   %1153 = and i32 %108, 2031616
   %1154 = icmp eq i32 %1153, 0
-  br i1 %1154, label %1155, label %2104
+  br i1 %1154, label %1155, label %2066
 
 1155:                                             ; preds = %1146
   %1156 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22130,7 +22130,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1160 = getelementptr inbounds nuw i32, ptr %1156, i64 %1159
   %1161 = load i32, ptr %1160, align 4, !tbaa !56
   %1162 = icmp sgt i32 %1161, 0
-  br i1 %1162, label %1163, label %2105
+  br i1 %1162, label %1163, label %2067
 
 1163:                                             ; preds = %1155
   store i8 1, ptr %18, align 2, !tbaa !738
@@ -22148,14 +22148,14 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1172 = load i32, ptr %1171, align 4, !tbaa !747
   %1173 = add i32 %1172, 1
   store i32 %1173, ptr %1171, align 4, !tbaa !747
-  br label %2105
+  br label %2067
 
 1174:                                             ; preds = %1163
   %1175 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1176 = load i32, ptr %1175, align 4, !tbaa !748
   %1177 = add i32 %1176, 1
   store i32 %1177, ptr %1175, align 4, !tbaa !748
-  br label %2105
+  br label %2067
 
 1178:                                             ; preds = %107
   store i8 1, ptr %15, align 4, !tbaa !736
@@ -22168,7 +22168,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i32 %1184, ptr %1182, align 8, !tbaa !56
   %1185 = and i32 %108, 2031616
   %1186 = icmp eq i32 %1185, 0
-  br i1 %1186, label %1187, label %2104
+  br i1 %1186, label %1187, label %2066
 
 1187:                                             ; preds = %1178
   %1188 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22178,7 +22178,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1192 = getelementptr inbounds nuw i32, ptr %1188, i64 %1191
   %1193 = load i32, ptr %1192, align 4, !tbaa !56
   %1194 = icmp slt i32 %1193, 1
-  br i1 %1194, label %1195, label %2105
+  br i1 %1194, label %1195, label %2067
 
 1195:                                             ; preds = %1187
   store i8 1, ptr %18, align 2, !tbaa !738
@@ -22196,19 +22196,19 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1204 = load i32, ptr %1203, align 4, !tbaa !747
   %1205 = add i32 %1204, 1
   store i32 %1205, ptr %1203, align 4, !tbaa !747
-  br label %2105
+  br label %2067
 
 1206:                                             ; preds = %1195
   %1207 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1208 = load i32, ptr %1207, align 4, !tbaa !748
   %1209 = add i32 %1208, 1
   store i32 %1209, ptr %1207, align 4, !tbaa !748
-  br label %2105
+  br label %2067
 
 1210:                                             ; preds = %107
   %1211 = lshr i32 %108, 16
   %1212 = and i32 %1211, 31
-  switch i32 %1212, label %2104 [
+  switch i32 %1212, label %2066 [
     i32 1, label %1213
     i32 0, label %1242
     i32 17, label %1271
@@ -22237,7 +22237,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1224 = getelementptr inbounds nuw i32, ptr %1220, i64 %1223
   %1225 = load i32, ptr %1224, align 4, !tbaa !56
   %1226 = icmp sgt i32 %1225, -1
-  br i1 %1226, label %1227, label %2105
+  br i1 %1226, label %1227, label %2067
 
 1227:                                             ; preds = %1213
   store i8 1, ptr %18, align 2, !tbaa !738
@@ -22255,14 +22255,14 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1236 = load i32, ptr %1235, align 4, !tbaa !747
   %1237 = add i32 %1236, 1
   store i32 %1237, ptr %1235, align 4, !tbaa !747
-  br label %2105
+  br label %2067
 
 1238:                                             ; preds = %1227
   %1239 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1240 = load i32, ptr %1239, align 4, !tbaa !748
   %1241 = add i32 %1240, 1
   store i32 %1241, ptr %1239, align 4, !tbaa !748
-  br label %2105
+  br label %2067
 
 1242:                                             ; preds = %1210
   store i8 1, ptr %15, align 4, !tbaa !736
@@ -22280,7 +22280,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1253 = getelementptr inbounds nuw i32, ptr %1249, i64 %1252
   %1254 = load i32, ptr %1253, align 4, !tbaa !56
   %1255 = icmp slt i32 %1254, 0
-  br i1 %1255, label %1256, label %2105
+  br i1 %1255, label %1256, label %2067
 
 1256:                                             ; preds = %1242
   store i8 1, ptr %18, align 2, !tbaa !738
@@ -22298,14 +22298,14 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1265 = load i32, ptr %1264, align 4, !tbaa !747
   %1266 = add i32 %1265, 1
   store i32 %1266, ptr %1264, align 4, !tbaa !747
-  br label %2105
+  br label %2067
 
 1267:                                             ; preds = %1256
   %1268 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1269 = load i32, ptr %1268, align 4, !tbaa !748
   %1270 = add i32 %1269, 1
   store i32 %1270, ptr %1268, align 4, !tbaa !748
-  br label %2105
+  br label %2067
 
 1271:                                             ; preds = %1210
   store i8 1, ptr %15, align 4, !tbaa !736
@@ -22348,7 +22348,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 31, ptr %25, align 1, !tbaa !329
   store i32 %1297, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 1299:                                             ; preds = %1210
   %1300 = and i32 %108, 32768
@@ -22391,7 +22391,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i8 15, ptr %24, align 8, !tbaa !326
   store i8 31, ptr %25, align 1, !tbaa !329
   store i32 %1325, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
 1327:                                             ; preds = %1210
   %1328 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22403,11 +22403,11 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1334 = shl i32 %108, 16
   %1335 = ashr exact i32 %1334, 16
   %1336 = icmp eq i32 %1333, %1335
-  br i1 %1336, label %1337, label %2105
+  br i1 %1336, label %1337, label %2067
 
 1337:                                             ; preds = %1327
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 13, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 1338:                                             ; preds = %1210
   %1339 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22419,11 +22419,11 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1345 = shl i32 %108, 16
   %1346 = ashr exact i32 %1345, 16
   %1347 = icmp slt i32 %1344, %1346
-  br i1 %1347, label %2105, label %1348
+  br i1 %1347, label %2067, label %1348
 
 1348:                                             ; preds = %1338
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 13, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 1349:                                             ; preds = %1210
   %1350 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22435,11 +22435,11 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1356 = shl i32 %108, 16
   %1357 = ashr exact i32 %1356, 16
   %1358 = icmp ult i32 %1355, %1357
-  br i1 %1358, label %2105, label %1359
+  br i1 %1358, label %2067, label %1359
 
 1359:                                             ; preds = %1349
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 13, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 1360:                                             ; preds = %1210
   %1361 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22451,11 +22451,11 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1367 = shl i32 %108, 16
   %1368 = ashr exact i32 %1367, 16
   %1369 = icmp slt i32 %1366, %1368
-  br i1 %1369, label %1370, label %2105
+  br i1 %1369, label %1370, label %2067
 
 1370:                                             ; preds = %1360
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 13, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 1371:                                             ; preds = %1210
   %1372 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22467,11 +22467,11 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1378 = shl i32 %108, 16
   %1379 = ashr exact i32 %1378, 16
   %1380 = icmp ult i32 %1377, %1379
-  br i1 %1380, label %1381, label %2105
+  br i1 %1380, label %1381, label %2067
 
 1381:                                             ; preds = %1371
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 13, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 1382:                                             ; preds = %1210
   %1383 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22483,11 +22483,11 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1389 = shl i32 %108, 16
   %1390 = ashr exact i32 %1389, 16
   %1391 = icmp eq i32 %1388, %1390
-  br i1 %1391, label %2105, label %1392
+  br i1 %1391, label %2067, label %1392
 
 1392:                                             ; preds = %1382
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 13, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
 1393:                                             ; preds = %107
   %1394 = load i32, ptr %21, align 8, !tbaa !294
@@ -22504,7 +22504,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1402 = load i32, ptr %1401, align 4, !tbaa !749
   %1403 = add i32 %1402, 1
   store i32 %1403, ptr %1401, align 4, !tbaa !749
-  br label %2105
+  br label %2067
 
 1404:                                             ; preds = %107
   %1405 = load i32, ptr %21, align 8, !tbaa !294
@@ -22523,7 +22523,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   store i32 %1412, ptr %1413, align 8, !tbaa !744
   store i8 1, ptr %15, align 4, !tbaa !736
   store i8 1, ptr %18, align 2, !tbaa !738
-  br label %2105
+  br label %2067
 
 1414:                                             ; preds = %107
   %1415 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22572,7 +22572,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
 
 1447:                                             ; preds = %1438, %1435
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %2105
+  br label %2067
 
 1448:                                             ; preds = %107
   %1449 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22621,7 +22621,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
 
 1481:                                             ; preds = %1472, %1469
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %2105
+  br label %2067
 
 1482:                                             ; preds = %107
   %1483 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22670,7 +22670,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
 
 1515:                                             ; preds = %1506, %1503
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %2105
+  br label %2067
 
 1516:                                             ; preds = %107
   %1517 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22719,7 +22719,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
 
 1549:                                             ; preds = %1540, %1537
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %2105
+  br label %2067
 
 1550:                                             ; preds = %107
   %1551 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22775,7 +22775,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
 
 1585:                                             ; preds = %1577, %1574
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %2105
+  br label %2067
 
 1586:                                             ; preds = %107
   %1587 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22862,7 +22862,7 @@ define linkonce_odr dso_local void @_ZN9mips_coreILi32EE4execEh(ptr noundef nonn
   %1649 = or disjoint i32 %1648, %1641
   br label %1650
 
-default.unreachable46:                            ; preds = %1923, %1839, %1683, %1611
+default.unreachable46:                            ; preds = %1904, %1839, %1683, %1611
   unreachable
 
 1650:                                             ; preds = %1639, %1628, %1617, %1613
@@ -22880,7 +22880,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
 
 1657:                                             ; preds = %1650, %1608
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %2105
+  br label %2067
 
 1658:                                             ; preds = %107
   %1659 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -22982,7 +22982,7 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
 
 1729:                                             ; preds = %1722, %1680
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %2105
+  br label %2067
 
 1730:                                             ; preds = %107
   %1731 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -23009,13 +23009,13 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1752 = trunc i32 %1751 to i8
   %1753 = call noundef i32 @_ZN8mips_mmuILi32EE8va_writeEjjPKc10mips32_ksuhRb(ptr noundef nonnull align 8 dereferenceable(392) %88, i32 noundef %1739, i32 noundef 1, ptr noundef nonnull %1743, i32 noundef %1750, i8 noundef zeroext %1752, ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   %1754 = icmp eq i32 %1753, 31
-  br i1 %1754, label %2105, label %1755
+  br i1 %1754, label %2067, label %1755
 
 1755:                                             ; preds = %1730
   %1756 = load i8, ptr %3, align 1, !tbaa !52, !range !54, !noundef !55
   %1757 = trunc nuw i8 %1756 to i1
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %1753, i32 noundef %1739, i1 noundef zeroext %1757) #27
-  br label %2105
+  br label %2067
 
 1758:                                             ; preds = %107
   %1759 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -23042,13 +23042,13 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1780 = trunc i32 %1779 to i8
   %1781 = call noundef i32 @_ZN8mips_mmuILi32EE8va_writeEjjPKc10mips32_ksuhRb(ptr noundef nonnull align 8 dereferenceable(392) %88, i32 noundef %1767, i32 noundef 2, ptr noundef nonnull %1771, i32 noundef %1778, i8 noundef zeroext %1780, ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   %1782 = icmp eq i32 %1781, 31
-  br i1 %1782, label %2105, label %1783
+  br i1 %1782, label %2067, label %1783
 
 1783:                                             ; preds = %1758
   %1784 = load i8, ptr %3, align 1, !tbaa !52, !range !54, !noundef !55
   %1785 = trunc nuw i8 %1784 to i1
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %1781, i32 noundef %1767, i1 noundef zeroext %1785) #27
-  br label %2105
+  br label %2067
 
 1786:                                             ; preds = %107
   %1787 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -23075,13 +23075,13 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
   %1808 = trunc i32 %1807 to i8
   %1809 = call noundef i32 @_ZN8mips_mmuILi32EE8va_writeEjjPKc10mips32_ksuhRb(ptr noundef nonnull align 8 dereferenceable(392) %88, i32 noundef %1795, i32 noundef 4, ptr noundef nonnull %1799, i32 noundef %1806, i8 noundef zeroext %1808, ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   %1810 = icmp eq i32 %1809, 31
-  br i1 %1810, label %2105, label %1811
+  br i1 %1810, label %2067, label %1811
 
 1811:                                             ; preds = %1786
   %1812 = load i8, ptr %3, align 1, !tbaa !52, !range !54, !noundef !55
   %1813 = trunc nuw i8 %1812 to i1
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %1809, i32 noundef %1795, i1 noundef zeroext %1813) #27
-  br label %2105
+  br label %2067
 
 1814:                                             ; preds = %107
   %1815 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -23111,468 +23111,426 @@ default.unreachable46:                            ; preds = %1923, %1839, %1683,
 1836:                                             ; preds = %1814
   %1837 = icmp eq i32 %1834, 2
   %1838 = select i1 %1837, i32 3, i32 %1834
-  br label %1893
+  br label %1874
 
 1839:                                             ; preds = %1814
   %1840 = and i32 %1823, 3
+  %1841 = load i32, ptr %4, align 4
+  %1842 = lshr i32 %1841, 16
+  %1843 = and i32 %1842, 31
+  %1844 = zext nneg i32 %1843 to i64
+  %1845 = getelementptr inbounds nuw i32, ptr %1815, i64 %1844
+  %1846 = load i32, ptr %1845, align 4, !tbaa !56
   switch i32 %1840, label %default.unreachable46 [
-    i32 0, label %1841
+    i32 0, label %1847
     i32 1, label %1852
-    i32 2, label %1863
-    i32 3, label %1874
+    i32 2, label %1857
+    i32 3, label %1862
   ]
 
-1841:                                             ; preds = %1839
-  %1842 = load i32, ptr %4, align 4
-  %1843 = lshr i32 %1842, 16
-  %1844 = and i32 %1843, 31
-  %1845 = zext nneg i32 %1844 to i64
-  %1846 = getelementptr inbounds nuw i32, ptr %1815, i64 %1845
-  %1847 = load i32, ptr %1846, align 4, !tbaa !56
-  %1848 = lshr i32 %1847, 24
+1847:                                             ; preds = %1839
+  %1848 = lshr i32 %1846, 24
   %1849 = load i32, ptr %12, align 4, !tbaa !56
   %1850 = and i32 %1849, -256
   %1851 = or disjoint i32 %1850, %1848
-  br label %1881
+  br label %1862
 
 1852:                                             ; preds = %1839
-  %1853 = load i32, ptr %4, align 4
-  %1854 = lshr i32 %1853, 16
-  %1855 = and i32 %1854, 31
-  %1856 = zext nneg i32 %1855 to i64
-  %1857 = getelementptr inbounds nuw i32, ptr %1815, i64 %1856
-  %1858 = load i32, ptr %1857, align 4, !tbaa !56
-  %1859 = lshr i32 %1858, 16
-  %1860 = load i32, ptr %12, align 4, !tbaa !56
-  %1861 = and i32 %1860, -65536
-  %1862 = or disjoint i32 %1861, %1859
-  br label %1881
+  %1853 = lshr i32 %1846, 16
+  %1854 = load i32, ptr %12, align 4, !tbaa !56
+  %1855 = and i32 %1854, -65536
+  %1856 = or disjoint i32 %1855, %1853
+  br label %1862
 
-1863:                                             ; preds = %1839
-  %1864 = load i32, ptr %4, align 4
-  %1865 = lshr i32 %1864, 16
-  %1866 = and i32 %1865, 31
-  %1867 = zext nneg i32 %1866 to i64
-  %1868 = getelementptr inbounds nuw i32, ptr %1815, i64 %1867
-  %1869 = load i32, ptr %1868, align 4, !tbaa !56
-  %1870 = lshr i32 %1869, 8
-  %1871 = load i32, ptr %12, align 4, !tbaa !56
-  %1872 = and i32 %1871, -16777216
-  %1873 = or disjoint i32 %1872, %1870
-  br label %1881
+1857:                                             ; preds = %1839
+  %1858 = lshr i32 %1846, 8
+  %1859 = load i32, ptr %12, align 4, !tbaa !56
+  %1860 = and i32 %1859, -16777216
+  %1861 = or disjoint i32 %1860, %1858
+  br label %1862
 
-1874:                                             ; preds = %1839
-  %1875 = load i32, ptr %4, align 4
-  %1876 = lshr i32 %1875, 16
-  %1877 = and i32 %1876, 31
-  %1878 = zext nneg i32 %1877 to i64
-  %1879 = getelementptr inbounds nuw i32, ptr %1815, i64 %1878
-  %1880 = load i32, ptr %1879, align 4, !tbaa !56
-  br label %1881
-
-1881:                                             ; preds = %1874, %1863, %1852, %1841
-  %.sink = phi i32 [ %1880, %1874 ], [ %1873, %1863 ], [ %1862, %1852 ], [ %1851, %1841 ]
+1862:                                             ; preds = %1839, %1857, %1852, %1847
+  %.sink = phi i32 [ %1861, %1857 ], [ %1856, %1852 ], [ %1851, %1847 ], [ %1846, %1839 ]
   store i32 %.sink, ptr %12, align 4, !tbaa !56
-  %1882 = load i32, ptr %90, align 8
-  %1883 = and i32 %1882, 6
-  %1884 = icmp eq i32 %1883, 0
-  %1885 = and i32 %1882, 24
-  %1886 = icmp eq i32 %1885, 0
-  %1887 = select i1 %1886, i32 0, i32 2
-  %1888 = select i1 %1884, i32 %1887, i32 0
-  %1889 = load i32, ptr %98, align 8
-  %1890 = trunc i32 %1889 to i8
-  %1891 = call noundef i32 @_ZN8mips_mmuILi32EE8va_writeEjjPKc10mips32_ksuhRb(ptr noundef nonnull align 8 dereferenceable(392) %88, i32 noundef %1824, i32 noundef 4, ptr noundef nonnull %12, i32 noundef %1888, i8 noundef zeroext %1890, ptr noundef nonnull align 1 dereferenceable(1) %3) #27
-  %1892 = icmp eq i32 %1891, 31
-  br i1 %1892, label %1897, label %1893
+  %1863 = load i32, ptr %90, align 8
+  %1864 = and i32 %1863, 6
+  %1865 = icmp eq i32 %1864, 0
+  %1866 = and i32 %1863, 24
+  %1867 = icmp eq i32 %1866, 0
+  %1868 = select i1 %1867, i32 0, i32 2
+  %1869 = select i1 %1865, i32 %1868, i32 0
+  %1870 = load i32, ptr %98, align 8
+  %1871 = trunc i32 %1870 to i8
+  %1872 = call noundef i32 @_ZN8mips_mmuILi32EE8va_writeEjjPKc10mips32_ksuhRb(ptr noundef nonnull align 8 dereferenceable(392) %88, i32 noundef %1824, i32 noundef 4, ptr noundef nonnull %12, i32 noundef %1869, i8 noundef zeroext %1871, ptr noundef nonnull align 1 dereferenceable(1) %3) #27
+  %1873 = icmp eq i32 %1872, 31
+  br i1 %1873, label %1878, label %1874
 
-1893:                                             ; preds = %1881, %1836
-  %1894 = phi i32 [ %1838, %1836 ], [ %1891, %1881 ]
-  %1895 = load i8, ptr %3, align 1, !tbaa !52, !range !54, !noundef !55
-  %1896 = trunc nuw i8 %1895 to i1
-  call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %1894, i32 noundef %1823, i1 noundef zeroext %1896) #27
-  br label %1897
+1874:                                             ; preds = %1862, %1836
+  %1875 = phi i32 [ %1838, %1836 ], [ %1872, %1862 ]
+  %1876 = load i8, ptr %3, align 1, !tbaa !52, !range !54, !noundef !55
+  %1877 = trunc nuw i8 %1876 to i1
+  call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %1875, i32 noundef %1823, i1 noundef zeroext %1877) #27
+  br label %1878
 
-1897:                                             ; preds = %1893, %1881
+1878:                                             ; preds = %1874, %1862
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %2105
+  br label %2067
 
-1898:                                             ; preds = %107
-  %1899 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %1900 = lshr i32 %108, 21
-  %1901 = and i32 %1900, 31
-  %1902 = zext nneg i32 %1901 to i64
-  %1903 = getelementptr inbounds nuw i32, ptr %1899, i64 %1902
-  %1904 = load i32, ptr %1903, align 4, !tbaa !56
-  %1905 = shl i32 %108, 16
-  %1906 = ashr exact i32 %1905, 16
-  %1907 = add nsw i32 %1904, %1906
+1879:                                             ; preds = %107
+  %1880 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %1881 = lshr i32 %108, 21
+  %1882 = and i32 %1881, 31
+  %1883 = zext nneg i32 %1882 to i64
+  %1884 = getelementptr inbounds nuw i32, ptr %1880, i64 %1883
+  %1885 = load i32, ptr %1884, align 4, !tbaa !56
+  %1886 = shl i32 %108, 16
+  %1887 = ashr exact i32 %1886, 16
+  %1888 = add nsw i32 %1885, %1887
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %1908 = and i32 %1907, -4
-  %1909 = load i32, ptr %90, align 8
-  %1910 = and i32 %1909, 6
-  %1911 = icmp eq i32 %1910, 0
-  %1912 = and i32 %1909, 24
-  %1913 = icmp eq i32 %1912, 0
-  %1914 = select i1 %1913, i32 0, i32 2
-  %1915 = select i1 %1911, i32 %1914, i32 0
-  %1916 = load i32, ptr %98, align 8
-  %1917 = trunc i32 %1916 to i8
-  %1918 = call noundef i32 @_ZN8mips_mmuILi32EE7va_readEjjPc10mips32_ksuhRb(ptr noundef nonnull align 8 dereferenceable(392) %88, i32 noundef %1908, i32 noundef 4, ptr noundef nonnull %13, i32 noundef %1915, i8 noundef zeroext %1917, ptr noundef nonnull align 1 dereferenceable(1) %3) #27
-  %1919 = icmp eq i32 %1918, 31
-  br i1 %1919, label %1923, label %1920
+  %1889 = and i32 %1888, -4
+  %1890 = load i32, ptr %90, align 8
+  %1891 = and i32 %1890, 6
+  %1892 = icmp eq i32 %1891, 0
+  %1893 = and i32 %1890, 24
+  %1894 = icmp eq i32 %1893, 0
+  %1895 = select i1 %1894, i32 0, i32 2
+  %1896 = select i1 %1892, i32 %1895, i32 0
+  %1897 = load i32, ptr %98, align 8
+  %1898 = trunc i32 %1897 to i8
+  %1899 = call noundef i32 @_ZN8mips_mmuILi32EE7va_readEjjPc10mips32_ksuhRb(ptr noundef nonnull align 8 dereferenceable(392) %88, i32 noundef %1889, i32 noundef 4, ptr noundef nonnull %13, i32 noundef %1896, i8 noundef zeroext %1898, ptr noundef nonnull align 1 dereferenceable(1) %3) #27
+  %1900 = icmp eq i32 %1899, 31
+  br i1 %1900, label %1904, label %1901
 
-1920:                                             ; preds = %1898
-  %1921 = icmp eq i32 %1918, 2
-  %1922 = select i1 %1921, i32 3, i32 %1918
-  br label %1977
+1901:                                             ; preds = %1879
+  %1902 = icmp eq i32 %1899, 2
+  %1903 = select i1 %1902, i32 3, i32 %1899
+  br label %1939
 
-1923:                                             ; preds = %1898
-  %1924 = and i32 %1907, 3
-  switch i32 %1924, label %default.unreachable46 [
-    i32 0, label %1925
-    i32 1, label %1932
-    i32 2, label %1943
-    i32 3, label %1954
+1904:                                             ; preds = %1879
+  %1905 = and i32 %1888, 3
+  %1906 = load i32, ptr %4, align 4
+  %1907 = lshr i32 %1906, 16
+  %1908 = and i32 %1907, 31
+  %1909 = zext nneg i32 %1908 to i64
+  %1910 = getelementptr inbounds nuw i32, ptr %1880, i64 %1909
+  %1911 = load i32, ptr %1910, align 4, !tbaa !56
+  switch i32 %1905, label %default.unreachable46 [
+    i32 0, label %1927
+    i32 1, label %1912
+    i32 2, label %1917
+    i32 3, label %1922
   ]
 
-1925:                                             ; preds = %1923
-  %1926 = load i32, ptr %4, align 4
-  %1927 = lshr i32 %1926, 16
-  %1928 = and i32 %1927, 31
-  %1929 = zext nneg i32 %1928 to i64
-  %1930 = getelementptr inbounds nuw i32, ptr %1899, i64 %1929
-  %1931 = load i32, ptr %1930, align 4, !tbaa !56
-  br label %1965
+1912:                                             ; preds = %1904
+  %1913 = shl i32 %1911, 8
+  %1914 = load i32, ptr %13, align 4, !tbaa !56
+  %1915 = and i32 %1914, 255
+  %1916 = or disjoint i32 %1915, %1913
+  br label %1927
 
-1932:                                             ; preds = %1923
-  %1933 = load i32, ptr %4, align 4
-  %1934 = lshr i32 %1933, 16
-  %1935 = and i32 %1934, 31
-  %1936 = zext nneg i32 %1935 to i64
-  %1937 = getelementptr inbounds nuw i32, ptr %1899, i64 %1936
-  %1938 = load i32, ptr %1937, align 4, !tbaa !56
-  %1939 = shl i32 %1938, 8
-  %1940 = load i32, ptr %13, align 4, !tbaa !56
-  %1941 = and i32 %1940, 255
-  %1942 = or disjoint i32 %1941, %1939
-  br label %1965
+1917:                                             ; preds = %1904
+  %1918 = shl i32 %1911, 16
+  %1919 = load i32, ptr %13, align 4, !tbaa !56
+  %1920 = and i32 %1919, 65535
+  %1921 = or disjoint i32 %1920, %1918
+  br label %1927
 
-1943:                                             ; preds = %1923
-  %1944 = load i32, ptr %4, align 4
-  %1945 = lshr i32 %1944, 16
-  %1946 = and i32 %1945, 31
-  %1947 = zext nneg i32 %1946 to i64
-  %1948 = getelementptr inbounds nuw i32, ptr %1899, i64 %1947
-  %1949 = load i32, ptr %1948, align 4, !tbaa !56
-  %1950 = shl i32 %1949, 16
-  %1951 = load i32, ptr %13, align 4, !tbaa !56
-  %1952 = and i32 %1951, 65535
-  %1953 = or disjoint i32 %1952, %1950
-  br label %1965
+1922:                                             ; preds = %1904
+  %1923 = shl i32 %1911, 24
+  %1924 = load i32, ptr %13, align 4, !tbaa !56
+  %1925 = and i32 %1924, 16777215
+  %1926 = or disjoint i32 %1925, %1923
+  br label %1927
 
-1954:                                             ; preds = %1923
-  %1955 = load i32, ptr %4, align 4
-  %1956 = lshr i32 %1955, 16
-  %1957 = and i32 %1956, 31
-  %1958 = zext nneg i32 %1957 to i64
-  %1959 = getelementptr inbounds nuw i32, ptr %1899, i64 %1958
-  %1960 = load i32, ptr %1959, align 4, !tbaa !56
-  %1961 = shl i32 %1960, 24
-  %1962 = load i32, ptr %13, align 4, !tbaa !56
-  %1963 = and i32 %1962, 16777215
-  %1964 = or disjoint i32 %1963, %1961
-  br label %1965
-
-1965:                                             ; preds = %1954, %1943, %1932, %1925
-  %.sink51 = phi i32 [ %1964, %1954 ], [ %1953, %1943 ], [ %1942, %1932 ], [ %1931, %1925 ]
+1927:                                             ; preds = %1904, %1922, %1917, %1912
+  %.sink51 = phi i32 [ %1926, %1922 ], [ %1921, %1917 ], [ %1916, %1912 ], [ %1911, %1904 ]
   store i32 %.sink51, ptr %13, align 4, !tbaa !56
-  %1966 = load i32, ptr %90, align 8
-  %1967 = and i32 %1966, 6
-  %1968 = icmp eq i32 %1967, 0
-  %1969 = and i32 %1966, 24
-  %1970 = icmp eq i32 %1969, 0
-  %1971 = select i1 %1970, i32 0, i32 2
-  %1972 = select i1 %1968, i32 %1971, i32 0
-  %1973 = load i32, ptr %98, align 8
-  %1974 = trunc i32 %1973 to i8
-  %1975 = call noundef i32 @_ZN8mips_mmuILi32EE8va_writeEjjPKc10mips32_ksuhRb(ptr noundef nonnull align 8 dereferenceable(392) %88, i32 noundef %1908, i32 noundef 4, ptr noundef nonnull %13, i32 noundef %1972, i8 noundef zeroext %1974, ptr noundef nonnull align 1 dereferenceable(1) %3) #27
-  %1976 = icmp eq i32 %1975, 31
-  br i1 %1976, label %1981, label %1977
+  %1928 = load i32, ptr %90, align 8
+  %1929 = and i32 %1928, 6
+  %1930 = icmp eq i32 %1929, 0
+  %1931 = and i32 %1928, 24
+  %1932 = icmp eq i32 %1931, 0
+  %1933 = select i1 %1932, i32 0, i32 2
+  %1934 = select i1 %1930, i32 %1933, i32 0
+  %1935 = load i32, ptr %98, align 8
+  %1936 = trunc i32 %1935 to i8
+  %1937 = call noundef i32 @_ZN8mips_mmuILi32EE8va_writeEjjPKc10mips32_ksuhRb(ptr noundef nonnull align 8 dereferenceable(392) %88, i32 noundef %1889, i32 noundef 4, ptr noundef nonnull %13, i32 noundef %1934, i8 noundef zeroext %1936, ptr noundef nonnull align 1 dereferenceable(1) %3) #27
+  %1938 = icmp eq i32 %1937, 31
+  br i1 %1938, label %1943, label %1939
 
-1977:                                             ; preds = %1965, %1920
-  %1978 = phi i32 [ %1922, %1920 ], [ %1975, %1965 ]
-  %1979 = load i8, ptr %3, align 1, !tbaa !52, !range !54, !noundef !55
-  %1980 = trunc nuw i8 %1979 to i1
-  call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %1978, i32 noundef %1907, i1 noundef zeroext %1980) #27
-  br label %1981
+1939:                                             ; preds = %1927, %1901
+  %1940 = phi i32 [ %1903, %1901 ], [ %1937, %1927 ]
+  %1941 = load i8, ptr %3, align 1, !tbaa !52, !range !54, !noundef !55
+  %1942 = trunc nuw i8 %1941 to i1
+  call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %1940, i32 noundef %1888, i1 noundef zeroext %1942) #27
+  br label %1943
 
-1981:                                             ; preds = %1977, %1965
+1943:                                             ; preds = %1939, %1927
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %2105
+  br label %2067
 
-1982:                                             ; preds = %107
-  %1983 = load i32, ptr %90, align 8
-  %1984 = and i32 %1983, 24
-  %1985 = icmp eq i32 %1984, 0
-  %1986 = and i32 %1983, 268435462
-  %1987 = icmp ne i32 %1986, 0
-  %1988 = or i1 %1987, %1985
-  br i1 %1988, label %1990, label %1989
+1944:                                             ; preds = %107
+  %1945 = load i32, ptr %90, align 8
+  %1946 = and i32 %1945, 24
+  %1947 = icmp eq i32 %1946, 0
+  %1948 = and i32 %1945, 268435462
+  %1949 = icmp ne i32 %1948, 0
+  %1950 = or i1 %1949, %1947
+  br i1 %1950, label %1952, label %1951
 
-1989:                                             ; preds = %1982
+1951:                                             ; preds = %1944
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 11, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
-1990:                                             ; preds = %1982
-  %1991 = lshr i32 %108, 21
-  %1992 = and i32 %1991, 31
-  switch i32 %1992, label %2104 [
-    i32 0, label %1993
-    i32 4, label %2008
-    i32 16, label %2018
+1952:                                             ; preds = %1944
+  %1953 = lshr i32 %108, 21
+  %1954 = and i32 %1953, 31
+  switch i32 %1954, label %2066 [
+    i32 0, label %1955
+    i32 4, label %1970
+    i32 16, label %1980
   ]
 
-1993:                                             ; preds = %1990
-  %1994 = and i32 %108, 7
-  %1995 = and i32 %108, 63495
-  %1996 = icmp eq i32 %1995, 18432
-  br i1 %1996, label %1997, label %1998
+1955:                                             ; preds = %1952
+  %1956 = and i32 %108, 7
+  %1957 = and i32 %108, 63495
+  %1958 = icmp eq i32 %1957, 18432
+  br i1 %1958, label %1959, label %1960
 
-1997:                                             ; preds = %1993
+1959:                                             ; preds = %1955
   store i8 1, ptr %27, align 8, !tbaa !314
-  br label %1998
+  br label %1960
 
-1998:                                             ; preds = %1997, %1993
-  %1999 = lshr i32 %108, 16
-  %2000 = trunc i32 %1999 to i8
-  %2001 = and i8 %2000, 31
-  %2002 = lshr i32 %108, 11
-  %2003 = and i32 %2002, 31
-  %2004 = call noundef i32 @_ZN8mips_cp0ILi32EE4mfc0Ejj(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %2003, i32 noundef %1994) #27
-  %2005 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %2006 = zext nneg i8 %2001 to i64
-  %2007 = getelementptr inbounds nuw i32, ptr %2005, i64 %2006
-  store i32 %2004, ptr %2007, align 4, !tbaa !56
+1960:                                             ; preds = %1959, %1955
+  %1961 = lshr i32 %108, 16
+  %1962 = trunc i32 %1961 to i8
+  %1963 = and i8 %1962, 31
+  %1964 = lshr i32 %108, 11
+  %1965 = and i32 %1964, 31
+  %1966 = call noundef i32 @_ZN8mips_cp0ILi32EE4mfc0Ejj(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %1965, i32 noundef %1956) #27
+  %1967 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %1968 = zext nneg i8 %1963 to i64
+  %1969 = getelementptr inbounds nuw i32, ptr %1967, i64 %1968
+  store i32 %1966, ptr %1969, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
-  store i8 %2001, ptr %25, align 1, !tbaa !329
-  store i32 %2004, ptr %26, align 4, !tbaa !313
-  br label %2105
+  store i8 %1963, ptr %25, align 1, !tbaa !329
+  store i32 %1966, ptr %26, align 4, !tbaa !313
+  br label %2067
 
-2008:                                             ; preds = %1990
-  %2009 = lshr i32 %108, 11
-  %2010 = and i32 %2009, 31
-  %2011 = and i32 %108, 7
-  %2012 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %2013 = lshr i32 %108, 16
-  %2014 = and i32 %2013, 31
-  %2015 = zext nneg i32 %2014 to i64
-  %2016 = getelementptr inbounds nuw i32, ptr %2012, i64 %2015
-  %2017 = load i32, ptr %2016, align 4, !tbaa !56
-  call void @_ZN8mips_cp0ILi32EE4mtc0Ejjj(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %2010, i32 noundef %2011, i32 noundef %2017) #27
-  br label %2105
+1970:                                             ; preds = %1952
+  %1971 = lshr i32 %108, 11
+  %1972 = and i32 %1971, 31
+  %1973 = and i32 %108, 7
+  %1974 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %1975 = lshr i32 %108, 16
+  %1976 = and i32 %1975, 31
+  %1977 = zext nneg i32 %1976 to i64
+  %1978 = getelementptr inbounds nuw i32, ptr %1974, i64 %1977
+  %1979 = load i32, ptr %1978, align 4, !tbaa !56
+  call void @_ZN8mips_cp0ILi32EE4mtc0Ejjj(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %1972, i32 noundef %1973, i32 noundef %1979) #27
+  br label %2067
 
-2018:                                             ; preds = %1990
-  %2019 = and i32 %108, 63
-  switch i32 %2019, label %2105 [
-    i32 24, label %2020
-    i32 8, label %2029
-    i32 1, label %2030
-    i32 2, label %2031
-    i32 6, label %2032
+1980:                                             ; preds = %1952
+  %1981 = and i32 %108, 63
+  switch i32 %1981, label %2067 [
+    i32 24, label %1982
+    i32 8, label %1991
+    i32 1, label %1992
+    i32 2, label %1993
+    i32 6, label %1994
   ]
 
-2020:                                             ; preds = %2018
+1982:                                             ; preds = %1980
   store i8 1, ptr %51, align 8, !tbaa !386
-  %2021 = and i32 %1983, 4
-  %2022 = icmp eq i32 %2021, 0
-  %2023 = select i1 %2022, i64 88, i64 116
-  %2024 = getelementptr inbounds nuw i8, ptr %51, i64 %2023
-  %2025 = load i32, ptr %2024, align 4, !tbaa !56
-  %2026 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  store i32 %2025, ptr %2026, align 8, !tbaa !752
-  %2027 = select i1 %2022, i32 -7, i32 -5
-  %2028 = and i32 %2027, %1983
-  store i32 %2028, ptr %90, align 8
-  br label %2105
+  %1983 = and i32 %1945, 4
+  %1984 = icmp eq i32 %1983, 0
+  %1985 = select i1 %1984, i64 88, i64 116
+  %1986 = getelementptr inbounds nuw i8, ptr %51, i64 %1985
+  %1987 = load i32, ptr %1986, align 4, !tbaa !56
+  %1988 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  store i32 %1987, ptr %1988, align 8, !tbaa !752
+  %1989 = select i1 %1984, i32 -7, i32 -5
+  %1990 = and i32 %1989, %1945
+  store i32 %1990, ptr %90, align 8
+  br label %2067
 
-2029:                                             ; preds = %2018
+1991:                                             ; preds = %1980
   call void @_ZN8mips_cp0ILi32EE4tlbpEv(ptr noundef nonnull align 8 dereferenceable(120) %51) #27
-  br label %2105
+  br label %2067
 
-2030:                                             ; preds = %2018
+1992:                                             ; preds = %1980
   call void @_ZN8mips_cp0ILi32EE4tlbrEv(ptr noundef nonnull align 8 dereferenceable(120) %51) #27
-  br label %2105
+  br label %2067
 
-2031:                                             ; preds = %2018
+1993:                                             ; preds = %1980
   call void @_ZN8mips_cp0ILi32EE5tlbwiEv(ptr noundef nonnull align 8 dereferenceable(120) %51) #27
-  br label %2105
+  br label %2067
 
-2032:                                             ; preds = %2018
+1994:                                             ; preds = %1980
   call void @_ZN8mips_cp0ILi32EE5tlbwrEv(ptr noundef nonnull align 8 dereferenceable(120) %51) #27
-  br label %2105
+  br label %2067
 
-2033:                                             ; preds = %107
-  %2034 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %2035 = lshr i32 %108, 21
-  %2036 = and i32 %2035, 31
-  %2037 = zext nneg i32 %2036 to i64
-  %2038 = getelementptr inbounds nuw i32, ptr %2034, i64 %2037
-  %2039 = load i32, ptr %2038, align 4, !tbaa !56
-  %2040 = shl i32 %108, 16
-  %2041 = ashr exact i32 %2040, 16
-  %2042 = add nsw i32 %2039, %2041
+1995:                                             ; preds = %107
+  %1996 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %1997 = lshr i32 %108, 21
+  %1998 = and i32 %1997, 31
+  %1999 = zext nneg i32 %1998 to i64
+  %2000 = getelementptr inbounds nuw i32, ptr %1996, i64 %1999
+  %2001 = load i32, ptr %2000, align 4, !tbaa !56
+  %2002 = shl i32 %108, 16
+  %2003 = ashr exact i32 %2002, 16
+  %2004 = add nsw i32 %2001, %2003
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %2043 = icmp eq i32 %2042, -1078992896
-  br i1 %2043, label %2044, label %2045
+  %2005 = icmp eq i32 %2004, -1078992896
+  br i1 %2005, label %2006, label %2007
 
-2044:                                             ; preds = %2033
+2006:                                             ; preds = %1995
   store i8 1, ptr %27, align 8, !tbaa !314
-  br label %2045
+  br label %2007
 
-2045:                                             ; preds = %2044, %2033
-  %2046 = load i32, ptr %90, align 8
-  %2047 = and i32 %2046, 6
-  %2048 = icmp eq i32 %2047, 0
-  %2049 = and i32 %2046, 24
-  %2050 = icmp eq i32 %2049, 0
-  %2051 = select i1 %2050, i32 0, i32 2
-  %2052 = select i1 %2048, i32 %2051, i32 0
-  %2053 = load i32, ptr %98, align 8
-  %2054 = trunc i32 %2053 to i8
-  %2055 = call noundef i32 @_ZN8mips_mmuILi32EE7va_readEjjPc10mips32_ksuhRb(ptr noundef nonnull align 8 dereferenceable(392) %88, i32 noundef %2042, i32 noundef 4, ptr noundef nonnull %14, i32 noundef %2052, i8 noundef zeroext %2054, ptr noundef nonnull align 1 dereferenceable(1) %3) #27
-  %2056 = icmp eq i32 %2055, 31
-  br i1 %2056, label %2060, label %2057
+2007:                                             ; preds = %2006, %1995
+  %2008 = load i32, ptr %90, align 8
+  %2009 = and i32 %2008, 6
+  %2010 = icmp eq i32 %2009, 0
+  %2011 = and i32 %2008, 24
+  %2012 = icmp eq i32 %2011, 0
+  %2013 = select i1 %2012, i32 0, i32 2
+  %2014 = select i1 %2010, i32 %2013, i32 0
+  %2015 = load i32, ptr %98, align 8
+  %2016 = trunc i32 %2015 to i8
+  %2017 = call noundef i32 @_ZN8mips_mmuILi32EE7va_readEjjPc10mips32_ksuhRb(ptr noundef nonnull align 8 dereferenceable(392) %88, i32 noundef %2004, i32 noundef 4, ptr noundef nonnull %14, i32 noundef %2014, i8 noundef zeroext %2016, ptr noundef nonnull align 1 dereferenceable(1) %3) #27
+  %2018 = icmp eq i32 %2017, 31
+  br i1 %2018, label %2022, label %2019
 
-2057:                                             ; preds = %2045
-  %2058 = load i8, ptr %3, align 1, !tbaa !52, !range !54, !noundef !55
-  %2059 = trunc nuw i8 %2058 to i1
-  call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %2055, i32 noundef %2042, i1 noundef zeroext %2059) #27
-  br label %2068
+2019:                                             ; preds = %2007
+  %2020 = load i8, ptr %3, align 1, !tbaa !52, !range !54, !noundef !55
+  %2021 = trunc nuw i8 %2020 to i1
+  call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %2017, i32 noundef %2004, i1 noundef zeroext %2021) #27
+  br label %2030
 
-2060:                                             ; preds = %2045
-  %2061 = load i32, ptr %4, align 4
-  %2062 = lshr i32 %2061, 16
-  %2063 = trunc i32 %2062 to i8
-  %2064 = and i8 %2063, 31
-  %2065 = load i32, ptr %14, align 4, !tbaa !56
-  %2066 = zext nneg i8 %2064 to i64
-  %2067 = getelementptr inbounds nuw i32, ptr %2034, i64 %2066
-  store i32 %2065, ptr %2067, align 4, !tbaa !56
+2022:                                             ; preds = %2007
+  %2023 = load i32, ptr %4, align 4
+  %2024 = lshr i32 %2023, 16
+  %2025 = trunc i32 %2024 to i8
+  %2026 = and i8 %2025, 31
+  %2027 = load i32, ptr %14, align 4, !tbaa !56
+  %2028 = zext nneg i8 %2026 to i64
+  %2029 = getelementptr inbounds nuw i32, ptr %1996, i64 %2028
+  store i32 %2027, ptr %2029, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
-  store i8 %2064, ptr %25, align 1, !tbaa !329
-  store i32 %2065, ptr %26, align 4, !tbaa !313
-  br label %2068
+  store i8 %2026, ptr %25, align 1, !tbaa !329
+  store i32 %2027, ptr %26, align 4, !tbaa !313
+  br label %2030
 
-2068:                                             ; preds = %2060, %2057
+2030:                                             ; preds = %2022, %2019
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %2105
+  br label %2067
 
-2069:                                             ; preds = %107
-  %2070 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %2071 = lshr i32 %108, 21
-  %2072 = and i32 %2071, 31
-  %2073 = zext nneg i32 %2072 to i64
-  %2074 = getelementptr inbounds nuw i32, ptr %2070, i64 %2073
-  %2075 = load i32, ptr %2074, align 4, !tbaa !56
-  %2076 = shl i32 %108, 16
-  %2077 = ashr exact i32 %2076, 16
-  %2078 = add nsw i32 %2075, %2077
-  %2079 = lshr i32 %108, 16
-  %2080 = and i32 %2079, 31
-  %2081 = zext nneg i32 %2080 to i64
-  %2082 = getelementptr inbounds nuw i32, ptr %2070, i64 %2081
-  %2083 = load i32, ptr %90, align 8
-  %2084 = and i32 %2083, 6
-  %2085 = icmp eq i32 %2084, 0
-  %2086 = and i32 %2083, 24
-  %2087 = icmp eq i32 %2086, 0
-  %2088 = select i1 %2087, i32 0, i32 2
-  %2089 = select i1 %2085, i32 %2088, i32 0
-  %2090 = load i32, ptr %98, align 8
-  %2091 = trunc i32 %2090 to i8
-  %2092 = call noundef i32 @_ZN8mips_mmuILi32EE8va_writeEjjPKc10mips32_ksuhRb(ptr noundef nonnull align 8 dereferenceable(392) %88, i32 noundef %2078, i32 noundef 4, ptr noundef nonnull %2082, i32 noundef %2089, i8 noundef zeroext %2091, ptr noundef nonnull align 1 dereferenceable(1) %3) #27
-  %2093 = icmp eq i32 %2092, 31
-  br i1 %2093, label %2097, label %2094
+2031:                                             ; preds = %107
+  %2032 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %2033 = lshr i32 %108, 21
+  %2034 = and i32 %2033, 31
+  %2035 = zext nneg i32 %2034 to i64
+  %2036 = getelementptr inbounds nuw i32, ptr %2032, i64 %2035
+  %2037 = load i32, ptr %2036, align 4, !tbaa !56
+  %2038 = shl i32 %108, 16
+  %2039 = ashr exact i32 %2038, 16
+  %2040 = add nsw i32 %2037, %2039
+  %2041 = lshr i32 %108, 16
+  %2042 = and i32 %2041, 31
+  %2043 = zext nneg i32 %2042 to i64
+  %2044 = getelementptr inbounds nuw i32, ptr %2032, i64 %2043
+  %2045 = load i32, ptr %90, align 8
+  %2046 = and i32 %2045, 6
+  %2047 = icmp eq i32 %2046, 0
+  %2048 = and i32 %2045, 24
+  %2049 = icmp eq i32 %2048, 0
+  %2050 = select i1 %2049, i32 0, i32 2
+  %2051 = select i1 %2047, i32 %2050, i32 0
+  %2052 = load i32, ptr %98, align 8
+  %2053 = trunc i32 %2052 to i8
+  %2054 = call noundef i32 @_ZN8mips_mmuILi32EE8va_writeEjjPKc10mips32_ksuhRb(ptr noundef nonnull align 8 dereferenceable(392) %88, i32 noundef %2040, i32 noundef 4, ptr noundef nonnull %2044, i32 noundef %2051, i8 noundef zeroext %2053, ptr noundef nonnull align 1 dereferenceable(1) %3) #27
+  %2055 = icmp eq i32 %2054, 31
+  br i1 %2055, label %2059, label %2056
 
-2094:                                             ; preds = %2069
-  %2095 = load i8, ptr %3, align 1, !tbaa !52, !range !54, !noundef !55
-  %2096 = trunc nuw i8 %2095 to i1
-  call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %2092, i32 noundef %2078, i1 noundef zeroext %2096) #27
-  br label %2105
+2056:                                             ; preds = %2031
+  %2057 = load i8, ptr %3, align 1, !tbaa !52, !range !54, !noundef !55
+  %2058 = trunc nuw i8 %2057 to i1
+  call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef %2054, i32 noundef %2040, i1 noundef zeroext %2058) #27
+  br label %2067
 
-2097:                                             ; preds = %2069
-  %2098 = load i32, ptr %4, align 4
-  %2099 = lshr i32 %2098, 16
-  %2100 = trunc i32 %2099 to i8
-  %2101 = and i8 %2100, 31
-  %2102 = zext nneg i8 %2101 to i64
-  %2103 = getelementptr inbounds nuw i32, ptr %2070, i64 %2102
-  store i32 1, ptr %2103, align 4, !tbaa !56
+2059:                                             ; preds = %2031
+  %2060 = load i32, ptr %4, align 4
+  %2061 = lshr i32 %2060, 16
+  %2062 = trunc i32 %2061 to i8
+  %2063 = and i8 %2062, 31
+  %2064 = zext nneg i8 %2063 to i64
+  %2065 = getelementptr inbounds nuw i32, ptr %2032, i64 %2064
+  store i32 1, ptr %2065, align 4, !tbaa !56
   store i8 15, ptr %24, align 8, !tbaa !326
-  store i8 %2101, ptr %25, align 1, !tbaa !329
+  store i8 %2063, ptr %25, align 1, !tbaa !329
   store i32 1, ptr %26, align 4, !tbaa !313
-  br label %2105
+  br label %2067
 
-2104:                                             ; preds = %1990, %1210, %1178, %1146, %1039, %927, %901, %871, %841, %811, %781, %760, %758, %652, %630, %617, %606, %594, %582, %564, %553, %535, %513, %495, %473, %455, %433, %412, %391, %369, %348, %329, %306, %283, %260, %238, %216, %195, %164, %143, %112, %110, %107
+2066:                                             ; preds = %1952, %1210, %1178, %1146, %1039, %927, %901, %871, %841, %811, %781, %760, %758, %652, %630, %617, %606, %594, %582, %564, %553, %535, %513, %495, %473, %455, %433, %412, %391, %369, %348, %329, %306, %283, %260, %238, %216, %195, %164, %143, %112, %110, %107
   call void @_ZN8mips_cp0ILi32EE10raise_trapE14mips32_exccodejb(ptr noundef nonnull align 8 dereferenceable(120) %51, i32 noundef 10, i32 noundef 0, i1 noundef zeroext false) #27
-  br label %2105
+  br label %2067
 
-2105:                                             ; preds = %2104, %2097, %2094, %2068, %2032, %2031, %2030, %2029, %2020, %2018, %2008, %1998, %1989, %1981, %1897, %1811, %1786, %1783, %1758, %1755, %1730, %1729, %1657, %1585, %1549, %1515, %1481, %1447, %1404, %1393, %1392, %1382, %1381, %1371, %1370, %1360, %1359, %1349, %1348, %1338, %1337, %1327, %1324, %1296, %1267, %1263, %1242, %1238, %1234, %1213, %1206, %1202, %1187, %1174, %1170, %1155, %1142, %1138, %1112, %1108, %1104, %1078, %1064, %1050, %1042, %1025, %1009, %993, %978, %971, %970, %.loopexit21, %.loopexit20, %874, %844, %814, %784, %763, %757, %744, %743, %730, %729, %716, %715, %702, %701, %688, %687, %674, %663, %655, %641, %633, %629, %628, %620, %609, %597, %585, %567, %556, %538, %516, %498, %476, %458, %436, %415, %394, %372, %351, %332, %309, %286, %263, %241, %219, %198, %188, %187, %146, %136, %135, %110, %107, %107, %103, %50
-  %2106 = load i8, ptr %51, align 8, !tbaa !386, !range !54, !noundef !55
-  %2107 = trunc nuw i8 %2106 to i1
-  br i1 %2107, label %.thread, label %2110
+2067:                                             ; preds = %2066, %2059, %2056, %2030, %1994, %1993, %1992, %1991, %1982, %1980, %1970, %1960, %1951, %1943, %1878, %1811, %1786, %1783, %1758, %1755, %1730, %1729, %1657, %1585, %1549, %1515, %1481, %1447, %1404, %1393, %1392, %1382, %1381, %1371, %1370, %1360, %1359, %1349, %1348, %1338, %1337, %1327, %1324, %1296, %1267, %1263, %1242, %1238, %1234, %1213, %1206, %1202, %1187, %1174, %1170, %1155, %1142, %1138, %1112, %1108, %1104, %1078, %1064, %1050, %1042, %1025, %1009, %993, %978, %971, %970, %.loopexit21, %.loopexit20, %874, %844, %814, %784, %763, %757, %744, %743, %730, %729, %716, %715, %702, %701, %688, %687, %674, %663, %655, %641, %633, %629, %628, %620, %609, %597, %585, %567, %556, %538, %516, %498, %476, %458, %436, %415, %394, %372, %351, %332, %309, %286, %263, %241, %219, %198, %188, %187, %146, %136, %135, %110, %107, %107, %103, %50
+  %2068 = load i8, ptr %51, align 8, !tbaa !386, !range !54, !noundef !55
+  %2069 = trunc nuw i8 %2068 to i1
+  br i1 %2069, label %.thread, label %2072
 
-.thread:                                          ; preds = %2105
-  %2108 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %2109 = load i32, ptr %2108, align 8, !tbaa !752
+.thread:                                          ; preds = %2067
+  %2070 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %2071 = load i32, ptr %2070, align 8, !tbaa !752
   store i8 0, ptr %15, align 4, !tbaa !736
   store i8 0, ptr %18, align 2, !tbaa !738
-  store i32 %2109, ptr %21, align 8
-  br label %2135
+  store i32 %2071, ptr %21, align 8
+  br label %2097
 
-2110:                                             ; preds = %2105
-  %2111 = load i8, ptr %20, align 1, !tbaa !739, !range !54, !noundef !55
-  %2112 = trunc nuw i8 %2111 to i1
-  %2113 = load i32, ptr %21, align 8
-  %2114 = add i32 %2113, 4
-  %2115 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %2116 = load i32, ptr %2115, align 8
-  %2117 = select i1 %2112, i32 %2116, i32 %2114
-  %2118 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %2119 = load i32, ptr %2118, align 8, !tbaa !753
-  %2120 = add i32 %2119, 1
-  store i32 %2120, ptr %2118, align 8, !tbaa !753
+2072:                                             ; preds = %2067
+  %2073 = load i8, ptr %20, align 1, !tbaa !739, !range !54, !noundef !55
+  %2074 = trunc nuw i8 %2073 to i1
+  %2075 = load i32, ptr %21, align 8
+  %2076 = add i32 %2075, 4
+  %2077 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %2078 = load i32, ptr %2077, align 8
+  %2079 = select i1 %2074, i32 %2078, i32 %2076
+  %2080 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %2081 = load i32, ptr %2080, align 8, !tbaa !753
+  %2082 = add i32 %2081, 1
+  store i32 %2082, ptr %2080, align 8, !tbaa !753
   %.pre = load i8, ptr %15, align 4, !range !54
-  %2121 = trunc nuw i8 %.pre to i1
-  store i32 %2117, ptr %21, align 8
-  %2122 = load i8, ptr %17, align 1, !tbaa !737, !range !54, !noundef !55
-  %2123 = trunc nuw i8 %2122 to i1
-  %or.cond = select i1 %2123, i1 %2121, i1 false
-  br i1 %or.cond, label %2124, label %2135
+  %2083 = trunc nuw i8 %.pre to i1
+  store i32 %2079, ptr %21, align 8
+  %2084 = load i8, ptr %17, align 1, !tbaa !737, !range !54, !noundef !55
+  %2085 = trunc nuw i8 %2084 to i1
+  %or.cond = select i1 %2085, i1 %2083, i1 false
+  br i1 %or.cond, label %2086, label %2097
 
-2124:                                             ; preds = %2110
-  %2125 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %2126 = load ptr, ptr %29, align 8, !tbaa !330
-  %2127 = load ptr, ptr %2125, align 8, !tbaa !330
-  %2128 = icmp eq ptr %2126, %2127
-  br i1 %2128, label %.loopexit, label %.preheader
+2086:                                             ; preds = %2072
+  %2087 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %2088 = load ptr, ptr %29, align 8, !tbaa !330
+  %2089 = load ptr, ptr %2087, align 8, !tbaa !330
+  %2090 = icmp eq ptr %2088, %2089
+  br i1 %2090, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %2124, %.preheader
-  %2129 = phi ptr [ %2133, %.preheader ], [ %2127, %2124 ]
-  %2130 = load i32, ptr %2129, align 4, !tbaa !56
-  %2131 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %2130) #27
+.preheader:                                       ; preds = %2086, %.preheader
+  %2091 = phi ptr [ %2095, %.preheader ], [ %2089, %2086 ]
+  %2092 = load i32, ptr %2091, align 4, !tbaa !56
+  %2093 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %2092) #27
   call void @_ZNSt5dequeIjSaIjEE9pop_frontEv(ptr noundef nonnull align 8 dereferenceable(80) %28) #26
-  %2132 = load ptr, ptr %29, align 8, !tbaa !330
-  %2133 = load ptr, ptr %2125, align 8, !tbaa !330
-  %2134 = icmp eq ptr %2132, %2133
-  br i1 %2134, label %.loopexit, label %.preheader, !llvm.loop !754
+  %2094 = load ptr, ptr %29, align 8, !tbaa !330
+  %2095 = load ptr, ptr %2087, align 8, !tbaa !330
+  %2096 = icmp eq ptr %2094, %2095
+  br i1 %2096, label %.loopexit, label %.preheader, !llvm.loop !754
 
-.loopexit:                                        ; preds = %.preheader, %2124
+.loopexit:                                        ; preds = %.preheader, %2086
   call void @exit(i32 noundef 1) #31
   unreachable
 
-2135:                                             ; preds = %.thread, %2110
+2097:                                             ; preds = %.thread, %2072
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

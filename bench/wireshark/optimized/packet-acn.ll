@@ -7083,9 +7083,9 @@ default.unreachable:                              ; preds = %123, %37, %5
   %85 = zext nneg i8 %35 to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.acn_add_dmp_reason_codes, i64 %85
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %switch.lookup
+  br label %.lr.ph263.split
 
-switch.lookup:                                    ; preds = %116, %.lr.ph263.split.preheader
+.lr.ph263.split:                                  ; preds = %.lr.ph263.split.preheader, %116
   %.0230261 = phi i32 [ %119, %116 ], [ 0, %.lr.ph263.split.preheader ]
   %.0232260 = phi i32 [ %118, %116 ], [ %84, %.lr.ph263.split.preheader ]
   %86 = load ptr, ptr %81, align 8
@@ -7097,33 +7097,33 @@ switch.lookup:                                    ; preds = %116, %.lr.ph263.spl
     i32 4, label %102
   ]
 
-88:                                               ; preds = %switch.lookup
+88:                                               ; preds = %.lr.ph263.split
   %89 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %90 = zext i8 %89 to i32
   %91 = load i32, ptr @hf_acn_data8, align 4
   %92 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %91, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %90, ptr noundef nonnull @.str.778, ptr noundef %87, i32 noundef %90)
   br label %116
 
-93:                                               ; preds = %switch.lookup
+93:                                               ; preds = %.lr.ph263.split
   %94 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
   %95 = zext i16 %94 to i32
   %96 = load i32, ptr @hf_acn_data16, align 4
   %97 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %96, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef %95, ptr noundef nonnull @.str.779, ptr noundef %87, i32 noundef %95)
   br label %116
 
-98:                                               ; preds = %switch.lookup
+98:                                               ; preds = %.lr.ph263.split
   %99 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %3)
   %100 = load i32, ptr @hf_acn_data24, align 4
   %101 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %100, ptr noundef %0, i32 noundef %3, i32 noundef 3, i32 noundef %99, ptr noundef nonnull @.str.780, ptr noundef %87, i32 noundef %99)
   br label %116
 
-102:                                              ; preds = %switch.lookup
+102:                                              ; preds = %.lr.ph263.split
   %103 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
   %104 = load i32, ptr @hf_acn_data32, align 4
   %105 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %104, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef %103, ptr noundef nonnull @.str.781, ptr noundef %87, i32 noundef %103)
   br label %116
 
-106:                                              ; preds = %switch.lookup
+106:                                              ; preds = %.lr.ph263.split
   %107 = load ptr, ptr %81, align 8
   %108 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %107, ptr noundef nonnull @.str.767)
   br i1 %.not272, label %._crit_edge259, label %.lr.ph258
@@ -7151,7 +7151,7 @@ switch.lookup:                                    ; preds = %116, %.lr.ph263.spl
   %119 = add nuw i32 %.0230261, 1
   %120 = load i32, ptr %12, align 4
   %121 = icmp ult i32 %119, %120
-  br i1 %121, label %switch.lookup, label %._crit_edge264, !llvm.loop !59
+  br i1 %121, label %.lr.ph263.split, label %._crit_edge264, !llvm.loop !59
 
 ._crit_edge264:                                   ; preds = %116, %80
   %122 = add i32 %11, %3

@@ -977,29 +977,25 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b28ded3664b0892E.528" = private unnamed_addr constant [6 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1106, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1107, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1108, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1109, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1110, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1111], align 8
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd23afa4de5d9b6f7E" = private unnamed_addr constant [5 x i64] [i64 5, i64 12, i64 11, i64 11, i64 4], align 8
 @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd23afa4de5d9b6f7E.529" = private unnamed_addr constant [5 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.198, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.199, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.200, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.201, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.202], align 8
-@"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE" = private unnamed_addr constant [3 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.367, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.368, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.369], align 8
-@"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE.533" = private unnamed_addr constant [3 x i64] [i64 68, i64 79, i64 85], align 8
-@"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE.534" = private unnamed_addr constant [3 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.385, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.386, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.387], align 8
-@"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE.535" = private unnamed_addr constant [3 x i64] [i64 54, i64 32, i64 47], align 8
 @switch.table._ZN18ruff_python_parser5lexer5Lexer16lex_number_radix17h6e081371e214b2dfE = private unnamed_addr constant [4 x i32] [i32 2, i32 8, i32 10, i32 16], align 4
 @"switch.table._ZN18ruff_python_parser6parser10expression52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$43parse_binary_expression_or_higher_recursive17h70d2e8fe02e6995aE" = private unnamed_addr constant [13 x i8] c"\18\19\1A<\1B\22-+,\1C*\1D9", align 1
-@"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.537" = private unnamed_addr constant [3 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.619, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.620, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.621], align 8
-@"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.538" = private unnamed_addr constant [3 x i64] [i64 14, i64 15, i64 17], align 8
+@"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.534" = private unnamed_addr constant [3 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.619, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.620, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.621], align 8
+@"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.535" = private unnamed_addr constant [3 x i64] [i64 14, i64 15, i64 17], align 8
 @switch.table._ZN18ruff_python_parser6parser6Parser39is_enclosing_list_element_or_terminator17hbde3b425b9f5825fE = private unnamed_addr constant [31 x i8] [i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 0, i8 1, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 0, i8 1, i8 2, i8 1, i8 0, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 1, i8 0, i8 0, i8 1, i8 poison, i8 2, i8 0, i8 1], align 1
-@switch.table._ZN18ruff_python_parser6parser6Parser39is_enclosing_list_element_or_terminator17hbde3b425b9f5825fE.539 = private unnamed_addr constant [31 x i8] [i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 12, i8 13, i8 13, i8 13, i8 14, i8 15, i8 16, i8 17, i8 18, i8 19, i8 19, i8 20, i8 20, i8 poison, i8 20, i8 21, i8 21], align 1
+@switch.table._ZN18ruff_python_parser6parser6Parser39is_enclosing_list_element_or_terminator17hbde3b425b9f5825fE.536 = private unnamed_addr constant [31 x i8] [i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 12, i8 13, i8 13, i8 13, i8 14, i8 15, i8 16, i8 17, i8 18, i8 19, i8 19, i8 20, i8 20, i8 poison, i8 20, i8 21, i8 21], align 1
 @switch.table._ZN18ruff_python_parser6parser15RecoveryContext7to_kind17h14ad08fb7daa27e8E = private unnamed_addr constant [31 x i8] [i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 0, i8 1, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 0, i8 1, i8 2, i8 1, i8 0, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 1, i8 0, i8 0, i8 1, i8 undef, i8 2, i8 0, i8 1], align 1
-@switch.table._ZN18ruff_python_parser6parser15RecoveryContext7to_kind17h14ad08fb7daa27e8E.540 = private unnamed_addr constant [31 x i8] c"\00\01\02\03\04\05\06\06\07\08\09\0A\0B\0C\0C\0D\0D\0D\0E\0F\10\11\12\13\13\14\14\16\14\15\15", align 1
+@switch.table._ZN18ruff_python_parser6parser15RecoveryContext7to_kind17h14ad08fb7daa27e8E.537 = private unnamed_addr constant [31 x i8] c"\00\01\02\03\04\05\06\06\07\08\09\0A\0B\0C\0C\0D\0D\0D\0E\0F\10\11\12\13\13\14\14\16\14\15\15", align 1
 @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E" = private unnamed_addr constant [4 x i64] [i64 7, i64 11, i64 12, i64 26], align 8
-@"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.541" = private unnamed_addr constant [4 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.892, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.893, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.894, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.895], align 8
+@"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.538" = private unnamed_addr constant [4 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.892, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.893, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.894, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.895], align 8
 @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E" = private unnamed_addr constant [3 x i64] [i64 5, i64 10, i64 5], align 8
-@"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.542" = private unnamed_addr constant [3 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.460, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.896, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.430], align 8
+@"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.539" = private unnamed_addr constant [3 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.460, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.896, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.430], align 8
 @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E" = private unnamed_addr constant [7 x i64] [i64 13, i64 15, i64 20, i64 17, i64 15, i64 18, i64 10], align 8
-@"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.543" = private unnamed_addr constant [7 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.897, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.898, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.899, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.900, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.901, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.902, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.903], align 8
+@"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.540" = private unnamed_addr constant [7 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.897, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.898, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.899, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.900, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.901, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.902, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.903], align 8
 @"switch.table._ZN97_$LT$ruff_python_parser..semantic_errors..InvalidExpressionKind$u20$as$u20$core..fmt..Display$GT$3fmt17hff8bcec1c7b8d260E" = private unnamed_addr constant [3 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.904, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.905, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.906], align 8
 @"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E" = private unnamed_addr constant [103 x i64] [i64 4, i64 3, i64 5, i64 7, i64 6, i64 12, i64 13, i64 10, i64 22, i64 7, i64 7, i64 17, i64 6, i64 6, i64 11, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 4, i64 4, i64 4, i64 4, i64 3, i64 3, i64 4, i64 4, i64 4, i64 5, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 4, i64 5, i64 5, i64 4, i64 5, i64 4, i64 3, i64 4, i64 4, i64 5, i64 5, i64 4, i64 8, i64 7, i64 7, i64 7, i64 7, i64 10, i64 5, i64 5, i64 6, i64 6, i64 8, i64 7, i64 9, i64 5, i64 6, i64 8, i64 4, i64 8, i64 4, i64 4, i64 8, i64 6, i64 10, i64 5, i64 4, i64 6, i64 7, i64 8, i64 6, i64 5, i64 7, i64 6, i64 7, i64 6, i64 7, i64 6, i64 7], align 8
-@"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E.544" = private unnamed_addr constant [103 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.958, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.959, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.960, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.961, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.962, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.963, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.964, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.965, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.630, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.966, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.967, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.968, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.969, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.970, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.971, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.972, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.973, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.974, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.975, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.976, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.977, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.978, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.979, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.980, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.981, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.982, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.983, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.984, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.985, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.986, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.987, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.988, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.989, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.990, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.991, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.992, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.993, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.994, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.995, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.996, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.997, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.998, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.999, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1000, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1001, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1002, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1003, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1004, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1005, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1006, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1007, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1008, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1009, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1010, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1011, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1012, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1013, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1014, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1015, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1016, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1017, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1018, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1019, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1020, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1021, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1022, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1023, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1024, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1025, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1026, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1027, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1028, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1029, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1030, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1031, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1032, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1033, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1034, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1035, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1036, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1037, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1038, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1039, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1040, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1041, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1042, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1043, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1044, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1045, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1046, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1047, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1048, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1049, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1050, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1051, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1052, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1053, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1054, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1055, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1056, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1057, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1058, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1059], align 8
+@"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E.541" = private unnamed_addr constant [103 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.958, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.959, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.960, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.961, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.962, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.963, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.964, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.965, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.630, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.966, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.967, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.968, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.969, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.970, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.971, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.972, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.973, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.974, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.975, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.976, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.977, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.978, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.979, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.980, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.981, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.982, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.983, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.984, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.985, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.986, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.987, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.988, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.989, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.990, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.991, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.992, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.993, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.994, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.995, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.996, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.997, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.998, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.999, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1000, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1001, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1002, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1003, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1004, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1005, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1006, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1007, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1008, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1009, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1010, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1011, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1012, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1013, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1014, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1015, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1016, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1017, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1018, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1019, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1020, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1021, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1022, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1023, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1024, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1025, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1026, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1027, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1028, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1029, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1030, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1031, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1032, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1033, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1034, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1035, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1036, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1037, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1038, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1039, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1040, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1041, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1042, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1043, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1044, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1045, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1046, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1047, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1048, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1049, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1050, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1051, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1052, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1053, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1054, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1055, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1056, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1057, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1058, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1059], align 8
 @"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE" = private unnamed_addr constant [103 x i64] [i64 4, i64 3, i64 5, i64 7, i64 6, i64 12, i64 13, i64 10, i64 16, i64 7, i64 7, i64 17, i64 6, i64 6, i64 9, i64 8, i64 11, i64 4, i64 4, i64 4, i64 4, i64 5, i64 5, i64 4, i64 4, i64 5, i64 4, i64 5, i64 4, i64 5, i64 4, i64 7, i64 5, i64 3, i64 7, i64 6, i64 6, i64 7, i64 8, i64 9, i64 12, i64 5, i64 10, i64 9, i64 10, i64 10, i64 15, i64 9, i64 10, i64 9, i64 10, i64 12, i64 10, i64 9, i64 15, i64 14, i64 15, i64 11, i64 16, i64 10, i64 2, i64 7, i64 6, i64 8, i64 3, i64 2, i64 6, i64 5, i64 5, i64 5, i64 5, i64 8, i64 3, i64 3, i64 4, i64 4, i64 6, i64 5, i64 7, i64 3, i64 4, i64 6, i64 2, i64 6, i64 2, i64 2, i64 6, i64 4, i64 8, i64 3, i64 2, i64 4, i64 5, i64 6, i64 4, i64 3, i64 5, i64 4, i64 5, i64 4, i64 5, i64 4, i64 7], align 8
-@"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE.545" = private unnamed_addr constant [103 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1171, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1172, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1173, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1174, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1175, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.963, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.964, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.965, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1176, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1177, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1178, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.968, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1179, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1180, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1181, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1182, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1183, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1184, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1185, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1186, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1187, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1188, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1189, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1190, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1191, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1192, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1193, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1194, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1195, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1196, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1197, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1198, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1199, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1200, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1201, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1202, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1203, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1204, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1205, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1206, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1207, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1208, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1209, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1210, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1211, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1212, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1213, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1214, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1215, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1216, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1217, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1218, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1219, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1220, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1221, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1222, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1223, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1224, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1225, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1226, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1227, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1228, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1229, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1230, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1231, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1232, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1233, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1234, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1235, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1236, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1237, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1238, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1239, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1240, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1241, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1242, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1243, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.424, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1244, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1245, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1246, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1247, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1248, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1249, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1250, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1251, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.511, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.194, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1252, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1253, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1254, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1255, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1256, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1257, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.425, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1258, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1259, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1260, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1261, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1262, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1263, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1264, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1059], align 8
+@"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE.542" = private unnamed_addr constant [103 x ptr] [ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1171, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1172, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1173, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1174, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1175, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.963, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.964, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.965, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1176, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1177, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1178, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.968, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1179, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1180, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1181, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1182, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1183, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1184, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1185, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1186, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1187, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1188, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1189, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1190, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1191, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1192, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1193, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1194, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1195, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1196, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1197, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1198, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1199, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1200, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1201, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1202, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1203, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1204, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1205, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1206, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1207, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1208, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1209, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1210, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1211, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1212, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1213, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1214, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1215, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1216, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1217, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1218, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1219, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1220, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1221, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1222, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1223, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1224, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1225, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1226, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1227, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1228, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1229, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1230, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1231, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1232, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1233, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1234, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1235, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1236, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1237, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1238, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1239, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1240, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1241, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1242, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1243, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.424, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1244, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1245, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1246, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1247, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1248, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1249, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1250, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1251, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.511, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.194, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1252, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1253, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1254, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1255, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1256, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1257, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.425, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1258, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1259, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1260, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1261, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1262, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1263, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1264, ptr @anon.aab41dc2a4de2fafba55bf875aa63917.1059], align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc { i64, ptr } @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9f819c25ab292f96E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -1708,7 +1704,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.542", i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.539", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !123
   ret i1 %6
@@ -1735,7 +1731,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.541", i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.538", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !128
   ret i1 %6
@@ -1758,7 +1754,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.543", i64 %5
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.540", i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !134
   ret i1 %6
@@ -18203,24 +18199,24 @@ define noundef zeroext i1 @"_ZN88_$LT$ruff_python_parser..error..UnsupportedSynt
   switch i8 %14, label %default.unreachable109 [
     i8 0, label %.thread103
     i8 1, label %16
-    i8 2, label %40
-    i8 3, label %switch.lookup
-    i8 4, label %44
+    i8 2, label %46
+    i8 3, label %18
+    i8 4, label %48
     i8 5, label %22
     i8 6, label %27
     i8 7, label %30
-    i8 8, label %46
-    i8 9, label %32
-    i8 10, label %48
-    i8 11, label %switch.lookup117
-    i8 12, label %42
-    i8 13, label %37
-    i8 14, label %38
-    i8 15, label %39
-    i8 16, label %50
+    i8 8, label %32
+    i8 9, label %34
+    i8 10, label %50
+    i8 11, label %36
+    i8 12, label %40
+    i8 13, label %42
+    i8 14, label %43
+    i8 15, label %44
+    i8 16, label %52
   ]
 
-default.unreachable109:                           ; preds = %2
+default.unreachable109:                           ; preds = %36, %18, %2
   unreachable
 
 .thread103:                                       ; preds = %2
@@ -18235,23 +18231,22 @@ default.unreachable109:                           ; preds = %2
   store i64 45, ptr %17, align 8
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
-switch.lookup:                                    ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %19 = load i8, ptr %18, align 1, !range !120, !noundef !3
-  %20 = zext nneg i8 %19 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE", i64 %20
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %21 = zext nneg i8 %19 to i64
-  %switch.gep115 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE.533", i64 %21
-  %switch.load116 = load i64, ptr %switch.gep115, align 8
-  br label %42
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %20 = load i8, ptr %19, align 1, !range !120, !noundef !3
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  switch i8 %20, label %default.unreachable109 [
+    i8 0, label %59
+    i8 1, label %60
+    i8 2, label %61
+  ]
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %24 = load i8, ptr %23, align 1, !range !106, !noundef !3
   %25 = trunc nuw i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  br i1 %25, label %57, label %58
+  br i1 %25, label %62, label %63
 
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18266,76 +18261,77 @@ switch.lookup:                                    ; preds = %2
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
 32:                                               ; preds = %2
-  br label %46
+  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.382, ptr %13, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 31, ptr %33, align 8
+  br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
-switch.lookup117:                                 ; preds = %2
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %34 = load i8, ptr %33, align 1, !range !120, !noundef !3
-  %35 = zext nneg i8 %34 to i64
-  %switch.gep118 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE.534", i64 %35
-  %switch.load119 = load ptr, ptr %switch.gep118, align 8
-  %36 = zext nneg i8 %34 to i64
-  %switch.gep120 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN88_$LT$ruff_python_parser..error..UnsupportedSyntaxError$u20$as$u20$core..fmt..Display$GT$3fmt17h36b93e831fdbe62cE.535", i64 %36
-  %switch.load121 = load i64, ptr %switch.gep120, align 8
-  br label %46
+34:                                               ; preds = %2
+  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.383, ptr %13, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 33, ptr %35, align 8
+  br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
-37:                                               ; preds = %2
-  br label %40
+36:                                               ; preds = %2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %38 = load i8, ptr %37, align 1, !range !120, !noundef !3
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  switch i8 %38, label %default.unreachable109 [
+    i8 0, label %77
+    i8 1, label %78
+    i8 2, label %79
+  ]
 
-38:                                               ; preds = %2
-  br label %40
-
-39:                                               ; preds = %2
-  br label %42
-
-40:                                               ; preds = %2, %38, %37
-  %anon.aab41dc2a4de2fafba55bf875aa63917.390.sink = phi ptr [ @anon.aab41dc2a4de2fafba55bf875aa63917.390, %38 ], [ @anon.aab41dc2a4de2fafba55bf875aa63917.389, %37 ], [ @anon.aab41dc2a4de2fafba55bf875aa63917.366, %2 ]
-  %.sink = phi i64 [ 26, %38 ], [ 35, %37 ], [ 20, %2 ]
-  store ptr %anon.aab41dc2a4de2fafba55bf875aa63917.390.sink, ptr %13, align 8
+40:                                               ; preds = %2
+  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.388, ptr %13, align 8
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %.sink, ptr %41, align 8
+  store i64 48, ptr %41, align 8
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
-42:                                               ; preds = %switch.lookup, %2, %39
-  %anon.aab41dc2a4de2fafba55bf875aa63917.369.sink = phi ptr [ @anon.aab41dc2a4de2fafba55bf875aa63917.391, %39 ], [ @anon.aab41dc2a4de2fafba55bf875aa63917.388, %2 ], [ %switch.load, %switch.lookup ]
-  %.sink111 = phi i64 [ 49, %39 ], [ 48, %2 ], [ %switch.load116, %switch.lookup ]
-  store ptr %anon.aab41dc2a4de2fafba55bf875aa63917.369.sink, ptr %13, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %.sink111, ptr %43, align 8
-  br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
+42:                                               ; preds = %2
+  br label %46
+
+43:                                               ; preds = %2
+  br label %46
 
 44:                                               ; preds = %2
-  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.370, ptr %13, align 8
+  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.391, ptr %13, align 8
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 46, ptr %45, align 8
+  store i64 49, ptr %45, align 8
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
-46:                                               ; preds = %switch.lookup117, %2, %32
-  %anon.aab41dc2a4de2fafba55bf875aa63917.387.sink = phi ptr [ @anon.aab41dc2a4de2fafba55bf875aa63917.383, %32 ], [ @anon.aab41dc2a4de2fafba55bf875aa63917.382, %2 ], [ %switch.load119, %switch.lookup117 ]
-  %.sink113 = phi i64 [ 33, %32 ], [ 31, %2 ], [ %switch.load121, %switch.lookup117 ]
-  store ptr %anon.aab41dc2a4de2fafba55bf875aa63917.387.sink, ptr %13, align 8
+46:                                               ; preds = %2, %43, %42
+  %anon.aab41dc2a4de2fafba55bf875aa63917.390.sink = phi ptr [ @anon.aab41dc2a4de2fafba55bf875aa63917.390, %43 ], [ @anon.aab41dc2a4de2fafba55bf875aa63917.389, %42 ], [ @anon.aab41dc2a4de2fafba55bf875aa63917.366, %2 ]
+  %.sink = phi i64 [ 26, %43 ], [ 35, %42 ], [ 20, %2 ]
+  store ptr %anon.aab41dc2a4de2fafba55bf875aa63917.390.sink, ptr %13, align 8
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %.sink113, ptr %47, align 8
+  store i64 %.sink, ptr %47, align 8
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
 48:                                               ; preds = %2
-  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.384, ptr %13, align 8
+  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.370, ptr %13, align 8
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 44, ptr %49, align 8
+  store i64 46, ptr %49, align 8
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
 50:                                               ; preds = %2
-  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.392, ptr %13, align 8
+  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.384, ptr %13, align 8
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 46, ptr %51, align 8
+  store i64 44, ptr %51, align 8
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
-_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %16, %30, %57, %58, %50, %48, %46, %44, %42, %40, %.thread103
-  %.sroa.35.0.i = phi i8 [ 11, %40 ], [ 9, %42 ], [ 8, %44 ], [ 12, %46 ], [ 13, %48 ], [ 14, %50 ], [ 10, %.thread103 ], [ 8, %58 ], [ 8, %57 ], [ 8, %30 ], [ 8, %16 ]
-  %.sroa.0.0.i = phi i8 [ 0, %40 ], [ 0, %42 ], [ 1, %44 ], [ 0, %46 ], [ 0, %48 ], [ 0, %50 ], [ 0, %.thread103 ], [ 0, %58 ], [ 0, %57 ], [ 0, %30 ], [ 0, %16 ]
+52:                                               ; preds = %2
+  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.392, ptr %13, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 46, ptr %53, align 8
+  br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
+
+_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %32, %34, %77, %78, %79, %40, %44, %59, %60, %61, %16, %30, %62, %63, %52, %50, %48, %46, %.thread103
+  %.sroa.35.0.i = phi i8 [ 11, %46 ], [ 8, %48 ], [ 13, %50 ], [ 14, %52 ], [ 10, %.thread103 ], [ 8, %63 ], [ 8, %62 ], [ 8, %30 ], [ 8, %16 ], [ 9, %61 ], [ 9, %60 ], [ 9, %59 ], [ 9, %44 ], [ 9, %40 ], [ 12, %79 ], [ 12, %78 ], [ 12, %77 ], [ 12, %34 ], [ 12, %32 ]
+  %.sroa.0.0.i = phi i8 [ 0, %46 ], [ 1, %48 ], [ 0, %50 ], [ 0, %52 ], [ 0, %.thread103 ], [ 0, %63 ], [ 0, %62 ], [ 0, %30 ], [ 0, %16 ], [ 0, %61 ], [ 0, %60 ], [ 0, %59 ], [ 0, %44 ], [ 0, %40 ], [ 0, %79 ], [ 0, %78 ], [ 0, %77 ], [ 0, %34 ], [ 0, %32 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.35.0.insert.ext.i = zext nneg i8 %.sroa.35.0.i to i24
   %.sroa.35.0.insert.shift.i = shl nuw nsw i24 %.sroa.35.0.insert.ext.i, 16
   %.sroa.0.0.insert.ext.i = zext nneg i8 %.sroa.0.0.i to i24
@@ -18345,17 +18341,17 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %16, %30, %
   store ptr %13, ptr %7, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h805cc141814e53ecE", ptr %.sroa.425.0..sroa_idx, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %52, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %54, ptr %55, align 8
   %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @"_ZN85_$LT$ruff_python_ast..python_version..PythonVersion$u20$as$u20$core..fmt..Display$GT$3fmt17h4bf447c0961d68ecE", ptr %.sroa.429.0..sroa_idx, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %6, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr %6, ptr %56, align 8
   %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr @"_ZN72_$LT$ruff_python_parser..error..Change$u20$as$u20$core..fmt..Display$GT$3fmt17h780129dc53376302E", ptr %.sroa.433.0..sroa_idx, align 8
   %.val43 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val44 = load ptr, ptr %55, align 8, !nonnull !3, !noundef !3
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val44 = load ptr, ptr %57, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2419
   store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.394, ptr %5, align 8
   %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -18366,47 +18362,62 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %16, %30, %
   store i64 3, ptr %.sroa.888.0..sroa_idx, align 8
   %.sroa.1089.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %.sroa.1089.0..sroa_idx, align 8
-  %56 = call noundef zeroext i1 @_ZN4core3fmt5write17hfe57b7174b7d8eabE(ptr noundef nonnull align 1 %.val43, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val44, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5), !noalias !2419
+  %58 = call noundef zeroext i1 @_ZN4core3fmt5write17hfe57b7174b7d8eabE(ptr noundef nonnull align 1 %.val43, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val44, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5), !noalias !2419
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2419
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %71
+  br label %76
 
-57:                                               ; preds = %22
+59:                                               ; preds = %18
+  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.367, ptr %13, align 8
+  store i64 68, ptr %21, align 8
+  br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
+
+60:                                               ; preds = %18
+  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.368, ptr %13, align 8
+  store i64 79, ptr %21, align 8
+  br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
+
+61:                                               ; preds = %18
+  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.369, ptr %13, align 8
+  store i64 85, ptr %21, align 8
+  br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
+
+62:                                               ; preds = %22
   store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.372, ptr %13, align 8
   store i64 50, ptr %26, align 8
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
-58:                                               ; preds = %22
+63:                                               ; preds = %22
   store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.371, ptr %13, align 8
   store i64 50, ptr %26, align 8
   br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit61: ; preds = %27
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %60 = load i64, ptr %59, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %65 = load i64, ptr %64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %29, ptr %10, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %60, ptr %61, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 %65, ptr %66, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i24 590592, ptr %8, align 4
   store ptr %10, ptr %9, align 8
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h805cc141814e53ecE", ptr %.sroa.413.0..sroa_idx, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %62, ptr %63, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %67, ptr %68, align 8
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @"_ZN85_$LT$ruff_python_ast..python_version..PythonVersion$u20$as$u20$core..fmt..Display$GT$3fmt17h4bf447c0961d68ecE", ptr %.sroa.417.0..sroa_idx, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr %8, ptr %64, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr %8, ptr %69, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @"_ZN72_$LT$ruff_python_parser..error..Change$u20$as$u20$core..fmt..Display$GT$3fmt17h780129dc53376302E", ptr %.sroa.421.0..sroa_idx, align 8
   %.val41 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val42 = load ptr, ptr %65, align 8, !nonnull !3, !noundef !3
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val42 = load ptr, ptr %70, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2422
   store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.380, ptr %4, align 8
   %.sroa.578.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -18417,28 +18428,28 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit61: ; preds = %27
   store i64 3, ptr %.sroa.880.0..sroa_idx, align 8
   %.sroa.1081.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %.sroa.1081.0..sroa_idx, align 8
-  %66 = call noundef zeroext i1 @_ZN4core3fmt5write17hfe57b7174b7d8eabE(ptr noundef nonnull align 1 %.val41, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val42, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4), !noalias !2422
+  %71 = call noundef zeroext i1 @_ZN4core3fmt5write17hfe57b7174b7d8eabE(ptr noundef nonnull align 1 %.val41, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val42, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4), !noalias !2422
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2422
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %71
+  br label %76
 
 _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit75: ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i24 590592, ptr %11, align 4
-  store ptr %67, ptr %12, align 8
+  store ptr %72, ptr %12, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @"_ZN85_$LT$ruff_python_ast..python_version..PythonVersion$u20$as$u20$core..fmt..Display$GT$3fmt17h4bf447c0961d68ecE", ptr %.sroa.45.0..sroa_idx, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %11, ptr %68, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %11, ptr %73, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr @"_ZN72_$LT$ruff_python_parser..error..Change$u20$as$u20$core..fmt..Display$GT$3fmt17h780129dc53376302E", ptr %.sroa.49.0..sroa_idx, align 8
   %.val = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val40 = load ptr, ptr %69, align 8, !nonnull !3, !noundef !3
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val40 = load ptr, ptr %74, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2425
   store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.376, ptr %3, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18449,16 +18460,31 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit75: ; preds = %27
   store i64 2, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %70 = call noundef zeroext i1 @_ZN4core3fmt5write17hfe57b7174b7d8eabE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !2425
+  %75 = call noundef zeroext i1 @_ZN4core3fmt5write17hfe57b7174b7d8eabE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !2425
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2425
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %71
+  br label %76
 
-71:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit61, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit75, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
-  %.sroa.0.0.in = phi i1 [ %56, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %66, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit61 ], [ %70, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit75 ]
+76:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit61, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit75, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
+  %.sroa.0.0.in = phi i1 [ %58, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit ], [ %71, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit61 ], [ %75, %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i1 %.sroa.0.0.in
+
+77:                                               ; preds = %36
+  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.385, ptr %13, align 8
+  store i64 54, ptr %39, align 8
+  br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
+
+78:                                               ; preds = %36
+  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.386, ptr %13, align 8
+  store i64 32, ptr %39, align 8
+  br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
+
+79:                                               ; preds = %36
+  store ptr @anon.aab41dc2a4de2fafba55bf875aa63917.387, ptr %13, align 8
+  store i64 47, ptr %39, align 8
+  br label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -59548,9 +59574,9 @@ tailrecurse.i81.unreachabledefault:               ; preds = %tailrecurse.i81
 switch.lookup:                                    ; preds = %tailrecurse.i81
   %253 = getelementptr inbounds nuw i8, ptr %.tr8.i82, i64 8
   %254 = load i64, ptr %253, align 8, !range !331, !noalias !9038, !noundef !3
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.537", i64 %254
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.534", i64 %254
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep2015 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.538", i64 %254
+  %switch.gep2015 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.535", i64 %254
   %switch.load2016 = load i64, ptr %switch.gep2015, align 8
   br label %267
 
@@ -59695,9 +59721,9 @@ tailrecurse.unreachabledefault.i:                 ; preds = %tailrecurse.i
 switch.lookup2017:                                ; preds = %tailrecurse.i
   %279 = getelementptr inbounds nuw i8, ptr %.tr8.i, i64 8
   %280 = load i64, ptr %279, align 8, !range !331, !noalias !9041, !noundef !3
-  %switch.gep2018 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.537", i64 %280
+  %switch.gep2018 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.534", i64 %280
   %switch.load2019 = load ptr, ptr %switch.gep2018, align 8
-  %switch.gep2020 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.538", i64 %280
+  %switch.gep2020 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN18ruff_python_parser6parser9statement52_$LT$impl$u20$ruff_python_parser..parser..Parser$GT$15parse_statement17hcabb05aa5f25f0b1E.535", i64 %280
   %switch.load2021 = load i64, ptr %switch.gep2020, align 8
   br label %293
 
@@ -79824,7 +79850,7 @@ switch.lookup:                                    ; preds = %.split.i
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ruff_python_parser6parser6Parser39is_enclosing_list_element_or_terminator17hbde3b425b9f5825fE, i64 %21
   %switch.load = load i8, ptr %switch.gep, align 1
   %22 = zext nneg i32 %18 to i64
-  %switch.gep40 = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ruff_python_parser6parser6Parser39is_enclosing_list_element_or_terminator17hbde3b425b9f5825fE.539, i64 %22
+  %switch.gep40 = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ruff_python_parser6parser6Parser39is_enclosing_list_element_or_terminator17hbde3b425b9f5825fE.536, i64 %22
   %switch.load41 = load i8, ptr %switch.gep40, align 1
   %23 = tail call fastcc noundef i8 @_ZN18ruff_python_parser6parser19RecoveryContextKind20list_terminator_kind17hc5c9321578c9cd86E(i8 noundef range(i8 0, 22) %switch.load41, i8 %switch.load, i8 %.170.val)
   %.not25 = icmp eq i8 %23, 2
@@ -81016,7 +81042,7 @@ switch.lookup:                                    ; preds = %.split
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ruff_python_parser6parser15RecoveryContext7to_kind17h14ad08fb7daa27e8E, i64 %5
   %switch.load = load i8, ptr %switch.gep, align 1
   %6 = zext nneg i32 %4 to i64
-  %switch.gep2 = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ruff_python_parser6parser15RecoveryContext7to_kind17h14ad08fb7daa27e8E.540, i64 %6
+  %switch.gep2 = getelementptr inbounds nuw i8, ptr @switch.table._ZN18ruff_python_parser6parser15RecoveryContext7to_kind17h14ad08fb7daa27e8E.537, i64 %6
   %switch.load3 = load i8, ptr %switch.gep2, align 1
   br label %7
 
@@ -81472,7 +81498,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.541", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN105_$LT$ruff_python_parser..semantic_errors..AwaitOutsideAsyncFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h9cd1a6a98e176843E.538", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -81493,7 +81519,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.542", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN100_$LT$ruff_python_parser..semantic_errors..YieldOutsideFunctionKind$u20$as$u20$core..fmt..Display$GT$3fmt17h158e8f0641da0096E.539", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -81507,7 +81533,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.543", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN101_$LT$ruff_python_parser..semantic_errors..InvalidExpressionPosition$u20$as$u20$core..fmt..Display$GT$3fmt17he8e1cf4ec8332f94E.540", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -84113,7 +84139,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E.544", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN75_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Display$GT$3fmt17h77b52f1fc675feb4E.541", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -88457,7 +88483,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE.545", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN73_$LT$ruff_python_parser..token..TokenKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h521b78006e6d718fE.542", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

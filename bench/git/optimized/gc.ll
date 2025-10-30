@@ -6075,12 +6075,12 @@ switch.lookup19:                                  ; preds = %get_random_minute.e
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %25 = load volatile ptr, ptr %24, align 8, !tbaa !176
   %26 = call i64 @fwrite(ptr nonnull @.str.249, i64 135, i64 1, ptr %25)
-  %27 = zext nneg i32 %1 to i64
-  %28 = getelementptr ptr, ptr @switch.table.schtasks_schedule_task.13, i64 %27
-  %switch.gep20 = getelementptr i8, ptr %28, i64 -8
+  %27 = load volatile ptr, ptr %24, align 8, !tbaa !176
+  %28 = zext nneg i32 %1 to i64
+  %29 = getelementptr ptr, ptr @switch.table.schtasks_schedule_task.13, i64 %28
+  %switch.gep20 = getelementptr i8, ptr %29, i64 -8
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
-  %29 = load volatile ptr, ptr %24, align 8, !tbaa !176
-  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull %switch.load21, i32 noundef %.0.i15) #21
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull %switch.load21, i32 noundef %.0.i15) #21
   %31 = load volatile ptr, ptr %24, align 8, !tbaa !176
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_maintpath.sb, i64 24, i1 false)

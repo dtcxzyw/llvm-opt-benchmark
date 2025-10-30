@@ -35324,33 +35324,33 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 55
   %25 = load i8, ptr %24, align 1, !range !2568, !noundef !4
   %trunc = tail call i8 @llvm.usub.sat.i8(i8 %25, i8 -39)
-  switch i8 %trunc, label %26 [
-    i8 0, label %27
-    i8 1, label %30
-    i8 2, label %32
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 8
+  switch i8 %trunc, label %27 [
+    i8 0, label %28
+    i8 1, label %31
+    i8 2, label %33
   ]
 
-26:                                               ; preds = %49, %.lr.ph
+27:                                               ; preds = %49, %.lr.ph
   unreachable
 
-27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 24
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 8
-  br label %34
+28:                                               ; preds = %.lr.ph
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 16
+  br label %35
 
-30:                                               ; preds = %.lr.ph
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 16
-  br label %34
+31:                                               ; preds = %.lr.ph
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 16
+  br label %35
 
-32:                                               ; preds = %.lr.ph
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 16
-  br label %34
+33:                                               ; preds = %.lr.ph
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 16
+  br label %35
 
-34:                                               ; preds = %32, %30, %27
-  %.sink = phi i64 [ 8, %32 ], [ 8, %30 ], [ 16, %27 ]
-  %.sroa.05.0 = phi ptr [ %33, %32 ], [ %31, %30 ], [ %28, %27 ]
-  %.sroa.08.0 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.219, %32 ], [ @anon.c0d9ea8f172a0712a642726e761d19af.219, %30 ], [ %29, %27 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 %.sink
+35:                                               ; preds = %33, %31, %28
+  %.sroa.05.0 = phi ptr [ %29, %28 ], [ %32, %31 ], [ %34, %33 ]
+  %.sroa.08.0 = phi ptr [ %26, %28 ], [ @anon.c0d9ea8f172a0712a642726e761d19af.219, %31 ], [ @anon.c0d9ea8f172a0712a642726e761d19af.219, %33 ]
+  %.sroa.010.0 = phi ptr [ %30, %28 ], [ %26, %31 ], [ %26, %33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 8
@@ -35359,11 +35359,11 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %39 = icmp eq i8 %38, -40
   br i1 %39, label %41, label %40
 
-40:                                               ; preds = %34
+40:                                               ; preds = %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
   br label %42
 
-41:                                               ; preds = %34
+41:                                               ; preds = %35
   call void @"_ZN62_$LT$compact_str..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone10clone_heap17hae991380be28290bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36)
   br label %42
 
@@ -35383,7 +35383,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   br label %46
 
 46:                                               ; preds = %45, %42
-  %47 = load ptr, ptr %35, align 8, !align !6, !noundef !4
+  %47 = load ptr, ptr %.sroa.010.0, align 8, !align !6, !noundef !4
   %.not13 = icmp eq ptr %47, null
   br i1 %.not13, label %49, label %48
 
@@ -35394,7 +35394,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
 49:                                               ; preds = %48, %46
   %50 = load i8, ptr %24, align 1, !range !2568, !noundef !4
   %trunc15 = tail call i8 @llvm.usub.sat.i8(i8 %50, i8 -39)
-  switch i8 %trunc15, label %26 [
+  switch i8 %trunc15, label %27 [
     i8 0, label %51
     i8 1, label %52
     i8 2, label %53
@@ -35456,33 +35456,33 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 55
   %20 = load i8, ptr %19, align 1, !range !2568, !noundef !4
   %trunc = tail call i8 @llvm.usub.sat.i8(i8 %20, i8 -39)
-  switch i8 %trunc, label %21 [
-    i8 0, label %22
-    i8 1, label %25
-    i8 2, label %27
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 8
+  switch i8 %trunc, label %22 [
+    i8 0, label %23
+    i8 1, label %26
+    i8 2, label %28
   ]
 
-21:                                               ; preds = %44, %.lr.ph
+22:                                               ; preds = %44, %.lr.ph
   unreachable
 
-22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 24
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 8
-  br label %29
+23:                                               ; preds = %.lr.ph
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 16
+  br label %30
 
-25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 16
-  br label %29
+26:                                               ; preds = %.lr.ph
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 16
+  br label %30
 
-27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 16
-  br label %29
+28:                                               ; preds = %.lr.ph
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 16
+  br label %30
 
-29:                                               ; preds = %27, %25, %22
-  %.sink = phi i64 [ 8, %27 ], [ 8, %25 ], [ 16, %22 ]
-  %.sroa.05.0 = phi ptr [ %28, %27 ], [ %26, %25 ], [ %23, %22 ]
-  %.sroa.08.0 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.219, %27 ], [ @anon.c0d9ea8f172a0712a642726e761d19af.219, %25 ], [ %24, %22 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 %.sink
+30:                                               ; preds = %28, %26, %23
+  %.sroa.05.0 = phi ptr [ %24, %23 ], [ %27, %26 ], [ %29, %28 ]
+  %.sroa.08.0 = phi ptr [ %21, %23 ], [ @anon.c0d9ea8f172a0712a642726e761d19af.219, %26 ], [ @anon.c0d9ea8f172a0712a642726e761d19af.219, %28 ]
+  %.sroa.010.0 = phi ptr [ %25, %23 ], [ %21, %26 ], [ %21, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 8
@@ -35491,11 +35491,11 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %34 = icmp eq i8 %33, -40
   br i1 %34, label %36, label %35
 
-35:                                               ; preds = %29
+35:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false)
   br label %37
 
-36:                                               ; preds = %29
+36:                                               ; preds = %30
   call void @"_ZN62_$LT$compact_str..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone10clone_heap17hae991380be28290bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31)
   br label %37
 
@@ -35515,7 +35515,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   br label %41
 
 41:                                               ; preds = %40, %37
-  %42 = load ptr, ptr %30, align 8, !align !6, !noundef !4
+  %42 = load ptr, ptr %.sroa.010.0, align 8, !align !6, !noundef !4
   %.not13 = icmp eq ptr %42, null
   br i1 %.not13, label %44, label %43
 
@@ -35526,7 +35526,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
 44:                                               ; preds = %43, %41
   %45 = load i8, ptr %19, align 1, !range !2568, !noundef !4
   %trunc15 = tail call i8 @llvm.usub.sat.i8(i8 %45, i8 -39)
-  switch i8 %trunc15, label %21 [
+  switch i8 %trunc15, label %22 [
     i8 0, label %46
     i8 1, label %47
     i8 2, label %48
@@ -35745,33 +35745,33 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h397584670c72ea42E.exit.i: ; pr
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 55
   %83 = load i8, ptr %82, align 1, !range !2568, !noundef !4
   %trunc = tail call i8 @llvm.usub.sat.i8(i8 %83, i8 -39)
-  switch i8 %trunc, label %84 [
-    i8 0, label %85
-    i8 1, label %88
-    i8 2, label %90
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 8
+  switch i8 %trunc, label %85 [
+    i8 0, label %86
+    i8 1, label %89
+    i8 2, label %91
   ]
 
-84:                                               ; preds = %107, %.lr.ph
+85:                                               ; preds = %107, %.lr.ph
   unreachable
 
-85:                                               ; preds = %.lr.ph
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 24
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 8
-  br label %92
+86:                                               ; preds = %.lr.ph
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 16
+  br label %93
 
-88:                                               ; preds = %.lr.ph
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 16
-  br label %92
+89:                                               ; preds = %.lr.ph
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 16
+  br label %93
 
-90:                                               ; preds = %.lr.ph
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 16
-  br label %92
+91:                                               ; preds = %.lr.ph
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 16
+  br label %93
 
-92:                                               ; preds = %90, %88, %85
-  %.sink = phi i64 [ 8, %90 ], [ 8, %88 ], [ 16, %85 ]
-  %.sroa.05.0 = phi ptr [ %91, %90 ], [ %89, %88 ], [ %86, %85 ]
-  %.sroa.08.0 = phi ptr [ @anon.c0d9ea8f172a0712a642726e761d19af.219, %90 ], [ @anon.c0d9ea8f172a0712a642726e761d19af.219, %88 ], [ %87, %85 ]
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.04.016, i64 %.sink
+93:                                               ; preds = %91, %89, %86
+  %.sroa.05.0 = phi ptr [ %87, %86 ], [ %90, %89 ], [ %92, %91 ]
+  %.sroa.08.0 = phi ptr [ %84, %86 ], [ @anon.c0d9ea8f172a0712a642726e761d19af.219, %89 ], [ @anon.c0d9ea8f172a0712a642726e761d19af.219, %91 ]
+  %.sroa.010.0 = phi ptr [ %88, %86 ], [ %84, %89 ], [ %84, %91 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 8
@@ -35780,11 +35780,11 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h397584670c72ea42E.exit.i: ; pr
   %97 = icmp eq i8 %96, -40
   br i1 %97, label %99, label %98
 
-98:                                               ; preds = %92
+98:                                               ; preds = %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %94, i64 24, i1 false)
   br label %100
 
-99:                                               ; preds = %92
+99:                                               ; preds = %93
   call void @"_ZN62_$LT$compact_str..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone10clone_heap17hae991380be28290bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %94)
   br label %100
 
@@ -35804,7 +35804,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h397584670c72ea42E.exit.i: ; pr
   br label %104
 
 104:                                              ; preds = %103, %100
-  %105 = load ptr, ptr %93, align 8, !align !6, !noundef !4
+  %105 = load ptr, ptr %.sroa.010.0, align 8, !align !6, !noundef !4
   %.not13 = icmp eq ptr %105, null
   br i1 %.not13, label %107, label %106
 
@@ -35815,7 +35815,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h397584670c72ea42E.exit.i: ; pr
 107:                                              ; preds = %106, %104
   %108 = load i8, ptr %82, align 1, !range !2568, !noundef !4
   %trunc15 = tail call i8 @llvm.usub.sat.i8(i8 %108, i8 -39)
-  switch i8 %trunc15, label %84 [
+  switch i8 %trunc15, label %85 [
     i8 0, label %109
     i8 1, label %110
     i8 2, label %111

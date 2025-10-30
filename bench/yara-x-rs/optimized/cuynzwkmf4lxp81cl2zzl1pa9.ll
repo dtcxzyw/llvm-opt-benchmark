@@ -57181,8 +57181,8 @@ _ZN6yara_x2re3hir3Hir22is_alternation_literal17h9eb0ef8d29907ce5E.exit.thread.i:
 1593:                                             ; preds = %1599, %693
   %1594 = load i64, ptr %.sroa.0171.01100, align 8, !range !138, !noundef !6
   %1595 = icmp samesign ult i64 %1594, 2
-  %.1368 = select i1 %1595, i64 88, i64 80
-  %1596 = getelementptr inbounds nuw i8, ptr %.sroa.0171.01100, i64 %.1368
+  %.1369 = select i1 %1595, i64 88, i64 80
+  %1596 = getelementptr inbounds nuw i8, ptr %.sroa.0171.01100, i64 %.1369
   %1597 = load i16, ptr %1596, align 2, !noundef !6
   %1598 = and i16 %1597, 128
   %.not214 = icmp eq i16 %1598, 0
@@ -57492,8 +57492,8 @@ switch.lookup:                                    ; preds = %1696, %1682
 1697:                                             ; preds = %switch.lookup
   %1698 = load i64, ptr %.sroa.0171.01100, align 8, !range !138, !noundef !6
   %1699 = icmp samesign ult i64 %1698, 2
-  %.1370 = select i1 %1699, i64 88, i64 80
-  %1700 = getelementptr inbounds nuw i8, ptr %.sroa.0171.01100, i64 %.1370
+  %.1371 = select i1 %1699, i64 88, i64 80
+  %1700 = getelementptr inbounds nuw i8, ptr %.sroa.0171.01100, i64 %.1371
   %1701 = load i16, ptr %1700, align 2, !noundef !6
   %1702 = and i16 %1701, 128
   %1703 = icmp ne i16 %1702, 0
@@ -58306,8 +58306,8 @@ select.unfold874:                                 ; preds = %._crit_edge.i.i447,
 
 1998:                                             ; preds = %1997
   %1999 = icmp samesign ult i64 %610, 2
-  %.1372 = select i1 %1999, i64 88, i64 80
-  %2000 = getelementptr inbounds nuw i8, ptr %.sroa.0170.01092, i64 %.1372
+  %.1373 = select i1 %1999, i64 88, i64 80
+  %2000 = getelementptr inbounds nuw i8, ptr %.sroa.0170.01092, i64 %.1373
   %2001 = load i16, ptr %2000, align 2, !noundef !6
   %2002 = and i16 %2001, 120
   %.not232 = icmp eq i16 %2002, 0
@@ -58320,18 +58320,18 @@ _ZN6yara_x8compiler8Compiler22common_byte_repetition17h88e4686ccf42da5bE.exit.th
   br i1 %2003, label %._crit_edge1097, label %609
 
 2004:                                             ; preds = %1998
-  %2005 = icmp samesign ult i64 %610, 2
-  %2006 = getelementptr inbounds nuw i8, ptr %.sroa.0170.01092, i64 24
-  br i1 %2005, label %.thread882, label %.invoke
+  %2005 = getelementptr inbounds nuw i8, ptr %.sroa.0170.01092, i64 24
+  %2006 = icmp samesign ult i64 %610, 2
+  br i1 %2006, label %.thread882, label %.invoke
 
 .thread882:                                       ; preds = %2004
-  %2007 = load ptr, ptr %2006, align 8, !nonnull !6, !noundef !6
+  %2007 = load ptr, ptr %2005, align 8, !nonnull !6, !noundef !6
   %2008 = getelementptr inbounds nuw i8, ptr %.sroa.0170.01092, i64 32
   %2009 = load i64, ptr %2008, align 8, !noundef !6
   br label %2012
 
 .invoke:                                          ; preds = %2004
-  %2010 = invoke { ptr, i64 } @_ZN6yara_x2re3hir3Hir16as_literal_bytes17h1f04a76252851119E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2006)
+  %2010 = invoke { ptr, i64 } @_ZN6yara_x2re3hir3Hir16as_literal_bytes17h1f04a76252851119E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2005)
           to label %2011 unwind label %.loopexit.split-lp943.loopexit
 
 2011:                                             ; preds = %.invoke

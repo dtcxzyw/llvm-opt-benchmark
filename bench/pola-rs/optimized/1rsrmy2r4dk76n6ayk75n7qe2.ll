@@ -40110,11 +40110,11 @@ define internal fastcc void @_ZN14polars_parquet5arrow4read6schema7convert23to_p
     i64 0, label %4
     i64 1, label %5
     i64 2, label %30
-    i64 3, label %66
-    i64 4, label %68
-    i64 5, label %69
-    i64 6, label %70
-    i64 7, label %76
+    i64 3, label %62
+    i64 4, label %64
+    i64 5, label %65
+    i64 6, label %66
+    i64 7, label %72
   ]
 
 default.unreachable21:                            ; preds = %2
@@ -40122,7 +40122,7 @@ default.unreachable21:                            ; preds = %2
 
 4:                                                ; preds = %2
   store i8 1, ptr %0, align 8
-  br label %92
+  br label %88
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -40218,7 +40218,7 @@ switch.lookup:                                    ; preds = %14
 _ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit: ; preds = %switch.lookup, %14, %5, %7, %9, %12, %16, %18, %21, %22, %24, %25, %26, %27, %28
   %.sink.i = phi i8 [ 17, %16 ], [ 3, %28 ], [ 2, %27 ], [ 9, %26 ], [ 8, %25 ], [ 7, %24 ], [ 17, %22 ], [ 15, %21 ], [ 32, %18 ], [ 32, %9 ], [ 4, %12 ], [ 4, %14 ], [ 4, %7 ], [ 15, %5 ], [ %switch.masked, %switch.lookup ]
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !2991, !noalias !2994
-  br label %92
+  br label %88
 
 30:                                               ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -40248,11 +40248,11 @@ _ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.ex
 
 33:                                               ; preds = %30
   switch i64 %.sroa.011.0.copyload, label %_ZN14polars_parquet5arrow4read6schema7convert10from_int6417h64b358b12c62eff6E.exit [
-    i64 11, label %65
-    i64 2, label %56
-    i64 5, label %59
-    i64 6, label %61
-    i64 7, label %63
+    i64 11, label %61
+    i64 2, label %52
+    i64 5, label %55
+    i64 6, label %57
+    i64 7, label %59
   ]
 
 34:                                               ; preds = %30
@@ -40299,174 +40299,168 @@ default.unreachable18.i:                          ; preds = %46, %37
 
 46:                                               ; preds = %45, %38
   %.sroa.4.0.i = phi i8 [ -58, %45 ], [ -38, %38 ]
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx1.i = getelementptr inbounds nuw i8, ptr %0, i64 31
   switch i8 %.sroa.46.0.copyload, label %default.unreachable18.i [
-    i8 0, label %47
+    i8 0, label %49
     i8 1, label %50
-    i8 2, label %53
+    i8 2, label %51
   ]
 
-47:                                               ; preds = %46
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %48, align 1, !alias.scope !2997, !noalias !3000
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %49, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0.i.i, i64 23, i1 false), !noalias !3000
-  %.sroa.4.0..sroa_idx1.i = getelementptr inbounds nuw i8, ptr %0, i64 31
+49:                                               ; preds = %46
+  store i8 1, ptr %47, align 1, !alias.scope !2997, !noalias !3000
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %48, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0.i.i, i64 23, i1 false), !noalias !3000
   store i8 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx1.i, align 1, !alias.scope !2997, !noalias !3000
   br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int6417h64b358b12c62eff6E.exit
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 2, ptr %51, align 1, !alias.scope !2997, !noalias !3000
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %52, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0.i.i, i64 23, i1 false), !noalias !3000
-  %.sroa.4.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %0, i64 31
-  store i8 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx3.i, align 1, !alias.scope !2997, !noalias !3000
+  store i8 2, ptr %47, align 1, !alias.scope !2997, !noalias !3000
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %48, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0.i.i, i64 23, i1 false), !noalias !3000
+  store i8 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx1.i, align 1, !alias.scope !2997, !noalias !3000
   br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int6417h64b358b12c62eff6E.exit
 
-53:                                               ; preds = %46
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 3, ptr %54, align 1, !alias.scope !2997, !noalias !3000
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %55, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0.i.i, i64 23, i1 false), !noalias !3000
-  %.sroa.4.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %0, i64 31
-  store i8 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx5.i, align 1, !alias.scope !2997, !noalias !3000
+51:                                               ; preds = %46
+  store i8 3, ptr %47, align 1, !alias.scope !2997, !noalias !3000
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %48, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0.i.i, i64 23, i1 false), !noalias !3000
+  store i8 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx1.i, align 1, !alias.scope !2997, !noalias !3000
   br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int6417h64b358b12c62eff6E.exit
 
-56:                                               ; preds = %33
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.412.0.copyload, ptr %57, align 8, !alias.scope !2997, !noalias !3000
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.513.0.copyload, ptr %58, align 8, !alias.scope !2997, !noalias !3000
+52:                                               ; preds = %33
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.412.0.copyload, ptr %53, align 8, !alias.scope !2997, !noalias !3000
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.513.0.copyload, ptr %54, align 8, !alias.scope !2997, !noalias !3000
+  br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int6417h64b358b12c62eff6E.exit
+
+55:                                               ; preds = %33
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 2, ptr %56, align 1, !alias.scope !2997, !noalias !3000
+  br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int6417h64b358b12c62eff6E.exit
+
+57:                                               ; preds = %33
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %58, align 1, !alias.scope !2997, !noalias !3000
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 31
+  store i8 -38, ptr %.sroa.3.0..sroa_idx.i, align 1, !alias.scope !2997, !noalias !3000
   br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int6417h64b358b12c62eff6E.exit
 
 59:                                               ; preds = %33
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 2, ptr %60, align 1, !alias.scope !2997, !noalias !3000
-  br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int6417h64b358b12c62eff6E.exit
-
-61:                                               ; preds = %33
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %62, align 1, !alias.scope !2997, !noalias !3000
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 31
-  store i8 -38, ptr %.sroa.3.0..sroa_idx.i, align 1, !alias.scope !2997, !noalias !3000
-  br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int6417h64b358b12c62eff6E.exit
-
-63:                                               ; preds = %33
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 2, ptr %64, align 1, !alias.scope !2997, !noalias !3000
   %.sroa.311.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 31
   store i8 -38, ptr %.sroa.311.0..sroa_idx.i, align 1, !alias.scope !2997, !noalias !3000
   br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int6417h64b358b12c62eff6E.exit
 
-65:                                               ; preds = %33
+61:                                               ; preds = %33
   br label %_ZN14polars_parquet5arrow4read6schema7convert10from_int6417h64b358b12c62eff6E.exit
 
-_ZN14polars_parquet5arrow4read6schema7convert10from_int6417h64b358b12c62eff6E.exit: ; preds = %33, %34, %37, %40, %41, %43, %47, %50, %53, %56, %59, %61, %63, %65
-  %.sink.i2 = phi i8 [ 14, %47 ], [ 14, %50 ], [ 14, %53 ], [ 18, %41 ], [ 18, %43 ], [ 10, %65 ], [ 14, %63 ], [ 14, %61 ], [ 18, %59 ], [ 32, %56 ], [ 32, %34 ], [ 5, %37 ], [ 5, %33 ], [ %spec.select.i, %40 ]
+_ZN14polars_parquet5arrow4read6schema7convert10from_int6417h64b358b12c62eff6E.exit: ; preds = %33, %34, %37, %40, %41, %43, %49, %50, %51, %52, %55, %57, %59, %61
+  %.sink.i2 = phi i8 [ 14, %49 ], [ 14, %50 ], [ 14, %51 ], [ 18, %41 ], [ 18, %43 ], [ 10, %61 ], [ 14, %59 ], [ 14, %57 ], [ 18, %55 ], [ 32, %52 ], [ 32, %34 ], [ 5, %37 ], [ 5, %33 ], [ %spec.select.i, %40 ]
   store i8 %.sink.i2, ptr %0, align 8, !alias.scope !2997, !noalias !3000
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
-  br label %92
+  br label %88
 
-66:                                               ; preds = %2
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.0.val, ptr %67, align 1
+62:                                               ; preds = %2
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.0.val, ptr %63, align 1
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 31
   store i8 -38, ptr %.sroa.3.0..sroa_idx, align 1
   store i8 14, ptr %0, align 8
-  br label %92
+  br label %88
 
-68:                                               ; preds = %2
+64:                                               ; preds = %2
   store i8 12, ptr %0, align 8
-  br label %92
+  br label %88
 
-69:                                               ; preds = %2
+65:                                               ; preds = %2
   store i8 13, ptr %0, align 8
-  br label %92
+  br label %88
 
-70:                                               ; preds = %2
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.val = load i8, ptr %71, align 8, !range !3004, !noundef !6
-  %72 = icmp samesign ult i8 %.val, 10
+66:                                               ; preds = %2
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %.val = load i8, ptr %67, align 8, !range !3004, !noundef !6
+  %68 = icmp samesign ult i8 %.val, 10
   %switch.maskindex = zext nneg i8 %.val to i16
   %switch.shifted = lshr i16 771, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond = select i1 %72, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup23, label %73
+  %or.cond = select i1 %68, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup23, label %69
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val1 = load i64, ptr %74, align 8
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val1 = load i64, ptr %70, align 8
   %cond.i4 = icmp eq i64 %.val1, 0
   %spec.select.i5 = select i1 %cond.i4, i8 36, i8 35
   br label %_ZN14polars_parquet5arrow4read6schema7convert15from_byte_array17hbb233ccc5a6f0ff1E.exit
 
-switch.lookup23:                                  ; preds = %70
-  %75 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN14polars_parquet5arrow4read6schema7convert23to_primitive_type_inner17hde74b18f401d6277E, i64 %75
+switch.lookup23:                                  ; preds = %66
+  %71 = zext nneg i8 %.val to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN14polars_parquet5arrow4read6schema7convert23to_primitive_type_inner17hde74b18f401d6277E, i64 %71
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN14polars_parquet5arrow4read6schema7convert15from_byte_array17hbb233ccc5a6f0ff1E.exit
 
-_ZN14polars_parquet5arrow4read6schema7convert15from_byte_array17hbb233ccc5a6f0ff1E.exit: ; preds = %switch.lookup23, %73
-  %.sink.i3 = phi i8 [ %spec.select.i5, %73 ], [ %switch.load, %switch.lookup23 ]
+_ZN14polars_parquet5arrow4read6schema7convert15from_byte_array17hbb233ccc5a6f0ff1E.exit: ; preds = %switch.lookup23, %69
+  %.sink.i3 = phi i8 [ %spec.select.i5, %69 ], [ %switch.load, %switch.lookup23 ]
   store i8 %.sink.i3, ptr %0, align 8, !alias.scope !3005
-  br label %92
+  br label %88
 
-76:                                               ; preds = %2
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %78 = load i64, ptr %77, align 8, !noundef !6
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.sroa.014.0.copyload = load i8, ptr %79, align 8
+72:                                               ; preds = %2
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %74 = load i64, ptr %73, align 8, !noundef !6
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %.sroa.014.0.copyload = load i8, ptr %75, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.419.0.copyload = load i64, ptr %.sroa.419.0..sroa_idx, align 8
   %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.520.0.copyload = load i64, ptr %.sroa.520.0..sroa_idx, align 8
-  switch i8 %.sroa.014.0.copyload, label %82 [
-    i8 12, label %80
-    i8 2, label %89
+  switch i8 %.sroa.014.0.copyload, label %78 [
+    i8 12, label %76
+    i8 2, label %85
   ]
+
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.018.0.copyload = load i64, ptr %77, align 8
+  switch i64 %.sroa.018.0.copyload, label %78 [
+    i64 18, label %83
+    i64 2, label %80
+  ]
+
+78:                                               ; preds = %76, %72
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %74, ptr %79, align 8, !alias.scope !3008, !noalias !3011
+  br label %_ZN14polars_parquet5arrow4read6schema7convert25from_fixed_len_byte_array17h73df71ee8f807351E.exit
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.018.0.copyload = load i64, ptr %81, align 8
-  switch i64 %.sroa.018.0.copyload, label %82 [
-    i64 18, label %87
-    i64 2, label %84
-  ]
-
-82:                                               ; preds = %80, %76
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %78, ptr %83, align 8, !alias.scope !3008, !noalias !3011
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.419.0.copyload, ptr %81, align 8, !alias.scope !3008, !noalias !3011
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.520.0.copyload, ptr %82, align 8, !alias.scope !3008, !noalias !3011
   br label %_ZN14polars_parquet5arrow4read6schema7convert25from_fixed_len_byte_array17h73df71ee8f807351E.exit
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.419.0.copyload, ptr %85, align 8, !alias.scope !3008, !noalias !3011
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.520.0.copyload, ptr %86, align 8, !alias.scope !3008, !noalias !3011
+83:                                               ; preds = %76
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %84, align 1, !alias.scope !3008, !noalias !3011
   br label %_ZN14polars_parquet5arrow4read6schema7convert25from_fixed_len_byte_array17h73df71ee8f807351E.exit
 
-87:                                               ; preds = %80
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %88, align 1, !alias.scope !3008, !noalias !3011
-  br label %_ZN14polars_parquet5arrow4read6schema7convert25from_fixed_len_byte_array17h73df71ee8f807351E.exit
-
-89:                                               ; preds = %76
+85:                                               ; preds = %72
   %.sroa.517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.sroa.517.0.copyload = load i64, ptr %.sroa.517.0..sroa_idx, align 8
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.sroa.416.0.copyload = load i64, ptr %.sroa.416.0..sroa_idx, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.416.0.copyload, ptr %90, align 8, !alias.scope !3008, !noalias !3011
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.517.0.copyload, ptr %91, align 8, !alias.scope !3008, !noalias !3011
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.416.0.copyload, ptr %86, align 8, !alias.scope !3008, !noalias !3011
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.517.0.copyload, ptr %87, align 8, !alias.scope !3008, !noalias !3011
   br label %_ZN14polars_parquet5arrow4read6schema7convert25from_fixed_len_byte_array17h73df71ee8f807351E.exit
 
-_ZN14polars_parquet5arrow4read6schema7convert25from_fixed_len_byte_array17h73df71ee8f807351E.exit: ; preds = %82, %84, %87, %89
-  %.sink.i6 = phi i8 [ 32, %89 ], [ 20, %87 ], [ 32, %84 ], [ 22, %82 ]
+_ZN14polars_parquet5arrow4read6schema7convert25from_fixed_len_byte_array17h73df71ee8f807351E.exit: ; preds = %78, %80, %83, %85
+  %.sink.i6 = phi i8 [ 32, %85 ], [ 20, %83 ], [ 32, %80 ], [ 22, %78 ]
   store i8 %.sink.i6, ptr %0, align 8, !alias.scope !3008, !noalias !3011
-  br label %92
+  br label %88
 
-92:                                               ; preds = %_ZN14polars_parquet5arrow4read6schema7convert25from_fixed_len_byte_array17h73df71ee8f807351E.exit, %_ZN14polars_parquet5arrow4read6schema7convert15from_byte_array17hbb233ccc5a6f0ff1E.exit, %69, %68, %66, %_ZN14polars_parquet5arrow4read6schema7convert10from_int6417h64b358b12c62eff6E.exit, %_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit, %4
+88:                                               ; preds = %_ZN14polars_parquet5arrow4read6schema7convert25from_fixed_len_byte_array17h73df71ee8f807351E.exit, %_ZN14polars_parquet5arrow4read6schema7convert15from_byte_array17hbb233ccc5a6f0ff1E.exit, %65, %64, %62, %_ZN14polars_parquet5arrow4read6schema7convert10from_int6417h64b358b12c62eff6E.exit, %_ZN14polars_parquet5arrow4read6schema7convert10from_int3217h1484ff726bed4f4bE.exit, %4
   ret void
 }
 

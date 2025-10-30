@@ -60184,6 +60184,7 @@ switch.lookup522:                                 ; preds = %181
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 64, i1 false)
   %183 = load i8, ptr %137, align 8, !range !273, !noundef !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %184 = zext nneg i8 %183 to i64
   %switch.gep523 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN71_$LT$ruff_linter..message..diff..Diff$u20$as$u20$core..fmt..Display$GT$3fmt17h7764bf1f33d96a1bE.456", i64 %184
   %switch.load524 = load ptr, ptr %switch.gep523, align 8
@@ -60193,7 +60194,6 @@ switch.lookup522:                                 ; preds = %181
   %186 = zext nneg i8 %183 to i64
   %switch.gep527 = getelementptr inbounds nuw i32, ptr @"switch.table._ZN110_$LT$ruff_linter..message..diff..LineStyle$u20$as$u20$core..convert..From$LT$similar..types..ChangeTag$GT$$GT$4from17h9cbd2b63d80305c5E.459", i64 %186
   %switch.load528 = load i32, ptr %switch.gep527, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %.sroa.0.0.insert.insert11.i = or disjoint i32 %switch.load528, %switch.load526
   %.sroa.0.0.insert.insert.i = zext nneg i32 %.sroa.0.0.insert.insert11.i to i40
   store i40 %.sroa.0.0.insert.insert.i, ptr %24, align 8

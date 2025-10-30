@@ -62245,257 +62245,248 @@ define void @"_ZN128_$LT$yara_x..types..TypeValue$u20$as$u20$core..convert..From
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN65_$LT$yara_x..types..TypeValue$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78917ad85be18be5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #3 {
   %3 = load i8, ptr %0, align 8, !range !266, !noundef !4
+  %4 = load i8, ptr %1, align 8, !range !266, !noundef !4
   switch i8 %3, label %default.unreachable27 [
-    i8 0, label %4
+    i8 0, label %5
     i8 1, label %7
-    i8 2, label %10
-    i8 3, label %13
-    i8 4, label %16
-    i8 5, label %19
-    i8 6, label %22
-    i8 7, label %25
-    i8 8, label %28
-    i8 9, label %31
+    i8 2, label %9
+    i8 3, label %11
+    i8 4, label %13
+    i8 5, label %15
+    i8 6, label %17
+    i8 7, label %19
+    i8 8, label %21
+    i8 9, label %23
   ]
 
-default.unreachable27:                            ; preds = %73, %62, %51, %40, %2
+default.unreachable27:                            ; preds = %64, %53, %42, %31, %2
   unreachable
 
-4:                                                ; preds = %2
-  %5 = load i8, ptr %1, align 8, !range !266, !noundef !4
-  %6 = icmp eq i8 %5, 0
+5:                                                ; preds = %2
+  %6 = icmp eq i8 %4, 0
   br label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
 7:                                                ; preds = %2
-  %8 = load i8, ptr %1, align 8, !range !266, !noundef !4
-  %9 = icmp eq i8 %8, 1
-  br i1 %9, label %34, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
+  %8 = icmp eq i8 %4, 1
+  br i1 %8, label %25, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-10:                                               ; preds = %2
-  %11 = load i8, ptr %1, align 8, !range !266, !noundef !4
-  %12 = icmp eq i8 %11, 2
-  br i1 %12, label %45, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
+9:                                                ; preds = %2
+  %10 = icmp eq i8 %4, 2
+  br i1 %10, label %36, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
+
+11:                                               ; preds = %2
+  %12 = icmp eq i8 %4, 3
+  br i1 %12, label %47, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
 13:                                               ; preds = %2
-  %14 = load i8, ptr %1, align 8, !range !266, !noundef !4
-  %15 = icmp eq i8 %14, 3
-  br i1 %15, label %56, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
+  %14 = icmp eq i8 %4, 4
+  br i1 %14, label %58, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-16:                                               ; preds = %2
-  %17 = load i8, ptr %1, align 8, !range !266, !noundef !4
-  %18 = icmp eq i8 %17, 4
-  br i1 %18, label %67, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
+15:                                               ; preds = %2
+  %16 = icmp eq i8 %4, 5
+  br i1 %16, label %78, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
+
+17:                                               ; preds = %2
+  %18 = icmp eq i8 %4, 6
+  br i1 %18, label %90, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
 19:                                               ; preds = %2
-  %20 = load i8, ptr %1, align 8, !range !266, !noundef !4
-  %21 = icmp eq i8 %20, 5
-  br i1 %21, label %87, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
+  %20 = icmp eq i8 %4, 7
+  br i1 %20, label %96, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-22:                                               ; preds = %2
-  %23 = load i8, ptr %1, align 8, !range !266, !noundef !4
-  %24 = icmp eq i8 %23, 6
-  br i1 %24, label %99, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
+21:                                               ; preds = %2
+  %22 = icmp eq i8 %4, 8
+  br i1 %22, label %102, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-25:                                               ; preds = %2
-  %26 = load i8, ptr %1, align 8, !range !266, !noundef !4
-  %27 = icmp eq i8 %26, 7
-  br i1 %27, label %105, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
+23:                                               ; preds = %2
+  %24 = icmp eq i8 %4, 9
+  br i1 %24, label %108, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-28:                                               ; preds = %2
-  %29 = load i8, ptr %1, align 8, !range !266, !noundef !4
-  %30 = icmp eq i8 %29, 8
-  br i1 %30, label %111, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
-
-31:                                               ; preds = %2
-  %32 = load i8, ptr %1, align 8, !range !266, !noundef !4
-  %33 = icmp eq i8 %32, 9
-  br i1 %33, label %117, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
-
-"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit": ; preds = %87, %83, %79, %"_ZN67_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he06746d8b8fe32dcE.exit.sink.split.i", %73, %67, %65, %63, %62, %56, %54, %52, %51, %45, %43, %41, %40, %34, %7, %10, %13, %16, %19, %22, %25, %28, %31, %93, %117, %111, %105, %99, %4
-  %.sroa.0.0.shrunk = phi i1 [ %6, %4 ], [ %98, %93 ], [ %104, %99 ], [ %110, %105 ], [ %116, %111 ], [ %122, %117 ], [ false, %31 ], [ false, %28 ], [ false, %25 ], [ false, %22 ], [ false, %19 ], [ false, %16 ], [ false, %13 ], [ false, %10 ], [ false, %7 ], [ false, %34 ], [ true, %40 ], [ %42, %41 ], [ %44, %43 ], [ false, %45 ], [ true, %51 ], [ %53, %52 ], [ %55, %54 ], [ false, %56 ], [ true, %62 ], [ %64, %63 ], [ %66, %65 ], [ false, %67 ], [ true, %73 ], [ true, %79 ], [ true, %83 ], [ %78, %"_ZN67_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he06746d8b8fe32dcE.exit.sink.split.i" ], [ %.mux, %87 ]
+"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit": ; preds = %78, %74, %70, %"_ZN67_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he06746d8b8fe32dcE.exit.sink.split.i", %64, %58, %56, %54, %53, %47, %45, %43, %42, %36, %34, %32, %31, %25, %7, %9, %11, %13, %15, %17, %19, %21, %23, %84, %108, %102, %96, %90, %5
+  %.sroa.0.0.shrunk = phi i1 [ %6, %5 ], [ %89, %84 ], [ %95, %90 ], [ %101, %96 ], [ %107, %102 ], [ %113, %108 ], [ false, %23 ], [ false, %21 ], [ false, %19 ], [ false, %17 ], [ false, %15 ], [ false, %13 ], [ false, %11 ], [ false, %9 ], [ false, %7 ], [ false, %25 ], [ true, %31 ], [ %33, %32 ], [ %35, %34 ], [ false, %36 ], [ true, %42 ], [ %44, %43 ], [ %46, %45 ], [ false, %47 ], [ true, %53 ], [ %55, %54 ], [ %57, %56 ], [ false, %58 ], [ true, %64 ], [ true, %70 ], [ true, %74 ], [ %69, %"_ZN67_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he06746d8b8fe32dcE.exit.sink.split.i" ], [ %.mux, %78 ]
   ret i1 %.sroa.0.0.shrunk
 
-34:                                               ; preds = %7
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %.val5 = load i8, ptr %35, align 1, !range !660, !noundef !4
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.val6 = load i8, ptr %37, align 2
-  %.val7 = load i8, ptr %36, align 1, !range !660, !noundef !4
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %.val8 = load i8, ptr %38, align 2
-  %39 = icmp eq i8 %.val5, %.val7
-  br i1 %39, label %40, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
+25:                                               ; preds = %7
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %.val5 = load i8, ptr %26, align 1, !range !660, !noundef !4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %.val6 = load i8, ptr %28, align 2
+  %.val7 = load i8, ptr %27, align 1, !range !660, !noundef !4
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %.val8 = load i8, ptr %29, align 2
+  %30 = icmp eq i8 %.val5, %.val7
+  br i1 %30, label %31, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-40:                                               ; preds = %34
+31:                                               ; preds = %25
   switch i8 %.val5, label %default.unreachable27 [
-    i8 0, label %41
-    i8 1, label %43
+    i8 0, label %32
+    i8 1, label %34
     i8 2, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
   ]
 
-41:                                               ; preds = %40
-  %42 = icmp eq i8 %.val6, %.val8
+32:                                               ; preds = %31
+  %33 = icmp eq i8 %.val6, %.val8
   br label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-43:                                               ; preds = %40
-  %44 = icmp eq i8 %.val6, %.val8
+34:                                               ; preds = %31
+  %35 = icmp eq i8 %.val6, %.val8
   br label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-45:                                               ; preds = %10
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val9 = load i64, ptr %46, align 8, !range !700, !noundef !4
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val10 = load double, ptr %48, align 8
-  %.val11 = load i64, ptr %47, align 8, !range !700, !noundef !4
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val12 = load double, ptr %49, align 8
-  %50 = icmp eq i64 %.val9, %.val11
-  br i1 %50, label %51, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
+36:                                               ; preds = %9
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val9 = load i64, ptr %37, align 8, !range !700, !noundef !4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val10 = load double, ptr %39, align 8
+  %.val11 = load i64, ptr %38, align 8, !range !700, !noundef !4
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val12 = load double, ptr %40, align 8
+  %41 = icmp eq i64 %.val9, %.val11
+  br i1 %41, label %42, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-51:                                               ; preds = %45
+42:                                               ; preds = %36
   switch i64 %.val9, label %default.unreachable27 [
-    i64 0, label %52
-    i64 1, label %54
+    i64 0, label %43
+    i64 1, label %45
     i64 2, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
   ]
 
-52:                                               ; preds = %51
-  %53 = fcmp oeq double %.val10, %.val12
+43:                                               ; preds = %42
+  %44 = fcmp oeq double %.val10, %.val12
   br label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-54:                                               ; preds = %51
-  %55 = fcmp oeq double %.val10, %.val12
+45:                                               ; preds = %42
+  %46 = fcmp oeq double %.val10, %.val12
   br label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-56:                                               ; preds = %13
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val13 = load i64, ptr %57, align 8, !range !700, !noundef !4
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.val14 = load i64, ptr %59, align 8
-  %.val15 = load i64, ptr %58, align 8, !range !700, !noundef !4
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val16 = load i64, ptr %60, align 8
-  %61 = icmp eq i64 %.val13, %.val15
-  br i1 %61, label %62, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
+47:                                               ; preds = %11
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.val13 = load i64, ptr %48, align 8, !range !700, !noundef !4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.val14 = load i64, ptr %50, align 8
+  %.val15 = load i64, ptr %49, align 8, !range !700, !noundef !4
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.val16 = load i64, ptr %51, align 8
+  %52 = icmp eq i64 %.val13, %.val15
+  br i1 %52, label %53, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-62:                                               ; preds = %56
+53:                                               ; preds = %47
   switch i64 %.val13, label %default.unreachable27 [
-    i64 0, label %63
-    i64 1, label %65
+    i64 0, label %54
+    i64 1, label %56
     i64 2, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
   ]
 
-63:                                               ; preds = %62
-  %64 = icmp eq i64 %.val14, %.val16
+54:                                               ; preds = %53
+  %55 = icmp eq i64 %.val14, %.val16
   br label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-65:                                               ; preds = %62
-  %66 = icmp eq i64 %.val14, %.val16
+56:                                               ; preds = %53
+  %57 = icmp eq i64 %.val14, %.val16
   br label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-67:                                               ; preds = %16
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val17 = load i64, ptr %68, align 8, !range !700, !noundef !4
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.val18 = load ptr, ptr %70, align 8
-  %.val19 = load i64, ptr %69, align 8, !range !700, !noundef !4
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val20 = load ptr, ptr %71, align 8
-  %72 = icmp eq i64 %.val17, %.val19
-  br i1 %72, label %73, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
+58:                                               ; preds = %13
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.val17 = load i64, ptr %59, align 8, !range !700, !noundef !4
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.val18 = load ptr, ptr %61, align 8
+  %.val19 = load i64, ptr %60, align 8, !range !700, !noundef !4
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.val20 = load ptr, ptr %62, align 8
+  %63 = icmp eq i64 %.val17, %.val19
+  br i1 %63, label %64, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-73:                                               ; preds = %67
+64:                                               ; preds = %58
   switch i64 %.val17, label %default.unreachable27 [
-    i64 0, label %79
-    i64 1, label %83
+    i64 0, label %70
+    i64 1, label %74
     i64 2, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
   ]
 
-"_ZN67_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he06746d8b8fe32dcE.exit.sink.split.i": ; preds = %83, %79
-  %74 = getelementptr i8, ptr %.val18, i64 24
-  %.val.i.i5.i = load ptr, ptr %74, align 8, !nonnull !4, !noundef !4
-  %75 = getelementptr i8, ptr %.val18, i64 32
-  %.val2.i.i6.i = load i64, ptr %75, align 8, !noundef !4
-  %76 = getelementptr i8, ptr %.val20, i64 24
-  %.val3.i.i7.i = load ptr, ptr %76, align 8, !nonnull !4, !noundef !4
-  %77 = getelementptr i8, ptr %.val20, i64 32
-  %.val4.i.i8.i = load i64, ptr %77, align 8, !noundef !4
-  %78 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4378f96f9e276f75E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i5.i, i64 noundef %.val2.i.i6.i, ptr noalias noundef nonnull readonly align 1 %.val3.i.i7.i, i64 noundef %.val4.i.i8.i)
+"_ZN67_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he06746d8b8fe32dcE.exit.sink.split.i": ; preds = %74, %70
+  %65 = getelementptr i8, ptr %.val18, i64 24
+  %.val.i.i5.i = load ptr, ptr %65, align 8, !nonnull !4, !noundef !4
+  %66 = getelementptr i8, ptr %.val18, i64 32
+  %.val2.i.i6.i = load i64, ptr %66, align 8, !noundef !4
+  %67 = getelementptr i8, ptr %.val20, i64 24
+  %.val3.i.i7.i = load ptr, ptr %67, align 8, !nonnull !4, !noundef !4
+  %68 = getelementptr i8, ptr %.val20, i64 32
+  %.val4.i.i8.i = load i64, ptr %68, align 8, !noundef !4
+  %69 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4378f96f9e276f75E"(ptr noalias noundef nonnull readonly align 1 %.val.i.i5.i, i64 noundef %.val2.i.i6.i, ptr noalias noundef nonnull readonly align 1 %.val3.i.i7.i, i64 noundef %.val4.i.i8.i)
   br label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-79:                                               ; preds = %73
-  %80 = icmp ne ptr %.val18, null
-  tail call void @llvm.assume(i1 %80)
-  %81 = icmp ne ptr %.val20, null
-  tail call void @llvm.assume(i1 %81)
-  %82 = icmp eq ptr %.val18, %.val20
-  br i1 %82, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit", label %"_ZN67_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he06746d8b8fe32dcE.exit.sink.split.i"
+70:                                               ; preds = %64
+  %71 = icmp ne ptr %.val18, null
+  tail call void @llvm.assume(i1 %71)
+  %72 = icmp ne ptr %.val20, null
+  tail call void @llvm.assume(i1 %72)
+  %73 = icmp eq ptr %.val18, %.val20
+  br i1 %73, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit", label %"_ZN67_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he06746d8b8fe32dcE.exit.sink.split.i"
 
-83:                                               ; preds = %73
-  %84 = icmp ne ptr %.val18, null
-  tail call void @llvm.assume(i1 %84)
-  %85 = icmp ne ptr %.val20, null
-  tail call void @llvm.assume(i1 %85)
-  %86 = icmp eq ptr %.val18, %.val20
-  br i1 %86, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit", label %"_ZN67_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he06746d8b8fe32dcE.exit.sink.split.i"
+74:                                               ; preds = %64
+  %75 = icmp ne ptr %.val18, null
+  tail call void @llvm.assume(i1 %75)
+  %76 = icmp ne ptr %.val20, null
+  tail call void @llvm.assume(i1 %76)
+  %77 = icmp eq ptr %.val18, %.val20
+  br i1 %77, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit", label %"_ZN67_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he06746d8b8fe32dcE.exit.sink.split.i"
 
-87:                                               ; preds = %19
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %89 = load i64, ptr %88, align 8, !range !5, !noundef !4
-  %.not = icmp eq i64 %89, -9223372036854775808
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %91 = load i64, ptr %90, align 8, !range !5, !noundef !4
-  %92 = icmp eq i64 %91, -9223372036854775808
-  %brmerge = or i1 %.not, %92
-  %.mux = and i1 %.not, %92
-  br i1 %brmerge, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit", label %93
+78:                                               ; preds = %15
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %80 = load i64, ptr %79, align 8, !range !5, !noundef !4
+  %.not = icmp eq i64 %80, -9223372036854775808
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %82 = load i64, ptr %81, align 8, !range !5, !noundef !4
+  %83 = icmp eq i64 %82, -9223372036854775808
+  %brmerge = or i1 %.not, %83
+  %.mux = and i1 %.not, %83
+  br i1 %brmerge, label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit", label %84
 
-93:                                               ; preds = %87
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val = load ptr, ptr %94, align 8, !nonnull !4, !noundef !4
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val2 = load i64, ptr %95, align 8, !noundef !4
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val3 = load ptr, ptr %96, align 8, !nonnull !4, !noundef !4
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val4 = load i64, ptr %97, align 8, !noundef !4
-  %98 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4378f96f9e276f75E"(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val2, ptr noalias noundef nonnull readonly align 1 %.val3, i64 noundef %.val4)
+84:                                               ; preds = %78
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val = load ptr, ptr %85, align 8, !nonnull !4, !noundef !4
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val2 = load i64, ptr %86, align 8, !noundef !4
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val3 = load ptr, ptr %87, align 8, !nonnull !4, !noundef !4
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val4 = load i64, ptr %88, align 8, !noundef !4
+  %89 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4378f96f9e276f75E"(ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val2, ptr noalias noundef nonnull readonly align 1 %.val3, i64 noundef %.val4)
   br label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-99:                                               ; preds = %22
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %101 = load ptr, ptr %100, align 8, !nonnull !4, !noundef !4
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %103 = load ptr, ptr %102, align 8, !nonnull !4, !noundef !4
-  %104 = icmp eq ptr %101, %103
+90:                                               ; preds = %17
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %92 = load ptr, ptr %91, align 8, !nonnull !4, !noundef !4
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %94 = load ptr, ptr %93, align 8, !nonnull !4, !noundef !4
+  %95 = icmp eq ptr %92, %94
   br label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-105:                                              ; preds = %25
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %107 = load ptr, ptr %106, align 8, !nonnull !4, !noundef !4
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %109 = load ptr, ptr %108, align 8, !nonnull !4, !noundef !4
-  %110 = icmp eq ptr %107, %109
+96:                                               ; preds = %19
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %98 = load ptr, ptr %97, align 8, !nonnull !4, !noundef !4
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %100 = load ptr, ptr %99, align 8, !nonnull !4, !noundef !4
+  %101 = icmp eq ptr %98, %100
   br label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-111:                                              ; preds = %28
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %113 = load ptr, ptr %112, align 8, !nonnull !4, !noundef !4
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %115 = load ptr, ptr %114, align 8, !nonnull !4, !noundef !4
-  %116 = icmp eq ptr %113, %115
+102:                                              ; preds = %21
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %104 = load ptr, ptr %103, align 8, !nonnull !4, !noundef !4
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %106 = load ptr, ptr %105, align 8, !nonnull !4, !noundef !4
+  %107 = icmp eq ptr %104, %106
   br label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 
-117:                                              ; preds = %31
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %119 = load ptr, ptr %118, align 8, !nonnull !4, !noundef !4
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %121 = load ptr, ptr %120, align 8, !nonnull !4, !noundef !4
-  %122 = icmp eq ptr %119, %121
+108:                                              ; preds = %23
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %110 = load ptr, ptr %109, align 8, !nonnull !4, !noundef !4
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %112 = load ptr, ptr %111, align 8, !nonnull !4, !noundef !4
+  %113 = icmp eq ptr %110, %112
   br label %"_ZN70_$LT$yara_x..types..Value$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7ab35d8ae3de1386E.exit"
 }
 

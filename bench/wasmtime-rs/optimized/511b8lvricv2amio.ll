@@ -615,8 +615,8 @@ define hidden noundef zeroext i1 @_ZN14cranelift_isle7codegen7Codegen10emit_bloc
   %267 = icmp eq ptr %266, null
   br i1 %267, label %._crit_edge, label %.lr.ph
 
-.critedge:                                        ; preds = %495, %.backedge425, %351, %395, %447, %488, %496, %500, %503, %506, %509, %515, %518, %521, %524, %527, %111, %623, %646, %624, %.critedge337, %.critedge335, %.critedge331, %354
-  %268 = phi i1 [ true, %623 ], [ true, %646 ], [ true, %624 ], [ true, %.critedge337 ], [ true, %.critedge335 ], [ true, %.critedge331 ], [ true, %354 ], [ false, %111 ], [ false, %.backedge425 ], [ true, %351 ], [ true, %395 ], [ true, %447 ], [ true, %488 ], [ true, %496 ], [ true, %500 ], [ true, %503 ], [ true, %506 ], [ true, %509 ], [ true, %515 ], [ true, %518 ], [ true, %521 ], [ true, %524 ], [ true, %527 ], [ true, %495 ]
+.critedge:                                        ; preds = %495, %.backedge425, %351, %395, %447, %488, %496, %501, %503, %505, %507, %514, %517, %519, %521, %523, %111, %619, %642, %620, %.critedge337, %.critedge335, %.critedge331, %354
+  %268 = phi i1 [ true, %619 ], [ true, %642 ], [ true, %620 ], [ true, %.critedge337 ], [ true, %.critedge335 ], [ true, %.critedge331 ], [ true, %354 ], [ false, %111 ], [ false, %.backedge425 ], [ true, %351 ], [ true, %395 ], [ true, %447 ], [ true, %488 ], [ true, %496 ], [ true, %501 ], [ true, %503 ], [ true, %505 ], [ true, %507 ], [ true, %514 ], [ true, %517 ], [ true, %519 ], [ true, %521 ], [ true, %523 ], [ true, %495 ]
   ret i1 %268
 
 ._crit_edge:                                      ; preds = %.backedge, %259
@@ -630,19 +630,19 @@ define hidden noundef zeroext i1 @_ZN14cranelift_isle7codegen7Codegen10emit_bloc
   ]
 
 .lr.ph:                                           ; preds = %259, %.backedge
-  %271 = phi ptr [ %643, %.backedge ], [ %266, %259 ]
+  %271 = phi ptr [ %639, %.backedge ], [ %266, %259 ]
   %272 = load i16, ptr %271, align 2, !noundef !3
   %273 = load ptr, ptr %120, align 8, !nonnull !3, !align !4, !noundef !3
   %274 = call i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %272)
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 40
   %276 = load i64, ptr %275, align 8, !noundef !3
   %277 = icmp ult i64 %274, %276
-  br i1 %277, label %530, label %535, !prof !6
+  br i1 %277, label %526, label %531, !prof !6
 
 default.unreachable592:                           ; preds = %._crit_edge
   unreachable
 
-278:                                              ; preds = %514, %499
+278:                                              ; preds = %512, %499
   unreachable
 
 279:                                              ; preds = %._crit_edge
@@ -842,7 +842,7 @@ default.unreachable592:                           ; preds = %._crit_edge
   %352 = call zeroext i1 @"_ZN14cranelift_isle7codegen20BodyContext$LT$W$GT$9end_block17hcb3ad09c2a4f2013E"(ptr nonnull align 8 %1, ptr nonnull align 8 %65)
   br i1 %352, label %.critedge, label %.backedge425
 
-.backedge425:                                     ; preds = %351, %395, %447, %488, %518, %521, %527
+.backedge425:                                     ; preds = %351, %395, %447, %488, %517, %519, %523
   %353 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ee5228e768db773E"(ptr nonnull align 8 %104)
   %.not531 = icmp eq ptr %353, null
   br i1 %.not531, label %.critedge, label %259
@@ -851,8 +851,8 @@ default.unreachable592:                           ; preds = %._crit_edge
   call void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %74)
   br label %.critedge
 
-.thread406:                                       ; preds = %605, %647, %617, %591, %567, %491, %490, %449, %.thread366, %355
-  %.pn328 = phi { ptr, i32 } [ %lpad.thr_comm, %355 ], [ %.pn326369, %.thread366 ], [ %lpad.thr_comm390, %449 ], [ %lpad.thr_comm398, %490 ], [ %492, %491 ], [ %lpad.thr_comm.split-lp413, %647 ], [ %lpad.thr_comm.split-lp413, %617 ], [ %568, %567 ], [ %592, %591 ], [ %606, %605 ]
+.thread406:                                       ; preds = %601, %643, %613, %587, %563, %491, %490, %449, %.thread366, %355
+  %.pn328 = phi { ptr, i32 } [ %lpad.thr_comm, %355 ], [ %.pn326369, %.thread366 ], [ %lpad.thr_comm390, %449 ], [ %lpad.thr_comm398, %490 ], [ %492, %491 ], [ %lpad.thr_comm.split-lp413, %643 ], [ %lpad.thr_comm.split-lp413, %613 ], [ %564, %563 ], [ %588, %587 ], [ %602, %601 ]
   resume { ptr, i32 } %.pn328
 
 355:                                              ; preds = %347, %324, %320, %316, %313, %312, %342, %338, %334, %331, %311, %328, %.noexc
@@ -861,7 +861,7 @@ default.unreachable592:                           ; preds = %._crit_edge
   invoke void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %74) #8
           to label %.thread406 unwind label %356
 
-356:                                              ; preds = %647, %605, %591, %567, %491, %490, %449, %.thread366, %421, %355
+356:                                              ; preds = %643, %601, %587, %563, %491, %490, %449, %.thread366, %421, %355
   %357 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #9
@@ -1334,308 +1334,304 @@ default.unreachable592:                           ; preds = %._crit_edge
   br i1 %498, label %.critedge, label %499
 
 499:                                              ; preds = %496
+  %500 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
   switch i8 %3, label %278 [
-    i8 0, label %500
+    i8 0, label %501
     i8 1, label %503
-    i8 2, label %506
+    i8 2, label %505
   ]
 
-500:                                              ; preds = %499
-  %501 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
+501:                                              ; preds = %499
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.44, ptr %21, align 8
   store i64 1, ptr %161, align 8
   store ptr null, ptr %162, align 8
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %163, align 8
   store i64 0, ptr %164, align 8
-  %502 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %501, ptr nonnull align 8 %21)
-  br i1 %502, label %.critedge, label %509
+  %502 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %500, ptr nonnull align 8 %21)
+  br i1 %502, label %.critedge, label %507
 
 503:                                              ; preds = %499
-  %504 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.46, ptr %20, align 8
   store i64 1, ptr %157, align 8
   store ptr null, ptr %158, align 8
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %159, align 8
   store i64 0, ptr %160, align 8
-  %505 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %504, ptr nonnull align 8 %20)
-  br i1 %505, label %.critedge, label %509
+  %504 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %500, ptr nonnull align 8 %20)
+  br i1 %504, label %.critedge, label %507
 
-506:                                              ; preds = %499
-  %507 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
+505:                                              ; preds = %499
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.48, ptr %19, align 8
   store i64 1, ptr %153, align 8
   store ptr null, ptr %154, align 8
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %155, align 8
   store i64 0, ptr %156, align 8
-  %508 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %507, ptr nonnull align 8 %19)
-  br i1 %508, label %.critedge, label %509
+  %506 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %500, ptr nonnull align 8 %19)
+  br i1 %506, label %.critedge, label %507
 
-509:                                              ; preds = %506, %503, %500
-  %510 = load i16, ptr %29, align 2, !noundef !3
-  %511 = call fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen9emit_expr17heab48b1e0142927aE(ptr nonnull align 8 %0, ptr nonnull align 8 %1, i16 %510)
-  br i1 %511, label %.critedge, label %512
+507:                                              ; preds = %505, %503, %501
+  %508 = load i16, ptr %29, align 2, !noundef !3
+  %509 = call fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen9emit_expr17heab48b1e0142927aE(ptr nonnull align 8 %0, ptr nonnull align 8 %1, i16 %508)
+  br i1 %509, label %.critedge, label %510
 
-512:                                              ; preds = %509
-  %513 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %165, ptr nonnull align 2 %29)
-  br i1 %513, label %515, label %514
+510:                                              ; preds = %507
+  %511 = call zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hd84c7186cc6dcfacE"(ptr nonnull align 8 %165, ptr nonnull align 2 %29)
+  br i1 %511, label %514, label %512
 
-514:                                              ; preds = %515, %512
+512:                                              ; preds = %514, %510
+  %513 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
   switch i8 %3, label %278 [
-    i8 0, label %518
-    i8 1, label %521
-    i8 2, label %524
+    i8 0, label %517
+    i8 1, label %519
+    i8 2, label %521
   ]
 
-515:                                              ; preds = %512
-  %516 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
+514:                                              ; preds = %510
+  %515 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.50, ptr %18, align 8
   store i64 1, ptr %166, align 8
   store ptr null, ptr %167, align 8
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %168, align 8
   store i64 0, ptr %169, align 8
-  %517 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %516, ptr nonnull align 8 %18)
-  br i1 %517, label %.critedge, label %514
+  %516 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %515, ptr nonnull align 8 %18)
+  br i1 %516, label %.critedge, label %512
 
-518:                                              ; preds = %514
-  %519 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
+517:                                              ; preds = %512
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.52, ptr %17, align 8
   store i64 1, ptr %179, align 8
   store ptr null, ptr %180, align 8
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %181, align 8
   store i64 0, ptr %182, align 8
-  %520 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %519, ptr nonnull align 8 %17)
-  br i1 %520, label %.critedge, label %.backedge425
+  %518 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %513, ptr nonnull align 8 %17)
+  br i1 %518, label %.critedge, label %.backedge425
 
-521:                                              ; preds = %514
-  %522 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
+519:                                              ; preds = %512
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.54, ptr %16, align 8
   store i64 1, ptr %175, align 8
   store ptr null, ptr %176, align 8
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %177, align 8
   store i64 0, ptr %178, align 8
-  %523 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %522, ptr nonnull align 8 %16)
-  br i1 %523, label %.critedge, label %.backedge425
+  %520 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %513, ptr nonnull align 8 %16)
+  br i1 %520, label %.critedge, label %.backedge425
 
-524:                                              ; preds = %514
-  %525 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
+521:                                              ; preds = %512
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.56, ptr %15, align 8
   store i64 1, ptr %170, align 8
   store ptr null, ptr %171, align 8
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %172, align 8
   store i64 0, ptr %173, align 8
-  %526 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %525, ptr nonnull align 8 %15)
-  br i1 %526, label %.critedge, label %527
+  %522 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %513, ptr nonnull align 8 %15)
+  br i1 %522, label %.critedge, label %523
 
-527:                                              ; preds = %524
-  %528 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
+523:                                              ; preds = %521
+  %524 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr %1, ptr %13, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17hfd92b114c250e98cE", ptr %174, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %14, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.58, i64 2, ptr nonnull align 8 %13, i64 1)
-  %529 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %528, ptr nonnull align 8 %14)
-  br i1 %529, label %.critedge, label %.backedge425
+  %525 = call zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %524, ptr nonnull align 8 %14)
+  br i1 %525, label %.critedge, label %.backedge425
 
-530:                                              ; preds = %.lr.ph
-  %531 = getelementptr inbounds nuw i8, ptr %273, i64 32
-  %532 = load ptr, ptr %531, align 8, !nonnull !3, !noundef !3
-  %533 = getelementptr inbounds { i8, [47 x i8] }, ptr %532, i64 %274
-  %534 = load i8, ptr %533, align 16, !range !9, !noundef !3
-  switch i8 %534, label %.thread404 [
-    i8 3, label %536
-    i8 4, label %544
+526:                                              ; preds = %.lr.ph
+  %527 = getelementptr inbounds nuw i8, ptr %273, i64 32
+  %528 = load ptr, ptr %527, align 8, !nonnull !3, !noundef !3
+  %529 = getelementptr inbounds { i8, [47 x i8] }, ptr %528, i64 %274
+  %530 = load i8, ptr %529, align 16, !range !9, !noundef !3
+  switch i8 %530, label %.thread404 [
+    i8 3, label %532
+    i8 4, label %540
   ]
 
-535:                                              ; preds = %.lr.ph
+531:                                              ; preds = %.lr.ph
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %274, i64 %276, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.59) #10
   unreachable
 
-.thread404:                                       ; preds = %530
+.thread404:                                       ; preds = %526
   store i64 -9223372036854775808, ptr %102, align 8
-  br label %602
+  br label %598
 
-536:                                              ; preds = %530
-  %537 = load ptr, ptr %121, align 8, !nonnull !3, !align !4, !noundef !3
-  %538 = getelementptr inbounds nuw i8, ptr %533, i64 8
-  %539 = load i64, ptr %538, align 8, !noundef !3
-  %540 = call i64 @_ZN14cranelift_isle4sema6TermId5index17h9d50722cbc83615eE(i64 %539)
-  %541 = getelementptr inbounds nuw i8, ptr %537, i64 16
-  %542 = load i64, ptr %541, align 8, !noundef !3
-  %543 = icmp ult i64 %540, %542
-  br i1 %543, label %552, label %559, !prof !6
+532:                                              ; preds = %526
+  %533 = load ptr, ptr %121, align 8, !nonnull !3, !align !4, !noundef !3
+  %534 = getelementptr inbounds nuw i8, ptr %529, i64 8
+  %535 = load i64, ptr %534, align 8, !noundef !3
+  %536 = call i64 @_ZN14cranelift_isle4sema6TermId5index17h9d50722cbc83615eE(i64 %535)
+  %537 = getelementptr inbounds nuw i8, ptr %533, i64 16
+  %538 = load i64, ptr %537, align 8, !noundef !3
+  %539 = icmp ult i64 %536, %538
+  br i1 %539, label %548, label %555, !prof !6
 
-544:                                              ; preds = %530
-  %545 = load ptr, ptr %121, align 8, !nonnull !3, !align !4, !noundef !3
-  %546 = getelementptr inbounds nuw i8, ptr %533, i64 8
-  %547 = load i64, ptr %546, align 8, !noundef !3
-  %548 = call i64 @_ZN14cranelift_isle4sema6TermId5index17h9d50722cbc83615eE(i64 %547)
-  %549 = getelementptr inbounds nuw i8, ptr %545, i64 16
-  %550 = load i64, ptr %549, align 8, !noundef !3
-  %551 = icmp ult i64 %548, %550
-  br i1 %551, label %576, label %583, !prof !6
+540:                                              ; preds = %526
+  %541 = load ptr, ptr %121, align 8, !nonnull !3, !align !4, !noundef !3
+  %542 = getelementptr inbounds nuw i8, ptr %529, i64 8
+  %543 = load i64, ptr %542, align 8, !noundef !3
+  %544 = call i64 @_ZN14cranelift_isle4sema6TermId5index17h9d50722cbc83615eE(i64 %543)
+  %545 = getelementptr inbounds nuw i8, ptr %541, i64 16
+  %546 = load i64, ptr %545, align 8, !noundef !3
+  %547 = icmp ult i64 %544, %546
+  br i1 %547, label %572, label %579, !prof !6
 
-552:                                              ; preds = %536
-  %553 = getelementptr inbounds nuw i8, ptr %537, i64 8
-  %554 = load ptr, ptr %553, align 8, !nonnull !3, !noundef !3
-  %555 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %554, i64 %540
-  %556 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @_ZN14cranelift_isle4sema4Term13extractor_sig17h4e321f171638b969E(ptr nonnull sret({ i64, [12 x i64] }) align 8 %100, ptr nonnull align 16 %555, ptr nonnull align 8 %556)
-  %557 = load i64, ptr %100, align 8, !range !10, !noundef !3
-  %558 = icmp eq i64 %557, -9223372036854775808
-  br i1 %558, label %560, label %561
+548:                                              ; preds = %532
+  %549 = getelementptr inbounds nuw i8, ptr %533, i64 8
+  %550 = load ptr, ptr %549, align 8, !nonnull !3, !noundef !3
+  %551 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %550, i64 %536
+  %552 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
+  call void @_ZN14cranelift_isle4sema4Term13extractor_sig17h4e321f171638b969E(ptr nonnull sret({ i64, [12 x i64] }) align 8 %100, ptr nonnull align 16 %551, ptr nonnull align 8 %552)
+  %553 = load i64, ptr %100, align 8, !range !10, !noundef !3
+  %554 = icmp eq i64 %553, -9223372036854775808
+  br i1 %554, label %556, label %557
 
-559:                                              ; preds = %536
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %540, i64 %542, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.60) #10
+555:                                              ; preds = %532
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %536, i64 %538, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.60) #10
   unreachable
 
-560:                                              ; preds = %552
+556:                                              ; preds = %548
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.61) #10
   unreachable
 
-561:                                              ; preds = %552
+557:                                              ; preds = %548
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %101, ptr noundef nonnull align 8 dereferenceable(104) %100, i64 104, i1 false)
-  %562 = load i8, ptr %128, align 8, !range !11, !noundef !3
-  %563 = icmp eq i8 %562, 2
-  br i1 %563, label %564, label %566
+  %558 = load i8, ptr %128, align 8, !range !11, !noundef !3
+  %559 = icmp eq i8 %558, 2
+  br i1 %559, label %560, label %562
 
-564:                                              ; preds = %561
-  %565 = invoke zeroext i1 @_ZN14cranelift_isle4sema4Term22has_external_extractor17h96f939461fffce1dE(ptr nonnull align 16 %555)
-          to label %569 unwind label %567
+560:                                              ; preds = %557
+  %561 = invoke zeroext i1 @_ZN14cranelift_isle4sema4Term22has_external_extractor17h96f939461fffce1dE(ptr nonnull align 16 %551)
+          to label %565 unwind label %563
 
-566:                                              ; preds = %561
+562:                                              ; preds = %557
   store i64 -9223372036854775808, ptr %102, align 8
-  br label %575
+  br label %571
 
-567:                                              ; preds = %573, %571, %570, %564
-  %568 = landingpad { ptr, i32 }
+563:                                              ; preds = %569, %567, %566, %560
+  %564 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr54drop_in_place$LT$cranelift_isle..sema..ExternalSig$GT$17hff1c4745da4a339cE"(ptr nonnull align 8 %101) #8
           to label %.thread406 unwind label %356
 
-569:                                              ; preds = %564
-  br i1 %565, label %571, label %570
+565:                                              ; preds = %560
+  br i1 %561, label %567, label %566
 
-570:                                              ; preds = %569
+566:                                              ; preds = %565
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.63, ptr %95, align 8
   store i64 1, ptr %129, align 8
   store ptr null, ptr %130, align 8
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %131, align 8
   store i64 0, ptr %132, align 8
   invoke void @_ZN5alloc3fmt6format17h32536d6b64aad42fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %96, ptr nonnull align 8 %95)
-          to label %572 unwind label %567
+          to label %568 unwind label %563
 
-571:                                              ; preds = %569
+567:                                              ; preds = %565
   store ptr %101, ptr %97, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17hfd92b114c250e98cE", ptr %133, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %98, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.66, i64 2, ptr nonnull align 8 %97, i64 1)
-          to label %573 unwind label %567
+          to label %569 unwind label %563
 
-572:                                              ; preds = %570
+568:                                              ; preds = %566
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %96, i64 24, i1 false)
-  br label %575
+  br label %571
 
-573:                                              ; preds = %571
+569:                                              ; preds = %567
   invoke void @_ZN5alloc3fmt6format17h32536d6b64aad42fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %99, ptr nonnull align 8 %98)
-          to label %574 unwind label %567
+          to label %570 unwind label %563
 
-574:                                              ; preds = %573
+570:                                              ; preds = %569
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %99, i64 24, i1 false)
-  br label %575
+  br label %571
 
-575:                                              ; preds = %566, %572, %574, %590, %596, %598
-  %.sink = phi ptr [ %94, %598 ], [ %94, %596 ], [ %94, %590 ], [ %101, %574 ], [ %101, %572 ], [ %101, %566 ]
+571:                                              ; preds = %562, %568, %570, %586, %592, %594
+  %.sink = phi ptr [ %94, %594 ], [ %94, %592 ], [ %94, %586 ], [ %101, %570 ], [ %101, %568 ], [ %101, %562 ]
   call void @"_ZN4core3ptr54drop_in_place$LT$cranelift_isle..sema..ExternalSig$GT$17hff1c4745da4a339cE"(ptr nonnull align 8 %.sink)
   %.pr = load i64, ptr %102, align 8
   %.not = icmp eq i64 %.pr, -9223372036854775808
-  br i1 %.not, label %602, label %599
+  br i1 %.not, label %598, label %595
 
-576:                                              ; preds = %544
-  %577 = getelementptr inbounds nuw i8, ptr %545, i64 8
-  %578 = load ptr, ptr %577, align 8, !nonnull !3, !noundef !3
-  %579 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %578, i64 %548
-  %580 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @_ZN14cranelift_isle4sema4Term15constructor_sig17h9d5b9ef455e5a236E(ptr nonnull sret({ i64, [12 x i64] }) align 8 %93, ptr nonnull align 16 %579, ptr nonnull align 8 %580)
-  %581 = load i64, ptr %93, align 8, !range !10, !noundef !3
-  %582 = icmp eq i64 %581, -9223372036854775808
-  br i1 %582, label %584, label %585
+572:                                              ; preds = %540
+  %573 = getelementptr inbounds nuw i8, ptr %541, i64 8
+  %574 = load ptr, ptr %573, align 8, !nonnull !3, !noundef !3
+  %575 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %574, i64 %544
+  %576 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
+  call void @_ZN14cranelift_isle4sema4Term15constructor_sig17h9d5b9ef455e5a236E(ptr nonnull sret({ i64, [12 x i64] }) align 8 %93, ptr nonnull align 16 %575, ptr nonnull align 8 %576)
+  %577 = load i64, ptr %93, align 8, !range !10, !noundef !3
+  %578 = icmp eq i64 %577, -9223372036854775808
+  br i1 %578, label %580, label %581
 
-583:                                              ; preds = %544
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %548, i64 %550, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.67) #10
+579:                                              ; preds = %540
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %544, i64 %546, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.67) #10
   unreachable
 
-584:                                              ; preds = %576
+580:                                              ; preds = %572
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.68) #10
   unreachable
 
-585:                                              ; preds = %576
+581:                                              ; preds = %572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %94, ptr noundef nonnull align 8 dereferenceable(104) %93, i64 104, i1 false)
-  %586 = load i8, ptr %122, align 8, !range !11, !noundef !3
-  %587 = icmp eq i8 %586, 2
-  br i1 %587, label %588, label %590
+  %582 = load i8, ptr %122, align 8, !range !11, !noundef !3
+  %583 = icmp eq i8 %582, 2
+  br i1 %583, label %584, label %586
 
-588:                                              ; preds = %585
-  %589 = invoke zeroext i1 @_ZN14cranelift_isle4sema4Term24has_external_constructor17he6b18c5eb33b3648E(ptr nonnull align 16 %579)
-          to label %593 unwind label %591
+584:                                              ; preds = %581
+  %585 = invoke zeroext i1 @_ZN14cranelift_isle4sema4Term24has_external_constructor17he6b18c5eb33b3648E(ptr nonnull align 16 %575)
+          to label %589 unwind label %587
 
-590:                                              ; preds = %585
+586:                                              ; preds = %581
   store i64 -9223372036854775808, ptr %102, align 8
-  br label %575
+  br label %571
 
-591:                                              ; preds = %597, %595, %594, %588
-  %592 = landingpad { ptr, i32 }
+587:                                              ; preds = %593, %591, %590, %584
+  %588 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr54drop_in_place$LT$cranelift_isle..sema..ExternalSig$GT$17hff1c4745da4a339cE"(ptr nonnull align 8 %94) #8
           to label %.thread406 unwind label %356
 
-593:                                              ; preds = %588
-  br i1 %589, label %595, label %594
+589:                                              ; preds = %584
+  br i1 %585, label %591, label %590
 
-594:                                              ; preds = %593
+590:                                              ; preds = %589
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.63, ptr %88, align 8
   store i64 1, ptr %123, align 8
   store ptr null, ptr %124, align 8
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %125, align 8
   store i64 0, ptr %126, align 8
   invoke void @_ZN5alloc3fmt6format17h32536d6b64aad42fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %89, ptr nonnull align 8 %88)
-          to label %596 unwind label %591
+          to label %592 unwind label %587
 
-595:                                              ; preds = %593
+591:                                              ; preds = %589
   store ptr %94, ptr %90, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17hfd92b114c250e98cE", ptr %127, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %91, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.66, i64 2, ptr nonnull align 8 %90, i64 1)
-          to label %597 unwind label %591
+          to label %593 unwind label %587
 
-596:                                              ; preds = %594
+592:                                              ; preds = %590
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %89, i64 24, i1 false)
-  br label %575
+  br label %571
 
-597:                                              ; preds = %595
+593:                                              ; preds = %591
   invoke void @_ZN5alloc3fmt6format17h32536d6b64aad42fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %92, ptr nonnull align 8 %91)
-          to label %598 unwind label %591
+          to label %594 unwind label %587
 
-598:                                              ; preds = %597
+594:                                              ; preds = %593
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %92, i64 24, i1 false)
-  br label %575
+  br label %571
 
-599:                                              ; preds = %575
+595:                                              ; preds = %571
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull align 8 dereferenceable(24) %102, i64 24, i1 false)
-  %600 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
+  %596 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr %1, ptr %84, align 8
-  %601 = invoke i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %272)
-          to label %607 unwind label %605
+  %597 = invoke i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %272)
+          to label %603 unwind label %601
 
-602:                                              ; preds = %.thread404, %575
-  %603 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
+598:                                              ; preds = %.thread404, %571
+  %599 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr %1, ptr %77, align 8
-  %604 = invoke i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %272)
-          to label %628 unwind label %617
+  %600 = invoke i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %272)
+          to label %624 unwind label %613
 
-605:                                              ; preds = %613, %611, %608, %607, %599
-  %606 = landingpad { ptr, i32 }
+601:                                              ; preds = %609, %607, %604, %603, %595
+  %602 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %87) #8
           to label %.thread406 unwind label %356
 
-607:                                              ; preds = %599
-  store i64 %601, ptr %83, align 8
+603:                                              ; preds = %595
+  store i64 %597, ptr %83, align 8
   store ptr %84, ptr %85, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8a0941390e01f928E", ptr %135, align 8
   store ptr %83, ptr %136, align 8
@@ -1643,118 +1639,118 @@ default.unreachable592:                           ; preds = %._crit_edge
   store ptr %87, ptr %138, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17hfd92b114c250e98cE", ptr %139, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %86, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.70, i64 4, ptr nonnull align 8 %85, i64 3)
-          to label %608 unwind label %605
+          to label %604 unwind label %601
 
-608:                                              ; preds = %607
-  %609 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %600, ptr nonnull align 8 %86)
-          to label %610 unwind label %605
+604:                                              ; preds = %603
+  %605 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %596, ptr nonnull align 8 %86)
+          to label %606 unwind label %601
 
-610:                                              ; preds = %608
-  br i1 %609, label %623, label %611
+606:                                              ; preds = %604
+  br i1 %605, label %619, label %607
 
-611:                                              ; preds = %610
-  %612 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
+607:                                              ; preds = %606
+  %608 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr %1, ptr %80, align 8
   store ptr %80, ptr %81, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8a0941390e01f928E", ptr %140, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %82, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.25, i64 1, ptr nonnull align 8 %81, i64 1)
-          to label %613 unwind label %605
+          to label %609 unwind label %601
 
-613:                                              ; preds = %611
-  %614 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %612, ptr nonnull align 8 %82)
-          to label %615 unwind label %605
+609:                                              ; preds = %607
+  %610 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %608, ptr nonnull align 8 %82)
+          to label %611 unwind label %601
 
-615:                                              ; preds = %613
-  br i1 %614, label %623, label %616
+611:                                              ; preds = %609
+  br i1 %610, label %619, label %612
 
-616:                                              ; preds = %615
+612:                                              ; preds = %611
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %87)
-  br label %621
+  br label %617
 
-617:                                              ; preds = %602, %621, %628, %629, %633, %637
-  %.3256.ph = phi i8 [ 1, %602 ], [ 1, %628 ], [ 1, %629 ], [ %.5258, %621 ], [ %.5258, %633 ], [ %.5258, %637 ]
+613:                                              ; preds = %598, %617, %624, %625, %629, %633
+  %.3256.ph = phi i8 [ 1, %598 ], [ 1, %624 ], [ 1, %625 ], [ %.5258, %617 ], [ %.5258, %629 ], [ %.5258, %633 ]
   %lpad.thr_comm.split-lp413 = landingpad { ptr, i32 }
           cleanup
-  %618 = trunc nuw i8 %.3256.ph to i1
-  %619 = load i64, ptr %102, align 8, !range !10, !noundef !3
-  %620 = icmp ne i64 %619, -9223372036854775808
-  %or.cond5 = select i1 %620, i1 %618, i1 false
-  br i1 %or.cond5, label %647, label %.thread406
+  %614 = trunc nuw i8 %.3256.ph to i1
+  %615 = load i64, ptr %102, align 8, !range !10, !noundef !3
+  %616 = icmp ne i64 %615, -9223372036854775808
+  %or.cond5 = select i1 %616, i1 %614, i1 false
+  br i1 %or.cond5, label %643, label %.thread406
 
-621:                                              ; preds = %616, %631
-  %.5258 = phi i8 [ 0, %616 ], [ 1, %631 ]
-  %622 = invoke fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen9emit_expr17heab48b1e0142927aE(ptr align 8 %0, ptr nonnull align 8 %1, i16 %272)
-          to label %632 unwind label %617
+617:                                              ; preds = %612, %627
+  %.5258 = phi i8 [ 0, %612 ], [ 1, %627 ]
+  %618 = invoke fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen9emit_expr17heab48b1e0142927aE(ptr align 8 %0, ptr nonnull align 8 %1, i16 %272)
+          to label %628 unwind label %613
 
-623:                                              ; preds = %615, %610
+619:                                              ; preds = %611, %606
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %87)
   br label %.critedge
 
-624:                                              ; preds = %636, %632, %631
-  %.6259 = phi i8 [ 1, %631 ], [ %.5258, %632 ], [ %.5258, %636 ]
-  %625 = load i64, ptr %102, align 8, !range !10, !noundef !3
-  %626 = icmp ne i64 %625, -9223372036854775808
-  %627 = trunc nuw i8 %.6259 to i1
-  %or.cond3 = select i1 %626, i1 %627, i1 false
-  br i1 %or.cond3, label %646, label %.critedge
+620:                                              ; preds = %632, %628, %627
+  %.6259 = phi i8 [ 1, %627 ], [ %.5258, %628 ], [ %.5258, %632 ]
+  %621 = load i64, ptr %102, align 8, !range !10, !noundef !3
+  %622 = icmp ne i64 %621, -9223372036854775808
+  %623 = trunc nuw i8 %.6259 to i1
+  %or.cond3 = select i1 %622, i1 %623, i1 false
+  br i1 %or.cond3, label %642, label %.critedge
 
-628:                                              ; preds = %602
-  store i64 %604, ptr %76, align 8
+624:                                              ; preds = %598
+  store i64 %600, ptr %76, align 8
   store ptr %77, ptr %78, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8a0941390e01f928E", ptr %141, align 8
   store ptr %76, ptr %142, align 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %143, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %79, ptr nonnull align 8 @anon.56deb51d4300d1bb4711f96d6950176e.72, i64 3, ptr nonnull align 8 %78, i64 2)
-          to label %629 unwind label %617
+          to label %625 unwind label %613
+
+625:                                              ; preds = %624
+  %626 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %599, ptr nonnull align 8 %79)
+          to label %627 unwind label %613
+
+627:                                              ; preds = %625
+  br i1 %626, label %620, label %617
+
+628:                                              ; preds = %617
+  br i1 %618, label %620, label %629
 
 629:                                              ; preds = %628
-  %630 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %603, ptr nonnull align 8 %79)
-          to label %631 unwind label %617
-
-631:                                              ; preds = %629
-  br i1 %630, label %624, label %621
-
-632:                                              ; preds = %621
-  br i1 %622, label %624, label %633
-
-633:                                              ; preds = %632
-  %634 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
+  %630 = load ptr, ptr %134, align 8, !nonnull !3, !align !4, !noundef !3
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.52, ptr %75, align 8
   store i64 1, ptr %144, align 8
   store ptr null, ptr %145, align 8
   store ptr @anon.56deb51d4300d1bb4711f96d6950176e.3, ptr %146, align 8
   store i64 0, ptr %147, align 8
-  %635 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %634, ptr nonnull align 8 %75)
-          to label %636 unwind label %617
+  %631 = invoke zeroext i1 @_ZN4core3fmt5Write9write_fmt17h277fb150720e15c7E(ptr nonnull align 8 %630, ptr nonnull align 8 %75)
+          to label %632 unwind label %613
 
-636:                                              ; preds = %633
-  br i1 %635, label %624, label %637
+632:                                              ; preds = %629
+  br i1 %631, label %620, label %633
 
-637:                                              ; preds = %636
-  %638 = invoke zeroext i1 @"_ZN14cranelift_isle18StableSet$LT$T$GT$6insert17h1e2312ee2d4dce33E"(ptr nonnull align 8 %148, i16 %272)
-          to label %639 unwind label %617
+633:                                              ; preds = %632
+  %634 = invoke zeroext i1 @"_ZN14cranelift_isle18StableSet$LT$T$GT$6insert17h1e2312ee2d4dce33E"(ptr nonnull align 8 %148, i16 %272)
+          to label %635 unwind label %613
 
-639:                                              ; preds = %637
-  %640 = load i64, ptr %102, align 8, !range !10, !noundef !3
-  %641 = icmp ne i64 %640, -9223372036854775808
-  %642 = trunc nuw i8 %.5258 to i1
-  %or.cond = select i1 %641, i1 %642, i1 false
-  br i1 %or.cond, label %645, label %.backedge
+635:                                              ; preds = %633
+  %636 = load i64, ptr %102, align 8, !range !10, !noundef !3
+  %637 = icmp ne i64 %636, -9223372036854775808
+  %638 = trunc nuw i8 %.5258 to i1
+  %or.cond = select i1 %637, i1 %638, i1 false
+  br i1 %or.cond, label %641, label %.backedge
 
-.backedge:                                        ; preds = %639, %645
-  %643 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef9659f8d3ed28aE"(ptr nonnull align 8 %103)
-  %644 = icmp eq ptr %643, null
-  br i1 %644, label %._crit_edge, label %.lr.ph
+.backedge:                                        ; preds = %635, %641
+  %639 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef9659f8d3ed28aE"(ptr nonnull align 8 %103)
+  %640 = icmp eq ptr %639, null
+  br i1 %640, label %._crit_edge, label %.lr.ph
 
-645:                                              ; preds = %639
+641:                                              ; preds = %635
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %102)
   br label %.backedge
 
-646:                                              ; preds = %624
+642:                                              ; preds = %620
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %102)
   br label %.critedge
 
-647:                                              ; preds = %617
+643:                                              ; preds = %613
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hda2b5af0a5ba881fE"(ptr nonnull align 8 %102) #8
           to label %.thread406 unwind label %356
 }

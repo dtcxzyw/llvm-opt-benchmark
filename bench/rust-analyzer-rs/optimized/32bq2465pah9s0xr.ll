@@ -983,11 +983,11 @@ define hidden void @"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$
 10:                                               ; preds = %2
   %11 = load i64, ptr %1, align 8, !range !65, !noundef !9
   %.not10 = icmp eq i64 %11, 3
-  br i1 %.not10, label %50, label %13
+  br i1 %.not10, label %47, label %13
 
 12:                                               ; preds = %2
   store i64 3, ptr %0, align 8
-  br label %110
+  br label %104
 
 13:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !186)
@@ -1026,7 +1026,7 @@ define hidden void @"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$
     i64 2, label %32
   ]
 
-default.unreachable:                              ; preds = %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i15", %80, %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i", %"_ZN69_$LT$$LP$A$C$A$RP$$u20$as$u20$itertools..tuple_impl..TupleCollect$GT$15left_shift_push17h010038a1d22311a0E.exit"
+default.unreachable:                              ; preds = %77, %"_ZN69_$LT$$LP$A$C$A$RP$$u20$as$u20$itertools..tuple_impl..TupleCollect$GT$15left_shift_push17h010038a1d22311a0E.exit"
   unreachable
 
 28:                                               ; preds = %"_ZN69_$LT$$LP$A$C$A$RP$$u20$as$u20$itertools..tuple_impl..TupleCollect$GT$15left_shift_push17h010038a1d22311a0E.exit"
@@ -1053,60 +1053,47 @@ default.unreachable:                              ; preds = %"_ZN82_$LT$syntax..
 "_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i": ; preds = %32, %30, %28
   %34 = extractvalue { i32, i1 } %26, 0
   store i32 %34, ptr %24, align 4, !noalias !198
-  %.val2.i = load i64, ptr %14, align 8, !range !189, !alias.scope !193, !noalias !196, !noundef !9
   %.val3.i = load ptr, ptr %16, align 8, !alias.scope !193, !noalias !196, !nonnull !9, !noundef !9
   %35 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 48
   %36 = load i32, ptr %35, align 4, !noalias !198, !noundef !9
   %37 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %36, i32 1)
   %38 = extractvalue { i32, i1 } %37, 1
-  switch i64 %.val2.i, label %default.unreachable [
-    i64 0, label %39
-    i64 1, label %40
-    i64 2, label %41
-  ]
-
-39:                                               ; preds = %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i"
   br i1 %38, label %.invoke.i, label %_ZN4core5clone5Clone5clone17hca959a181882165aE.exit
 
-40:                                               ; preds = %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i"
-  br i1 %38, label %.invoke.i, label %_ZN4core5clone5Clone5clone17hca959a181882165aE.exit
-
-41:                                               ; preds = %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i"
-  br i1 %38, label %.invoke.i, label %_ZN4core5clone5Clone5clone17hca959a181882165aE.exit
-
-.invoke.i:                                        ; preds = %41, %40, %39
+.invoke.i:                                        ; preds = %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i"
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #39
-          to label %.cont.i unwind label %42, !noalias !198
+          to label %.cont.i unwind label %39, !noalias !198
 
 .cont.i:                                          ; preds = %.invoke.i
   unreachable
 
-42:                                               ; preds = %.invoke.i
-  %43 = landingpad { ptr, i32 }
+39:                                               ; preds = %.invoke.i
+  %40 = landingpad { ptr, i32 }
           cleanup
-  %44 = load i32, ptr %24, align 4, !noalias !198, !noundef !9
-  %45 = add i32 %44, -1
-  store i32 %45, ptr %24, align 4, !noalias !198
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i12", label %common.resume
+  %41 = load i32, ptr %24, align 4, !noalias !198, !noundef !9
+  %42 = add i32 %41, -1
+  store i32 %42, ptr %24, align 4, !noalias !198
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i12", label %common.resume
 
-"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i12": ; preds = %42
+"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i12": ; preds = %39
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val1.i)
-          to label %common.resume unwind label %47, !noalias !198
+          to label %common.resume unwind label %44, !noalias !198
 
-47:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i12"
-  %48 = landingpad { ptr, i32 }
+44:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i12"
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37, !noalias !198
   unreachable
 
-common.resume:                                    ; preds = %102, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i20", %42, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i12", %.body
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %43, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i12" ], [ %43, %42 ], [ %103, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i20" ], [ %103, %102 ]
+common.resume:                                    ; preds = %95, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i20", %39, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i12", %.body
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %40, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i12" ], [ %40, %39 ], [ %96, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i20" ], [ %96, %95 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN4core5clone5Clone5clone17hca959a181882165aE.exit: ; preds = %39, %40, %41
-  %49 = extractvalue { i32, i1 } %37, 0
-  store i32 %49, ptr %35, align 4, !noalias !198
+_ZN4core5clone5Clone5clone17hca959a181882165aE.exit: ; preds = %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i"
+  %.val2.i = load i64, ptr %14, align 8, !range !189, !alias.scope !193, !noalias !196, !noundef !9
+  %46 = extractvalue { i32, i1 } %37, 0
+  store i32 %46, ptr %35, align 4, !noalias !198
   store i64 %.val.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val1.i, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1114,193 +1101,180 @@ _ZN4core5clone5Clone5clone17hca959a181882165aE.exit: ; preds = %39, %40, %41
   store i64 %.val2.i, ptr %.sroa.526.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.val3.i, ptr %.sroa.6.0..sroa_idx, align 8
-  br label %110
+  br label %104
 
-50:                                               ; preds = %10
+47:                                               ; preds = %10
   store i64 %7, ptr %4, align 8, !alias.scope !199, !noalias !202
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %8, ptr %51, align 8, !alias.scope !199, !noalias !202
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %5, ptr %52, align 8, !alias.scope !199, !noalias !202
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %8, ptr %48, align 8, !alias.scope !199, !noalias !202
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %5, ptr %49, align 8, !alias.scope !199, !noalias !202
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN69_$LT$$LP$A$C$A$RP$$u20$as$u20$itertools..tuple_impl..TupleCollect$GT$24collect_from_iter_no_buf17h272a2a6369eabdeeE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
-  %53 = load i64, ptr %1, align 8, !range !65, !alias.scope !204, !noundef !9
-  %54 = icmp eq i64 %53, 3
-  br i1 %54, label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..GenericParam$C$syntax..ast..generated..nodes..GenericParam$RP$$GT$$GT$17h74478014d3f0e208E.exit", label %55
+  %50 = load i64, ptr %1, align 8, !range !65, !alias.scope !204, !noundef !9
+  %51 = icmp eq i64 %50, 3
+  br i1 %51, label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..GenericParam$C$syntax..ast..generated..nodes..GenericParam$RP$$GT$$GT$17h74478014d3f0e208E.exit", label %52
 
-55:                                               ; preds = %50
+52:                                               ; preds = %47
   tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val1.i.i = load ptr, ptr %56, align 8, !alias.scope !210, !nonnull !9, !noundef !9
-  %57 = getelementptr inbounds nuw i8, ptr %.val1.i.i, i64 48
-  %58 = load i32, ptr %57, align 4, !noalias !210, !noundef !9
-  %59 = add i32 %58, -1
-  store i32 %59, ptr %57, align 4, !noalias !210
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i.i", label %"_ZN4core3ptr64drop_in_place$LT$syntax..ast..generated..nodes..GenericParam$GT$17h6fc621f2ea1710c8E.exit.i.i"
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val1.i.i = load ptr, ptr %53, align 8, !alias.scope !210, !nonnull !9, !noundef !9
+  %54 = getelementptr inbounds nuw i8, ptr %.val1.i.i, i64 48
+  %55 = load i32, ptr %54, align 4, !noalias !210, !noundef !9
+  %56 = add i32 %55, -1
+  store i32 %56, ptr %54, align 4, !noalias !210
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i.i", label %"_ZN4core3ptr64drop_in_place$LT$syntax..ast..generated..nodes..GenericParam$GT$17h6fc621f2ea1710c8E.exit.i.i"
 
-"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i.i": ; preds = %55
+"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i.i": ; preds = %52
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val1.i.i)
-          to label %"_ZN4core3ptr64drop_in_place$LT$syntax..ast..generated..nodes..GenericParam$GT$17h6fc621f2ea1710c8E.exit.i.i" unwind label %61, !noalias !210
+          to label %"_ZN4core3ptr64drop_in_place$LT$syntax..ast..generated..nodes..GenericParam$GT$17h6fc621f2ea1710c8E.exit.i.i" unwind label %58, !noalias !210
 
-61:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i.i"
-  %62 = landingpad { ptr, i32 }
+58:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i.i"
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val3.i.i = load ptr, ptr %63, align 8, !alias.scope !210, !nonnull !9, !noundef !9
-  %64 = getelementptr inbounds nuw i8, ptr %.val3.i.i, i64 48
-  %65 = load i32, ptr %64, align 4, !noalias !210, !noundef !9
-  %66 = add i32 %65, -1
-  store i32 %66, ptr %64, align 4, !noalias !210
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i6.i.i", label %.body
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val3.i.i = load ptr, ptr %60, align 8, !alias.scope !210, !nonnull !9, !noundef !9
+  %61 = getelementptr inbounds nuw i8, ptr %.val3.i.i, i64 48
+  %62 = load i32, ptr %61, align 4, !noalias !210, !noundef !9
+  %63 = add i32 %62, -1
+  store i32 %63, ptr %61, align 4, !noalias !210
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i6.i.i", label %.body
 
-"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i6.i.i": ; preds = %61
+"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i6.i.i": ; preds = %58
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val3.i.i)
-          to label %.body unwind label %73, !noalias !210
+          to label %.body unwind label %70, !noalias !210
 
-"_ZN4core3ptr64drop_in_place$LT$syntax..ast..generated..nodes..GenericParam$GT$17h6fc621f2ea1710c8E.exit.i.i": ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i.i", %55
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val5.i.i = load ptr, ptr %68, align 8, !alias.scope !210, !nonnull !9, !noundef !9
-  %69 = getelementptr inbounds nuw i8, ptr %.val5.i.i, i64 48
-  %70 = load i32, ptr %69, align 4, !noalias !210, !noundef !9
-  %71 = add i32 %70, -1
-  store i32 %71, ptr %69, align 4, !noalias !210
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i9.i.i", label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..GenericParam$C$syntax..ast..generated..nodes..GenericParam$RP$$GT$$GT$17h74478014d3f0e208E.exit"
+"_ZN4core3ptr64drop_in_place$LT$syntax..ast..generated..nodes..GenericParam$GT$17h6fc621f2ea1710c8E.exit.i.i": ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i.i", %52
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val5.i.i = load ptr, ptr %65, align 8, !alias.scope !210, !nonnull !9, !noundef !9
+  %66 = getelementptr inbounds nuw i8, ptr %.val5.i.i, i64 48
+  %67 = load i32, ptr %66, align 4, !noalias !210, !noundef !9
+  %68 = add i32 %67, -1
+  store i32 %68, ptr %66, align 4, !noalias !210
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i9.i.i", label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..GenericParam$C$syntax..ast..generated..nodes..GenericParam$RP$$GT$$GT$17h74478014d3f0e208E.exit"
 
 "_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i9.i.i": ; preds = %"_ZN4core3ptr64drop_in_place$LT$syntax..ast..generated..nodes..GenericParam$GT$17h6fc621f2ea1710c8E.exit.i.i"
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val5.i.i)
-          to label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..GenericParam$C$syntax..ast..generated..nodes..GenericParam$RP$$GT$$GT$17h74478014d3f0e208E.exit" unwind label %75
+          to label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..GenericParam$C$syntax..ast..generated..nodes..GenericParam$RP$$GT$$GT$17h74478014d3f0e208E.exit" unwind label %72
 
-73:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i6.i.i"
-  %74 = landingpad { ptr, i32 }
+70:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i6.i.i"
+  %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37, !noalias !210
   unreachable
 
-75:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i9.i.i"
-  %76 = landingpad { ptr, i32 }
+72:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i9.i.i"
+  %73 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %61, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i6.i.i", %75
-  %eh.lpad-body = phi { ptr, i32 } [ %76, %75 ], [ %62, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i6.i.i" ], [ %62, %61 ]
+.body:                                            ; preds = %58, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i6.i.i", %72
+  %eh.lpad-body = phi { ptr, i32 } [ %73, %72 ], [ %59, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i6.i.i" ], [ %59, %58 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %common.resume
 
-"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..GenericParam$C$syntax..ast..generated..nodes..GenericParam$RP$$GT$$GT$17h74478014d3f0e208E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$syntax..ast..generated..nodes..GenericParam$GT$17h6fc621f2ea1710c8E.exit.i.i", %50, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i9.i.i"
+"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..GenericParam$C$syntax..ast..generated..nodes..GenericParam$RP$$GT$$GT$17h74478014d3f0e208E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$syntax..ast..generated..nodes..GenericParam$GT$17h6fc621f2ea1710c8E.exit.i.i", %47, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i9.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %77 = load i64, ptr %1, align 8, !range !65, !noundef !9
-  %78 = icmp eq i64 %77, 3
-  br i1 %78, label %79, label %80
+  %74 = load i64, ptr %1, align 8, !range !65, !noundef !9
+  %75 = icmp eq i64 %74, 3
+  br i1 %75, label %76, label %77
 
-79:                                               ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..GenericParam$C$syntax..ast..generated..nodes..GenericParam$RP$$GT$$GT$17h74478014d3f0e208E.exit"
+76:                                               ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..GenericParam$C$syntax..ast..generated..nodes..GenericParam$RP$$GT$$GT$17h74478014d3f0e208E.exit"
   store i64 3, ptr %0, align 8
-  br label %110
+  br label %104
 
-80:                                               ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..GenericParam$C$syntax..ast..generated..nodes..GenericParam$RP$$GT$$GT$17h74478014d3f0e208E.exit"
+77:                                               ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$$LP$syntax..ast..generated..nodes..GenericParam$C$syntax..ast..generated..nodes..GenericParam$RP$$GT$$GT$17h74478014d3f0e208E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val1.i14 = load ptr, ptr %81, align 8, !alias.scope !211, !noalias !214, !nonnull !9, !noundef !9
-  %82 = getelementptr inbounds nuw i8, ptr %.val1.i14, i64 48
-  %83 = load i32, ptr %82, align 4, !noalias !216, !noundef !9
-  %84 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %83, i32 1)
-  %85 = extractvalue { i32, i1 } %84, 1
-  switch i64 %77, label %default.unreachable [
-    i64 0, label %86
-    i64 1, label %88
-    i64 2, label %90
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val1.i14 = load ptr, ptr %78, align 8, !alias.scope !211, !noalias !214, !nonnull !9, !noundef !9
+  %79 = getelementptr inbounds nuw i8, ptr %.val1.i14, i64 48
+  %80 = load i32, ptr %79, align 4, !noalias !216, !noundef !9
+  %81 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %80, i32 1)
+  %82 = extractvalue { i32, i1 } %81, 1
+  switch i64 %74, label %default.unreachable [
+    i64 0, label %83
+    i64 1, label %85
+    i64 2, label %87
   ]
 
-86:                                               ; preds = %80
-  br i1 %85, label %87, label %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i15"
+83:                                               ; preds = %77
+  br i1 %82, label %84, label %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i15"
 
-87:                                               ; preds = %86
+84:                                               ; preds = %83
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #39, !noalias !216
   unreachable
 
-88:                                               ; preds = %80
-  br i1 %85, label %89, label %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i15"
+85:                                               ; preds = %77
+  br i1 %82, label %86, label %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i15"
 
-89:                                               ; preds = %88
+86:                                               ; preds = %85
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #39, !noalias !216
   unreachable
 
-90:                                               ; preds = %80
-  br i1 %85, label %91, label %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i15"
+87:                                               ; preds = %77
+  br i1 %82, label %88, label %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i15"
 
-91:                                               ; preds = %90
+88:                                               ; preds = %87
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #39, !noalias !216
   unreachable
 
-"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i15": ; preds = %90, %88, %86
-  %92 = extractvalue { i32, i1 } %84, 0
-  store i32 %92, ptr %82, align 4, !noalias !216
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val2.i16 = load i64, ptr %93, align 8, !range !189, !alias.scope !211, !noalias !214, !noundef !9
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val3.i17 = load ptr, ptr %94, align 8, !alias.scope !211, !noalias !214, !nonnull !9, !noundef !9
-  %95 = getelementptr inbounds nuw i8, ptr %.val3.i17, i64 48
-  %96 = load i32, ptr %95, align 4, !noalias !216, !noundef !9
-  %97 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %96, i32 1)
-  %98 = extractvalue { i32, i1 } %97, 1
-  switch i64 %.val2.i16, label %default.unreachable [
-    i64 0, label %99
-    i64 1, label %100
-    i64 2, label %101
-  ]
+"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i15": ; preds = %87, %85, %83
+  %89 = extractvalue { i32, i1 } %81, 0
+  store i32 %89, ptr %79, align 4, !noalias !216
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val3.i16 = load ptr, ptr %90, align 8, !alias.scope !211, !noalias !214, !nonnull !9, !noundef !9
+  %91 = getelementptr inbounds nuw i8, ptr %.val3.i16, i64 48
+  %92 = load i32, ptr %91, align 4, !noalias !216, !noundef !9
+  %93 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %92, i32 1)
+  %94 = extractvalue { i32, i1 } %93, 1
+  br i1 %94, label %.invoke.i18, label %_ZN4core5clone5Clone5clone17hca959a181882165aE.exit23
 
-99:                                               ; preds = %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i15"
-  br i1 %98, label %.invoke.i18, label %_ZN4core5clone5Clone5clone17hca959a181882165aE.exit23
-
-100:                                              ; preds = %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i15"
-  br i1 %98, label %.invoke.i18, label %_ZN4core5clone5Clone5clone17hca959a181882165aE.exit23
-
-101:                                              ; preds = %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i15"
-  br i1 %98, label %.invoke.i18, label %_ZN4core5clone5Clone5clone17hca959a181882165aE.exit23
-
-.invoke.i18:                                      ; preds = %101, %100, %99
+.invoke.i18:                                      ; preds = %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i15"
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #39
-          to label %.cont.i21 unwind label %102, !noalias !216
+          to label %.cont.i21 unwind label %95, !noalias !216
 
 .cont.i21:                                        ; preds = %.invoke.i18
   unreachable
 
-102:                                              ; preds = %.invoke.i18
-  %103 = landingpad { ptr, i32 }
+95:                                               ; preds = %.invoke.i18
+  %96 = landingpad { ptr, i32 }
           cleanup
-  %104 = load i32, ptr %82, align 4, !noalias !216, !noundef !9
-  %105 = add i32 %104, -1
-  store i32 %105, ptr %82, align 4, !noalias !216
-  %106 = icmp eq i32 %105, 0
-  br i1 %106, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i20", label %common.resume
+  %97 = load i32, ptr %79, align 4, !noalias !216, !noundef !9
+  %98 = add i32 %97, -1
+  store i32 %98, ptr %79, align 4, !noalias !216
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i20", label %common.resume
 
-"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i20": ; preds = %102
+"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i20": ; preds = %95
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val1.i14)
-          to label %common.resume unwind label %107, !noalias !216
+          to label %common.resume unwind label %100, !noalias !216
 
-107:                                              ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i20"
-  %108 = landingpad { ptr, i32 }
+100:                                              ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TypeParam$GT$17hd270c29d352cf424E.exit.sink.split.i.i20"
+  %101 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37, !noalias !216
   unreachable
 
-_ZN4core5clone5Clone5clone17hca959a181882165aE.exit23: ; preds = %99, %100, %101
-  %109 = extractvalue { i32, i1 } %97, 0
-  store i32 %109, ptr %95, align 4, !noalias !216
-  store i64 %77, ptr %0, align 8
+_ZN4core5clone5Clone5clone17hca959a181882165aE.exit23: ; preds = %"_ZN82_$LT$syntax..ast..generated..nodes..GenericParam$u20$as$u20$core..clone..Clone$GT$5clone17h1b3e2fa9b32e0cc7E.exit.i15"
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val2.i17 = load i64, ptr %102, align 8, !range !189, !alias.scope !211, !noalias !214, !noundef !9
+  %103 = extractvalue { i32, i1 } %93, 0
+  store i32 %103, ptr %91, align 4, !noalias !216
+  store i64 %74, ptr %0, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val1.i14, ptr %.sroa.428.0..sroa_idx, align 8
   %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.val2.i16, ptr %.sroa.529.0..sroa_idx, align 8
+  store i64 %.val2.i17, ptr %.sroa.529.0..sroa_idx, align 8
   %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.val3.i17, ptr %.sroa.630.0..sroa_idx, align 8
-  br label %110
+  store ptr %.val3.i16, ptr %.sroa.630.0..sroa_idx, align 8
+  br label %104
 
-110:                                              ; preds = %12, %_ZN4core5clone5Clone5clone17hca959a181882165aE.exit, %_ZN4core5clone5Clone5clone17hca959a181882165aE.exit23, %79
+104:                                              ; preds = %12, %_ZN4core5clone5Clone5clone17hca959a181882165aE.exit, %_ZN4core5clone5Clone5clone17hca959a181882165aE.exit23, %76
   ret void
 }
 
@@ -14107,7 +14081,7 @@ define internal fastcc void @_ZN4core5clone5Clone5clone17h61aa8f42f99c59feE(ptr 
     i64 3, label %14
   ]
 
-default.unreachable:                              ; preds = %"_ZN80_$LT$syntax..ast..generated..nodes..GenericArg$u20$as$u20$core..clone..Clone$GT$5clone17h64992b36474f7201E.exit", %2
+default.unreachable:                              ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -14144,70 +14118,53 @@ default.unreachable:                              ; preds = %"_ZN80_$LT$syntax..
   store i64 %.val, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val1, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val2 = load i64, ptr %18, align 8, !range !65, !noundef !9
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val3 = load ptr, ptr %19, align 8, !nonnull !9, !noundef !9
-  %20 = getelementptr inbounds nuw i8, ptr %.val3, i64 48
-  %21 = load i32, ptr %20, align 4, !noundef !9
-  %22 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %21, i32 1)
-  %23 = extractvalue { i32, i1 } %22, 1
-  switch i64 %.val2, label %default.unreachable [
-    i64 0, label %24
-    i64 1, label %25
-    i64 2, label %26
-    i64 3, label %27
-  ]
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val3 = load ptr, ptr %18, align 8, !nonnull !9, !noundef !9
+  %19 = getelementptr inbounds nuw i8, ptr %.val3, i64 48
+  %20 = load i32, ptr %19, align 4, !noundef !9
+  %21 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %20, i32 1)
+  %22 = extractvalue { i32, i1 } %21, 1
+  br i1 %22, label %.invoke, label %28
 
-24:                                               ; preds = %"_ZN80_$LT$syntax..ast..generated..nodes..GenericArg$u20$as$u20$core..clone..Clone$GT$5clone17h64992b36474f7201E.exit"
-  br i1 %23, label %.invoke, label %33
-
-25:                                               ; preds = %"_ZN80_$LT$syntax..ast..generated..nodes..GenericArg$u20$as$u20$core..clone..Clone$GT$5clone17h64992b36474f7201E.exit"
-  br i1 %23, label %.invoke, label %33
-
-26:                                               ; preds = %"_ZN80_$LT$syntax..ast..generated..nodes..GenericArg$u20$as$u20$core..clone..Clone$GT$5clone17h64992b36474f7201E.exit"
-  br i1 %23, label %.invoke, label %33
-
-27:                                               ; preds = %"_ZN80_$LT$syntax..ast..generated..nodes..GenericArg$u20$as$u20$core..clone..Clone$GT$5clone17h64992b36474f7201E.exit"
-  br i1 %23, label %.invoke, label %33
-
-.invoke:                                          ; preds = %27, %26, %25, %24
+.invoke:                                          ; preds = %"_ZN80_$LT$syntax..ast..generated..nodes..GenericArg$u20$as$u20$core..clone..Clone$GT$5clone17h64992b36474f7201E.exit"
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #39
-          to label %.cont unwind label %28
+          to label %.cont unwind label %23
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-28:                                               ; preds = %.invoke
-  %29 = landingpad { ptr, i32 }
+23:                                               ; preds = %.invoke
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %30 = load i32, ptr %4, align 4, !noalias !9, !noundef !9
-  %31 = add i32 %30, -1
-  store i32 %31, ptr %4, align 4, !noalias !9
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..TypeArg$GT$17h069ce5b8953a7d58E.exit.sink.split.i", label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..GenericArg$GT$17h76055b39366ba9e0E.exit"
+  %25 = load i32, ptr %4, align 4, !noalias !9, !noundef !9
+  %26 = add i32 %25, -1
+  store i32 %26, ptr %4, align 4, !noalias !9
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..TypeArg$GT$17h069ce5b8953a7d58E.exit.sink.split.i", label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..GenericArg$GT$17h76055b39366ba9e0E.exit"
 
-"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..TypeArg$GT$17h069ce5b8953a7d58E.exit.sink.split.i": ; preds = %28
+"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..TypeArg$GT$17h069ce5b8953a7d58E.exit.sink.split.i": ; preds = %23
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val1)
-          to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..GenericArg$GT$17h76055b39366ba9e0E.exit" unwind label %37
+          to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..GenericArg$GT$17h76055b39366ba9e0E.exit" unwind label %33
 
-33:                                               ; preds = %27, %26, %25, %24
-  %34 = extractvalue { i32, i1 } %22, 0
-  store i32 %34, ptr %20, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.val2, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.val3, ptr %36, align 8
+28:                                               ; preds = %"_ZN80_$LT$syntax..ast..generated..nodes..GenericArg$u20$as$u20$core..clone..Clone$GT$5clone17h64992b36474f7201E.exit"
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val2 = load i64, ptr %29, align 8, !range !65, !noundef !9
+  %30 = extractvalue { i32, i1 } %21, 0
+  store i32 %30, ptr %19, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.val2, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.val3, ptr %32, align 8
   ret void
 
-37:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..TypeArg$GT$17h069ce5b8953a7d58E.exit.sink.split.i"
-  %38 = landingpad { ptr, i32 }
+33:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..TypeArg$GT$17h069ce5b8953a7d58E.exit.sink.split.i"
+  %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..GenericArg$GT$17h76055b39366ba9e0E.exit": ; preds = %28, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..TypeArg$GT$17h069ce5b8953a7d58E.exit.sink.split.i"
-  resume { ptr, i32 } %29
+"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..GenericArg$GT$17h76055b39366ba9e0E.exit": ; preds = %23, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..TypeArg$GT$17h069ce5b8953a7d58E.exit.sink.split.i"
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable

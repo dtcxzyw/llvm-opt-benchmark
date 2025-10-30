@@ -23032,14 +23032,14 @@ define void @_ZN12polars_arrow2io3ipc5write9serialize5write17h47343177e75c8ab5E(
     i8 12, label %157
     i8 13, label %169
     i8 14, label %181
-    i8 15, label %182
-    i8 16, label %194
+    i8 15, label %191
+    i8 16, label %203
   ]
 
 34:                                               ; preds = %181, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
   unreachable
 
-35:                                               ; preds = %540, %543, %546, %549, %552, %555, %558, %561, %564, %569, %567, %430, %428, %426, %424, %422, %420, %411, %402, %393, %391, %382, %359, %206, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
+35:                                               ; preds = %468, %471, %474, %477, %480, %483, %486, %489, %492, %497, %495, %439, %437, %435, %433, %431, %429, %420, %411, %402, %400, %391, %368, %215, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
   ret void
 
 36:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
@@ -23056,24 +23056,24 @@ define void @_ZN12polars_arrow2io3ipc5write9serialize5write17h47343177e75c8ab5E(
   %46 = extractvalue { i64, i64 } %43, 1
   %47 = icmp ne i64 %46, 6984851860647661607
   %.sroa.0.0.i.not = select i1 %45, i1 true, i1 %47
-  br i1 %.sroa.0.0.i.not, label %207, label %206, !prof !474
+  br i1 %.sroa.0.0.i.not, label %216, label %215, !prof !474
 
 48:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 %33, ptr %11, align 1
-  switch i8 %33, label %208 [
-    i8 0, label %213
-    i8 1, label %225
-    i8 2, label %237
-    i8 3, label %249
-    i8 4, label %261
-    i8 6, label %273
-    i8 7, label %285
-    i8 8, label %297
-    i8 9, label %309
-    i8 11, label %321
-    i8 12, label %333
-    i8 13, label %345
+  switch i8 %33, label %217 [
+    i8 0, label %222
+    i8 1, label %234
+    i8 2, label %246
+    i8 3, label %258
+    i8 4, label %270
+    i8 6, label %282
+    i8 7, label %294
+    i8 8, label %306
+    i8 9, label %318
+    i8 11, label %330
+    i8 12, label %342
+    i8 13, label %354
   ], !prof !4227
 
 49:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
@@ -23090,7 +23090,7 @@ define void @_ZN12polars_arrow2io3ipc5write9serialize5write17h47343177e75c8ab5E(
   %59 = extractvalue { i64, i64 } %56, 1
   %60 = icmp ne i64 %59, 1761299767984946403
   %.sroa.0.0.i190.not = select i1 %58, i1 true, i1 %60
-  br i1 %.sroa.0.0.i190.not, label %390, label %382, !prof !474
+  br i1 %.sroa.0.0.i190.not, label %399, label %391, !prof !474
 
 61:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23106,7 +23106,7 @@ define void @_ZN12polars_arrow2io3ipc5write9serialize5write17h47343177e75c8ab5E(
   %71 = extractvalue { i64, i64 } %68, 1
   %72 = icmp ne i64 %71, -4953751849895023436
   %.sroa.0.0.i191.not = select i1 %70, i1 true, i1 %72
-  br i1 %.sroa.0.0.i191.not, label %392, label %391, !prof !474
+  br i1 %.sroa.0.0.i191.not, label %401, label %400, !prof !474
 
 73:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23122,7 +23122,7 @@ define void @_ZN12polars_arrow2io3ipc5write9serialize5write17h47343177e75c8ab5E(
   %83 = extractvalue { i64, i64 } %80, 1
   %84 = icmp ne i64 %83, 5666521950768639164
   %.sroa.0.0.i192.not = select i1 %82, i1 true, i1 %84
-  br i1 %.sroa.0.0.i192.not, label %401, label %393, !prof !474
+  br i1 %.sroa.0.0.i192.not, label %410, label %402, !prof !474
 
 85:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23138,7 +23138,7 @@ define void @_ZN12polars_arrow2io3ipc5write9serialize5write17h47343177e75c8ab5E(
   %95 = extractvalue { i64, i64 } %92, 1
   %96 = icmp ne i64 %95, -2431153680986591934
   %.sroa.0.0.i193.not = select i1 %94, i1 true, i1 %96
-  br i1 %.sroa.0.0.i193.not, label %410, label %402, !prof !474
+  br i1 %.sroa.0.0.i193.not, label %419, label %411, !prof !474
 
 97:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23154,7 +23154,7 @@ define void @_ZN12polars_arrow2io3ipc5write9serialize5write17h47343177e75c8ab5E(
   %107 = extractvalue { i64, i64 } %104, 1
   %108 = icmp ne i64 %107, 8901751938577251091
   %.sroa.0.0.i194.not = select i1 %106, i1 true, i1 %108
-  br i1 %.sroa.0.0.i194.not, label %419, label %411, !prof !474
+  br i1 %.sroa.0.0.i194.not, label %428, label %420, !prof !474
 
 109:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23170,7 +23170,7 @@ define void @_ZN12polars_arrow2io3ipc5write9serialize5write17h47343177e75c8ab5E(
   %119 = extractvalue { i64, i64 } %116, 1
   %120 = icmp ne i64 %119, -7856419302706516822
   %.sroa.0.0.i195.not = select i1 %118, i1 true, i1 %120
-  br i1 %.sroa.0.0.i195.not, label %421, label %420, !prof !474
+  br i1 %.sroa.0.0.i195.not, label %430, label %429, !prof !474
 
 121:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23186,7 +23186,7 @@ define void @_ZN12polars_arrow2io3ipc5write9serialize5write17h47343177e75c8ab5E(
   %131 = extractvalue { i64, i64 } %128, 1
   %132 = icmp ne i64 %131, 7812553468775375572
   %.sroa.0.0.i196.not = select i1 %130, i1 true, i1 %132
-  br i1 %.sroa.0.0.i196.not, label %423, label %422, !prof !474
+  br i1 %.sroa.0.0.i196.not, label %432, label %431, !prof !474
 
 133:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23202,7 +23202,7 @@ define void @_ZN12polars_arrow2io3ipc5write9serialize5write17h47343177e75c8ab5E(
   %143 = extractvalue { i64, i64 } %140, 1
   %144 = icmp ne i64 %143, -3530592277402597310
   %.sroa.0.0.i197.not = select i1 %142, i1 true, i1 %144
-  br i1 %.sroa.0.0.i197.not, label %425, label %424, !prof !474
+  br i1 %.sroa.0.0.i197.not, label %434, label %433, !prof !474
 
 145:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23218,7 +23218,7 @@ define void @_ZN12polars_arrow2io3ipc5write9serialize5write17h47343177e75c8ab5E(
   %155 = extractvalue { i64, i64 } %152, 1
   %156 = icmp ne i64 %155, 1926123703779822909
   %.sroa.0.0.i198.not = select i1 %154, i1 true, i1 %156
-  br i1 %.sroa.0.0.i198.not, label %427, label %426, !prof !474
+  br i1 %.sroa.0.0.i198.not, label %436, label %435, !prof !474
 
 157:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23234,7 +23234,7 @@ define void @_ZN12polars_arrow2io3ipc5write9serialize5write17h47343177e75c8ab5E(
   %167 = extractvalue { i64, i64 } %164, 1
   %168 = icmp ne i64 %167, -9040329479519865417
   %.sroa.0.0.i199.not = select i1 %166, i1 true, i1 %168
-  br i1 %.sroa.0.0.i199.not, label %429, label %428, !prof !474
+  br i1 %.sroa.0.0.i199.not, label %438, label %437, !prof !474
 
 169:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23250,724 +23250,644 @@ define void @_ZN12polars_arrow2io3ipc5write9serialize5write17h47343177e75c8ab5E(
   %179 = extractvalue { i64, i64 } %176, 1
   %180 = icmp ne i64 %179, 2826279763639338891
   %.sroa.0.0.i200.not = select i1 %178, i1 true, i1 %180
-  br i1 %.sroa.0.0.i200.not, label %431, label %430, !prof !474
+  br i1 %.sroa.0.0.i200.not, label %440, label %439, !prof !474
 
 181:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %183 = load ptr, ptr %182, align 8, !invariant.load !12, !nonnull !12
+  %184 = tail call { ptr, ptr } %183(ptr noundef nonnull align 1 %0)
+  %185 = extractvalue { ptr, ptr } %184, 0
+  %186 = extractvalue { ptr, ptr } %184, 1
+  %187 = getelementptr i8, ptr %186, i64 24
+  %.val181 = load ptr, ptr %187, align 8
+  %188 = tail call { i64, i64 } %.val181(ptr noundef nonnull align 1 %185)
+  %189 = extractvalue { i64, i64 } %188, 0
+  %190 = extractvalue { i64, i64 } %188, 1
   switch i8 %33, label %34 [
-    i8 0, label %432
+    i8 0, label %441
     i8 1, label %444
-    i8 2, label %456
-    i8 3, label %468
-    i8 4, label %480
-    i8 5, label %492
-    i8 6, label %504
-    i8 7, label %516
-    i8 8, label %528
+    i8 2, label %447
+    i8 3, label %450
+    i8 4, label %453
+    i8 5, label %456
+    i8 6, label %459
+    i8 7, label %462
+    i8 8, label %465
   ]
 
-182:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %184 = load ptr, ptr %183, align 8, !invariant.load !12, !nonnull !12
-  %185 = tail call { ptr, ptr } %184(ptr noundef nonnull align 1 %0)
-  %186 = extractvalue { ptr, ptr } %185, 0
-  %187 = extractvalue { ptr, ptr } %185, 1
-  %188 = getelementptr i8, ptr %187, i64 24
-  %.val167 = load ptr, ptr %188, align 8
-  %189 = tail call { i64, i64 } %.val167(ptr noundef nonnull align 1 %186)
-  %190 = extractvalue { i64, i64 } %189, 0
-  %191 = icmp ne i64 %190, -5133974785058079944
-  %192 = extractvalue { i64, i64 } %189, 1
-  %193 = icmp ne i64 %192, -2115088211549721928
-  %.sroa.0.0.i201.not = select i1 %191, i1 true, i1 %193
-  br i1 %.sroa.0.0.i201.not, label %568, label %567, !prof !474
+191:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %193 = load ptr, ptr %192, align 8, !invariant.load !12, !nonnull !12
+  %194 = tail call { ptr, ptr } %193(ptr noundef nonnull align 1 %0)
+  %195 = extractvalue { ptr, ptr } %194, 0
+  %196 = extractvalue { ptr, ptr } %194, 1
+  %197 = getelementptr i8, ptr %196, i64 24
+  %.val167 = load ptr, ptr %197, align 8
+  %198 = tail call { i64, i64 } %.val167(ptr noundef nonnull align 1 %195)
+  %199 = extractvalue { i64, i64 } %198, 0
+  %200 = icmp ne i64 %199, -5133974785058079944
+  %201 = extractvalue { i64, i64 } %198, 1
+  %202 = icmp ne i64 %201, -2115088211549721928
+  %.sroa.0.0.i201.not = select i1 %200, i1 true, i1 %202
+  br i1 %.sroa.0.0.i201.not, label %496, label %495, !prof !474
 
-194:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
-  %195 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %196 = load ptr, ptr %195, align 8, !invariant.load !12, !nonnull !12
-  %197 = tail call { ptr, ptr } %196(ptr noundef nonnull align 1 %0)
-  %198 = extractvalue { ptr, ptr } %197, 0
-  %199 = extractvalue { ptr, ptr } %197, 1
-  %200 = getelementptr i8, ptr %199, i64 24
-  %.val168 = load ptr, ptr %200, align 8
-  %201 = tail call { i64, i64 } %.val168(ptr noundef nonnull align 1 %198)
-  %202 = extractvalue { i64, i64 } %201, 0
-  %203 = icmp ne i64 %202, -4691702406351074806
-  %204 = extractvalue { i64, i64 } %201, 1
-  %205 = icmp ne i64 %204, -766443083152007247
-  %.sroa.0.0.i202.not = select i1 %203, i1 true, i1 %205
-  br i1 %.sroa.0.0.i202.not, label %570, label %569, !prof !474
+203:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h526a3b912b155ba0E.exit"
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %205 = load ptr, ptr %204, align 8, !invariant.load !12, !nonnull !12
+  %206 = tail call { ptr, ptr } %205(ptr noundef nonnull align 1 %0)
+  %207 = extractvalue { ptr, ptr } %206, 0
+  %208 = extractvalue { ptr, ptr } %206, 1
+  %209 = getelementptr i8, ptr %208, i64 24
+  %.val168 = load ptr, ptr %209, align 8
+  %210 = tail call { i64, i64 } %.val168(ptr noundef nonnull align 1 %207)
+  %211 = extractvalue { i64, i64 } %210, 0
+  %212 = icmp ne i64 %211, -4691702406351074806
+  %213 = extractvalue { i64, i64 } %210, 1
+  %214 = icmp ne i64 %213, -766443083152007247
+  %.sroa.0.0.i202.not = select i1 %212, i1 true, i1 %214
+  br i1 %.sroa.0.0.i202.not, label %498, label %497, !prof !474
 
-206:                                              ; preds = %36
+215:                                              ; preds = %36
   tail call void @_ZN12polars_arrow2io3ipc5write9serialize7boolean13write_boolean17hf833dfec38c50b0fE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
   br label %35
 
-207:                                              ; preds = %36
+216:                                              ; preds = %36
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.129) #19
   unreachable
 
-208:                                              ; preds = %48
+217:                                              ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %11, ptr %9, align 8
   %.sroa.475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @"_ZN71_$LT$polars_arrow..types..PrimitiveType$u20$as$u20$core..fmt..Debug$GT$3fmt17h1def0982e06d9741E", ptr %.sroa.475.0..sroa_idx, align 8
   store ptr @anon.7ebc3c1257a1d6ee10e2417903f46504.133, ptr %10, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 2, ptr %209, align 8
-  %210 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr null, ptr %210, align 8
-  %211 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %9, ptr %211, align 8
-  %212 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 1, ptr %212, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 2, ptr %218, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store ptr null, ptr %219, align 8
+  %220 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %9, ptr %220, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i64 1, ptr %221, align 8
   call void @_ZN4core9panicking9panic_fmt17hba2a7e099ecca125E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.130) #19
   unreachable
 
-213:                                              ; preds = %48
-  %214 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %215 = load ptr, ptr %214, align 8, !invariant.load !12, !nonnull !12
-  %216 = tail call { ptr, ptr } %215(ptr noundef nonnull align 1 %0)
-  %217 = extractvalue { ptr, ptr } %216, 0
-  %218 = extractvalue { ptr, ptr } %216, 1
-  %219 = getelementptr i8, ptr %218, i64 24
-  %.val169 = load ptr, ptr %219, align 8
-  %220 = tail call { i64, i64 } %.val169(ptr noundef nonnull align 1 %217)
-  %221 = extractvalue { i64, i64 } %220, 0
-  %222 = icmp ne i64 %221, 1096384672038350596
-  %223 = extractvalue { i64, i64 } %220, 1
-  %224 = icmp ne i64 %223, 324221538485535341
-  %.sroa.0.0.i203.not = select i1 %222, i1 true, i1 %224
-  br i1 %.sroa.0.0.i203.not, label %358, label %357, !prof !474
+222:                                              ; preds = %48
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %224 = load ptr, ptr %223, align 8, !invariant.load !12, !nonnull !12
+  %225 = tail call { ptr, ptr } %224(ptr noundef nonnull align 1 %0)
+  %226 = extractvalue { ptr, ptr } %225, 0
+  %227 = extractvalue { ptr, ptr } %225, 1
+  %228 = getelementptr i8, ptr %227, i64 24
+  %.val169 = load ptr, ptr %228, align 8
+  %229 = tail call { i64, i64 } %.val169(ptr noundef nonnull align 1 %226)
+  %230 = extractvalue { i64, i64 } %229, 0
+  %231 = icmp ne i64 %230, 1096384672038350596
+  %232 = extractvalue { i64, i64 } %229, 1
+  %233 = icmp ne i64 %232, 324221538485535341
+  %.sroa.0.0.i203.not = select i1 %231, i1 true, i1 %233
+  br i1 %.sroa.0.0.i203.not, label %367, label %366, !prof !474
 
-225:                                              ; preds = %48
-  %226 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %227 = load ptr, ptr %226, align 8, !invariant.load !12, !nonnull !12
-  %228 = tail call { ptr, ptr } %227(ptr noundef nonnull align 1 %0)
-  %229 = extractvalue { ptr, ptr } %228, 0
-  %230 = extractvalue { ptr, ptr } %228, 1
-  %231 = getelementptr i8, ptr %230, i64 24
-  %.val170 = load ptr, ptr %231, align 8
-  %232 = tail call { i64, i64 } %.val170(ptr noundef nonnull align 1 %229)
-  %233 = extractvalue { i64, i64 } %232, 0
-  %234 = icmp ne i64 %233, -1112271358999739462
-  %235 = extractvalue { i64, i64 } %232, 1
-  %236 = icmp ne i64 %235, 5733367817700488089
-  %.sroa.0.0.i204.not = select i1 %234, i1 true, i1 %236
-  br i1 %.sroa.0.0.i204.not, label %361, label %360, !prof !474
+234:                                              ; preds = %48
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %236 = load ptr, ptr %235, align 8, !invariant.load !12, !nonnull !12
+  %237 = tail call { ptr, ptr } %236(ptr noundef nonnull align 1 %0)
+  %238 = extractvalue { ptr, ptr } %237, 0
+  %239 = extractvalue { ptr, ptr } %237, 1
+  %240 = getelementptr i8, ptr %239, i64 24
+  %.val170 = load ptr, ptr %240, align 8
+  %241 = tail call { i64, i64 } %.val170(ptr noundef nonnull align 1 %238)
+  %242 = extractvalue { i64, i64 } %241, 0
+  %243 = icmp ne i64 %242, -1112271358999739462
+  %244 = extractvalue { i64, i64 } %241, 1
+  %245 = icmp ne i64 %244, 5733367817700488089
+  %.sroa.0.0.i204.not = select i1 %243, i1 true, i1 %245
+  br i1 %.sroa.0.0.i204.not, label %370, label %369, !prof !474
 
-237:                                              ; preds = %48
-  %238 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %239 = load ptr, ptr %238, align 8, !invariant.load !12, !nonnull !12
-  %240 = tail call { ptr, ptr } %239(ptr noundef nonnull align 1 %0)
-  %241 = extractvalue { ptr, ptr } %240, 0
-  %242 = extractvalue { ptr, ptr } %240, 1
-  %243 = getelementptr i8, ptr %242, i64 24
-  %.val171 = load ptr, ptr %243, align 8
-  %244 = tail call { i64, i64 } %.val171(ptr noundef nonnull align 1 %241)
-  %245 = extractvalue { i64, i64 } %244, 0
-  %246 = icmp ne i64 %245, 1682257576593402022
-  %247 = extractvalue { i64, i64 } %244, 1
-  %248 = icmp ne i64 %247, 2828938412468723074
-  %.sroa.0.0.i205.not = select i1 %246, i1 true, i1 %248
-  br i1 %.sroa.0.0.i205.not, label %363, label %362, !prof !474
+246:                                              ; preds = %48
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %248 = load ptr, ptr %247, align 8, !invariant.load !12, !nonnull !12
+  %249 = tail call { ptr, ptr } %248(ptr noundef nonnull align 1 %0)
+  %250 = extractvalue { ptr, ptr } %249, 0
+  %251 = extractvalue { ptr, ptr } %249, 1
+  %252 = getelementptr i8, ptr %251, i64 24
+  %.val171 = load ptr, ptr %252, align 8
+  %253 = tail call { i64, i64 } %.val171(ptr noundef nonnull align 1 %250)
+  %254 = extractvalue { i64, i64 } %253, 0
+  %255 = icmp ne i64 %254, 1682257576593402022
+  %256 = extractvalue { i64, i64 } %253, 1
+  %257 = icmp ne i64 %256, 2828938412468723074
+  %.sroa.0.0.i205.not = select i1 %255, i1 true, i1 %257
+  br i1 %.sroa.0.0.i205.not, label %372, label %371, !prof !474
 
-249:                                              ; preds = %48
-  %250 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %251 = load ptr, ptr %250, align 8, !invariant.load !12, !nonnull !12
-  %252 = tail call { ptr, ptr } %251(ptr noundef nonnull align 1 %0)
-  %253 = extractvalue { ptr, ptr } %252, 0
-  %254 = extractvalue { ptr, ptr } %252, 1
-  %255 = getelementptr i8, ptr %254, i64 24
-  %.val172 = load ptr, ptr %255, align 8
-  %256 = tail call { i64, i64 } %.val172(ptr noundef nonnull align 1 %253)
-  %257 = extractvalue { i64, i64 } %256, 0
-  %258 = icmp ne i64 %257, -4525060659037450304
-  %259 = extractvalue { i64, i64 } %256, 1
-  %260 = icmp ne i64 %259, -7941504528371888260
-  %.sroa.0.0.i206.not = select i1 %258, i1 true, i1 %260
-  br i1 %.sroa.0.0.i206.not, label %365, label %364, !prof !474
+258:                                              ; preds = %48
+  %259 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %260 = load ptr, ptr %259, align 8, !invariant.load !12, !nonnull !12
+  %261 = tail call { ptr, ptr } %260(ptr noundef nonnull align 1 %0)
+  %262 = extractvalue { ptr, ptr } %261, 0
+  %263 = extractvalue { ptr, ptr } %261, 1
+  %264 = getelementptr i8, ptr %263, i64 24
+  %.val172 = load ptr, ptr %264, align 8
+  %265 = tail call { i64, i64 } %.val172(ptr noundef nonnull align 1 %262)
+  %266 = extractvalue { i64, i64 } %265, 0
+  %267 = icmp ne i64 %266, -4525060659037450304
+  %268 = extractvalue { i64, i64 } %265, 1
+  %269 = icmp ne i64 %268, -7941504528371888260
+  %.sroa.0.0.i206.not = select i1 %267, i1 true, i1 %269
+  br i1 %.sroa.0.0.i206.not, label %374, label %373, !prof !474
 
-261:                                              ; preds = %48
-  %262 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %263 = load ptr, ptr %262, align 8, !invariant.load !12, !nonnull !12
-  %264 = tail call { ptr, ptr } %263(ptr noundef nonnull align 1 %0)
-  %265 = extractvalue { ptr, ptr } %264, 0
-  %266 = extractvalue { ptr, ptr } %264, 1
-  %267 = getelementptr i8, ptr %266, i64 24
-  %.val173 = load ptr, ptr %267, align 8
-  %268 = tail call { i64, i64 } %.val173(ptr noundef nonnull align 1 %265)
-  %269 = extractvalue { i64, i64 } %268, 0
-  %270 = icmp ne i64 %269, 1976741281623731233
-  %271 = extractvalue { i64, i64 } %268, 1
-  %272 = icmp ne i64 %271, 8518587958317350804
-  %.sroa.0.0.i207.not = select i1 %270, i1 true, i1 %272
-  br i1 %.sroa.0.0.i207.not, label %367, label %366, !prof !474
+270:                                              ; preds = %48
+  %271 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %272 = load ptr, ptr %271, align 8, !invariant.load !12, !nonnull !12
+  %273 = tail call { ptr, ptr } %272(ptr noundef nonnull align 1 %0)
+  %274 = extractvalue { ptr, ptr } %273, 0
+  %275 = extractvalue { ptr, ptr } %273, 1
+  %276 = getelementptr i8, ptr %275, i64 24
+  %.val173 = load ptr, ptr %276, align 8
+  %277 = tail call { i64, i64 } %.val173(ptr noundef nonnull align 1 %274)
+  %278 = extractvalue { i64, i64 } %277, 0
+  %279 = icmp ne i64 %278, 1976741281623731233
+  %280 = extractvalue { i64, i64 } %277, 1
+  %281 = icmp ne i64 %280, 8518587958317350804
+  %.sroa.0.0.i207.not = select i1 %279, i1 true, i1 %281
+  br i1 %.sroa.0.0.i207.not, label %376, label %375, !prof !474
 
-273:                                              ; preds = %48
-  %274 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %275 = load ptr, ptr %274, align 8, !invariant.load !12, !nonnull !12
-  %276 = tail call { ptr, ptr } %275(ptr noundef nonnull align 1 %0)
-  %277 = extractvalue { ptr, ptr } %276, 0
-  %278 = extractvalue { ptr, ptr } %276, 1
-  %279 = getelementptr i8, ptr %278, i64 24
-  %.val174 = load ptr, ptr %279, align 8
-  %280 = tail call { i64, i64 } %.val174(ptr noundef nonnull align 1 %277)
-  %281 = extractvalue { i64, i64 } %280, 0
-  %282 = icmp ne i64 %281, 5220108315440958501
-  %283 = extractvalue { i64, i64 } %280, 1
-  %284 = icmp ne i64 %283, -3520716040411414515
-  %.sroa.0.0.i208.not = select i1 %282, i1 true, i1 %284
-  br i1 %.sroa.0.0.i208.not, label %369, label %368, !prof !474
+282:                                              ; preds = %48
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %284 = load ptr, ptr %283, align 8, !invariant.load !12, !nonnull !12
+  %285 = tail call { ptr, ptr } %284(ptr noundef nonnull align 1 %0)
+  %286 = extractvalue { ptr, ptr } %285, 0
+  %287 = extractvalue { ptr, ptr } %285, 1
+  %288 = getelementptr i8, ptr %287, i64 24
+  %.val174 = load ptr, ptr %288, align 8
+  %289 = tail call { i64, i64 } %.val174(ptr noundef nonnull align 1 %286)
+  %290 = extractvalue { i64, i64 } %289, 0
+  %291 = icmp ne i64 %290, 5220108315440958501
+  %292 = extractvalue { i64, i64 } %289, 1
+  %293 = icmp ne i64 %292, -3520716040411414515
+  %.sroa.0.0.i208.not = select i1 %291, i1 true, i1 %293
+  br i1 %.sroa.0.0.i208.not, label %378, label %377, !prof !474
 
-285:                                              ; preds = %48
-  %286 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %287 = load ptr, ptr %286, align 8, !invariant.load !12, !nonnull !12
-  %288 = tail call { ptr, ptr } %287(ptr noundef nonnull align 1 %0)
-  %289 = extractvalue { ptr, ptr } %288, 0
-  %290 = extractvalue { ptr, ptr } %288, 1
-  %291 = getelementptr i8, ptr %290, i64 24
-  %.val175 = load ptr, ptr %291, align 8
-  %292 = tail call { i64, i64 } %.val175(ptr noundef nonnull align 1 %289)
-  %293 = extractvalue { i64, i64 } %292, 0
-  %294 = icmp ne i64 %293, -8363051946164901273
-  %295 = extractvalue { i64, i64 } %292, 1
-  %296 = icmp ne i64 %295, -7502566692738070478
-  %.sroa.0.0.i209.not = select i1 %294, i1 true, i1 %296
-  br i1 %.sroa.0.0.i209.not, label %371, label %370, !prof !474
+294:                                              ; preds = %48
+  %295 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %296 = load ptr, ptr %295, align 8, !invariant.load !12, !nonnull !12
+  %297 = tail call { ptr, ptr } %296(ptr noundef nonnull align 1 %0)
+  %298 = extractvalue { ptr, ptr } %297, 0
+  %299 = extractvalue { ptr, ptr } %297, 1
+  %300 = getelementptr i8, ptr %299, i64 24
+  %.val175 = load ptr, ptr %300, align 8
+  %301 = tail call { i64, i64 } %.val175(ptr noundef nonnull align 1 %298)
+  %302 = extractvalue { i64, i64 } %301, 0
+  %303 = icmp ne i64 %302, -8363051946164901273
+  %304 = extractvalue { i64, i64 } %301, 1
+  %305 = icmp ne i64 %304, -7502566692738070478
+  %.sroa.0.0.i209.not = select i1 %303, i1 true, i1 %305
+  br i1 %.sroa.0.0.i209.not, label %380, label %379, !prof !474
 
-297:                                              ; preds = %48
-  %298 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %299 = load ptr, ptr %298, align 8, !invariant.load !12, !nonnull !12
-  %300 = tail call { ptr, ptr } %299(ptr noundef nonnull align 1 %0)
-  %301 = extractvalue { ptr, ptr } %300, 0
-  %302 = extractvalue { ptr, ptr } %300, 1
-  %303 = getelementptr i8, ptr %302, i64 24
-  %.val176 = load ptr, ptr %303, align 8
-  %304 = tail call { i64, i64 } %.val176(ptr noundef nonnull align 1 %301)
-  %305 = extractvalue { i64, i64 } %304, 0
-  %306 = icmp ne i64 %305, 4396411619942343068
-  %307 = extractvalue { i64, i64 } %304, 1
-  %308 = icmp ne i64 %307, -1068963039459253755
-  %.sroa.0.0.i210.not = select i1 %306, i1 true, i1 %308
-  br i1 %.sroa.0.0.i210.not, label %373, label %372, !prof !474
+306:                                              ; preds = %48
+  %307 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %308 = load ptr, ptr %307, align 8, !invariant.load !12, !nonnull !12
+  %309 = tail call { ptr, ptr } %308(ptr noundef nonnull align 1 %0)
+  %310 = extractvalue { ptr, ptr } %309, 0
+  %311 = extractvalue { ptr, ptr } %309, 1
+  %312 = getelementptr i8, ptr %311, i64 24
+  %.val176 = load ptr, ptr %312, align 8
+  %313 = tail call { i64, i64 } %.val176(ptr noundef nonnull align 1 %310)
+  %314 = extractvalue { i64, i64 } %313, 0
+  %315 = icmp ne i64 %314, 4396411619942343068
+  %316 = extractvalue { i64, i64 } %313, 1
+  %317 = icmp ne i64 %316, -1068963039459253755
+  %.sroa.0.0.i210.not = select i1 %315, i1 true, i1 %317
+  br i1 %.sroa.0.0.i210.not, label %382, label %381, !prof !474
 
-309:                                              ; preds = %48
-  %310 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %311 = load ptr, ptr %310, align 8, !invariant.load !12, !nonnull !12
-  %312 = tail call { ptr, ptr } %311(ptr noundef nonnull align 1 %0)
-  %313 = extractvalue { ptr, ptr } %312, 0
-  %314 = extractvalue { ptr, ptr } %312, 1
-  %315 = getelementptr i8, ptr %314, i64 24
-  %.val177 = load ptr, ptr %315, align 8
-  %316 = tail call { i64, i64 } %.val177(ptr noundef nonnull align 1 %313)
-  %317 = extractvalue { i64, i64 } %316, 0
-  %318 = icmp ne i64 %317, -1775404271045328892
-  %319 = extractvalue { i64, i64 } %316, 1
-  %320 = icmp ne i64 %319, -2754534380838266005
-  %.sroa.0.0.i211.not = select i1 %318, i1 true, i1 %320
-  br i1 %.sroa.0.0.i211.not, label %375, label %374, !prof !474
+318:                                              ; preds = %48
+  %319 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %320 = load ptr, ptr %319, align 8, !invariant.load !12, !nonnull !12
+  %321 = tail call { ptr, ptr } %320(ptr noundef nonnull align 1 %0)
+  %322 = extractvalue { ptr, ptr } %321, 0
+  %323 = extractvalue { ptr, ptr } %321, 1
+  %324 = getelementptr i8, ptr %323, i64 24
+  %.val177 = load ptr, ptr %324, align 8
+  %325 = tail call { i64, i64 } %.val177(ptr noundef nonnull align 1 %322)
+  %326 = extractvalue { i64, i64 } %325, 0
+  %327 = icmp ne i64 %326, -1775404271045328892
+  %328 = extractvalue { i64, i64 } %325, 1
+  %329 = icmp ne i64 %328, -2754534380838266005
+  %.sroa.0.0.i211.not = select i1 %327, i1 true, i1 %329
+  br i1 %.sroa.0.0.i211.not, label %384, label %383, !prof !474
 
-321:                                              ; preds = %48
-  %322 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %323 = load ptr, ptr %322, align 8, !invariant.load !12, !nonnull !12
-  %324 = tail call { ptr, ptr } %323(ptr noundef nonnull align 1 %0)
-  %325 = extractvalue { ptr, ptr } %324, 0
-  %326 = extractvalue { ptr, ptr } %324, 1
-  %327 = getelementptr i8, ptr %326, i64 24
-  %.val178 = load ptr, ptr %327, align 8
-  %328 = tail call { i64, i64 } %.val178(ptr noundef nonnull align 1 %325)
-  %329 = extractvalue { i64, i64 } %328, 0
-  %330 = icmp ne i64 %329, 3749815279303437041
-  %331 = extractvalue { i64, i64 } %328, 1
-  %332 = icmp ne i64 %331, -7778057943976946246
-  %.sroa.0.0.i212.not = select i1 %330, i1 true, i1 %332
-  br i1 %.sroa.0.0.i212.not, label %377, label %376, !prof !474
+330:                                              ; preds = %48
+  %331 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %332 = load ptr, ptr %331, align 8, !invariant.load !12, !nonnull !12
+  %333 = tail call { ptr, ptr } %332(ptr noundef nonnull align 1 %0)
+  %334 = extractvalue { ptr, ptr } %333, 0
+  %335 = extractvalue { ptr, ptr } %333, 1
+  %336 = getelementptr i8, ptr %335, i64 24
+  %.val178 = load ptr, ptr %336, align 8
+  %337 = tail call { i64, i64 } %.val178(ptr noundef nonnull align 1 %334)
+  %338 = extractvalue { i64, i64 } %337, 0
+  %339 = icmp ne i64 %338, 3749815279303437041
+  %340 = extractvalue { i64, i64 } %337, 1
+  %341 = icmp ne i64 %340, -7778057943976946246
+  %.sroa.0.0.i212.not = select i1 %339, i1 true, i1 %341
+  br i1 %.sroa.0.0.i212.not, label %386, label %385, !prof !474
 
-333:                                              ; preds = %48
-  %334 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %335 = load ptr, ptr %334, align 8, !invariant.load !12, !nonnull !12
-  %336 = tail call { ptr, ptr } %335(ptr noundef nonnull align 1 %0)
-  %337 = extractvalue { ptr, ptr } %336, 0
-  %338 = extractvalue { ptr, ptr } %336, 1
-  %339 = getelementptr i8, ptr %338, i64 24
-  %.val179 = load ptr, ptr %339, align 8
-  %340 = tail call { i64, i64 } %.val179(ptr noundef nonnull align 1 %337)
-  %341 = extractvalue { i64, i64 } %340, 0
-  %342 = icmp ne i64 %341, 8322892714386034678
-  %343 = extractvalue { i64, i64 } %340, 1
-  %344 = icmp ne i64 %343, 6301257885181549575
-  %.sroa.0.0.i213.not = select i1 %342, i1 true, i1 %344
-  br i1 %.sroa.0.0.i213.not, label %379, label %378, !prof !474
+342:                                              ; preds = %48
+  %343 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %344 = load ptr, ptr %343, align 8, !invariant.load !12, !nonnull !12
+  %345 = tail call { ptr, ptr } %344(ptr noundef nonnull align 1 %0)
+  %346 = extractvalue { ptr, ptr } %345, 0
+  %347 = extractvalue { ptr, ptr } %345, 1
+  %348 = getelementptr i8, ptr %347, i64 24
+  %.val179 = load ptr, ptr %348, align 8
+  %349 = tail call { i64, i64 } %.val179(ptr noundef nonnull align 1 %346)
+  %350 = extractvalue { i64, i64 } %349, 0
+  %351 = icmp ne i64 %350, 8322892714386034678
+  %352 = extractvalue { i64, i64 } %349, 1
+  %353 = icmp ne i64 %352, 6301257885181549575
+  %.sroa.0.0.i213.not = select i1 %351, i1 true, i1 %353
+  br i1 %.sroa.0.0.i213.not, label %388, label %387, !prof !474
 
-345:                                              ; preds = %48
-  %346 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %347 = load ptr, ptr %346, align 8, !invariant.load !12, !nonnull !12
-  %348 = tail call { ptr, ptr } %347(ptr noundef nonnull align 1 %0)
-  %349 = extractvalue { ptr, ptr } %348, 0
-  %350 = extractvalue { ptr, ptr } %348, 1
-  %351 = getelementptr i8, ptr %350, i64 24
-  %.val180 = load ptr, ptr %351, align 8
-  %352 = tail call { i64, i64 } %.val180(ptr noundef nonnull align 1 %349)
-  %353 = extractvalue { i64, i64 } %352, 0
-  %354 = icmp ne i64 %353, 6939381404861589916
-  %355 = extractvalue { i64, i64 } %352, 1
-  %356 = icmp ne i64 %355, -6498690218077430559
-  %.sroa.0.0.i214.not = select i1 %354, i1 true, i1 %356
-  br i1 %.sroa.0.0.i214.not, label %381, label %380, !prof !474
+354:                                              ; preds = %48
+  %355 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %356 = load ptr, ptr %355, align 8, !invariant.load !12, !nonnull !12
+  %357 = tail call { ptr, ptr } %356(ptr noundef nonnull align 1 %0)
+  %358 = extractvalue { ptr, ptr } %357, 0
+  %359 = extractvalue { ptr, ptr } %357, 1
+  %360 = getelementptr i8, ptr %359, i64 24
+  %.val180 = load ptr, ptr %360, align 8
+  %361 = tail call { i64, i64 } %.val180(ptr noundef nonnull align 1 %358)
+  %362 = extractvalue { i64, i64 } %361, 0
+  %363 = icmp ne i64 %362, 6939381404861589916
+  %364 = extractvalue { i64, i64 } %361, 1
+  %365 = icmp ne i64 %364, -6498690218077430559
+  %.sroa.0.0.i214.not = select i1 %363, i1 true, i1 %365
+  br i1 %.sroa.0.0.i214.not, label %390, label %389, !prof !474
 
-357:                                              ; preds = %213
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h46ff7135239c2659E(ptr noundef nonnull align 8 %217, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
-  br label %359
+366:                                              ; preds = %222
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h46ff7135239c2659E(ptr noundef nonnull align 8 %226, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+  br label %368
 
-358:                                              ; preds = %213
+367:                                              ; preds = %222
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.130) #19
   unreachable
 
-359:                                              ; preds = %380, %378, %376, %374, %372, %370, %368, %366, %364, %362, %360, %357
+368:                                              ; preds = %389, %387, %385, %383, %381, %379, %377, %375, %373, %371, %369, %366
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %35
 
-360:                                              ; preds = %225
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17hf9e0084d8bed915eE(ptr noundef nonnull align 8 %229, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
-  br label %359
+369:                                              ; preds = %234
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17hf9e0084d8bed915eE(ptr noundef nonnull align 8 %238, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+  br label %368
 
-361:                                              ; preds = %225
+370:                                              ; preds = %234
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.130) #19
   unreachable
 
-362:                                              ; preds = %237
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17hb3d4b436f3d9167dE(ptr noundef nonnull align 8 %241, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
-  br label %359
+371:                                              ; preds = %246
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17hb3d4b436f3d9167dE(ptr noundef nonnull align 8 %250, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+  br label %368
 
-363:                                              ; preds = %237
+372:                                              ; preds = %246
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.130) #19
   unreachable
 
-364:                                              ; preds = %249
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h2a1bbce8b9f9da6bE(ptr noundef nonnull align 8 %253, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
-  br label %359
+373:                                              ; preds = %258
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h2a1bbce8b9f9da6bE(ptr noundef nonnull align 8 %262, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+  br label %368
 
-365:                                              ; preds = %249
+374:                                              ; preds = %258
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.130) #19
   unreachable
 
-366:                                              ; preds = %261
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17hddeec69e08b8a6ceE(ptr noundef nonnull align 8 %265, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
-  br label %359
+375:                                              ; preds = %270
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17hddeec69e08b8a6ceE(ptr noundef nonnull align 8 %274, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+  br label %368
 
-367:                                              ; preds = %261
+376:                                              ; preds = %270
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.130) #19
   unreachable
 
-368:                                              ; preds = %273
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h3f4ada873270f312E(ptr noundef nonnull align 8 %277, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
-  br label %359
+377:                                              ; preds = %282
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h3f4ada873270f312E(ptr noundef nonnull align 8 %286, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+  br label %368
 
-369:                                              ; preds = %273
+378:                                              ; preds = %282
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.130) #19
   unreachable
 
-370:                                              ; preds = %285
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h9bd2fc637b0223f6E(ptr noundef nonnull align 8 %289, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
-  br label %359
+379:                                              ; preds = %294
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h9bd2fc637b0223f6E(ptr noundef nonnull align 8 %298, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+  br label %368
 
-371:                                              ; preds = %285
+380:                                              ; preds = %294
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.130) #19
   unreachable
 
-372:                                              ; preds = %297
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h6c0cb3fd700ea531E(ptr noundef nonnull align 8 %301, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
-  br label %359
+381:                                              ; preds = %306
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h6c0cb3fd700ea531E(ptr noundef nonnull align 8 %310, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+  br label %368
 
-373:                                              ; preds = %297
+382:                                              ; preds = %306
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.130) #19
   unreachable
 
-374:                                              ; preds = %309
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h8a44da0a9373ef80E(ptr noundef nonnull align 8 %313, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
-  br label %359
+383:                                              ; preds = %318
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h8a44da0a9373ef80E(ptr noundef nonnull align 8 %322, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+  br label %368
 
-375:                                              ; preds = %309
+384:                                              ; preds = %318
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.130) #19
   unreachable
 
-376:                                              ; preds = %321
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h1f633557a26962d7E(ptr noundef nonnull align 8 %325, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
-  br label %359
+385:                                              ; preds = %330
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h1f633557a26962d7E(ptr noundef nonnull align 8 %334, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+  br label %368
 
-377:                                              ; preds = %321
+386:                                              ; preds = %330
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.130) #19
   unreachable
 
-378:                                              ; preds = %333
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h898ccec297930666E(ptr noundef nonnull align 8 %337, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
-  br label %359
+387:                                              ; preds = %342
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17h898ccec297930666E(ptr noundef nonnull align 8 %346, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+  br label %368
 
-379:                                              ; preds = %333
+388:                                              ; preds = %342
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.130) #19
   unreachable
 
-380:                                              ; preds = %345
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17hdb9b0c0f9b95d904E(ptr noundef nonnull align 8 %349, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
-  br label %359
+389:                                              ; preds = %354
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize9primitive15write_primitive17hdb9b0c0f9b95d904E(ptr noundef nonnull align 8 %358, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+  br label %368
 
-381:                                              ; preds = %345
+390:                                              ; preds = %354
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.130) #19
   unreachable
 
-382:                                              ; preds = %49
-  %383 = getelementptr inbounds nuw i8, ptr %53, i64 80
-  %384 = load ptr, ptr %383, align 8, !noundef !12
-  %.not104 = icmp eq ptr %384, null
-  %.143 = select i1 %.not104, ptr null, ptr %383
-  %385 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %386 = getelementptr inbounds nuw i8, ptr %53, i64 64
-  %387 = load ptr, ptr %386, align 8, !noundef !12
-  %388 = getelementptr inbounds nuw i8, ptr %53, i64 72
-  %389 = load i64, ptr %388, align 8, !noundef !12
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize6binary20write_generic_binary17h1f8fb50cbc2dda68E(ptr noundef align 8 %.143, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %385, ptr noalias noundef nonnull readonly align 1 %387, i64 noundef %389, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+391:                                              ; preds = %49
+  %392 = getelementptr inbounds nuw i8, ptr %53, i64 80
+  %393 = load ptr, ptr %392, align 8, !noundef !12
+  %.not104 = icmp eq ptr %393, null
+  %.143 = select i1 %.not104, ptr null, ptr %392
+  %394 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %395 = getelementptr inbounds nuw i8, ptr %53, i64 64
+  %396 = load ptr, ptr %395, align 8, !noundef !12
+  %397 = getelementptr inbounds nuw i8, ptr %53, i64 72
+  %398 = load i64, ptr %397, align 8, !noundef !12
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize6binary20write_generic_binary17h1f8fb50cbc2dda68E(ptr noundef align 8 %.143, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %394, ptr noalias noundef nonnull readonly align 1 %396, i64 noundef %398, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
   br label %35
 
-390:                                              ; preds = %49
+399:                                              ; preds = %49
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.134) #19
   unreachable
 
-391:                                              ; preds = %61
+400:                                              ; preds = %61
   tail call void @_ZN12polars_arrow2io3ipc5write9serialize17fixed_size_binary23write_fixed_size_binary17h7813dc56e50c6f85E(ptr noundef nonnull align 8 %65, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
   br label %35
 
-392:                                              ; preds = %61
+401:                                              ; preds = %61
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.135) #19
   unreachable
 
-393:                                              ; preds = %73
-  %394 = getelementptr inbounds nuw i8, ptr %77, i64 80
-  %395 = load ptr, ptr %394, align 8, !noundef !12
-  %.not101 = icmp eq ptr %395, null
-  %.144 = select i1 %.not101, ptr null, ptr %394
-  %396 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %397 = getelementptr inbounds nuw i8, ptr %77, i64 64
-  %398 = load ptr, ptr %397, align 8, !noundef !12
-  %399 = getelementptr inbounds nuw i8, ptr %77, i64 72
-  %400 = load i64, ptr %399, align 8, !noundef !12
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize6binary20write_generic_binary17h99d860494ff9ae81E(ptr noundef align 8 %.144, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %396, ptr noalias noundef nonnull readonly align 1 %398, i64 noundef %400, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+402:                                              ; preds = %73
+  %403 = getelementptr inbounds nuw i8, ptr %77, i64 80
+  %404 = load ptr, ptr %403, align 8, !noundef !12
+  %.not101 = icmp eq ptr %404, null
+  %.144 = select i1 %.not101, ptr null, ptr %403
+  %405 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  %406 = getelementptr inbounds nuw i8, ptr %77, i64 64
+  %407 = load ptr, ptr %406, align 8, !noundef !12
+  %408 = getelementptr inbounds nuw i8, ptr %77, i64 72
+  %409 = load i64, ptr %408, align 8, !noundef !12
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize6binary20write_generic_binary17h99d860494ff9ae81E(ptr noundef align 8 %.144, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %405, ptr noalias noundef nonnull readonly align 1 %407, i64 noundef %409, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
   br label %35
 
-401:                                              ; preds = %73
+410:                                              ; preds = %73
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.136) #19
   unreachable
 
-402:                                              ; preds = %85
-  %403 = getelementptr inbounds nuw i8, ptr %89, i64 80
-  %404 = load ptr, ptr %403, align 8, !noundef !12
-  %.not99 = icmp eq ptr %404, null
-  %.145 = select i1 %.not99, ptr null, ptr %403
-  %405 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  %406 = getelementptr inbounds nuw i8, ptr %89, i64 64
-  %407 = load ptr, ptr %406, align 8, !noundef !12
-  %408 = getelementptr inbounds nuw i8, ptr %89, i64 72
-  %409 = load i64, ptr %408, align 8, !noundef !12
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize6binary20write_generic_binary17h1f8fb50cbc2dda68E(ptr noundef align 8 %.145, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %405, ptr noalias noundef nonnull readonly align 1 %407, i64 noundef %409, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+411:                                              ; preds = %85
+  %412 = getelementptr inbounds nuw i8, ptr %89, i64 80
+  %413 = load ptr, ptr %412, align 8, !noundef !12
+  %.not99 = icmp eq ptr %413, null
+  %.145 = select i1 %.not99, ptr null, ptr %412
+  %414 = getelementptr inbounds nuw i8, ptr %89, i64 32
+  %415 = getelementptr inbounds nuw i8, ptr %89, i64 64
+  %416 = load ptr, ptr %415, align 8, !noundef !12
+  %417 = getelementptr inbounds nuw i8, ptr %89, i64 72
+  %418 = load i64, ptr %417, align 8, !noundef !12
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize6binary20write_generic_binary17h1f8fb50cbc2dda68E(ptr noundef align 8 %.145, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %414, ptr noalias noundef nonnull readonly align 1 %416, i64 noundef %418, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
   br label %35
 
-410:                                              ; preds = %85
+419:                                              ; preds = %85
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.137) #19
   unreachable
 
-411:                                              ; preds = %97
-  %412 = getelementptr inbounds nuw i8, ptr %101, i64 80
-  %413 = load ptr, ptr %412, align 8, !noundef !12
-  %.not97 = icmp eq ptr %413, null
-  %.146 = select i1 %.not97, ptr null, ptr %412
-  %414 = getelementptr inbounds nuw i8, ptr %101, i64 32
-  %415 = getelementptr inbounds nuw i8, ptr %101, i64 64
-  %416 = load ptr, ptr %415, align 8, !noundef !12
-  %417 = getelementptr inbounds nuw i8, ptr %101, i64 72
-  %418 = load i64, ptr %417, align 8, !noundef !12
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize6binary20write_generic_binary17h99d860494ff9ae81E(ptr noundef align 8 %.146, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %414, ptr noalias noundef nonnull readonly align 1 %416, i64 noundef %418, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+420:                                              ; preds = %97
+  %421 = getelementptr inbounds nuw i8, ptr %101, i64 80
+  %422 = load ptr, ptr %421, align 8, !noundef !12
+  %.not97 = icmp eq ptr %422, null
+  %.146 = select i1 %.not97, ptr null, ptr %421
+  %423 = getelementptr inbounds nuw i8, ptr %101, i64 32
+  %424 = getelementptr inbounds nuw i8, ptr %101, i64 64
+  %425 = load ptr, ptr %424, align 8, !noundef !12
+  %426 = getelementptr inbounds nuw i8, ptr %101, i64 72
+  %427 = load i64, ptr %426, align 8, !noundef !12
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize6binary20write_generic_binary17h99d860494ff9ae81E(ptr noundef align 8 %.146, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %423, ptr noalias noundef nonnull readonly align 1 %425, i64 noundef %427, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
   br label %35
 
-419:                                              ; preds = %97
+428:                                              ; preds = %97
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.138) #19
   unreachable
 
-420:                                              ; preds = %109
+429:                                              ; preds = %109
   tail call void @_ZN12polars_arrow2io3ipc5write9serialize4list10write_list17h6dcce44688087097E(ptr noundef nonnull align 8 %113, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
   br label %35
 
-421:                                              ; preds = %109
+430:                                              ; preds = %109
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.139) #19
   unreachable
 
-422:                                              ; preds = %121
+431:                                              ; preds = %121
   tail call void @_ZN12polars_arrow2io3ipc5write9serialize16fixed_sized_list21write_fixed_size_list17h4bd98144bcb48cc1E(ptr noundef nonnull align 8 %125, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
   br label %35
 
-423:                                              ; preds = %121
+432:                                              ; preds = %121
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.140) #19
   unreachable
 
-424:                                              ; preds = %133
+433:                                              ; preds = %133
   tail call void @_ZN12polars_arrow2io3ipc5write9serialize4list10write_list17hd35faf1736b8b9e4E(ptr noundef nonnull align 8 %137, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
   br label %35
 
-425:                                              ; preds = %133
+434:                                              ; preds = %133
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.141) #19
   unreachable
 
-426:                                              ; preds = %145
+435:                                              ; preds = %145
   tail call void @_ZN12polars_arrow2io3ipc5write9serialize7struct_12write_struct17he9659499f01a5f71E(ptr noundef nonnull align 8 %149, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
   br label %35
 
-427:                                              ; preds = %145
+436:                                              ; preds = %145
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.142) #19
   unreachable
 
-428:                                              ; preds = %157
+437:                                              ; preds = %157
   tail call void @_ZN12polars_arrow2io3ipc5write9serialize5union11write_union17h215e49385d38f6e7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1136) %161, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
   br label %35
 
-429:                                              ; preds = %157
+438:                                              ; preds = %157
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.143) #19
   unreachable
 
-430:                                              ; preds = %169
+439:                                              ; preds = %169
   tail call void @_ZN12polars_arrow2io3ipc5write9serialize3map9write_map17h996a99bc13d6ae39E(ptr noundef nonnull align 8 %173, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
   br label %35
 
-431:                                              ; preds = %169
+440:                                              ; preds = %169
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.144) #19
   unreachable
 
-432:                                              ; preds = %181
-  %433 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %434 = load ptr, ptr %433, align 8, !invariant.load !12, !nonnull !12
-  %435 = tail call { ptr, ptr } %434(ptr noundef nonnull align 1 %0)
-  %436 = extractvalue { ptr, ptr } %435, 0
-  %437 = extractvalue { ptr, ptr } %435, 1
-  %438 = getelementptr i8, ptr %437, i64 24
-  %.val181 = load ptr, ptr %438, align 8
-  %439 = tail call { i64, i64 } %.val181(ptr noundef nonnull align 1 %436)
-  %440 = extractvalue { i64, i64 } %439, 0
-  %441 = icmp ne i64 %440, 341849809492262473
-  %442 = extractvalue { i64, i64 } %439, 1
-  %443 = icmp ne i64 %442, 611862421737265251
-  %.sroa.0.0.i215.not = select i1 %441, i1 true, i1 %443
-  br i1 %.sroa.0.0.i215.not, label %542, label %540, !prof !474
+441:                                              ; preds = %181
+  %442 = icmp ne i64 %189, 341849809492262473
+  %443 = icmp ne i64 %190, 611862421737265251
+  %.sroa.0.0.i215.not = select i1 %442, i1 true, i1 %443
+  br i1 %.sroa.0.0.i215.not, label %470, label %468, !prof !474
 
 444:                                              ; preds = %181
-  %445 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %446 = load ptr, ptr %445, align 8, !invariant.load !12, !nonnull !12
-  %447 = tail call { ptr, ptr } %446(ptr noundef nonnull align 1 %0)
-  %448 = extractvalue { ptr, ptr } %447, 0
-  %449 = extractvalue { ptr, ptr } %447, 1
-  %450 = getelementptr i8, ptr %449, i64 24
-  %.val182 = load ptr, ptr %450, align 8
-  %451 = tail call { i64, i64 } %.val182(ptr noundef nonnull align 1 %448)
-  %452 = extractvalue { i64, i64 } %451, 0
-  %453 = icmp ne i64 %452, 2513640661813068704
-  %454 = extractvalue { i64, i64 } %451, 1
-  %455 = icmp ne i64 %454, 6724818707647989319
-  %.sroa.0.0.i216.not = select i1 %453, i1 true, i1 %455
-  br i1 %.sroa.0.0.i216.not, label %545, label %543, !prof !474
+  %445 = icmp ne i64 %189, 2513640661813068704
+  %446 = icmp ne i64 %190, 6724818707647989319
+  %.sroa.0.0.i216.not = select i1 %445, i1 true, i1 %446
+  br i1 %.sroa.0.0.i216.not, label %473, label %471, !prof !474
+
+447:                                              ; preds = %181
+  %448 = icmp ne i64 %189, 3937964684542098673
+  %449 = icmp ne i64 %190, -2221653167821116500
+  %.sroa.0.0.i217.not = select i1 %448, i1 true, i1 %449
+  br i1 %.sroa.0.0.i217.not, label %476, label %474, !prof !474
+
+450:                                              ; preds = %181
+  %451 = icmp ne i64 %189, 2392607815245497461
+  %452 = icmp ne i64 %190, 1275985459044189422
+  %.sroa.0.0.i218.not = select i1 %451, i1 true, i1 %452
+  br i1 %.sroa.0.0.i218.not, label %479, label %477, !prof !474
+
+453:                                              ; preds = %181
+  %454 = icmp ne i64 %189, 7090791848143539004
+  %455 = icmp ne i64 %190, 5073570680214212543
+  %.sroa.0.0.i219.not = select i1 %454, i1 true, i1 %455
+  br i1 %.sroa.0.0.i219.not, label %482, label %480, !prof !474
 
 456:                                              ; preds = %181
-  %457 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %458 = load ptr, ptr %457, align 8, !invariant.load !12, !nonnull !12
-  %459 = tail call { ptr, ptr } %458(ptr noundef nonnull align 1 %0)
-  %460 = extractvalue { ptr, ptr } %459, 0
-  %461 = extractvalue { ptr, ptr } %459, 1
-  %462 = getelementptr i8, ptr %461, i64 24
-  %.val183 = load ptr, ptr %462, align 8
-  %463 = tail call { i64, i64 } %.val183(ptr noundef nonnull align 1 %460)
-  %464 = extractvalue { i64, i64 } %463, 0
-  %465 = icmp ne i64 %464, 3937964684542098673
-  %466 = extractvalue { i64, i64 } %463, 1
-  %467 = icmp ne i64 %466, -2221653167821116500
-  %.sroa.0.0.i217.not = select i1 %465, i1 true, i1 %467
-  br i1 %.sroa.0.0.i217.not, label %548, label %546, !prof !474
+  %457 = icmp ne i64 %189, 5516153207483644272
+  %458 = icmp ne i64 %190, 275732463827437843
+  %.sroa.0.0.i220.not = select i1 %457, i1 true, i1 %458
+  br i1 %.sroa.0.0.i220.not, label %485, label %483, !prof !474
 
-468:                                              ; preds = %181
-  %469 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %470 = load ptr, ptr %469, align 8, !invariant.load !12, !nonnull !12
-  %471 = tail call { ptr, ptr } %470(ptr noundef nonnull align 1 %0)
-  %472 = extractvalue { ptr, ptr } %471, 0
-  %473 = extractvalue { ptr, ptr } %471, 1
-  %474 = getelementptr i8, ptr %473, i64 24
-  %.val184 = load ptr, ptr %474, align 8
-  %475 = tail call { i64, i64 } %.val184(ptr noundef nonnull align 1 %472)
-  %476 = extractvalue { i64, i64 } %475, 0
-  %477 = icmp ne i64 %476, 2392607815245497461
-  %478 = extractvalue { i64, i64 } %475, 1
-  %479 = icmp ne i64 %478, 1275985459044189422
-  %.sroa.0.0.i218.not = select i1 %477, i1 true, i1 %479
-  br i1 %.sroa.0.0.i218.not, label %551, label %549, !prof !474
+459:                                              ; preds = %181
+  %460 = icmp ne i64 %189, 4615118761646258390
+  %461 = icmp ne i64 %190, 3173253621429432647
+  %.sroa.0.0.i221.not = select i1 %460, i1 true, i1 %461
+  br i1 %.sroa.0.0.i221.not, label %488, label %486, !prof !474
 
-480:                                              ; preds = %181
-  %481 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %482 = load ptr, ptr %481, align 8, !invariant.load !12, !nonnull !12
-  %483 = tail call { ptr, ptr } %482(ptr noundef nonnull align 1 %0)
-  %484 = extractvalue { ptr, ptr } %483, 0
-  %485 = extractvalue { ptr, ptr } %483, 1
-  %486 = getelementptr i8, ptr %485, i64 24
-  %.val185 = load ptr, ptr %486, align 8
-  %487 = tail call { i64, i64 } %.val185(ptr noundef nonnull align 1 %484)
-  %488 = extractvalue { i64, i64 } %487, 0
-  %489 = icmp ne i64 %488, 7090791848143539004
-  %490 = extractvalue { i64, i64 } %487, 1
-  %491 = icmp ne i64 %490, 5073570680214212543
-  %.sroa.0.0.i219.not = select i1 %489, i1 true, i1 %491
-  br i1 %.sroa.0.0.i219.not, label %554, label %552, !prof !474
+462:                                              ; preds = %181
+  %463 = icmp ne i64 %189, -8242311478931178162
+  %464 = icmp ne i64 %190, -6749062287969796718
+  %.sroa.0.0.i222.not = select i1 %463, i1 true, i1 %464
+  br i1 %.sroa.0.0.i222.not, label %491, label %489, !prof !474
 
-492:                                              ; preds = %181
-  %493 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %494 = load ptr, ptr %493, align 8, !invariant.load !12, !nonnull !12
-  %495 = tail call { ptr, ptr } %494(ptr noundef nonnull align 1 %0)
-  %496 = extractvalue { ptr, ptr } %495, 0
-  %497 = extractvalue { ptr, ptr } %495, 1
-  %498 = getelementptr i8, ptr %497, i64 24
-  %.val186 = load ptr, ptr %498, align 8
-  %499 = tail call { i64, i64 } %.val186(ptr noundef nonnull align 1 %496)
-  %500 = extractvalue { i64, i64 } %499, 0
-  %501 = icmp ne i64 %500, 5516153207483644272
-  %502 = extractvalue { i64, i64 } %499, 1
-  %503 = icmp ne i64 %502, 275732463827437843
-  %.sroa.0.0.i220.not = select i1 %501, i1 true, i1 %503
-  br i1 %.sroa.0.0.i220.not, label %557, label %555, !prof !474
+465:                                              ; preds = %181
+  %466 = icmp ne i64 %189, 2541767739881155333
+  %467 = icmp ne i64 %190, -4423643634179343665
+  %.sroa.0.0.i223.not = select i1 %466, i1 true, i1 %467
+  br i1 %.sroa.0.0.i223.not, label %494, label %492, !prof !474
 
-504:                                              ; preds = %181
-  %505 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %506 = load ptr, ptr %505, align 8, !invariant.load !12, !nonnull !12
-  %507 = tail call { ptr, ptr } %506(ptr noundef nonnull align 1 %0)
-  %508 = extractvalue { ptr, ptr } %507, 0
-  %509 = extractvalue { ptr, ptr } %507, 1
-  %510 = getelementptr i8, ptr %509, i64 24
-  %.val187 = load ptr, ptr %510, align 8
-  %511 = tail call { i64, i64 } %.val187(ptr noundef nonnull align 1 %508)
-  %512 = extractvalue { i64, i64 } %511, 0
-  %513 = icmp ne i64 %512, 4615118761646258390
-  %514 = extractvalue { i64, i64 } %511, 1
-  %515 = icmp ne i64 %514, 3173253621429432647
-  %.sroa.0.0.i221.not = select i1 %513, i1 true, i1 %515
-  br i1 %.sroa.0.0.i221.not, label %560, label %558, !prof !474
-
-516:                                              ; preds = %181
-  %517 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %518 = load ptr, ptr %517, align 8, !invariant.load !12, !nonnull !12
-  %519 = tail call { ptr, ptr } %518(ptr noundef nonnull align 1 %0)
-  %520 = extractvalue { ptr, ptr } %519, 0
-  %521 = extractvalue { ptr, ptr } %519, 1
-  %522 = getelementptr i8, ptr %521, i64 24
-  %.val188 = load ptr, ptr %522, align 8
-  %523 = tail call { i64, i64 } %.val188(ptr noundef nonnull align 1 %520)
-  %524 = extractvalue { i64, i64 } %523, 0
-  %525 = icmp ne i64 %524, -8242311478931178162
-  %526 = extractvalue { i64, i64 } %523, 1
-  %527 = icmp ne i64 %526, -6749062287969796718
-  %.sroa.0.0.i222.not = select i1 %525, i1 true, i1 %527
-  br i1 %.sroa.0.0.i222.not, label %563, label %561, !prof !474
-
-528:                                              ; preds = %181
-  %529 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %530 = load ptr, ptr %529, align 8, !invariant.load !12, !nonnull !12
-  %531 = tail call { ptr, ptr } %530(ptr noundef nonnull align 1 %0)
-  %532 = extractvalue { ptr, ptr } %531, 0
-  %533 = extractvalue { ptr, ptr } %531, 1
-  %534 = getelementptr i8, ptr %533, i64 24
-  %.val189 = load ptr, ptr %534, align 8
-  %535 = tail call { i64, i64 } %.val189(ptr noundef nonnull align 1 %532)
-  %536 = extractvalue { i64, i64 } %535, 0
-  %537 = icmp ne i64 %536, 2541767739881155333
-  %538 = extractvalue { i64, i64 } %535, 1
-  %539 = icmp ne i64 %538, -4423643634179343665
-  %.sroa.0.0.i223.not = select i1 %537, i1 true, i1 %539
-  br i1 %.sroa.0.0.i223.not, label %566, label %564, !prof !474
-
-540:                                              ; preds = %432
-  %541 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17h71edaf08115594a6E(ptr noundef nonnull align 8 %436, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
+468:                                              ; preds = %441
+  %469 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17h71edaf08115594a6E(ptr noundef nonnull align 8 %185, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
   br label %35
 
-542:                                              ; preds = %432
+470:                                              ; preds = %441
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.145) #19
   unreachable
 
-543:                                              ; preds = %444
-  %544 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17h0e865bcc7ba0f929E(ptr noundef nonnull align 8 %448, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
+471:                                              ; preds = %444
+  %472 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17h0e865bcc7ba0f929E(ptr noundef nonnull align 8 %185, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
   br label %35
 
-545:                                              ; preds = %444
+473:                                              ; preds = %444
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.145) #19
   unreachable
 
-546:                                              ; preds = %456
-  %547 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17hc2b0da23844e17eeE(ptr noundef nonnull align 8 %460, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
+474:                                              ; preds = %447
+  %475 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17hc2b0da23844e17eeE(ptr noundef nonnull align 8 %185, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
   br label %35
 
-548:                                              ; preds = %456
+476:                                              ; preds = %447
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.145) #19
   unreachable
 
-549:                                              ; preds = %468
-  %550 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17h41300c71caefd3a2E(ptr noundef nonnull align 8 %472, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
+477:                                              ; preds = %450
+  %478 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17h41300c71caefd3a2E(ptr noundef nonnull align 8 %185, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
   br label %35
 
-551:                                              ; preds = %468
+479:                                              ; preds = %450
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.145) #19
   unreachable
 
-552:                                              ; preds = %480
-  %553 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17h149361d6b953ff65E(ptr noundef nonnull align 8 %484, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
+480:                                              ; preds = %453
+  %481 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17h149361d6b953ff65E(ptr noundef nonnull align 8 %185, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
   br label %35
 
-554:                                              ; preds = %480
+482:                                              ; preds = %453
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.145) #19
   unreachable
 
-555:                                              ; preds = %492
-  %556 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17hfed44fbcb9f91c05E(ptr noundef nonnull align 8 %496, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
+483:                                              ; preds = %456
+  %484 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17hfed44fbcb9f91c05E(ptr noundef nonnull align 8 %185, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
   br label %35
 
-557:                                              ; preds = %492
+485:                                              ; preds = %456
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.145) #19
   unreachable
 
-558:                                              ; preds = %504
-  %559 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17haade9cbf429d8962E(ptr noundef nonnull align 8 %508, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
+486:                                              ; preds = %459
+  %487 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17haade9cbf429d8962E(ptr noundef nonnull align 8 %185, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
   br label %35
 
-560:                                              ; preds = %504
+488:                                              ; preds = %459
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.145) #19
   unreachable
 
-561:                                              ; preds = %516
-  %562 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17h4d9ca63f19b5e069E(ptr noundef nonnull align 8 %520, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
+489:                                              ; preds = %462
+  %490 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17h4d9ca63f19b5e069E(ptr noundef nonnull align 8 %185, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
   br label %35
 
-563:                                              ; preds = %516
+491:                                              ; preds = %462
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.145) #19
   unreachable
 
-564:                                              ; preds = %528
-  %565 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17h89ddfff4be03b671E(ptr noundef nonnull align 8 %532, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
+492:                                              ; preds = %465
+  %493 = tail call noundef i64 @_ZN12polars_arrow2io3ipc5write9serialize10dictionary16write_dictionary17h89ddfff4be03b671E(ptr noundef nonnull align 8 %185, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7, i1 noundef zeroext true)
   br label %35
 
-566:                                              ; preds = %528
+494:                                              ; preds = %465
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.145) #19
   unreachable
 
-567:                                              ; preds = %182
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize7binview13write_binview17he135bc15ff21755cE(ptr noundef nonnull align 8 %186, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+495:                                              ; preds = %191
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize7binview13write_binview17he135bc15ff21755cE(ptr noundef nonnull align 8 %195, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
   br label %35
 
-568:                                              ; preds = %182
+496:                                              ; preds = %191
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.146) #19
   unreachable
 
-569:                                              ; preds = %194
-  tail call void @_ZN12polars_arrow2io3ipc5write9serialize7binview13write_binview17hdb2c8da1e833b0d9E(ptr noundef nonnull align 8 %198, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
+497:                                              ; preds = %203
+  tail call void @_ZN12polars_arrow2io3ipc5write9serialize7binview13write_binview17hdb2c8da1e833b0d9E(ptr noundef nonnull align 8 %207, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, i8 noundef %7)
   br label %35
 
-570:                                              ; preds = %194
+498:                                              ; preds = %203
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7ebc3c1257a1d6ee10e2417903f46504.147) #19
   unreachable
 }

@@ -113941,9 +113941,9 @@ common.resume:                                    ; preds = %281, %476, %485, %4
   %.sroa.0.08.i301.sroa.gep361.i = getelementptr inbounds nuw i8, ptr %49, i64 32
   br i1 %260, label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h3fec1917b1be6452E.exit", label %266
 
-.thread:                                          ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit", %1087
-  %.sroa.031.0 = phi i32 [ %.sroa.036.0.copyload, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit" ], [ 2, %1087 ]
-  store i32 %.sroa.031.0, ptr %1088, align 8, !noalias !11293
+.thread:                                          ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit", %1013
+  %.sroa.031.0 = phi i32 [ %.sroa.036.0.copyload, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit" ], [ 2, %1013 ]
+  store i32 %.sroa.031.0, ptr %1014, align 8, !noalias !11293
   %.sroa.533.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.533.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.533, i64 12, i1 false), !noalias !11293
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.533)
@@ -116155,737 +116155,589 @@ common.resume:                                    ; preds = %281, %476, %485, %4
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !11533
   call void @"_ZN66_$LT$fish..ast..JobContinuationList$u20$as$u20$fish..ast..Node$GT$8kind_mut17h6956e428e5da9706E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull align 8 dereferenceable(16) %968), !noalias !11536
   %969 = load i64, ptr %19, align 8, !range !167, !noalias !11533, !noundef !17
+  %970 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %971 = load ptr, ptr %970, align 8, !noalias !11533, !nonnull !17, !align !139, !noundef !17
   switch i64 %969, label %default.unreachable [
-    i64 0, label %970
+    i64 0, label %972
     i64 1, label %973
     i64 2, label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit"
-    i64 3, label %978
-    i64 4, label %981
-    i64 5, label %984
-    i64 6, label %987
-    i64 7, label %990
-    i64 8, label %993
-    i64 9, label %996
-    i64 10, label %999
-    i64 11, label %1002
-    i64 12, label %1005
-    i64 13, label %1008
-    i64 14, label %1011
-    i64 15, label %1014
-    i64 16, label %1017
-    i64 17, label %1020
-    i64 18, label %1023
-    i64 19, label %1026
-    i64 20, label %1029
-    i64 21, label %1032
-    i64 22, label %1035
-    i64 23, label %1038
-    i64 24, label %1041
-    i64 25, label %1044
-    i64 26, label %1047
-    i64 27, label %1050
-    i64 28, label %1053
-    i64 29, label %1056
-    i64 30, label %1059
-    i64 31, label %1062
-    i64 32, label %1065
-    i64 33, label %1068
-    i64 34, label %1071
-    i64 35, label %1074
-    i64 36, label %1077
-    i64 37, label %1080
+    i64 3, label %976
+    i64 4, label %977
+    i64 5, label %978
+    i64 6, label %979
+    i64 7, label %980
+    i64 8, label %981
+    i64 9, label %982
+    i64 10, label %983
+    i64 11, label %984
+    i64 12, label %985
+    i64 13, label %986
+    i64 14, label %987
+    i64 15, label %988
+    i64 16, label %989
+    i64 17, label %990
+    i64 18, label %991
+    i64 19, label %992
+    i64 20, label %993
+    i64 21, label %994
+    i64 22, label %995
+    i64 23, label %996
+    i64 24, label %997
+    i64 25, label %998
+    i64 26, label %999
+    i64 27, label %1000
+    i64 28, label %1001
+    i64 29, label %1002
+    i64 30, label %1003
+    i64 31, label %1004
+    i64 32, label %1005
+    i64 33, label %1006
+    i64 34, label %1007
+    i64 35, label %1008
+    i64 36, label %1009
+    i64 37, label %1010
   ]
 
-default.unreachable:                              ; preds = %1090, %967
+default.unreachable:                              ; preds = %1016, %967
   unreachable
 
-970:                                              ; preds = %967
-  %971 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %972 = load ptr, ptr %971, align 8, !noalias !11533, !nonnull !17, !align !27, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE"(ptr noalias noundef align 4 dereferenceable(32) %972, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+972:                                              ; preds = %967
+  call fastcc void @"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE"(ptr noalias noundef align 4 dereferenceable(32) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
 
 973:                                              ; preds = %967
-  %974 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %975 = load ptr, ptr %974, align 8, !noalias !11533, !nonnull !17, !align !139, !noundef !17
-  %976 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %977 = load ptr, ptr %976, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %975, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %977), !noalias !11530
+  %974 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %975 = load ptr, ptr %974, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %971, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %975), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+976:                                              ; preds = %967
+  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %971), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+977:                                              ; preds = %967
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %971)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
 
 978:                                              ; preds = %967
-  %979 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %980 = load ptr, ptr %979, align 8, !noalias !11533, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %980), !noalias !11530
+  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %971), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+979:                                              ; preds = %967
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %971)
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+980:                                              ; preds = %967
+  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %971), !noalias !11530
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
 
 981:                                              ; preds = %967
-  %982 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %983 = load ptr, ptr %982, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %983)
+  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+982:                                              ; preds = %967
+  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+983:                                              ; preds = %967
+  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %971), !noalias !11530
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
 
 984:                                              ; preds = %967
-  %985 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %986 = load ptr, ptr %985, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %986), !noalias !11530
+  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+985:                                              ; preds = %967
+  call fastcc void @"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE"(ptr noalias noundef align 8 dereferenceable(192) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+986:                                              ; preds = %967
+  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
 
 987:                                              ; preds = %967
-  %988 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %989 = load ptr, ptr %988, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %989)
+  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+988:                                              ; preds = %967
+  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+989:                                              ; preds = %967
+  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
 
 990:                                              ; preds = %967
-  %991 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %992 = load ptr, ptr %991, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %992), !noalias !11530
+  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+991:                                              ; preds = %967
+  call fastcc void @"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E"(ptr noalias noundef align 8 dereferenceable(224) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+992:                                              ; preds = %967
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %971)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
 
 993:                                              ; preds = %967
-  %994 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %995 = load ptr, ptr %994, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %995, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  call fastcc void @"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE"(ptr noalias noundef align 8 dereferenceable(48) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+994:                                              ; preds = %967
+  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+995:                                              ; preds = %967
+  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
 
 996:                                              ; preds = %967
-  %997 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %998 = load ptr, ptr %997, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %998, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+997:                                              ; preds = %967
+  call fastcc void @"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE"(ptr noalias noundef align 8 dereferenceable(48) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+998:                                              ; preds = %967
+  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
 
 999:                                              ; preds = %967
-  %1000 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1001 = load ptr, ptr %1000, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %1001), !noalias !11530
+  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %971), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+1000:                                             ; preds = %967
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %971)
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+1001:                                             ; preds = %967
+  call fastcc void @"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE"(ptr noalias noundef align 8 dereferenceable(144) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
 
 1002:                                             ; preds = %967
-  %1003 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1004 = load ptr, ptr %1003, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %1004, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  call fastcc void @"_ZN62_$LT$fish..ast..AndorJob$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5749cf043a738819E"(ptr noalias noundef align 8 dereferenceable(160) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+1003:                                             ; preds = %967
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %971)
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+1004:                                             ; preds = %967
+  call fastcc void @"_ZN78_$LT$fish..ast..FreestandingArgumentList$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h80f5e05633587246E"(ptr noalias noundef align 8 dereferenceable(16) %971, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
 
 1005:                                             ; preds = %967
-  %1006 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1007 = load ptr, ptr %1006, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE"(ptr noalias noundef align 8 dereferenceable(192) %1007, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %971)
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+1006:                                             ; preds = %967
+  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %971), !noalias !11530
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
+
+1007:                                             ; preds = %967
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %971)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
 
 1008:                                             ; preds = %967
-  %1009 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1010 = load ptr, ptr %1009, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %1010, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %971), !noalias !11530
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
 
-1011:                                             ; preds = %967
-  %1012 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1013 = load ptr, ptr %1012, align 8, !noalias !11533, !nonnull !17, !align !27, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %1013, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+1009:                                             ; preds = %967
+  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %971, i1 noundef zeroext false), !noalias !11530
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
 
-1014:                                             ; preds = %967
-  %1015 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1016 = load ptr, ptr %1015, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %1016, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
+1010:                                             ; preds = %967
+  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %971, i1 noundef zeroext false), !noalias !11530
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
 
-1017:                                             ; preds = %967
-  %1018 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1019 = load ptr, ptr %1018, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %1019, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1020:                                             ; preds = %967
-  %1021 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1022 = load ptr, ptr %1021, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %1022, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1023:                                             ; preds = %967
-  %1024 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1025 = load ptr, ptr %1024, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E"(ptr noalias noundef align 8 dereferenceable(224) %1025, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1026:                                             ; preds = %967
-  %1027 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1028 = load ptr, ptr %1027, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1028)
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1029:                                             ; preds = %967
-  %1030 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1031 = load ptr, ptr %1030, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE"(ptr noalias noundef align 8 dereferenceable(48) %1031, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1032:                                             ; preds = %967
-  %1033 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1034 = load ptr, ptr %1033, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %1034, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1035:                                             ; preds = %967
-  %1036 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1037 = load ptr, ptr %1036, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %1037, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1038:                                             ; preds = %967
-  %1039 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1040 = load ptr, ptr %1039, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %1040, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1041:                                             ; preds = %967
-  %1042 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1043 = load ptr, ptr %1042, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE"(ptr noalias noundef align 8 dereferenceable(48) %1043, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1044:                                             ; preds = %967
-  %1045 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1046 = load ptr, ptr %1045, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %1046, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1047:                                             ; preds = %967
-  %1048 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1049 = load ptr, ptr %1048, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %1049), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1050:                                             ; preds = %967
-  %1051 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1052 = load ptr, ptr %1051, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1052)
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1053:                                             ; preds = %967
-  %1054 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1055 = load ptr, ptr %1054, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE"(ptr noalias noundef align 8 dereferenceable(144) %1055, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1056:                                             ; preds = %967
-  %1057 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1058 = load ptr, ptr %1057, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..AndorJob$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5749cf043a738819E"(ptr noalias noundef align 8 dereferenceable(160) %1058, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1059:                                             ; preds = %967
-  %1060 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1061 = load ptr, ptr %1060, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1061)
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1062:                                             ; preds = %967
-  %1063 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1064 = load ptr, ptr %1063, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN78_$LT$fish..ast..FreestandingArgumentList$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h80f5e05633587246E"(ptr noalias noundef align 8 dereferenceable(16) %1064, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1065:                                             ; preds = %967
-  %1066 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1067 = load ptr, ptr %1066, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1067)
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1068:                                             ; preds = %967
-  %1069 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1070 = load ptr, ptr %1069, align 8, !noalias !11533, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %1070), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1071:                                             ; preds = %967
-  %1072 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1073 = load ptr, ptr %1072, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1073)
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1074:                                             ; preds = %967
-  %1075 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1076 = load ptr, ptr %1075, align 8, !noalias !11533, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %1076), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1077:                                             ; preds = %967
-  %1078 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1079 = load ptr, ptr %1078, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1079, i1 noundef zeroext false), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-1080:                                             ; preds = %967
-  %1081 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1082 = load ptr, ptr %1081, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1082, i1 noundef zeroext false), !noalias !11530
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread"
-
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread": ; preds = %970, %973, %978, %981, %984, %987, %990, %993, %996, %999, %1002, %1005, %1008, %1011, %1014, %1017, %1020, %1023, %1026, %1029, %1032, %1035, %1038, %1041, %1044, %1047, %1050, %1053, %1056, %1059, %1062, %1065, %1068, %1071, %1074, %1077, %1080
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread": ; preds = %972, %973, %976, %977, %978, %979, %980, %981, %982, %983, %984, %985, %986, %987, %988, %989, %990, %991, %992, %993, %994, %995, %996, %997, %998, %999, %1000, %1001, %1002, %1003, %1004, %1005, %1006, %1007, %1008, %1009, %1010
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !11533
   store i8 2, ptr %252, align 2, !alias.scope !11530, !noalias !11537
-  br label %1087
+  br label %1013
 
 "_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit": ; preds = %967
-  %1083 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1084 = load ptr, ptr %1083, align 8, !noalias !11533, !nonnull !17, !align !139, !noundef !17
-  %1085 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %1086 = load ptr, ptr %1085, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %122, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %1084, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %1086)
+  %1011 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %1012 = load ptr, ptr %1011, align 8, !noalias !11533, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %122, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %971, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %1012)
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !11533
   %.pr = load i8, ptr %252, align 2
   %.not3 = icmp eq i8 %.pr, 2
-  br i1 %.not3, label %1087, label %255
+  br i1 %.not3, label %1013, label %255
 
-1087:                                             ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit"
-  %1088 = getelementptr inbounds nuw i8, ptr %0, i64 16
+1013:                                             ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haf4926be8789e30dE.exit"
+  %1014 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.533)
-  %1089 = call noundef zeroext i1 @"_ZN68_$LT$fish..ast..TokenBackground$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17hc2c7b6f4351c53adE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11538
-  br i1 %1089, label %1090, label %.thread
+  %1015 = call noundef zeroext i1 @"_ZN68_$LT$fish..ast..TokenBackground$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17hc2c7b6f4351c53adE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11538
+  br i1 %1015, label %1016, label %.thread
 
-1090:                                             ; preds = %1087
+1016:                                             ; preds = %1013
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !11542
   call void @llvm.experimental.noalias.scope.decl(metadata !11547)
-  %1091 = call noundef i8 @"_ZN80_$LT$fish..parse_constants..ParseTokenType$u20$as$u20$core..default..Default$GT$7default17hc0acbacc9b484b3dE"(), !noalias !11550
+  %1017 = call noundef i8 @"_ZN80_$LT$fish..parse_constants..ParseTokenType$u20$as$u20$core..default..Default$GT$7default17hc0acbacc9b484b3dE"(), !noalias !11550
   store i32 0, ptr %16, align 4, !alias.scope !11547, !noalias !11551
-  %1092 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i8 %1091, ptr %1092, align 4, !alias.scope !11547, !noalias !11551
+  %1018 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  store i8 %1017, ptr %1018, align 4, !alias.scope !11547, !noalias !11551
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !11542
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !11552
   call void @"_ZN62_$LT$fish..ast..TokenBackground$u20$as$u20$fish..ast..Node$GT$8kind_mut17hc0b21d6e71e95585E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 4 dereferenceable(16) %16), !noalias !11557
-  %1093 = load i64, ptr %14, align 8, !range !167, !noalias !11552, !noundef !17
-  switch i64 %1093, label %default.unreachable [
-    i64 0, label %1094
-    i64 1, label %1101
-    i64 2, label %1106
-    i64 3, label %1111
-    i64 4, label %1114
-    i64 5, label %1117
-    i64 6, label %1120
-    i64 7, label %1123
-    i64 8, label %1126
-    i64 9, label %1129
-    i64 10, label %1132
-    i64 11, label %1135
-    i64 12, label %1138
-    i64 13, label %1148
-    i64 14, label %1151
-    i64 15, label %1158
-    i64 16, label %1161
-    i64 17, label %1164
-    i64 18, label %1167
-    i64 19, label %1174
-    i64 20, label %1177
-    i64 21, label %1187
-    i64 22, label %1190
-    i64 23, label %1193
-    i64 24, label %1196
-    i64 25, label %1207
-    i64 26, label %1210
-    i64 27, label %1213
-    i64 28, label %1216
-    i64 29, label %1226
-    i64 30, label %1229
-    i64 31, label %1232
-    i64 32, label %1235
-    i64 33, label %1238
-    i64 34, label %1241
-    i64 35, label %1244
-    i64 36, label %1247
-    i64 37, label %1250
+  %1019 = load i64, ptr %14, align 8, !range !167, !noalias !11552, !noundef !17
+  %1020 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %1021 = load ptr, ptr %1020, align 8, !noalias !11552, !nonnull !17, !align !139, !noundef !17
+  switch i64 %1019, label %default.unreachable [
+    i64 0, label %1022
+    i64 1, label %1027
+    i64 2, label %1030
+    i64 3, label %1033
+    i64 4, label %1034
+    i64 5, label %1035
+    i64 6, label %1036
+    i64 7, label %1037
+    i64 8, label %1038
+    i64 9, label %1039
+    i64 10, label %1040
+    i64 11, label %1041
+    i64 12, label %1042
+    i64 13, label %1050
+    i64 14, label %1051
+    i64 15, label %1056
+    i64 16, label %1057
+    i64 17, label %1058
+    i64 18, label %1059
+    i64 19, label %1064
+    i64 20, label %1065
+    i64 21, label %1073
+    i64 22, label %1074
+    i64 23, label %1075
+    i64 24, label %1076
+    i64 25, label %1085
+    i64 26, label %1086
+    i64 27, label %1087
+    i64 28, label %1088
+    i64 29, label %1096
+    i64 30, label %1097
+    i64 31, label %1098
+    i64 32, label %1099
+    i64 33, label %1100
+    i64 34, label %1101
+    i64 35, label %1102
+    i64 36, label %1103
+    i64 37, label %1104
   ]
 
-1094:                                             ; preds = %1090
-  %1095 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1096 = load ptr, ptr %1095, align 8, !noalias !11552, !nonnull !17, !align !27, !noundef !17
+1022:                                             ; preds = %1016
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !11552
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf72cd84b56f3a141E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %1096), !noalias !11558
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h049305556e67f2cbE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %1096), !noalias !11558
-  %1097 = getelementptr inbounds nuw i8, ptr %13, i64 30
-  %1098 = load i8, ptr %1097, align 2, !range !3577, !noalias !11559, !noundef !17
-  %.not.i.i = icmp eq i8 %1098, 2
-  br i1 %.not.i.i, label %1099, label %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf72cd84b56f3a141E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %1021), !noalias !11558
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h049305556e67f2cbE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %1021), !noalias !11558
+  %1023 = getelementptr inbounds nuw i8, ptr %13, i64 30
+  %1024 = load i8, ptr %1023, align 2, !range !3577, !noalias !11559, !noundef !17
+  %.not.i.i = icmp eq i8 %1024, 2
+  br i1 %.not.i.i, label %1025, label %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i"
 
-1099:                                             ; preds = %1094
-  %1100 = getelementptr inbounds nuw i8, ptr %1096, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %1100), !noalias !11558
+1025:                                             ; preds = %1022
+  %1026 = getelementptr inbounds nuw i8, ptr %1021, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %1026), !noalias !11558
   br label %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i"
 
-"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i": ; preds = %1099, %1094
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h9570d0d3c19e21acE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %1096, ptr noalias noundef align 8 captures(none) dereferenceable(32) %13), !noalias !11558
+"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i": ; preds = %1025, %1022
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h9570d0d3c19e21acE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %1021, ptr noalias noundef align 8 captures(none) dereferenceable(32) %13), !noalias !11558
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !11552
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1101:                                             ; preds = %1090
-  %1102 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1103 = load ptr, ptr %1102, align 8, !noalias !11552, !nonnull !17, !align !139, !noundef !17
-  %1104 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %1105 = load ptr, ptr %1104, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %1103, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %1105), !noalias !11558
+1027:                                             ; preds = %1016
+  %1028 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %1029 = load ptr, ptr %1028, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %1021, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %1029), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1106:                                             ; preds = %1090
-  %1107 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1108 = load ptr, ptr %1107, align 8, !noalias !11552, !nonnull !17, !align !139, !noundef !17
-  %1109 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %1110 = load ptr, ptr %1109, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %1108, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %1110), !noalias !11563
+1030:                                             ; preds = %1016
+  %1031 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %1032 = load ptr, ptr %1031, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %1021, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %1032), !noalias !11563
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1111:                                             ; preds = %1090
-  %1112 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1113 = load ptr, ptr %1112, align 8, !noalias !11552, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %1113), !noalias !11558
+1033:                                             ; preds = %1016
+  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %1021), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1114:                                             ; preds = %1090
-  %1115 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1116 = load ptr, ptr %1115, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1116)
+1034:                                             ; preds = %1016
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1021)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1117:                                             ; preds = %1090
-  %1118 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1119 = load ptr, ptr %1118, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1119), !noalias !11558
+1035:                                             ; preds = %1016
+  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1021), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1120:                                             ; preds = %1090
-  %1121 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1122 = load ptr, ptr %1121, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1122)
+1036:                                             ; preds = %1016
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1021)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1123:                                             ; preds = %1090
-  %1124 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1125 = load ptr, ptr %1124, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1125), !noalias !11558
+1037:                                             ; preds = %1016
+  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1021), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1126:                                             ; preds = %1090
-  %1127 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1128 = load ptr, ptr %1127, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %1128, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
+1038:                                             ; preds = %1016
+  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %1021, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1129:                                             ; preds = %1090
-  %1130 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1131 = load ptr, ptr %1130, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %1131, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
+1039:                                             ; preds = %1016
+  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %1021, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1132:                                             ; preds = %1090
-  %1133 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1134 = load ptr, ptr %1133, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %1134), !noalias !11558
+1040:                                             ; preds = %1016
+  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %1021), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1135:                                             ; preds = %1090
-  %1136 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1137 = load ptr, ptr %1136, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %1137, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
+1041:                                             ; preds = %1016
+  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %1021, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1138:                                             ; preds = %1090
-  %1139 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1140 = load ptr, ptr %1139, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
+1042:                                             ; preds = %1016
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !11552
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h1a3b846da26f66f9E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %1140), !noalias !11558
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haa8be05bf548bc11E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %1140), !noalias !11558
-  %1141 = getelementptr inbounds nuw i8, ptr %12, i64 30
-  %1142 = load i8, ptr %1141, align 2, !range !3577, !noalias !11564, !noundef !17
-  %.not.i1.i = icmp eq i8 %1142, 2
-  br i1 %.not.i1.i, label %1143, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h1a3b846da26f66f9E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %1021), !noalias !11558
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haa8be05bf548bc11E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %1021), !noalias !11558
+  %1043 = getelementptr inbounds nuw i8, ptr %12, i64 30
+  %1044 = load i8, ptr %1043, align 2, !range !3577, !noalias !11564, !noundef !17
+  %.not.i1.i = icmp eq i8 %1044, 2
+  br i1 %.not.i1.i, label %1045, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i"
 
-1143:                                             ; preds = %1138
-  %1144 = getelementptr inbounds nuw i8, ptr %1140, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(160) %1144), !noalias !11558
-  %1145 = load i8, ptr %1141, align 2, !range !3577, !noalias !11564, !noundef !17
-  %.not1.i2.i = icmp eq i8 %1145, 2
-  br i1 %.not1.i2.i, label %1146, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i"
+1045:                                             ; preds = %1042
+  %1046 = getelementptr inbounds nuw i8, ptr %1021, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(160) %1046), !noalias !11558
+  %1047 = load i8, ptr %1043, align 2, !range !3577, !noalias !11564, !noundef !17
+  %.not1.i2.i = icmp eq i8 %1047, 2
+  br i1 %.not1.i2.i, label %1048, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i"
 
-1146:                                             ; preds = %1143
-  %1147 = getelementptr inbounds nuw i8, ptr %1140, i64 176
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd0348e8a3f03cb21E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1147), !noalias !11558
+1048:                                             ; preds = %1045
+  %1049 = getelementptr inbounds nuw i8, ptr %1021, i64 176
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd0348e8a3f03cb21E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1049), !noalias !11558
   br label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i"
 
-"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i": ; preds = %1146, %1143, %1138
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h937dd9cae9983329E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %1140, ptr noalias noundef align 8 captures(none) dereferenceable(32) %12), !noalias !11558
+"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i": ; preds = %1048, %1045, %1042
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h937dd9cae9983329E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %1021, ptr noalias noundef align 8 captures(none) dereferenceable(32) %12), !noalias !11558
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !11552
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1148:                                             ; preds = %1090
-  %1149 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1150 = load ptr, ptr %1149, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %1150, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
+1050:                                             ; preds = %1016
+  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %1021, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1151:                                             ; preds = %1090
-  %1152 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1153 = load ptr, ptr %1152, align 8, !noalias !11552, !nonnull !17, !align !27, !noundef !17
+1051:                                             ; preds = %1016
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !11552
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h24cacefe9dc29ec5E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %1153), !noalias !11558
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h80d2d2d3f0355fddE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %1153), !noalias !11558
-  %1154 = getelementptr inbounds nuw i8, ptr %11, i64 30
-  %1155 = load i8, ptr %1154, align 2, !range !3577, !noalias !11568, !noundef !17
-  %.not.i3.i = icmp eq i8 %1155, 2
-  br i1 %.not.i3.i, label %1156, label %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h24cacefe9dc29ec5E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %1021), !noalias !11558
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h80d2d2d3f0355fddE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %1021), !noalias !11558
+  %1052 = getelementptr inbounds nuw i8, ptr %11, i64 30
+  %1053 = load i8, ptr %1052, align 2, !range !3577, !noalias !11568, !noundef !17
+  %.not.i3.i = icmp eq i8 %1053, 2
+  br i1 %.not.i3.i, label %1054, label %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i"
 
-1156:                                             ; preds = %1151
-  %1157 = getelementptr inbounds nuw i8, ptr %1153, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$18visit_optional_mut17h6a9863072ac53db1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %1157), !noalias !11558
+1054:                                             ; preds = %1051
+  %1055 = getelementptr inbounds nuw i8, ptr %1021, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$18visit_optional_mut17h6a9863072ac53db1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %1055), !noalias !11558
   br label %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i"
 
-"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i": ; preds = %1156, %1151
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfe380248cea3b883E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %1153, ptr noalias noundef align 8 captures(none) dereferenceable(32) %11), !noalias !11558
+"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i": ; preds = %1054, %1051
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfe380248cea3b883E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %1021, ptr noalias noundef align 8 captures(none) dereferenceable(32) %11), !noalias !11558
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !11552
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1158:                                             ; preds = %1090
-  %1159 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1160 = load ptr, ptr %1159, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %1160, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
+1056:                                             ; preds = %1016
+  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %1021, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1161:                                             ; preds = %1090
-  %1162 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1163 = load ptr, ptr %1162, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %1163, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
+1057:                                             ; preds = %1016
+  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %1021, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1164:                                             ; preds = %1090
-  %1165 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1166 = load ptr, ptr %1165, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %1166, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
+1058:                                             ; preds = %1016
+  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %1021, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1167:                                             ; preds = %1090
-  %1168 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1169 = load ptr, ptr %1168, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
+1059:                                             ; preds = %1016
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !11552
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h4f6ba0f4c80c97cbE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %1169), !noalias !11558
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %1169), !noalias !11558
-  %1170 = getelementptr inbounds nuw i8, ptr %10, i64 30
-  %1171 = load i8, ptr %1170, align 2, !range !3577, !noalias !11572, !noundef !17
-  %.not.i5.i = icmp eq i8 %1171, 2
-  br i1 %.not.i5.i, label %1172, label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h4f6ba0f4c80c97cbE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %1021), !noalias !11558
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %1021), !noalias !11558
+  %1060 = getelementptr inbounds nuw i8, ptr %10, i64 30
+  %1061 = load i8, ptr %1060, align 2, !range !3577, !noalias !11572, !noundef !17
+  %.not.i5.i = icmp eq i8 %1061, 2
+  br i1 %.not.i5.i, label %1062, label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i"
 
-1172:                                             ; preds = %1167
-  %1173 = getelementptr inbounds nuw i8, ptr %1169, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hca29f2f067e485fdE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(208) %1173), !noalias !11558
+1062:                                             ; preds = %1059
+  %1063 = getelementptr inbounds nuw i8, ptr %1021, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hca29f2f067e485fdE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(208) %1063), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i"
 
-"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i": ; preds = %1172, %1167
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h664b5fa91fa80399E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %1169, ptr noalias noundef align 8 captures(none) dereferenceable(32) %10), !noalias !11558
+"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i": ; preds = %1062, %1059
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h664b5fa91fa80399E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %1021, ptr noalias noundef align 8 captures(none) dereferenceable(32) %10), !noalias !11558
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !11552
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1174:                                             ; preds = %1090
-  %1175 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1176 = load ptr, ptr %1175, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1176)
+1064:                                             ; preds = %1016
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1021)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1177:                                             ; preds = %1090
-  %1178 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1179 = load ptr, ptr %1178, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
+1065:                                             ; preds = %1016
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !11552
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17ha74f4e61d89105beE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1179), !noalias !11558
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1179), !noalias !11558
-  %1180 = getelementptr inbounds nuw i8, ptr %9, i64 30
-  %1181 = load i8, ptr %1180, align 2, !range !3577, !noalias !11576, !noundef !17
-  %.not.i7.i = icmp eq i8 %1181, 2
-  br i1 %.not.i7.i, label %1182, label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17ha74f4e61d89105beE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1021), !noalias !11558
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1021), !noalias !11558
+  %1066 = getelementptr inbounds nuw i8, ptr %9, i64 30
+  %1067 = load i8, ptr %1066, align 2, !range !3577, !noalias !11576, !noundef !17
+  %.not.i7.i = icmp eq i8 %1067, 2
+  br i1 %.not.i7.i, label %1068, label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i"
 
-1182:                                             ; preds = %1177
-  %1183 = getelementptr inbounds nuw i8, ptr %1179, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$18visit_optional_mut17h6a9863072ac53db1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %1183), !noalias !11558
-  %1184 = load i8, ptr %1180, align 2, !range !3577, !noalias !11576, !noundef !17
-  %.not1.i8.i = icmp eq i8 %1184, 2
-  br i1 %.not1.i8.i, label %1185, label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i"
+1068:                                             ; preds = %1065
+  %1069 = getelementptr inbounds nuw i8, ptr %1021, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$18visit_optional_mut17h6a9863072ac53db1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %1069), !noalias !11558
+  %1070 = load i8, ptr %1066, align 2, !range !3577, !noalias !11576, !noundef !17
+  %.not1.i8.i = icmp eq i8 %1070, 2
+  br i1 %.not1.i8.i, label %1071, label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i"
 
-1185:                                             ; preds = %1182
-  %1186 = getelementptr inbounds nuw i8, ptr %1179, i64 32
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc5d8ff9d357d95d1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1186), !noalias !11558
+1071:                                             ; preds = %1068
+  %1072 = getelementptr inbounds nuw i8, ptr %1021, i64 32
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc5d8ff9d357d95d1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1072), !noalias !11558
   br label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i"
 
-"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i": ; preds = %1185, %1182, %1177
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hc06534e3aa1639abE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1179, ptr noalias noundef align 8 captures(none) dereferenceable(32) %9), !noalias !11558
+"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i": ; preds = %1071, %1068, %1065
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hc06534e3aa1639abE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1021, ptr noalias noundef align 8 captures(none) dereferenceable(32) %9), !noalias !11558
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !11552
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1187:                                             ; preds = %1090
-  %1188 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1189 = load ptr, ptr %1188, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %1189, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
+1073:                                             ; preds = %1016
+  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %1021, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1190:                                             ; preds = %1090
-  %1191 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1192 = load ptr, ptr %1191, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %1192, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
+1074:                                             ; preds = %1016
+  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %1021, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1193:                                             ; preds = %1090
-  %1194 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1195 = load ptr, ptr %1194, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %1195, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
+1075:                                             ; preds = %1016
+  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %1021, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1196:                                             ; preds = %1090
-  %1197 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1198 = load ptr, ptr %1197, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
+1076:                                             ; preds = %1016
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !11552
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h532749ea362765d3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1198), !noalias !11558
-  %1199 = getelementptr inbounds nuw i8, ptr %1198, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h532749ea362765d3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1021), !noalias !11558
+  %1077 = getelementptr inbounds nuw i8, ptr %1021, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !11580), !noalias !11563
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.540)
-  %1200 = call noundef zeroext i1 @"_ZN80_$LT$fish..ast..DecoratedStatementDecorator$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17h5fb5c422c9295aacE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11583
-  br i1 %1200, label %1201, label %1202
+  %1078 = call noundef zeroext i1 @"_ZN80_$LT$fish..ast..DecoratedStatementDecorator$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17h5fb5c422c9295aacE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11583
+  br i1 %1078, label %1079, label %1080
 
-1201:                                             ; preds = %1196
+1079:                                             ; preds = %1076
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !11587
   call fastcc void @_ZN4fish3ast9Populator14allocate_visit17ha0f2430831ead41eE(ptr noalias noundef align 4 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11583
   %.sroa.038.0.copyload39 = load i32, ptr %4, align 4, !noalias !11590
   %.sroa.540.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.540, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.540.0..sroa_idx41, i64 12, i1 false), !noalias !11590
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11587
-  br label %1202
+  br label %1080
 
-1202:                                             ; preds = %1201, %1196
-  %.sroa.038.0 = phi i32 [ %.sroa.038.0.copyload39, %1201 ], [ 2, %1196 ]
-  store i32 %.sroa.038.0, ptr %1199, align 8, !noalias !11591
-  %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1198, i64 20
+1080:                                             ; preds = %1079, %1076
+  %.sroa.038.0 = phi i32 [ %.sroa.038.0.copyload39, %1079 ], [ 2, %1076 ]
+  store i32 %.sroa.038.0, ptr %1077, align 4, !noalias !11591
+  %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1021, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.540.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.540, i64 12, i1 false), !noalias !11591
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.540)
-  %1203 = getelementptr inbounds nuw i8, ptr %8, i64 30
-  store i8 2, ptr %1203, align 2, !alias.scope !11580, !noalias !11592
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1198), !noalias !11558
-  %1204 = load i8, ptr %1203, align 2, !range !3577, !noalias !11593, !noundef !17
-  %.not1.i11.i = icmp eq i8 %1204, 2
-  br i1 %.not1.i11.i, label %1205, label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i"
+  %1081 = getelementptr inbounds nuw i8, ptr %8, i64 30
+  store i8 2, ptr %1081, align 2, !alias.scope !11580, !noalias !11592
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1021), !noalias !11558
+  %1082 = load i8, ptr %1081, align 2, !range !3577, !noalias !11593, !noundef !17
+  %.not1.i11.i = icmp eq i8 %1082, 2
+  br i1 %.not1.i11.i, label %1083, label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i"
 
-1205:                                             ; preds = %1202
-  %1206 = getelementptr inbounds nuw i8, ptr %1198, i64 32
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1206), !noalias !11558
+1083:                                             ; preds = %1080
+  %1084 = getelementptr inbounds nuw i8, ptr %1021, i64 32
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1084), !noalias !11558
   br label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i"
 
-"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i": ; preds = %1205, %1202
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h6a75953bc5a3dbe8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1198, ptr noalias noundef align 8 captures(none) dereferenceable(32) %8), !noalias !11558
+"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i": ; preds = %1083, %1080
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h6a75953bc5a3dbe8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1021, ptr noalias noundef align 8 captures(none) dereferenceable(32) %8), !noalias !11558
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !11552
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1207:                                             ; preds = %1090
-  %1208 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1209 = load ptr, ptr %1208, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %1209, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
+1085:                                             ; preds = %1016
+  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %1021, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1210:                                             ; preds = %1090
-  %1211 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1212 = load ptr, ptr %1211, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %1212), !noalias !11558
+1086:                                             ; preds = %1016
+  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %1021), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1213:                                             ; preds = %1090
-  %1214 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1215 = load ptr, ptr %1214, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1215)
+1087:                                             ; preds = %1016
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1021)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1216:                                             ; preds = %1090
-  %1217 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1218 = load ptr, ptr %1217, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
+1088:                                             ; preds = %1016
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !11552
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h01eb6c0c74e3287aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %1218), !noalias !11558
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h43bb3b44ab08d2baE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %1218), !noalias !11558
-  %1219 = getelementptr inbounds nuw i8, ptr %7, i64 30
-  %1220 = load i8, ptr %1219, align 2, !range !3577, !noalias !11597, !noundef !17
-  %.not.i13.i = icmp eq i8 %1220, 2
-  br i1 %.not.i13.i, label %1221, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h01eb6c0c74e3287aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %1021), !noalias !11558
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h43bb3b44ab08d2baE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %1021), !noalias !11558
+  %1089 = getelementptr inbounds nuw i8, ptr %7, i64 30
+  %1090 = load i8, ptr %1089, align 2, !range !3577, !noalias !11597, !noundef !17
+  %.not.i13.i = icmp eq i8 %1090, 2
+  br i1 %.not.i13.i, label %1091, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i"
 
-1221:                                             ; preds = %1216
-  %1222 = getelementptr inbounds nuw i8, ptr %1218, i64 128
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h818c83f62cd06754E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(12) %1222), !noalias !11558
-  %1223 = load i8, ptr %1219, align 2, !range !3577, !noalias !11597, !noundef !17
-  %.not1.i14.i = icmp eq i8 %1223, 2
-  br i1 %.not1.i14.i, label %1224, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i"
+1091:                                             ; preds = %1088
+  %1092 = getelementptr inbounds nuw i8, ptr %1021, i64 128
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h818c83f62cd06754E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(12) %1092), !noalias !11558
+  %1093 = load i8, ptr %1089, align 2, !range !3577, !noalias !11597, !noundef !17
+  %.not1.i14.i = icmp eq i8 %1093, 2
+  br i1 %.not1.i14.i, label %1094, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i"
 
-1224:                                             ; preds = %1221
-  %1225 = getelementptr inbounds nuw i8, ptr %1218, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h93a471d0b8d5106bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(112) %1225), !noalias !11558
+1094:                                             ; preds = %1091
+  %1095 = getelementptr inbounds nuw i8, ptr %1021, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h93a471d0b8d5106bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(112) %1095), !noalias !11558
   br label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i"
 
-"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i": ; preds = %1224, %1221, %1216
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h798e06610eb2f4b8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %1218, ptr noalias noundef align 8 captures(none) dereferenceable(32) %7), !noalias !11558
+"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i": ; preds = %1094, %1091, %1088
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h798e06610eb2f4b8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %1021, ptr noalias noundef align 8 captures(none) dereferenceable(32) %7), !noalias !11558
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !11552
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1226:                                             ; preds = %1090
-  %1227 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1228 = load ptr, ptr %1227, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
+1096:                                             ; preds = %1016
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !11552
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h409ed0dce593bd81E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %1228), !noalias !11558
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %1228), !noalias !11558
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfec61b9cd3d5b2e0E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %1228, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6), !noalias !11558
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h409ed0dce593bd81E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %1021), !noalias !11558
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %1021), !noalias !11558
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfec61b9cd3d5b2e0E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %1021, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6), !noalias !11558
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !11552
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1229:                                             ; preds = %1090
-  %1230 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1231 = load ptr, ptr %1230, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1231)
+1097:                                             ; preds = %1016
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1021)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1232:                                             ; preds = %1090
-  %1233 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1234 = load ptr, ptr %1233, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
+1098:                                             ; preds = %1016
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !11552
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h8f3472ff825a7f83E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1234), !noalias !11558
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1e934e91488c67a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1234), !noalias !11558
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hd64bf4a54c433fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1234, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5), !noalias !11558
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h8f3472ff825a7f83E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1021), !noalias !11558
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1e934e91488c67a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1021), !noalias !11558
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hd64bf4a54c433fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1021, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5), !noalias !11558
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !11552
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1235:                                             ; preds = %1090
-  %1236 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1237 = load ptr, ptr %1236, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1237)
+1099:                                             ; preds = %1016
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1021)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1238:                                             ; preds = %1090
-  %1239 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1240 = load ptr, ptr %1239, align 8, !noalias !11552, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %1240), !noalias !11558
+1100:                                             ; preds = %1016
+  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %1021), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1241:                                             ; preds = %1090
-  %1242 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1243 = load ptr, ptr %1242, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1243)
+1101:                                             ; preds = %1016
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1021)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1244:                                             ; preds = %1090
-  %1245 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1246 = load ptr, ptr %1245, align 8, !noalias !11552, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %1246), !noalias !11558
+1102:                                             ; preds = %1016
+  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %1021), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1247:                                             ; preds = %1090
-  %1248 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1249 = load ptr, ptr %1248, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1249, i1 noundef zeroext false), !noalias !11558
+1103:                                             ; preds = %1016
+  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1021, i1 noundef zeroext false), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-1250:                                             ; preds = %1090
-  %1251 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %1252 = load ptr, ptr %1251, align 8, !noalias !11552, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1252, i1 noundef zeroext false), !noalias !11558
+1104:                                             ; preds = %1016
+  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1021, i1 noundef zeroext false), !noalias !11558
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit"
 
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit": ; preds = %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i", %1101, %1111, %1114, %1117, %1120, %1123, %1126, %1129, %1132, %1135, %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i", %1148, %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i", %1158, %1161, %1164, %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i", %1174, %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i", %1187, %1190, %1193, %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i", %1207, %1210, %1213, %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i", %1226, %1229, %1232, %1235, %1238, %1241, %1244, %1247, %1250, %1106
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5f8f12a1e37f8d45E.exit": ; preds = %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i", %1027, %1033, %1034, %1035, %1036, %1037, %1038, %1039, %1040, %1041, %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i", %1050, %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i", %1056, %1057, %1058, %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i", %1064, %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i", %1073, %1074, %1075, %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i", %1085, %1086, %1087, %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i", %1096, %1097, %1098, %1099, %1100, %1101, %1102, %1103, %1104, %1030
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !11552
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !11542
   %.sroa.036.0.copyload = load i32, ptr %16, align 4, !noalias !11601
@@ -117442,8 +117294,8 @@ define internal fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fis
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE"(ptr noalias noundef align 8 dereferenceable(32) %113) #15
           to label %.body.i unwind label %241
 
-common.resume:                                    ; preds = %441, %636, %645, %646, %649, %721, %893, %902, %903, %906, %913, %1107, %1116, %1117, %1120, %131, %219
-  %common.resume.op = phi { ptr, i32 } [ %.pn14.i, %219 ], [ %132, %131 ], [ %.pn192.i, %721 ], [ %.pn178.i, %913 ], [ %.pn.i5, %441 ], [ %.pn171368.i, %645 ], [ %637, %636 ], [ %.pn171.pn.ph.i, %649 ], [ %.pn171.pn.ph.i, %646 ], [ %.pn203392.i, %902 ], [ %894, %893 ], [ %.pn203.pn.ph.i, %906 ], [ %.pn203.pn.ph.i, %903 ], [ %.pn189404.i, %1116 ], [ %1108, %1107 ], [ %.pn189.pn.ph.i, %1120 ], [ %.pn189.pn.ph.i, %1117 ]
+common.resume:                                    ; preds = %367, %562, %571, %572, %575, %647, %819, %828, %829, %832, %839, %1033, %1042, %1043, %1046, %131, %219
+  %common.resume.op = phi { ptr, i32 } [ %.pn14.i, %219 ], [ %132, %131 ], [ %.pn192.i, %647 ], [ %.pn178.i, %839 ], [ %.pn.i5, %367 ], [ %.pn171368.i, %571 ], [ %563, %562 ], [ %.pn171.pn.ph.i, %575 ], [ %.pn171.pn.ph.i, %572 ], [ %.pn203392.i, %828 ], [ %820, %819 ], [ %.pn203.pn.ph.i, %832 ], [ %.pn203.pn.ph.i, %829 ], [ %.pn189404.i, %1042 ], [ %1034, %1033 ], [ %.pn189.pn.ph.i, %1046 ], [ %.pn189.pn.ph.i, %1043 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h9a78fdae48f0f6daE.exit": ; preds = %2, %240
@@ -117455,7 +117307,7 @@ common.resume:                                    ; preds = %441, %636, %645, %6
   call void @llvm.experimental.noalias.scope.decl(metadata !11651)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %247 = call noundef zeroext i1 @"_ZN76_$LT$fish..ast..JobConjunctionDecorator$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17hb361928b6dd2842cE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11654
-  br i1 %247, label %248, label %411
+  br i1 %247, label %248, label %337
 
 248:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h9a78fdae48f0f6daE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !11658
@@ -117468,520 +117320,446 @@ common.resume:                                    ; preds = %441, %636, %645, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !11668
   call void @"_ZN70_$LT$fish..ast..JobConjunctionDecorator$u20$as$u20$fish..ast..Node$GT$8kind_mut17h6c3407c88cc95926E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 4 dereferenceable(16) %18), !noalias !11673
   %251 = load i64, ptr %14, align 8, !range !167, !noalias !11668, !noundef !17
+  %252 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %253 = load ptr, ptr %252, align 8, !noalias !11668, !nonnull !17, !align !139, !noundef !17
   switch i64 %251, label %default.unreachable [
-    i64 0, label %252
+    i64 0, label %254
     i64 1, label %259
-    i64 2, label %264
-    i64 3, label %269
-    i64 4, label %272
-    i64 5, label %275
-    i64 6, label %278
-    i64 7, label %281
-    i64 8, label %284
-    i64 9, label %287
-    i64 10, label %290
-    i64 11, label %293
-    i64 12, label %296
-    i64 13, label %306
-    i64 14, label %309
-    i64 15, label %316
-    i64 16, label %319
-    i64 17, label %322
-    i64 18, label %325
-    i64 19, label %332
-    i64 20, label %335
-    i64 21, label %345
-    i64 22, label %348
-    i64 23, label %351
-    i64 24, label %354
-    i64 25, label %365
-    i64 26, label %368
-    i64 27, label %371
-    i64 28, label %374
-    i64 29, label %384
-    i64 30, label %387
-    i64 31, label %390
-    i64 32, label %393
-    i64 33, label %396
-    i64 34, label %399
-    i64 35, label %402
-    i64 36, label %405
-    i64 37, label %408
+    i64 2, label %262
+    i64 3, label %265
+    i64 4, label %266
+    i64 5, label %267
+    i64 6, label %268
+    i64 7, label %269
+    i64 8, label %270
+    i64 9, label %271
+    i64 10, label %272
+    i64 11, label %273
+    i64 12, label %274
+    i64 13, label %282
+    i64 14, label %283
+    i64 15, label %288
+    i64 16, label %289
+    i64 17, label %290
+    i64 18, label %291
+    i64 19, label %296
+    i64 20, label %297
+    i64 21, label %305
+    i64 22, label %306
+    i64 23, label %307
+    i64 24, label %308
+    i64 25, label %317
+    i64 26, label %318
+    i64 27, label %319
+    i64 28, label %320
+    i64 29, label %328
+    i64 30, label %329
+    i64 31, label %330
+    i64 32, label %331
+    i64 33, label %332
+    i64 34, label %333
+    i64 35, label %334
+    i64 36, label %335
+    i64 37, label %336
   ]
 
-default.unreachable:                              ; preds = %1124, %248
+default.unreachable:                              ; preds = %1050, %248
   unreachable
 
-252:                                              ; preds = %248
-  %253 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %254 = load ptr, ptr %253, align 8, !noalias !11668, !nonnull !17, !align !27, !noundef !17
+254:                                              ; preds = %248
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !11668
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf72cd84b56f3a141E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %254), !noalias !11674
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h049305556e67f2cbE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %254), !noalias !11674
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf72cd84b56f3a141E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %253), !noalias !11674
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h049305556e67f2cbE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %253), !noalias !11674
   %255 = getelementptr inbounds nuw i8, ptr %13, i64 30
   %256 = load i8, ptr %255, align 2, !range !3577, !noalias !11675, !noundef !17
   %.not.i.i = icmp eq i8 %256, 2
   br i1 %.not.i.i, label %257, label %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i"
 
-257:                                              ; preds = %252
-  %258 = getelementptr inbounds nuw i8, ptr %254, i64 16
+257:                                              ; preds = %254
+  %258 = getelementptr inbounds nuw i8, ptr %253, i64 16
   call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %258), !noalias !11674
   br label %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i"
 
-"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i": ; preds = %257, %252
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h9570d0d3c19e21acE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %254, ptr noalias noundef align 8 captures(none) dereferenceable(32) %13), !noalias !11674
+"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i": ; preds = %257, %254
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h9570d0d3c19e21acE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %253, ptr noalias noundef align 8 captures(none) dereferenceable(32) %13), !noalias !11674
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !11668
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
 259:                                              ; preds = %248
-  %260 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %261 = load ptr, ptr %260, align 8, !noalias !11668, !nonnull !17, !align !139, !noundef !17
-  %262 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %263 = load ptr, ptr %262, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %261, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %263), !noalias !11674
+  %260 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %261 = load ptr, ptr %260, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %253, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %261), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-264:                                              ; preds = %248
-  %265 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %266 = load ptr, ptr %265, align 8, !noalias !11668, !nonnull !17, !align !139, !noundef !17
-  %267 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %268 = load ptr, ptr %267, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %17, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %266, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %268), !noalias !11679
+262:                                              ; preds = %248
+  %263 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %264 = load ptr, ptr %263, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %17, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %253, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %264), !noalias !11679
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
+
+265:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %253), !noalias !11674
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
+
+266:                                              ; preds = %248
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %253)
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
+
+267:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %253), !noalias !11674
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
+
+268:                                              ; preds = %248
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %253)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
 269:                                              ; preds = %248
-  %270 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %271 = load ptr, ptr %270, align 8, !noalias !11668, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %271), !noalias !11674
+  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %253), !noalias !11674
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
+
+270:                                              ; preds = %248
+  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %253, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
+
+271:                                              ; preds = %248
+  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %253, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
 272:                                              ; preds = %248
-  %273 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %274 = load ptr, ptr %273, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %274)
+  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %253), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-275:                                              ; preds = %248
-  %276 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %277 = load ptr, ptr %276, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %277), !noalias !11674
+273:                                              ; preds = %248
+  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %253, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-278:                                              ; preds = %248
-  %279 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %280 = load ptr, ptr %279, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %280)
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
-
-281:                                              ; preds = %248
-  %282 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %283 = load ptr, ptr %282, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %283), !noalias !11674
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
-
-284:                                              ; preds = %248
-  %285 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %286 = load ptr, ptr %285, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %286, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
-
-287:                                              ; preds = %248
-  %288 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %289 = load ptr, ptr %288, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %289, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
-
-290:                                              ; preds = %248
-  %291 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %292 = load ptr, ptr %291, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %292), !noalias !11674
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
-
-293:                                              ; preds = %248
-  %294 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %295 = load ptr, ptr %294, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %295, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
-
-296:                                              ; preds = %248
-  %297 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %298 = load ptr, ptr %297, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
+274:                                              ; preds = %248
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !11668
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h1a3b846da26f66f9E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %298), !noalias !11674
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haa8be05bf548bc11E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %298), !noalias !11674
-  %299 = getelementptr inbounds nuw i8, ptr %12, i64 30
-  %300 = load i8, ptr %299, align 2, !range !3577, !noalias !11680, !noundef !17
-  %.not.i1.i = icmp eq i8 %300, 2
-  br i1 %.not.i1.i, label %301, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h1a3b846da26f66f9E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %253), !noalias !11674
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haa8be05bf548bc11E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %253), !noalias !11674
+  %275 = getelementptr inbounds nuw i8, ptr %12, i64 30
+  %276 = load i8, ptr %275, align 2, !range !3577, !noalias !11680, !noundef !17
+  %.not.i1.i = icmp eq i8 %276, 2
+  br i1 %.not.i1.i, label %277, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i"
 
-301:                                              ; preds = %296
-  %302 = getelementptr inbounds nuw i8, ptr %298, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(160) %302), !noalias !11674
-  %303 = load i8, ptr %299, align 2, !range !3577, !noalias !11680, !noundef !17
-  %.not1.i2.i = icmp eq i8 %303, 2
-  br i1 %.not1.i2.i, label %304, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i"
+277:                                              ; preds = %274
+  %278 = getelementptr inbounds nuw i8, ptr %253, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(160) %278), !noalias !11674
+  %279 = load i8, ptr %275, align 2, !range !3577, !noalias !11680, !noundef !17
+  %.not1.i2.i = icmp eq i8 %279, 2
+  br i1 %.not1.i2.i, label %280, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i"
 
-304:                                              ; preds = %301
-  %305 = getelementptr inbounds nuw i8, ptr %298, i64 176
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd0348e8a3f03cb21E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %305), !noalias !11674
+280:                                              ; preds = %277
+  %281 = getelementptr inbounds nuw i8, ptr %253, i64 176
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd0348e8a3f03cb21E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %281), !noalias !11674
   br label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i"
 
-"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i": ; preds = %304, %301, %296
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h937dd9cae9983329E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %298, ptr noalias noundef align 8 captures(none) dereferenceable(32) %12), !noalias !11674
+"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i": ; preds = %280, %277, %274
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h937dd9cae9983329E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %253, ptr noalias noundef align 8 captures(none) dereferenceable(32) %12), !noalias !11674
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !11668
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-306:                                              ; preds = %248
-  %307 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %308 = load ptr, ptr %307, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %308, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
+282:                                              ; preds = %248
+  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %253, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-309:                                              ; preds = %248
-  %310 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %311 = load ptr, ptr %310, align 8, !noalias !11668, !nonnull !17, !align !27, !noundef !17
+283:                                              ; preds = %248
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !11668
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h24cacefe9dc29ec5E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %311), !noalias !11674
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h80d2d2d3f0355fddE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %311), !noalias !11674
-  %312 = getelementptr inbounds nuw i8, ptr %11, i64 30
-  %313 = load i8, ptr %312, align 2, !range !3577, !noalias !11684, !noundef !17
-  %.not.i3.i = icmp eq i8 %313, 2
-  br i1 %.not.i3.i, label %314, label %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h24cacefe9dc29ec5E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %253), !noalias !11674
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h80d2d2d3f0355fddE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %253), !noalias !11674
+  %284 = getelementptr inbounds nuw i8, ptr %11, i64 30
+  %285 = load i8, ptr %284, align 2, !range !3577, !noalias !11684, !noundef !17
+  %.not.i3.i = icmp eq i8 %285, 2
+  br i1 %.not.i3.i, label %286, label %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i"
 
-314:                                              ; preds = %309
-  %315 = getelementptr inbounds nuw i8, ptr %311, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$18visit_optional_mut17h6a9863072ac53db1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %315), !noalias !11674
+286:                                              ; preds = %283
+  %287 = getelementptr inbounds nuw i8, ptr %253, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$18visit_optional_mut17h6a9863072ac53db1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %287), !noalias !11674
   br label %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i"
 
-"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i": ; preds = %314, %309
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfe380248cea3b883E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %311, ptr noalias noundef align 8 captures(none) dereferenceable(32) %11), !noalias !11674
+"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i": ; preds = %286, %283
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfe380248cea3b883E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %253, ptr noalias noundef align 8 captures(none) dereferenceable(32) %11), !noalias !11674
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !11668
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-316:                                              ; preds = %248
-  %317 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %318 = load ptr, ptr %317, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %318, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
+288:                                              ; preds = %248
+  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %253, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-319:                                              ; preds = %248
-  %320 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %321 = load ptr, ptr %320, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %321, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
+289:                                              ; preds = %248
+  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %253, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-322:                                              ; preds = %248
-  %323 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %324 = load ptr, ptr %323, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %324, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
+290:                                              ; preds = %248
+  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %253, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-325:                                              ; preds = %248
-  %326 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %327 = load ptr, ptr %326, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
+291:                                              ; preds = %248
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !11668
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h4f6ba0f4c80c97cbE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %327), !noalias !11674
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %327), !noalias !11674
-  %328 = getelementptr inbounds nuw i8, ptr %10, i64 30
-  %329 = load i8, ptr %328, align 2, !range !3577, !noalias !11688, !noundef !17
-  %.not.i5.i = icmp eq i8 %329, 2
-  br i1 %.not.i5.i, label %330, label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h4f6ba0f4c80c97cbE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %253), !noalias !11674
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %253), !noalias !11674
+  %292 = getelementptr inbounds nuw i8, ptr %10, i64 30
+  %293 = load i8, ptr %292, align 2, !range !3577, !noalias !11688, !noundef !17
+  %.not.i5.i = icmp eq i8 %293, 2
+  br i1 %.not.i5.i, label %294, label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i"
 
-330:                                              ; preds = %325
-  %331 = getelementptr inbounds nuw i8, ptr %327, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hca29f2f067e485fdE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(208) %331), !noalias !11674
+294:                                              ; preds = %291
+  %295 = getelementptr inbounds nuw i8, ptr %253, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hca29f2f067e485fdE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(208) %295), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i"
 
-"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i": ; preds = %330, %325
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h664b5fa91fa80399E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %327, ptr noalias noundef align 8 captures(none) dereferenceable(32) %10), !noalias !11674
+"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i": ; preds = %294, %291
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h664b5fa91fa80399E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %253, ptr noalias noundef align 8 captures(none) dereferenceable(32) %10), !noalias !11674
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !11668
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-332:                                              ; preds = %248
-  %333 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %334 = load ptr, ptr %333, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %334)
+296:                                              ; preds = %248
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %253)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-335:                                              ; preds = %248
-  %336 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %337 = load ptr, ptr %336, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
+297:                                              ; preds = %248
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !11668
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17ha74f4e61d89105beE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %337), !noalias !11674
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %337), !noalias !11674
-  %338 = getelementptr inbounds nuw i8, ptr %9, i64 30
-  %339 = load i8, ptr %338, align 2, !range !3577, !noalias !11692, !noundef !17
-  %.not.i7.i = icmp eq i8 %339, 2
-  br i1 %.not.i7.i, label %340, label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17ha74f4e61d89105beE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %253), !noalias !11674
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %253), !noalias !11674
+  %298 = getelementptr inbounds nuw i8, ptr %9, i64 30
+  %299 = load i8, ptr %298, align 2, !range !3577, !noalias !11692, !noundef !17
+  %.not.i7.i = icmp eq i8 %299, 2
+  br i1 %.not.i7.i, label %300, label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i"
 
-340:                                              ; preds = %335
-  %341 = getelementptr inbounds nuw i8, ptr %337, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$18visit_optional_mut17h6a9863072ac53db1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %341), !noalias !11674
-  %342 = load i8, ptr %338, align 2, !range !3577, !noalias !11692, !noundef !17
-  %.not1.i8.i = icmp eq i8 %342, 2
-  br i1 %.not1.i8.i, label %343, label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i"
+300:                                              ; preds = %297
+  %301 = getelementptr inbounds nuw i8, ptr %253, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$18visit_optional_mut17h6a9863072ac53db1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %301), !noalias !11674
+  %302 = load i8, ptr %298, align 2, !range !3577, !noalias !11692, !noundef !17
+  %.not1.i8.i = icmp eq i8 %302, 2
+  br i1 %.not1.i8.i, label %303, label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i"
 
-343:                                              ; preds = %340
-  %344 = getelementptr inbounds nuw i8, ptr %337, i64 32
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc5d8ff9d357d95d1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %344), !noalias !11674
+303:                                              ; preds = %300
+  %304 = getelementptr inbounds nuw i8, ptr %253, i64 32
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc5d8ff9d357d95d1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %304), !noalias !11674
   br label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i"
 
-"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i": ; preds = %343, %340, %335
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hc06534e3aa1639abE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %337, ptr noalias noundef align 8 captures(none) dereferenceable(32) %9), !noalias !11674
+"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i": ; preds = %303, %300, %297
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hc06534e3aa1639abE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %253, ptr noalias noundef align 8 captures(none) dereferenceable(32) %9), !noalias !11674
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !11668
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-345:                                              ; preds = %248
-  %346 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %347 = load ptr, ptr %346, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %347, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
+305:                                              ; preds = %248
+  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %253, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-348:                                              ; preds = %248
-  %349 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %350 = load ptr, ptr %349, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %350, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
+306:                                              ; preds = %248
+  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %253, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-351:                                              ; preds = %248
-  %352 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %353 = load ptr, ptr %352, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %353, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
+307:                                              ; preds = %248
+  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %253, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-354:                                              ; preds = %248
-  %355 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %356 = load ptr, ptr %355, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
+308:                                              ; preds = %248
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !11668
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h532749ea362765d3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %356), !noalias !11674
-  %357 = getelementptr inbounds nuw i8, ptr %356, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h532749ea362765d3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %253), !noalias !11674
+  %309 = getelementptr inbounds nuw i8, ptr %253, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !11696), !noalias !11679
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.539)
-  %358 = call noundef zeroext i1 @"_ZN80_$LT$fish..ast..DecoratedStatementDecorator$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17h5fb5c422c9295aacE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11699
-  br i1 %358, label %359, label %360
+  %310 = call noundef zeroext i1 @"_ZN80_$LT$fish..ast..DecoratedStatementDecorator$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17h5fb5c422c9295aacE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11699
+  br i1 %310, label %311, label %312
 
-359:                                              ; preds = %354
+311:                                              ; preds = %308
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !11703
   call fastcc void @_ZN4fish3ast9Populator14allocate_visit17ha0f2430831ead41eE(ptr noalias noundef align 4 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11699
   %.sroa.037.0.copyload38 = load i32, ptr %4, align 4, !noalias !11706
   %.sroa.539.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.539, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.539.0..sroa_idx40, i64 12, i1 false), !noalias !11706
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11703
-  br label %360
+  br label %312
 
-360:                                              ; preds = %359, %354
-  %.sroa.037.0 = phi i32 [ %.sroa.037.0.copyload38, %359 ], [ 2, %354 ]
-  store i32 %.sroa.037.0, ptr %357, align 8, !noalias !11707
-  %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %356, i64 20
+312:                                              ; preds = %311, %308
+  %.sroa.037.0 = phi i32 [ %.sroa.037.0.copyload38, %311 ], [ 2, %308 ]
+  store i32 %.sroa.037.0, ptr %309, align 4, !noalias !11707
+  %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %253, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.539.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.539, i64 12, i1 false), !noalias !11707
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.539)
-  %361 = getelementptr inbounds nuw i8, ptr %8, i64 30
-  store i8 2, ptr %361, align 2, !alias.scope !11696, !noalias !11708
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %356), !noalias !11674
-  %362 = load i8, ptr %361, align 2, !range !3577, !noalias !11709, !noundef !17
-  %.not1.i11.i = icmp eq i8 %362, 2
-  br i1 %.not1.i11.i, label %363, label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i"
+  %313 = getelementptr inbounds nuw i8, ptr %8, i64 30
+  store i8 2, ptr %313, align 2, !alias.scope !11696, !noalias !11708
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %253), !noalias !11674
+  %314 = load i8, ptr %313, align 2, !range !3577, !noalias !11709, !noundef !17
+  %.not1.i11.i = icmp eq i8 %314, 2
+  br i1 %.not1.i11.i, label %315, label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i"
 
-363:                                              ; preds = %360
-  %364 = getelementptr inbounds nuw i8, ptr %356, i64 32
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %364), !noalias !11674
+315:                                              ; preds = %312
+  %316 = getelementptr inbounds nuw i8, ptr %253, i64 32
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %316), !noalias !11674
   br label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i"
 
-"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i": ; preds = %363, %360
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h6a75953bc5a3dbe8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %356, ptr noalias noundef align 8 captures(none) dereferenceable(32) %8), !noalias !11674
+"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i": ; preds = %315, %312
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h6a75953bc5a3dbe8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %253, ptr noalias noundef align 8 captures(none) dereferenceable(32) %8), !noalias !11674
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !11668
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-365:                                              ; preds = %248
-  %366 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %367 = load ptr, ptr %366, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %367, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
+317:                                              ; preds = %248
+  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %253, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-368:                                              ; preds = %248
-  %369 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %370 = load ptr, ptr %369, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %370), !noalias !11674
+318:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %253), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-371:                                              ; preds = %248
-  %372 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %373 = load ptr, ptr %372, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %373)
+319:                                              ; preds = %248
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %253)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-374:                                              ; preds = %248
-  %375 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %376 = load ptr, ptr %375, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
+320:                                              ; preds = %248
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !11668
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h01eb6c0c74e3287aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %376), !noalias !11674
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h43bb3b44ab08d2baE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %376), !noalias !11674
-  %377 = getelementptr inbounds nuw i8, ptr %7, i64 30
-  %378 = load i8, ptr %377, align 2, !range !3577, !noalias !11713, !noundef !17
-  %.not.i13.i = icmp eq i8 %378, 2
-  br i1 %.not.i13.i, label %379, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h01eb6c0c74e3287aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %253), !noalias !11674
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h43bb3b44ab08d2baE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %253), !noalias !11674
+  %321 = getelementptr inbounds nuw i8, ptr %7, i64 30
+  %322 = load i8, ptr %321, align 2, !range !3577, !noalias !11713, !noundef !17
+  %.not.i13.i = icmp eq i8 %322, 2
+  br i1 %.not.i13.i, label %323, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i"
 
-379:                                              ; preds = %374
-  %380 = getelementptr inbounds nuw i8, ptr %376, i64 128
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h818c83f62cd06754E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(12) %380), !noalias !11674
-  %381 = load i8, ptr %377, align 2, !range !3577, !noalias !11713, !noundef !17
-  %.not1.i14.i = icmp eq i8 %381, 2
-  br i1 %.not1.i14.i, label %382, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i"
+323:                                              ; preds = %320
+  %324 = getelementptr inbounds nuw i8, ptr %253, i64 128
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h818c83f62cd06754E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(12) %324), !noalias !11674
+  %325 = load i8, ptr %321, align 2, !range !3577, !noalias !11713, !noundef !17
+  %.not1.i14.i = icmp eq i8 %325, 2
+  br i1 %.not1.i14.i, label %326, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i"
 
-382:                                              ; preds = %379
-  %383 = getelementptr inbounds nuw i8, ptr %376, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h93a471d0b8d5106bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(112) %383), !noalias !11674
+326:                                              ; preds = %323
+  %327 = getelementptr inbounds nuw i8, ptr %253, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h93a471d0b8d5106bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(112) %327), !noalias !11674
   br label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i"
 
-"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i": ; preds = %382, %379, %374
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h798e06610eb2f4b8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %376, ptr noalias noundef align 8 captures(none) dereferenceable(32) %7), !noalias !11674
+"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i": ; preds = %326, %323, %320
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h798e06610eb2f4b8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %253, ptr noalias noundef align 8 captures(none) dereferenceable(32) %7), !noalias !11674
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !11668
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-384:                                              ; preds = %248
-  %385 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %386 = load ptr, ptr %385, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
+328:                                              ; preds = %248
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !11668
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h409ed0dce593bd81E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %386), !noalias !11674
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %386), !noalias !11674
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfec61b9cd3d5b2e0E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %386, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6), !noalias !11674
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h409ed0dce593bd81E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %253), !noalias !11674
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %253), !noalias !11674
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfec61b9cd3d5b2e0E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %253, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6), !noalias !11674
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !11668
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-387:                                              ; preds = %248
-  %388 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %389 = load ptr, ptr %388, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %389)
+329:                                              ; preds = %248
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %253)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-390:                                              ; preds = %248
-  %391 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %392 = load ptr, ptr %391, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
+330:                                              ; preds = %248
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !11668
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h8f3472ff825a7f83E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %392), !noalias !11674
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1e934e91488c67a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %392), !noalias !11674
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hd64bf4a54c433fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %392, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5), !noalias !11674
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h8f3472ff825a7f83E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %253), !noalias !11674
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1e934e91488c67a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %253), !noalias !11674
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hd64bf4a54c433fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %253, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5), !noalias !11674
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !11668
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-393:                                              ; preds = %248
-  %394 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %395 = load ptr, ptr %394, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %395)
+331:                                              ; preds = %248
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %253)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-396:                                              ; preds = %248
-  %397 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %398 = load ptr, ptr %397, align 8, !noalias !11668, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %398), !noalias !11674
+332:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %253), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-399:                                              ; preds = %248
-  %400 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %401 = load ptr, ptr %400, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %401)
+333:                                              ; preds = %248
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %253)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-402:                                              ; preds = %248
-  %403 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %404 = load ptr, ptr %403, align 8, !noalias !11668, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %404), !noalias !11674
+334:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %253), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-405:                                              ; preds = %248
-  %406 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %407 = load ptr, ptr %406, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %407, i1 noundef zeroext false), !noalias !11674
+335:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %253, i1 noundef zeroext false), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-408:                                              ; preds = %248
-  %409 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %410 = load ptr, ptr %409, align 8, !noalias !11668, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %410, i1 noundef zeroext false), !noalias !11674
+336:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %253, i1 noundef zeroext false), !noalias !11674
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit"
 
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit": ; preds = %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i", %259, %269, %272, %275, %278, %281, %284, %287, %290, %293, %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i", %306, %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i", %316, %319, %322, %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i", %332, %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i", %345, %348, %351, %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i", %365, %368, %371, %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i", %384, %387, %390, %393, %396, %399, %402, %405, %408, %264
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit": ; preds = %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i", %259, %265, %266, %267, %268, %269, %270, %271, %272, %273, %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i", %282, %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i", %288, %289, %290, %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i", %296, %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i", %305, %306, %307, %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i", %317, %318, %319, %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i", %328, %329, %330, %331, %332, %333, %334, %335, %336, %262
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !11668
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !11658
   %.sroa.034.0.copyload = load i32, ptr %18, align 4, !noalias !11717
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx, i64 12, i1 false), !noalias !11718
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !11658
-  br label %411
+  br label %337
 
-411:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h9a78fdae48f0f6daE.exit"
+337:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h9a78fdae48f0f6daE.exit"
   %.sroa.0.0 = phi i32 [ %.sroa.034.0.copyload, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha06ae415007c6d08E.exit" ], [ 2, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h9a78fdae48f0f6daE.exit" ]
   store i32 %.sroa.0.0, ptr %0, align 8, !noalias !11719
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5, i64 12, i1 false), !noalias !11719
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  %412 = getelementptr inbounds nuw i8, ptr %122, i64 30
-  store i8 2, ptr %412, align 2, !alias.scope !11651, !noalias !11721
-  %413 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h93a471d0b8d5106bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %122, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(112) %413)
-  %414 = load i8, ptr %412, align 2, !range !3577, !noundef !17
-  %.not1 = icmp eq i8 %414, 2
-  br i1 %.not1, label %1124, label %415
+  %338 = getelementptr inbounds nuw i8, ptr %122, i64 30
+  store i8 2, ptr %338, align 2, !alias.scope !11651, !noalias !11721
+  %339 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h93a471d0b8d5106bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %122, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(112) %339)
+  %340 = load i8, ptr %338, align 2, !range !3577, !noundef !17
+  %.not1 = icmp eq i8 %340, 2
+  br i1 %.not1, label %1050, label %341
 
-415:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit", %411
+341:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit", %337
   call void @llvm.experimental.noalias.scope.decl(metadata !11722)
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   call void @llvm.lifetime.start.p0(ptr nonnull %95)
-  %416 = load i64, ptr %244, align 8, !alias.scope !11722, !noalias !11725, !noundef !17
-  %417 = add i64 %416, -1
-  store i64 %417, ptr %244, align 8, !alias.scope !11722, !noalias !11725
-  %418 = getelementptr inbounds nuw i8, ptr %1, i64 217
-  %419 = load i8, ptr %418, align 1, !range !184, !alias.scope !11722, !noalias !11725, !noundef !17
-  %420 = trunc nuw i8 %419 to i1
+  %342 = load i64, ptr %244, align 8, !alias.scope !11722, !noalias !11725, !noundef !17
+  %343 = add i64 %342, -1
+  store i64 %343, ptr %244, align 8, !alias.scope !11722, !noalias !11725
+  %344 = getelementptr inbounds nuw i8, ptr %1, i64 217
+  %345 = load i8, ptr %344, align 1, !range !184, !alias.scope !11722, !noalias !11725, !noundef !17
+  %346 = trunc nuw i8 %345 to i1
   %.sroa.0.08.i.sroa.gep344.i = getelementptr inbounds nuw i8, ptr %89, i64 32
   %.sroa.0.08.i252.sroa.gep352.i = getelementptr inbounds nuw i8, ptr %70, i64 32
   %.sroa.0.08.i293.sroa.gep353.i = getelementptr inbounds nuw i8, ptr %61, i64 32
   %.sroa.0.08.i301.sroa.gep361.i = getelementptr inbounds nuw i8, ptr %49, i64 32
-  br i1 %420, label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h55711939e879b9d6E.exit", label %426
+  br i1 %346, label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h55711939e879b9d6E.exit", label %352
 
-.thread:                                          ; preds = %1247, %1244
-  %.sroa.030.0 = phi i32 [ %.sroa.035.0.copyload, %1247 ], [ 2, %1244 ]
-  store i32 %.sroa.030.0, ptr %1245, align 8, !noalias !11728
+.thread:                                          ; preds = %1099, %1096
+  %.sroa.030.0 = phi i32 [ %.sroa.035.0.copyload, %1099 ], [ 2, %1096 ]
+  store i32 %.sroa.030.0, ptr %1097, align 8, !noalias !11728
   %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.532.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.532, i64 12, i1 false), !noalias !11728
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.532)
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   call void @llvm.lifetime.start.p0(ptr nonnull %95)
-  %421 = load i64, ptr %244, align 8, !alias.scope !11732, !noalias !11725, !noundef !17
-  %422 = add i64 %421, -1
-  store i64 %422, ptr %244, align 8, !alias.scope !11732, !noalias !11725
-  %423 = getelementptr inbounds nuw i8, ptr %1, i64 217
-  %424 = load i8, ptr %423, align 1, !range !184, !alias.scope !11732, !noalias !11725, !noundef !17
-  %425 = trunc nuw i8 %424 to i1
-  br i1 %425, label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h55711939e879b9d6E.exit", label %.thread103
+  %347 = load i64, ptr %244, align 8, !alias.scope !11732, !noalias !11725, !noundef !17
+  %348 = add i64 %347, -1
+  store i64 %348, ptr %244, align 8, !alias.scope !11732, !noalias !11725
+  %349 = getelementptr inbounds nuw i8, ptr %1, i64 217
+  %350 = load i8, ptr %349, align 1, !range !184, !alias.scope !11732, !noalias !11725, !noundef !17
+  %351 = trunc nuw i8 %350 to i1
+  br i1 %351, label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h55711939e879b9d6E.exit", label %.thread103
 
 .thread103:                                       ; preds = %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %102), !noalias !11734
   br label %.sink.split.i
 
-426:                                              ; preds = %415
+352:                                              ; preds = %341
   call void @llvm.lifetime.start.p0(ptr nonnull %102), !noalias !11734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull readonly align 8 dereferenceable(32) %122, i64 32, i1 false), !noalias !11735
-  %427 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  %428 = getelementptr inbounds nuw i8, ptr %102, i64 25
-  %429 = load i8, ptr %428, align 1, !range !5125, !noalias !11734, !noundef !17
-  %430 = icmp eq i8 %429, 13
-  %431 = getelementptr inbounds nuw i8, ptr %102, i64 26
-  %432 = load i8, ptr %431, align 2, !range !5126, !noalias !11734
-  %433 = icmp eq i8 %432, 10
-  %or.cond.i = select i1 %430, i1 %433, i1 false
-  br i1 %or.cond.i, label %434, label %653
+  %353 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %354 = getelementptr inbounds nuw i8, ptr %102, i64 25
+  %355 = load i8, ptr %354, align 1, !range !5125, !noalias !11734, !noundef !17
+  %356 = icmp eq i8 %355, 13
+  %357 = getelementptr inbounds nuw i8, ptr %102, i64 26
+  %358 = load i8, ptr %357, align 2, !range !5126, !noalias !11734
+  %359 = icmp eq i8 %358, 10
+  %or.cond.i = select i1 %356, i1 %359, i1 false
+  br i1 %or.cond.i, label %360, label %579
 
-434:                                              ; preds = %426
+360:                                              ; preds = %352
   call void @llvm.lifetime.start.p0(ptr nonnull %101), !noalias !11734
-  %435 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %436 = load ptr, ptr %435, align 8, !alias.scope !11722, !noalias !11725, !align !22, !noundef !17
-  %437 = icmp eq ptr %436, null
-  br i1 %437, label %.thread.i, label %438
+  %361 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %362 = load ptr, ptr %361, align 8, !alias.scope !11722, !noalias !11725, !align !22, !noundef !17
+  %363 = icmp eq ptr %362, null
+  br i1 %363, label %.thread.i, label %364
 
-438:                                              ; preds = %434
+364:                                              ; preds = %360
   call void @llvm.lifetime.start.p0(ptr nonnull %100), !noalias !11734
   store i64 0, ptr %100, align 8, !noalias !11734
   %.sroa.4124.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -117989,130 +117767,130 @@ default.unreachable:                              ; preds = %1124, %248
   %.sroa.5125.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %100, i64 16
   store i64 0, ptr %.sroa.5125.0..sroa_idx.i, align 8, !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %99), !noalias !11734
-  %439 = invoke { ptr, i64 } @_ZN4fish5wutil7gettext19wgettext_static_str17h75ad7378645c7566E(ptr noalias noundef nonnull readonly align 4 @anon.ae6c48e04285f5d271501d3ac60d56b4.258, i64 noundef 2)
-          to label %444 unwind label %442, !noalias !11736
+  %365 = invoke { ptr, i64 } @_ZN4fish5wutil7gettext19wgettext_static_str17h75ad7378645c7566E(ptr noalias noundef nonnull readonly align 4 @anon.ae6c48e04285f5d271501d3ac60d56b4.258, i64 noundef 2)
+          to label %370 unwind label %368, !noalias !11736
 
-.thread.i:                                        ; preds = %434
+.thread.i:                                        ; preds = %360
   store i64 -9223372036854775808, ptr %101, align 8, !noalias !11734
-  %440 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  store i8 1, ptr %440, align 2, !alias.scope !11722, !noalias !11725
-  br label %474
+  %366 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  store i8 1, ptr %366, align 2, !alias.scope !11722, !noalias !11725
+  br label %400
 
-441:                                              ; preds = %453, %442
-  %.pn.i5 = phi { ptr, i32 } [ %443, %442 ], [ %454, %453 ]
+367:                                              ; preds = %379, %368
+  %.pn.i5 = phi { ptr, i32 } [ %369, %368 ], [ %380, %379 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %100) #15
-          to label %common.resume unwind label %470, !noalias !11736
+          to label %common.resume unwind label %396, !noalias !11736
 
-442:                                              ; preds = %465, %463, %449, %444, %438
-  %443 = landingpad { ptr, i32 }
+368:                                              ; preds = %391, %389, %375, %370, %364
+  %369 = landingpad { ptr, i32 }
           cleanup
-  br label %441
+  br label %367
 
-444:                                              ; preds = %438
-  %445 = extractvalue { ptr, i64 } %439, 0
-  %446 = extractvalue { ptr, i64 } %439, 1
+370:                                              ; preds = %364
+  %371 = extractvalue { ptr, i64 } %365, 0
+  %372 = extractvalue { ptr, i64 } %365, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %98), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %97), !noalias !11734
-  %447 = load i8, ptr %431, align 2, !range !5126, !noalias !11734, !noundef !17
-  %448 = invoke { ptr, i64 } @"_ZN4fish9tokenizer121_$LT$impl$u20$core..convert..From$LT$fish..tokenizer..TokenizerError$GT$$u20$for$u20$$RF$widestring..utfstr..Utf32Str$GT$4from17hd95a9b28ccdb6b62E"(i8 noundef %447)
-          to label %449 unwind label %442, !noalias !11736
+  %373 = load i8, ptr %357, align 2, !range !5126, !noalias !11734, !noundef !17
+  %374 = invoke { ptr, i64 } @"_ZN4fish9tokenizer121_$LT$impl$u20$core..convert..From$LT$fish..tokenizer..TokenizerError$GT$$u20$for$u20$$RF$widestring..utfstr..Utf32Str$GT$4from17hd95a9b28ccdb6b62E"(i8 noundef %373)
+          to label %375 unwind label %368, !noalias !11736
 
-449:                                              ; preds = %444
-  %450 = extractvalue { ptr, i64 } %448, 0
-  %451 = extractvalue { ptr, i64 } %448, 1
-  invoke void @"_ZN76_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17he7abdcfd71ad5500E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %97, ptr noalias noundef nonnull readonly align 4 %450, i64 noundef %451)
-          to label %452 unwind label %442, !noalias !11736
+375:                                              ; preds = %370
+  %376 = extractvalue { ptr, i64 } %374, 0
+  %377 = extractvalue { ptr, i64 } %374, 1
+  invoke void @"_ZN76_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17he7abdcfd71ad5500E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %97, ptr noalias noundef nonnull readonly align 4 %376, i64 noundef %377)
+          to label %378 unwind label %368, !noalias !11736
 
-452:                                              ; preds = %449
+378:                                              ; preds = %375
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(32) %97, i64 32, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %97), !noalias !11734
-  invoke void @_ZN11fish_printf11printf_impl14sprintf_locale17h7fe8b6d690351b57E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %99, ptr noalias noundef nonnull align 8 dereferenceable(24) %100, ptr noalias noundef nonnull readonly align 4 %445, i64 noundef %446, ptr noalias noundef readonly align 4 dereferenceable(16) @anon.ae6c48e04285f5d271501d3ac60d56b4.65, ptr noalias noundef nonnull align 8 %98, i64 noundef 1)
-          to label %455 unwind label %453, !noalias !11736
+  invoke void @_ZN11fish_printf11printf_impl14sprintf_locale17h7fe8b6d690351b57E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %99, ptr noalias noundef nonnull align 8 dereferenceable(24) %100, ptr noalias noundef nonnull readonly align 4 %371, i64 noundef %372, ptr noalias noundef readonly align 4 dereferenceable(16) @anon.ae6c48e04285f5d271501d3ac60d56b4.65, ptr noalias noundef nonnull align 8 %98, i64 noundef 1)
+          to label %381 unwind label %379, !noalias !11736
 
-453:                                              ; preds = %458, %452
-  %454 = landingpad { ptr, i32 }
+379:                                              ; preds = %384, %378
+  %380 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE"(ptr noalias noundef align 8 dereferenceable(32) %98) #15
-          to label %441 unwind label %470, !noalias !11736
+          to label %367 unwind label %396, !noalias !11736
 
-455:                                              ; preds = %452
+381:                                              ; preds = %378
   call void @llvm.experimental.noalias.scope.decl(metadata !11737)
-  %456 = load i8, ptr %99, align 8, !range !184, !alias.scope !11737, !noalias !11740, !noundef !17
-  %457 = trunc nuw i8 %456 to i1
-  br i1 %457, label %458, label %461, !prof !173
+  %382 = load i8, ptr %99, align 8, !range !184, !alias.scope !11737, !noalias !11740, !noundef !17
+  %383 = trunc nuw i8 %382 to i1
+  br i1 %383, label %384, label %387, !prof !173
 
-458:                                              ; preds = %455
+384:                                              ; preds = %381
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !11742
-  %459 = getelementptr inbounds nuw i8, ptr %99, i64 1
-  %460 = load i8, ptr %459, align 1, !range !166, !alias.scope !11737, !noalias !11740, !noundef !17
-  store i8 %460, ptr %35, align 1, !noalias !11742
+  %385 = getelementptr inbounds nuw i8, ptr %99, i64 1
+  %386 = load i8, ptr %385, align 1, !range !166, !alias.scope !11737, !noalias !11740, !noundef !17
+  store i8 %386, ptr %35, align 1, !noalias !11742
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.ae6c48e04285f5d271501d3ac60d56b4.24, i64 noundef 43, ptr noundef nonnull align 1 %35, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ae6c48e04285f5d271501d3ac60d56b4.25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.259) #18
-          to label %.noexc219.i unwind label %453, !noalias !11736
+          to label %.noexc219.i unwind label %379, !noalias !11736
 
-.noexc219.i:                                      ; preds = %458
+.noexc219.i:                                      ; preds = %384
   unreachable
 
-461:                                              ; preds = %455
+387:                                              ; preds = %381
   call void @llvm.lifetime.end.p0(ptr nonnull %99), !noalias !11734
-  %462 = load i8, ptr %98, align 8, !range !141, !alias.scope !11743, !noalias !11734, !noundef !17
-  switch i8 %462, label %467 [
-    i8 2, label %463
-    i8 3, label %465
+  %388 = load i8, ptr %98, align 8, !range !141, !alias.scope !11743, !noalias !11734, !noundef !17
+  switch i8 %388, label %393 [
+    i8 2, label %389
+    i8 3, label %391
   ]
 
-463:                                              ; preds = %461
-  %464 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %464)
-          to label %467 unwind label %442, !noalias !11736
+389:                                              ; preds = %387
+  %390 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %390)
+          to label %393 unwind label %368, !noalias !11736
 
-465:                                              ; preds = %461
-  %466 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %466)
-          to label %467 unwind label %442, !noalias !11736
+391:                                              ; preds = %387
+  %392 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %392)
+          to label %393 unwind label %368, !noalias !11736
 
-467:                                              ; preds = %465, %463, %461
+393:                                              ; preds = %391, %389, %387
   call void @llvm.lifetime.end.p0(ptr nonnull %98), !noalias !11734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %100, i64 24, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %100), !noalias !11734
-  %.pre.i = load i8, ptr %418, align 1, !range !184, !alias.scope !11722, !noalias !11725
-  %468 = trunc nuw i8 %.pre.i to i1
-  %469 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  store i8 1, ptr %469, align 2, !alias.scope !11722, !noalias !11725
-  br i1 %468, label %.critedge.i, label %474
+  %.pre.i = load i8, ptr %344, align 1, !range !184, !alias.scope !11722, !noalias !11725
+  %394 = trunc nuw i8 %.pre.i to i1
+  %395 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  store i8 1, ptr %395, align 2, !alias.scope !11722, !noalias !11725
+  br i1 %394, label %.critedge.i, label %400
 
-470:                                              ; preds = %1120, %1116, %1054, %1044, %.body321.i, %986, %983, %.body304.i, %.body296.i, %933, %930, %927, %923, %913, %906, %902, %840, %830, %.body272.i, %772, %769, %.body255.i, %728, %721, %649, %645, %566, %556, %.body232.i, %498, %495, %.body.i9, %453, %441
-  %471 = landingpad { ptr, i32 }
+396:                                              ; preds = %1046, %1042, %980, %970, %.body321.i, %912, %909, %.body304.i, %.body296.i, %859, %856, %853, %849, %839, %832, %828, %766, %756, %.body272.i, %698, %695, %.body255.i, %654, %647, %575, %571, %492, %482, %.body232.i, %424, %421, %.body.i9, %379, %367
+  %397 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11736
   unreachable
 
-472:                                              ; preds = %596, %584, %579, %577, %483, %477
-  %473 = landingpad { ptr, i32 }
+398:                                              ; preds = %522, %510, %505, %503, %409, %403
+  %399 = landingpad { ptr, i32 }
           cleanup
-  br label %646
+  br label %572
 
-474:                                              ; preds = %467, %.thread.i
-  store i8 1, ptr %418, align 1, !alias.scope !11722, !noalias !11725
-  %475 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4fish4flog10categories16ast_construction17h8c327201221d29a8E, i64 32) monotonic, align 8, !noalias !11734
-  %476 = icmp eq i8 %475, 0
-  br i1 %476, label %477, label %479
+400:                                              ; preds = %393, %.thread.i
+  store i8 1, ptr %344, align 1, !alias.scope !11722, !noalias !11725
+  %401 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4fish4flog10categories16ast_construction17h8c327201221d29a8E, i64 32) monotonic, align 8, !noalias !11734
+  %402 = icmp eq i8 %401, 0
+  br i1 %402, label %403, label %405
 
-477:                                              ; preds = %578, %474
-  %478 = invoke { i32, i32 } @_ZN4fish10parse_tree10ParseToken5range17h81755e9cf11500f5E(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %427)
-          to label %579 unwind label %472, !noalias !11736
+403:                                              ; preds = %504, %400
+  %404 = invoke { i32, i32 } @_ZN4fish10parse_tree10ParseToken5range17h81755e9cf11500f5E(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %353)
+          to label %505 unwind label %398, !noalias !11736
 
-479:                                              ; preds = %474
+405:                                              ; preds = %400
   call void @llvm.lifetime.start.p0(ptr nonnull %96), !noalias !11734
-  %480 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11734
-  %481 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef 24, i64 noundef 8) #17, !noalias !11736
-  %482 = icmp eq ptr %481, null
-  br i1 %482, label %483, label %484, !prof !173
+  %406 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11734
+  %407 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef 24, i64 noundef 8) #17, !noalias !11736
+  %408 = icmp eq ptr %407, null
+  br i1 %408, label %409, label %410, !prof !173
 
-483:                                              ; preds = %479
+409:                                              ; preds = %405
   invoke void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef 8, i64 noundef 24) #18
-          to label %614 unwind label %472, !noalias !11736
+          to label %540 unwind label %398, !noalias !11736
 
-484:                                              ; preds = %479
+410:                                              ; preds = %405
   call void @llvm.lifetime.start.p0(ptr nonnull %94), !noalias !11734
   store ptr @_ZN4fish4flog10categories16ast_construction17h8c327201221d29a8E, ptr %94, align 8, !noalias !11734
   %.sroa.4132.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %94, i64 8
@@ -118128,23 +117906,23 @@ default.unreachable:                              ; preds = %1124, %248
   %.sroa.7.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx.i8, align 8, !noalias !11755
   invoke void @_ZN5alloc3fmt6format12format_inner17hbc00c97fd665fffbE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %95, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %34)
-          to label %487 unwind label %485, !noalias !11736
+          to label %413 unwind label %411, !noalias !11736
 
-485:                                              ; preds = %484
-  %486 = landingpad { ptr, i32 }
+411:                                              ; preds = %410
+  %412 = landingpad { ptr, i32 }
           cleanup
-  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %481, i64 noundef 24, i64 noundef 8) #17, !noalias !11736
-  br label %646
+  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %407, i64 noundef 24, i64 noundef 8) #17, !noalias !11736
+  br label %572
 
-487:                                              ; preds = %484
+413:                                              ; preds = %410
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !11748
   call void @llvm.lifetime.end.p0(ptr nonnull %94), !noalias !11734
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %481, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false), !noalias !11736
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %407, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false), !noalias !11736
   store i64 1, ptr %96, align 8, !noalias !11734
-  %488 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store ptr %481, ptr %488, align 8, !noalias !11734
-  %489 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store i64 1, ptr %489, align 8, !noalias !11734
+  %414 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  store ptr %407, ptr %414, align 8, !noalias !11734
+  %415 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  store i64 1, ptr %415, align 8, !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %93), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %92), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %91), !noalias !11734
@@ -118156,102 +117934,102 @@ default.unreachable:                              ; preds = %1124, %248
   call void @llvm.lifetime.start.p0(ptr nonnull %90), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %89), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %88), !noalias !11734
-  %490 = invoke noundef i64 @_ZN4fish3ast9Populator6spaces17h2e400e4f3eecc5c0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
-          to label %493 unwind label %491, !noalias !11736
+  %416 = invoke noundef i64 @_ZN4fish3ast9Populator6spaces17h2e400e4f3eecc5c0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
+          to label %419 unwind label %417, !noalias !11736
 
-.body.i9:                                         ; preds = %516, %514, %498, %495, %491
-  %.pn164.i = phi { ptr, i32 } [ %499, %498 ], [ %496, %495 ], [ %492, %491 ], [ %515, %514 ], [ %515, %516 ]
+.body.i9:                                         ; preds = %442, %440, %424, %421, %417
+  %.pn164.i = phi { ptr, i32 } [ %425, %424 ], [ %422, %421 ], [ %418, %417 ], [ %441, %440 ], [ %441, %442 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %91) #15
-          to label %556 unwind label %470, !noalias !11736
+          to label %482 unwind label %396, !noalias !11736
 
-491:                                              ; preds = %493, %487
-  %492 = landingpad { ptr, i32 }
+417:                                              ; preds = %419, %413
+  %418 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i9
 
-493:                                              ; preds = %487
-  invoke void @"_ZN49_$LT$usize$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17h06c3b3ca30ce4c6fE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %88, i64 noundef %490)
-          to label %494 unwind label %491, !noalias !11736
+419:                                              ; preds = %413
+  invoke void @"_ZN49_$LT$usize$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17h06c3b3ca30ce4c6fE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %88, i64 noundef %416)
+          to label %420 unwind label %417, !noalias !11736
 
-494:                                              ; preds = %493
+420:                                              ; preds = %419
   call void @llvm.lifetime.start.p0(ptr nonnull %87), !noalias !11734
   invoke void @"_ZN51_$LT$$RF$str$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17h74e68471e3181c4eE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %87, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
-          to label %497 unwind label %495, !noalias !11736
+          to label %423 unwind label %421, !noalias !11736
 
-495:                                              ; preds = %494
-  %496 = landingpad { ptr, i32 }
+421:                                              ; preds = %420
+  %422 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE"(ptr noalias noundef align 8 dereferenceable(32) %88) #15
-          to label %.body.i9 unwind label %470, !noalias !11736
+          to label %.body.i9 unwind label %396, !noalias !11736
 
-497:                                              ; preds = %494
+423:                                              ; preds = %420
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %88, i64 32, i1 false), !noalias !11734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.08.i.sroa.gep344.i, ptr noundef nonnull align 8 dereferenceable(32) %87, i64 32, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %87), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %88), !noalias !11734
   invoke void @_ZN11fish_printf11printf_impl14sprintf_locale17hab9b0f3f160de61dE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %90, ptr noalias noundef nonnull align 8 dereferenceable(24) %91, ptr noalias noundef nonnull readonly align 1 @anon.ae6c48e04285f5d271501d3ac60d56b4.260, i64 noundef 32, ptr noalias noundef readonly align 4 dereferenceable(16) @anon.ae6c48e04285f5d271501d3ac60d56b4.65, ptr noalias noundef nonnull align 8 %89, i64 noundef 2)
-          to label %500 unwind label %498, !noalias !11736
+          to label %426 unwind label %424, !noalias !11736
 
-498:                                              ; preds = %503, %497
-  %499 = landingpad { ptr, i32 }
+424:                                              ; preds = %429, %423
+  %425 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE"(ptr noalias noundef align 8 dereferenceable(64) %89) #15
-          to label %.body.i9 unwind label %470, !noalias !11736
+          to label %.body.i9 unwind label %396, !noalias !11736
 
-500:                                              ; preds = %497
+426:                                              ; preds = %423
   call void @llvm.experimental.noalias.scope.decl(metadata !11756)
-  %501 = load i8, ptr %90, align 8, !range !184, !alias.scope !11756, !noalias !11759, !noundef !17
-  %502 = trunc nuw i8 %501 to i1
-  br i1 %502, label %503, label %506, !prof !173
+  %427 = load i8, ptr %90, align 8, !range !184, !alias.scope !11756, !noalias !11759, !noundef !17
+  %428 = trunc nuw i8 %427 to i1
+  br i1 %428, label %429, label %432, !prof !173
 
-503:                                              ; preds = %500
+429:                                              ; preds = %426
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !11761
-  %504 = getelementptr inbounds nuw i8, ptr %90, i64 1
-  %505 = load i8, ptr %504, align 1, !range !166, !alias.scope !11756, !noalias !11759, !noundef !17
-  store i8 %505, ptr %36, align 1, !noalias !11761
+  %430 = getelementptr inbounds nuw i8, ptr %90, i64 1
+  %431 = load i8, ptr %430, align 1, !range !166, !alias.scope !11756, !noalias !11759, !noundef !17
+  store i8 %431, ptr %36, align 1, !noalias !11761
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.ae6c48e04285f5d271501d3ac60d56b4.24, i64 noundef 43, ptr noundef nonnull align 1 %36, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ae6c48e04285f5d271501d3ac60d56b4.25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.259) #18
-          to label %.noexc217.i unwind label %498, !noalias !11736
+          to label %.noexc217.i unwind label %424, !noalias !11736
 
-.noexc217.i:                                      ; preds = %503
+.noexc217.i:                                      ; preds = %429
   unreachable
 
-506:                                              ; preds = %500
+432:                                              ; preds = %426
   call void @llvm.lifetime.end.p0(ptr nonnull %90), !noalias !11734
-  br label %507
+  br label %433
 
-507:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i11", %506
-  %.sroa.0.08.i.sroa.phi.i = phi ptr [ %89, %506 ], [ %.sroa.0.08.i.sroa.gep344.i, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i11" ]
-  %508 = phi i1 [ false, %506 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i11" ]
-  %509 = load i8, ptr %.sroa.0.08.i.sroa.phi.i, align 8, !range !141, !alias.scope !11762, !noalias !11734, !noundef !17
-  switch i8 %509, label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i11" [
-    i8 2, label %510
-    i8 3, label %512
+433:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i11", %432
+  %.sroa.0.08.i.sroa.phi.i = phi ptr [ %89, %432 ], [ %.sroa.0.08.i.sroa.gep344.i, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i11" ]
+  %434 = phi i1 [ false, %432 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i11" ]
+  %435 = load i8, ptr %.sroa.0.08.i.sroa.phi.i, align 8, !range !141, !alias.scope !11762, !noalias !11734, !noundef !17
+  switch i8 %435, label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i11" [
+    i8 2, label %436
+    i8 3, label %438
   ]
 
-510:                                              ; preds = %507
-  %511 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.sroa.phi.i, i64 8
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %511)
-          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i11" unwind label %514, !noalias !11736
+436:                                              ; preds = %433
+  %437 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.sroa.phi.i, i64 8
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %437)
+          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i11" unwind label %440, !noalias !11736
 
-512:                                              ; preds = %507
-  %513 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.sroa.phi.i, i64 8
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %513)
-          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i11" unwind label %514, !noalias !11736
+438:                                              ; preds = %433
+  %439 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.sroa.phi.i, i64 8
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %439)
+          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i11" unwind label %440, !noalias !11736
 
-"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i11": ; preds = %512, %510, %507
-  br i1 %508, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit.i", label %507
+"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i.i11": ; preds = %438, %436, %433
+  br i1 %434, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit.i", label %433
 
-514:                                              ; preds = %512, %510
-  %515 = landingpad { ptr, i32 }
+440:                                              ; preds = %438, %436
+  %441 = landingpad { ptr, i32 }
           cleanup
-  br i1 %508, label %.body.i9, label %516
+  br i1 %434, label %.body.i9, label %442
 
-516:                                              ; preds = %514
+442:                                              ; preds = %440
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE"(ptr noalias noundef align 8 dereferenceable(32) %.sroa.0.08.i.sroa.gep344.i) #15
-          to label %.body.i9 unwind label %517, !noalias !11736
+          to label %.body.i9 unwind label %443, !noalias !11736
 
-517:                                              ; preds = %516
-  %518 = landingpad { ptr, i32 }
+443:                                              ; preds = %442
+  %444 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11736
   unreachable
@@ -118260,10 +118038,10 @@ default.unreachable:                              ; preds = %1124, %248
   call void @llvm.lifetime.end.p0(ptr nonnull %89), !noalias !11734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %91, i64 24, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %91), !noalias !11734
-  %519 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %.val227.i = load ptr, ptr %519, align 8, !noalias !11734, !nonnull !17, !noundef !17
-  %520 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  %.val228.i = load i64, ptr %520, align 8, !noalias !11734, !noundef !17
+  %445 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %.val227.i = load ptr, ptr %445, align 8, !noalias !11734, !nonnull !17, !noundef !17
+  %446 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  %.val228.i = load i64, ptr %446, align 8, !noalias !11734, !noundef !17
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !11767
   store i64 0, ptr %33, align 8, !noalias !11767
   %.sroa.42.0..sroa_idx.i.i12 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -118271,225 +118049,225 @@ default.unreachable:                              ; preds = %1124, %248
   %.sroa.53.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i64 0, ptr %.sroa.53.0..sroa_idx.i.i13, align 8, !noalias !11767
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !11767
-  %521 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store i32 -536870880, ptr %521, align 8, !noalias !11767
+  %447 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store i32 -536870880, ptr %447, align 8, !noalias !11767
   %.sroa.4.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i16 0, ptr %.sroa.4.0..sroa_idx.i.i14, align 4, !noalias !11767
   %.sroa.5.0..sroa_idx.i.i15 = getelementptr inbounds nuw i8, ptr %32, i64 22
   store i16 0, ptr %.sroa.5.0..sroa_idx.i.i15, align 2, !noalias !11767
   store ptr %33, ptr %32, align 8, !noalias !11767
-  %522 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr @anon.ae6c48e04285f5d271501d3ac60d56b4.3, ptr %522, align 8, !noalias !11767
-  %523 = getelementptr inbounds nuw i32, ptr %.val227.i, i64 %.val228.i
-  br label %524
+  %448 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store ptr @anon.ae6c48e04285f5d271501d3ac60d56b4.3, ptr %448, align 8, !noalias !11767
+  %449 = getelementptr inbounds nuw i32, ptr %.val227.i, i64 %.val228.i
+  br label %450
 
-524:                                              ; preds = %.noexc7.i.i20, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit.i"
-  %525 = phi ptr [ %539, %.noexc7.i.i20 ], [ %.val227.i, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit.i" ]
-  %.not.not.not.i.not.not.not.i.not.i.i16 = icmp eq ptr %525, %523
-  br i1 %.not.not.not.i.not.not.not.i.not.i.i16, label %543, label %526
+450:                                              ; preds = %.noexc7.i.i20, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit.i"
+  %451 = phi ptr [ %465, %.noexc7.i.i20 ], [ %.val227.i, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit.i" ]
+  %.not.not.not.i.not.not.not.i.not.i.i16 = icmp eq ptr %451, %449
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i16, label %469, label %452
 
-526:                                              ; preds = %524
-  %527 = load i32, ptr %525, align 4, !noalias !11770, !noundef !17
-  %528 = xor i32 %527, 55296
-  %529 = add i32 %528, -1114112
-  %530 = icmp ult i32 %529, -1112064
-  br i1 %530, label %.split.i.i.i.i.i25, label %536
+452:                                              ; preds = %450
+  %453 = load i32, ptr %451, align 4, !noalias !11770, !noundef !17
+  %454 = xor i32 %453, 55296
+  %455 = add i32 %454, -1114112
+  %456 = icmp ult i32 %455, -1112064
+  br i1 %456, label %.split.i.i.i.i.i25, label %462
 
-.split.i.i.i.i.i25:                               ; preds = %526
+.split.i.i.i.i.i25:                               ; preds = %452
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !11777
-  store i32 %527, ptr %31, align 4, !noalias !11777
+  store i32 %453, ptr %31, align 4, !noalias !11777
   br label %.split.i.i.i.invoke.i.i21
 
 .split.i.i.i.invoke.i.i21:                        ; preds = %.noexc7.i.i20, %.split.i.i.i.i.i25
-  %531 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.24, %.split.i.i.i.i.i25 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.4, %.noexc7.i.i20 ]
-  %532 = phi i64 [ 43, %.split.i.i.i.i.i25 ], [ 55, %.noexc7.i.i20 ]
-  %533 = phi ptr [ %31, %.split.i.i.i.i.i25 ], [ %3, %.noexc7.i.i20 ]
-  %534 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.26, %.split.i.i.i.i.i25 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.22, %.noexc7.i.i20 ]
-  %535 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.54, %.split.i.i.i.i.i25 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.6, %.noexc7.i.i20 ]
-  invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 %531, i64 noundef %532, ptr noundef nonnull align 1 %533, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %534, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %535) #18
+  %457 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.24, %.split.i.i.i.i.i25 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.4, %.noexc7.i.i20 ]
+  %458 = phi i64 [ 43, %.split.i.i.i.i.i25 ], [ 55, %.noexc7.i.i20 ]
+  %459 = phi ptr [ %31, %.split.i.i.i.i.i25 ], [ %3, %.noexc7.i.i20 ]
+  %460 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.26, %.split.i.i.i.i.i25 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.22, %.noexc7.i.i20 ]
+  %461 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.54, %.split.i.i.i.i.i25 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.6, %.noexc7.i.i20 ]
+  invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 %457, i64 noundef %458, ptr noundef nonnull align 1 %459, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %460, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %461) #18
           to label %.split.i.i.i.cont.i.i24 unwind label %.loopexit.split-lp.i.i22, !noalias !11779
 
 .split.i.i.i.cont.i.i24:                          ; preds = %.split.i.i.i.invoke.i.i21
   unreachable
 
-536:                                              ; preds = %526
-  %537 = icmp ult i32 %527, 1114112
-  call void @llvm.assume(i1 %537)
-  %538 = invoke noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$10write_char17h3c38008714eb34d2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32, i32 noundef range(i32 0, 1114112) %527)
+462:                                              ; preds = %452
+  %463 = icmp ult i32 %453, 1114112
+  call void @llvm.assume(i1 %463)
+  %464 = invoke noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$10write_char17h3c38008714eb34d2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32, i32 noundef range(i32 0, 1114112) %453)
           to label %.noexc7.i.i20 unwind label %.loopexit.i.i17, !noalias !11779
 
-.noexc7.i.i20:                                    ; preds = %536
-  %539 = getelementptr inbounds nuw i8, ptr %525, i64 4
-  br i1 %538, label %.split.i.i.i.invoke.i.i21, label %524
+.noexc7.i.i20:                                    ; preds = %462
+  %465 = getelementptr inbounds nuw i8, ptr %451, i64 4
+  br i1 %464, label %.split.i.i.i.invoke.i.i21, label %450
 
-.loopexit.i.i17:                                  ; preds = %536
+.loopexit.i.i17:                                  ; preds = %462
   %lpad.loopexit.i.i18 = landingpad { ptr, i32 }
           cleanup
-  br label %540
+  br label %466
 
 .loopexit.split-lp.i.i22:                         ; preds = %.split.i.i.i.invoke.i.i21
   %lpad.loopexit.split-lp.i.i23 = landingpad { ptr, i32 }
           cleanup
-  br label %540
+  br label %466
 
-540:                                              ; preds = %.loopexit.split-lp.i.i22, %.loopexit.i.i17
+466:                                              ; preds = %.loopexit.split-lp.i.i22, %.loopexit.i.i17
   %lpad.phi.i.i19 = phi { ptr, i32 } [ %lpad.loopexit.i.i18, %.loopexit.i.i17 ], [ %lpad.loopexit.split-lp.i.i23, %.loopexit.split-lp.i.i22 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #15
-          to label %.body232.i unwind label %541, !noalias !11779
+          to label %.body232.i unwind label %467, !noalias !11779
 
-541:                                              ; preds = %540
-  %542 = landingpad { ptr, i32 }
+467:                                              ; preds = %466
+  %468 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11779
   unreachable
 
-.body232.i:                                       ; preds = %548, %540
-  %eh.lpad-body233.i = phi { ptr, i32 } [ %lpad.phi.i.i19, %540 ], [ %549, %548 ]
+.body232.i:                                       ; preds = %474, %466
+  %eh.lpad-body233.i = phi { ptr, i32 } [ %lpad.phi.i.i19, %466 ], [ %475, %474 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %92) #15
-          to label %556 unwind label %470, !noalias !11736
+          to label %482 unwind label %396, !noalias !11736
 
-543:                                              ; preds = %524
+469:                                              ; preds = %450
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !11767
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !11767
-  %544 = load i64, ptr %489, align 8, !alias.scope !11780, !noalias !11783, !noundef !17
-  %545 = load i64, ptr %96, align 8, !range !21, !alias.scope !11780, !noalias !11783, !noundef !17
-  %546 = icmp eq i64 %544, %545
-  br i1 %546, label %547, label %552
+  %470 = load i64, ptr %415, align 8, !alias.scope !11780, !noalias !11783, !noundef !17
+  %471 = load i64, ptr %96, align 8, !range !21, !alias.scope !11780, !noalias !11783, !noundef !17
+  %472 = icmp eq i64 %470, %471
+  br i1 %472, label %473, label %478
 
-547:                                              ; preds = %543
+473:                                              ; preds = %469
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h17fdeb9b034f232eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.259)
-          to label %552 unwind label %548, !noalias !11786
+          to label %478 unwind label %474, !noalias !11786
 
-548:                                              ; preds = %547
-  %549 = landingpad { ptr, i32 }
+474:                                              ; preds = %473
+  %475 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %93) #15
-          to label %.body232.i unwind label %550, !noalias !11736
+          to label %.body232.i unwind label %476, !noalias !11736
 
-550:                                              ; preds = %548
-  %551 = landingpad { ptr, i32 }
+476:                                              ; preds = %474
+  %477 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11736
   unreachable
 
-552:                                              ; preds = %547, %543
-  %553 = load ptr, ptr %488, align 8, !alias.scope !11780, !noalias !11783, !nonnull !17, !noundef !17
-  %554 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %553, i64 %544
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %554, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false), !noalias !11736
-  %555 = add i64 %544, 1
-  store i64 %555, ptr %489, align 8, !alias.scope !11780, !noalias !11783
+478:                                              ; preds = %473, %469
+  %479 = load ptr, ptr %414, align 8, !alias.scope !11780, !noalias !11783, !nonnull !17, !noundef !17
+  %480 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %479, i64 %470
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %480, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false), !noalias !11736
+  %481 = add i64 %470, 1
+  store i64 %481, ptr %415, align 8, !alias.scope !11780, !noalias !11783
   call void @llvm.lifetime.end.p0(ptr nonnull %93), !noalias !11734
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %92)
-          to label %559 unwind label %557, !noalias !11736
+          to label %485 unwind label %483, !noalias !11736
 
-556:                                              ; preds = %566, %557, %.body232.i, %.body.i9
-  %.pn166.i = phi { ptr, i32 } [ %558, %557 ], [ %567, %566 ], [ %eh.lpad-body233.i, %.body232.i ], [ %.pn164.i, %.body.i9 ]
+482:                                              ; preds = %492, %483, %.body232.i, %.body.i9
+  %.pn166.i = phi { ptr, i32 } [ %484, %483 ], [ %493, %492 ], [ %eh.lpad-body233.i, %.body232.i ], [ %.pn164.i, %.body.i9 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hf17aa9672fe4529cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %96) #15
-          to label %646 unwind label %470, !noalias !11736
+          to label %572 unwind label %396, !noalias !11736
 
-557:                                              ; preds = %576, %559, %552
-  %558 = landingpad { ptr, i32 }
+483:                                              ; preds = %502, %485, %478
+  %484 = landingpad { ptr, i32 }
           cleanup
-  br label %556
+  br label %482
 
-559:                                              ; preds = %552
+485:                                              ; preds = %478
   call void @llvm.lifetime.end.p0(ptr nonnull %92), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %86), !noalias !11734
-  %560 = load ptr, ptr %488, align 8, !noalias !11734, !nonnull !17, !noundef !17
-  %561 = load i64, ptr %489, align 8, !noalias !11734, !noundef !17
+  %486 = load ptr, ptr %414, align 8, !noalias !11734, !nonnull !17, !noundef !17
+  %487 = load i64, ptr %415, align 8, !noalias !11734, !noundef !17
   call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !11734
-  invoke void @_ZN5alloc3str17join_generic_copy17hae5f2027876fa5acE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %43, ptr noalias noundef nonnull readonly align 8 %560, i64 noundef %561, ptr noalias noundef nonnull readonly align 1 @anon.ae6c48e04285f5d271501d3ac60d56b4.257, i64 noundef 1)
-          to label %562 unwind label %557, !noalias !11736
+  invoke void @_ZN5alloc3str17join_generic_copy17hae5f2027876fa5acE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %43, ptr noalias noundef nonnull readonly align 8 %486, i64 noundef %487, ptr noalias noundef nonnull readonly align 1 @anon.ae6c48e04285f5d271501d3ac60d56b4.257, i64 noundef 1)
+          to label %488 unwind label %483, !noalias !11736
 
-562:                                              ; preds = %559
+488:                                              ; preds = %485
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !11734
-  %563 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %564 = load i64, ptr %563, align 8, !alias.scope !11787, !noalias !11734, !noundef !17
-  %565 = icmp sgt i64 %564, -1
-  call void @llvm.assume(i1 %565)
+  %489 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %490 = load i64, ptr %489, align 8, !alias.scope !11787, !noalias !11734, !noundef !17
+  %491 = icmp sgt i64 %490, -1
+  call void @llvm.assume(i1 %491)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hca0cedd7554ca3baE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %86, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.28)
-          to label %568 unwind label %566, !noalias !11736
+          to label %494 unwind label %492, !noalias !11736
 
-566:                                              ; preds = %568, %562
-  %567 = landingpad { ptr, i32 }
+492:                                              ; preds = %494, %488
+  %493 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %86) #15
-          to label %556 unwind label %470, !noalias !11736
+          to label %482 unwind label %396, !noalias !11736
 
-568:                                              ; preds = %562
-  %569 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %570 = load ptr, ptr %569, align 8, !alias.scope !11787, !noalias !11734, !nonnull !17, !noundef !17
-  %571 = load i64, ptr %563, align 8, !alias.scope !11787, !noalias !11734, !noundef !17
-  %572 = icmp sgt i64 %571, -1
-  call void @llvm.assume(i1 %572)
-  %573 = getelementptr inbounds nuw i8, ptr %570, i64 %571
-  store i8 10, ptr %573, align 1, !noalias !11736
-  %574 = add nuw i64 %564, 1
-  store i64 %574, ptr %563, align 8, !alias.scope !11787, !noalias !11734
-  %575 = load ptr, ptr %569, align 8, !noalias !11734, !nonnull !17, !noundef !17
-  invoke void @_ZN4fish4flog9flog_impl17hb3e65484452eac47E(ptr noalias noundef nonnull readonly align 1 %575, i64 noundef %574)
-          to label %576 unwind label %566, !noalias !11736
+494:                                              ; preds = %488
+  %495 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %496 = load ptr, ptr %495, align 8, !alias.scope !11787, !noalias !11734, !nonnull !17, !noundef !17
+  %497 = load i64, ptr %489, align 8, !alias.scope !11787, !noalias !11734, !noundef !17
+  %498 = icmp sgt i64 %497, -1
+  call void @llvm.assume(i1 %498)
+  %499 = getelementptr inbounds nuw i8, ptr %496, i64 %497
+  store i8 10, ptr %499, align 1, !noalias !11736
+  %500 = add nuw i64 %490, 1
+  store i64 %500, ptr %489, align 8, !alias.scope !11787, !noalias !11734
+  %501 = load ptr, ptr %495, align 8, !noalias !11734, !nonnull !17, !noundef !17
+  invoke void @_ZN4fish4flog9flog_impl17hb3e65484452eac47E(ptr noalias noundef nonnull readonly align 1 %501, i64 noundef %500)
+          to label %502 unwind label %492, !noalias !11736
 
-576:                                              ; preds = %568
+502:                                              ; preds = %494
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %86)
-          to label %577 unwind label %557, !noalias !11736
+          to label %503 unwind label %483, !noalias !11736
 
-577:                                              ; preds = %576
+503:                                              ; preds = %502
   call void @llvm.lifetime.end.p0(ptr nonnull %86), !noalias !11734
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hf17aa9672fe4529cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %96)
-          to label %578 unwind label %472, !noalias !11736
+          to label %504 unwind label %398, !noalias !11736
 
-578:                                              ; preds = %577
+504:                                              ; preds = %503
   call void @llvm.lifetime.end.p0(ptr nonnull %96), !noalias !11734
-  br label %477
+  br label %403
 
-579:                                              ; preds = %477
-  %580 = extractvalue { i32, i32 } %478, 0
-  %581 = extractvalue { i32, i32 } %478, 1
-  %582 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange5start17h44e58a82a11f4040E(i32 noundef %580, i32 noundef %581)
-          to label %583 unwind label %472, !noalias !11736
+505:                                              ; preds = %403
+  %506 = extractvalue { i32, i32 } %404, 0
+  %507 = extractvalue { i32, i32 } %404, 1
+  %508 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange5start17h44e58a82a11f4040E(i32 noundef %506, i32 noundef %507)
+          to label %509 unwind label %398, !noalias !11736
 
-583:                                              ; preds = %579
-  %.not168.i = icmp eq i64 %582, 4294967295
-  br i1 %.not168.i, label %586, label %584
+509:                                              ; preds = %505
+  %.not168.i = icmp eq i64 %508, 4294967295
+  br i1 %.not168.i, label %512, label %510
 
-584:                                              ; preds = %583
-  %585 = invoke { i32, i32 } @_ZN4fish10parse_tree10ParseToken5range17h81755e9cf11500f5E(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %427)
-          to label %588 unwind label %472, !noalias !11736
+510:                                              ; preds = %509
+  %511 = invoke { i32, i32 } @_ZN4fish10parse_tree10ParseToken5range17h81755e9cf11500f5E(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %353)
+          to label %514 unwind label %398, !noalias !11736
 
-586:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit.i", %583
-  %587 = load ptr, ptr %435, align 8, !alias.scope !11722, !noalias !11725, !align !22, !noundef !17
-  %.not169.i = icmp eq ptr %587, null
-  br i1 %.not169.i, label %.critedge.i, label %602
+512:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit.i", %509
+  %513 = load ptr, ptr %361, align 8, !alias.scope !11722, !noalias !11725, !align !22, !noundef !17
+  %.not169.i = icmp eq ptr %513, null
+  br i1 %.not169.i, label %.critedge.i, label %528
 
-588:                                              ; preds = %584
-  %589 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %590 = extractvalue { i32, i32 } %585, 0
-  %591 = extractvalue { i32, i32 } %585, 1
-  %592 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %593 = load i64, ptr %592, align 8, !alias.scope !11790, !noalias !11793, !noundef !17
-  %594 = load i64, ptr %589, align 8, !range !21, !alias.scope !11790, !noalias !11793, !noundef !17
-  %595 = icmp eq i64 %593, %594
-  br i1 %595, label %596, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit.i"
+514:                                              ; preds = %510
+  %515 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %516 = extractvalue { i32, i32 } %511, 0
+  %517 = extractvalue { i32, i32 } %511, 1
+  %518 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %519 = load i64, ptr %518, align 8, !alias.scope !11790, !noalias !11793, !noundef !17
+  %520 = load i64, ptr %515, align 8, !range !21, !alias.scope !11790, !noalias !11793, !noundef !17
+  %521 = icmp eq i64 %519, %520
+  br i1 %521, label %522, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit.i"
 
-596:                                              ; preds = %588
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h6a26027a70f0eb38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %589, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.259)
-          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit.i" unwind label %472, !noalias !11736
+522:                                              ; preds = %514
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h6a26027a70f0eb38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %515, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.259)
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit.i" unwind label %398, !noalias !11736
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit.i": ; preds = %596, %588
-  %597 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %598 = load ptr, ptr %597, align 8, !alias.scope !11790, !noalias !11793, !nonnull !17, !noundef !17
-  %599 = getelementptr inbounds nuw { i32, i32 }, ptr %598, i64 %593
-  store i32 %590, ptr %599, align 4, !noalias !11736
-  %600 = getelementptr inbounds nuw i8, ptr %599, i64 4
-  store i32 %591, ptr %600, align 4, !noalias !11736
-  %601 = add i64 %593, 1
-  store i64 %601, ptr %592, align 8, !alias.scope !11790, !noalias !11793
-  br label %586
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit.i": ; preds = %522, %514
+  %523 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %524 = load ptr, ptr %523, align 8, !alias.scope !11790, !noalias !11793, !nonnull !17, !noundef !17
+  %525 = getelementptr inbounds nuw { i32, i32 }, ptr %524, i64 %519
+  store i32 %516, ptr %525, align 4, !noalias !11736
+  %526 = getelementptr inbounds nuw i8, ptr %525, i64 4
+  store i32 %517, ptr %526, align 4, !noalias !11736
+  %527 = add i64 %519, 1
+  store i64 %527, ptr %518, align 8, !alias.scope !11790, !noalias !11793
+  br label %512
 
-602:                                              ; preds = %586
+528:                                              ; preds = %512
   call void @llvm.lifetime.start.p0(ptr nonnull %85), !noalias !11734
   call void @llvm.experimental.noalias.scope.decl(metadata !11795)
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !11798
@@ -118498,310 +118276,310 @@ default.unreachable:                              ; preds = %1124, %248
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx.i238.i, align 8, !noalias !11798
   %.sroa.5.0..sroa_idx.i239.i = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i239.i, align 8, !noalias !11798
-  %603 = invoke noundef i8 @"_ZN80_$LT$fish..parse_constants..ParseErrorCode$u20$as$u20$core..default..Default$GT$7default17h479ab436c53b6579E"()
-          to label %608 unwind label %604, !noalias !11799
+  %529 = invoke noundef i8 @"_ZN80_$LT$fish..parse_constants..ParseErrorCode$u20$as$u20$core..default..Default$GT$7default17h479ab436c53b6579E"()
+          to label %534 unwind label %530, !noalias !11799
 
-604:                                              ; preds = %602
-  %605 = landingpad { ptr, i32 }
+530:                                              ; preds = %528
+  %531 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30) #15
-          to label %646 unwind label %606, !noalias !11799
+          to label %572 unwind label %532, !noalias !11799
 
-606:                                              ; preds = %604
-  %607 = landingpad { ptr, i32 }
+532:                                              ; preds = %530
+  %533 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11799
   unreachable
 
-608:                                              ; preds = %602
+534:                                              ; preds = %528
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %85, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false), !noalias !11734
-  %609 = getelementptr inbounds nuw i8, ptr %85, i64 40
-  store i8 %603, ptr %609, align 8, !alias.scope !11795, !noalias !11734
-  %610 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %610, i8 0, i64 16, i1 false), !alias.scope !11795, !noalias !11734
+  %535 = getelementptr inbounds nuw i8, ptr %85, i64 40
+  store i8 %529, ptr %535, align 8, !alias.scope !11795, !noalias !11734
+  %536 = getelementptr inbounds nuw i8, ptr %85, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %536, i8 0, i64 16, i1 false), !alias.scope !11795, !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !11798
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.518.i)
   %.sroa.0.0.copyload.i = load i64, ptr %101, align 8, !noalias !11734
   %.not170.i = icmp eq i64 %.sroa.0.0.copyload.i, -9223372036854775808
-  br i1 %.not170.i, label %612, label %611, !prof !173
+  br i1 %.not170.i, label %538, label %537, !prof !173
 
-611:                                              ; preds = %608
+537:                                              ; preds = %534
   %.sroa.5.0..sroa_idx.i26 = getelementptr inbounds nuw i8, ptr %101, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.518.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i26, i64 16, i1 false), !noalias !11734
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %85)
-          to label %616 unwind label %.thread365.i, !noalias !11736
+          to label %542 unwind label %.thread365.i, !noalias !11736
 
-612:                                              ; preds = %608
+538:                                              ; preds = %534
   invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.259) #18
-          to label %614 unwind label %.thread369.i, !noalias !11736
+          to label %540 unwind label %.thread369.i, !noalias !11736
 
-.thread369.i:                                     ; preds = %624, %622, %618, %616, %612
-  %613 = landingpad { ptr, i32 }
+.thread369.i:                                     ; preds = %550, %548, %544, %542, %538
+  %539 = landingpad { ptr, i32 }
           cleanup
-  br label %645
+  br label %571
 
-614:                                              ; preds = %1092, %971, %878, %757, %612, %483
+540:                                              ; preds = %1018, %897, %804, %683, %538, %409
   unreachable
 
-.thread365.i:                                     ; preds = %611
-  %615 = landingpad { ptr, i32 }
+.thread365.i:                                     ; preds = %537
+  %541 = landingpad { ptr, i32 }
           cleanup
   store i64 %.sroa.0.0.copyload.i, ptr %85, align 8, !noalias !11734
   %.sroa.518.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %85, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.518.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.518.i, i64 16, i1 false), !noalias !11734
-  br label %645
+  br label %571
 
-616:                                              ; preds = %611
+542:                                              ; preds = %537
   store i64 %.sroa.0.0.copyload.i, ptr %85, align 8, !noalias !11734
   %.sroa.518.0..sroa_idx19.i = getelementptr inbounds nuw i8, ptr %85, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.518.0..sroa_idx19.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.518.i, i64 16, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.518.i)
-  store i8 12, ptr %609, align 8, !noalias !11734
-  %617 = invoke { i32, i32 } @_ZN4fish10parse_tree10ParseToken5range17h81755e9cf11500f5E(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %427)
-          to label %618 unwind label %.thread369.i, !noalias !11736
+  store i8 12, ptr %535, align 8, !noalias !11734
+  %543 = invoke { i32, i32 } @_ZN4fish10parse_tree10ParseToken5range17h81755e9cf11500f5E(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %353)
+          to label %544 unwind label %.thread369.i, !noalias !11736
 
-618:                                              ; preds = %616
-  %619 = extractvalue { i32, i32 } %617, 0
-  %620 = extractvalue { i32, i32 } %617, 1
-  %621 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange5start17h44e58a82a11f4040E(i32 noundef %619, i32 noundef %620)
-          to label %622 unwind label %.thread369.i, !noalias !11736
+544:                                              ; preds = %542
+  %545 = extractvalue { i32, i32 } %543, 0
+  %546 = extractvalue { i32, i32 } %543, 1
+  %547 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange5start17h44e58a82a11f4040E(i32 noundef %545, i32 noundef %546)
+          to label %548 unwind label %.thread369.i, !noalias !11736
 
-622:                                              ; preds = %618
-  store i64 %621, ptr %610, align 8, !noalias !11734
-  %623 = invoke { i32, i32 } @_ZN4fish10parse_tree10ParseToken5range17h81755e9cf11500f5E(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %427)
-          to label %624 unwind label %.thread369.i, !noalias !11736
+548:                                              ; preds = %544
+  store i64 %547, ptr %536, align 8, !noalias !11734
+  %549 = invoke { i32, i32 } @_ZN4fish10parse_tree10ParseToken5range17h81755e9cf11500f5E(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %353)
+          to label %550 unwind label %.thread369.i, !noalias !11736
 
-624:                                              ; preds = %622
-  %625 = extractvalue { i32, i32 } %623, 0
-  %626 = extractvalue { i32, i32 } %623, 1
-  %627 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange6length17h5cd82ccdda9e2c1aE(i32 noundef %625, i32 noundef %626)
-          to label %628 unwind label %.thread369.i, !noalias !11736
+550:                                              ; preds = %548
+  %551 = extractvalue { i32, i32 } %549, 0
+  %552 = extractvalue { i32, i32 } %549, 1
+  %553 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange6length17h5cd82ccdda9e2c1aE(i32 noundef %551, i32 noundef %552)
+          to label %554 unwind label %.thread369.i, !noalias !11736
 
-628:                                              ; preds = %624
-  %629 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  store i64 %627, ptr %629, align 8, !noalias !11734
-  %630 = load ptr, ptr %435, align 8, !alias.scope !11722, !noalias !11725, !nonnull !17, !align !22, !noundef !17
+554:                                              ; preds = %550
+  %555 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  store i64 %553, ptr %555, align 8, !noalias !11734
+  %556 = load ptr, ptr %361, align 8, !alias.scope !11722, !noalias !11725, !nonnull !17, !align !22, !noundef !17
   call void @llvm.lifetime.start.p0(ptr nonnull %84), !noalias !11734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %84, ptr noundef nonnull align 8 dereferenceable(48) %85, i64 48, i1 false), !noalias !11734
-  %631 = getelementptr inbounds nuw i8, ptr %630, i64 16
-  %632 = load i64, ptr %631, align 8, !alias.scope !11800, !noalias !11803, !noundef !17
-  %633 = load i64, ptr %630, align 8, !range !21, !alias.scope !11800, !noalias !11803, !noundef !17
-  %634 = icmp eq i64 %632, %633
-  br i1 %634, label %635, label %640
+  %557 = getelementptr inbounds nuw i8, ptr %556, i64 16
+  %558 = load i64, ptr %557, align 8, !alias.scope !11800, !noalias !11803, !noundef !17
+  %559 = load i64, ptr %556, align 8, !range !21, !alias.scope !11800, !noalias !11803, !noundef !17
+  %560 = icmp eq i64 %558, %559
+  br i1 %560, label %561, label %566
 
-635:                                              ; preds = %628
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h14758f470fdca263E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %630, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.259)
-          to label %640 unwind label %636, !noalias !11806
+561:                                              ; preds = %554
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h14758f470fdca263E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %556, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.259)
+          to label %566 unwind label %562, !noalias !11806
 
-636:                                              ; preds = %635
-  %637 = landingpad { ptr, i32 }
+562:                                              ; preds = %561
+  %563 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr54drop_in_place$LT$fish..parse_constants..ParseError$GT$17h8e8b1e2e6b6cbc8bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %84) #15
-          to label %common.resume unwind label %638, !noalias !11736
+          to label %common.resume unwind label %564, !noalias !11736
 
-638:                                              ; preds = %636
-  %639 = landingpad { ptr, i32 }
+564:                                              ; preds = %562
+  %565 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11736
   unreachable
 
-640:                                              ; preds = %635, %628
-  %641 = getelementptr inbounds nuw i8, ptr %630, i64 8
-  %642 = load ptr, ptr %641, align 8, !alias.scope !11800, !noalias !11803, !nonnull !17, !noundef !17
-  %643 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, i64, i64, i8, [7 x i8] }, ptr %642, i64 %632
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %643, ptr noundef nonnull align 8 dereferenceable(48) %84, i64 48, i1 false), !noalias !11736
-  %644 = add i64 %632, 1
-  store i64 %644, ptr %631, align 8, !alias.scope !11800, !noalias !11803
+566:                                              ; preds = %561, %554
+  %567 = getelementptr inbounds nuw i8, ptr %556, i64 8
+  %568 = load ptr, ptr %567, align 8, !alias.scope !11800, !noalias !11803, !nonnull !17, !noundef !17
+  %569 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, i64, i64, i8, [7 x i8] }, ptr %568, i64 %558
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %569, ptr noundef nonnull align 8 dereferenceable(48) %84, i64 48, i1 false), !noalias !11736
+  %570 = add i64 %558, 1
+  store i64 %570, ptr %557, align 8, !alias.scope !11800, !noalias !11803
   call void @llvm.lifetime.end.p0(ptr nonnull %84), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %85), !noalias !11734
   br label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit245.i"
 
-645:                                              ; preds = %.thread365.i, %.thread369.i
-  %.pn171368.i = phi { ptr, i32 } [ %615, %.thread365.i ], [ %613, %.thread369.i ]
+571:                                              ; preds = %.thread365.i, %.thread369.i
+  %.pn171368.i = phi { ptr, i32 } [ %541, %.thread365.i ], [ %539, %.thread369.i ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %85) #15
-          to label %common.resume unwind label %470, !noalias !11736
+          to label %common.resume unwind label %396, !noalias !11736
 
-646:                                              ; preds = %604, %556, %485, %472
-  %.pn171.pn.ph.i = phi { ptr, i32 } [ %486, %485 ], [ %.pn166.i, %556 ], [ %473, %472 ], [ %605, %604 ]
-  %647 = load i64, ptr %101, align 8, !range !172, !alias.scope !11807, !noalias !11734, !noundef !17
-  %648 = icmp eq i64 %647, -9223372036854775808
-  br i1 %648, label %common.resume, label %649
+572:                                              ; preds = %530, %482, %411, %398
+  %.pn171.pn.ph.i = phi { ptr, i32 } [ %412, %411 ], [ %.pn166.i, %482 ], [ %399, %398 ], [ %531, %530 ]
+  %573 = load i64, ptr %101, align 8, !range !172, !alias.scope !11807, !noalias !11734, !noundef !17
+  %574 = icmp eq i64 %573, -9223372036854775808
+  br i1 %574, label %common.resume, label %575
 
-649:                                              ; preds = %646
+575:                                              ; preds = %572
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %101)
-          to label %common.resume unwind label %470, !noalias !11736
+          to label %common.resume unwind label %396, !noalias !11736
 
-"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit245.i": ; preds = %652, %.critedge.i, %640
+"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit245.i": ; preds = %578, %.critedge.i, %566
   call void @llvm.lifetime.end.p0(ptr nonnull %101), !noalias !11734
-  br label %653
+  br label %579
 
-.critedge.i:                                      ; preds = %586, %467
-  %650 = load i64, ptr %101, align 8, !range !172, !alias.scope !11810, !noalias !11734, !noundef !17
-  %651 = icmp eq i64 %650, -9223372036854775808
-  br i1 %651, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit245.i", label %652
+.critedge.i:                                      ; preds = %512, %393
+  %576 = load i64, ptr %101, align 8, !range !172, !alias.scope !11810, !noalias !11734, !noundef !17
+  %577 = icmp eq i64 %576, -9223372036854775808
+  br i1 %577, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit245.i", label %578
 
-652:                                              ; preds = %.critedge.i
+578:                                              ; preds = %.critedge.i
   call void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %101), !noalias !11736
   br label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit245.i"
 
-653:                                              ; preds = %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit245.i", %426
-  %654 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  br label %655
+579:                                              ; preds = %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit245.i", %352
+  %580 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  br label %581
 
-655:                                              ; preds = %687, %653
-  %.sroa.4.0.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.237, %653 ], [ %.sroa.4.1.i, %687 ]
-  %.sroa.057.0.i = phi ptr [ %0, %653 ], [ %.sroa.057.1.i, %687 ]
+581:                                              ; preds = %613, %579
+  %.sroa.4.0.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.237, %579 ], [ %.sroa.4.1.i, %613 ]
+  %.sroa.057.0.i = phi ptr [ %0, %579 ], [ %.sroa.057.1.i, %613 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %83), !noalias !11734
-  %656 = icmp ne ptr %.sroa.057.0.i, null
-  call void @llvm.assume(i1 %656)
-  %657 = icmp ne ptr %.sroa.4.0.i, null
-  call void @llvm.assume(i1 %657)
-  %658 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i, i64 64
-  %659 = load ptr, ptr %658, align 8, !invariant.load !17, !noalias !11736, !nonnull !17
-  call void %659(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %83, ptr noundef nonnull align 1 %.sroa.057.0.i), !noalias !11736
-  %660 = load i64, ptr %83, align 8, !range !167, !noalias !11734, !noundef !17
-  switch i64 %660, label %699 [
-    i64 10, label %661
-    i64 11, label %666
-    i64 12, label %669
-    i64 13, label %672
-    i64 14, label %675
-    i64 15, label %678
-    i64 21, label %681
-    i64 23, label %684
+  %582 = icmp ne ptr %.sroa.057.0.i, null
+  call void @llvm.assume(i1 %582)
+  %583 = icmp ne ptr %.sroa.4.0.i, null
+  call void @llvm.assume(i1 %583)
+  %584 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i, i64 64
+  %585 = load ptr, ptr %584, align 8, !invariant.load !17, !noalias !11736, !nonnull !17
+  call void %585(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %83, ptr noundef nonnull align 1 %.sroa.057.0.i), !noalias !11736
+  %586 = load i64, ptr %83, align 8, !range !167, !noalias !11734, !noundef !17
+  switch i64 %586, label %625 [
+    i64 10, label %587
+    i64 11, label %592
+    i64 12, label %595
+    i64 13, label %598
+    i64 14, label %601
+    i64 15, label %604
+    i64 21, label %607
+    i64 23, label %610
   ]
 
-661:                                              ; preds = %655
-  %662 = load ptr, ptr %654, align 8, !noalias !11734, !nonnull !17, !align !22, !noundef !17
-  %663 = call { ptr, ptr } @_ZN4fish3ast20BlockStatementHeader13embedded_node17haa515441dd1f9c06E(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %662), !noalias !11736
-  %664 = extractvalue { ptr, ptr } %663, 0
-  %665 = extractvalue { ptr, ptr } %663, 1
-  br label %687
+587:                                              ; preds = %581
+  %588 = load ptr, ptr %580, align 8, !noalias !11734, !nonnull !17, !align !22, !noundef !17
+  %589 = call { ptr, ptr } @_ZN4fish3ast20BlockStatementHeader13embedded_node17haa515441dd1f9c06E(ptr noalias noundef nonnull readonly align 8 dereferenceable(192) %588), !noalias !11736
+  %590 = extractvalue { ptr, ptr } %589, 0
+  %591 = extractvalue { ptr, ptr } %589, 1
+  br label %613
 
-666:                                              ; preds = %655
-  %667 = load ptr, ptr %654, align 8, !noalias !11734, !nonnull !17, !align !22, !noundef !17
-  %.sroa.060.0.copyload.i = load i32, ptr %667, align 8, !noalias !11736
-  %668 = trunc i32 %.sroa.060.0.copyload.i to i1
-  br i1 %668, label %694, label %688, !prof !5200
+592:                                              ; preds = %581
+  %593 = load ptr, ptr %580, align 8, !noalias !11734, !nonnull !17, !align !22, !noundef !17
+  %.sroa.060.0.copyload.i = load i32, ptr %593, align 8, !noalias !11736
+  %594 = trunc i32 %.sroa.060.0.copyload.i to i1
+  br i1 %594, label %620, label %614, !prof !5200
 
-669:                                              ; preds = %655
-  %670 = load ptr, ptr %654, align 8, !noalias !11734, !nonnull !17, !align !22, !noundef !17
-  %.sroa.067.0.copyload.i = load i32, ptr %670, align 8, !noalias !11736
-  %671 = trunc i32 %.sroa.067.0.copyload.i to i1
-  br i1 %671, label %694, label %689, !prof !5200
+595:                                              ; preds = %581
+  %596 = load ptr, ptr %580, align 8, !noalias !11734, !nonnull !17, !align !22, !noundef !17
+  %.sroa.067.0.copyload.i = load i32, ptr %596, align 8, !noalias !11736
+  %597 = trunc i32 %.sroa.067.0.copyload.i to i1
+  br i1 %597, label %620, label %615, !prof !5200
 
-672:                                              ; preds = %655
-  %673 = load ptr, ptr %654, align 8, !noalias !11734, !nonnull !17, !align !22, !noundef !17
-  %.sroa.074.0.copyload.i = load i32, ptr %673, align 8, !noalias !11736
-  %674 = trunc i32 %.sroa.074.0.copyload.i to i1
-  br i1 %674, label %694, label %690, !prof !5200
+598:                                              ; preds = %581
+  %599 = load ptr, ptr %580, align 8, !noalias !11734, !nonnull !17, !align !22, !noundef !17
+  %.sroa.074.0.copyload.i = load i32, ptr %599, align 8, !noalias !11736
+  %600 = trunc i32 %.sroa.074.0.copyload.i to i1
+  br i1 %600, label %620, label %616, !prof !5200
 
-675:                                              ; preds = %655
-  %676 = load ptr, ptr %654, align 8, !noalias !11734, !nonnull !17, !align !27, !noundef !17
-  %.sroa.081.0.copyload.i = load i32, ptr %676, align 4, !noalias !11736
-  %677 = trunc i32 %.sroa.081.0.copyload.i to i1
-  br i1 %677, label %694, label %691, !prof !5200
+601:                                              ; preds = %581
+  %602 = load ptr, ptr %580, align 8, !noalias !11734, !nonnull !17, !align !27, !noundef !17
+  %.sroa.081.0.copyload.i = load i32, ptr %602, align 4, !noalias !11736
+  %603 = trunc i32 %.sroa.081.0.copyload.i to i1
+  br i1 %603, label %620, label %617, !prof !5200
 
-678:                                              ; preds = %655
-  %679 = load ptr, ptr %654, align 8, !noalias !11734, !nonnull !17, !align !22, !noundef !17
-  %680 = getelementptr inbounds nuw i8, ptr %679, i64 16
-  br label %687
+604:                                              ; preds = %581
+  %605 = load ptr, ptr %580, align 8, !noalias !11734, !nonnull !17, !align !22, !noundef !17
+  %606 = getelementptr inbounds nuw i8, ptr %605, i64 16
+  br label %613
 
-681:                                              ; preds = %655
-  %682 = load ptr, ptr %654, align 8, !noalias !11734, !nonnull !17, !align !22, !noundef !17
-  %.sroa.088.0.copyload.i = load i32, ptr %682, align 8, !noalias !11736
-  %683 = trunc i32 %.sroa.088.0.copyload.i to i1
-  br i1 %683, label %694, label %692, !prof !5200
+607:                                              ; preds = %581
+  %608 = load ptr, ptr %580, align 8, !noalias !11734, !nonnull !17, !align !22, !noundef !17
+  %.sroa.088.0.copyload.i = load i32, ptr %608, align 8, !noalias !11736
+  %609 = trunc i32 %.sroa.088.0.copyload.i to i1
+  br i1 %609, label %620, label %618, !prof !5200
 
-684:                                              ; preds = %655
-  %685 = load ptr, ptr %654, align 8, !noalias !11734, !nonnull !17, !align !22, !noundef !17
-  %.sroa.095.0.copyload.i = load i32, ptr %685, align 8, !noalias !11736
-  %686 = trunc i32 %.sroa.095.0.copyload.i to i1
-  br i1 %686, label %694, label %693, !prof !5200
+610:                                              ; preds = %581
+  %611 = load ptr, ptr %580, align 8, !noalias !11734, !nonnull !17, !align !22, !noundef !17
+  %.sroa.095.0.copyload.i = load i32, ptr %611, align 8, !noalias !11736
+  %612 = trunc i32 %.sroa.095.0.copyload.i to i1
+  br i1 %612, label %620, label %619, !prof !5200
 
-687:                                              ; preds = %678, %661
-  %.sroa.4.1.i = phi ptr [ %665, %661 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %678 ]
-  %.sroa.057.1.i = phi ptr [ %664, %661 ], [ %680, %678 ]
+613:                                              ; preds = %604, %587
+  %.sroa.4.1.i = phi ptr [ %591, %587 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.81, %604 ]
+  %.sroa.057.1.i = phi ptr [ %590, %587 ], [ %606, %604 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %83), !noalias !11734
-  br label %655
+  br label %581
 
-688:                                              ; preds = %666
+614:                                              ; preds = %592
   call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.261) #18, !noalias !11736
   unreachable
 
-689:                                              ; preds = %669
+615:                                              ; preds = %595
   call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.263) #18, !noalias !11736
   unreachable
 
-690:                                              ; preds = %672
+616:                                              ; preds = %598
   call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.265) #18, !noalias !11736
   unreachable
 
-691:                                              ; preds = %675
+617:                                              ; preds = %601
   call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.267) #18, !noalias !11736
   unreachable
 
-692:                                              ; preds = %681
+618:                                              ; preds = %607
   call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.269) #18, !noalias !11736
   unreachable
 
-693:                                              ; preds = %684
+619:                                              ; preds = %610
   call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.271) #18, !noalias !11736
   unreachable
 
-694:                                              ; preds = %684, %681, %675, %672, %669, %666
-  %.sink463.i = phi ptr [ %667, %666 ], [ %670, %669 ], [ %673, %672 ], [ %676, %675 ], [ %682, %681 ], [ %685, %684 ]
-  %.sroa.13.0.ph.i = phi i64 [ 8, %666 ], [ 10, %669 ], [ 19, %672 ], [ 5, %675 ], [ 12, %681 ], [ 16, %684 ]
-  %.sroa.10.0.ph.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %666 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %669 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %672 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %675 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %681 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %684 ]
+620:                                              ; preds = %610, %607, %601, %598, %595, %592
+  %.sink463.i = phi ptr [ %593, %592 ], [ %596, %595 ], [ %599, %598 ], [ %602, %601 ], [ %608, %607 ], [ %611, %610 ]
+  %.sroa.13.0.ph.i = phi i64 [ 8, %592 ], [ 10, %595 ], [ 19, %598 ], [ 5, %601 ], [ 12, %607 ], [ 16, %610 ]
+  %.sroa.10.0.ph.i = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.262, %592 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.264, %595 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.266, %598 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.268, %601 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.270, %607 ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.272, %610 ]
   %.sroa.562.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink463.i, i64 8
   %.sroa.461.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink463.i, i64 4
   %.sroa.020.0.ph.i = load i32, ptr %.sroa.461.0..sroa_idx.i, align 4, !noalias !11736
   %.sroa.9.0.ph.i = load i32, ptr %.sroa.562.0..sroa_idx.i, align 4, !noalias !11736
   call void @llvm.lifetime.end.p0(ptr nonnull %83), !noalias !11734
-  %695 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, i64 noundef 0), !noalias !11736
-  %696 = getelementptr inbounds nuw i8, ptr %695, i64 9
-  %697 = load i8, ptr %696, align 1, !range !5125, !noalias !11736, !noundef !17
-  %698 = icmp eq i8 %697, 2
-  br i1 %698, label %708, label %712
+  %621 = call noundef align 4 dereferenceable(16) ptr @_ZN4fish3ast9Populator10peek_token17h57a8e85597b2614fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, i64 noundef 0), !noalias !11736
+  %622 = getelementptr inbounds nuw i8, ptr %621, i64 9
+  %623 = load i8, ptr %622, align 1, !range !5125, !noalias !11736, !noundef !17
+  %624 = icmp eq i8 %623, 2
+  br i1 %624, label %634, label %638
 
-699:                                              ; preds = %655
+625:                                              ; preds = %581
   call void @llvm.lifetime.end.p0(ptr nonnull %83), !noalias !11734
-  %700 = call { i32, i32 } @_ZN4fish10parse_tree10ParseToken5range17h81755e9cf11500f5E(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %427), !noalias !11736
-  %701 = extractvalue { i32, i32 } %700, 0
-  %702 = extractvalue { i32, i32 } %700, 1
+  %626 = call { i32, i32 } @_ZN4fish10parse_tree10ParseToken5range17h81755e9cf11500f5E(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %353), !noalias !11736
+  %627 = extractvalue { i32, i32 } %626, 0
+  %628 = extractvalue { i32, i32 } %626, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %64), !noalias !11734
-  %703 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %704 = load ptr, ptr %703, align 8, !alias.scope !11722, !noalias !11725, !align !22, !noundef !17
-  %705 = icmp eq ptr %704, null
-  %706 = load i8, ptr %418, align 1, !range !184, !alias.scope !11722, !noalias !11725
-  %707 = trunc nuw i8 %706 to i1
-  %or.cond13.i = select i1 %705, i1 true, i1 %707
-  br i1 %or.cond13.i, label %912, label %910
+  %629 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %630 = load ptr, ptr %629, align 8, !alias.scope !11722, !noalias !11725, !align !22, !noundef !17
+  %631 = icmp eq ptr %630, null
+  %632 = load i8, ptr %344, align 1, !range !184, !alias.scope !11722, !noalias !11725
+  %633 = trunc nuw i8 %632 to i1
+  %or.cond13.i = select i1 %631, i1 true, i1 %633
+  br i1 %or.cond13.i, label %838, label %836
 
-708:                                              ; preds = %694
-  %709 = getelementptr inbounds nuw i8, ptr %695, i64 8
-  %710 = load i8, ptr %709, align 4, !range !5201, !noalias !11736, !noundef !17
-  switch i8 %710, label %712 [
-    i8 4, label %711
-    i8 6, label %711
-    i8 7, label %711
+634:                                              ; preds = %620
+  %635 = getelementptr inbounds nuw i8, ptr %621, i64 8
+  %636 = load i8, ptr %635, align 4, !range !5201, !noalias !11736, !noundef !17
+  switch i8 %636, label %638 [
+    i8 4, label %637
+    i8 6, label %637
+    i8 7, label %637
   ]
 
-711:                                              ; preds = %708, %708, %708
+637:                                              ; preds = %634, %634, %634
   call void @_ZN4fish3ast9Populator37consume_excess_token_generating_error17h49b69773769e992cE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11736
-  br label %712
+  br label %638
 
-712:                                              ; preds = %711, %708, %694
+638:                                              ; preds = %637, %634, %620
   call void @llvm.lifetime.start.p0(ptr nonnull %82), !noalias !11734
-  %713 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %714 = load ptr, ptr %713, align 8, !alias.scope !11722, !noalias !11725, !align !22, !noundef !17
-  %715 = icmp eq ptr %714, null
-  %716 = load i8, ptr %418, align 1, !range !184, !alias.scope !11722, !noalias !11725
-  %717 = trunc nuw i8 %716 to i1
-  %or.cond10.i = select i1 %715, i1 true, i1 %717
-  br i1 %or.cond10.i, label %720, label %718
+  %639 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %640 = load ptr, ptr %639, align 8, !alias.scope !11722, !noalias !11725, !align !22, !noundef !17
+  %641 = icmp eq ptr %640, null
+  %642 = load i8, ptr %344, align 1, !range !184, !alias.scope !11722, !noalias !11725
+  %643 = trunc nuw i8 %642 to i1
+  %or.cond10.i = select i1 %641, i1 true, i1 %643
+  br i1 %or.cond10.i, label %646, label %644
 
-718:                                              ; preds = %712
+644:                                              ; preds = %638
   call void @llvm.lifetime.start.p0(ptr nonnull %81), !noalias !11734
   store i64 0, ptr %81, align 8, !noalias !11734
   %.sroa.4137.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -118809,119 +118587,119 @@ default.unreachable:                              ; preds = %1124, %248
   %.sroa.5138.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %81, i64 16
   store i64 0, ptr %.sroa.5138.0..sroa_idx.i, align 8, !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %80), !noalias !11734
-  %719 = invoke { ptr, i64 } @_ZN4fish5wutil7gettext19wgettext_static_str17h75ad7378645c7566E(ptr noalias noundef nonnull readonly align 4 @anon.ae6c48e04285f5d271501d3ac60d56b4.273, i64 noundef 31)
-          to label %724 unwind label %722, !noalias !11736
+  %645 = invoke { ptr, i64 } @_ZN4fish5wutil7gettext19wgettext_static_str17h75ad7378645c7566E(ptr noalias noundef nonnull readonly align 4 @anon.ae6c48e04285f5d271501d3ac60d56b4.273, i64 noundef 31)
+          to label %650 unwind label %648, !noalias !11736
 
-720:                                              ; preds = %712
+646:                                              ; preds = %638
   store i64 -9223372036854775808, ptr %82, align 8, !noalias !11734
-  br label %742
+  br label %668
 
-721:                                              ; preds = %728, %722
-  %.pn192.i = phi { ptr, i32 } [ %723, %722 ], [ %729, %728 ]
+647:                                              ; preds = %654, %648
+  %.pn192.i = phi { ptr, i32 } [ %649, %648 ], [ %655, %654 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %81) #15
-          to label %common.resume unwind label %470, !noalias !11736
+          to label %common.resume unwind label %396, !noalias !11736
 
-722:                                              ; preds = %740, %738, %724, %718
-  %723 = landingpad { ptr, i32 }
+648:                                              ; preds = %666, %664, %650, %644
+  %649 = landingpad { ptr, i32 }
           cleanup
-  br label %721
+  br label %647
 
-724:                                              ; preds = %718
+650:                                              ; preds = %644
   call void @llvm.lifetime.start.p0(ptr nonnull %79), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %78), !noalias !11734
   invoke void @"_ZN76_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17he7abdcfd71ad5500E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %78, ptr noalias noundef nonnull readonly align 4 %.sroa.10.0.ph.i, i64 noundef %.sroa.13.0.ph.i)
-          to label %725 unwind label %722, !noalias !11736
+          to label %651 unwind label %648, !noalias !11736
 
-725:                                              ; preds = %724
-  %726 = extractvalue { ptr, i64 } %719, 1
-  %727 = extractvalue { ptr, i64 } %719, 0
+651:                                              ; preds = %650
+  %652 = extractvalue { ptr, i64 } %645, 1
+  %653 = extractvalue { ptr, i64 } %645, 0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %78, i64 32, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %78), !noalias !11734
-  invoke void @_ZN11fish_printf11printf_impl14sprintf_locale17h7fe8b6d690351b57E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %80, ptr noalias noundef nonnull align 8 dereferenceable(24) %81, ptr noalias noundef nonnull readonly align 4 %727, i64 noundef %726, ptr noalias noundef readonly align 4 dereferenceable(16) @anon.ae6c48e04285f5d271501d3ac60d56b4.65, ptr noalias noundef nonnull align 8 %79, i64 noundef 1)
-          to label %730 unwind label %728, !noalias !11736
+  invoke void @_ZN11fish_printf11printf_impl14sprintf_locale17h7fe8b6d690351b57E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %80, ptr noalias noundef nonnull align 8 dereferenceable(24) %81, ptr noalias noundef nonnull readonly align 4 %653, i64 noundef %652, ptr noalias noundef readonly align 4 dereferenceable(16) @anon.ae6c48e04285f5d271501d3ac60d56b4.65, ptr noalias noundef nonnull align 8 %79, i64 noundef 1)
+          to label %656 unwind label %654, !noalias !11736
 
-728:                                              ; preds = %733, %725
-  %729 = landingpad { ptr, i32 }
+654:                                              ; preds = %659, %651
+  %655 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE"(ptr noalias noundef align 8 dereferenceable(32) %79) #15
-          to label %721 unwind label %470, !noalias !11736
+          to label %647 unwind label %396, !noalias !11736
 
-730:                                              ; preds = %725
+656:                                              ; preds = %651
   call void @llvm.experimental.noalias.scope.decl(metadata !11813)
-  %731 = load i8, ptr %80, align 8, !range !184, !alias.scope !11813, !noalias !11816, !noundef !17
-  %732 = trunc nuw i8 %731 to i1
-  br i1 %732, label %733, label %736, !prof !173
+  %657 = load i8, ptr %80, align 8, !range !184, !alias.scope !11813, !noalias !11816, !noundef !17
+  %658 = trunc nuw i8 %657 to i1
+  br i1 %658, label %659, label %662, !prof !173
 
-733:                                              ; preds = %730
+659:                                              ; preds = %656
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !11818
-  %734 = getelementptr inbounds nuw i8, ptr %80, i64 1
-  %735 = load i8, ptr %734, align 1, !range !166, !alias.scope !11813, !noalias !11816, !noundef !17
-  store i8 %735, ptr %37, align 1, !noalias !11818
+  %660 = getelementptr inbounds nuw i8, ptr %80, i64 1
+  %661 = load i8, ptr %660, align 1, !range !166, !alias.scope !11813, !noalias !11816, !noundef !17
+  store i8 %661, ptr %37, align 1, !noalias !11818
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.ae6c48e04285f5d271501d3ac60d56b4.24, i64 noundef 43, ptr noundef nonnull align 1 %37, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ae6c48e04285f5d271501d3ac60d56b4.25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.274) #18
-          to label %.noexc215.i unwind label %728, !noalias !11736
+          to label %.noexc215.i unwind label %654, !noalias !11736
 
-.noexc215.i:                                      ; preds = %733
+.noexc215.i:                                      ; preds = %659
   unreachable
 
-736:                                              ; preds = %730
+662:                                              ; preds = %656
   call void @llvm.lifetime.end.p0(ptr nonnull %80), !noalias !11734
-  %737 = load i8, ptr %79, align 8, !range !141, !alias.scope !11819, !noalias !11734, !noundef !17
-  switch i8 %737, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit249.i" [
-    i8 2, label %738
-    i8 3, label %740
+  %663 = load i8, ptr %79, align 8, !range !141, !alias.scope !11819, !noalias !11734, !noundef !17
+  switch i8 %663, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit249.i" [
+    i8 2, label %664
+    i8 3, label %666
   ]
 
-738:                                              ; preds = %736
-  %739 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %739)
-          to label %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit249.i" unwind label %722, !noalias !11736
+664:                                              ; preds = %662
+  %665 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %665)
+          to label %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit249.i" unwind label %648, !noalias !11736
 
-740:                                              ; preds = %736
-  %741 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %741)
-          to label %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit249.i" unwind label %722, !noalias !11736
+666:                                              ; preds = %662
+  %667 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %667)
+          to label %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit249.i" unwind label %648, !noalias !11736
 
-"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit249.i": ; preds = %740, %738, %736
+"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit249.i": ; preds = %666, %664, %662
   call void @llvm.lifetime.end.p0(ptr nonnull %79), !noalias !11734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %81, i64 24, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %81), !noalias !11734
-  %.pre440.i = load i8, ptr %418, align 1, !range !184, !alias.scope !11722, !noalias !11725
-  br label %742
+  %.pre440.i = load i8, ptr %344, align 1, !range !184, !alias.scope !11722, !noalias !11725
+  br label %668
 
-742:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit249.i", %720
-  %743 = phi i8 [ %.pre440.i, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit249.i" ], [ %716, %720 ]
-  %744 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  store i8 1, ptr %744, align 2, !alias.scope !11722, !noalias !11725
-  %745 = trunc nuw i8 %743 to i1
-  br i1 %745, label %.critedge208.i, label %748
+668:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit249.i", %646
+  %669 = phi i8 [ %.pre440.i, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit249.i" ], [ %642, %646 ]
+  %670 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  store i8 1, ptr %670, align 2, !alias.scope !11722, !noalias !11725
+  %671 = trunc nuw i8 %669 to i1
+  br i1 %671, label %.critedge208.i, label %674
 
-746:                                              ; preds = %860, %851, %757, %751
-  %747 = landingpad { ptr, i32 }
+672:                                              ; preds = %786, %777, %683, %677
+  %673 = landingpad { ptr, i32 }
           cleanup
-  br label %903
+  br label %829
 
-748:                                              ; preds = %742
-  store i8 1, ptr %418, align 1, !alias.scope !11722, !noalias !11725
-  %749 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4fish4flog10categories16ast_construction17h8c327201221d29a8E, i64 32) monotonic, align 8, !noalias !11734
-  %750 = icmp eq i8 %749, 0
-  br i1 %750, label %751, label %753
+674:                                              ; preds = %668
+  store i8 1, ptr %344, align 1, !alias.scope !11722, !noalias !11725
+  %675 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4fish4flog10categories16ast_construction17h8c327201221d29a8E, i64 32) monotonic, align 8, !noalias !11734
+  %676 = icmp eq i8 %675, 0
+  br i1 %676, label %677, label %679
 
-751:                                              ; preds = %852, %748
-  %752 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange5start17h44e58a82a11f4040E(i32 noundef %.sroa.020.0.ph.i, i32 noundef %.sroa.9.0.ph.i)
-          to label %853 unwind label %746, !noalias !11736
+677:                                              ; preds = %778, %674
+  %678 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange5start17h44e58a82a11f4040E(i32 noundef %.sroa.020.0.ph.i, i32 noundef %.sroa.9.0.ph.i)
+          to label %779 unwind label %672, !noalias !11736
 
-753:                                              ; preds = %748
+679:                                              ; preds = %674
   call void @llvm.lifetime.start.p0(ptr nonnull %77), !noalias !11734
-  %754 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11734
-  %755 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef 24, i64 noundef 8) #17, !noalias !11736
-  %756 = icmp eq ptr %755, null
-  br i1 %756, label %757, label %758, !prof !173
+  %680 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11734
+  %681 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef 24, i64 noundef 8) #17, !noalias !11736
+  %682 = icmp eq ptr %681, null
+  br i1 %682, label %683, label %684, !prof !173
 
-757:                                              ; preds = %753
+683:                                              ; preds = %679
   invoke void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef 8, i64 noundef 24) #18
-          to label %614 unwind label %746, !noalias !11736
+          to label %540 unwind label %672, !noalias !11736
 
-758:                                              ; preds = %753
+684:                                              ; preds = %679
   call void @llvm.lifetime.start.p0(ptr nonnull %75), !noalias !11734
   store ptr @_ZN4fish4flog10categories16ast_construction17h8c327201221d29a8E, ptr %75, align 8, !noalias !11734
   %.sroa.4145.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -118937,23 +118715,23 @@ default.unreachable:                              ; preds = %1124, %248
   %.sroa.7350.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %.sroa.7350.0..sroa_idx.i, align 8, !noalias !11831
   invoke void @_ZN5alloc3fmt6format12format_inner17hbc00c97fd665fffbE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %76, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %29)
-          to label %761 unwind label %759, !noalias !11736
+          to label %687 unwind label %685, !noalias !11736
 
-759:                                              ; preds = %758
-  %760 = landingpad { ptr, i32 }
+685:                                              ; preds = %684
+  %686 = landingpad { ptr, i32 }
           cleanup
-  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %755, i64 noundef 24, i64 noundef 8) #17, !noalias !11736
-  br label %903
+  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %681, i64 noundef 24, i64 noundef 8) #17, !noalias !11736
+  br label %829
 
-761:                                              ; preds = %758
+687:                                              ; preds = %684
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !11824
   call void @llvm.lifetime.end.p0(ptr nonnull %75), !noalias !11734
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %755, ptr noundef nonnull align 8 dereferenceable(24) %76, i64 24, i1 false), !noalias !11736
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %681, ptr noundef nonnull align 8 dereferenceable(24) %76, i64 24, i1 false), !noalias !11736
   store i64 1, ptr %77, align 8, !noalias !11734
-  %762 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store ptr %755, ptr %762, align 8, !noalias !11734
-  %763 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  store i64 1, ptr %763, align 8, !noalias !11734
+  %688 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  store ptr %681, ptr %688, align 8, !noalias !11734
+  %689 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  store i64 1, ptr %689, align 8, !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %74), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %73), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %72), !noalias !11734
@@ -118965,102 +118743,102 @@ default.unreachable:                              ; preds = %1124, %248
   call void @llvm.lifetime.start.p0(ptr nonnull %71), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %70), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %69), !noalias !11734
-  %764 = invoke noundef i64 @_ZN4fish3ast9Populator6spaces17h2e400e4f3eecc5c0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
-          to label %767 unwind label %765, !noalias !11736
+  %690 = invoke noundef i64 @_ZN4fish3ast9Populator6spaces17h2e400e4f3eecc5c0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
+          to label %693 unwind label %691, !noalias !11736
 
-.body255.i:                                       ; preds = %790, %788, %772, %769, %765
-  %.pn194.i = phi { ptr, i32 } [ %773, %772 ], [ %770, %769 ], [ %766, %765 ], [ %789, %788 ], [ %789, %790 ]
+.body255.i:                                       ; preds = %716, %714, %698, %695, %691
+  %.pn194.i = phi { ptr, i32 } [ %699, %698 ], [ %696, %695 ], [ %692, %691 ], [ %715, %714 ], [ %715, %716 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %72) #15
-          to label %830 unwind label %470, !noalias !11736
+          to label %756 unwind label %396, !noalias !11736
 
-765:                                              ; preds = %767, %761
-  %766 = landingpad { ptr, i32 }
+691:                                              ; preds = %693, %687
+  %692 = landingpad { ptr, i32 }
           cleanup
   br label %.body255.i
 
-767:                                              ; preds = %761
-  invoke void @"_ZN49_$LT$usize$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17h06c3b3ca30ce4c6fE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %69, i64 noundef %764)
-          to label %768 unwind label %765, !noalias !11736
+693:                                              ; preds = %687
+  invoke void @"_ZN49_$LT$usize$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17h06c3b3ca30ce4c6fE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %69, i64 noundef %690)
+          to label %694 unwind label %691, !noalias !11736
 
-768:                                              ; preds = %767
+694:                                              ; preds = %693
   call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !11734
   invoke void @"_ZN51_$LT$$RF$str$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17h74e68471e3181c4eE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %68, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
-          to label %771 unwind label %769, !noalias !11736
+          to label %697 unwind label %695, !noalias !11736
 
-769:                                              ; preds = %768
-  %770 = landingpad { ptr, i32 }
+695:                                              ; preds = %694
+  %696 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE"(ptr noalias noundef align 8 dereferenceable(32) %69) #15
-          to label %.body255.i unwind label %470, !noalias !11736
+          to label %.body255.i unwind label %396, !noalias !11736
 
-771:                                              ; preds = %768
+697:                                              ; preds = %694
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %69, i64 32, i1 false), !noalias !11734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.08.i252.sroa.gep352.i, ptr noundef nonnull align 8 dereferenceable(32) %68, i64 32, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %69), !noalias !11734
   invoke void @_ZN11fish_printf11printf_impl14sprintf_locale17hab9b0f3f160de61dE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %71, ptr noalias noundef nonnull align 8 dereferenceable(24) %72, ptr noalias noundef nonnull readonly align 1 @anon.ae6c48e04285f5d271501d3ac60d56b4.260, i64 noundef 32, ptr noalias noundef readonly align 4 dereferenceable(16) @anon.ae6c48e04285f5d271501d3ac60d56b4.65, ptr noalias noundef nonnull align 8 %70, i64 noundef 2)
-          to label %774 unwind label %772, !noalias !11736
+          to label %700 unwind label %698, !noalias !11736
 
-772:                                              ; preds = %777, %771
-  %773 = landingpad { ptr, i32 }
+698:                                              ; preds = %703, %697
+  %699 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE"(ptr noalias noundef align 8 dereferenceable(64) %70) #15
-          to label %.body255.i unwind label %470, !noalias !11736
+          to label %.body255.i unwind label %396, !noalias !11736
 
-774:                                              ; preds = %771
+700:                                              ; preds = %697
   call void @llvm.experimental.noalias.scope.decl(metadata !11832)
-  %775 = load i8, ptr %71, align 8, !range !184, !alias.scope !11832, !noalias !11835, !noundef !17
-  %776 = trunc nuw i8 %775 to i1
-  br i1 %776, label %777, label %780, !prof !173
+  %701 = load i8, ptr %71, align 8, !range !184, !alias.scope !11832, !noalias !11835, !noundef !17
+  %702 = trunc nuw i8 %701 to i1
+  br i1 %702, label %703, label %706, !prof !173
 
-777:                                              ; preds = %774
+703:                                              ; preds = %700
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !11837
-  %778 = getelementptr inbounds nuw i8, ptr %71, i64 1
-  %779 = load i8, ptr %778, align 1, !range !166, !alias.scope !11832, !noalias !11835, !noundef !17
-  store i8 %779, ptr %38, align 1, !noalias !11837
+  %704 = getelementptr inbounds nuw i8, ptr %71, i64 1
+  %705 = load i8, ptr %704, align 1, !range !166, !alias.scope !11832, !noalias !11835, !noundef !17
+  store i8 %705, ptr %38, align 1, !noalias !11837
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.ae6c48e04285f5d271501d3ac60d56b4.24, i64 noundef 43, ptr noundef nonnull align 1 %38, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ae6c48e04285f5d271501d3ac60d56b4.25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.274) #18
-          to label %.noexc213.i unwind label %772, !noalias !11736
+          to label %.noexc213.i unwind label %698, !noalias !11736
 
-.noexc213.i:                                      ; preds = %777
+.noexc213.i:                                      ; preds = %703
   unreachable
 
-780:                                              ; preds = %774
+706:                                              ; preds = %700
   call void @llvm.lifetime.end.p0(ptr nonnull %71), !noalias !11734
-  br label %781
+  br label %707
 
-781:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i254.i", %780
-  %.sroa.0.08.i252.sroa.phi.i = phi ptr [ %70, %780 ], [ %.sroa.0.08.i252.sroa.gep352.i, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i254.i" ]
-  %782 = phi i1 [ false, %780 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i254.i" ]
-  %783 = load i8, ptr %.sroa.0.08.i252.sroa.phi.i, align 8, !range !141, !alias.scope !11838, !noalias !11734, !noundef !17
-  switch i8 %783, label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i254.i" [
-    i8 2, label %784
-    i8 3, label %786
+707:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i254.i", %706
+  %.sroa.0.08.i252.sroa.phi.i = phi ptr [ %70, %706 ], [ %.sroa.0.08.i252.sroa.gep352.i, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i254.i" ]
+  %708 = phi i1 [ false, %706 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i254.i" ]
+  %709 = load i8, ptr %.sroa.0.08.i252.sroa.phi.i, align 8, !range !141, !alias.scope !11838, !noalias !11734, !noundef !17
+  switch i8 %709, label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i254.i" [
+    i8 2, label %710
+    i8 3, label %712
   ]
 
-784:                                              ; preds = %781
-  %785 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i252.sroa.phi.i, i64 8
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %785)
-          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i254.i" unwind label %788, !noalias !11736
+710:                                              ; preds = %707
+  %711 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i252.sroa.phi.i, i64 8
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %711)
+          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i254.i" unwind label %714, !noalias !11736
 
-786:                                              ; preds = %781
-  %787 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i252.sroa.phi.i, i64 8
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %787)
-          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i254.i" unwind label %788, !noalias !11736
+712:                                              ; preds = %707
+  %713 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i252.sroa.phi.i, i64 8
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %713)
+          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i254.i" unwind label %714, !noalias !11736
 
-"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i254.i": ; preds = %786, %784, %781
-  br i1 %782, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit257.i", label %781
+"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i254.i": ; preds = %712, %710, %707
+  br i1 %708, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit257.i", label %707
 
-788:                                              ; preds = %786, %784
-  %789 = landingpad { ptr, i32 }
+714:                                              ; preds = %712, %710
+  %715 = landingpad { ptr, i32 }
           cleanup
-  br i1 %782, label %.body255.i, label %790
+  br i1 %708, label %.body255.i, label %716
 
-790:                                              ; preds = %788
+716:                                              ; preds = %714
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE"(ptr noalias noundef align 8 dereferenceable(32) %.sroa.0.08.i252.sroa.gep352.i) #15
-          to label %.body255.i unwind label %791, !noalias !11736
+          to label %.body255.i unwind label %717, !noalias !11736
 
-791:                                              ; preds = %790
-  %792 = landingpad { ptr, i32 }
+717:                                              ; preds = %716
+  %718 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11736
   unreachable
@@ -119069,10 +118847,10 @@ default.unreachable:                              ; preds = %1124, %248
   call void @llvm.lifetime.end.p0(ptr nonnull %70), !noalias !11734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull align 8 dereferenceable(24) %72, i64 24, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %72), !noalias !11734
-  %793 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %.val225.i = load ptr, ptr %793, align 8, !noalias !11734, !nonnull !17, !noundef !17
-  %794 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %.val226.i = load i64, ptr %794, align 8, !noalias !11734, !noundef !17
+  %719 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %.val225.i = load ptr, ptr %719, align 8, !noalias !11734, !nonnull !17, !noundef !17
+  %720 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %.val226.i = load i64, ptr %720, align 8, !noalias !11734, !noundef !17
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !11843
   store i64 0, ptr %28, align 8, !noalias !11843
   %.sroa.42.0..sroa_idx.i258.i = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -119080,213 +118858,213 @@ default.unreachable:                              ; preds = %1124, %248
   %.sroa.53.0..sroa_idx.i259.i = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 0, ptr %.sroa.53.0..sroa_idx.i259.i, align 8, !noalias !11843
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !11843
-  %795 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i32 -536870880, ptr %795, align 8, !noalias !11843
+  %721 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store i32 -536870880, ptr %721, align 8, !noalias !11843
   %.sroa.4.0..sroa_idx.i260.i = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i16 0, ptr %.sroa.4.0..sroa_idx.i260.i, align 4, !noalias !11843
   %.sroa.5.0..sroa_idx.i261.i = getelementptr inbounds nuw i8, ptr %27, i64 22
   store i16 0, ptr %.sroa.5.0..sroa_idx.i261.i, align 2, !noalias !11843
   store ptr %28, ptr %27, align 8, !noalias !11843
-  %796 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr @anon.ae6c48e04285f5d271501d3ac60d56b4.3, ptr %796, align 8, !noalias !11843
-  %797 = getelementptr inbounds nuw i32, ptr %.val225.i, i64 %.val226.i
-  br label %798
+  %722 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr @anon.ae6c48e04285f5d271501d3ac60d56b4.3, ptr %722, align 8, !noalias !11843
+  %723 = getelementptr inbounds nuw i32, ptr %.val225.i, i64 %.val226.i
+  br label %724
 
-798:                                              ; preds = %.noexc7.i266.i, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit257.i"
-  %799 = phi ptr [ %813, %.noexc7.i266.i ], [ %.val225.i, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit257.i" ]
-  %.not.not.not.i.not.not.not.i.not.i262.i = icmp eq ptr %799, %797
-  br i1 %.not.not.not.i.not.not.not.i.not.i262.i, label %817, label %800
+724:                                              ; preds = %.noexc7.i266.i, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit257.i"
+  %725 = phi ptr [ %739, %.noexc7.i266.i ], [ %.val225.i, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit257.i" ]
+  %.not.not.not.i.not.not.not.i.not.i262.i = icmp eq ptr %725, %723
+  br i1 %.not.not.not.i.not.not.not.i.not.i262.i, label %743, label %726
 
-800:                                              ; preds = %798
-  %801 = load i32, ptr %799, align 4, !noalias !11846, !noundef !17
-  %802 = xor i32 %801, 55296
-  %803 = add i32 %802, -1114112
-  %804 = icmp ult i32 %803, -1112064
-  br i1 %804, label %.split.i.i.i.i271.i, label %810
+726:                                              ; preds = %724
+  %727 = load i32, ptr %725, align 4, !noalias !11846, !noundef !17
+  %728 = xor i32 %727, 55296
+  %729 = add i32 %728, -1114112
+  %730 = icmp ult i32 %729, -1112064
+  br i1 %730, label %.split.i.i.i.i271.i, label %736
 
-.split.i.i.i.i271.i:                              ; preds = %800
+.split.i.i.i.i271.i:                              ; preds = %726
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !11853
-  store i32 %801, ptr %26, align 4, !noalias !11853
+  store i32 %727, ptr %26, align 4, !noalias !11853
   br label %.split.i.i.i.invoke.i267.i
 
 .split.i.i.i.invoke.i267.i:                       ; preds = %.noexc7.i266.i, %.split.i.i.i.i271.i
-  %805 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.24, %.split.i.i.i.i271.i ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.4, %.noexc7.i266.i ]
-  %806 = phi i64 [ 43, %.split.i.i.i.i271.i ], [ 55, %.noexc7.i266.i ]
-  %807 = phi ptr [ %26, %.split.i.i.i.i271.i ], [ %3, %.noexc7.i266.i ]
-  %808 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.26, %.split.i.i.i.i271.i ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.22, %.noexc7.i266.i ]
-  %809 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.54, %.split.i.i.i.i271.i ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.6, %.noexc7.i266.i ]
-  invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 %805, i64 noundef %806, ptr noundef nonnull align 1 %807, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %808, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %809) #18
+  %731 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.24, %.split.i.i.i.i271.i ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.4, %.noexc7.i266.i ]
+  %732 = phi i64 [ 43, %.split.i.i.i.i271.i ], [ 55, %.noexc7.i266.i ]
+  %733 = phi ptr [ %26, %.split.i.i.i.i271.i ], [ %3, %.noexc7.i266.i ]
+  %734 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.26, %.split.i.i.i.i271.i ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.22, %.noexc7.i266.i ]
+  %735 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.54, %.split.i.i.i.i271.i ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.6, %.noexc7.i266.i ]
+  invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 %731, i64 noundef %732, ptr noundef nonnull align 1 %733, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %734, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %735) #18
           to label %.split.i.i.i.cont.i270.i unwind label %.loopexit.split-lp.i268.i, !noalias !11855
 
 .split.i.i.i.cont.i270.i:                         ; preds = %.split.i.i.i.invoke.i267.i
   unreachable
 
-810:                                              ; preds = %800
-  %811 = icmp ult i32 %801, 1114112
-  call void @llvm.assume(i1 %811)
-  %812 = invoke noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$10write_char17h3c38008714eb34d2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27, i32 noundef range(i32 0, 1114112) %801)
+736:                                              ; preds = %726
+  %737 = icmp ult i32 %727, 1114112
+  call void @llvm.assume(i1 %737)
+  %738 = invoke noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$10write_char17h3c38008714eb34d2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27, i32 noundef range(i32 0, 1114112) %727)
           to label %.noexc7.i266.i unwind label %.loopexit.i263.i, !noalias !11855
 
-.noexc7.i266.i:                                   ; preds = %810
-  %813 = getelementptr inbounds nuw i8, ptr %799, i64 4
-  br i1 %812, label %.split.i.i.i.invoke.i267.i, label %798
+.noexc7.i266.i:                                   ; preds = %736
+  %739 = getelementptr inbounds nuw i8, ptr %725, i64 4
+  br i1 %738, label %.split.i.i.i.invoke.i267.i, label %724
 
-.loopexit.i263.i:                                 ; preds = %810
+.loopexit.i263.i:                                 ; preds = %736
   %lpad.loopexit.i264.i = landingpad { ptr, i32 }
           cleanup
-  br label %814
+  br label %740
 
 .loopexit.split-lp.i268.i:                        ; preds = %.split.i.i.i.invoke.i267.i
   %lpad.loopexit.split-lp.i269.i = landingpad { ptr, i32 }
           cleanup
-  br label %814
+  br label %740
 
-814:                                              ; preds = %.loopexit.split-lp.i268.i, %.loopexit.i263.i
+740:                                              ; preds = %.loopexit.split-lp.i268.i, %.loopexit.i263.i
   %lpad.phi.i265.i = phi { ptr, i32 } [ %lpad.loopexit.i264.i, %.loopexit.i263.i ], [ %lpad.loopexit.split-lp.i269.i, %.loopexit.split-lp.i268.i ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #15
-          to label %.body272.i unwind label %815, !noalias !11855
+          to label %.body272.i unwind label %741, !noalias !11855
 
-815:                                              ; preds = %814
-  %816 = landingpad { ptr, i32 }
+741:                                              ; preds = %740
+  %742 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11855
   unreachable
 
-.body272.i:                                       ; preds = %822, %814
-  %eh.lpad-body273.i = phi { ptr, i32 } [ %lpad.phi.i265.i, %814 ], [ %823, %822 ]
+.body272.i:                                       ; preds = %748, %740
+  %eh.lpad-body273.i = phi { ptr, i32 } [ %lpad.phi.i265.i, %740 ], [ %749, %748 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %73) #15
-          to label %830 unwind label %470, !noalias !11736
+          to label %756 unwind label %396, !noalias !11736
 
-817:                                              ; preds = %798
+743:                                              ; preds = %724
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !11843
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !11843
-  %818 = load i64, ptr %763, align 8, !alias.scope !11856, !noalias !11859, !noundef !17
-  %819 = load i64, ptr %77, align 8, !range !21, !alias.scope !11856, !noalias !11859, !noundef !17
-  %820 = icmp eq i64 %818, %819
-  br i1 %820, label %821, label %826
+  %744 = load i64, ptr %689, align 8, !alias.scope !11856, !noalias !11859, !noundef !17
+  %745 = load i64, ptr %77, align 8, !range !21, !alias.scope !11856, !noalias !11859, !noundef !17
+  %746 = icmp eq i64 %744, %745
+  br i1 %746, label %747, label %752
 
-821:                                              ; preds = %817
+747:                                              ; preds = %743
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h17fdeb9b034f232eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.274)
-          to label %826 unwind label %822, !noalias !11862
+          to label %752 unwind label %748, !noalias !11862
 
-822:                                              ; preds = %821
-  %823 = landingpad { ptr, i32 }
+748:                                              ; preds = %747
+  %749 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %74) #15
-          to label %.body272.i unwind label %824, !noalias !11736
+          to label %.body272.i unwind label %750, !noalias !11736
 
-824:                                              ; preds = %822
-  %825 = landingpad { ptr, i32 }
+750:                                              ; preds = %748
+  %751 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11736
   unreachable
 
-826:                                              ; preds = %821, %817
-  %827 = load ptr, ptr %762, align 8, !alias.scope !11856, !noalias !11859, !nonnull !17, !noundef !17
-  %828 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %827, i64 %818
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %828, ptr noundef nonnull align 8 dereferenceable(24) %74, i64 24, i1 false), !noalias !11736
-  %829 = add i64 %818, 1
-  store i64 %829, ptr %763, align 8, !alias.scope !11856, !noalias !11859
+752:                                              ; preds = %747, %743
+  %753 = load ptr, ptr %688, align 8, !alias.scope !11856, !noalias !11859, !nonnull !17, !noundef !17
+  %754 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %753, i64 %744
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %754, ptr noundef nonnull align 8 dereferenceable(24) %74, i64 24, i1 false), !noalias !11736
+  %755 = add i64 %744, 1
+  store i64 %755, ptr %689, align 8, !alias.scope !11856, !noalias !11859
   call void @llvm.lifetime.end.p0(ptr nonnull %74), !noalias !11734
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %73)
-          to label %833 unwind label %831, !noalias !11736
+          to label %759 unwind label %757, !noalias !11736
 
-830:                                              ; preds = %840, %831, %.body272.i, %.body255.i
-  %.pn196.i = phi { ptr, i32 } [ %832, %831 ], [ %841, %840 ], [ %eh.lpad-body273.i, %.body272.i ], [ %.pn194.i, %.body255.i ]
+756:                                              ; preds = %766, %757, %.body272.i, %.body255.i
+  %.pn196.i = phi { ptr, i32 } [ %758, %757 ], [ %767, %766 ], [ %eh.lpad-body273.i, %.body272.i ], [ %.pn194.i, %.body255.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hf17aa9672fe4529cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %77) #15
-          to label %903 unwind label %470, !noalias !11736
+          to label %829 unwind label %396, !noalias !11736
 
-831:                                              ; preds = %850, %833, %826
-  %832 = landingpad { ptr, i32 }
+757:                                              ; preds = %776, %759, %752
+  %758 = landingpad { ptr, i32 }
           cleanup
-  br label %830
+  br label %756
 
-833:                                              ; preds = %826
+759:                                              ; preds = %752
   call void @llvm.lifetime.end.p0(ptr nonnull %73), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !11734
-  %834 = load ptr, ptr %762, align 8, !noalias !11734, !nonnull !17, !noundef !17
-  %835 = load i64, ptr %763, align 8, !noalias !11734, !noundef !17
+  %760 = load ptr, ptr %688, align 8, !noalias !11734, !nonnull !17, !noundef !17
+  %761 = load i64, ptr %689, align 8, !noalias !11734, !noundef !17
   call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !11734
-  invoke void @_ZN5alloc3str17join_generic_copy17hae5f2027876fa5acE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %42, ptr noalias noundef nonnull readonly align 8 %834, i64 noundef %835, ptr noalias noundef nonnull readonly align 1 @anon.ae6c48e04285f5d271501d3ac60d56b4.257, i64 noundef 1)
-          to label %836 unwind label %831, !noalias !11736
+  invoke void @_ZN5alloc3str17join_generic_copy17hae5f2027876fa5acE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %42, ptr noalias noundef nonnull readonly align 8 %760, i64 noundef %761, ptr noalias noundef nonnull readonly align 1 @anon.ae6c48e04285f5d271501d3ac60d56b4.257, i64 noundef 1)
+          to label %762 unwind label %757, !noalias !11736
 
-836:                                              ; preds = %833
+762:                                              ; preds = %759
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !11734
-  %837 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %838 = load i64, ptr %837, align 8, !alias.scope !11863, !noalias !11734, !noundef !17
-  %839 = icmp sgt i64 %838, -1
-  call void @llvm.assume(i1 %839)
+  %763 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %764 = load i64, ptr %763, align 8, !alias.scope !11863, !noalias !11734, !noundef !17
+  %765 = icmp sgt i64 %764, -1
+  call void @llvm.assume(i1 %765)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hca0cedd7554ca3baE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %67, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.28)
-          to label %842 unwind label %840, !noalias !11736
+          to label %768 unwind label %766, !noalias !11736
 
-840:                                              ; preds = %842, %836
-  %841 = landingpad { ptr, i32 }
+766:                                              ; preds = %768, %762
+  %767 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %67) #15
-          to label %830 unwind label %470, !noalias !11736
+          to label %756 unwind label %396, !noalias !11736
 
-842:                                              ; preds = %836
-  %843 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %844 = load ptr, ptr %843, align 8, !alias.scope !11863, !noalias !11734, !nonnull !17, !noundef !17
-  %845 = load i64, ptr %837, align 8, !alias.scope !11863, !noalias !11734, !noundef !17
-  %846 = icmp sgt i64 %845, -1
-  call void @llvm.assume(i1 %846)
-  %847 = getelementptr inbounds nuw i8, ptr %844, i64 %845
-  store i8 10, ptr %847, align 1, !noalias !11736
-  %848 = add nuw i64 %838, 1
-  store i64 %848, ptr %837, align 8, !alias.scope !11863, !noalias !11734
-  %849 = load ptr, ptr %843, align 8, !noalias !11734, !nonnull !17, !noundef !17
-  invoke void @_ZN4fish4flog9flog_impl17hb3e65484452eac47E(ptr noalias noundef nonnull readonly align 1 %849, i64 noundef %848)
-          to label %850 unwind label %840, !noalias !11736
+768:                                              ; preds = %762
+  %769 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %770 = load ptr, ptr %769, align 8, !alias.scope !11863, !noalias !11734, !nonnull !17, !noundef !17
+  %771 = load i64, ptr %763, align 8, !alias.scope !11863, !noalias !11734, !noundef !17
+  %772 = icmp sgt i64 %771, -1
+  call void @llvm.assume(i1 %772)
+  %773 = getelementptr inbounds nuw i8, ptr %770, i64 %771
+  store i8 10, ptr %773, align 1, !noalias !11736
+  %774 = add nuw i64 %764, 1
+  store i64 %774, ptr %763, align 8, !alias.scope !11863, !noalias !11734
+  %775 = load ptr, ptr %769, align 8, !noalias !11734, !nonnull !17, !noundef !17
+  invoke void @_ZN4fish4flog9flog_impl17hb3e65484452eac47E(ptr noalias noundef nonnull readonly align 1 %775, i64 noundef %774)
+          to label %776 unwind label %766, !noalias !11736
 
-850:                                              ; preds = %842
+776:                                              ; preds = %768
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %67)
-          to label %851 unwind label %831, !noalias !11736
+          to label %777 unwind label %757, !noalias !11736
 
-851:                                              ; preds = %850
+777:                                              ; preds = %776
   call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !11734
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hf17aa9672fe4529cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %77)
-          to label %852 unwind label %746, !noalias !11736
+          to label %778 unwind label %672, !noalias !11736
 
-852:                                              ; preds = %851
+778:                                              ; preds = %777
   call void @llvm.lifetime.end.p0(ptr nonnull %77), !noalias !11734
-  br label %751
+  br label %677
 
-853:                                              ; preds = %751
-  %.not198.i = icmp eq i64 %752, 4294967295
-  br i1 %.not198.i, label %866, label %854
+779:                                              ; preds = %677
+  %.not198.i = icmp eq i64 %678, 4294967295
+  br i1 %.not198.i, label %792, label %780
 
-854:                                              ; preds = %853
-  %855 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %856 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %857 = load i64, ptr %856, align 8, !alias.scope !11866, !noalias !11869, !noundef !17
-  %858 = load i64, ptr %855, align 8, !range !21, !alias.scope !11866, !noalias !11869, !noundef !17
-  %859 = icmp eq i64 %857, %858
-  br i1 %859, label %860, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit281.i"
+780:                                              ; preds = %779
+  %781 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %782 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %783 = load i64, ptr %782, align 8, !alias.scope !11866, !noalias !11869, !noundef !17
+  %784 = load i64, ptr %781, align 8, !range !21, !alias.scope !11866, !noalias !11869, !noundef !17
+  %785 = icmp eq i64 %783, %784
+  br i1 %785, label %786, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit281.i"
 
-860:                                              ; preds = %854
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h6a26027a70f0eb38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %855, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.274)
-          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit281.i" unwind label %746, !noalias !11736
+786:                                              ; preds = %780
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h6a26027a70f0eb38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %781, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.274)
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit281.i" unwind label %672, !noalias !11736
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit281.i": ; preds = %860, %854
-  %861 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %862 = load ptr, ptr %861, align 8, !alias.scope !11866, !noalias !11869, !nonnull !17, !noundef !17
-  %863 = getelementptr inbounds nuw { i32, i32 }, ptr %862, i64 %857
-  store i32 %.sroa.020.0.ph.i, ptr %863, align 4, !noalias !11736
-  %864 = getelementptr inbounds nuw i8, ptr %863, i64 4
-  store i32 %.sroa.9.0.ph.i, ptr %864, align 4, !noalias !11736
-  %865 = add i64 %857, 1
-  store i64 %865, ptr %856, align 8, !alias.scope !11866, !noalias !11869
-  br label %866
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit281.i": ; preds = %786, %780
+  %787 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %788 = load ptr, ptr %787, align 8, !alias.scope !11866, !noalias !11869, !nonnull !17, !noundef !17
+  %789 = getelementptr inbounds nuw { i32, i32 }, ptr %788, i64 %783
+  store i32 %.sroa.020.0.ph.i, ptr %789, align 4, !noalias !11736
+  %790 = getelementptr inbounds nuw i8, ptr %789, i64 4
+  store i32 %.sroa.9.0.ph.i, ptr %790, align 4, !noalias !11736
+  %791 = add i64 %783, 1
+  store i64 %791, ptr %782, align 8, !alias.scope !11866, !noalias !11869
+  br label %792
 
-866:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit281.i", %853
-  %867 = load ptr, ptr %713, align 8, !alias.scope !11722, !noalias !11725, !align !22, !noundef !17
-  %.not200.i = icmp eq ptr %867, null
-  br i1 %.not200.i, label %.critedge208.i, label %868
+792:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit281.i", %779
+  %793 = load ptr, ptr %639, align 8, !alias.scope !11722, !noalias !11725, !align !22, !noundef !17
+  %.not200.i = icmp eq ptr %793, null
+  br i1 %.not200.i, label %.critedge208.i, label %794
 
-868:                                              ; preds = %866
+794:                                              ; preds = %792
   call void @llvm.lifetime.start.p0(ptr nonnull %66), !noalias !11734
   call void @llvm.experimental.noalias.scope.decl(metadata !11871)
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !11874
@@ -119295,138 +119073,138 @@ default.unreachable:                              ; preds = %1124, %248
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx.i282.i, align 8, !noalias !11874
   %.sroa.5.0..sroa_idx.i283.i = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i283.i, align 8, !noalias !11874
-  %869 = invoke noundef i8 @"_ZN80_$LT$fish..parse_constants..ParseErrorCode$u20$as$u20$core..default..Default$GT$7default17h479ab436c53b6579E"()
-          to label %874 unwind label %870, !noalias !11875
+  %795 = invoke noundef i8 @"_ZN80_$LT$fish..parse_constants..ParseErrorCode$u20$as$u20$core..default..Default$GT$7default17h479ab436c53b6579E"()
+          to label %800 unwind label %796, !noalias !11875
 
-870:                                              ; preds = %868
-  %871 = landingpad { ptr, i32 }
+796:                                              ; preds = %794
+  %797 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #15
-          to label %903 unwind label %872, !noalias !11875
+          to label %829 unwind label %798, !noalias !11875
 
-872:                                              ; preds = %870
-  %873 = landingpad { ptr, i32 }
+798:                                              ; preds = %796
+  %799 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11875
   unreachable
 
-874:                                              ; preds = %868
+800:                                              ; preds = %794
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !noalias !11734
-  %875 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  store i8 %869, ptr %875, align 8, !alias.scope !11871, !noalias !11734
-  %876 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %876, i8 0, i64 16, i1 false), !alias.scope !11871, !noalias !11734
+  %801 = getelementptr inbounds nuw i8, ptr %66, i64 40
+  store i8 %795, ptr %801, align 8, !alias.scope !11871, !noalias !11734
+  %802 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %802, i8 0, i64 16, i1 false), !alias.scope !11871, !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !11874
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5104.i)
   %.sroa.098.0.copyload.i = load i64, ptr %82, align 8, !noalias !11734
   %.not202.i = icmp eq i64 %.sroa.098.0.copyload.i, -9223372036854775808
-  br i1 %.not202.i, label %878, label %877, !prof !173
+  br i1 %.not202.i, label %804, label %803, !prof !173
 
-877:                                              ; preds = %874
+803:                                              ; preds = %800
   %.sroa.5100.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %82, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5104.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5100.0..sroa_idx.i, i64 16, i1 false), !noalias !11734
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %66)
-          to label %881 unwind label %.thread389.i, !noalias !11736
+          to label %807 unwind label %.thread389.i, !noalias !11736
 
-878:                                              ; preds = %874
+804:                                              ; preds = %800
   invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.274) #18
-          to label %614 unwind label %.thread393.i, !noalias !11736
+          to label %540 unwind label %.thread393.i, !noalias !11736
 
-.thread393.i:                                     ; preds = %883, %881, %878
-  %879 = landingpad { ptr, i32 }
+.thread393.i:                                     ; preds = %809, %807, %804
+  %805 = landingpad { ptr, i32 }
           cleanup
-  br label %902
+  br label %828
 
-.thread389.i:                                     ; preds = %877
-  %880 = landingpad { ptr, i32 }
+.thread389.i:                                     ; preds = %803
+  %806 = landingpad { ptr, i32 }
           cleanup
   store i64 %.sroa.098.0.copyload.i, ptr %66, align 8, !noalias !11734
   %.sroa.5104.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5104.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5104.i, i64 16, i1 false), !noalias !11734
-  br label %902
+  br label %828
 
-881:                                              ; preds = %877
+807:                                              ; preds = %803
   store i64 %.sroa.098.0.copyload.i, ptr %66, align 8, !noalias !11734
   %.sroa.5104.0..sroa_idx105.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5104.0..sroa_idx105.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5104.i, i64 16, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5104.i)
-  store i8 3, ptr %875, align 8, !noalias !11734
-  %882 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange5start17h44e58a82a11f4040E(i32 noundef %.sroa.020.0.ph.i, i32 noundef %.sroa.9.0.ph.i)
-          to label %883 unwind label %.thread393.i, !noalias !11736
+  store i8 3, ptr %801, align 8, !noalias !11734
+  %808 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange5start17h44e58a82a11f4040E(i32 noundef %.sroa.020.0.ph.i, i32 noundef %.sroa.9.0.ph.i)
+          to label %809 unwind label %.thread393.i, !noalias !11736
 
-883:                                              ; preds = %881
-  store i64 %882, ptr %876, align 8, !noalias !11734
-  %884 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange6length17h5cd82ccdda9e2c1aE(i32 noundef %.sroa.020.0.ph.i, i32 noundef %.sroa.9.0.ph.i)
-          to label %885 unwind label %.thread393.i, !noalias !11736
+809:                                              ; preds = %807
+  store i64 %808, ptr %802, align 8, !noalias !11734
+  %810 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange6length17h5cd82ccdda9e2c1aE(i32 noundef %.sroa.020.0.ph.i, i32 noundef %.sroa.9.0.ph.i)
+          to label %811 unwind label %.thread393.i, !noalias !11736
 
-885:                                              ; preds = %883
-  %886 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  store i64 %884, ptr %886, align 8, !noalias !11734
-  %887 = load ptr, ptr %713, align 8, !alias.scope !11722, !noalias !11725, !nonnull !17, !align !22, !noundef !17
+811:                                              ; preds = %809
+  %812 = getelementptr inbounds nuw i8, ptr %66, i64 32
+  store i64 %810, ptr %812, align 8, !noalias !11734
+  %813 = load ptr, ptr %639, align 8, !alias.scope !11722, !noalias !11725, !nonnull !17, !align !22, !noundef !17
   call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !11734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef nonnull align 8 dereferenceable(48) %66, i64 48, i1 false), !noalias !11734
-  %888 = getelementptr inbounds nuw i8, ptr %887, i64 16
-  %889 = load i64, ptr %888, align 8, !alias.scope !11876, !noalias !11879, !noundef !17
-  %890 = load i64, ptr %887, align 8, !range !21, !alias.scope !11876, !noalias !11879, !noundef !17
-  %891 = icmp eq i64 %889, %890
-  br i1 %891, label %892, label %897
+  %814 = getelementptr inbounds nuw i8, ptr %813, i64 16
+  %815 = load i64, ptr %814, align 8, !alias.scope !11876, !noalias !11879, !noundef !17
+  %816 = load i64, ptr %813, align 8, !range !21, !alias.scope !11876, !noalias !11879, !noundef !17
+  %817 = icmp eq i64 %815, %816
+  br i1 %817, label %818, label %823
 
-892:                                              ; preds = %885
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h14758f470fdca263E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %887, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.274)
-          to label %897 unwind label %893, !noalias !11882
+818:                                              ; preds = %811
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h14758f470fdca263E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %813, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.274)
+          to label %823 unwind label %819, !noalias !11882
 
-893:                                              ; preds = %892
-  %894 = landingpad { ptr, i32 }
+819:                                              ; preds = %818
+  %820 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr54drop_in_place$LT$fish..parse_constants..ParseError$GT$17h8e8b1e2e6b6cbc8bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %65) #15
-          to label %common.resume unwind label %895, !noalias !11736
+          to label %common.resume unwind label %821, !noalias !11736
 
-895:                                              ; preds = %893
-  %896 = landingpad { ptr, i32 }
+821:                                              ; preds = %819
+  %822 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11736
   unreachable
 
-897:                                              ; preds = %892, %885
-  %898 = getelementptr inbounds nuw i8, ptr %887, i64 8
-  %899 = load ptr, ptr %898, align 8, !alias.scope !11876, !noalias !11879, !nonnull !17, !noundef !17
-  %900 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, i64, i64, i8, [7 x i8] }, ptr %899, i64 %889
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %900, ptr noundef nonnull align 8 dereferenceable(48) %65, i64 48, i1 false), !noalias !11736
-  %901 = add i64 %889, 1
-  store i64 %901, ptr %888, align 8, !alias.scope !11876, !noalias !11879
+823:                                              ; preds = %818, %811
+  %824 = getelementptr inbounds nuw i8, ptr %813, i64 8
+  %825 = load ptr, ptr %824, align 8, !alias.scope !11876, !noalias !11879, !nonnull !17, !noundef !17
+  %826 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, i64, i64, i8, [7 x i8] }, ptr %825, i64 %815
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %826, ptr noundef nonnull align 8 dereferenceable(48) %65, i64 48, i1 false), !noalias !11736
+  %827 = add i64 %815, 1
+  store i64 %827, ptr %814, align 8, !alias.scope !11876, !noalias !11879
   call void @llvm.lifetime.end.p0(ptr nonnull %65), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !11734
   br label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit292.i"
 
-902:                                              ; preds = %.thread389.i, %.thread393.i
-  %.pn203392.i = phi { ptr, i32 } [ %880, %.thread389.i ], [ %879, %.thread393.i ]
+828:                                              ; preds = %.thread389.i, %.thread393.i
+  %.pn203392.i = phi { ptr, i32 } [ %806, %.thread389.i ], [ %805, %.thread393.i ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %66) #15
-          to label %common.resume unwind label %470, !noalias !11736
+          to label %common.resume unwind label %396, !noalias !11736
 
-903:                                              ; preds = %870, %830, %759, %746
-  %.pn203.pn.ph.i = phi { ptr, i32 } [ %760, %759 ], [ %.pn196.i, %830 ], [ %747, %746 ], [ %871, %870 ]
-  %904 = load i64, ptr %82, align 8, !range !172, !alias.scope !11883, !noalias !11734, !noundef !17
-  %905 = icmp eq i64 %904, -9223372036854775808
-  br i1 %905, label %common.resume, label %906
+829:                                              ; preds = %796, %756, %685, %672
+  %.pn203.pn.ph.i = phi { ptr, i32 } [ %686, %685 ], [ %.pn196.i, %756 ], [ %673, %672 ], [ %797, %796 ]
+  %830 = load i64, ptr %82, align 8, !range !172, !alias.scope !11883, !noalias !11734, !noundef !17
+  %831 = icmp eq i64 %830, -9223372036854775808
+  br i1 %831, label %common.resume, label %832
 
-906:                                              ; preds = %903
+832:                                              ; preds = %829
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %82)
-          to label %common.resume unwind label %470, !noalias !11736
+          to label %common.resume unwind label %396, !noalias !11736
 
-"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit292.i": ; preds = %909, %.critedge208.i, %897
+"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit292.i": ; preds = %835, %.critedge208.i, %823
   call void @llvm.lifetime.end.p0(ptr nonnull %82), !noalias !11734
   br label %.sink.split.i
 
-.critedge208.i:                                   ; preds = %866, %742
-  %907 = load i64, ptr %82, align 8, !range !172, !alias.scope !11886, !noalias !11734, !noundef !17
-  %908 = icmp eq i64 %907, -9223372036854775808
-  br i1 %908, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit292.i", label %909
+.critedge208.i:                                   ; preds = %792, %668
+  %833 = load i64, ptr %82, align 8, !range !172, !alias.scope !11886, !noalias !11734, !noundef !17
+  %834 = icmp eq i64 %833, -9223372036854775808
+  br i1 %834, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit292.i", label %835
 
-909:                                              ; preds = %.critedge208.i
+835:                                              ; preds = %.critedge208.i
   call void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %82), !noalias !11736
   br label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit292.i"
 
-910:                                              ; preds = %699
+836:                                              ; preds = %625
   call void @llvm.lifetime.start.p0(ptr nonnull %63), !noalias !11734
   store i64 0, ptr %63, align 8, !noalias !11734
   %.sroa.4150.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -119434,199 +119212,199 @@ default.unreachable:                              ; preds = %1124, %248
   %.sroa.5151.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i64 0, ptr %.sroa.5151.0..sroa_idx.i, align 8, !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %62), !noalias !11734
-  %911 = invoke { ptr, i64 } @_ZN4fish5wutil7gettext19wgettext_static_str17h75ad7378645c7566E(ptr noalias noundef nonnull readonly align 4 @anon.ae6c48e04285f5d271501d3ac60d56b4.275, i64 noundef 27)
-          to label %916 unwind label %914, !noalias !11736
+  %837 = invoke { ptr, i64 } @_ZN4fish5wutil7gettext19wgettext_static_str17h75ad7378645c7566E(ptr noalias noundef nonnull readonly align 4 @anon.ae6c48e04285f5d271501d3ac60d56b4.275, i64 noundef 27)
+          to label %842 unwind label %840, !noalias !11736
 
-912:                                              ; preds = %699
+838:                                              ; preds = %625
   store i64 -9223372036854775808, ptr %64, align 8, !noalias !11734
-  br label %956
+  br label %882
 
-913:                                              ; preds = %923, %914
-  %.pn178.i = phi { ptr, i32 } [ %915, %914 ], [ %.pn176.i, %923 ]
+839:                                              ; preds = %849, %840
+  %.pn178.i = phi { ptr, i32 } [ %841, %840 ], [ %.pn176.i, %849 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %63) #15
-          to label %common.resume unwind label %470, !noalias !11736
+          to label %common.resume unwind label %396, !noalias !11736
 
-914:                                              ; preds = %954, %916, %910
-  %915 = landingpad { ptr, i32 }
+840:                                              ; preds = %880, %842, %836
+  %841 = landingpad { ptr, i32 }
           cleanup
-  br label %913
+  br label %839
 
-916:                                              ; preds = %910
-  %917 = extractvalue { ptr, i64 } %911, 0
-  %918 = extractvalue { ptr, i64 } %911, 1
+842:                                              ; preds = %836
+  %843 = extractvalue { ptr, i64 } %837, 0
+  %844 = extractvalue { ptr, i64 } %837, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %61), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !11734
-  %919 = load ptr, ptr %102, align 8, !noalias !11734, !nonnull !17, !align !139, !noundef !17
-  %920 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %921 = load i64, ptr %920, align 8, !noalias !11734, !noundef !17
-  invoke void @_ZN4fish3ast37keywords_user_presentable_description17hb8d31ce8ceede1d9E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %59, ptr noalias noundef nonnull readonly align 1 %919, i64 noundef %921)
-          to label %922 unwind label %914, !noalias !11736
+  %845 = load ptr, ptr %102, align 8, !noalias !11734, !nonnull !17, !align !139, !noundef !17
+  %846 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %847 = load i64, ptr %846, align 8, !noalias !11734, !noundef !17
+  invoke void @_ZN4fish3ast37keywords_user_presentable_description17hb8d31ce8ceede1d9E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %59, ptr noalias noundef nonnull readonly align 1 %845, i64 noundef %847)
+          to label %848 unwind label %840, !noalias !11736
 
-922:                                              ; preds = %916
+848:                                              ; preds = %842
   invoke void @"_ZN82_$LT$$RF$widestring..utfstring..Utf32String$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17h60063e8f835dce97E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %60, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %59)
-          to label %926 unwind label %924, !noalias !11736
+          to label %852 unwind label %850, !noalias !11736
 
-923:                                              ; preds = %.body296.i, %927, %924
-  %.pn176.i = phi { ptr, i32 } [ %925, %924 ], [ %.pn174.i, %.body296.i ], [ %928, %927 ]
+849:                                              ; preds = %.body296.i, %853, %850
+  %.pn176.i = phi { ptr, i32 } [ %851, %850 ], [ %.pn174.i, %.body296.i ], [ %854, %853 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %59) #15
-          to label %913 unwind label %470, !noalias !11736
+          to label %839 unwind label %396, !noalias !11736
 
-924:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit298.i", %922
-  %925 = landingpad { ptr, i32 }
+850:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit298.i", %848
+  %851 = landingpad { ptr, i32 }
           cleanup
-  br label %923
+  br label %849
 
-926:                                              ; preds = %922
+852:                                              ; preds = %848
   call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !11734
-  invoke void @_ZN4fish10parse_tree10ParseToken28user_presentable_description17h770cc55ae0da8e4bE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %427)
-          to label %929 unwind label %927, !noalias !11736
+  invoke void @_ZN4fish10parse_tree10ParseToken28user_presentable_description17h770cc55ae0da8e4bE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %353)
+          to label %855 unwind label %853, !noalias !11736
 
-927:                                              ; preds = %926
-  %928 = landingpad { ptr, i32 }
+853:                                              ; preds = %852
+  %854 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE"(ptr noalias noundef align 8 dereferenceable(32) %60) #15
-          to label %923 unwind label %470, !noalias !11736
+          to label %849 unwind label %396, !noalias !11736
 
-929:                                              ; preds = %926
+855:                                              ; preds = %852
   invoke void @"_ZN82_$LT$$RF$widestring..utfstring..Utf32String$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17h60063e8f835dce97E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %57)
-          to label %932 unwind label %930, !noalias !11736
+          to label %858 unwind label %856, !noalias !11736
 
-930:                                              ; preds = %929
-  %931 = landingpad { ptr, i32 }
+856:                                              ; preds = %855
+  %857 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE"(ptr noalias noundef align 8 dereferenceable(32) %60) #15
-          to label %.body296.i unwind label %470, !noalias !11736
+          to label %.body296.i unwind label %396, !noalias !11736
 
-932:                                              ; preds = %929
+858:                                              ; preds = %855
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %60, i64 32, i1 false), !noalias !11734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.08.i293.sroa.gep353.i, ptr noundef nonnull align 8 dereferenceable(32) %58, i64 32, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !11734
-  invoke void @_ZN11fish_printf11printf_impl14sprintf_locale17h7fe8b6d690351b57E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %62, ptr noalias noundef nonnull align 8 dereferenceable(24) %63, ptr noalias noundef nonnull readonly align 4 %917, i64 noundef %918, ptr noalias noundef readonly align 4 dereferenceable(16) @anon.ae6c48e04285f5d271501d3ac60d56b4.65, ptr noalias noundef nonnull align 8 %61, i64 noundef 2)
-          to label %935 unwind label %933, !noalias !11736
+  invoke void @_ZN11fish_printf11printf_impl14sprintf_locale17h7fe8b6d690351b57E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %62, ptr noalias noundef nonnull align 8 dereferenceable(24) %63, ptr noalias noundef nonnull readonly align 4 %843, i64 noundef %844, ptr noalias noundef readonly align 4 dereferenceable(16) @anon.ae6c48e04285f5d271501d3ac60d56b4.65, ptr noalias noundef nonnull align 8 %61, i64 noundef 2)
+          to label %861 unwind label %859, !noalias !11736
 
-933:                                              ; preds = %938, %932
-  %934 = landingpad { ptr, i32 }
+859:                                              ; preds = %864, %858
+  %860 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE"(ptr noalias noundef align 8 dereferenceable(64) %61) #15
-          to label %.body296.i unwind label %470, !noalias !11736
+          to label %.body296.i unwind label %396, !noalias !11736
 
-935:                                              ; preds = %932
+861:                                              ; preds = %858
   call void @llvm.experimental.noalias.scope.decl(metadata !11889)
-  %936 = load i8, ptr %62, align 8, !range !184, !alias.scope !11889, !noalias !11892, !noundef !17
-  %937 = trunc nuw i8 %936 to i1
-  br i1 %937, label %938, label %941, !prof !173
+  %862 = load i8, ptr %62, align 8, !range !184, !alias.scope !11889, !noalias !11892, !noundef !17
+  %863 = trunc nuw i8 %862 to i1
+  br i1 %863, label %864, label %867, !prof !173
 
-938:                                              ; preds = %935
+864:                                              ; preds = %861
   call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !11894
-  %939 = getelementptr inbounds nuw i8, ptr %62, i64 1
-  %940 = load i8, ptr %939, align 1, !range !166, !alias.scope !11889, !noalias !11892, !noundef !17
-  store i8 %940, ptr %39, align 1, !noalias !11894
+  %865 = getelementptr inbounds nuw i8, ptr %62, i64 1
+  %866 = load i8, ptr %865, align 1, !range !166, !alias.scope !11889, !noalias !11892, !noundef !17
+  store i8 %866, ptr %39, align 1, !noalias !11894
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.ae6c48e04285f5d271501d3ac60d56b4.24, i64 noundef 43, ptr noundef nonnull align 1 %39, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ae6c48e04285f5d271501d3ac60d56b4.25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.276) #18
-          to label %.noexc211.i unwind label %933, !noalias !11736
+          to label %.noexc211.i unwind label %859, !noalias !11736
 
-.noexc211.i:                                      ; preds = %938
+.noexc211.i:                                      ; preds = %864
   unreachable
 
-941:                                              ; preds = %935
+867:                                              ; preds = %861
   call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !11734
-  br label %942
+  br label %868
 
-942:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i295.i", %941
-  %.sroa.0.08.i293.sroa.phi.i = phi ptr [ %61, %941 ], [ %.sroa.0.08.i293.sroa.gep353.i, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i295.i" ]
-  %943 = phi i1 [ false, %941 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i295.i" ]
-  %944 = load i8, ptr %.sroa.0.08.i293.sroa.phi.i, align 8, !range !141, !alias.scope !11895, !noalias !11734, !noundef !17
-  switch i8 %944, label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i295.i" [
-    i8 2, label %945
-    i8 3, label %947
+868:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i295.i", %867
+  %.sroa.0.08.i293.sroa.phi.i = phi ptr [ %61, %867 ], [ %.sroa.0.08.i293.sroa.gep353.i, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i295.i" ]
+  %869 = phi i1 [ false, %867 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i295.i" ]
+  %870 = load i8, ptr %.sroa.0.08.i293.sroa.phi.i, align 8, !range !141, !alias.scope !11895, !noalias !11734, !noundef !17
+  switch i8 %870, label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i295.i" [
+    i8 2, label %871
+    i8 3, label %873
   ]
 
-945:                                              ; preds = %942
-  %946 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i293.sroa.phi.i, i64 8
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %946)
-          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i295.i" unwind label %949, !noalias !11736
+871:                                              ; preds = %868
+  %872 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i293.sroa.phi.i, i64 8
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %872)
+          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i295.i" unwind label %875, !noalias !11736
 
-947:                                              ; preds = %942
-  %948 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i293.sroa.phi.i, i64 8
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %948)
-          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i295.i" unwind label %949, !noalias !11736
+873:                                              ; preds = %868
+  %874 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i293.sroa.phi.i, i64 8
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %874)
+          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i295.i" unwind label %875, !noalias !11736
 
-"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i295.i": ; preds = %947, %945, %942
-  br i1 %943, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit298.i", label %942
+"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i295.i": ; preds = %873, %871, %868
+  br i1 %869, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit298.i", label %868
 
-949:                                              ; preds = %947, %945
-  %950 = landingpad { ptr, i32 }
+875:                                              ; preds = %873, %871
+  %876 = landingpad { ptr, i32 }
           cleanup
-  br i1 %943, label %.body296.i, label %951
+  br i1 %869, label %.body296.i, label %877
 
-951:                                              ; preds = %949
+877:                                              ; preds = %875
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE"(ptr noalias noundef align 8 dereferenceable(32) %.sroa.0.08.i293.sroa.gep353.i) #15
-          to label %.body296.i unwind label %952, !noalias !11736
+          to label %.body296.i unwind label %878, !noalias !11736
 
-952:                                              ; preds = %951
-  %953 = landingpad { ptr, i32 }
+878:                                              ; preds = %877
+  %879 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11736
   unreachable
 
-.body296.i:                                       ; preds = %949, %951, %933, %930
-  %.pn174.i = phi { ptr, i32 } [ %934, %933 ], [ %931, %930 ], [ %950, %951 ], [ %950, %949 ]
+.body296.i:                                       ; preds = %875, %877, %859, %856
+  %.pn174.i = phi { ptr, i32 } [ %860, %859 ], [ %857, %856 ], [ %876, %877 ], [ %876, %875 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57) #15
-          to label %923 unwind label %470, !noalias !11736
+          to label %849 unwind label %396, !noalias !11736
 
 "_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit298.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i295.i"
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57)
-          to label %954 unwind label %924, !noalias !11736
+          to label %880 unwind label %850, !noalias !11736
 
-954:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit298.i"
+880:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit298.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !11734
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %59)
-          to label %955 unwind label %914, !noalias !11736
+          to label %881 unwind label %840, !noalias !11736
 
-955:                                              ; preds = %954
+881:                                              ; preds = %880
   call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !11734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %63), !noalias !11734
-  %.pre441.i = load i8, ptr %418, align 1, !range !184, !alias.scope !11722, !noalias !11725
-  br label %956
+  %.pre441.i = load i8, ptr %344, align 1, !range !184, !alias.scope !11722, !noalias !11725
+  br label %882
 
-956:                                              ; preds = %955, %912
-  %957 = phi i8 [ %.pre441.i, %955 ], [ %706, %912 ]
-  %958 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  store i8 1, ptr %958, align 2, !alias.scope !11722, !noalias !11725
-  %959 = trunc nuw i8 %957 to i1
-  br i1 %959, label %.critedge210.i, label %962
+882:                                              ; preds = %881, %838
+  %883 = phi i8 [ %.pre441.i, %881 ], [ %632, %838 ]
+  %884 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  store i8 1, ptr %884, align 2, !alias.scope !11722, !noalias !11725
+  %885 = trunc nuw i8 %883 to i1
+  br i1 %885, label %.critedge210.i, label %888
 
-960:                                              ; preds = %1074, %1065, %971, %965
-  %961 = landingpad { ptr, i32 }
+886:                                              ; preds = %1000, %991, %897, %891
+  %887 = landingpad { ptr, i32 }
           cleanup
-  br label %1117
+  br label %1043
 
-962:                                              ; preds = %956
-  store i8 1, ptr %418, align 1, !alias.scope !11722, !noalias !11725
-  %963 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4fish4flog10categories16ast_construction17h8c327201221d29a8E, i64 32) monotonic, align 8, !noalias !11734
-  %964 = icmp eq i8 %963, 0
-  br i1 %964, label %965, label %967
+888:                                              ; preds = %882
+  store i8 1, ptr %344, align 1, !alias.scope !11722, !noalias !11725
+  %889 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4fish4flog10categories16ast_construction17h8c327201221d29a8E, i64 32) monotonic, align 8, !noalias !11734
+  %890 = icmp eq i8 %889, 0
+  br i1 %890, label %891, label %893
 
-965:                                              ; preds = %1066, %962
-  %966 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange5start17h44e58a82a11f4040E(i32 noundef %701, i32 noundef %702)
-          to label %1067 unwind label %960, !noalias !11736
+891:                                              ; preds = %992, %888
+  %892 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange5start17h44e58a82a11f4040E(i32 noundef %627, i32 noundef %628)
+          to label %993 unwind label %886, !noalias !11736
 
-967:                                              ; preds = %962
+893:                                              ; preds = %888
   call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !11734
-  %968 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11734
-  %969 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef 24, i64 noundef 8) #17, !noalias !11736
-  %970 = icmp eq ptr %969, null
-  br i1 %970, label %971, label %972, !prof !173
+  %894 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11734
+  %895 = call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef 24, i64 noundef 8) #17, !noalias !11736
+  %896 = icmp eq ptr %895, null
+  br i1 %896, label %897, label %898, !prof !173
 
-971:                                              ; preds = %967
+897:                                              ; preds = %893
   invoke void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef 8, i64 noundef 24) #18
-          to label %614 unwind label %960, !noalias !11736
+          to label %540 unwind label %886, !noalias !11736
 
-972:                                              ; preds = %967
+898:                                              ; preds = %893
   call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !11734
   store ptr @_ZN4fish4flog10categories16ast_construction17h8c327201221d29a8E, ptr %54, align 8, !noalias !11734
   %.sroa.4158.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -119642,23 +119420,23 @@ default.unreachable:                              ; preds = %1124, %248
   %.sroa.7359.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %.sroa.7359.0..sroa_idx.i, align 8, !noalias !11907
   invoke void @_ZN5alloc3fmt6format12format_inner17hbc00c97fd665fffbE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %55, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %24)
-          to label %975 unwind label %973, !noalias !11736
+          to label %901 unwind label %899, !noalias !11736
 
-973:                                              ; preds = %972
-  %974 = landingpad { ptr, i32 }
+899:                                              ; preds = %898
+  %900 = landingpad { ptr, i32 }
           cleanup
-  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %969, i64 noundef 24, i64 noundef 8) #17, !noalias !11736
-  br label %1117
+  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %895, i64 noundef 24, i64 noundef 8) #17, !noalias !11736
+  br label %1043
 
-975:                                              ; preds = %972
+901:                                              ; preds = %898
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !11900
   call void @llvm.lifetime.end.p0(ptr nonnull %54), !noalias !11734
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %969, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false), !noalias !11736
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %895, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false), !noalias !11736
   store i64 1, ptr %56, align 8, !noalias !11734
-  %976 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store ptr %969, ptr %976, align 8, !noalias !11734
-  %977 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store i64 1, ptr %977, align 8, !noalias !11734
+  %902 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store ptr %895, ptr %902, align 8, !noalias !11734
+  %903 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  store i64 1, ptr %903, align 8, !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !11734
@@ -119670,102 +119448,102 @@ default.unreachable:                              ; preds = %1124, %248
   call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !11734
-  %978 = invoke noundef i64 @_ZN4fish3ast9Populator6spaces17h2e400e4f3eecc5c0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
-          to label %981 unwind label %979, !noalias !11736
+  %904 = invoke noundef i64 @_ZN4fish3ast9Populator6spaces17h2e400e4f3eecc5c0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
+          to label %907 unwind label %905, !noalias !11736
 
-.body304.i:                                       ; preds = %1004, %1002, %986, %983, %979
-  %.pn180.i = phi { ptr, i32 } [ %987, %986 ], [ %984, %983 ], [ %980, %979 ], [ %1003, %1002 ], [ %1003, %1004 ]
+.body304.i:                                       ; preds = %930, %928, %912, %909, %905
+  %.pn180.i = phi { ptr, i32 } [ %913, %912 ], [ %910, %909 ], [ %906, %905 ], [ %929, %928 ], [ %929, %930 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %51) #15
-          to label %1044 unwind label %470, !noalias !11736
+          to label %970 unwind label %396, !noalias !11736
 
-979:                                              ; preds = %981, %975
-  %980 = landingpad { ptr, i32 }
+905:                                              ; preds = %907, %901
+  %906 = landingpad { ptr, i32 }
           cleanup
   br label %.body304.i
 
-981:                                              ; preds = %975
-  invoke void @"_ZN49_$LT$usize$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17h06c3b3ca30ce4c6fE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %48, i64 noundef %978)
-          to label %982 unwind label %979, !noalias !11736
+907:                                              ; preds = %901
+  invoke void @"_ZN49_$LT$usize$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17h06c3b3ca30ce4c6fE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %48, i64 noundef %904)
+          to label %908 unwind label %905, !noalias !11736
 
-982:                                              ; preds = %981
+908:                                              ; preds = %907
   call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !11734
   invoke void @"_ZN51_$LT$$RF$str$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17h74e68471e3181c4eE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %47, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
-          to label %985 unwind label %983, !noalias !11736
+          to label %911 unwind label %909, !noalias !11736
 
-983:                                              ; preds = %982
-  %984 = landingpad { ptr, i32 }
+909:                                              ; preds = %908
+  %910 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE"(ptr noalias noundef align 8 dereferenceable(32) %48) #15
-          to label %.body304.i unwind label %470, !noalias !11736
+          to label %.body304.i unwind label %396, !noalias !11736
 
-985:                                              ; preds = %982
+911:                                              ; preds = %908
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %48, i64 32, i1 false), !noalias !11734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.08.i301.sroa.gep361.i, ptr noundef nonnull align 8 dereferenceable(32) %47, i64 32, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !11734
   invoke void @_ZN11fish_printf11printf_impl14sprintf_locale17hab9b0f3f160de61dE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %50, ptr noalias noundef nonnull align 8 dereferenceable(24) %51, ptr noalias noundef nonnull readonly align 1 @anon.ae6c48e04285f5d271501d3ac60d56b4.260, i64 noundef 32, ptr noalias noundef readonly align 4 dereferenceable(16) @anon.ae6c48e04285f5d271501d3ac60d56b4.65, ptr noalias noundef nonnull align 8 %49, i64 noundef 2)
-          to label %988 unwind label %986, !noalias !11736
+          to label %914 unwind label %912, !noalias !11736
 
-986:                                              ; preds = %991, %985
-  %987 = landingpad { ptr, i32 }
+912:                                              ; preds = %917, %911
+  %913 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE"(ptr noalias noundef align 8 dereferenceable(64) %49) #15
-          to label %.body304.i unwind label %470, !noalias !11736
+          to label %.body304.i unwind label %396, !noalias !11736
 
-988:                                              ; preds = %985
+914:                                              ; preds = %911
   call void @llvm.experimental.noalias.scope.decl(metadata !11908)
-  %989 = load i8, ptr %50, align 8, !range !184, !alias.scope !11908, !noalias !11911, !noundef !17
-  %990 = trunc nuw i8 %989 to i1
-  br i1 %990, label %991, label %994, !prof !173
+  %915 = load i8, ptr %50, align 8, !range !184, !alias.scope !11908, !noalias !11911, !noundef !17
+  %916 = trunc nuw i8 %915 to i1
+  br i1 %916, label %917, label %920, !prof !173
 
-991:                                              ; preds = %988
+917:                                              ; preds = %914
   call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !11913
-  %992 = getelementptr inbounds nuw i8, ptr %50, i64 1
-  %993 = load i8, ptr %992, align 1, !range !166, !alias.scope !11908, !noalias !11911, !noundef !17
-  store i8 %993, ptr %40, align 1, !noalias !11913
+  %918 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  %919 = load i8, ptr %918, align 1, !range !166, !alias.scope !11908, !noalias !11911, !noundef !17
+  store i8 %919, ptr %40, align 1, !noalias !11913
   invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.ae6c48e04285f5d271501d3ac60d56b4.24, i64 noundef 43, ptr noundef nonnull align 1 %40, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ae6c48e04285f5d271501d3ac60d56b4.25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.276) #18
-          to label %.noexc.i4 unwind label %986, !noalias !11736
+          to label %.noexc.i4 unwind label %912, !noalias !11736
 
-.noexc.i4:                                        ; preds = %991
+.noexc.i4:                                        ; preds = %917
   unreachable
 
-994:                                              ; preds = %988
+920:                                              ; preds = %914
   call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !11734
-  br label %995
+  br label %921
 
-995:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i303.i", %994
-  %.sroa.0.08.i301.sroa.phi.i = phi ptr [ %49, %994 ], [ %.sroa.0.08.i301.sroa.gep361.i, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i303.i" ]
-  %996 = phi i1 [ false, %994 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i303.i" ]
-  %997 = load i8, ptr %.sroa.0.08.i301.sroa.phi.i, align 8, !range !141, !alias.scope !11914, !noalias !11734, !noundef !17
-  switch i8 %997, label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i303.i" [
-    i8 2, label %998
-    i8 3, label %1000
+921:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i303.i", %920
+  %.sroa.0.08.i301.sroa.phi.i = phi ptr [ %49, %920 ], [ %.sroa.0.08.i301.sroa.gep361.i, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i303.i" ]
+  %922 = phi i1 [ false, %920 ], [ true, %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i303.i" ]
+  %923 = load i8, ptr %.sroa.0.08.i301.sroa.phi.i, align 8, !range !141, !alias.scope !11914, !noalias !11734, !noundef !17
+  switch i8 %923, label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i303.i" [
+    i8 2, label %924
+    i8 3, label %926
   ]
 
-998:                                              ; preds = %995
-  %999 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i301.sroa.phi.i, i64 8
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %999)
-          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i303.i" unwind label %1002, !noalias !11736
+924:                                              ; preds = %921
+  %925 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i301.sroa.phi.i, i64 8
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %925)
+          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i303.i" unwind label %928, !noalias !11736
 
-1000:                                             ; preds = %995
-  %1001 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i301.sroa.phi.i, i64 8
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1001)
-          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i303.i" unwind label %1002, !noalias !11736
+926:                                              ; preds = %921
+  %927 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i301.sroa.phi.i, i64 8
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %927)
+          to label %"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i303.i" unwind label %928, !noalias !11736
 
-"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i303.i": ; preds = %1000, %998, %995
-  br i1 %996, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit306.i", label %995
+"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE.exit.i303.i": ; preds = %926, %924, %921
+  br i1 %922, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit306.i", label %921
 
-1002:                                             ; preds = %1000, %998
-  %1003 = landingpad { ptr, i32 }
+928:                                              ; preds = %926, %924
+  %929 = landingpad { ptr, i32 }
           cleanup
-  br i1 %996, label %.body304.i, label %1004
+  br i1 %922, label %.body304.i, label %930
 
-1004:                                             ; preds = %1002
+930:                                              ; preds = %928
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE"(ptr noalias noundef align 8 dereferenceable(32) %.sroa.0.08.i301.sroa.gep361.i) #15
-          to label %.body304.i unwind label %1005, !noalias !11736
+          to label %.body304.i unwind label %931, !noalias !11736
 
-1005:                                             ; preds = %1004
-  %1006 = landingpad { ptr, i32 }
+931:                                              ; preds = %930
+  %932 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11736
   unreachable
@@ -119774,10 +119552,10 @@ default.unreachable:                              ; preds = %1124, %248
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !11734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !11734
-  %1007 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %.val223.i = load ptr, ptr %1007, align 8, !noalias !11734, !nonnull !17, !noundef !17
-  %1008 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %.val224.i = load i64, ptr %1008, align 8, !noalias !11734, !noundef !17
+  %933 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %.val223.i = load ptr, ptr %933, align 8, !noalias !11734, !nonnull !17, !noundef !17
+  %934 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %.val224.i = load i64, ptr %934, align 8, !noalias !11734, !noundef !17
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !11919
   store i64 0, ptr %23, align 8, !noalias !11919
   %.sroa.42.0..sroa_idx.i307.i = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -119785,213 +119563,213 @@ default.unreachable:                              ; preds = %1124, %248
   %.sroa.53.0..sroa_idx.i308.i = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 0, ptr %.sroa.53.0..sroa_idx.i308.i, align 8, !noalias !11919
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !11919
-  %1009 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i32 -536870880, ptr %1009, align 8, !noalias !11919
+  %935 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store i32 -536870880, ptr %935, align 8, !noalias !11919
   %.sroa.4.0..sroa_idx.i309.i = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i16 0, ptr %.sroa.4.0..sroa_idx.i309.i, align 4, !noalias !11919
   %.sroa.5.0..sroa_idx.i310.i = getelementptr inbounds nuw i8, ptr %22, i64 22
   store i16 0, ptr %.sroa.5.0..sroa_idx.i310.i, align 2, !noalias !11919
   store ptr %23, ptr %22, align 8, !noalias !11919
-  %1010 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr @anon.ae6c48e04285f5d271501d3ac60d56b4.3, ptr %1010, align 8, !noalias !11919
-  %1011 = getelementptr inbounds nuw i32, ptr %.val223.i, i64 %.val224.i
-  br label %1012
+  %936 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store ptr @anon.ae6c48e04285f5d271501d3ac60d56b4.3, ptr %936, align 8, !noalias !11919
+  %937 = getelementptr inbounds nuw i32, ptr %.val223.i, i64 %.val224.i
+  br label %938
 
-1012:                                             ; preds = %.noexc7.i315.i, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit306.i"
-  %1013 = phi ptr [ %1027, %.noexc7.i315.i ], [ %.val223.i, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit306.i" ]
-  %.not.not.not.i.not.not.not.i.not.i311.i = icmp eq ptr %1013, %1011
-  br i1 %.not.not.not.i.not.not.not.i.not.i311.i, label %1031, label %1014
+938:                                              ; preds = %.noexc7.i315.i, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit306.i"
+  %939 = phi ptr [ %953, %.noexc7.i315.i ], [ %.val223.i, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit306.i" ]
+  %.not.not.not.i.not.not.not.i.not.i311.i = icmp eq ptr %939, %937
+  br i1 %.not.not.not.i.not.not.not.i.not.i311.i, label %957, label %940
 
-1014:                                             ; preds = %1012
-  %1015 = load i32, ptr %1013, align 4, !noalias !11922, !noundef !17
-  %1016 = xor i32 %1015, 55296
-  %1017 = add i32 %1016, -1114112
-  %1018 = icmp ult i32 %1017, -1112064
-  br i1 %1018, label %.split.i.i.i.i320.i, label %1024
+940:                                              ; preds = %938
+  %941 = load i32, ptr %939, align 4, !noalias !11922, !noundef !17
+  %942 = xor i32 %941, 55296
+  %943 = add i32 %942, -1114112
+  %944 = icmp ult i32 %943, -1112064
+  br i1 %944, label %.split.i.i.i.i320.i, label %950
 
-.split.i.i.i.i320.i:                              ; preds = %1014
+.split.i.i.i.i320.i:                              ; preds = %940
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !11929
-  store i32 %1015, ptr %21, align 4, !noalias !11929
+  store i32 %941, ptr %21, align 4, !noalias !11929
   br label %.split.i.i.i.invoke.i316.i
 
 .split.i.i.i.invoke.i316.i:                       ; preds = %.noexc7.i315.i, %.split.i.i.i.i320.i
-  %1019 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.24, %.split.i.i.i.i320.i ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.4, %.noexc7.i315.i ]
-  %1020 = phi i64 [ 43, %.split.i.i.i.i320.i ], [ 55, %.noexc7.i315.i ]
-  %1021 = phi ptr [ %21, %.split.i.i.i.i320.i ], [ %3, %.noexc7.i315.i ]
-  %1022 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.26, %.split.i.i.i.i320.i ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.22, %.noexc7.i315.i ]
-  %1023 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.54, %.split.i.i.i.i320.i ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.6, %.noexc7.i315.i ]
-  invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 %1019, i64 noundef %1020, ptr noundef nonnull align 1 %1021, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1022, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1023) #18
+  %945 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.24, %.split.i.i.i.i320.i ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.4, %.noexc7.i315.i ]
+  %946 = phi i64 [ 43, %.split.i.i.i.i320.i ], [ 55, %.noexc7.i315.i ]
+  %947 = phi ptr [ %21, %.split.i.i.i.i320.i ], [ %3, %.noexc7.i315.i ]
+  %948 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.26, %.split.i.i.i.i320.i ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.22, %.noexc7.i315.i ]
+  %949 = phi ptr [ @anon.ae6c48e04285f5d271501d3ac60d56b4.54, %.split.i.i.i.i320.i ], [ @anon.ae6c48e04285f5d271501d3ac60d56b4.6, %.noexc7.i315.i ]
+  invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 %945, i64 noundef %946, ptr noundef nonnull align 1 %947, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %948, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %949) #18
           to label %.split.i.i.i.cont.i319.i unwind label %.loopexit.split-lp.i317.i, !noalias !11931
 
 .split.i.i.i.cont.i319.i:                         ; preds = %.split.i.i.i.invoke.i316.i
   unreachable
 
-1024:                                             ; preds = %1014
-  %1025 = icmp ult i32 %1015, 1114112
-  call void @llvm.assume(i1 %1025)
-  %1026 = invoke noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$10write_char17h3c38008714eb34d2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22, i32 noundef range(i32 0, 1114112) %1015)
+950:                                              ; preds = %940
+  %951 = icmp ult i32 %941, 1114112
+  call void @llvm.assume(i1 %951)
+  %952 = invoke noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$10write_char17h3c38008714eb34d2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22, i32 noundef range(i32 0, 1114112) %941)
           to label %.noexc7.i315.i unwind label %.loopexit.i312.i, !noalias !11931
 
-.noexc7.i315.i:                                   ; preds = %1024
-  %1027 = getelementptr inbounds nuw i8, ptr %1013, i64 4
-  br i1 %1026, label %.split.i.i.i.invoke.i316.i, label %1012
+.noexc7.i315.i:                                   ; preds = %950
+  %953 = getelementptr inbounds nuw i8, ptr %939, i64 4
+  br i1 %952, label %.split.i.i.i.invoke.i316.i, label %938
 
-.loopexit.i312.i:                                 ; preds = %1024
+.loopexit.i312.i:                                 ; preds = %950
   %lpad.loopexit.i313.i = landingpad { ptr, i32 }
           cleanup
-  br label %1028
+  br label %954
 
 .loopexit.split-lp.i317.i:                        ; preds = %.split.i.i.i.invoke.i316.i
   %lpad.loopexit.split-lp.i318.i = landingpad { ptr, i32 }
           cleanup
-  br label %1028
+  br label %954
 
-1028:                                             ; preds = %.loopexit.split-lp.i317.i, %.loopexit.i312.i
+954:                                              ; preds = %.loopexit.split-lp.i317.i, %.loopexit.i312.i
   %lpad.phi.i314.i = phi { ptr, i32 } [ %lpad.loopexit.i313.i, %.loopexit.i312.i ], [ %lpad.loopexit.split-lp.i318.i, %.loopexit.split-lp.i317.i ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #15
-          to label %.body321.i unwind label %1029, !noalias !11931
+          to label %.body321.i unwind label %955, !noalias !11931
 
-1029:                                             ; preds = %1028
-  %1030 = landingpad { ptr, i32 }
+955:                                              ; preds = %954
+  %956 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11931
   unreachable
 
-.body321.i:                                       ; preds = %1036, %1028
-  %eh.lpad-body322.i = phi { ptr, i32 } [ %lpad.phi.i314.i, %1028 ], [ %1037, %1036 ]
+.body321.i:                                       ; preds = %962, %954
+  %eh.lpad-body322.i = phi { ptr, i32 } [ %lpad.phi.i314.i, %954 ], [ %963, %962 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52) #15
-          to label %1044 unwind label %470, !noalias !11736
+          to label %970 unwind label %396, !noalias !11736
 
-1031:                                             ; preds = %1012
+957:                                              ; preds = %938
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !11919
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !11919
-  %1032 = load i64, ptr %977, align 8, !alias.scope !11932, !noalias !11935, !noundef !17
-  %1033 = load i64, ptr %56, align 8, !range !21, !alias.scope !11932, !noalias !11935, !noundef !17
-  %1034 = icmp eq i64 %1032, %1033
-  br i1 %1034, label %1035, label %1040
+  %958 = load i64, ptr %903, align 8, !alias.scope !11932, !noalias !11935, !noundef !17
+  %959 = load i64, ptr %56, align 8, !range !21, !alias.scope !11932, !noalias !11935, !noundef !17
+  %960 = icmp eq i64 %958, %959
+  br i1 %960, label %961, label %966
 
-1035:                                             ; preds = %1031
+961:                                              ; preds = %957
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h17fdeb9b034f232eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %56, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.276)
-          to label %1040 unwind label %1036, !noalias !11938
+          to label %966 unwind label %962, !noalias !11938
 
-1036:                                             ; preds = %1035
-  %1037 = landingpad { ptr, i32 }
+962:                                              ; preds = %961
+  %963 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53) #15
-          to label %.body321.i unwind label %1038, !noalias !11736
+          to label %.body321.i unwind label %964, !noalias !11736
 
-1038:                                             ; preds = %1036
-  %1039 = landingpad { ptr, i32 }
+964:                                              ; preds = %962
+  %965 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11736
   unreachable
 
-1040:                                             ; preds = %1035, %1031
-  %1041 = load ptr, ptr %976, align 8, !alias.scope !11932, !noalias !11935, !nonnull !17, !noundef !17
-  %1042 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1041, i64 %1032
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1042, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false), !noalias !11736
-  %1043 = add i64 %1032, 1
-  store i64 %1043, ptr %977, align 8, !alias.scope !11932, !noalias !11935
+966:                                              ; preds = %961, %957
+  %967 = load ptr, ptr %902, align 8, !alias.scope !11932, !noalias !11935, !nonnull !17, !noundef !17
+  %968 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %967, i64 %958
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %968, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false), !noalias !11736
+  %969 = add i64 %958, 1
+  store i64 %969, ptr %903, align 8, !alias.scope !11932, !noalias !11935
   call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !11734
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
-          to label %1047 unwind label %1045, !noalias !11736
+          to label %973 unwind label %971, !noalias !11736
 
-1044:                                             ; preds = %1054, %1045, %.body321.i, %.body304.i
-  %.pn182.i = phi { ptr, i32 } [ %1046, %1045 ], [ %1055, %1054 ], [ %eh.lpad-body322.i, %.body321.i ], [ %.pn180.i, %.body304.i ]
+970:                                              ; preds = %980, %971, %.body321.i, %.body304.i
+  %.pn182.i = phi { ptr, i32 } [ %972, %971 ], [ %981, %980 ], [ %eh.lpad-body322.i, %.body321.i ], [ %.pn180.i, %.body304.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hf17aa9672fe4529cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %56) #15
-          to label %1117 unwind label %470, !noalias !11736
+          to label %1043 unwind label %396, !noalias !11736
 
-1045:                                             ; preds = %1064, %1047, %1040
-  %1046 = landingpad { ptr, i32 }
+971:                                              ; preds = %990, %973, %966
+  %972 = landingpad { ptr, i32 }
           cleanup
-  br label %1044
+  br label %970
 
-1047:                                             ; preds = %1040
+973:                                              ; preds = %966
   call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !11734
   call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !11734
-  %1048 = load ptr, ptr %976, align 8, !noalias !11734, !nonnull !17, !noundef !17
-  %1049 = load i64, ptr %977, align 8, !noalias !11734, !noundef !17
+  %974 = load ptr, ptr %902, align 8, !noalias !11734, !nonnull !17, !noundef !17
+  %975 = load i64, ptr %903, align 8, !noalias !11734, !noundef !17
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !11734
-  invoke void @_ZN5alloc3str17join_generic_copy17hae5f2027876fa5acE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %41, ptr noalias noundef nonnull readonly align 8 %1048, i64 noundef %1049, ptr noalias noundef nonnull readonly align 1 @anon.ae6c48e04285f5d271501d3ac60d56b4.257, i64 noundef 1)
-          to label %1050 unwind label %1045, !noalias !11736
+  invoke void @_ZN5alloc3str17join_generic_copy17hae5f2027876fa5acE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %41, ptr noalias noundef nonnull readonly align 8 %974, i64 noundef %975, ptr noalias noundef nonnull readonly align 1 @anon.ae6c48e04285f5d271501d3ac60d56b4.257, i64 noundef 1)
+          to label %976 unwind label %971, !noalias !11736
 
-1050:                                             ; preds = %1047
+976:                                              ; preds = %973
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !11734
-  %1051 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %1052 = load i64, ptr %1051, align 8, !alias.scope !11939, !noalias !11734, !noundef !17
-  %1053 = icmp sgt i64 %1052, -1
-  call void @llvm.assume(i1 %1053)
+  %977 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %978 = load i64, ptr %977, align 8, !alias.scope !11939, !noalias !11734, !noundef !17
+  %979 = icmp sgt i64 %978, -1
+  call void @llvm.assume(i1 %979)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hca0cedd7554ca3baE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %46, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.28)
-          to label %1056 unwind label %1054, !noalias !11736
+          to label %982 unwind label %980, !noalias !11736
 
-1054:                                             ; preds = %1056, %1050
-  %1055 = landingpad { ptr, i32 }
+980:                                              ; preds = %982, %976
+  %981 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %46) #15
-          to label %1044 unwind label %470, !noalias !11736
+          to label %970 unwind label %396, !noalias !11736
 
-1056:                                             ; preds = %1050
-  %1057 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %1058 = load ptr, ptr %1057, align 8, !alias.scope !11939, !noalias !11734, !nonnull !17, !noundef !17
-  %1059 = load i64, ptr %1051, align 8, !alias.scope !11939, !noalias !11734, !noundef !17
-  %1060 = icmp sgt i64 %1059, -1
-  call void @llvm.assume(i1 %1060)
-  %1061 = getelementptr inbounds nuw i8, ptr %1058, i64 %1059
-  store i8 10, ptr %1061, align 1, !noalias !11736
-  %1062 = add nuw i64 %1052, 1
-  store i64 %1062, ptr %1051, align 8, !alias.scope !11939, !noalias !11734
-  %1063 = load ptr, ptr %1057, align 8, !noalias !11734, !nonnull !17, !noundef !17
-  invoke void @_ZN4fish4flog9flog_impl17hb3e65484452eac47E(ptr noalias noundef nonnull readonly align 1 %1063, i64 noundef %1062)
-          to label %1064 unwind label %1054, !noalias !11736
+982:                                              ; preds = %976
+  %983 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %984 = load ptr, ptr %983, align 8, !alias.scope !11939, !noalias !11734, !nonnull !17, !noundef !17
+  %985 = load i64, ptr %977, align 8, !alias.scope !11939, !noalias !11734, !noundef !17
+  %986 = icmp sgt i64 %985, -1
+  call void @llvm.assume(i1 %986)
+  %987 = getelementptr inbounds nuw i8, ptr %984, i64 %985
+  store i8 10, ptr %987, align 1, !noalias !11736
+  %988 = add nuw i64 %978, 1
+  store i64 %988, ptr %977, align 8, !alias.scope !11939, !noalias !11734
+  %989 = load ptr, ptr %983, align 8, !noalias !11734, !nonnull !17, !noundef !17
+  invoke void @_ZN4fish4flog9flog_impl17hb3e65484452eac47E(ptr noalias noundef nonnull readonly align 1 %989, i64 noundef %988)
+          to label %990 unwind label %980, !noalias !11736
 
-1064:                                             ; preds = %1056
+990:                                              ; preds = %982
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73f9b55bcc7a6363E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %46)
-          to label %1065 unwind label %1045, !noalias !11736
+          to label %991 unwind label %971, !noalias !11736
 
-1065:                                             ; preds = %1064
+991:                                              ; preds = %990
   call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !11734
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hf17aa9672fe4529cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %56)
-          to label %1066 unwind label %960, !noalias !11736
+          to label %992 unwind label %886, !noalias !11736
 
-1066:                                             ; preds = %1065
+992:                                              ; preds = %991
   call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !11734
-  br label %965
+  br label %891
 
-1067:                                             ; preds = %965
-  %.not184.i = icmp eq i64 %966, 4294967295
-  br i1 %.not184.i, label %1080, label %1068
+993:                                              ; preds = %891
+  %.not184.i = icmp eq i64 %892, 4294967295
+  br i1 %.not184.i, label %1006, label %994
 
-1068:                                             ; preds = %1067
-  %1069 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %1070 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1071 = load i64, ptr %1070, align 8, !alias.scope !11942, !noalias !11945, !noundef !17
-  %1072 = load i64, ptr %1069, align 8, !range !21, !alias.scope !11942, !noalias !11945, !noundef !17
-  %1073 = icmp eq i64 %1071, %1072
-  br i1 %1073, label %1074, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit330.i"
+994:                                              ; preds = %993
+  %995 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %996 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %997 = load i64, ptr %996, align 8, !alias.scope !11942, !noalias !11945, !noundef !17
+  %998 = load i64, ptr %995, align 8, !range !21, !alias.scope !11942, !noalias !11945, !noundef !17
+  %999 = icmp eq i64 %997, %998
+  br i1 %999, label %1000, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit330.i"
 
-1074:                                             ; preds = %1068
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h6a26027a70f0eb38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1069, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.276)
-          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit330.i" unwind label %960, !noalias !11736
+1000:                                             ; preds = %994
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h6a26027a70f0eb38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %995, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.276)
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit330.i" unwind label %886, !noalias !11736
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit330.i": ; preds = %1074, %1068
-  %1075 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %1076 = load ptr, ptr %1075, align 8, !alias.scope !11942, !noalias !11945, !nonnull !17, !noundef !17
-  %1077 = getelementptr inbounds nuw { i32, i32 }, ptr %1076, i64 %1071
-  store i32 %701, ptr %1077, align 4, !noalias !11736
-  %1078 = getelementptr inbounds nuw i8, ptr %1077, i64 4
-  store i32 %702, ptr %1078, align 4, !noalias !11736
-  %1079 = add i64 %1071, 1
-  store i64 %1079, ptr %1070, align 8, !alias.scope !11942, !noalias !11945
-  br label %1080
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit330.i": ; preds = %1000, %994
+  %1001 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %1002 = load ptr, ptr %1001, align 8, !alias.scope !11942, !noalias !11945, !nonnull !17, !noundef !17
+  %1003 = getelementptr inbounds nuw { i32, i32 }, ptr %1002, i64 %997
+  store i32 %627, ptr %1003, align 4, !noalias !11736
+  %1004 = getelementptr inbounds nuw i8, ptr %1003, i64 4
+  store i32 %628, ptr %1004, align 4, !noalias !11736
+  %1005 = add i64 %997, 1
+  store i64 %1005, ptr %996, align 8, !alias.scope !11942, !noalias !11945
+  br label %1006
 
-1080:                                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit330.i", %1067
-  %1081 = load ptr, ptr %703, align 8, !alias.scope !11722, !noalias !11725, !align !22, !noundef !17
-  %.not186.i = icmp eq ptr %1081, null
-  br i1 %.not186.i, label %.critedge210.i, label %1082
+1006:                                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1c1d355551998b1E.exit330.i", %993
+  %1007 = load ptr, ptr %629, align 8, !alias.scope !11722, !noalias !11725, !align !22, !noundef !17
+  %.not186.i = icmp eq ptr %1007, null
+  br i1 %.not186.i, label %.critedge210.i, label %1008
 
-1082:                                             ; preds = %1080
+1008:                                             ; preds = %1006
   call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !11734
   call void @llvm.experimental.noalias.scope.decl(metadata !11947)
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !11950
@@ -120000,134 +119778,134 @@ default.unreachable:                              ; preds = %1124, %248
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx.i331.i, align 8, !noalias !11950
   %.sroa.5.0..sroa_idx.i332.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i332.i, align 8, !noalias !11950
-  %1083 = invoke noundef i8 @"_ZN80_$LT$fish..parse_constants..ParseErrorCode$u20$as$u20$core..default..Default$GT$7default17h479ab436c53b6579E"()
-          to label %1088 unwind label %1084, !noalias !11951
+  %1009 = invoke noundef i8 @"_ZN80_$LT$fish..parse_constants..ParseErrorCode$u20$as$u20$core..default..Default$GT$7default17h479ab436c53b6579E"()
+          to label %1014 unwind label %1010, !noalias !11951
 
-1084:                                             ; preds = %1082
-  %1085 = landingpad { ptr, i32 }
+1010:                                             ; preds = %1008
+  %1011 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #15
-          to label %1117 unwind label %1086, !noalias !11951
+          to label %1043 unwind label %1012, !noalias !11951
 
-1086:                                             ; preds = %1084
-  %1087 = landingpad { ptr, i32 }
+1012:                                             ; preds = %1010
+  %1013 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11951
   unreachable
 
-1088:                                             ; preds = %1082
+1014:                                             ; preds = %1008
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !11734
-  %1089 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  store i8 %1083, ptr %1089, align 8, !alias.scope !11947, !noalias !11734
-  %1090 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1090, i8 0, i64 16, i1 false), !alias.scope !11947, !noalias !11734
+  %1015 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  store i8 %1009, ptr %1015, align 8, !alias.scope !11947, !noalias !11734
+  %1016 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1016, i8 0, i64 16, i1 false), !alias.scope !11947, !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !11950
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5112.i)
   %.sroa.0106.0.copyload.i = load i64, ptr %64, align 8, !noalias !11734
   %.not188.i = icmp eq i64 %.sroa.0106.0.copyload.i, -9223372036854775808
-  br i1 %.not188.i, label %1092, label %1091, !prof !173
+  br i1 %.not188.i, label %1018, label %1017, !prof !173
 
-1091:                                             ; preds = %1088
+1017:                                             ; preds = %1014
   %.sroa.5108.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %64, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5112.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5108.0..sroa_idx.i, i64 16, i1 false), !noalias !11734
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %45)
-          to label %1095 unwind label %.thread401.i, !noalias !11736
+          to label %1021 unwind label %.thread401.i, !noalias !11736
 
-1092:                                             ; preds = %1088
+1018:                                             ; preds = %1014
   invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.276) #18
-          to label %614 unwind label %.thread405.i, !noalias !11736
+          to label %540 unwind label %.thread405.i, !noalias !11736
 
-.thread405.i:                                     ; preds = %1097, %1095, %1092
-  %1093 = landingpad { ptr, i32 }
+.thread405.i:                                     ; preds = %1023, %1021, %1018
+  %1019 = landingpad { ptr, i32 }
           cleanup
-  br label %1116
+  br label %1042
 
-.thread401.i:                                     ; preds = %1091
-  %1094 = landingpad { ptr, i32 }
+.thread401.i:                                     ; preds = %1017
+  %1020 = landingpad { ptr, i32 }
           cleanup
   store i64 %.sroa.0106.0.copyload.i, ptr %45, align 8, !noalias !11734
   %.sroa.5112.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5112.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5112.i, i64 16, i1 false), !noalias !11734
-  br label %1116
+  br label %1042
 
-1095:                                             ; preds = %1091
+1021:                                             ; preds = %1017
   store i64 %.sroa.0106.0.copyload.i, ptr %45, align 8, !noalias !11734
   %.sroa.5112.0..sroa_idx113.i = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5112.0..sroa_idx113.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5112.i, i64 16, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5112.i)
-  store i8 3, ptr %1089, align 8, !noalias !11734
-  %1096 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange5start17h44e58a82a11f4040E(i32 noundef %701, i32 noundef %702)
-          to label %1097 unwind label %.thread405.i, !noalias !11736
+  store i8 3, ptr %1015, align 8, !noalias !11734
+  %1022 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange5start17h44e58a82a11f4040E(i32 noundef %627, i32 noundef %628)
+          to label %1023 unwind label %.thread405.i, !noalias !11736
 
-1097:                                             ; preds = %1095
-  store i64 %1096, ptr %1090, align 8, !noalias !11734
-  %1098 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange6length17h5cd82ccdda9e2c1aE(i32 noundef %701, i32 noundef %702)
-          to label %1099 unwind label %.thread405.i, !noalias !11736
+1023:                                             ; preds = %1021
+  store i64 %1022, ptr %1016, align 8, !noalias !11734
+  %1024 = invoke noundef i64 @_ZN4fish15parse_constants11SourceRange6length17h5cd82ccdda9e2c1aE(i32 noundef %627, i32 noundef %628)
+          to label %1025 unwind label %.thread405.i, !noalias !11736
 
-1099:                                             ; preds = %1097
-  %1100 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  store i64 %1098, ptr %1100, align 8, !noalias !11734
-  %1101 = load ptr, ptr %703, align 8, !alias.scope !11722, !noalias !11725, !nonnull !17, !align !22, !noundef !17
+1025:                                             ; preds = %1023
+  %1026 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  store i64 %1024, ptr %1026, align 8, !noalias !11734
+  %1027 = load ptr, ptr %629, align 8, !alias.scope !11722, !noalias !11725, !nonnull !17, !align !22, !noundef !17
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !11734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull align 8 dereferenceable(48) %45, i64 48, i1 false), !noalias !11734
-  %1102 = getelementptr inbounds nuw i8, ptr %1101, i64 16
-  %1103 = load i64, ptr %1102, align 8, !alias.scope !11952, !noalias !11955, !noundef !17
-  %1104 = load i64, ptr %1101, align 8, !range !21, !alias.scope !11952, !noalias !11955, !noundef !17
-  %1105 = icmp eq i64 %1103, %1104
-  br i1 %1105, label %1106, label %1111
+  %1028 = getelementptr inbounds nuw i8, ptr %1027, i64 16
+  %1029 = load i64, ptr %1028, align 8, !alias.scope !11952, !noalias !11955, !noundef !17
+  %1030 = load i64, ptr %1027, align 8, !range !21, !alias.scope !11952, !noalias !11955, !noundef !17
+  %1031 = icmp eq i64 %1029, %1030
+  br i1 %1031, label %1032, label %1037
 
-1106:                                             ; preds = %1099
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h14758f470fdca263E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1101, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.276)
-          to label %1111 unwind label %1107, !noalias !11958
+1032:                                             ; preds = %1025
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h14758f470fdca263E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1027, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ae6c48e04285f5d271501d3ac60d56b4.276)
+          to label %1037 unwind label %1033, !noalias !11958
 
-1107:                                             ; preds = %1106
-  %1108 = landingpad { ptr, i32 }
+1033:                                             ; preds = %1032
+  %1034 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr54drop_in_place$LT$fish..parse_constants..ParseError$GT$17h8e8b1e2e6b6cbc8bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %44) #15
-          to label %common.resume unwind label %1109, !noalias !11736
+          to label %common.resume unwind label %1035, !noalias !11736
 
-1109:                                             ; preds = %1107
-  %1110 = landingpad { ptr, i32 }
+1035:                                             ; preds = %1033
+  %1036 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !11736
   unreachable
 
-1111:                                             ; preds = %1106, %1099
-  %1112 = getelementptr inbounds nuw i8, ptr %1101, i64 8
-  %1113 = load ptr, ptr %1112, align 8, !alias.scope !11952, !noalias !11955, !nonnull !17, !noundef !17
-  %1114 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, i64, i64, i8, [7 x i8] }, ptr %1113, i64 %1103
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1114, ptr noundef nonnull align 8 dereferenceable(48) %44, i64 48, i1 false), !noalias !11736
-  %1115 = add i64 %1103, 1
-  store i64 %1115, ptr %1102, align 8, !alias.scope !11952, !noalias !11955
+1037:                                             ; preds = %1032, %1025
+  %1038 = getelementptr inbounds nuw i8, ptr %1027, i64 8
+  %1039 = load ptr, ptr %1038, align 8, !alias.scope !11952, !noalias !11955, !nonnull !17, !noundef !17
+  %1040 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, i64, i64, i8, [7 x i8] }, ptr %1039, i64 %1029
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1040, ptr noundef nonnull align 8 dereferenceable(48) %44, i64 48, i1 false), !noalias !11736
+  %1041 = add i64 %1029, 1
+  store i64 %1041, ptr %1028, align 8, !alias.scope !11952, !noalias !11955
   call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !11734
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !11734
   br label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit341.i"
 
-1116:                                             ; preds = %.thread401.i, %.thread405.i
-  %.pn189404.i = phi { ptr, i32 } [ %1094, %.thread401.i ], [ %1093, %.thread405.i ]
+1042:                                             ; preds = %.thread401.i, %.thread405.i
+  %.pn189404.i = phi { ptr, i32 } [ %1020, %.thread401.i ], [ %1019, %.thread405.i ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %45) #15
-          to label %common.resume unwind label %470, !noalias !11736
+          to label %common.resume unwind label %396, !noalias !11736
 
-1117:                                             ; preds = %1084, %1044, %973, %960
-  %.pn189.pn.ph.i = phi { ptr, i32 } [ %974, %973 ], [ %.pn182.i, %1044 ], [ %961, %960 ], [ %1085, %1084 ]
-  %1118 = load i64, ptr %64, align 8, !range !172, !alias.scope !11959, !noalias !11734, !noundef !17
-  %1119 = icmp eq i64 %1118, -9223372036854775808
-  br i1 %1119, label %common.resume, label %1120
+1043:                                             ; preds = %1010, %970, %899, %886
+  %.pn189.pn.ph.i = phi { ptr, i32 } [ %900, %899 ], [ %.pn182.i, %970 ], [ %887, %886 ], [ %1011, %1010 ]
+  %1044 = load i64, ptr %64, align 8, !range !172, !alias.scope !11959, !noalias !11734, !noundef !17
+  %1045 = icmp eq i64 %1044, -9223372036854775808
+  br i1 %1045, label %common.resume, label %1046
 
-1120:                                             ; preds = %1117
+1046:                                             ; preds = %1043
   invoke void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64)
-          to label %common.resume unwind label %470, !noalias !11736
+          to label %common.resume unwind label %396, !noalias !11736
 
-"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit341.i": ; preds = %1123, %.critedge210.i, %1111
+"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit341.i": ; preds = %1049, %.critedge210.i, %1037
   call void @llvm.lifetime.end.p0(ptr nonnull %64), !noalias !11734
   br label %.sink.split.i
 
-.critedge210.i:                                   ; preds = %1080, %956
-  %1121 = load i64, ptr %64, align 8, !range !172, !alias.scope !11962, !noalias !11734, !noundef !17
-  %1122 = icmp eq i64 %1121, -9223372036854775808
-  br i1 %1122, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit341.i", label %1123
+.critedge210.i:                                   ; preds = %1006, %882
+  %1047 = load i64, ptr %64, align 8, !range !172, !alias.scope !11962, !noalias !11734, !noundef !17
+  %1048 = icmp eq i64 %1047, -9223372036854775808
+  br i1 %1048, label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit341.i", label %1049
 
-1123:                                             ; preds = %.critedge210.i
+1049:                                             ; preds = %.critedge210.i
   call void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64), !noalias !11736
   br label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$widestring..utfstring..Utf32String$GT$$GT$17h6a5b16ee52cbfd69E.exit341.i"
 
@@ -120135,310 +119913,236 @@ default.unreachable:                              ; preds = %1124, %248
   call void @llvm.lifetime.end.p0(ptr nonnull %102), !noalias !11734
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h55711939e879b9d6E.exit"
 
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h55711939e879b9d6E.exit": ; preds = %.thread, %415, %.sink.split.i
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h55711939e879b9d6E.exit": ; preds = %.thread, %341, %.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
   ret void
 
-1124:                                             ; preds = %411
-  %1125 = getelementptr inbounds nuw i8, ptr %0, i64 144
+1050:                                             ; preds = %337
+  %1051 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !11965
-  call void @"_ZN77_$LT$fish..ast..JobConjunctionContinuationList$u20$as$u20$fish..ast..Node$GT$8kind_mut17h10a86dfeb03b5fbfE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull align 8 dereferenceable(16) %1125), !noalias !11970
-  %1126 = load i64, ptr %19, align 8, !range !167, !noalias !11965, !noundef !17
-  switch i64 %1126, label %default.unreachable [
-    i64 0, label %1127
-    i64 1, label %1130
+  call void @"_ZN77_$LT$fish..ast..JobConjunctionContinuationList$u20$as$u20$fish..ast..Node$GT$8kind_mut17h10a86dfeb03b5fbfE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull align 8 dereferenceable(16) %1051), !noalias !11970
+  %1052 = load i64, ptr %19, align 8, !range !167, !noalias !11965, !noundef !17
+  %1053 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %1054 = load ptr, ptr %1053, align 8, !noalias !11965, !nonnull !17, !align !139, !noundef !17
+  switch i64 %1052, label %default.unreachable [
+    i64 0, label %1055
+    i64 1, label %1056
     i64 2, label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit"
-    i64 3, label %1135
-    i64 4, label %1138
-    i64 5, label %1141
-    i64 6, label %1144
-    i64 7, label %1147
-    i64 8, label %1150
-    i64 9, label %1153
-    i64 10, label %1156
-    i64 11, label %1159
-    i64 12, label %1162
-    i64 13, label %1165
-    i64 14, label %1168
-    i64 15, label %1171
-    i64 16, label %1174
-    i64 17, label %1177
-    i64 18, label %1180
-    i64 19, label %1183
-    i64 20, label %1186
-    i64 21, label %1189
-    i64 22, label %1192
-    i64 23, label %1195
-    i64 24, label %1198
-    i64 25, label %1201
-    i64 26, label %1204
-    i64 27, label %1207
-    i64 28, label %1210
-    i64 29, label %1213
-    i64 30, label %1216
-    i64 31, label %1219
-    i64 32, label %1222
-    i64 33, label %1225
-    i64 34, label %1228
-    i64 35, label %1231
-    i64 36, label %1234
-    i64 37, label %1237
+    i64 3, label %1059
+    i64 4, label %1060
+    i64 5, label %1061
+    i64 6, label %1062
+    i64 7, label %1063
+    i64 8, label %1064
+    i64 9, label %1065
+    i64 10, label %1066
+    i64 11, label %1067
+    i64 12, label %1068
+    i64 13, label %1069
+    i64 14, label %1070
+    i64 15, label %1071
+    i64 16, label %1072
+    i64 17, label %1073
+    i64 18, label %1074
+    i64 19, label %1075
+    i64 20, label %1076
+    i64 21, label %1077
+    i64 22, label %1078
+    i64 23, label %1079
+    i64 24, label %1080
+    i64 25, label %1081
+    i64 26, label %1082
+    i64 27, label %1083
+    i64 28, label %1084
+    i64 29, label %1085
+    i64 30, label %1086
+    i64 31, label %1087
+    i64 32, label %1088
+    i64 33, label %1089
+    i64 34, label %1090
+    i64 35, label %1091
+    i64 36, label %1092
+    i64 37, label %1093
   ]
 
-1127:                                             ; preds = %1124
-  %1128 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1129 = load ptr, ptr %1128, align 8, !noalias !11965, !nonnull !17, !align !27, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE"(ptr noalias noundef align 4 dereferenceable(32) %1129, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1055:                                             ; preds = %1050
+  call fastcc void @"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE"(ptr noalias noundef align 4 dereferenceable(32) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1130:                                             ; preds = %1124
-  %1131 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1132 = load ptr, ptr %1131, align 8, !noalias !11965, !nonnull !17, !align !139, !noundef !17
-  %1133 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %1134 = load ptr, ptr %1133, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %1132, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %1134), !noalias !11971
+1056:                                             ; preds = %1050
+  %1057 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %1058 = load ptr, ptr %1057, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %1054, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %1058), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1135:                                             ; preds = %1124
-  %1136 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1137 = load ptr, ptr %1136, align 8, !noalias !11965, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %1137), !noalias !11971
+1059:                                             ; preds = %1050
+  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %1054), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1138:                                             ; preds = %1124
-  %1139 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1140 = load ptr, ptr %1139, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1140)
+1060:                                             ; preds = %1050
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1054)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1141:                                             ; preds = %1124
-  %1142 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1143 = load ptr, ptr %1142, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1143), !noalias !11971
+1061:                                             ; preds = %1050
+  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1054), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1144:                                             ; preds = %1124
-  %1145 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1146 = load ptr, ptr %1145, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1146)
+1062:                                             ; preds = %1050
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1054)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1147:                                             ; preds = %1124
-  %1148 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1149 = load ptr, ptr %1148, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1149), !noalias !11971
+1063:                                             ; preds = %1050
+  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %1054), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1150:                                             ; preds = %1124
-  %1151 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1152 = load ptr, ptr %1151, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %1152, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1064:                                             ; preds = %1050
+  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1153:                                             ; preds = %1124
-  %1154 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1155 = load ptr, ptr %1154, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %1155, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1065:                                             ; preds = %1050
+  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1156:                                             ; preds = %1124
-  %1157 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1158 = load ptr, ptr %1157, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %1158), !noalias !11971
+1066:                                             ; preds = %1050
+  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %1054), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1159:                                             ; preds = %1124
-  %1160 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1161 = load ptr, ptr %1160, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %1161, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1067:                                             ; preds = %1050
+  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1162:                                             ; preds = %1124
-  %1163 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1164 = load ptr, ptr %1163, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE"(ptr noalias noundef align 8 dereferenceable(192) %1164, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1068:                                             ; preds = %1050
+  call fastcc void @"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE"(ptr noalias noundef align 8 dereferenceable(192) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1165:                                             ; preds = %1124
-  %1166 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1167 = load ptr, ptr %1166, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %1167, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1069:                                             ; preds = %1050
+  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1168:                                             ; preds = %1124
-  %1169 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1170 = load ptr, ptr %1169, align 8, !noalias !11965, !nonnull !17, !align !27, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %1170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1070:                                             ; preds = %1050
+  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1171:                                             ; preds = %1124
-  %1172 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1173 = load ptr, ptr %1172, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %1173, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1071:                                             ; preds = %1050
+  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1174:                                             ; preds = %1124
-  %1175 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1176 = load ptr, ptr %1175, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %1176, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1072:                                             ; preds = %1050
+  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1177:                                             ; preds = %1124
-  %1178 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1179 = load ptr, ptr %1178, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %1179, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1073:                                             ; preds = %1050
+  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1180:                                             ; preds = %1124
-  %1181 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1182 = load ptr, ptr %1181, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E"(ptr noalias noundef align 8 dereferenceable(224) %1182, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1074:                                             ; preds = %1050
+  call fastcc void @"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E"(ptr noalias noundef align 8 dereferenceable(224) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1183:                                             ; preds = %1124
-  %1184 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1185 = load ptr, ptr %1184, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1185)
+1075:                                             ; preds = %1050
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1054)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1186:                                             ; preds = %1124
-  %1187 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1188 = load ptr, ptr %1187, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE"(ptr noalias noundef align 8 dereferenceable(48) %1188, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1076:                                             ; preds = %1050
+  call fastcc void @"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE"(ptr noalias noundef align 8 dereferenceable(48) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1189:                                             ; preds = %1124
-  %1190 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1191 = load ptr, ptr %1190, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %1191, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1077:                                             ; preds = %1050
+  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1192:                                             ; preds = %1124
-  %1193 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1194 = load ptr, ptr %1193, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %1194, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1078:                                             ; preds = %1050
+  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1195:                                             ; preds = %1124
-  %1196 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1197 = load ptr, ptr %1196, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %1197, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1079:                                             ; preds = %1050
+  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1198:                                             ; preds = %1124
-  %1199 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1200 = load ptr, ptr %1199, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE"(ptr noalias noundef align 8 dereferenceable(48) %1200, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1080:                                             ; preds = %1050
+  call fastcc void @"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE"(ptr noalias noundef align 8 dereferenceable(48) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1201:                                             ; preds = %1124
-  %1202 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1203 = load ptr, ptr %1202, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %1203, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1081:                                             ; preds = %1050
+  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1204:                                             ; preds = %1124
-  %1205 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1206 = load ptr, ptr %1205, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %1206), !noalias !11971
+1082:                                             ; preds = %1050
+  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %1054), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1207:                                             ; preds = %1124
-  %1208 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1209 = load ptr, ptr %1208, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1209)
+1083:                                             ; preds = %1050
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1054)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1210:                                             ; preds = %1124
-  %1211 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1212 = load ptr, ptr %1211, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE"(ptr noalias noundef align 8 dereferenceable(144) %1212, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1084:                                             ; preds = %1050
+  call fastcc void @"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE"(ptr noalias noundef align 8 dereferenceable(144) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1213:                                             ; preds = %1124
-  %1214 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1215 = load ptr, ptr %1214, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..AndorJob$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5749cf043a738819E"(ptr noalias noundef align 8 dereferenceable(160) %1215, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1085:                                             ; preds = %1050
+  call fastcc void @"_ZN62_$LT$fish..ast..AndorJob$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5749cf043a738819E"(ptr noalias noundef align 8 dereferenceable(160) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1216:                                             ; preds = %1124
-  %1217 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1218 = load ptr, ptr %1217, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1218)
+1086:                                             ; preds = %1050
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1054)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1219:                                             ; preds = %1124
-  %1220 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1221 = load ptr, ptr %1220, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN78_$LT$fish..ast..FreestandingArgumentList$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h80f5e05633587246E"(ptr noalias noundef align 8 dereferenceable(16) %1221, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
+1087:                                             ; preds = %1050
+  call fastcc void @"_ZN78_$LT$fish..ast..FreestandingArgumentList$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h80f5e05633587246E"(ptr noalias noundef align 8 dereferenceable(16) %1054, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1222:                                             ; preds = %1124
-  %1223 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1224 = load ptr, ptr %1223, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1224)
+1088:                                             ; preds = %1050
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1054)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1225:                                             ; preds = %1124
-  %1226 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1227 = load ptr, ptr %1226, align 8, !noalias !11965, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %1227), !noalias !11971
+1089:                                             ; preds = %1050
+  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %1054), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1228:                                             ; preds = %1124
-  %1229 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1230 = load ptr, ptr %1229, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1230)
+1090:                                             ; preds = %1050
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %1054)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1231:                                             ; preds = %1124
-  %1232 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1233 = load ptr, ptr %1232, align 8, !noalias !11965, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %1233), !noalias !11971
+1091:                                             ; preds = %1050
+  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %1054), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1234:                                             ; preds = %1124
-  %1235 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1236 = load ptr, ptr %1235, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1236, i1 noundef zeroext false), !noalias !11971
+1092:                                             ; preds = %1050
+  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1054, i1 noundef zeroext false), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-1237:                                             ; preds = %1124
-  %1238 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1239 = load ptr, ptr %1238, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1239, i1 noundef zeroext false), !noalias !11971
+1093:                                             ; preds = %1050
+  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %1054, i1 noundef zeroext false), !noalias !11971
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread"
 
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread": ; preds = %1127, %1130, %1135, %1138, %1141, %1144, %1147, %1150, %1153, %1156, %1159, %1162, %1165, %1168, %1171, %1174, %1177, %1180, %1183, %1186, %1189, %1192, %1195, %1198, %1201, %1204, %1207, %1210, %1213, %1216, %1219, %1222, %1225, %1228, %1231, %1234, %1237
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread": ; preds = %1055, %1056, %1059, %1060, %1061, %1062, %1063, %1064, %1065, %1066, %1067, %1068, %1069, %1070, %1071, %1072, %1073, %1074, %1075, %1076, %1077, %1078, %1079, %1080, %1081, %1082, %1083, %1084, %1085, %1086, %1087, %1088, %1089, %1090, %1091, %1092, %1093
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !11965
-  br label %1244
+  br label %1096
 
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit": ; preds = %1124
-  %1240 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %1241 = load ptr, ptr %1240, align 8, !noalias !11965, !nonnull !17, !align !139, !noundef !17
-  %1242 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %1243 = load ptr, ptr %1242, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %122, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %1241, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %1243)
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit": ; preds = %1050
+  %1094 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %1095 = load ptr, ptr %1094, align 8, !noalias !11965, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %122, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %1054, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %1095)
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !11965
-  %.pr = load i8, ptr %412, align 2
+  %.pr = load i8, ptr %338, align 2
   %.not2 = icmp eq i8 %.pr, 2
-  br i1 %.not2, label %1244, label %415
+  br i1 %.not2, label %1096, label %341
 
-1244:                                             ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit"
-  %1245 = getelementptr inbounds nuw i8, ptr %0, i64 128
+1096:                                             ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h5aa53c8efa829beeE.exit"
+  %1097 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.532)
-  %1246 = call noundef zeroext i1 @"_ZN59_$LT$fish..ast..SemiNl$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17haa2721182a84d7d3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11972
-  br i1 %1246, label %1247, label %.thread
+  %1098 = call noundef zeroext i1 @"_ZN59_$LT$fish..ast..SemiNl$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17haa2721182a84d7d3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !11972
+  br i1 %1098, label %1099, label %.thread
 
-1247:                                             ; preds = %1244
+1099:                                             ; preds = %1096
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !11976
   call void @llvm.experimental.noalias.scope.decl(metadata !11981)
-  %1248 = call noundef i8 @"_ZN80_$LT$fish..parse_constants..ParseTokenType$u20$as$u20$core..default..Default$GT$7default17hc0acbacc9b484b3dE"(), !noalias !11984
+  %1100 = call noundef i8 @"_ZN80_$LT$fish..parse_constants..ParseTokenType$u20$as$u20$core..default..Default$GT$7default17hc0acbacc9b484b3dE"(), !noalias !11984
   store i32 0, ptr %16, align 4, !alias.scope !11981, !noalias !11985
-  %1249 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i8 %1248, ptr %1249, align 4, !alias.scope !11981, !noalias !11985
+  %1101 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  store i8 %1100, ptr %1101, align 4, !alias.scope !11981, !noalias !11985
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !11976
   call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd03d9516ef0cf23bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %16), !noalias !11986
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !11976
@@ -120922,298 +120626,252 @@ define internal fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..as
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !12040
   call void @"_ZN57_$LT$fish..ast..KeywordFor$u20$as$u20$fish..ast..Node$GT$8kind_mut17heb8ef1cf11db4708E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull align 4 dereferenceable(16) %0), !noalias !12043
   %164 = load i64, ptr %18, align 8, !range !167, !noalias !12040, !noundef !17
+  %165 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %166 = load ptr, ptr %165, align 8, !noalias !12040, !nonnull !17, !align !139, !noundef !17
   switch i64 %164, label %default.unreachable [
-    i64 0, label %165
+    i64 0, label %167
     i64 1, label %172
     i64 2, label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit"
-    i64 3, label %177
-    i64 4, label %180
-    i64 5, label %183
-    i64 6, label %186
-    i64 7, label %189
-    i64 8, label %192
-    i64 9, label %195
-    i64 10, label %198
-    i64 11, label %201
-    i64 12, label %204
-    i64 13, label %214
-    i64 14, label %217
-    i64 15, label %224
-    i64 16, label %227
-    i64 17, label %230
-    i64 18, label %233
-    i64 19, label %240
-    i64 20, label %243
-    i64 21, label %251
-    i64 22, label %254
-    i64 23, label %257
-    i64 24, label %260
-    i64 25, label %273
-    i64 26, label %276
-    i64 27, label %279
-    i64 28, label %282
-    i64 29, label %292
-    i64 30, label %295
-    i64 31, label %298
-    i64 32, label %301
-    i64 33, label %304
-    i64 34, label %307
-    i64 35, label %310
-    i64 36, label %313
-    i64 37, label %316
+    i64 3, label %175
+    i64 4, label %176
+    i64 5, label %177
+    i64 6, label %178
+    i64 7, label %179
+    i64 8, label %180
+    i64 9, label %181
+    i64 10, label %182
+    i64 11, label %183
+    i64 12, label %184
+    i64 13, label %192
+    i64 14, label %193
+    i64 15, label %198
+    i64 16, label %199
+    i64 17, label %200
+    i64 18, label %201
+    i64 19, label %206
+    i64 20, label %207
+    i64 21, label %213
+    i64 22, label %214
+    i64 23, label %215
+    i64 24, label %216
+    i64 25, label %227
+    i64 26, label %228
+    i64 27, label %229
+    i64 28, label %230
+    i64 29, label %238
+    i64 30, label %239
+    i64 31, label %240
+    i64 32, label %241
+    i64 33, label %242
+    i64 34, label %243
+    i64 35, label %244
+    i64 36, label %245
+    i64 37, label %246
   ]
 
-default.unreachable:                              ; preds = %332, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+default.unreachable:                              ; preds = %258, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
   unreachable
 
-165:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %166 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %167 = load ptr, ptr %166, align 8, !noalias !12040, !nonnull !17, !align !27, !noundef !17
+167:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf72cd84b56f3a141E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %167), !noalias !12037
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h049305556e67f2cbE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %167), !noalias !12037
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf72cd84b56f3a141E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %166), !noalias !12037
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h049305556e67f2cbE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %166), !noalias !12037
   %168 = getelementptr inbounds nuw i8, ptr %6, i64 30
   %169 = load i8, ptr %168, align 2, !range !3577, !noalias !12044, !noundef !17
   %.not.i21 = icmp eq i8 %169, 2
   br i1 %.not.i21, label %170, label %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit"
 
-170:                                              ; preds = %165
-  %171 = getelementptr inbounds nuw i8, ptr %167, i64 16
+170:                                              ; preds = %167
+  %171 = getelementptr inbounds nuw i8, ptr %166, i64 16
   call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %171), !noalias !12037
   br label %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit"
 
-"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit": ; preds = %165, %170
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h9570d0d3c19e21acE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %167, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6), !noalias !12037
+"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit": ; preds = %167, %170
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h9570d0d3c19e21acE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %166, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6), !noalias !12037
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
 172:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %173 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %174 = load ptr, ptr %173, align 8, !noalias !12040, !nonnull !17, !align !139, !noundef !17
-  %175 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %176 = load ptr, ptr %175, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %174, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %176), !noalias !12037
+  %173 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %174 = load ptr, ptr %173, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %166, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %174), !noalias !12037
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
+
+175:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %166), !noalias !12037
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
+
+176:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %166)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
 177:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %178 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %179 = load ptr, ptr %178, align 8, !noalias !12040, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %179), !noalias !12037
+  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %166), !noalias !12037
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
+
+178:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %166)
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
+
+179:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %166), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
 180:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %181 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %182 = load ptr, ptr %181, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %182)
+  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %166, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
+
+181:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %166, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
+
+182:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %166), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
 183:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %184 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %185 = load ptr, ptr %184, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %185), !noalias !12037
+  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %166, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-186:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %187 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %188 = load ptr, ptr %187, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %188)
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
-
-189:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %190 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %191 = load ptr, ptr %190, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %191), !noalias !12037
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
-
-192:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %193 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %194 = load ptr, ptr %193, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %194, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
-
-195:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %196 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %197 = load ptr, ptr %196, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %197, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
-
-198:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %199 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %200 = load ptr, ptr %199, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %200), !noalias !12037
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
-
-201:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %202 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %203 = load ptr, ptr %202, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %203, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
-
-204:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %205 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %206 = load ptr, ptr %205, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
+184:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h1a3b846da26f66f9E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %206), !noalias !12037
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haa8be05bf548bc11E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %206), !noalias !12037
-  %207 = getelementptr inbounds nuw i8, ptr %7, i64 30
-  %208 = load i8, ptr %207, align 2, !range !3577, !noalias !12048, !noundef !17
-  %.not.i18 = icmp eq i8 %208, 2
-  br i1 %.not.i18, label %209, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h1a3b846da26f66f9E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %166), !noalias !12037
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haa8be05bf548bc11E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %166), !noalias !12037
+  %185 = getelementptr inbounds nuw i8, ptr %7, i64 30
+  %186 = load i8, ptr %185, align 2, !range !3577, !noalias !12048, !noundef !17
+  %.not.i18 = icmp eq i8 %186, 2
+  br i1 %.not.i18, label %187, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit"
 
-209:                                              ; preds = %204
-  %210 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(160) %210), !noalias !12037
-  %211 = load i8, ptr %207, align 2, !range !3577, !noalias !12048, !noundef !17
-  %.not1.i19 = icmp eq i8 %211, 2
-  br i1 %.not1.i19, label %212, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit"
+187:                                              ; preds = %184
+  %188 = getelementptr inbounds nuw i8, ptr %166, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(160) %188), !noalias !12037
+  %189 = load i8, ptr %185, align 2, !range !3577, !noalias !12048, !noundef !17
+  %.not1.i19 = icmp eq i8 %189, 2
+  br i1 %.not1.i19, label %190, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit"
 
-212:                                              ; preds = %209
-  %213 = getelementptr inbounds nuw i8, ptr %206, i64 176
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd0348e8a3f03cb21E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %213), !noalias !12037
+190:                                              ; preds = %187
+  %191 = getelementptr inbounds nuw i8, ptr %166, i64 176
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd0348e8a3f03cb21E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %191), !noalias !12037
   br label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit"
 
-"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit": ; preds = %204, %209, %212
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h937dd9cae9983329E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %206, ptr noalias noundef align 8 captures(none) dereferenceable(32) %7), !noalias !12037
+"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit": ; preds = %184, %187, %190
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h937dd9cae9983329E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %166, ptr noalias noundef align 8 captures(none) dereferenceable(32) %7), !noalias !12037
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-214:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %215 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %216 = load ptr, ptr %215, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %216, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
+192:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %166, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-217:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %218 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %219 = load ptr, ptr %218, align 8, !noalias !12040, !nonnull !17, !align !27, !noundef !17
+193:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h24cacefe9dc29ec5E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %219), !noalias !12037
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h80d2d2d3f0355fddE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %219), !noalias !12037
-  %220 = getelementptr inbounds nuw i8, ptr %9, i64 30
-  %221 = load i8, ptr %220, align 2, !range !3577, !noalias !12052, !noundef !17
-  %.not.i16 = icmp eq i8 %221, 2
-  br i1 %.not.i16, label %222, label %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h24cacefe9dc29ec5E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %166), !noalias !12037
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h80d2d2d3f0355fddE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %166), !noalias !12037
+  %194 = getelementptr inbounds nuw i8, ptr %9, i64 30
+  %195 = load i8, ptr %194, align 2, !range !3577, !noalias !12052, !noundef !17
+  %.not.i16 = icmp eq i8 %195, 2
+  br i1 %.not.i16, label %196, label %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit"
 
-222:                                              ; preds = %217
-  %223 = getelementptr inbounds nuw i8, ptr %219, i64 16
+196:                                              ; preds = %193
+  %197 = getelementptr inbounds nuw i8, ptr %166, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !12056
   call fastcc void @_ZN4fish3ast9Populator9try_parse17hc79b888f18942d44E(ptr noalias noundef align 4 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12061
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %223, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false), !noalias !12062
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %197, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false), !noalias !12062
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !12056
   br label %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit"
 
-"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit": ; preds = %217, %222
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfe380248cea3b883E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %219, ptr noalias noundef align 8 captures(none) dereferenceable(32) %9), !noalias !12037
+"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit": ; preds = %193, %196
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfe380248cea3b883E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %166, ptr noalias noundef align 8 captures(none) dereferenceable(32) %9), !noalias !12037
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-224:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %225 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %226 = load ptr, ptr %225, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %226, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
+198:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %166, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-227:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %228 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %229 = load ptr, ptr %228, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %229, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
+199:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %166, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-230:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %231 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %232 = load ptr, ptr %231, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %232, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
+200:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %166, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-233:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %234 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %235 = load ptr, ptr %234, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
+201:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h4f6ba0f4c80c97cbE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %235), !noalias !12037
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %235), !noalias !12037
-  %236 = getelementptr inbounds nuw i8, ptr %10, i64 30
-  %237 = load i8, ptr %236, align 2, !range !3577, !noalias !12063, !noundef !17
-  %.not.i14 = icmp eq i8 %237, 2
-  br i1 %.not.i14, label %238, label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h4f6ba0f4c80c97cbE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %166), !noalias !12037
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %166), !noalias !12037
+  %202 = getelementptr inbounds nuw i8, ptr %10, i64 30
+  %203 = load i8, ptr %202, align 2, !range !3577, !noalias !12063, !noundef !17
+  %.not.i14 = icmp eq i8 %203, 2
+  br i1 %.not.i14, label %204, label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit"
 
-238:                                              ; preds = %233
-  %239 = getelementptr inbounds nuw i8, ptr %235, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hca29f2f067e485fdE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(208) %239), !noalias !12037
+204:                                              ; preds = %201
+  %205 = getelementptr inbounds nuw i8, ptr %166, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hca29f2f067e485fdE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(208) %205), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit"
 
-"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit": ; preds = %233, %238
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h664b5fa91fa80399E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %235, ptr noalias noundef align 8 captures(none) dereferenceable(32) %10), !noalias !12037
+"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit": ; preds = %201, %204
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h664b5fa91fa80399E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %166, ptr noalias noundef align 8 captures(none) dereferenceable(32) %10), !noalias !12037
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-240:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %241 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %242 = load ptr, ptr %241, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %242)
+206:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %166)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-243:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %244 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %245 = load ptr, ptr %244, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
+207:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17ha74f4e61d89105beE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %245), !noalias !12037
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %245), !noalias !12037
-  %246 = getelementptr inbounds nuw i8, ptr %12, i64 30
-  %247 = load i8, ptr %246, align 2, !range !3577, !noalias !12067, !noundef !17
-  %.not.i11 = icmp eq i8 %247, 2
-  br i1 %.not.i11, label %248, label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17ha74f4e61d89105beE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %166), !noalias !12037
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %166), !noalias !12037
+  %208 = getelementptr inbounds nuw i8, ptr %12, i64 30
+  %209 = load i8, ptr %208, align 2, !range !3577, !noalias !12067, !noundef !17
+  %.not.i11 = icmp eq i8 %209, 2
+  br i1 %.not.i11, label %210, label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit"
 
-248:                                              ; preds = %243
-  %249 = getelementptr inbounds nuw i8, ptr %245, i64 16
+210:                                              ; preds = %207
+  %211 = getelementptr inbounds nuw i8, ptr %166, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !12071
   call fastcc void @_ZN4fish3ast9Populator9try_parse17hc79b888f18942d44E(ptr noalias noundef align 4 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12076
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %249, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !noalias !12077
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %211, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !noalias !12077
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !12071
-  %250 = getelementptr inbounds nuw i8, ptr %245, i64 32
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc5d8ff9d357d95d1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %250), !noalias !12037
+  %212 = getelementptr inbounds nuw i8, ptr %166, i64 32
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc5d8ff9d357d95d1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %212), !noalias !12037
   br label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit"
 
-"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit": ; preds = %243, %248
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hc06534e3aa1639abE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %245, ptr noalias noundef align 8 captures(none) dereferenceable(32) %12), !noalias !12037
+"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit": ; preds = %207, %210
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hc06534e3aa1639abE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %166, ptr noalias noundef align 8 captures(none) dereferenceable(32) %12), !noalias !12037
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-251:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %252 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %253 = load ptr, ptr %252, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %253, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
+213:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %166, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-254:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %255 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %256 = load ptr, ptr %255, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
+214:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %166, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-257:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %258 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %259 = load ptr, ptr %258, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %259, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
+215:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %166, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-260:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %261 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %262 = load ptr, ptr %261, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
+216:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h532749ea362765d3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %262), !noalias !12037
-  %263 = getelementptr inbounds nuw i8, ptr %262, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h532749ea362765d3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %166), !noalias !12037
+  %217 = getelementptr inbounds nuw i8, ptr %166, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !12078), !noalias !12037
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  %264 = call noundef zeroext i1 @"_ZN80_$LT$fish..ast..DecoratedStatementDecorator$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17h5fb5c422c9295aacE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12081
-  br i1 %264, label %265, label %268
+  %218 = call noundef zeroext i1 @"_ZN80_$LT$fish..ast..DecoratedStatementDecorator$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17h5fb5c422c9295aacE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12081
+  br i1 %218, label %219, label %222
 
-265:                                              ; preds = %260
+219:                                              ; preds = %216
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !12085
   call void @llvm.experimental.noalias.scope.decl(metadata !12090), !noalias !12093
-  %266 = call noundef i8 @"_ZN78_$LT$fish..parse_constants..ParseKeyword$u20$as$u20$core..default..Default$GT$7default17h30f756cf70474047E"(), !noalias !12094
+  %220 = call noundef i8 @"_ZN78_$LT$fish..parse_constants..ParseKeyword$u20$as$u20$core..default..Default$GT$7default17h30f756cf70474047E"(), !noalias !12094
   store i32 0, ptr %5, align 4, !alias.scope !12090, !noalias !12085
-  %267 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i8 %266, ptr %267, align 4, !alias.scope !12090, !noalias !12085
+  %221 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i8 %220, ptr %221, align 4, !alias.scope !12090, !noalias !12085
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !12085
   call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1809b9c086c2aa57E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %5), !noalias !12095
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12085
@@ -121221,469 +120879,367 @@ default.unreachable:                              ; preds = %332, %"_ZN66_$LT$fi
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx, i64 12, i1 false), !noalias !12097
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !12085
-  br label %268
+  br label %222
 
-268:                                              ; preds = %265, %260
-  %.sroa.0.0 = phi i32 [ %.sroa.025.0.copyload, %265 ], [ 2, %260 ]
-  store i32 %.sroa.0.0, ptr %263, align 8, !noalias !12098
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %262, i64 20
+222:                                              ; preds = %219, %216
+  %.sroa.0.0 = phi i32 [ %.sroa.025.0.copyload, %219 ], [ 2, %216 ]
+  store i32 %.sroa.0.0, ptr %217, align 4, !noalias !12098
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5, i64 12, i1 false), !noalias !12098
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  %269 = getelementptr inbounds nuw i8, ptr %13, i64 30
-  store i8 2, ptr %269, align 2, !alias.scope !12078, !noalias !12102
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %262), !noalias !12037
-  %270 = load i8, ptr %269, align 2, !range !3577, !noalias !12104, !noundef !17
-  %.not1.i9 = icmp eq i8 %270, 2
-  br i1 %.not1.i9, label %271, label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit"
+  %223 = getelementptr inbounds nuw i8, ptr %13, i64 30
+  store i8 2, ptr %223, align 2, !alias.scope !12078, !noalias !12102
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %166), !noalias !12037
+  %224 = load i8, ptr %223, align 2, !range !3577, !noalias !12104, !noundef !17
+  %.not1.i9 = icmp eq i8 %224, 2
+  br i1 %.not1.i9, label %225, label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit"
 
-271:                                              ; preds = %268
-  %272 = getelementptr inbounds nuw i8, ptr %262, i64 32
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %272), !noalias !12037
+225:                                              ; preds = %222
+  %226 = getelementptr inbounds nuw i8, ptr %166, i64 32
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %226), !noalias !12037
   br label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit"
 
-"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit": ; preds = %268, %271
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h6a75953bc5a3dbe8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %262, ptr noalias noundef align 8 captures(none) dereferenceable(32) %13), !noalias !12037
+"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit": ; preds = %222, %225
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h6a75953bc5a3dbe8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %166, ptr noalias noundef align 8 captures(none) dereferenceable(32) %13), !noalias !12037
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-273:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %274 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %275 = load ptr, ptr %274, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %275, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
+227:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %166, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-276:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %277 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %278 = load ptr, ptr %277, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %278), !noalias !12037
+228:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %166), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-279:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %280 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %281 = load ptr, ptr %280, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %281)
+229:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %166)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-282:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %283 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %284 = load ptr, ptr %283, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
+230:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h01eb6c0c74e3287aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %284), !noalias !12037
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h43bb3b44ab08d2baE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %284), !noalias !12037
-  %285 = getelementptr inbounds nuw i8, ptr %14, i64 30
-  %286 = load i8, ptr %285, align 2, !range !3577, !noalias !12105, !noundef !17
-  %.not.i7 = icmp eq i8 %286, 2
-  br i1 %.not.i7, label %287, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h01eb6c0c74e3287aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %166), !noalias !12037
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h43bb3b44ab08d2baE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %166), !noalias !12037
+  %231 = getelementptr inbounds nuw i8, ptr %14, i64 30
+  %232 = load i8, ptr %231, align 2, !range !3577, !noalias !12105, !noundef !17
+  %.not.i7 = icmp eq i8 %232, 2
+  br i1 %.not.i7, label %233, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit"
 
-287:                                              ; preds = %282
-  %288 = getelementptr inbounds nuw i8, ptr %284, i64 128
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h818c83f62cd06754E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(12) %288), !noalias !12037
-  %289 = load i8, ptr %285, align 2, !range !3577, !noalias !12105, !noundef !17
-  %.not1.i = icmp eq i8 %289, 2
-  br i1 %.not1.i, label %290, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit"
+233:                                              ; preds = %230
+  %234 = getelementptr inbounds nuw i8, ptr %166, i64 128
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h818c83f62cd06754E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(12) %234), !noalias !12037
+  %235 = load i8, ptr %231, align 2, !range !3577, !noalias !12105, !noundef !17
+  %.not1.i = icmp eq i8 %235, 2
+  br i1 %.not1.i, label %236, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit"
 
-290:                                              ; preds = %287
-  %291 = getelementptr inbounds nuw i8, ptr %284, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h93a471d0b8d5106bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(112) %291), !noalias !12037
+236:                                              ; preds = %233
+  %237 = getelementptr inbounds nuw i8, ptr %166, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h93a471d0b8d5106bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(112) %237), !noalias !12037
   br label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit"
 
-"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit": ; preds = %282, %287, %290
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h798e06610eb2f4b8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %284, ptr noalias noundef align 8 captures(none) dereferenceable(32) %14), !noalias !12037
+"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit": ; preds = %230, %233, %236
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h798e06610eb2f4b8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %166, ptr noalias noundef align 8 captures(none) dereferenceable(32) %14), !noalias !12037
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-292:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %293 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %294 = load ptr, ptr %293, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
+238:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h409ed0dce593bd81E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %294), !noalias !12037
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %294), !noalias !12037
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfec61b9cd3d5b2e0E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %294, ptr noalias noundef align 8 captures(none) dereferenceable(32) %15), !noalias !12037
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h409ed0dce593bd81E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %166), !noalias !12037
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %166), !noalias !12037
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfec61b9cd3d5b2e0E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %166, ptr noalias noundef align 8 captures(none) dereferenceable(32) %15), !noalias !12037
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-295:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %296 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %297 = load ptr, ptr %296, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %297)
+239:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %166)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-298:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %299 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %300 = load ptr, ptr %299, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
+240:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h8f3472ff825a7f83E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %300), !noalias !12037
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1e934e91488c67a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %16, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %300), !noalias !12037
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hd64bf4a54c433fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %300, ptr noalias noundef align 8 captures(none) dereferenceable(32) %16), !noalias !12037
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h8f3472ff825a7f83E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %166), !noalias !12037
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1e934e91488c67a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %16, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %166), !noalias !12037
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hd64bf4a54c433fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %166, ptr noalias noundef align 8 captures(none) dereferenceable(32) %16), !noalias !12037
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-301:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %302 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %303 = load ptr, ptr %302, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %303)
+241:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %166)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-304:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %305 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %306 = load ptr, ptr %305, align 8, !noalias !12040, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %306), !noalias !12037
+242:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %166), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-307:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %308 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %309 = load ptr, ptr %308, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %309)
+243:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %166)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-310:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %311 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %312 = load ptr, ptr %311, align 8, !noalias !12040, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %312), !noalias !12037
+244:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %166), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-313:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %314 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %315 = load ptr, ptr %314, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %315, i1 noundef zeroext false), !noalias !12037
+245:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %166, i1 noundef zeroext false), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-316:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %317 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %318 = load ptr, ptr %317, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %318, i1 noundef zeroext false), !noalias !12037
+246:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
+  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %166, i1 noundef zeroext false), !noalias !12037
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread"
 
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread": ; preds = %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit", %172, %177, %180, %183, %186, %189, %192, %195, %198, %201, %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit", %214, %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit", %224, %227, %230, %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit", %240, %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit", %251, %254, %257, %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit", %273, %276, %279, %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit", %292, %295, %298, %301, %304, %307, %310, %313, %316
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread": ; preds = %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit", %172, %175, %176, %177, %178, %179, %180, %181, %182, %183, %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit", %192, %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit", %198, %199, %200, %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit", %206, %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit", %213, %214, %215, %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit", %227, %228, %229, %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit", %238, %239, %240, %241, %242, %243, %244, %245, %246
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !12040
-  %319 = getelementptr inbounds nuw i8, ptr %38, i64 30
-  store i8 2, ptr %319, align 2, !alias.scope !12037, !noalias !12109
-  %320 = getelementptr inbounds nuw i8, ptr %38, i64 30
-  br label %327
+  %247 = getelementptr inbounds nuw i8, ptr %38, i64 30
+  store i8 2, ptr %247, align 2, !alias.scope !12037, !noalias !12109
+  %248 = getelementptr inbounds nuw i8, ptr %38, i64 30
+  br label %253
 
 "_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit": ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h7b1154524dfd2ed3E.exit"
-  %321 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %322 = load ptr, ptr %321, align 8, !noalias !12040, !nonnull !17, !align !139, !noundef !17
-  %323 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %324 = load ptr, ptr %323, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %38, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %322, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %324)
+  %249 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %250 = load ptr, ptr %249, align 8, !noalias !12040, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %38, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %166, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %250)
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !12040
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %38, i64 30
   %.pre = load i8, ptr %.phi.trans.insert, align 2, !range !3577
-  %325 = icmp eq i8 %.pre, 2
-  %326 = getelementptr inbounds nuw i8, ptr %38, i64 30
-  br i1 %325, label %327, label %331
+  %251 = icmp eq i8 %.pre, 2
+  %252 = getelementptr inbounds nuw i8, ptr %38, i64 30
+  br i1 %251, label %253, label %257
 
-327:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit"
-  %328 = phi ptr [ %320, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread" ], [ %326, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit" ]
-  %329 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %38, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %329)
-  %330 = load i8, ptr %328, align 2, !range !3577, !noundef !17
-  %.not1 = icmp eq i8 %330, 2
-  br i1 %.not1, label %332, label %331
+253:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit"
+  %254 = phi ptr [ %248, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit.thread" ], [ %252, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit" ]
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %38, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %255)
+  %256 = load i8, ptr %254, align 2, !range !3577, !noundef !17
+  %.not1 = icmp eq i8 %256, 2
+  br i1 %.not1, label %258, label %257
 
-331:                                              ; preds = %455, %452, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit", %327, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit"
+257:                                              ; preds = %307, %304, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit", %253, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8d60dfe6ad5a4ae6E.exit"
   call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h5d58160923dd9214E"(ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(80) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %38)
   ret void
 
-332:                                              ; preds = %327
-  %333 = getelementptr inbounds nuw i8, ptr %0, i64 32
+258:                                              ; preds = %253
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !12110)
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !12113
-  call void @"_ZN56_$LT$fish..ast..KeywordIn$u20$as$u20$fish..ast..Node$GT$8kind_mut17hdedbb03b875024e2E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull align 4 dereferenceable(16) %333), !noalias !12116
-  %334 = load i64, ptr %17, align 8, !range !167, !noalias !12113, !noundef !17
-  switch i64 %334, label %default.unreachable [
-    i64 0, label %335
-    i64 1, label %338
+  call void @"_ZN56_$LT$fish..ast..KeywordIn$u20$as$u20$fish..ast..Node$GT$8kind_mut17hdedbb03b875024e2E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull align 4 dereferenceable(16) %259), !noalias !12116
+  %260 = load i64, ptr %17, align 8, !range !167, !noalias !12113, !noundef !17
+  %261 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %262 = load ptr, ptr %261, align 8, !noalias !12113, !nonnull !17, !align !139, !noundef !17
+  switch i64 %260, label %default.unreachable [
+    i64 0, label %263
+    i64 1, label %264
     i64 2, label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit"
-    i64 3, label %343
-    i64 4, label %346
-    i64 5, label %349
-    i64 6, label %352
-    i64 7, label %355
-    i64 8, label %358
-    i64 9, label %361
-    i64 10, label %364
-    i64 11, label %367
-    i64 12, label %370
-    i64 13, label %373
-    i64 14, label %376
-    i64 15, label %379
-    i64 16, label %382
-    i64 17, label %385
-    i64 18, label %388
-    i64 19, label %391
-    i64 20, label %394
-    i64 21, label %397
-    i64 22, label %400
-    i64 23, label %403
-    i64 24, label %406
-    i64 25, label %409
-    i64 26, label %412
-    i64 27, label %415
-    i64 28, label %418
-    i64 29, label %421
-    i64 30, label %424
-    i64 31, label %427
-    i64 32, label %430
-    i64 33, label %433
-    i64 34, label %436
-    i64 35, label %439
-    i64 36, label %442
-    i64 37, label %445
+    i64 3, label %267
+    i64 4, label %268
+    i64 5, label %269
+    i64 6, label %270
+    i64 7, label %271
+    i64 8, label %272
+    i64 9, label %273
+    i64 10, label %274
+    i64 11, label %275
+    i64 12, label %276
+    i64 13, label %277
+    i64 14, label %278
+    i64 15, label %279
+    i64 16, label %280
+    i64 17, label %281
+    i64 18, label %282
+    i64 19, label %283
+    i64 20, label %284
+    i64 21, label %285
+    i64 22, label %286
+    i64 23, label %287
+    i64 24, label %288
+    i64 25, label %289
+    i64 26, label %290
+    i64 27, label %291
+    i64 28, label %292
+    i64 29, label %293
+    i64 30, label %294
+    i64 31, label %295
+    i64 32, label %296
+    i64 33, label %297
+    i64 34, label %298
+    i64 35, label %299
+    i64 36, label %300
+    i64 37, label %301
   ]
 
-335:                                              ; preds = %332
-  %336 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %337 = load ptr, ptr %336, align 8, !noalias !12113, !nonnull !17, !align !27, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE"(ptr noalias noundef align 4 dereferenceable(32) %337, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+263:                                              ; preds = %258
+  call fastcc void @"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE"(ptr noalias noundef align 4 dereferenceable(32) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-338:                                              ; preds = %332
-  %339 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %340 = load ptr, ptr %339, align 8, !noalias !12113, !nonnull !17, !align !139, !noundef !17
-  %341 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %342 = load ptr, ptr %341, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %340, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %342), !noalias !12110
+264:                                              ; preds = %258
+  %265 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %266 = load ptr, ptr %265, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %262, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %266), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-343:                                              ; preds = %332
-  %344 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %345 = load ptr, ptr %344, align 8, !noalias !12113, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %345), !noalias !12110
+267:                                              ; preds = %258
+  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %262), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-346:                                              ; preds = %332
-  %347 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %348 = load ptr, ptr %347, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %348)
+268:                                              ; preds = %258
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %262)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-349:                                              ; preds = %332
-  %350 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %351 = load ptr, ptr %350, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %351), !noalias !12110
+269:                                              ; preds = %258
+  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %262), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-352:                                              ; preds = %332
-  %353 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %354 = load ptr, ptr %353, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %354)
+270:                                              ; preds = %258
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %262)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-355:                                              ; preds = %332
-  %356 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %357 = load ptr, ptr %356, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %357), !noalias !12110
+271:                                              ; preds = %258
+  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %262), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-358:                                              ; preds = %332
-  %359 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %360 = load ptr, ptr %359, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %360, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+272:                                              ; preds = %258
+  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-361:                                              ; preds = %332
-  %362 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %363 = load ptr, ptr %362, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %363, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+273:                                              ; preds = %258
+  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-364:                                              ; preds = %332
-  %365 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %366 = load ptr, ptr %365, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %366), !noalias !12110
+274:                                              ; preds = %258
+  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %262), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-367:                                              ; preds = %332
-  %368 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %369 = load ptr, ptr %368, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %369, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+275:                                              ; preds = %258
+  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-370:                                              ; preds = %332
-  %371 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %372 = load ptr, ptr %371, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE"(ptr noalias noundef align 8 dereferenceable(192) %372, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+276:                                              ; preds = %258
+  call fastcc void @"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE"(ptr noalias noundef align 8 dereferenceable(192) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-373:                                              ; preds = %332
-  %374 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %375 = load ptr, ptr %374, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %375, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+277:                                              ; preds = %258
+  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-376:                                              ; preds = %332
-  %377 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %378 = load ptr, ptr %377, align 8, !noalias !12113, !nonnull !17, !align !27, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %378, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+278:                                              ; preds = %258
+  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-379:                                              ; preds = %332
-  %380 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %381 = load ptr, ptr %380, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %381, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+279:                                              ; preds = %258
+  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-382:                                              ; preds = %332
-  %383 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %384 = load ptr, ptr %383, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %384, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+280:                                              ; preds = %258
+  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-385:                                              ; preds = %332
-  %386 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %387 = load ptr, ptr %386, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %387, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+281:                                              ; preds = %258
+  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-388:                                              ; preds = %332
-  %389 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %390 = load ptr, ptr %389, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E"(ptr noalias noundef align 8 dereferenceable(224) %390, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+282:                                              ; preds = %258
+  call fastcc void @"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E"(ptr noalias noundef align 8 dereferenceable(224) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-391:                                              ; preds = %332
-  %392 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %393 = load ptr, ptr %392, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %393)
+283:                                              ; preds = %258
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %262)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-394:                                              ; preds = %332
-  %395 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %396 = load ptr, ptr %395, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE"(ptr noalias noundef align 8 dereferenceable(48) %396, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+284:                                              ; preds = %258
+  call fastcc void @"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE"(ptr noalias noundef align 8 dereferenceable(48) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-397:                                              ; preds = %332
-  %398 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %399 = load ptr, ptr %398, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %399, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+285:                                              ; preds = %258
+  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-400:                                              ; preds = %332
-  %401 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %402 = load ptr, ptr %401, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %402, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+286:                                              ; preds = %258
+  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-403:                                              ; preds = %332
-  %404 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %405 = load ptr, ptr %404, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %405, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+287:                                              ; preds = %258
+  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-406:                                              ; preds = %332
-  %407 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %408 = load ptr, ptr %407, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE"(ptr noalias noundef align 8 dereferenceable(48) %408, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+288:                                              ; preds = %258
+  call fastcc void @"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE"(ptr noalias noundef align 8 dereferenceable(48) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-409:                                              ; preds = %332
-  %410 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %411 = load ptr, ptr %410, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %411, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+289:                                              ; preds = %258
+  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-412:                                              ; preds = %332
-  %413 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %414 = load ptr, ptr %413, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %414), !noalias !12110
+290:                                              ; preds = %258
+  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %262), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-415:                                              ; preds = %332
-  %416 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %417 = load ptr, ptr %416, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %417)
+291:                                              ; preds = %258
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %262)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-418:                                              ; preds = %332
-  %419 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %420 = load ptr, ptr %419, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE"(ptr noalias noundef align 8 dereferenceable(144) %420, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+292:                                              ; preds = %258
+  call fastcc void @"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE"(ptr noalias noundef align 8 dereferenceable(144) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-421:                                              ; preds = %332
-  %422 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %423 = load ptr, ptr %422, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..AndorJob$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5749cf043a738819E"(ptr noalias noundef align 8 dereferenceable(160) %423, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+293:                                              ; preds = %258
+  call fastcc void @"_ZN62_$LT$fish..ast..AndorJob$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5749cf043a738819E"(ptr noalias noundef align 8 dereferenceable(160) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-424:                                              ; preds = %332
-  %425 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %426 = load ptr, ptr %425, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %426)
+294:                                              ; preds = %258
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %262)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-427:                                              ; preds = %332
-  %428 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %429 = load ptr, ptr %428, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN78_$LT$fish..ast..FreestandingArgumentList$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h80f5e05633587246E"(ptr noalias noundef align 8 dereferenceable(16) %429, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
+295:                                              ; preds = %258
+  call fastcc void @"_ZN78_$LT$fish..ast..FreestandingArgumentList$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h80f5e05633587246E"(ptr noalias noundef align 8 dereferenceable(16) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-430:                                              ; preds = %332
-  %431 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %432 = load ptr, ptr %431, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %432)
+296:                                              ; preds = %258
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %262)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-433:                                              ; preds = %332
-  %434 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %435 = load ptr, ptr %434, align 8, !noalias !12113, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %435), !noalias !12110
+297:                                              ; preds = %258
+  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %262), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-436:                                              ; preds = %332
-  %437 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %438 = load ptr, ptr %437, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %438)
+298:                                              ; preds = %258
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %262)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-439:                                              ; preds = %332
-  %440 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %441 = load ptr, ptr %440, align 8, !noalias !12113, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %441), !noalias !12110
+299:                                              ; preds = %258
+  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %262), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-442:                                              ; preds = %332
-  %443 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %444 = load ptr, ptr %443, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %444, i1 noundef zeroext false), !noalias !12110
+300:                                              ; preds = %258
+  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %262, i1 noundef zeroext false), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-445:                                              ; preds = %332
-  %446 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %447 = load ptr, ptr %446, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %447, i1 noundef zeroext false), !noalias !12110
+301:                                              ; preds = %258
+  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %262, i1 noundef zeroext false), !noalias !12110
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread"
 
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread": ; preds = %335, %338, %343, %346, %349, %352, %355, %358, %361, %364, %367, %370, %373, %376, %379, %382, %385, %388, %391, %394, %397, %400, %403, %406, %409, %412, %415, %418, %421, %424, %427, %430, %433, %436, %439, %442, %445
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread": ; preds = %263, %264, %267, %268, %269, %270, %271, %272, %273, %274, %275, %276, %277, %278, %279, %280, %281, %282, %283, %284, %285, %286, %287, %288, %289, %290, %291, %292, %293, %294, %295, %296, %297, %298, %299, %300, %301
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !12113
-  store i8 2, ptr %328, align 2, !alias.scope !12110, !noalias !12117
-  br label %452
+  store i8 2, ptr %254, align 2, !alias.scope !12110, !noalias !12117
+  br label %304
 
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit": ; preds = %332
-  %448 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %449 = load ptr, ptr %448, align 8, !noalias !12113, !nonnull !17, !align !139, !noundef !17
-  %450 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %451 = load ptr, ptr %450, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %38, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %449, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %451)
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit": ; preds = %258
+  %302 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %303 = load ptr, ptr %302, align 8, !noalias !12113, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %38, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %262, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %303)
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !12113
-  %.pr = load i8, ptr %328, align 2
+  %.pr = load i8, ptr %254, align 2
   %.not2 = icmp eq i8 %.pr, 2
-  br i1 %.not2, label %452, label %331
+  br i1 %.not2, label %304, label %257
 
-452:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit"
-  %453 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1e934e91488c67a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %38, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %453)
-  %454 = load i8, ptr %328, align 2, !range !3577, !noundef !17
-  %.not3 = icmp eq i8 %454, 2
-  br i1 %.not3, label %455, label %331
+304:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd83789c0954a5d32E.exit"
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1e934e91488c67a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %38, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %305)
+  %306 = load i8, ptr %254, align 2, !range !3577, !noundef !17
+  %.not3 = icmp eq i8 %306, 2
+  br i1 %.not3, label %307, label %257
 
-455:                                              ; preds = %452
-  %456 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd03d9516ef0cf23bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %38, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %456)
-  br label %331
+307:                                              ; preds = %304
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd03d9516ef0cf23bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %38, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %308)
+  br label %257
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -123983,280 +123539,234 @@ define internal fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fis
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !12421
   call void @"_ZN61_$LT$fish..ast..TokenLeftBrace$u20$as$u20$fish..ast..Node$GT$8kind_mut17hdaf7a3d4624315b4E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull align 4 dereferenceable(16) %0), !noalias !12424
   %162 = load i64, ptr %16, align 8, !range !167, !noalias !12421, !noundef !17
+  %163 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %164 = load ptr, ptr %163, align 8, !noalias !12421, !nonnull !17, !align !139, !noundef !17
   switch i64 %162, label %default.unreachable [
-    i64 0, label %163
+    i64 0, label %165
     i64 1, label %170
     i64 2, label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit"
-    i64 3, label %175
-    i64 4, label %178
-    i64 5, label %181
-    i64 6, label %184
-    i64 7, label %187
-    i64 8, label %190
-    i64 9, label %193
-    i64 10, label %196
-    i64 11, label %199
-    i64 12, label %202
-    i64 13, label %212
-    i64 14, label %215
-    i64 15, label %218
-    i64 16, label %221
-    i64 17, label %224
-    i64 18, label %227
-    i64 19, label %234
-    i64 20, label %237
-    i64 21, label %245
-    i64 22, label %248
-    i64 23, label %251
-    i64 24, label %254
-    i64 25, label %267
-    i64 26, label %270
-    i64 27, label %273
-    i64 28, label %276
-    i64 29, label %286
-    i64 30, label %289
-    i64 31, label %292
-    i64 32, label %295
-    i64 33, label %298
-    i64 34, label %301
-    i64 35, label %304
-    i64 36, label %307
-    i64 37, label %310
+    i64 3, label %173
+    i64 4, label %174
+    i64 5, label %175
+    i64 6, label %176
+    i64 7, label %177
+    i64 8, label %178
+    i64 9, label %179
+    i64 10, label %180
+    i64 11, label %181
+    i64 12, label %182
+    i64 13, label %190
+    i64 14, label %191
+    i64 15, label %192
+    i64 16, label %193
+    i64 17, label %194
+    i64 18, label %195
+    i64 19, label %200
+    i64 20, label %201
+    i64 21, label %207
+    i64 22, label %208
+    i64 23, label %209
+    i64 24, label %210
+    i64 25, label %221
+    i64 26, label %222
+    i64 27, label %223
+    i64 28, label %224
+    i64 29, label %232
+    i64 30, label %233
+    i64 31, label %234
+    i64 32, label %235
+    i64 33, label %236
+    i64 34, label %237
+    i64 35, label %238
+    i64 36, label %239
+    i64 37, label %240
   ]
 
-default.unreachable:                              ; preds = %326, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+default.unreachable:                              ; preds = %252, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
   unreachable
 
-163:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %164 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %165 = load ptr, ptr %164, align 8, !noalias !12421, !nonnull !17, !align !27, !noundef !17
+165:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf72cd84b56f3a141E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %165), !noalias !12418
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h049305556e67f2cbE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %165), !noalias !12418
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf72cd84b56f3a141E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %164), !noalias !12418
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h049305556e67f2cbE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %164), !noalias !12418
   %166 = getelementptr inbounds nuw i8, ptr %6, i64 30
   %167 = load i8, ptr %166, align 2, !range !3577, !noalias !12425, !noundef !17
   %.not.i18 = icmp eq i8 %167, 2
   br i1 %.not.i18, label %168, label %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit"
 
-168:                                              ; preds = %163
-  %169 = getelementptr inbounds nuw i8, ptr %165, i64 16
+168:                                              ; preds = %165
+  %169 = getelementptr inbounds nuw i8, ptr %164, i64 16
   call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %169), !noalias !12418
   br label %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit"
 
-"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit": ; preds = %163, %168
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h9570d0d3c19e21acE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %165, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6), !noalias !12418
+"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit": ; preds = %165, %168
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h9570d0d3c19e21acE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %164, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6), !noalias !12418
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
 170:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %171 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %172 = load ptr, ptr %171, align 8, !noalias !12421, !nonnull !17, !align !139, !noundef !17
-  %173 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %174 = load ptr, ptr %173, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %172, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %174), !noalias !12418
+  %171 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %172 = load ptr, ptr %171, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %164, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %172), !noalias !12418
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
+
+173:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %164), !noalias !12418
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
+
+174:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %164)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
 175:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %176 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %177 = load ptr, ptr %176, align 8, !noalias !12421, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %177), !noalias !12418
+  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %164), !noalias !12418
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
+
+176:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %164)
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
+
+177:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %164), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
 178:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %179 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %180 = load ptr, ptr %179, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %180)
+  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %164, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
+
+179:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %164, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
+
+180:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %164), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
 181:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %182 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %183 = load ptr, ptr %182, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %183), !noalias !12418
+  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %164, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-184:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %185 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %186 = load ptr, ptr %185, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %186)
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
-
-187:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %188 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %189 = load ptr, ptr %188, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %189), !noalias !12418
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
-
-190:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %191 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %192 = load ptr, ptr %191, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %192, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
-
-193:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %194 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %195 = load ptr, ptr %194, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %195, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
-
-196:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %197 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %198 = load ptr, ptr %197, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %198), !noalias !12418
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
-
-199:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %200 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %201 = load ptr, ptr %200, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %201, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
-
-202:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %203 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %204 = load ptr, ptr %203, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
+182:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h1a3b846da26f66f9E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %204), !noalias !12418
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haa8be05bf548bc11E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %204), !noalias !12418
-  %205 = getelementptr inbounds nuw i8, ptr %7, i64 30
-  %206 = load i8, ptr %205, align 2, !range !3577, !noalias !12429, !noundef !17
-  %.not.i15 = icmp eq i8 %206, 2
-  br i1 %.not.i15, label %207, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h1a3b846da26f66f9E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %164), !noalias !12418
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haa8be05bf548bc11E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %164), !noalias !12418
+  %183 = getelementptr inbounds nuw i8, ptr %7, i64 30
+  %184 = load i8, ptr %183, align 2, !range !3577, !noalias !12429, !noundef !17
+  %.not.i15 = icmp eq i8 %184, 2
+  br i1 %.not.i15, label %185, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit"
 
-207:                                              ; preds = %202
-  %208 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(160) %208), !noalias !12418
-  %209 = load i8, ptr %205, align 2, !range !3577, !noalias !12429, !noundef !17
-  %.not1.i16 = icmp eq i8 %209, 2
-  br i1 %.not1.i16, label %210, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit"
+185:                                              ; preds = %182
+  %186 = getelementptr inbounds nuw i8, ptr %164, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(160) %186), !noalias !12418
+  %187 = load i8, ptr %183, align 2, !range !3577, !noalias !12429, !noundef !17
+  %.not1.i16 = icmp eq i8 %187, 2
+  br i1 %.not1.i16, label %188, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit"
 
-210:                                              ; preds = %207
-  %211 = getelementptr inbounds nuw i8, ptr %204, i64 176
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd0348e8a3f03cb21E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %211), !noalias !12418
+188:                                              ; preds = %185
+  %189 = getelementptr inbounds nuw i8, ptr %164, i64 176
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd0348e8a3f03cb21E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %189), !noalias !12418
   br label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit"
 
-"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit": ; preds = %202, %207, %210
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h937dd9cae9983329E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %204, ptr noalias noundef align 8 captures(none) dereferenceable(32) %7), !noalias !12418
+"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit": ; preds = %182, %185, %188
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h937dd9cae9983329E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %164, ptr noalias noundef align 8 captures(none) dereferenceable(32) %7), !noalias !12418
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-212:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %213 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %214 = load ptr, ptr %213, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %214, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
+190:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %164, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-215:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %216 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %217 = load ptr, ptr %216, align 8, !noalias !12421, !nonnull !17, !align !27, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %217, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
+191:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %164, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-218:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %219 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %220 = load ptr, ptr %219, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %220, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
+192:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %164, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-221:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %222 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %223 = load ptr, ptr %222, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %223, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
+193:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %164, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-224:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %225 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %226 = load ptr, ptr %225, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %226, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
+194:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %164, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-227:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %228 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %229 = load ptr, ptr %228, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
+195:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h4f6ba0f4c80c97cbE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %229), !noalias !12418
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %229), !noalias !12418
-  %230 = getelementptr inbounds nuw i8, ptr %8, i64 30
-  %231 = load i8, ptr %230, align 2, !range !3577, !noalias !12433, !noundef !17
-  %.not.i13 = icmp eq i8 %231, 2
-  br i1 %.not.i13, label %232, label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h4f6ba0f4c80c97cbE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %164), !noalias !12418
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %164), !noalias !12418
+  %196 = getelementptr inbounds nuw i8, ptr %8, i64 30
+  %197 = load i8, ptr %196, align 2, !range !3577, !noalias !12433, !noundef !17
+  %.not.i13 = icmp eq i8 %197, 2
+  br i1 %.not.i13, label %198, label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit"
 
-232:                                              ; preds = %227
-  %233 = getelementptr inbounds nuw i8, ptr %229, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hca29f2f067e485fdE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(208) %233), !noalias !12418
+198:                                              ; preds = %195
+  %199 = getelementptr inbounds nuw i8, ptr %164, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hca29f2f067e485fdE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(208) %199), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit"
 
-"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit": ; preds = %227, %232
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h664b5fa91fa80399E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %229, ptr noalias noundef align 8 captures(none) dereferenceable(32) %8), !noalias !12418
+"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit": ; preds = %195, %198
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h664b5fa91fa80399E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %164, ptr noalias noundef align 8 captures(none) dereferenceable(32) %8), !noalias !12418
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-234:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %235 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %236 = load ptr, ptr %235, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %236)
+200:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %164)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-237:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %238 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %239 = load ptr, ptr %238, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
+201:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17ha74f4e61d89105beE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %239), !noalias !12418
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %239), !noalias !12418
-  %240 = getelementptr inbounds nuw i8, ptr %10, i64 30
-  %241 = load i8, ptr %240, align 2, !range !3577, !noalias !12437, !noundef !17
-  %.not.i10 = icmp eq i8 %241, 2
-  br i1 %.not.i10, label %242, label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17ha74f4e61d89105beE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %164), !noalias !12418
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %164), !noalias !12418
+  %202 = getelementptr inbounds nuw i8, ptr %10, i64 30
+  %203 = load i8, ptr %202, align 2, !range !3577, !noalias !12437, !noundef !17
+  %.not.i10 = icmp eq i8 %203, 2
+  br i1 %.not.i10, label %204, label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit"
 
-242:                                              ; preds = %237
-  %243 = getelementptr inbounds nuw i8, ptr %239, i64 16
+204:                                              ; preds = %201
+  %205 = getelementptr inbounds nuw i8, ptr %164, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !12441
   call fastcc void @_ZN4fish3ast9Populator9try_parse17hc79b888f18942d44E(ptr noalias noundef align 4 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12446
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %243, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false), !noalias !12447
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %205, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false), !noalias !12447
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !12441
-  %244 = getelementptr inbounds nuw i8, ptr %239, i64 32
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc5d8ff9d357d95d1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %244), !noalias !12418
+  %206 = getelementptr inbounds nuw i8, ptr %164, i64 32
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc5d8ff9d357d95d1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %206), !noalias !12418
   br label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit"
 
-"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit": ; preds = %237, %242
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hc06534e3aa1639abE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %239, ptr noalias noundef align 8 captures(none) dereferenceable(32) %10), !noalias !12418
+"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit": ; preds = %201, %204
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hc06534e3aa1639abE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %164, ptr noalias noundef align 8 captures(none) dereferenceable(32) %10), !noalias !12418
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-245:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %246 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %247 = load ptr, ptr %246, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %247, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
+207:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %164, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-248:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %249 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %250 = load ptr, ptr %249, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %250, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
+208:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %164, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-251:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %252 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %253 = load ptr, ptr %252, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %253, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
+209:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %164, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-254:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %255 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %256 = load ptr, ptr %255, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
+210:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h532749ea362765d3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %256), !noalias !12418
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h532749ea362765d3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %164), !noalias !12418
+  %211 = getelementptr inbounds nuw i8, ptr %164, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !12448), !noalias !12418
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  %258 = call noundef zeroext i1 @"_ZN80_$LT$fish..ast..DecoratedStatementDecorator$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17h5fb5c422c9295aacE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12451
-  br i1 %258, label %259, label %262
+  %212 = call noundef zeroext i1 @"_ZN80_$LT$fish..ast..DecoratedStatementDecorator$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17h5fb5c422c9295aacE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12451
+  br i1 %212, label %213, label %216
 
-259:                                              ; preds = %254
+213:                                              ; preds = %210
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !12455
   call void @llvm.experimental.noalias.scope.decl(metadata !12460), !noalias !12463
-  %260 = call noundef i8 @"_ZN78_$LT$fish..parse_constants..ParseKeyword$u20$as$u20$core..default..Default$GT$7default17h30f756cf70474047E"(), !noalias !12464
+  %214 = call noundef i8 @"_ZN78_$LT$fish..parse_constants..ParseKeyword$u20$as$u20$core..default..Default$GT$7default17h30f756cf70474047E"(), !noalias !12464
   store i32 0, ptr %5, align 4, !alias.scope !12460, !noalias !12455
-  %261 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i8 %260, ptr %261, align 4, !alias.scope !12460, !noalias !12455
+  %215 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i8 %214, ptr %215, align 4, !alias.scope !12460, !noalias !12455
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !12455
   call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1809b9c086c2aa57E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %5), !noalias !12465
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12455
@@ -124264,462 +123774,360 @@ default.unreachable:                              ; preds = %326, %"_ZN66_$LT$fi
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx, i64 12, i1 false), !noalias !12467
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !12455
-  br label %262
+  br label %216
 
-262:                                              ; preds = %259, %254
-  %.sroa.0.0 = phi i32 [ %.sroa.022.0.copyload, %259 ], [ 2, %254 ]
-  store i32 %.sroa.0.0, ptr %257, align 8, !noalias !12468
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %256, i64 20
+216:                                              ; preds = %213, %210
+  %.sroa.0.0 = phi i32 [ %.sroa.022.0.copyload, %213 ], [ 2, %210 ]
+  store i32 %.sroa.0.0, ptr %211, align 4, !noalias !12468
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5, i64 12, i1 false), !noalias !12468
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  %263 = getelementptr inbounds nuw i8, ptr %11, i64 30
-  store i8 2, ptr %263, align 2, !alias.scope !12448, !noalias !12472
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %256), !noalias !12418
-  %264 = load i8, ptr %263, align 2, !range !3577, !noalias !12474, !noundef !17
-  %.not1.i8 = icmp eq i8 %264, 2
-  br i1 %.not1.i8, label %265, label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit"
+  %217 = getelementptr inbounds nuw i8, ptr %11, i64 30
+  store i8 2, ptr %217, align 2, !alias.scope !12448, !noalias !12472
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %164), !noalias !12418
+  %218 = load i8, ptr %217, align 2, !range !3577, !noalias !12474, !noundef !17
+  %.not1.i8 = icmp eq i8 %218, 2
+  br i1 %.not1.i8, label %219, label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit"
 
-265:                                              ; preds = %262
-  %266 = getelementptr inbounds nuw i8, ptr %256, i64 32
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %266), !noalias !12418
+219:                                              ; preds = %216
+  %220 = getelementptr inbounds nuw i8, ptr %164, i64 32
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %220), !noalias !12418
   br label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit"
 
-"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit": ; preds = %262, %265
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h6a75953bc5a3dbe8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %256, ptr noalias noundef align 8 captures(none) dereferenceable(32) %11), !noalias !12418
+"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit": ; preds = %216, %219
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h6a75953bc5a3dbe8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %164, ptr noalias noundef align 8 captures(none) dereferenceable(32) %11), !noalias !12418
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-267:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %268 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %269 = load ptr, ptr %268, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %269, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
+221:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %164, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-270:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %271 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %272 = load ptr, ptr %271, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %272), !noalias !12418
+222:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %164), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-273:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %274 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %275 = load ptr, ptr %274, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %275)
+223:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %164)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-276:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %277 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %278 = load ptr, ptr %277, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
+224:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h01eb6c0c74e3287aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %278), !noalias !12418
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h43bb3b44ab08d2baE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %278), !noalias !12418
-  %279 = getelementptr inbounds nuw i8, ptr %12, i64 30
-  %280 = load i8, ptr %279, align 2, !range !3577, !noalias !12475, !noundef !17
-  %.not.i6 = icmp eq i8 %280, 2
-  br i1 %.not.i6, label %281, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h01eb6c0c74e3287aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %164), !noalias !12418
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h43bb3b44ab08d2baE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %164), !noalias !12418
+  %225 = getelementptr inbounds nuw i8, ptr %12, i64 30
+  %226 = load i8, ptr %225, align 2, !range !3577, !noalias !12475, !noundef !17
+  %.not.i6 = icmp eq i8 %226, 2
+  br i1 %.not.i6, label %227, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit"
 
-281:                                              ; preds = %276
-  %282 = getelementptr inbounds nuw i8, ptr %278, i64 128
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h818c83f62cd06754E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(12) %282), !noalias !12418
-  %283 = load i8, ptr %279, align 2, !range !3577, !noalias !12475, !noundef !17
-  %.not1.i = icmp eq i8 %283, 2
-  br i1 %.not1.i, label %284, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit"
+227:                                              ; preds = %224
+  %228 = getelementptr inbounds nuw i8, ptr %164, i64 128
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h818c83f62cd06754E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(12) %228), !noalias !12418
+  %229 = load i8, ptr %225, align 2, !range !3577, !noalias !12475, !noundef !17
+  %.not1.i = icmp eq i8 %229, 2
+  br i1 %.not1.i, label %230, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit"
 
-284:                                              ; preds = %281
-  %285 = getelementptr inbounds nuw i8, ptr %278, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h93a471d0b8d5106bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(112) %285), !noalias !12418
+230:                                              ; preds = %227
+  %231 = getelementptr inbounds nuw i8, ptr %164, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h93a471d0b8d5106bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(112) %231), !noalias !12418
   br label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit"
 
-"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit": ; preds = %276, %281, %284
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h798e06610eb2f4b8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %278, ptr noalias noundef align 8 captures(none) dereferenceable(32) %12), !noalias !12418
+"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit": ; preds = %224, %227, %230
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h798e06610eb2f4b8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %164, ptr noalias noundef align 8 captures(none) dereferenceable(32) %12), !noalias !12418
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-286:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %287 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %288 = load ptr, ptr %287, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
+232:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h409ed0dce593bd81E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %288), !noalias !12418
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %288), !noalias !12418
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfec61b9cd3d5b2e0E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %288, ptr noalias noundef align 8 captures(none) dereferenceable(32) %13), !noalias !12418
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h409ed0dce593bd81E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %164), !noalias !12418
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %164), !noalias !12418
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfec61b9cd3d5b2e0E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %164, ptr noalias noundef align 8 captures(none) dereferenceable(32) %13), !noalias !12418
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-289:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %290 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %291 = load ptr, ptr %290, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %291)
+233:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %164)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-292:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %293 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %294 = load ptr, ptr %293, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
+234:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h8f3472ff825a7f83E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %294), !noalias !12418
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1e934e91488c67a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %294), !noalias !12418
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hd64bf4a54c433fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %294, ptr noalias noundef align 8 captures(none) dereferenceable(32) %14), !noalias !12418
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h8f3472ff825a7f83E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %164), !noalias !12418
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1e934e91488c67a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %164), !noalias !12418
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hd64bf4a54c433fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %164, ptr noalias noundef align 8 captures(none) dereferenceable(32) %14), !noalias !12418
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-295:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %296 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %297 = load ptr, ptr %296, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %297)
+235:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %164)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-298:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %299 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %300 = load ptr, ptr %299, align 8, !noalias !12421, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %300), !noalias !12418
+236:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %164), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-301:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %302 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %303 = load ptr, ptr %302, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %303)
+237:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %164)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-304:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %305 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %306 = load ptr, ptr %305, align 8, !noalias !12421, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %306), !noalias !12418
+238:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %164), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-307:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %308 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %309 = load ptr, ptr %308, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %309, i1 noundef zeroext false), !noalias !12418
+239:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %164, i1 noundef zeroext false), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-310:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %311 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %312 = load ptr, ptr %311, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %312, i1 noundef zeroext false), !noalias !12418
+240:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
+  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %164, i1 noundef zeroext false), !noalias !12418
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread"
 
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread": ; preds = %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit", %170, %175, %178, %181, %184, %187, %190, %193, %196, %199, %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit", %212, %215, %218, %221, %224, %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit", %234, %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit", %245, %248, %251, %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit", %267, %270, %273, %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit", %286, %289, %292, %295, %298, %301, %304, %307, %310
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread": ; preds = %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit", %170, %173, %174, %175, %176, %177, %178, %179, %180, %181, %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit", %190, %191, %192, %193, %194, %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit", %200, %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit", %207, %208, %209, %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit", %221, %222, %223, %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit", %232, %233, %234, %235, %236, %237, %238, %239, %240
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !12421
-  %313 = getelementptr inbounds nuw i8, ptr %36, i64 30
-  store i8 2, ptr %313, align 2, !alias.scope !12418, !noalias !12479
-  %314 = getelementptr inbounds nuw i8, ptr %36, i64 30
-  br label %321
+  %241 = getelementptr inbounds nuw i8, ptr %36, i64 30
+  store i8 2, ptr %241, align 2, !alias.scope !12418, !noalias !12479
+  %242 = getelementptr inbounds nuw i8, ptr %36, i64 30
+  br label %247
 
 "_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit": ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h13bad3d2ef49f925E.exit"
-  %315 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %316 = load ptr, ptr %315, align 8, !noalias !12421, !nonnull !17, !align !139, !noundef !17
-  %317 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %318 = load ptr, ptr %317, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %36, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %316, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %318)
+  %243 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %244 = load ptr, ptr %243, align 8, !noalias !12421, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %36, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %164, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %244)
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !12421
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %36, i64 30
   %.pre = load i8, ptr %.phi.trans.insert, align 2, !range !3577
-  %319 = icmp eq i8 %.pre, 2
-  %320 = getelementptr inbounds nuw i8, ptr %36, i64 30
-  br i1 %319, label %321, label %325
+  %245 = icmp eq i8 %.pre, 2
+  %246 = getelementptr inbounds nuw i8, ptr %36, i64 30
+  br i1 %245, label %247, label %251
 
-321:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit"
-  %322 = phi ptr [ %314, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread" ], [ %320, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit" ]
-  %323 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc5d8ff9d357d95d1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %36, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %323)
-  %324 = load i8, ptr %322, align 2, !range !3577, !noundef !17
-  %.not1 = icmp eq i8 %324, 2
-  br i1 %.not1, label %326, label %325
+247:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit"
+  %248 = phi ptr [ %242, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit.thread" ], [ %246, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit" ]
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc5d8ff9d357d95d1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %36, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %249)
+  %250 = load i8, ptr %248, align 2, !range !3577, !noundef !17
+  %.not1 = icmp eq i8 %250, 2
+  br i1 %.not1, label %252, label %251
 
-325:                                              ; preds = %446, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit", %321, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit"
+251:                                              ; preds = %298, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit", %247, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h53d68046ffdd7de6E.exit"
   call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h9224818e101ac1c6E"(ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %36)
   ret void
 
-326:                                              ; preds = %321
-  %327 = getelementptr inbounds nuw i8, ptr %0, i64 16
+252:                                              ; preds = %247
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !12480)
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !12483
-  call void @"_ZN62_$LT$fish..ast..TokenRightBrace$u20$as$u20$fish..ast..Node$GT$8kind_mut17h402ab06368483e2fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 4 dereferenceable(16) %327), !noalias !12486
-  %328 = load i64, ptr %15, align 8, !range !167, !noalias !12483, !noundef !17
-  switch i64 %328, label %default.unreachable [
-    i64 0, label %329
-    i64 1, label %332
+  call void @"_ZN62_$LT$fish..ast..TokenRightBrace$u20$as$u20$fish..ast..Node$GT$8kind_mut17h402ab06368483e2fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 4 dereferenceable(16) %253), !noalias !12486
+  %254 = load i64, ptr %15, align 8, !range !167, !noalias !12483, !noundef !17
+  %255 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %256 = load ptr, ptr %255, align 8, !noalias !12483, !nonnull !17, !align !139, !noundef !17
+  switch i64 %254, label %default.unreachable [
+    i64 0, label %257
+    i64 1, label %258
     i64 2, label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit"
-    i64 3, label %337
-    i64 4, label %340
-    i64 5, label %343
-    i64 6, label %346
-    i64 7, label %349
-    i64 8, label %352
-    i64 9, label %355
-    i64 10, label %358
-    i64 11, label %361
-    i64 12, label %364
-    i64 13, label %367
-    i64 14, label %370
-    i64 15, label %373
-    i64 16, label %376
-    i64 17, label %379
-    i64 18, label %382
-    i64 19, label %385
-    i64 20, label %388
-    i64 21, label %391
-    i64 22, label %394
-    i64 23, label %397
-    i64 24, label %400
-    i64 25, label %403
-    i64 26, label %406
-    i64 27, label %409
-    i64 28, label %412
-    i64 29, label %415
-    i64 30, label %418
-    i64 31, label %421
-    i64 32, label %424
-    i64 33, label %427
-    i64 34, label %430
-    i64 35, label %433
-    i64 36, label %436
-    i64 37, label %439
+    i64 3, label %261
+    i64 4, label %262
+    i64 5, label %263
+    i64 6, label %264
+    i64 7, label %265
+    i64 8, label %266
+    i64 9, label %267
+    i64 10, label %268
+    i64 11, label %269
+    i64 12, label %270
+    i64 13, label %271
+    i64 14, label %272
+    i64 15, label %273
+    i64 16, label %274
+    i64 17, label %275
+    i64 18, label %276
+    i64 19, label %277
+    i64 20, label %278
+    i64 21, label %279
+    i64 22, label %280
+    i64 23, label %281
+    i64 24, label %282
+    i64 25, label %283
+    i64 26, label %284
+    i64 27, label %285
+    i64 28, label %286
+    i64 29, label %287
+    i64 30, label %288
+    i64 31, label %289
+    i64 32, label %290
+    i64 33, label %291
+    i64 34, label %292
+    i64 35, label %293
+    i64 36, label %294
+    i64 37, label %295
   ]
 
-329:                                              ; preds = %326
-  %330 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %331 = load ptr, ptr %330, align 8, !noalias !12483, !nonnull !17, !align !27, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE"(ptr noalias noundef align 4 dereferenceable(32) %331, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+257:                                              ; preds = %252
+  call fastcc void @"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE"(ptr noalias noundef align 4 dereferenceable(32) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-332:                                              ; preds = %326
-  %333 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %334 = load ptr, ptr %333, align 8, !noalias !12483, !nonnull !17, !align !139, !noundef !17
-  %335 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %336 = load ptr, ptr %335, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %334, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %336), !noalias !12480
+258:                                              ; preds = %252
+  %259 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %260 = load ptr, ptr %259, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %256, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %260), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-337:                                              ; preds = %326
-  %338 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %339 = load ptr, ptr %338, align 8, !noalias !12483, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %339), !noalias !12480
+261:                                              ; preds = %252
+  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %256), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-340:                                              ; preds = %326
-  %341 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %342 = load ptr, ptr %341, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %342)
+262:                                              ; preds = %252
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %256)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-343:                                              ; preds = %326
-  %344 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %345 = load ptr, ptr %344, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %345), !noalias !12480
+263:                                              ; preds = %252
+  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %256), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-346:                                              ; preds = %326
-  %347 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %348 = load ptr, ptr %347, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %348)
+264:                                              ; preds = %252
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %256)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-349:                                              ; preds = %326
-  %350 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %351 = load ptr, ptr %350, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %351), !noalias !12480
+265:                                              ; preds = %252
+  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %256), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-352:                                              ; preds = %326
-  %353 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %354 = load ptr, ptr %353, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %354, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+266:                                              ; preds = %252
+  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-355:                                              ; preds = %326
-  %356 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %357 = load ptr, ptr %356, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %357, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+267:                                              ; preds = %252
+  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-358:                                              ; preds = %326
-  %359 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %360 = load ptr, ptr %359, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %360), !noalias !12480
+268:                                              ; preds = %252
+  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %256), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-361:                                              ; preds = %326
-  %362 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %363 = load ptr, ptr %362, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %363, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+269:                                              ; preds = %252
+  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-364:                                              ; preds = %326
-  %365 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %366 = load ptr, ptr %365, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE"(ptr noalias noundef align 8 dereferenceable(192) %366, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+270:                                              ; preds = %252
+  call fastcc void @"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE"(ptr noalias noundef align 8 dereferenceable(192) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-367:                                              ; preds = %326
-  %368 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %369 = load ptr, ptr %368, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %369, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+271:                                              ; preds = %252
+  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-370:                                              ; preds = %326
-  %371 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %372 = load ptr, ptr %371, align 8, !noalias !12483, !nonnull !17, !align !27, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %372, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+272:                                              ; preds = %252
+  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-373:                                              ; preds = %326
-  %374 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %375 = load ptr, ptr %374, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %375, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+273:                                              ; preds = %252
+  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-376:                                              ; preds = %326
-  %377 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %378 = load ptr, ptr %377, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %378, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+274:                                              ; preds = %252
+  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-379:                                              ; preds = %326
-  %380 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %381 = load ptr, ptr %380, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %381, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+275:                                              ; preds = %252
+  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-382:                                              ; preds = %326
-  %383 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %384 = load ptr, ptr %383, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E"(ptr noalias noundef align 8 dereferenceable(224) %384, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+276:                                              ; preds = %252
+  call fastcc void @"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E"(ptr noalias noundef align 8 dereferenceable(224) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-385:                                              ; preds = %326
-  %386 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %387 = load ptr, ptr %386, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %387)
+277:                                              ; preds = %252
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %256)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-388:                                              ; preds = %326
-  %389 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %390 = load ptr, ptr %389, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE"(ptr noalias noundef align 8 dereferenceable(48) %390, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+278:                                              ; preds = %252
+  call fastcc void @"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE"(ptr noalias noundef align 8 dereferenceable(48) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-391:                                              ; preds = %326
-  %392 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %393 = load ptr, ptr %392, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %393, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+279:                                              ; preds = %252
+  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-394:                                              ; preds = %326
-  %395 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %396 = load ptr, ptr %395, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %396, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+280:                                              ; preds = %252
+  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-397:                                              ; preds = %326
-  %398 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %399 = load ptr, ptr %398, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %399, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+281:                                              ; preds = %252
+  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-400:                                              ; preds = %326
-  %401 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %402 = load ptr, ptr %401, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE"(ptr noalias noundef align 8 dereferenceable(48) %402, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+282:                                              ; preds = %252
+  call fastcc void @"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE"(ptr noalias noundef align 8 dereferenceable(48) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-403:                                              ; preds = %326
-  %404 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %405 = load ptr, ptr %404, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %405, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+283:                                              ; preds = %252
+  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-406:                                              ; preds = %326
-  %407 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %408 = load ptr, ptr %407, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %408), !noalias !12480
+284:                                              ; preds = %252
+  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %256), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-409:                                              ; preds = %326
-  %410 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %411 = load ptr, ptr %410, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %411)
+285:                                              ; preds = %252
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %256)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-412:                                              ; preds = %326
-  %413 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %414 = load ptr, ptr %413, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE"(ptr noalias noundef align 8 dereferenceable(144) %414, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+286:                                              ; preds = %252
+  call fastcc void @"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE"(ptr noalias noundef align 8 dereferenceable(144) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-415:                                              ; preds = %326
-  %416 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %417 = load ptr, ptr %416, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..AndorJob$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5749cf043a738819E"(ptr noalias noundef align 8 dereferenceable(160) %417, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+287:                                              ; preds = %252
+  call fastcc void @"_ZN62_$LT$fish..ast..AndorJob$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5749cf043a738819E"(ptr noalias noundef align 8 dereferenceable(160) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-418:                                              ; preds = %326
-  %419 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %420 = load ptr, ptr %419, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %420)
+288:                                              ; preds = %252
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %256)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-421:                                              ; preds = %326
-  %422 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %423 = load ptr, ptr %422, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN78_$LT$fish..ast..FreestandingArgumentList$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h80f5e05633587246E"(ptr noalias noundef align 8 dereferenceable(16) %423, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
+289:                                              ; preds = %252
+  call fastcc void @"_ZN78_$LT$fish..ast..FreestandingArgumentList$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h80f5e05633587246E"(ptr noalias noundef align 8 dereferenceable(16) %256, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-424:                                              ; preds = %326
-  %425 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %426 = load ptr, ptr %425, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %426)
+290:                                              ; preds = %252
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %256)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-427:                                              ; preds = %326
-  %428 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %429 = load ptr, ptr %428, align 8, !noalias !12483, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %429), !noalias !12480
+291:                                              ; preds = %252
+  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %256), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-430:                                              ; preds = %326
-  %431 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %432 = load ptr, ptr %431, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %432)
+292:                                              ; preds = %252
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %256)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-433:                                              ; preds = %326
-  %434 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %435 = load ptr, ptr %434, align 8, !noalias !12483, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %435), !noalias !12480
+293:                                              ; preds = %252
+  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %256), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-436:                                              ; preds = %326
-  %437 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %438 = load ptr, ptr %437, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %438, i1 noundef zeroext false), !noalias !12480
+294:                                              ; preds = %252
+  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %256, i1 noundef zeroext false), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-439:                                              ; preds = %326
-  %440 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %441 = load ptr, ptr %440, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %441, i1 noundef zeroext false), !noalias !12480
+295:                                              ; preds = %252
+  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %256, i1 noundef zeroext false), !noalias !12480
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread"
 
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread": ; preds = %329, %332, %337, %340, %343, %346, %349, %352, %355, %358, %361, %364, %367, %370, %373, %376, %379, %382, %385, %388, %391, %394, %397, %400, %403, %406, %409, %412, %415, %418, %421, %424, %427, %430, %433, %436, %439
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread": ; preds = %257, %258, %261, %262, %263, %264, %265, %266, %267, %268, %269, %270, %271, %272, %273, %274, %275, %276, %277, %278, %279, %280, %281, %282, %283, %284, %285, %286, %287, %288, %289, %290, %291, %292, %293, %294, %295
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !12483
-  store i8 2, ptr %322, align 2, !alias.scope !12480, !noalias !12487
-  br label %446
+  store i8 2, ptr %248, align 2, !alias.scope !12480, !noalias !12487
+  br label %298
 
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit": ; preds = %326
-  %442 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %443 = load ptr, ptr %442, align 8, !noalias !12483, !nonnull !17, !align !139, !noundef !17
-  %444 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %445 = load ptr, ptr %444, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %36, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %443, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %445)
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit": ; preds = %252
+  %296 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %297 = load ptr, ptr %296, align 8, !noalias !12483, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %36, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %256, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %297)
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !12483
-  %.pr = load i8, ptr %322, align 2
+  %.pr = load i8, ptr %248, align 2
   %.not2 = icmp eq i8 %.pr, 2
-  br i1 %.not2, label %446, label %325
+  br i1 %.not2, label %298, label %251
 
-446:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit"
-  %447 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %36, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %447)
-  br label %325
+298:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h2823dc0c8b6b43e2E.exit"
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %36, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %299)
+  br label %251
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -126142,8 +125550,8 @@ define internal fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$fish_printf..arg..Arg$GT$17h0c9865af2f95341eE"(ptr noalias noundef align 8 dereferenceable(32) %30) #15
           to label %.body.i unwind label %158
 
-common.resume:                                    ; preds = %454, %48, %136, %461
-  %common.resume.op = phi { ptr, i32 } [ %462, %461 ], [ %.pn14.i, %136 ], [ %49, %48 ], [ %455, %454 ]
+common.resume:                                    ; preds = %306, %48, %136, %313
+  %common.resume.op = phi { ptr, i32 } [ %314, %313 ], [ %.pn14.i, %136 ], [ %49, %48 ], [ %307, %306 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h328cafc065b30ff6E.exit": ; preds = %2, %157
@@ -126156,7 +125564,7 @@ common.resume:                                    ; preds = %454, %48, %136, %46
   %164 = getelementptr inbounds nuw i8, ptr %39, i64 30
   %165 = load i8, ptr %164, align 2, !range !3577, !noundef !17
   %.not = icmp eq i8 %165, 2
-  br i1 %.not, label %166, label %286
+  br i1 %.not, label %166, label %212
 
 166:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h328cafc065b30ff6E.exit"
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -126164,866 +125572,718 @@ common.resume:                                    ; preds = %454, %48, %136, %46
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !12672
   call void @"_ZN63_$LT$fish..ast..ElseifClauseList$u20$as$u20$fish..ast..Node$GT$8kind_mut17hc3f776a1f78d91b1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull align 8 dereferenceable(16) %167), !noalias !12675
   %168 = load i64, ptr %19, align 8, !range !167, !noalias !12672, !noundef !17
+  %169 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %170 = load ptr, ptr %169, align 8, !noalias !12672, !nonnull !17, !align !139, !noundef !17
   switch i64 %168, label %default.unreachable [
-    i64 0, label %169
+    i64 0, label %171
     i64 1, label %172
     i64 2, label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit"
-    i64 3, label %177
-    i64 4, label %180
-    i64 5, label %183
-    i64 6, label %186
-    i64 7, label %189
-    i64 8, label %192
-    i64 9, label %195
-    i64 10, label %198
-    i64 11, label %201
-    i64 12, label %204
-    i64 13, label %207
-    i64 14, label %210
-    i64 15, label %213
-    i64 16, label %216
-    i64 17, label %219
-    i64 18, label %222
-    i64 19, label %225
-    i64 20, label %228
-    i64 21, label %231
-    i64 22, label %234
-    i64 23, label %237
-    i64 24, label %240
-    i64 25, label %243
-    i64 26, label %246
-    i64 27, label %249
-    i64 28, label %252
-    i64 29, label %255
-    i64 30, label %258
-    i64 31, label %261
-    i64 32, label %264
-    i64 33, label %267
-    i64 34, label %270
-    i64 35, label %273
-    i64 36, label %276
-    i64 37, label %279
+    i64 3, label %175
+    i64 4, label %176
+    i64 5, label %177
+    i64 6, label %178
+    i64 7, label %179
+    i64 8, label %180
+    i64 9, label %181
+    i64 10, label %182
+    i64 11, label %183
+    i64 12, label %184
+    i64 13, label %185
+    i64 14, label %186
+    i64 15, label %187
+    i64 16, label %188
+    i64 17, label %189
+    i64 18, label %190
+    i64 19, label %191
+    i64 20, label %192
+    i64 21, label %193
+    i64 22, label %194
+    i64 23, label %195
+    i64 24, label %196
+    i64 25, label %197
+    i64 26, label %198
+    i64 27, label %199
+    i64 28, label %200
+    i64 29, label %201
+    i64 30, label %202
+    i64 31, label %203
+    i64 32, label %204
+    i64 33, label %205
+    i64 34, label %206
+    i64 35, label %207
+    i64 36, label %208
+    i64 37, label %209
   ]
 
 default.unreachable:                              ; preds = %.noexc6, %166
   unreachable
 
-169:                                              ; preds = %166
-  %170 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %171 = load ptr, ptr %170, align 8, !noalias !12672, !nonnull !17, !align !27, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE"(ptr noalias noundef align 4 dereferenceable(32) %171, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+171:                                              ; preds = %166
+  call fastcc void @"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE"(ptr noalias noundef align 4 dereferenceable(32) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
 
 172:                                              ; preds = %166
-  %173 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %174 = load ptr, ptr %173, align 8, !noalias !12672, !nonnull !17, !align !139, !noundef !17
-  %175 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %176 = load ptr, ptr %175, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %174, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %176), !noalias !12669
+  %173 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %174 = load ptr, ptr %173, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %170, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %174), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+175:                                              ; preds = %166
+  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %170), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+176:                                              ; preds = %166
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %170)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
 
 177:                                              ; preds = %166
-  %178 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %179 = load ptr, ptr %178, align 8, !noalias !12672, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %179), !noalias !12669
+  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %170), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+178:                                              ; preds = %166
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %170)
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+179:                                              ; preds = %166
+  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %170), !noalias !12669
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
 
 180:                                              ; preds = %166
-  %181 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %182 = load ptr, ptr %181, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %182)
+  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+181:                                              ; preds = %166
+  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+182:                                              ; preds = %166
+  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %170), !noalias !12669
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
 
 183:                                              ; preds = %166
-  %184 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %185 = load ptr, ptr %184, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %185), !noalias !12669
+  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+184:                                              ; preds = %166
+  call fastcc void @"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE"(ptr noalias noundef align 8 dereferenceable(192) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+185:                                              ; preds = %166
+  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
 
 186:                                              ; preds = %166
-  %187 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %188 = load ptr, ptr %187, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %188)
+  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+187:                                              ; preds = %166
+  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+188:                                              ; preds = %166
+  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
 
 189:                                              ; preds = %166
-  %190 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %191 = load ptr, ptr %190, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %191), !noalias !12669
+  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+190:                                              ; preds = %166
+  call fastcc void @"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E"(ptr noalias noundef align 8 dereferenceable(224) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+191:                                              ; preds = %166
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %170)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
 
 192:                                              ; preds = %166
-  %193 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %194 = load ptr, ptr %193, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %194, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  call fastcc void @"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE"(ptr noalias noundef align 8 dereferenceable(48) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+193:                                              ; preds = %166
+  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+194:                                              ; preds = %166
+  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
 
 195:                                              ; preds = %166
-  %196 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %197 = load ptr, ptr %196, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %197, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+196:                                              ; preds = %166
+  call fastcc void @"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE"(ptr noalias noundef align 8 dereferenceable(48) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+197:                                              ; preds = %166
+  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
 
 198:                                              ; preds = %166
-  %199 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %200 = load ptr, ptr %199, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %200), !noalias !12669
+  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %170), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+199:                                              ; preds = %166
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %170)
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+200:                                              ; preds = %166
+  call fastcc void @"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE"(ptr noalias noundef align 8 dereferenceable(144) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
 
 201:                                              ; preds = %166
-  %202 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %203 = load ptr, ptr %202, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %203, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  call fastcc void @"_ZN62_$LT$fish..ast..AndorJob$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5749cf043a738819E"(ptr noalias noundef align 8 dereferenceable(160) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+202:                                              ; preds = %166
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %170)
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+203:                                              ; preds = %166
+  call fastcc void @"_ZN78_$LT$fish..ast..FreestandingArgumentList$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h80f5e05633587246E"(ptr noalias noundef align 8 dereferenceable(16) %170, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
 
 204:                                              ; preds = %166
-  %205 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %206 = load ptr, ptr %205, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE"(ptr noalias noundef align 8 dereferenceable(192) %206, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %170)
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+205:                                              ; preds = %166
+  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %170), !noalias !12669
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
+
+206:                                              ; preds = %166
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %170)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
 
 207:                                              ; preds = %166
-  %208 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %209 = load ptr, ptr %208, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %209, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %170), !noalias !12669
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
 
-210:                                              ; preds = %166
-  %211 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %212 = load ptr, ptr %211, align 8, !noalias !12672, !nonnull !17, !align !27, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %212, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+208:                                              ; preds = %166
+  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %170, i1 noundef zeroext false), !noalias !12669
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
 
-213:                                              ; preds = %166
-  %214 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %215 = load ptr, ptr %214, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %215, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
+209:                                              ; preds = %166
+  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %170, i1 noundef zeroext false), !noalias !12669
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
 
-216:                                              ; preds = %166
-  %217 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %218 = load ptr, ptr %217, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %218, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-219:                                              ; preds = %166
-  %220 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %221 = load ptr, ptr %220, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %221, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-222:                                              ; preds = %166
-  %223 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %224 = load ptr, ptr %223, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E"(ptr noalias noundef align 8 dereferenceable(224) %224, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-225:                                              ; preds = %166
-  %226 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %227 = load ptr, ptr %226, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %227)
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-228:                                              ; preds = %166
-  %229 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %230 = load ptr, ptr %229, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE"(ptr noalias noundef align 8 dereferenceable(48) %230, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-231:                                              ; preds = %166
-  %232 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %233 = load ptr, ptr %232, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %233, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-234:                                              ; preds = %166
-  %235 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %236 = load ptr, ptr %235, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %236, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-237:                                              ; preds = %166
-  %238 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %239 = load ptr, ptr %238, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %239, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-240:                                              ; preds = %166
-  %241 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %242 = load ptr, ptr %241, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE"(ptr noalias noundef align 8 dereferenceable(48) %242, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-243:                                              ; preds = %166
-  %244 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %245 = load ptr, ptr %244, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %245, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-246:                                              ; preds = %166
-  %247 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %248 = load ptr, ptr %247, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %248), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-249:                                              ; preds = %166
-  %250 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %251 = load ptr, ptr %250, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %251)
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-252:                                              ; preds = %166
-  %253 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %254 = load ptr, ptr %253, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE"(ptr noalias noundef align 8 dereferenceable(144) %254, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-255:                                              ; preds = %166
-  %256 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %257 = load ptr, ptr %256, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..AndorJob$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5749cf043a738819E"(ptr noalias noundef align 8 dereferenceable(160) %257, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-258:                                              ; preds = %166
-  %259 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %260 = load ptr, ptr %259, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %260)
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-261:                                              ; preds = %166
-  %262 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %263 = load ptr, ptr %262, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN78_$LT$fish..ast..FreestandingArgumentList$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h80f5e05633587246E"(ptr noalias noundef align 8 dereferenceable(16) %263, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-264:                                              ; preds = %166
-  %265 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %266 = load ptr, ptr %265, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %266)
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-267:                                              ; preds = %166
-  %268 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %269 = load ptr, ptr %268, align 8, !noalias !12672, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %269), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-270:                                              ; preds = %166
-  %271 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %272 = load ptr, ptr %271, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %272)
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-273:                                              ; preds = %166
-  %274 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %275 = load ptr, ptr %274, align 8, !noalias !12672, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %275), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-276:                                              ; preds = %166
-  %277 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %278 = load ptr, ptr %277, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %278, i1 noundef zeroext false), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-279:                                              ; preds = %166
-  %280 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %281 = load ptr, ptr %280, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %281, i1 noundef zeroext false), !noalias !12669
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread"
-
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread": ; preds = %169, %172, %177, %180, %183, %186, %189, %192, %195, %198, %201, %204, %207, %210, %213, %216, %219, %222, %225, %228, %231, %234, %237, %240, %243, %246, %249, %252, %255, %258, %261, %264, %267, %270, %273, %276, %279
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread": ; preds = %171, %172, %175, %176, %177, %178, %179, %180, %181, %182, %183, %184, %185, %186, %187, %188, %189, %190, %191, %192, %193, %194, %195, %196, %197, %198, %199, %200, %201, %202, %203, %204, %205, %206, %207, %208, %209
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !12672
   store i8 2, ptr %164, align 2, !alias.scope !12669, !noalias !12676
-  br label %287
+  br label %213
 
 "_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit": ; preds = %166
-  %282 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %283 = load ptr, ptr %282, align 8, !noalias !12672, !nonnull !17, !align !139, !noundef !17
-  %284 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %285 = load ptr, ptr %284, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %39, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %283, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %285)
+  %210 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %211 = load ptr, ptr %210, align 8, !noalias !12672, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %39, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %170, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %211)
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !12672
   %.pr = load i8, ptr %164, align 2
   %.not1 = icmp eq i8 %.pr, 2
-  br i1 %.not1, label %287, label %286
+  br i1 %.not1, label %213, label %212
 
-286:                                              ; preds = %466, %463, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h328cafc065b30ff6E.exit"
+212:                                              ; preds = %318, %315, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h328cafc065b30ff6E.exit"
   call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h94002fbdb53034ecE"(ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(304) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %39)
   ret void
 
-287:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit"
-  %288 = getelementptr inbounds nuw i8, ptr %0, i64 224
+213:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h45d2541782b9c213E.exit"
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 224
   call void @llvm.experimental.noalias.scope.decl(metadata !12677)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %289 = call noundef zeroext i1 @"_ZN63_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17h1b74917e2276c9a9E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12680
-  br i1 %289, label %290, label %_ZN4fish3ast9Populator9try_parse17h58f8799e5b02a541E.exit
+  %215 = call noundef zeroext i1 @"_ZN63_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17h1b74917e2276c9a9E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12680
+  br i1 %215, label %216, label %_ZN4fish3ast9Populator9try_parse17h58f8799e5b02a541E.exit
 
-290:                                              ; preds = %287
+216:                                              ; preds = %213
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !12684
   call void @llvm.experimental.noalias.scope.decl(metadata !12689)
-  %291 = call noundef i8 @"_ZN78_$LT$fish..parse_constants..ParseKeyword$u20$as$u20$core..default..Default$GT$7default17h30f756cf70474047E"(), !noalias !12692
+  %217 = call noundef i8 @"_ZN78_$LT$fish..parse_constants..ParseKeyword$u20$as$u20$core..default..Default$GT$7default17h30f756cf70474047E"(), !noalias !12692
   store i32 0, ptr %18, align 8, !alias.scope !12689, !noalias !12693
   %.sroa.4.0..sroa_idx.i75 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  store i8 %291, ptr %.sroa.4.0..sroa_idx.i75, align 4, !alias.scope !12689, !noalias !12693
-  %292 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i32 2, ptr %292, align 8, !alias.scope !12689, !noalias !12693
-  %293 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr inttoptr (i64 8 to ptr), ptr %293, align 8, !alias.scope !12689, !noalias !12693
-  %294 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store i64 0, ptr %294, align 8, !alias.scope !12689, !noalias !12693
+  store i8 %217, ptr %.sroa.4.0..sroa_idx.i75, align 4, !alias.scope !12689, !noalias !12693
+  %218 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i32 2, ptr %218, align 8, !alias.scope !12689, !noalias !12693
+  %219 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  store ptr inttoptr (i64 8 to ptr), ptr %219, align 8, !alias.scope !12689, !noalias !12693
+  %220 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  store i64 0, ptr %220, align 8, !alias.scope !12689, !noalias !12693
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !12684
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !12694
   invoke void @"_ZN57_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..Node$GT$8kind_mut17h67e2ed0a6d02ff60E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %18)
-          to label %.noexc6 unwind label %454
+          to label %.noexc6 unwind label %306
 
-.noexc6:                                          ; preds = %290
-  %295 = load i64, ptr %16, align 8, !range !167, !noalias !12694, !noundef !17
-  switch i64 %295, label %default.unreachable [
-    i64 0, label %296
-    i64 1, label %303
-    i64 2, label %308
-    i64 3, label %313
-    i64 4, label %316
-    i64 5, label %319
-    i64 6, label %322
-    i64 7, label %325
-    i64 8, label %328
-    i64 9, label %331
-    i64 10, label %334
-    i64 11, label %337
-    i64 12, label %340
-    i64 13, label %350
-    i64 14, label %353
-    i64 15, label %360
-    i64 16, label %363
-    i64 17, label %366
-    i64 18, label %369
-    i64 19, label %376
-    i64 20, label %379
-    i64 21, label %388
-    i64 22, label %391
-    i64 23, label %394
-    i64 24, label %397
-    i64 25, label %408
-    i64 26, label %411
-    i64 27, label %414
-    i64 28, label %417
-    i64 29, label %427
-    i64 30, label %430
-    i64 31, label %433
-    i64 32, label %436
-    i64 33, label %439
-    i64 34, label %442
-    i64 35, label %445
-    i64 36, label %448
-    i64 37, label %451
+.noexc6:                                          ; preds = %216
+  %221 = load i64, ptr %16, align 8, !range !167, !noalias !12694, !noundef !17
+  %222 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %223 = load ptr, ptr %222, align 8, !noalias !12694, !nonnull !17, !align !139, !noundef !17
+  switch i64 %221, label %default.unreachable [
+    i64 0, label %224
+    i64 1, label %229
+    i64 2, label %232
+    i64 3, label %235
+    i64 4, label %236
+    i64 5, label %237
+    i64 6, label %238
+    i64 7, label %239
+    i64 8, label %240
+    i64 9, label %241
+    i64 10, label %242
+    i64 11, label %243
+    i64 12, label %244
+    i64 13, label %252
+    i64 14, label %253
+    i64 15, label %258
+    i64 16, label %259
+    i64 17, label %260
+    i64 18, label %261
+    i64 19, label %266
+    i64 20, label %267
+    i64 21, label %274
+    i64 22, label %275
+    i64 23, label %276
+    i64 24, label %277
+    i64 25, label %286
+    i64 26, label %287
+    i64 27, label %288
+    i64 28, label %289
+    i64 29, label %297
+    i64 30, label %298
+    i64 31, label %299
+    i64 32, label %300
+    i64 33, label %301
+    i64 34, label %302
+    i64 35, label %303
+    i64 36, label %304
+    i64 37, label %305
   ]
 
-296:                                              ; preds = %.noexc6
-  %297 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %298 = load ptr, ptr %297, align 8, !noalias !12694, !nonnull !17, !align !27, !noundef !17
+224:                                              ; preds = %.noexc6
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !12694
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf72cd84b56f3a141E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %298)
-          to label %.noexc7 unwind label %454
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf72cd84b56f3a141E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %223)
+          to label %.noexc7 unwind label %306
 
-.noexc7:                                          ; preds = %296
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h049305556e67f2cbE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %298)
-          to label %.noexc8 unwind label %454
+.noexc7:                                          ; preds = %224
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h049305556e67f2cbE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %223)
+          to label %.noexc8 unwind label %306
 
 .noexc8:                                          ; preds = %.noexc7
-  %299 = getelementptr inbounds nuw i8, ptr %15, i64 30
-  %300 = load i8, ptr %299, align 2, !range !3577, !noalias !12699, !noundef !17
-  %.not.i.i = icmp eq i8 %300, 2
-  br i1 %.not.i.i, label %301, label %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i"
+  %225 = getelementptr inbounds nuw i8, ptr %15, i64 30
+  %226 = load i8, ptr %225, align 2, !range !3577, !noalias !12699, !noundef !17
+  %.not.i.i = icmp eq i8 %226, 2
+  br i1 %.not.i.i, label %227, label %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i"
 
-301:                                              ; preds = %.noexc8
-  %302 = getelementptr inbounds nuw i8, ptr %298, i64 16
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %302)
-          to label %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i" unwind label %454
+227:                                              ; preds = %.noexc8
+  %228 = getelementptr inbounds nuw i8, ptr %223, i64 16
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %228)
+          to label %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i" unwind label %306
 
-"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i": ; preds = %301, %.noexc8
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h9570d0d3c19e21acE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %298, ptr noalias noundef align 8 captures(none) dereferenceable(32) %15)
-          to label %.noexc10 unwind label %454
+"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i": ; preds = %227, %.noexc8
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h9570d0d3c19e21acE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %223, ptr noalias noundef align 8 captures(none) dereferenceable(32) %15)
+          to label %.noexc10 unwind label %306
 
 .noexc10:                                         ; preds = %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !12694
   br label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i
 
-303:                                              ; preds = %.noexc6
-  %304 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %305 = load ptr, ptr %304, align 8, !noalias !12694, !nonnull !17, !align !139, !noundef !17
-  %306 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %307 = load ptr, ptr %306, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %305, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %307)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+229:                                              ; preds = %.noexc6
+  %230 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %231 = load ptr, ptr %230, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
+  invoke void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %223, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %231)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-308:                                              ; preds = %.noexc6
-  %309 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %310 = load ptr, ptr %309, align 8, !noalias !12694, !nonnull !17, !align !139, !noundef !17
-  %311 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %312 = load ptr, ptr %311, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %17, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %310, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %312)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+232:                                              ; preds = %.noexc6
+  %233 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %234 = load ptr, ptr %233, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
+  invoke void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %17, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %223, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %234)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-313:                                              ; preds = %.noexc6
-  %314 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %315 = load ptr, ptr %314, align 8, !noalias !12694, !nonnull !17, !align !27, !noundef !17
-  invoke void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %315)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+235:                                              ; preds = %.noexc6
+  invoke void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %223)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-316:                                              ; preds = %.noexc6
-  %317 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %318 = load ptr, ptr %317, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %318)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+236:                                              ; preds = %.noexc6
+  invoke fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %223)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-319:                                              ; preds = %.noexc6
-  %320 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %321 = load ptr, ptr %320, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %321)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+237:                                              ; preds = %.noexc6
+  invoke void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %223)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-322:                                              ; preds = %.noexc6
-  %323 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %324 = load ptr, ptr %323, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %324)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+238:                                              ; preds = %.noexc6
+  invoke fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %223)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-325:                                              ; preds = %.noexc6
-  %326 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %327 = load ptr, ptr %326, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %327)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+239:                                              ; preds = %.noexc6
+  invoke void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %223)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-328:                                              ; preds = %.noexc6
-  %329 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %330 = load ptr, ptr %329, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %330, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+240:                                              ; preds = %.noexc6
+  invoke fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %223, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-331:                                              ; preds = %.noexc6
-  %332 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %333 = load ptr, ptr %332, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %333, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+241:                                              ; preds = %.noexc6
+  invoke fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %223, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-334:                                              ; preds = %.noexc6
-  %335 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %336 = load ptr, ptr %335, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %336)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+242:                                              ; preds = %.noexc6
+  invoke void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %223)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-337:                                              ; preds = %.noexc6
-  %338 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %339 = load ptr, ptr %338, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %339, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+243:                                              ; preds = %.noexc6
+  invoke fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %223, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-340:                                              ; preds = %.noexc6
-  %341 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %342 = load ptr, ptr %341, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
+244:                                              ; preds = %.noexc6
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !12694
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h1a3b846da26f66f9E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %342)
-          to label %.noexc22 unwind label %454
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h1a3b846da26f66f9E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %223)
+          to label %.noexc22 unwind label %306
 
-.noexc22:                                         ; preds = %340
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haa8be05bf548bc11E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %342)
-          to label %.noexc23 unwind label %454
+.noexc22:                                         ; preds = %244
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haa8be05bf548bc11E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %223)
+          to label %.noexc23 unwind label %306
 
 .noexc23:                                         ; preds = %.noexc22
-  %343 = getelementptr inbounds nuw i8, ptr %14, i64 30
-  %344 = load i8, ptr %343, align 2, !range !3577, !noalias !12703, !noundef !17
-  %.not.i1.i = icmp eq i8 %344, 2
-  br i1 %.not.i1.i, label %345, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i"
+  %245 = getelementptr inbounds nuw i8, ptr %14, i64 30
+  %246 = load i8, ptr %245, align 2, !range !3577, !noalias !12703, !noundef !17
+  %.not.i1.i = icmp eq i8 %246, 2
+  br i1 %.not.i1.i, label %247, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i"
 
-345:                                              ; preds = %.noexc23
-  %346 = getelementptr inbounds nuw i8, ptr %342, i64 16
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(160) %346)
-          to label %.noexc24 unwind label %454
+247:                                              ; preds = %.noexc23
+  %248 = getelementptr inbounds nuw i8, ptr %223, i64 16
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(160) %248)
+          to label %.noexc24 unwind label %306
 
-.noexc24:                                         ; preds = %345
-  %347 = load i8, ptr %343, align 2, !range !3577, !noalias !12703, !noundef !17
-  %.not1.i2.i = icmp eq i8 %347, 2
-  br i1 %.not1.i2.i, label %348, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i"
+.noexc24:                                         ; preds = %247
+  %249 = load i8, ptr %245, align 2, !range !3577, !noalias !12703, !noundef !17
+  %.not1.i2.i = icmp eq i8 %249, 2
+  br i1 %.not1.i2.i, label %250, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i"
 
-348:                                              ; preds = %.noexc24
-  %349 = getelementptr inbounds nuw i8, ptr %342, i64 176
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd0348e8a3f03cb21E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %349)
-          to label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i" unwind label %454
+250:                                              ; preds = %.noexc24
+  %251 = getelementptr inbounds nuw i8, ptr %223, i64 176
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd0348e8a3f03cb21E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %251)
+          to label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i" unwind label %306
 
-"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i": ; preds = %348, %.noexc24, %.noexc23
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h937dd9cae9983329E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %342, ptr noalias noundef align 8 captures(none) dereferenceable(32) %14)
-          to label %.noexc26 unwind label %454
+"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i": ; preds = %250, %.noexc24, %.noexc23
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h937dd9cae9983329E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %223, ptr noalias noundef align 8 captures(none) dereferenceable(32) %14)
+          to label %.noexc26 unwind label %306
 
 .noexc26:                                         ; preds = %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !12694
   br label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i
 
-350:                                              ; preds = %.noexc6
-  %351 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %352 = load ptr, ptr %351, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %352, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+252:                                              ; preds = %.noexc6
+  invoke fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %223, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-353:                                              ; preds = %.noexc6
-  %354 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %355 = load ptr, ptr %354, align 8, !noalias !12694, !nonnull !17, !align !27, !noundef !17
+253:                                              ; preds = %.noexc6
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !12694
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h24cacefe9dc29ec5E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %355)
-          to label %.noexc28 unwind label %454
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h24cacefe9dc29ec5E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %223)
+          to label %.noexc28 unwind label %306
 
-.noexc28:                                         ; preds = %353
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h80d2d2d3f0355fddE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %355)
-          to label %.noexc29 unwind label %454
+.noexc28:                                         ; preds = %253
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h80d2d2d3f0355fddE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %223)
+          to label %.noexc29 unwind label %306
 
 .noexc29:                                         ; preds = %.noexc28
-  %356 = getelementptr inbounds nuw i8, ptr %13, i64 30
-  %357 = load i8, ptr %356, align 2, !range !3577, !noalias !12707, !noundef !17
-  %.not.i3.i = icmp eq i8 %357, 2
-  br i1 %.not.i3.i, label %358, label %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i"
+  %254 = getelementptr inbounds nuw i8, ptr %13, i64 30
+  %255 = load i8, ptr %254, align 2, !range !3577, !noalias !12707, !noundef !17
+  %.not.i3.i = icmp eq i8 %255, 2
+  br i1 %.not.i3.i, label %256, label %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i"
 
-358:                                              ; preds = %.noexc29
+256:                                              ; preds = %.noexc29
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !12711
   invoke fastcc void @_ZN4fish3ast9Populator9try_parse17hc79b888f18942d44E(ptr noalias noundef align 4 captures(none) dereferenceable(16) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
-          to label %.noexc30 unwind label %454
+          to label %.noexc30 unwind label %306
 
-.noexc30:                                         ; preds = %358
-  %359 = getelementptr inbounds nuw i8, ptr %355, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %359, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !noalias !12716
+.noexc30:                                         ; preds = %256
+  %257 = getelementptr inbounds nuw i8, ptr %223, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %257, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !noalias !12716
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !12711
-  store i8 2, ptr %356, align 2, !noalias !12707
+  store i8 2, ptr %254, align 2, !noalias !12707
   br label %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i"
 
 "_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i": ; preds = %.noexc30, %.noexc29
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfe380248cea3b883E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %355, ptr noalias noundef align 8 captures(none) dereferenceable(32) %13)
-          to label %.noexc31 unwind label %454
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfe380248cea3b883E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %223, ptr noalias noundef align 8 captures(none) dereferenceable(32) %13)
+          to label %.noexc31 unwind label %306
 
 .noexc31:                                         ; preds = %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !12694
   br label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i
 
-360:                                              ; preds = %.noexc6
-  %361 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %362 = load ptr, ptr %361, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %362, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+258:                                              ; preds = %.noexc6
+  invoke fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %223, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-363:                                              ; preds = %.noexc6
-  %364 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %365 = load ptr, ptr %364, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %365, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+259:                                              ; preds = %.noexc6
+  invoke fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %223, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-366:                                              ; preds = %.noexc6
-  %367 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %368 = load ptr, ptr %367, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %368, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+260:                                              ; preds = %.noexc6
+  invoke fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %223, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-369:                                              ; preds = %.noexc6
-  %370 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %371 = load ptr, ptr %370, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
+261:                                              ; preds = %.noexc6
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !12694
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h4f6ba0f4c80c97cbE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %371)
-          to label %.noexc35 unwind label %454
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h4f6ba0f4c80c97cbE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %223)
+          to label %.noexc35 unwind label %306
 
-.noexc35:                                         ; preds = %369
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %371)
-          to label %.noexc36 unwind label %454
+.noexc35:                                         ; preds = %261
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %223)
+          to label %.noexc36 unwind label %306
 
 .noexc36:                                         ; preds = %.noexc35
-  %372 = getelementptr inbounds nuw i8, ptr %11, i64 30
-  %373 = load i8, ptr %372, align 2, !range !3577, !noalias !12717, !noundef !17
-  %.not.i5.i = icmp eq i8 %373, 2
-  br i1 %.not.i5.i, label %374, label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i"
+  %262 = getelementptr inbounds nuw i8, ptr %11, i64 30
+  %263 = load i8, ptr %262, align 2, !range !3577, !noalias !12717, !noundef !17
+  %.not.i5.i = icmp eq i8 %263, 2
+  br i1 %.not.i5.i, label %264, label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i"
 
-374:                                              ; preds = %.noexc36
-  %375 = getelementptr inbounds nuw i8, ptr %371, i64 16
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hca29f2f067e485fdE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(208) %375)
-          to label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i" unwind label %454
+264:                                              ; preds = %.noexc36
+  %265 = getelementptr inbounds nuw i8, ptr %223, i64 16
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hca29f2f067e485fdE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(208) %265)
+          to label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i" unwind label %306
 
-"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i": ; preds = %374, %.noexc36
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h664b5fa91fa80399E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %371, ptr noalias noundef align 8 captures(none) dereferenceable(32) %11)
-          to label %.noexc38 unwind label %454
+"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i": ; preds = %264, %.noexc36
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h664b5fa91fa80399E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %223, ptr noalias noundef align 8 captures(none) dereferenceable(32) %11)
+          to label %.noexc38 unwind label %306
 
 .noexc38:                                         ; preds = %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !12694
   br label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i
 
-376:                                              ; preds = %.noexc6
-  %377 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %378 = load ptr, ptr %377, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %378)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+266:                                              ; preds = %.noexc6
+  invoke fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %223)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-379:                                              ; preds = %.noexc6
-  %380 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %381 = load ptr, ptr %380, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
+267:                                              ; preds = %.noexc6
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !12694
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17ha74f4e61d89105beE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %381)
-          to label %.noexc40 unwind label %454
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17ha74f4e61d89105beE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %223)
+          to label %.noexc40 unwind label %306
 
-.noexc40:                                         ; preds = %379
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %381)
-          to label %.noexc41 unwind label %454
+.noexc40:                                         ; preds = %267
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %223)
+          to label %.noexc41 unwind label %306
 
 .noexc41:                                         ; preds = %.noexc40
-  %382 = getelementptr inbounds nuw i8, ptr %10, i64 30
-  %383 = load i8, ptr %382, align 2, !range !3577, !noalias !12721, !noundef !17
-  %.not.i7.i = icmp eq i8 %383, 2
-  br i1 %.not.i7.i, label %384, label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i"
+  %268 = getelementptr inbounds nuw i8, ptr %10, i64 30
+  %269 = load i8, ptr %268, align 2, !range !3577, !noalias !12721, !noundef !17
+  %.not.i7.i = icmp eq i8 %269, 2
+  br i1 %.not.i7.i, label %270, label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i"
 
-384:                                              ; preds = %.noexc41
+270:                                              ; preds = %.noexc41
   call void @llvm.experimental.noalias.scope.decl(metadata !12725), !noalias !12728
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !12729
   invoke fastcc void @_ZN4fish3ast9Populator9try_parse17hc79b888f18942d44E(ptr noalias noundef align 4 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
-          to label %385 unwind label %454
+          to label %271 unwind label %306
 
-385:                                              ; preds = %384
-  %386 = getelementptr inbounds nuw i8, ptr %381, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %386, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false), !noalias !12732
+271:                                              ; preds = %270
+  %272 = getelementptr inbounds nuw i8, ptr %223, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %272, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false), !noalias !12732
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !12729
-  store i8 2, ptr %382, align 2, !alias.scope !12725, !noalias !12733
-  %387 = getelementptr inbounds nuw i8, ptr %381, i64 32
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc5d8ff9d357d95d1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %387)
-          to label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i" unwind label %454
+  store i8 2, ptr %268, align 2, !alias.scope !12725, !noalias !12733
+  %273 = getelementptr inbounds nuw i8, ptr %223, i64 32
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc5d8ff9d357d95d1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %273)
+          to label %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i" unwind label %306
 
-"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i": ; preds = %385, %.noexc41
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hc06534e3aa1639abE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %381, ptr noalias noundef align 8 captures(none) dereferenceable(32) %10)
-          to label %.noexc44 unwind label %454
+"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i": ; preds = %271, %.noexc41
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hc06534e3aa1639abE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %223, ptr noalias noundef align 8 captures(none) dereferenceable(32) %10)
+          to label %.noexc44 unwind label %306
 
 .noexc44:                                         ; preds = %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !12694
   br label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i
 
-388:                                              ; preds = %.noexc6
-  %389 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %390 = load ptr, ptr %389, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %390, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+274:                                              ; preds = %.noexc6
+  invoke fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %223, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-391:                                              ; preds = %.noexc6
-  %392 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %393 = load ptr, ptr %392, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %393, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+275:                                              ; preds = %.noexc6
+  invoke fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %223, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-394:                                              ; preds = %.noexc6
-  %395 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %396 = load ptr, ptr %395, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %396, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+276:                                              ; preds = %.noexc6
+  invoke fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %223, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-397:                                              ; preds = %.noexc6
-  %398 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %399 = load ptr, ptr %398, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
+277:                                              ; preds = %.noexc6
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !12694
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h532749ea362765d3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %399)
-          to label %.noexc48 unwind label %454
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h532749ea362765d3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %223)
+          to label %.noexc48 unwind label %306
 
-.noexc48:                                         ; preds = %397
-  %400 = getelementptr inbounds nuw i8, ptr %399, i64 16
+.noexc48:                                         ; preds = %277
+  %278 = getelementptr inbounds nuw i8, ptr %223, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !12734), !noalias !12728
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  %401 = invoke noundef zeroext i1 @"_ZN80_$LT$fish..ast..DecoratedStatementDecorator$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17h5fb5c422c9295aacE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
-          to label %.noexc49 unwind label %454
+  %279 = invoke noundef zeroext i1 @"_ZN80_$LT$fish..ast..DecoratedStatementDecorator$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17h5fb5c422c9295aacE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
+          to label %.noexc49 unwind label %306
 
 .noexc49:                                         ; preds = %.noexc48
-  br i1 %401, label %402, label %403
+  br i1 %279, label %280, label %281
 
-402:                                              ; preds = %.noexc49
+280:                                              ; preds = %.noexc49
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !12737
   invoke fastcc void @_ZN4fish3ast9Populator14allocate_visit17ha0f2430831ead41eE(ptr noalias noundef align 4 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
-          to label %.noexc50 unwind label %454
+          to label %.noexc50 unwind label %306
 
-.noexc50:                                         ; preds = %402
+.noexc50:                                         ; preds = %280
   %.sroa.081.0.copyload82 = load i32, ptr %4, align 4, !noalias !12743
   %.sroa.5.0..sroa_idx83 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx83, i64 12, i1 false), !noalias !12743
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12737
-  br label %403
+  br label %281
 
-403:                                              ; preds = %.noexc50, %.noexc49
+281:                                              ; preds = %.noexc50, %.noexc49
   %.sroa.081.0 = phi i32 [ %.sroa.081.0.copyload82, %.noexc50 ], [ 2, %.noexc49 ]
-  store i32 %.sroa.081.0, ptr %400, align 8, !noalias !12744
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %399, i64 20
+  store i32 %.sroa.081.0, ptr %278, align 4, !noalias !12744
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %223, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5, i64 12, i1 false), !noalias !12744
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  %404 = getelementptr inbounds nuw i8, ptr %8, i64 30
-  store i8 2, ptr %404, align 2, !alias.scope !12734, !noalias !12745
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %399)
-          to label %.noexc51 unwind label %454
+  %282 = getelementptr inbounds nuw i8, ptr %8, i64 30
+  store i8 2, ptr %282, align 2, !alias.scope !12734, !noalias !12745
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %223)
+          to label %.noexc51 unwind label %306
 
-.noexc51:                                         ; preds = %403
-  %405 = load i8, ptr %404, align 2, !range !3577, !noalias !12746, !noundef !17
-  %.not1.i11.i = icmp eq i8 %405, 2
-  br i1 %.not1.i11.i, label %406, label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i"
+.noexc51:                                         ; preds = %281
+  %283 = load i8, ptr %282, align 2, !range !3577, !noalias !12746, !noundef !17
+  %.not1.i11.i = icmp eq i8 %283, 2
+  br i1 %.not1.i11.i, label %284, label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i"
 
-406:                                              ; preds = %.noexc51
-  %407 = getelementptr inbounds nuw i8, ptr %399, i64 32
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %407)
-          to label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i" unwind label %454
+284:                                              ; preds = %.noexc51
+  %285 = getelementptr inbounds nuw i8, ptr %223, i64 32
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %285)
+          to label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i" unwind label %306
 
-"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i": ; preds = %406, %.noexc51
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h6a75953bc5a3dbe8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %399, ptr noalias noundef align 8 captures(none) dereferenceable(32) %8)
-          to label %.noexc53 unwind label %454
+"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i": ; preds = %284, %.noexc51
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h6a75953bc5a3dbe8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %223, ptr noalias noundef align 8 captures(none) dereferenceable(32) %8)
+          to label %.noexc53 unwind label %306
 
 .noexc53:                                         ; preds = %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !12694
   br label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i
 
-408:                                              ; preds = %.noexc6
-  %409 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %410 = load ptr, ptr %409, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %410, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+286:                                              ; preds = %.noexc6
+  invoke fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %223, ptr noalias noundef nonnull align 8 dereferenceable(224) %1)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-411:                                              ; preds = %.noexc6
-  %412 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %413 = load ptr, ptr %412, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %413)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+287:                                              ; preds = %.noexc6
+  invoke void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %223)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-414:                                              ; preds = %.noexc6
-  %415 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %416 = load ptr, ptr %415, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %416)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+288:                                              ; preds = %.noexc6
+  invoke fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %223)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-417:                                              ; preds = %.noexc6
-  %418 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %419 = load ptr, ptr %418, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
+289:                                              ; preds = %.noexc6
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !12694
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h01eb6c0c74e3287aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %419)
-          to label %.noexc57 unwind label %454
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h01eb6c0c74e3287aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %223)
+          to label %.noexc57 unwind label %306
 
-.noexc57:                                         ; preds = %417
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h43bb3b44ab08d2baE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %419)
-          to label %.noexc58 unwind label %454
+.noexc57:                                         ; preds = %289
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h43bb3b44ab08d2baE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %223)
+          to label %.noexc58 unwind label %306
 
 .noexc58:                                         ; preds = %.noexc57
-  %420 = getelementptr inbounds nuw i8, ptr %7, i64 30
-  %421 = load i8, ptr %420, align 2, !range !3577, !noalias !12750, !noundef !17
-  %.not.i13.i = icmp eq i8 %421, 2
-  br i1 %.not.i13.i, label %422, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i"
+  %290 = getelementptr inbounds nuw i8, ptr %7, i64 30
+  %291 = load i8, ptr %290, align 2, !range !3577, !noalias !12750, !noundef !17
+  %.not.i13.i = icmp eq i8 %291, 2
+  br i1 %.not.i13.i, label %292, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i"
 
-422:                                              ; preds = %.noexc58
-  %423 = getelementptr inbounds nuw i8, ptr %419, i64 128
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h818c83f62cd06754E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(12) %423)
-          to label %.noexc59 unwind label %454
+292:                                              ; preds = %.noexc58
+  %293 = getelementptr inbounds nuw i8, ptr %223, i64 128
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h818c83f62cd06754E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(12) %293)
+          to label %.noexc59 unwind label %306
 
-.noexc59:                                         ; preds = %422
-  %424 = load i8, ptr %420, align 2, !range !3577, !noalias !12750, !noundef !17
-  %.not1.i14.i = icmp eq i8 %424, 2
-  br i1 %.not1.i14.i, label %425, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i"
+.noexc59:                                         ; preds = %292
+  %294 = load i8, ptr %290, align 2, !range !3577, !noalias !12750, !noundef !17
+  %.not1.i14.i = icmp eq i8 %294, 2
+  br i1 %.not1.i14.i, label %295, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i"
 
-425:                                              ; preds = %.noexc59
-  %426 = getelementptr inbounds nuw i8, ptr %419, i64 16
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h93a471d0b8d5106bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(112) %426)
-          to label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i" unwind label %454
+295:                                              ; preds = %.noexc59
+  %296 = getelementptr inbounds nuw i8, ptr %223, i64 16
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h93a471d0b8d5106bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(112) %296)
+          to label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i" unwind label %306
 
-"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i": ; preds = %425, %.noexc59, %.noexc58
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h798e06610eb2f4b8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %419, ptr noalias noundef align 8 captures(none) dereferenceable(32) %7)
-          to label %.noexc61 unwind label %454
+"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i": ; preds = %295, %.noexc59, %.noexc58
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h798e06610eb2f4b8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %223, ptr noalias noundef align 8 captures(none) dereferenceable(32) %7)
+          to label %.noexc61 unwind label %306
 
 .noexc61:                                         ; preds = %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !12694
   br label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i
 
-427:                                              ; preds = %.noexc6
-  %428 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %429 = load ptr, ptr %428, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
+297:                                              ; preds = %.noexc6
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !12694
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h409ed0dce593bd81E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %429)
-          to label %.noexc62 unwind label %454
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h409ed0dce593bd81E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %223)
+          to label %.noexc62 unwind label %306
 
-.noexc62:                                         ; preds = %427
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %429)
-          to label %.noexc63 unwind label %454
+.noexc62:                                         ; preds = %297
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %223)
+          to label %.noexc63 unwind label %306
 
 .noexc63:                                         ; preds = %.noexc62
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfec61b9cd3d5b2e0E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %429, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
-          to label %.noexc64 unwind label %454
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfec61b9cd3d5b2e0E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %223, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
+          to label %.noexc64 unwind label %306
 
 .noexc64:                                         ; preds = %.noexc63
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !12694
   br label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i
 
-430:                                              ; preds = %.noexc6
-  %431 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %432 = load ptr, ptr %431, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %432)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+298:                                              ; preds = %.noexc6
+  invoke fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %223)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-433:                                              ; preds = %.noexc6
-  %434 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %435 = load ptr, ptr %434, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
+299:                                              ; preds = %.noexc6
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !12694
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h8f3472ff825a7f83E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %435)
-          to label %.noexc66 unwind label %454
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h8f3472ff825a7f83E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %223)
+          to label %.noexc66 unwind label %306
 
-.noexc66:                                         ; preds = %433
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1e934e91488c67a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %435)
-          to label %.noexc67 unwind label %454
+.noexc66:                                         ; preds = %299
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1e934e91488c67a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %223)
+          to label %.noexc67 unwind label %306
 
 .noexc67:                                         ; preds = %.noexc66
-  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hd64bf4a54c433fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %435, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
-          to label %.noexc68 unwind label %454
+  invoke fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hd64bf4a54c433fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %223, ptr noalias noundef align 8 captures(none) dereferenceable(32) %5)
+          to label %.noexc68 unwind label %306
 
 .noexc68:                                         ; preds = %.noexc67
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !12694
   br label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i
 
-436:                                              ; preds = %.noexc6
-  %437 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %438 = load ptr, ptr %437, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %438)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+300:                                              ; preds = %.noexc6
+  invoke fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %223)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-439:                                              ; preds = %.noexc6
-  %440 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %441 = load ptr, ptr %440, align 8, !noalias !12694, !nonnull !17, !align !27, !noundef !17
-  invoke void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %441)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+301:                                              ; preds = %.noexc6
+  invoke void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %223)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-442:                                              ; preds = %.noexc6
-  %443 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %444 = load ptr, ptr %443, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %444)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+302:                                              ; preds = %.noexc6
+  invoke fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %223)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-445:                                              ; preds = %.noexc6
-  %446 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %447 = load ptr, ptr %446, align 8, !noalias !12694, !nonnull !17, !align !27, !noundef !17
-  invoke void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %447)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+303:                                              ; preds = %.noexc6
+  invoke void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %223)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-448:                                              ; preds = %.noexc6
-  %449 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %450 = load ptr, ptr %449, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %450, i1 noundef zeroext false)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+304:                                              ; preds = %.noexc6
+  invoke void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %223, i1 noundef zeroext false)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-451:                                              ; preds = %.noexc6
-  %452 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %453 = load ptr, ptr %452, align 8, !noalias !12694, !nonnull !17, !align !22, !noundef !17
-  invoke void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %453, i1 noundef zeroext false)
-          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %454
+305:                                              ; preds = %.noexc6
+  invoke void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %223, i1 noundef zeroext false)
+          to label %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i unwind label %306
 
-454:                                              ; preds = %376, %436, %322, %316, %414, %430, %442, %451, %448, %445, %439, %.noexc67, %.noexc66, %433, %.noexc63, %.noexc62, %427, %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i", %425, %422, %.noexc57, %417, %411, %408, %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i", %406, %403, %402, %.noexc48, %397, %394, %391, %388, %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i", %385, %384, %.noexc40, %379, %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i", %374, %.noexc35, %369, %366, %363, %360, %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i", %358, %.noexc28, %353, %350, %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i", %348, %345, %.noexc22, %340, %337, %334, %331, %328, %325, %319, %313, %308, %303, %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i", %301, %.noexc7, %296, %290
-  %455 = landingpad { ptr, i32 }
+306:                                              ; preds = %266, %300, %238, %236, %288, %298, %302, %305, %304, %303, %301, %.noexc67, %.noexc66, %299, %.noexc63, %.noexc62, %297, %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit.i", %295, %292, %.noexc57, %289, %287, %286, %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit.i", %284, %281, %280, %.noexc48, %277, %276, %275, %274, %"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE.exit.i", %271, %270, %.noexc40, %267, %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit.i", %264, %.noexc35, %261, %260, %259, %258, %"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E.exit.i", %256, %.noexc28, %253, %252, %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit.i", %250, %247, %.noexc22, %244, %243, %242, %241, %240, %239, %237, %235, %232, %229, %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit.i", %227, %.noexc7, %224, %216
+  %307 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$fish..ast..ElseClause$GT$17h1f57fc1a0bc9f9b5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %18) #15
-          to label %common.resume unwind label %456, !noalias !12728
+          to label %common.resume unwind label %308, !noalias !12728
 
-456:                                              ; preds = %454
-  %457 = landingpad { ptr, i32 }
+308:                                              ; preds = %306
+  %309 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !12728
   unreachable
 
-_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i: ; preds = %376, %436, %322, %316, %414, %430, %442, %.noexc10, %.noexc26, %.noexc31, %.noexc38, %.noexc44, %.noexc53, %.noexc61, %.noexc64, %.noexc68, %303, %313, %319, %325, %328, %331, %334, %337, %350, %360, %363, %366, %388, %391, %394, %408, %411, %439, %445, %448, %451, %308
+_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i: ; preds = %266, %300, %238, %236, %288, %298, %302, %.noexc10, %.noexc26, %.noexc31, %.noexc38, %.noexc44, %.noexc53, %.noexc61, %.noexc64, %.noexc68, %229, %235, %237, %239, %240, %241, %242, %243, %252, %258, %259, %260, %274, %275, %276, %286, %287, %301, %303, %304, %305, %232
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !12694
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !12684
   %.sroa.080.0.copyload = load i32, ptr %18, align 8, !noalias !12754
@@ -127032,40 +126292,40 @@ _ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i: ; preds = %37
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !12684
   br label %_ZN4fish3ast9Populator9try_parse17h58f8799e5b02a541E.exit
 
-_ZN4fish3ast9Populator9try_parse17h58f8799e5b02a541E.exit: ; preds = %287, %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i
-  %.sroa.0.0 = phi i32 [ %.sroa.080.0.copyload, %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i ], [ 2, %287 ]
-  %458 = load i32, ptr %288, align 8, !range !155, !alias.scope !12756, !noalias !12677, !noundef !17
-  %459 = icmp eq i32 %458, 2
-  br i1 %459, label %463, label %460
+_ZN4fish3ast9Populator9try_parse17h58f8799e5b02a541E.exit: ; preds = %213, %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i
+  %.sroa.0.0 = phi i32 [ %.sroa.080.0.copyload, %_ZN4fish3ast9Populator14allocate_visit17hbea971c87f055918E.exit.i ], [ 2, %213 ]
+  %310 = load i32, ptr %214, align 8, !range !155, !alias.scope !12756, !noalias !12677, !noundef !17
+  %311 = icmp eq i32 %310, 2
+  br i1 %311, label %315, label %312
 
-460:                                              ; preds = %_ZN4fish3ast9Populator9try_parse17h58f8799e5b02a541E.exit
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$fish..ast..ElseClause$GT$17h1f57fc1a0bc9f9b5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %288)
-          to label %463 unwind label %461
+312:                                              ; preds = %_ZN4fish3ast9Populator9try_parse17h58f8799e5b02a541E.exit
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$fish..ast..ElseClause$GT$17h1f57fc1a0bc9f9b5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %214)
+          to label %315 unwind label %313
 
-461:                                              ; preds = %460
-  %462 = landingpad { ptr, i32 }
+313:                                              ; preds = %312
+  %314 = landingpad { ptr, i32 }
           cleanup
-  store i32 %.sroa.0.0, ptr %288, align 8, !noalias !12759
+  store i32 %.sroa.0.0, ptr %214, align 8, !noalias !12759
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 228
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.6, i64 44, i1 false), !noalias !12759
   br label %common.resume
 
-463:                                              ; preds = %460, %_ZN4fish3ast9Populator9try_parse17h58f8799e5b02a541E.exit
-  store i32 %.sroa.0.0, ptr %288, align 8, !noalias !12759
+315:                                              ; preds = %312, %_ZN4fish3ast9Populator9try_parse17h58f8799e5b02a541E.exit
+  store i32 %.sroa.0.0, ptr %214, align 8, !noalias !12759
   %.sroa.6.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %0, i64 228
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.6.0..sroa_idx78, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.6, i64 44, i1 false), !noalias !12759
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   store i8 2, ptr %164, align 2, !alias.scope !12677, !noalias !12761
-  %464 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc3793508fa9b496eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %39, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %464)
-  %465 = load i8, ptr %164, align 2, !range !3577, !noundef !17
-  %.not3 = icmp eq i8 %465, 2
-  br i1 %.not3, label %466, label %286
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc3793508fa9b496eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %39, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %316)
+  %317 = load i8, ptr %164, align 2, !range !3577, !noundef !17
+  %.not3 = icmp eq i8 %317, 2
+  br i1 %.not3, label %318, label %212
 
-466:                                              ; preds = %463
-  %467 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %39, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %467)
-  br label %286
+318:                                              ; preds = %315
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %39, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %319)
+  br label %212
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -128396,260 +127656,214 @@ define internal fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fi
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !12912
   call void @"_ZN60_$LT$fish..ast..KeywordSwitch$u20$as$u20$fish..ast..Node$GT$8kind_mut17hc5a57122ec680756E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 4 dereferenceable(16) %0), !noalias !12915
   %160 = load i64, ptr %14, align 8, !range !167, !noalias !12912, !noundef !17
+  %161 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %162 = load ptr, ptr %161, align 8, !noalias !12912, !nonnull !17, !align !139, !noundef !17
   switch i64 %160, label %default.unreachable [
-    i64 0, label %161
+    i64 0, label %163
     i64 1, label %168
     i64 2, label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit"
-    i64 3, label %173
-    i64 4, label %176
-    i64 5, label %179
-    i64 6, label %182
-    i64 7, label %185
-    i64 8, label %188
-    i64 9, label %191
-    i64 10, label %194
-    i64 11, label %197
-    i64 12, label %200
-    i64 13, label %210
-    i64 14, label %213
-    i64 15, label %216
-    i64 16, label %219
-    i64 17, label %222
-    i64 18, label %225
-    i64 19, label %232
-    i64 20, label %235
-    i64 21, label %238
-    i64 22, label %241
-    i64 23, label %244
-    i64 24, label %247
-    i64 25, label %260
-    i64 26, label %263
-    i64 27, label %266
-    i64 28, label %269
-    i64 29, label %279
-    i64 30, label %282
-    i64 31, label %285
-    i64 32, label %288
-    i64 33, label %291
-    i64 34, label %294
-    i64 35, label %297
-    i64 36, label %300
-    i64 37, label %303
+    i64 3, label %171
+    i64 4, label %172
+    i64 5, label %173
+    i64 6, label %174
+    i64 7, label %175
+    i64 8, label %176
+    i64 9, label %177
+    i64 10, label %178
+    i64 11, label %179
+    i64 12, label %180
+    i64 13, label %188
+    i64 14, label %189
+    i64 15, label %190
+    i64 16, label %191
+    i64 17, label %192
+    i64 18, label %193
+    i64 19, label %198
+    i64 20, label %199
+    i64 21, label %200
+    i64 22, label %201
+    i64 23, label %202
+    i64 24, label %203
+    i64 25, label %214
+    i64 26, label %215
+    i64 27, label %216
+    i64 28, label %217
+    i64 29, label %225
+    i64 30, label %226
+    i64 31, label %227
+    i64 32, label %228
+    i64 33, label %229
+    i64 34, label %230
+    i64 35, label %231
+    i64 36, label %232
+    i64 37, label %233
   ]
 
-default.unreachable:                              ; preds = %322, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+default.unreachable:                              ; preds = %248, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
   unreachable
 
-161:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %162 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %163 = load ptr, ptr %162, align 8, !noalias !12912, !nonnull !17, !align !27, !noundef !17
+163:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf72cd84b56f3a141E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %163), !noalias !12909
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h049305556e67f2cbE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %163), !noalias !12909
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf72cd84b56f3a141E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %162), !noalias !12909
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h049305556e67f2cbE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %162), !noalias !12909
   %164 = getelementptr inbounds nuw i8, ptr %6, i64 30
   %165 = load i8, ptr %164, align 2, !range !3577, !noalias !12916, !noundef !17
   %.not.i17 = icmp eq i8 %165, 2
   br i1 %.not.i17, label %166, label %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit"
 
-166:                                              ; preds = %161
-  %167 = getelementptr inbounds nuw i8, ptr %163, i64 16
+166:                                              ; preds = %163
+  %167 = getelementptr inbounds nuw i8, ptr %162, i64 16
   call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %167), !noalias !12909
   br label %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit"
 
-"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit": ; preds = %161, %166
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h9570d0d3c19e21acE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %163, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6), !noalias !12909
+"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit": ; preds = %163, %166
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h9570d0d3c19e21acE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(32) %162, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6), !noalias !12909
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
 168:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %169 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %170 = load ptr, ptr %169, align 8, !noalias !12912, !nonnull !17, !align !139, !noundef !17
-  %171 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %172 = load ptr, ptr %171, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %170, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %172), !noalias !12909
+  %169 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %170 = load ptr, ptr %169, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %162, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %170), !noalias !12909
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
+
+171:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %162), !noalias !12909
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
+
+172:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %162)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
 173:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %174 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %175 = load ptr, ptr %174, align 8, !noalias !12912, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %175), !noalias !12909
+  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %162), !noalias !12909
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
+
+174:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %162)
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
+
+175:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %162), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
 176:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %177 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %178 = load ptr, ptr %177, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %178)
+  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %162, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
+
+177:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %162, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
+  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
+
+178:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %162), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
 179:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %180 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %181 = load ptr, ptr %180, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %181), !noalias !12909
+  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %162, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-182:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %183 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %184 = load ptr, ptr %183, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %184)
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
-
-185:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %186 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %187 = load ptr, ptr %186, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %187), !noalias !12909
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
-
-188:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %189 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %190 = load ptr, ptr %189, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %190, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
-
-191:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %192 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %193 = load ptr, ptr %192, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %193, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
-
-194:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %195 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %196 = load ptr, ptr %195, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %196), !noalias !12909
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
-
-197:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %198 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %199 = load ptr, ptr %198, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %199, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
-  br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
-
-200:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %201 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %202 = load ptr, ptr %201, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
+180:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h1a3b846da26f66f9E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %202), !noalias !12909
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haa8be05bf548bc11E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %202), !noalias !12909
-  %203 = getelementptr inbounds nuw i8, ptr %7, i64 30
-  %204 = load i8, ptr %203, align 2, !range !3577, !noalias !12920, !noundef !17
-  %.not.i14 = icmp eq i8 %204, 2
-  br i1 %.not.i14, label %205, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h1a3b846da26f66f9E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %162), !noalias !12909
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17haa8be05bf548bc11E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %162), !noalias !12909
+  %181 = getelementptr inbounds nuw i8, ptr %7, i64 30
+  %182 = load i8, ptr %181, align 2, !range !3577, !noalias !12920, !noundef !17
+  %.not.i14 = icmp eq i8 %182, 2
+  br i1 %.not.i14, label %183, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit"
 
-205:                                              ; preds = %200
-  %206 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(160) %206), !noalias !12909
-  %207 = load i8, ptr %203, align 2, !range !3577, !noalias !12920, !noundef !17
-  %.not1.i15 = icmp eq i8 %207, 2
-  br i1 %.not1.i15, label %208, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit"
+183:                                              ; preds = %180
+  %184 = getelementptr inbounds nuw i8, ptr %162, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(160) %184), !noalias !12909
+  %185 = load i8, ptr %181, align 2, !range !3577, !noalias !12920, !noundef !17
+  %.not1.i15 = icmp eq i8 %185, 2
+  br i1 %.not1.i15, label %186, label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit"
 
-208:                                              ; preds = %205
-  %209 = getelementptr inbounds nuw i8, ptr %202, i64 176
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd0348e8a3f03cb21E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %209), !noalias !12909
+186:                                              ; preds = %183
+  %187 = getelementptr inbounds nuw i8, ptr %162, i64 176
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd0348e8a3f03cb21E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %187), !noalias !12909
   br label %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit"
 
-"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit": ; preds = %200, %205, %208
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h937dd9cae9983329E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %202, ptr noalias noundef align 8 captures(none) dereferenceable(32) %7), !noalias !12909
+"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit": ; preds = %180, %183, %186
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h937dd9cae9983329E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %162, ptr noalias noundef align 8 captures(none) dereferenceable(32) %7), !noalias !12909
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-210:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %211 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %212 = load ptr, ptr %211, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %212, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
+188:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %162, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-213:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %214 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %215 = load ptr, ptr %214, align 8, !noalias !12912, !nonnull !17, !align !27, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %215, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
+189:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %162, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-216:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %217 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %218 = load ptr, ptr %217, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %218, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
+190:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %162, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-219:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %220 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %221 = load ptr, ptr %220, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %221, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
+191:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %162, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-222:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %223 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %224 = load ptr, ptr %223, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %224, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
+192:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %162, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-225:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %226 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %227 = load ptr, ptr %226, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
+193:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h4f6ba0f4c80c97cbE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %227), !noalias !12909
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %227), !noalias !12909
-  %228 = getelementptr inbounds nuw i8, ptr %8, i64 30
-  %229 = load i8, ptr %228, align 2, !range !3577, !noalias !12924, !noundef !17
-  %.not.i12 = icmp eq i8 %229, 2
-  br i1 %.not.i12, label %230, label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h4f6ba0f4c80c97cbE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %162), !noalias !12909
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h41c642353f3cf24eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %162), !noalias !12909
+  %194 = getelementptr inbounds nuw i8, ptr %8, i64 30
+  %195 = load i8, ptr %194, align 2, !range !3577, !noalias !12924, !noundef !17
+  %.not.i12 = icmp eq i8 %195, 2
+  br i1 %.not.i12, label %196, label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit"
 
-230:                                              ; preds = %225
-  %231 = getelementptr inbounds nuw i8, ptr %227, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hca29f2f067e485fdE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(208) %231), !noalias !12909
+196:                                              ; preds = %193
+  %197 = getelementptr inbounds nuw i8, ptr %162, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hca29f2f067e485fdE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(208) %197), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit"
 
-"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit": ; preds = %225, %230
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h664b5fa91fa80399E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %227, ptr noalias noundef align 8 captures(none) dereferenceable(32) %8), !noalias !12909
+"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit": ; preds = %193, %196
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h664b5fa91fa80399E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(224) %162, ptr noalias noundef align 8 captures(none) dereferenceable(32) %8), !noalias !12909
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-232:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %233 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %234 = load ptr, ptr %233, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %234)
+198:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %162)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-235:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %236 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %237 = load ptr, ptr %236, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE"(ptr noalias noundef align 8 dereferenceable(48) %237, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
+199:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE"(ptr noalias noundef align 8 dereferenceable(48) %162, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-238:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %239 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %240 = load ptr, ptr %239, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %240, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
+200:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %162, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-241:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %242 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %243 = load ptr, ptr %242, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %243, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
+201:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %162, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-244:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %245 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %246 = load ptr, ptr %245, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %246, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
+202:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %162, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-247:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %248 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %249 = load ptr, ptr %248, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
+203:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h532749ea362765d3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %249), !noalias !12909
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h532749ea362765d3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %162), !noalias !12909
+  %204 = getelementptr inbounds nuw i8, ptr %162, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !12928), !noalias !12909
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  %251 = call noundef zeroext i1 @"_ZN80_$LT$fish..ast..DecoratedStatementDecorator$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17h5fb5c422c9295aacE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12931
-  br i1 %251, label %252, label %255
+  %205 = call noundef zeroext i1 @"_ZN80_$LT$fish..ast..DecoratedStatementDecorator$u20$as$u20$fish..ast..CheckParse$GT$13can_be_parsed17h5fb5c422c9295aacE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12931
+  br i1 %205, label %206, label %209
 
-252:                                              ; preds = %247
+206:                                              ; preds = %203
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !12935
   call void @llvm.experimental.noalias.scope.decl(metadata !12940), !noalias !12943
-  %253 = call noundef i8 @"_ZN78_$LT$fish..parse_constants..ParseKeyword$u20$as$u20$core..default..Default$GT$7default17h30f756cf70474047E"(), !noalias !12944
+  %207 = call noundef i8 @"_ZN78_$LT$fish..parse_constants..ParseKeyword$u20$as$u20$core..default..Default$GT$7default17h30f756cf70474047E"(), !noalias !12944
   store i32 0, ptr %5, align 4, !alias.scope !12940, !noalias !12935
-  %254 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i8 %253, ptr %254, align 4, !alias.scope !12940, !noalias !12935
+  %208 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i8 %207, ptr %208, align 4, !alias.scope !12940, !noalias !12935
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !12935
   call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1809b9c086c2aa57E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %5), !noalias !12945
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12935
@@ -128657,476 +127871,374 @@ default.unreachable:                              ; preds = %322, %"_ZN66_$LT$fi
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx, i64 12, i1 false), !noalias !12947
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !12935
-  br label %255
+  br label %209
 
-255:                                              ; preds = %252, %247
-  %.sroa.0.0 = phi i32 [ %.sroa.021.0.copyload, %252 ], [ 2, %247 ]
-  store i32 %.sroa.0.0, ptr %250, align 8, !noalias !12948
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %249, i64 20
+209:                                              ; preds = %206, %203
+  %.sroa.0.0 = phi i32 [ %.sroa.021.0.copyload, %206 ], [ 2, %203 ]
+  store i32 %.sroa.0.0, ptr %204, align 4, !noalias !12948
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %162, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5, i64 12, i1 false), !noalias !12948
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  %256 = getelementptr inbounds nuw i8, ptr %9, i64 30
-  store i8 2, ptr %256, align 2, !alias.scope !12928, !noalias !12952
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %249), !noalias !12909
-  %257 = load i8, ptr %256, align 2, !range !3577, !noalias !12954, !noundef !17
-  %.not1.i10 = icmp eq i8 %257, 2
-  br i1 %.not1.i10, label %258, label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit"
+  %210 = getelementptr inbounds nuw i8, ptr %9, i64 30
+  store i8 2, ptr %210, align 2, !alias.scope !12928, !noalias !12952
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hb71d3137b13751a7E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %162), !noalias !12909
+  %211 = load i8, ptr %210, align 2, !range !3577, !noalias !12954, !noundef !17
+  %.not1.i10 = icmp eq i8 %211, 2
+  br i1 %.not1.i10, label %212, label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit"
 
-258:                                              ; preds = %255
-  %259 = getelementptr inbounds nuw i8, ptr %249, i64 32
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %259), !noalias !12909
+212:                                              ; preds = %209
+  %213 = getelementptr inbounds nuw i8, ptr %162, i64 32
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %213), !noalias !12909
   br label %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit"
 
-"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit": ; preds = %255, %258
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h6a75953bc5a3dbe8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %249, ptr noalias noundef align 8 captures(none) dereferenceable(32) %9), !noalias !12909
+"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit": ; preds = %209, %212
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h6a75953bc5a3dbe8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %162, ptr noalias noundef align 8 captures(none) dereferenceable(32) %9), !noalias !12909
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-260:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %261 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %262 = load ptr, ptr %261, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %262, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
+214:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %162, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-263:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %264 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %265 = load ptr, ptr %264, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %265), !noalias !12909
+215:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %162), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-266:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %267 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %268 = load ptr, ptr %267, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %268)
+216:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %162)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-269:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %270 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %271 = load ptr, ptr %270, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
+217:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h01eb6c0c74e3287aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %271), !noalias !12909
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h43bb3b44ab08d2baE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %271), !noalias !12909
-  %272 = getelementptr inbounds nuw i8, ptr %10, i64 30
-  %273 = load i8, ptr %272, align 2, !range !3577, !noalias !12955, !noundef !17
-  %.not.i8 = icmp eq i8 %273, 2
-  br i1 %.not.i8, label %274, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit"
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h01eb6c0c74e3287aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %162), !noalias !12909
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h43bb3b44ab08d2baE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %162), !noalias !12909
+  %218 = getelementptr inbounds nuw i8, ptr %10, i64 30
+  %219 = load i8, ptr %218, align 2, !range !3577, !noalias !12955, !noundef !17
+  %.not.i8 = icmp eq i8 %219, 2
+  br i1 %.not.i8, label %220, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit"
 
-274:                                              ; preds = %269
-  %275 = getelementptr inbounds nuw i8, ptr %271, i64 128
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h818c83f62cd06754E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(12) %275), !noalias !12909
-  %276 = load i8, ptr %272, align 2, !range !3577, !noalias !12955, !noundef !17
-  %.not1.i = icmp eq i8 %276, 2
-  br i1 %.not1.i, label %277, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit"
+220:                                              ; preds = %217
+  %221 = getelementptr inbounds nuw i8, ptr %162, i64 128
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h818c83f62cd06754E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(12) %221), !noalias !12909
+  %222 = load i8, ptr %218, align 2, !range !3577, !noalias !12955, !noundef !17
+  %.not1.i = icmp eq i8 %222, 2
+  br i1 %.not1.i, label %223, label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit"
 
-277:                                              ; preds = %274
-  %278 = getelementptr inbounds nuw i8, ptr %271, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h93a471d0b8d5106bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(112) %278), !noalias !12909
+223:                                              ; preds = %220
+  %224 = getelementptr inbounds nuw i8, ptr %162, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h93a471d0b8d5106bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(112) %224), !noalias !12909
   br label %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit"
 
-"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit": ; preds = %269, %274, %277
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h798e06610eb2f4b8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %271, ptr noalias noundef align 8 captures(none) dereferenceable(32) %10), !noalias !12909
+"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit": ; preds = %217, %220, %223
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h798e06610eb2f4b8E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(144) %162, ptr noalias noundef align 8 captures(none) dereferenceable(32) %10), !noalias !12909
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-279:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %280 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %281 = load ptr, ptr %280, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
+225:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h409ed0dce593bd81E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %281), !noalias !12909
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %281), !noalias !12909
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfec61b9cd3d5b2e0E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %281, ptr noalias noundef align 8 captures(none) dereferenceable(32) %11), !noalias !12909
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h409ed0dce593bd81E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %162), !noalias !12909
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h62c137702a883023E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %162), !noalias !12909
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hfec61b9cd3d5b2e0E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(160) %162, ptr noalias noundef align 8 captures(none) dereferenceable(32) %11), !noalias !12909
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-282:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %283 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %284 = load ptr, ptr %283, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %284)
+226:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %162)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-285:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %286 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %287 = load ptr, ptr %286, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
+227:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h8f3472ff825a7f83E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %287), !noalias !12909
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1e934e91488c67a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %287), !noalias !12909
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hd64bf4a54c433fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %287, ptr noalias noundef align 8 captures(none) dereferenceable(32) %12), !noalias !12909
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17h8f3472ff825a7f83E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %162), !noalias !12909
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h1e934e91488c67a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %12, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %162), !noalias !12909
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17hd64bf4a54c433fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %162, ptr noalias noundef align 8 captures(none) dereferenceable(32) %12), !noalias !12909
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-288:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %289 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %290 = load ptr, ptr %289, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %290)
+228:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %162)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-291:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %292 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %293 = load ptr, ptr %292, align 8, !noalias !12912, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %293), !noalias !12909
+229:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %162), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-294:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %295 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %296 = load ptr, ptr %295, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %296)
+230:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %162)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-297:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %298 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %299 = load ptr, ptr %298, align 8, !noalias !12912, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %299), !noalias !12909
+231:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %162), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-300:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %301 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %302 = load ptr, ptr %301, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %302, i1 noundef zeroext false), !noalias !12909
+232:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %162, i1 noundef zeroext false), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-303:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %304 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %305 = load ptr, ptr %304, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %305, i1 noundef zeroext false), !noalias !12909
+233:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
+  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %162, i1 noundef zeroext false), !noalias !12909
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread"
 
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread": ; preds = %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit", %168, %173, %176, %179, %182, %185, %188, %191, %194, %197, %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit", %210, %213, %216, %219, %222, %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit", %232, %235, %238, %241, %244, %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit", %260, %263, %266, %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit", %279, %282, %285, %288, %291, %294, %297, %300, %303
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread": ; preds = %"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE.exit", %168, %171, %172, %173, %174, %175, %176, %177, %178, %179, %"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE.exit", %188, %189, %190, %191, %192, %"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E.exit", %198, %199, %200, %201, %202, %"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE.exit", %214, %215, %216, %"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE.exit", %225, %226, %227, %228, %229, %230, %231, %232, %233
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !12912
-  %306 = getelementptr inbounds nuw i8, ptr %34, i64 30
-  store i8 2, ptr %306, align 2, !alias.scope !12909, !noalias !12959
-  %307 = getelementptr inbounds nuw i8, ptr %34, i64 30
-  br label %314
+  %234 = getelementptr inbounds nuw i8, ptr %34, i64 30
+  store i8 2, ptr %234, align 2, !alias.scope !12909, !noalias !12959
+  %235 = getelementptr inbounds nuw i8, ptr %34, i64 30
+  br label %240
 
 "_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit": ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$20will_visit_fields_of17hf5b735a3acd2a4fcE.exit"
-  %308 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %309 = load ptr, ptr %308, align 8, !noalias !12912, !nonnull !17, !align !139, !noundef !17
-  %310 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %311 = load ptr, ptr %310, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %34, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %309, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %311)
+  %236 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %237 = load ptr, ptr %236, align 8, !noalias !12912, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %34, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %162, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %237)
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !12912
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %34, i64 30
   %.pre = load i8, ptr %.phi.trans.insert, align 2, !range !3577
-  %312 = icmp eq i8 %.pre, 2
-  %313 = getelementptr inbounds nuw i8, ptr %34, i64 30
-  br i1 %312, label %314, label %318
+  %238 = icmp eq i8 %.pre, 2
+  %239 = getelementptr inbounds nuw i8, ptr %34, i64 30
+  br i1 %238, label %240, label %244
 
-314:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit"
-  %315 = phi ptr [ %307, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread" ], [ %313, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit" ]
-  %316 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h03248dda2637b84fE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %34, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(12) %316)
-  %317 = load i8, ptr %315, align 2, !range !3577, !noundef !17
-  %.not1 = icmp eq i8 %317, 2
-  br i1 %.not1, label %319, label %318
+240:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit"
+  %241 = phi ptr [ %235, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit.thread" ], [ %239, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit" ]
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h03248dda2637b84fE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %34, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(12) %242)
+  %243 = load i8, ptr %241, align 2, !range !3577, !noundef !17
+  %.not1 = icmp eq i8 %243, 2
+  br i1 %.not1, label %245, label %244
 
-318:                                              ; preds = %445, %442, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit", %319, %314, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit"
+244:                                              ; preds = %297, %294, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit", %245, %240, %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17ha41670948a350b96E.exit"
   call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$19did_visit_fields_of17h62b6c7f3d04059c9E"(ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(96) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %34)
   ret void
 
-319:                                              ; preds = %314
-  %320 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd03d9516ef0cf23bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %34, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %320)
-  %321 = load i8, ptr %315, align 2, !range !3577, !noundef !17
-  %.not2 = icmp eq i8 %321, 2
-  br i1 %.not2, label %322, label %318
+245:                                              ; preds = %240
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hd03d9516ef0cf23bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %34, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %246)
+  %247 = load i8, ptr %241, align 2, !range !3577, !noundef !17
+  %.not2 = icmp eq i8 %247, 2
+  br i1 %.not2, label %248, label %244
 
-322:                                              ; preds = %319
-  %323 = getelementptr inbounds nuw i8, ptr %0, i64 48
+248:                                              ; preds = %245
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !12960)
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !12963
-  call void @"_ZN59_$LT$fish..ast..CaseItemList$u20$as$u20$fish..ast..Node$GT$8kind_mut17h247f19c7158fab94E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 dereferenceable(16) %323), !noalias !12966
-  %324 = load i64, ptr %13, align 8, !range !167, !noalias !12963, !noundef !17
-  switch i64 %324, label %default.unreachable [
-    i64 0, label %325
-    i64 1, label %328
+  call void @"_ZN59_$LT$fish..ast..CaseItemList$u20$as$u20$fish..ast..Node$GT$8kind_mut17h247f19c7158fab94E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 dereferenceable(16) %249), !noalias !12966
+  %250 = load i64, ptr %13, align 8, !range !167, !noalias !12963, !noundef !17
+  %251 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %252 = load ptr, ptr %251, align 8, !noalias !12963, !nonnull !17, !align !139, !noundef !17
+  switch i64 %250, label %default.unreachable [
+    i64 0, label %253
+    i64 1, label %254
     i64 2, label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit"
-    i64 3, label %333
-    i64 4, label %336
-    i64 5, label %339
-    i64 6, label %342
-    i64 7, label %345
-    i64 8, label %348
-    i64 9, label %351
-    i64 10, label %354
-    i64 11, label %357
-    i64 12, label %360
-    i64 13, label %363
-    i64 14, label %366
-    i64 15, label %369
-    i64 16, label %372
-    i64 17, label %375
-    i64 18, label %378
-    i64 19, label %381
-    i64 20, label %384
-    i64 21, label %387
-    i64 22, label %390
-    i64 23, label %393
-    i64 24, label %396
-    i64 25, label %399
-    i64 26, label %402
-    i64 27, label %405
-    i64 28, label %408
-    i64 29, label %411
-    i64 30, label %414
-    i64 31, label %417
-    i64 32, label %420
-    i64 33, label %423
-    i64 34, label %426
-    i64 35, label %429
-    i64 36, label %432
-    i64 37, label %435
+    i64 3, label %257
+    i64 4, label %258
+    i64 5, label %259
+    i64 6, label %260
+    i64 7, label %261
+    i64 8, label %262
+    i64 9, label %263
+    i64 10, label %264
+    i64 11, label %265
+    i64 12, label %266
+    i64 13, label %267
+    i64 14, label %268
+    i64 15, label %269
+    i64 16, label %270
+    i64 17, label %271
+    i64 18, label %272
+    i64 19, label %273
+    i64 20, label %274
+    i64 21, label %275
+    i64 22, label %276
+    i64 23, label %277
+    i64 24, label %278
+    i64 25, label %279
+    i64 26, label %280
+    i64 27, label %281
+    i64 28, label %282
+    i64 29, label %283
+    i64 30, label %284
+    i64 31, label %285
+    i64 32, label %286
+    i64 33, label %287
+    i64 34, label %288
+    i64 35, label %289
+    i64 36, label %290
+    i64 37, label %291
   ]
 
-325:                                              ; preds = %322
-  %326 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %327 = load ptr, ptr %326, align 8, !noalias !12963, !nonnull !17, !align !27, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE"(ptr noalias noundef align 4 dereferenceable(32) %327, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+253:                                              ; preds = %248
+  call fastcc void @"_ZN65_$LT$fish..ast..Redirection$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h0e90bc57d4f6b61cE"(ptr noalias noundef align 4 dereferenceable(32) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-328:                                              ; preds = %322
-  %329 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %330 = load ptr, ptr %329, align 8, !noalias !12963, !nonnull !17, !align !139, !noundef !17
-  %331 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %332 = load ptr, ptr %331, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %330, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %332), !noalias !12960
+254:                                              ; preds = %248
+  %255 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %256 = load ptr, ptr %255, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator11visit_token17hf7ea501e2835fd0fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %252, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %256), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-333:                                              ; preds = %322
-  %334 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %335 = load ptr, ptr %334, align 8, !noalias !12963, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %335), !noalias !12960
+257:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator25visit_variable_assignment17hced5b31cac9933faE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %252), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-336:                                              ; preds = %322
-  %337 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %338 = load ptr, ptr %337, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %338)
+258:                                              ; preds = %248
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h5ff194ef74dbd0d9E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %252)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-339:                                              ; preds = %322
-  %340 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %341 = load ptr, ptr %340, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %341), !noalias !12960
+259:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator29visit_argument_or_redirection17habb6d067a74ee575E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %252), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-342:                                              ; preds = %322
-  %343 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %344 = load ptr, ptr %343, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %344)
+260:                                              ; preds = %248
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hc548ca0c029a7ee4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %252)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-345:                                              ; preds = %322
-  %346 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %347 = load ptr, ptr %346, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %347), !noalias !12960
+261:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator15visit_statement17hb924c7b9170616a5E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %252), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-348:                                              ; preds = %322
-  %349 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %350 = load ptr, ptr %349, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %350, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+262:                                              ; preds = %248
+  call fastcc void @"_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2ba42050509fa59eE"(ptr noalias noundef align 8 dereferenceable(112) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-351:                                              ; preds = %322
-  %352 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %353 = load ptr, ptr %352, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %353, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+263:                                              ; preds = %248
+  call fastcc void @"_ZN68_$LT$fish..ast..JobConjunction$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd05b57be10a28a01E"(ptr noalias noundef align 8 dereferenceable(160) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-354:                                              ; preds = %322
-  %355 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %356 = load ptr, ptr %355, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %356), !noalias !12960
+264:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator28visit_block_statement_header17h4f85cc418b0d3c20E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(192) %252), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-357:                                              ; preds = %322
-  %358 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %359 = load ptr, ptr %358, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %359, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+265:                                              ; preds = %248
+  call fastcc void @"_ZN63_$LT$fish..ast..ForHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5ab8aa80fc0b8030E"(ptr noalias noundef align 8 dereferenceable(80) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-360:                                              ; preds = %322
-  %361 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %362 = load ptr, ptr %361, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE"(ptr noalias noundef align 8 dereferenceable(192) %362, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+266:                                              ; preds = %248
+  call fastcc void @"_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h8dd93fe5c32863edE"(ptr noalias noundef align 8 dereferenceable(192) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-363:                                              ; preds = %322
-  %364 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %365 = load ptr, ptr %364, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %365, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+267:                                              ; preds = %248
+  call fastcc void @"_ZN68_$LT$fish..ast..FunctionHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h285a7e6877691fbaE"(ptr noalias noundef align 8 dereferenceable(64) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-366:                                              ; preds = %322
-  %367 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %368 = load ptr, ptr %367, align 8, !noalias !12963, !nonnull !17, !align !27, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %368, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+268:                                              ; preds = %248
+  call fastcc void @"_ZN65_$LT$fish..ast..BeginHeader$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hfbafe87f0ef1bbe9E"(ptr noalias noundef align 4 dereferenceable(32) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-369:                                              ; preds = %322
-  %370 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %371 = load ptr, ptr %370, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %371, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+269:                                              ; preds = %248
+  call fastcc void @"_ZN68_$LT$fish..ast..BlockStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hdfeaa2b2ca626e7cE"(ptr noalias noundef align 8 dereferenceable(240) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-372:                                              ; preds = %322
-  %373 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %374 = load ptr, ptr %373, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %374, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+270:                                              ; preds = %248
+  call fastcc void @"_ZN68_$LT$fish..ast..BraceStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h7ee0fc20d83658beE"(ptr noalias noundef align 8 dereferenceable(64) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-375:                                              ; preds = %322
-  %376 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %377 = load ptr, ptr %376, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %377, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+271:                                              ; preds = %248
+  call fastcc void @"_ZN62_$LT$fish..ast..IfClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hd96f87d326f553cfE"(ptr noalias noundef align 8 dereferenceable(208) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-378:                                              ; preds = %322
-  %379 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %380 = load ptr, ptr %379, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E"(ptr noalias noundef align 8 dereferenceable(224) %380, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+272:                                              ; preds = %248
+  call fastcc void @"_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hb7d8fdbb0fc09929E"(ptr noalias noundef align 8 dereferenceable(224) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-381:                                              ; preds = %322
-  %382 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %383 = load ptr, ptr %382, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %383)
+273:                                              ; preds = %248
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382fee07E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %252)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-384:                                              ; preds = %322
-  %385 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %386 = load ptr, ptr %385, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE"(ptr noalias noundef align 8 dereferenceable(48) %386, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+274:                                              ; preds = %248
+  call fastcc void @"_ZN64_$LT$fish..ast..ElseClause$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h008c7071d2c4b62fE"(ptr noalias noundef align 8 dereferenceable(48) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-387:                                              ; preds = %322
-  %388 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %389 = load ptr, ptr %388, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %389, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+275:                                              ; preds = %248
+  call fastcc void @"_ZN65_$LT$fish..ast..IfStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17hf50d1fea8561e984E"(ptr noalias noundef align 8 dereferenceable(304) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-390:                                              ; preds = %322
-  %391 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %392 = load ptr, ptr %391, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %392, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+276:                                              ; preds = %248
+  call fastcc void @"_ZN62_$LT$fish..ast..CaseItem$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2d59212f0dac9764E"(ptr noalias noundef align 8 dereferenceable(64) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-393:                                              ; preds = %322
-  %394 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %395 = load ptr, ptr %394, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %395, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+277:                                              ; preds = %248
+  call fastcc void @"_ZN69_$LT$fish..ast..SwitchStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h3ca0faee7dda99c9E"(ptr noalias noundef align 8 dereferenceable(96) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-396:                                              ; preds = %322
-  %397 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %398 = load ptr, ptr %397, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE"(ptr noalias noundef align 8 dereferenceable(48) %398, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+278:                                              ; preds = %248
+  call fastcc void @"_ZN72_$LT$fish..ast..DecoratedStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h2f0c034fe12b1dcbE"(ptr noalias noundef align 8 dereferenceable(48) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-399:                                              ; preds = %322
-  %400 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %401 = load ptr, ptr %400, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %401, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+279:                                              ; preds = %248
+  call fastcc void @"_ZN66_$LT$fish..ast..NotStatement$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h4e2b8944856d34f0E"(ptr noalias noundef align 8 dereferenceable(96) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-402:                                              ; preds = %322
-  %403 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %404 = load ptr, ptr %403, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %404), !noalias !12960
+280:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator22visit_job_continuation17hbcc931949035c030E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(96) %252), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-405:                                              ; preds = %322
-  %406 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %407 = load ptr, ptr %406, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %407)
+281:                                              ; preds = %248
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h3562b7495834a08bE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %252)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-408:                                              ; preds = %322
-  %409 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %410 = load ptr, ptr %409, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE"(ptr noalias noundef align 8 dereferenceable(144) %410, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+282:                                              ; preds = %248
+  call fastcc void @"_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h12fb4df7729465eeE"(ptr noalias noundef align 8 dereferenceable(144) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-411:                                              ; preds = %322
-  %412 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %413 = load ptr, ptr %412, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN62_$LT$fish..ast..AndorJob$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5749cf043a738819E"(ptr noalias noundef align 8 dereferenceable(160) %413, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+283:                                              ; preds = %248
+  call fastcc void @"_ZN62_$LT$fish..ast..AndorJob$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h5749cf043a738819E"(ptr noalias noundef align 8 dereferenceable(160) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-414:                                              ; preds = %322
-  %415 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %416 = load ptr, ptr %415, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %416)
+284:                                              ; preds = %248
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h350aa7232c72d3d4E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %252)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-417:                                              ; preds = %322
-  %418 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %419 = load ptr, ptr %418, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @"_ZN78_$LT$fish..ast..FreestandingArgumentList$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h80f5e05633587246E"(ptr noalias noundef align 8 dereferenceable(16) %419, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
+285:                                              ; preds = %248
+  call fastcc void @"_ZN78_$LT$fish..ast..FreestandingArgumentList$u20$as$u20$fish..ast..AcceptorMut$GT$10accept_mut17h80f5e05633587246E"(ptr noalias noundef align 8 dereferenceable(16) %252, ptr noalias noundef nonnull align 8 dereferenceable(224) %1), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-420:                                              ; preds = %322
-  %421 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %422 = load ptr, ptr %421, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %422)
+286:                                              ; preds = %248
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652d7f01E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %252)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-423:                                              ; preds = %322
-  %424 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %425 = load ptr, ptr %424, align 8, !noalias !12963, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %425), !noalias !12960
+287:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator20visit_maybe_newlines17hcd99453c270d5552E(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %252), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-426:                                              ; preds = %322
-  %427 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %428 = load ptr, ptr %427, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %428)
+288:                                              ; preds = %248
+  call fastcc void @_ZN4fish3ast9Populator13populate_list17h07282957f928dacfE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %252)
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-429:                                              ; preds = %322
-  %430 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %431 = load ptr, ptr %430, align 8, !noalias !12963, !nonnull !17, !align !27, !noundef !17
-  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %431), !noalias !12960
+289:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator14visit_argument17h6530e167e9272d9fE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 4 dereferenceable(12) %252), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-432:                                              ; preds = %322
-  %433 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %434 = load ptr, ptr %433, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %434, i1 noundef zeroext false), !noalias !12960
+290:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator13populate_list17hd18c01476a97058aE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %252, i1 noundef zeroext false), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-435:                                              ; preds = %322
-  %436 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %437 = load ptr, ptr %436, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %437, i1 noundef zeroext false), !noalias !12960
+291:                                              ; preds = %248
+  call void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %252, i1 noundef zeroext false), !noalias !12960
   br label %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread"
 
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread": ; preds = %325, %328, %333, %336, %339, %342, %345, %348, %351, %354, %357, %360, %363, %366, %369, %372, %375, %378, %381, %384, %387, %390, %393, %396, %399, %402, %405, %408, %411, %414, %417, %420, %423, %426, %429, %432, %435
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread": ; preds = %253, %254, %257, %258, %259, %260, %261, %262, %263, %264, %265, %266, %267, %268, %269, %270, %271, %272, %273, %274, %275, %276, %277, %278, %279, %280, %281, %282, %283, %284, %285, %286, %287, %288, %289, %290, %291
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !12963
-  store i8 2, ptr %315, align 2, !alias.scope !12960, !noalias !12967
-  br label %442
+  store i8 2, ptr %241, align 2, !alias.scope !12960, !noalias !12967
+  br label %294
 
-"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit": ; preds = %322
-  %438 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %439 = load ptr, ptr %438, align 8, !noalias !12963, !nonnull !17, !align !139, !noundef !17
-  %440 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %441 = load ptr, ptr %440, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
-  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %34, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %439, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %441)
+"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit": ; preds = %248
+  %292 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %293 = load ptr, ptr %292, align 8, !noalias !12963, !nonnull !17, !align !22, !noundef !17
+  call void @_ZN4fish3ast9Populator13visit_keyword17h0c09ae8270a186e6E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %34, ptr noalias noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 1 %252, ptr noalias noundef nonnull readonly align 8 dereferenceable(200) %293)
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !12963
-  %.pr = load i8, ptr %315, align 2
+  %.pr = load i8, ptr %241, align 2
   %.not3 = icmp eq i8 %.pr, 2
-  br i1 %.not3, label %442, label %318
+  br i1 %.not3, label %294, label %244
 
-442:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit"
-  %443 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc3793508fa9b496eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %34, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %443)
-  %444 = load i8, ptr %315, align 2, !range !3577, !noundef !17
-  %.not4 = icmp eq i8 %444, 2
-  br i1 %.not4, label %445, label %318
+294:                                              ; preds = %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit.thread", %"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h010960e5b225e309E.exit"
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17hc3793508fa9b496eE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %34, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 4 dereferenceable(16) %295)
+  %296 = load i8, ptr %241, align 2, !range !3577, !noundef !17
+  %.not4 = icmp eq i8 %296, 2
+  br i1 %.not4, label %297, label %244
 
-445:                                              ; preds = %442
-  %446 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %34, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %446)
-  br label %318
+297:                                              ; preds = %294
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..ast..NodeVisitorMut$GT$9visit_mut17h8b72c290c824e6a2E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %34, ptr noalias noundef align 8 dereferenceable(224) %1, ptr noalias noundef align 8 dereferenceable(16) %298)
+  br label %244
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

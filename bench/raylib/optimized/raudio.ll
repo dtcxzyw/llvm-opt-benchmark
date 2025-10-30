@@ -88988,7 +88988,7 @@ jar_xm_row.exit:                                  ; preds = %133, %125, %121, %1
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 62
   br label %163
 
-._crit_edge:                                      ; preds = %1013, %jar_xm_row.exit
+._crit_edge:                                      ; preds = %1008, %jar_xm_row.exit
   %153 = load i16, ptr %2, align 2
   %154 = add i16 %153, 1
   store i16 %154, ptr %2, align 2
@@ -89001,10 +89001,10 @@ jar_xm_row.exit:                                  ; preds = %133, %125, %121, %1
   %161 = zext i16 %160 to i32
   %162 = add nuw nsw i32 %161, %158
   %.not = icmp samesign ugt i32 %162, %155
-  br i1 %.not, label %1019, label %1018
+  br i1 %.not, label %1014, label %1013
 
-163:                                              ; preds = %.lr.ph, %1013
-  %.0202288 = phi i8 [ 0, %.lr.ph ], [ %1014, %1013 ]
+163:                                              ; preds = %.lr.ph, %1008
+  %.0202288 = phi i8 [ 0, %.lr.ph ], [ %1009, %1008 ]
   %164 = load ptr, ptr %148, align 8
   %165 = zext i8 %.0202288 to i64
   %166 = getelementptr inbounds nuw %struct.jar_xm_channel_context_s, ptr %164, i64 %165
@@ -89500,7 +89500,7 @@ jar_xm_vibrato.exit:                              ; preds = %339, %351, %357, %3
   tail call fastcc void @jar_xm_update_frequency(ptr noundef nonnull readonly %0, ptr noundef nonnull %166)
   br label %jar_xm_volume_slide.exit
 
-default.unreachable326:                           ; preds = %468, %453, %290
+default.unreachable326:                           ; preds = %._crit_edge291, %453, %290
   unreachable
 
 jar_xm_volume_slide.exit:                         ; preds = %400, %401, %326, %327, %311, %312, %446, %420, %416, %394, %392, %320, %318, %305, %303, %290, %385, %387, %297, %jar_xm_vibrato.exit, %333, %298
@@ -89509,20 +89509,20 @@ jar_xm_volume_slide.exit:                         ; preds = %400, %401, %326, %3
   %449 = load i8, ptr %448, align 1
   switch i8 %449, label %jar_xm_tone_portamento.exit249 [
     i8 0, label %450
-    i8 1, label %478
-    i8 2, label %494
-    i8 3, label %508
-    i8 4, label %542
-    i8 5, label %591
-    i8 6, label %643
-    i8 7, label %710
-    i8 29, label %956
-    i8 27, label %929
-    i8 10, label %758
-    i8 14, label %780
-    i8 25, label %907
-    i8 17, label %870
-    i8 20, label %891
+    i8 1, label %473
+    i8 2, label %489
+    i8 3, label %503
+    i8 4, label %537
+    i8 5, label %586
+    i8 6, label %638
+    i8 7, label %705
+    i8 29, label %951
+    i8 27, label %924
+    i8 10, label %753
+    i8 14, label %775
+    i8 25, label %902
+    i8 17, label %865
+    i8 20, label %886
   ]
 
 450:                                              ; preds = %jar_xm_volume_slide.exit
@@ -89534,981 +89534,973 @@ jar_xm_volume_slide.exit:                         ; preds = %400, %401, %326, %3
 453:                                              ; preds = %450
   %454 = load i16, ptr %151, align 4
   %455 = urem i16 %454, 3
+  %456 = load i16, ptr %2, align 2
   switch i16 %455, label %default.unreachable326 [
-    i16 2, label %456
+    i16 2, label %457
     i16 1, label %thread-pre-split
     i16 0, label %._crit_edge291
   ]
 
-._crit_edge291:                                   ; preds = %453
-  %.pre292 = load i16, ptr %2, align 2
-  br label %468
+457:                                              ; preds = %453
+  switch i16 %456, label %._crit_edge291 [
+    i16 1, label %458
+    i16 0, label %463
+  ]
 
-456:                                              ; preds = %453
-  %457 = load i16, ptr %2, align 2
-  %458 = icmp eq i16 %457, 1
-  br i1 %458, label %459, label %463
-
-459:                                              ; preds = %456
+458:                                              ; preds = %457
   store i8 1, ptr %256, align 4
-  %460 = load i8, ptr %451, align 1
-  %461 = lshr i8 %460, 4
-  %462 = getelementptr inbounds nuw i8, ptr %166, i64 85
-  store i8 %461, ptr %462, align 1
+  %459 = load i8, ptr %451, align 1
+  %460 = lshr i8 %459, 4
+  %461 = getelementptr inbounds nuw i8, ptr %166, i64 85
+  store i8 %460, ptr %461, align 1
   tail call fastcc void @jar_xm_update_frequency(ptr noundef nonnull %0, ptr noundef nonnull %166)
   br label %jar_xm_tone_portamento.exit249
 
 thread-pre-split:                                 ; preds = %453
-  %.pr278 = load i16, ptr %2, align 2
-  br label %463
+  %462 = icmp eq i16 %456, 0
+  br i1 %462, label %463, label %._crit_edge291
 
-463:                                              ; preds = %thread-pre-split, %456
-  %464 = phi i16 [ %.pr278, %thread-pre-split ], [ %457, %456 ]
-  %465 = icmp eq i16 %464, 0
-  br i1 %465, label %466, label %468
-
-466:                                              ; preds = %463
+463:                                              ; preds = %457, %thread-pre-split
   store i8 0, ptr %256, align 4
-  %467 = getelementptr inbounds nuw i8, ptr %166, i64 85
-  store i8 0, ptr %467, align 1
+  %464 = getelementptr inbounds nuw i8, ptr %166, i64 85
+  store i8 0, ptr %464, align 1
   tail call fastcc void @jar_xm_update_frequency(ptr noundef nonnull %0, ptr noundef nonnull %166)
   br label %jar_xm_tone_portamento.exit249
 
-468:                                              ; preds = %._crit_edge291, %463
-  %469 = phi i16 [ %.pre292, %._crit_edge291 ], [ %464, %463 ]
-  %470 = sub i16 %469, %455
-  %471 = urem i16 %470, 3
-  switch i16 %471, label %default.unreachable326 [
-    i16 0, label %472
-    i16 2, label %473
-    i16 1, label %475
+._crit_edge291:                                   ; preds = %457, %453, %thread-pre-split
+  %465 = sub i16 %456, %455
+  %466 = urem i16 %465, 3
+  switch i16 %466, label %default.unreachable326 [
+    i16 0, label %467
+    i16 2, label %468
+    i16 1, label %470
   ]
 
-472:                                              ; preds = %468
+467:                                              ; preds = %._crit_edge291
   store i8 0, ptr %256, align 4
   br label %jar_xm_arpeggio.exit
 
-473:                                              ; preds = %468
+468:                                              ; preds = %._crit_edge291
   store i8 1, ptr %256, align 4
-  %474 = lshr i8 %452, 4
+  %469 = lshr i8 %452, 4
   br label %jar_xm_arpeggio.exit
 
-475:                                              ; preds = %468
+470:                                              ; preds = %._crit_edge291
   store i8 1, ptr %256, align 4
-  %476 = and i8 %452, 15
+  %471 = and i8 %452, 15
   br label %jar_xm_arpeggio.exit
 
-jar_xm_arpeggio.exit:                             ; preds = %472, %473, %475
-  %.sink.i = phi i8 [ %476, %475 ], [ %474, %473 ], [ 0, %472 ]
-  %477 = getelementptr inbounds nuw i8, ptr %166, i64 85
-  store i8 %.sink.i, ptr %477, align 1
+jar_xm_arpeggio.exit:                             ; preds = %467, %468, %470
+  %.sink.i = phi i8 [ %471, %470 ], [ %469, %468 ], [ 0, %467 ]
+  %472 = getelementptr inbounds nuw i8, ptr %166, i64 85
+  store i8 %.sink.i, ptr %472, align 1
   tail call fastcc void @jar_xm_update_frequency(ptr noundef nonnull readonly %0, ptr noundef nonnull %166)
   br label %jar_xm_tone_portamento.exit249
 
-478:                                              ; preds = %jar_xm_volume_slide.exit
-  %479 = load i16, ptr %2, align 2
-  %480 = icmp eq i16 %479, 0
-  br i1 %480, label %jar_xm_tone_portamento.exit249, label %481
+473:                                              ; preds = %jar_xm_volume_slide.exit
+  %474 = load i16, ptr %2, align 2
+  %475 = icmp eq i16 %474, 0
+  br i1 %475, label %jar_xm_tone_portamento.exit249, label %476
 
-481:                                              ; preds = %478
-  %482 = getelementptr inbounds nuw i8, ptr %166, i64 90
-  %483 = load i8, ptr %482, align 2
-  %484 = zext i8 %483 to i32
-  %485 = sub nsw i32 0, %484
-  %486 = sitofp i32 %485 to float
-  %487 = load i32, ptr %149, align 8
-  %488 = icmp eq i32 %487, 0
-  %489 = fmul float %486, 4.000000e+00
-  %.0.i245 = select i1 %488, float %489, float %486
-  %490 = getelementptr inbounds nuw i8, ptr %166, i64 36
-  %491 = load float, ptr %490, align 4
-  %492 = fadd float %491, %.0.i245
-  %493 = fcmp olt float %492, 0.000000e+00
-  %storemerge.i = select i1 %493, float 0.000000e+00, float %492
-  store float %storemerge.i, ptr %490, align 4
+476:                                              ; preds = %473
+  %477 = getelementptr inbounds nuw i8, ptr %166, i64 90
+  %478 = load i8, ptr %477, align 2
+  %479 = zext i8 %478 to i32
+  %480 = sub nsw i32 0, %479
+  %481 = sitofp i32 %480 to float
+  %482 = load i32, ptr %149, align 8
+  %483 = icmp eq i32 %482, 0
+  %484 = fmul float %481, 4.000000e+00
+  %.0.i245 = select i1 %483, float %484, float %481
+  %485 = getelementptr inbounds nuw i8, ptr %166, i64 36
+  %486 = load float, ptr %485, align 4
+  %487 = fadd float %486, %.0.i245
+  %488 = fcmp olt float %487, 0.000000e+00
+  %storemerge.i = select i1 %488, float 0.000000e+00, float %487
+  store float %storemerge.i, ptr %485, align 4
   tail call fastcc void @jar_xm_update_frequency(ptr noundef nonnull readonly %0, ptr noundef nonnull %166)
   br label %jar_xm_tone_portamento.exit249
 
-494:                                              ; preds = %jar_xm_volume_slide.exit
-  %495 = load i16, ptr %2, align 2
-  %496 = icmp eq i16 %495, 0
-  br i1 %496, label %jar_xm_tone_portamento.exit249, label %497
+489:                                              ; preds = %jar_xm_volume_slide.exit
+  %490 = load i16, ptr %2, align 2
+  %491 = icmp eq i16 %490, 0
+  br i1 %491, label %jar_xm_tone_portamento.exit249, label %492
 
-497:                                              ; preds = %494
-  %498 = getelementptr inbounds nuw i8, ptr %166, i64 91
-  %499 = load i8, ptr %498, align 1
-  %500 = uitofp i8 %499 to float
-  %501 = load i32, ptr %149, align 8
-  %502 = icmp eq i32 %501, 0
-  %503 = fmul float %500, 4.000000e+00
-  %.0.i246 = select i1 %502, float %503, float %500
-  %504 = getelementptr inbounds nuw i8, ptr %166, i64 36
-  %505 = load float, ptr %504, align 4
-  %506 = fadd float %505, %.0.i246
-  %507 = fcmp olt float %506, 0.000000e+00
-  %storemerge.i247 = select i1 %507, float 0.000000e+00, float %506
-  store float %storemerge.i247, ptr %504, align 4
+492:                                              ; preds = %489
+  %493 = getelementptr inbounds nuw i8, ptr %166, i64 91
+  %494 = load i8, ptr %493, align 1
+  %495 = uitofp i8 %494 to float
+  %496 = load i32, ptr %149, align 8
+  %497 = icmp eq i32 %496, 0
+  %498 = fmul float %495, 4.000000e+00
+  %.0.i246 = select i1 %497, float %498, float %495
+  %499 = getelementptr inbounds nuw i8, ptr %166, i64 36
+  %500 = load float, ptr %499, align 4
+  %501 = fadd float %500, %.0.i246
+  %502 = fcmp olt float %501, 0.000000e+00
+  %storemerge.i247 = select i1 %502, float 0.000000e+00, float %501
+  store float %storemerge.i247, ptr %499, align 4
   tail call fastcc void @jar_xm_update_frequency(ptr noundef nonnull readonly %0, ptr noundef nonnull %166)
   br label %jar_xm_tone_portamento.exit249
 
-508:                                              ; preds = %jar_xm_volume_slide.exit
-  %509 = load i16, ptr %2, align 2
-  %510 = icmp eq i16 %509, 0
-  br i1 %510, label %jar_xm_tone_portamento.exit249, label %511
+503:                                              ; preds = %jar_xm_volume_slide.exit
+  %504 = load i16, ptr %2, align 2
+  %505 = icmp eq i16 %504, 0
+  br i1 %505, label %jar_xm_tone_portamento.exit249, label %506
 
-511:                                              ; preds = %508
-  %512 = getelementptr inbounds nuw i8, ptr %166, i64 100
-  %513 = load float, ptr %512, align 4
-  %514 = fcmp oeq float %513, 0.000000e+00
-  br i1 %514, label %jar_xm_tone_portamento.exit249, label %515
+506:                                              ; preds = %503
+  %507 = getelementptr inbounds nuw i8, ptr %166, i64 100
+  %508 = load float, ptr %507, align 4
+  %509 = fcmp oeq float %508, 0.000000e+00
+  br i1 %509, label %jar_xm_tone_portamento.exit249, label %510
 
-515:                                              ; preds = %511
-  %516 = getelementptr inbounds nuw i8, ptr %166, i64 36
-  %517 = load float, ptr %516, align 4
-  %518 = fcmp une float %517, %513
-  br i1 %518, label %519, label %jar_xm_tone_portamento.exit249
+510:                                              ; preds = %506
+  %511 = getelementptr inbounds nuw i8, ptr %166, i64 36
+  %512 = load float, ptr %511, align 4
+  %513 = fcmp une float %512, %508
+  br i1 %513, label %514, label %jar_xm_tone_portamento.exit249
 
-519:                                              ; preds = %515
-  %520 = fcmp ogt float %517, %513
-  br i1 %520, label %521, label %530
+514:                                              ; preds = %510
+  %515 = fcmp ogt float %512, %508
+  br i1 %515, label %516, label %525
 
-521:                                              ; preds = %519
-  %522 = load i32, ptr %149, align 8
-  %523 = icmp eq i32 %522, 0
-  %524 = getelementptr inbounds nuw i8, ptr %166, i64 96
-  %525 = load i8, ptr %524, align 8
-  %526 = uitofp i8 %525 to float
-  %527 = select i1 %523, float -4.000000e+00, float -1.000000e+00
-  %528 = tail call float @llvm.fmuladd.f32(float %527, float %526, float %517)
-  store float %528, ptr %516, align 4
-  %529 = fcmp olt float %528, %513
-  br i1 %529, label %.sink.split.i248, label %541
+516:                                              ; preds = %514
+  %517 = load i32, ptr %149, align 8
+  %518 = icmp eq i32 %517, 0
+  %519 = getelementptr inbounds nuw i8, ptr %166, i64 96
+  %520 = load i8, ptr %519, align 8
+  %521 = uitofp i8 %520 to float
+  %522 = select i1 %518, float -4.000000e+00, float -1.000000e+00
+  %523 = tail call float @llvm.fmuladd.f32(float %522, float %521, float %512)
+  store float %523, ptr %511, align 4
+  %524 = fcmp olt float %523, %508
+  br i1 %524, label %.sink.split.i248, label %536
 
-530:                                              ; preds = %519
-  %531 = fcmp olt float %517, %513
-  br i1 %531, label %532, label %541
+525:                                              ; preds = %514
+  %526 = fcmp olt float %512, %508
+  br i1 %526, label %527, label %536
 
-532:                                              ; preds = %530
-  %533 = load i32, ptr %149, align 8
-  %534 = icmp eq i32 %533, 0
-  %535 = select i1 %534, float 4.000000e+00, float 1.000000e+00
-  %536 = getelementptr inbounds nuw i8, ptr %166, i64 96
-  %537 = load i8, ptr %536, align 8
-  %538 = uitofp i8 %537 to float
-  %539 = tail call float @llvm.fmuladd.f32(float %535, float %538, float %517)
-  store float %539, ptr %516, align 4
-  %540 = fcmp ogt float %539, %513
-  br i1 %540, label %.sink.split.i248, label %541
+527:                                              ; preds = %525
+  %528 = load i32, ptr %149, align 8
+  %529 = icmp eq i32 %528, 0
+  %530 = select i1 %529, float 4.000000e+00, float 1.000000e+00
+  %531 = getelementptr inbounds nuw i8, ptr %166, i64 96
+  %532 = load i8, ptr %531, align 8
+  %533 = uitofp i8 %532 to float
+  %534 = tail call float @llvm.fmuladd.f32(float %530, float %533, float %512)
+  store float %534, ptr %511, align 4
+  %535 = fcmp ogt float %534, %508
+  br i1 %535, label %.sink.split.i248, label %536
 
-.sink.split.i248:                                 ; preds = %532, %521
-  store float %513, ptr %516, align 4
-  br label %541
+.sink.split.i248:                                 ; preds = %527, %516
+  store float %508, ptr %511, align 4
+  br label %536
 
-541:                                              ; preds = %.sink.split.i248, %532, %530, %521
+536:                                              ; preds = %.sink.split.i248, %527, %525, %516
   tail call fastcc void @jar_xm_update_frequency(ptr noundef nonnull readonly %0, ptr noundef nonnull %166)
   br label %jar_xm_tone_portamento.exit249
 
-542:                                              ; preds = %jar_xm_volume_slide.exit
-  %543 = load i16, ptr %2, align 2
-  %544 = icmp eq i16 %543, 0
-  br i1 %544, label %jar_xm_tone_portamento.exit249, label %545
+537:                                              ; preds = %jar_xm_volume_slide.exit
+  %538 = load i16, ptr %2, align 2
+  %539 = icmp eq i16 %538, 0
+  br i1 %539, label %jar_xm_tone_portamento.exit249, label %540
 
-545:                                              ; preds = %542
+540:                                              ; preds = %537
   store i8 1, ptr %271, align 4
-  %546 = getelementptr inbounds nuw i8, ptr %166, i64 117
-  %547 = load i8, ptr %546, align 1
-  %548 = getelementptr inbounds nuw i8, ptr %166, i64 118
-  %549 = load i16, ptr %548, align 2
-  %550 = add i16 %549, 1
-  store i16 %550, ptr %548, align 2
-  %551 = trunc i16 %549 to i8
-  %552 = lshr i8 %547, 4
-  %553 = mul i8 %552, %551
-  %554 = getelementptr inbounds nuw i8, ptr %166, i64 112
-  %555 = load i32, ptr %554, align 8
-  %556 = and i8 %553, 63
-  switch i32 %555, label %jar_xm_vibrato.exit252 [
-    i32 0, label %557
-    i32 1, label %563
-    i32 2, label %568
-    i32 3, label %571
-    i32 4, label %580
+  %541 = getelementptr inbounds nuw i8, ptr %166, i64 117
+  %542 = load i8, ptr %541, align 1
+  %543 = getelementptr inbounds nuw i8, ptr %166, i64 118
+  %544 = load i16, ptr %543, align 2
+  %545 = add i16 %544, 1
+  store i16 %545, ptr %543, align 2
+  %546 = trunc i16 %544 to i8
+  %547 = lshr i8 %542, 4
+  %548 = mul i8 %547, %546
+  %549 = getelementptr inbounds nuw i8, ptr %166, i64 112
+  %550 = load i32, ptr %549, align 8
+  %551 = and i8 %548, 63
+  switch i32 %550, label %jar_xm_vibrato.exit252 [
+    i32 0, label %552
+    i32 1, label %558
+    i32 2, label %563
+    i32 3, label %566
+    i32 4, label %575
   ]
 
-557:                                              ; preds = %545
-  %558 = uitofp nneg i8 %556 to float
-  %559 = fmul float %558, 0x401921FB00000000
-  %560 = fmul float %559, 1.562500e-02
-  %561 = tail call float @sinf(float noundef %560) #69
-  %562 = fneg float %561
+552:                                              ; preds = %540
+  %553 = uitofp nneg i8 %551 to float
+  %554 = fmul float %553, 0x401921FB00000000
+  %555 = fmul float %554, 1.562500e-02
+  %556 = tail call float @sinf(float noundef %555) #69
+  %557 = fneg float %556
   br label %jar_xm_vibrato.exit252
 
-563:                                              ; preds = %545
-  %564 = zext nneg i8 %556 to i32
-  %565 = sub nsw i32 32, %564
-  %566 = sitofp i32 %565 to float
-  %567 = fmul float %566, 3.125000e-02
+558:                                              ; preds = %540
+  %559 = zext nneg i8 %551 to i32
+  %560 = sub nsw i32 32, %559
+  %561 = sitofp i32 %560 to float
+  %562 = fmul float %561, 3.125000e-02
   br label %jar_xm_vibrato.exit252
 
-568:                                              ; preds = %545
-  %569 = icmp samesign ugt i8 %556, 31
-  %570 = select i1 %569, float 1.000000e+00, float -1.000000e+00
+563:                                              ; preds = %540
+  %564 = icmp samesign ugt i8 %551, 31
+  %565 = select i1 %564, float 1.000000e+00, float -1.000000e+00
   br label %jar_xm_vibrato.exit252
 
-571:                                              ; preds = %545
-  %572 = load i32, ptr @jar_xm_waveform.next_rand, align 4
-  %573 = mul i32 %572, 1103515245
-  %574 = add i32 %573, 12345
-  store i32 %574, ptr @jar_xm_waveform.next_rand, align 4
-  %575 = lshr i32 %574, 16
-  %576 = and i32 %575, 32767
-  %577 = uitofp nneg i32 %576 to float
-  %578 = fmul float %577, 0x3F10000000000000
-  %579 = fadd float %578, -1.000000e+00
+566:                                              ; preds = %540
+  %567 = load i32, ptr @jar_xm_waveform.next_rand, align 4
+  %568 = mul i32 %567, 1103515245
+  %569 = add i32 %568, 12345
+  store i32 %569, ptr @jar_xm_waveform.next_rand, align 4
+  %570 = lshr i32 %569, 16
+  %571 = and i32 %570, 32767
+  %572 = uitofp nneg i32 %571 to float
+  %573 = fmul float %572, 0x3F10000000000000
+  %574 = fadd float %573, -1.000000e+00
   br label %jar_xm_vibrato.exit252
 
-580:                                              ; preds = %545
-  %581 = zext nneg i8 %556 to i32
-  %582 = add nsw i32 %581, -32
-  %583 = sitofp i32 %582 to float
-  %584 = fmul float %583, 3.125000e-02
+575:                                              ; preds = %540
+  %576 = zext nneg i8 %551 to i32
+  %577 = add nsw i32 %576, -32
+  %578 = sitofp i32 %577 to float
+  %579 = fmul float %578, 3.125000e-02
   br label %jar_xm_vibrato.exit252
 
-jar_xm_vibrato.exit252:                           ; preds = %545, %557, %563, %568, %571, %580
-  %.0.i.i251 = phi float [ %562, %557 ], [ %567, %563 ], [ %570, %568 ], [ %579, %571 ], [ %584, %580 ], [ 0.000000e+00, %545 ]
-  %585 = fmul float %.0.i.i251, 2.000000e+00
-  %586 = and i8 %547, 15
-  %587 = uitofp nneg i8 %586 to float
-  %588 = fmul float %585, %587
-  %589 = fdiv float %588, 1.500000e+01
-  %590 = getelementptr inbounds nuw i8, ptr %166, i64 120
-  store float %589, ptr %590, align 8
+jar_xm_vibrato.exit252:                           ; preds = %540, %552, %558, %563, %566, %575
+  %.0.i.i251 = phi float [ %557, %552 ], [ %562, %558 ], [ %565, %563 ], [ %574, %566 ], [ %579, %575 ], [ 0.000000e+00, %540 ]
+  %580 = fmul float %.0.i.i251, 2.000000e+00
+  %581 = and i8 %542, 15
+  %582 = uitofp nneg i8 %581 to float
+  %583 = fmul float %580, %582
+  %584 = fdiv float %583, 1.500000e+01
+  %585 = getelementptr inbounds nuw i8, ptr %166, i64 120
+  store float %584, ptr %585, align 8
   tail call fastcc void @jar_xm_update_frequency(ptr noundef nonnull readonly %0, ptr noundef nonnull %166)
   br label %jar_xm_tone_portamento.exit249
 
-591:                                              ; preds = %jar_xm_volume_slide.exit
-  %592 = load i16, ptr %2, align 2
-  %593 = icmp eq i16 %592, 0
-  br i1 %593, label %jar_xm_tone_portamento.exit249, label %594
+586:                                              ; preds = %jar_xm_volume_slide.exit
+  %587 = load i16, ptr %2, align 2
+  %588 = icmp eq i16 %587, 0
+  br i1 %588, label %jar_xm_tone_portamento.exit249, label %589
 
-594:                                              ; preds = %591
-  %595 = getelementptr inbounds nuw i8, ptr %166, i64 100
-  %596 = load float, ptr %595, align 4
-  %597 = fcmp oeq float %596, 0.000000e+00
-  br i1 %597, label %jar_xm_tone_portamento.exit254, label %598
+589:                                              ; preds = %586
+  %590 = getelementptr inbounds nuw i8, ptr %166, i64 100
+  %591 = load float, ptr %590, align 4
+  %592 = fcmp oeq float %591, 0.000000e+00
+  br i1 %592, label %jar_xm_tone_portamento.exit254, label %593
 
-598:                                              ; preds = %594
-  %599 = getelementptr inbounds nuw i8, ptr %166, i64 36
-  %600 = load float, ptr %599, align 4
-  %601 = fcmp une float %600, %596
-  br i1 %601, label %602, label %jar_xm_tone_portamento.exit254
+593:                                              ; preds = %589
+  %594 = getelementptr inbounds nuw i8, ptr %166, i64 36
+  %595 = load float, ptr %594, align 4
+  %596 = fcmp une float %595, %591
+  br i1 %596, label %597, label %jar_xm_tone_portamento.exit254
 
-602:                                              ; preds = %598
-  %603 = fcmp ogt float %600, %596
-  br i1 %603, label %604, label %613
+597:                                              ; preds = %593
+  %598 = fcmp ogt float %595, %591
+  br i1 %598, label %599, label %608
 
-604:                                              ; preds = %602
-  %605 = load i32, ptr %149, align 8
-  %606 = icmp eq i32 %605, 0
-  %607 = getelementptr inbounds nuw i8, ptr %166, i64 96
-  %608 = load i8, ptr %607, align 8
-  %609 = uitofp i8 %608 to float
-  %610 = select i1 %606, float -4.000000e+00, float -1.000000e+00
-  %611 = tail call float @llvm.fmuladd.f32(float %610, float %609, float %600)
-  store float %611, ptr %599, align 4
-  %612 = fcmp olt float %611, %596
-  br i1 %612, label %.sink.split.i253, label %624
+599:                                              ; preds = %597
+  %600 = load i32, ptr %149, align 8
+  %601 = icmp eq i32 %600, 0
+  %602 = getelementptr inbounds nuw i8, ptr %166, i64 96
+  %603 = load i8, ptr %602, align 8
+  %604 = uitofp i8 %603 to float
+  %605 = select i1 %601, float -4.000000e+00, float -1.000000e+00
+  %606 = tail call float @llvm.fmuladd.f32(float %605, float %604, float %595)
+  store float %606, ptr %594, align 4
+  %607 = fcmp olt float %606, %591
+  br i1 %607, label %.sink.split.i253, label %619
 
-613:                                              ; preds = %602
-  %614 = fcmp olt float %600, %596
-  br i1 %614, label %615, label %624
+608:                                              ; preds = %597
+  %609 = fcmp olt float %595, %591
+  br i1 %609, label %610, label %619
 
-615:                                              ; preds = %613
-  %616 = load i32, ptr %149, align 8
-  %617 = icmp eq i32 %616, 0
-  %618 = select i1 %617, float 4.000000e+00, float 1.000000e+00
-  %619 = getelementptr inbounds nuw i8, ptr %166, i64 96
-  %620 = load i8, ptr %619, align 8
-  %621 = uitofp i8 %620 to float
-  %622 = tail call float @llvm.fmuladd.f32(float %618, float %621, float %600)
-  store float %622, ptr %599, align 4
-  %623 = fcmp ogt float %622, %596
-  br i1 %623, label %.sink.split.i253, label %624
+610:                                              ; preds = %608
+  %611 = load i32, ptr %149, align 8
+  %612 = icmp eq i32 %611, 0
+  %613 = select i1 %612, float 4.000000e+00, float 1.000000e+00
+  %614 = getelementptr inbounds nuw i8, ptr %166, i64 96
+  %615 = load i8, ptr %614, align 8
+  %616 = uitofp i8 %615 to float
+  %617 = tail call float @llvm.fmuladd.f32(float %613, float %616, float %595)
+  store float %617, ptr %594, align 4
+  %618 = fcmp ogt float %617, %591
+  br i1 %618, label %.sink.split.i253, label %619
 
-.sink.split.i253:                                 ; preds = %615, %604
-  store float %596, ptr %599, align 4
-  br label %624
+.sink.split.i253:                                 ; preds = %610, %599
+  store float %591, ptr %594, align 4
+  br label %619
 
-624:                                              ; preds = %.sink.split.i253, %615, %613, %604
+619:                                              ; preds = %.sink.split.i253, %610, %608, %599
   tail call fastcc void @jar_xm_update_frequency(ptr noundef nonnull readonly %0, ptr noundef nonnull %166)
   br label %jar_xm_tone_portamento.exit254
 
-jar_xm_tone_portamento.exit254:                   ; preds = %594, %598, %624
-  %625 = getelementptr inbounds nuw i8, ptr %166, i64 86
-  %626 = load i8, ptr %625, align 2
-  %627 = zext i8 %626 to i32
-  %.not.i255 = icmp ult i8 %626, 16
-  br i1 %.not.i255, label %635, label %628
+jar_xm_tone_portamento.exit254:                   ; preds = %589, %593, %619
+  %620 = getelementptr inbounds nuw i8, ptr %166, i64 86
+  %621 = load i8, ptr %620, align 2
+  %622 = zext i8 %621 to i32
+  %.not.i255 = icmp ult i8 %621, 16
+  br i1 %.not.i255, label %630, label %623
 
-628:                                              ; preds = %jar_xm_tone_portamento.exit254
-  %629 = lshr i32 %627, 4
-  %630 = uitofp nneg i32 %629 to float
-  %631 = fmul float %630, 1.562500e-02
-  %632 = getelementptr inbounds nuw i8, ptr %166, i64 52
-  %633 = load float, ptr %632, align 4
-  %634 = fadd float %631, %633
-  store float %634, ptr %632, align 4
-  br label %635
+623:                                              ; preds = %jar_xm_tone_portamento.exit254
+  %624 = lshr i32 %622, 4
+  %625 = uitofp nneg i32 %624 to float
+  %626 = fmul float %625, 1.562500e-02
+  %627 = getelementptr inbounds nuw i8, ptr %166, i64 52
+  %628 = load float, ptr %627, align 4
+  %629 = fadd float %626, %628
+  store float %629, ptr %627, align 4
+  br label %630
 
-635:                                              ; preds = %628, %jar_xm_tone_portamento.exit254
-  %636 = and i32 %627, 15
-  %.not6.i256 = icmp eq i32 %636, 0
-  br i1 %.not6.i256, label %jar_xm_tone_portamento.exit249, label %637
+630:                                              ; preds = %623, %jar_xm_tone_portamento.exit254
+  %631 = and i32 %622, 15
+  %.not6.i256 = icmp eq i32 %631, 0
+  br i1 %.not6.i256, label %jar_xm_tone_portamento.exit249, label %632
 
-637:                                              ; preds = %635
-  %638 = uitofp nneg i32 %636 to float
-  %639 = fmul float %638, 1.562500e-02
-  %640 = getelementptr inbounds nuw i8, ptr %166, i64 52
-  %641 = load float, ptr %640, align 4
-  %642 = fsub float %641, %639
-  store float %642, ptr %640, align 4
+632:                                              ; preds = %630
+  %633 = uitofp nneg i32 %631 to float
+  %634 = fmul float %633, 1.562500e-02
+  %635 = getelementptr inbounds nuw i8, ptr %166, i64 52
+  %636 = load float, ptr %635, align 4
+  %637 = fsub float %636, %634
+  store float %637, ptr %635, align 4
   br label %jar_xm_tone_portamento.exit249
 
-643:                                              ; preds = %jar_xm_volume_slide.exit
-  %644 = load i16, ptr %2, align 2
-  %645 = icmp eq i16 %644, 0
-  br i1 %645, label %jar_xm_tone_portamento.exit249, label %646
+638:                                              ; preds = %jar_xm_volume_slide.exit
+  %639 = load i16, ptr %2, align 2
+  %640 = icmp eq i16 %639, 0
+  br i1 %640, label %jar_xm_tone_portamento.exit249, label %641
 
-646:                                              ; preds = %643
+641:                                              ; preds = %638
   store i8 1, ptr %271, align 4
-  %647 = getelementptr inbounds nuw i8, ptr %166, i64 117
-  %648 = load i8, ptr %647, align 1
-  %649 = getelementptr inbounds nuw i8, ptr %166, i64 118
-  %650 = load i16, ptr %649, align 2
-  %651 = add i16 %650, 1
-  store i16 %651, ptr %649, align 2
-  %652 = trunc i16 %650 to i8
-  %653 = lshr i8 %648, 4
-  %654 = mul i8 %653, %652
-  %655 = getelementptr inbounds nuw i8, ptr %166, i64 112
-  %656 = load i32, ptr %655, align 8
-  %657 = and i8 %654, 63
-  switch i32 %656, label %jar_xm_vibrato.exit260 [
-    i32 0, label %658
-    i32 1, label %664
-    i32 2, label %669
-    i32 3, label %672
-    i32 4, label %681
+  %642 = getelementptr inbounds nuw i8, ptr %166, i64 117
+  %643 = load i8, ptr %642, align 1
+  %644 = getelementptr inbounds nuw i8, ptr %166, i64 118
+  %645 = load i16, ptr %644, align 2
+  %646 = add i16 %645, 1
+  store i16 %646, ptr %644, align 2
+  %647 = trunc i16 %645 to i8
+  %648 = lshr i8 %643, 4
+  %649 = mul i8 %648, %647
+  %650 = getelementptr inbounds nuw i8, ptr %166, i64 112
+  %651 = load i32, ptr %650, align 8
+  %652 = and i8 %649, 63
+  switch i32 %651, label %jar_xm_vibrato.exit260 [
+    i32 0, label %653
+    i32 1, label %659
+    i32 2, label %664
+    i32 3, label %667
+    i32 4, label %676
   ]
 
-658:                                              ; preds = %646
-  %659 = uitofp nneg i8 %657 to float
-  %660 = fmul float %659, 0x401921FB00000000
-  %661 = fmul float %660, 1.562500e-02
-  %662 = tail call float @sinf(float noundef %661) #69
-  %663 = fneg float %662
+653:                                              ; preds = %641
+  %654 = uitofp nneg i8 %652 to float
+  %655 = fmul float %654, 0x401921FB00000000
+  %656 = fmul float %655, 1.562500e-02
+  %657 = tail call float @sinf(float noundef %656) #69
+  %658 = fneg float %657
   br label %jar_xm_vibrato.exit260
 
-664:                                              ; preds = %646
-  %665 = zext nneg i8 %657 to i32
-  %666 = sub nsw i32 32, %665
-  %667 = sitofp i32 %666 to float
-  %668 = fmul float %667, 3.125000e-02
+659:                                              ; preds = %641
+  %660 = zext nneg i8 %652 to i32
+  %661 = sub nsw i32 32, %660
+  %662 = sitofp i32 %661 to float
+  %663 = fmul float %662, 3.125000e-02
   br label %jar_xm_vibrato.exit260
 
-669:                                              ; preds = %646
-  %670 = icmp samesign ugt i8 %657, 31
-  %671 = select i1 %670, float 1.000000e+00, float -1.000000e+00
+664:                                              ; preds = %641
+  %665 = icmp samesign ugt i8 %652, 31
+  %666 = select i1 %665, float 1.000000e+00, float -1.000000e+00
   br label %jar_xm_vibrato.exit260
 
-672:                                              ; preds = %646
-  %673 = load i32, ptr @jar_xm_waveform.next_rand, align 4
-  %674 = mul i32 %673, 1103515245
-  %675 = add i32 %674, 12345
-  store i32 %675, ptr @jar_xm_waveform.next_rand, align 4
-  %676 = lshr i32 %675, 16
-  %677 = and i32 %676, 32767
-  %678 = uitofp nneg i32 %677 to float
-  %679 = fmul float %678, 0x3F10000000000000
-  %680 = fadd float %679, -1.000000e+00
+667:                                              ; preds = %641
+  %668 = load i32, ptr @jar_xm_waveform.next_rand, align 4
+  %669 = mul i32 %668, 1103515245
+  %670 = add i32 %669, 12345
+  store i32 %670, ptr @jar_xm_waveform.next_rand, align 4
+  %671 = lshr i32 %670, 16
+  %672 = and i32 %671, 32767
+  %673 = uitofp nneg i32 %672 to float
+  %674 = fmul float %673, 0x3F10000000000000
+  %675 = fadd float %674, -1.000000e+00
   br label %jar_xm_vibrato.exit260
 
-681:                                              ; preds = %646
-  %682 = zext nneg i8 %657 to i32
-  %683 = add nsw i32 %682, -32
-  %684 = sitofp i32 %683 to float
-  %685 = fmul float %684, 3.125000e-02
+676:                                              ; preds = %641
+  %677 = zext nneg i8 %652 to i32
+  %678 = add nsw i32 %677, -32
+  %679 = sitofp i32 %678 to float
+  %680 = fmul float %679, 3.125000e-02
   br label %jar_xm_vibrato.exit260
 
-jar_xm_vibrato.exit260:                           ; preds = %646, %658, %664, %669, %672, %681
-  %.0.i.i259 = phi float [ %663, %658 ], [ %668, %664 ], [ %671, %669 ], [ %680, %672 ], [ %685, %681 ], [ 0.000000e+00, %646 ]
-  %686 = fmul float %.0.i.i259, 2.000000e+00
-  %687 = and i8 %648, 15
-  %688 = uitofp nneg i8 %687 to float
-  %689 = fmul float %686, %688
-  %690 = fdiv float %689, 1.500000e+01
-  %691 = getelementptr inbounds nuw i8, ptr %166, i64 120
-  store float %690, ptr %691, align 8
+jar_xm_vibrato.exit260:                           ; preds = %641, %653, %659, %664, %667, %676
+  %.0.i.i259 = phi float [ %658, %653 ], [ %663, %659 ], [ %666, %664 ], [ %675, %667 ], [ %680, %676 ], [ 0.000000e+00, %641 ]
+  %681 = fmul float %.0.i.i259, 2.000000e+00
+  %682 = and i8 %643, 15
+  %683 = uitofp nneg i8 %682 to float
+  %684 = fmul float %681, %683
+  %685 = fdiv float %684, 1.500000e+01
+  %686 = getelementptr inbounds nuw i8, ptr %166, i64 120
+  store float %685, ptr %686, align 8
   tail call fastcc void @jar_xm_update_frequency(ptr noundef nonnull readonly %0, ptr noundef nonnull %166)
-  %692 = getelementptr inbounds nuw i8, ptr %166, i64 86
-  %693 = load i8, ptr %692, align 2
-  %694 = zext i8 %693 to i32
-  %.not.i261 = icmp ult i8 %693, 16
-  br i1 %.not.i261, label %702, label %695
+  %687 = getelementptr inbounds nuw i8, ptr %166, i64 86
+  %688 = load i8, ptr %687, align 2
+  %689 = zext i8 %688 to i32
+  %.not.i261 = icmp ult i8 %688, 16
+  br i1 %.not.i261, label %697, label %690
 
-695:                                              ; preds = %jar_xm_vibrato.exit260
-  %696 = lshr i32 %694, 4
-  %697 = uitofp nneg i32 %696 to float
-  %698 = fmul float %697, 1.562500e-02
-  %699 = getelementptr inbounds nuw i8, ptr %166, i64 52
-  %700 = load float, ptr %699, align 4
-  %701 = fadd float %698, %700
-  store float %701, ptr %699, align 4
-  br label %702
+690:                                              ; preds = %jar_xm_vibrato.exit260
+  %691 = lshr i32 %689, 4
+  %692 = uitofp nneg i32 %691 to float
+  %693 = fmul float %692, 1.562500e-02
+  %694 = getelementptr inbounds nuw i8, ptr %166, i64 52
+  %695 = load float, ptr %694, align 4
+  %696 = fadd float %693, %695
+  store float %696, ptr %694, align 4
+  br label %697
 
-702:                                              ; preds = %695, %jar_xm_vibrato.exit260
-  %703 = and i32 %694, 15
-  %.not6.i262 = icmp eq i32 %703, 0
-  br i1 %.not6.i262, label %jar_xm_tone_portamento.exit249, label %704
+697:                                              ; preds = %690, %jar_xm_vibrato.exit260
+  %698 = and i32 %689, 15
+  %.not6.i262 = icmp eq i32 %698, 0
+  br i1 %.not6.i262, label %jar_xm_tone_portamento.exit249, label %699
 
-704:                                              ; preds = %702
-  %705 = uitofp nneg i32 %703 to float
-  %706 = fmul float %705, 1.562500e-02
-  %707 = getelementptr inbounds nuw i8, ptr %166, i64 52
-  %708 = load float, ptr %707, align 4
-  %709 = fsub float %708, %706
-  store float %709, ptr %707, align 4
+699:                                              ; preds = %697
+  %700 = uitofp nneg i32 %698 to float
+  %701 = fmul float %700, 1.562500e-02
+  %702 = getelementptr inbounds nuw i8, ptr %166, i64 52
+  %703 = load float, ptr %702, align 4
+  %704 = fsub float %703, %701
+  store float %704, ptr %702, align 4
   br label %jar_xm_tone_portamento.exit249
 
-710:                                              ; preds = %jar_xm_volume_slide.exit
-  %711 = load i16, ptr %2, align 2
-  %712 = icmp eq i16 %711, 0
-  br i1 %712, label %jar_xm_tone_portamento.exit249, label %713
+705:                                              ; preds = %jar_xm_volume_slide.exit
+  %706 = load i16, ptr %2, align 2
+  %707 = icmp eq i16 %706, 0
+  br i1 %707, label %jar_xm_tone_portamento.exit249, label %708
 
-713:                                              ; preds = %710
-  %714 = getelementptr inbounds nuw i8, ptr %166, i64 129
-  %715 = load i8, ptr %714, align 1
-  %716 = getelementptr inbounds nuw i8, ptr %166, i64 130
-  %717 = load i8, ptr %716, align 2
-  %718 = add i8 %717, 1
-  store i8 %718, ptr %716, align 2
-  %719 = lshr i8 %715, 4
-  %720 = mul i8 %719, %717
-  %721 = getelementptr inbounds nuw i8, ptr %166, i64 124
-  %722 = load i32, ptr %721, align 4
-  %723 = and i8 %720, 63
-  switch i32 %722, label %jar_xm_tremolo.exit [
-    i32 0, label %724
-    i32 1, label %730
-    i32 2, label %735
-    i32 3, label %738
-    i32 4, label %747
+708:                                              ; preds = %705
+  %709 = getelementptr inbounds nuw i8, ptr %166, i64 129
+  %710 = load i8, ptr %709, align 1
+  %711 = getelementptr inbounds nuw i8, ptr %166, i64 130
+  %712 = load i8, ptr %711, align 2
+  %713 = add i8 %712, 1
+  store i8 %713, ptr %711, align 2
+  %714 = lshr i8 %710, 4
+  %715 = mul i8 %714, %712
+  %716 = getelementptr inbounds nuw i8, ptr %166, i64 124
+  %717 = load i32, ptr %716, align 4
+  %718 = and i8 %715, 63
+  switch i32 %717, label %jar_xm_tremolo.exit [
+    i32 0, label %719
+    i32 1, label %725
+    i32 2, label %730
+    i32 3, label %733
+    i32 4, label %742
   ]
 
-724:                                              ; preds = %713
-  %725 = uitofp nneg i8 %723 to float
-  %726 = fmul float %725, 0x401921FB00000000
-  %727 = fmul float %726, 1.562500e-02
-  %728 = tail call float @sinf(float noundef %727) #69
-  %729 = fneg float %728
+719:                                              ; preds = %708
+  %720 = uitofp nneg i8 %718 to float
+  %721 = fmul float %720, 0x401921FB00000000
+  %722 = fmul float %721, 1.562500e-02
+  %723 = tail call float @sinf(float noundef %722) #69
+  %724 = fneg float %723
   br label %jar_xm_tremolo.exit
 
-730:                                              ; preds = %713
-  %731 = zext nneg i8 %723 to i32
-  %732 = sub nsw i32 32, %731
-  %733 = sitofp i32 %732 to float
-  %734 = fmul float %733, 3.125000e-02
+725:                                              ; preds = %708
+  %726 = zext nneg i8 %718 to i32
+  %727 = sub nsw i32 32, %726
+  %728 = sitofp i32 %727 to float
+  %729 = fmul float %728, 3.125000e-02
   br label %jar_xm_tremolo.exit
 
-735:                                              ; preds = %713
-  %736 = icmp samesign ugt i8 %723, 31
-  %737 = select i1 %736, float 1.000000e+00, float -1.000000e+00
+730:                                              ; preds = %708
+  %731 = icmp samesign ugt i8 %718, 31
+  %732 = select i1 %731, float 1.000000e+00, float -1.000000e+00
   br label %jar_xm_tremolo.exit
 
-738:                                              ; preds = %713
-  %739 = load i32, ptr @jar_xm_waveform.next_rand, align 4
-  %740 = mul i32 %739, 1103515245
-  %741 = add i32 %740, 12345
-  store i32 %741, ptr @jar_xm_waveform.next_rand, align 4
-  %742 = lshr i32 %741, 16
-  %743 = and i32 %742, 32767
-  %744 = uitofp nneg i32 %743 to float
-  %745 = fmul float %744, 0x3F10000000000000
-  %746 = fadd float %745, -1.000000e+00
+733:                                              ; preds = %708
+  %734 = load i32, ptr @jar_xm_waveform.next_rand, align 4
+  %735 = mul i32 %734, 1103515245
+  %736 = add i32 %735, 12345
+  store i32 %736, ptr @jar_xm_waveform.next_rand, align 4
+  %737 = lshr i32 %736, 16
+  %738 = and i32 %737, 32767
+  %739 = uitofp nneg i32 %738 to float
+  %740 = fmul float %739, 0x3F10000000000000
+  %741 = fadd float %740, -1.000000e+00
   br label %jar_xm_tremolo.exit
 
-747:                                              ; preds = %713
-  %748 = zext nneg i8 %723 to i32
-  %749 = add nsw i32 %748, -32
-  %750 = sitofp i32 %749 to float
-  %751 = fmul float %750, 3.125000e-02
+742:                                              ; preds = %708
+  %743 = zext nneg i8 %718 to i32
+  %744 = add nsw i32 %743, -32
+  %745 = sitofp i32 %744 to float
+  %746 = fmul float %745, 3.125000e-02
   br label %jar_xm_tremolo.exit
 
-jar_xm_tremolo.exit:                              ; preds = %713, %724, %730, %735, %738, %747
-  %.0.i.i265 = phi float [ %729, %724 ], [ %734, %730 ], [ %737, %735 ], [ %746, %738 ], [ %751, %747 ], [ 0.000000e+00, %713 ]
-  %752 = fneg float %.0.i.i265
-  %753 = and i8 %715, 15
-  %754 = uitofp nneg i8 %753 to float
-  %755 = fmul float %754, %752
-  %756 = fdiv float %755, 1.500000e+01
-  %757 = getelementptr inbounds nuw i8, ptr %166, i64 132
-  store float %756, ptr %757, align 4
+jar_xm_tremolo.exit:                              ; preds = %708, %719, %725, %730, %733, %742
+  %.0.i.i265 = phi float [ %724, %719 ], [ %729, %725 ], [ %732, %730 ], [ %741, %733 ], [ %746, %742 ], [ 0.000000e+00, %708 ]
+  %747 = fneg float %.0.i.i265
+  %748 = and i8 %710, 15
+  %749 = uitofp nneg i8 %748 to float
+  %750 = fmul float %749, %747
+  %751 = fdiv float %750, 1.500000e+01
+  %752 = getelementptr inbounds nuw i8, ptr %166, i64 132
+  store float %751, ptr %752, align 4
   br label %jar_xm_tone_portamento.exit249
 
-758:                                              ; preds = %jar_xm_volume_slide.exit
-  %759 = load i16, ptr %2, align 2
-  %760 = icmp eq i16 %759, 0
-  br i1 %760, label %jar_xm_tone_portamento.exit249, label %761
+753:                                              ; preds = %jar_xm_volume_slide.exit
+  %754 = load i16, ptr %2, align 2
+  %755 = icmp eq i16 %754, 0
+  br i1 %755, label %jar_xm_tone_portamento.exit249, label %756
 
-761:                                              ; preds = %758
-  %762 = getelementptr inbounds nuw i8, ptr %166, i64 86
-  %763 = load i8, ptr %762, align 2
-  %764 = zext i8 %763 to i32
-  %.not.i266 = icmp ult i8 %763, 16
-  br i1 %.not.i266, label %772, label %765
+756:                                              ; preds = %753
+  %757 = getelementptr inbounds nuw i8, ptr %166, i64 86
+  %758 = load i8, ptr %757, align 2
+  %759 = zext i8 %758 to i32
+  %.not.i266 = icmp ult i8 %758, 16
+  br i1 %.not.i266, label %767, label %760
 
-765:                                              ; preds = %761
-  %766 = lshr i32 %764, 4
-  %767 = uitofp nneg i32 %766 to float
-  %768 = fmul float %767, 1.562500e-02
-  %769 = getelementptr inbounds nuw i8, ptr %166, i64 52
-  %770 = load float, ptr %769, align 4
-  %771 = fadd float %768, %770
-  store float %771, ptr %769, align 4
-  br label %772
+760:                                              ; preds = %756
+  %761 = lshr i32 %759, 4
+  %762 = uitofp nneg i32 %761 to float
+  %763 = fmul float %762, 1.562500e-02
+  %764 = getelementptr inbounds nuw i8, ptr %166, i64 52
+  %765 = load float, ptr %764, align 4
+  %766 = fadd float %763, %765
+  store float %766, ptr %764, align 4
+  br label %767
 
-772:                                              ; preds = %765, %761
-  %773 = and i32 %764, 15
-  %.not6.i267 = icmp eq i32 %773, 0
-  br i1 %.not6.i267, label %jar_xm_tone_portamento.exit249, label %774
+767:                                              ; preds = %760, %756
+  %768 = and i32 %759, 15
+  %.not6.i267 = icmp eq i32 %768, 0
+  br i1 %.not6.i267, label %jar_xm_tone_portamento.exit249, label %769
 
-774:                                              ; preds = %772
-  %775 = uitofp nneg i32 %773 to float
-  %776 = fmul float %775, 1.562500e-02
-  %777 = getelementptr inbounds nuw i8, ptr %166, i64 52
-  %778 = load float, ptr %777, align 4
-  %779 = fsub float %778, %776
-  store float %779, ptr %777, align 4
+769:                                              ; preds = %767
+  %770 = uitofp nneg i32 %768 to float
+  %771 = fmul float %770, 1.562500e-02
+  %772 = getelementptr inbounds nuw i8, ptr %166, i64 52
+  %773 = load float, ptr %772, align 4
+  %774 = fsub float %773, %771
+  store float %774, ptr %772, align 4
   br label %jar_xm_tone_portamento.exit249
 
-780:                                              ; preds = %jar_xm_volume_slide.exit
-  %781 = getelementptr inbounds nuw i8, ptr %447, i64 4
-  %782 = load i8, ptr %781, align 1
-  %783 = zext i8 %782 to i32
-  %784 = lshr i32 %783, 4
-  switch i32 %784, label %jar_xm_tone_portamento.exit249 [
-    i32 9, label %785
-    i32 12, label %824
-    i32 13, label %831
+775:                                              ; preds = %jar_xm_volume_slide.exit
+  %776 = getelementptr inbounds nuw i8, ptr %447, i64 4
+  %777 = load i8, ptr %776, align 1
+  %778 = zext i8 %777 to i32
+  %779 = lshr i32 %778, 4
+  switch i32 %779, label %jar_xm_tone_portamento.exit249 [
+    i32 9, label %780
+    i32 12, label %819
+    i32 13, label %826
   ]
 
-785:                                              ; preds = %780
-  %786 = load i16, ptr %2, align 2
-  %.not222 = icmp eq i16 %786, 0
-  br i1 %.not222, label %jar_xm_tone_portamento.exit249, label %787
+780:                                              ; preds = %775
+  %781 = load i16, ptr %2, align 2
+  %.not222 = icmp eq i16 %781, 0
+  br i1 %.not222, label %jar_xm_tone_portamento.exit249, label %782
 
-787:                                              ; preds = %785
-  %788 = and i32 %783, 15
-  %.not223 = icmp eq i32 %788, 0
-  br i1 %.not223, label %jar_xm_tone_portamento.exit249, label %789
+782:                                              ; preds = %780
+  %783 = and i32 %778, 15
+  %.not223 = icmp eq i32 %783, 0
+  br i1 %.not223, label %jar_xm_tone_portamento.exit249, label %784
 
-789:                                              ; preds = %787
-  %.rhs.trunc283 = trunc nuw nsw i32 %788 to i16
-  %790 = urem i16 %786, %.rhs.trunc283
-  %.not224 = icmp eq i16 %790, 0
-  br i1 %.not224, label %791, label %jar_xm_tone_portamento.exit249
+784:                                              ; preds = %782
+  %.rhs.trunc283 = trunc nuw nsw i32 %783 to i16
+  %785 = urem i16 %781, %.rhs.trunc283
+  %.not224 = icmp eq i16 %785, 0
+  br i1 %.not224, label %786, label %jar_xm_tone_portamento.exit249
 
-791:                                              ; preds = %789
+786:                                              ; preds = %784
   tail call fastcc void @jar_xm_trigger_note(ptr noundef nonnull %0, ptr noundef nonnull %166, i32 noundef 0)
-  %792 = load ptr, ptr %167, align 8
-  %.not.i269 = icmp eq ptr %792, null
-  br i1 %.not.i269, label %jar_xm_tone_portamento.exit249, label %793
+  %787 = load ptr, ptr %167, align 8
+  %.not.i269 = icmp eq ptr %787, null
+  br i1 %.not.i269, label %jar_xm_tone_portamento.exit249, label %788
 
-793:                                              ; preds = %791
-  %794 = getelementptr inbounds nuw i8, ptr %792, i64 174
-  %795 = load i8, ptr %794, align 2, !range !226, !noundef !192
-  %796 = trunc nuw i8 %795 to i1
-  br i1 %796, label %797, label %815
+788:                                              ; preds = %786
+  %789 = getelementptr inbounds nuw i8, ptr %787, i64 174
+  %790 = load i8, ptr %789, align 2, !range !226, !noundef !192
+  %791 = trunc nuw i8 %790 to i1
+  br i1 %791, label %792, label %810
 
-797:                                              ; preds = %793
-  %798 = getelementptr inbounds nuw i8, ptr %166, i64 62
-  %799 = load i8, ptr %798, align 2, !range !226, !noundef !192
-  %800 = trunc nuw i8 %799 to i1
-  br i1 %800, label %811, label %801
+792:                                              ; preds = %788
+  %793 = getelementptr inbounds nuw i8, ptr %166, i64 62
+  %794 = load i8, ptr %793, align 2, !range !226, !noundef !192
+  %795 = trunc nuw i8 %794 to i1
+  br i1 %795, label %806, label %796
 
-801:                                              ; preds = %797
-  %802 = getelementptr inbounds nuw i8, ptr %792, i64 244
-  %803 = load i16, ptr %802, align 4
-  %804 = uitofp i16 %803 to float
-  %805 = fmul float %804, 0x3EF0000000000000
-  %806 = getelementptr inbounds nuw i8, ptr %166, i64 64
-  %807 = load float, ptr %806, align 8
-  %808 = fsub float %807, %805
-  store float %808, ptr %806, align 8
-  %809 = fcmp olt float %808, 0.000000e+00
-  br i1 %809, label %810, label %811
+796:                                              ; preds = %792
+  %797 = getelementptr inbounds nuw i8, ptr %787, i64 244
+  %798 = load i16, ptr %797, align 4
+  %799 = uitofp i16 %798 to float
+  %800 = fmul float %799, 0x3EF0000000000000
+  %801 = getelementptr inbounds nuw i8, ptr %166, i64 64
+  %802 = load float, ptr %801, align 8
+  %803 = fsub float %802, %800
+  store float %803, ptr %801, align 8
+  %804 = fcmp olt float %803, 0.000000e+00
+  br i1 %804, label %805, label %806
 
-810:                                              ; preds = %801
-  store float 0.000000e+00, ptr %806, align 8
-  br label %811
+805:                                              ; preds = %796
+  store float 0.000000e+00, ptr %801, align 8
+  br label %806
 
-811:                                              ; preds = %810, %801, %797
-  %812 = getelementptr inbounds nuw i8, ptr %792, i64 122
-  %813 = getelementptr inbounds nuw i8, ptr %166, i64 76
-  %814 = getelementptr inbounds nuw i8, ptr %166, i64 68
-  tail call fastcc void @jar_xm_envelope_tick(ptr noundef nonnull %166, ptr noundef nonnull %812, ptr noundef nonnull %813, ptr noundef nonnull %814)
+806:                                              ; preds = %805, %796, %792
+  %807 = getelementptr inbounds nuw i8, ptr %787, i64 122
+  %808 = getelementptr inbounds nuw i8, ptr %166, i64 76
+  %809 = getelementptr inbounds nuw i8, ptr %166, i64 68
+  tail call fastcc void @jar_xm_envelope_tick(ptr noundef nonnull %166, ptr noundef nonnull %807, ptr noundef nonnull %808, ptr noundef nonnull %809)
   %.pre.i270 = load ptr, ptr %167, align 8
-  br label %815
+  br label %810
 
-815:                                              ; preds = %811, %793
-  %816 = phi ptr [ %.pre.i270, %811 ], [ %792, %793 ]
-  %817 = getelementptr inbounds nuw i8, ptr %816, i64 230
-  %818 = load i8, ptr %817, align 2, !range !226, !noundef !192
-  %819 = trunc nuw i8 %818 to i1
-  br i1 %819, label %820, label %jar_xm_tone_portamento.exit249
+810:                                              ; preds = %806, %788
+  %811 = phi ptr [ %.pre.i270, %806 ], [ %787, %788 ]
+  %812 = getelementptr inbounds nuw i8, ptr %811, i64 230
+  %813 = load i8, ptr %812, align 2, !range !226, !noundef !192
+  %814 = trunc nuw i8 %813 to i1
+  br i1 %814, label %815, label %jar_xm_tone_portamento.exit249
 
-820:                                              ; preds = %815
-  %821 = getelementptr inbounds nuw i8, ptr %816, i64 178
-  %822 = getelementptr inbounds nuw i8, ptr %166, i64 78
-  %823 = getelementptr inbounds nuw i8, ptr %166, i64 72
-  tail call fastcc void @jar_xm_envelope_tick(ptr noundef nonnull %166, ptr noundef nonnull %821, ptr noundef nonnull %822, ptr noundef nonnull %823)
+815:                                              ; preds = %810
+  %816 = getelementptr inbounds nuw i8, ptr %811, i64 178
+  %817 = getelementptr inbounds nuw i8, ptr %166, i64 78
+  %818 = getelementptr inbounds nuw i8, ptr %166, i64 72
+  tail call fastcc void @jar_xm_envelope_tick(ptr noundef nonnull %166, ptr noundef nonnull %816, ptr noundef nonnull %817, ptr noundef nonnull %818)
   br label %jar_xm_tone_portamento.exit249
 
-824:                                              ; preds = %780
-  %825 = and i32 %783, 15
-  %826 = load i16, ptr %2, align 2
-  %827 = zext i16 %826 to i32
-  %828 = icmp eq i32 %825, %827
-  br i1 %828, label %829, label %jar_xm_tone_portamento.exit249
+819:                                              ; preds = %775
+  %820 = and i32 %778, 15
+  %821 = load i16, ptr %2, align 2
+  %822 = zext i16 %821 to i32
+  %823 = icmp eq i32 %820, %822
+  br i1 %823, label %824, label %jar_xm_tone_portamento.exit249
 
-829:                                              ; preds = %824
-  %830 = getelementptr inbounds nuw i8, ptr %166, i64 52
-  store float 0.000000e+00, ptr %830, align 4
+824:                                              ; preds = %819
+  %825 = getelementptr inbounds nuw i8, ptr %166, i64 52
+  store float 0.000000e+00, ptr %825, align 4
   br label %jar_xm_tone_portamento.exit249
 
-831:                                              ; preds = %780
-  %832 = getelementptr inbounds nuw i8, ptr %166, i64 105
-  %833 = load i8, ptr %832, align 1
-  %834 = load i16, ptr %2, align 2
-  %835 = zext i8 %833 to i16
-  %836 = icmp eq i16 %834, %835
-  br i1 %836, label %837, label %jar_xm_tone_portamento.exit249
+826:                                              ; preds = %775
+  %827 = getelementptr inbounds nuw i8, ptr %166, i64 105
+  %828 = load i8, ptr %827, align 1
+  %829 = load i16, ptr %2, align 2
+  %830 = zext i8 %828 to i16
+  %831 = icmp eq i16 %829, %830
+  br i1 %831, label %832, label %jar_xm_tone_portamento.exit249
 
-837:                                              ; preds = %831
+832:                                              ; preds = %826
   tail call fastcc void @jar_xm_handle_note_and_instrument(ptr noundef nonnull %0, ptr noundef nonnull %166, ptr noundef nonnull %447)
-  %838 = load ptr, ptr %167, align 8
-  %.not.i272 = icmp eq ptr %838, null
-  br i1 %.not.i272, label %jar_xm_tone_portamento.exit249, label %839
+  %833 = load ptr, ptr %167, align 8
+  %.not.i272 = icmp eq ptr %833, null
+  br i1 %.not.i272, label %jar_xm_tone_portamento.exit249, label %834
 
-839:                                              ; preds = %837
-  %840 = getelementptr inbounds nuw i8, ptr %838, i64 174
-  %841 = load i8, ptr %840, align 2, !range !226, !noundef !192
-  %842 = trunc nuw i8 %841 to i1
-  br i1 %842, label %843, label %861
+834:                                              ; preds = %832
+  %835 = getelementptr inbounds nuw i8, ptr %833, i64 174
+  %836 = load i8, ptr %835, align 2, !range !226, !noundef !192
+  %837 = trunc nuw i8 %836 to i1
+  br i1 %837, label %838, label %856
 
-843:                                              ; preds = %839
-  %844 = getelementptr inbounds nuw i8, ptr %166, i64 62
-  %845 = load i8, ptr %844, align 2, !range !226, !noundef !192
-  %846 = trunc nuw i8 %845 to i1
-  br i1 %846, label %857, label %847
+838:                                              ; preds = %834
+  %839 = getelementptr inbounds nuw i8, ptr %166, i64 62
+  %840 = load i8, ptr %839, align 2, !range !226, !noundef !192
+  %841 = trunc nuw i8 %840 to i1
+  br i1 %841, label %852, label %842
 
-847:                                              ; preds = %843
-  %848 = getelementptr inbounds nuw i8, ptr %838, i64 244
-  %849 = load i16, ptr %848, align 4
-  %850 = uitofp i16 %849 to float
-  %851 = fmul float %850, 0x3EF0000000000000
-  %852 = getelementptr inbounds nuw i8, ptr %166, i64 64
-  %853 = load float, ptr %852, align 8
-  %854 = fsub float %853, %851
-  store float %854, ptr %852, align 8
-  %855 = fcmp olt float %854, 0.000000e+00
-  br i1 %855, label %856, label %857
+842:                                              ; preds = %838
+  %843 = getelementptr inbounds nuw i8, ptr %833, i64 244
+  %844 = load i16, ptr %843, align 4
+  %845 = uitofp i16 %844 to float
+  %846 = fmul float %845, 0x3EF0000000000000
+  %847 = getelementptr inbounds nuw i8, ptr %166, i64 64
+  %848 = load float, ptr %847, align 8
+  %849 = fsub float %848, %846
+  store float %849, ptr %847, align 8
+  %850 = fcmp olt float %849, 0.000000e+00
+  br i1 %850, label %851, label %852
 
-856:                                              ; preds = %847
-  store float 0.000000e+00, ptr %852, align 8
-  br label %857
+851:                                              ; preds = %842
+  store float 0.000000e+00, ptr %847, align 8
+  br label %852
 
-857:                                              ; preds = %856, %847, %843
-  %858 = getelementptr inbounds nuw i8, ptr %838, i64 122
-  %859 = getelementptr inbounds nuw i8, ptr %166, i64 76
-  %860 = getelementptr inbounds nuw i8, ptr %166, i64 68
-  tail call fastcc void @jar_xm_envelope_tick(ptr noundef nonnull %166, ptr noundef nonnull %858, ptr noundef nonnull %859, ptr noundef nonnull %860)
+852:                                              ; preds = %851, %842, %838
+  %853 = getelementptr inbounds nuw i8, ptr %833, i64 122
+  %854 = getelementptr inbounds nuw i8, ptr %166, i64 76
+  %855 = getelementptr inbounds nuw i8, ptr %166, i64 68
+  tail call fastcc void @jar_xm_envelope_tick(ptr noundef nonnull %166, ptr noundef nonnull %853, ptr noundef nonnull %854, ptr noundef nonnull %855)
   %.pre.i273 = load ptr, ptr %167, align 8
-  br label %861
+  br label %856
 
-861:                                              ; preds = %857, %839
-  %862 = phi ptr [ %.pre.i273, %857 ], [ %838, %839 ]
-  %863 = getelementptr inbounds nuw i8, ptr %862, i64 230
-  %864 = load i8, ptr %863, align 2, !range !226, !noundef !192
-  %865 = trunc nuw i8 %864 to i1
-  br i1 %865, label %866, label %jar_xm_tone_portamento.exit249
+856:                                              ; preds = %852, %834
+  %857 = phi ptr [ %.pre.i273, %852 ], [ %833, %834 ]
+  %858 = getelementptr inbounds nuw i8, ptr %857, i64 230
+  %859 = load i8, ptr %858, align 2, !range !226, !noundef !192
+  %860 = trunc nuw i8 %859 to i1
+  br i1 %860, label %861, label %jar_xm_tone_portamento.exit249
 
-866:                                              ; preds = %861
-  %867 = getelementptr inbounds nuw i8, ptr %862, i64 178
-  %868 = getelementptr inbounds nuw i8, ptr %166, i64 78
-  %869 = getelementptr inbounds nuw i8, ptr %166, i64 72
-  tail call fastcc void @jar_xm_envelope_tick(ptr noundef nonnull %166, ptr noundef nonnull %867, ptr noundef nonnull %868, ptr noundef nonnull %869)
+861:                                              ; preds = %856
+  %862 = getelementptr inbounds nuw i8, ptr %857, i64 178
+  %863 = getelementptr inbounds nuw i8, ptr %166, i64 78
+  %864 = getelementptr inbounds nuw i8, ptr %166, i64 72
+  tail call fastcc void @jar_xm_envelope_tick(ptr noundef nonnull %166, ptr noundef nonnull %862, ptr noundef nonnull %863, ptr noundef nonnull %864)
   br label %jar_xm_tone_portamento.exit249
 
-870:                                              ; preds = %jar_xm_volume_slide.exit
-  %871 = load i16, ptr %2, align 2
-  %872 = icmp eq i16 %871, 0
-  br i1 %872, label %jar_xm_tone_portamento.exit249, label %873
+865:                                              ; preds = %jar_xm_volume_slide.exit
+  %866 = load i16, ptr %2, align 2
+  %867 = icmp eq i16 %866, 0
+  br i1 %867, label %jar_xm_tone_portamento.exit249, label %868
 
-873:                                              ; preds = %870
-  %874 = getelementptr inbounds nuw i8, ptr %166, i64 88
-  %875 = load i8, ptr %874, align 8
-  %.not218 = icmp ult i8 %875, 16
-  %876 = and i8 %875, 15
-  %.not219 = icmp eq i8 %876, 0
+868:                                              ; preds = %865
+  %869 = getelementptr inbounds nuw i8, ptr %166, i64 88
+  %870 = load i8, ptr %869, align 8
+  %.not218 = icmp ult i8 %870, 16
+  %871 = and i8 %870, 15
+  %.not219 = icmp eq i8 %871, 0
   %or.cond = or i1 %.not218, %.not219
-  br i1 %or.cond, label %877, label %jar_xm_tone_portamento.exit249
+  br i1 %or.cond, label %872, label %jar_xm_tone_portamento.exit249
 
-877:                                              ; preds = %873
-  br i1 %.not218, label %885, label %878
+872:                                              ; preds = %868
+  br i1 %.not218, label %880, label %873
 
-878:                                              ; preds = %877
-  %879 = lshr i8 %875, 4
-  %880 = uitofp nneg i8 %879 to float
-  %881 = fmul float %880, 1.562500e-02
-  %882 = load float, ptr %150, align 8
-  %883 = fadd float %881, %882
-  %884 = fcmp ogt float %883, 1.000000e+00
-  %storemerge221 = select i1 %884, float 1.000000e+00, float %883
+873:                                              ; preds = %872
+  %874 = lshr i8 %870, 4
+  %875 = uitofp nneg i8 %874 to float
+  %876 = fmul float %875, 1.562500e-02
+  %877 = load float, ptr %150, align 8
+  %878 = fadd float %876, %877
+  %879 = fcmp ogt float %878, 1.000000e+00
+  %storemerge221 = select i1 %879, float 1.000000e+00, float %878
   store float %storemerge221, ptr %150, align 8
   br label %jar_xm_tone_portamento.exit249
 
-885:                                              ; preds = %877
-  %886 = uitofp nneg i8 %875 to float
-  %887 = fmul float %886, 1.562500e-02
-  %888 = load float, ptr %150, align 8
-  %889 = fsub float %888, %887
-  %890 = fcmp olt float %889, 0.000000e+00
-  %storemerge = select i1 %890, float 0.000000e+00, float %889
+880:                                              ; preds = %872
+  %881 = uitofp nneg i8 %870 to float
+  %882 = fmul float %881, 1.562500e-02
+  %883 = load float, ptr %150, align 8
+  %884 = fsub float %883, %882
+  %885 = fcmp olt float %884, 0.000000e+00
+  %storemerge = select i1 %885, float 0.000000e+00, float %884
   store float %storemerge, ptr %150, align 8
   br label %jar_xm_tone_portamento.exit249
 
-891:                                              ; preds = %jar_xm_volume_slide.exit
-  %892 = load i16, ptr %2, align 2
-  %893 = getelementptr inbounds nuw i8, ptr %447, i64 4
-  %894 = load i8, ptr %893, align 1
-  %895 = zext i8 %894 to i16
-  %896 = icmp eq i16 %892, %895
-  br i1 %896, label %897, label %jar_xm_tone_portamento.exit249
+886:                                              ; preds = %jar_xm_volume_slide.exit
+  %887 = load i16, ptr %2, align 2
+  %888 = getelementptr inbounds nuw i8, ptr %447, i64 4
+  %889 = load i8, ptr %888, align 1
+  %890 = zext i8 %889 to i16
+  %891 = icmp eq i16 %887, %890
+  br i1 %891, label %892, label %jar_xm_tone_portamento.exit249
 
-897:                                              ; preds = %891
-  %898 = getelementptr inbounds nuw i8, ptr %166, i64 62
-  store i8 0, ptr %898, align 2
-  %899 = load ptr, ptr %167, align 8
-  %900 = icmp eq ptr %899, null
-  br i1 %900, label %905, label %901
+892:                                              ; preds = %886
+  %893 = getelementptr inbounds nuw i8, ptr %166, i64 62
+  store i8 0, ptr %893, align 2
+  %894 = load ptr, ptr %167, align 8
+  %895 = icmp eq ptr %894, null
+  br i1 %895, label %900, label %896
 
-901:                                              ; preds = %897
-  %902 = getelementptr inbounds nuw i8, ptr %899, i64 174
-  %903 = load i8, ptr %902, align 2, !range !226, !noundef !192
-  %904 = trunc nuw i8 %903 to i1
+896:                                              ; preds = %892
+  %897 = getelementptr inbounds nuw i8, ptr %894, i64 174
+  %898 = load i8, ptr %897, align 2, !range !226, !noundef !192
+  %899 = trunc nuw i8 %898 to i1
+  br i1 %899, label %jar_xm_tone_portamento.exit249, label %900
+
+900:                                              ; preds = %896, %892
+  %901 = getelementptr inbounds nuw i8, ptr %166, i64 52
+  store float 0.000000e+00, ptr %901, align 4
+  br label %jar_xm_tone_portamento.exit249
+
+902:                                              ; preds = %jar_xm_volume_slide.exit
+  %903 = load i16, ptr %2, align 2
+  %904 = icmp eq i16 %903, 0
   br i1 %904, label %jar_xm_tone_portamento.exit249, label %905
 
-905:                                              ; preds = %901, %897
-  %906 = getelementptr inbounds nuw i8, ptr %166, i64 52
-  store float 0.000000e+00, ptr %906, align 4
+905:                                              ; preds = %902
+  %906 = getelementptr inbounds nuw i8, ptr %166, i64 89
+  %907 = load i8, ptr %906, align 1
+  %908 = zext i8 %907 to i32
+  %.not.i275 = icmp ult i8 %907, 16
+  br i1 %.not.i275, label %916, label %909
+
+909:                                              ; preds = %905
+  %910 = lshr i32 %908, 4
+  %911 = uitofp nneg i32 %910 to float
+  %912 = fdiv float %911, 2.550000e+02
+  %913 = getelementptr inbounds nuw i8, ptr %166, i64 56
+  %914 = load float, ptr %913, align 8
+  %915 = fadd float %912, %914
+  store float %915, ptr %913, align 8
+  br label %916
+
+916:                                              ; preds = %909, %905
+  %917 = and i32 %908, 15
+  %.not6.i276 = icmp eq i32 %917, 0
+  br i1 %.not6.i276, label %jar_xm_tone_portamento.exit249, label %918
+
+918:                                              ; preds = %916
+  %919 = uitofp nneg i32 %917 to float
+  %920 = fdiv float %919, 2.550000e+02
+  %921 = getelementptr inbounds nuw i8, ptr %166, i64 56
+  %922 = load float, ptr %921, align 8
+  %923 = fsub float %922, %920
+  store float %923, ptr %921, align 8
   br label %jar_xm_tone_portamento.exit249
 
-907:                                              ; preds = %jar_xm_volume_slide.exit
-  %908 = load i16, ptr %2, align 2
-  %909 = icmp eq i16 %908, 0
-  br i1 %909, label %jar_xm_tone_portamento.exit249, label %910
+924:                                              ; preds = %jar_xm_volume_slide.exit
+  %925 = load i16, ptr %2, align 2
+  %926 = icmp eq i16 %925, 0
+  br i1 %926, label %jar_xm_tone_portamento.exit249, label %927
 
-910:                                              ; preds = %907
-  %911 = getelementptr inbounds nuw i8, ptr %166, i64 89
-  %912 = load i8, ptr %911, align 1
-  %913 = zext i8 %912 to i32
-  %.not.i275 = icmp ult i8 %912, 16
-  br i1 %.not.i275, label %921, label %914
+927:                                              ; preds = %924
+  %928 = getelementptr inbounds nuw i8, ptr %166, i64 104
+  %929 = load i8, ptr %928, align 8
+  %930 = zext i8 %929 to i32
+  %931 = and i32 %930, 15
+  %932 = icmp eq i32 %931, 0
+  br i1 %932, label %jar_xm_tone_portamento.exit249, label %933
 
-914:                                              ; preds = %910
-  %915 = lshr i32 %913, 4
-  %916 = uitofp nneg i32 %915 to float
-  %917 = fdiv float %916, 2.550000e+02
-  %918 = getelementptr inbounds nuw i8, ptr %166, i64 56
-  %919 = load float, ptr %918, align 8
-  %920 = fadd float %917, %919
-  store float %920, ptr %918, align 8
-  br label %921
+933:                                              ; preds = %927
+  %.rhs.trunc280 = trunc nuw nsw i32 %931 to i16
+  %934 = urem i16 %925, %.rhs.trunc280
+  %935 = icmp eq i16 %934, 0
+  br i1 %935, label %936, label %jar_xm_tone_portamento.exit249
 
-921:                                              ; preds = %914, %910
-  %922 = and i32 %913, 15
-  %.not6.i276 = icmp eq i32 %922, 0
-  br i1 %.not6.i276, label %jar_xm_tone_portamento.exit249, label %923
+936:                                              ; preds = %933
+  %937 = getelementptr inbounds nuw i8, ptr %166, i64 52
+  %938 = load float, ptr %937, align 4
+  %939 = lshr i32 %930, 4
+  %940 = zext nneg i32 %939 to i64
+  %941 = getelementptr inbounds nuw float, ptr @multi_retrig_multiply, i64 %940
+  %942 = load float, ptr %941, align 4
+  %943 = getelementptr inbounds nuw float, ptr @multi_retrig_add, i64 %940
+  %944 = load float, ptr %943, align 4
+  %945 = tail call float @llvm.fmuladd.f32(float %938, float %942, float %944)
+  %946 = fcmp ogt float %945, 1.000000e+00
+  br i1 %946, label %950, label %947
 
-923:                                              ; preds = %921
-  %924 = uitofp nneg i32 %922 to float
-  %925 = fdiv float %924, 2.550000e+02
-  %926 = getelementptr inbounds nuw i8, ptr %166, i64 56
-  %927 = load float, ptr %926, align 8
-  %928 = fsub float %927, %925
-  store float %928, ptr %926, align 8
-  br label %jar_xm_tone_portamento.exit249
+947:                                              ; preds = %936
+  %948 = fcmp olt float %945, 0.000000e+00
+  br i1 %948, label %949, label %950
 
-929:                                              ; preds = %jar_xm_volume_slide.exit
-  %930 = load i16, ptr %2, align 2
-  %931 = icmp eq i16 %930, 0
-  br i1 %931, label %jar_xm_tone_portamento.exit249, label %932
+949:                                              ; preds = %947
+  br label %950
 
-932:                                              ; preds = %929
-  %933 = getelementptr inbounds nuw i8, ptr %166, i64 104
-  %934 = load i8, ptr %933, align 8
-  %935 = zext i8 %934 to i32
-  %936 = and i32 %935, 15
-  %937 = icmp eq i32 %936, 0
-  br i1 %937, label %jar_xm_tone_portamento.exit249, label %938
-
-938:                                              ; preds = %932
-  %.rhs.trunc280 = trunc nuw nsw i32 %936 to i16
-  %939 = urem i16 %930, %.rhs.trunc280
-  %940 = icmp eq i16 %939, 0
-  br i1 %940, label %941, label %jar_xm_tone_portamento.exit249
-
-941:                                              ; preds = %938
-  %942 = getelementptr inbounds nuw i8, ptr %166, i64 52
-  %943 = load float, ptr %942, align 4
-  %944 = lshr i32 %935, 4
-  %945 = zext nneg i32 %944 to i64
-  %946 = getelementptr inbounds nuw float, ptr @multi_retrig_multiply, i64 %945
-  %947 = load float, ptr %946, align 4
-  %948 = getelementptr inbounds nuw float, ptr @multi_retrig_add, i64 %945
-  %949 = load float, ptr %948, align 4
-  %950 = tail call float @llvm.fmuladd.f32(float %943, float %947, float %949)
-  %951 = fcmp ogt float %950, 1.000000e+00
-  br i1 %951, label %955, label %952
-
-952:                                              ; preds = %941
-  %953 = fcmp olt float %950, 0.000000e+00
-  br i1 %953, label %954, label %955
-
-954:                                              ; preds = %952
-  br label %955
-
-955:                                              ; preds = %941, %952, %954
-  %.0203 = phi float [ 0.000000e+00, %954 ], [ %950, %952 ], [ 1.000000e+00, %941 ]
+950:                                              ; preds = %936, %947, %949
+  %.0203 = phi float [ 0.000000e+00, %949 ], [ %945, %947 ], [ 1.000000e+00, %936 ]
   tail call fastcc void @jar_xm_trigger_note(ptr noundef nonnull %0, ptr noundef nonnull %166, i32 noundef 0)
-  store float %.0203, ptr %942, align 4
+  store float %.0203, ptr %937, align 4
   br label %jar_xm_tone_portamento.exit249
 
-956:                                              ; preds = %jar_xm_volume_slide.exit
-  %957 = load i16, ptr %2, align 2
-  %958 = icmp eq i16 %957, 0
-  br i1 %958, label %jar_xm_tone_portamento.exit249, label %959
+951:                                              ; preds = %jar_xm_volume_slide.exit
+  %952 = load i16, ptr %2, align 2
+  %953 = icmp eq i16 %952, 0
+  br i1 %953, label %jar_xm_tone_portamento.exit249, label %954
 
-959:                                              ; preds = %956
-  %.lhs.trunc = add i16 %957, -1
-  %960 = getelementptr inbounds nuw i8, ptr %166, i64 136
-  %961 = load i8, ptr %960, align 8
-  %962 = zext i8 %961 to i32
-  %963 = lshr i32 %962, 4
-  %964 = and i32 %962, 15
-  %965 = add nuw nsw i32 %963, %964
-  %966 = trunc nuw nsw i32 %965 to i16
-  %.rhs.trunc = add nuw nsw i16 %966, 2
-  %967 = urem i16 %.lhs.trunc, %.rhs.trunc
-  %.zext = zext nneg i16 %967 to i32
-  %968 = icmp samesign ult i32 %963, %.zext
-  %969 = getelementptr inbounds nuw i8, ptr %166, i64 137
-  %970 = zext i1 %968 to i8
-  store i8 %970, ptr %969, align 1
+954:                                              ; preds = %951
+  %.lhs.trunc = add i16 %952, -1
+  %955 = getelementptr inbounds nuw i8, ptr %166, i64 136
+  %956 = load i8, ptr %955, align 8
+  %957 = zext i8 %956 to i32
+  %958 = lshr i32 %957, 4
+  %959 = and i32 %957, 15
+  %960 = add nuw nsw i32 %958, %959
+  %961 = trunc nuw nsw i32 %960 to i16
+  %.rhs.trunc = add nuw nsw i16 %961, 2
+  %962 = urem i16 %.lhs.trunc, %.rhs.trunc
+  %.zext = zext nneg i16 %962 to i32
+  %963 = icmp samesign ult i32 %958, %.zext
+  %964 = getelementptr inbounds nuw i8, ptr %166, i64 137
+  %965 = zext i1 %963 to i8
+  store i8 %965, ptr %964, align 1
   br label %jar_xm_tone_portamento.exit249
 
-jar_xm_tone_portamento.exit249:                   ; preds = %923, %921, %905, %901, %866, %861, %837, %820, %815, %791, %774, %772, %704, %702, %637, %635, %541, %515, %511, %873, %459, %466, %jar_xm_arpeggio.exit, %jar_xm_volume_slide.exit, %956, %938, %955, %932, %929, %907, %891, %878, %885, %870, %789, %787, %785, %829, %824, %831, %780, %758, %710, %643, %591, %542, %508, %494, %478, %450, %959, %jar_xm_tremolo.exit, %jar_xm_vibrato.exit252, %497, %481
-  %971 = getelementptr inbounds nuw i8, ptr %166, i64 56
-  %972 = load float, ptr %971, align 8
-  %973 = fpext float %972 to double
-  %974 = getelementptr inbounds nuw i8, ptr %166, i64 72
-  %975 = load float, ptr %974, align 8
-  %976 = fadd float %975, -5.000000e-01
-  %977 = fpext float %976 to double
-  %978 = fadd float %972, -5.000000e-01
-  %979 = tail call float @llvm.fabs.f32(float %978)
-  %980 = fpext float %979 to double
-  %981 = fsub double 5.000000e-01, %980
-  %982 = fmul double %981, %977
-  %983 = tail call double @llvm.fmuladd.f64(double %982, double 2.000000e+00, double %973)
-  %984 = fptrunc double %983 to float
-  %985 = getelementptr inbounds nuw i8, ptr %166, i64 137
-  %986 = load i8, ptr %985, align 1, !range !226, !noundef !192
-  %987 = trunc nuw i8 %986 to i1
-  br i1 %987, label %1005, label %988
+jar_xm_tone_portamento.exit249:                   ; preds = %918, %916, %900, %896, %861, %856, %832, %815, %810, %786, %769, %767, %699, %697, %632, %630, %536, %510, %506, %868, %458, %463, %jar_xm_arpeggio.exit, %jar_xm_volume_slide.exit, %951, %933, %950, %927, %924, %902, %886, %873, %880, %865, %784, %782, %780, %824, %819, %826, %775, %753, %705, %638, %586, %537, %503, %489, %473, %450, %954, %jar_xm_tremolo.exit, %jar_xm_vibrato.exit252, %492, %476
+  %966 = getelementptr inbounds nuw i8, ptr %166, i64 56
+  %967 = load float, ptr %966, align 8
+  %968 = fpext float %967 to double
+  %969 = getelementptr inbounds nuw i8, ptr %166, i64 72
+  %970 = load float, ptr %969, align 8
+  %971 = fadd float %970, -5.000000e-01
+  %972 = fpext float %971 to double
+  %973 = fadd float %967, -5.000000e-01
+  %974 = tail call float @llvm.fabs.f32(float %973)
+  %975 = fpext float %974 to double
+  %976 = fsub double 5.000000e-01, %975
+  %977 = fmul double %976, %972
+  %978 = tail call double @llvm.fmuladd.f64(double %977, double 2.000000e+00, double %968)
+  %979 = fptrunc double %978 to float
+  %980 = getelementptr inbounds nuw i8, ptr %166, i64 137
+  %981 = load i8, ptr %980, align 1, !range !226, !noundef !192
+  %982 = trunc nuw i8 %981 to i1
+  br i1 %982, label %1000, label %983
 
-988:                                              ; preds = %jar_xm_tone_portamento.exit249
-  %989 = getelementptr inbounds nuw i8, ptr %166, i64 52
-  %990 = load float, ptr %989, align 4
-  %991 = getelementptr inbounds nuw i8, ptr %166, i64 132
-  %992 = load float, ptr %991, align 4
-  %993 = fadd float %990, %992
-  %994 = fcmp ogt float %993, 1.000000e+00
-  br i1 %994, label %998, label %995
+983:                                              ; preds = %jar_xm_tone_portamento.exit249
+  %984 = getelementptr inbounds nuw i8, ptr %166, i64 52
+  %985 = load float, ptr %984, align 4
+  %986 = getelementptr inbounds nuw i8, ptr %166, i64 132
+  %987 = load float, ptr %986, align 4
+  %988 = fadd float %985, %987
+  %989 = fcmp ogt float %988, 1.000000e+00
+  br i1 %989, label %993, label %990
 
-995:                                              ; preds = %988
-  %996 = fcmp olt float %993, 0.000000e+00
-  br i1 %996, label %997, label %998
+990:                                              ; preds = %983
+  %991 = fcmp olt float %988, 0.000000e+00
+  br i1 %991, label %992, label %993
 
-997:                                              ; preds = %995
-  br label %998
+992:                                              ; preds = %990
+  br label %993
 
-998:                                              ; preds = %988, %995, %997
-  %.1 = phi float [ 0.000000e+00, %997 ], [ %993, %995 ], [ 1.000000e+00, %988 ]
-  %999 = getelementptr inbounds nuw i8, ptr %166, i64 64
-  %1000 = load float, ptr %999, align 8
-  %1001 = getelementptr inbounds nuw i8, ptr %166, i64 68
-  %1002 = load float, ptr %1001, align 4
-  %1003 = fmul float %1000, %1002
-  %1004 = fmul float %.1, %1003
-  br label %1005
+993:                                              ; preds = %983, %990, %992
+  %.1 = phi float [ 0.000000e+00, %992 ], [ %988, %990 ], [ 1.000000e+00, %983 ]
+  %994 = getelementptr inbounds nuw i8, ptr %166, i64 64
+  %995 = load float, ptr %994, align 8
+  %996 = getelementptr inbounds nuw i8, ptr %166, i64 68
+  %997 = load float, ptr %996, align 4
+  %998 = fmul float %995, %997
+  %999 = fmul float %.1, %998
+  br label %1000
 
-1005:                                             ; preds = %jar_xm_tone_portamento.exit249, %998
-  %.0 = phi float [ %1004, %998 ], [ 0.000000e+00, %jar_xm_tone_portamento.exit249 ]
-  %1006 = load i16, ptr %152, align 2
-  %.not226 = icmp eq i16 %1006, 0
-  br i1 %.not226, label %1010, label %1007
+1000:                                             ; preds = %jar_xm_tone_portamento.exit249, %993
+  %.0 = phi float [ %999, %993 ], [ 0.000000e+00, %jar_xm_tone_portamento.exit249 ]
+  %1001 = load i16, ptr %152, align 2
+  %.not226 = icmp eq i16 %1001, 0
+  br i1 %.not226, label %1005, label %1002
 
-1007:                                             ; preds = %1005
-  %1008 = getelementptr inbounds nuw i8, ptr %166, i64 156
-  store float %984, ptr %1008, align 4
-  %1009 = getelementptr inbounds nuw i8, ptr %166, i64 160
-  store float %.0, ptr %1009, align 8
-  br label %1013
+1002:                                             ; preds = %1000
+  %1003 = getelementptr inbounds nuw i8, ptr %166, i64 156
+  store float %979, ptr %1003, align 4
+  %1004 = getelementptr inbounds nuw i8, ptr %166, i64 160
+  store float %.0, ptr %1004, align 8
+  br label %1008
 
-1010:                                             ; preds = %1005
-  %1011 = getelementptr inbounds nuw i8, ptr %166, i64 248
-  store float %984, ptr %1011, align 8
-  %1012 = getelementptr inbounds nuw i8, ptr %166, i64 252
-  store float %.0, ptr %1012, align 4
-  br label %1013
+1005:                                             ; preds = %1000
+  %1006 = getelementptr inbounds nuw i8, ptr %166, i64 248
+  store float %979, ptr %1006, align 8
+  %1007 = getelementptr inbounds nuw i8, ptr %166, i64 252
+  store float %.0, ptr %1007, align 4
+  br label %1008
 
-1013:                                             ; preds = %1010, %1007
-  %1014 = add i8 %.0202288, 1
-  %1015 = load i16, ptr %146, align 2
-  %1016 = zext i8 %1014 to i16
-  %1017 = icmp ugt i16 %1015, %1016
-  br i1 %1017, label %163, label %._crit_edge
+1008:                                             ; preds = %1005, %1002
+  %1009 = add i8 %.0202288, 1
+  %1010 = load i16, ptr %146, align 2
+  %1011 = zext i8 %1009 to i16
+  %1012 = icmp ugt i16 %1010, %1011
+  br i1 %1012, label %163, label %._crit_edge
 
-1018:                                             ; preds = %._crit_edge
+1013:                                             ; preds = %._crit_edge
   store i16 0, ptr %2, align 2
   store i16 0, ptr %159, align 4
-  br label %1019
+  br label %1014
 
-1019:                                             ; preds = %1018, %._crit_edge
-  %1020 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %1021 = load i32, ptr %1020, align 8
-  %1022 = uitofp i32 %1021 to float
-  %1023 = getelementptr inbounds nuw i8, ptr %0, i64 358
-  %1024 = load i16, ptr %1023, align 2
-  %1025 = uitofp i16 %1024 to float
-  %1026 = fmul float %1025, 0x3FD99999A0000000
-  %1027 = fdiv float %1022, %1026
-  %1028 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %1029 = load float, ptr %1028, align 8
-  %1030 = fadd float %1029, %1027
-  store float %1030, ptr %1028, align 8
+1014:                                             ; preds = %1013, %._crit_edge
+  %1015 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %1016 = load i32, ptr %1015, align 8
+  %1017 = uitofp i32 %1016 to float
+  %1018 = getelementptr inbounds nuw i8, ptr %0, i64 358
+  %1019 = load i16, ptr %1018, align 2
+  %1020 = uitofp i16 %1019 to float
+  %1021 = fmul float %1020, 0x3FD99999A0000000
+  %1022 = fdiv float %1017, %1021
+  %1023 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %1024 = load float, ptr %1023, align 8
+  %1025 = fadd float %1024, %1022
+  store float %1025, ptr %1023, align 8
   ret void
 }
 

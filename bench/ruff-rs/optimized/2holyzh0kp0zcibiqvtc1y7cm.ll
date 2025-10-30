@@ -1587,36 +1587,36 @@ _ZN22ruff_annotate_snippets8renderer12display_list19annotation_type_len17h8f8df1
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !121
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !121
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !121
+  %229 = getelementptr inbounds nuw i8, ptr %34, i64 8
   switch i8 %.val.i.i, label %default.unreachable927 [
-    i8 0, label %234
-    i8 1, label %229
-    i8 2, label %230
-    i8 3, label %231
-    i8 4, label %232
-    i8 5, label %233
+    i8 0, label %235
+    i8 1, label %230
+    i8 2, label %231
+    i8 3, label %232
+    i8 4, label %233
+    i8 5, label %234
   ]
 
-229:                                              ; preds = %228
-  br label %234
-
 230:                                              ; preds = %228
-  br label %234
+  br label %235
 
 231:                                              ; preds = %228
-  br label %234
+  br label %235
 
 232:                                              ; preds = %228
-  br label %234
+  br label %235
 
 233:                                              ; preds = %228
-  br label %234
+  br label %235
 
-234:                                              ; preds = %233, %232, %231, %230, %229, %228
-  %anon.cfe846c4727a7a14302b2193681272d9.93.sink.i.i = phi ptr [ @anon.cfe846c4727a7a14302b2193681272d9.93, %233 ], [ @anon.cfe846c4727a7a14302b2193681272d9.92, %232 ], [ @anon.cfe846c4727a7a14302b2193681272d9.91, %231 ], [ @anon.cfe846c4727a7a14302b2193681272d9.90, %230 ], [ @anon.cfe846c4727a7a14302b2193681272d9.89, %229 ], [ inttoptr (i64 1 to ptr), %228 ]
-  %.sink.i.i = phi i64 [ 4, %233 ], [ 4, %232 ], [ 4, %231 ], [ 7, %230 ], [ 5, %229 ], [ 0, %228 ]
+234:                                              ; preds = %228
+  br label %235
+
+235:                                              ; preds = %234, %233, %232, %231, %230, %228
+  %anon.cfe846c4727a7a14302b2193681272d9.93.sink.i.i = phi ptr [ @anon.cfe846c4727a7a14302b2193681272d9.93, %234 ], [ @anon.cfe846c4727a7a14302b2193681272d9.92, %233 ], [ @anon.cfe846c4727a7a14302b2193681272d9.91, %232 ], [ @anon.cfe846c4727a7a14302b2193681272d9.90, %231 ], [ @anon.cfe846c4727a7a14302b2193681272d9.89, %230 ], [ inttoptr (i64 1 to ptr), %228 ]
+  %.sink.i.i = phi i64 [ 4, %234 ], [ 4, %233 ], [ 4, %232 ], [ 7, %231 ], [ 5, %230 ], [ 0, %228 ]
   store ptr %anon.cfe846c4727a7a14302b2193681272d9.93.sink.i.i, ptr %34, align 8, !noalias !121
-  %235 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i64 %.sink.i.i, ptr %235, align 8, !noalias !121
+  store i64 %.sink.i.i, ptr %229, align 8, !noalias !121
   store ptr %34, ptr %35, align 8, !noalias !121
   %.sroa.419.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h820fd6c4331550f5E", ptr %.sroa.419.0..sroa_idx.i.i, align 8, !noalias !121
@@ -1647,12 +1647,12 @@ _ZN22ruff_annotate_snippets8renderer12display_list19annotation_type_len17h8f8df1
           cleanup
   br label %237
 
-.loopexit.split-lp.i.i:                           ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17he49edf5977f65f43E.exit.i.i", %245, %234
+.loopexit.split-lp.i.i:                           ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17he49edf5977f65f43E.exit.i.i", %245, %235
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %237
 
-238:                                              ; preds = %234
+238:                                              ; preds = %235
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !131
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !121
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !121

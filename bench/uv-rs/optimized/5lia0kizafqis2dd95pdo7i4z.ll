@@ -31060,8 +31060,8 @@ _ZN2uv7printer7Printer6target17h33bf9f6ebab52b40E.exit: ; preds = %_ZN2uv7printe
   invoke void @_ZN9indicatif5style13ProgressStyle13with_template17h779f612f34062891E(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %33, ptr noalias noundef nonnull readonly align 1 @anon.23fd52f608f39aa145c287009346cc88.293, i64 noundef 20)
           to label %256 unwind label %.thread198
 
-.thread198:                                       ; preds = %211, %208, %282, %269, %266, %265, %178, %259, %177, %198, %215, %switch.lookup, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hdf87645428882e77E.exit", %273, %switch.lookup241
-  %.sroa.024.3.ph = phi i1 [ true, %switch.lookup241 ], [ true, %273 ], [ true, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hdf87645428882e77E.exit" ], [ true, %switch.lookup ], [ true, %215 ], [ true, %198 ], [ true, %177 ], [ true, %259 ], [ true, %178 ], [ true, %265 ], [ true, %266 ], [ false, %269 ], [ false, %282 ], [ true, %208 ], [ false, %211 ]
+.thread198:                                       ; preds = %211, %208, %282, %269, %266, %265, %178, %259, %177, %198, %215, %switch.lookup, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hdf87645428882e77E.exit", %273, %switch.lookup240
+  %.sroa.024.3.ph = phi i1 [ true, %switch.lookup240 ], [ true, %273 ], [ true, %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hdf87645428882e77E.exit" ], [ true, %switch.lookup ], [ true, %215 ], [ true, %198 ], [ true, %177 ], [ true, %259 ], [ true, %178 ], [ true, %265 ], [ true, %266 ], [ false, %269 ], [ false, %282 ], [ true, %208 ], [ false, %211 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -31211,15 +31211,15 @@ switch.lookup:                                    ; preds = %_ZN3std4sync6poison
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
-  %232 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE.170, i64 %232
-  %switch.load = load ptr, ptr %switch.gep, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %233 = zext nneg i8 %1 to i64
-  %switch.gep239 = getelementptr inbounds nuw i64, ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE, i64 %233
-  %switch.load240 = load i64, ptr %switch.gep239, align 8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE.170, i64 %233
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %234 = zext nneg i8 %1 to i64
+  %switch.gep238 = getelementptr inbounds nuw i64, ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE, i64 %234
+  %switch.load239 = load i64, ptr %switch.gep238, align 8
   store ptr %switch.load, ptr %41, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i64 %switch.load240, ptr %234, align 8
+  store i64 %switch.load239, ptr %232, align 8
   store ptr %41, ptr %42, align 8
   store ptr %42, ptr %43, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
@@ -31418,9 +31418,9 @@ switch.lookup:                                    ; preds = %_ZN3std4sync6poison
 _ZN3std4sync6poison4once4Once9call_once17h3ef64efabf505ca2E.exit111: ; preds = %.noexc110, %270
   %274 = load i8, ptr @_ZN2uv8commands9reporters27HAS_UV_TEST_NO_CLI_PROGRESS17hbba220741578afc3E, align 8, !range !1244, !noundef !3
   %275 = trunc nuw i8 %274 to i1
-  br i1 %275, label %269, label %switch.lookup241
+  br i1 %275, label %269, label %switch.lookup240
 
-switch.lookup241:                                 ; preds = %_ZN3std4sync6poison4once4Once9call_once17h3ef64efabf505ca2E.exit111
+switch.lookup240:                                 ; preds = %_ZN3std4sync6poison4once4Once9call_once17h3ef64efabf505ca2E.exit111
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %switch.i112 = icmp samesign ult i8 %168, 2
   %276 = zext i1 %switch.i112 to i8
@@ -31430,14 +31430,14 @@ switch.lookup241:                                 ; preds = %_ZN3std4sync6poison
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %277 = zext nneg i8 %1 to i64
-  %switch.gep242 = getelementptr inbounds nuw i64, ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE, i64 %277
-  %switch.load243 = load i64, ptr %switch.gep242, align 8
+  %switch.gep241 = getelementptr inbounds nuw i64, ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE, i64 %277
+  %switch.load242 = load i64, ptr %switch.gep241, align 8
   %278 = zext nneg i8 %1 to i64
-  %switch.gep244 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE.170, i64 %278
-  %switch.load245 = load ptr, ptr %switch.gep244, align 8
-  store ptr %switch.load245, ptr %28, align 8
+  %switch.gep243 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2uv8commands9reporters16ProgressReporter19on_request_complete17hb68277cb84898c0cE.170, i64 %278
+  %switch.load244 = load ptr, ptr %switch.gep243, align 8
+  store ptr %switch.load244, ptr %28, align 8
   %279 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 %switch.load243, ptr %279, align 8
+  store i64 %switch.load242, ptr %279, align 8
   store ptr %28, ptr %29, align 8
   store ptr %29, ptr %30, align 8
   store ptr %30, ptr %31, align 8
@@ -31460,7 +31460,7 @@ switch.lookup241:                                 ; preds = %_ZN3std4sync6poison
   %281 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h5af61a909e3ec64dE(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.23fd52f608f39aa145c287009346cc88.93, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
           to label %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hdf87645428882e77E.exit120" unwind label %.thread198
 
-"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hdf87645428882e77E.exit120": ; preds = %switch.lookup241
+"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hdf87645428882e77E.exit120": ; preds = %switch.lookup240
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !7153
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)

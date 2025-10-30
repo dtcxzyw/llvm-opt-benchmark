@@ -124718,8 +124718,8 @@ define hidden { i64, ptr } @"_ZN6hir_ty5infer5unify22Canonicalized$LT$T$GT$14app
   %6 = load i8, ptr %1, align 8, !range !554, !noundef !7
   switch i8 %6, label %default.unreachable13 [
     i8 0, label %7
-    i8 1, label %10
-    i8 2, label %12
+    i8 1, label %11
+    i8 2, label %13
   ]
 
 default.unreachable13:                            ; preds = %7, %2
@@ -124728,49 +124728,50 @@ default.unreachable13:                            ; preds = %7, %2
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %9 = load i8, ptr %8, align 1, !range !554, !noundef !7
+  %10 = load ptr, ptr %0, align 8, !nonnull !7, !align !50, !noundef !7
   switch i8 %9, label %default.unreachable13 [
-    i8 0, label %26
+    i8 0, label %27
     i8 1, label %29
-    i8 2, label %32
+    i8 2, label %31
   ]
 
-10:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !30076
   store i32 6, ptr %5, align 8
-  %11 = call noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h894d7fbc59ee02e1E.llvm.10169251571672223956"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5), !noalias !30076
+  %12 = call noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h894d7fbc59ee02e1E.llvm.10169251571672223956"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5), !noalias !30076
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !30076
-  br label %35
+  br label %33
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %0, align 8, !nonnull !7, !align !50, !noundef !7
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %0, align 8, !nonnull !7, !align !50, !noundef !7
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30079)
-  %15 = load ptr, ptr %14, align 8, !alias.scope !30079, !nonnull !7, !noundef !7
-  %16 = atomicrmw add ptr %15, i64 1 monotonic, align 8, !noalias !30079
-  %17 = icmp slt i64 %16, 0
-  br i1 %17, label %18, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit"
+  %16 = load ptr, ptr %15, align 8, !alias.scope !30079, !nonnull !7, !noundef !7
+  %17 = atomicrmw add ptr %16, i64 1 monotonic, align 8, !noalias !30079
+  %18 = icmp slt i64 %17, 0
+  br i1 %18, label %19, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit"
 
-18:                                               ; preds = %12
+19:                                               ; preds = %13
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #62, !noalias !30079
   unreachable
 
-"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit": ; preds = %12
+"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit": ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %15, ptr %4, align 8, !noalias !30082
-  %19 = invoke noundef i32 @"_ZN11chalk_solve5infer23InferenceTable$LT$I$GT$12new_variable17h1049c49998bc0c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(216) %13, i64 noundef 0)
-          to label %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit unwind label %21
+  store ptr %16, ptr %4, align 8, !noalias !30082
+  %20 = invoke noundef i32 @"_ZN11chalk_solve5infer23InferenceTable$LT$I$GT$12new_variable17h1049c49998bc0c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(216) %14, i64 noundef 0)
+          to label %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit unwind label %22
 
-20:                                               ; preds = %21
-  resume { ptr, i32 } %22
+21:                                               ; preds = %22
+  resume { ptr, i32 } %23
 
-21:                                               ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit"
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit"
+  %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h2660f916a752af1fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #63
-          to label %20 unwind label %23
+          to label %21 unwind label %24
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #64
   unreachable
@@ -124779,32 +124780,29 @@ _ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit: 
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !30085
   store i64 6, ptr %3, align 8, !noalias !30082
   %.sroa.4.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %19, ptr %.sroa.4.0..sroa_idx3.i, align 8, !noalias !30082
+  store i32 %20, ptr %.sroa.4.0..sroa_idx3.i, align 8, !noalias !30082
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %15, ptr %.sroa.54.0..sroa_idx.i, align 8, !noalias !30082
-  %25 = call noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h93858e0367cad953E.llvm.10169251571672223956"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
+  store ptr %16, ptr %.sroa.54.0..sroa_idx.i, align 8, !noalias !30082
+  %26 = call noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h93858e0367cad953E.llvm.10169251571672223956"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !30085
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %35
+  br label %33
 
-26:                                               ; preds = %7
-  %27 = load ptr, ptr %0, align 8, !nonnull !7, !align !50, !noundef !7
-  %28 = tail call noundef nonnull ptr @_ZN6hir_ty5infer5unify14InferenceTable7new_var17h884fe2efc581a6a7E.llvm.2869318172927361419(ptr noalias noundef nonnull align 8 dereferenceable(216) %27, i8 noundef 0, i1 noundef zeroext false)
-  br label %35
+27:                                               ; preds = %7
+  %28 = tail call noundef nonnull ptr @_ZN6hir_ty5infer5unify14InferenceTable7new_var17h884fe2efc581a6a7E.llvm.2869318172927361419(ptr noalias noundef nonnull align 8 dereferenceable(216) %10, i8 noundef 0, i1 noundef zeroext false)
+  br label %33
 
 29:                                               ; preds = %7
-  %30 = load ptr, ptr %0, align 8, !nonnull !7, !align !50, !noundef !7
-  %31 = tail call noundef nonnull ptr @_ZN6hir_ty5infer5unify14InferenceTable7new_var17h884fe2efc581a6a7E.llvm.2869318172927361419(ptr noalias noundef nonnull align 8 dereferenceable(216) %30, i8 noundef 1, i1 noundef zeroext false)
-  br label %35
+  %30 = tail call noundef nonnull ptr @_ZN6hir_ty5infer5unify14InferenceTable7new_var17h884fe2efc581a6a7E.llvm.2869318172927361419(ptr noalias noundef nonnull align 8 dereferenceable(216) %10, i8 noundef 1, i1 noundef zeroext false)
+  br label %33
 
-32:                                               ; preds = %7
-  %33 = load ptr, ptr %0, align 8, !nonnull !7, !align !50, !noundef !7
-  %34 = tail call noundef nonnull ptr @_ZN6hir_ty5infer5unify14InferenceTable7new_var17h884fe2efc581a6a7E.llvm.2869318172927361419(ptr noalias noundef nonnull align 8 dereferenceable(216) %33, i8 noundef 2, i1 noundef zeroext false)
-  br label %35
+31:                                               ; preds = %7
+  %32 = tail call noundef nonnull ptr @_ZN6hir_ty5infer5unify14InferenceTable7new_var17h884fe2efc581a6a7E.llvm.2869318172927361419(ptr noalias noundef nonnull align 8 dereferenceable(216) %10, i8 noundef 2, i1 noundef zeroext false)
+  br label %33
 
-35:                                               ; preds = %32, %29, %26, %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit, %10
-  %.pn11 = phi { i64, ptr } [ { i64 0, ptr poison }, %26 ], [ { i64 0, ptr poison }, %29 ], [ { i64 0, ptr poison }, %32 ], [ { i64 1, ptr poison }, %10 ], [ { i64 2, ptr poison }, %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit ]
-  %.pn12 = phi ptr [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %11, %10 ], [ %25, %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit ]
+33:                                               ; preds = %31, %29, %27, %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit, %11
+  %.pn11 = phi { i64, ptr } [ { i64 0, ptr poison }, %27 ], [ { i64 0, ptr poison }, %29 ], [ { i64 0, ptr poison }, %31 ], [ { i64 1, ptr poison }, %11 ], [ { i64 2, ptr poison }, %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit ]
+  %.pn12 = phi ptr [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %12, %11 ], [ %26, %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit ]
   %.pn = insertvalue { i64, ptr } %.pn11, ptr %.pn12, 1
   ret { i64, ptr } %.pn
 }
@@ -124817,8 +124815,8 @@ define hidden { i64, ptr } @"_ZN6hir_ty5infer5unify22Canonicalized$LT$T$GT$14app
   %6 = load i8, ptr %1, align 8, !range !554, !noundef !7
   switch i8 %6, label %default.unreachable13 [
     i8 0, label %7
-    i8 1, label %10
-    i8 2, label %12
+    i8 1, label %11
+    i8 2, label %13
   ]
 
 default.unreachable13:                            ; preds = %7, %2
@@ -124827,49 +124825,50 @@ default.unreachable13:                            ; preds = %7, %2
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %9 = load i8, ptr %8, align 1, !range !554, !noundef !7
+  %10 = load ptr, ptr %0, align 8, !nonnull !7, !align !50, !noundef !7
   switch i8 %9, label %default.unreachable13 [
-    i8 0, label %26
+    i8 0, label %27
     i8 1, label %29
-    i8 2, label %32
+    i8 2, label %31
   ]
 
-10:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !30088
   store i32 6, ptr %5, align 8
-  %11 = call noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h894d7fbc59ee02e1E.llvm.10169251571672223956"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5), !noalias !30088
+  %12 = call noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h894d7fbc59ee02e1E.llvm.10169251571672223956"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5), !noalias !30088
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !30088
-  br label %35
+  br label %33
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %0, align 8, !nonnull !7, !align !50, !noundef !7
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %0, align 8, !nonnull !7, !align !50, !noundef !7
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30091)
-  %15 = load ptr, ptr %14, align 8, !alias.scope !30091, !nonnull !7, !noundef !7
-  %16 = atomicrmw add ptr %15, i64 1 monotonic, align 8, !noalias !30091
-  %17 = icmp slt i64 %16, 0
-  br i1 %17, label %18, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit"
+  %16 = load ptr, ptr %15, align 8, !alias.scope !30091, !nonnull !7, !noundef !7
+  %17 = atomicrmw add ptr %16, i64 1 monotonic, align 8, !noalias !30091
+  %18 = icmp slt i64 %17, 0
+  br i1 %18, label %19, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit"
 
-18:                                               ; preds = %12
+19:                                               ; preds = %13
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #62, !noalias !30091
   unreachable
 
-"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit": ; preds = %12
+"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit": ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %15, ptr %4, align 8, !noalias !30094
-  %19 = invoke noundef i32 @"_ZN11chalk_solve5infer23InferenceTable$LT$I$GT$12new_variable17h1049c49998bc0c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(216) %13, i64 noundef 0)
-          to label %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit unwind label %21
+  store ptr %16, ptr %4, align 8, !noalias !30094
+  %20 = invoke noundef i32 @"_ZN11chalk_solve5infer23InferenceTable$LT$I$GT$12new_variable17h1049c49998bc0c7cE"(ptr noalias noundef nonnull align 8 dereferenceable(216) %14, i64 noundef 0)
+          to label %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit unwind label %22
 
-20:                                               ; preds = %21
-  resume { ptr, i32 } %22
+21:                                               ; preds = %22
+  resume { ptr, i32 } %23
 
-21:                                               ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit"
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE.exit"
+  %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr67drop_in_place$LT$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$GT$17h2660f916a752af1fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #63
-          to label %20 unwind label %23
+          to label %21 unwind label %24
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #64
   unreachable
@@ -124878,32 +124877,29 @@ _ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit: 
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !30097
   store i64 6, ptr %3, align 8, !noalias !30094
   %.sroa.4.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %19, ptr %.sroa.4.0..sroa_idx3.i, align 8, !noalias !30094
+  store i32 %20, ptr %.sroa.4.0..sroa_idx3.i, align 8, !noalias !30094
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %15, ptr %.sroa.54.0..sroa_idx.i, align 8, !noalias !30094
-  %25 = call noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h93858e0367cad953E.llvm.10169251571672223956"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
+  store ptr %16, ptr %.sroa.54.0..sroa_idx.i, align 8, !noalias !30094
+  %26 = call noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h93858e0367cad953E.llvm.10169251571672223956"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !30097
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %35
+  br label %33
 
-26:                                               ; preds = %7
-  %27 = load ptr, ptr %0, align 8, !nonnull !7, !align !50, !noundef !7
-  %28 = tail call noundef nonnull ptr @_ZN6hir_ty5infer5unify14InferenceTable7new_var17h884fe2efc581a6a7E.llvm.2869318172927361419(ptr noalias noundef nonnull align 8 dereferenceable(216) %27, i8 noundef 0, i1 noundef zeroext false)
-  br label %35
+27:                                               ; preds = %7
+  %28 = tail call noundef nonnull ptr @_ZN6hir_ty5infer5unify14InferenceTable7new_var17h884fe2efc581a6a7E.llvm.2869318172927361419(ptr noalias noundef nonnull align 8 dereferenceable(216) %10, i8 noundef 0, i1 noundef zeroext false)
+  br label %33
 
 29:                                               ; preds = %7
-  %30 = load ptr, ptr %0, align 8, !nonnull !7, !align !50, !noundef !7
-  %31 = tail call noundef nonnull ptr @_ZN6hir_ty5infer5unify14InferenceTable7new_var17h884fe2efc581a6a7E.llvm.2869318172927361419(ptr noalias noundef nonnull align 8 dereferenceable(216) %30, i8 noundef 1, i1 noundef zeroext false)
-  br label %35
+  %30 = tail call noundef nonnull ptr @_ZN6hir_ty5infer5unify14InferenceTable7new_var17h884fe2efc581a6a7E.llvm.2869318172927361419(ptr noalias noundef nonnull align 8 dereferenceable(216) %10, i8 noundef 1, i1 noundef zeroext false)
+  br label %33
 
-32:                                               ; preds = %7
-  %33 = load ptr, ptr %0, align 8, !nonnull !7, !align !50, !noundef !7
-  %34 = tail call noundef nonnull ptr @_ZN6hir_ty5infer5unify14InferenceTable7new_var17h884fe2efc581a6a7E.llvm.2869318172927361419(ptr noalias noundef nonnull align 8 dereferenceable(216) %33, i8 noundef 2, i1 noundef zeroext false)
-  br label %35
+31:                                               ; preds = %7
+  %32 = tail call noundef nonnull ptr @_ZN6hir_ty5infer5unify14InferenceTable7new_var17h884fe2efc581a6a7E.llvm.2869318172927361419(ptr noalias noundef nonnull align 8 dereferenceable(216) %10, i8 noundef 2, i1 noundef zeroext false)
+  br label %33
 
-35:                                               ; preds = %32, %29, %26, %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit, %10
-  %.pn11 = phi { i64, ptr } [ { i64 0, ptr poison }, %26 ], [ { i64 0, ptr poison }, %29 ], [ { i64 0, ptr poison }, %32 ], [ { i64 1, ptr poison }, %10 ], [ { i64 2, ptr poison }, %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit ]
-  %.pn12 = phi ptr [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %11, %10 ], [ %25, %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit ]
+33:                                               ; preds = %31, %29, %27, %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit, %11
+  %.pn11 = phi { i64, ptr } [ { i64 0, ptr poison }, %27 ], [ { i64 0, ptr poison }, %29 ], [ { i64 0, ptr poison }, %31 ], [ { i64 1, ptr poison }, %11 ], [ { i64 2, ptr poison }, %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit ]
+  %.pn12 = phi ptr [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %12, %11 ], [ %26, %_ZN6hir_ty5infer5unify14InferenceTable13new_const_var17h4e86f19eb9f87c2bE.exit ]
   %.pn = insertvalue { i64, ptr } %.pn11, ptr %.pn12, 1
   ret { i64, ptr } %.pn
 }

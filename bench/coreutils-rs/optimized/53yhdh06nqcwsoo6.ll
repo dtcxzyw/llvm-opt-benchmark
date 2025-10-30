@@ -420,8 +420,8 @@ define hidden noundef i64 @_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h31
   switch i64 %9, label %10 [
     i64 0, label %16
     i64 1, label %21
-    i64 2, label %36
-    i64 3, label %51
+    i64 2, label %39
+    i64 3, label %57
   ]
 
 10:                                               ; preds = %3, %.split
@@ -447,7 +447,7 @@ define hidden noundef i64 @_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h31
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8, !noundef !4
   %20 = icmp ult i64 %1, %19
-  br i1 %20, label %66, label %72, !prof !42
+  br i1 %20, label %74, label %80, !prof !42
 
 21:                                               ; preds = %.split
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -475,143 +475,93 @@ define hidden noundef i64 @_ZN5uu_od12inputdecoder13MemoryDecoder9read_uint17h31
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit": ; preds = %31
   %35 = getelementptr inbounds i8, ptr %27, i64 %1
-  switch i8 %23, label %default.unreachable54 [
-    i8 0, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit"
-    i8 1, label %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit"
-    i8 2, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit37"
-  ]
+  %.val.i.i = load i16, ptr %35, align 1
+  %36 = icmp eq i8 %23, 1
+  %37 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i)
+  %.028 = select i1 %36, i16 %37, i16 %.val.i.i
+  %38 = zext i16 %.028 to i64
+  br label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit"
 
-36:                                               ; preds = %.split
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %38 = load i8, ptr %37, align 8, !range !79, !noundef !4
-  %39 = load ptr, ptr %0, align 8, !nonnull !4, !align !41, !noundef !4
-  %40 = add i64 %1, 4
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %42 = load ptr, ptr %41, align 8, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %44 = load i64, ptr %43, align 8, !noundef !4
-  %45 = icmp ugt i64 %1, -5
-  br i1 %45, label %48, label %46
+39:                                               ; preds = %.split
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %41 = load i8, ptr %40, align 8, !range !79, !noundef !4
+  %42 = load ptr, ptr %0, align 8, !nonnull !4, !align !41, !noundef !4
+  %43 = add i64 %1, 4
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %45 = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %47 = load i64, ptr %46, align 8, !noundef !4
+  %48 = icmp ugt i64 %1, -5
+  br i1 %48, label %51, label %49
 
-46:                                               ; preds = %36
-  %47 = icmp ugt i64 %40, %44
-  br i1 %47, label %49, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit33"
+49:                                               ; preds = %39
+  %50 = icmp ugt i64 %43, %47
+  br i1 %50, label %52, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit33"
 
-48:                                               ; preds = %36
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %1, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.49) #17, !noalias !83
+51:                                               ; preds = %39
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %1, i64 noundef %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.49) #17, !noalias !83
   unreachable
 
-49:                                               ; preds = %46
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %40, i64 noundef %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.49) #17, !noalias !83
+52:                                               ; preds = %49
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %43, i64 noundef %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.49) #17, !noalias !83
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit33": ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %42, i64 %1
-  switch i8 %38, label %default.unreachable54 [
-    i8 0, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit"
-    i8 1, label %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit"
-    i8 2, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit41"
-  ]
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit33": ; preds = %49
+  %53 = getelementptr inbounds i8, ptr %45, i64 %1
+  %.val.i.i38 = load i32, ptr %53, align 1
+  %54 = icmp eq i8 %41, 1
+  %55 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i38)
+  %.029 = select i1 %54, i32 %55, i32 %.val.i.i38
+  %56 = zext i32 %.029 to i64
+  br label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit"
 
-51:                                               ; preds = %.split
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %53 = load i8, ptr %52, align 8, !range !79, !noundef !4
-  %54 = load ptr, ptr %0, align 8, !nonnull !4, !align !41, !noundef !4
-  %55 = add i64 %1, 8
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %57 = load ptr, ptr %56, align 8, !nonnull !4, !noundef !4
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %59 = load i64, ptr %58, align 8, !noundef !4
-  %60 = icmp ugt i64 %1, -9
-  br i1 %60, label %63, label %61
+57:                                               ; preds = %.split
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %59 = load i8, ptr %58, align 8, !range !79, !noundef !4
+  %60 = load ptr, ptr %0, align 8, !nonnull !4, !align !41, !noundef !4
+  %61 = add i64 %1, 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %63 = load ptr, ptr %62, align 8, !nonnull !4, !noundef !4
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %65 = load i64, ptr %64, align 8, !noundef !4
+  %66 = icmp ugt i64 %1, -9
+  br i1 %66, label %69, label %67
 
-61:                                               ; preds = %51
-  %62 = icmp ugt i64 %55, %59
-  br i1 %62, label %64, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit34"
+67:                                               ; preds = %57
+  %68 = icmp ugt i64 %61, %65
+  br i1 %68, label %70, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit34"
 
-63:                                               ; preds = %51
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %1, i64 noundef %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.50) #17, !noalias !86
+69:                                               ; preds = %57
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %1, i64 noundef %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.50) #17, !noalias !86
   unreachable
 
-64:                                               ; preds = %61
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %55, i64 noundef %59, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.50) #17, !noalias !86
+70:                                               ; preds = %67
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %61, i64 noundef %65, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.50) #17, !noalias !86
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit34": ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %57, i64 %1
-  switch i8 %53, label %default.unreachable54 [
-    i8 0, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit"
-    i8 1, label %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit"
-    i8 2, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit45"
-  ]
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit34": ; preds = %67
+  %71 = getelementptr inbounds i8, ptr %63, i64 %1
+  %.val.i.i42 = load i64, ptr %71, align 1, !noalias !4
+  %72 = icmp eq i8 %59, 1
+  %73 = tail call i64 @llvm.bswap.i64(i64 %.val.i.i42)
+  %spec.select = select i1 %72, i64 %73, i64 %.val.i.i42
+  br label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit"
 
-66:                                               ; preds = %16
-  %67 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %68 = load ptr, ptr %67, align 8, !nonnull !4, !noundef !4
-  %69 = getelementptr inbounds i8, ptr %68, i64 %1
-  %70 = load i8, ptr %69, align 1, !noundef !4
-  %71 = zext i8 %70 to i64
-  br label %73
+74:                                               ; preds = %16
+  %75 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %76 = load ptr, ptr %75, align 8, !nonnull !4, !noundef !4
+  %77 = getelementptr inbounds i8, ptr %76, i64 %1
+  %78 = load i8, ptr %77, align 1, !noundef !4
+  %79 = zext i8 %78 to i64
+  br label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit"
 
-72:                                               ; preds = %16
+80:                                               ; preds = %16
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.47) #17
   unreachable
 
-73:                                               ; preds = %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit", %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit", %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit45", %78, %75, %66
-  %.0 = phi i64 [ %71, %66 ], [ %76, %75 ], [ %79, %78 ], [ %.val.i.i42, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit" ], [ %80, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit" ], [ %.val.i.i44, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit45" ]
+"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit34", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit33", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit", %74
+  %.0 = phi i64 [ %79, %74 ], [ %38, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit" ], [ %56, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit33" ], [ %spec.select, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit34" ]
   ret i64 %.0
-
-default.unreachable54:                            ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit34", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit33", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
-  unreachable
-
-"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
-  %.val.i.i = load i16, ptr %35, align 1, !alias.scope !89
-  br label %75
-
-"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
-  %.val.i.i35 = load i16, ptr %35, align 1, !alias.scope !94
-  %74 = tail call noundef i16 @llvm.bswap.i16(i16 %.val.i.i35)
-  br label %75
-
-"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit37": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
-  %.val.i.i36 = load i16, ptr %35, align 1, !alias.scope !99
-  br label %75
-
-75:                                               ; preds = %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit37", %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit", %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit"
-  %.028 = phi i16 [ %.val.i.i, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit" ], [ %74, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit" ], [ %.val.i.i36, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit37" ]
-  %76 = zext i16 %.028 to i64
-  br label %73
-
-"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit33"
-  %.val.i.i38 = load i32, ptr %50, align 1, !alias.scope !104
-  br label %78
-
-"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit33"
-  %.val.i.i39 = load i32, ptr %50, align 1, !alias.scope !109
-  %77 = tail call noundef i32 @llvm.bswap.i32(i32 %.val.i.i39)
-  br label %78
-
-"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit41": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit33"
-  %.val.i.i40 = load i32, ptr %50, align 1, !alias.scope !114
-  br label %78
-
-78:                                               ; preds = %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit41", %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit", %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit"
-  %.029 = phi i32 [ %.val.i.i38, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit" ], [ %77, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit" ], [ %.val.i.i40, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit41" ]
-  %79 = zext i32 %.029 to i64
-  br label %73
-
-"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit34"
-  %.val.i.i42 = load i64, ptr %65, align 1, !alias.scope !119, !noalias !124
-  br label %73
-
-"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit34"
-  %.val.i.i43 = load i64, ptr %65, align 1, !alias.scope !126, !noalias !131
-  %80 = tail call noundef i64 @llvm.bswap.i64(i64 %.val.i.i43)
-  br label %73
-
-"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit45": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit34"
-  %.val.i.i44 = load i64, ptr %65, align 1, !alias.scope !133, !noalias !138
-  br label %73
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -622,8 +572,8 @@ define hidden noundef double @_ZN5uu_od12inputdecoder13MemoryDecoder10read_float
   store i64 %2, ptr %6, align 8
   switch i64 %2, label %7 [
     i64 2, label %13
-    i64 4, label %28
-    i64 8, label %45
+    i64 4, label %32
+    i64 8, label %50
   ]
 
 7:                                                ; preds = %3
@@ -632,15 +582,15 @@ define hidden noundef double @_ZN5uu_od12inputdecoder13MemoryDecoder10read_float
   store ptr %6, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %8, align 8
-  store ptr @anon.b34a30e1769240272e435acd206bf8e0.52, ptr %5, align 8, !alias.scope !140, !noalias !143
+  store ptr @anon.b34a30e1769240272e435acd206bf8e0.52, ptr %5, align 8, !alias.scope !89, !noalias !92
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %9, align 8, !alias.scope !140, !noalias !143
+  store i64 1, ptr %9, align 8, !alias.scope !89, !noalias !92
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %10, align 8, !alias.scope !140, !noalias !143
+  store ptr null, ptr %10, align 8, !alias.scope !89, !noalias !92
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %11, align 8, !alias.scope !140, !noalias !143
+  store ptr %4, ptr %11, align 8, !alias.scope !89, !noalias !92
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 1, ptr %12, align 8, !alias.scope !140, !noalias !143
+  store i64 1, ptr %12, align 8, !alias.scope !89, !noalias !92
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.57) #17
   unreachable
 
@@ -661,229 +611,175 @@ define hidden noundef double @_ZN5uu_od12inputdecoder13MemoryDecoder10read_float
   br i1 %24, label %26, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
 
 25:                                               ; preds = %13
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %1, i64 noundef %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.54) #17, !noalias !145
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %1, i64 noundef %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.54) #17, !noalias !94
   unreachable
 
 26:                                               ; preds = %23
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %17, i64 noundef %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.54) #17, !noalias !145
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %17, i64 noundef %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.54) #17, !noalias !94
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit": ; preds = %23
   %27 = getelementptr inbounds i8, ptr %19, i64 %1
-  switch i8 %15, label %default.unreachable44 [
-    i8 0, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit"
-    i8 1, label %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit"
-    i8 2, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit32"
-  ]
+  %.val.i.i = load i16, ptr %27, align 1
+  %28 = icmp eq i8 %15, 1
+  %29 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i)
+  %.021 = select i1 %28, i16 %29, i16 %.val.i.i
+  %30 = load atomic i64, ptr @_ZN10std_detect6detect5cache5CACHE17hbcd237756618f0f4E monotonic, align 8
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %67, label %_ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit
 
-28:                                               ; preds = %3
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %30 = load i8, ptr %29, align 8, !range !79, !noundef !4
-  %31 = load ptr, ptr %0, align 8, !nonnull !4, !align !41, !noundef !4
-  %32 = add i64 %1, 4
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %34 = load ptr, ptr %33, align 8, !nonnull !4, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %36 = load i64, ptr %35, align 8, !noundef !4
-  %37 = icmp ugt i64 %1, -5
-  br i1 %37, label %40, label %38
+32:                                               ; preds = %3
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %34 = load i8, ptr %33, align 8, !range !79, !noundef !4
+  %35 = load ptr, ptr %0, align 8, !nonnull !4, !align !41, !noundef !4
+  %36 = add i64 %1, 4
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %38 = load ptr, ptr %37, align 8, !nonnull !4, !noundef !4
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %40 = load i64, ptr %39, align 8, !noundef !4
+  %41 = icmp ugt i64 %1, -5
+  br i1 %41, label %44, label %42
 
-38:                                               ; preds = %28
-  %39 = icmp ugt i64 %32, %36
-  br i1 %39, label %41, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit22"
+42:                                               ; preds = %32
+  %43 = icmp ugt i64 %36, %40
+  br i1 %43, label %45, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit22"
 
-40:                                               ; preds = %28
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %1, i64 noundef %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.55) #17, !noalias !148
+44:                                               ; preds = %32
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %1, i64 noundef %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.55) #17, !noalias !97
   unreachable
 
-41:                                               ; preds = %38
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %32, i64 noundef %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.55) #17, !noalias !148
+45:                                               ; preds = %42
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %36, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.55) #17, !noalias !97
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit22": ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %34, i64 %1
-  switch i8 %30, label %default.unreachable44 [
-    i8 0, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit.i"
-    i8 1, label %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit.i"
-    i8 2, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit3.i"
-  ]
-
-"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit22"
-  %.val.i.i.i = load i32, ptr %42, align 1, !alias.scope !151
-  br label %_ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E.exit
-
-"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit22"
-  %.val.i.i1.i = load i32, ptr %42, align 1, !alias.scope !158
-  %43 = tail call noundef i32 @llvm.bswap.i32(i32 %.val.i.i1.i)
-  br label %_ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E.exit
-
-"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit3.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit22"
-  %.val.i.i2.i = load i32, ptr %42, align 1, !alias.scope !163
-  br label %_ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E.exit
-
-_ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E.exit: ; preds = %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit.i", %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit.i", %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit3.i"
-  %.0.in.i = phi i32 [ %.val.i.i.i, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit.i" ], [ %43, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E.exit.i" ], [ %.val.i.i2.i, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E.exit3.i" ]
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit22": ; preds = %42
+  %46 = getelementptr inbounds i8, ptr %38, i64 %1
+  %.val.i.i.i = load i32, ptr %46, align 1, !alias.scope !100
+  %47 = icmp eq i8 %34, 1
+  %48 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i.i)
+  %.0.in.i = select i1 %47, i32 %48, i32 %.val.i.i.i
   %.0.i = bitcast i32 %.0.in.i to float
-  %44 = fpext float %.0.i to double
-  br label %114
+  %49 = fpext float %.0.i to double
+  br label %116
 
-45:                                               ; preds = %3
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %47 = load i8, ptr %46, align 8, !range !79, !noundef !4
-  %48 = load ptr, ptr %0, align 8, !nonnull !4, !align !41, !noundef !4
-  %49 = add i64 %1, 8
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %51 = load ptr, ptr %50, align 8, !nonnull !4, !noundef !4
-  %52 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %53 = load i64, ptr %52, align 8, !noundef !4
-  %54 = icmp ugt i64 %1, -9
-  br i1 %54, label %57, label %55
+50:                                               ; preds = %3
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %52 = load i8, ptr %51, align 8, !range !79, !noundef !4
+  %53 = load ptr, ptr %0, align 8, !nonnull !4, !align !41, !noundef !4
+  %54 = add i64 %1, 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %56 = load ptr, ptr %55, align 8, !nonnull !4, !noundef !4
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %58 = load i64, ptr %57, align 8, !noundef !4
+  %59 = icmp ugt i64 %1, -9
+  br i1 %59, label %62, label %60
 
-55:                                               ; preds = %45
-  %56 = icmp ugt i64 %49, %53
-  br i1 %56, label %58, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit23"
+60:                                               ; preds = %50
+  %61 = icmp ugt i64 %54, %58
+  br i1 %61, label %63, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit23"
 
-57:                                               ; preds = %45
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %1, i64 noundef %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.56) #17, !noalias !168
+62:                                               ; preds = %50
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %1, i64 noundef %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.56) #17, !noalias !103
   unreachable
 
-58:                                               ; preds = %55
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %49, i64 noundef %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.56) #17, !noalias !168
+63:                                               ; preds = %60
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %54, i64 noundef %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b34a30e1769240272e435acd206bf8e0.56) #17, !noalias !103
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit23": ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %51, i64 %1
-  switch i8 %47, label %default.unreachable44 [
-    i8 0, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit.i"
-    i8 1, label %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit.i"
-    i8 2, label %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit3.i"
-  ]
-
-"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit23"
-  %.val.i.i.i28 = load i64, ptr %59, align 1, !alias.scope !171, !noalias !178
-  br label %_ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE.exit
-
-"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit23"
-  %.val.i.i1.i27 = load i64, ptr %59, align 1, !alias.scope !180, !noalias !185
-  %60 = tail call noundef i64 @llvm.bswap.i64(i64 %.val.i.i1.i27)
-  br label %_ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE.exit
-
-"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit3.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit23"
-  %.val.i.i2.i24 = load i64, ptr %59, align 1, !alias.scope !187, !noalias !192
-  br label %_ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE.exit
-
-_ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE.exit: ; preds = %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit.i", %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit.i", %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit3.i"
-  %.0.in.i25 = phi i64 [ %.val.i.i.i28, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit.i" ], [ %60, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E.exit.i" ], [ %.val.i.i2.i24, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE.exit3.i" ]
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit23": ; preds = %60
+  %64 = getelementptr inbounds i8, ptr %56, i64 %1
+  %.val.i.i.i28 = load i64, ptr %64, align 1, !alias.scope !106, !noalias !4
+  %65 = icmp eq i8 %52, 1
+  %66 = tail call i64 @llvm.bswap.i64(i64 %.val.i.i.i28)
+  %.0.in.i25 = select i1 %65, i64 %66, i64 %.val.i.i.i28
   %.0.i26 = bitcast i64 %.0.in.i25 to double
-  br label %114
+  br label %116
 
-default.unreachable44:                            ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit23", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit22", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
-  unreachable
-
-"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
-  %.val.i.i = load i16, ptr %27, align 1, !alias.scope !194
-  br label %62
-
-"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
-  %.val.i.i30 = load i16, ptr %27, align 1, !alias.scope !199
-  %61 = tail call noundef i16 @llvm.bswap.i16(i16 %.val.i.i30)
-  br label %62
-
-"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit32": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
-  %.val.i.i31 = load i16, ptr %27, align 1, !alias.scope !204
-  br label %62
-
-62:                                               ; preds = %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit32", %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit", %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit"
-  %.021 = phi i16 [ %.val.i.i, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit" ], [ %61, %"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE.exit" ], [ %.val.i.i31, %"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E.exit32" ]
-  %63 = load atomic i64, ptr @_ZN10std_detect6detect5cache5CACHE17hbcd237756618f0f4E monotonic, align 8
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %_ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit
-
-65:                                               ; preds = %62
-  %66 = tail call noundef i64 @_ZN10std_detect6detect5cache21detect_and_initialize17h2ce5a3d3e3f86595E()
+67:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit"
+  %68 = tail call noundef i64 @_ZN10std_detect6detect5cache21detect_and_initialize17h2ce5a3d3e3f86595E()
   br label %_ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit
 
-_ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit: ; preds = %62, %65
-  %.09.in.in.in.i = phi i64 [ %66, %65 ], [ %63, %62 ]
+_ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit", %67
+  %.09.in.in.in.i = phi i64 [ %68, %67 ], [ %30, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit" ]
   %.09.in.in.i = and i64 %.09.in.in.in.i, 17179869184
   %.09.in.i.not = icmp eq i64 %.09.in.in.i, 0
-  br i1 %.09.in.i.not, label %67, label %111
+  br i1 %.09.in.i.not, label %69, label %113
 
-67:                                               ; preds = %_ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit
-  %68 = and i16 %.021, 32767
-  %69 = icmp eq i16 %68, 0
-  br i1 %69, label %70, label %73
+69:                                               ; preds = %_ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit
+  %70 = and i16 %.021, 32767
+  %71 = icmp eq i16 %70, 0
+  br i1 %71, label %72, label %75
 
-70:                                               ; preds = %67
-  %71 = zext i16 %.021 to i64
-  %72 = shl nuw i64 %71, 48
+72:                                               ; preds = %69
+  %73 = zext i16 %.021 to i64
+  %74 = shl nuw i64 %73, 48
   br label %_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit
 
-73:                                               ; preds = %67
-  %74 = and i16 %.021, -32768
-  %75 = zext i16 %74 to i64
-  %76 = and i16 %.021, 31744
-  %77 = and i16 %.021, 1023
-  %78 = zext nneg i16 %77 to i64
-  %79 = icmp eq i16 %76, 31744
-  br i1 %79, label %80, label %83
+75:                                               ; preds = %69
+  %76 = and i16 %.021, -32768
+  %77 = zext i16 %76 to i64
+  %78 = and i16 %.021, 31744
+  %79 = and i16 %.021, 1023
+  %80 = zext nneg i16 %79 to i64
+  %81 = icmp eq i16 %78, 31744
+  br i1 %81, label %82, label %85
 
-80:                                               ; preds = %73
-  %81 = icmp eq i16 %77, 0
-  %82 = shl nuw i64 %75, 48
-  br i1 %81, label %86, label %88
+82:                                               ; preds = %75
+  %83 = icmp eq i16 %79, 0
+  %84 = shl nuw i64 %77, 48
+  br i1 %83, label %88, label %90
 
-83:                                               ; preds = %73
-  %84 = shl nuw i64 %75, 48
-  %85 = icmp eq i16 %76, 0
-  br i1 %85, label %92, label %104
+85:                                               ; preds = %75
+  %86 = shl nuw i64 %77, 48
+  %87 = icmp eq i16 %78, 0
+  br i1 %87, label %94, label %106
 
-86:                                               ; preds = %80
-  %87 = or disjoint i64 %82, 9218868437227405312
+88:                                               ; preds = %82
+  %89 = or disjoint i64 %84, 9218868437227405312
   br label %_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit
 
-88:                                               ; preds = %80
-  %89 = shl nuw nsw i64 %78, 42
-  %90 = or disjoint i64 %82, %89
-  %91 = or i64 %90, 9221120237041090560
+90:                                               ; preds = %82
+  %91 = shl nuw nsw i64 %80, 42
+  %92 = or disjoint i64 %84, %91
+  %93 = or i64 %92, 9221120237041090560
   br label %_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit
 
-92:                                               ; preds = %83
-  %93 = tail call range(i16 6, 17) i16 @llvm.ctlz.i16(i16 %77, i1 false)
-  %94 = zext nneg i16 %93 to i32
-  %95 = sub nuw nsw i32 1014, %94
-  %96 = zext nneg i32 %95 to i64
-  %97 = shl nuw nsw i64 %96, 52
-  %98 = add nuw nsw i32 %94, 37
-  %99 = zext nneg i32 %98 to i64
-  %100 = shl nuw nsw i64 %78, %99
-  %101 = and i64 %100, 4503599627370495
-  %102 = or disjoint i64 %101, %97
-  %103 = or disjoint i64 %102, %84
+94:                                               ; preds = %85
+  %95 = tail call range(i16 6, 17) i16 @llvm.ctlz.i16(i16 %79, i1 false)
+  %96 = zext nneg i16 %95 to i32
+  %97 = sub nuw nsw i32 1014, %96
+  %98 = zext nneg i32 %97 to i64
+  %99 = shl nuw nsw i64 %98, 52
+  %100 = add nuw nsw i32 %96, 37
+  %101 = zext nneg i32 %100 to i64
+  %102 = shl nuw nsw i64 %80, %101
+  %103 = and i64 %102, 4503599627370495
+  %104 = or disjoint i64 %103, %99
+  %105 = or disjoint i64 %104, %86
   br label %_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit
 
-104:                                              ; preds = %83
-  %105 = lshr exact i16 %76, 10
-  %narrow.i = add nuw nsw i16 %105, 1008
-  %106 = zext nneg i16 %narrow.i to i64
-  %107 = shl nuw nsw i64 %106, 52
-  %108 = shl nuw nsw i64 %78, 42
-  %109 = or disjoint i64 %107, %108
-  %110 = or disjoint i64 %109, %84
+106:                                              ; preds = %85
+  %107 = lshr exact i16 %78, 10
+  %narrow.i = add nuw nsw i16 %107, 1008
+  %108 = zext nneg i16 %narrow.i to i64
+  %109 = shl nuw nsw i64 %108, 52
+  %110 = shl nuw nsw i64 %80, 42
+  %111 = or disjoint i64 %109, %110
+  %112 = or disjoint i64 %111, %86
   br label %_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit
 
-_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit: ; preds = %70, %86, %88, %92, %104
-  %.0.in.i33 = phi i64 [ %72, %70 ], [ %87, %86 ], [ %91, %88 ], [ %103, %92 ], [ %110, %104 ]
+_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit: ; preds = %72, %88, %90, %94, %106
+  %.0.in.i33 = phi i64 [ %74, %72 ], [ %89, %88 ], [ %93, %90 ], [ %105, %94 ], [ %112, %106 ]
   %.0.i34 = bitcast i64 %.0.in.i33 to double
-  br label %114
+  br label %116
 
-111:                                              ; preds = %_ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit
-  %112 = tail call fastcc noundef float @_ZN4half8binary164arch3x8619f16_to_f32_x86_f16c17he973d23fd924d3b4E(i16 noundef %.021)
-  %113 = fpext float %112 to double
-  br label %114
+113:                                              ; preds = %_ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit
+  %114 = tail call fastcc noundef float @_ZN4half8binary164arch3x8619f16_to_f32_x86_f16c17he973d23fd924d3b4E(i16 noundef %.021)
+  %115 = fpext float %114 to double
+  br label %116
 
-114:                                              ; preds = %_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit, %111, %_ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE.exit, %_ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E.exit
-  %.0 = phi double [ %113, %111 ], [ %.0.i34, %_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit ], [ %44, %_ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E.exit ], [ %.0.i26, %_ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE.exit ]
+116:                                              ; preds = %_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit, %113, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit23", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit22"
+  %.0 = phi double [ %115, %113 ], [ %.0.i34, %_ZN4half8binary164arch19f16_to_f64_fallback17hb9851845bcca934aE.exit ], [ %49, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit22" ], [ %.0.i26, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628.exit23" ]
   ret double %.0
 }
 
@@ -1081,123 +977,23 @@ attributes #17 = { noreturn }
 !86 = !{!87}
 !87 = distinct !{!87, !88, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628: argument 0"}
 !88 = distinct !{!88, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628"}
-!89 = !{!90, !92}
-!90 = distinct !{!90, !91, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0f948667194715e4E: argument 0"}
-!91 = distinct !{!91, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0f948667194715e4E"}
-!92 = distinct !{!92, !93, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E: argument 0"}
-!93 = distinct !{!93, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E"}
-!94 = !{!95, !97}
-!95 = distinct !{!95, !96, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0f948667194715e4E: argument 0"}
-!96 = distinct !{!96, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0f948667194715e4E"}
-!97 = distinct !{!97, !98, !"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE: argument 0"}
-!98 = distinct !{!98, !"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE"}
-!99 = !{!100, !102}
-!100 = distinct !{!100, !101, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0f948667194715e4E: argument 0"}
-!101 = distinct !{!101, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0f948667194715e4E"}
-!102 = distinct !{!102, !103, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E: argument 0"}
-!103 = distinct !{!103, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E"}
-!104 = !{!105, !107}
-!105 = distinct !{!105, !106, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hac94fbe21bc2044bE: argument 0"}
-!106 = distinct !{!106, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hac94fbe21bc2044bE"}
-!107 = distinct !{!107, !108, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E: argument 0"}
-!108 = distinct !{!108, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E"}
-!109 = !{!110, !112}
-!110 = distinct !{!110, !111, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hac94fbe21bc2044bE: argument 0"}
-!111 = distinct !{!111, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hac94fbe21bc2044bE"}
-!112 = distinct !{!112, !113, !"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E: argument 0"}
-!113 = distinct !{!113, !"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E"}
-!114 = !{!115, !117}
-!115 = distinct !{!115, !116, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hac94fbe21bc2044bE: argument 0"}
-!116 = distinct !{!116, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hac94fbe21bc2044bE"}
-!117 = distinct !{!117, !118, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E: argument 0"}
-!118 = distinct !{!118, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E"}
-!119 = !{!120, !122}
-!120 = distinct !{!120, !121, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E: argument 1"}
-!121 = distinct !{!121, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E"}
-!122 = distinct !{!122, !123, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE: argument 0"}
-!123 = distinct !{!123, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE"}
-!124 = !{!125}
-!125 = distinct !{!125, !121, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E: argument 0"}
-!126 = !{!127, !129}
-!127 = distinct !{!127, !128, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E: argument 1"}
-!128 = distinct !{!128, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E"}
-!129 = distinct !{!129, !130, !"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E: argument 0"}
-!130 = distinct !{!130, !"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E"}
-!131 = !{!132}
-!132 = distinct !{!132, !128, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E: argument 0"}
-!133 = !{!134, !136}
-!134 = distinct !{!134, !135, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E: argument 1"}
-!135 = distinct !{!135, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E"}
-!136 = distinct !{!136, !137, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE: argument 0"}
-!137 = distinct !{!137, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE"}
-!138 = !{!139}
-!139 = distinct !{!139, !135, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E: argument 0"}
-!140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!142 = distinct !{!142, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!143 = !{!144}
-!144 = distinct !{!144, !142, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
-!145 = !{!146}
-!146 = distinct !{!146, !147, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628: argument 0"}
-!147 = distinct !{!147, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628"}
-!148 = !{!149}
-!149 = distinct !{!149, !150, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628: argument 0"}
-!150 = distinct !{!150, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628"}
-!151 = !{!152, !154, !156}
-!152 = distinct !{!152, !153, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hac94fbe21bc2044bE: argument 0"}
-!153 = distinct !{!153, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hac94fbe21bc2044bE"}
-!154 = distinct !{!154, !155, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E: argument 0"}
-!155 = distinct !{!155, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E"}
-!156 = distinct !{!156, !157, !"_ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E: argument 0"}
-!157 = distinct !{!157, !"_ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E"}
-!158 = !{!159, !161, !156}
-!159 = distinct !{!159, !160, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hac94fbe21bc2044bE: argument 0"}
-!160 = distinct !{!160, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hac94fbe21bc2044bE"}
-!161 = distinct !{!161, !162, !"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E: argument 0"}
-!162 = distinct !{!162, !"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217ha8b5b5ae382891a6E"}
-!163 = !{!164, !166, !156}
-!164 = distinct !{!164, !165, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hac94fbe21bc2044bE: argument 0"}
-!165 = distinct !{!165, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17hac94fbe21bc2044bE"}
-!166 = distinct !{!166, !167, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E: argument 0"}
-!167 = distinct !{!167, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u3217h8c5d42ec1d439df3E"}
-!168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628: argument 0"}
-!170 = distinct !{!170, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628"}
-!171 = !{!172, !174, !176}
-!172 = distinct !{!172, !173, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E: argument 1"}
-!173 = distinct !{!173, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E"}
-!174 = distinct !{!174, !175, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE: argument 0"}
-!175 = distinct !{!175, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE"}
-!176 = distinct !{!176, !177, !"_ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE: argument 0"}
-!177 = distinct !{!177, !"_ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE"}
-!178 = !{!179}
-!179 = distinct !{!179, !173, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E: argument 0"}
-!180 = !{!181, !183, !176}
-!181 = distinct !{!181, !182, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E: argument 1"}
-!182 = distinct !{!182, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E"}
-!183 = distinct !{!183, !184, !"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E: argument 0"}
-!184 = distinct !{!184, !"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hb4e9add63fdd9b44E"}
-!185 = !{!186}
-!186 = distinct !{!186, !182, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E: argument 0"}
-!187 = !{!188, !190, !176}
-!188 = distinct !{!188, !189, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E: argument 1"}
-!189 = distinct !{!189, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E"}
-!190 = distinct !{!190, !191, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE: argument 0"}
-!191 = distinct !{!191, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u6417hf550fdee6d2056ecE"}
-!192 = !{!193}
-!193 = distinct !{!193, !189, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h554fcbcd92b06ec3E: argument 0"}
-!194 = !{!195, !197}
-!195 = distinct !{!195, !196, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0f948667194715e4E: argument 0"}
-!196 = distinct !{!196, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0f948667194715e4E"}
-!197 = distinct !{!197, !198, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E: argument 0"}
-!198 = distinct !{!198, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E"}
-!199 = !{!200, !202}
-!200 = distinct !{!200, !201, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0f948667194715e4E: argument 0"}
-!201 = distinct !{!201, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0f948667194715e4E"}
-!202 = distinct !{!202, !203, !"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE: argument 0"}
-!203 = distinct !{!203, !"_ZN61_$LT$byteorder..BigEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h718047ca77f00f7dE"}
-!204 = !{!205, !207}
-!205 = distinct !{!205, !206, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0f948667194715e4E: argument 0"}
-!206 = distinct !{!206, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0f948667194715e4E"}
-!207 = distinct !{!207, !208, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E: argument 0"}
-!208 = distinct !{!208, !"_ZN64_$LT$byteorder..LittleEndian$u20$as$u20$byteorder..ByteOrder$GT$8read_u1617h18aa880d1dbfc863E"}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!91 = distinct !{!91, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
+!92 = !{!93}
+!93 = distinct !{!93, !91, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628: argument 0"}
+!96 = distinct !{!96, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628"}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628: argument 0"}
+!99 = distinct !{!99, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628"}
+!100 = !{!101}
+!101 = distinct !{!101, !102, !"_ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E: argument 0"}
+!102 = distinct !{!102, !"_ZN5uu_od12byteorder_io9ByteOrder8read_f3217h3c32612f14b3a8d0E"}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628: argument 0"}
+!105 = distinct !{!105, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcd0fc3da9b484348E.llvm.2198590010322198628"}
+!106 = !{!107}
+!107 = distinct !{!107, !108, !"_ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE: argument 0"}
+!108 = distinct !{!108, !"_ZN5uu_od12byteorder_io9ByteOrder8read_f6417h361272dd8c7a212cE"}

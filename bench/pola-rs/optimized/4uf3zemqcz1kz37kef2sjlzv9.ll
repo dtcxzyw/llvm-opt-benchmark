@@ -23082,199 +23082,181 @@ _ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit: ; preds = %
   %.sroa.0.0.i = phi ptr [ %13, %5 ], [ %16, %14 ], [ %18, %17 ]
   %19 = load i8, ptr %.sroa.0.0.i, align 16, !range !2509, !noundef !8
   %20 = icmp eq i8 %19, 17
-  br i1 %20, label %21, label %69
+  br i1 %20, label %21, label %57
 
 21:                                               ; preds = %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 1
   %23 = load i8, ptr %22, align 1, !range !143, !noundef !8
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 31
+  %26 = load i8, ptr %25, align 1, !range !3640, !noundef !8
+  %.not35 = icmp eq i8 %26, -38
+  %27 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %27)
+  %28 = getelementptr inbounds nuw i8, ptr %.0.val, i64 112
+  %29 = load i64, ptr %28, align 8, !range !115, !noundef !8
+  %.not36 = icmp eq i64 %29, -9223372036854775808
   switch i8 %23, label %default.unreachable1 [
-    i8 0, label %24
+    i8 0, label %30
     i8 1, label %31
-    i8 2, label %38
+    i8 2, label %32
   ]
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 31
-  %27 = load i8, ptr %26, align 1, !range !3640, !noundef !8
-  %.not35 = icmp eq i8 %27, -38
-  %28 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = getelementptr inbounds nuw i8, ptr %.0.val, i64 112
-  %30 = load i64, ptr %29, align 8, !range !115, !noundef !8
-  %.not36 = icmp eq i64 %30, -9223372036854775808
-  br i1 %.not35, label %46, label %45
+30:                                               ; preds = %21
+  br i1 %.not35, label %34, label %33
 
 31:                                               ; preds = %21
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 31
-  %34 = load i8, ptr %33, align 1, !range !3640, !noundef !8
-  %.not30 = icmp eq i8 %34, -38
-  %35 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %35)
-  %36 = getelementptr inbounds nuw i8, ptr %.0.val, i64 112
-  %37 = load i64, ptr %36, align 8, !range !115, !noundef !8
-  %.not31 = icmp eq i64 %37, -9223372036854775808
-  br i1 %.not30, label %73, label %72
+  br i1 %.not35, label %61, label %60
 
-38:                                               ; preds = %21
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 31
-  %41 = load i8, ptr %40, align 1, !range !3640, !noundef !8
-  %.not = icmp eq i8 %41, -38
-  %42 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %42)
-  %43 = getelementptr inbounds nuw i8, ptr %.0.val, i64 112
-  %44 = load i64, ptr %43, align 8, !range !115, !noundef !8
-  %.not28 = icmp eq i64 %44, -9223372036854775808
-  br i1 %.not, label %97, label %96
+32:                                               ; preds = %21
+  br i1 %.not35, label %85, label %84
 
-45:                                               ; preds = %24
-  br i1 %.not36, label %52, label %47
+33:                                               ; preds = %30
+  br i1 %.not36, label %40, label %35
 
-46:                                               ; preds = %24
-  br i1 %.not36, label %68, label %63
+34:                                               ; preds = %30
+  br i1 %.not36, label %56, label %51
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
-  %49 = load ptr, ptr %48, align 8, !nonnull !8, !noundef !8
-  %50 = getelementptr inbounds nuw i8, ptr %.0.val, i64 128
-  %51 = load i64, ptr %50, align 8, !noundef !8
-  br label %52
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
+  %37 = load ptr, ptr %36, align 8, !nonnull !8, !noundef !8
+  %38 = getelementptr inbounds nuw i8, ptr %.0.val, i64 128
+  %39 = load i64, ptr %38, align 8, !noundef !8
+  br label %40
 
-52:                                               ; preds = %45, %47
-  %.sroa.614.0 = phi i64 [ %51, %47 ], [ undef, %45 ]
-  %.sroa.012.0 = phi ptr [ %49, %47 ], [ null, %45 ]
+40:                                               ; preds = %33, %35
+  %.sroa.614.0 = phi i64 [ %39, %35 ], [ undef, %33 ]
+  %.sroa.012.0 = phi ptr [ %37, %35 ], [ null, %33 ]
   %.not39 = icmp eq ptr %.sroa.012.0, null
   %anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.164..sroa.012.0 = select i1 %.not39, ptr @anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.164, ptr %.sroa.012.0
   %..sroa.614.0 = select i1 %.not39, i64 17, i64 %.sroa.614.0
-  %53 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25)
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 23
-  %55 = load i8, ptr %54, align 1, !range !1114, !alias.scope !4011, !noundef !8
-  %56 = icmp ugt i8 %55, -41
-  %57 = load ptr, ptr %53, align 8, !alias.scope !4011
-  %spec.select.i = select i1 %56, ptr %57, ptr %53
-  %58 = add i8 %55, 64
-  %59 = tail call i8 @llvm.umin.i8(i8 %58, i8 24)
-  %.sroa.0.0.sroa.speculated.i.i = zext nneg i8 %59 to i64
-  %60 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %61 = load i64, ptr %60, align 8, !alias.scope !4011
-  %.sroa.01.0.i = select i1 %56, i64 %61, i64 %.sroa.0.0.sroa.speculated.i.i
-  %62 = tail call noundef i16 @"_ZN71_$LT$chrono_tz..timezones..Tz$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h0c50fdc93a1f8d92E"(ptr noalias noundef nonnull readonly align 1 %spec.select.i, i64 noundef %.sroa.01.0.i)
-  br label %69
+  %41 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 23
+  %43 = load i8, ptr %42, align 1, !range !1114, !alias.scope !4011, !noundef !8
+  %44 = icmp ugt i8 %43, -41
+  %45 = load ptr, ptr %41, align 8, !alias.scope !4011
+  %spec.select.i = select i1 %44, ptr %45, ptr %41
+  %46 = add i8 %43, 64
+  %47 = tail call i8 @llvm.umin.i8(i8 %46, i8 24)
+  %.sroa.0.0.sroa.speculated.i.i = zext nneg i8 %47 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %49 = load i64, ptr %48, align 8, !alias.scope !4011
+  %.sroa.01.0.i = select i1 %44, i64 %49, i64 %.sroa.0.0.sroa.speculated.i.i
+  %50 = tail call noundef i16 @"_ZN71_$LT$chrono_tz..timezones..Tz$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h0c50fdc93a1f8d92E"(ptr noalias noundef nonnull readonly align 1 %spec.select.i, i64 noundef %.sroa.01.0.i)
+  br label %57
 
-63:                                               ; preds = %46
-  %64 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
-  %65 = load ptr, ptr %64, align 8, !nonnull !8, !noundef !8
-  %66 = getelementptr inbounds nuw i8, ptr %.0.val, i64 128
-  %67 = load i64, ptr %66, align 8, !noundef !8
-  br label %68
+51:                                               ; preds = %34
+  %52 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
+  %53 = load ptr, ptr %52, align 8, !nonnull !8, !noundef !8
+  %54 = getelementptr inbounds nuw i8, ptr %.0.val, i64 128
+  %55 = load i64, ptr %54, align 8, !noundef !8
+  br label %56
 
-68:                                               ; preds = %46, %63
-  %.sroa.619.0 = phi i64 [ %67, %63 ], [ undef, %46 ]
-  %.sroa.017.0 = phi ptr [ %65, %63 ], [ null, %46 ]
+56:                                               ; preds = %34, %51
+  %.sroa.619.0 = phi i64 [ %55, %51 ], [ undef, %34 ]
+  %.sroa.017.0 = phi ptr [ %53, %51 ], [ null, %34 ]
   %.not37 = icmp eq ptr %.sroa.017.0, null
   %anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.165..sroa.017.0 = select i1 %.not37, ptr @anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.165, ptr %.sroa.017.0
   %..sroa.619.0 = select i1 %.not37, i64 15, i64 %.sroa.619.0
-  br label %69
+  br label %57
 
-69:                                               ; preds = %52, %68, %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit, %103, %97, %114, %79, %95
-  %.sroa.020.1.sink = phi ptr [ %anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.166..sroa.05.0, %79 ], [ %anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.167..sroa.09.0, %95 ], [ %.sroa.020.0, %103 ], [ %116, %114 ], [ @anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.169, %97 ], [ inttoptr (i64 1 to ptr), %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit ], [ %anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.164..sroa.012.0, %52 ], [ %anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.165..sroa.017.0, %68 ]
-  %.sroa.5.1.sink = phi i64 [ %..sroa.6.0, %79 ], [ %..sroa.611.0, %95 ], [ %.sroa.5.0, %103 ], [ %118, %114 ], [ 15, %97 ], [ 0, %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit ], [ %..sroa.614.0, %52 ], [ %..sroa.619.0, %68 ]
-  %.sroa.021.1.sink = phi i16 [ %89, %79 ], [ 597, %95 ], [ %113, %103 ], [ 597, %114 ], [ 597, %97 ], [ 597, %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit ], [ %62, %52 ], [ 597, %68 ]
+57:                                               ; preds = %40, %56, %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit, %91, %85, %102, %67, %83
+  %.sroa.020.1.sink = phi ptr [ %anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.166..sroa.05.0, %67 ], [ %anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.167..sroa.09.0, %83 ], [ %.sroa.020.0, %91 ], [ %104, %102 ], [ @anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.169, %85 ], [ inttoptr (i64 1 to ptr), %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit ], [ %anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.164..sroa.012.0, %40 ], [ %anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.165..sroa.017.0, %56 ]
+  %.sroa.5.1.sink = phi i64 [ %..sroa.6.0, %67 ], [ %..sroa.611.0, %83 ], [ %.sroa.5.0, %91 ], [ %106, %102 ], [ 15, %85 ], [ 0, %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit ], [ %..sroa.614.0, %40 ], [ %..sroa.619.0, %56 ]
+  %.sroa.021.1.sink = phi i16 [ %77, %67 ], [ 597, %83 ], [ %101, %91 ], [ 597, %102 ], [ 597, %85 ], [ 597, %_ZN11polars_core5frame6column6Column5dtype17h5f6dfc7e7bb6a07bE.exit ], [ %50, %40 ], [ 597, %56 ]
   store ptr %.sroa.020.1.sink, ptr %0, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.1.sink, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %.sroa.021.1.sink, ptr %71, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.5.1.sink, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i16 %.sroa.021.1.sink, ptr %59, align 8
   ret void
 
-72:                                               ; preds = %31
-  br i1 %.not31, label %79, label %74
+60:                                               ; preds = %31
+  br i1 %.not36, label %67, label %62
 
-73:                                               ; preds = %31
-  br i1 %.not31, label %95, label %90
+61:                                               ; preds = %31
+  br i1 %.not36, label %83, label %78
 
-74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
-  %76 = load ptr, ptr %75, align 8, !nonnull !8, !noundef !8
-  %77 = getelementptr inbounds nuw i8, ptr %.0.val, i64 128
-  %78 = load i64, ptr %77, align 8, !noundef !8
-  br label %79
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
+  %64 = load ptr, ptr %63, align 8, !nonnull !8, !noundef !8
+  %65 = getelementptr inbounds nuw i8, ptr %.0.val, i64 128
+  %66 = load i64, ptr %65, align 8, !noundef !8
+  br label %67
 
-79:                                               ; preds = %72, %74
-  %.sroa.6.0 = phi i64 [ %78, %74 ], [ undef, %72 ]
-  %.sroa.05.0 = phi ptr [ %76, %74 ], [ null, %72 ]
+67:                                               ; preds = %60, %62
+  %.sroa.6.0 = phi i64 [ %66, %62 ], [ undef, %60 ]
+  %.sroa.05.0 = phi ptr [ %64, %62 ], [ null, %60 ]
   %.not34 = icmp eq ptr %.sroa.05.0, null
   %anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.166..sroa.05.0 = select i1 %.not34, ptr @anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.166, ptr %.sroa.05.0
   %..sroa.6.0 = select i1 %.not34, i64 17, i64 %.sroa.6.0
-  %80 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %32)
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 23
-  %82 = load i8, ptr %81, align 1, !range !1114, !alias.scope !4014, !noundef !8
-  %83 = icmp ugt i8 %82, -41
-  %84 = load ptr, ptr %80, align 8, !alias.scope !4014
-  %spec.select.i40 = select i1 %83, ptr %84, ptr %80
-  %85 = add i8 %82, 64
-  %86 = tail call i8 @llvm.umin.i8(i8 %85, i8 24)
-  %.sroa.0.0.sroa.speculated.i.i41 = zext nneg i8 %86 to i64
-  %87 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %88 = load i64, ptr %87, align 8, !alias.scope !4014
-  %.sroa.01.0.i42 = select i1 %83, i64 %88, i64 %.sroa.0.0.sroa.speculated.i.i41
-  %89 = tail call noundef i16 @"_ZN71_$LT$chrono_tz..timezones..Tz$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h0c50fdc93a1f8d92E"(ptr noalias noundef nonnull readonly align 1 %spec.select.i40, i64 noundef %.sroa.01.0.i42)
-  br label %69
+  %68 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 23
+  %70 = load i8, ptr %69, align 1, !range !1114, !alias.scope !4014, !noundef !8
+  %71 = icmp ugt i8 %70, -41
+  %72 = load ptr, ptr %68, align 8, !alias.scope !4014
+  %spec.select.i40 = select i1 %71, ptr %72, ptr %68
+  %73 = add i8 %70, 64
+  %74 = tail call i8 @llvm.umin.i8(i8 %73, i8 24)
+  %.sroa.0.0.sroa.speculated.i.i41 = zext nneg i8 %74 to i64
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %76 = load i64, ptr %75, align 8, !alias.scope !4014
+  %.sroa.01.0.i42 = select i1 %71, i64 %76, i64 %.sroa.0.0.sroa.speculated.i.i41
+  %77 = tail call noundef i16 @"_ZN71_$LT$chrono_tz..timezones..Tz$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h0c50fdc93a1f8d92E"(ptr noalias noundef nonnull readonly align 1 %spec.select.i40, i64 noundef %.sroa.01.0.i42)
+  br label %57
 
-90:                                               ; preds = %73
-  %91 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
-  %92 = load ptr, ptr %91, align 8, !nonnull !8, !noundef !8
-  %93 = getelementptr inbounds nuw i8, ptr %.0.val, i64 128
-  %94 = load i64, ptr %93, align 8, !noundef !8
-  br label %95
+78:                                               ; preds = %61
+  %79 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
+  %80 = load ptr, ptr %79, align 8, !nonnull !8, !noundef !8
+  %81 = getelementptr inbounds nuw i8, ptr %.0.val, i64 128
+  %82 = load i64, ptr %81, align 8, !noundef !8
+  br label %83
 
-95:                                               ; preds = %73, %90
-  %.sroa.611.0 = phi i64 [ %94, %90 ], [ undef, %73 ]
-  %.sroa.09.0 = phi ptr [ %92, %90 ], [ null, %73 ]
+83:                                               ; preds = %61, %78
+  %.sroa.611.0 = phi i64 [ %82, %78 ], [ undef, %61 ]
+  %.sroa.09.0 = phi ptr [ %80, %78 ], [ null, %61 ]
   %.not32 = icmp eq ptr %.sroa.09.0, null
   %anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.167..sroa.09.0 = select i1 %.not32, ptr @anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.167, ptr %.sroa.09.0
   %..sroa.611.0 = select i1 %.not32, i64 15, i64 %.sroa.611.0
-  br label %69
+  br label %57
 
-96:                                               ; preds = %38
-  br i1 %.not28, label %103, label %98
+84:                                               ; preds = %32
+  br i1 %.not36, label %91, label %86
 
-97:                                               ; preds = %38
-  br i1 %.not28, label %69, label %114
+85:                                               ; preds = %32
+  br i1 %.not36, label %57, label %102
 
-98:                                               ; preds = %96
-  %99 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
-  %100 = load ptr, ptr %99, align 8, !nonnull !8, !noundef !8
-  %101 = getelementptr inbounds nuw i8, ptr %.0.val, i64 128
-  %102 = load i64, ptr %101, align 8, !noundef !8
-  br label %103
+86:                                               ; preds = %84
+  %87 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
+  %88 = load ptr, ptr %87, align 8, !nonnull !8, !noundef !8
+  %89 = getelementptr inbounds nuw i8, ptr %.0.val, i64 128
+  %90 = load i64, ptr %89, align 8, !noundef !8
+  br label %91
 
-103:                                              ; preds = %96, %98
-  %.sroa.5.0 = phi i64 [ %102, %98 ], [ 17, %96 ]
-  %.sroa.020.0 = phi ptr [ %100, %98 ], [ @anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.168, %96 ]
-  %104 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %39)
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 23
-  %106 = load i8, ptr %105, align 1, !range !1114, !alias.scope !4017, !noundef !8
-  %107 = icmp ugt i8 %106, -41
-  %108 = load ptr, ptr %104, align 8, !alias.scope !4017
-  %spec.select.i43 = select i1 %107, ptr %108, ptr %104
-  %109 = add i8 %106, 64
-  %110 = tail call i8 @llvm.umin.i8(i8 %109, i8 24)
-  %.sroa.0.0.sroa.speculated.i.i44 = zext nneg i8 %110 to i64
-  %111 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %112 = load i64, ptr %111, align 8, !alias.scope !4017
-  %.sroa.01.0.i45 = select i1 %107, i64 %112, i64 %.sroa.0.0.sroa.speculated.i.i44
-  %113 = tail call noundef i16 @"_ZN71_$LT$chrono_tz..timezones..Tz$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h0c50fdc93a1f8d92E"(ptr noalias noundef nonnull readonly align 1 %spec.select.i43, i64 noundef %.sroa.01.0.i45)
-  br label %69
+91:                                               ; preds = %84, %86
+  %.sroa.5.0 = phi i64 [ %90, %86 ], [ 17, %84 ]
+  %.sroa.020.0 = phi ptr [ %88, %86 ], [ @anon.a8bceeb47690a2fcf8f8d022b0e6f8bb.168, %84 ]
+  %92 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 23
+  %94 = load i8, ptr %93, align 1, !range !1114, !alias.scope !4017, !noundef !8
+  %95 = icmp ugt i8 %94, -41
+  %96 = load ptr, ptr %92, align 8, !alias.scope !4017
+  %spec.select.i43 = select i1 %95, ptr %96, ptr %92
+  %97 = add i8 %94, 64
+  %98 = tail call i8 @llvm.umin.i8(i8 %97, i8 24)
+  %.sroa.0.0.sroa.speculated.i.i44 = zext nneg i8 %98 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %100 = load i64, ptr %99, align 8, !alias.scope !4017
+  %.sroa.01.0.i45 = select i1 %95, i64 %100, i64 %.sroa.0.0.sroa.speculated.i.i44
+  %101 = tail call noundef i16 @"_ZN71_$LT$chrono_tz..timezones..Tz$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h0c50fdc93a1f8d92E"(ptr noalias noundef nonnull readonly align 1 %spec.select.i43, i64 noundef %.sroa.01.0.i45)
+  br label %57
 
-114:                                              ; preds = %97
-  %115 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
-  %116 = load ptr, ptr %115, align 8, !nonnull !8, !noundef !8
-  %117 = getelementptr inbounds nuw i8, ptr %.0.val, i64 128
-  %118 = load i64, ptr %117, align 8, !noundef !8
-  br label %69
+102:                                              ; preds = %85
+  %103 = getelementptr inbounds nuw i8, ptr %.0.val, i64 120
+  %104 = load ptr, ptr %103, align 8, !nonnull !8, !noundef !8
+  %105 = getelementptr inbounds nuw i8, ptr %.0.val, i64 128
+  %106 = load i64, ptr %105, align 8, !noundef !8
+  br label %57
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

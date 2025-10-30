@@ -35926,12 +35926,12 @@ switch.lookup:                                    ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %210 = getelementptr inbounds nuw i8, ptr %.tr258, i64 1
   %211 = load i8, ptr %210, align 1, !range !2125, !noundef !6
-  %212 = zext nneg i8 %211 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12polars_arrow3ffi6schema9to_format17h0ac56123e4fc9b25E, i64 %212
+  %212 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %213 = zext nneg i8 %211 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12polars_arrow3ffi6schema9to_format17h0ac56123e4fc9b25E, i64 %213
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %65, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store i64 1, ptr %213, align 8
+  store i64 1, ptr %212, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   %214 = getelementptr inbounds nuw i8, ptr %.tr258, i64 31

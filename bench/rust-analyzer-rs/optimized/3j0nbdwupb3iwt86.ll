@@ -4658,12 +4658,12 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %25 = load i8, ptr %24, align 8, !range !99, !noundef !30
-  %26 = zext nneg i8 %25 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2tt19print_debug_subtree17h83da5944cfe20798E, i64 %26
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %27 = zext nneg i8 %25 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2tt19print_debug_subtree17h83da5944cfe20798E, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %20, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 2, ptr %27, align 8
+  store i64 2, ptr %26, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %21, ptr %18, align 8

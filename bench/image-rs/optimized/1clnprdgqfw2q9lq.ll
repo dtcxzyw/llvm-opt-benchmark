@@ -37183,15 +37183,15 @@ switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %22 = load i8, ptr %21, align 1, !range !5739, !noundef !4
-  %23 = zext nneg i8 %22 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN57_$LT$image..flat..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h19ce5389760fe543E", i64 %23
-  %switch.load = load ptr, ptr %switch.gep, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %24 = zext nneg i8 %22 to i64
-  %switch.gep11 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN57_$LT$image..flat..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h19ce5389760fe543E.130", i64 %24
-  %switch.load12 = load i64, ptr %switch.gep11, align 8
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN57_$LT$image..flat..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h19ce5389760fe543E", i64 %24
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %25 = zext nneg i8 %22 to i64
+  %switch.gep10 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN57_$LT$image..flat..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h19ce5389760fe543E.130", i64 %25
+  %switch.load11 = load i64, ptr %switch.gep10, align 8
   store ptr %switch.load, ptr %10, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %switch.load12, ptr %25, align 8
+  store i64 %switch.load11, ptr %23, align 8
   store ptr %10, ptr %11, align 8
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf6dd2d78a43294cdE", ptr %26, align 8
