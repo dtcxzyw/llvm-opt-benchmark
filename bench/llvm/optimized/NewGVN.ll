@@ -41652,7 +41652,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL
   switch i64 %magicptr12.i, label %.lr.ph.i.i [
     i64 -8, label %.lr.ph.i.us.i.preheader
     i64 34359738352, label %.lr.ph.i.us.i.preheader
-  ]
+  ], !prof !1349
 
 .lr.ph.i.us.i.preheader:                          ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.preheader.i
   br label %.lr.ph.i.us.i
@@ -41672,7 +41672,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL
   %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.366", ptr %.0.val, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !264
   %31 = icmp eq ptr %0, %30
-  br i1 %31, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6doFindIS5_EEPKSD_RKT_.exit, label %.lr.ph.i.us.i, !llvm.loop !1349
+  br i1 %31, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6doFindIS5_EEPKSD_RKT_.exit, label %.lr.ph.i.us.i, !llvm.loop !1350
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.preheader.i, %67
   %32 = phi ptr [ %73, %67 ], [ %18, %.lr.ph.i.preheader.i ]
@@ -41683,7 +41683,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL
   switch i64 %magicptr.i, label %34 [
     i64 -8, label %_ZN4llvm12DenseMapInfoIPKNS_13GVNExpression10ExpressionEvE7isEqualES4_S4_.exit.thread.i.i
     i64 34359738352, label %_ZN4llvm12DenseMapInfoIPKNS_13GVNExpression10ExpressionEvE7isEqualES4_S4_.exit.thread.i.i
-  ], !prof !1350
+  ], !prof !1349
 
 34:                                               ; preds = %.lr.ph.i.i
   %35 = load i64, ptr %4, align 8, !tbaa !347
@@ -41761,7 +41761,7 @@ _ZN4llvm12DenseMapInfoIPKNS_13GVNExpression10ExpressionEvE7isEqualES4_S4_.exit.t
   %72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.366", ptr %.0.val, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !264
   %74 = icmp eq ptr %0, %73
-  br i1 %74, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6doFindIS5_EEPKSD_RKT_.exit, label %.lr.ph.i.i, !llvm.loop !1349
+  br i1 %74, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6doFindIS5_EEPKSD_RKT_.exit, label %.lr.ph.i.i, !llvm.loop !1350
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6doFindIS5_EEPKSD_RKT_.exit: ; preds = %24, %_ZN4llvm12DenseMapInfoIPKNS_13GVNExpression10ExpressionEvE7isEqualES4_S4_.exit.i.i, %67, %56, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E12getHashValueERKS5_.exit.i.i
   %.0.i.i.ph = phi ptr [ %17, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E12getHashValueERKS5_.exit.i.i ], [ %33, %56 ], [ %72, %67 ], [ %33, %_ZN4llvm12DenseMapInfoIPKNS_13GVNExpression10ExpressionEvE7isEqualES4_S4_.exit.i.i ], [ %29, %24 ]
@@ -52100,8 +52100,8 @@ attributes #36 = { nounwind willreturn memory(none) }
 !1346 = !{!"_ZTSN4llvm16DenseMapIteratorIPKNS_13IntrinsicInstEPKNS_5ValueENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EELb0EEE", !201, i64 0, !201, i64 8}
 !1347 = distinct !{!1347, !244}
 !1348 = distinct !{!1348, !244}
-!1349 = distinct !{!1349, !244}
-!1350 = !{!"branch_weights", i32 2146410443, i32 536602, i32 536602}
+!1349 = !{!"branch_weights", i32 2146410443, i32 536602, i32 536602}
+!1350 = distinct !{!1350, !244}
 !1351 = distinct !{!1351, !244}
 !1352 = !{!174, !174, i64 0}
 !1353 = distinct !{!1353, !244}

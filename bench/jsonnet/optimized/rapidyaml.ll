@@ -9328,7 +9328,7 @@ define noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEPKS1_mmm(ptr noun
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !68
   %.not108 = icmp eq ptr %.sroa.0.0.copyload.fr, null
-  br i1 %.not108, label %.lr.ph98.split.us, label %.lr.ph98.split
+  br i1 %.not108, label %.lr.ph98.split.us, label %.lr.ph98.split, !prof !27
 
 .lr.ph98.split.us:                                ; preds = %.lr.ph98, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread.us
   %.05797.us = phi i64 [ %.057.us, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread.us ], [ %.05794, %.lr.ph98 ]
@@ -10596,7 +10596,7 @@ define noundef i64 @_ZNK2c43yml4Tree10find_childEmRKNS_15basic_substringIKcEE(pt
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !68
   %.not34 = icmp eq ptr %.sroa.0.0.copyload.fr, null
-  br i1 %.not34, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not34, label %.lr.ph.split.us, label %.lr.ph.split, !prof !27
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread.us
   %.01329.us = phi i64 [ %.013.us, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread.us ], [ %.0132748, %.lr.ph ]
@@ -50450,7 +50450,7 @@ define linkonce_odr noundef i64 @_ZN2c43yml6detail17ReferenceResolver7lookup_EPN
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %16 = load ptr, ptr %15, align 8, !tbaa !178
   %.not34 = icmp eq ptr %.sroa.0.0.fr, null
-  br i1 %.not34, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not34, label %.lr.ph.split.us, label %.lr.ph.split, !prof !27
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
   %17 = phi i64 [ %29, %.critedge.us ], [ %14, %.lr.ph ]

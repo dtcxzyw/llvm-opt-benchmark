@@ -7069,7 +7069,7 @@ _ZL7IsMatchPKhS0_m.exit13.thread:                 ; preds = %_ZL7IsMatchPKhS0_m.
   %22 = sext i32 %.0276.i.fr to i64
   %23 = sub nsw i64 0, %22
   %24 = icmp sgt i32 %.0276.i.fr, 0
-  br i1 %24, label %.split.us.preheader, label %.split
+  br i1 %24, label %.split.us.preheader, label %.split, !prof !409
 
 .split.us.preheader:                              ; preds = %_ZL7IsMatchPKhS0_m.exit13.thread
   %.0281.i = trunc nuw nsw i64 %.0281.i.in to i32
@@ -7083,7 +7083,7 @@ _ZL7IsMatchPKhS0_m.exit13.thread:                 ; preds = %_ZL7IsMatchPKhS0_m.
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %.0287.i.us, i64 %26
   %28 = icmp ugt ptr %27, %20
-  br i1 %28, label %.thread124, label %.lr.ph.us, !prof !409
+  br i1 %28, label %.thread124, label %.lr.ph.us, !prof !410
 
 .lr.ph.us:                                        ; preds = %.split.us, %.backedge.us212
   %29 = phi ptr [ %77, %.backedge.us212 ], [ %27, %.split.us ]
@@ -7115,7 +7115,7 @@ _ZL7IsMatchPKhS0_m.exit15.us200:                  ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 5
   %45 = load i8, ptr %44, align 1, !tbaa !7
   %46 = icmp eq i8 %43, %45
-  br i1 %46, label %66, label %_ZL7IsMatchPKhS0_m.exit15.thread.us201, !prof !410
+  br i1 %46, label %66, label %_ZL7IsMatchPKhS0_m.exit15.thread.us201, !prof !409
 
 _ZL7IsMatchPKhS0_m.exit15.thread.us201:           ; preds = %_ZL7IsMatchPKhS0_m.exit15.us200, %36, %.lr.ph.us
   %47 = zext nneg i32 %.2283.i181.us195 to i64
@@ -7180,7 +7180,7 @@ _ZL7IsMatchPKhS0_m.exit.us205:                    ; preds = %56
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw i8, ptr %.0287.i, i64 %80
   %82 = icmp ugt ptr %81, %20
-  br i1 %82, label %.thread124, label %.lr.ph, !prof !409
+  br i1 %82, label %.thread124, label %.lr.ph, !prof !410
 
 .lr.ph:                                           ; preds = %.split, %.backedge.us
   %83 = phi ptr [ %107, %.backedge.us ], [ %81, %.split ]
@@ -8041,7 +8041,7 @@ _ZL7IsMatchPKhS0_m.exit13.thread:                 ; preds = %_ZL7IsMatchPKhS0_m.
   %22 = sext i32 %.0276.i.fr to i64
   %23 = sub nsw i64 0, %22
   %24 = icmp sgt i32 %.0276.i.fr, 0
-  br i1 %24, label %.split.us.preheader, label %.split
+  br i1 %24, label %.split.us.preheader, label %.split, !prof !409
 
 .split.us.preheader:                              ; preds = %_ZL7IsMatchPKhS0_m.exit13.thread
   %.0281.i = trunc nuw nsw i64 %.0281.i.in to i32
@@ -8055,7 +8055,7 @@ _ZL7IsMatchPKhS0_m.exit13.thread:                 ; preds = %_ZL7IsMatchPKhS0_m.
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %.0287.i.us, i64 %26
   %28 = icmp ugt ptr %27, %20
-  br i1 %28, label %.thread124, label %.lr.ph.us, !prof !409
+  br i1 %28, label %.thread124, label %.lr.ph.us, !prof !410
 
 .lr.ph.us:                                        ; preds = %.split.us, %.backedge.us212
   %29 = phi ptr [ %77, %.backedge.us212 ], [ %27, %.split.us ]
@@ -8087,7 +8087,7 @@ _ZL7IsMatchPKhS0_m.exit15.us200:                  ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 5
   %45 = load i8, ptr %44, align 1, !tbaa !7
   %46 = icmp eq i8 %43, %45
-  br i1 %46, label %66, label %_ZL7IsMatchPKhS0_m.exit15.thread.us201, !prof !410
+  br i1 %46, label %66, label %_ZL7IsMatchPKhS0_m.exit15.thread.us201, !prof !409
 
 _ZL7IsMatchPKhS0_m.exit15.thread.us201:           ; preds = %_ZL7IsMatchPKhS0_m.exit15.us200, %36, %.lr.ph.us
   %47 = zext nneg i32 %.2283.i181.us195 to i64
@@ -8152,7 +8152,7 @@ _ZL7IsMatchPKhS0_m.exit.us205:                    ; preds = %56
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw i8, ptr %.0287.i, i64 %80
   %82 = icmp ugt ptr %81, %20
-  br i1 %82, label %.thread124, label %.lr.ph, !prof !409
+  br i1 %82, label %.thread124, label %.lr.ph, !prof !410
 
 .lr.ph:                                           ; preds = %.split, %.backedge.us
   %83 = phi ptr [ %107, %.backedge.us ], [ %81, %.split ]
@@ -9798,8 +9798,8 @@ attributes #10 = { nounwind }
 !406 = distinct !{!406, !"_ZN13duckdb_brotliL15BrotliWriteBitsEmmPmPh"}
 !407 = !{!408}
 !408 = distinct !{!408, !406, !"_ZN13duckdb_brotliL15BrotliWriteBitsEmmPmPh: argument 0"}
-!409 = !{!"branch_weights", i32 1, i32 127}
-!410 = !{!"branch_weights", i32 -2147483648, i32 0}
+!409 = !{!"branch_weights", i32 -2147483648, i32 0}
+!410 = !{!"branch_weights", i32 1, i32 127}
 !411 = !{!"branch_weights", i32 127, i32 255873}
 !412 = !{!413}
 !413 = distinct !{!413, !414, !"_ZN13duckdb_brotliL15BrotliWriteBitsEmmPmPh: argument 0"}

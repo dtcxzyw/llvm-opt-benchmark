@@ -280,7 +280,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vle16ff_vP
   %.not160 = icmp eq i64 %114, 0
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %.not160, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not160, label %.lr.ph.split.us, label %.lr.ph.split, !prof !151
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread142.us
   %.sroa.03.0168.us = phi i8 [ %.sroa.03.1147.us, %.thread142.us ], [ undef, %.lr.ph ]
@@ -314,19 +314,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vle16ff_vP
 
 .noexc.us169:                                     ; preds = %.critedge.us, %158
   %.091163.us170 = phi i64 [ 0, %.critedge.us ], [ %162, %158 ]
-  %134 = load ptr, ptr %113, align 8, !tbaa !151
+  %134 = load ptr, ptr %113, align 8, !tbaa !152
   %135 = add i64 %.091163.us170, %132
   %136 = shl i64 %135, 1
   %137 = add i64 %136, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   %138 = lshr i64 %137, 12
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 39056
   %140 = and i64 %138, 255
   %141 = getelementptr inbounds nuw i64, ptr %139, i64 %140
   %142 = load i64, ptr %141, align 8, !tbaa !144
   %143 = icmp eq i64 %142, %138
-  br i1 %143, label %144, label %.critedge.i.us, !prof !155
+  br i1 %143, label %144, label %.critedge.i.us, !prof !151
 
 .critedge.i.us:                                   ; preds = %.noexc.us169
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %134, i64 noundef %137, i64 noundef 2, ptr noundef nonnull %4, i8 %133)
@@ -421,12 +421,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vle16ff_vP
 
 .noexc.us:                                        ; preds = %194, %.critedge
   %.091163.us = phi i64 [ 0, %.critedge ], [ %198, %194 ]
-  %182 = load ptr, ptr %113, align 8, !tbaa !151
+  %182 = load ptr, ptr %113, align 8, !tbaa !152
   %183 = add i64 %.091163.us, %180
   %184 = shl i64 %183, 1
   %185 = add i64 %184, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %182, i64 noundef %185, i64 noundef 2, ptr noundef nonnull %4, i8 %181)
           to label %.noexc111.us unwind label %.split.us
 
@@ -860,7 +860,7 @@ define noundef i64 @_Z20fast_rv64i_vle16ff_vP11processor_t6insn_tm(ptr noundef %
   %.not160 = icmp eq i64 %114, 0
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %.not160, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not160, label %.lr.ph.split.us, label %.lr.ph.split, !prof !151
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread142.us
   %.sroa.03.0168.us = phi i8 [ %.sroa.03.1147.us, %.thread142.us ], [ undef, %.lr.ph ]
@@ -894,19 +894,19 @@ define noundef i64 @_Z20fast_rv64i_vle16ff_vP11processor_t6insn_tm(ptr noundef %
 
 .noexc.us169:                                     ; preds = %.critedge.us, %158
   %.091163.us170 = phi i64 [ 0, %.critedge.us ], [ %162, %158 ]
-  %134 = load ptr, ptr %113, align 8, !tbaa !151
+  %134 = load ptr, ptr %113, align 8, !tbaa !152
   %135 = add i64 %.091163.us170, %132
   %136 = shl i64 %135, 1
   %137 = add i64 %136, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   %138 = lshr i64 %137, 12
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 39056
   %140 = and i64 %138, 255
   %141 = getelementptr inbounds nuw i64, ptr %139, i64 %140
   %142 = load i64, ptr %141, align 8, !tbaa !144
   %143 = icmp eq i64 %142, %138
-  br i1 %143, label %144, label %.critedge.i.us, !prof !155
+  br i1 %143, label %144, label %.critedge.i.us, !prof !151
 
 .critedge.i.us:                                   ; preds = %.noexc.us169
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %134, i64 noundef %137, i64 noundef 2, ptr noundef nonnull %4, i8 %133)
@@ -1001,12 +1001,12 @@ define noundef i64 @_Z20fast_rv64i_vle16ff_vP11processor_t6insn_tm(ptr noundef %
 
 .noexc.us:                                        ; preds = %194, %.critedge
   %.091163.us = phi i64 [ 0, %.critedge ], [ %198, %194 ]
-  %182 = load ptr, ptr %113, align 8, !tbaa !151
+  %182 = load ptr, ptr %113, align 8, !tbaa !152
   %183 = add i64 %.091163.us, %180
   %184 = shl i64 %183, 1
   %185 = add i64 %184, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %182, i64 noundef %185, i64 noundef 2, ptr noundef nonnull %4, i8 %181)
           to label %.noexc111.us unwind label %.split.us
 
@@ -1304,7 +1304,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vle16ff_
   %.not160 = icmp eq i64 %114, 0
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %.not160, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not160, label %.lr.ph.split.us, label %.lr.ph.split, !prof !151
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread142.us
   %.sroa.03.0168.us = phi i8 [ %.sroa.03.1147.us, %.thread142.us ], [ undef, %.lr.ph ]
@@ -1338,19 +1338,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vle16ff_
 
 .noexc.us169:                                     ; preds = %.critedge.us, %158
   %.091163.us170 = phi i64 [ 0, %.critedge.us ], [ %162, %158 ]
-  %134 = load ptr, ptr %113, align 8, !tbaa !151
+  %134 = load ptr, ptr %113, align 8, !tbaa !152
   %135 = add i64 %.091163.us170, %132
   %136 = shl i64 %135, 1
   %137 = add i64 %136, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   %138 = lshr i64 %137, 12
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 39056
   %140 = and i64 %138, 255
   %141 = getelementptr inbounds nuw i64, ptr %139, i64 %140
   %142 = load i64, ptr %141, align 8, !tbaa !144
   %143 = icmp eq i64 %142, %138
-  br i1 %143, label %144, label %.critedge.i.us, !prof !155
+  br i1 %143, label %144, label %.critedge.i.us, !prof !151
 
 .critedge.i.us:                                   ; preds = %.noexc.us169
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %134, i64 noundef %137, i64 noundef 2, ptr noundef nonnull %4, i8 %133)
@@ -1445,12 +1445,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vle16ff_
 
 .noexc.us:                                        ; preds = %194, %.critedge
   %.091163.us = phi i64 [ 0, %.critedge ], [ %198, %194 ]
-  %182 = load ptr, ptr %113, align 8, !tbaa !151
+  %182 = load ptr, ptr %113, align 8, !tbaa !152
   %183 = add i64 %.091163.us, %180
   %184 = shl i64 %183, 1
   %185 = add i64 %184, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %182, i64 noundef %185, i64 noundef 2, ptr noundef nonnull %4, i8 %181)
           to label %.noexc111.us unwind label %.split.us
 
@@ -1750,7 +1750,7 @@ define noundef i64 @_Z22logged_rv64i_vle16ff_vP11processor_t6insn_tm(ptr noundef
   %.not160 = icmp eq i64 %114, 0
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %.not160, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not160, label %.lr.ph.split.us, label %.lr.ph.split, !prof !151
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread142.us
   %.sroa.03.0168.us = phi i8 [ %.sroa.03.1147.us, %.thread142.us ], [ undef, %.lr.ph ]
@@ -1784,19 +1784,19 @@ define noundef i64 @_Z22logged_rv64i_vle16ff_vP11processor_t6insn_tm(ptr noundef
 
 .noexc.us169:                                     ; preds = %.critedge.us, %158
   %.091163.us170 = phi i64 [ 0, %.critedge.us ], [ %162, %158 ]
-  %134 = load ptr, ptr %113, align 8, !tbaa !151
+  %134 = load ptr, ptr %113, align 8, !tbaa !152
   %135 = add i64 %.091163.us170, %132
   %136 = shl i64 %135, 1
   %137 = add i64 %136, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   %138 = lshr i64 %137, 12
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 39056
   %140 = and i64 %138, 255
   %141 = getelementptr inbounds nuw i64, ptr %139, i64 %140
   %142 = load i64, ptr %141, align 8, !tbaa !144
   %143 = icmp eq i64 %142, %138
-  br i1 %143, label %144, label %.critedge.i.us, !prof !155
+  br i1 %143, label %144, label %.critedge.i.us, !prof !151
 
 .critedge.i.us:                                   ; preds = %.noexc.us169
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %134, i64 noundef %137, i64 noundef 2, ptr noundef nonnull %4, i8 %133)
@@ -1891,12 +1891,12 @@ define noundef i64 @_Z22logged_rv64i_vle16ff_vP11processor_t6insn_tm(ptr noundef
 
 .noexc.us:                                        ; preds = %194, %.critedge
   %.091163.us = phi i64 [ 0, %.critedge ], [ %198, %194 ]
-  %182 = load ptr, ptr %113, align 8, !tbaa !151
+  %182 = load ptr, ptr %113, align 8, !tbaa !152
   %183 = add i64 %.091163.us, %180
   %184 = shl i64 %183, 1
   %185 = add i64 %184, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %182, i64 noundef %185, i64 noundef 2, ptr noundef nonnull %4, i8 %181)
           to label %.noexc111.us unwind label %.split.us
 
@@ -2210,7 +2210,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vle16ff_vP
   %.not167 = icmp eq i64 %121, 0
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %.not167, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not167, label %.lr.ph.split.us, label %.lr.ph.split, !prof !151
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread149.us
   %.sroa.03.0175.us = phi i8 [ %.sroa.03.1154.us, %.thread149.us ], [ undef, %.lr.ph ]
@@ -2244,19 +2244,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vle16ff_vP
 
 .noexc.us176:                                     ; preds = %.critedge.us, %165
   %.094170.us177 = phi i64 [ 0, %.critedge.us ], [ %169, %165 ]
-  %141 = load ptr, ptr %120, align 8, !tbaa !151
+  %141 = load ptr, ptr %120, align 8, !tbaa !152
   %142 = add i64 %.094170.us177, %139
   %143 = shl i64 %142, 1
   %144 = add i64 %143, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   %145 = lshr i64 %144, 12
   %146 = getelementptr inbounds nuw i8, ptr %141, i64 39056
   %147 = and i64 %145, 255
   %148 = getelementptr inbounds nuw i64, ptr %146, i64 %147
   %149 = load i64, ptr %148, align 8, !tbaa !144
   %150 = icmp eq i64 %149, %145
-  br i1 %150, label %151, label %.critedge.i.us, !prof !155
+  br i1 %150, label %151, label %.critedge.i.us, !prof !151
 
 .critedge.i.us:                                   ; preds = %.noexc.us176
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %141, i64 noundef %144, i64 noundef 2, ptr noundef nonnull %4, i8 %140)
@@ -2351,12 +2351,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vle16ff_vP
 
 .noexc.us:                                        ; preds = %201, %.critedge
   %.094170.us = phi i64 [ 0, %.critedge ], [ %205, %201 ]
-  %189 = load ptr, ptr %120, align 8, !tbaa !151
+  %189 = load ptr, ptr %120, align 8, !tbaa !152
   %190 = add i64 %.094170.us, %187
   %191 = shl i64 %190, 1
   %192 = add i64 %191, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %189, i64 noundef %192, i64 noundef 2, ptr noundef nonnull %4, i8 %188)
           to label %.noexc116.us unwind label %.split.us
 
@@ -2672,7 +2672,7 @@ define noundef i64 @_Z20fast_rv64e_vle16ff_vP11processor_t6insn_tm(ptr noundef %
   %.not167 = icmp eq i64 %121, 0
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %.not167, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not167, label %.lr.ph.split.us, label %.lr.ph.split, !prof !151
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread149.us
   %.sroa.03.0175.us = phi i8 [ %.sroa.03.1154.us, %.thread149.us ], [ undef, %.lr.ph ]
@@ -2706,19 +2706,19 @@ define noundef i64 @_Z20fast_rv64e_vle16ff_vP11processor_t6insn_tm(ptr noundef %
 
 .noexc.us176:                                     ; preds = %.critedge.us, %165
   %.094170.us177 = phi i64 [ 0, %.critedge.us ], [ %169, %165 ]
-  %141 = load ptr, ptr %120, align 8, !tbaa !151
+  %141 = load ptr, ptr %120, align 8, !tbaa !152
   %142 = add i64 %.094170.us177, %139
   %143 = shl i64 %142, 1
   %144 = add i64 %143, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   %145 = lshr i64 %144, 12
   %146 = getelementptr inbounds nuw i8, ptr %141, i64 39056
   %147 = and i64 %145, 255
   %148 = getelementptr inbounds nuw i64, ptr %146, i64 %147
   %149 = load i64, ptr %148, align 8, !tbaa !144
   %150 = icmp eq i64 %149, %145
-  br i1 %150, label %151, label %.critedge.i.us, !prof !155
+  br i1 %150, label %151, label %.critedge.i.us, !prof !151
 
 .critedge.i.us:                                   ; preds = %.noexc.us176
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %141, i64 noundef %144, i64 noundef 2, ptr noundef nonnull %4, i8 %140)
@@ -2813,12 +2813,12 @@ define noundef i64 @_Z20fast_rv64e_vle16ff_vP11processor_t6insn_tm(ptr noundef %
 
 .noexc.us:                                        ; preds = %201, %.critedge
   %.094170.us = phi i64 [ 0, %.critedge ], [ %205, %201 ]
-  %189 = load ptr, ptr %120, align 8, !tbaa !151
+  %189 = load ptr, ptr %120, align 8, !tbaa !152
   %190 = add i64 %.094170.us, %187
   %191 = shl i64 %190, 1
   %192 = add i64 %191, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %189, i64 noundef %192, i64 noundef 2, ptr noundef nonnull %4, i8 %188)
           to label %.noexc116.us unwind label %.split.us
 
@@ -3132,7 +3132,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vle16ff_
   %.not167 = icmp eq i64 %121, 0
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %.not167, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not167, label %.lr.ph.split.us, label %.lr.ph.split, !prof !151
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread149.us
   %.sroa.03.0175.us = phi i8 [ %.sroa.03.1154.us, %.thread149.us ], [ undef, %.lr.ph ]
@@ -3166,19 +3166,19 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vle16ff_
 
 .noexc.us176:                                     ; preds = %.critedge.us, %165
   %.094170.us177 = phi i64 [ 0, %.critedge.us ], [ %169, %165 ]
-  %141 = load ptr, ptr %120, align 8, !tbaa !151
+  %141 = load ptr, ptr %120, align 8, !tbaa !152
   %142 = add i64 %.094170.us177, %139
   %143 = shl i64 %142, 1
   %144 = add i64 %143, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   %145 = lshr i64 %144, 12
   %146 = getelementptr inbounds nuw i8, ptr %141, i64 39056
   %147 = and i64 %145, 255
   %148 = getelementptr inbounds nuw i64, ptr %146, i64 %147
   %149 = load i64, ptr %148, align 8, !tbaa !144
   %150 = icmp eq i64 %149, %145
-  br i1 %150, label %151, label %.critedge.i.us, !prof !155
+  br i1 %150, label %151, label %.critedge.i.us, !prof !151
 
 .critedge.i.us:                                   ; preds = %.noexc.us176
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %141, i64 noundef %144, i64 noundef 2, ptr noundef nonnull %4, i8 %140)
@@ -3273,12 +3273,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vle16ff_
 
 .noexc.us:                                        ; preds = %201, %.critedge
   %.094170.us = phi i64 [ 0, %.critedge ], [ %205, %201 ]
-  %189 = load ptr, ptr %120, align 8, !tbaa !151
+  %189 = load ptr, ptr %120, align 8, !tbaa !152
   %190 = add i64 %.094170.us, %187
   %191 = shl i64 %190, 1
   %192 = add i64 %191, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %189, i64 noundef %192, i64 noundef 2, ptr noundef nonnull %4, i8 %188)
           to label %.noexc116.us unwind label %.split.us
 
@@ -3594,7 +3594,7 @@ define noundef i64 @_Z22logged_rv64e_vle16ff_vP11processor_t6insn_tm(ptr noundef
   %.not167 = icmp eq i64 %121, 0
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %.not167, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not167, label %.lr.ph.split.us, label %.lr.ph.split, !prof !151
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread149.us
   %.sroa.03.0175.us = phi i8 [ %.sroa.03.1154.us, %.thread149.us ], [ undef, %.lr.ph ]
@@ -3628,19 +3628,19 @@ define noundef i64 @_Z22logged_rv64e_vle16ff_vP11processor_t6insn_tm(ptr noundef
 
 .noexc.us176:                                     ; preds = %.critedge.us, %165
   %.094170.us177 = phi i64 [ 0, %.critedge.us ], [ %169, %165 ]
-  %141 = load ptr, ptr %120, align 8, !tbaa !151
+  %141 = load ptr, ptr %120, align 8, !tbaa !152
   %142 = add i64 %.094170.us177, %139
   %143 = shl i64 %142, 1
   %144 = add i64 %143, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   %145 = lshr i64 %144, 12
   %146 = getelementptr inbounds nuw i8, ptr %141, i64 39056
   %147 = and i64 %145, 255
   %148 = getelementptr inbounds nuw i64, ptr %146, i64 %147
   %149 = load i64, ptr %148, align 8, !tbaa !144
   %150 = icmp eq i64 %149, %145
-  br i1 %150, label %151, label %.critedge.i.us, !prof !155
+  br i1 %150, label %151, label %.critedge.i.us, !prof !151
 
 .critedge.i.us:                                   ; preds = %.noexc.us176
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %141, i64 noundef %144, i64 noundef 2, ptr noundef nonnull %4, i8 %140)
@@ -3735,12 +3735,12 @@ define noundef i64 @_Z22logged_rv64e_vle16ff_vP11processor_t6insn_tm(ptr noundef
 
 .noexc.us:                                        ; preds = %201, %.critedge
   %.094170.us = phi i64 [ 0, %.critedge ], [ %205, %201 ]
-  %189 = load ptr, ptr %120, align 8, !tbaa !151
+  %189 = load ptr, ptr %120, align 8, !tbaa !152
   %190 = add i64 %.094170.us, %187
   %191 = shl i64 %190, 1
   %192 = add i64 %191, %.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 0, ptr %4, align 2, !tbaa !152
+  store i16 0, ptr %4, align 2, !tbaa !153
   invoke void @_ZN5mmu_t14load_slow_pathEmmPh13xlate_flags_t(ptr noundef nonnull align 8 dereferenceable(43168) %189, i64 noundef %192, i64 noundef 2, ptr noundef nonnull %4, i8 %188)
           to label %.noexc116.us unwind label %.split.us
 
@@ -4488,15 +4488,15 @@ attributes #26 = { nounwind willreturn memory(read) }
 !148 = !{!4, !12, i64 266816}
 !149 = !{!"branch_weights", i32 1, i32 4001}
 !150 = !{!123, !124, i64 0}
-!151 = !{!4, !30, i64 176}
-!152 = !{!153, !154, i64 0}
-!153 = !{!"_ZTS11base_endianIsE", !154, i64 0}
-!154 = !{!"short", !7, i64 0}
-!155 = !{!"branch_weights", i32 -294967296, i32 6003000}
+!151 = !{!"branch_weights", i32 -294967296, i32 6003000}
+!152 = !{!4, !30, i64 176}
+!153 = !{!154, !155, i64 0}
+!154 = !{!"_ZTS11base_endianIsE", !155, i64 0}
+!155 = !{!"short", !7, i64 0}
 !156 = !{!157, !17, i64 0}
 !157 = !{!"_ZTS11tlb_entry_t", !17, i64 0, !12, i64 8}
 !158 = !{!159, !121, i64 80}
-!159 = !{!"_ZTS5mmu_t", !160, i64 0, !163, i64 48, !29, i64 72, !121, i64 80, !168, i64 88, !12, i64 120, !154, i64 128, !12, i64 136, !7, i64 144, !7, i64 32912, !7, i64 37008, !7, i64 39056, !7, i64 41104, !6, i64 43152, !6, i64 43153, !6, i64 43154, !175, i64 43160}
+!159 = !{!"_ZTS5mmu_t", !160, i64 0, !163, i64 48, !29, i64 72, !121, i64 80, !168, i64 88, !12, i64 120, !155, i64 128, !12, i64 136, !7, i64 144, !7, i64 32912, !7, i64 37008, !7, i64 39056, !7, i64 41104, !6, i64 43152, !6, i64 43153, !6, i64 43154, !175, i64 43160}
 !160 = !{!"_ZTSSt3mapImmSt4lessImESaISt4pairIKmmEEE", !161, i64 0}
 !161 = !{!"_ZTSSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE", !162, i64 0}
 !162 = !{!"_ZTSNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE13_Rb_tree_implIS6_Lb1EEE", !95, i64 0, !24, i64 8}
@@ -4520,7 +4520,7 @@ attributes #26 = { nounwind willreturn memory(read) }
 !180 = !{!"_ZTSSt10_Head_baseILm1EmLb0EE", !12, i64 0}
 !181 = !{!182, !12, i64 0}
 !182 = !{!"_ZTSSt10_Head_baseILm0EmLb0EE", !12, i64 0}
-!183 = !{!154, !154, i64 0}
+!183 = !{!155, !155, i64 0}
 !184 = distinct !{!184, !185}
 !185 = !{!"llvm.loop.mustprogress"}
 !186 = distinct !{!186, !185}

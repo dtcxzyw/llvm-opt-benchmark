@@ -340,7 +340,7 @@ UpdateBits.exit:                                  ; preds = %UpdateBits.exit.loo
   %115 = sext i32 %.0340.i.fr to i64
   %116 = sub nsw i64 0, %115
   %117 = icmp sgt i32 %.0340.i.fr, 0
-  br i1 %117, label %.split.us.preheader, label %.split
+  br i1 %117, label %.split.us.preheader, label %.split, !prof !75
 
 .split.us.preheader:                              ; preds = %.thread74
   %.0348.i = trunc nuw nsw i64 %.0348.i.in to i32
@@ -354,7 +354,7 @@ UpdateBits.exit:                                  ; preds = %UpdateBits.exit.loo
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.0359.i.us, i64 %119
   %121 = icmp ugt ptr %120, %112
-  br i1 %121, label %.thread101, label %.lr.ph186.us, !prof !75
+  br i1 %121, label %.thread101, label %.lr.ph186.us, !prof !76
 
 .lr.ph186.us:                                     ; preds = %.split.us, %.critedge.backedge.us211
   %122 = phi ptr [ %158, %.critedge.backedge.us211 ], [ %120, %.split.us ]
@@ -378,7 +378,7 @@ IsMatch.exit7.us200:                              ; preds = %.lr.ph186.us
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %132 = load i8, ptr %131, align 1, !tbaa !7
   %133 = icmp eq i8 %130, %132
-  br i1 %133, label %147, label %IsMatch.exit7.thread.us201, !prof !76
+  br i1 %133, label %147, label %IsMatch.exit7.thread.us201, !prof !75
 
 IsMatch.exit7.thread.us201:                       ; preds = %IsMatch.exit7.us200, %.lr.ph186.us
   %134 = zext nneg i32 %.2350.i184.us195 to i64
@@ -435,7 +435,7 @@ IsMatch.exit.us204:                               ; preds = %IsMatch.exit7.threa
   %161 = zext nneg i32 %160 to i64
   %162 = getelementptr inbounds nuw i8, ptr %.0359.i, i64 %161
   %163 = icmp ugt ptr %162, %112
-  br i1 %163, label %.thread101, label %.lr.ph186, !prof !75
+  br i1 %163, label %.thread101, label %.lr.ph186, !prof !76
 
 .lr.ph186:                                        ; preds = %.split, %.critedge.backedge.us
   %164 = phi ptr [ %182, %.critedge.backedge.us ], [ %162, %.split ]
@@ -2348,7 +2348,7 @@ UpdateBits.exit:                                  ; preds = %UpdateBits.exit.loo
   %115 = sext i32 %.0340.i.fr to i64
   %116 = sub nsw i64 0, %115
   %117 = icmp sgt i32 %.0340.i.fr, 0
-  br i1 %117, label %.split.us.preheader, label %.split
+  br i1 %117, label %.split.us.preheader, label %.split, !prof !75
 
 .split.us.preheader:                              ; preds = %.thread74
   %.0348.i = trunc nuw nsw i64 %.0348.i.in to i32
@@ -2362,7 +2362,7 @@ UpdateBits.exit:                                  ; preds = %UpdateBits.exit.loo
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.0359.i.us, i64 %119
   %121 = icmp ugt ptr %120, %112
-  br i1 %121, label %.thread101, label %.lr.ph186.us, !prof !75
+  br i1 %121, label %.thread101, label %.lr.ph186.us, !prof !76
 
 .lr.ph186.us:                                     ; preds = %.split.us, %.critedge.backedge.us211
   %122 = phi ptr [ %158, %.critedge.backedge.us211 ], [ %120, %.split.us ]
@@ -2386,7 +2386,7 @@ IsMatch.exit7.us200:                              ; preds = %.lr.ph186.us
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %132 = load i8, ptr %131, align 1, !tbaa !7
   %133 = icmp eq i8 %130, %132
-  br i1 %133, label %147, label %IsMatch.exit7.thread.us201, !prof !76
+  br i1 %133, label %147, label %IsMatch.exit7.thread.us201, !prof !75
 
 IsMatch.exit7.thread.us201:                       ; preds = %IsMatch.exit7.us200, %.lr.ph186.us
   %134 = zext nneg i32 %.2350.i184.us195 to i64
@@ -2443,7 +2443,7 @@ IsMatch.exit.us204:                               ; preds = %IsMatch.exit7.threa
   %161 = zext nneg i32 %160 to i64
   %162 = getelementptr inbounds nuw i8, ptr %.0359.i, i64 %161
   %163 = icmp ugt ptr %162, %112
-  br i1 %163, label %.thread101, label %.lr.ph186, !prof !75
+  br i1 %163, label %.thread101, label %.lr.ph186, !prof !76
 
 .lr.ph186:                                        ; preds = %.split, %.critedge.backedge.us
   %164 = phi ptr [ %182, %.critedge.backedge.us ], [ %162, %.split ]
@@ -4356,7 +4356,7 @@ UpdateBits.exit:                                  ; preds = %UpdateBits.exit.loo
   %115 = sext i32 %.0340.i.fr to i64
   %116 = sub nsw i64 0, %115
   %117 = icmp sgt i32 %.0340.i.fr, 0
-  br i1 %117, label %.split.us.preheader, label %.split
+  br i1 %117, label %.split.us.preheader, label %.split, !prof !75
 
 .split.us.preheader:                              ; preds = %.thread74
   %.0348.i = trunc nuw nsw i64 %.0348.i.in to i32
@@ -4370,7 +4370,7 @@ UpdateBits.exit:                                  ; preds = %UpdateBits.exit.loo
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.0359.i.us, i64 %119
   %121 = icmp ugt ptr %120, %112
-  br i1 %121, label %.thread101, label %.lr.ph186.us, !prof !75
+  br i1 %121, label %.thread101, label %.lr.ph186.us, !prof !76
 
 .lr.ph186.us:                                     ; preds = %.split.us, %.critedge.backedge.us211
   %122 = phi ptr [ %158, %.critedge.backedge.us211 ], [ %120, %.split.us ]
@@ -4394,7 +4394,7 @@ IsMatch.exit7.us200:                              ; preds = %.lr.ph186.us
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %132 = load i8, ptr %131, align 1, !tbaa !7
   %133 = icmp eq i8 %130, %132
-  br i1 %133, label %147, label %IsMatch.exit7.thread.us201, !prof !76
+  br i1 %133, label %147, label %IsMatch.exit7.thread.us201, !prof !75
 
 IsMatch.exit7.thread.us201:                       ; preds = %IsMatch.exit7.us200, %.lr.ph186.us
   %134 = zext nneg i32 %.2350.i184.us195 to i64
@@ -4451,7 +4451,7 @@ IsMatch.exit.us204:                               ; preds = %IsMatch.exit7.threa
   %161 = zext nneg i32 %160 to i64
   %162 = getelementptr inbounds nuw i8, ptr %.0359.i, i64 %161
   %163 = icmp ugt ptr %162, %112
-  br i1 %163, label %.thread101, label %.lr.ph186, !prof !75
+  br i1 %163, label %.thread101, label %.lr.ph186, !prof !76
 
 .lr.ph186:                                        ; preds = %.split, %.critedge.backedge.us
   %164 = phi ptr [ %182, %.critedge.backedge.us ], [ %162, %.split ]
@@ -6364,7 +6364,7 @@ UpdateBits.exit:                                  ; preds = %UpdateBits.exit.loo
   %115 = sext i32 %.0340.i.fr to i64
   %116 = sub nsw i64 0, %115
   %117 = icmp sgt i32 %.0340.i.fr, 0
-  br i1 %117, label %.split.us.preheader, label %.split
+  br i1 %117, label %.split.us.preheader, label %.split, !prof !75
 
 .split.us.preheader:                              ; preds = %.thread74
   %.0348.i = trunc nuw nsw i64 %.0348.i.in to i32
@@ -6378,7 +6378,7 @@ UpdateBits.exit:                                  ; preds = %UpdateBits.exit.loo
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.0359.i.us, i64 %119
   %121 = icmp ugt ptr %120, %112
-  br i1 %121, label %.thread101, label %.lr.ph186.us, !prof !75
+  br i1 %121, label %.thread101, label %.lr.ph186.us, !prof !76
 
 .lr.ph186.us:                                     ; preds = %.split.us, %.critedge.backedge.us211
   %122 = phi ptr [ %158, %.critedge.backedge.us211 ], [ %120, %.split.us ]
@@ -6402,7 +6402,7 @@ IsMatch.exit7.us200:                              ; preds = %.lr.ph186.us
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %132 = load i8, ptr %131, align 1, !tbaa !7
   %133 = icmp eq i8 %130, %132
-  br i1 %133, label %147, label %IsMatch.exit7.thread.us201, !prof !76
+  br i1 %133, label %147, label %IsMatch.exit7.thread.us201, !prof !75
 
 IsMatch.exit7.thread.us201:                       ; preds = %IsMatch.exit7.us200, %.lr.ph186.us
   %134 = zext nneg i32 %.2350.i184.us195 to i64
@@ -6459,7 +6459,7 @@ IsMatch.exit.us204:                               ; preds = %IsMatch.exit7.threa
   %161 = zext nneg i32 %160 to i64
   %162 = getelementptr inbounds nuw i8, ptr %.0359.i, i64 %161
   %163 = icmp ugt ptr %162, %112
-  br i1 %163, label %.thread101, label %.lr.ph186, !prof !75
+  br i1 %163, label %.thread101, label %.lr.ph186, !prof !76
 
 .lr.ph186:                                        ; preds = %.split, %.critedge.backedge.us
   %164 = phi ptr [ %182, %.critedge.backedge.us ], [ %162, %.split ]
@@ -8599,8 +8599,8 @@ attributes #10 = { nounwind }
 !72 = !{!"llvm.loop.mustprogress"}
 !73 = distinct !{!73, !72}
 !74 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!75 = !{!"branch_weights", i32 1, i32 127}
-!76 = !{!"branch_weights", i32 2146410443, i32 1073205}
+!75 = !{!"branch_weights", i32 2146410443, i32 1073205}
+!76 = !{!"branch_weights", i32 1, i32 127}
 !77 = !{!78, !78, i64 0}
 !78 = !{!"int", !5, i64 0}
 !79 = !{!"branch_weights", !"expected", i32 1, i32 2000}

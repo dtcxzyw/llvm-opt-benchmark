@@ -110366,7 +110366,7 @@ define zeroext range(i8 0, 2) i8 @l_List_elem___at_Lean_catchInternalIds___spec_
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 1
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %.split.us, label %.split
+  br i1 %.not, label %.split.us, label %.split, !prof !18
 
 .split.us:                                        ; preds = %2, %.critedge.i.us
   %.011.us = phi ptr [ %17, %.critedge.i.us ], [ %1, %2 ]
@@ -110905,7 +110905,7 @@ define noundef nonnull ptr @l_List_elem___at_Lean_catchInternalIds___spec__1___b
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 1
   %.not.i8 = icmp eq i64 %4, 0
-  br i1 %.not.i8, label %.split.us.i, label %.split.i
+  br i1 %.not.i8, label %.split.us.i, label %.split.i, !prof !18
 
 .split.us.i:                                      ; preds = %2, %.critedge.i.us.i
   %.011.us.i = phi ptr [ %17, %.critedge.i.us.i ], [ %1, %2 ]

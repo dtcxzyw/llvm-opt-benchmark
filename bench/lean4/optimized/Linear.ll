@@ -23940,7 +23940,7 @@ define ptr @l_Int_Linear_Poly_coeff(ptr noundef %0, ptr noundef %1) local_unname
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 1
   %.not27 = icmp eq i64 %4, 0
-  br i1 %.not27, label %lean_inc.exit.us, label %lean_inc.exit
+  br i1 %.not27, label %lean_inc.exit.us, label %lean_inc.exit, !prof !13
 
 lean_inc.exit.us:                                 ; preds = %2, %.critedge.i.us
   %.013.us = phi ptr [ %19, %.critedge.i.us ], [ %0, %2 ]

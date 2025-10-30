@@ -7069,7 +7069,7 @@ IsMatch.exit13.thread:                            ; preds = %IsMatch.exit13.thre
   %22 = sext i32 %.0276.i.fr to i64
   %23 = sub nsw i64 0, %22
   %24 = icmp sgt i32 %.0276.i.fr, 0
-  br i1 %24, label %.split.us.preheader, label %.split
+  br i1 %24, label %.split.us.preheader, label %.split, !prof !408
 
 .split.us.preheader:                              ; preds = %IsMatch.exit13.thread
   %.0281.i = trunc nuw nsw i64 %.0281.i.in to i32
@@ -7083,7 +7083,7 @@ IsMatch.exit13.thread:                            ; preds = %IsMatch.exit13.thre
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %.0287.i.us, i64 %26
   %28 = icmp ugt ptr %27, %20
-  br i1 %28, label %.thread124, label %.lr.ph.us, !prof !408
+  br i1 %28, label %.thread124, label %.lr.ph.us, !prof !409
 
 .lr.ph.us:                                        ; preds = %.split.us, %.backedge.us212
   %29 = phi ptr [ %77, %.backedge.us212 ], [ %27, %.split.us ]
@@ -7115,7 +7115,7 @@ IsMatch.exit15.us200:                             ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 5
   %45 = load i8, ptr %44, align 1, !tbaa !7
   %46 = icmp eq i8 %43, %45
-  br i1 %46, label %66, label %IsMatch.exit15.thread.us201, !prof !409
+  br i1 %46, label %66, label %IsMatch.exit15.thread.us201, !prof !408
 
 IsMatch.exit15.thread.us201:                      ; preds = %IsMatch.exit15.us200, %36, %.lr.ph.us
   %47 = zext nneg i32 %.2283.i181.us195 to i64
@@ -7180,7 +7180,7 @@ IsMatch.exit.us205:                               ; preds = %56
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw i8, ptr %.0287.i, i64 %80
   %82 = icmp ugt ptr %81, %20
-  br i1 %82, label %.thread124, label %.lr.ph, !prof !408
+  br i1 %82, label %.thread124, label %.lr.ph, !prof !409
 
 .lr.ph:                                           ; preds = %.split, %.backedge.us
   %83 = phi ptr [ %107, %.backedge.us ], [ %81, %.split ]
@@ -8041,7 +8041,7 @@ IsMatch.exit13.thread:                            ; preds = %IsMatch.exit13.thre
   %22 = sext i32 %.0276.i.fr to i64
   %23 = sub nsw i64 0, %22
   %24 = icmp sgt i32 %.0276.i.fr, 0
-  br i1 %24, label %.split.us.preheader, label %.split
+  br i1 %24, label %.split.us.preheader, label %.split, !prof !408
 
 .split.us.preheader:                              ; preds = %IsMatch.exit13.thread
   %.0281.i = trunc nuw nsw i64 %.0281.i.in to i32
@@ -8055,7 +8055,7 @@ IsMatch.exit13.thread:                            ; preds = %IsMatch.exit13.thre
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %.0287.i.us, i64 %26
   %28 = icmp ugt ptr %27, %20
-  br i1 %28, label %.thread124, label %.lr.ph.us, !prof !408
+  br i1 %28, label %.thread124, label %.lr.ph.us, !prof !409
 
 .lr.ph.us:                                        ; preds = %.split.us, %.backedge.us212
   %29 = phi ptr [ %77, %.backedge.us212 ], [ %27, %.split.us ]
@@ -8087,7 +8087,7 @@ IsMatch.exit15.us200:                             ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 5
   %45 = load i8, ptr %44, align 1, !tbaa !7
   %46 = icmp eq i8 %43, %45
-  br i1 %46, label %66, label %IsMatch.exit15.thread.us201, !prof !409
+  br i1 %46, label %66, label %IsMatch.exit15.thread.us201, !prof !408
 
 IsMatch.exit15.thread.us201:                      ; preds = %IsMatch.exit15.us200, %36, %.lr.ph.us
   %47 = zext nneg i32 %.2283.i181.us195 to i64
@@ -8152,7 +8152,7 @@ IsMatch.exit.us205:                               ; preds = %56
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw i8, ptr %.0287.i, i64 %80
   %82 = icmp ugt ptr %81, %20
-  br i1 %82, label %.thread124, label %.lr.ph, !prof !408
+  br i1 %82, label %.thread124, label %.lr.ph, !prof !409
 
 .lr.ph:                                           ; preds = %.split, %.backedge.us
   %83 = phi ptr [ %107, %.backedge.us ], [ %81, %.split ]
@@ -9797,8 +9797,8 @@ attributes #10 = { nounwind }
 !405 = distinct !{!405, !"BrotliWriteBits"}
 !406 = !{!407}
 !407 = distinct !{!407, !405, !"BrotliWriteBits: argument 0"}
-!408 = !{!"branch_weights", i32 1, i32 127}
-!409 = !{!"branch_weights", i32 -2147483648, i32 0}
+!408 = !{!"branch_weights", i32 -2147483648, i32 0}
+!409 = !{!"branch_weights", i32 1, i32 127}
 !410 = !{!"branch_weights", i32 127, i32 255873}
 !411 = !{!412}
 !412 = distinct !{!412, !413, !"BrotliWriteBits: argument 0"}

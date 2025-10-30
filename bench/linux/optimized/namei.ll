@@ -8885,7 +8885,7 @@ define internal fastcc ptr @do_split(ptr noundef %0, ptr noundef %1, ptr noundef
   %232 = icmp eq ptr %1, null
   %233 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %234 = icmp ugt i32 %12, 262144
-  br i1 %234, label %.split67.us, label %.split67
+  br i1 %234, label %.split67.us, label %.split67, !prof !6
 
 .split67.us:                                      ; preds = %231
   %235 = getelementptr inbounds nuw i8, ptr %221, i64 4

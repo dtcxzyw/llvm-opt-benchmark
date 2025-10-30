@@ -15179,7 +15179,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number10isBitsZeroEii(ptr noundef no
   %14 = and i32 %.tr811.i.i, 31
   %15 = zext nneg i32 %14 to i64
   %16 = shl nuw nsw i64 1, %15
-  br i1 %spec.select.i.i, label %_ZNK8V3Number6bitIs0Ei.exit.thread, label %.lr.ph.split
+  br i1 %spec.select.i.i, label %_ZNK8V3Number6bitIs0Ei.exit.thread, label %.lr.ph.split, !prof !275
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %17 = icmp slt i32 %.fr.i.i, 1
