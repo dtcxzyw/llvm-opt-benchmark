@@ -3819,16 +3819,15 @@ declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i16 @_ZN12ConstantPool35uncached_name_and_type_ref_index_atEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-_ZNK11constantTag13has_bootstrapEv.exit:
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i8, ptr %4, i64 %5
-  %7 = load volatile i8, ptr %6, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %6 = sext i32 %1 to i64
+  %7 = getelementptr inbounds i8, ptr %5, i64 %6
+  %8 = load volatile i8, ptr %7, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
   %.pn = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.0.in.in.in = getelementptr inbounds i64, ptr %.pn, i64 %5
+  %.0.in.in.in = getelementptr inbounds i64, ptr %.pn, i64 %6
   %.0.in.in = load i32, ptr %.0.in.in.in, align 8
   %.0.in = lshr i32 %.0.in.in, 16
   %.0 = trunc nuw i32 %.0.in to i16

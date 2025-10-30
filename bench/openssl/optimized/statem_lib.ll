@@ -1148,14 +1148,14 @@ define internal fastcc range(i32 0, 2) i32 @get_cert_verify_tbs_data(ptr noundef
   %11 = load i32, ptr %10, align 8, !tbaa !85
   %12 = and i32 %11, 8
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %35
+  br i1 %.not, label %13, label %34
 
 13:                                               ; preds = %4
   %14 = load i32, ptr %7, align 8, !tbaa !87
   %15 = icmp slt i32 %14, 772
   %.not32 = icmp eq i32 %14, 65536
   %or.cond = or i1 %15, %.not32
-  br i1 %or.cond, label %35, label %16
+  br i1 %or.cond, label %34, label %16
 
 16:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1177,57 +1177,56 @@ define internal fastcc range(i32 0, 2) i32 @get_cert_verify_tbs_data(ptr noundef
 
 22:                                               ; preds = %21, %20
   %23 = load i32, ptr %17, align 4, !tbaa !88
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 98
   switch i32 %23, label %29 [
-    i32 43, label %24
-    i32 33, label %24
+    i32 43, label %25
+    i32 33, label %25
   ]
 
-24:                                               ; preds = %22, %22
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 98
+25:                                               ; preds = %22, %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2184
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   %28 = load i64, ptr %27, align 8, !tbaa !141
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 8 %26, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 8 %26, i64 %28, i1 false)
   br label %.thread
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 98
-  %31 = call i32 @ssl_handshake_hash(ptr noundef nonnull %0, ptr noundef nonnull %30, i64 noundef 64, ptr noundef nonnull %5) #11
-  %.not33 = icmp eq i32 %31, 0
-  br i1 %.not33, label %34, label %.thread
+  %30 = call i32 @ssl_handshake_hash(ptr noundef nonnull %0, ptr noundef nonnull %24, i64 noundef 64, ptr noundef nonnull %5) #11
+  %.not33 = icmp eq i32 %30, 0
+  br i1 %.not33, label %33, label %.thread
 
-.thread:                                          ; preds = %29, %24
-  %.in = phi ptr [ %27, %24 ], [ %5, %29 ]
-  %32 = load i64, ptr %.in, align 8, !tbaa !72
+.thread:                                          ; preds = %29, %25
+  %.in = phi ptr [ %27, %25 ], [ %5, %29 ]
+  %31 = load i64, ptr %.in, align 8, !tbaa !72
   store ptr %1, ptr %2, align 8, !tbaa !136
-  %33 = add i64 %32, 98
-  store i64 %33, ptr %3, align 8, !tbaa !72
+  %32 = add i64 %31, 98
+  store i64 %32, ptr %3, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %41
+  br label %40
 
-34:                                               ; preds = %29
+33:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %41
+  br label %40
 
-35:                                               ; preds = %13, %4
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %37 = load ptr, ptr %36, align 8, !tbaa !142
-  %38 = tail call i64 @BIO_ctrl(ptr noundef %37, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %2) #11
-  %39 = icmp slt i64 %38, 1
-  br i1 %39, label %40, label %.thread36
+34:                                               ; preds = %13, %4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %36 = load ptr, ptr %35, align 8, !tbaa !142
+  %37 = tail call i64 @BIO_ctrl(ptr noundef %36, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %2) #11
+  %38 = icmp slt i64 %37, 1
+  br i1 %38, label %39, label %.thread36
 
-.thread36:                                        ; preds = %35
-  store i64 %38, ptr %3, align 8, !tbaa !72
-  br label %41
+.thread36:                                        ; preds = %34
+  store i64 %37, ptr %3, align 8, !tbaa !72
+  br label %40
 
-40:                                               ; preds = %35
+39:                                               ; preds = %34
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 302, ptr noundef nonnull @__func__.get_cert_verify_tbs_data) #11
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #11
-  br label %41
+  br label %40
 
-41:                                               ; preds = %.thread, %.thread36, %40, %34
-  %.1 = phi i32 [ 0, %40 ], [ 0, %34 ], [ 1, %.thread36 ], [ 1, %.thread ]
+40:                                               ; preds = %.thread, %.thread36, %39, %33
+  %.1 = phi i32 [ 0, %39 ], [ 0, %33 ], [ 1, %.thread36 ], [ 1, %.thread ]
   ret i32 %.1
 }
 

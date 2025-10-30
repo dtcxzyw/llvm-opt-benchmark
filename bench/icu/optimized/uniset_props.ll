@@ -1867,41 +1867,34 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710UnicodeSet24resemblesPrope
   br i1 %10, label %switch.edge, label %13
 
 13:                                               ; preds = %9
+  call void @_ZN6icu_7721RuleCharacterIterator6setPosERKNS0_3PosE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
   switch i32 %12, label %switch.edge.thread [
     i32 112, label %switch.edge.thread18
     i32 78, label %switch.edge.thread18
     i32 80, label %switch.edge.thread18
   ]
 
-switch.edge.thread:                               ; preds = %13
-  call void @_ZN6icu_7721RuleCharacterIterator6setPosERKNS0_3PosE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  br label %18
-
-switch.edge.thread18:                             ; preds = %13, %13, %13
-  call void @_ZN6icu_7721RuleCharacterIterator6setPosERKNS0_3PosE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  br label %14
-
 switch.edge:                                      ; preds = %9
   %.not = icmp eq i32 %12, 58
   call void @_ZN6icu_7721RuleCharacterIterator6setPosERKNS0_3PosE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  br i1 %.not, label %14, label %18
+  br i1 %.not, label %switch.edge.thread18, label %switch.edge.thread
 
-14:                                               ; preds = %switch.edge.thread18, %switch.edge
-  %15 = load i32, ptr %4, align 4, !tbaa !13
-  %16 = icmp slt i32 %15, 1
-  %17 = zext i1 %16 to i8
-  br label %18
+switch.edge.thread18:                             ; preds = %13, %13, %13, %switch.edge
+  %14 = load i32, ptr %4, align 4, !tbaa !13
+  %15 = icmp slt i32 %14, 1
+  %16 = zext i1 %15 to i8
+  br label %switch.edge.thread
 
 .critedge:                                        ; preds = %2
   call void @_ZN6icu_7721RuleCharacterIterator6setPosERKNS0_3PosE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  br label %18
+  br label %switch.edge.thread
 
-18:                                               ; preds = %switch.edge.thread, %.critedge, %14, %switch.edge
-  %19 = phi i8 [ 0, %switch.edge ], [ %17, %14 ], [ 0, %.critedge ], [ 0, %switch.edge.thread ]
+switch.edge.thread:                               ; preds = %13, %.critedge, %switch.edge.thread18, %switch.edge
+  %17 = phi i8 [ 0, %switch.edge ], [ %16, %switch.edge.thread18 ], [ 0, %.critedge ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i8 %19
+  ret i8 %17
 }
 
 declare void @_ZNK6icu_7721RuleCharacterIterator6getPosERNS0_3PosE(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8

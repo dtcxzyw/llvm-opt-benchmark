@@ -3097,20 +3097,19 @@ define dso_local noundef i32 @_ZN5clang5Lexer20getTokenPrefixLengthENS_14SourceL
   %.025 = phi i32 [ %20, %17 ], [ 0, %.preheader86 ]
   %.023 = phi i32 [ %19, %17 ], [ %1, %.preheader86 ]
   %14 = load i8, ptr %.027, align 1, !tbaa !381
-  switch i8 %14, label %15 [
+  %15 = icmp eq i32 %.023, 0
+  switch i8 %14, label %16 [
     i8 92, label %.preheader
     i8 63, label %.preheader
   ]
 
 .preheader:                                       ; preds = %13, %13
-  %.not38 = icmp eq i32 %.023, 0
-  br i1 %.not38, label %._crit_edge, label %.lr.ph
+  br i1 %15, label %._crit_edge, label %.lr.ph
 
-15:                                               ; preds = %13
-  %16 = icmp eq i32 %.023, 0
-  br i1 %16, label %.loopexit, label %17
+16:                                               ; preds = %13
+  br i1 %15, label %.loopexit, label %17
 
-17:                                               ; preds = %15
+17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %.027, i64 1
   %19 = add i32 %.023, -1
   %20 = add i32 %.025, 1
@@ -3235,8 +3234,8 @@ _ZN5clang5Lexer19SkipEscapedNewLinesEPKc.exit:    ; preds = %30, %32, %35, %_ZN5
   %61 = add i32 %.126.lcssa, %60
   br label %.loopexit
 
-.loopexit:                                        ; preds = %15, %._crit_edge, %11, %_ZN5clang5Lexer19SkipEscapedNewLinesEPKc.exit, %4
-  %.0 = phi i32 [ 0, %11 ], [ 0, %4 ], [ %.126.lcssa, %._crit_edge ], [ %61, %_ZN5clang5Lexer19SkipEscapedNewLinesEPKc.exit ], [ %1, %15 ]
+.loopexit:                                        ; preds = %16, %._crit_edge, %11, %_ZN5clang5Lexer19SkipEscapedNewLinesEPKc.exit, %4
+  %.0 = phi i32 [ 0, %11 ], [ 0, %4 ], [ %.126.lcssa, %._crit_edge ], [ %61, %_ZN5clang5Lexer19SkipEscapedNewLinesEPKc.exit ], [ %1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

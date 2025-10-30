@@ -362,49 +362,43 @@ for.body.lr.ph:                                   ; preds = %if.end12
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh5APIntpLEm.exit
   %p.132 = phi ptr [ %p.0, %for.body.lr.ph ], [ %incdec.ptr38, %_ZN4llvh5APIntpLEm.exit ]
   %4 = load i8, ptr %p.132, align 1
-  switch i8 %radix, label %entry.if.end21_crit_edge.i [
+  %.pre.i = sext i8 %4 to i32
+  %.pre15.i = add nsw i32 %.pre.i, -48
+  switch i8 %radix, label %if.end21.i [
     i8 36, label %if.then.i
     i8 16, label %if.then.i
   ]
 
-entry.if.end21_crit_edge.i:                       ; preds = %for.body
-  %.pre.i = sext i8 %4 to i32
-  %.pre15.i = add nsw i32 %.pre.i, -48
-  br label %if.end21.i
-
 if.then.i:                                        ; preds = %for.body, %for.body
-  %conv3.i = sext i8 %4 to i32
-  %sub.i = add nsw i32 %conv3.i, -48
-  %cmp4.i = icmp ult i32 %sub.i, 10
+  %cmp4.i = icmp ult i32 %.pre15.i, 10
   br i1 %cmp4.i, label %_ZL8getDigitch.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %sub7.i = add nsw i32 %conv3.i, -65
+  %sub7.i = add nsw i32 %.pre.i, -65
   %cmp10.not.i = icmp ugt i32 %sub7.i, %sub9.i
   br i1 %cmp10.not.i, label %if.end12.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  %add.i = add nsw i32 %conv3.i, -55
+  %add.i = add nsw i32 %.pre.i, -55
   br label %_ZL8getDigitch.exit
 
 if.end12.i:                                       ; preds = %if.end.i
-  %sub14.i = add nsw i32 %conv3.i, -97
+  %sub14.i = add nsw i32 %.pre.i, -97
   %cmp17.not.i = icmp ugt i32 %sub14.i, %sub9.i
   br i1 %cmp17.not.i, label %if.end21.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end12.i
-  %add19.i = add nsw i32 %conv3.i, -87
+  %add19.i = add nsw i32 %.pre.i, -87
   br label %_ZL8getDigitch.exit
 
-if.end21.i:                                       ; preds = %if.end12.i, %entry.if.end21_crit_edge.i
-  %sub23.pre-phi.i = phi i32 [ %.pre15.i, %entry.if.end21_crit_edge.i ], [ %sub.i, %if.end12.i ]
-  %radix.addr.0.i = phi i32 [ %conv.i14, %entry.if.end21_crit_edge.i ], [ 10, %if.end12.i ]
-  %cmp25.i = icmp ult i32 %sub23.pre-phi.i, %radix.addr.0.i
-  %sub23..i = select i1 %cmp25.i, i32 %sub23.pre-phi.i, i32 -1
+if.end21.i:                                       ; preds = %for.body, %if.end12.i
+  %radix.addr.0.i = phi i32 [ 10, %if.end12.i ], [ %conv.i14, %for.body ]
+  %cmp25.i = icmp ult i32 %.pre15.i, %radix.addr.0.i
+  %sub23..i = select i1 %cmp25.i, i32 %.pre15.i, i32 -1
   br label %_ZL8getDigitch.exit
 
 _ZL8getDigitch.exit:                              ; preds = %if.then.i, %if.then11.i, %if.then18.i, %if.end21.i
-  %retval.0.i = phi i32 [ %add.i, %if.then11.i ], [ %add19.i, %if.then18.i ], [ %sub.i, %if.then.i ], [ %sub23..i, %if.end21.i ]
+  %retval.0.i = phi i32 [ %add.i, %if.then11.i ], [ %add19.i, %if.then18.i ], [ %.pre15.i, %if.then.i ], [ %sub23..i, %if.end21.i ]
   br i1 %cmp27, label %if.then28, label %if.end35
 
 if.then28:                                        ; preds = %_ZL8getDigitch.exit

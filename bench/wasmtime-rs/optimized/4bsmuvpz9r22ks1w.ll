@@ -17307,10 +17307,10 @@ switch.lookup19:                                  ; preds = %2, %2, %2, %17
   %switch.shiftamt21 = zext nneg i8 %35 to i56
   %switch.downshift22 = lshr i56 4521243572113424, %switch.shiftamt21
   %switch.masked23 = trunc i56 %switch.downshift22 to i8
-  store i8 %switch.masked, ptr %0, align 8, !alias.scope !1960
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %switch.masked23, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !1960
   %.sroa.51.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %switch.masked, ptr %0, align 8, !alias.scope !1960
+  store i8 %switch.masked23, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !1960
   store i64 2, ptr %.sroa.51.0..sroa_idx.i, align 8, !alias.scope !1960
   br label %"_ZN17cranelift_codegen3isa3x644inst4args85_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..AvxOpcode$GT$14available_from17h8f36e6eb7912d14fE.exit"
 }

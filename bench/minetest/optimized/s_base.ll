@@ -3883,6 +3883,8 @@ if.then4:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
   %1 = load i8, ptr %reason, align 8, !tbaa !225, !noalias !222
+  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  store ptr %2, ptr %ref.tmp, align 8, !tbaa !18, !alias.scope !222
   switch i8 %1, label %sw.default.i [
     i8 0, label %sw.bb.i
     i8 1, label %sw.bb.i
@@ -3894,65 +3896,50 @@ if.then4:                                         ; preds = %if.end
   ]
 
 sw.bb.i:                                          ; preds = %if.then4, %if.then4
-  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store ptr %2, ptr %ref.tmp, align 8, !tbaa !18, !alias.scope !222
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %2, ptr noundef nonnull align 1 dereferenceable(6) @.str.78, i64 6, i1 false)
   br label %_ZNK20PlayerHPChangeReason15getTypeAsStringB5cxx11Ev.exit
 
 sw.bb2.i:                                         ; preds = %if.then4
-  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store ptr %3, ptr %ref.tmp, align 8, !tbaa !18, !alias.scope !222
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %3, ptr noundef nonnull align 1 dereferenceable(5) @.str.79, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %2, ptr noundef nonnull align 1 dereferenceable(5) @.str.79, i64 5, i1 false)
   br label %_ZNK20PlayerHPChangeReason15getTypeAsStringB5cxx11Ev.exit
 
 sw.bb6.i:                                         ; preds = %if.then4
-  %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store ptr %4, ptr %ref.tmp, align 8, !tbaa !18, !alias.scope !222
-  store i32 1819042150, ptr %4, align 8, !alias.scope !222
+  store i32 1819042150, ptr %2, align 8, !alias.scope !222
   br label %_ZNK20PlayerHPChangeReason15getTypeAsStringB5cxx11Ev.exit
 
 sw.bb10.i:                                        ; preds = %if.then4
-  %5 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store ptr %5, ptr %ref.tmp, align 8, !tbaa !18, !alias.scope !222
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %5, ptr noundef nonnull align 1 dereferenceable(11) @.str.81, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %2, ptr noundef nonnull align 1 dereferenceable(11) @.str.81, i64 11, i1 false)
   br label %_ZNK20PlayerHPChangeReason15getTypeAsStringB5cxx11Ev.exit
 
 sw.bb14.i:                                        ; preds = %if.then4
-  %6 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store ptr %6, ptr %ref.tmp, align 8, !tbaa !18, !alias.scope !222
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %6, ptr noundef nonnull align 1 dereferenceable(5) @.str.82, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %2, ptr noundef nonnull align 1 dereferenceable(5) @.str.82, i64 5, i1 false)
   br label %_ZNK20PlayerHPChangeReason15getTypeAsStringB5cxx11Ev.exit
 
 sw.bb18.i:                                        ; preds = %if.then4
-  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store ptr %7, ptr %ref.tmp, align 8, !tbaa !18, !alias.scope !222
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %7, ptr noundef nonnull align 1 dereferenceable(7) @.str.83, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %2, ptr noundef nonnull align 1 dereferenceable(7) @.str.83, i64 7, i1 false)
   br label %_ZNK20PlayerHPChangeReason15getTypeAsStringB5cxx11Ev.exit
 
 sw.default.i:                                     ; preds = %if.then4
-  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store ptr %8, ptr %ref.tmp, align 8, !tbaa !18, !alias.scope !222
-  store i8 63, ptr %8, align 8, !tbaa !20, !alias.scope !222
+  store i8 63, ptr %2, align 8, !tbaa !20, !alias.scope !222
   br label %_ZNK20PlayerHPChangeReason15getTypeAsStringB5cxx11Ev.exit
 
 _ZNK20PlayerHPChangeReason15getTypeAsStringB5cxx11Ev.exit: ; preds = %sw.default.i, %sw.bb18.i, %sw.bb14.i, %sw.bb10.i, %sw.bb6.i, %sw.bb2.i, %sw.bb.i
-  %9 = phi ptr [ %8, %sw.default.i ], [ %7, %sw.bb18.i ], [ %6, %sw.bb14.i ], [ %5, %sw.bb10.i ], [ %4, %sw.bb6.i ], [ %3, %sw.bb2.i ], [ %2, %sw.bb.i ]
   %.sink100.i = phi i64 [ 1, %sw.default.i ], [ 7, %sw.bb18.i ], [ 5, %sw.bb14.i ], [ 11, %sw.bb10.i ], [ 4, %sw.bb6.i ], [ 5, %sw.bb2.i ], [ 6, %sw.bb.i ]
   %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %sw.default.i ], [ %.sink.i.sroa.gep47, %sw.bb18.i ], [ %.sink.i.sroa.gep48, %sw.bb14.i ], [ %.sink.i.sroa.gep49, %sw.bb10.i ], [ %.sink.i.sroa.gep50, %sw.bb6.i ], [ %.sink.i.sroa.gep48, %sw.bb2.i ], [ %.sink.i.sroa.gep52, %sw.bb.i ]
   %_M_string_length.i.i.i.i92.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %.sink100.i, ptr %_M_string_length.i.i.i.i92.i, align 8, !tbaa !19, !alias.scope !222
   store i8 0, ptr %.sink.i.sroa.phi, align 1, !tbaa !20, !alias.scope !222
-  invoke void @lua_pushstring(ptr noundef %L, ptr noundef nonnull %9)
+  invoke void @lua_pushstring(ptr noundef %L, ptr noundef nonnull %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK20PlayerHPChangeReason15getTypeAsStringB5cxx11Ev.exit
-  %10 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
-  %11 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  %cmp.i.i.i = icmp eq ptr %10, %11
+  %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef %10) #28
+  call void @_ZdlPv(ptr noundef %3) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -3961,48 +3948,48 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invok
   br label %if.end6
 
 lpad:                                             ; preds = %_ZNK20PlayerHPChangeReason15getTypeAsStringB5cxx11Ev.exit
-  %12 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %13 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
-  %14 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  %cmp.i.i.i40 = icmp eq ptr %13, %14
+  %6 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %cmp.i.i.i40 = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i40, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45, label %if.then.i.i41
 
 if.then.i.i41:                                    ; preds = %lpad
-  call void @_ZdlPv(ptr noundef %13) #28
+  call void @_ZdlPv(ptr noundef %6) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %lpad, %if.then.i.i41
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %5
 
 if.end6:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.end
   %from_mod = getelementptr inbounds nuw i8, ptr %reason, i64 1
-  %15 = load i8, ptr %from_mod, align 1, !tbaa !226, !range !79, !noundef !80
-  %tobool7.not = icmp eq i8 %15, 0
+  %8 = load i8, ptr %from_mod, align 1, !tbaa !226, !range !79, !noundef !80
+  %tobool7.not = icmp eq i8 %8, 0
   %cond = select i1 %tobool7.not, ptr @.str.70, ptr @.str.69
   call void @lua_pushstring(ptr noundef %L, ptr noundef nonnull %cond)
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.71)
   %object = getelementptr inbounds nuw i8, ptr %reason, i64 8
-  %16 = load ptr, ptr %object, align 8, !tbaa !227
-  %tobool8.not = icmp eq ptr %16, null
+  %9 = load ptr, ptr %object, align 8, !tbaa !227
+  %tobool8.not = icmp eq ptr %9, null
   br i1 %tobool8.not, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
-  call void @_ZN13ScriptApiBase20objectrefGetOrCreateEP9lua_StateP18ServerActiveObject(ptr nonnull align 8 poison, ptr noundef %L, ptr noundef nonnull %16)
+  call void @_ZN13ScriptApiBase20objectrefGetOrCreateEP9lua_StateP18ServerActiveObject(ptr nonnull align 8 poison, ptr noundef %L, ptr noundef nonnull %9)
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.72)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.end6
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %reason, i64 24
-  %17 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !19
-  %cmp.i46 = icmp eq i64 %17, 0
+  %10 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !19
+  %cmp.i46 = icmp eq i64 %10, 0
   br i1 %cmp.i46, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
   %node = getelementptr inbounds nuw i8, ptr %reason, i64 16
-  %18 = load ptr, ptr %node, align 8, !tbaa !4
-  call void @lua_pushstring(ptr noundef %L, ptr noundef %18)
+  %11 = load ptr, ptr %node, align 8, !tbaa !4
+  call void @lua_pushstring(ptr noundef %L, ptr noundef %11)
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.73)
   %node_pos = getelementptr inbounds nuw i8, ptr %reason, i64 48
   %agg.tmp.sroa.0.0.copyload = load i48, ptr %node_pos, align 8, !tbaa.struct !228

@@ -5726,19 +5726,19 @@ stackdepth_push.exit103.thread.i:                 ; preds = %192, %189, %142
   %.46.i = phi ptr [ %.287.i, %142 ], [ %.287.i, %189 ], [ %193, %192 ]
   %.5.i = phi i32 [ %145, %142 ], [ %182, %189 ], [ %182, %192 ]
   %196 = load i32, ptr %106, align 8, !tbaa !26
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   switch i32 %196, label %197 [
-    i32 256, label %.thread41.i
-    i32 259, label %.thread41.i
-    i32 76, label %.thread41.i
-    i32 74, label %.thread41.i
-    i32 75, label %.thread41.i
-    i32 36, label %.thread41.i
-    i32 101, label %.thread41.i
-    i32 102, label %.thread41.i
+    i32 256, label %stackdepth_push.exit107.thread.i
+    i32 259, label %stackdepth_push.exit107.thread.i
+    i32 76, label %stackdepth_push.exit107.thread.i
+    i32 74, label %stackdepth_push.exit107.thread.i
+    i32 75, label %stackdepth_push.exit107.thread.i
+    i32 36, label %stackdepth_push.exit107.thread.i
+    i32 101, label %stackdepth_push.exit107.thread.i
+    i32 102, label %stackdepth_push.exit107.thread.i
   ]
 
 197:                                              ; preds = %stackdepth_push.exit103.thread.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %198 = load i32, ptr %100, align 8, !tbaa !25
   %199 = sext i32 %198 to i64
@@ -5748,10 +5748,6 @@ stackdepth_push.exit103.thread.i:                 ; preds = %192, %189, %142
 .thread34.i:                                      ; preds = %stackdepth_push.exit103.i, %172, %139, %131
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %calculate_stackdepth.exit.thread39
-
-.thread41.i:                                      ; preds = %stackdepth_push.exit103.thread.i, %stackdepth_push.exit103.thread.i, %stackdepth_push.exit103.thread.i, %stackdepth_push.exit103.thread.i, %stackdepth_push.exit103.thread.i, %stackdepth_push.exit103.thread.i, %stackdepth_push.exit103.thread.i, %stackdepth_push.exit103.thread.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %stackdepth_push.exit107.thread.i
 
 ._crit_edge93.i:                                  ; preds = %197, %93
   %.2.lcssa.i = phi ptr [ %94, %93 ], [ %.46.i, %197 ]
@@ -5785,9 +5781,9 @@ stackdepth_push.exit107.i:                        ; preds = %201
   %212 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %211, ptr noundef nonnull @.str.7) #8
   br label %calculate_stackdepth.exit.thread39
 
-stackdepth_push.exit107.thread.i:                 ; preds = %209, %206, %._crit_edge93.i, %.thread41.i
-  %.27829.i = phi i32 [ %.177.lcssa.i, %._crit_edge93.i ], [ %.5.i, %.thread41.i ], [ %.177.lcssa.i, %209 ], [ %.177.lcssa.i, %206 ]
-  %.9.i = phi ptr [ %.2.lcssa.i, %._crit_edge93.i ], [ %.46.i, %.thread41.i ], [ %210, %209 ], [ %.2.lcssa.i, %206 ]
+stackdepth_push.exit107.thread.i:                 ; preds = %stackdepth_push.exit103.thread.i, %stackdepth_push.exit103.thread.i, %stackdepth_push.exit103.thread.i, %stackdepth_push.exit103.thread.i, %stackdepth_push.exit103.thread.i, %stackdepth_push.exit103.thread.i, %stackdepth_push.exit103.thread.i, %stackdepth_push.exit103.thread.i, %209, %206, %._crit_edge93.i
+  %.27829.i = phi i32 [ %.177.lcssa.i, %._crit_edge93.i ], [ %.177.lcssa.i, %209 ], [ %.177.lcssa.i, %206 ], [ %.5.i, %stackdepth_push.exit103.thread.i ], [ %.5.i, %stackdepth_push.exit103.thread.i ], [ %.5.i, %stackdepth_push.exit103.thread.i ], [ %.5.i, %stackdepth_push.exit103.thread.i ], [ %.5.i, %stackdepth_push.exit103.thread.i ], [ %.5.i, %stackdepth_push.exit103.thread.i ], [ %.5.i, %stackdepth_push.exit103.thread.i ], [ %.5.i, %stackdepth_push.exit103.thread.i ]
+  %.9.i = phi ptr [ %.2.lcssa.i, %._crit_edge93.i ], [ %210, %209 ], [ %.2.lcssa.i, %206 ], [ %.46.i, %stackdepth_push.exit103.thread.i ], [ %.46.i, %stackdepth_push.exit103.thread.i ], [ %.46.i, %stackdepth_push.exit103.thread.i ], [ %.46.i, %stackdepth_push.exit103.thread.i ], [ %.46.i, %stackdepth_push.exit103.thread.i ], [ %.46.i, %stackdepth_push.exit103.thread.i ], [ %.46.i, %stackdepth_push.exit103.thread.i ], [ %.46.i, %stackdepth_push.exit103.thread.i ]
   %.not87.i = icmp eq ptr %.9.i, %74
   br i1 %.not87.i, label %calculate_stackdepth.exit, label %93
 

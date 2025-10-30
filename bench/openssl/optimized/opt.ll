@@ -2051,29 +2051,28 @@ sub_057:                                          ; preds = %sub_057.lr.ph.split
   %.us-phi64 = phi ptr [ %42, %sub_057.us65 ], [ %42, %45 ], [ %50, %sub_057 ], [ %34, %sub_057.us ]
   %52 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 12
   %53 = load i32, ptr %52, align 4, !tbaa !20
-  switch i32 %53, label %60 [
-    i32 0, label %54
-    i32 45, label %54
+  %54 = icmp eq ptr %30, null
+  switch i32 %53, label %61 [
+    i32 0, label %55
+    i32 45, label %55
   ]
 
-54:                                               ; preds = %.split.us, %.split.us
-  %.not54 = icmp eq ptr %30, null
-  br i1 %.not54, label %57, label %55
+55:                                               ; preds = %.split.us, %.split.us
+  br i1 %54, label %58, label %56
 
-55:                                               ; preds = %54
-  %56 = tail call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.39, ptr noundef nonnull @prog, ptr noundef nonnull %spec.select) #20
+56:                                               ; preds = %55
+  %57 = tail call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.39, ptr noundef nonnull @prog, ptr noundef nonnull %spec.select) #20
   br label %137
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
-  %59 = load i32, ptr %58, align 8, !tbaa !40
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
+  %60 = load i32, ptr %59, align 8, !tbaa !40
   br label %137
 
-60:                                               ; preds = %.split.us
-  %61 = icmp eq ptr %30, null
-  br i1 %61, label %62, label %71
+61:                                               ; preds = %.split.us
+  br i1 %54, label %62, label %71
 
-62:                                               ; preds = %60
+62:                                               ; preds = %61
   %63 = sext i32 %15 to i64
   %64 = getelementptr inbounds ptr, ptr %7, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !13
@@ -2090,8 +2089,8 @@ sub_057:                                          ; preds = %sub_057.lr.ph.split
   store ptr %65, ptr @arg, align 8, !tbaa !13
   br label %71
 
-71:                                               ; preds = %69, %60
-  %72 = phi ptr [ %65, %69 ], [ %30, %60 ]
+71:                                               ; preds = %69, %61
+  %72 = phi ptr [ %65, %69 ], [ %30, %61 ]
   switch i32 %53, label %120 [
     i32 117, label %108
     i32 108, label %106
@@ -2236,8 +2235,8 @@ sub_057:                                          ; preds = %sub_057.lr.ph.split
   %136 = tail call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.46, ptr noundef nonnull @prog, ptr noundef nonnull %spec.select) #20
   br label %137
 
-137:                                              ; preds = %108, %106, %104, %102, %84, %.tail, %13, %0, %135, %132, %129, %120, %116, %98, %91, %81, %67, %57, %55
-  %.036 = phi i32 [ -1, %55 ], [ %59, %57 ], [ -1, %67 ], [ %122, %120 ], [ -1, %81 ], [ -1, %91 ], [ -1, %98 ], [ -1, %116 ], [ -1, %129 ], [ %134, %132 ], [ -1, %135 ], [ 0, %0 ], [ 0, %13 ], [ 0, %.tail ], [ -1, %84 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %108 ]
+137:                                              ; preds = %108, %106, %104, %102, %84, %.tail, %13, %0, %135, %132, %129, %120, %116, %98, %91, %81, %67, %58, %56
+  %.036 = phi i32 [ -1, %56 ], [ %60, %58 ], [ -1, %67 ], [ %122, %120 ], [ -1, %81 ], [ -1, %91 ], [ -1, %98 ], [ -1, %116 ], [ -1, %129 ], [ %134, %132 ], [ -1, %135 ], [ 0, %0 ], [ 0, %13 ], [ 0, %.tail ], [ -1, %84 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %108 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

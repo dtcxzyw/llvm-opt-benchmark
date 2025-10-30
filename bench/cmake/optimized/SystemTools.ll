@@ -12478,14 +12478,14 @@ define dso_local noundef ptr @_ZN5cmsys11SystemTools22SplitPathRootComponentERKN
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %32 = load i8, ptr %31, align 1, !tbaa !20
+  %.not58 = icmp eq ptr %1, null
   switch i8 %32, label %42 [
     i8 47, label %33
     i8 92, label %33
   ]
 
 33:                                               ; preds = %30, %30
-  %.not59 = icmp eq ptr %1, null
-  br i1 %.not59, label %40, label %34
+  br i1 %.not58, label %40, label %34
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12501,7 +12501,6 @@ define dso_local noundef ptr @_ZN5cmsys11SystemTools22SplitPathRootComponentERKN
   br label %85
 
 42:                                               ; preds = %30
-  %.not58 = icmp eq ptr %1, null
   br i1 %.not58, label %49, label %43
 
 43:                                               ; preds = %42

@@ -4256,53 +4256,41 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
 define linkonce_odr void @_ZNK10open_spiel5twixt10TwixTState7ReturnsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.27") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load i32, ptr %3, align 8
-  switch i32 %4, label %15 [
-    i32 3, label %5
-    i32 0, label %5
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %5 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
+  store ptr %5, ptr %0, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %6, ptr %7, align 8
+  switch i32 %4, label %12 [
+    i32 3, label %8
+    i32 0, label %8
     i32 1, label %10
   ]
 
-5:                                                ; preds = %2, %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
-  store ptr %6, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %7, ptr %8, align 8
+8:                                                ; preds = %2, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr %7, ptr %9, align 8
-  br label %20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  store ptr %6, ptr %9, align 8
+  br label %14
 
 10:                                               ; preds = %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %11 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
-  store ptr %11, ptr %0, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %12, ptr %13, align 8
-  store double 1.000000e+00, ptr %11, align 8
-  %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store double 1.000000e+00, ptr %5, align 8
+  %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double -1.000000e+00, ptr %.sroa.228.0..sroa_idx, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %12, ptr %14, align 8
-  br label %20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %6, ptr %11, align 8
+  br label %14
 
-15:                                               ; preds = %2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %16 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
-  store ptr %16, ptr %0, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %18, align 8
-  store double -1.000000e+00, ptr %16, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
+12:                                               ; preds = %2
+  store double -1.000000e+00, ptr %5, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double 1.000000e+00, ptr %.sroa.2.0..sroa_idx, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %17, ptr %19, align 8
-  br label %20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %6, ptr %13, align 8
+  br label %14
 
-20:                                               ; preds = %15, %10, %5
+14:                                               ; preds = %12, %10, %8
   ret void
 }
 

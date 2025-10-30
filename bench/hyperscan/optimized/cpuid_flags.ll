@@ -71,49 +71,44 @@ define hidden i32 @cpuid_tune() local_unnamed_addr #1 {
   %2 = extractvalue { i32, i32, i32, i32 } %1, 0
   %3 = lshr i32 %2, 8
   %4 = and i32 %3, 15
+  %5 = lshr i32 %2, 4
+  %6 = and i32 %5, 15
   switch i32 %4, label %11 [
-    i32 15, label %5
-    i32 6, label %5
+    i32 15, label %7
+    i32 6, label %7
   ]
 
-5:                                                ; preds = %0, %0
-  %6 = lshr i32 %2, 4
-  %7 = and i32 %6, 15
+7:                                                ; preds = %0, %0
   %8 = lshr i32 %2, 12
   %9 = and i32 %8, 240
-  %10 = or disjoint i32 %7, %9
-  br label %14
+  %10 = or disjoint i32 %6, %9
+  br label %11
 
-11:                                               ; preds = %0
-  %12 = lshr i32 %2, 4
-  %13 = and i32 %12, 15
-  br label %14
-
-14:                                               ; preds = %5, %11
-  %.015 = phi i32 [ %10, %5 ], [ %13, %11 ]
+11:                                               ; preds = %0, %7
+  %.015 = phi i32 [ %10, %7 ], [ %6, %0 ]
   %.not = icmp eq i32 %4, 6
   br i1 %.not, label %.split.us, label %.loopexit
 
-.split.us:                                        ; preds = %14, %18
-  %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %14 ]
-  %15 = getelementptr inbounds nuw %struct.family_id, ptr @known_microarch, i64 %indvars.iv
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %17 = load i32, ptr %16, align 4
-  %.not17.us = icmp eq i32 %.015, %17
-  br i1 %.not17.us, label %.split20.us, label %18
+.split.us:                                        ; preds = %11, %15
+  %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %11 ]
+  %12 = getelementptr inbounds nuw %struct.family_id, ptr @known_microarch, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %14 = load i32, ptr %13, align 4
+  %.not17.us = icmp eq i32 %.015, %14
+  br i1 %.not17.us, label %.split20.us, label %15
 
-18:                                               ; preds = %.split.us
+15:                                               ; preds = %.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 29
   br i1 %exitcond, label %.loopexit, label %.split.us
 
 .split20.us:                                      ; preds = %.split.us
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %20 = load i32, ptr %19, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %17 = load i32, ptr %16, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %18, %14, %.split20.us
-  %spec.select = phi i32 [ %20, %.split20.us ], [ 0, %14 ], [ 0, %18 ]
+.loopexit:                                        ; preds = %15, %11, %.split20.us
+  %spec.select = phi i32 [ %17, %.split20.us ], [ 0, %11 ], [ 0, %15 ]
   ret i32 %spec.select
 }
 

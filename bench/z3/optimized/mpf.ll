@@ -18838,19 +18838,19 @@ define hidden void @_ZN11mpf_manager12mk_round_infE17mpf_rounding_modeR3mpf(ptr 
   br label %_ZN11mpf_manager12mk_max_valueEjjbR3mpf.exit
 
 44:                                               ; preds = %3
+  %45 = and i32 %4, 32767
   switch i32 %1, label %71 [
-    i32 4, label %45
-    i32 2, label %45
+    i32 4, label %46
+    i32 2, label %46
   ]
 
-45:                                               ; preds = %44, %44
-  %46 = and i32 %4, 32767
+46:                                               ; preds = %44, %44
   %47 = lshr i32 %4, 15
   %48 = and i32 %47, 65535
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %50 = load ptr, ptr %49, align 8, !tbaa !33
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %52 = add nsw i32 %46, -1
+  %52 = add nsw i32 %45, -1
   %53 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN11mpf_manager7powers2clEjb(ptr noundef nonnull align 8 dereferenceable(104) %51, i32 noundef %52, i1 noundef zeroext false)
   %54 = tail call noundef i64 @_ZNK11mpz_managerILb0EE9get_int64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %50, ptr noundef nonnull align 8 dereferenceable(16) %53)
   %55 = add nsw i64 %54, -1
@@ -18866,7 +18866,7 @@ define hidden void @_ZN11mpf_manager12mk_round_infE17mpf_rounding_modeR3mpf(ptr 
   %64 = icmp eq i8 %63, 0
   br i1 %64, label %65, label %70
 
-65:                                               ; preds = %45
+65:                                               ; preds = %46
   %66 = load i32, ptr %60, align 8, !tbaa !3
   store i32 %66, ptr %58, align 8, !tbaa !3
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -18875,26 +18875,25 @@ define hidden void @_ZN11mpf_manager12mk_round_infE17mpf_rounding_modeR3mpf(ptr 
   store i8 %69, ptr %67, align 4
   br label %_ZN11mpf_manager12mk_max_valueEjjbR3mpf.exit
 
-70:                                               ; preds = %45
+70:                                               ; preds = %46
   tail call void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %57, ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %60)
   br label %_ZN11mpf_manager12mk_max_valueEjjbR3mpf.exit
 
 71:                                               ; preds = %44
-  %72 = and i32 %4, 32767
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %74 = load ptr, ptr %73, align 8, !tbaa !33
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %76 = add nsw i32 %72, -1
-  %77 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN11mpf_manager7powers2clEjb(ptr noundef nonnull align 8 dereferenceable(104) %75, i32 noundef %76, i1 noundef zeroext false)
-  %78 = tail call noundef i64 @_ZNK11mpz_managerILb0EE9get_int64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %74, ptr noundef nonnull align 8 dereferenceable(16) %77)
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %78, ptr %79, align 8, !tbaa !10
-  %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 0, ptr %80, align 8, !tbaa !3
-  %81 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %82 = load i8, ptr %81, align 4
-  %83 = and i8 %82, -2
-  store i8 %83, ptr %81, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %73 = load ptr, ptr %72, align 8, !tbaa !33
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %75 = add nsw i32 %45, -1
+  %76 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN11mpf_manager7powers2clEjb(ptr noundef nonnull align 8 dereferenceable(104) %74, i32 noundef %75, i1 noundef zeroext false)
+  %77 = tail call noundef i64 @_ZNK11mpz_managerILb0EE9get_int64ERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %73, ptr noundef nonnull align 8 dereferenceable(16) %76)
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i64 %77, ptr %78, align 8, !tbaa !10
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 0, ptr %79, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %81 = load i8, ptr %80, align 4
+  %82 = and i8 %81, -2
+  store i8 %82, ptr %80, align 4
   br label %_ZN11mpf_manager12mk_max_valueEjjbR3mpf.exit
 
 _ZN11mpf_manager12mk_max_valueEjjbR3mpf.exit:     ; preds = %70, %65, %31, %26, %71, %32

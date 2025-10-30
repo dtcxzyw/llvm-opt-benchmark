@@ -2077,7 +2077,7 @@ define dso_local void @_ZN27btSimulationIslandManagerMt18addBodiesToIslandsEP16b
   br i1 %.03540.ph, label %.loopexit, label %.lr.ph43
 
 24:                                               ; preds = %.outer, %_ZNK17btCollisionObject8isActiveEv.exit
-  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %_ZNK17btCollisionObject8isActiveEv.exit ], [ %indvars.iv50.ph, %.outer ]
+  %indvars.iv50 = phi i64 [ %indvars.iv.next5162, %_ZNK17btCollisionObject8isActiveEv.exit ], [ %indvars.iv50.ph, %.outer ]
   %25 = getelementptr inbounds %struct.btElement, ptr %10, i64 %indvars.iv50
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !96
@@ -2086,6 +2086,8 @@ define dso_local void @_ZN27btSimulationIslandManagerMt18addBodiesToIslandsEP16b
   %30 = load ptr, ptr %29, align 8, !tbaa !68
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 240
   %32 = load i32, ptr %31, align 8, !tbaa !107
+  %indvars.iv.next5162 = add nsw i64 %indvars.iv50, 1
+  %exitcond.not63 = icmp eq i64 %indvars.iv.next5162, %wide.trip.count
   switch i32 %32, label %_ZNK17btCollisionObject8isActiveEv.exit.thread [
     i32 6, label %_ZNK17btCollisionObject8isActiveEv.exit
     i32 2, label %_ZNK17btCollisionObject8isActiveEv.exit
@@ -2093,13 +2095,9 @@ define dso_local void @_ZN27btSimulationIslandManagerMt18addBodiesToIslandsEP16b
   ]
 
 _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %24, %24, %24
-  %indvars.iv.next51 = add nsw i64 %indvars.iv50, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !114
+  br i1 %exitcond.not63, label %._crit_edge, label %24, !llvm.loop !114
 
 _ZNK17btCollisionObject8isActiveEv.exit.thread:   ; preds = %24
-  %indvars.iv.next5162 = add nsw i64 %indvars.iv50, 1
-  %exitcond.not63 = icmp eq i64 %indvars.iv.next5162, %wide.trip.count
   br i1 %exitcond.not63, label %.lr.ph43, label %.outer, !llvm.loop !114
 
 .lr.ph43:                                         ; preds = %_ZNK17btCollisionObject8isActiveEv.exit.thread, %._crit_edge

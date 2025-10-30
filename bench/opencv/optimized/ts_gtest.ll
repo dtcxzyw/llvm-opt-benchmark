@@ -6027,52 +6027,49 @@ tailrecurse.outer:                                ; preds = %tailrecurse.outer.b
   %.tr.ph = phi ptr [ %0, %2 ], [ %.tr.ph.be, %tailrecurse.outer.backedge ]
   %.tr16.ph = phi ptr [ %1, %2 ], [ %3, %tailrecurse.outer.backedge ]
   %3 = getelementptr inbounds nuw i8, ptr %.tr16.ph, i64 1
+  %4 = load i8, ptr %.tr16.ph, align 1, !tbaa !13
+  %.not = icmp eq i8 %4, 0
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %tailrecurse.outer, %14
-  %.tr = phi ptr [ %15, %14 ], [ %.tr.ph, %tailrecurse.outer ]
-  %4 = load i8, ptr %.tr, align 1, !tbaa !13
-  switch i8 %4, label %16 [
-    i8 0, label %5
-    i8 58, label %5
+tailrecurse:                                      ; preds = %tailrecurse.outer, %12
+  %.tr = phi ptr [ %13, %12 ], [ %.tr.ph, %tailrecurse.outer ]
+  %5 = load i8, ptr %.tr, align 1, !tbaa !13
+  switch i8 %5, label %14 [
+    i8 0, label %6
+    i8 58, label %6
     i8 63, label %8
-    i8 42, label %10
+    i8 42, label %9
   ]
 
-5:                                                ; preds = %tailrecurse, %tailrecurse
-  %6 = load i8, ptr %.tr16.ph, align 1, !tbaa !13
-  %7 = icmp eq i8 %6, 0
+6:                                                ; preds = %tailrecurse, %tailrecurse
+  %7 = icmp eq i8 %4, 0
   br label %.loopexit
 
 8:                                                ; preds = %tailrecurse
-  %9 = load i8, ptr %.tr16.ph, align 1, !tbaa !13
-  %.not15 = icmp eq i8 %9, 0
+  %.not15 = icmp eq i8 %4, 0
   br i1 %.not15, label %.loopexit, label %tailrecurse.outer.backedge
 
-tailrecurse.outer.backedge:                       ; preds = %16, %8
+tailrecurse.outer.backedge:                       ; preds = %14, %8
   %.tr.ph.be = getelementptr inbounds nuw i8, ptr %.tr, i64 1
   br label %tailrecurse.outer
 
-10:                                               ; preds = %tailrecurse
-  %11 = load i8, ptr %.tr16.ph, align 1, !tbaa !13
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %14, label %12
+9:                                                ; preds = %tailrecurse
+  br i1 %.not, label %12, label %10
 
-12:                                               ; preds = %10
-  %13 = tail call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef nonnull %.tr, ptr noundef nonnull %3)
-  br i1 %13, label %.loopexit, label %14
+10:                                               ; preds = %9
+  %11 = tail call noundef zeroext i1 @_ZN7testing8internal15UnitTestOptions20PatternMatchesStringEPKcS3_(ptr noundef nonnull %.tr, ptr noundef nonnull %3)
+  br i1 %11, label %.loopexit, label %12
 
-14:                                               ; preds = %12, %10
-  %15 = getelementptr inbounds nuw i8, ptr %.tr, i64 1
+12:                                               ; preds = %10, %9
+  %13 = getelementptr inbounds nuw i8, ptr %.tr, i64 1
   br label %tailrecurse
 
-16:                                               ; preds = %tailrecurse
-  %17 = load i8, ptr %.tr16.ph, align 1, !tbaa !13
-  %18 = icmp eq i8 %4, %17
-  br i1 %18, label %tailrecurse.outer.backedge, label %.loopexit
+14:                                               ; preds = %tailrecurse
+  %15 = icmp eq i8 %5, %4
+  br i1 %15, label %tailrecurse.outer.backedge, label %.loopexit
 
-.loopexit:                                        ; preds = %16, %8, %12, %5
-  %.0 = phi i1 [ %7, %5 ], [ true, %12 ], [ false, %8 ], [ false, %16 ]
+.loopexit:                                        ; preds = %14, %8, %10, %6
+  %.0 = phi i1 [ %7, %6 ], [ true, %10 ], [ false, %8 ], [ false, %14 ]
   ret i1 %.0
 }
 

@@ -3154,28 +3154,24 @@ define hidden void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$
   %54 = ptrtoint ptr %50 to i64
   %55 = sub i64 %53, %8
   %56 = add i64 %55, %54
-  switch i32 %.sroa.4.1.i.ph.i, label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E.exit.thread.sink.split" [
-    i32 9, label %57
-    i32 10, label %57
-    i32 12, label %57
-    i32 13, label %57
-    i32 32, label %57
+  %57 = add i64 %55, %7
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %56, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %57, ptr %59, align 8
+  switch i32 %.sroa.4.1.i.ph.i, label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E.exit.thread" [
+    i32 9, label %60
+    i32 10, label %60
+    i32 12, label %60
+    i32 13, label %60
+    i32 32, label %60
   ]
 
-57:                                               ; preds = %49, %49, %49, %49, %49
-  br label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E.exit.thread.sink.split"
-
-"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E.exit.thread.sink.split": ; preds = %49, %57
-  %storemerge2.ph = phi i64 [ 0, %57 ], [ 1, %49 ]
-  %58 = add i64 %55, %7
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %56, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %58, ptr %60, align 8
+60:                                               ; preds = %49, %49, %49, %49, %49
   br label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E.exit.thread"
 
-"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E.exit.thread": ; preds = %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E.exit.thread.sink.split", %2
-  %storemerge2 = phi i64 [ 2, %2 ], [ %storemerge2.ph, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E.exit.thread.sink.split" ]
+"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd0fd904a5c80f564E.exit.thread": ; preds = %49, %2, %60
+  %storemerge2 = phi i64 [ 0, %60 ], [ 2, %2 ], [ 1, %49 ]
   store i64 %storemerge2, ptr %0, align 8
   ret void
 }
@@ -4470,8 +4466,8 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   %6 = icmp eq ptr %5, %.promoted.i
   br i1 %6, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h4b9db3120f86e7bbE.llvm.8558902862996176100.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %2, %60
-  %7 = phi ptr [ %47, %60 ], [ %.promoted.i, %2 ]
+.lr.ph.i:                                         ; preds = %2, %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i"
+  %7 = phi ptr [ %47, %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i" ], [ %.promoted.i, %2 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1571)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1572)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1575)
@@ -4541,11 +4537,11 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   %48 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i.i, 1114112
   tail call void @llvm.assume(i1 %48)
   switch i32 %.sroa.4.1.i.ph.i.i.i, label %49 [
-    i32 9, label %60
-    i32 10, label %60
-    i32 12, label %60
-    i32 13, label %60
-    i32 32, label %60
+    i32 9, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i"
+    i32 10, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i"
+    i32 12, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i"
+    i32 13, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i"
+    i32 32, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i"
   ]
 
 49:                                               ; preds = %46
@@ -4555,25 +4551,25 @@ define hidden void @"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$G
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %53 = load i64, ptr %52, align 8, !alias.scope !1580, !noalias !1568, !noundef !7
   %54 = sub i64 %53, %51
-  %55 = ptrtoint ptr %47 to i64
-  %56 = add i64 %54, %55
-  %57 = add i64 %54, %50
+  %55 = add i64 %54, %50
+  %56 = ptrtoint ptr %47 to i64
+  %57 = add i64 %54, %56
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %56, ptr %58, align 8, !alias.scope !1558, !noalias !1561
+  store i64 %57, ptr %58, align 8, !alias.scope !1558, !noalias !1561
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %57, ptr %59, align 8, !alias.scope !1558, !noalias !1561
+  store i64 %55, ptr %59, align 8, !alias.scope !1558, !noalias !1561
   br label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h4b9db3120f86e7bbE.llvm.8558902862996176100.exit
 
-60:                                               ; preds = %46, %46, %46, %46, %46
-  %61 = icmp eq ptr %5, %47
-  br i1 %61, label %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread.loopexit_crit_edge.i", label %.lr.ph.i
+"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i": ; preds = %46, %46, %46, %46, %46
+  %60 = icmp eq ptr %5, %47
+  br i1 %60, label %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread6.loopexit_crit_edge.i", label %.lr.ph.i
 
-"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread.loopexit_crit_edge.i": ; preds = %60
+"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread6.loopexit_crit_edge.i": ; preds = %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i"
   store ptr %47, ptr %4, align 8, !alias.scope !1579, !noalias !1568
   br label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h4b9db3120f86e7bbE.llvm.8558902862996176100.exit
 
-_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h4b9db3120f86e7bbE.llvm.8558902862996176100.exit: ; preds = %2, %49, %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread.loopexit_crit_edge.i"
-  %storemerge.i = phi i64 [ 1, %49 ], [ 0, %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread.loopexit_crit_edge.i" ], [ 0, %2 ]
+_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h4b9db3120f86e7bbE.llvm.8558902862996176100.exit: ; preds = %2, %49, %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread6.loopexit_crit_edge.i"
+  %storemerge.i = phi i64 [ 1, %49 ], [ 0, %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread6.loopexit_crit_edge.i" ], [ 0, %2 ]
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !1558, !noalias !1561
   ret void
 }
@@ -6883,8 +6879,8 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %51
-  %5 = phi ptr [ %45, %51 ], [ %4, %.lr.ph.i.i.preheader ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i.i"
+  %5 = phi ptr [ %45, %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i.i" ], [ %4, %.lr.ph.i.i.preheader ]
   %6 = getelementptr inbounds i8, ptr %5, i64 -1
   %7 = load i8, ptr %6, align 1, !noalias !2194, !noundef !7
   %8 = icmp sgt i8 %7, -1
@@ -6951,11 +6947,11 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   %46 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i.i.i, 1114112
   tail call void @llvm.assume(i1 %46)
   switch i32 %.sroa.4.1.i.ph.i.i.i.i, label %47 [
-    i32 9, label %51
-    i32 10, label %51
-    i32 12, label %51
-    i32 13, label %51
-    i32 32, label %51
+    i32 9, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i.i"
+    i32 10, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i.i"
+    i32 12, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i.i"
+    i32 13, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i.i"
+    i32 32, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i.i"
   ]
 
 47:                                               ; preds = %44
@@ -6964,15 +6960,15 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   %50 = sub i64 %48, %49
   br label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h7ef3d7e095f53714E.llvm.8558902862996176100.exit"
 
-51:                                               ; preds = %44, %44, %44, %44, %44
-  %52 = icmp eq ptr %0, %45
-  br i1 %52, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h7ef3d7e095f53714E.llvm.8558902862996176100.exit", label %.lr.ph.i.i
+"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i.i": ; preds = %44, %44, %44, %44, %44
+  %51 = icmp eq ptr %0, %45
+  br i1 %51, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h7ef3d7e095f53714E.llvm.8558902862996176100.exit", label %.lr.ph.i.i
 
-"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h7ef3d7e095f53714E.llvm.8558902862996176100.exit": ; preds = %51, %2, %47
-  %storemerge.i.i = phi i64 [ 0, %2 ], [ %50, %47 ], [ 0, %51 ]
-  %53 = insertvalue { ptr, i64 } poison, ptr %0, 0
-  %54 = insertvalue { ptr, i64 } %53, i64 %storemerge.i.i, 1
-  ret { ptr, i64 } %54
+"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h7ef3d7e095f53714E.llvm.8558902862996176100.exit": ; preds = %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i.i", %2, %47
+  %storemerge.i.i = phi i64 [ 0, %2 ], [ %50, %47 ], [ 0, %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.i.i" ]
+  %52 = insertvalue { ptr, i64 } poison, ptr %0, 0
+  %53 = insertvalue { ptr, i64 } %52, i64 %storemerge.i.i, 1
+  ret { ptr, i64 } %53
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -7119,10 +7115,10 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h4b
   %5 = load ptr, ptr %3, align 8, !alias.scope !2252, !noalias !2257, !nonnull !7, !noundef !7
   %.promoted = load ptr, ptr %4, align 8, !alias.scope !2259, !noalias !2257
   %6 = icmp eq ptr %5, %.promoted
-  br i1 %6, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread", label %.lr.ph
+  br i1 %6, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread6", label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %60
-  %7 = phi ptr [ %47, %60 ], [ %.promoted, %2 ]
+.lr.ph:                                           ; preds = %2, %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit"
+  %7 = phi ptr [ %47, %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit" ], [ %.promoted, %2 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2259)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2260)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2263)
@@ -7192,11 +7188,11 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h4b
   %48 = icmp samesign ult i32 %.sroa.4.1.i.ph.i.i, 1114112
   tail call void @llvm.assume(i1 %48)
   switch i32 %.sroa.4.1.i.ph.i.i, label %49 [
-    i32 9, label %60
-    i32 10, label %60
-    i32 12, label %60
-    i32 13, label %60
-    i32 32, label %60
+    i32 9, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit"
+    i32 10, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit"
+    i32 12, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit"
+    i32 13, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit"
+    i32 32, label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit"
   ]
 
 49:                                               ; preds = %46
@@ -7206,25 +7202,25 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h4b
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %53 = load i64, ptr %52, align 8, !alias.scope !2268, !noalias !2257, !noundef !7
   %54 = sub i64 %53, %51
-  %55 = ptrtoint ptr %47 to i64
-  %56 = add i64 %54, %55
-  %57 = add i64 %54, %50
+  %55 = add i64 %54, %50
+  %56 = ptrtoint ptr %47 to i64
+  %57 = add i64 %54, %56
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %56, ptr %58, align 8
+  store i64 %57, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %57, ptr %59, align 8
-  br label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread"
+  store i64 %55, ptr %59, align 8
+  br label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread6"
 
-60:                                               ; preds = %46, %46, %46, %46, %46
-  %61 = icmp eq ptr %5, %47
-  br i1 %61, label %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread.loopexit_crit_edge", label %.lr.ph
+"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit": ; preds = %46, %46, %46, %46, %46
+  %60 = icmp eq ptr %5, %47
+  br i1 %60, label %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread6.loopexit_crit_edge", label %.lr.ph
 
-"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread.loopexit_crit_edge": ; preds = %60
+"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread6.loopexit_crit_edge": ; preds = %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit"
   store ptr %47, ptr %4, align 8, !alias.scope !2267, !noalias !2257
-  br label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread"
+  br label %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread6"
 
-"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread": ; preds = %2, %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread.loopexit_crit_edge", %49
-  %storemerge = phi i64 [ 1, %49 ], [ 0, %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread.loopexit_crit_edge" ], [ 0, %2 ]
+"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread6": ; preds = %2, %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread6.loopexit_crit_edge", %49
+  %storemerge = phi i64 [ 1, %49 ], [ 0, %"._ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h36cc671f04de51b2E.llvm.8558902862996176100.exit.thread6.loopexit_crit_edge" ], [ 0, %2 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

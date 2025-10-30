@@ -8913,76 +8913,69 @@ define internal fastcc void @set_channel_info(ptr noundef %0) unnamed_addr #3 {
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 5012
   store i32 %spec.select, ptr %16, align 4, !tbaa !91
   %17 = and i64 %5, -9
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 5024
   switch i64 %17, label %._crit_edge [
     i64 4, label %18
-    i64 3, label %20
-    i64 7, label %22
-    i64 259, label %24
-    i64 263, label %26
-    i64 51, label %28
-    i64 1539, label %28
-    i64 1543, label %30
-    i64 55, label %30
+    i64 3, label %19
+    i64 7, label %20
+    i64 259, label %21
+    i64 263, label %22
+    i64 51, label %23
+    i64 1539, label %23
+    i64 1543, label %24
+    i64 55, label %24
   ]
 
 ._crit_edge:                                      ; preds = %1
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 5024
   %.pre = load i32, ptr %.phi.trans.insert, align 16, !tbaa !105
-  br label %32
+  br label %25
 
 18:                                               ; preds = %1
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 5024
-  store i32 1, ptr %19, align 16, !tbaa !105
-  br label %32
+  store i32 1, ptr %.phi.trans.insert, align 16, !tbaa !105
+  br label %25
+
+19:                                               ; preds = %1
+  store i32 2, ptr %.phi.trans.insert, align 16, !tbaa !105
+  br label %25
 
 20:                                               ; preds = %1
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 5024
-  store i32 2, ptr %21, align 16, !tbaa !105
-  br label %32
+  store i32 3, ptr %.phi.trans.insert, align 16, !tbaa !105
+  br label %25
+
+21:                                               ; preds = %1
+  store i32 4, ptr %.phi.trans.insert, align 16, !tbaa !105
+  br label %25
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 5024
-  store i32 3, ptr %23, align 16, !tbaa !105
-  br label %32
+  store i32 5, ptr %.phi.trans.insert, align 16, !tbaa !105
+  br label %25
 
-24:                                               ; preds = %1
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 5024
-  store i32 4, ptr %25, align 16, !tbaa !105
-  br label %32
+23:                                               ; preds = %1, %1
+  store i32 6, ptr %.phi.trans.insert, align 16, !tbaa !105
+  br label %25
 
-26:                                               ; preds = %1
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 5024
-  store i32 5, ptr %27, align 16, !tbaa !105
-  br label %32
+24:                                               ; preds = %1, %1
+  store i32 7, ptr %.phi.trans.insert, align 16, !tbaa !105
+  br label %25
 
-28:                                               ; preds = %1, %1
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 5024
-  store i32 6, ptr %29, align 16, !tbaa !105
-  br label %32
-
-30:                                               ; preds = %1, %1
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 5024
-  store i32 7, ptr %31, align 16, !tbaa !105
-  br label %32
-
-32:                                               ; preds = %._crit_edge, %30, %28, %26, %24, %22, %20, %18
-  %33 = phi i32 [ %.pre, %._crit_edge ], [ 7, %30 ], [ 6, %28 ], [ 5, %26 ], [ 4, %24 ], [ 3, %22 ], [ 2, %20 ], [ 1, %18 ]
-  %34 = and i32 %33, 1
-  %.not28 = icmp ne i32 %34, 0
-  %35 = icmp ne i32 %33, 1
-  %narrow = and i1 %35, %.not28
-  %36 = zext i1 %narrow to i32
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 5016
-  store i32 %36, ptr %37, align 8, !tbaa !106
-  %38 = and i32 %33, 4
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 5020
-  store i32 %38, ptr %39, align 4, !tbaa !107
-  %40 = sext i32 %33 to i64
-  %41 = getelementptr inbounds [2 x [6 x i8]], ptr @ac3_enc_channel_map, i64 %40
-  %42 = zext nneg i32 %10 to i64
-  %43 = getelementptr inbounds nuw [6 x i8], ptr %41, i64 %42
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 5032
-  store ptr %43, ptr %44, align 8, !tbaa !260
+25:                                               ; preds = %._crit_edge, %24, %23, %22, %21, %20, %19, %18
+  %26 = phi i32 [ %.pre, %._crit_edge ], [ 7, %24 ], [ 6, %23 ], [ 5, %22 ], [ 4, %21 ], [ 3, %20 ], [ 2, %19 ], [ 1, %18 ]
+  %27 = and i32 %26, 1
+  %.not28 = icmp ne i32 %27, 0
+  %28 = icmp ne i32 %26, 1
+  %narrow = and i1 %28, %.not28
+  %29 = zext i1 %narrow to i32
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 5016
+  store i32 %29, ptr %30, align 8, !tbaa !106
+  %31 = and i32 %26, 4
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 5020
+  store i32 %31, ptr %32, align 4, !tbaa !107
+  %33 = sext i32 %26 to i64
+  %34 = getelementptr inbounds [2 x [6 x i8]], ptr @ac3_enc_channel_map, i64 %33
+  %35 = zext nneg i32 %10 to i64
+  %36 = getelementptr inbounds nuw [6 x i8], ptr %34, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 5032
+  store ptr %36, ptr %37, align 8, !tbaa !260
   ret void
 }
 

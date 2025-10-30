@@ -665,12 +665,12 @@ define internal fastcc void @print_usage(ptr noundef %0) unnamed_addr #2 {
   %6 = tail call i32 @fflush(ptr noundef %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %7, align 1, !tbaa !11
+  %9 = load ptr, ptr @stderr, align 8, !tbaa !9
   %switch.selectcmp.case1 = icmp eq i8 %8, 101
   %switch.selectcmp.case2 = icmp eq i8 %8, 108
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %9 = select i1 %switch.selectcmp, ptr @.str.5, ptr @.str.6
-  %10 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull %9, ptr noundef nonnull %0) #11
+  %10 = select i1 %switch.selectcmp, ptr @.str.5, ptr @.str.6
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %0) #11
   %12 = load ptr, ptr @stderr, align 8, !tbaa !9
   %13 = tail call i32 @fflush(ptr noundef %12)
   %14 = load ptr, ptr @stderr, align 8, !tbaa !9

@@ -389,61 +389,53 @@ define internal fastcc void @_ZN5boost5debug12_GLOBAL__N_112process_infoC2Ei(ptr
   store i8 0, ptr %19, align 1, !tbaa !14
   br label %20
 
-20:                                               ; preds = %22, %18
-  %.021 = phi ptr [ %12, %18 ], [ %23, %22 ]
+20:                                               ; preds = %20, %18
+  %.021 = phi ptr [ %12, %18 ], [ %22, %20 ]
   %21 = load i8, ptr %.021, align 1, !tbaa !14
-  switch i8 %21, label %22 [
-    i8 0, label %.critedge
-    i8 40, label %.critedge
-  ]
+  %22 = getelementptr inbounds nuw i8, ptr %.021, i64 1
+  switch i8 %21, label %20 [
+    i8 0, label %.critedge.preheader
+    i8 40, label %.critedge.preheader
+  ], !llvm.loop !25
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %.021, i64 1
-  br label %20, !llvm.loop !25
+.critedge.preheader:                              ; preds = %20, %20
+  br label %.critedge
 
-.critedge:                                        ; preds = %20, %20
-  %24 = getelementptr inbounds nuw i8, ptr %.021, i64 1
-  br label %25
+.critedge:                                        ; preds = %.critedge.preheader, %.critedge
+  %.0 = phi ptr [ %24, %.critedge ], [ %22, %.critedge.preheader ]
+  %23 = load i8, ptr %.0, align 1, !tbaa !14
+  %24 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  switch i8 %23, label %.critedge [
+    i8 0, label %25
+    i8 41, label %25
+  ], !llvm.loop !26
 
-25:                                               ; preds = %27, %.critedge
-  %.0 = phi ptr [ %24, %.critedge ], [ %28, %27 ]
-  %26 = load i8, ptr %.0, align 1, !tbaa !14
-  switch i8 %26, label %27 [
-    i8 0, label %29
-    i8 41, label %29
-  ]
-
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %25, !llvm.loop !26
-
-29:                                               ; preds = %25, %25
-  %30 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %31 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %30, ptr noundef nonnull @.str.51, ptr noundef nonnull %0) #32
-  store ptr %24, ptr %4, align 8, !tbaa !15
+25:                                               ; preds = %.critedge, %.critedge
+  %26 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %24, ptr noundef nonnull @.str.51, ptr noundef nonnull %0) #32
+  store ptr %22, ptr %4, align 8, !tbaa !15
   store ptr %.0, ptr %5, align 8, !tbaa !17
-  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 30, ptr noundef nonnull @.str.52, i32 noundef %1) #32
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 541
-  %34 = call i64 @readlink(ptr noundef nonnull %3, ptr noundef nonnull %33, i64 noundef 500) #32
-  %35 = icmp eq i64 %34, -1
-  br i1 %35, label %.thread38, label %36
+  %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 30, ptr noundef nonnull @.str.52, i32 noundef %1) #32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 541
+  %29 = call i64 @readlink(ptr noundef nonnull %3, ptr noundef nonnull %28, i64 noundef 500) #32
+  %30 = icmp eq i64 %29, -1
+  br i1 %30, label %.thread38, label %31
 
-36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %33, i64 %34
-  store i8 0, ptr %37, align 1, !tbaa !14
-  store ptr %33, ptr %6, align 8, !tbaa !15
-  store ptr %37, ptr %7, align 8, !tbaa !17
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds i8, ptr %28, i64 %29
+  store i8 0, ptr %32, align 1, !tbaa !14
+  store ptr %28, ptr %6, align 8, !tbaa !15
+  store ptr %32, ptr %7, align 8, !tbaa !17
   br label %.thread38
 
-.thread38:                                        ; preds = %29, %36, %14
-  %38 = invoke i32 @close(i32 noundef %9)
-          to label %_ZN5boost5debug12_GLOBAL__N_19fd_holderD2Ev.exit unwind label %39
+.thread38:                                        ; preds = %25, %31, %14
+  %33 = invoke i32 @close(i32 noundef %9)
+          to label %_ZN5boost5debug12_GLOBAL__N_19fd_holderD2Ev.exit unwind label %34
 
-39:                                               ; preds = %.thread38
-  %40 = landingpad { ptr, i32 }
+34:                                               ; preds = %.thread38
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #30
+  %36 = extractvalue { ptr, i32 } %35, 0
+  tail call void @__clang_call_terminate(ptr %36) #30
   unreachable
 
 _ZN5boost5debug12_GLOBAL__N_19fd_holderD2Ev.exit: ; preds = %2, %.thread38

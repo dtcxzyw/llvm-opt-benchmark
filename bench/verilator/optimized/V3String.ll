@@ -2535,6 +2535,8 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN7VString5aOrAnB5cxx11EPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i8, ptr %1, align 1, !tbaa !13
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %4, ptr %0, align 8, !tbaa !23
   switch i8 %3, label %._crit_edge.i.i8 [
     i8 0, label %._crit_edge.i.i
     i8 97, label %._crit_edge.i.i4
@@ -2545,34 +2547,28 @@ define dso_local void @_ZN7VString5aOrAnB5cxx11EPKc(ptr dead_on_unwind noalias w
   ]
 
 ._crit_edge.i.i:                                  ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %0, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8, !tbaa !24
   store i8 0, ptr %4, align 8, !tbaa !13
-  br label %12
+  br label %10
 
 ._crit_edge.i.i4:                                 ; preds = %2, %2, %2, %2, %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %0, align 8, !tbaa !23
-  store i16 28257, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 2, ptr %7, align 8, !tbaa !24
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i8 0, ptr %8, align 2, !tbaa !13
-  br label %12
+  store i16 28257, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 2, ptr %6, align 8, !tbaa !24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i8 0, ptr %7, align 2, !tbaa !13
+  br label %10
 
 ._crit_edge.i.i8:                                 ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %9, ptr %0, align 8, !tbaa !23
-  store i8 97, ptr %9, align 8, !tbaa !13
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %10, align 8, !tbaa !24
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 0, ptr %11, align 1, !tbaa !13
-  br label %12
+  store i8 97, ptr %4, align 8, !tbaa !13
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %8, align 8, !tbaa !24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  store i8 0, ptr %9, align 1, !tbaa !13
+  br label %10
 
-12:                                               ; preds = %._crit_edge.i.i8, %._crit_edge.i.i4, %._crit_edge.i.i
+10:                                               ; preds = %._crit_edge.i.i8, %._crit_edge.i.i4, %._crit_edge.i.i
   ret void
 }
 

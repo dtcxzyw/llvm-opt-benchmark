@@ -19165,8 +19165,8 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; 
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf40a3331c4649117E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
           to label %common.resume unwind label %259, !noalias !5396
 
-common.resume:                                    ; preds = %306, %309, %313, %355, %358, %362, %377, %369, %373, %388, %380, %384, %261, %263, %267
-  %common.resume.op = phi { ptr, i32 } [ %.pn4.i, %267 ], [ %.pn4.i, %263 ], [ %.pn4.i, %261 ], [ %307, %306 ], [ %307, %309 ], [ %307, %313 ], [ %356, %355 ], [ %356, %358 ], [ %356, %362 ], [ %370, %377 ], [ %370, %369 ], [ %370, %373 ], [ %381, %388 ], [ %381, %380 ], [ %381, %384 ]
+common.resume:                                    ; preds = %306, %309, %313, %356, %359, %363, %377, %369, %373, %388, %380, %384, %261, %263, %267
+  %common.resume.op = phi { ptr, i32 } [ %.pn4.i, %267 ], [ %.pn4.i, %263 ], [ %.pn4.i, %261 ], [ %307, %306 ], [ %307, %309 ], [ %307, %313 ], [ %357, %356 ], [ %357, %359 ], [ %357, %363 ], [ %370, %377 ], [ %370, %369 ], [ %370, %373 ], [ %381, %388 ], [ %381, %380 ], [ %381, %384 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN9uv_pep4407version7Version12with_release17h1cc9e28262180414E.exit: ; preds = %214
@@ -19337,72 +19337,71 @@ _ZN9uv_pep4407version12VersionSmall7set_pre17h59801bf34769d7f2E.exit.i: ; preds 
   %341 = load i64, ptr %16, align 8, !alias.scope !5467, !noalias !5462, !noundef !3
   %342 = lshr i64 %341, 20
   %343 = and i64 %342, 15
+  %344 = trunc nuw i64 %.sroa.08.0 to i1
   switch i64 %343, label %_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.i [
-    i64 5, label %344
-    i64 7, label %344
+    i64 5, label %345
+    i64 7, label %345
   ]
 
-344:                                              ; preds = %340, %340
-  %trunc.i.i = trunc nuw i64 %.sroa.08.0 to i1
-  br i1 %trunc.i.i, label %348, label %345
+345:                                              ; preds = %340, %340
+  br i1 %344, label %349, label %346
 
-345:                                              ; preds = %344
-  %346 = and i64 %341, -16777216
-  %347 = or disjoint i64 %346, 5242880
+346:                                              ; preds = %345
+  %347 = and i64 %341, -16777216
+  %348 = or disjoint i64 %347, 5242880
   br label %_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread.i
 
-348:                                              ; preds = %344
-  %349 = icmp ugt i64 %.sroa.6.0, 1048575
-  br i1 %349, label %_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread2.i, label %350
+349:                                              ; preds = %345
+  %350 = icmp ugt i64 %.sroa.6.0, 1048575
+  br i1 %350, label %_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread2.i, label %351
 
-_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread.i: ; preds = %350, %345
-  %storemerge.i.i48 = phi i64 [ %353, %350 ], [ %347, %345 ]
+_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread.i: ; preds = %351, %346
+  %storemerge.i.i48 = phi i64 [ %354, %351 ], [ %348, %346 ]
   store i64 %storemerge.i.i48, ptr %16, align 8, !alias.scope !5467, !noalias !5462
   br label %368
 
-350:                                              ; preds = %348
-  %351 = and i64 %341, -16777216
-  %352 = or disjoint i64 %.sroa.6.0, %351
-  %353 = or disjoint i64 %352, 7340032
+351:                                              ; preds = %349
+  %352 = and i64 %341, -16777216
+  %353 = or disjoint i64 %.sroa.6.0, %352
+  %354 = or disjoint i64 %353, 7340032
   br label %_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread.i
 
-_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread2.i: ; preds = %_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.i, %348, %336
-  %354 = invoke noundef align 8 dereferenceable(136) ptr @_ZN9uv_pep4407version7Version9make_full17h80bac72c41a6d3c1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %16)
-          to label %364 unwind label %355, !noalias !5462
+_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread2.i: ; preds = %_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.i, %349, %336
+  %355 = invoke noundef align 8 dereferenceable(136) ptr @_ZN9uv_pep4407version7Version9make_full17h80bac72c41a6d3c1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %16)
+          to label %364 unwind label %356, !noalias !5462
 
-355:                                              ; preds = %_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread2.i
-  %356 = landingpad { ptr, i32 }
+356:                                              ; preds = %_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread2.i
+  %357 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !5470)
   call void @llvm.experimental.noalias.scope.decl(metadata !5473)
-  %357 = load i8, ptr %337, align 1, !alias.scope !5476, !noalias !5462, !noundef !3
-  %.not.i.i.i49 = icmp eq i8 %357, 0
-  br i1 %.not.i.i.i49, label %358, label %common.resume
+  %358 = load i8, ptr %337, align 1, !alias.scope !5476, !noalias !5462, !noundef !3
+  %.not.i.i.i49 = icmp eq i8 %358, 0
+  br i1 %.not.i.i.i49, label %359, label %common.resume
 
-358:                                              ; preds = %355
+359:                                              ; preds = %356
   call void @llvm.experimental.noalias.scope.decl(metadata !5477)
   call void @llvm.experimental.noalias.scope.decl(metadata !5480)
-  %359 = load ptr, ptr %16, align 8, !alias.scope !5483, !noalias !5462, !nonnull !3, !noundef !3
-  %360 = atomicrmw sub ptr %359, i64 1 release, align 8, !noalias !5484
-  %361 = icmp eq i64 %360, 1
-  br i1 %361, label %362, label %common.resume
+  %360 = load ptr, ptr %16, align 8, !alias.scope !5483, !noalias !5462, !nonnull !3, !noundef !3
+  %361 = atomicrmw sub ptr %360, i64 1 release, align 8, !noalias !5484
+  %362 = icmp eq i64 %361, 1
+  br i1 %362, label %363, label %common.resume
 
-362:                                              ; preds = %358
+363:                                              ; preds = %359
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf40a3331c4649117E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %16)
           to label %common.resume unwind label %366, !noalias !5462
 
 _ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.i: ; preds = %340
-  %363 = trunc nuw i64 %.sroa.08.0 to i1
-  br i1 %363, label %_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread2.i, label %368
+  br i1 %344, label %_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread2.i, label %368
 
 364:                                              ; preds = %_ZN9uv_pep4407version12VersionSmall8set_post17h409bf4e109d306adE.exit.thread2.i
-  store i64 %.sroa.08.0, ptr %354, align 8, !noalias !5462
-  %365 = getelementptr inbounds nuw i8, ptr %354, i64 8
+  store i64 %.sroa.08.0, ptr %355, align 8, !noalias !5462
+  %365 = getelementptr inbounds nuw i8, ptr %355, i64 8
   store i64 %.sroa.6.0, ptr %365, align 8, !noalias !5462
   br label %368
 
-366:                                              ; preds = %362
+366:                                              ; preds = %363
   %367 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #56, !noalias !5462

@@ -2490,7 +2490,7 @@ zend_string_free.exit:                            ; preds = %php_mail_log_to_fil
 52:                                               ; preds = %50
   %53 = load ptr, ptr %7, align 8, !tbaa !63
   %.not84 = icmp eq ptr %53, null
-  br i1 %.not84, label %136, label %.sink.split
+  br i1 %.not84, label %133, label %.sink.split
 
 54:                                               ; preds = %50
   %55 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 577), align 1, !tbaa !65, !range !70, !noundef !71
@@ -2612,7 +2612,7 @@ switch.early.test.i:                              ; preds = %86
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.29) #11
   %100 = load ptr, ptr %7, align 8, !tbaa !63
   %.not83 = icmp eq ptr %100, null
-  br i1 %.not83, label %136, label %.sink.split
+  br i1 %.not83, label %133, label %.sink.split
 
 php_mail_detect_multiple_crlf.exit:               ; preds = %.preheader.i, %85, %zend_string_release_ex.exit
   %.not73 = icmp eq ptr %11, null
@@ -2621,7 +2621,7 @@ php_mail_detect_multiple_crlf.exit:               ; preds = %.preheader.i, %85, 
 101:                                              ; preds = %php_mail_detect_multiple_crlf.exit
   %102 = load ptr, ptr %7, align 8, !tbaa !63
   %.not74 = icmp eq ptr %102, null
-  br i1 %.not74, label %136, label %.sink.split
+  br i1 %.not74, label %133, label %.sink.split
 
 103:                                              ; preds = %php_mail_detect_multiple_crlf.exit
   %.not75 = icmp eq ptr %4, null
@@ -2650,7 +2650,7 @@ php_mail_detect_multiple_crlf.exit:               ; preds = %.preheader.i, %85, 
 
 113:                                              ; preds = %111, %107
   %.not76 = icmp eq ptr %110, null
-  br i1 %.not76, label %134, label %114
+  br i1 %.not76, label %131, label %114
 
 114:                                              ; preds = %113
   %115 = load i32, ptr %109, align 4, !tbaa !73
@@ -2662,7 +2662,7 @@ php_mail_detect_multiple_crlf.exit:               ; preds = %.preheader.i, %85, 
   %118 = call i32 @pclose(ptr noundef nonnull %110)
   %119 = load ptr, ptr %7, align 8, !tbaa !63
   %.not82 = icmp eq ptr %119, null
-  br i1 %.not82, label %136, label %.sink.split
+  br i1 %.not82, label %133, label %.sink.split
 
 120:                                              ; preds = %114
   %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %110, ptr noundef nonnull @.str.33, ptr noundef %0, ptr noundef nonnull %57) #11
@@ -2679,35 +2679,24 @@ php_mail_detect_multiple_crlf.exit:               ; preds = %.preheader.i, %85, 
   %128 = icmp eq i32 %127, 0
   %129 = icmp eq i32 %127, 75
   %or.cond.not = or i1 %128, %129
-  switch i32 %127, label %130 [
-    i32 75, label %132
-    i32 0, label %132
-  ]
+  %130 = load ptr, ptr %7, align 8, !tbaa !63
+  %.not79 = icmp eq ptr %130, null
+  br i1 %.not79, label %133, label %.sink.split
 
-130:                                              ; preds = %125
-  %131 = load ptr, ptr %7, align 8, !tbaa !63
-  %.not79 = icmp eq ptr %131, null
-  br i1 %.not79, label %136, label %.sink.split
-
-132:                                              ; preds = %125, %125
-  %133 = load ptr, ptr %7, align 8, !tbaa !63
-  %.not78 = icmp eq ptr %133, null
-  br i1 %.not78, label %136, label %.sink.split
-
-134:                                              ; preds = %113
+131:                                              ; preds = %113
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.37, ptr noundef nonnull %11) #11
-  %135 = load ptr, ptr %7, align 8, !tbaa !63
-  %.not77 = icmp eq ptr %135, null
-  br i1 %.not77, label %136, label %.sink.split
+  %132 = load ptr, ptr %7, align 8, !tbaa !63
+  %.not77 = icmp eq ptr %132, null
+  br i1 %.not77, label %133, label %.sink.split
 
-.sink.split:                                      ; preds = %134, %132, %130, %117, %101, %.loopexit, %52
-  %.sink = phi ptr [ %53, %52 ], [ %100, %.loopexit ], [ %102, %101 ], [ %119, %117 ], [ %131, %130 ], [ %133, %132 ], [ %135, %134 ]
-  %.0.ph = phi i1 [ false, %52 ], [ false, %.loopexit ], [ false, %101 ], [ false, %117 ], [ %or.cond.not, %130 ], [ %or.cond.not, %132 ], [ false, %134 ]
+.sink.split:                                      ; preds = %125, %131, %117, %101, %.loopexit, %52
+  %.sink = phi ptr [ %53, %52 ], [ %100, %.loopexit ], [ %102, %101 ], [ %119, %117 ], [ %132, %131 ], [ %130, %125 ]
+  %.0.ph = phi i1 [ false, %52 ], [ false, %.loopexit ], [ false, %101 ], [ false, %117 ], [ false, %131 ], [ %or.cond.not, %125 ]
   call void @_efree(ptr noundef nonnull %.sink) #11
-  br label %136
+  br label %133
 
-136:                                              ; preds = %.sink.split, %.loopexit, %101, %117, %132, %130, %134, %52
-  %.0 = phi i1 [ false, %52 ], [ false, %.loopexit ], [ false, %101 ], [ false, %117 ], [ %or.cond.not, %132 ], [ %or.cond.not, %130 ], [ false, %134 ], [ %.0.ph, %.sink.split ]
+133:                                              ; preds = %125, %.sink.split, %.loopexit, %101, %117, %131, %52
+  %.0 = phi i1 [ false, %52 ], [ false, %.loopexit ], [ false, %101 ], [ false, %117 ], [ false, %131 ], [ %.0.ph, %.sink.split ], [ %or.cond.not, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0

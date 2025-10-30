@@ -5954,7 +5954,7 @@ _ZL16is_constant_zeroP11Instruction.exit248.thread: ; preds = %_ZL16is_constant_
   %343 = icmp ne ptr %336, null
   %344 = icmp ne ptr %342, null
   %or.cond = and i1 %343, %344
-  br i1 %or.cond, label %345, label %384
+  br i1 %or.cond, label %345, label %383
 
 345:                                              ; preds = %330
   %346 = getelementptr inbounds nuw i8, ptr %336, i64 16
@@ -5987,13 +5987,13 @@ _ZL16is_constant_zeroP11Instruction.exit248.thread: ; preds = %_ZL16is_constant_
   br i1 %364, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313
 
 _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i: ; preds = %351
+  %366 = mul i32 %357, %347
   switch i8 %354, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread [
     i8 11, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
     i8 7, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
   ]
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i
-  %366 = mul i32 %357, %347
   %367 = and i32 %366, 7
   %368 = icmp eq i32 %367, 0
   br i1 %368, label %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i250, label %_ZL16is_constant_zeroP11Instruction.exit255.thread
@@ -6010,11 +6010,10 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310: ; preds = %36
   br i1 %373, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252, label %_ZL16is_constant_zeroP11Instruction.exit255.thread
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread: ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i
-  %374 = mul i32 %357, %347
-  %375 = add i32 %360, %374
-  %376 = and i32 %375, 7
-  %377 = icmp eq i32 %376, 0
-  br i1 %377, label %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i250, label %_ZL16is_constant_zeroP11Instruction.exit255.thread
+  %374 = add i32 %360, %366
+  %375 = and i32 %374, 7
+  %376 = icmp eq i32 %375, 0
+  br i1 %376, label %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i250, label %_ZL16is_constant_zeroP11Instruction.exit255.thread
 
 _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i250: ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread
   switch i8 %354, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252 [
@@ -6026,43 +6025,43 @@ _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i250: ; preds 
   br label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252: ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i250, %.thread311
-  %378 = phi i32 [ 0, %.thread311 ], [ %360, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i250 ], [ %360, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310 ]
-  %379 = mul i32 %357, %349
-  %380 = add i32 %378, %379
-  %381 = and i32 %380, 7
-  %382 = icmp eq i32 %381, 0
-  %383 = and i32 %spec.select188, -513
-  %spec.select189 = select i1 %382, i32 %383, i32 %spec.select188
+  %377 = phi i32 [ 0, %.thread311 ], [ %360, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i250 ], [ %360, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310 ]
+  %378 = mul i32 %357, %349
+  %379 = add i32 %377, %378
+  %380 = and i32 %379, 7
+  %381 = icmp eq i32 %380, 0
+  %382 = and i32 %spec.select188, -513
+  %spec.select189 = select i1 %381, i32 %382, i32 %spec.select188
   br label %_ZL16is_constant_zeroP11Instruction.exit255.thread
 
-384:                                              ; preds = %330
-  %385 = icmp eq ptr %11, %15
-  br i1 %385, label %394, label %386
+383:                                              ; preds = %330
+  %384 = icmp eq ptr %11, %15
+  br i1 %384, label %393, label %385
 
-386:                                              ; preds = %384
+385:                                              ; preds = %383
   %.val194 = load ptr, ptr %337, align 8
-  %387 = load ptr, ptr %.val194, align 8
-  %388 = getelementptr inbounds nuw i8, ptr %387, i64 136
-  %389 = load ptr, ptr %388, align 8
-  %390 = tail call noundef ptr %389(ptr noundef nonnull align 8 dereferenceable(16) %.val194) #17
-  %.not.i253 = icmp eq ptr %390, null
+  %386 = load ptr, ptr %.val194, align 8
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 136
+  %388 = load ptr, ptr %387, align 8
+  %389 = tail call noundef ptr %388(ptr noundef nonnull align 8 dereferenceable(16) %.val194) #17
+  %.not.i253 = icmp eq ptr %389, null
   br i1 %.not.i253, label %_ZL16is_constant_zeroP11Instruction.exit255.thread, label %_ZL16is_constant_zeroP11Instruction.exit255
 
-_ZL16is_constant_zeroP11Instruction.exit255:      ; preds = %386
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 16
-  %392 = load i32, ptr %391, align 8
-  %393 = icmp eq i32 %392, 0
-  br i1 %393, label %394, label %_ZL16is_constant_zeroP11Instruction.exit255.thread
+_ZL16is_constant_zeroP11Instruction.exit255:      ; preds = %385
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 16
+  %391 = load i32, ptr %390, align 8
+  %392 = icmp eq i32 %391, 0
+  br i1 %392, label %393, label %_ZL16is_constant_zeroP11Instruction.exit255.thread
 
-394:                                              ; preds = %_ZL16is_constant_zeroP11Instruction.exit255, %384
-  %395 = and i32 %.4, -257
+393:                                              ; preds = %_ZL16is_constant_zeroP11Instruction.exit255, %383
+  %394 = and i32 %.4, -257
   br label %_ZL16is_constant_zeroP11Instruction.exit255.thread
 
-_ZL16is_constant_zeroP11Instruction.exit255.thread: ; preds = %386, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252, %_ZL16is_constant_zeroP11Instruction.exit255, %394, %345, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
-  %.13 = phi i32 [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ %spec.select188, %345 ], [ %395, %394 ], [ %.4, %_ZL16is_constant_zeroP11Instruction.exit255 ], [ %spec.select189, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313 ], [ %.4, %386 ]
+_ZL16is_constant_zeroP11Instruction.exit255.thread: ; preds = %385, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252, %_ZL16is_constant_zeroP11Instruction.exit255, %393, %345, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
+  %.13 = phi i32 [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ %spec.select188, %345 ], [ %394, %393 ], [ %.4, %_ZL16is_constant_zeroP11Instruction.exit255 ], [ %spec.select189, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit252 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread310 ], [ %spec.select188, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread313 ], [ %.4, %385 ]
   %.not332 = icmp eq ptr %9, %13
-  %396 = and i32 %.13, -129
-  %.14 = select i1 %.not332, i32 %396, i32 %.13
+  %395 = and i32 %.13, -129
+  %.14 = select i1 %.not332, i32 %395, i32 %.13
   store i32 %.14, ptr %2, align 4
   store ptr %.3281, ptr %3, align 8
   ret void

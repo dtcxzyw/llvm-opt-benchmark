@@ -303,10 +303,10 @@ define noundef range(i32 -255, 256) i32 @_ZN5folly7LogName3cmpENS_5RangeIPKcEES4
   %.sroa.12.1 = phi ptr [ %.sroa.12.1.ph, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5.loopexit" ], [ %3, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit" ]
   br label %21
 
-21:                                               ; preds = %56, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5"
-  %.sroa.014.0 = phi ptr [ %2, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %58, %56 ]
-  %.sroa.024.0 = phi ptr [ %0, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %57, %56 ]
-  %.0 = phi i1 [ true, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %spec.select.i, %56 ]
+21:                                               ; preds = %55, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5"
+  %.sroa.014.0 = phi ptr [ %2, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %57, %55 ]
+  %.sroa.024.0 = phi ptr [ %0, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %56, %55 ]
+  %.0 = phi i1 [ true, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %spec.select.i, %55 ]
   %.sroa.014.050 = ptrtoint ptr %.sroa.014.0 to i64
   %.sroa.024.046 = ptrtoint ptr %.sroa.024.0 to i64
   br i1 %.0, label %22, label %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_1clERS4_.exit10"
@@ -381,43 +381,42 @@ define noundef range(i32 -255, 256) i32 @_ZN5folly7LogName3cmpENS_5RangeIPKcEES4
   %or.cond.i = icmp eq i8 %43, 46
   %44 = icmp eq i8 %42, 92
   %spec.select.i = or i1 %44, %or.cond.i
+  %45 = load i8, ptr %.sroa.014.1, align 1, !tbaa !16
   switch i8 %42, label %50 [
-    i8 92, label %45
-    i8 47, label %45
-    i8 46, label %45
+    i8 92, label %46
+    i8 47, label %46
+    i8 46, label %46
   ]
 
-45:                                               ; preds = %41, %41, %41
-  %46 = load i8, ptr %.sroa.014.1, align 1, !tbaa !16
-  switch i8 %46, label %47 [
-    i8 92, label %56
-    i8 47, label %56
-    i8 46, label %56
+46:                                               ; preds = %41, %41, %41
+  switch i8 %45, label %47 [
+    i8 92, label %55
+    i8 47, label %55
+    i8 46, label %55
   ]
 
-47:                                               ; preds = %45
-  %48 = sext i8 %46 to i32
+47:                                               ; preds = %46
+  %48 = sext i8 %45 to i32
   %49 = sub nsw i32 46, %48
   br label %.loopexit
 
 50:                                               ; preds = %41
-  %51 = load i8, ptr %.sroa.014.1, align 1, !tbaa !16
-  %.not = icmp eq i8 %42, %51
-  br i1 %.not, label %56, label %52
+  %.not = icmp eq i8 %42, %45
+  br i1 %.not, label %55, label %51
 
-52:                                               ; preds = %50
-  %53 = sext i8 %42 to i32
-  %54 = sext i8 %51 to i32
-  %55 = sub nsw i32 %53, %54
+51:                                               ; preds = %50
+  %52 = sext i8 %42 to i32
+  %53 = sext i8 %45 to i32
+  %54 = sub nsw i32 %52, %53
   br label %.loopexit
 
-56:                                               ; preds = %45, %45, %45, %50
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.024.1, i64 1
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.014.1, i64 1
+55:                                               ; preds = %46, %46, %46, %50
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.024.1, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.014.1, i64 1
   br label %21, !llvm.loop !25
 
-.loopexit:                                        ; preds = %39, %52, %47, %36
-  %.02 = phi i32 [ %38, %36 ], [ %49, %47 ], [ %55, %52 ], [ 1, %39 ]
+.loopexit:                                        ; preds = %39, %51, %47, %36
+  %.02 = phi i32 [ %38, %36 ], [ %49, %47 ], [ %54, %51 ], [ 1, %39 ]
   ret i32 %.02
 }
 

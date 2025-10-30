@@ -373,11 +373,11 @@ is_dir_file.exit.thread.i:                        ; preds = %is_dir_file.exit.i,
   %63 = getelementptr inbounds nuw i8, ptr %40, i64 7
   %64 = load i8, ptr %63, align 1, !tbaa !14
   switch i8 %64, label %dir_prefix.exit.thread.i [
-    i8 47, label %dir_prefix.exit.thread42.i
-    i8 0, label %dir_prefix.exit.thread42.i
+    i8 47, label %dir_prefix.exit.thread41.i
+    i8 0, label %dir_prefix.exit.thread41.i
   ]
 
-dir_prefix.exit.thread42.i:                       ; preds = %62, %62
+dir_prefix.exit.thread41.i:                       ; preds = %62, %62
   %65 = add nsw i32 %36, 7
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !47
@@ -385,14 +385,14 @@ dir_prefix.exit.thread42.i:                       ; preds = %62, %62
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %70 = load ptr, ptr %69, align 8, !tbaa !61
   %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #31
-  switch i8 %64, label %72 [
+  %72 = shl i64 %71, 32
+  switch i8 %64, label %73 [
     i8 0, label %.critedge.i.i
     i8 47, label %.critedge.i.i
   ]
 
-72:                                               ; preds = %dir_prefix.exit.thread42.i
-  %73 = shl i64 %71, 32
-  %sext.i28.i = add i64 %73, -4294967296
+73:                                               ; preds = %dir_prefix.exit.thread41.i
+  %sext.i28.i = add i64 %72, -4294967296
   %74 = ashr exact i64 %sext.i28.i, 32
   %75 = getelementptr inbounds i8, ptr %70, i64 %74
   %76 = load i8, ptr %75, align 1, !tbaa !14
@@ -400,20 +400,19 @@ dir_prefix.exit.thread42.i:                       ; preds = %62, %62
   %77 = sext i1 %.not20.i.i to i32
   %spec.select.i.i = add nsw i32 %65, %77
   %78 = sext i32 %spec.select.i.i to i64
-  %79 = ashr exact i64 %73, 32
+  %79 = ashr exact i64 %72, 32
   tail call void @strbuf_splice(ptr noundef nonnull %2, i64 noundef 0, i64 noundef %78, ptr noundef nonnull %70, i64 noundef %79) #30
   br i1 %.not20.i.i, label %80, label %adjust_git_path.exit
 
-80:                                               ; preds = %72
+80:                                               ; preds = %73
   %81 = load ptr, ptr %37, align 8, !tbaa !13
   %82 = getelementptr inbounds i8, ptr %81, i64 %79
   store i8 47, ptr %82, align 1, !tbaa !14
   br label %adjust_git_path.exit
 
-.critedge.i.i:                                    ; preds = %dir_prefix.exit.thread42.i, %dir_prefix.exit.thread42.i
+.critedge.i.i:                                    ; preds = %dir_prefix.exit.thread41.i, %dir_prefix.exit.thread41.i
   %83 = sext i32 %65 to i64
-  %sext18.c.i.i = shl i64 %71, 32
-  %84 = ashr exact i64 %sext18.c.i.i, 32
+  %84 = ashr exact i64 %72, 32
   tail call void @strbuf_splice(ptr noundef nonnull %2, i64 noundef 0, i64 noundef %83, ptr noundef nonnull %70, i64 noundef %84) #30
   br label %adjust_git_path.exit
 
@@ -431,42 +430,41 @@ dir_prefix.exit.thread.i:                         ; preds = %62, %60
   %89 = getelementptr inbounds nuw i8, ptr %40, i64 5
   %90 = load i8, ptr %89, align 1, !tbaa !14
   switch i8 %90, label %dir_prefix.exit32.thread.i [
-    i8 47, label %dir_prefix.exit32.thread45.i
-    i8 0, label %dir_prefix.exit32.thread45.i
+    i8 47, label %dir_prefix.exit32.thread44.i
+    i8 0, label %dir_prefix.exit32.thread44.i
   ]
 
-dir_prefix.exit32.thread45.i:                     ; preds = %88, %88
+dir_prefix.exit32.thread44.i:                     ; preds = %88, %88
   %91 = add nsw i32 %36, 5
   %92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #31
-  switch i8 %90, label %93 [
+  %93 = shl i64 %92, 32
+  switch i8 %90, label %94 [
     i8 0, label %.critedge.i33.i
     i8 47, label %.critedge.i33.i
   ]
 
-93:                                               ; preds = %dir_prefix.exit32.thread45.i
-  %94 = shl i64 %92, 32
-  %sext.i35.i = add i64 %94, -4294967296
-  %95 = ashr exact i64 %sext.i35.i, 32
+94:                                               ; preds = %dir_prefix.exit32.thread44.i
+  %sext.i34.i = add i64 %93, -4294967296
+  %95 = ashr exact i64 %sext.i34.i, 32
   %96 = getelementptr inbounds i8, ptr %85, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !14
-  %.not20.i36.i = icmp ne i8 %97, 47
-  %98 = sext i1 %.not20.i36.i to i32
-  %spec.select.i37.i = add nsw i32 %91, %98
-  %99 = sext i32 %spec.select.i37.i to i64
-  %100 = ashr exact i64 %94, 32
+  %.not20.i35.i = icmp ne i8 %97, 47
+  %98 = sext i1 %.not20.i35.i to i32
+  %spec.select.i36.i = add nsw i32 %91, %98
+  %99 = sext i32 %spec.select.i36.i to i64
+  %100 = ashr exact i64 %93, 32
   tail call void @strbuf_splice(ptr noundef nonnull %2, i64 noundef 0, i64 noundef %99, ptr noundef nonnull %85, i64 noundef %100) #30
-  br i1 %.not20.i36.i, label %101, label %adjust_git_path.exit
+  br i1 %.not20.i35.i, label %101, label %adjust_git_path.exit
 
-101:                                              ; preds = %93
+101:                                              ; preds = %94
   %102 = load ptr, ptr %37, align 8, !tbaa !13
   %103 = getelementptr inbounds i8, ptr %102, i64 %100
   store i8 47, ptr %103, align 1, !tbaa !14
   br label %adjust_git_path.exit
 
-.critedge.i33.i:                                  ; preds = %dir_prefix.exit32.thread45.i, %dir_prefix.exit32.thread45.i
+.critedge.i33.i:                                  ; preds = %dir_prefix.exit32.thread44.i, %dir_prefix.exit32.thread44.i
   %104 = sext i32 %91 to i64
-  %sext18.c.i34.i = shl i64 %92, 32
-  %105 = ashr exact i64 %sext18.c.i34.i, 32
+  %105 = ashr exact i64 %93, 32
   tail call void @strbuf_splice(ptr noundef nonnull %2, i64 noundef 0, i64 noundef %104, ptr noundef nonnull %85, i64 noundef %105) #30
   br label %adjust_git_path.exit
 
@@ -483,7 +481,7 @@ dir_prefix.exit32.thread.i:                       ; preds = %88, %86, %dir_prefi
   tail call fastcc void @update_common_dir(ptr noundef nonnull %2, i32 noundef %36, ptr noundef %111)
   br label %adjust_git_path.exit
 
-adjust_git_path.exit:                             ; preds = %109, %dir_prefix.exit32.thread.i, %.critedge.i33.i, %101, %93, %.critedge.i.i, %80, %72, %55, %49, %33
+adjust_git_path.exit:                             ; preds = %109, %dir_prefix.exit32.thread.i, %.critedge.i33.i, %101, %94, %.critedge.i.i, %80, %73, %55, %49, %33
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %113 = load ptr, ptr %112, align 8, !tbaa !13
   %scevgep.i.i = getelementptr i8, ptr %113, i64 2
@@ -3616,14 +3614,14 @@ init_common_trie.exit:                            ; preds = %strbuf_strip_suffix
   %114 = load ptr, ptr %4, align 8, !tbaa !13
   %115 = getelementptr inbounds i8, ptr %114, i64 %6
   %116 = load i8, ptr %115, align 1, !tbaa !14
-  switch i8 %116, label %117 [
+  %117 = shl i64 %113, 32
+  switch i8 %116, label %118 [
     i8 0, label %.critedge.i
     i8 47, label %.critedge.i
   ]
 
-117:                                              ; preds = %112
-  %118 = shl i64 %113, 32
-  %sext.i = add i64 %118, -4294967296
+118:                                              ; preds = %112
+  %sext.i = add i64 %117, -4294967296
   %119 = ashr exact i64 %sext.i, 32
   %120 = getelementptr inbounds i8, ptr %2, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !14
@@ -3631,23 +3629,22 @@ init_common_trie.exit:                            ; preds = %strbuf_strip_suffix
   %122 = sext i1 %.not20.i to i32
   %spec.select.i = add nsw i32 %1, %122
   %123 = sext i32 %spec.select.i to i64
-  %124 = ashr exact i64 %118, 32
+  %124 = ashr exact i64 %117, 32
   tail call void @strbuf_splice(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %123, ptr noundef nonnull %2, i64 noundef %124) #30
   br i1 %.not20.i, label %125, label %replace_dir.exit
 
-125:                                              ; preds = %117
+125:                                              ; preds = %118
   %126 = load ptr, ptr %4, align 8, !tbaa !13
   %127 = getelementptr inbounds i8, ptr %126, i64 %124
   store i8 47, ptr %127, align 1, !tbaa !14
   br label %replace_dir.exit
 
 .critedge.i:                                      ; preds = %112, %112
-  %sext18.c.i = shl i64 %113, 32
-  %128 = ashr exact i64 %sext18.c.i, 32
+  %128 = ashr exact i64 %117, 32
   tail call void @strbuf_splice(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %6, ptr noundef nonnull %2, i64 noundef %128) #30
   br label %replace_dir.exit
 
-replace_dir.exit:                                 ; preds = %.critedge.i, %125, %117, %init_common_trie.exit
+replace_dir.exit:                                 ; preds = %.critedge.i, %125, %118, %init_common_trie.exit
   br i1 %.not, label %130, label %129
 
 129:                                              ; preds = %replace_dir.exit

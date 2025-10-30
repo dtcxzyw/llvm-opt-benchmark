@@ -1230,8 +1230,8 @@ define internal fastcc range(i32 -2147483648, 256) i32 @endBracket(ptr noundef n
   %9 = zext nneg i8 %2 to i32
   br label %10
 
-10:                                               ; preds = %.lr.ph, %endString.exit.thread
-  %11 = phi i32 [ %5, %.lr.ph ], [ %36, %endString.exit.thread ]
+10:                                               ; preds = %.lr.ph, %36
+  %11 = phi i32 [ %5, %.lr.ph ], [ %37, %36 ]
   %12 = icmp eq i32 %11, %9
   br i1 %12, label %13, label %16
 
@@ -1239,24 +1239,24 @@ define internal fastcc range(i32 -2147483648, 256) i32 @endBracket(ptr noundef n
   tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %2)
   %14 = tail call fastcc i32 @endBracket(ptr noundef %0, ptr noundef %1, i8 noundef signext %2, i8 noundef signext %3)
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %.loopexit, label %endString.exit.thread
+  br i1 %15, label %.loopexit, label %.sink.split
 
 16:                                               ; preds = %10
-  switch i32 %11, label %endString.exit.thread [
-    i32 39, label %17
-    i32 34, label %17
+  %17 = trunc i32 %11 to i8
+  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %17)
+  switch i32 %11, label %36 [
+    i32 39, label %18
+    i32 34, label %18
   ]
 
-17:                                               ; preds = %16, %16
-  %18 = trunc nuw nsw i32 %11 to i8
-  tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %18)
+18:                                               ; preds = %16, %16
   %19 = load i32, ptr @lineno, align 4, !tbaa !3
   %20 = tail call i32 @getc(ptr noundef nonnull %0)
   %.not17.i = icmp eq i32 %20, %11
-  br i1 %.not17.i, label %endString.exit.thread, label %.lr.ph.i
+  br i1 %.not17.i, label %.sink.split, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %17, %32
-  %21 = phi i32 [ %34, %32 ], [ %20, %17 ]
+.lr.ph.i:                                         ; preds = %18, %32
+  %21 = phi i32 [ %34, %32 ], [ %20, %18 ]
   %22 = icmp eq i32 %21, 92
   br i1 %22, label %23, label %25
 
@@ -1285,24 +1285,27 @@ define internal fastcc range(i32 -2147483648, 256) i32 @endBracket(ptr noundef n
   tail call fastcc void @agxbputc(ptr noundef nonnull %1, i8 noundef signext %33)
   %34 = tail call i32 @getc(ptr noundef nonnull %0)
   %.not.i = icmp eq i32 %34, %11
-  br i1 %.not.i, label %endString.exit.thread, label %.lr.ph.i, !llvm.loop !34
+  br i1 %.not.i, label %.sink.split, label %.lr.ph.i, !llvm.loop !34
 
 endString.exit:                                   ; preds = %25
   tail call void (i32, ptr, ...) @error(i32 noundef 2, ptr noundef nonnull @.str.17, i32 noundef %19) #17
   br label %.loopexit
 
-endString.exit.thread:                            ; preds = %32, %16, %17, %13
-  %.lcssa.i.sink = phi i32 [ %14, %13 ], [ %20, %17 ], [ %11, %16 ], [ %11, %32 ]
-  %35 = trunc i32 %.lcssa.i.sink to i8
+.sink.split:                                      ; preds = %32, %18, %13
+  %.lcssa.i.sink = phi i32 [ %14, %13 ], [ %20, %18 ], [ %11, %32 ]
+  %35 = trunc nuw i32 %.lcssa.i.sink to i8
   tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %35)
-  %36 = tail call fastcc i32 @readc(ptr noundef %0, ptr noundef nonnull %1)
-  %37 = icmp slt i32 %36, 0
-  %38 = icmp eq i32 %36, %7
-  %or.cond31 = select i1 %37, i1 true, i1 %38
+  br label %36
+
+36:                                               ; preds = %.sink.split, %16
+  %37 = tail call fastcc i32 @readc(ptr noundef %0, ptr noundef nonnull %1)
+  %38 = icmp slt i32 %37, 0
+  %39 = icmp eq i32 %37, %7
+  %or.cond31 = select i1 %38, i1 true, i1 %39
   br i1 %or.cond31, label %.loopexit, label %10
 
-.loopexit:                                        ; preds = %endString.exit.thread, %13, %4, %endString.exit
-  %.0 = phi i32 [ -1, %endString.exit ], [ %5, %4 ], [ %36, %endString.exit.thread ], [ %14, %13 ]
+.loopexit:                                        ; preds = %36, %13, %4, %endString.exit
+  %.0 = phi i32 [ -1, %endString.exit ], [ %5, %4 ], [ %37, %36 ], [ %14, %13 ]
   ret i32 %.0
 }
 

@@ -750,37 +750,35 @@ define dso_local void @parse_time_make_str_utc(ptr noundef %0, ptr noundef %1, i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call ptr @gmtime_r(ptr noundef %0, ptr noundef nonnull %4) #13
   %6 = load i64, ptr %0, align 8
-  switch i64 %6, label %13 [
-    i64 0, label %7
-    i64 4294967295, label %7
+  %7 = sext i32 %2 to i64
+  switch i64 %6, label %12 [
+    i64 0, label %8
+    i64 4294967295, label %8
     i64 4294967294, label %10
   ]
 
-7:                                                ; preds = %3, %3
-  %8 = sext i32 %2 to i64
-  %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %8, ptr noundef nonnull @.str.30) #13
+8:                                                ; preds = %3, %3
+  %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %7, ptr noundef nonnull @.str.30) #13
   br label %_make_time_str_internal.exit
 
 10:                                               ; preds = %3
-  %11 = sext i32 %2 to i64
-  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %11, ptr noundef nonnull @.str.31) #13
+  %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %7, ptr noundef nonnull @.str.31) #13
   br label %_make_time_str_internal.exit
 
-13:                                               ; preds = %3
-  %14 = sext i32 %2 to i64
-  %15 = load ptr, ptr @_make_time_str_internal.display_fmt, align 8
-  %16 = call i64 @strftime(ptr noundef %1, i64 noundef %14, ptr noundef %15, ptr noundef nonnull %4) #13
-  %.not28.i = icmp eq i64 %16, 0
-  br i1 %.not28.i, label %17, label %_make_time_str_internal.exit
+12:                                               ; preds = %3
+  %13 = load ptr, ptr @_make_time_str_internal.display_fmt, align 8
+  %14 = call i64 @strftime(ptr noundef %1, i64 noundef %7, ptr noundef %13, ptr noundef nonnull %4) #13
+  %.not28.i = icmp eq i64 %14, 0
+  br i1 %.not28.i, label %15, label %_make_time_str_internal.exit
 
-17:                                               ; preds = %13
-  call void @llvm.memset.p0.i64(ptr align 1 %1, i8 35, i64 %14, i1 false)
-  %18 = getelementptr i8, ptr %1, i64 %14
-  %19 = getelementptr i8, ptr %18, i64 -1
-  store i8 0, ptr %19, align 1
+15:                                               ; preds = %12
+  call void @llvm.memset.p0.i64(ptr align 1 %1, i8 35, i64 %7, i1 false)
+  %16 = getelementptr i8, ptr %1, i64 %7
+  %17 = getelementptr i8, ptr %16, i64 -1
+  store i8 0, ptr %17, align 1
   br label %_make_time_str_internal.exit
 
-_make_time_str_internal.exit:                     ; preds = %7, %10, %13, %17
+_make_time_str_internal.exit:                     ; preds = %8, %10, %12, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

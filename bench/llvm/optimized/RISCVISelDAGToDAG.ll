@@ -12048,20 +12048,20 @@ define dso_local noundef zeroext i1 @_ZN4llvm17RISCVDAGToDAGISel21SelectAddrRegR
   %26 = load ptr, ptr %25, align 8, !tbaa !399
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !131
+  %.sroa.014.0.copyload = load ptr, ptr %24, align 8, !tbaa !268
   switch i32 %28, label %125 [
     i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit
     i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit
   ]
 
 _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds = %22, %22
-  %.sroa.0121.0.copyload = load ptr, ptr %24, align 8, !tbaa !268
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0.copyload, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.copyload, i64 24
   %30 = load i32, ptr %29, align 8, !tbaa !131
   %31 = icmp eq i32 %30, 56
   br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0.copyload, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.copyload, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !267
   %.sroa.037.0.copyload = load ptr, ptr %34, align 8, !tbaa !268
   %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -12266,7 +12266,6 @@ _ZN4llvm5SDLocD2Ev.exit67:                        ; preds = %_ZN4llvm5SDLocC2ENS
   br label %.critedge
 
 125:                                              ; preds = %22
-  %.sroa.014.0.copyload = load ptr, ptr %24, align 8, !tbaa !268
   %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.215.0.copyload = load i32, ptr %.sroa.215.0..sroa_idx, align 8, !tbaa !270
   store ptr %.sroa.014.0.copyload, ptr %5, align 8, !tbaa !268

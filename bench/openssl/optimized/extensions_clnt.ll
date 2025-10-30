@@ -4304,7 +4304,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2100, ptr noundef nonnull @__func__.tls_parse_stoc_psk) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 50, i32 noundef 159, ptr noundef null) #10
-  br label %56
+  br label %52
 
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2872
@@ -4316,7 +4316,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2105, ptr noundef nonnull @__func__.tls_parse_stoc_psk) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 47, i32 noundef 114, ptr noundef null) #10
-  br label %56
+  br label %52
 
 23:                                               ; preds = %19
   %24 = icmp eq i32 %16, 0
@@ -4335,7 +4335,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
   store i32 1, ptr %31, align 8, !tbaa !179
   tail call void @SSL_SESSION_free(ptr noundef %26) #10
   store ptr null, ptr %25, align 8, !tbaa !152
-  br label %56
+  br label %52
 
 32:                                               ; preds = %23
   br i1 %27, label %33, label %.thread
@@ -4344,61 +4344,54 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2123, ptr noundef nonnull @__func__.tls_parse_stoc_psk) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
-  br label %56
+  br label %52
 
 .thread:                                          ; preds = %28, %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2312
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %36 = load i32, ptr %35, align 8, !tbaa !155
+  %.phi.trans.insert38.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 2304
+  %.pre39.pre = load ptr, ptr %.phi.trans.insert38.phi.trans.insert, align 8, !tbaa !95
   switch i32 %36, label %._crit_edge40 [
     i32 3, label %37
     i32 7, label %37
   ]
 
-._crit_edge40:                                    ; preds = %.thread
-  %.phi.trans.insert38.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %.pre39.pre = load ptr, ptr %.phi.trans.insert38.phi.trans.insert, align 8, !tbaa !95
+37:                                               ; preds = %.thread, %.thread
+  %38 = getelementptr inbounds nuw i8, ptr %.pre39.pre, i64 836
+  %39 = load i32, ptr %38, align 4, !tbaa !156
+  %.not31 = icmp eq i32 %39, 0
+  br i1 %.not31, label %40, label %._crit_edge40
+
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 836
+  %42 = load i32, ptr %41, align 4, !tbaa !156
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %._crit_edge40, label %46
+
+._crit_edge40:                                    ; preds = %.thread, %40, %37
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1404
+  %45 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %44, ptr noundef nonnull align 8 dereferenceable(64) %45, i64 64, i1 false)
   br label %46
 
-37:                                               ; preds = %.thread, %.thread
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %39 = load ptr, ptr %38, align 8, !tbaa !95
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 836
-  %41 = load i32, ptr %40, align 4, !tbaa !156
-  %.not31 = icmp eq i32 %41, 0
-  br i1 %.not31, label %42, label %46
-
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %26, i64 836
-  %44 = load i32, ptr %43, align 4, !tbaa !156
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %49
-
-46:                                               ; preds = %._crit_edge40, %42, %37
-  %.pre39 = phi ptr [ %.pre39.pre, %._crit_edge40 ], [ %39, %42 ], [ %39, %37 ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1404
-  %48 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %47, ptr noundef nonnull align 8 dereferenceable(64) %48, i64 64, i1 false)
-  br label %49
-
-49:                                               ; preds = %46, %42
-  %50 = phi ptr [ %.pre39, %46 ], [ %39, %42 ]
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  tail call void @SSL_SESSION_free(ptr noundef %50) #10
-  %52 = load ptr, ptr %34, align 8, !tbaa !152
-  store ptr %52, ptr %51, align 8, !tbaa !95
+46:                                               ; preds = %._crit_edge40, %40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 2304
+  tail call void @SSL_SESSION_free(ptr noundef %.pre39.pre) #10
+  %48 = load ptr, ptr %34, align 8, !tbaa !152
+  store ptr %48, ptr %47, align 8, !tbaa !95
   store ptr null, ptr %34, align 8, !tbaa !152
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  store i32 1, ptr %53, align 8, !tbaa !179
-  br i1 %24, label %56, label %54
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1288
+  store i32 1, ptr %49, align 8, !tbaa !179
+  br i1 %24, label %52, label %50
 
-54:                                               ; preds = %49
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 2844
-  store i32 0, ptr %55, align 4, !tbaa !164
-  br label %56
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 2844
+  store i32 0, ptr %51, align 4, !tbaa !164
+  br label %52
 
-56:                                               ; preds = %49, %54, %33, %30, %22, %PACKET_get_net_2.exit.thread
-  %.0 = phi i32 [ 0, %PACKET_get_net_2.exit.thread ], [ 0, %22 ], [ 1, %30 ], [ 0, %33 ], [ 1, %54 ], [ 1, %49 ]
+52:                                               ; preds = %46, %50, %33, %30, %22, %PACKET_get_net_2.exit.thread
+  %.0 = phi i32 [ 0, %PACKET_get_net_2.exit.thread ], [ 0, %22 ], [ 1, %30 ], [ 0, %33 ], [ 1, %50 ], [ 1, %46 ]
   ret i32 %.0
 }
 

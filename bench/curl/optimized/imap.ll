@@ -1172,7 +1172,7 @@ define internal i32 @imap_connect(ptr noundef %0, ptr noundef writeonly captures
   %.not.i24 = icmp eq i8 %16, 0
   br i1 %.not.i24, label %.critedge.thread.i, label %.preheader.i.preheader
 
-17:                                               ; preds = %.thread, %33
+17:                                               ; preds = %.thread, %31
   %18 = load i8, ptr %.2.i, align 1, !tbaa !7
   %19 = icmp eq i8 %18, 59
   %spec.select.idx.i = zext i1 %19 to i64
@@ -1186,59 +1186,58 @@ define internal i32 @imap_connect(ptr noundef %0, ptr noundef writeonly captures
   %.03345.i25 = phi ptr [ %spec.select.i, %17 ], [ %14, %.lr.ph.i ]
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %23
-  %22 = phi i8 [ %.pr.i, %23 ], [ %21, %.preheader.i.preheader ]
-  %.134.i = phi ptr [ %24, %23 ], [ %.03345.i25, %.preheader.i.preheader ]
-  switch i8 %22, label %23 [
-    i8 0, label %.critedge3.i
-    i8 61, label %.critedge3.i
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %24
+  %22 = phi i8 [ %.pr.i, %24 ], [ %21, %.preheader.i.preheader ]
+  %.134.i = phi ptr [ %23, %24 ], [ %.03345.i25, %.preheader.i.preheader ]
+  %23 = getelementptr inbounds nuw i8, ptr %.134.i, i64 1
+  switch i8 %22, label %24 [
+    i8 0, label %.critedge3.i.preheader
+    i8 61, label %.critedge3.i.preheader
   ]
 
-23:                                               ; preds = %.preheader.i
-  %24 = getelementptr inbounds nuw i8, ptr %.134.i, i64 1
-  %.pr.i = load i8, ptr %24, align 1, !tbaa !7
+.critedge3.i.preheader:                           ; preds = %.preheader.i, %.preheader.i
+  br label %.critedge3.i
+
+24:                                               ; preds = %.preheader.i
+  %.pr.i = load i8, ptr %23, align 1, !tbaa !7
   br label %.preheader.i, !llvm.loop !128
 
-.critedge3.i:                                     ; preds = %.preheader.i, %.preheader.i
-  %25 = getelementptr inbounds nuw i8, ptr %.134.i, i64 1
-  br label %26
-
-26:                                               ; preds = %28, %.critedge3.i
-  %27 = phi i8 [ %22, %.critedge3.i ], [ %.pre.i, %28 ]
-  %.2.i = phi ptr [ %.134.i, %.critedge3.i ], [ %29, %28 ]
-  switch i8 %27, label %28 [
+.critedge3.i:                                     ; preds = %.critedge3.i.preheader, %26
+  %25 = phi i8 [ %.pre.i, %26 ], [ %22, %.critedge3.i.preheader ]
+  %.2.i = phi ptr [ %27, %26 ], [ %.134.i, %.critedge3.i.preheader ]
+  switch i8 %25, label %26 [
     i8 0, label %.critedge5.i
     i8 59, label %.critedge5.i
   ]
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
-  %.pre.i = load i8, ptr %29, align 1, !tbaa !7
-  br label %26, !llvm.loop !129
+26:                                               ; preds = %.critedge3.i
+  %27 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
+  %.pre.i = load i8, ptr %27, align 1, !tbaa !7
+  br label %.critedge3.i, !llvm.loop !129
 
-.critedge5.i:                                     ; preds = %26, %26
-  %30 = tail call i32 @curl_strnequal(ptr noundef nonnull %.03345.i25, ptr noundef nonnull @.str.57, i64 noundef 11) #7
-  %.not48 = icmp eq i32 %30, 0
-  br i1 %.not48, label %31, label %.thread
+.critedge5.i:                                     ; preds = %.critedge3.i, %.critedge3.i
+  %28 = tail call i32 @curl_strnequal(ptr noundef nonnull %.03345.i25, ptr noundef nonnull @.str.57, i64 noundef 11) #7
+  %.not48 = icmp eq i32 %28, 0
+  br i1 %.not48, label %29, label %.thread
 
 .thread:                                          ; preds = %.critedge5.i
   store i16 0, ptr %15, align 2, !tbaa !130
   br label %17
 
-31:                                               ; preds = %.critedge5.i
-  %32 = tail call i32 @curl_strnequal(ptr noundef nonnull %.03345.i25, ptr noundef nonnull @.str.11, i64 noundef 5) #7
-  %.not43.i = icmp eq i32 %32, 0
-  br i1 %.not43.i, label %.critedge.thread.i, label %33
+29:                                               ; preds = %.critedge5.i
+  %30 = tail call i32 @curl_strnequal(ptr noundef nonnull %.03345.i25, ptr noundef nonnull @.str.11, i64 noundef 5) #7
+  %.not43.i = icmp eq i32 %30, 0
+  br i1 %.not43.i, label %.critedge.thread.i, label %31
 
-33:                                               ; preds = %31
-  %34 = ptrtoint ptr %.2.i to i64
-  %35 = ptrtoint ptr %25 to i64
-  %36 = sub i64 %34, %35
-  %37 = tail call i32 @Curl_sasl_parse_url_auth_option(ptr noundef nonnull %11, ptr noundef nonnull %25, i64 noundef %36) #7
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %17, label %..critedge.i_crit_edge, !llvm.loop !127
+31:                                               ; preds = %29
+  %32 = ptrtoint ptr %.2.i to i64
+  %33 = ptrtoint ptr %23 to i64
+  %34 = sub i64 %32, %33
+  %35 = tail call i32 @Curl_sasl_parse_url_auth_option(ptr noundef nonnull %11, ptr noundef nonnull %23, i64 noundef %34) #7
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %17, label %..critedge.i_crit_edge, !llvm.loop !127
 
-..critedge.i_crit_edge:                           ; preds = %33
+..critedge.i_crit_edge:                           ; preds = %31
   br label %.critedge.thread.i, !llvm.loop !127
 
 .critedge.i:                                      ; preds = %17
@@ -1246,64 +1245,64 @@ define internal i32 @imap_connect(ptr noundef %0, ptr noundef writeonly captures
 
 imap_parse_url_options.exit.thread:               ; preds = %.critedge.i
   store i8 1, ptr %10, align 1, !tbaa !117
-  br label %41
+  br label %39
 
-.critedge.thread.i:                               ; preds = %31, %.lr.ph.i, %..critedge.i_crit_edge, %.critedge.i, %2
-  %.0.lcssa59.i = phi i32 [ 0, %.critedge.i ], [ 0, %2 ], [ 0, %.lr.ph.i ], [ %37, %..critedge.i_crit_edge ], [ 3, %31 ]
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 1274
-  %40 = load i16, ptr %39, align 2, !tbaa !130
-  %switch.selectcmp = icmp eq i16 %40, -33
+.critedge.thread.i:                               ; preds = %29, %.lr.ph.i, %..critedge.i_crit_edge, %.critedge.i, %2
+  %.0.lcssa59.i = phi i32 [ 0, %.critedge.i ], [ 0, %2 ], [ 0, %.lr.ph.i ], [ %35, %..critedge.i_crit_edge ], [ 3, %29 ]
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 1274
+  %38 = load i16, ptr %37, align 2, !tbaa !130
+  %switch.selectcmp = icmp eq i16 %38, -33
   %switch.select = select i1 %switch.selectcmp, i8 3, i8 2
-  %switch.selectcmp46 = icmp eq i16 %40, 0
+  %switch.selectcmp46 = icmp eq i16 %38, 0
   %switch.select47 = select i1 %switch.selectcmp46, i8 0, i8 %switch.select
   store i8 %switch.select47, ptr %10, align 1, !tbaa !117
   %.not = icmp eq i32 %.0.lcssa59.i, 0
-  br i1 %.not, label %41, label %imap_multi_statemach.exit
+  br i1 %.not, label %39, label %imap_multi_statemach.exit
 
-41:                                               ; preds = %imap_parse_url_options.exit.thread, %.critedge.thread.i
+39:                                               ; preds = %imap_parse_url_options.exit.thread, %.critedge.thread.i
   %.val = load ptr, ptr %4, align 8, !tbaa !98
-  %42 = getelementptr inbounds nuw i8, ptr %.val, i64 1328
-  store i32 1, ptr %42, align 8, !tbaa !110
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 1332
-  store i16 42, ptr %43, align 1
-  %44 = load ptr, ptr %4, align 8, !tbaa !98
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1088
-  %46 = tail call zeroext i1 @Curl_conn_is_ssl(ptr noundef %44, i32 noundef 0) #7
-  br i1 %46, label %47, label %59
+  %40 = getelementptr inbounds nuw i8, ptr %.val, i64 1328
+  store i32 1, ptr %40, align 8, !tbaa !110
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 1332
+  store i16 42, ptr %41, align 1
+  %42 = load ptr, ptr %4, align 8, !tbaa !98
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1088
+  %44 = tail call zeroext i1 @Curl_conn_is_ssl(ptr noundef %42, i32 noundef 0) #7
+  br i1 %44, label %45, label %57
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 1339
-  %49 = load i8, ptr %48, align 1
-  %50 = and i8 %49, 1
-  %.not.i23 = icmp eq i8 %50, 0
-  br i1 %.not.i23, label %51, label %59
+45:                                               ; preds = %39
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 1339
+  %47 = load i8, ptr %46, align 1
+  %48 = and i8 %47, 1
+  %.not.i23 = icmp eq i8 %48, 0
+  br i1 %.not.i23, label %49, label %57
 
-51:                                               ; preds = %47
+49:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !8
-  %52 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #7
-  %53 = load i8, ptr %3, align 1, !tbaa !8, !range !112, !noundef !113
-  %54 = load i8, ptr %48, align 1
-  %55 = and i8 %54, -2
-  %56 = or disjoint i8 %55, %53
-  store i8 %56, ptr %48, align 1
-  %57 = icmp eq i32 %52, 0
-  %58 = trunc nuw i8 %53 to i1
-  %or.cond.i = select i1 %57, i1 %58, i1 false
+  %50 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #7
+  %51 = load i8, ptr %3, align 1, !tbaa !8, !range !112, !noundef !113
+  %52 = load i8, ptr %46, align 1
+  %53 = and i8 %52, -2
+  %54 = or disjoint i8 %53, %51
+  store i8 %54, ptr %46, align 1
+  %55 = icmp eq i32 %50, 0
+  %56 = trunc nuw i8 %51 to i1
+  %or.cond.i = select i1 %55, i1 %56, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %or.cond.i, label %59, label %imap_multi_statemach.exit
+  br i1 %or.cond.i, label %57, label %imap_multi_statemach.exit
 
-59:                                               ; preds = %51, %47, %41
-  %60 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %45, i1 noundef zeroext false, i1 noundef zeroext false) #7
-  %61 = getelementptr inbounds nuw i8, ptr %44, i64 1328
-  %62 = load i32, ptr %61, align 8, !tbaa !110
-  %63 = icmp eq i32 %62, 0
-  %64 = zext i1 %63 to i8
-  store i8 %64, ptr %1, align 1, !tbaa !8
+57:                                               ; preds = %49, %45, %39
+  %58 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %43, i1 noundef zeroext false, i1 noundef zeroext false) #7
+  %59 = getelementptr inbounds nuw i8, ptr %42, i64 1328
+  %60 = load i32, ptr %59, align 8, !tbaa !110
+  %61 = icmp eq i32 %60, 0
+  %62 = zext i1 %61 to i8
+  store i8 %62, ptr %1, align 1, !tbaa !8
   br label %imap_multi_statemach.exit
 
-imap_multi_statemach.exit:                        ; preds = %59, %51, %.critedge.thread.i
-  %.0 = phi i32 [ %.0.lcssa59.i, %.critedge.thread.i ], [ %60, %59 ], [ %52, %51 ]
+imap_multi_statemach.exit:                        ; preds = %57, %49, %.critedge.thread.i
+  %.0 = phi i32 [ %.0.lcssa59.i, %.critedge.thread.i ], [ %58, %57 ], [ %50, %49 ]
   ret i32 %.0
 }
 

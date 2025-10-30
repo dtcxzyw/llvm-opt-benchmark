@@ -726,6 +726,7 @@ define dso_local void @_ZN5clang7CodeGen15DominatingValueINS0_6RValueEE10saved_t
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 7
+  %.sroa.03.0.copyload = load i64, ptr %1, align 8, !tbaa !3
   switch i8 %11, label %85 [
     i8 0, label %12
     i8 1, label %12
@@ -735,7 +736,6 @@ define dso_local void @_ZN5clang7CodeGen15DominatingValueINS0_6RValueEE10saved_t
   ]
 
 12:                                               ; preds = %3, %3
-  %.sroa.03.0.copyload = load i64, ptr %1, align 8, !tbaa !3
   %13 = and i64 %.sroa.03.0.copyload, 4
   %.not.i = icmp eq i64 %13, 0
   %14 = and i64 %.sroa.03.0.copyload, -8
@@ -769,16 +769,15 @@ _ZN5clang7CodeGen19DominatingLLVMValue7restoreERNS0_15CodeGenFunctionEN4llvm14Po
   br label %86
 
 28:                                               ; preds = %3, %3
-  %.sroa.023.0.copyload = load i64, ptr %1, align 8, !tbaa !3
   %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.224.0.copyload = load ptr, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !645
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.325.0.copyload = load i64, ptr %.sroa.325.0..sroa_idx, align 8, !tbaa !626
   %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.426.0.copyload = load i64, ptr %.sroa.426.0..sroa_idx, align 8, !tbaa !3
-  %29 = and i64 %.sroa.023.0.copyload, 4
+  %29 = and i64 %.sroa.03.0.copyload, 4
   %.not.i.i = icmp eq i64 %29, 0
-  %30 = and i64 %.sroa.023.0.copyload, -8
+  %30 = and i64 %.sroa.03.0.copyload, -8
   br i1 %.not.i.i, label %_ZN5clang7CodeGen19DominatingLLVMValue7restoreERNS0_15CodeGenFunctionEN4llvm14PointerIntPairIPNS4_5ValueELj1EbNS4_21PointerLikeTypeTraitsIS7_EENS4_18PointerIntPairInfoIS7_Lj1ES9_EEEE.exit.i, label %31
 
 31:                                               ; preds = %28
@@ -841,10 +840,9 @@ _ZN5clang7CodeGen15DominatingValueINS0_7AddressEE7restoreERNS0_15CodeGenFunction
   br label %86
 
 57:                                               ; preds = %3
-  %.sroa.01.0.copyload = load i64, ptr %1, align 8, !tbaa !3
-  %58 = and i64 %.sroa.01.0.copyload, 4
+  %58 = and i64 %.sroa.03.0.copyload, 4
   %.not.i9 = icmp eq i64 %58, 0
-  %59 = and i64 %.sroa.01.0.copyload, -8
+  %59 = and i64 %.sroa.03.0.copyload, -8
   %60 = inttoptr i64 %59 to ptr
   br i1 %.not.i9, label %_ZN5clang7CodeGen19DominatingLLVMValue7restoreERNS0_15CodeGenFunctionEN4llvm14PointerIntPairIPNS4_5ValueELj1EbNS4_21PointerLikeTypeTraitsIS7_EENS4_18PointerIntPairInfoIS7_Lj1ES9_EEEE.exit13, label %61
 

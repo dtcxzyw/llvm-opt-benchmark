@@ -18118,7 +18118,7 @@ define range(i32 0, 2) i32 @GC_calloc_prepare_explicitly_typed(ptr noundef captu
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 -1, i64 16, i1 false)
-  br label %43
+  br label %41
 
 16:                                               ; preds = %13, %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -18127,50 +18127,48 @@ define range(i32 0, 2) i32 @GC_calloc_prepare_explicitly_typed(ptr noundef captu
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %20, ptr %21, align 8, !tbaa !257
+  %22 = mul i64 %.029, %.030
   switch i32 %19, label %default.unreachable39 [
-    i32 -1, label %22
-    i32 0, label %22
+    i32 -1, label %23
+    i32 0, label %23
     i32 1, label %25
-    i32 2, label %34
+    i32 2, label %33
   ]
 
-22:                                               ; preds = %16, %16
-  %23 = mul i64 %.029, %.030
+23:                                               ; preds = %16, %16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %23, ptr %24, align 8, !tbaa !261
-  br label %43
+  store i64 %22, ptr %24, align 8, !tbaa !261
+  br label %41
 
 25:                                               ; preds = %16
-  %26 = mul i64 %.029, %.030
-  %27 = load i32, ptr @GC_all_interior_pointers, align 4, !tbaa !3
-  %28 = sext i32 %27 to i64
-  %29 = add nsw i64 %28, -41
-  %30 = icmp ult i64 %26, %29
-  %reass.sub35 = add i64 %26, 40
-  %31 = sub i64 %reass.sub35, %28
-  %32 = select i1 %30, i64 %31, i64 -1, !prof !13
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %32, ptr %33, align 8, !tbaa !261
-  br label %43
+  %26 = load i32, ptr @GC_all_interior_pointers, align 4, !tbaa !3
+  %27 = sext i32 %26 to i64
+  %28 = add nsw i64 %27, -41
+  %29 = icmp ult i64 %22, %28
+  %reass.sub35 = add i64 %22, 40
+  %30 = sub i64 %reass.sub35, %27
+  %31 = select i1 %29, i64 %30, i64 -1, !prof !13
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %31, ptr %32, align 8, !tbaa !261
+  br label %41
 
-34:                                               ; preds = %16
-  %35 = mul i64 %.029, %.030
-  %36 = load i32, ptr @GC_all_interior_pointers, align 4, !tbaa !3
-  %37 = sext i32 %36 to i64
-  %38 = add nsw i64 %37, -9
-  %39 = icmp ult i64 %35, %38
-  %reass.sub = add i64 %35, 8
-  %40 = sub i64 %reass.sub, %37
-  %41 = select i1 %39, i64 %40, i64 -1, !prof !13
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %41, ptr %42, align 8, !tbaa !261
-  br label %43
+33:                                               ; preds = %16
+  %34 = load i32, ptr @GC_all_interior_pointers, align 4, !tbaa !3
+  %35 = sext i32 %34 to i64
+  %36 = add nsw i64 %35, -9
+  %37 = icmp ult i64 %22, %36
+  %reass.sub = add i64 %22, 8
+  %38 = sub i64 %reass.sub, %35
+  %39 = select i1 %37, i64 %38, i64 -1, !prof !13
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %39, ptr %40, align 8, !tbaa !261
+  br label %41
 
 default.unreachable39:                            ; preds = %16
   unreachable
 
-43:                                               ; preds = %22, %25, %34, %14
-  %.0 = phi i32 [ 0, %14 ], [ 1, %34 ], [ 1, %25 ], [ 1, %22 ]
+41:                                               ; preds = %23, %25, %33, %14
+  %.0 = phi i32 [ 0, %14 ], [ 1, %33 ], [ 1, %25 ], [ 1, %23 ]
   ret i32 %.0
 }
 
@@ -18763,52 +18761,50 @@ define noalias ptr @GC_calloc_explicitly_typed(i64 noundef %0, i64 noundef %1, i
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %19, ptr %20, align 8, !tbaa !257
+  %21 = mul i64 %.029.i, %.030.i
   switch i32 %18, label %default.unreachable [
-    i32 -1, label %21
-    i32 0, label %21
+    i32 -1, label %22
+    i32 0, label %22
     i32 1, label %24
-    i32 2, label %33
+    i32 2, label %32
   ]
 
-21:                                               ; preds = %15, %15
-  %22 = mul i64 %.029.i, %.030.i
+22:                                               ; preds = %15, %15
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i64 %22, ptr %23, align 8, !tbaa !261
+  store i64 %21, ptr %23, align 8, !tbaa !261
   br label %GC_calloc_prepare_explicitly_typed.exit
 
 24:                                               ; preds = %15
-  %25 = mul i64 %.029.i, %.030.i
-  %26 = load i32, ptr @GC_all_interior_pointers, align 4, !tbaa !3
-  %27 = sext i32 %26 to i64
-  %28 = add nsw i64 %27, -41
-  %29 = icmp ult i64 %25, %28
-  %reass.sub35.i = add i64 %25, 40
-  %30 = sub i64 %reass.sub35.i, %27
-  %31 = select i1 %29, i64 %30, i64 -1, !prof !13
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i64 %31, ptr %32, align 8, !tbaa !261
+  %25 = load i32, ptr @GC_all_interior_pointers, align 4, !tbaa !3
+  %26 = sext i32 %25 to i64
+  %27 = add nsw i64 %26, -41
+  %28 = icmp ult i64 %21, %27
+  %reass.sub35.i = add i64 %21, 40
+  %29 = sub i64 %reass.sub35.i, %26
+  %30 = select i1 %28, i64 %29, i64 -1, !prof !13
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store i64 %30, ptr %31, align 8, !tbaa !261
   br label %GC_calloc_prepare_explicitly_typed.exit
 
-33:                                               ; preds = %15
-  %34 = mul i64 %.029.i, %.030.i
-  %35 = load i32, ptr @GC_all_interior_pointers, align 4, !tbaa !3
-  %36 = sext i32 %35 to i64
-  %37 = add nsw i64 %36, -9
-  %38 = icmp ult i64 %34, %37
-  %reass.sub.i = add i64 %34, 8
-  %39 = sub i64 %reass.sub.i, %36
-  %40 = select i1 %38, i64 %39, i64 -1, !prof !13
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i64 %40, ptr %41, align 8, !tbaa !261
+32:                                               ; preds = %15
+  %33 = load i32, ptr @GC_all_interior_pointers, align 4, !tbaa !3
+  %34 = sext i32 %33 to i64
+  %35 = add nsw i64 %34, -9
+  %36 = icmp ult i64 %21, %35
+  %reass.sub.i = add i64 %21, 8
+  %37 = sub i64 %reass.sub.i, %34
+  %38 = select i1 %36, i64 %37, i64 -1, !prof !13
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store i64 %38, ptr %39, align 8, !tbaa !261
   br label %GC_calloc_prepare_explicitly_typed.exit
 
 default.unreachable:                              ; preds = %15
   unreachable
 
-GC_calloc_prepare_explicitly_typed.exit:          ; preds = %13, %21, %24, %33
-  %42 = call noalias ptr @GC_calloc_do_explicitly_typed(ptr noundef nonnull %4, i64 poison)
+GC_calloc_prepare_explicitly_typed.exit:          ; preds = %13, %22, %24, %32
+  %40 = call noalias ptr @GC_calloc_do_explicitly_typed(ptr noundef nonnull %4, i64 poison)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %42
+  ret ptr %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

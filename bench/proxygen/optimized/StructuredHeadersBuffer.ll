@@ -2945,12 +2945,14 @@ _ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt
 
 if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i47.i.i, %land.lhs.true.i34.i.i, %entry, %if.end.i.i, %if.then11.i.i, %lor.lhs.false22.i.i, %if.end17.i.i, %if.else35.i.i
   %call2.i.i.i.i = call noundef zeroext i1 @_ZN5boost6detail27lexical_ostream_limited_srcIcSt11char_traitsIcEE20shr_using_base_classIdEEbRT_(ptr noundef nonnull align 8 dereferenceable(16) %out.i.i, ptr noundef nonnull align 8 dereferenceable(8) %result)
-  br i1 %call2.i.i.i.i, label %land.lhs.true.i.i.i.i, label %if.then
+  br i1 %call2.i.i.i.i, label %land.lhs.true.i.i.i.i, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end.i.i.i.i
   %13 = load ptr, ptr %finish.i6.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 -1
   %14 = load i8, ptr %add.ptr.i.i.i.i, align 1
+  call void @llvm.lifetime.end.p0(ptr nonnull %i_interpreter.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %out.i.i)
   switch i8 %14, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5 [
     i8 101, label %if.then
     i8 69, label %if.then
@@ -2959,14 +2961,15 @@ land.lhs.true.i.i.i.i:                            ; preds = %if.end.i.i.i.i
   ]
 
 _ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5: ; preds = %land.lhs.true.i.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %i_interpreter.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %out.i.i)
   %.pre = load double, ptr %result, align 8
   br label %if.end
 
-if.then:                                          ; preds = %if.end.i.i.i.i, %land.lhs.true.i.i.i.i, %land.lhs.true.i.i.i.i, %land.lhs.true.i.i.i.i, %land.lhs.true.i.i.i.i
+_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit: ; preds = %if.end.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %i_interpreter.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %out.i.i)
+  br label %if.then
+
+if.then:                                          ; preds = %land.lhs.true.i.i.i.i, %land.lhs.true.i.i.i.i, %land.lhs.true.i.i.i.i, %land.lhs.true.i.i.i.i, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5boost16bad_lexical_castE, i64 16), ptr %ref.tmp.i, align 8
   %source.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8

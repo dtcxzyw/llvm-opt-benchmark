@@ -55,7 +55,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h264(ptr noundef rea
 24:                                               ; preds = %21, %18, %14
   %25 = load ptr, ptr %12, align 8, !tbaa !28
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.3, ptr noundef %25) #5
-  br label %336
+  br label %335
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -599,26 +599,25 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h264(ptr noundef rea
   %329 = add i8 %328, -26
   %330 = getelementptr inbounds nuw i8, ptr %2, i64 2588
   store i8 %329, ptr %330, align 4, !tbaa !157
+  %331 = getelementptr inbounds nuw i8, ptr %2, i64 2593
   switch i8 %315, label %333 [
-    i8 66, label %331
-    i8 88, label %331
-    i8 77, label %331
+    i8 66, label %332
+    i8 88, label %332
+    i8 77, label %332
   ]
 
-331:                                              ; preds = %319, %319, %319
-  %332 = getelementptr inbounds nuw i8, ptr %2, i64 2593
-  store i8 0, ptr %332, align 1, !tbaa !158
-  br label %336
+332:                                              ; preds = %319, %319, %319
+  store i8 0, ptr %331, align 1, !tbaa !158
+  br label %335
 
 333:                                              ; preds = %319
-  %334 = getelementptr inbounds nuw i8, ptr %2, i64 2593
-  store i8 1, ptr %334, align 1, !tbaa !158
-  %335 = getelementptr inbounds nuw i8, ptr %2, i64 2595
-  store i8 1, ptr %335, align 1, !tbaa !159
-  br label %336
+  store i8 1, ptr %331, align 1, !tbaa !158
+  %334 = getelementptr inbounds nuw i8, ptr %2, i64 2595
+  store i8 1, ptr %334, align 1, !tbaa !159
+  br label %335
 
-336:                                              ; preds = %331, %333, %24
-  %.0 = phi i32 [ -22, %24 ], [ 0, %333 ], [ 0, %331 ]
+335:                                              ; preds = %332, %333, %24
+  %.0 = phi i32 [ -22, %24 ], [ 0, %333 ], [ 0, %332 ]
   ret i32 %.0
 }
 

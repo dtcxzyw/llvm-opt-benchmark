@@ -1939,70 +1939,68 @@ define internal fastcc ptr @copy_grouping(ptr noundef readonly captures(none) %0
   %5 = tail call ptr @PyList_New(i64 noundef 0) #8
   br label %.critedge2
 
-.preheader32:                                     ; preds = %1, %7
-  %6 = phi i8 [ %.pre, %7 ], [ %2, %1 ]
-  %.023 = phi i32 [ %8, %7 ], [ 0, %1 ]
-  switch i8 %6, label %7 [
+.preheader32:                                     ; preds = %1, %8
+  %6 = phi i8 [ %.pre, %8 ], [ %2, %1 ]
+  %.023 = phi i32 [ %7, %8 ], [ 0, %1 ]
+  %7 = add i32 %.023, 1
+  %.phi.trans.insert = sext i32 %7 to i64
+  switch i8 %6, label %8 [
     i8 0, label %.critedge
     i8 127, label %.critedge
   ]
 
-7:                                                ; preds = %.preheader32
-  %8 = add i32 %.023, 1
-  %.phi.trans.insert = sext i32 %8 to i64
+8:                                                ; preds = %.preheader32
   %.phi.trans.insert33 = getelementptr i8, ptr %0, i64 %.phi.trans.insert
   %.pre = load i8, ptr %.phi.trans.insert33, align 1, !tbaa !11
   br label %.preheader32, !llvm.loop !44
 
 .critedge:                                        ; preds = %.preheader32, %.preheader32
-  %9 = add i32 %.023, 1
-  %10 = sext i32 %9 to i64
-  %11 = tail call ptr @PyList_New(i64 noundef %10) #8
-  %.not29 = icmp eq ptr %11, null
+  %9 = tail call ptr @PyList_New(i64 noundef %.phi.trans.insert) #8
+  %.not29 = icmp eq ptr %9, null
   br i1 %.not29, label %.critedge2, label %.preheader
 
 .preheader:                                       ; preds = %.critedge
-  %12 = getelementptr i8, ptr %11, i64 24
-  br label %13
+  %10 = getelementptr i8, ptr %9, i64 24
+  br label %11
 
-13:                                               ; preds = %.preheader, %27
-  %.1 = phi i32 [ %14, %27 ], [ -1, %.preheader ]
-  %14 = add i32 %.1, 1
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr i8, ptr %0, i64 %15
-  %17 = load i8, ptr %16, align 1, !tbaa !11
-  %18 = sext i8 %17 to i64
-  %19 = tail call ptr @PyLong_FromLong(i64 noundef %18) #8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %27
+11:                                               ; preds = %.preheader, %25
+  %.1 = phi i32 [ %12, %25 ], [ -1, %.preheader ]
+  %12 = add i32 %.1, 1
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr i8, ptr %0, i64 %13
+  %15 = load i8, ptr %14, align 1, !tbaa !11
+  %16 = sext i8 %15 to i64
+  %17 = tail call ptr @PyLong_FromLong(i64 noundef %16) #8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %25
 
-21:                                               ; preds = %13
-  %22 = load i32, ptr %11, align 8, !tbaa !11
-  %.not.i = icmp sgt i32 %22, -1
-  br i1 %.not.i, label %23, label %.critedge2
+19:                                               ; preds = %11
+  %20 = load i32, ptr %9, align 8, !tbaa !11
+  %.not.i = icmp sgt i32 %20, -1
+  br i1 %.not.i, label %21, label %.critedge2
 
-23:                                               ; preds = %21
-  %24 = add nsw i32 %22, -1
-  store i32 %24, ptr %11, align 8, !tbaa !11
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %.critedge2
+21:                                               ; preds = %19
+  %22 = add nsw i32 %20, -1
+  store i32 %22, ptr %9, align 8, !tbaa !11
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %.critedge2
 
-26:                                               ; preds = %23
-  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #8
+24:                                               ; preds = %21
+  tail call void @_Py_Dealloc(ptr noundef nonnull %9) #8
   br label %.critedge2
 
-27:                                               ; preds = %13
-  %.val = load ptr, ptr %12, align 8, !tbaa !46
-  %28 = getelementptr ptr, ptr %.val, i64 %15
-  store ptr %19, ptr %28, align 8, !tbaa !10
-  %29 = load i8, ptr %16, align 1, !tbaa !11
-  switch i8 %29, label %13 [
+25:                                               ; preds = %11
+  %.val = load ptr, ptr %10, align 8, !tbaa !46
+  %26 = getelementptr ptr, ptr %.val, i64 %13
+  store ptr %17, ptr %26, align 8, !tbaa !10
+  %27 = load i8, ptr %14, align 1, !tbaa !11
+  switch i8 %27, label %11 [
     i8 0, label %.critedge2
     i8 127, label %.critedge2
   ]
 
-.critedge2:                                       ; preds = %27, %27, %26, %23, %21, %.critedge, %4
-  %.0 = phi ptr [ %5, %4 ], [ null, %.critedge ], [ null, %21 ], [ null, %23 ], [ null, %26 ], [ %11, %27 ], [ %11, %27 ]
+.critedge2:                                       ; preds = %25, %25, %24, %21, %19, %.critedge, %4
+  %.0 = phi ptr [ %5, %4 ], [ null, %.critedge ], [ null, %19 ], [ null, %21 ], [ null, %24 ], [ %9, %25 ], [ %9, %25 ]
   ret ptr %.0
 }
 

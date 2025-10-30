@@ -2100,39 +2100,36 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define void @_ZN15EditPaintPlugin11setToolTypeE8ToolType(ptr noundef nonnull align 8 dereferenceable(704) initializes((480, 488)) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 %1, ptr %3, align 8
-  switch i32 %1, label %10 [
-    i32 7, label %4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 484
+  switch i32 %1, label %8 [
+    i32 7, label %5
     i32 0, label %6
     i32 6, label %6
     i32 4, label %6
     i32 3, label %6
     i32 8, label %6
-    i32 10, label %8
-    i32 9, label %8
+    i32 10, label %7
+    i32 9, label %7
   ]
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 484
-  store i32 9, ptr %5, align 4
+5:                                                ; preds = %2
+  store i32 9, ptr %4, align 4
   tail call void @_ZN15EditPaintPlugin21setSelectionRenderingEb(ptr noundef nonnull align 8 dereferenceable(704) %0, i1 noundef zeroext true)
-  br label %12
+  br label %9
 
 6:                                                ; preds = %2, %2, %2, %2, %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 484
-  store i32 11, ptr %7, align 4
-  br label %12
+  store i32 11, ptr %4, align 4
+  br label %9
 
-8:                                                ; preds = %2, %2
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 484
-  store i32 15, ptr %9, align 4
-  br label %12
+7:                                                ; preds = %2, %2
+  store i32 15, ptr %4, align 4
+  br label %9
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 484
-  store i32 0, ptr %11, align 4
-  br label %12
+8:                                                ; preds = %2
+  store i32 0, ptr %4, align 4
+  br label %9
 
-12:                                               ; preds = %10, %8, %6, %4
+9:                                                ; preds = %8, %7, %6, %5
   ret void
 }
 

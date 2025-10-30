@@ -889,7 +889,7 @@ define hidden void @_ZN12DCmdArgumentI18MemorySizeArgumentE11parse_valueEPKcmP10
 6:                                                ; preds = %4
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 306, ptr noundef %7, ptr noundef nonnull @.str.31) #15
-  br label %35
+  br label %32
 
 8:                                                ; preds = %4
   %9 = load i8, ptr %1, align 1
@@ -899,64 +899,61 @@ define hidden void @_ZN12DCmdArgumentI18MemorySizeArgumentE11parse_valueEPKcmP10
 11:                                               ; preds = %8
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 310, ptr noundef %12, ptr noundef nonnull @.str.32) #15
-  br label %35
+  br label %32
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %1, ptr noundef nonnull @.str.33, ptr noundef nonnull %15, ptr noundef nonnull %16) #15
-  switch i32 %17, label %33 [
+  switch i32 %17, label %30 [
     i32 2, label %18
-    i32 1, label %31
+    i32 1, label %28
   ]
 
 18:                                               ; preds = %13
   %19 = load i8, ptr %16, align 8
-  switch i8 %19, label %29 [
-    i8 107, label %20
-    i8 75, label %20
+  %20 = load i64, ptr %15, align 8
+  switch i8 %19, label %27 [
+    i8 107, label %21
+    i8 75, label %21
     i8 109, label %23
     i8 77, label %23
-    i8 103, label %26
-    i8 71, label %26
+    i8 103, label %25
+    i8 71, label %25
   ]
 
-20:                                               ; preds = %18, %18
-  %21 = load i64, ptr %15, align 8
-  %22 = shl i64 %21, 10
+21:                                               ; preds = %18, %18
+  %22 = shl i64 %20, 10
   store i64 %22, ptr %14, align 8
-  br label %35
+  br label %32
 
 23:                                               ; preds = %18, %18
-  %24 = load i64, ptr %15, align 8
-  %25 = shl i64 %24, 20
-  store i64 %25, ptr %14, align 8
-  br label %35
+  %24 = shl i64 %20, 20
+  store i64 %24, ptr %14, align 8
+  br label %32
 
-26:                                               ; preds = %18, %18
-  %27 = load i64, ptr %15, align 8
-  %28 = shl i64 %27, 30
-  store i64 %28, ptr %14, align 8
-  br label %35
+25:                                               ; preds = %18, %18
+  %26 = shl i64 %20, 30
+  store i64 %26, ptr %14, align 8
+  br label %32
 
-29:                                               ; preds = %18
-  %30 = load i64, ptr %15, align 8
-  store i64 %30, ptr %14, align 8
+27:                                               ; preds = %18
+  store i64 %20, ptr %14, align 8
   store i8 32, ptr %16, align 8
-  br label %35
+  br label %32
 
-31:                                               ; preds = %13
-  %32 = load i64, ptr %15, align 8
-  store i64 %32, ptr %14, align 8
-  br label %35
+28:                                               ; preds = %13
+  %29 = load i64, ptr %15, align 8
+  store i64 %29, ptr %14, align 8
+  br label %32
 
-33:                                               ; preds = %13
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
-  tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 335, ptr noundef %34, ptr noundef nonnull @.str.34) #15
-  br label %35
+30:                                               ; preds = %13
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 335, ptr noundef %31, ptr noundef nonnull @.str.34) #15
+  br label %32
 
-35:                                               ; preds = %20, %23, %26, %29, %31, %33, %11, %6
+32:                                               ; preds = %21, %23, %25, %27, %28, %30, %11, %6
   ret void
 }
 

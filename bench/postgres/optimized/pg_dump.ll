@@ -30896,19 +30896,19 @@ bsearch.exit:                                     ; preds = %14, %bsearch.exit.l
   tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull @.str.896) #13
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %18 = load i8, ptr %17, align 4
-  switch i8 %18, label %19 [
-    i8 105, label %.sink.split
-    i8 73, label %.sink.split
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  switch i8 %18, label %20 [
+    i8 105, label %36
+    i8 73, label %36
   ]
 
-19:                                               ; preds = %bsearch.exit
+20:                                               ; preds = %bsearch.exit
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.897, i32 noundef %1) #13
-  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %19, align 4
   %.not27 = icmp eq i32 %21, 0
   br i1 %.not27, label %25, label %22
 
-22:                                               ; preds = %19
+22:                                               ; preds = %20
   %23 = load i8, ptr %17, align 4
   %.not28 = icmp eq i8 %23, 112
   br i1 %.not28, label %25, label %24
@@ -30917,7 +30917,7 @@ bsearch.exit:                                     ; preds = %14, %bsearch.exit.l
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.716, i32 noundef %21) #13
   br label %25
 
-25:                                               ; preds = %24, %22, %19
+25:                                               ; preds = %24, %22, %20
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %27 = load i32, ptr %26, align 4
   %.not29 = icmp eq i32 %27, 0
@@ -30935,15 +30935,18 @@ bsearch.exit:                                     ; preds = %14, %bsearch.exit.l
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.899, i32 noundef %32) #13
   %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %34 = load i32, ptr %33, align 4
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.900, i32 noundef %34) #13
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   br label %.sink.split
 
-.sink.split:                                      ; preds = %bsearch.exit, %bsearch.exit, %30
-  %.sink9 = phi i32 [ %34, %30 ], [ %1, %bsearch.exit ], [ %1, %bsearch.exit ]
-  %.sink = phi i64 [ 24, %30 ], [ 8, %bsearch.exit ], [ 8, %bsearch.exit ]
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.900, i32 noundef %.sink9) #13
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.sink
-  %36 = load i32, ptr %35, align 4
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.717, i32 noundef %36) #13
+36:                                               ; preds = %bsearch.exit, %bsearch.exit
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.900, i32 noundef %1) #13
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %36, %30
+  %.sink.in = phi ptr [ %35, %30 ], [ %19, %36 ]
+  %.sink = load i32, ptr %.sink.in, align 4
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.717, i32 noundef %.sink) #13
   br label %37
 
 37:                                               ; preds = %.sink.split, %25, %28

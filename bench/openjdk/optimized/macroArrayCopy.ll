@@ -2806,7 +2806,7 @@ define hidden noundef ptr @_ZN16PhaseMacroExpand19basictype2arraycopyE9BasicType
   %11 = load ptr, ptr %8, align 8
   %12 = tail call noundef ptr @_ZN11PhaseValues13find_int_typeEP4Node(ptr noundef nonnull align 8 dereferenceable(2400) %11, ptr noundef %3) #6
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %57, label %13
+  br i1 %.not, label %56, label %13
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -2816,7 +2816,7 @@ define hidden noundef ptr @_ZN16PhaseMacroExpand19basictype2arraycopyE9BasicType
   %18 = icmp eq i32 %15, %17
   %19 = icmp ne ptr %12, null
   %or.cond = and i1 %19, %18
-  br i1 %or.cond, label %20, label %57
+  br i1 %or.cond, label %20, label %56
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -2824,7 +2824,7 @@ define hidden noundef ptr @_ZN16PhaseMacroExpand19basictype2arraycopyE9BasicType
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %22, %24
-  br i1 %25, label %26, label %57
+  br i1 %25, label %26, label %56
 
 26:                                               ; preds = %20
   %27 = zext i8 %1 to i64
@@ -2844,34 +2844,33 @@ define hidden noundef ptr @_ZN16PhaseMacroExpand19basictype2arraycopyE9BasicType
   br i1 %36, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread38, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread40
 
 _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i: ; preds = %26
+  %38 = mul i32 %29, %15
   switch i8 %1, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread [
     i8 11, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
     i8 7, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
   ]
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i
-  %38 = mul i32 %29, %15
   %39 = and i32 %38, 7
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i35, label %55
+  br i1 %40, label %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i35, label %54
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread40: ; preds = %34
   %41 = and i32 %37, 7
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.thread39, label %55
+  br i1 %42, label %.thread39, label %54
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread38: ; preds = %34
   %43 = add i32 %32, %37
   %44 = and i32 %43, 7
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit37, label %55
+  br i1 %45, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit37, label %54
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread: ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i
-  %46 = mul i32 %29, %15
-  %47 = add i32 %32, %46
-  %48 = and i32 %47, 7
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i35, label %55
+  %46 = add i32 %32, %38
+  %47 = and i32 %46, 7
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i35, label %54
 
 _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i35: ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread
   switch i8 %1, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit37 [
@@ -2883,30 +2882,30 @@ _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i35: ; preds =
   br label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit37
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit37: ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread38, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i35, %.thread39
-  %50 = phi i32 [ 0, %.thread39 ], [ %32, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i35 ], [ %32, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread38 ]
-  %51 = mul i32 %29, %22
-  %52 = add i32 %50, %51
-  %53 = and i32 %52, 7
-  %54 = icmp eq i32 %53, 0
-  br label %55
+  %49 = phi i32 [ 0, %.thread39 ], [ %32, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i35 ], [ %32, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread38 ]
+  %50 = mul i32 %29, %22
+  %51 = add i32 %49, %50
+  %52 = and i32 %51, 7
+  %53 = icmp eq i32 %52, 0
+  br label %54
 
-55:                                               ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread40, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread38, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit37, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
-  %56 = phi i1 [ false, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ %54, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit37 ], [ false, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread ], [ false, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread38 ], [ false, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread40 ]
+54:                                               ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread40, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread38, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit37, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
+  %55 = phi i1 [ false, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit ], [ %53, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit37 ], [ false, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread ], [ false, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread38 ], [ false, %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread40 ]
   %.not32 = icmp sge i32 %15, %22
-  br label %60
+  br label %59
 
-57:                                               ; preds = %20, %13, %7
-  %58 = icmp eq ptr %2, %3
-  %59 = icmp ne ptr %2, null
-  %or.cond3 = and i1 %59, %58
-  br label %60
+56:                                               ; preds = %20, %13, %7
+  %57 = icmp eq ptr %2, %3
+  %58 = icmp ne ptr %2, null
+  %or.cond3 = and i1 %58, %57
+  br label %59
 
-60:                                               ; preds = %57, %55
-  %.not32.pn = phi i1 [ %.not32, %55 ], [ %or.cond3, %57 ]
-  %.0 = phi i1 [ %56, %55 ], [ false, %57 ]
+59:                                               ; preds = %56, %54
+  %.not32.pn = phi i1 [ %.not32, %54 ], [ %or.cond3, %56 ]
+  %.0 = phi i1 [ %55, %54 ], [ false, %56 ]
   %.029.shrunk = or i1 %4, %.not32.pn
-  %61 = tail call noundef ptr @_ZN12StubRoutines25select_arraycopy_functionE9BasicTypebbRPKcb(i8 noundef zeroext %1, i1 noundef zeroext %.0, i1 noundef zeroext %.029.shrunk, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6) #6
-  ret ptr %61
+  %60 = tail call noundef ptr @_ZN12StubRoutines25select_arraycopy_functionE9BasicTypebbRPKcb(i8 noundef zeroext %1, i1 noundef zeroext %.0, i1 noundef zeroext %.029.shrunk, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6) #6
+  ret ptr %60
 }
 
 declare noundef ptr @_ZN11PhaseValues13find_int_typeEP4Node(ptr noundef nonnull align 8 dereferenceable(2400), ptr noundef) local_unnamed_addr #1

@@ -1808,8 +1808,8 @@ define internal i32 @dissect_drda_mgrlvlls(ptr noundef %0, ptr readnone captures
   %8 = icmp sgt i32 %7, 1
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4, %30
-  %.026 = phi i32 [ %31, %30 ], [ 0, %4 ]
+.lr.ph:                                           ; preds = %4, %28
+  %.026 = phi i32 [ %29, %28 ], [ 0, %4 ]
   %9 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.026)
   %10 = load i32, ptr @ett_drda_param, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.026, i32 noundef 4, i32 noundef %10, ptr noundef nonnull %5, ptr noundef nonnull @.str.831)
@@ -1819,43 +1819,41 @@ define internal i32 @dissect_drda_mgrlvlls(ptr noundef %0, ptr readnone captures
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.828, ptr noundef %14)
   %15 = load i32, ptr @hf_drda_param_codepoint, align 4
   %16 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %15, ptr noundef %0, i32 noundef %.026, i32 noundef 2, i32 noundef 0)
-  switch i16 %9, label %26 [
-    i16 5324, label %17
-    i16 7176, label %17
+  %17 = or disjoint i32 %.026, 2
+  switch i16 %9, label %25 [
+    i16 5324, label %18
+    i16 7176, label %18
     i16 9223, label %21
   ]
 
-17:                                               ; preds = %.lr.ph, %.lr.ph
-  %18 = load i32, ptr @hf_drda_ccsid, align 4
-  %19 = or disjoint i32 %.026, 2
-  %20 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef 2, i32 noundef 0)
-  br label %30
+18:                                               ; preds = %.lr.ph, %.lr.ph
+  %19 = load i32, ptr @hf_drda_ccsid, align 4
+  %20 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %19, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef 0)
+  br label %28
 
 21:                                               ; preds = %.lr.ph
   %22 = load i32, ptr @hf_drda_mgrlvln, align 4
-  %23 = or disjoint i32 %.026, 2
-  %24 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
-  %25 = load i32, ptr %6, align 4
-  store i32 %25, ptr %3, align 4
-  br label %30
+  %23 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %22, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
+  %24 = load i32, ptr %6, align 4
+  store i32 %24, ptr %3, align 4
+  br label %28
 
-26:                                               ; preds = %.lr.ph
-  %27 = load i32, ptr @hf_drda_mgrlvln, align 4
-  %28 = or disjoint i32 %.026, 2
-  %29 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef 0)
-  br label %30
+25:                                               ; preds = %.lr.ph
+  %26 = load i32, ptr @hf_drda_mgrlvln, align 4
+  %27 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %26, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef 0)
+  br label %28
 
-30:                                               ; preds = %26, %21, %17
-  %31 = add i32 %.026, 4
-  %32 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %31)
-  %33 = icmp sgt i32 %32, 1
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+28:                                               ; preds = %25, %21, %18
+  %29 = add i32 %.026, 4
+  %30 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %29)
+  %31 = icmp sgt i32 %30, 1
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %30, %4
-  %34 = call i32 @tvb_captured_length(ptr noundef %0)
+._crit_edge:                                      ; preds = %28, %4
+  %32 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %34
+  ret i32 %32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
