@@ -97,9 +97,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   br label %.preheader55.i
 
 .preheader55.i:                                   ; preds = %.preheader55.loopexit.i, %.preheader56.preheader.i, %10
-  %.051.lcssa.i = phi ptr [ %0, %10 ], [ %39, %.preheader55.loopexit.i ], [ %scevgep.i, %.preheader56.preheader.i ]
-  %.047.lcssa.i = phi ptr [ %4, %10 ], [ %41, %.preheader55.loopexit.i ], [ %scevgep98.i, %.preheader56.preheader.i ]
-  %.044.lcssa.i = phi i32 [ 0, %10 ], [ %46, %.preheader55.loopexit.i ], [ %25, %.preheader56.preheader.i ]
+  %.051.lcssa.i = phi ptr [ %0, %10 ], [ %scevgep.i, %.preheader56.preheader.i ], [ %39, %.preheader55.loopexit.i ]
+  %.047.lcssa.i = phi ptr [ %4, %10 ], [ %scevgep98.i, %.preheader56.preheader.i ], [ %41, %.preheader55.loopexit.i ]
+  %.044.lcssa.i = phi i32 [ 0, %10 ], [ %25, %.preheader56.preheader.i ], [ %46, %.preheader55.loopexit.i ]
   %47 = icmp slt i32 %.044.lcssa.i, %2
   br i1 %47, label %.preheader.lr.ph.i, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit
 
@@ -306,9 +306,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   br label %.preheader58.i
 
 .preheader58.i:                                   ; preds = %.preheader58.loopexit.i, %.preheader59.preheader.i, %101
-  %.054.lcssa.i = phi ptr [ %0, %101 ], [ %139, %.preheader58.loopexit.i ], [ %scevgep.i77, %.preheader59.preheader.i ]
-  %.050.lcssa.i = phi ptr [ %107, %101 ], [ %141, %.preheader58.loopexit.i ], [ %scevgep101.i, %.preheader59.preheader.i ]
-  %.047.lcssa.i73 = phi i32 [ 0, %101 ], [ %146, %.preheader58.loopexit.i ], [ %124, %.preheader59.preheader.i ]
+  %.054.lcssa.i = phi ptr [ %0, %101 ], [ %scevgep.i77, %.preheader59.preheader.i ], [ %139, %.preheader58.loopexit.i ]
+  %.050.lcssa.i = phi ptr [ %107, %101 ], [ %scevgep101.i, %.preheader59.preheader.i ], [ %141, %.preheader58.loopexit.i ]
+  %.047.lcssa.i73 = phi i32 [ 0, %101 ], [ %124, %.preheader59.preheader.i ], [ %146, %.preheader58.loopexit.i ]
   %147 = icmp slt i32 %.047.lcssa.i73, %2
   br i1 %147, label %.preheader.lr.ph.i74, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit
 
@@ -620,9 +620,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   br label %.preheader56.i
 
 .preheader56.i:                                   ; preds = %.preheader56.loopexit.i, %.preheader57.preheader.i, %10
-  %.052.lcssa.i = phi ptr [ %0, %10 ], [ %41, %.preheader56.loopexit.i ], [ %scevgep.i, %.preheader57.preheader.i ]
-  %.048.lcssa.i = phi ptr [ %4, %10 ], [ %43, %.preheader56.loopexit.i ], [ %scevgep99.i, %.preheader57.preheader.i ]
-  %.045.lcssa.i = phi i32 [ 0, %10 ], [ %48, %.preheader56.loopexit.i ], [ %27, %.preheader57.preheader.i ]
+  %.052.lcssa.i = phi ptr [ %0, %10 ], [ %scevgep.i, %.preheader57.preheader.i ], [ %41, %.preheader56.loopexit.i ]
+  %.048.lcssa.i = phi ptr [ %4, %10 ], [ %scevgep99.i, %.preheader57.preheader.i ], [ %43, %.preheader56.loopexit.i ]
+  %.045.lcssa.i = phi i32 [ 0, %10 ], [ %27, %.preheader57.preheader.i ], [ %48, %.preheader56.loopexit.i ]
   %49 = icmp slt i32 %.045.lcssa.i, %2
   br i1 %49, label %.preheader.lr.ph.i, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit
 
@@ -843,9 +843,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   br label %.preheader59.i
 
 .preheader59.i:                                   ; preds = %.preheader59.loopexit.i, %.preheader60.preheader.i, %113
-  %.055.lcssa.i = phi ptr [ %0, %113 ], [ %153, %.preheader59.loopexit.i ], [ %scevgep.i77, %.preheader60.preheader.i ]
-  %.051.lcssa.i = phi ptr [ %121, %113 ], [ %155, %.preheader59.loopexit.i ], [ %scevgep102.i, %.preheader60.preheader.i ]
-  %.048.lcssa.i73 = phi i32 [ 0, %113 ], [ %160, %.preheader59.loopexit.i ], [ %138, %.preheader60.preheader.i ]
+  %.055.lcssa.i = phi ptr [ %0, %113 ], [ %scevgep.i77, %.preheader60.preheader.i ], [ %153, %.preheader59.loopexit.i ]
+  %.051.lcssa.i = phi ptr [ %121, %113 ], [ %scevgep102.i, %.preheader60.preheader.i ], [ %155, %.preheader59.loopexit.i ]
+  %.048.lcssa.i73 = phi i32 [ 0, %113 ], [ %138, %.preheader60.preheader.i ], [ %160, %.preheader59.loopexit.i ]
   %161 = icmp slt i32 %.048.lcssa.i73, %2
   br i1 %161, label %.preheader.lr.ph.i74, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit
 
@@ -1181,9 +1181,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   br label %.preheader56.i
 
 .preheader56.i:                                   ; preds = %.preheader56.loopexit.i, %.preheader57.preheader.i, %10
-  %.052.lcssa.i = phi ptr [ %0, %10 ], [ %40, %.preheader56.loopexit.i ], [ %scevgep.i, %.preheader57.preheader.i ]
-  %.048.lcssa.i = phi ptr [ %4, %10 ], [ %42, %.preheader56.loopexit.i ], [ %scevgep99.i, %.preheader57.preheader.i ]
-  %.045.lcssa.i = phi i32 [ 0, %10 ], [ %47, %.preheader56.loopexit.i ], [ %26, %.preheader57.preheader.i ]
+  %.052.lcssa.i = phi ptr [ %0, %10 ], [ %scevgep.i, %.preheader57.preheader.i ], [ %40, %.preheader56.loopexit.i ]
+  %.048.lcssa.i = phi ptr [ %4, %10 ], [ %scevgep99.i, %.preheader57.preheader.i ], [ %42, %.preheader56.loopexit.i ]
+  %.045.lcssa.i = phi i32 [ 0, %10 ], [ %26, %.preheader57.preheader.i ], [ %47, %.preheader56.loopexit.i ]
   %48 = icmp slt i32 %.045.lcssa.i, %2
   br i1 %48, label %.preheader.lr.ph.i, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit
 
@@ -1412,9 +1412,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   br label %.preheader59.i
 
 .preheader59.i:                                   ; preds = %.preheader59.loopexit.i, %.preheader60.preheader.i, %115
-  %.055.lcssa.i = phi ptr [ %0, %115 ], [ %155, %.preheader59.loopexit.i ], [ %scevgep.i79, %.preheader60.preheader.i ]
-  %.051.lcssa.i = phi ptr [ %123, %115 ], [ %157, %.preheader59.loopexit.i ], [ %scevgep102.i, %.preheader60.preheader.i ]
-  %.048.lcssa.i75 = phi i32 [ 0, %115 ], [ %162, %.preheader59.loopexit.i ], [ %140, %.preheader60.preheader.i ]
+  %.055.lcssa.i = phi ptr [ %0, %115 ], [ %scevgep.i79, %.preheader60.preheader.i ], [ %155, %.preheader59.loopexit.i ]
+  %.051.lcssa.i = phi ptr [ %123, %115 ], [ %scevgep102.i, %.preheader60.preheader.i ], [ %157, %.preheader59.loopexit.i ]
+  %.048.lcssa.i75 = phi i32 [ 0, %115 ], [ %140, %.preheader60.preheader.i ], [ %162, %.preheader59.loopexit.i ]
   %163 = icmp slt i32 %.048.lcssa.i75, %2
   br i1 %163, label %.preheader.lr.ph.i76, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit
 
@@ -1766,9 +1766,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   br label %.preheader56.i
 
 .preheader56.i:                                   ; preds = %.preheader56.loopexit.i, %.preheader57.preheader.i, %10
-  %.052.lcssa.i = phi ptr [ %0, %10 ], [ %41, %.preheader56.loopexit.i ], [ %scevgep.i, %.preheader57.preheader.i ]
-  %.048.lcssa.i = phi ptr [ %4, %10 ], [ %43, %.preheader56.loopexit.i ], [ %scevgep99.i, %.preheader57.preheader.i ]
-  %.045.lcssa.i = phi i32 [ 0, %10 ], [ %48, %.preheader56.loopexit.i ], [ %27, %.preheader57.preheader.i ]
+  %.052.lcssa.i = phi ptr [ %0, %10 ], [ %scevgep.i, %.preheader57.preheader.i ], [ %41, %.preheader56.loopexit.i ]
+  %.048.lcssa.i = phi ptr [ %4, %10 ], [ %scevgep99.i, %.preheader57.preheader.i ], [ %43, %.preheader56.loopexit.i ]
+  %.045.lcssa.i = phi i32 [ 0, %10 ], [ %27, %.preheader57.preheader.i ], [ %48, %.preheader56.loopexit.i ]
   %49 = icmp slt i32 %.045.lcssa.i, %2
   br i1 %49, label %.preheader.lr.ph.i, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit
 
@@ -2005,9 +2005,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   br label %.preheader59.i
 
 .preheader59.i:                                   ; preds = %.preheader59.loopexit.i, %.preheader60.preheader.i, %125
-  %.055.lcssa.i = phi ptr [ %0, %125 ], [ %165, %.preheader59.loopexit.i ], [ %scevgep.i77, %.preheader60.preheader.i ]
-  %.051.lcssa.i = phi ptr [ %133, %125 ], [ %167, %.preheader59.loopexit.i ], [ %scevgep102.i, %.preheader60.preheader.i ]
-  %.048.lcssa.i73 = phi i32 [ 0, %125 ], [ %172, %.preheader59.loopexit.i ], [ %150, %.preheader60.preheader.i ]
+  %.055.lcssa.i = phi ptr [ %0, %125 ], [ %scevgep.i77, %.preheader60.preheader.i ], [ %165, %.preheader59.loopexit.i ]
+  %.051.lcssa.i = phi ptr [ %133, %125 ], [ %scevgep102.i, %.preheader60.preheader.i ], [ %167, %.preheader59.loopexit.i ]
+  %.048.lcssa.i73 = phi i32 [ 0, %125 ], [ %150, %.preheader60.preheader.i ], [ %172, %.preheader59.loopexit.i ]
   %173 = icmp slt i32 %.048.lcssa.i73, %2
   br i1 %173, label %.preheader.lr.ph.i74, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit
 

@@ -7258,16 +7258,16 @@ _ZN7AstNode9privateAsI6AstVarPS_EEPT_S2_.exit.i.i.i: ; preds = %240, %231
   %.2.ptr.i = getelementptr inbounds nuw i8, ptr %226, i64 %.2.idx.i
   %.2.add.i = add nuw nsw i64 %.2.idx.i, 8
   store ptr %275, ptr %.2.ptr.i, align 8, !tbaa !327
-  br label %.lr.ph.i.preheader.i
+  br label %.lr.ph.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %273
   %276 = icmp samesign ugt i64 %.2.idx.i, 16
-  br i1 %276, label %.lr.ph.i.preheader.i, label %.lr.ph294.preheader, !prof !331
+  br i1 %276, label %.lr.ph.preheader.i.i, label %.lr.ph294.preheader, !prof !331
 
-.lr.ph.i.preheader.i:                             ; preds = %.preheader.i.i, %.preheader.i.thread.i
+.lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i, %.preheader.i.thread.i
   %.3.idx87.i = phi i64 [ %.2.add.i, %.preheader.i.thread.i ], [ %.2.idx.i, %.preheader.i.i ]
-  %277 = getelementptr inbounds nuw i8, ptr %226, i64 232
   %.3.ptr.i = getelementptr inbounds nuw i8, ptr %226, i64 %.3.idx87.i
+  %277 = getelementptr inbounds nuw i8, ptr %226, i64 232
   br label %.lr.ph.i.i
 
 278:                                              ; preds = %278, %.noexc115
@@ -7283,13 +7283,13 @@ _ZN7AstNode9privateAsI6AstVarPS_EEPT_S2_.exit.i.i.i: ; preds = %240, %231
           cleanup
   br label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit38.i.i
 
-.lr.ph.i.i:                                       ; preds = %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i", %.lr.ph.i.preheader.i
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.4.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ], [ %226, %.lr.ph.i.preheader.i ]
-  %.sroa.13.1.i = phi ptr [ %.sroa.13.4.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ], [ %228, %.lr.ph.i.preheader.i ]
-  %.sroa.21.1.i = phi ptr [ %.sroa.21.4.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ], [ %228, %.lr.ph.i.preheader.i ]
-  %.062.i.i = phi ptr [ %.1.i.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ], [ %277, %.lr.ph.i.preheader.i ]
-  %.05361.i.i = phi ptr [ %.154.i.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ], [ %.ptr35.i, %.lr.ph.i.preheader.i ]
-  %282 = phi ptr [ %400, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ], [ %.3.ptr.i, %.lr.ph.i.preheader.i ]
+.lr.ph.i.i:                                       ; preds = %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i", %.lr.ph.preheader.i.i
+  %.sroa.0.1.i = phi ptr [ %226, %.lr.ph.preheader.i.i ], [ %.sroa.0.4.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ]
+  %.sroa.13.1.i = phi ptr [ %228, %.lr.ph.preheader.i.i ], [ %.sroa.13.4.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ]
+  %.sroa.21.1.i = phi ptr [ %228, %.lr.ph.preheader.i.i ], [ %.sroa.21.4.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ]
+  %.062.i.i = phi ptr [ %277, %.lr.ph.preheader.i.i ], [ %.1.i.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ]
+  %.05361.i.i = phi ptr [ %.ptr35.i, %.lr.ph.preheader.i.i ], [ %.154.i.i, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ]
+  %282 = phi ptr [ %.3.ptr.i, %.lr.ph.preheader.i.i ], [ %400, %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESH_.exit.i.i" ]
   %283 = getelementptr inbounds i8, ptr %282, i64 -8
   %284 = load ptr, ptr %283, align 8, !tbaa !327
   %285 = getelementptr inbounds i8, ptr %282, i64 -24
@@ -7332,8 +7332,8 @@ _ZN7AstNode9privateAsI6AstVarPS_EEPT_S2_.exit.i.i.i: ; preds = %240, %231
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %304
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %306, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %305, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !327
   %308 = getelementptr inbounds nuw i8, ptr %305, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %305, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !327
   br label %"_ZZN7AstNode11foreachImplI9AstVarRefZN11V3DfgPasses13eliminateVarsER8DfgGraphR25V3DfgEliminateVarsContextE3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i"
 
 309:                                              ; preds = %296

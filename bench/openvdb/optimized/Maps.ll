@@ -5341,20 +5341,14 @@ _ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit:   ; preds = %for.cond2.preheader
   store double %35, ptr %arrayidx15.i.i, align 8, !alias.scope !94
   %arrayidx17.i.i = getelementptr inbounds nuw i8, ptr %mat3T, i64 64
   store double %36, ptr %arrayidx17.i.i, align 8, !alias.scope !94
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %mat4d, i64 96
-  %37 = load double, ptr %arrayidx.i, align 8, !noalias !97
-  %arrayidx3.i25 = getelementptr inbounds nuw i8, ptr %mat4d, i64 104
-  %38 = load double, ptr %arrayidx3.i25, align 8, !noalias !97
-  %arrayidx5.i26 = getelementptr inbounds nuw i8, ptr %mat4d, i64 112
-  %39 = load double, ptr %arrayidx5.i26, align 8, !noalias !97
   br label %for.cond4.preheader
 
 for.cond4.preheader:                              ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit, %for.inc14
   %indvars.iv157 = phi i64 [ 0, %_ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit ], [ %indvars.iv.next158, %for.inc14 ]
   %symmetric.0151 = phi i1 [ true, %_ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit ], [ %spec.select, %for.inc14 ]
-  %40 = mul nuw nsw i64 %indvars.iv157, 3
-  %arrayidx.i30 = getelementptr inbounds nuw double, ptr %mat3, i64 %40
-  %arrayidx.i33 = getelementptr inbounds nuw double, ptr %mat3T, i64 %40
+  %37 = mul nuw nsw i64 %indvars.iv157, 3
+  %arrayidx.i30 = getelementptr inbounds nuw double, ptr %mat3, i64 %37
+  %arrayidx.i33 = getelementptr inbounds nuw double, ptr %mat3T, i64 %37
   br label %for.body6
 
 for.body6:                                        ; preds = %for.cond4.preheader, %for.body6
@@ -5362,22 +5356,28 @@ for.body6:                                        ; preds = %for.cond4.preheader
   %symmetric.1149 = phi i1 [ %symmetric.0151, %for.cond4.preheader ], [ %spec.select, %for.body6 ]
   %arrayidx = getelementptr inbounds nuw double, ptr %arrayidx.i30, i64 %indvars.iv155
   %arrayidx10 = getelementptr inbounds nuw double, ptr %arrayidx.i33, i64 %indvars.iv155
-  %41 = load double, ptr %arrayidx, align 8
-  %42 = load double, ptr %arrayidx10, align 8
-  %sub.i34 = fsub double %41, %42
-  %43 = tail call noundef double @llvm.fabs.f64(double %sub.i34)
-  %cmp.i.i = fcmp ule double %43, 0x3EB0C6F7A0B5ED8D
+  %38 = load double, ptr %arrayidx, align 8
+  %39 = load double, ptr %arrayidx10, align 8
+  %sub.i34 = fsub double %38, %39
+  %40 = tail call noundef double @llvm.fabs.f64(double %sub.i34)
+  %cmp.i.i = fcmp ule double %40, 0x3EB0C6F7A0B5ED8D
   %spec.select = select i1 %cmp.i.i, i1 %symmetric.1149, i1 false
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next156, 3
-  br i1 %exitcond.not, label %for.inc14, label %for.body6, !llvm.loop !100
+  br i1 %exitcond.not, label %for.inc14, label %for.body6, !llvm.loop !97
 
 for.inc14:                                        ; preds = %for.body6
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, 3
-  br i1 %exitcond160.not, label %for.end16, label %for.cond4.preheader, !llvm.loop !101
+  br i1 %exitcond160.not, label %for.end16, label %for.cond4.preheader, !llvm.loop !98
 
 for.end16:                                        ; preds = %for.inc14
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %mat4d, i64 96
+  %41 = load double, ptr %arrayidx.i, align 8, !noalias !99
+  %arrayidx3.i25 = getelementptr inbounds nuw i8, ptr %mat4d, i64 104
+  %42 = load double, ptr %arrayidx3.i25, align 8, !noalias !99
+  %arrayidx5.i26 = getelementptr inbounds nuw i8, ptr %mat4d, i64 112
+  %43 = load double, ptr %arrayidx5.i26, align 8, !noalias !99
   br i1 %spec.select, label %if.else, label %if.then17
 
 if.then17:                                        ; preds = %for.end16
@@ -5397,9 +5397,9 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN7openvdb5v11_04math4Mat4IdE4zeroEv.exit:       ; preds = %if.then17, %init.check.i, %init.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) @_ZZN7openvdb5v11_04math4Mat4IdE4zeroEvE5sZero, i64 96, i1 false)
-  %fneg.i = fneg double %37
-  %fneg4.i = fneg double %38
-  %fneg7.i = fneg double %39
+  %fneg.i = fneg double %41
+  %fneg4.i = fneg double %42
+  %fneg7.i = fneg double %43
   %arrayidx.i38 = getelementptr inbounds nuw i8, ptr %agg.result, i64 96
   store double %fneg.i, ptr %arrayidx.i38, align 8
   br label %return.sink.split
@@ -5550,9 +5550,9 @@ for.end44:                                        ; preds = %for.body26
   %93 = call double @llvm.fmuladd.f64(double %72, double %ref.tmp45.sroa.14.0.copyload, double %mul77.i.i106)
   %94 = call double @llvm.fmuladd.f64(double %76, double %ref.tmp45.sroa.18.0.copyload, double %93)
   store double %94, ptr %ref.tmp45.sroa.18.0.pseudoInv.sroa_idx, align 8, !alias.scope !106
-  %fneg.i107 = fneg double %37
-  %fneg4.i109 = fneg double %38
-  %fneg7.i111 = fneg double %39
+  %fneg.i107 = fneg double %41
+  %fneg4.i109 = fneg double %42
+  %fneg7.i111 = fneg double %43
   %mul4.i = fmul double %84, %fneg4.i109
   %95 = call double @llvm.fmuladd.f64(double %fneg.i107, double %78, double %mul4.i)
   %96 = call double @llvm.fmuladd.f64(double %fneg7.i111, double %90, double %95)
@@ -21765,6 +21765,7 @@ entry:
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %for.inc87, %for.cond55.preheader
+  %mul = fmul double %det.1, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next162, 4
   br i1 %exitcond165.not, label %for.cond98.preheader, label %for.body, !llvm.loop !540
@@ -21849,7 +21850,6 @@ if.end36:                                         ; preds = %if.end36.loopexit, 
   br label %for.body43
 
 for.cond55.preheader:                             ; preds = %for.body43
-  %mul = fmul double %det.1, %12
   br i1 %cmp3123, label %for.body57, label %for.cond.loopexit
 
 for.body43:                                       ; preds = %if.end36, %for.body43
@@ -24958,11 +24958,11 @@ attributes #31 = { nounwind willreturn memory(read) }
 !94 = !{!95}
 !95 = distinct !{!95, !96, !"_ZNK7openvdb5v11_04math4Mat3IdE9transposeEv: %agg.result"}
 !96 = distinct !{!96, !"_ZNK7openvdb5v11_04math4Mat3IdE9transposeEv"}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZNK7openvdb5v11_04math4Mat4IdE14getTranslationEv: %agg.result"}
-!99 = distinct !{!99, !"_ZNK7openvdb5v11_04math4Mat4IdE14getTranslationEv"}
-!100 = distinct !{!100, !17}
-!101 = distinct !{!101, !17}
+!97 = distinct !{!97, !17}
+!98 = distinct !{!98, !17}
+!99 = !{!100}
+!100 = distinct !{!100, !101, !"_ZNK7openvdb5v11_04math4Mat4IdE14getTranslationEv: %agg.result"}
+!101 = distinct !{!101, !"_ZNK7openvdb5v11_04math4Mat4IdE14getTranslationEv"}
 !102 = distinct !{!102, !17}
 !103 = !{!104}
 !104 = distinct !{!104, !105, !"_ZN7openvdb5v11_04mathmlIddEENS1_4Mat3INS1_7promoteIT_T0_E4typeEEERKNS3_IS5_EERKNS3_IS6_EE: %agg.result"}

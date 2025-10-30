@@ -19781,9 +19781,9 @@ completions_sort.exit:                            ; preds = %edit_complete_longe
   %147 = icmp sgt i64 %.val197.i, 3
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.not679.i = icmp eq i64 %.val197.i, 4
-  %149 = call i64 @llvm.smin.i64(i64 %.val197.i, i64 8)
-  %150 = icmp slt i64 %.val197.i, 7
-  %151 = select i1 %150, i64 3, i64 4
+  %149 = icmp slt i64 %.val197.i, 7
+  %150 = select i1 %149, i64 3, i64 4
+  %151 = call i64 @llvm.smin.i64(i64 %.val197.i, i64 8)
   %152 = call i64 @llvm.smin.i64(i64 %.val197.i, i64 9)
   %153 = icmp sgt i64 %.val197.i, 0
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -21458,7 +21458,7 @@ ic_memmove.exit.i382.i:                           ; preds = %843, %839
   br label %sbuf_insert_at_n.exit391.i
 
 sbuf_insert_at_n.exit391.i:                       ; preds = %ic_memmove.exit.i382.i, %827, %sbuf_append.exit217.thread.i, %sbuf_append.exit217.i, %.preheader762.i
-  %852 = add nuw nsw i64 %.0172733.i, %151
+  %852 = add nuw nsw i64 %.0172733.i, %150
   %853 = icmp eq i64 %.0172733.i, %.0174.i
   call fastcc void @editor_append_completion(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i64 noundef range(i64 -9223372036854775808, 4) %.0172733.i, i64 noundef range(i64 3, -9223372036854775808) %803, i1 noundef zeroext %853)
   %854 = load ptr, ptr %145, align 8, !tbaa !256
@@ -21556,7 +21556,7 @@ sbuf_insert_at_n.exit410.i:                       ; preds = %ic_memmove.exit.i40
   %898 = icmp eq i64 %852, %.0174.i
   call fastcc void @editor_append_completion(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i64 noundef range(i64 -9223372036854775805, 8) %852, i64 noundef range(i64 3, -9223372036854775808) %803, i1 noundef zeroext %898)
   %899 = add nuw nsw i64 %.0172733.i, 1
-  %exitcond.not.i = icmp eq i64 %899, %151
+  %exitcond.not.i = icmp eq i64 %899, %150
   br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader762.i, !llvm.loop !328
 
 .thread.i:                                        ; preds = %edit_completions_max_width.exit213.i, %sbuf_clear.exit.i
@@ -21670,7 +21670,7 @@ sbuf_insert_at_n.exit429.i:                       ; preds = %ic_memmove.exit.i42
   br i1 %exitcond792.not.i, label %.loopexit.i, label %.lr.ph.i31, !llvm.loop !329
 
 .loopexit.i:                                      ; preds = %sbuf_insert_at_n.exit410.i, %sbuf_insert_at_n.exit429.i, %sbuf_insert_at_n.exit308.i, %.thread.i
-  %.0169.i = phi i64 [ %152, %.thread.i ], [ %152, %sbuf_insert_at_n.exit308.i ], [ %152, %sbuf_insert_at_n.exit429.i ], [ %149, %sbuf_insert_at_n.exit410.i ]
+  %.0169.i = phi i64 [ %152, %.thread.i ], [ %152, %sbuf_insert_at_n.exit308.i ], [ %152, %sbuf_insert_at_n.exit429.i ], [ %151, %sbuf_insert_at_n.exit410.i ]
   %947 = icmp sgt i64 %.val197.i, %.0169.i
   br i1 %947, label %948, label %957
 

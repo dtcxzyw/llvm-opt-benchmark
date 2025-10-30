@@ -26,30 +26,30 @@ define i64 @av_gcd(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %8 = trunc nuw nsw i64 %7 to i8
   %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
   %10 = trunc nuw nsw i64 %9 to i8
-  %11 = tail call i8 @llvm.umin.i8(i8 %8, i8 %10)
-  %12 = ashr exact i64 %0, %7
-  %13 = tail call i64 @llvm.abs.i64(i64 %12, i1 true)
-  %14 = ashr exact i64 %1, %9
-  %15 = tail call i64 @llvm.abs.i64(i64 %14, i1 true)
-  %.not34 = icmp eq i64 %13, %15
+  %11 = ashr exact i64 %0, %7
+  %12 = tail call i64 @llvm.abs.i64(i64 %11, i1 true)
+  %13 = ashr exact i64 %1, %9
+  %14 = tail call i64 @llvm.abs.i64(i64 %13, i1 true)
+  %.not34 = icmp eq i64 %12, %14
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
-  %.02836 = phi i64 [ %20, %.lr.ph ], [ %15, %6 ]
-  %.02935 = phi i64 [ %spec.select, %.lr.ph ], [ %13, %6 ]
+  %.02836 = phi i64 [ %19, %.lr.ph ], [ %14, %6 ]
+  %.02935 = phi i64 [ %spec.select, %.lr.ph ], [ %12, %6 ]
   %spec.select = tail call i64 @llvm.smin.i64(i64 %.02935, i64 %.02836)
   %spec.select33 = tail call i64 @llvm.smax.i64(i64 %.02935, i64 %.02836)
-  %16 = sub nsw i64 %spec.select33, %spec.select
-  %17 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %16, i1 true)
-  %18 = icmp eq i64 %.02935, %.02836
-  %19 = select i1 %18, i64 0, i64 %17, !prof !4
-  %20 = ashr i64 %16, %19
-  %.not = icmp eq i64 %spec.select, %20
+  %15 = sub nsw i64 %spec.select33, %spec.select
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 true)
+  %17 = icmp eq i64 %.02935, %.02836
+  %18 = select i1 %17, i64 0, i64 %16, !prof !4
+  %19 = ashr i64 %15, %18
+  %.not = icmp eq i64 %spec.select, %19
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  %.029.lcssa = phi i64 [ %13, %6 ], [ %spec.select, %.lr.ph ]
-  %21 = zext nneg i8 %11 to i64
+  %.029.lcssa = phi i64 [ %12, %6 ], [ %spec.select, %.lr.ph ]
+  %20 = tail call i8 @llvm.umin.i8(i8 %8, i8 %10)
+  %21 = zext nneg i8 %20 to i64
   %22 = shl i64 %.029.lcssa, %21
   br label %23
 

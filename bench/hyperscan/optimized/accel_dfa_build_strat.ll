@@ -449,82 +449,82 @@ _ZN3ue28flat_mapItNS_9CharReachESt4lessItESaISt4pairItS1_EEEC2ERKS3_RKS6_.exit: 
 
 142:                                              ; preds = %.lr.ph348, %.loopexit230
   %.sroa.0170.0346 = phi ptr [ %128, %.lr.ph348 ], [ %375, %.loopexit230 ]
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.0170.0346, i64 8
-  %144 = load i16, ptr %.sroa.0170.0346, align 8
-  %145 = load ptr, ptr %44, align 8
+  %143 = load i16, ptr %.sroa.0170.0346, align 8
+  %144 = load ptr, ptr %44, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, i8 0, i64 24, i1 false)
-  %146 = load ptr, ptr %49, align 8
-  %147 = load ptr, ptr %29, align 8
+  %145 = load ptr, ptr %49, align 8
+  %146 = load ptr, ptr %29, align 8
+  %147 = ptrtoint ptr %145 to i64
   %148 = ptrtoint ptr %146 to i64
-  %149 = ptrtoint ptr %147 to i64
-  %150 = sub i64 %148, %149
-  %151 = ashr exact i64 %150, 5
-  %.not350 = icmp eq ptr %146, %147
-  br i1 %.not350, label %191, label %.lr.ph330
+  %149 = sub i64 %147, %148
+  %150 = ashr exact i64 %149, 5
+  %.not350 = icmp eq ptr %145, %146
+  br i1 %.not350, label %190, label %.lr.ph330
 
 .lr.ph330:                                        ; preds = %142
-  %152 = zext i16 %144 to i64
-  %153 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %145, i64 %152
-  %154 = load ptr, ptr %153, align 8
-  %155 = load ptr, ptr %47, align 8
-  br label %156
+  %151 = zext i16 %143 to i64
+  %152 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %144, i64 %151
+  %153 = load ptr, ptr %152, align 8
+  %154 = load ptr, ptr %47, align 8
+  br label %155
 
-156:                                              ; preds = %.lr.ph330, %180
-  %157 = phi i64 [ 0, %.lr.ph330 ], [ %181, %180 ]
-  %158 = phi i64 [ 0, %.lr.ph330 ], [ %182, %180 ]
-  %159 = phi i64 [ 0, %.lr.ph330 ], [ %183, %180 ]
-  %160 = phi i64 [ 0, %.lr.ph330 ], [ %186, %180 ]
-  %.061328 = phi i32 [ 0, %.lr.ph330 ], [ %185, %180 ]
-  %161 = phi i64 [ 0, %.lr.ph330 ], [ %184, %180 ]
-  %162 = getelementptr inbounds nuw i16, ptr %154, i64 %160
-  %163 = load i16, ptr %162, align 2
-  %164 = getelementptr inbounds nuw i16, ptr %155, i64 %160
-  %165 = load i16, ptr %164, align 2
-  %166 = icmp eq i16 %163, %165
-  br i1 %166, label %180, label %167
+155:                                              ; preds = %.lr.ph330, %179
+  %156 = phi i64 [ 0, %.lr.ph330 ], [ %180, %179 ]
+  %157 = phi i64 [ 0, %.lr.ph330 ], [ %181, %179 ]
+  %158 = phi i64 [ 0, %.lr.ph330 ], [ %182, %179 ]
+  %159 = phi i64 [ 0, %.lr.ph330 ], [ %185, %179 ]
+  %.061328 = phi i32 [ 0, %.lr.ph330 ], [ %184, %179 ]
+  %160 = phi i64 [ 0, %.lr.ph330 ], [ %183, %179 ]
+  %161 = getelementptr inbounds nuw i16, ptr %153, i64 %159
+  %162 = load i16, ptr %161, align 2
+  %163 = getelementptr inbounds nuw i16, ptr %154, i64 %159
+  %164 = load i16, ptr %163, align 2
+  %165 = icmp eq i16 %162, %164
+  br i1 %165, label %179, label %166
 
-167:                                              ; preds = %156
-  %168 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %147, i64 %160
-  %169 = load i64, ptr %168, align 8
-  %170 = or i64 %161, %169
-  %171 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %172 = load i64, ptr %171, align 8
-  %173 = or i64 %159, %172
-  %174 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  %175 = load i64, ptr %174, align 8
-  %176 = or i64 %158, %175
-  %177 = getelementptr inbounds nuw i8, ptr %168, i64 24
-  %178 = load i64, ptr %177, align 8
-  %179 = or i64 %157, %178
-  br label %180
+166:                                              ; preds = %155
+  %167 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %146, i64 %159
+  %168 = load i64, ptr %167, align 8
+  %169 = or i64 %160, %168
+  %170 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  %171 = load i64, ptr %170, align 8
+  %172 = or i64 %158, %171
+  %173 = getelementptr inbounds nuw i8, ptr %167, i64 16
+  %174 = load i64, ptr %173, align 8
+  %175 = or i64 %157, %174
+  %176 = getelementptr inbounds nuw i8, ptr %167, i64 24
+  %177 = load i64, ptr %176, align 8
+  %178 = or i64 %156, %177
+  br label %179
 
-180:                                              ; preds = %167, %156
-  %181 = phi i64 [ %179, %167 ], [ %157, %156 ]
-  %182 = phi i64 [ %176, %167 ], [ %158, %156 ]
-  %183 = phi i64 [ %173, %167 ], [ %159, %156 ]
-  %184 = phi i64 [ %170, %167 ], [ %161, %156 ]
-  %185 = add i32 %.061328, 1
-  %186 = zext i32 %185 to i64
-  %187 = icmp ugt i64 %151, %186
-  br i1 %187, label %156, label %._crit_edge331, !llvm.loop !24
+179:                                              ; preds = %166, %155
+  %180 = phi i64 [ %178, %166 ], [ %156, %155 ]
+  %181 = phi i64 [ %175, %166 ], [ %157, %155 ]
+  %182 = phi i64 [ %172, %166 ], [ %158, %155 ]
+  %183 = phi i64 [ %169, %166 ], [ %160, %155 ]
+  %184 = add i32 %.061328, 1
+  %185 = zext i32 %184 to i64
+  %186 = icmp ugt i64 %150, %185
+  br i1 %186, label %155, label %._crit_edge331, !llvm.loop !24
 
-._crit_edge331:                                   ; preds = %180
-  store i64 %183, ptr %132, align 8
-  store i64 %182, ptr %133, align 8
-  store i64 %181, ptr %134, align 8
-  %188 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %183)
-  %189 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %182)
-  %190 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %181)
-  br label %191
+._crit_edge331:                                   ; preds = %179
+  store i64 %182, ptr %132, align 8
+  store i64 %181, ptr %133, align 8
+  store i64 %180, ptr %134, align 8
+  %187 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %182)
+  %188 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %181)
+  %189 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %180)
+  br label %190
 
-191:                                              ; preds = %._crit_edge331, %142
-  %192 = phi i64 [ %190, %._crit_edge331 ], [ 0, %142 ]
-  %193 = phi i64 [ %189, %._crit_edge331 ], [ 0, %142 ]
-  %194 = phi i64 [ %188, %._crit_edge331 ], [ 0, %142 ]
-  %.lcssa327 = phi i64 [ %184, %._crit_edge331 ], [ 0, %142 ]
+190:                                              ; preds = %._crit_edge331, %142
+  %191 = phi i64 [ %189, %._crit_edge331 ], [ 0, %142 ]
+  %192 = phi i64 [ %188, %._crit_edge331 ], [ 0, %142 ]
+  %193 = phi i64 [ %187, %._crit_edge331 ], [ 0, %142 ]
+  %.lcssa327 = phi i64 [ %183, %._crit_edge331 ], [ 0, %142 ]
   store i64 %.lcssa327, ptr %33, align 8
-  %195 = load i64, ptr %143, align 8
+  %194 = getelementptr inbounds nuw i8, ptr %.sroa.0170.0346, i64 8
+  %195 = load i64, ptr %194, align 8
   %196 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %195)
   %197 = getelementptr inbounds nuw i8, ptr %.sroa.0170.0346, i64 16
   %198 = load i64, ptr %197, align 8
@@ -539,14 +539,14 @@ _ZN3ue28flat_mapItNS_9CharReachESt4lessItESaISt4pairItS1_EEEC2ERKS3_RKS6_.exit: 
   %207 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %206)
   %208 = add nuw nsw i64 %204, %207
   %209 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.lcssa327)
-  %210 = add nuw nsw i64 %194, %209
-  %211 = add nuw nsw i64 %210, %193
-  %212 = add nuw nsw i64 %211, %192
+  %210 = add nuw nsw i64 %193, %209
+  %211 = add nuw nsw i64 %210, %192
+  %212 = add nuw nsw i64 %211, %191
   %213 = mul nuw nsw i64 %212, %208
   %214 = icmp samesign ugt i64 %213, 8
   br i1 %214, label %215, label %.preheader231
 
-215:                                              ; preds = %191
+215:                                              ; preds = %190
   %216 = load i64, ptr %36, align 8
   %217 = or i64 %216, %195
   store i64 %217, ptr %36, align 8
@@ -564,9 +564,9 @@ _ZN3ue28flat_mapItNS_9CharReachESt4lessItESaISt4pairItS1_EEEC2ERKS3_RKS6_.exit: 
   store i64 %226, ptr %140, align 8
   br label %.loopexit230
 
-.preheader231:                                    ; preds = %191, %229
-  %.0712.i.i = phi i64 [ %230, %229 ], [ 0, %191 ]
-  %227 = getelementptr inbounds nuw i64, ptr %143, i64 %.0712.i.i
+.preheader231:                                    ; preds = %190, %229
+  %.0712.i.i = phi i64 [ %230, %229 ], [ 0, %190 ]
+  %227 = getelementptr inbounds nuw i64, ptr %194, i64 %.0712.i.i
   %228 = load i64, ptr %227, align 8
   %.not.i.i115 = icmp eq i64 %228, 0
   br i1 %.not.i.i115, label %229, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -927,7 +927,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %345, %352
   br label %366
 
 359:                                              ; preds = %356
-  %360 = getelementptr inbounds nuw i64, ptr %143, i64 %357
+  %360 = getelementptr inbounds nuw i64, ptr %194, i64 %357
   %361 = load i64, ptr %360, align 8
   %362 = shl nsw i64 -2, %358
   %363 = and i64 %361, %362
@@ -945,7 +945,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %345, %352
 
 368:                                              ; preds = %366
   %.0.i.i127 = add nuw nsw i64 %.0.in.i.i126, 1
-  %369 = getelementptr inbounds nuw i64, ptr %143, i64 %.0.i.i127
+  %369 = getelementptr inbounds nuw i64, ptr %194, i64 %.0.i.i127
   %370 = load i64, ptr %369, align 8
   %.not22.i.i128 = icmp eq i64 %370, 0
   br i1 %.not22.i.i128, label %366, label %371, !llvm.loop !54

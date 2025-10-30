@@ -1626,23 +1626,23 @@ _ZNK4cvc58internal3smt9SmtSolver27trackPreprocessedAssertionsEv.exit.thread: ; p
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %63 = load ptr, ptr %62, align 8, !tbaa !50
   %64 = load ptr, ptr %61, align 8, !tbaa !49
-  %65 = ptrtoint ptr %63 to i64
-  %66 = ptrtoint ptr %64 to i64
-  %67 = sub i64 %65, %66
-  %68 = ashr exact i64 %67, 3
-  %69 = load ptr, ptr %19, align 8, !tbaa !48
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %71 = load ptr, ptr %70, align 8, !tbaa !48
-  %.not28 = icmp eq ptr %69, %71
+  %65 = load ptr, ptr %19, align 8, !tbaa !48
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %67 = load ptr, ptr %66, align 8, !tbaa !48
+  %.not28 = icmp eq ptr %65, %67
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4cvc58internal3smt9SmtSolver27trackPreprocessedAssertionsEv.exit.thread
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1160
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1104
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   br label %77
 
 ._crit_edge:                                      ; preds = %_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE9push_backERKS4_.exit, %_ZNK4cvc58internal3smt9SmtSolver27trackPreprocessedAssertionsEv.exit.thread
+  %71 = ptrtoint ptr %63 to i64
+  %72 = ptrtoint ptr %64 to i64
+  %73 = sub i64 %71, %72
+  %74 = ashr exact i64 %73, 3
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.020.030 = load ptr, ptr %75, align 8, !tbaa !59
   %.not2731 = icmp eq ptr %.sroa.020.030, null
@@ -1653,8 +1653,8 @@ _ZNK4cvc58internal3smt9SmtSolver27trackPreprocessedAssertionsEv.exit.thread: ; p
   br label %111
 
 77:                                               ; preds = %.lr.ph, %_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE9push_backERKS4_.exit
-  %.sroa.024.029 = phi ptr [ %69, %.lr.ph ], [ %110, %_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE9push_backERKS4_.exit ]
-  %78 = load ptr, ptr %72, align 8, !tbaa !542
+  %.sroa.024.029 = phi ptr [ %65, %.lr.ph ], [ %110, %_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE9push_backERKS4_.exit ]
+  %78 = load ptr, ptr %68, align 8, !tbaa !542
   %79 = load ptr, ptr %78, align 8, !tbaa !543
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !549
@@ -1669,7 +1669,7 @@ _ZNK4cvc58internal3smt9SmtSolver27trackPreprocessedAssertionsEv.exit.thread: ; p
 
 _ZN4cvc57context10ContextObj11makeCurrentEv.exit.i: ; preds = %85, %77
   %86 = load ptr, ptr %62, align 8, !tbaa !50
-  %87 = load ptr, ptr %73, align 8, !tbaa !57
+  %87 = load ptr, ptr %69, align 8, !tbaa !57
   %.not.i36.i = icmp eq ptr %86, %87
   br i1 %.not.i36.i, label %107, label %88
 
@@ -1713,11 +1713,11 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_J
   br label %_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE9push_backERKS4_.exit
 
 _ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE9push_backERKS4_.exit: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i, %107
-  %108 = load i64, ptr %74, align 8, !tbaa !47
+  %108 = load i64, ptr %70, align 8, !tbaa !47
   %109 = add i64 %108, 1
-  store i64 %109, ptr %74, align 8, !tbaa !47
+  store i64 %109, ptr %70, align 8, !tbaa !47
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.024.029, i64 8
-  %.not = icmp eq ptr %110, %71
+  %.not = icmp eq ptr %110, %67
   br i1 %.not, label %._crit_edge, label %77
 
 111:                                              ; preds = %.lr.ph34, %120
@@ -1732,7 +1732,7 @@ _ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.020.032, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %117 = load i64, ptr %116, align 8, !tbaa !552
-  %118 = add i64 %117, %68
+  %118 = add i64 %117, %74
   store i64 %118, ptr %4, align 8, !tbaa !486
   %119 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN4cvc57context9CDHashMapImNS_8internal12NodeTemplateILb1EEESt4hashImEEixERKm(ptr noundef nonnull align 8 dereferenceable(112) %76, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @_ZN4cvc57context11CDOhash_mapImNS_8internal12NodeTemplateILb1EEESt4hashImEE3setERKS4_(ptr noundef nonnull align 8 dereferenceable(80) %119, ptr noundef nonnull align 8 dereferenceable(8) %112)

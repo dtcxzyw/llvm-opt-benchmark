@@ -7473,7 +7473,6 @@ define internal fastcc void @_start_new_shape(ptr noundef readonly captures(none
   call fastcc void @get_stamp_params(ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %57 = getelementptr i8, ptr %0, i64 680
   %.val = load ptr, ptr %57, align 8, !tbaa !158
-  %.val17 = load ptr, ptr %8, align 16, !tbaa !157
   %58 = load i32, ptr %.val, align 4, !tbaa !151
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %alloc_move_to.exit, label %.lr.ph
@@ -7491,6 +7490,7 @@ define internal fastcc void @_start_new_shape(ptr noundef readonly captures(none
 alloc_move_to.exit:                               ; preds = %.lr.ph, %1
   %indvars.iv.i.i.lcssa = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i, %.lr.ph ]
   %.lcssa = phi ptr [ %.val, %1 ], [ %60, %.lr.ph ]
+  %.val17 = load ptr, ptr %8, align 16, !tbaa !157
   %63 = sitofp i32 %56 to float
   %64 = fmul reassoc nsz arcp contract afn float %46, %63
   %65 = sitofp i32 %48 to float

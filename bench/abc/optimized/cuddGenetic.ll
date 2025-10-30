@@ -565,19 +565,19 @@ find_best.exit:                                   ; preds = %178, %make_random.e
   br i1 %266, label %261, label %.preheader86.i, !llvm.loop !46
 
 .preheader86.i:                                   ; preds = %261
-  %267 = trunc nsw i64 %260 to i32
-  %268 = trunc nsw i64 %265 to i32
-  %269 = icmp sgt i32 %193, 0
-  br i1 %269, label %.lr.ph.preheader.i, label %.lr.ph100.i
+  %267 = icmp sgt i32 %193, 0
+  br i1 %267, label %.lr.ph.preheader.i, label %.lr.ph100.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader86.i
-  %270 = zext nneg i32 %193 to i64
-  %271 = shl nuw nsw i64 %270, 2
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %196, i8 -1, i64 %271, i1 false), !tbaa !3
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %199, i8 -1, i64 %271, i1 false), !tbaa !3
+  %268 = zext nneg i32 %193 to i64
+  %269 = shl nuw nsw i64 %268, 2
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %196, i8 -1, i64 %269, i1 false), !tbaa !3
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %199, i8 -1, i64 %269, i1 false), !tbaa !3
   br label %.lr.ph100.i
 
 .lr.ph100.i:                                      ; preds = %.lr.ph.preheader.i, %.preheader86.i
+  %270 = trunc nsw i64 %260 to i32
+  %271 = trunc nsw i64 %265 to i32
   %272 = load ptr, ptr @storedd, align 8, !tbaa !25
   %273 = load i32, ptr @numvars, align 4, !tbaa !3
   %274 = add nsw i32 %273, 1
@@ -591,7 +591,7 @@ find_best.exit:                                   ; preds = %178, %make_random.e
   br label %282
 
 282:                                              ; preds = %282, %.lr.ph100.i
-  %.16499.i = phi i32 [ %267, %.lr.ph100.i ], [ %303, %282 ]
+  %.16499.i = phi i32 [ %270, %.lr.ph100.i ], [ %303, %282 ]
   %283 = add nsw i32 %.16499.i, %275
   %284 = sext i32 %283 to i64
   %285 = getelementptr inbounds i32, ptr %272, i64 %284
@@ -617,11 +617,11 @@ find_best.exit:                                   ; preds = %178, %make_random.e
   %301 = icmp eq i32 %.16499.i, %281
   %302 = add nsw i32 %.16499.i, 1
   %303 = select i1 %301, i32 0, i32 %302
-  %.not70.i = icmp eq i32 %303, %268
+  %.not70.i = icmp eq i32 %303, %271
   br i1 %.not70.i, label %.preheader.i138, label %282, !llvm.loop !47
 
 .preheader.i138:                                  ; preds = %282, %325
-  %.2103.i = phi i32 [ %332, %325 ], [ %268, %282 ]
+  %.2103.i = phi i32 [ %332, %325 ], [ %271, %282 ]
   br label %304
 
 304:                                              ; preds = %304, %.preheader.i138
@@ -667,7 +667,7 @@ find_best.exit:                                   ; preds = %178, %make_random.e
   %330 = icmp eq i32 %.2103.i, %281
   %331 = add nsw i32 %.2103.i, 1
   %332 = select i1 %330, i32 0, i32 %331
-  %.not71.i = icmp eq i32 %332, %267
+  %.not71.i = icmp eq i32 %332, %270
   br i1 %.not71.i, label %.lr.ph211.preheader, label %.preheader.i138, !llvm.loop !50
 
 .lr.ph211.preheader:                              ; preds = %325

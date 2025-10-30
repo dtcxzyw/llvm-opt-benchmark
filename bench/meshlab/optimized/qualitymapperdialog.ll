@@ -10641,8 +10641,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -12068,127 +12068,127 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i27:  ; preds = %_ZN9QtPrivate8RefCo
 
 62:                                               ; preds = %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit
   %63 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %9, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  %68 = load float, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 52
-  %70 = load float, ptr %69, align 4
-  %71 = fsub float %70, %68
-  %72 = fdiv float %71, 1.000000e+02
-  %73 = fpext float %72 to double
-  %74 = fmul double %73, 5.000000e-01
-  %75 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  %64 = load ptr, ptr %9, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
+  %66 = load float, ptr %65, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 52
+  %68 = load float, ptr %67, align 4
+  %69 = fsub float %68, %66
+  %70 = fdiv float %69, 1.000000e+02
+  %71 = fpext float %70 to double
+  %72 = fmul double %71, 5.000000e-01
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %78 = load ptr, ptr %77, align 8
-  %79 = ptrtoint ptr %78 to i64
-  %80 = ptrtoint ptr %76 to i64
-  %81 = sub i64 %79, %80
-  %82 = ashr exact i64 %81, 2
-  %83 = icmp sgt i64 %82, 0
-  br label %84
+  %77 = ptrtoint ptr %76 to i64
+  %78 = ptrtoint ptr %74 to i64
+  %79 = sub i64 %77, %78
+  %80 = ashr exact i64 %79, 2
+  %81 = icmp sgt i64 %80, 0
+  br label %82
 
-84:                                               ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.i, %62
-  %.015.i = phi i32 [ 0, %62 ], [ %123, %_ZN3vcg9HistogramIfE8BinCountEff.exit.i ]
+82:                                               ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.i, %62
+  %.015.i = phi i32 [ 0, %62 ], [ %121, %_ZN3vcg9HistogramIfE8BinCountEff.exit.i ]
   %.01214.i = phi i32 [ 0, %62 ], [ %spec.select.i, %_ZN3vcg9HistogramIfE8BinCountEff.exit.i ]
-  %85 = uitofp nneg i32 %.015.i to float
-  %86 = tail call float @llvm.fmuladd.f32(float %85, float %72, float %68)
-  %87 = fpext float %86 to double
-  %88 = fsub double %87, %74
+  %83 = uitofp nneg i32 %.015.i to float
+  %84 = tail call float @llvm.fmuladd.f32(float %83, float %70, float %66)
+  %85 = fpext float %84 to double
+  %86 = fsub double %85, %72
+  %87 = fptrunc double %86 to float
+  %88 = fadd double %72, %85
   %89 = fptrunc double %88 to float
-  %90 = fadd double %74, %87
-  %91 = fptrunc double %90 to float
-  br i1 %83, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i, label %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i
+  br i1 %81, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i, label %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i: ; preds = %84, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i
-  %.013.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i ], [ %82, %84 ]
-  %.sroa.011.012.i.i.i.i.i.i = phi ptr [ %.sroa.011.1.i.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i ], [ %76, %84 ]
-  %92 = lshr i64 %.013.i.i.i.i.i.i, 1
-  %93 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i.i.i.i, i64 %92
-  %94 = load float, ptr %93, align 4
-  %95 = fcmp olt float %94, %89
-  %96 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  %97 = xor i64 %92, -1
-  %98 = add nsw i64 %.013.i.i.i.i.i.i, %97
-  %.sroa.011.1.i.i.i.i.i.i = select i1 %95, ptr %96, ptr %.sroa.011.012.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i = select i1 %95, i64 %98, i64 %92
-  %99 = icmp sgt i64 %.1.i.i.i.i.i.i, 0
-  br i1 %99, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i, !llvm.loop !82
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i: ; preds = %82, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i
+  %.013.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i ], [ %80, %82 ]
+  %.sroa.011.012.i.i.i.i.i.i = phi ptr [ %.sroa.011.1.i.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i ], [ %74, %82 ]
+  %90 = lshr i64 %.013.i.i.i.i.i.i, 1
+  %91 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i.i.i.i, i64 %90
+  %92 = load float, ptr %91, align 4
+  %93 = fcmp olt float %92, %87
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 4
+  %95 = xor i64 %90, -1
+  %96 = add nsw i64 %.013.i.i.i.i.i.i, %95
+  %.sroa.011.1.i.i.i.i.i.i = select i1 %93, ptr %94, ptr %.sroa.011.012.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i = select i1 %93, i64 %96, i64 %90
+  %97 = icmp sgt i64 %.1.i.i.i.i.i.i, 0
+  br i1 %97, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i, !llvm.loop !82
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i
-  %.013.i.i.i12.i.i.i = phi i64 [ %.1.i.i.i17.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i ], [ %82, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i ]
-  %.sroa.011.012.i.i.i13.i.i.i = phi ptr [ %.sroa.011.1.i.i.i16.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i ], [ %76, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i ]
-  %100 = lshr i64 %.013.i.i.i12.i.i.i, 1
-  %101 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i13.i.i.i, i64 %100
-  %102 = load float, ptr %101, align 4
-  %103 = fcmp olt float %102, %91
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 4
-  %105 = xor i64 %100, -1
-  %106 = add nsw i64 %.013.i.i.i12.i.i.i, %105
-  %.sroa.011.1.i.i.i16.i.i.i = select i1 %103, ptr %104, ptr %.sroa.011.012.i.i.i13.i.i.i
-  %.1.i.i.i17.i.i.i = select i1 %103, i64 %106, i64 %100
-  %107 = icmp sgt i64 %.1.i.i.i17.i.i.i, 0
-  br i1 %107, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i, !llvm.loop !82
+  %.013.i.i.i12.i.i.i = phi i64 [ %.1.i.i.i17.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i ], [ %80, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i ]
+  %.sroa.011.012.i.i.i13.i.i.i = phi ptr [ %.sroa.011.1.i.i.i16.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i ], [ %74, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i ]
+  %98 = lshr i64 %.013.i.i.i12.i.i.i, 1
+  %99 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i13.i.i.i, i64 %98
+  %100 = load float, ptr %99, align 4
+  %101 = fcmp olt float %100, %89
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 4
+  %103 = xor i64 %98, -1
+  %104 = add nsw i64 %.013.i.i.i12.i.i.i, %103
+  %.sroa.011.1.i.i.i16.i.i.i = select i1 %101, ptr %102, ptr %.sroa.011.012.i.i.i13.i.i.i
+  %.1.i.i.i17.i.i.i = select i1 %101, i64 %104, i64 %98
+  %105 = icmp sgt i64 %.1.i.i.i17.i.i.i, 0
+  br i1 %105, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i, !llvm.loop !82
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i
   %.pre.i.i.i.i = ptrtoint ptr %.sroa.011.1.i.i.i.i.i.i to i64
-  %108 = sub i64 %.pre.i.i.i.i, %80
-  %109 = lshr exact i64 %108, 2
-  %110 = trunc i64 %109 to i32
-  %111 = add nsw i32 %110, -1
+  %106 = sub i64 %.pre.i.i.i.i, %78
+  %107 = lshr exact i64 %106, 2
+  %108 = trunc i64 %107 to i32
+  %109 = add nsw i32 %108, -1
   %.pre.i19.i.i.i = ptrtoint ptr %.sroa.011.1.i.i.i16.i.i.i to i64
   br label %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i
 
-_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i:     ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i, %84
-  %112 = phi i32 [ %111, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i ], [ -1, %84 ]
-  %.pre-phi.i10.i.i.i = phi i64 [ %.pre.i19.i.i.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i ], [ %80, %84 ]
-  %113 = sub i64 %.pre-phi.i10.i.i.i, %80
-  %114 = lshr exact i64 %113, 2
-  %115 = trunc i64 %114 to i32
-  %.not.not22.i.i.i = icmp slt i32 %112, %115
+_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i:     ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i, %82
+  %110 = phi i32 [ %109, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i ], [ -1, %82 ]
+  %.pre-phi.i10.i.i.i = phi i64 [ %.pre.i19.i.i.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i ], [ %78, %82 ]
+  %111 = sub i64 %.pre-phi.i10.i.i.i, %78
+  %112 = lshr exact i64 %111, 2
+  %113 = trunc i64 %112 to i32
+  %.not.not22.i.i.i = icmp slt i32 %110, %113
   br i1 %.not.not22.i.i.i, label %.lr.ph.i.i.i, label %_ZN3vcg9HistogramIfE8BinCountEff.exit.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i
-  %116 = load ptr, ptr %66, align 8
-  %117 = sext i32 %112 to i64
-  %sext.i.i.i = shl i64 %113, 30
+  %114 = load ptr, ptr %64, align 8
+  %115 = sext i32 %110 to i64
+  %sext.i.i.i = shl i64 %111, 30
   %wide.trip.count.i.i.i = ashr i64 %sext.i.i.i, 32
-  br label %118
+  br label %116
 
-118:                                              ; preds = %118, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ %117, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %118 ]
-  %.0923.i.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i.i ], [ %121, %118 ]
-  %119 = getelementptr inbounds float, ptr %116, i64 %indvars.iv.i.i.i
-  %120 = load float, ptr %119, align 4
-  %121 = fadd float %.0923.i.i.i, %120
+116:                                              ; preds = %116, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ %115, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %116 ]
+  %.0923.i.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i.i ], [ %119, %116 ]
+  %117 = getelementptr inbounds float, ptr %114, i64 %indvars.iv.i.i.i
+  %118 = load float, ptr %117, align 4
+  %119 = fadd float %.0923.i.i.i, %118
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN3vcg9HistogramIfE8BinCountEff.exit.loopexit.i, label %118, !llvm.loop !122
+  br i1 %exitcond.not.i.i.i, label %_ZN3vcg9HistogramIfE8BinCountEff.exit.loopexit.i, label %116, !llvm.loop !122
 
-_ZN3vcg9HistogramIfE8BinCountEff.exit.loopexit.i: ; preds = %118
-  %122 = fptosi float %121 to i32
+_ZN3vcg9HistogramIfE8BinCountEff.exit.loopexit.i: ; preds = %116
+  %120 = fptosi float %119 to i32
   br label %_ZN3vcg9HistogramIfE8BinCountEff.exit.i
 
 _ZN3vcg9HistogramIfE8BinCountEff.exit.i:          ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.loopexit.i, %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i
-  %.09.lcssa.i.i.i = phi i32 [ 0, %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i ], [ %122, %_ZN3vcg9HistogramIfE8BinCountEff.exit.loopexit.i ]
+  %.09.lcssa.i.i.i = phi i32 [ 0, %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i ], [ %120, %_ZN3vcg9HistogramIfE8BinCountEff.exit.loopexit.i ]
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.01214.i, i32 %.09.lcssa.i.i.i)
-  %123 = add nuw nsw i32 %.015.i, 1
-  %exitcond.not.i = icmp eq i32 %123, 100
-  br i1 %exitcond.not.i, label %124, label %84, !llvm.loop !123
+  %121 = add nuw nsw i32 %.015.i, 1
+  %exitcond.not.i = icmp eq i32 %121, 100
+  br i1 %exitcond.not.i, label %122, label %82, !llvm.loop !123
 
-124:                                              ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.i
+122:                                              ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.i
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %124 = load ptr, ptr %123, align 8
   %125 = uitofp nneg i32 %spec.select.i to float
-  store ptr %65, ptr %63, align 8
+  store ptr %124, ptr %63, align 8
   %126 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store i32 100, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %63, i64 28
   store i32 5, ptr %127, align 4
   %128 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store float %68, ptr %128, align 8
+  store float %66, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %63, i64 12
-  store float %70, ptr %129, align 4
+  store float %68, ptr %129, align 4
   %130 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store float 0.000000e+00, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %63, i64 20
@@ -12198,128 +12198,128 @@ _ZN3vcg9HistogramIfE8BinCountEff.exit.i:          ; preds = %_ZN3vcg9HistogramIf
   br label %208
 
 133:                                              ; preds = %3
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %137 = load float, ptr %136, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %10, i64 52
-  %139 = load float, ptr %138, align 4
-  %140 = fsub float %139, %137
-  %141 = fdiv float %140, 1.000000e+02
-  %142 = fpext float %141 to double
-  %143 = fmul double %142, 5.000000e-01
-  %144 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %135 = load float, ptr %134, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %10, i64 52
+  %137 = load float, ptr %136, align 4
+  %138 = fsub float %137, %135
+  %139 = fdiv float %138, 1.000000e+02
+  %140 = fpext float %139 to double
+  %141 = fmul double %140, 5.000000e-01
+  %142 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %147 = load ptr, ptr %146, align 8
-  %148 = ptrtoint ptr %147 to i64
-  %149 = ptrtoint ptr %145 to i64
-  %150 = sub i64 %148, %149
-  %151 = ashr exact i64 %150, 2
-  %152 = icmp sgt i64 %151, 0
-  br label %153
+  %146 = ptrtoint ptr %145 to i64
+  %147 = ptrtoint ptr %143 to i64
+  %148 = sub i64 %146, %147
+  %149 = ashr exact i64 %148, 2
+  %150 = icmp sgt i64 %149, 0
+  br label %151
 
-153:                                              ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.i38, %133
-  %.015.i33 = phi i32 [ 0, %133 ], [ %192, %_ZN3vcg9HistogramIfE8BinCountEff.exit.i38 ]
+151:                                              ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.i38, %133
+  %.015.i33 = phi i32 [ 0, %133 ], [ %190, %_ZN3vcg9HistogramIfE8BinCountEff.exit.i38 ]
   %.01214.i34 = phi i32 [ 0, %133 ], [ %spec.select.i40, %_ZN3vcg9HistogramIfE8BinCountEff.exit.i38 ]
-  %154 = uitofp nneg i32 %.015.i33 to float
-  %155 = tail call float @llvm.fmuladd.f32(float %154, float %141, float %137)
-  %156 = fpext float %155 to double
-  %157 = fsub double %156, %143
+  %152 = uitofp nneg i32 %.015.i33 to float
+  %153 = tail call float @llvm.fmuladd.f32(float %152, float %139, float %135)
+  %154 = fpext float %153 to double
+  %155 = fsub double %154, %141
+  %156 = fptrunc double %155 to float
+  %157 = fadd double %141, %154
   %158 = fptrunc double %157 to float
-  %159 = fadd double %143, %156
-  %160 = fptrunc double %159 to float
-  br i1 %152, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50, label %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i35
+  br i1 %150, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50, label %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i35
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50: ; preds = %153, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50
-  %.013.i.i.i.i.i.i51 = phi i64 [ %.1.i.i.i.i.i.i56, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50 ], [ %151, %153 ]
-  %.sroa.011.012.i.i.i.i.i.i52 = phi ptr [ %.sroa.011.1.i.i.i.i.i.i55, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50 ], [ %145, %153 ]
-  %161 = lshr i64 %.013.i.i.i.i.i.i51, 1
-  %162 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i.i.i.i52, i64 %161
-  %163 = load float, ptr %162, align 4
-  %164 = fcmp olt float %163, %158
-  %165 = getelementptr inbounds nuw i8, ptr %162, i64 4
-  %166 = xor i64 %161, -1
-  %167 = add nsw i64 %.013.i.i.i.i.i.i51, %166
-  %.sroa.011.1.i.i.i.i.i.i55 = select i1 %164, ptr %165, ptr %.sroa.011.012.i.i.i.i.i.i52
-  %.1.i.i.i.i.i.i56 = select i1 %164, i64 %167, i64 %161
-  %168 = icmp sgt i64 %.1.i.i.i.i.i.i56, 0
-  br i1 %168, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58, !llvm.loop !82
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50: ; preds = %151, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50
+  %.013.i.i.i.i.i.i51 = phi i64 [ %.1.i.i.i.i.i.i56, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50 ], [ %149, %151 ]
+  %.sroa.011.012.i.i.i.i.i.i52 = phi ptr [ %.sroa.011.1.i.i.i.i.i.i55, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50 ], [ %143, %151 ]
+  %159 = lshr i64 %.013.i.i.i.i.i.i51, 1
+  %160 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i.i.i.i52, i64 %159
+  %161 = load float, ptr %160, align 4
+  %162 = fcmp olt float %161, %156
+  %163 = getelementptr inbounds nuw i8, ptr %160, i64 4
+  %164 = xor i64 %159, -1
+  %165 = add nsw i64 %.013.i.i.i.i.i.i51, %164
+  %.sroa.011.1.i.i.i.i.i.i55 = select i1 %162, ptr %163, ptr %.sroa.011.012.i.i.i.i.i.i52
+  %.1.i.i.i.i.i.i56 = select i1 %162, i64 %165, i64 %159
+  %166 = icmp sgt i64 %.1.i.i.i.i.i.i56, 0
+  br i1 %166, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58, !llvm.loop !82
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58
-  %.013.i.i.i12.i.i.i59 = phi i64 [ %.1.i.i.i17.i.i.i64, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58 ], [ %151, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50 ]
-  %.sroa.011.012.i.i.i13.i.i.i60 = phi ptr [ %.sroa.011.1.i.i.i16.i.i.i63, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58 ], [ %145, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50 ]
-  %169 = lshr i64 %.013.i.i.i12.i.i.i59, 1
-  %170 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i13.i.i.i60, i64 %169
-  %171 = load float, ptr %170, align 4
-  %172 = fcmp olt float %171, %160
-  %173 = getelementptr inbounds nuw i8, ptr %170, i64 4
-  %174 = xor i64 %169, -1
-  %175 = add nsw i64 %.013.i.i.i12.i.i.i59, %174
-  %.sroa.011.1.i.i.i16.i.i.i63 = select i1 %172, ptr %173, ptr %.sroa.011.012.i.i.i13.i.i.i60
-  %.1.i.i.i17.i.i.i64 = select i1 %172, i64 %175, i64 %169
-  %176 = icmp sgt i64 %.1.i.i.i17.i.i.i64, 0
-  br i1 %176, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i65, !llvm.loop !82
+  %.013.i.i.i12.i.i.i59 = phi i64 [ %.1.i.i.i17.i.i.i64, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58 ], [ %149, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50 ]
+  %.sroa.011.012.i.i.i13.i.i.i60 = phi ptr [ %.sroa.011.1.i.i.i16.i.i.i63, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58 ], [ %143, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50 ]
+  %167 = lshr i64 %.013.i.i.i12.i.i.i59, 1
+  %168 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i13.i.i.i60, i64 %167
+  %169 = load float, ptr %168, align 4
+  %170 = fcmp olt float %169, %158
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 4
+  %172 = xor i64 %167, -1
+  %173 = add nsw i64 %.013.i.i.i12.i.i.i59, %172
+  %.sroa.011.1.i.i.i16.i.i.i63 = select i1 %170, ptr %171, ptr %.sroa.011.012.i.i.i13.i.i.i60
+  %.1.i.i.i17.i.i.i64 = select i1 %170, i64 %173, i64 %167
+  %174 = icmp sgt i64 %.1.i.i.i17.i.i.i64, 0
+  br i1 %174, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i65, !llvm.loop !82
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i65: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58
   %.pre.i.i.i.i66 = ptrtoint ptr %.sroa.011.1.i.i.i.i.i.i55 to i64
-  %177 = sub i64 %.pre.i.i.i.i66, %149
-  %178 = lshr exact i64 %177, 2
-  %179 = trunc i64 %178 to i32
-  %180 = add nsw i32 %179, -1
+  %175 = sub i64 %.pre.i.i.i.i66, %147
+  %176 = lshr exact i64 %175, 2
+  %177 = trunc i64 %176 to i32
+  %178 = add nsw i32 %177, -1
   %.pre.i19.i.i.i67 = ptrtoint ptr %.sroa.011.1.i.i.i16.i.i.i63 to i64
   br label %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i35
 
-_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i35:   ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i65, %153
-  %181 = phi i32 [ %180, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i65 ], [ -1, %153 ]
-  %.pre-phi.i10.i.i.i36 = phi i64 [ %.pre.i19.i.i.i67, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i65 ], [ %149, %153 ]
-  %182 = sub i64 %.pre-phi.i10.i.i.i36, %149
-  %183 = lshr exact i64 %182, 2
-  %184 = trunc i64 %183 to i32
-  %.not.not22.i.i.i37 = icmp slt i32 %181, %184
+_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i35:   ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i65, %151
+  %179 = phi i32 [ %178, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i65 ], [ -1, %151 ]
+  %.pre-phi.i10.i.i.i36 = phi i64 [ %.pre.i19.i.i.i67, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i65 ], [ %147, %151 ]
+  %180 = sub i64 %.pre-phi.i10.i.i.i36, %147
+  %181 = lshr exact i64 %180, 2
+  %182 = trunc i64 %181 to i32
+  %.not.not22.i.i.i37 = icmp slt i32 %179, %182
   br i1 %.not.not22.i.i.i37, label %.lr.ph.i.i.i42, label %_ZN3vcg9HistogramIfE8BinCountEff.exit.i38
 
 .lr.ph.i.i.i42:                                   ; preds = %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i35
-  %185 = load ptr, ptr %10, align 8
-  %186 = sext i32 %181 to i64
-  %sext.i.i.i43 = shl i64 %182, 30
+  %183 = load ptr, ptr %10, align 8
+  %184 = sext i32 %179 to i64
+  %sext.i.i.i43 = shl i64 %180, 30
   %wide.trip.count.i.i.i44 = ashr i64 %sext.i.i.i43, 32
-  br label %187
+  br label %185
 
-187:                                              ; preds = %187, %.lr.ph.i.i.i42
-  %indvars.iv.i.i.i45 = phi i64 [ %186, %.lr.ph.i.i.i42 ], [ %indvars.iv.next.i.i.i47, %187 ]
-  %.0923.i.i.i46 = phi float [ 0.000000e+00, %.lr.ph.i.i.i42 ], [ %190, %187 ]
-  %188 = getelementptr inbounds float, ptr %185, i64 %indvars.iv.i.i.i45
-  %189 = load float, ptr %188, align 4
-  %190 = fadd float %.0923.i.i.i46, %189
+185:                                              ; preds = %185, %.lr.ph.i.i.i42
+  %indvars.iv.i.i.i45 = phi i64 [ %184, %.lr.ph.i.i.i42 ], [ %indvars.iv.next.i.i.i47, %185 ]
+  %.0923.i.i.i46 = phi float [ 0.000000e+00, %.lr.ph.i.i.i42 ], [ %188, %185 ]
+  %186 = getelementptr inbounds float, ptr %183, i64 %indvars.iv.i.i.i45
+  %187 = load float, ptr %186, align 4
+  %188 = fadd float %.0923.i.i.i46, %187
   %indvars.iv.next.i.i.i47 = add nsw i64 %indvars.iv.i.i.i45, 1
   %exitcond.not.i.i.i48 = icmp eq i64 %indvars.iv.next.i.i.i47, %wide.trip.count.i.i.i44
-  br i1 %exitcond.not.i.i.i48, label %_ZN3vcg9HistogramIfE8BinCountEff.exit.loopexit.i49, label %187, !llvm.loop !122
+  br i1 %exitcond.not.i.i.i48, label %_ZN3vcg9HistogramIfE8BinCountEff.exit.loopexit.i49, label %185, !llvm.loop !122
 
-_ZN3vcg9HistogramIfE8BinCountEff.exit.loopexit.i49: ; preds = %187
-  %191 = fptosi float %190 to i32
+_ZN3vcg9HistogramIfE8BinCountEff.exit.loopexit.i49: ; preds = %185
+  %189 = fptosi float %188 to i32
   br label %_ZN3vcg9HistogramIfE8BinCountEff.exit.i38
 
 _ZN3vcg9HistogramIfE8BinCountEff.exit.i38:        ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.loopexit.i49, %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i35
-  %.09.lcssa.i.i.i39 = phi i32 [ 0, %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i35 ], [ %191, %_ZN3vcg9HistogramIfE8BinCountEff.exit.loopexit.i49 ]
+  %.09.lcssa.i.i.i39 = phi i32 [ 0, %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i35 ], [ %189, %_ZN3vcg9HistogramIfE8BinCountEff.exit.loopexit.i49 ]
   %spec.select.i40 = tail call i32 @llvm.smax.i32(i32 %.01214.i34, i32 %.09.lcssa.i.i.i39)
-  %192 = add nuw nsw i32 %.015.i33, 1
-  %exitcond.not.i41 = icmp eq i32 %192, 100
-  br i1 %exitcond.not.i41, label %_ZN19QualityMapperDialog20computeEqualizerMaxYEPN3vcg9HistogramIfEEff.exit68, label %153, !llvm.loop !123
+  %190 = add nuw nsw i32 %.015.i33, 1
+  %exitcond.not.i41 = icmp eq i32 %190, 100
+  br i1 %exitcond.not.i41, label %_ZN19QualityMapperDialog20computeEqualizerMaxYEPN3vcg9HistogramIfEEff.exit68, label %151, !llvm.loop !123
 
 _ZN19QualityMapperDialog20computeEqualizerMaxYEPN3vcg9HistogramIfEEff.exit68: ; preds = %_ZN3vcg9HistogramIfE8BinCountEff.exit.i38
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  %192 = load ptr, ptr %191, align 8
   %193 = uitofp nneg i32 %spec.select.i40 to float
-  %194 = getelementptr inbounds nuw i8, ptr %135, i64 24
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 24
   store i32 100, ptr %194, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %135, i64 28
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 28
   store i32 5, ptr %195, align 4
-  %196 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  store float %137, ptr %196, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %135, i64 12
-  store float %139, ptr %197, align 4
-  %198 = getelementptr inbounds nuw i8, ptr %135, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %192, i64 8
+  store float %135, ptr %196, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %192, i64 12
+  store float %137, ptr %197, align 4
+  %198 = getelementptr inbounds nuw i8, ptr %192, i64 16
   store float 0.000000e+00, ptr %198, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %135, i64 20
+  %199 = getelementptr inbounds nuw i8, ptr %192, i64 20
   store float %193, ptr %199, align 4
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %201 = load i8, ptr %200, align 8
@@ -12342,8 +12342,8 @@ _ZN19QualityMapperDialog20computeEqualizerMaxYEPN3vcg9HistogramIfEEff.exit68: ; 
   %.pre116 = load float, ptr %.phi.trans.insert115, align 8
   br label %208
 
-208:                                              ; preds = %206, %124
-  %209 = phi float [ %.pre116, %206 ], [ %68, %124 ]
+208:                                              ; preds = %206, %122
+  %209 = phi float [ %.pre116, %206 ], [ %66, %122 ]
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %211 = fpext float %209 to double
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 352

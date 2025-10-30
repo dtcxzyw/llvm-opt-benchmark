@@ -703,9 +703,9 @@ define internal noundef range(i32 -22, 1) i32 @efivarfs_d_hash(ptr noundef %0, p
   %9 = ptrtoint ptr %0 to i64
   %10 = add i32 %6, -1
   %11 = icmp ugt i32 %6, 36
-  br i1 %11, label %.preheader6, label %16
+  br i1 %11, label %.preheader3, label %16
 
-.thread:                                          ; preds = %.preheader6
+.thread:                                          ; preds = %.preheader3
   %12 = add i32 %6, -37
   %13 = zext i32 %12 to i64
   %14 = getelementptr i8, ptr %4, i64 %13
@@ -722,10 +722,10 @@ define internal noundef range(i32 -22, 1) i32 @efivarfs_d_hash(ptr noundef %0, p
   %.ph9 = phi i64 [ %9, %16 ], [ %28, %.thread ]
   br label %.preheader
 
-.preheader6:                                      ; preds = %8, %.preheader6
-  %18 = phi i32 [ %29, %.preheader6 ], [ %10, %8 ]
-  %19 = phi ptr [ %21, %.preheader6 ], [ %4, %8 ]
-  %20 = phi i64 [ %28, %.preheader6 ], [ %9, %8 ]
+.preheader3:                                      ; preds = %8, %.preheader3
+  %18 = phi i32 [ %29, %.preheader3 ], [ %10, %8 ]
+  %19 = phi ptr [ %21, %.preheader3 ], [ %4, %8 ]
+  %20 = phi i64 [ %28, %.preheader3 ], [ %9, %8 ]
   %21 = getelementptr i8, ptr %19, i64 1
   %22 = load i8, ptr %19, align 1
   %23 = zext i8 %22 to i64
@@ -736,7 +736,7 @@ define internal noundef range(i32 -22, 1) i32 @efivarfs_d_hash(ptr noundef %0, p
   %28 = mul i64 %27, 11
   %29 = add i32 %18, -1
   %30 = icmp ugt i32 %18, 36
-  br i1 %30, label %.preheader6, label %.thread, !llvm.loop !6
+  br i1 %30, label %.preheader3, label %.thread, !llvm.loop !6
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %31 = phi i32 [ %34, %.preheader ], [ %.ph, %.preheader.preheader ]

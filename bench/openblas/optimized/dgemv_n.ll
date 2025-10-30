@@ -72,10 +72,10 @@ define noundef i32 @dgemv_n(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
 .lr.ph:                                           ; preds = %.preheader410
   %.val356 = load double, ptr %12, align 8, !tbaa !7
   %42 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.val356, i64 0
-  %43 = shufflevector <2 x double> %42, <2 x double> poison, <4 x i32> zeroinitializer
-  %44 = shufflevector <2 x double> %42, <2 x double> poison, <8 x i32> zeroinitializer
-  %45 = icmp samesign ugt i64 %.mux, 7
-  %46 = and i64 %.mux, 4088
+  %43 = shufflevector <2 x double> %42, <2 x double> poison, <8 x i32> zeroinitializer
+  %44 = icmp samesign ugt i64 %.mux, 7
+  %45 = and i64 %.mux, 4088
+  %46 = shufflevector <2 x double> %42, <2 x double> poison, <4 x i32> zeroinitializer
   br label %135
 
 .preheader407:                                    ; preds = %41
@@ -84,10 +84,10 @@ define noundef i32 @dgemv_n(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
 .lr.ph430:                                        ; preds = %.preheader407
   %.val = load double, ptr %12, align 8, !tbaa !7
   %47 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.val, i64 0
-  %48 = shufflevector <2 x double> %47, <2 x double> poison, <4 x i32> zeroinitializer
-  %49 = shufflevector <2 x double> %47, <2 x double> poison, <8 x i32> zeroinitializer
-  %50 = icmp samesign ugt i64 %.mux, 7
-  %51 = and i64 %.mux, 4088
+  %48 = shufflevector <2 x double> %47, <2 x double> poison, <8 x i32> zeroinitializer
+  %49 = icmp samesign ugt i64 %.mux, 7
+  %50 = and i64 %.mux, 4088
+  %51 = shufflevector <2 x double> %47, <2 x double> poison, <4 x i32> zeroinitializer
   br label %52
 
 52:                                               ; preds = %.lr.ph430, %dgemv_kernel_4x4.exit
@@ -99,31 +99,31 @@ define noundef i32 @dgemv_n(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   %.sroa.31.0423 = phi ptr [ %38, %.lr.ph430 ], [ %109, %dgemv_kernel_4x4.exit ]
   %53 = load double, ptr %.0334427, align 1, !tbaa !7
   %54 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %53, i64 0
-  %55 = shufflevector <2 x double> %54, <2 x double> poison, <4 x i32> zeroinitializer
-  %56 = getelementptr inbounds nuw i8, ptr %.0334427, i64 8
-  %57 = load double, ptr %56, align 1, !tbaa !7
-  %58 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %57, i64 0
-  %59 = shufflevector <2 x double> %58, <2 x double> poison, <4 x i32> zeroinitializer
-  %60 = getelementptr inbounds nuw i8, ptr %.0334427, i64 16
-  %61 = load double, ptr %60, align 1, !tbaa !7
-  %62 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %61, i64 0
-  %63 = shufflevector <2 x double> %62, <2 x double> poison, <4 x i32> zeroinitializer
-  %64 = getelementptr inbounds nuw i8, ptr %.0334427, i64 24
-  %65 = load double, ptr %64, align 1, !tbaa !7
-  %66 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %65, i64 0
-  %67 = shufflevector <2 x double> %66, <2 x double> poison, <4 x i32> zeroinitializer
-  %68 = shufflevector <2 x double> %54, <2 x double> poison, <8 x i32> zeroinitializer
-  %69 = shufflevector <2 x double> %58, <2 x double> poison, <8 x i32> zeroinitializer
-  %70 = shufflevector <2 x double> %62, <2 x double> poison, <8 x i32> zeroinitializer
-  %71 = shufflevector <2 x double> %66, <2 x double> poison, <8 x i32> zeroinitializer
-  br i1 %50, label %.lr.ph.i, label %.preheader.i
+  %55 = getelementptr inbounds nuw i8, ptr %.0334427, i64 8
+  %56 = load double, ptr %55, align 1, !tbaa !7
+  %57 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %56, i64 0
+  %58 = getelementptr inbounds nuw i8, ptr %.0334427, i64 16
+  %59 = load double, ptr %58, align 1, !tbaa !7
+  %60 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %59, i64 0
+  %61 = getelementptr inbounds nuw i8, ptr %.0334427, i64 24
+  %62 = load double, ptr %61, align 1, !tbaa !7
+  %63 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %62, i64 0
+  %64 = shufflevector <2 x double> %54, <2 x double> poison, <8 x i32> zeroinitializer
+  %65 = shufflevector <2 x double> %57, <2 x double> poison, <8 x i32> zeroinitializer
+  %66 = shufflevector <2 x double> %60, <2 x double> poison, <8 x i32> zeroinitializer
+  %67 = shufflevector <2 x double> %63, <2 x double> poison, <8 x i32> zeroinitializer
+  br i1 %49, label %.lr.ph.i, label %.preheader.i
 
 .preheader.loopexit.i:                            ; preds = %.lr.ph.i
-  %72 = and i64 %indvars.iv.next.i, 4294967288
+  %68 = and i64 %indvars.iv.next.i, 4294967288
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.loopexit.i, %52
-  %.0.lcssa.i = phi i64 [ 0, %52 ], [ %72, %.preheader.loopexit.i ]
+  %.0.lcssa.i = phi i64 [ 0, %52 ], [ %68, %.preheader.loopexit.i ]
+  %69 = shufflevector <2 x double> %54, <2 x double> poison, <4 x i32> zeroinitializer
+  %70 = shufflevector <2 x double> %57, <2 x double> poison, <4 x i32> zeroinitializer
+  %71 = shufflevector <2 x double> %60, <2 x double> poison, <4 x i32> zeroinitializer
+  %72 = shufflevector <2 x double> %63, <2 x double> poison, <4 x i32> zeroinitializer
   %73 = icmp samesign ugt i64 %.mux, %.0.lcssa.i
   br i1 %73, label %.lr.ph3.i, label %dgemv_kernel_4x4.exit
 
@@ -133,20 +133,20 @@ define noundef i32 @dgemv_n(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   %75 = load <8 x double>, ptr %74, align 1, !tbaa !7
   %76 = getelementptr inbounds nuw double, ptr %.sroa.12.0425, i64 %indvars.iv.i
   %77 = load <8 x double>, ptr %76, align 1, !tbaa !7
-  %78 = fmul <8 x double> %69, %77
-  %79 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %75, <8 x double> %68, <8 x double> %78)
+  %78 = fmul <8 x double> %65, %77
+  %79 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %75, <8 x double> %64, <8 x double> %78)
   %80 = getelementptr inbounds nuw double, ptr %.sroa.22.0424, i64 %indvars.iv.i
   %81 = load <8 x double>, ptr %80, align 1, !tbaa !7
-  %82 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %81, <8 x double> %70, <8 x double> %79)
+  %82 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %81, <8 x double> %66, <8 x double> %79)
   %83 = getelementptr inbounds nuw double, ptr %.sroa.31.0423, i64 %indvars.iv.i
   %84 = load <8 x double>, ptr %83, align 1, !tbaa !7
-  %85 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %84, <8 x double> %71, <8 x double> %82)
+  %85 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %84, <8 x double> %67, <8 x double> %82)
   %86 = getelementptr inbounds nuw double, ptr %.1314, i64 %indvars.iv.i
   %87 = load <8 x double>, ptr %86, align 1, !tbaa !7
-  %88 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %85, <8 x double> %49, <8 x double> %87)
+  %88 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %85, <8 x double> %48, <8 x double> %87)
   store <8 x double> %88, ptr %86, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
-  %89 = icmp samesign ult i64 %indvars.iv.next.i, %51
+  %89 = icmp samesign ult i64 %indvars.iv.next.i, %50
   br i1 %89, label %.lr.ph.i, label %.preheader.loopexit.i, !llvm.loop !8
 
 .lr.ph3.i:                                        ; preds = %.preheader.i, %.lr.ph3.i
@@ -155,17 +155,17 @@ define noundef i32 @dgemv_n(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   %91 = load <4 x double>, ptr %90, align 1, !tbaa !7
   %92 = getelementptr inbounds nuw double, ptr %.sroa.12.0425, i64 %indvars.iv5.i
   %93 = load <4 x double>, ptr %92, align 1, !tbaa !7
-  %94 = fmul <4 x double> %59, %93
-  %95 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %91, <4 x double> %55, <4 x double> %94)
+  %94 = fmul <4 x double> %70, %93
+  %95 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %91, <4 x double> %69, <4 x double> %94)
   %96 = getelementptr inbounds nuw double, ptr %.sroa.22.0424, i64 %indvars.iv5.i
   %97 = load <4 x double>, ptr %96, align 1, !tbaa !7
-  %98 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %97, <4 x double> %63, <4 x double> %95)
+  %98 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %97, <4 x double> %71, <4 x double> %95)
   %99 = getelementptr inbounds nuw double, ptr %.sroa.31.0423, i64 %indvars.iv5.i
   %100 = load <4 x double>, ptr %99, align 1, !tbaa !7
-  %101 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %100, <4 x double> %67, <4 x double> %98)
+  %101 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %100, <4 x double> %72, <4 x double> %98)
   %102 = getelementptr inbounds nuw double, ptr %.1314, i64 %indvars.iv5.i
   %103 = load <4 x double>, ptr %102, align 1, !tbaa !7
-  %104 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %101, <4 x double> %48, <4 x double> %103)
+  %104 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %101, <4 x double> %51, <4 x double> %103)
   store <4 x double> %104, ptr %102, align 1, !tbaa !7
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv5.i, 4
   %105 = icmp samesign ugt i64 %.mux, %indvars.iv.next6.i
@@ -256,25 +256,25 @@ dgemv_kernel_4x2.exit:                            ; preds = %120
   store double %142, ptr %27, align 8, !tbaa !3
   %143 = getelementptr inbounds double, ptr %141, i64 %7
   %144 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %136, i64 0
-  %145 = shufflevector <2 x double> %144, <2 x double> poison, <4 x i32> zeroinitializer
-  %146 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %138, i64 0
-  %147 = shufflevector <2 x double> %146, <2 x double> poison, <4 x i32> zeroinitializer
-  %148 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %140, i64 0
-  %149 = shufflevector <2 x double> %148, <2 x double> poison, <4 x i32> zeroinitializer
-  %150 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %142, i64 0
-  %151 = shufflevector <2 x double> %150, <2 x double> poison, <4 x i32> zeroinitializer
-  %152 = shufflevector <2 x double> %144, <2 x double> poison, <8 x i32> zeroinitializer
-  %153 = shufflevector <2 x double> %146, <2 x double> poison, <8 x i32> zeroinitializer
-  %154 = shufflevector <2 x double> %148, <2 x double> poison, <8 x i32> zeroinitializer
-  %155 = shufflevector <2 x double> %150, <2 x double> poison, <8 x i32> zeroinitializer
-  br i1 %45, label %.lr.ph.i367, label %.preheader.i362
+  %145 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %138, i64 0
+  %146 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %140, i64 0
+  %147 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %142, i64 0
+  %148 = shufflevector <2 x double> %144, <2 x double> poison, <8 x i32> zeroinitializer
+  %149 = shufflevector <2 x double> %145, <2 x double> poison, <8 x i32> zeroinitializer
+  %150 = shufflevector <2 x double> %146, <2 x double> poison, <8 x i32> zeroinitializer
+  %151 = shufflevector <2 x double> %147, <2 x double> poison, <8 x i32> zeroinitializer
+  br i1 %44, label %.lr.ph.i367, label %.preheader.i362
 
 .preheader.loopexit.i370:                         ; preds = %.lr.ph.i367
-  %156 = and i64 %indvars.iv.next.i369, 4294967288
+  %152 = and i64 %indvars.iv.next.i369, 4294967288
   br label %.preheader.i362
 
 .preheader.i362:                                  ; preds = %.preheader.loopexit.i370, %135
-  %.0.lcssa.i363 = phi i64 [ 0, %135 ], [ %156, %.preheader.loopexit.i370 ]
+  %.0.lcssa.i363 = phi i64 [ 0, %135 ], [ %152, %.preheader.loopexit.i370 ]
+  %153 = shufflevector <2 x double> %144, <2 x double> poison, <4 x i32> zeroinitializer
+  %154 = shufflevector <2 x double> %145, <2 x double> poison, <4 x i32> zeroinitializer
+  %155 = shufflevector <2 x double> %146, <2 x double> poison, <4 x i32> zeroinitializer
+  %156 = shufflevector <2 x double> %147, <2 x double> poison, <4 x i32> zeroinitializer
   %157 = icmp samesign ugt i64 %.mux, %.0.lcssa.i363
   br i1 %157, label %.lr.ph3.i364, label %dgemv_kernel_4x4.exit371
 
@@ -284,20 +284,20 @@ dgemv_kernel_4x2.exit:                            ; preds = %120
   %159 = load <8 x double>, ptr %158, align 1, !tbaa !7
   %160 = getelementptr inbounds nuw double, ptr %.sroa.12.1413, i64 %indvars.iv.i368
   %161 = load <8 x double>, ptr %160, align 1, !tbaa !7
-  %162 = fmul <8 x double> %153, %161
-  %163 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %159, <8 x double> %152, <8 x double> %162)
+  %162 = fmul <8 x double> %149, %161
+  %163 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %159, <8 x double> %148, <8 x double> %162)
   %164 = getelementptr inbounds nuw double, ptr %.sroa.22.1412, i64 %indvars.iv.i368
   %165 = load <8 x double>, ptr %164, align 1, !tbaa !7
-  %166 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %165, <8 x double> %154, <8 x double> %163)
+  %166 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %165, <8 x double> %150, <8 x double> %163)
   %167 = getelementptr inbounds nuw double, ptr %.sroa.31.1411, i64 %indvars.iv.i368
   %168 = load <8 x double>, ptr %167, align 1, !tbaa !7
-  %169 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %168, <8 x double> %155, <8 x double> %166)
+  %169 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %168, <8 x double> %151, <8 x double> %166)
   %170 = getelementptr inbounds nuw double, ptr %.1314, i64 %indvars.iv.i368
   %171 = load <8 x double>, ptr %170, align 1, !tbaa !7
-  %172 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %169, <8 x double> %44, <8 x double> %171)
+  %172 = call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %169, <8 x double> %43, <8 x double> %171)
   store <8 x double> %172, ptr %170, align 1, !tbaa !7
   %indvars.iv.next.i369 = add nuw nsw i64 %indvars.iv.i368, 8
-  %173 = icmp samesign ult i64 %indvars.iv.next.i369, %46
+  %173 = icmp samesign ult i64 %indvars.iv.next.i369, %45
   br i1 %173, label %.lr.ph.i367, label %.preheader.loopexit.i370, !llvm.loop !8
 
 .lr.ph3.i364:                                     ; preds = %.preheader.i362, %.lr.ph3.i364
@@ -306,17 +306,17 @@ dgemv_kernel_4x2.exit:                            ; preds = %120
   %175 = load <4 x double>, ptr %174, align 1, !tbaa !7
   %176 = getelementptr inbounds nuw double, ptr %.sroa.12.1413, i64 %indvars.iv5.i365
   %177 = load <4 x double>, ptr %176, align 1, !tbaa !7
-  %178 = fmul <4 x double> %147, %177
-  %179 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %175, <4 x double> %145, <4 x double> %178)
+  %178 = fmul <4 x double> %154, %177
+  %179 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %175, <4 x double> %153, <4 x double> %178)
   %180 = getelementptr inbounds nuw double, ptr %.sroa.22.1412, i64 %indvars.iv5.i365
   %181 = load <4 x double>, ptr %180, align 1, !tbaa !7
-  %182 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %181, <4 x double> %149, <4 x double> %179)
+  %182 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %181, <4 x double> %155, <4 x double> %179)
   %183 = getelementptr inbounds nuw double, ptr %.sroa.31.1411, i64 %indvars.iv5.i365
   %184 = load <4 x double>, ptr %183, align 1, !tbaa !7
-  %185 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %184, <4 x double> %151, <4 x double> %182)
+  %185 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %184, <4 x double> %156, <4 x double> %182)
   %186 = getelementptr inbounds nuw double, ptr %.1314, i64 %indvars.iv5.i365
   %187 = load <4 x double>, ptr %186, align 1, !tbaa !7
-  %188 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %185, <4 x double> %43, <4 x double> %187)
+  %188 = call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %185, <4 x double> %46, <4 x double> %187)
   store <4 x double> %188, ptr %186, align 1, !tbaa !7
   %indvars.iv.next6.i366 = add nuw nsw i64 %indvars.iv5.i365, 4
   %189 = icmp samesign ugt i64 %.mux, %indvars.iv.next6.i366

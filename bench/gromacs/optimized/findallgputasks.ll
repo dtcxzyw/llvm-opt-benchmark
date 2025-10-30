@@ -486,8 +486,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i19: ; preds = %31, %26
 
 37:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i19
   %38 = getelementptr i8, ptr %36, i64 4
-  call void @llvm.memset.p0.i64(ptr align 4 %38, i8 0, i64 %16, i1 false), !tbaa !36, !noalias !42
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %16
+  call void @llvm.memset.p0.i64(ptr align 4 %38, i8 0, i64 %16, i1 false), !tbaa !36, !noalias !42
   store i32 0, ptr %36, align 4, !tbaa !36, !noalias !42
   %40 = load i32, ptr %17, align 4, !tbaa !36, !noalias !42
   store i32 %40, ptr %38, align 4, !tbaa !36, !noalias !42
@@ -548,8 +548,8 @@ _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i:                 ; preds = %54
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %56, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %55, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !3
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %55, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !3
   br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE6resizeEm.exit.i
 
 _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE6resizeEm.exit.i: ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i, %54

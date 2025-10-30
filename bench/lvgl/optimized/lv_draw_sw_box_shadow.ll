@@ -150,123 +150,123 @@ define void @lv_draw_sw_box_shadow(ptr noundef %0, ptr noundef readonly captures
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %99 = sdiv i32 %94, 2
   %100 = add nsw i32 %99, %spec.select415
-  %101 = and i32 %94, 1
-  %102 = or i32 %94, -2
-  %103 = add i32 %100, %102
-  store i32 %103, ptr %97, align 4, !tbaa !17
-  %104 = add nsw i32 %99, 1
-  store i32 %104, ptr %96, align 4, !tbaa !18
-  %105 = call i32 @lv_area_get_width(ptr noundef nonnull %6) #6
-  %106 = sub nsw i32 %103, %105
-  store i32 %106, ptr %4, align 4, !tbaa !3
-  %107 = call i32 @lv_area_get_height(ptr noundef nonnull %6) #6
-  %108 = add nsw i32 %107, %104
-  store i32 %108, ptr %98, align 4, !tbaa !20
+  %101 = or i32 %94, -2
+  %102 = add i32 %100, %101
+  store i32 %102, ptr %97, align 4, !tbaa !17
+  %103 = add nsw i32 %99, 1
+  store i32 %103, ptr %96, align 4, !tbaa !18
+  %104 = call i32 @lv_area_get_width(ptr noundef nonnull %6) #6
+  %105 = sub nsw i32 %102, %104
+  store i32 %105, ptr %4, align 4, !tbaa !3
+  %106 = call i32 @lv_area_get_height(ptr noundef nonnull %6) #6
+  %107 = add nsw i32 %106, %103
+  store i32 %107, ptr %98, align 4, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @lv_draw_sw_mask_radius_init(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef range(i32 -2147483648, 1073741824) %spec.select415, i1 noundef zeroext false) #6
-  %109 = icmp eq i32 %94, 1
-  %110 = ashr i32 %94, 1
-  %.0.i = select i1 %109, i32 1, i32 %110
-  %111 = sext i32 %95 to i64
-  %112 = call ptr @lv_malloc(i64 noundef %111) #6
-  %113 = icmp sgt i32 %95, 0
-  br i1 %113, label %.lr.ph109.i, label %._crit_edge.i
+  %108 = icmp eq i32 %94, 1
+  %109 = ashr i32 %94, 1
+  %.0.i = select i1 %108, i32 1, i32 %109
+  %110 = sext i32 %95 to i64
+  %111 = call ptr @lv_malloc(i64 noundef %110) #6
+  %112 = icmp sgt i32 %95, 0
+  br i1 %112, label %.lr.ph109.i, label %._crit_edge.i
 
 .lr.ph109.i:                                      ; preds = %93
   %.not.i = icmp eq i32 %95, 1
-  %114 = shl nuw nsw i64 %111, 1
+  %113 = shl nuw nsw i64 %110, 1
   %wide.trip.count.i = zext nneg i32 %95 to i64
-  br label %115
+  br label %114
 
-115:                                              ; preds = %.loopexit104.i, %.lr.ph109.i
-  %.093108.i = phi i32 [ 0, %.lr.ph109.i ], [ %140, %.loopexit104.i ]
-  %.095106.i = phi ptr [ %92, %.lr.ph109.i ], [ %139, %.loopexit104.i ]
-  call void @lv_memset(ptr noundef %112, i8 noundef zeroext -1, i64 noundef %111) #6
-  %116 = load ptr, ptr %5, align 8, !tbaa !24
-  %117 = call i32 %116(ptr noundef %112, i32 noundef 0, i32 noundef %.093108.i, i32 noundef %95, ptr noundef nonnull %5) #6
-  %118 = icmp eq i32 %117, 0
-  br i1 %118, label %119, label %120
+114:                                              ; preds = %.loopexit104.i, %.lr.ph109.i
+  %.093108.i = phi i32 [ 0, %.lr.ph109.i ], [ %139, %.loopexit104.i ]
+  %.095106.i = phi ptr [ %92, %.lr.ph109.i ], [ %138, %.loopexit104.i ]
+  call void @lv_memset(ptr noundef %111, i8 noundef zeroext -1, i64 noundef %110) #6
+  %115 = load ptr, ptr %5, align 8, !tbaa !24
+  %116 = call i32 %115(ptr noundef %111, i32 noundef 0, i32 noundef %.093108.i, i32 noundef %95, ptr noundef nonnull %5) #6
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %118, label %119
 
-119:                                              ; preds = %115
-  call void @lv_memset(ptr noundef nonnull %.095106.i, i8 noundef zeroext 0, i64 noundef range(i64 -4294967296, 4294967295) %114) #6
+118:                                              ; preds = %114
+  call void @lv_memset(ptr noundef nonnull %.095106.i, i8 noundef zeroext 0, i64 noundef range(i64 -4294967296, 4294967295) %113) #6
   br label %.loopexit104.i
 
-120:                                              ; preds = %115
-  %121 = load i8, ptr %112, align 1, !tbaa !28
-  %122 = zext i8 %121 to i32
-  %123 = shl nuw nsw i32 %122, 6
-  %124 = sdiv i32 %123, %.0.i
-  %125 = trunc nsw i32 %124 to i16
-  store i16 %125, ptr %.095106.i, align 2, !tbaa !29
+119:                                              ; preds = %114
+  %120 = load i8, ptr %111, align 1, !tbaa !28
+  %121 = zext i8 %120 to i32
+  %122 = shl nuw nsw i32 %121, 6
+  %123 = sdiv i32 %122, %.0.i
+  %124 = trunc nsw i32 %123 to i16
+  store i16 %124, ptr %.095106.i, align 2, !tbaa !29
   br i1 %.not.i, label %.loopexit104.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %120, %137
-  %126 = phi i16 [ %.sink.i, %137 ], [ %125, %120 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %137 ], [ 1, %120 ]
-  %127 = getelementptr inbounds nuw i8, ptr %112, i64 %indvars.iv.i
-  %128 = load i8, ptr %127, align 1, !tbaa !28
-  %129 = getelementptr i8, ptr %127, i64 -1
-  %130 = load i8, ptr %129, align 1, !tbaa !28
-  %131 = icmp eq i8 %128, %130
-  br i1 %131, label %137, label %132
+.lr.ph.i:                                         ; preds = %119, %136
+  %125 = phi i16 [ %.sink.i, %136 ], [ %124, %119 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %136 ], [ 1, %119 ]
+  %126 = getelementptr inbounds nuw i8, ptr %111, i64 %indvars.iv.i
+  %127 = load i8, ptr %126, align 1, !tbaa !28
+  %128 = getelementptr i8, ptr %126, i64 -1
+  %129 = load i8, ptr %128, align 1, !tbaa !28
+  %130 = icmp eq i8 %127, %129
+  br i1 %130, label %136, label %131
 
-132:                                              ; preds = %.lr.ph.i
-  %133 = zext i8 %128 to i32
-  %134 = shl nuw nsw i32 %133, 6
-  %135 = sdiv i32 %134, %.0.i
-  %136 = trunc nsw i32 %135 to i16
-  br label %137
+131:                                              ; preds = %.lr.ph.i
+  %132 = zext i8 %127 to i32
+  %133 = shl nuw nsw i32 %132, 6
+  %134 = sdiv i32 %133, %.0.i
+  %135 = trunc nsw i32 %134 to i16
+  br label %136
 
-137:                                              ; preds = %132, %.lr.ph.i
-  %.sink.i = phi i16 [ %136, %132 ], [ %126, %.lr.ph.i ]
-  %138 = getelementptr inbounds nuw i16, ptr %.095106.i, i64 %indvars.iv.i
-  store i16 %.sink.i, ptr %138, align 2, !tbaa !29
+136:                                              ; preds = %131, %.lr.ph.i
+  %.sink.i = phi i16 [ %135, %131 ], [ %125, %.lr.ph.i ]
+  %137 = getelementptr inbounds nuw i16, ptr %.095106.i, i64 %indvars.iv.i
+  store i16 %.sink.i, ptr %137, align 2, !tbaa !29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit104.i, label %.lr.ph.i, !llvm.loop !31
 
-.loopexit104.i:                                   ; preds = %137, %120, %119
-  %139 = getelementptr inbounds nuw i16, ptr %.095106.i, i64 %111
-  %140 = add nuw nsw i32 %.093108.i, 1
-  %exitcond124.not.i = icmp eq i32 %140, %95
-  br i1 %exitcond124.not.i, label %._crit_edge.i, label %115, !llvm.loop !33
+.loopexit104.i:                                   ; preds = %136, %119, %118
+  %138 = getelementptr inbounds nuw i16, ptr %.095106.i, i64 %110
+  %139 = add nuw nsw i32 %.093108.i, 1
+  %exitcond124.not.i = icmp eq i32 %139, %95
+  br i1 %exitcond124.not.i, label %._crit_edge.i, label %114, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %.loopexit104.i, %93
-  call void @lv_free(ptr noundef %112) #6
+  call void @lv_free(ptr noundef %111) #6
   call void @lv_draw_sw_mask_free_param(ptr noundef nonnull %5) #6
-  %141 = icmp eq i32 %.0.i, 1
-  br i1 %141, label %.preheader.i, label %148
+  %140 = icmp eq i32 %.0.i, 1
+  br i1 %140, label %.preheader.i, label %147
 
 .preheader.i:                                     ; preds = %._crit_edge.i
   %.not121.i = icmp eq i32 %95, 0
   br i1 %.not121.i, label %shadow_draw_corner_buf.exit, label %.lr.ph118.preheader.i
 
 .lr.ph118.preheader.i:                            ; preds = %.preheader.i
-  %142 = mul i32 %95, %95
-  %umax138.i = call i32 @llvm.umax.i32(i32 %142, i32 1)
+  %141 = mul i32 %95, %95
+  %umax138.i = call i32 @llvm.umax.i32(i32 %141, i32 1)
   %wide.trip.count139.i = zext i32 %umax138.i to i64
   br label %.lr.ph118.i
 
 .lr.ph118.i:                                      ; preds = %.lr.ph118.i, %.lr.ph118.preheader.i
   %indvars.iv135.i = phi i64 [ 0, %.lr.ph118.preheader.i ], [ %indvars.iv.next136.i, %.lr.ph118.i ]
-  %143 = getelementptr inbounds nuw i16, ptr %92, i64 %indvars.iv135.i
-  %144 = load i16, ptr %143, align 2, !tbaa !29
-  %145 = lshr i16 %144, 6
-  %146 = trunc i16 %145 to i8
-  %147 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv135.i
-  store i8 %146, ptr %147, align 1, !tbaa !28
+  %142 = getelementptr inbounds nuw i16, ptr %92, i64 %indvars.iv135.i
+  %143 = load i16, ptr %142, align 2, !tbaa !29
+  %144 = lshr i16 %143, 6
+  %145 = trunc i16 %144 to i8
+  %146 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv135.i
+  store i8 %145, ptr %146, align 1, !tbaa !28
   %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i, 1
   %exitcond140.not.i = icmp eq i64 %indvars.iv.next136.i, %wide.trip.count139.i
   br i1 %exitcond140.not.i, label %shadow_draw_corner_buf.exit, label %.lr.ph118.i, !llvm.loop !34
 
-148:                                              ; preds = %._crit_edge.i
+147:                                              ; preds = %._crit_edge.i
+  %148 = and i32 %94, 1
   call fastcc void @shadow_blur_corner(i32 noundef %95, i32 noundef %.0.i, ptr noundef nonnull %92)
-  %149 = add nsw i32 %.0.i, %101
+  %149 = add nsw i32 %.0.i, %148
   %150 = icmp sgt i32 %149, 1
   %151 = mul i32 %95, %95
   br i1 %150, label %152, label %._crit_edge141.i
 
-152:                                              ; preds = %148
+152:                                              ; preds = %147
   %.not119.i = icmp eq i32 %151, 0
   br i1 %.not119.i, label %._crit_edge113.i, label %.lr.ph112.i
 
@@ -304,7 +304,7 @@ define void @lv_draw_sw_box_shadow(ptr noundef %0, ptr noundef readonly captures
   call fastcc void @shadow_blur_corner(i32 noundef %95, i32 noundef %149, ptr noundef nonnull %92)
   br label %._crit_edge141.i
 
-._crit_edge141.i:                                 ; preds = %._crit_edge113.i, %148
+._crit_edge141.i:                                 ; preds = %._crit_edge113.i, %147
   %.not120.i = icmp eq i32 %95, 0
   br i1 %.not120.i, label %shadow_draw_corner_buf.exit, label %.lr.ph116.preheader.i
 

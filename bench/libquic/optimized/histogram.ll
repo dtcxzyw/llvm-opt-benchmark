@@ -4509,8 +4509,8 @@ define noundef ptr @_ZN4base15CustomHistogram19DeserializeInfoImplEPNS_14PickleI
 
 31:                                               ; preds = %.noexc
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %29, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %28, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !24
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %28, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !24
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.noexc, %31

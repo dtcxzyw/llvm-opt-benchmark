@@ -5848,8 +5848,6 @@ define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr nounde
   %8 = alloca [20 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 7
-  %.sink.sroa.gep34 = getelementptr inbounds nuw i8, ptr %8, i64 5
   br label %9
 
 9:                                                ; preds = %6, %9
@@ -5884,6 +5882,8 @@ define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr nounde
   br i1 %exitcond.not, label %29, label %9, !llvm.loop !13
 
 29:                                               ; preds = %9
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 7
+  %.sink.sroa.gep34 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %31 = load i8, ptr %30, align 8
   store i8 %31, ptr %7, align 16

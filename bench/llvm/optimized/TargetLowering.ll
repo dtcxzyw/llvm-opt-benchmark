@@ -40697,42 +40697,42 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit: ; preds = %.lr.ph
   br i1 %39, label %40, label %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread
 
 40:                                               ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit
-  %41 = load i16, ptr %.02778, align 2, !tbaa !415
-  %42 = load ptr, ptr %15, align 8, !tbaa !773
-  %43 = load ptr, ptr %16, align 8, !tbaa !774
-  %44 = load ptr, ptr %13, align 8, !tbaa !767
-  %45 = load ptr, ptr %11, align 8, !tbaa !745
+  %41 = load ptr, ptr %15, align 8, !tbaa !773
+  %42 = load ptr, ptr %16, align 8, !tbaa !774
+  %43 = load ptr, ptr %13, align 8, !tbaa !767
+  %44 = load ptr, ptr %11, align 8, !tbaa !745
+  %45 = ptrtoint ptr %43 to i64
   %46 = ptrtoint ptr %44 to i64
-  %47 = ptrtoint ptr %45 to i64
-  %48 = sub i64 %46, %47
-  %49 = lshr exact i64 %48, 3
-  %50 = trunc i64 %49 to i32
-  %51 = load i32, ptr %17, align 8, !tbaa !775
-  %52 = mul i32 %51, %50
-  %53 = load ptr, ptr %19, align 8, !tbaa !768
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %55 = load i16, ptr %54, align 8, !tbaa !776
-  %56 = zext i16 %55 to i32
-  %57 = add i32 %52, %56
-  %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %43, i64 %58
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
-  %61 = load i32, ptr %60, align 4, !tbaa !777
-  %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw i16, ptr %42, i64 %62
-  br label %64
+  %47 = sub i64 %45, %46
+  %48 = lshr exact i64 %47, 3
+  %49 = trunc i64 %48 to i32
+  %50 = load i32, ptr %17, align 8, !tbaa !775
+  %51 = mul i32 %50, %49
+  %52 = load ptr, ptr %19, align 8, !tbaa !768
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %54 = load i16, ptr %53, align 8, !tbaa !776
+  %55 = zext i16 %54 to i32
+  %56 = add i32 %51, %55
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw %"struct.llvm::TargetRegisterInfo::RegClassInfo", ptr %42, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  %60 = load i32, ptr %59, align 4, !tbaa !777
+  %61 = zext i32 %60 to i64
+  %62 = getelementptr inbounds nuw i16, ptr %41, i64 %61
+  br label %63
 
-64:                                               ; preds = %64, %40
-  %.06.i = phi ptr [ %63, %40 ], [ %67, %64 ]
-  %65 = load i16, ptr %.06.i, align 2, !tbaa !287
-  %.not.i36 = icmp ne i16 %65, 1
-  %66 = icmp ne i16 %65, %4
-  %or.cond.not.i = select i1 %.not.i36, i1 %66, i1 false
-  %67 = getelementptr inbounds nuw i8, ptr %.06.i, i64 2
-  br i1 %or.cond.not.i, label %64, label %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3MVTE.exit, !llvm.loop !779
+63:                                               ; preds = %63, %40
+  %.06.i = phi ptr [ %62, %40 ], [ %66, %63 ]
+  %64 = load i16, ptr %.06.i, align 2, !tbaa !287
+  %.not.i36 = icmp ne i16 %64, 1
+  %65 = icmp ne i16 %64, %4
+  %or.cond.not.i = select i1 %.not.i36, i1 %65, i1 false
+  %66 = getelementptr inbounds nuw i8, ptr %.06.i, i64 2
+  br i1 %or.cond.not.i, label %63, label %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3MVTE.exit, !llvm.loop !779
 
-_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3MVTE.exit: ; preds = %64
-  %68 = zext i16 %41 to i32
+_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3MVTE.exit: ; preds = %63
+  %67 = load i16, ptr %.02778, align 2, !tbaa !415
+  %68 = zext i16 %67 to i32
   br i1 %.not.i36, label %.critedge, label %69
 
 69:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo19isTypeLegalForClassERKNS_19TargetRegisterClassENS_3MVTE.exit

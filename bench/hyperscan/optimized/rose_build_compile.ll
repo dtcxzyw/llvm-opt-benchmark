@@ -7032,14 +7032,13 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EEC2EmRKS2_.exit.i.i.i: ; preds = %.noexc83.i
 
 .lr.ph179.i.i.i:                                  ; preds = %1581, %._crit_edge.i.i.i
   %.sroa.0111.0177.i.i.i = phi ptr [ %1629, %._crit_edge.i.i.i ], [ %1582, %1581 ]
-  %1596 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0177.i.i.i, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1425, i8 0, i64 24, i1 false)
-  %1597 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0177.i.i.i, i64 64
-  %1598 = load ptr, ptr %1597, align 8
-  %1599 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0177.i.i.i, i64 72
-  %1600 = load ptr, ptr %1599, align 8
-  %.not134162.i.i.i = icmp eq ptr %1598, %1600
+  %1596 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0177.i.i.i, i64 64
+  %1597 = load ptr, ptr %1596, align 8
+  %1598 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0177.i.i.i, i64 72
+  %1599 = load ptr, ptr %1598, align 8
+  %.not134162.i.i.i = icmp eq ptr %1597, %1599
   br i1 %.not134162.i.i.i, label %.preheader.i.i.i, label %.lr.ph164.i.i.i
 
 ..preheader_crit_edge.i.i.i:                      ; preds = %.lr.ph164.i.i.i
@@ -7051,6 +7050,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EEC2EmRKS2_.exit.i.i.i: ; preds = %.noexc83.i
 .preheader.i.i.i:                                 ; preds = %..preheader_crit_edge.i.i.i, %.lr.ph179.i.i.i
   %.lcssa161.i.i.i = phi i64 [ %1618, %..preheader_crit_edge.i.i.i ], [ 0, %.lr.ph179.i.i.i ]
   store i64 %.lcssa161.i.i.i, ptr %45, align 8
+  %1600 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0177.i.i.i, i64 32
   br label %1601
 
 1601:                                             ; preds = %1604, %.preheader.i.i.i
@@ -7080,7 +7080,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i.i:      ; preds = %1601
   %1610 = phi i64 [ %1627, %.lr.ph164.i.i.i ], [ 0, %.lr.ph179.i.i.i ]
   %1611 = phi i64 [ %1624, %.lr.ph164.i.i.i ], [ 0, %.lr.ph179.i.i.i ]
   %1612 = phi i64 [ %1621, %.lr.ph164.i.i.i ], [ 0, %.lr.ph179.i.i.i ]
-  %.sroa.0107.0163.i.i.i = phi ptr [ %1628, %.lr.ph164.i.i.i ], [ %1598, %.lr.ph179.i.i.i ]
+  %.sroa.0107.0163.i.i.i = phi ptr [ %1628, %.lr.ph164.i.i.i ], [ %1597, %.lr.ph179.i.i.i ]
   %1613 = phi i64 [ %1618, %.lr.ph164.i.i.i ], [ 0, %.lr.ph179.i.i.i ]
   %1614 = load i32, ptr %.sroa.0107.0163.i.i.i, align 4
   %1615 = zext i32 %1614 to i64
@@ -7097,7 +7097,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i.i:      ; preds = %1601
   %1626 = load i64, ptr %1625, align 8
   %1627 = or i64 %1626, %1610
   %1628 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0163.i.i.i, i64 4
-  %.not134.i.i.i = icmp eq ptr %1628, %1600
+  %.not134.i.i.i = icmp eq ptr %1628, %1599
   br i1 %.not134.i.i.i, label %..preheader_crit_edge.i.i.i, label %.lr.ph164.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %1604, %1760, %1771, %_ZNK3ue29CharReach10find_firstEv.exit.i.i.i
@@ -7196,7 +7196,7 @@ _ZNSt3mapIN3ue211ue2_literalENS0_8flat_setIjSt4lessIjESaIjEEES3_IS1_ESaISt4pairI
 1664:                                             ; preds = %.noexc90.i.i.i, %.noexc89.i.i.i
   %.sroa.06.0.i.i.i.i = phi ptr [ %1663, %.noexc90.i.i.i ], [ %.19.i.i.i.i.i.i.i, %.noexc89.i.i.i ]
   %1665 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i.i, i64 96
-  %1666 = load ptr, ptr %1596, align 8, !noalias !646
+  %1666 = load ptr, ptr %1600, align 8, !noalias !646
   %1667 = load i64, ptr %1609, align 8, !noalias !653
   %.idx.i.i.i.i = shl nuw nsw i64 %1667, 2
   %1668 = getelementptr inbounds nuw i8, ptr %1666, i64 %.idx.i.i.i.i

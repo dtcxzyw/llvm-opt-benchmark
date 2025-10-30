@@ -5587,30 +5587,30 @@ _ZN7QStringD2Ev.exit:                             ; preds = %113, %_ZN9QtPrivate
 
 _ZNK3vcg9HistogramIfE10PercentileEf.exit:         ; preds = %.lr.ph23.i, %145
   %.1.lcssa.i = phi i64 [ %.121.i, %.lr.ph23.i ], [ %128, %145 ]
-  %147 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr float, ptr %148, i64 %.1.lcssa.i
-  %150 = getelementptr i8, ptr %149, i64 4
-  %151 = load float, ptr %150, align 4
   br label %.lr.ph.i95
 
 _ZNK3vcg9HistogramIfE10PercentileEf.exit.thread:  ; preds = %130
-  %152 = getelementptr i8, ptr %134, i64 4
-  %153 = load float, ptr %152, align 4
+  %147 = getelementptr i8, ptr %134, i64 4
+  %148 = load float, ptr %147, align 4
   br label %_ZNK3vcg9HistogramIfE10PercentileEf.exit107
 
 .lr.ph.i95:                                       ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit, %.lr.ph.i95
-  %.019.i96 = phi i64 [ %157, %.lr.ph.i95 ], [ 0, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ]
-  %.01518.i97 = phi float [ %156, %.lr.ph.i95 ], [ 0.000000e+00, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ]
-  %154 = getelementptr inbounds float, ptr %124, i64 %.019.i96
-  %155 = load float, ptr %154, align 4
-  %156 = fadd float %.01518.i97, %155
-  %157 = add nuw i64 %.019.i96, 1
-  %exitcond.not.i98 = icmp eq i64 %157, %128
+  %.019.i96 = phi i64 [ %152, %.lr.ph.i95 ], [ 0, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ]
+  %.01518.i97 = phi float [ %151, %.lr.ph.i95 ], [ 0.000000e+00, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ]
+  %149 = getelementptr inbounds float, ptr %124, i64 %.019.i96
+  %150 = load float, ptr %149, align 4
+  %151 = fadd float %.01518.i97, %150
+  %152 = add nuw i64 %.019.i96, 1
+  %exitcond.not.i98 = icmp eq i64 %152, %128
   br i1 %exitcond.not.i98, label %.lr.ph23.preheader.i99, label %.lr.ph.i95, !llvm.loop !69
 
 .lr.ph23.preheader.i99:                           ; preds = %.lr.ph.i95
-  %158 = fmul float %156, 0x3FEFAE1480000000
+  %153 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr float, ptr %154, i64 %.1.lcssa.i
+  %156 = getelementptr i8, ptr %155, i64 4
+  %157 = load float, ptr %156, align 4
+  %158 = fmul float %151, 0x3FEFAE1480000000
   br label %.lr.ph23.i100
 
 .lr.ph23.i100:                                    ; preds = %163, %.lr.ph23.preheader.i99
@@ -5628,8 +5628,8 @@ _ZNK3vcg9HistogramIfE10PercentileEf.exit.thread:  ; preds = %130
   br i1 %exitcond30.not.i106, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit107, label %.lr.ph23.i100, !llvm.loop !70
 
 _ZNK3vcg9HistogramIfE10PercentileEf.exit107:      ; preds = %.lr.ph23.i100, %163, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread
-  %165 = phi ptr [ %134, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %148, %163 ], [ %148, %.lr.ph23.i100 ]
-  %.016.i149 = phi float [ %153, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %151, %163 ], [ %151, %.lr.ph23.i100 ]
+  %165 = phi ptr [ %134, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %154, %163 ], [ %154, %.lr.ph23.i100 ]
+  %.016.i149 = phi float [ %148, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %157, %163 ], [ %157, %.lr.ph23.i100 ]
   %.1.lcssa.i104 = phi i64 [ 0, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %.121.i101, %.lr.ph23.i100 ], [ %128, %163 ]
   %166 = getelementptr float, ptr %165, i64 %.1.lcssa.i104
   %167 = getelementptr i8, ptr %166, i64 4
@@ -8053,8 +8053,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -8977,9 +8977,9 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %7, %2
   %98 = icmp ugt i64 %97, -9223372036854775808
   %storemerge.idx.i.i.i.i.i44 = select i1 %98, i64 -8, i64 0
   %storemerge.i.i.i.i.i45 = getelementptr inbounds i8, ptr %96, i64 %storemerge.idx.i.i.i.i.i44
-  %storemerge.i.i.i.i.i45.promoted = load i64, ptr %storemerge.i.i.i.i.i45, align 8
   %99 = and i64 %94, 63
   %100 = shl nuw i64 1, %99
+  %storemerge.i.i.i.i.i45.promoted = load i64, ptr %storemerge.i.i.i.i.i45, align 8
   %101 = or i64 %storemerge.i.i.i.i.i45.promoted, %100
   store i64 %101, ptr %storemerge.i.i.i.i.i45, align 8
   br label %102
@@ -13278,8 +13278,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i

@@ -232,32 +232,32 @@ define hidden void @VP8LCollectColorRedTransforms_C(ptr noalias noundef readonly
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.in = phi i32 [ %11, %._crit_edge.us ], [ %3, %.preheader.us.preheader ]
+  %.in = phi i32 [ %25, %._crit_edge.us ], [ %3, %.preheader.us.preheader ]
   %.0912.us = phi ptr [ %26, %._crit_edge.us ], [ %0, %.preheader.us.preheader ]
-  %11 = add nsw i32 %.in, -1
-  br label %12
+  br label %11
 
-12:                                               ; preds = %.preheader.us, %12
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw i32, ptr %.0912.us, i64 %indvars.iv
-  %14 = load i32, ptr %13, align 4, !tbaa !9
-  %15 = lshr i32 %14, 16
-  %16 = shl i32 %14, 16
-  %17 = ashr i32 %16, 24
-  %18 = mul nsw i32 %17, %9
-  %19 = lshr i32 %18, 5
-  %20 = sub nsw i32 %15, %19
-  %21 = and i32 %20, 255
-  %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %5, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !9
-  %25 = add i32 %24, 1
-  store i32 %25, ptr %23, align 4, !tbaa !9
+11:                                               ; preds = %.preheader.us, %11
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %11 ]
+  %12 = getelementptr inbounds nuw i32, ptr %.0912.us, i64 %indvars.iv
+  %13 = load i32, ptr %12, align 4, !tbaa !9
+  %14 = lshr i32 %13, 16
+  %15 = shl i32 %13, 16
+  %16 = ashr i32 %15, 24
+  %17 = mul nsw i32 %16, %9
+  %18 = lshr i32 %17, 5
+  %19 = sub nsw i32 %14, %18
+  %20 = and i32 %19, 255
+  %21 = zext nneg i32 %20 to i64
+  %22 = getelementptr inbounds nuw i32, ptr %5, i64 %21
+  %23 = load i32, ptr %22, align 4, !tbaa !9
+  %24 = add i32 %23, 1
+  store i32 %24, ptr %22, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !25
 
-._crit_edge.us:                                   ; preds = %12
+._crit_edge.us:                                   ; preds = %11
+  %25 = add nsw i32 %.in, -1
   %26 = getelementptr inbounds i32, ptr %.0912.us, i64 %10
   %27 = icmp samesign ugt i32 %.in, 1
   br i1 %27, label %.preheader.us, label %._crit_edge13, !llvm.loop !26
@@ -285,36 +285,36 @@ define hidden void @VP8LCollectColorBlueTransforms_C(ptr noalias noundef readonl
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.in = phi i32 [ %13, %._crit_edge.us ], [ %3, %.preheader.us.preheader ]
+  %.in = phi i32 [ %31, %._crit_edge.us ], [ %3, %.preheader.us.preheader ]
   %.01016.us = phi ptr [ %32, %._crit_edge.us ], [ %0, %.preheader.us.preheader ]
-  %13 = add nsw i32 %.in, -1
-  br label %14
+  br label %13
 
-14:                                               ; preds = %.preheader.us, %14
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw i32, ptr %.01016.us, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 4, !tbaa !9
-  %17 = shl i32 %16, 16
-  %18 = ashr i32 %17, 24
-  %19 = mul nsw i32 %18, %10
-  %20 = lshr i32 %19, 5
-  %21 = shl i32 %16, 8
-  %22 = ashr i32 %21, 24
-  %23 = mul nsw i32 %22, %11
-  %24 = lshr i32 %23, 5
-  %25 = add nuw nsw i32 %20, %24
-  %26 = sub i32 %16, %25
-  %27 = and i32 %26, 255
-  %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %6, i64 %28
-  %30 = load i32, ptr %29, align 4, !tbaa !9
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %29, align 4, !tbaa !9
+13:                                               ; preds = %.preheader.us, %13
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %13 ]
+  %14 = getelementptr inbounds nuw i32, ptr %.01016.us, i64 %indvars.iv
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %16 = shl i32 %15, 16
+  %17 = ashr i32 %16, 24
+  %18 = mul nsw i32 %17, %10
+  %19 = lshr i32 %18, 5
+  %20 = shl i32 %15, 8
+  %21 = ashr i32 %20, 24
+  %22 = mul nsw i32 %21, %11
+  %23 = lshr i32 %22, 5
+  %24 = add nuw nsw i32 %19, %23
+  %25 = sub i32 %15, %24
+  %26 = and i32 %25, 255
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds nuw i32, ptr %6, i64 %27
+  %29 = load i32, ptr %28, align 4, !tbaa !9
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %28, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !27
 
-._crit_edge.us:                                   ; preds = %14
+._crit_edge.us:                                   ; preds = %13
+  %31 = add nsw i32 %.in, -1
   %32 = getelementptr inbounds i32, ptr %.01016.us, i64 %12
   %33 = icmp samesign ugt i32 %.in, 1
   br i1 %33, label %.preheader.us, label %._crit_edge17, !llvm.loop !28

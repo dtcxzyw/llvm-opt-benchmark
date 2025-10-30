@@ -2727,9 +2727,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8LoadInstELb1EE9push_backES2_.exit168: ; p
   call fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_20LoadAndStorePromoter3runERKNS0_15SmallVectorImplIS2_EEE3$_0EEEvT_SE_T0_T1_"(ptr noundef %92, ptr noundef nonnull %94, i64 noundef %125)
   %126 = icmp ugt i32 %49, 16
   %scevgep.i.i.i.i = getelementptr i8, ptr %92, i64 8
-  br i1 %126, label %.preheader.i.i, label %.lr.ph.i22.i.i.i.i
+  br i1 %126, label %.preheader.i.i.i.i, label %.lr.ph.i22.i.i.i.i
 
-.preheader.i.i:                                   ; preds = %.thread227, %"_ZSt25__unguarded_linear_insertIPPN4llvm11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_20LoadAndStorePromoter3runERKNS0_15SmallVectorImplIS2_EEE3$_0EEEvT_T0_.exit.i.i.i.i.i"
+.preheader.i.i.i.i:                               ; preds = %.thread227, %"_ZSt25__unguarded_linear_insertIPPN4llvm11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_20LoadAndStorePromoter3runERKNS0_15SmallVectorImplIS2_EEE3$_0EEEvT_T0_.exit.i.i.i.i.i"
   %.020.i.idx.i.i.i.i = phi i64 [ %.020.i.add.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPN4llvm11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_20LoadAndStorePromoter3runERKNS0_15SmallVectorImplIS2_EEE3$_0EEEvT_T0_.exit.i.i.i.i.i" ], [ 8, %.thread227 ]
   %.pn19.i.i.i.i.i = phi ptr [ %.020.i.ptr.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPN4llvm11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_20LoadAndStorePromoter3runERKNS0_15SmallVectorImplIS2_EEE3$_0EEEvT_T0_.exit.i.i.i.i.i" ], [ %92, %.thread227 ]
   %.020.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %92, i64 %.020.i.idx.i.i.i.i
@@ -2739,11 +2739,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8LoadInstELb1EE9push_backES2_.exit168: ; p
   %128 = load ptr, ptr %.020.i.ptr.i.i.i.i, align 8, !tbaa !187
   br i1 %127, label %129, label %130
 
-129:                                              ; preds = %.preheader.i.i
+129:                                              ; preds = %.preheader.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %92, i64 %.020.i.idx.i.i.i.i, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPN4llvm11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_20LoadAndStorePromoter3runERKNS0_15SmallVectorImplIS2_EEE3$_0EEEvT_T0_.exit.i.i.i.i.i"
 
-130:                                              ; preds = %.preheader.i.i
+130:                                              ; preds = %.preheader.i.i.i.i
   %.0.val11.i.i.i.i.i.i = load ptr, ptr %.pn19.i.i.i.i.i, align 8, !tbaa !187
   %131 = call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %128, ptr noundef %.0.val11.i.i.i.i.i.i) #17
   br i1 %131, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPPN4llvm11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_20LoadAndStorePromoter3runERKNS0_15SmallVectorImplIS2_EEE3$_0EEEvT_T0_.exit.i.i.i.i.i"
@@ -2763,7 +2763,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8LoadInstELb1EE9push_backES2_.exit168: ; p
   store ptr %128, ptr %.sink.i.i.i.i.i, align 8, !tbaa !187
   %.020.i.add.i.i.i.i = add nuw nsw i64 %.020.i.idx.i.i.i.i, 8
   %.not.i.i.i.i.i = icmp eq i64 %.020.i.add.i.i.i.i, 128
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader, label %.preheader.i.i, !llvm.loop !191
+  br i1 %.not.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader, label %.preheader.i.i.i.i, !llvm.loop !191
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %"_ZSt25__unguarded_linear_insertIPPN4llvm11InstructionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_20LoadAndStorePromoter3runERKNS0_15SmallVectorImplIS2_EEE3$_0EEEvT_T0_.exit.i.i.i.i.i"
   %134 = getelementptr inbounds nuw i8, ptr %92, i64 128

@@ -9858,9 +9858,8 @@ define internal fastcc noundef zeroext i1 @QueueCmdFillRects(ptr noundef %0, ptr
   br i1 %or.cond, label %32, label %68
 
 32:                                               ; preds = %28
-  %33 = shl nsw i32 %2, 2
-  %34 = icmp sgt i32 %2, 0
-  br i1 %34, label %.lr.ph.preheader, label %._crit_edge
+  %33 = icmp sgt i32 %2, 0
+  br i1 %33, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %32
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -9868,60 +9867,61 @@ define internal fastcc noundef zeroext i1 @QueueCmdFillRects(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.08699 = phi ptr [ %19, %.lr.ph.preheader ], [ %52, %.lr.ph ]
-  %.08798 = phi ptr [ %29, %.lr.ph.preheader ], [ %61, %.lr.ph ]
-  %.08897 = phi i32 [ 0, %.lr.ph.preheader ], [ %62, %.lr.ph ]
-  %35 = getelementptr inbounds nuw %struct.SDL_FRect, ptr %1, i64 %indvars.iv
-  %36 = load float, ptr %35, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %40 = load float, ptr %39, align 4
-  %41 = fadd float %36, %40
-  %42 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  %43 = load float, ptr %42, align 4
-  %44 = fadd float %38, %43
-  %45 = getelementptr inbounds nuw i8, ptr %.08699, i64 4
-  store float %36, ptr %.08699, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %.08699, i64 8
-  store float %38, ptr %45, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %.08699, i64 12
-  store float %41, ptr %46, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %.08699, i64 16
-  store float %38, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %.08699, i64 20
-  store float %41, ptr %48, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %.08699, i64 24
-  store float %44, ptr %49, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %.08699, i64 28
-  store float %36, ptr %50, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %.08699, i64 32
-  store float %44, ptr %51, align 4
-  %53 = getelementptr inbounds nuw i8, ptr %.08798, i64 4
+  %.08699 = phi ptr [ %19, %.lr.ph.preheader ], [ %51, %.lr.ph ]
+  %.08798 = phi ptr [ %29, %.lr.ph.preheader ], [ %60, %.lr.ph ]
+  %.08897 = phi i32 [ 0, %.lr.ph.preheader ], [ %61, %.lr.ph ]
+  %34 = getelementptr inbounds nuw %struct.SDL_FRect, ptr %1, i64 %indvars.iv
+  %35 = load float, ptr %34, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %37 = load float, ptr %36, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %39 = load float, ptr %38, align 4
+  %40 = fadd float %35, %39
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 12
+  %42 = load float, ptr %41, align 4
+  %43 = fadd float %37, %42
+  %44 = getelementptr inbounds nuw i8, ptr %.08699, i64 4
+  store float %35, ptr %.08699, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %.08699, i64 8
+  store float %37, ptr %44, align 4
+  %46 = getelementptr inbounds nuw i8, ptr %.08699, i64 12
+  store float %40, ptr %45, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %.08699, i64 16
+  store float %37, ptr %46, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %.08699, i64 20
+  store float %40, ptr %47, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %.08699, i64 24
+  store float %43, ptr %48, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %.08699, i64 28
+  store float %35, ptr %49, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %.08699, i64 32
+  store float %43, ptr %50, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %.08798, i64 4
   store i32 %.08897, ptr %.08798, align 4
-  %54 = or disjoint i32 %.08897, 1
-  %55 = getelementptr inbounds nuw i8, ptr %.08798, i64 8
-  store i32 %54, ptr %53, align 4
-  %56 = or disjoint i32 %.08897, 2
-  %57 = getelementptr inbounds nuw i8, ptr %.08798, i64 12
-  store i32 %56, ptr %55, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %.08798, i64 16
-  store i32 %.08897, ptr %57, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %.08798, i64 20
-  store i32 %56, ptr %58, align 4
-  %60 = or disjoint i32 %.08897, 3
-  %61 = getelementptr inbounds nuw i8, ptr %.08798, i64 24
-  store i32 %60, ptr %59, align 4
-  %62 = add nuw nsw i32 %.08897, 4
+  %53 = or disjoint i32 %.08897, 1
+  %54 = getelementptr inbounds nuw i8, ptr %.08798, i64 8
+  store i32 %53, ptr %52, align 4
+  %55 = or disjoint i32 %.08897, 2
+  %56 = getelementptr inbounds nuw i8, ptr %.08798, i64 12
+  store i32 %55, ptr %54, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %.08798, i64 16
+  store i32 %.08897, ptr %56, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %.08798, i64 20
+  store i32 %55, ptr %57, align 4
+  %59 = or disjoint i32 %.08897, 3
+  %60 = getelementptr inbounds nuw i8, ptr %.08798, i64 24
+  store i32 %59, ptr %58, align 4
+  %61 = add nuw nsw i32 %.08897, 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
+  %62 = shl nsw i32 %2, 2
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 500
-  %66 = call zeroext i1 %64(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %19, i32 noundef 8, ptr noundef nonnull %65, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef %33, ptr noundef nonnull %29, i32 noundef %20, i32 noundef 4, float noundef 1.000000e+00, float noundef 1.000000e+00) #15
+  %66 = call zeroext i1 %64(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %19, i32 noundef 8, ptr noundef nonnull %65, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef %62, ptr noundef nonnull %29, i32 noundef %20, i32 noundef 4, float noundef 1.000000e+00, float noundef 1.000000e+00) #15
   br i1 %66, label %68, label %67
 
 67:                                               ; preds = %._crit_edge

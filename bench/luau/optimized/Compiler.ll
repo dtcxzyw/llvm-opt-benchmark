@@ -19808,23 +19808,23 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler16compileExprTableEPNS_12As
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !4
   %17 = load ptr, ptr %0, align 8, !tbaa !232
   call void (ptr, ptr, ...) @_ZN4Luau15BytecodeBuilder14addDebugRemarkEPKcz(ptr noundef nonnull align 8 dereferenceable(840) %17, ptr noundef nonnull @.str.108, i32 noundef %.sroa.4.0.copyload)
-  %18 = load ptr, ptr %0, align 8, !tbaa !232
-  br label %19
+  br label %18
 
-19:                                               ; preds = %19, %14
-  %.0.i = phi i64 [ 0, %14 ], [ %23, %19 ]
-  %20 = trunc i64 %.0.i to i32
-  %21 = shl nuw i32 1, %20
-  %22 = icmp ult i32 %21, %.sroa.4.0.copyload
-  %23 = add i64 %.0.i, 1
-  br i1 %22, label %19, label %_ZN4Luau8Compiler14encodeHashSizeEj.exit, !llvm.loop !686
+18:                                               ; preds = %18, %14
+  %.0.i = phi i64 [ 0, %14 ], [ %22, %18 ]
+  %19 = trunc i64 %.0.i to i32
+  %20 = shl nuw i32 1, %19
+  %21 = icmp ult i32 %20, %.sroa.4.0.copyload
+  %22 = add i64 %.0.i, 1
+  br i1 %21, label %18, label %_ZN4Luau8Compiler14encodeHashSizeEj.exit, !llvm.loop !686
 
-_ZN4Luau8Compiler14encodeHashSizeEj.exit:         ; preds = %19
+_ZN4Luau8Compiler14encodeHashSizeEj.exit:         ; preds = %18
+  %23 = load ptr, ptr %0, align 8, !tbaa !232
   %24 = icmp eq i32 %.sroa.4.0.copyload, 0
   %25 = trunc i64 %.0.i to i8
   %26 = add i8 %25, 1
   %27 = select i1 %24, i8 0, i8 %26
-  call void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %18, i32 noundef 53, i8 noundef zeroext %2, i8 noundef zeroext %27, i8 noundef zeroext 0)
+  call void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %23, i32 noundef 53, i8 noundef zeroext %2, i8 noundef zeroext %27, i8 noundef zeroext 0)
   %28 = load ptr, ptr %0, align 8, !tbaa !232
   call void @_ZN4Luau15BytecodeBuilder7emitAuxEj(ptr noundef nonnull align 8 dereferenceable(840) %28, i32 noundef %.sroa.0105.0.copyload)
   br label %341
@@ -29854,8 +29854,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_d
 
 _ZSt6fill_nIPPN4Luau8AstLocalEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !245
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !245
   br label %_ZSt27__uninitialized_default_n_aIPPN4Luau8AstLocalEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN4Luau8AstLocalEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN4Luau8AstLocalEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i

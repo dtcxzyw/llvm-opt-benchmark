@@ -7518,19 +7518,19 @@ _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 4
   %16 = load i32, ptr %15, align 4, !range !1012, !noalias !1252, !noundef !4
   %17 = icmp eq i32 %16, 39
-  br i1 %17, label %_ZN3syn6buffer6Cursor5punct17h6386474329364b2bE.exit, label %.preheader
+  br i1 %17, label %_ZN3syn6buffer6Cursor5punct17h6386474329364b2bE.exit, label %.preheader.i
 
-.preheader:                                       ; preds = %14, %.preheader
-  %.pn.i.i = phi ptr [ %.0.i.i.i, %.preheader ], [ %.sroa.0.1.i, %14 ]
+.preheader.i:                                     ; preds = %14, %.preheader.i
+  %.pn.i.i = phi ptr [ %.0.i.i.i, %.preheader.i ], [ %.sroa.0.1.i, %14 ]
   %.0.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 40
   %18 = load i32, ptr %.0.i.i.i, align 8, !range !84, !noalias !1252, !noundef !4
   %19 = icmp ne i32 %18, 4
   %20 = icmp eq ptr %.0.i.i.i, %1
   %or.cond.i.i.i = or i1 %20, %19
-  br i1 %or.cond.i.i.i, label %_ZN3syn6buffer6Cursor5punct17h6386474329364b2bE.exit, label %.preheader
+  br i1 %or.cond.i.i.i, label %_ZN3syn6buffer6Cursor5punct17h6386474329364b2bE.exit, label %.preheader.i
 
-_ZN3syn6buffer6Cursor5punct17h6386474329364b2bE.exit: ; preds = %.preheader, %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i, %14
-  %.sroa.0.0 = phi i1 [ false, %14 ], [ false, %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i ], [ true, %.preheader ]
+_ZN3syn6buffer6Cursor5punct17h6386474329364b2bE.exit: ; preds = %.preheader.i, %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i, %14
+  %.sroa.0.0 = phi i1 [ false, %14 ], [ false, %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i ], [ true, %.preheader.i ]
   ret i1 %.sroa.0.0
 }
 

@@ -1980,7 +1980,6 @@ define dso_local noundef i32 @gres_reconfig() local_unnamed_addr #2 {
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 408), align 8
   %6 = load ptr, ptr @local_plugins_str, align 8
   %7 = tail call i32 @xstrcmp(ptr noundef %5, ptr noundef %6) #28
-  %.not12.not = icmp eq i32 %7, 0
   store i1 false, ptr @reset_prev, align 1
   %8 = load i32, ptr @gres_context_cnt, align 4
   %9 = icmp sgt i32 %8, 0
@@ -2014,6 +2013,7 @@ define dso_local noundef i32 @gres_reconfig() local_unnamed_addr #2 {
   unreachable
 
 18:                                               ; preds = %._crit_edge
+  %.not12.not = icmp eq i32 %7, 0
   br i1 %.not12.not, label %24, label %19
 
 19:                                               ; preds = %18

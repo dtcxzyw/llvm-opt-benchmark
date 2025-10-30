@@ -3525,42 +3525,42 @@ define hidden void @FT_GlyphLoader_Add(ptr noundef captures(address_is_null) %0)
   br i1 %.not, label %63, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load i16, ptr %4, align 8, !tbaa !130
-  %.not17 = icmp eq i16 %5, 0
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %4 = load i16, ptr %3, align 8, !tbaa !130
+  %.not17 = icmp eq i16 %4, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %8 = load ptr, ptr %7, align 8, !tbaa !131
-  br label %9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %7 = load ptr, ptr %6, align 8, !tbaa !131
+  br label %8
 
-9:                                                ; preds = %.lr.ph, %9
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = load i16, ptr %6, align 2, !tbaa !129
-  %11 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
-  %12 = load i16, ptr %11, align 2, !tbaa !133
-  %13 = add i16 %12, %10
-  store i16 %13, ptr %11, align 2, !tbaa !133
+8:                                                ; preds = %.lr.ph, %8
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
+  %9 = load i16, ptr %5, align 2, !tbaa !129
+  %10 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv
+  %11 = load i16, ptr %10, align 2, !tbaa !133
+  %12 = add i16 %11, %9
+  store i16 %12, ptr %10, align 2, !tbaa !133
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = load i16, ptr %4, align 8, !tbaa !130
-  %15 = zext i16 %14 to i64
-  %16 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %16, label %9, label %._crit_edge, !llvm.loop !207
+  %13 = load i16, ptr %3, align 8, !tbaa !130
+  %14 = zext i16 %13 to i64
+  %15 = icmp samesign ult i64 %indvars.iv.next, %14
+  br i1 %15, label %8, label %._crit_edge, !llvm.loop !207
 
-._crit_edge:                                      ; preds = %9, %2
-  %.lcssa = phi i16 [ 0, %2 ], [ %14, %9 ]
+._crit_edge:                                      ; preds = %8, %2
+  %.lcssa = phi i16 [ 0, %2 ], [ %13, %8 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %18 = load i16, ptr %17, align 2, !tbaa !129
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %20 = load i16, ptr %19, align 2, !tbaa !129
   %21 = add i16 %20, %18
   store i16 %21, ptr %19, align 2, !tbaa !129
-  %22 = load i16, ptr %3, align 8, !tbaa !130
+  %22 = load i16, ptr %16, align 8, !tbaa !130
   %23 = add i16 %22, %.lcssa
-  store i16 %23, ptr %3, align 8, !tbaa !130
+  store i16 %23, ptr %16, align 8, !tbaa !130
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %25 = load i32, ptr %24, align 8, !tbaa !208
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3568,7 +3568,7 @@ define hidden void @FT_GlyphLoader_Add(ptr noundef captures(address_is_null) %0)
   %28 = add i32 %27, %25
   store i32 %28, ptr %26, align 8, !tbaa !209
   store i16 0, ptr %17, align 2, !tbaa !184
-  store i16 0, ptr %4, align 8, !tbaa !185
+  store i16 0, ptr %3, align 8, !tbaa !185
   store i32 0, ptr %24, align 8, !tbaa !187
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8, !tbaa !156
@@ -13412,21 +13412,21 @@ define void @FT_Outline_Reverse(ptr noundef captures(address_is_null) %0) local_
 
 7:                                                ; preds = %.lr.ph47, %._crit_edge44
   %indvars.iv = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next, %._crit_edge44 ]
-  %.03645 = phi i64 [ 4294967295, %.lr.ph47 ], [ %12, %._crit_edge44 ]
+  %.03645 = phi i64 [ 4294967295, %.lr.ph47 ], [ %14, %._crit_edge44 ]
   %8 = add nuw nsw i64 %.03645, 2
   %9 = load ptr, ptr %4, align 8, !tbaa !131
   %10 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv
   %11 = load i16, ptr %10, align 2, !tbaa !133
-  %12 = zext i16 %11 to i64
-  %13 = load ptr, ptr %5, align 8, !tbaa !156
-  %14 = and i64 %8, 4294967295
+  %12 = load ptr, ptr %5, align 8, !tbaa !156
+  %13 = and i64 %8, 4294967295
+  %14 = zext i16 %11 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %15 = icmp samesign ult i64 %14, %12
+  %15 = icmp samesign ult i64 %13, %14
   br i1 %15, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %7
-  %16 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %13, i64 %12
-  %17 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %13, i64 %14
+  %16 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %12, i64 %14
+  %17 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %12, i64 %13
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -13447,8 +13447,8 @@ define void @FT_Outline_Reverse(ptr noundef captures(address_is_null) %0) local_
 .lr.ph43.preheader:                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = load ptr, ptr %6, align 8, !tbaa !202
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %12
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %14
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %14
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %13
   br label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %.lr.ph43

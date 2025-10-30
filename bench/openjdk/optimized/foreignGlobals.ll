@@ -3160,10 +3160,10 @@ define linkonce_odr hidden void @_ZN15ArgumentShuffle16ComputeMoveOrder19compute
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 256
   br label %10
 
 .preheader32:                                     ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj32E9VMStoragePN15ArgumentShuffle16ComputeMoveOrder13MoveOperationEES1_S5_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZNS3_4hashERKS1_EEXadL_ZNS3_6equalsESB_SB_EEE3putESB_RKS5_.exit
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 256
   store i32 %46, ptr %7, align 8
   %8 = icmp sgt i32 %47, 0
   br i1 %8, label %.lr.ph43, label %._crit_edge

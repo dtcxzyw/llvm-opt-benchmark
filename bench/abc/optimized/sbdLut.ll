@@ -615,35 +615,35 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
   %.val147 = load i32, ptr %33, align 4, !tbaa !35
   %34 = getelementptr i8, ptr %5, i64 4
   %.val148 = load i32, ptr %34, align 4, !tbaa !35
-  %35 = add nsw i32 %.val148, %.val147
-  %36 = getelementptr i8, ptr %6, i64 4
-  %.val149 = load i32, ptr %36, align 4, !tbaa !35
-  %37 = add nsw i32 %35, %.val149
-  %38 = add nsw i32 %37, %8
+  %35 = getelementptr i8, ptr %6, i64 4
+  %.val149 = load i32, ptr %35, align 4, !tbaa !35
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %39 = icmp sgt i32 %.val146, 0
-  br i1 %39, label %.lr.ph, label %.critedge.preheader
+  %36 = icmp sgt i32 %.val146, 0
+  br i1 %36, label %.lr.ph, label %.critedge.preheader
 
 .lr.ph:                                           ; preds = %Sbd_ProblemCountParams.exit
-  %40 = getelementptr i8, ptr %7, i64 8
-  %.val145 = load ptr, ptr %40, align 8, !tbaa !23
-  %41 = zext nneg i32 %.val146 to i64
-  %42 = shl nuw nsw i64 %41, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr align 4 %.val145, i64 %42, i1 false), !tbaa !12
+  %37 = getelementptr i8, ptr %7, i64 8
+  %.val145 = load ptr, ptr %37, align 8, !tbaa !23
+  %38 = zext nneg i32 %.val146 to i64
+  %39 = shl nuw nsw i64 %38, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr align 4 %.val145, i64 %39, i1 false), !tbaa !12
   br label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.lr.ph, %Sbd_ProblemCountParams.exit
+  %40 = add nsw i32 %.val148, %.val147
+  %41 = add nsw i32 %40, %.val149
   br i1 %24, label %.critedge.preheader209, label %.preheader173
 
 .critedge.preheader209:                           ; preds = %.critedge.preheader
-  %43 = sext i32 %.val146 to i64
+  %42 = sext i32 %.val146 to i64
   %wide.trip.count = zext nneg i32 %8 to i64
-  %invariant.gep = getelementptr i32, ptr %11, i64 %43
+  %invariant.gep = getelementptr i32, ptr %11, i64 %42
   br label %.critedge
 
 .preheader173:                                    ; preds = %.critedge, %.critedge.preheader
+  %43 = add nsw i32 %41, %8
   %44 = icmp sgt i32 %.0.lcssa.i, 0
   %45 = add nsw i32 %.val146, %8
   br i1 %44, label %.lr.ph179, label %.preheader172
@@ -658,7 +658,7 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
   %indvars.iv = phi i64 [ 0, %.critedge.preheader209 ], [ %indvars.iv.next, %.critedge ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %47 = trunc i64 %indvars.iv to i32
-  %48 = add i32 %37, %47
+  %48 = add i32 %41, %47
   store i32 %48, ptr %gep, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -678,7 +678,7 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
   %indvars.iv219 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next220, %52 ]
   %gep264 = getelementptr i32, ptr %invariant.gep263, i64 %indvars.iv219
   %53 = trunc i64 %indvars.iv219 to i32
-  %54 = add i32 %38, %53
+  %54 = add i32 %43, %53
   store i32 %54, ptr %gep264, align 4, !tbaa !12
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
@@ -728,7 +728,7 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %63 = sext i32 %.val146 to i64
   %64 = getelementptr inbounds i32, ptr %12, i64 %63
-  %65 = sext i32 %37 to i64
+  %65 = sext i32 %41 to i64
   %66 = getelementptr i8, ptr %20, i64 328
   %wide.trip.count236 = zext nneg i32 %45 to i64
   %wide.trip.count244 = zext nneg i32 %.0.lcssa.i to i64
@@ -742,7 +742,7 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
   %67 = phi i32 [ %.pr, %.lr.ph186thread-pre-split ], [ 0, %._crit_edge ]
   %68 = phi ptr [ %.pre.i247, %.lr.ph186thread-pre-split ], [ %17, %._crit_edge ]
   %.5184 = phi i32 [ %92, %.lr.ph186thread-pre-split ], [ 0, %._crit_edge ]
-  %69 = add nsw i32 %.5184, %38
+  %69 = add nsw i32 %.5184, %43
   %70 = shl nsw i32 %69, 1
   %71 = or disjoint i32 %70, 1
   %72 = load i32, ptr %15, align 8, !tbaa !36
@@ -884,7 +884,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %130 = icmp ne i32 %129, 1
   %131 = zext i1 %130 to i32
   %132 = trunc i64 %indvars.iv241 to i32
-  %.tr = add i32 %38, %132
+  %.tr = add i32 %43, %132
   %133 = shl i32 %.tr, 1
   %134 = or disjoint i32 %133, %131
   %135 = load i32, ptr %16, align 4, !tbaa !35

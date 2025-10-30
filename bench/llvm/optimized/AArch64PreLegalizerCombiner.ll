@@ -9934,12 +9934,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_121applyFoldGlobalOffsetERN4llvm12M
   %6 = alloca %"class.llvm::SrcOp", align 8
   %7 = alloca %"class.llvm::SrcOp", align 8
   %8 = alloca %"class.llvm::DstOp", align 8
-  %9 = load i64, ptr %4, align 8, !tbaa !89
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !91
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !743
-  tail call void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(70) %13)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !743
+  %11 = load i64, ptr %4, align 8, !tbaa !89
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %13 = load i64, ptr %12, align 8, !tbaa !91
+  tail call void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(70) %10)
   %14 = load ptr, ptr %3, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
@@ -9955,7 +9955,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121applyFoldGlobalOffsetERN4llvm12M
   %25 = lshr i32 %22, 8
   %26 = and i32 %25, 4095
   %27 = select i1 %24, i32 0, i32 %26
-  tail call void @_ZN4llvm14MachineOperand10ChangeToGAEPKNS_11GlobalValueElj(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef %21, i64 noundef %9, i32 noundef %27) #28
+  tail call void @_ZN4llvm14MachineOperand10ChangeToGAEPKNS_11GlobalValueElj(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef %21, i64 noundef %11, i32 noundef %27) #28
   %28 = load ptr, ptr %17, align 8, !tbaa !581
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !15
@@ -9979,7 +9979,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121applyFoldGlobalOffsetERN4llvm12M
   store i64 274877906945, ptr %8, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %38, align 8, !tbaa !645
-  %39 = sub nsw i64 0, %11
+  %39 = sub nsw i64 0, %13
   %40 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %8, i64 noundef %39) #28
   %41 = extractvalue { ptr, ptr } %40, 0
   %42 = extractvalue { ptr, ptr } %40, 1

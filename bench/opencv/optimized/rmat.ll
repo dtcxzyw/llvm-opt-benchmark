@@ -379,16 +379,16 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.critedge
   %30 = getelementptr inbounds nuw i64, ptr %29, i64 %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8, !tbaa !45
-  %32 = shl i64 %22, 1
-  %33 = add i64 %32, -8
-  %34 = shl i64 %23, 1
-  %35 = sub i64 %33, %34
-  %36 = and i64 %35, -8
-  %37 = add i64 %36, 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %29, i8 0, i64 %37, i1 false), !tbaa !34
-  %38 = getelementptr inbounds nuw i8, ptr %29, i64 %28
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %28
+  %33 = shl i64 %22, 1
+  %34 = add i64 %33, -8
+  %35 = shl i64 %23, 1
+  %36 = sub i64 %34, %35
+  %37 = and i64 %36, -8
+  %38 = add i64 %37, 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %29, i8 0, i64 %38, i1 false), !tbaa !34
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %38, ptr %39, align 8, !tbaa !43
+  store ptr %32, ptr %39, align 8, !tbaa !43
   %.val = load i32, ptr %1, align 8, !tbaa !49
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.val29 = load i32, ptr %40, align 4, !tbaa !50
@@ -403,7 +403,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.critedge
   %49 = and i32 %48, 15
   %50 = mul nuw nsw i32 %45, %49
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %38, i64 -8
+  %52 = getelementptr inbounds i8, ptr %32, i64 -8
   store i64 %51, ptr %52, align 8, !tbaa !34
   %53 = trunc i64 %25 to i32
   %54 = icmp sgt i32 %53, 1

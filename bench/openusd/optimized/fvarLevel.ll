@@ -449,8 +449,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -739,8 +739,8 @@ define linkonce_odr void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 1
-  tail call void @llvm.memset.p0.i64(ptr align 2 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 2 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -3686,7 +3686,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel5printEv(ptr noundef 
   %2 = alloca %"class.std::vector.5", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   invoke void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel45buildFaceVertexSiblingsFromVertexFaceSiblingsERSt6vectorItSaItEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %3 unwind label %48
+          to label %3 unwind label %46
 
 3:                                                ; preds = %1
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
@@ -3733,14 +3733,12 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel5printEv(ptr noundef 
   %35 = getelementptr inbounds i32, ptr %34, i64 %33
   %36 = load i32, ptr %30, align 4
   %37 = load ptr, ptr %24, align 8
-  %38 = getelementptr inbounds i32, ptr %37, i64 %33
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds i16, ptr %39, i64 %33
-  %41 = trunc nuw nsw i64 %indvars.iv141 to i32
-  %42 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %41)
-  %43 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18)
-  %44 = icmp sgt i32 %36, 0
-  br i1 %44, label %.lr.ph.preheader, label %._crit_edge99
+  %38 = load ptr, ptr %2, align 8
+  %39 = trunc nuw nsw i64 %indvars.iv141 to i32
+  %40 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %39)
+  %41 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18)
+  %42 = icmp sgt i32 %36, 0
+  br i1 %42, label %.lr.ph.preheader, label %._crit_edge99
 
 .lr.ph.preheader:                                 ; preds = %25
   %wide.trip.count = zext nneg i32 %36 to i64
@@ -3748,59 +3746,61 @@ define void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel5printEv(ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %45 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
-  %46 = load i32, ptr %45, align 4
-  %47 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %46)
+  %43 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
+  %44 = load i32, ptr %43, align 4
+  %45 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %44)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph98.preheader, label %.lr.ph, !llvm.loop !31
 
-48:                                               ; preds = %1
-  %49 = landingpad { ptr, i32 }
+46:                                               ; preds = %1
+  %47 = landingpad { ptr, i32 }
           cleanup
-  %50 = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %51
+  %48 = load ptr, ptr %2, align 8
+  %.not.i.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %49
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %53 = load ptr, ptr %52, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %50 to i64
-  %56 = sub i64 %54, %55
-  call void @_ZdlPvm(ptr noundef nonnull %50, i64 noundef %56) #18
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %51 = load ptr, ptr %50, align 8
+  %52 = ptrtoint ptr %51 to i64
+  %53 = ptrtoint ptr %48 to i64
+  %54 = sub i64 %52, %53
+  call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef %54) #18
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
-_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %48, %51
-  resume { ptr, i32 } %49
+_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %46, %49
+  resume { ptr, i32 } %47
 
 .lr.ph98.preheader:                               ; preds = %.lr.ph
-  %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
+  %55 = getelementptr inbounds i32, ptr %37, i64 %33
+  %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
   %wide.trip.count134 = zext nneg i32 %36 to i64
   br label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %.lr.ph98.preheader, %.lr.ph98
   %indvars.iv131 = phi i64 [ 0, %.lr.ph98.preheader ], [ %indvars.iv.next132, %.lr.ph98 ]
-  %58 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv131
-  %59 = load i32, ptr %58, align 4
-  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %59)
+  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv131
+  %58 = load i32, ptr %57, align 4
+  %59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %58)
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
   br i1 %exitcond135.not, label %.lr.ph102.preheader, label %.lr.ph98, !llvm.loop !32
 
 ._crit_edge99:                                    ; preds = %25
-  %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
-  %62 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21)
+  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
+  %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21)
   br label %._crit_edge103
 
 .lr.ph102.preheader:                              ; preds = %.lr.ph98
+  %62 = getelementptr inbounds i16, ptr %38, i64 %33
   %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21)
   %wide.trip.count139 = zext nneg i32 %36 to i64
   br label %.lr.ph102
 
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
   %indvars.iv136 = phi i64 [ 0, %.lr.ph102.preheader ], [ %indvars.iv.next137, %.lr.ph102 ]
-  %64 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv136
+  %64 = getelementptr inbounds nuw i16, ptr %62, i64 %indvars.iv136
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i32
   %67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %66)

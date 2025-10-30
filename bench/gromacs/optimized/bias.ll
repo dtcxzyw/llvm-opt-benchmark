@@ -1945,8 +1945,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %77
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc40
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %98, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %97, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !99
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %97, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !99
   br label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i41
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i41: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %.noexc40, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -1982,8 +1982,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i46: ; preds = %_ZNSt6vectorIdS
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i43: ; preds = %.noexc48
   %.idx.i.i.i.i.i.i.i44 = shl nuw nsw i64 %112, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %111, i8 0, i64 %.idx.i.i.i.i.i.i.i44, i1 false), !tbaa !99
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 %.idx.i.i.i.i.i.i.i44
+  tail call void @llvm.memset.p0.i64(ptr align 8 %111, i8 0, i64 %.idx.i.i.i.i.i.i.i44, i1 false), !tbaa !99
   br label %115
 
 115:                                              ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i43, %.noexc48, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i46

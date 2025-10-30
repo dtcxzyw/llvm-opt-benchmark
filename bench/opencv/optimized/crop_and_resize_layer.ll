@@ -983,23 +983,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %17
 
 .noexc:                                           ; preds = %184
   store ptr %185, ptr %13, align 8, !tbaa !72
-  %186 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %187 = getelementptr inbounds nuw i8, ptr %185, i64 32
-  %188 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %187, ptr %188, align 8, !tbaa !75
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 32
+  %187 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %186, ptr %187, align 8, !tbaa !75
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc
-  %.09.i.i.i.i.i.i = phi ptr [ %190, %.lr.ph.i.i.i.i.i.i ], [ %185, %.noexc ]
-  %.068.i.i.i.i.i.i = phi i64 [ %189, %.lr.ph.i.i.i.i.i.i ], [ 4, %.noexc ]
+  %.09.i.i.i.i.i.i = phi ptr [ %189, %.lr.ph.i.i.i.i.i.i ], [ %185, %.noexc ]
+  %.068.i.i.i.i.i.i = phi i64 [ %188, %.lr.ph.i.i.i.i.i.i ], [ 4, %.noexc ]
   store i64 9223372034707292160, ptr %.09.i.i.i.i.i.i, align 4
-  %189 = add nsw i64 %.068.i.i.i.i.i.i, -1
-  %190 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq i64 %189, 0
-  br i1 %.not.i.i.i.i.i.i, label %191, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !76
+  %188 = add nsw i64 %.068.i.i.i.i.i.i, -1
+  %189 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq i64 %188, 0
+  br i1 %.not.i.i.i.i.i.i, label %190, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !76
 
-191:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  store ptr %190, ptr %186, align 8, !tbaa !77
+190:                                              ; preds = %.lr.ph.i.i.i.i.i.i
+  %191 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %189, ptr %191, align 8, !tbaa !77
   %192 = load ptr, ptr %180, align 8, !tbaa !52
   %193 = load i32, ptr %192, align 4, !tbaa !55
   %.sroa.4.0.insert.ext = zext i32 %193 to i64
@@ -1011,7 +1011,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %17
   invoke void @_ZN2cv3MatC1ERKS0_RKSt6vectorINS_5RangeESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(96) %32, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %194 unwind label %209
 
-194:                                              ; preds = %191
+194:                                              ; preds = %190
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %195 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -1053,7 +1053,7 @@ _ZNSt6vectorIN2cv5RangeESaIS1_EED2Ev.exit:        ; preds = %204, %206
           cleanup
   br label %_ZNSt6vectorIN2cv5RangeESaIS1_EED2Ev.exit134
 
-209:                                              ; preds = %191
+209:                                              ; preds = %190
   %210 = landingpad { ptr, i32 }
           cleanup
   br label %213

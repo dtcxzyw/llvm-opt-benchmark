@@ -3570,29 +3570,29 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation8GetRatesEPi(ptr no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.sroa.speculated19 = tail call i32 @llvm.smin.i32(i32 %7, i32 %5)
-  %8 = sub i32 %7, %5
-  %9 = icmp sgt i32 %.sroa.speculated19, 0
-  br i1 %9, label %.lr.ph, label %.preheader
+  %8 = icmp sgt i32 %.sroa.speculated19, 0
+  br i1 %8, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %wide.trip.count = zext nneg i32 %.sroa.speculated19 to i64
   br label %14
 
 .preheader:                                       ; preds = %14, %2
-  %11 = icmp sgt i32 %8, 0
+  %10 = sub nsw i32 %7, %5
+  %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph26, label %._crit_edge
 
 .lr.ph26:                                         ; preds = %.preheader
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = zext i16 %4 to i64
-  %wide.trip.count31 = zext nneg i32 %8 to i64
+  %wide.trip.count31 = zext nneg i32 %10 to i64
   %invariant.gep = getelementptr inbounds nuw i32, ptr %1, i64 %13
   br label %19
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = load ptr, ptr %10, align 8
+  %15 = load ptr, ptr %9, align 8
   %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv

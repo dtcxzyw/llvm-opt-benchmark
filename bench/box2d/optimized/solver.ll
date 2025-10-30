@@ -948,47 +948,47 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %448 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 1772
   %wide.trip.count999 = zext nneg i32 %55 to i64
-  br label %459
+  br label %458
 
-._crit_edge844:                                   ; preds = %468, %446
+._crit_edge844:                                   ; preds = %467, %446
   %450 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %13) #8
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 1620
   store float %450, ptr %451, align 4, !tbaa !148
   %452 = call i64 @b2GetTicks() #8
-  %453 = getelementptr inbounds nuw i8, ptr %.val, i64 240
-  %454 = getelementptr inbounds nuw i8, ptr %.val, i64 248
-  %455 = load i32, ptr %454, align 8, !tbaa !149
-  %456 = load i32, ptr %54, align 8, !tbaa !93
-  %457 = icmp sgt i32 %456, 0
-  br i1 %457, label %.lr.ph847, label %._crit_edge848
+  %453 = getelementptr inbounds nuw i8, ptr %.val, i64 248
+  %454 = load i32, ptr %453, align 8, !tbaa !149
+  %455 = load i32, ptr %54, align 8, !tbaa !93
+  %456 = icmp sgt i32 %455, 0
+  br i1 %456, label %.lr.ph847, label %._crit_edge848
 
 .lr.ph847:                                        ; preds = %._crit_edge844
-  %458 = getelementptr inbounds nuw i8, ptr %0, i64 1304
+  %457 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   br label %477
 
-459:                                              ; preds = %.lr.ph843, %468
-  %indvars.iv996 = phi i64 [ 0, %.lr.ph843 ], [ %indvars.iv.next997, %468 ]
-  %460 = getelementptr inbounds nuw %struct.b2WorkerContext, ptr %12, i64 %indvars.iv996
-  %461 = getelementptr inbounds nuw i8, ptr %460, i64 16
-  %462 = load ptr, ptr %461, align 8, !tbaa !146
-  %.not752 = icmp eq ptr %462, null
-  br i1 %.not752, label %468, label %463
+458:                                              ; preds = %.lr.ph843, %467
+  %indvars.iv996 = phi i64 [ 0, %.lr.ph843 ], [ %indvars.iv.next997, %467 ]
+  %459 = getelementptr inbounds nuw %struct.b2WorkerContext, ptr %12, i64 %indvars.iv996
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 16
+  %461 = load ptr, ptr %460, align 8, !tbaa !146
+  %.not752 = icmp eq ptr %461, null
+  br i1 %.not752, label %467, label %462
 
-463:                                              ; preds = %459
-  %464 = load ptr, ptr %447, align 8, !tbaa !74
-  %465 = load ptr, ptr %448, align 8, !tbaa !75
-  call void %464(ptr noundef nonnull %462, ptr noundef %465) #8
-  %466 = load i32, ptr %449, align 4, !tbaa !76
-  %467 = add nsw i32 %466, -1
-  store i32 %467, ptr %449, align 4, !tbaa !76
-  br label %468
+462:                                              ; preds = %458
+  %463 = load ptr, ptr %447, align 8, !tbaa !74
+  %464 = load ptr, ptr %448, align 8, !tbaa !75
+  call void %463(ptr noundef nonnull %461, ptr noundef %464) #8
+  %465 = load i32, ptr %449, align 4, !tbaa !76
+  %466 = add nsw i32 %465, -1
+  store i32 %466, ptr %449, align 4, !tbaa !76
+  br label %467
 
-468:                                              ; preds = %459, %463
+467:                                              ; preds = %458, %462
   %indvars.iv.next997 = add nuw nsw i64 %indvars.iv996, 1
   %exitcond1000.not = icmp eq i64 %indvars.iv.next997, %wide.trip.count999
-  br i1 %exitcond1000.not, label %._crit_edge844, label %459, !llvm.loop !150
+  br i1 %exitcond1000.not, label %._crit_edge844, label %458, !llvm.loop !150
 
 ._crit_edge848:                                   ; preds = %477, %._crit_edge844
+  %468 = getelementptr inbounds nuw i8, ptr %.val, i64 240
   %469 = getelementptr inbounds nuw i8, ptr %0, i64 1728
   %470 = load ptr, ptr %469, align 8, !tbaa !110
   %471 = getelementptr inbounds nuw i8, ptr %0, i64 1744
@@ -1003,12 +1003,12 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 477:                                              ; preds = %.lr.ph847, %477
   %indvars.iv1001 = phi i64 [ 0, %.lr.ph847 ], [ %indvars.iv.next1002, %477 ]
-  %478 = load ptr, ptr %458, align 8, !tbaa !151
+  %478 = load ptr, ptr %457, align 8, !tbaa !151
   %479 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %478, i64 %indvars.iv1001
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 16
   call void @b2SetBitCountAndClear(ptr noundef nonnull %480, i32 noundef %24) #8
   %481 = getelementptr inbounds nuw i8, ptr %479, i64 32
-  call void @b2SetBitCountAndClear(ptr noundef nonnull %481, i32 noundef %455) #8
+  call void @b2SetBitCountAndClear(ptr noundef nonnull %481, i32 noundef %454) #8
   %482 = getelementptr inbounds nuw i8, ptr %479, i64 52
   store i32 -1, ptr %482, align 4, !tbaa !152
   %483 = getelementptr inbounds nuw i8, ptr %479, i64 48
@@ -1102,57 +1102,57 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %519, label %.critedge, label %520
 
 520:                                              ; preds = %.lr.ph861
-  %521 = getelementptr inbounds nuw i8, ptr %515, i64 36
-  %522 = getelementptr inbounds nuw i8, ptr %515, i64 144
-  %523 = load i32, ptr %522, align 4, !tbaa !164
-  %524 = icmp sgt i32 %523, 0
-  br i1 %524, label %.lr.ph854, label %.critedge
+  %521 = getelementptr inbounds nuw i8, ptr %515, i64 144
+  %522 = load i32, ptr %521, align 4, !tbaa !164
+  %523 = icmp sgt i32 %522, 0
+  br i1 %523, label %.lr.ph854, label %.critedge
 
 .lr.ph854:                                        ; preds = %520
-  %525 = getelementptr inbounds nuw i8, ptr %515, i64 48
-  %wide.trip.count1006 = zext nneg i32 %523 to i64
+  %524 = getelementptr inbounds nuw i8, ptr %515, i64 48
+  %wide.trip.count1006 = zext nneg i32 %522 to i64
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %.lr.ph854
   %indvars.iv1004.ph = phi i64 [ %indvars.iv.next10051089, %.thread ], [ 0, %.lr.ph854 ]
   %.0720852.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph854 ]
-  %.sroa.12.3850.ph = phi float [ %530, %.thread ], [ %496, %.lr.ph854 ]
-  %.sroa.10.3849.ph = phi i64 [ %537, %.thread ], [ 0, %.lr.ph854 ]
-  br label %526
+  %.sroa.12.3850.ph = phi float [ %529, %.thread ], [ %496, %.lr.ph854 ]
+  %.sroa.10.3849.ph = phi i64 [ %536, %.thread ], [ 0, %.lr.ph854 ]
+  br label %525
 
-._crit_edge855:                                   ; preds = %536
+._crit_edge855:                                   ; preds = %535
   br i1 %.0720852.ph, label %._crit_edge855.thread, label %.critedge
 
-526:                                              ; preds = %.outer, %536
-  %indvars.iv1004 = phi i64 [ %indvars.iv.next1005, %536 ], [ %indvars.iv1004.ph, %.outer ]
-  %527 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %525, i64 %indvars.iv1004
-  %528 = getelementptr inbounds nuw i8, ptr %527, i64 40
-  %529 = load float, ptr %528, align 4, !tbaa !165
-  %530 = fneg float %529
-  %531 = fcmp olt float %.sroa.12.3850.ph, %530
-  br i1 %531, label %532, label %536
+525:                                              ; preds = %.outer, %535
+  %indvars.iv1004 = phi i64 [ %indvars.iv.next1005, %535 ], [ %indvars.iv1004.ph, %.outer ]
+  %526 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %524, i64 %indvars.iv1004
+  %527 = getelementptr inbounds nuw i8, ptr %526, i64 40
+  %528 = load float, ptr %527, align 4, !tbaa !165
+  %529 = fneg float %528
+  %530 = fcmp olt float %.sroa.12.3850.ph, %529
+  br i1 %530, label %531, label %535
 
-532:                                              ; preds = %526
-  %533 = getelementptr inbounds nuw i8, ptr %527, i64 36
-  %534 = load float, ptr %533, align 4, !tbaa !167
-  %535 = fcmp ogt float %534, 0.000000e+00
-  br i1 %535, label %.thread, label %536
+531:                                              ; preds = %525
+  %532 = getelementptr inbounds nuw i8, ptr %526, i64 36
+  %533 = load float, ptr %532, align 4, !tbaa !167
+  %534 = fcmp ogt float %533, 0.000000e+00
+  br i1 %534, label %.thread, label %535
 
-536:                                              ; preds = %532, %526
+535:                                              ; preds = %531, %525
   %indvars.iv.next1005 = add nuw nsw i64 %indvars.iv1004, 1
   %exitcond1007.not = icmp eq i64 %indvars.iv.next1005, %wide.trip.count1006
-  br i1 %exitcond1007.not, label %._crit_edge855, label %526, !llvm.loop !168
+  br i1 %exitcond1007.not, label %._crit_edge855, label %525, !llvm.loop !168
 
-.thread:                                          ; preds = %532
-  %537 = load i64, ptr %527, align 4
+.thread:                                          ; preds = %531
+  %536 = load i64, ptr %526, align 4
   %indvars.iv.next10051089 = add nuw nsw i64 %indvars.iv1004, 1
   %exitcond1007.not1090 = icmp eq i64 %indvars.iv.next10051089, %wide.trip.count1006
   br i1 %exitcond1007.not1090, label %._crit_edge855.thread, label %.outer, !llvm.loop !168
 
 ._crit_edge855.thread:                            ; preds = %.thread, %._crit_edge855
-  %.sroa.10.410911098 = phi i64 [ %.sroa.10.3849.ph, %._crit_edge855 ], [ %537, %.thread ]
-  %.sroa.12.410921097 = phi float [ %.sroa.12.3850.ph, %._crit_edge855 ], [ %530, %.thread ]
-  %538 = load i64, ptr %521, align 4
+  %.sroa.10.410911098 = phi i64 [ %.sroa.10.3849.ph, %._crit_edge855 ], [ %536, %.thread ]
+  %.sroa.12.410921097 = phi float [ %.sroa.12.3850.ph, %._crit_edge855 ], [ %529, %.thread ]
+  %537 = getelementptr inbounds nuw i8, ptr %515, i64 36
+  %538 = load i64, ptr %537, align 4
   %539 = getelementptr inbounds nuw i8, ptr %515, i64 12
   %540 = load i32, ptr %539, align 4, !tbaa !169
   %.val754 = load ptr, ptr %497, align 8, !tbaa !170
@@ -1554,8 +1554,8 @@ b2BufferMove.exit:                                ; preds = %.lr.ph874, %b2IntAr
 
 ._crit_edge901:                                   ; preds = %.lr.ph900, %._crit_edge897.thread, %._crit_edge897
   %739 = phi ptr [ %722, %._crit_edge897.thread ], [ %723, %._crit_edge897 ], [ %723, %.lr.ph900 ]
-  %740 = load ptr, ptr %453, align 8, !tbaa !216
-  %741 = load i32, ptr %454, align 8, !tbaa !149
+  %740 = load ptr, ptr %468, align 8, !tbaa !216
+  %741 = load i32, ptr %453, align 8, !tbaa !149
   %742 = icmp sgt i32 %741, 0
   br i1 %742, label %.lr.ph905, label %._crit_edge906
 
@@ -1704,7 +1704,7 @@ define internal void @b2SolverTask(i32 %0, i32 %1, i32 %2, ptr noundef readonly 
   br label %246
 
 43:                                               ; preds = %.lr.ph244, %._crit_edge239
-  %.0242 = phi i32 [ 1, %.lr.ph244 ], [ %116, %._crit_edge239 ]
+  %.0242 = phi i32 [ 1, %.lr.ph244 ], [ %174, %._crit_edge239 ]
   %.0140241 = phi i32 [ 1, %.lr.ph244 ], [ %175, %._crit_edge239 ]
   %.0151240 = phi i32 [ 0, %.lr.ph244 ], [ %179, %._crit_edge239 ]
   %44 = shl i32 %.0242, 16
@@ -1736,7 +1736,7 @@ define internal void @b2SolverTask(i32 %0, i32 %1, i32 %2, ptr noundef readonly 
   %53 = shl i32 %.0140241, 16
   %54 = add i32 %53, 65536
   %55 = zext i32 %.0148.lcssa to i64
-  br label %122
+  br label %121
 
 56:                                               ; preds = %.lr.ph226, %b2ExecuteMainStage.exit
   %indvars.iv = phi i64 [ 3, %.lr.ph226 ], [ %indvars.iv.next, %b2ExecuteMainStage.exit ]
@@ -1871,141 +1871,141 @@ b2ExecuteMainStage.exit:                          ; preds = %56, %60, %._crit_ed
   %114 = zext i32 %.1149.lcssa to i64
   %115 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %114
   call fastcc void @b2ExecuteMainStage(ptr noundef nonnull %115, ptr noundef %8, i32 noundef %113)
-  %116 = add nuw nsw i32 %.0242, 2
-  %117 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %5) #8
-  %118 = load float, ptr %35, align 4, !tbaa !232
-  %119 = fadd float %117, %118
-  store float %119, ptr %35, align 4, !tbaa !232
+  %116 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %5) #8
+  %117 = load float, ptr %35, align 4, !tbaa !232
+  %118 = fadd float %116, %117
+  store float %118, ptr %35, align 4, !tbaa !232
   call void @b2SolveOverflowJoints(ptr noundef %8, i1 noundef zeroext false) #8
   call void @b2SolveOverflowContacts(ptr noundef %8, i1 noundef zeroext false) #8
   br i1 %30, label %.lr.ph238, label %._crit_edge239
 
 .lr.ph238:                                        ; preds = %._crit_edge233
-  %120 = shl i32 %.0140241, 16
-  %121 = add i32 %120, 131072
+  %119 = shl i32 %.0140241, 16
+  %120 = add i32 %119, 131072
   br label %180
 
-122:                                              ; preds = %.lr.ph232, %b2ExecuteMainStage.exit181
+121:                                              ; preds = %.lr.ph232, %b2ExecuteMainStage.exit181
   %indvars.iv264 = phi i64 [ %55, %.lr.ph232 ], [ %indvars.iv.next265, %b2ExecuteMainStage.exit181 ]
-  %.0146230 = phi i32 [ 0, %.lr.ph232 ], [ %174, %b2ExecuteMainStage.exit181 ]
-  %123 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %indvars.iv264
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %125 = load i32, ptr %124, align 8, !tbaa !123
-  switch i32 %125, label %129 [
+  %.0146230 = phi i32 [ 0, %.lr.ph232 ], [ %173, %b2ExecuteMainStage.exit181 ]
+  %122 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %indvars.iv264
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %124 = load i32, ptr %123, align 8, !tbaa !123
+  switch i32 %124, label %128 [
     i32 0, label %b2ExecuteMainStage.exit181
-    i32 1, label %126
+    i32 1, label %125
   ]
 
-126:                                              ; preds = %122
-  %127 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !122
-  call fastcc void @b2ExecuteBlock(ptr noundef nonnull %123, ptr noundef %8, ptr noundef %128)
+125:                                              ; preds = %121
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %127 = load ptr, ptr %126, align 8, !tbaa !122
+  call fastcc void @b2ExecuteBlock(ptr noundef nonnull %122, ptr noundef %8, ptr noundef %127)
   br label %b2ExecuteMainStage.exit181
 
-129:                                              ; preds = %122
-  %130 = trunc nuw i64 %indvars.iv264 to i32
-  %131 = or i32 %54, %130
-  store atomic i32 %131, ptr %31 seq_cst, align 4
-  %132 = lshr i32 %131, 16
-  %133 = add nsw i32 %132, -1
-  %134 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %135 = load ptr, ptr %134, align 8, !tbaa !122
-  %136 = load i32, ptr %124, align 8, !tbaa !123
-  %.fr.i156 = freeze i32 %136
-  %137 = load i32, ptr %32, align 4, !tbaa !137
-  %.not.i.i.i157 = icmp sgt i32 %.fr.i156, %137
-  br i1 %.not.i.i.i157, label %GetWorkerStartIndex.exit.i.i180, label %138
+128:                                              ; preds = %121
+  %129 = trunc nuw i64 %indvars.iv264 to i32
+  %130 = or i32 %54, %129
+  store atomic i32 %130, ptr %31 seq_cst, align 4
+  %131 = lshr i32 %130, 16
+  %132 = add nsw i32 %131, -1
+  %133 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %134 = load ptr, ptr %133, align 8, !tbaa !122
+  %135 = load i32, ptr %123, align 8, !tbaa !123
+  %.fr.i156 = freeze i32 %135
+  %136 = load i32, ptr %32, align 4, !tbaa !137
+  %.not.i.i.i157 = icmp sgt i32 %.fr.i156, %136
+  br i1 %.not.i.i.i157, label %GetWorkerStartIndex.exit.i.i180, label %137
 
-138:                                              ; preds = %129
-  %139 = icmp sgt i32 %.fr.i156, 0
-  br i1 %139, label %.preheader41.i.i163, label %b2ExecuteStage.exit.i158
+137:                                              ; preds = %128
+  %138 = icmp sgt i32 %.fr.i156, 0
+  br i1 %138, label %.preheader41.i.i163, label %b2ExecuteStage.exit.i158
 
-GetWorkerStartIndex.exit.i.i180:                  ; preds = %129
-  %140 = srem i32 %.fr.i156, %137
-  %141 = call noundef i32 @llvm.smin.i32(i32 %140, i32 0)
-  %142 = icmp eq i32 %140, -1
-  br i1 %142, label %b2ExecuteStage.exit.i158, label %.preheader41.i.i163
+GetWorkerStartIndex.exit.i.i180:                  ; preds = %128
+  %139 = srem i32 %.fr.i156, %136
+  %140 = call noundef i32 @llvm.smin.i32(i32 %139, i32 0)
+  %141 = icmp eq i32 %139, -1
+  br i1 %141, label %b2ExecuteStage.exit.i158, label %.preheader41.i.i163
 
-.preheader41.i.i163:                              ; preds = %GetWorkerStartIndex.exit.i.i180, %138
-  %.0.i.i17.i164 = phi i32 [ %141, %GetWorkerStartIndex.exit.i.i180 ], [ 0, %138 ]
-  %143 = sext i32 %.0.i.i17.i164 to i64
-  %144 = getelementptr inbounds %struct.b2SolverBlock, ptr %135, i64 %143
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %146 = cmpxchg ptr %145, i32 %133, i32 %132 seq_cst seq_cst, align 4
-  %147 = extractvalue { i32, i1 } %146, 1
-  br i1 %147, label %.lr.ph.i.i175, label %.preheader.i.i165
+.preheader41.i.i163:                              ; preds = %GetWorkerStartIndex.exit.i.i180, %137
+  %.0.i.i17.i164 = phi i32 [ %140, %GetWorkerStartIndex.exit.i.i180 ], [ 0, %137 ]
+  %142 = sext i32 %.0.i.i17.i164 to i64
+  %143 = getelementptr inbounds %struct.b2SolverBlock, ptr %134, i64 %142
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %145 = cmpxchg ptr %144, i32 %132, i32 %131 seq_cst seq_cst, align 4
+  %146 = extractvalue { i32, i1 } %145, 1
+  br i1 %146, label %.lr.ph.i.i175, label %.preheader.i.i165
 
 .preheader.i.i165:                                ; preds = %.lr.ph.i.i175, %.preheader41.i.i163
-  %.036.lcssa.i.i166 = phi i32 [ 0, %.preheader41.i.i163 ], [ %154, %.lr.ph.i.i175 ]
+  %.036.lcssa.i.i166 = phi i32 [ 0, %.preheader41.i.i163 ], [ %153, %.lr.ph.i.i175 ]
   %.245.i.i167 = add nsw i32 %.fr.i156, -1
-  %148 = sext i32 %.245.i.i167 to i64
-  %149 = getelementptr inbounds %struct.b2SolverBlock, ptr %135, i64 %148
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = cmpxchg ptr %150, i32 %133, i32 %132 seq_cst seq_cst, align 4
-  %152 = extractvalue { i32, i1 } %151, 1
-  br i1 %152, label %.lr.ph48.i.i170, label %._crit_edge.i.i168
+  %147 = sext i32 %.245.i.i167 to i64
+  %148 = getelementptr inbounds %struct.b2SolverBlock, ptr %134, i64 %147
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  %150 = cmpxchg ptr %149, i32 %132, i32 %131 seq_cst seq_cst, align 4
+  %151 = extractvalue { i32, i1 } %150, 1
+  br i1 %151, label %.lr.ph48.i.i170, label %._crit_edge.i.i168
 
 .lr.ph.i.i175:                                    ; preds = %.preheader41.i.i163, %.lr.ph.i.i175
-  %153 = phi ptr [ %157, %.lr.ph.i.i175 ], [ %144, %.preheader41.i.i163 ]
+  %152 = phi ptr [ %156, %.lr.ph.i.i175 ], [ %143, %.preheader41.i.i163 ]
   %.043.i.i176 = phi i32 [ %spec.store.select.i.i179, %.lr.ph.i.i175 ], [ %.0.i.i17.i164, %.preheader41.i.i163 ]
-  %.03642.i.i177 = phi i32 [ %154, %.lr.ph.i.i175 ], [ 0, %.preheader41.i.i163 ]
-  call fastcc void @b2ExecuteBlock(ptr noundef nonnull %123, ptr noundef nonnull %8, ptr noundef %153)
-  %154 = add nuw nsw i32 %.03642.i.i177, 1
-  %155 = add nsw i32 %.043.i.i176, 1
-  %.not.i.i178 = icmp slt i32 %155, %.fr.i156
-  %spec.store.select.i.i179 = select i1 %.not.i.i178, i32 %155, i32 0
-  %156 = sext i32 %spec.store.select.i.i179 to i64
-  %157 = getelementptr inbounds %struct.b2SolverBlock, ptr %135, i64 %156
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %159 = cmpxchg ptr %158, i32 %133, i32 %132 seq_cst seq_cst, align 4
-  %160 = extractvalue { i32, i1 } %159, 1
-  br i1 %160, label %.lr.ph.i.i175, label %.preheader.i.i165, !llvm.loop !227
+  %.03642.i.i177 = phi i32 [ %153, %.lr.ph.i.i175 ], [ 0, %.preheader41.i.i163 ]
+  call fastcc void @b2ExecuteBlock(ptr noundef nonnull %122, ptr noundef nonnull %8, ptr noundef %152)
+  %153 = add nuw nsw i32 %.03642.i.i177, 1
+  %154 = add nsw i32 %.043.i.i176, 1
+  %.not.i.i178 = icmp slt i32 %154, %.fr.i156
+  %spec.store.select.i.i179 = select i1 %.not.i.i178, i32 %154, i32 0
+  %155 = sext i32 %spec.store.select.i.i179 to i64
+  %156 = getelementptr inbounds %struct.b2SolverBlock, ptr %134, i64 %155
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %158 = cmpxchg ptr %157, i32 %132, i32 %131 seq_cst seq_cst, align 4
+  %159 = extractvalue { i32, i1 } %158, 1
+  br i1 %159, label %.lr.ph.i.i175, label %.preheader.i.i165, !llvm.loop !227
 
 .lr.ph48.i.i170:                                  ; preds = %.preheader.i.i165, %.lr.ph48.i.i170
-  %161 = phi ptr [ %165, %.lr.ph48.i.i170 ], [ %149, %.preheader.i.i165 ]
+  %160 = phi ptr [ %164, %.lr.ph48.i.i170 ], [ %148, %.preheader.i.i165 ]
   %.247.i.i171 = phi i32 [ %.2.i.i174, %.lr.ph48.i.i170 ], [ %.245.i.i167, %.preheader.i.i165 ]
-  %.13746.i.i172 = phi i32 [ %162, %.lr.ph48.i.i170 ], [ %.036.lcssa.i.i166, %.preheader.i.i165 ]
-  call fastcc void @b2ExecuteBlock(ptr noundef nonnull %123, ptr noundef nonnull %8, ptr noundef %161)
-  %162 = add nuw nsw i32 %.13746.i.i172, 1
-  %163 = icmp slt i32 %.247.i.i171, 1
-  %spec.select.i.i173 = select i1 %163, i32 %.fr.i156, i32 %.247.i.i171
+  %.13746.i.i172 = phi i32 [ %161, %.lr.ph48.i.i170 ], [ %.036.lcssa.i.i166, %.preheader.i.i165 ]
+  call fastcc void @b2ExecuteBlock(ptr noundef nonnull %122, ptr noundef nonnull %8, ptr noundef %160)
+  %161 = add nuw nsw i32 %.13746.i.i172, 1
+  %162 = icmp slt i32 %.247.i.i171, 1
+  %spec.select.i.i173 = select i1 %162, i32 %.fr.i156, i32 %.247.i.i171
   %.2.i.i174 = add nsw i32 %spec.select.i.i173, -1
-  %164 = sext i32 %.2.i.i174 to i64
-  %165 = getelementptr inbounds %struct.b2SolverBlock, ptr %135, i64 %164
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  %167 = cmpxchg ptr %166, i32 %133, i32 %132 seq_cst seq_cst, align 4
-  %168 = extractvalue { i32, i1 } %167, 1
-  br i1 %168, label %.lr.ph48.i.i170, label %._crit_edge.i.i168
+  %163 = sext i32 %.2.i.i174 to i64
+  %164 = getelementptr inbounds %struct.b2SolverBlock, ptr %134, i64 %163
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %166 = cmpxchg ptr %165, i32 %132, i32 %131 seq_cst seq_cst, align 4
+  %167 = extractvalue { i32, i1 } %166, 1
+  br i1 %167, label %.lr.ph48.i.i170, label %._crit_edge.i.i168
 
 ._crit_edge.i.i168:                               ; preds = %.lr.ph48.i.i170, %.preheader.i.i165
-  %.137.lcssa.i.i169 = phi i32 [ %.036.lcssa.i.i166, %.preheader.i.i165 ], [ %162, %.lr.ph48.i.i170 ]
-  %169 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  %170 = atomicrmw add ptr %169, i32 %.137.lcssa.i.i169 seq_cst, align 4
+  %.137.lcssa.i.i169 = phi i32 [ %.036.lcssa.i.i166, %.preheader.i.i165 ], [ %161, %.lr.ph48.i.i170 ]
+  %168 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  %169 = atomicrmw add ptr %168, i32 %.137.lcssa.i.i169 seq_cst, align 4
   br label %b2ExecuteStage.exit.i158
 
-b2ExecuteStage.exit.i158:                         ; preds = %._crit_edge.i.i168, %GetWorkerStartIndex.exit.i.i180, %138
-  %171 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  %172 = load atomic i32, ptr %171 seq_cst, align 4
-  %.not20.i159 = icmp eq i32 %172, %125
+b2ExecuteStage.exit.i158:                         ; preds = %._crit_edge.i.i168, %GetWorkerStartIndex.exit.i.i180, %137
+  %170 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  %171 = load atomic i32, ptr %170 seq_cst, align 4
+  %.not20.i159 = icmp eq i32 %171, %124
   br i1 %.not20.i159, label %._crit_edge.i162, label %.lr.ph.i160
 
 .lr.ph.i160:                                      ; preds = %b2ExecuteStage.exit.i158, %.lr.ph.i160
   call void asm sideeffect "pause\0A", "~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !228
-  %173 = load atomic i32, ptr %171 seq_cst, align 4
-  %.not.i161 = icmp eq i32 %173, %125
+  %172 = load atomic i32, ptr %170 seq_cst, align 4
+  %.not.i161 = icmp eq i32 %172, %124
   br i1 %.not.i161, label %._crit_edge.i162, label %.lr.ph.i160, !llvm.loop !229
 
 ._crit_edge.i162:                                 ; preds = %.lr.ph.i160, %b2ExecuteStage.exit.i158
-  store atomic i32 0, ptr %171 seq_cst, align 4
+  store atomic i32 0, ptr %170 seq_cst, align 4
   br label %b2ExecuteMainStage.exit181
 
-b2ExecuteMainStage.exit181:                       ; preds = %122, %126, %._crit_edge.i162
+b2ExecuteMainStage.exit181:                       ; preds = %121, %125, %._crit_edge.i162
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
-  %174 = add nuw nsw i32 %.0146230, 1
-  %exitcond267.not = icmp eq i32 %174, %10
-  br i1 %exitcond267.not, label %._crit_edge233.loopexit, label %122, !llvm.loop !233
+  %173 = add nuw nsw i32 %.0146230, 1
+  %exitcond267.not = icmp eq i32 %173, %10
+  br i1 %exitcond267.not, label %._crit_edge233.loopexit, label %121, !llvm.loop !233
 
 ._crit_edge239:                                   ; preds = %b2ExecuteMainStage.exit207, %._crit_edge233
+  %174 = add nuw nsw i32 %.0242, 2
   %175 = add nuw nsw i32 %.0140241, 3
   %176 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %5) #8
   %177 = load float, ptr %36, align 4, !tbaa !234
@@ -2035,7 +2035,7 @@ b2ExecuteMainStage.exit181:                       ; preds = %122, %126, %._crit_
 
 187:                                              ; preds = %180
   %188 = trunc nuw i64 %indvars.iv.next269 to i32
-  %189 = or i32 %121, %188
+  %189 = or i32 %120, %188
   store atomic i32 %189, ptr %31 seq_cst, align 4
   %190 = lshr i32 %189, 16
   %191 = add nsw i32 %190, -1

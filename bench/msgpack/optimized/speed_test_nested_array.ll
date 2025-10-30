@@ -11192,8 +11192,8 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit.i:  ; preds = %_ZNSt12_Vector_base
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %190
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %192, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %191, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !34
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 %.idx.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %191, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !34
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %190

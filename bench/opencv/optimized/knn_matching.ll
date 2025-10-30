@@ -81,7 +81,7 @@ define hidden noundef zeroext i8 @_Z16invertSingleBitshi(i8 noundef zeroext %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = icmp eq i8 %0, 0
-  br i1 %4, label %.noexc, label %.preheader
+  br i1 %4, label %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, label %.preheader
 
 .preheader:                                       ; preds = %2
   %5 = zext i8 %0 to i64
@@ -89,7 +89,7 @@ define hidden noundef zeroext i8 @_Z16invertSingleBitshi(i8 noundef zeroext %0, 
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %12
 
-.noexc:                                           ; preds = %2
+.lr.ph.i.i.i.i.i.i.i.i.i.preheader:               ; preds = %2
   %8 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %8, i8 0, i64 32, i1 false), !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -194,9 +194,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.loopexit:           ; preds = %_ZNSt6vectorIiSaIiE
   store ptr %37, ptr %3, align 8
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.noexc, %_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit
-  %41 = phi ptr [ %37, %_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit ], [ %8, %.noexc ]
-  %42 = phi ptr [ %39, %_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit ], [ %9, %.noexc ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.preheader, %_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit
+  %41 = phi ptr [ %37, %_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit ], [ %8, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader ]
+  %42 = phi ptr [ %39, %_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit ], [ %9, %.lr.ph.i.i.i.i.i.i.i.i.i.preheader ]
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %44 = ptrtoint ptr %42 to i64
   %45 = ptrtoint ptr %41 to i64
@@ -210,14 +210,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIi
           to label %.noexc37 unwind label %56
 
 .noexc37:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %50 = add i64 %45, 28
-  %51 = sub i64 %50, %44
-  %52 = and i64 %51, -4
-  %53 = add i64 %52, 4
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %49, i8 0, i64 %53, i1 false), !tbaa !4
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %48
+  %51 = add i64 %45, 28
+  %52 = sub i64 %51, %44
+  %53 = and i64 %52, -4
+  %54 = add i64 %53, 4
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %49, i8 0, i64 %54, i1 false), !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 %46
-  invoke void @_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPiS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %55, ptr nonnull %49, ptr nonnull %54)
+  invoke void @_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPiS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %55, ptr nonnull %49, ptr nonnull %50)
           to label %_ZNSt6vectorIiSaIiEED2Ev.exit41 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit43
 
 _ZNSt6vectorIiSaIiEED2Ev.exit41:                  ; preds = %.noexc37

@@ -1393,7 +1393,6 @@ define void @Acec_MatchBoxesSort(ptr noundef captures(none) %0, i32 noundef %1, 
 .lr.ph.preheader:                                 ; preds = %._crit_edge, %.lr.ph29.preheader
   %indvars.iv34 = phi i64 [ 0, %.lr.ph29.preheader ], [ %indvars.iv.next35, %._crit_edge ]
   %indvars.iv = phi i64 [ 1, %.lr.ph29.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %6 = trunc nuw nsw i64 %indvars.iv34 to i32
   br label %.lr.ph
 
@@ -1425,6 +1424,7 @@ define void @Acec_MatchBoxesSort(ptr noundef captures(none) %0, i32 noundef %1, 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.lr.ph
+  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %26 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv34
   %27 = load i32, ptr %26, align 4, !tbaa !49
   %28 = sext i32 %spec.select to i64
@@ -2969,16 +2969,16 @@ Acec_MatchBoxesSort.exit:                         ; preds = %Acec_MatchBoxesSort
   %wide.trip.count.i151 = zext nneg i32 %.val135 to i64
   br label %.lr.ph.preheader.i152
 
-.lr.ph.preheader.i152:                            ; preds = %._crit_edge.i162, %.lr.ph29.preheader.i149
-  %indvars.iv34.i153 = phi i64 [ 0, %.lr.ph29.preheader.i149 ], [ %indvars.iv.next35.i155, %._crit_edge.i162 ]
-  %indvars.iv.i154 = phi i64 [ 1, %.lr.ph29.preheader.i149 ], [ %indvars.iv.next.i163, %._crit_edge.i162 ]
+.lr.ph.preheader.i152:                            ; preds = %._crit_edge.i161, %.lr.ph29.preheader.i149
+  %indvars.iv34.i153 = phi i64 [ 0, %.lr.ph29.preheader.i149 ], [ %indvars.iv.next35.i162, %._crit_edge.i161 ]
+  %indvars.iv.i154 = phi i64 [ 1, %.lr.ph29.preheader.i149 ], [ %indvars.iv.next.i163, %._crit_edge.i161 ]
   %59 = trunc nuw nsw i64 %indvars.iv34.i153 to i32
-  br label %.lr.ph.i156
+  br label %.lr.ph.i155
 
-.lr.ph.i156:                                      ; preds = %.lr.ph.i156, %.lr.ph.preheader.i152
-  %indvars.iv31.i157 = phi i64 [ %indvars.iv.i154, %.lr.ph.preheader.i152 ], [ %indvars.iv.next32.i160, %.lr.ph.i156 ]
-  %.02326.i158 = phi i32 [ %59, %.lr.ph.preheader.i152 ], [ %spec.select.i159, %.lr.ph.i156 ]
-  %60 = getelementptr inbounds nuw i32, ptr %.val142, i64 %indvars.iv31.i157
+.lr.ph.i155:                                      ; preds = %.lr.ph.i155, %.lr.ph.preheader.i152
+  %indvars.iv31.i156 = phi i64 [ %indvars.iv.i154, %.lr.ph.preheader.i152 ], [ %indvars.iv.next32.i159, %.lr.ph.i155 ]
+  %.02326.i157 = phi i32 [ %59, %.lr.ph.preheader.i152 ], [ %spec.select.i158, %.lr.ph.i155 ]
+  %60 = getelementptr inbounds nuw i32, ptr %.val142, i64 %indvars.iv31.i156
   %61 = load i32, ptr %60, align 4, !tbaa !49
   %62 = ashr i32 %61, 1
   %63 = sext i32 %62 to i64
@@ -2986,7 +2986,7 @@ Acec_MatchBoxesSort.exit:                         ; preds = %Acec_MatchBoxesSort
   %65 = load i32, ptr %64, align 4, !tbaa !49
   %66 = and i32 %61, 1
   %67 = xor i32 %65, %66
-  %68 = sext i32 %.02326.i158 to i64
+  %68 = sext i32 %.02326.i157 to i64
   %69 = getelementptr inbounds i32, ptr %.val142, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !49
   %71 = ashr i32 %70, 1
@@ -2996,26 +2996,26 @@ Acec_MatchBoxesSort.exit:                         ; preds = %Acec_MatchBoxesSort
   %75 = and i32 %70, 1
   %76 = xor i32 %74, %75
   %77 = icmp sgt i32 %67, %76
-  %78 = trunc nuw nsw i64 %indvars.iv31.i157 to i32
-  %spec.select.i159 = select i1 %77, i32 %78, i32 %.02326.i158
-  %indvars.iv.next32.i160 = add nuw nsw i64 %indvars.iv31.i157, 1
-  %exitcond.not.i161 = icmp eq i64 %indvars.iv.next32.i160, %wide.trip.count.i151
-  br i1 %exitcond.not.i161, label %._crit_edge.i162, label %.lr.ph.i156, !llvm.loop !80
+  %78 = trunc nuw nsw i64 %indvars.iv31.i156 to i32
+  %spec.select.i158 = select i1 %77, i32 %78, i32 %.02326.i157
+  %indvars.iv.next32.i159 = add nuw nsw i64 %indvars.iv31.i156, 1
+  %exitcond.not.i160 = icmp eq i64 %indvars.iv.next32.i159, %wide.trip.count.i151
+  br i1 %exitcond.not.i160, label %._crit_edge.i161, label %.lr.ph.i155, !llvm.loop !80
 
-._crit_edge.i162:                                 ; preds = %.lr.ph.i156
-  %indvars.iv.next35.i155 = add nuw nsw i64 %indvars.iv34.i153, 1
+._crit_edge.i161:                                 ; preds = %.lr.ph.i155
+  %indvars.iv.next35.i162 = add nuw nsw i64 %indvars.iv34.i153, 1
   %79 = getelementptr inbounds nuw i32, ptr %.val142, i64 %indvars.iv34.i153
   %80 = load i32, ptr %79, align 4, !tbaa !49
-  %81 = sext i32 %spec.select.i159 to i64
+  %81 = sext i32 %spec.select.i158 to i64
   %82 = getelementptr inbounds i32, ptr %.val142, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !49
   store i32 %83, ptr %79, align 4, !tbaa !49
   store i32 %80, ptr %82, align 4, !tbaa !49
   %indvars.iv.next.i163 = add nuw nsw i64 %indvars.iv.i154, 1
-  %exitcond38.not.i164 = icmp eq i64 %indvars.iv.next35.i155, %wide.trip.count37.i150
+  %exitcond38.not.i164 = icmp eq i64 %indvars.iv.next35.i162, %wide.trip.count37.i150
   br i1 %exitcond38.not.i164, label %Acec_MatchBoxesSort.exit165.loopexit, label %.lr.ph.preheader.i152, !llvm.loop !81
 
-Acec_MatchBoxesSort.exit165.loopexit:             ; preds = %._crit_edge.i162
+Acec_MatchBoxesSort.exit165.loopexit:             ; preds = %._crit_edge.i161
   %.val121.pre = load i32, ptr %16, align 4, !tbaa !12
   br label %Acec_MatchBoxesSort.exit165
 

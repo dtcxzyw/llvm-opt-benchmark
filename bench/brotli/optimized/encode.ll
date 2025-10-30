@@ -7736,9 +7736,9 @@ ShouldUseComplexStaticContextMap.exit:            ; preds = %135
   store i32 %168, ptr %166, align 4, !tbaa !59
   %169 = add nuw nsw i64 %.088.i, 1
   %exitcond.not.i43 = icmp eq i64 %169, 9
-  br i1 %exitcond.not.i43, label %.preheader.i44.preheader, label %158, !llvm.loop !744
+  br i1 %exitcond.not.i43, label %.preheader.preheader.i, label %158, !llvm.loop !744
 
-.preheader.i44.preheader:                         ; preds = %158
+.preheader.preheader.i:                           ; preds = %158
   %.0.i43.idx.sroa.gep.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %.preheader.i44
 
@@ -7765,11 +7765,11 @@ FastLog2.exit.i52:                                ; preds = %179, %176
   %182 = tail call double @llvm.fmuladd.f64(double %181, double %.0.i47.i, double %195)
   br label %.preheader.i44
 
-.preheader.i44:                                   ; preds = %.preheader.i44.preheader, %FastLog2.exit.i52
-  %.025.i41.i = phi i64 [ %173, %FastLog2.exit.i52 ], [ 0, %.preheader.i44.preheader ]
-  %.023.i42.i = phi double [ %182, %FastLog2.exit.i52 ], [ 0.000000e+00, %.preheader.i44.preheader ]
-  %.0.i43.idx.sroa.phi.i = phi ptr [ %.0.i43.idx.sroa.gep.i, %FastLog2.exit.i52 ], [ %10, %.preheader.i44.preheader ]
-  %183 = phi i1 [ false, %FastLog2.exit.i52 ], [ true, %.preheader.i44.preheader ]
+.preheader.i44:                                   ; preds = %FastLog2.exit.i52, %.preheader.preheader.i
+  %.025.i41.i = phi i64 [ %173, %FastLog2.exit.i52 ], [ 0, %.preheader.preheader.i ]
+  %.023.i42.i = phi double [ %182, %FastLog2.exit.i52 ], [ 0.000000e+00, %.preheader.preheader.i ]
+  %.0.i43.idx.sroa.phi.i = phi ptr [ %.0.i43.idx.sroa.gep.i, %FastLog2.exit.i52 ], [ %10, %.preheader.preheader.i ]
+  %183 = phi i1 [ false, %FastLog2.exit.i52 ], [ true, %.preheader.preheader.i ]
   %.ptr.i45 = getelementptr inbounds nuw i8, ptr %.0.i43.idx.sroa.phi.i, i64 4
   %184 = load i32, ptr %.0.i43.idx.sroa.phi.i, align 4, !tbaa !59
   %185 = zext i32 %184 to i64

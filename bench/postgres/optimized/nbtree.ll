@@ -1337,7 +1337,7 @@ define internal fastcc void @btvacuumscan(ptr noundef %0, ptr noundef initialize
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 17
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %253
+.loopexit.loopexit:                               ; preds = %254
   br label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %29
@@ -1367,15 +1367,15 @@ define internal fastcc void @btvacuumscan(ptr noundef %0, ptr noundef initialize
 
 42:                                               ; preds = %40, %36
   %.not = icmp ult i32 %.0, %37
-  br i1 %.not, label %.preheader.preheader, label %254
+  br i1 %.not, label %.preheader.preheader, label %255
 
 .preheader.preheader:                             ; preds = %42
   %43 = zext i32 %.0 to i64
   %44 = zext i32 %37 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %253
-  %indvars.iv = phi i64 [ %43, %.preheader.preheader ], [ %indvars.iv.next, %253 ]
+.preheader:                                       ; preds = %.preheader.preheader, %254
+  %indvars.iv = phi i64 [ %43, %.preheader.preheader ], [ %indvars.iv.next, %254 ]
   %45 = load ptr, ptr %8, align 8
   %46 = load ptr, ptr %13, align 8
   %47 = load ptr, ptr %14, align 8
@@ -1392,8 +1392,8 @@ define internal fastcc void @btvacuumscan(ptr noundef %0, ptr noundef initialize
   %57 = trunc nuw i64 %indvars.iv to i32
   br label %58
 
-58:                                               ; preds = %249, %.preheader
-  %.0127.i = phi i32 [ %57, %.preheader ], [ %.0128210.i, %249 ]
+58:                                               ; preds = %250, %.preheader
+  %.0127.i = phi i32 [ %57, %.preheader ], [ %.0128210.i, %250 ]
   call void @vacuum_delay_point(i1 noundef zeroext false) #8
   %59 = load ptr, ptr %52, align 8
   %60 = call i32 @ReadBufferExtended(ptr noundef %49, i32 noundef 0, i32 noundef %.0127.i, i32 noundef 0, ptr noundef %59) #8
@@ -1749,7 +1749,7 @@ btreevacuumposting.exit.thread.i:                 ; preds = %210, %202, %btreeva
   %222 = icmp sgt i32 %.0142.i, 0
   %223 = icmp sgt i32 %.0138.i, 0
   %or.cond.i = select i1 %222, i1 true, i1 %223
-  br i1 %or.cond.i, label %224, label %234
+  br i1 %or.cond.i, label %224, label %229
 
 224:                                              ; preds = %.loopexit220.i
   call void @_bt_delitems_vacuum(ptr noundef %49, i32 noundef %60, ptr noundef nonnull %6, i32 noundef %.0142.i, ptr noundef nonnull %7, i32 noundef %.0138.i) #8
@@ -1757,12 +1757,6 @@ btreevacuumposting.exit.thread.i:                 ; preds = %210, %202, %btreeva
   %226 = fadd double %.0132.i, %225
   store double %226, ptr %54, align 8
   %.val174.i = load i16, ptr %138, align 4
-  %227 = icmp ult i16 %.val174.i, 25
-  %228 = zext i16 %.val174.i to i32
-  %229 = add nuw nsw i32 %228, 262120
-  %230 = lshr i32 %229, 2
-  %231 = trunc i32 %230 to i16
-  %.0.i182.i = select i1 %227, i16 0, i16 %231
   br i1 %223, label %.lr.ph237.preheader.i, label %.loopexit.i
 
 .lr.ph237.preheader.i:                            ; preds = %224
@@ -1771,68 +1765,77 @@ btreevacuumposting.exit.thread.i:                 ; preds = %210, %202, %btreeva
 
 .lr.ph237.i:                                      ; preds = %.lr.ph237.i, %.lr.ph237.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph237.preheader.i ], [ %indvars.iv.next.i, %.lr.ph237.i ]
-  %232 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
-  %233 = load ptr, ptr %232, align 8
-  call void @pfree(ptr noundef %233) #8
+  %227 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %228 = load ptr, ptr %227, align 8
+  call void @pfree(ptr noundef %228) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph237.i, !llvm.loop !21
 
-234:                                              ; preds = %.loopexit220.i
-  %235 = load i16, ptr %16, align 8
-  %.not168.i = icmp eq i16 %235, 0
-  br i1 %.not168.i, label %.loopexit.i, label %236
+229:                                              ; preds = %.loopexit220.i
+  %230 = load i16, ptr %16, align 8
+  %.not168.i = icmp eq i16 %230, 0
+  br i1 %.not168.i, label %241, label %231
 
-236:                                              ; preds = %234
-  %237 = getelementptr inbounds nuw i8, ptr %80, i64 14
-  %238 = load i16, ptr %237, align 2
-  %239 = icmp eq i16 %238, %235
-  br i1 %239, label %240, label %.loopexit.i
+231:                                              ; preds = %229
+  %232 = getelementptr inbounds nuw i8, ptr %80, i64 14
+  %233 = load i16, ptr %232, align 2
+  %234 = icmp eq i16 %233, %230
+  br i1 %234, label %235, label %241
 
-240:                                              ; preds = %236
-  store i16 0, ptr %237, align 2
+235:                                              ; preds = %231
+  store i16 0, ptr %232, align 2
   call void @MarkBufferDirtyHint(i32 noundef %60, i1 noundef zeroext true) #8
-  br label %.loopexit.i
+  br label %241
 
-.loopexit.i:                                      ; preds = %.lr.ph237.i, %240, %236, %234, %224
-  %.0135.i = phi i16 [ %.0.i178.i, %240 ], [ %.0.i178.i, %236 ], [ %.0.i178.i, %234 ], [ %.0.i182.i, %224 ], [ %.0.i182.i, %.lr.ph237.i ]
-  %241 = icmp samesign ugt i16 %137, %.0135.i
-  br i1 %241, label %245, label %.thread217.i
+.loopexit.i:                                      ; preds = %.lr.ph237.i, %224
+  %236 = icmp ult i16 %.val174.i, 25
+  %237 = zext i16 %.val174.i to i32
+  %238 = add nuw nsw i32 %237, 262120
+  %239 = lshr i32 %238, 2
+  %240 = trunc i32 %239 to i16
+  %.0.i182.i = select i1 %236, i16 0, i16 %240
+  br label %241
 
-.thread217.i:                                     ; preds = %.loopexit.i
+241:                                              ; preds = %.loopexit.i, %235, %231, %229
+  %.0135.i = phi i16 [ %.0.i178.i, %235 ], [ %.0.i178.i, %231 ], [ %.0.i178.i, %229 ], [ %.0.i182.i, %.loopexit.i ]
+  %242 = icmp samesign ugt i16 %137, %.0135.i
+  br i1 %242, label %246, label %.thread217.i
+
+.thread217.i:                                     ; preds = %241
   %narrow.i = sub nuw nsw i16 %.0135.i, %137
   %narrow = add nuw i16 %narrow.i, 1
-  %242 = uitofp i16 %narrow to double
-  %.0130.sink.i = select i1 %.not166.i, double %242, double %.0130.i
-  %243 = load double, ptr %55, align 8
-  %244 = fadd double %.0130.sink.i, %243
-  store double %244, ptr %55, align 8
+  %243 = uitofp i16 %narrow to double
+  %.0130.sink.i = select i1 %.not166.i, double %243, double %.0130.i
+  %244 = load double, ptr %55, align 8
+  %245 = fadd double %.0130.sink.i, %244
+  store double %245, ptr %55, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread207.i
 
-245:                                              ; preds = %.loopexit.i
+246:                                              ; preds = %241
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not.i, label %.thread212.i, label %.thread207.i
 
-.thread212.i:                                     ; preds = %245, %115
-  %.0128215.i = phi i32 [ %.1129.i, %245 ], [ 0, %115 ]
-  %246 = load ptr, ptr %19, align 8
-  call void @MemoryContextReset(ptr noundef %246) #8
+.thread212.i:                                     ; preds = %246, %115
+  %.0128215.i = phi i32 [ %.1129.i, %246 ], [ 0, %115 ]
   %247 = load ptr, ptr %19, align 8
-  %248 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %247, ptr @CurrentMemoryContext, align 8
-  call void @_bt_pagedel(ptr noundef %49, i32 noundef %60, ptr noundef nonnull %8) #8
+  call void @MemoryContextReset(ptr noundef %247) #8
+  %248 = load ptr, ptr %19, align 8
+  %249 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %248, ptr @CurrentMemoryContext, align 8
-  br label %249
+  call void @_bt_pagedel(ptr noundef %49, i32 noundef %60, ptr noundef nonnull %8) #8
+  store ptr %249, ptr @CurrentMemoryContext, align 8
+  br label %250
 
-.thread207.i:                                     ; preds = %245, %.thread217.i, %117, %112, %104
-  %.0128211.i = phi i32 [ %.1129.i, %245 ], [ %.1129.i, %.thread217.i ], [ 0, %104 ], [ 0, %112 ], [ 0, %117 ]
+.thread207.i:                                     ; preds = %246, %.thread217.i, %117, %112, %104
+  %.0128211.i = phi i32 [ %.1129.i, %246 ], [ %.1129.i, %.thread217.i ], [ 0, %104 ], [ 0, %112 ], [ 0, %117 ]
   call void @_bt_relbuf(ptr noundef %49, i32 noundef %60) #8
-  br label %249
+  br label %250
 
-249:                                              ; preds = %.thread207.i, %.thread212.i
+250:                                              ; preds = %.thread207.i, %.thread212.i
   %.0128210.i = phi i32 [ %.0128211.i, %.thread207.i ], [ %.0128215.i, %.thread212.i ]
   %.not169.i = icmp eq i32 %.0128210.i, 0
   br i1 %.not169.i, label %btvacuumpage.exit, label %58
@@ -1841,34 +1844,34 @@ btreevacuumposting.exit.thread.i:                 ; preds = %210, %202, %btreeva
   call void @_bt_relbuf(ptr noundef %49, i32 noundef %60) #8
   br label %btvacuumpage.exit
 
-btvacuumpage.exit:                                ; preds = %249, %.loopexit221.sink.split.i
-  %250 = load i8, ptr %31, align 1, !range !4, !noundef !5
-  %251 = trunc nuw i8 %250 to i1
-  br i1 %251, label %252, label %253
+btvacuumpage.exit:                                ; preds = %250, %.loopexit221.sink.split.i
+  %251 = load i8, ptr %31, align 1, !range !4, !noundef !5
+  %252 = trunc nuw i8 %251 to i1
+  br i1 %252, label %253, label %254
 
-252:                                              ; preds = %btvacuumpage.exit
+253:                                              ; preds = %btvacuumpage.exit
   call void @pgstat_progress_update_param(i32 noundef 16, i64 noundef %indvars.iv) #8
-  br label %253
+  br label %254
 
-253:                                              ; preds = %btvacuumpage.exit, %252
+254:                                              ; preds = %btvacuumpage.exit, %253
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %44
   br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !18
 
-254:                                              ; preds = %42
+255:                                              ; preds = %42
   store i32 %37, ptr %1, align 8
-  %255 = load ptr, ptr %19, align 8
-  call void @MemoryContextDelete(ptr noundef %255) #8
+  %256 = load ptr, ptr %19, align 8
+  call void @MemoryContextDelete(ptr noundef %256) #8
   call void @_bt_pendingfsm_finalize(ptr noundef %9, ptr noundef nonnull %8) #8
-  %256 = load i32, ptr %12, align 8
-  %.not34 = icmp eq i32 %256, 0
-  br i1 %.not34, label %258, label %257
+  %257 = load i32, ptr %12, align 8
+  %.not34 = icmp eq i32 %257, 0
+  br i1 %.not34, label %259, label %258
 
-257:                                              ; preds = %254
+258:                                              ; preds = %255
   call void @IndexFreeSpaceMapVacuum(ptr noundef %9) #8
-  br label %258
+  br label %259
 
-258:                                              ; preds = %257, %254
+259:                                              ; preds = %258, %255
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }

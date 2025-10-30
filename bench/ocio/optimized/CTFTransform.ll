@@ -35111,14 +35111,17 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc89
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc89
-  %135 = getelementptr inbounds nuw i32, ptr %131, i64 %125
-  %136 = getelementptr inbounds nuw i8, ptr %12, i64 200
-  %137 = load ptr, ptr %136, align 8, !tbaa !623
+  %135 = getelementptr inbounds nuw i8, ptr %12, i64 200
+  %136 = load ptr, ptr %135, align 8, !tbaa !623
   br label %165
 
-._crit_edge:                                      ; preds = %_ZN9Imath_3_14halfC2Ef.exit, %126
-  %.sroa.091.1167 = phi ptr [ null, %126 ], [ %131, %_ZN9Imath_3_14halfC2Ef.exit ]
-  %.sroa.17.1164 = phi ptr [ null, %126 ], [ %135, %_ZN9Imath_3_14halfC2Ef.exit ]
+._crit_edge.loopexit:                             ; preds = %_ZN9Imath_3_14halfC2Ef.exit
+  %137 = getelementptr inbounds nuw i32, ptr %131, i64 %125
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %126
+  %.sroa.091.1167 = phi ptr [ null, %126 ], [ %131, %._crit_edge.loopexit ]
+  %.sroa.17.1164 = phi ptr [ null, %126 ], [ %137, %._crit_edge.loopexit ]
   %138 = load ptr, ptr %99, align 8, !tbaa !194
   %139 = load ptr, ptr %13, align 8, !tbaa !42
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 40
@@ -35198,7 +35201,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %151
 
 165:                                              ; preds = %.lr.ph, %_ZN9Imath_3_14halfC2Ef.exit
   %.033103 = phi i64 [ 0, %.lr.ph ], [ %223, %_ZN9Imath_3_14halfC2Ef.exit ]
-  %166 = getelementptr inbounds nuw float, ptr %137, i64 %.033103
+  %166 = getelementptr inbounds nuw float, ptr %136, i64 %.033103
   %167 = load float, ptr %166, align 4, !tbaa !624
   %168 = fmul float %167, %116
   %169 = bitcast float %168 to i32
@@ -35284,7 +35287,7 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %178, %181, %191, %1
   store i32 %221, ptr %222, align 4, !tbaa !44
   %223 = add nuw i64 %.033103, 1
   %exitcond.not = icmp eq i64 %223, %125
-  br i1 %exitcond.not, label %._crit_edge, label %165, !llvm.loop !625
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %165, !llvm.loop !625
 
 224:                                              ; preds = %._crit_edge
   %225 = load ptr, ptr %13, align 8, !tbaa !42

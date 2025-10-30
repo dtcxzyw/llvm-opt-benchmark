@@ -1153,8 +1153,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %300
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %302, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %301, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !80
   %304 = getelementptr inbounds nuw i8, ptr %301, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %301, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !80
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %293

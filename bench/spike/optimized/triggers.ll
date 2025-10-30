@@ -2276,8 +2276,8 @@ define void @_ZN8triggers8module_tC2Ej(ptr noundef nonnull writeonly align 8 cap
 
 _ZSt6fill_nIPPN8triggers9trigger_tEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %10, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !206
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !206
   br label %.lr.ph
 
 13:                                               ; preds = %2

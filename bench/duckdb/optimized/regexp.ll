@@ -1714,67 +1714,67 @@ define hidden noalias noundef nonnull ptr @_ZN10duckdb_re26Regexp13LiteralString
   store i16 1, ptr %27, align 4, !tbaa !12
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(34) %28, i8 0, i64 34, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %30 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %31
+  br label %30
 
-31:                                               ; preds = %.lr.ph, %_ZN10duckdb_re26Regexp15AddRuneToStringEi.exit
-  %32 = phi ptr [ null, %.lr.ph ], [ %51, %_ZN10duckdb_re26Regexp15AddRuneToStringEi.exit ]
+30:                                               ; preds = %.lr.ph, %_ZN10duckdb_re26Regexp15AddRuneToStringEi.exit
+  %31 = phi ptr [ null, %.lr.ph ], [ %50, %_ZN10duckdb_re26Regexp15AddRuneToStringEi.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN10duckdb_re26Regexp15AddRuneToStringEi.exit ]
-  %33 = phi i32 [ 0, %.lr.ph ], [ %52, %_ZN10duckdb_re26Regexp15AddRuneToStringEi.exit ]
-  %34 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %35 = load i32, ptr %34, align 4, !tbaa !41
-  %36 = icmp eq i32 %33, 0
-  br i1 %36, label %37, label %39
+  %32 = phi i32 [ 0, %.lr.ph ], [ %51, %_ZN10duckdb_re26Regexp15AddRuneToStringEi.exit ]
+  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %34 = load i32, ptr %33, align 4, !tbaa !41
+  %35 = icmp eq i32 %32, 0
+  br i1 %35, label %36, label %38
 
-37:                                               ; preds = %31
-  %38 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znam(i64 noundef 32) #31
-  store ptr %38, ptr %30, align 8, !tbaa !31
+36:                                               ; preds = %30
+  %37 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znam(i64 noundef 32) #31
+  store ptr %37, ptr %29, align 8, !tbaa !31
   br label %_ZN10duckdb_re26Regexp15AddRuneToStringEi.exit
 
-39:                                               ; preds = %31
-  %40 = icmp samesign ugt i32 %33, 7
-  %41 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %33)
-  %42 = icmp samesign ult i32 %41, 2
-  %or.cond.i = select i1 %40, i1 %42, i1 false
+38:                                               ; preds = %30
+  %39 = icmp samesign ugt i32 %32, 7
+  %40 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %32)
+  %41 = icmp samesign ult i32 %40, 2
+  %or.cond.i = select i1 %39, i1 %41, i1 false
   br i1 %or.cond.i, label %.lr.ph.preheader.i, label %_ZN10duckdb_re26Regexp15AddRuneToStringEi.exit
 
-.lr.ph.preheader.i:                               ; preds = %39
-  %43 = shl nuw nsw i32 %33, 1
-  %44 = zext nneg i32 %43 to i64
-  %45 = shl nuw nsw i64 %44, 2
-  %46 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %45) #31
-  store ptr %46, ptr %30, align 8, !tbaa !31
-  %47 = zext nneg i32 %33 to i64
+.lr.ph.preheader.i:                               ; preds = %38
+  %42 = shl nuw nsw i32 %32, 1
+  %43 = zext nneg i32 %42 to i64
+  %44 = shl nuw nsw i64 %43, 2
+  %45 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %44) #31
+  store ptr %45, ptr %29, align 8, !tbaa !31
+  %46 = zext nneg i32 %32 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %48 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i
-  %49 = load i32, ptr %48, align 4, !tbaa !41
-  %50 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i
-  store i32 %49, ptr %50, align 4, !tbaa !41
+  %47 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %48 = load i32, ptr %47, align 4, !tbaa !41
+  %49 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv.i
+  store i32 %48, ptr %49, align 4, !tbaa !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %47
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %46
   br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !54
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  tail call void @_ZdaPv(ptr noundef nonnull %32) #27
+  tail call void @_ZdaPv(ptr noundef nonnull %31) #27
   br label %_ZN10duckdb_re26Regexp15AddRuneToStringEi.exit
 
-_ZN10duckdb_re26Regexp15AddRuneToStringEi.exit:   ; preds = %37, %39, %._crit_edge.i
-  %51 = phi ptr [ %46, %._crit_edge.i ], [ %32, %39 ], [ %38, %37 ]
-  %52 = add nuw nsw i32 %33, 1
-  %53 = zext nneg i32 %33 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %53
-  store i32 %35, ptr %54, align 4, !tbaa !41
+_ZN10duckdb_re26Regexp15AddRuneToStringEi.exit:   ; preds = %36, %38, %._crit_edge.i
+  %50 = phi ptr [ %45, %._crit_edge.i ], [ %31, %38 ], [ %37, %36 ]
+  %51 = add nuw nsw i32 %32, 1
+  %52 = zext nneg i32 %32 to i64
+  %53 = getelementptr inbounds nuw i32, ptr %50, i64 %52
+  store i32 %34, ptr %53, align 4, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond21.not, label %..loopexit_crit_edge, label %31, !llvm.loop !58
+  br i1 %exitcond21.not, label %..loopexit_crit_edge, label %30, !llvm.loop !58
 
 ..loopexit_crit_edge:                             ; preds = %_ZN10duckdb_re26Regexp15AddRuneToStringEi.exit
-  store i32 %52, ptr %29, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  store i32 %51, ptr %54, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %..loopexit_crit_edge, %14, %5

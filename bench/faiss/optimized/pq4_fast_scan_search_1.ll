@@ -6227,7 +6227,6 @@ _ZNK5faiss12simd16uint16rsEi.exit130:             ; preds = %136
 
 _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %141
   %148 = getelementptr inbounds nuw i8, ptr %.097240, i64 32
-  %149 = getelementptr inbounds nuw i8, ptr %.096241, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %58, ptr noundef nonnull align 4 dereferenceable(32) %17, i64 32, i1 false), !noalias !218
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !218
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
@@ -6235,6 +6234,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %141
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  %149 = getelementptr inbounds nuw i8, ptr %.096241, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -6844,8 +6844,8 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
 .preheader231:                                    ; preds = %62, %.preheader235.preheader
   %.097.lcssa = phi ptr [ %2, %.preheader235.preheader ], [ %63, %62 ]
   %.096.lcssa = phi ptr [ %1, %.preheader235.preheader ], [ %158, %62 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0263)
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0263)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0263, ptr noundef nonnull align 1 dereferenceable(32) %.097.lcssa, i64 32, i1 false)
   br label %161
 
@@ -7140,7 +7140,6 @@ _ZNK5faiss12simd16uint16rsEi.exit130:             ; preds = %145
   br i1 %exitcond.not.i.i.i133, label %_ZN5faiss12simd16uint16pLERKS0_.exit134, label %151, !llvm.loop !181
 
 _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %151
-  %158 = getelementptr inbounds nuw i8, ptr %.1240, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %150, ptr noundef nonnull align 4 dereferenceable(32) %19, i64 32, i1 false), !noalias !475
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !475
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
@@ -7148,6 +7147,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %151
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  %158 = getelementptr inbounds nuw i8, ptr %.1240, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -7525,13 +7525,13 @@ _ZNK5faiss15NormTableScaler8scale_hiERKNS_11simd32uint8E.exit185: ; preds = %266
   br i1 %exitcond.not.i.i.i188, label %_ZN5faiss12simd16uint16pLERKS0_.exit189, label %274, !llvm.loop !181
 
 _ZN5faiss12simd16uint16pLERKS0_.exit189:          ; preds = %274
-  %281 = getelementptr inbounds nuw i8, ptr %.3247, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %273, ptr noundef nonnull align 4 dereferenceable(32) %7, i64 32, i1 false), !noalias !611
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !611
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  %281 = getelementptr inbounds nuw i8, ptr %.3247, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
@@ -7798,8 +7798,8 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
 .preheader231:                                    ; preds = %62, %.loopexit236
   %.097.lcssa = phi ptr [ %2, %.loopexit236 ], [ %63, %62 ]
   %.096.lcssa = phi ptr [ %1, %.loopexit236 ], [ %158, %62 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0266)
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0266)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0266, ptr noundef nonnull align 1 dereferenceable(32) %.097.lcssa, i64 32, i1 false)
   br label %161
 
@@ -8094,7 +8094,6 @@ _ZNK5faiss12simd16uint16rsEi.exit130:             ; preds = %145
   br i1 %exitcond.not.i.i.i133, label %_ZN5faiss12simd16uint16pLERKS0_.exit134, label %151, !llvm.loop !181
 
 _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %151
-  %158 = getelementptr inbounds nuw i8, ptr %.1240, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %150, ptr noundef nonnull align 4 dereferenceable(32) %19, i64 32, i1 false), !noalias !742
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !742
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
@@ -8102,6 +8101,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %151
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  %158 = getelementptr inbounds nuw i8, ptr %.1240, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -8481,13 +8481,13 @@ _ZNK5faiss15NormTableScaler8scale_hiERKNS_11simd32uint8E.exit185: ; preds = %266
   br i1 %exitcond.not.i.i.i188, label %_ZN5faiss12simd16uint16pLERKS0_.exit189, label %274, !llvm.loop !181
 
 _ZN5faiss12simd16uint16pLERKS0_.exit189:          ; preds = %274
-  %281 = getelementptr inbounds nuw i8, ptr %.3247, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %273, ptr noundef nonnull align 4 dereferenceable(32) %7, i64 32, i1 false), !noalias !878
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !878
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  %281 = getelementptr inbounds nuw i8, ptr %.3247, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
@@ -8758,8 +8758,8 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
 .preheader231:                                    ; preds = %62, %.loopexit236
   %.097.lcssa = phi ptr [ %2, %.loopexit236 ], [ %63, %62 ]
   %.096.lcssa = phi ptr [ %1, %.loopexit236 ], [ %158, %62 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0266)
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0266)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0266, ptr noundef nonnull align 1 dereferenceable(32) %.097.lcssa, i64 32, i1 false)
   br label %161
 
@@ -9054,7 +9054,6 @@ _ZNK5faiss12simd16uint16rsEi.exit130:             ; preds = %145
   br i1 %exitcond.not.i.i.i133, label %_ZN5faiss12simd16uint16pLERKS0_.exit134, label %151, !llvm.loop !181
 
 _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %151
-  %158 = getelementptr inbounds nuw i8, ptr %.1240, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %150, ptr noundef nonnull align 4 dereferenceable(32) %19, i64 32, i1 false), !noalias !1009
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !1009
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
@@ -9062,6 +9061,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %151
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  %158 = getelementptr inbounds nuw i8, ptr %.1240, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -9441,13 +9441,13 @@ _ZNK5faiss15NormTableScaler8scale_hiERKNS_11simd32uint8E.exit185: ; preds = %266
   br i1 %exitcond.not.i.i.i188, label %_ZN5faiss12simd16uint16pLERKS0_.exit189, label %274, !llvm.loop !181
 
 _ZN5faiss12simd16uint16pLERKS0_.exit189:          ; preds = %274
-  %281 = getelementptr inbounds nuw i8, ptr %.3247, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %273, ptr noundef nonnull align 4 dereferenceable(32) %7, i64 32, i1 false), !noalias !1145
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1145
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  %281 = getelementptr inbounds nuw i8, ptr %.3247, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
@@ -9718,8 +9718,8 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
 .preheader231:                                    ; preds = %62, %.loopexit236
   %.097.lcssa = phi ptr [ %2, %.loopexit236 ], [ %63, %62 ]
   %.096.lcssa = phi ptr [ %1, %.loopexit236 ], [ %158, %62 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0266)
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0266)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0266, ptr noundef nonnull align 1 dereferenceable(32) %.097.lcssa, i64 32, i1 false)
   br label %161
 
@@ -10014,7 +10014,6 @@ _ZNK5faiss12simd16uint16rsEi.exit130:             ; preds = %145
   br i1 %exitcond.not.i.i.i133, label %_ZN5faiss12simd16uint16pLERKS0_.exit134, label %151, !llvm.loop !181
 
 _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %151
-  %158 = getelementptr inbounds nuw i8, ptr %.1240, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %150, ptr noundef nonnull align 4 dereferenceable(32) %19, i64 32, i1 false), !noalias !1276
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !1276
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
@@ -10022,6 +10021,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %151
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  %158 = getelementptr inbounds nuw i8, ptr %.1240, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -10401,13 +10401,13 @@ _ZNK5faiss15NormTableScaler8scale_hiERKNS_11simd32uint8E.exit185: ; preds = %266
   br i1 %exitcond.not.i.i.i188, label %_ZN5faiss12simd16uint16pLERKS0_.exit189, label %274, !llvm.loop !181
 
 _ZN5faiss12simd16uint16pLERKS0_.exit189:          ; preds = %274
-  %281 = getelementptr inbounds nuw i8, ptr %.3247, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %273, ptr noundef nonnull align 4 dereferenceable(32) %7, i64 32, i1 false), !noalias !1412
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1412
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  %281 = getelementptr inbounds nuw i8, ptr %.3247, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
@@ -14879,7 +14879,6 @@ _ZNK5faiss12simd16uint16rsEi.exit130:             ; preds = %111
 
 _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %116
   %123 = getelementptr inbounds nuw i8, ptr %.09721, i64 32
-  %124 = getelementptr inbounds nuw i8, ptr %.09622, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %34, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false), !noalias !2624
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2624
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
@@ -14887,6 +14886,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %116
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  %124 = getelementptr inbounds nuw i8, ptr %.09622, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -15366,7 +15366,6 @@ _ZNK5faiss12simd16uint16rsEi.exit130:             ; preds = %119
   br i1 %exitcond.not.i.i.i133, label %_ZN5faiss12simd16uint16pLERKS0_.exit134, label %125, !llvm.loop !181
 
 _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %125
-  %132 = getelementptr inbounds nuw i8, ptr %.121, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %124, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false), !noalias !2747
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2747
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
@@ -15374,6 +15373,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %125
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  %132 = getelementptr inbounds nuw i8, ptr %.121, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -15872,7 +15872,6 @@ _ZNK5faiss12simd16uint16rsEi.exit130:             ; preds = %119
   br i1 %exitcond.not.i.i.i133, label %_ZN5faiss12simd16uint16pLERKS0_.exit134, label %125, !llvm.loop !181
 
 _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %125
-  %132 = getelementptr inbounds nuw i8, ptr %.121, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %124, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false), !noalias !2878
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2878
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
@@ -15880,6 +15879,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %125
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  %132 = getelementptr inbounds nuw i8, ptr %.121, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -16382,7 +16382,6 @@ _ZNK5faiss12simd16uint16rsEi.exit130:             ; preds = %119
   br i1 %exitcond.not.i.i.i133, label %_ZN5faiss12simd16uint16pLERKS0_.exit134, label %125, !llvm.loop !181
 
 _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %125
-  %132 = getelementptr inbounds nuw i8, ptr %.121, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %124, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false), !noalias !3009
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !3009
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
@@ -16390,6 +16389,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %125
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  %132 = getelementptr inbounds nuw i8, ptr %.121, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -16892,7 +16892,6 @@ _ZNK5faiss12simd16uint16rsEi.exit130:             ; preds = %119
   br i1 %exitcond.not.i.i.i133, label %_ZN5faiss12simd16uint16pLERKS0_.exit134, label %125, !llvm.loop !181
 
 _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %125
-  %132 = getelementptr inbounds nuw i8, ptr %.121, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %124, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false), !noalias !3140
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !3140
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
@@ -16900,6 +16899,7 @@ _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %125
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  %132 = getelementptr inbounds nuw i8, ptr %.121, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

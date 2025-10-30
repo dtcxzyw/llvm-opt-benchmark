@@ -4789,20 +4789,20 @@ setTypeSize.exit:                                 ; preds = %28, %36, %41
   br label %63
 
 63:                                               ; preds = %57, %._crit_edge165
-  %.1 = phi i64 [ %.0, %57 ], [ %65, %._crit_edge165 ]
+  %.1 = phi i64 [ %.0, %57 ], [ %67, %._crit_edge165 ]
   %64 = call i64 @llvm.umin.i64(i64 %.1, i64 %58)
-  %65 = sub i64 %.1, %64
-  %66 = load ptr, ptr %61, align 8, !tbaa !38
-  %67 = trunc nuw nsw i64 %64 to i32
-  call void @lpRandomEntries(ptr noundef %66, i32 noundef %67, ptr noundef %60) #10
+  %65 = load ptr, ptr %61, align 8, !tbaa !38
+  %66 = trunc nuw nsw i64 %64 to i32
+  call void @lpRandomEntries(ptr noundef %65, i32 noundef %66, ptr noundef %60) #10
   %.not166 = icmp eq i64 %.1, 0
   br i1 %.not166, label %._crit_edge165, label %.lr.ph164
 
 ._crit_edge165:                                   ; preds = %81, %63
+  %67 = sub i64 %.1, %64
   %68 = load i64, ptr %62, align 8, !tbaa !107
   %69 = and i64 %68, 1024
   %70 = icmp eq i64 %69, 0
-  %71 = icmp ne i64 %65, 0
+  %71 = icmp ne i64 %67, 0
   %or.cond5 = and i1 %71, %70
   br i1 %or.cond5, label %63, label %83, !llvm.loop !108
 

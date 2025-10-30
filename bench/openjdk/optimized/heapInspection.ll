@@ -2583,36 +2583,36 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EED2Ev.exit: ; preds = %.lr.ph.i3.i.i, %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14KlassHierarchy11print_classEP12outputStreamP14KlassInfoEntryb(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 800
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8
-  br label %18
+  br label %6
 
-18:                                               ; preds = %18, %3
-  %.pn = phi ptr [ %17, %3 ], [ %.033, %18 ]
-  %.032 = phi i32 [ 0, %3 ], [ %19, %18 ]
+6:                                                ; preds = %6, %3
+  %.pn = phi ptr [ %5, %3 ], [ %.033, %6 ]
+  %.032 = phi i32 [ 0, %3 ], [ %7, %6 ]
   %.033.in = getelementptr inbounds nuw i8, ptr %.pn, i64 120
   %.033 = load ptr, ptr %.033.in, align 8
   %.not = icmp eq ptr %.033, null
-  %19 = add i32 %.032, 1
-  br i1 %.not, label %20, label %18, !llvm.loop !23
+  %7 = add i32 %.032, 1
+  br i1 %.not, label %8, label %6, !llvm.loop !23
 
-20:                                               ; preds = %18
+8:                                                ; preds = %6
+  %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 800
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %20 = load i64, ptr %19, align 8
   %.not5.i = icmp eq i32 %.032, 0
   br i1 %.not5.i, label %_ZL12print_indentP12outputStreami.exit.thread, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %20
+.lr.ph.i.preheader:                               ; preds = %8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.35) #15
   %21 = add nsw i32 %.032, -1
   %cond.i46 = icmp eq i32 %21, 0
@@ -2630,9 +2630,9 @@ _ZL12print_indentP12outputStreami.exit:           ; preds = %.lr.ph.i, %.lr.ph.i
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.19) #15
   br label %_ZL12print_indentP12outputStreami.exit.thread
 
-_ZL12print_indentP12outputStreami.exit.thread:    ; preds = %20, %_ZL12print_indentP12outputStreami.exit
-  tail call fastcc void @_ZL15print_classnameP12outputStreamP5Klass(ptr noundef %0, ptr noundef nonnull %17)
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 164
+_ZL12print_indentP12outputStreami.exit.thread:    ; preds = %8, %_ZL12print_indentP12outputStreami.exit
+  tail call fastcc void @_ZL15print_classnameP12outputStreamP5Klass(ptr noundef %0, ptr noundef nonnull %5)
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 164
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 512
   %.not45 = icmp eq i32 %26, 0
@@ -2647,9 +2647,9 @@ _ZL12print_indentP12outputStreami.exit.thread:    ; preds = %20, %_ZL12print_ind
   br i1 %2, label %29, label %.loopexit
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds nuw i8, ptr %17, i64 416
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 416
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %17, i64 424
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 424
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %31, align 8
   %35 = icmp sgt i32 %34, 0
@@ -2792,24 +2792,24 @@ _ZL15print_interfaceP12outputStreamP13InstanceKlassPKci.exit40: ; preds = %.lr.p
   br i1 %81, label %60, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %78, %.preheader, %28
-  %82 = load ptr, ptr %9, align 8
+  %82 = load ptr, ptr %14, align 8
   %.not.i.i.i.i = icmp eq ptr %82, null
   br i1 %.not.i.i.i.i, label %84, label %83
 
 83:                                               ; preds = %.loopexit
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #15
-  tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #15
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %20) #15
+  tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %14) #15
   br label %84
 
 84:                                               ; preds = %83, %.loopexit
-  %85 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %85, %11
+  %85 = load ptr, ptr %15, align 8
+  %.not8.i.i.i.i = icmp eq ptr %85, %16
   br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %86
 
 86:                                               ; preds = %84
-  store ptr %9, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
-  store ptr %13, ptr %12, align 8
+  store ptr %14, ptr %13, align 8
+  store ptr %16, ptr %15, align 8
+  store ptr %18, ptr %17, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %84, %86

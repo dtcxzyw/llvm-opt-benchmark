@@ -2213,8 +2213,8 @@ sub_0.i:                                          ; preds = %634
 sub_1.i:                                          ; preds = %sub_0.i
   %645 = getelementptr inbounds nuw i8, ptr %560, i64 2
   %646 = load i8, ptr %645, align 1
-  %.not788.i = icmp eq i8 %646, 78
-  br i1 %.not788.i, label %.tail.i, label %.tail741.thread.i
+  %.not791.i = icmp eq i8 %646, 78
+  br i1 %.not791.i, label %.tail.i, label %.tail741.thread.i
 
 .tail.i:                                          ; preds = %sub_1.i
   %647 = getelementptr inbounds nuw i8, ptr %560, i64 3
@@ -2229,8 +2229,8 @@ sub_1.i:                                          ; preds = %sub_0.i
 sub_1743.i:                                       ; preds = %sub_0.i
   %651 = getelementptr inbounds nuw i8, ptr %560, i64 2
   %652 = load i8, ptr %651, align 1
-  %.not790.i = icmp eq i8 %652, 78
-  br i1 %.not790.i, label %.tail741.i, label %.tail741.thread.i
+  %.not793.i = icmp eq i8 %652, 78
+  br i1 %.not793.i, label %.tail741.i, label %.tail741.thread.i
 
 .tail741.i:                                       ; preds = %sub_1743.i
   %653 = getelementptr inbounds nuw i8, ptr %560, i64 3
@@ -2315,8 +2315,8 @@ sub_1743.i:                                       ; preds = %sub_0.i
 
 sub_0747.i:                                       ; preds = %682
   %693 = load i8, ptr %574, align 1
-  %.not786.i = icmp eq i8 %693, 49
-  br i1 %.not786.i, label %.tail746.i, label %.tail746.thread.i
+  %.not789.i = icmp eq i8 %693, 49
+  br i1 %.not789.i, label %.tail746.i, label %.tail746.thread.i
 
 .tail746.i:                                       ; preds = %sub_0747.i
   %694 = getelementptr inbounds nuw i8, ptr %560, i64 2
@@ -2401,8 +2401,8 @@ sub_0747.i:                                       ; preds = %682
 
 sub_0751.i:                                       ; preds = %720
   %731 = load i8, ptr %574, align 1
-  %.not785.i = icmp eq i8 %731, 49
-  br i1 %.not785.i, label %.tail750.i, label %.tail750.thread.i
+  %.not788.i = icmp eq i8 %731, 49
+  br i1 %.not788.i, label %.tail750.i, label %.tail750.thread.i
 
 .tail750.i:                                       ; preds = %sub_0751.i
   %732 = getelementptr inbounds nuw i8, ptr %560, i64 2
@@ -2842,8 +2842,8 @@ sub_0751.i:                                       ; preds = %720
 
 sub_0755.i:                                       ; preds = %937
   %948 = load i8, ptr %574, align 1
-  %.not784.i = icmp eq i8 %948, 49
-  br i1 %.not784.i, label %.tail754.i, label %.tail754.thread.i
+  %.not787.i = icmp eq i8 %948, 49
+  br i1 %.not787.i, label %.tail754.i, label %.tail754.thread.i
 
 .tail754.i:                                       ; preds = %sub_0755.i
   %949 = getelementptr inbounds nuw i8, ptr %560, i64 2
@@ -2888,8 +2888,8 @@ sub_0755.i:                                       ; preds = %937
 
 sub_0759.i:                                       ; preds = %956
   %967 = load i8, ptr %574, align 1
-  %.not783.i = icmp eq i8 %967, 49
-  br i1 %.not783.i, label %.tail758.i, label %.tail758.thread.i
+  %.not786.i = icmp eq i8 %967, 49
+  br i1 %.not786.i, label %.tail758.i, label %.tail758.thread.i
 
 .tail758.i:                                       ; preds = %sub_0759.i
   %968 = getelementptr inbounds nuw i8, ptr %560, i64 2
@@ -2934,8 +2934,8 @@ sub_0759.i:                                       ; preds = %956
 
 sub_0763.i:                                       ; preds = %975
   %986 = load i8, ptr %574, align 1
-  %.not782.i = icmp eq i8 %986, 49
-  br i1 %.not782.i, label %.tail762.i, label %.tail762.thread.i
+  %.not785.i = icmp eq i8 %986, 49
+  br i1 %.not785.i, label %.tail762.i, label %.tail762.thread.i
 
 .tail762.i:                                       ; preds = %sub_0763.i
   %987 = getelementptr inbounds nuw i8, ptr %560, i64 2
@@ -3001,20 +3001,20 @@ sub_0763.i:                                       ; preds = %975
 1015:                                             ; preds = %1006
   %1016 = load ptr, ptr %5, align 8
   %.not695.i = icmp eq ptr %1016, null
-  br i1 %.not695.i, label %.critedge.i, label %.lr.ph774.i
+  br i1 %.not695.i, label %.critedge.i, label %.lr.ph776.i
 
-.lr.ph774.i:                                      ; preds = %1015
+.lr.ph776.i:                                      ; preds = %1015
   %1017 = getelementptr inbounds nuw i8, ptr %1016, i64 4
   %1018 = getelementptr inbounds nuw i8, ptr %1016, i64 16
   %1019 = load i32, ptr %1017, align 4
   %1020 = icmp sgt i32 %1019, 0
-  br i1 %1020, label %.lr.ph781.i, label %.critedge.i
+  br i1 %1020, label %.lr.ph784.i, label %.critedge.i
 
-.lr.ph781.i:                                      ; preds = %.lr.ph774.i, %1043
-  %indvars.iv795.i = phi i64 [ %indvars.iv.next796.i, %1043 ], [ 0, %.lr.ph774.i ]
+.lr.ph784.i:                                      ; preds = %.lr.ph776.i, %1043
+  %indvars.iv800.i = phi i64 [ %indvars.iv.next801.i, %1043 ], [ 0, %.lr.ph776.i ]
   %1021 = load ptr, ptr %1018, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
-  %1022 = getelementptr inbounds nuw %union.ListCell, ptr %1021, i64 %indvars.iv795.i
+  %1022 = getelementptr inbounds nuw %union.ListCell, ptr %1021, i64 %indvars.iv800.i
   store i32 2, ptr %518, align 8
   %1023 = load ptr, ptr %1022, align 8
   %1024 = call i32 @pg_getaddrinfo_all(ptr noundef %1023, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %3) #13
@@ -3022,14 +3022,14 @@ sub_0763.i:                                       ; preds = %975
   %1026 = load ptr, ptr %3, align 8
   %1027 = icmp ne ptr %1026, null
   %or.cond126.i = select i1 %1025, i1 %1027, i1 false
-  br i1 %or.cond126.i, label %1043, label %.split777.us.i
+  br i1 %or.cond126.i, label %1043, label %.split779.us.i
 
-.split777.us.i:                                   ; preds = %.lr.ph781.i
+.split779.us.i:                                   ; preds = %.lr.ph784.i
   %1028 = call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
   br i1 %1028, label %1029, label %1037
 
-1029:                                             ; preds = %.split777.us.i
-  %1030 = getelementptr inbounds nuw %union.ListCell, ptr %1021, i64 %indvars.iv795.i
+1029:                                             ; preds = %.split779.us.i
+  %1030 = getelementptr inbounds nuw %union.ListCell, ptr %1021, i64 %indvars.iv800.i
   %1031 = call i32 @errcode(i32 noundef 22) #13
   %1032 = load ptr, ptr %1030, align 8
   %1033 = call ptr @gai_strerror(i32 noundef %1024) #13
@@ -3039,7 +3039,7 @@ sub_0763.i:                                       ; preds = %975
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2359, ptr noundef nonnull @__func__.parse_hba_auth_opt) #13
   br label %1037
 
-1037:                                             ; preds = %1029, %.split777.us.i
+1037:                                             ; preds = %1029, %.split779.us.i
   %1038 = load ptr, ptr %3, align 8
   %.not697.i = icmp eq ptr %1038, null
   br i1 %.not697.i, label %1041, label %1039
@@ -3054,21 +3054,21 @@ sub_0763.i:                                       ; preds = %975
   call void @list_free(ptr noundef %1042) #13
   br label %.critedge728.i
 
-1043:                                             ; preds = %.lr.ph781.i
+1043:                                             ; preds = %.lr.ph784.i
   %1044 = load i32, ptr %519, align 4
   call void @pg_freeaddrinfo_all(i32 noundef %1044, ptr noundef nonnull %1026) #13
-  %indvars.iv.next796.i = add nuw nsw i64 %indvars.iv795.i, 1
+  %indvars.iv.next801.i = add nuw nsw i64 %indvars.iv800.i, 1
   %1045 = load i32, ptr %1017, align 4
   %1046 = sext i32 %1045 to i64
-  %1047 = icmp slt i64 %indvars.iv.next796.i, %1046
-  br i1 %1047, label %.lr.ph781.i, label %.critedge.loopexit.i
+  %1047 = icmp slt i64 %indvars.iv.next801.i, %1046
+  br i1 %1047, label %.lr.ph784.i, label %.critedge.loopexit.i
 
 .critedge.loopexit.i:                             ; preds = %1043
-  %.pre798.i = load ptr, ptr %5, align 8
+  %.pre803.i = load ptr, ptr %5, align 8
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.critedge.loopexit.i, %.lr.ph774.i, %1015
-  %1048 = phi ptr [ %.pre798.i, %.critedge.loopexit.i ], [ %1016, %.lr.ph774.i ], [ null, %1015 ]
+.critedge.i:                                      ; preds = %.critedge.loopexit.i, %.lr.ph776.i, %1015
+  %1048 = phi ptr [ %.pre803.i, %.critedge.loopexit.i ], [ %1016, %.lr.ph776.i ], [ null, %1015 ]
   store ptr %1048, ptr %520, align 8
   %1049 = call ptr @pstrdup(ptr noundef nonnull %574) #13
   store ptr %1049, ptr %521, align 8

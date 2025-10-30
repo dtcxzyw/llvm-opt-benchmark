@@ -1394,13 +1394,13 @@ define hidden i32 @avifRWStreamWrite(ptr noundef captures(none) %0, ptr noundef 
   %.val = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %0, i64 8
   %.val14 = load i64, ptr %5, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %7 = load i64, ptr %6, align 8
-  %8 = add i64 %.val14, %2
-  %reass.sub = tail call i64 @llvm.usub.sat.i64(i64 %8, i64 %7)
+  %6 = add i64 %.val14, %2
+  %7 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %8 = load i64, ptr %7, align 8
+  %reass.sub = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 %8)
   %9 = add i64 %reass.sub, 1048575
   %10 = and i64 %9, -1048576
-  %11 = add i64 %10, %7
+  %11 = add i64 %10, %8
   %12 = tail call i32 @avifRWDataRealloc(ptr noundef %.val, i64 noundef %11) #11
   %.not13 = icmp eq i32 %12, 0
   br i1 %.not13, label %13, label %20
@@ -1430,13 +1430,13 @@ define hidden i32 @avifRWStreamWriteChars(ptr noundef captures(none) %0, ptr nou
   %.val.i = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %0, i64 8
   %.val14.i = load i64, ptr %5, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %7 = load i64, ptr %6, align 8
-  %8 = add i64 %.val14.i, %2
-  %reass.sub.i = tail call i64 @llvm.usub.sat.i64(i64 %8, i64 %7)
+  %6 = add i64 %.val14.i, %2
+  %7 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %8 = load i64, ptr %7, align 8
+  %reass.sub.i = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 %8)
   %9 = add i64 %reass.sub.i, 1048575
   %10 = and i64 %9, -1048576
-  %11 = add i64 %10, %7
+  %11 = add i64 %10, %8
   %12 = tail call i32 @avifRWDataRealloc(ptr noundef %.val.i, i64 noundef %11) #11
   %.not13.i = icmp eq i32 %12, 0
   br i1 %.not13.i, label %13, label %avifRWStreamWrite.exit
@@ -1631,13 +1631,13 @@ define hidden i32 @avifRWStreamWriteU8(ptr noundef captures(none) %0, i8 noundef
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 8
   %.val8 = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %5 = load i64, ptr %4, align 8
-  %6 = add i64 %.val8, 1
-  %reass.sub = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 %5)
+  %4 = add i64 %.val8, 1
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %6 = load i64, ptr %5, align 8
+  %reass.sub = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 %6)
   %7 = add i64 %reass.sub, 1048575
   %8 = and i64 %7, -1048576
-  %9 = add i64 %8, %5
+  %9 = add i64 %8, %6
   %10 = tail call i32 @avifRWDataRealloc(ptr noundef %.val, i64 noundef %9) #11
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %18
@@ -1662,13 +1662,13 @@ define hidden i32 @avifRWStreamWriteU16(ptr noundef captures(none) %0, i16 nound
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 8
   %.val8 = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %5 = load i64, ptr %4, align 8
-  %6 = add i64 %.val8, 2
-  %reass.sub = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 %5)
+  %4 = add i64 %.val8, 2
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %6 = load i64, ptr %5, align 8
+  %reass.sub = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 %6)
   %7 = add i64 %reass.sub, 1048575
   %8 = and i64 %7, -1048576
-  %9 = add i64 %8, %5
+  %9 = add i64 %8, %6
   %10 = tail call i32 @avifRWDataRealloc(ptr noundef %.val, i64 noundef %9) #11
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %19
@@ -1696,13 +1696,13 @@ define hidden i32 @avifRWStreamWriteU32(ptr noundef captures(none) %0, i32 nound
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 8
   %.val8 = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %5 = load i64, ptr %4, align 8
-  %6 = add i64 %.val8, 4
-  %reass.sub = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 %5)
+  %4 = add i64 %.val8, 4
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %6 = load i64, ptr %5, align 8
+  %reass.sub = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 %6)
   %7 = add i64 %reass.sub, 1048575
   %8 = and i64 %7, -1048576
-  %9 = add i64 %8, %5
+  %9 = add i64 %8, %6
   %10 = tail call i32 @avifRWDataRealloc(ptr noundef %.val, i64 noundef %9) #11
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %19
@@ -1728,13 +1728,13 @@ define hidden i32 @avifRWStreamWriteU64(ptr noundef captures(none) %0, i64 nound
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 8
   %.val8 = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %5 = load i64, ptr %4, align 8
-  %6 = add i64 %.val8, 8
-  %reass.sub = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 %5)
+  %4 = add i64 %.val8, 8
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %6 = load i64, ptr %5, align 8
+  %reass.sub = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 %6)
   %7 = add i64 %reass.sub, 1048575
   %8 = and i64 %7, -1048576
-  %9 = add i64 %8, %5
+  %9 = add i64 %8, %6
   %10 = tail call i32 @avifRWDataRealloc(ptr noundef %.val, i64 noundef %9) #11
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %19
@@ -1762,13 +1762,13 @@ define hidden i32 @avifRWStreamWriteZeros(ptr noundef captures(none) %0, i64 nou
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 8
   %.val10 = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %5 = load i64, ptr %4, align 8
-  %6 = add i64 %.val10, %1
-  %reass.sub = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 %5)
+  %4 = add i64 %.val10, %1
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %6 = load i64, ptr %5, align 8
+  %reass.sub = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 %6)
   %7 = add i64 %reass.sub, 1048575
   %8 = and i64 %7, -1048576
-  %9 = add i64 %8, %5
+  %9 = add i64 %8, %6
   %10 = tail call i32 @avifRWDataRealloc(ptr noundef %.val, i64 noundef %9) #11
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %18
@@ -1808,13 +1808,13 @@ define hidden i32 @avifRWStreamWriteBits(ptr noundef captures(none) %0, i32 noun
 
 9:                                                ; preds = %6
   %.val = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %11 = load i64, ptr %10, align 8
-  %12 = add i64 %.pre35, 1
-  %reass.sub = tail call i64 @llvm.usub.sat.i64(i64 %12, i64 %11)
+  %10 = add i64 %.pre35, 1
+  %11 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %12 = load i64, ptr %11, align 8
+  %reass.sub = tail call i64 @llvm.usub.sat.i64(i64 %10, i64 %12)
   %13 = add i64 %reass.sub, 1048575
   %14 = and i64 %13, -1048576
-  %15 = add i64 %14, %11
+  %15 = add i64 %14, %12
   %16 = tail call i32 @avifRWDataRealloc(ptr noundef %.val, i64 noundef %15) #11
   %.not29 = icmp eq i32 %16, 0
   br i1 %.not29, label %17, label %._crit_edge
@@ -1894,13 +1894,13 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 
 10:                                               ; preds = %7
   %.val.i = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %12 = load i64, ptr %11, align 8
-  %13 = add i64 %.pre35.i, 1
-  %reass.sub.i = tail call i64 @llvm.usub.sat.i64(i64 %13, i64 %12)
+  %11 = add i64 %.pre35.i, 1
+  %12 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %13 = load i64, ptr %12, align 8
+  %reass.sub.i = tail call i64 @llvm.usub.sat.i64(i64 %11, i64 %13)
   %14 = add i64 %reass.sub.i, 1048575
   %15 = and i64 %14, -1048576
-  %16 = add i64 %15, %12
+  %16 = add i64 %15, %13
   %17 = tail call i32 @avifRWDataRealloc(ptr noundef %.val.i, i64 noundef %16) #11
   %.not29.i = icmp eq i32 %17, 0
   br i1 %.not29.i, label %18, label %avifRWStreamWriteBits.exit
@@ -1977,13 +1977,13 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 
 62:                                               ; preds = %59
   %.val.i98 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %.val.i98, i64 8
-  %64 = load i64, ptr %63, align 8
-  %65 = add i64 %.pre35.i93, 1
-  %reass.sub.i99 = tail call i64 @llvm.usub.sat.i64(i64 %65, i64 %64)
+  %63 = add i64 %.pre35.i93, 1
+  %64 = getelementptr inbounds nuw i8, ptr %.val.i98, i64 8
+  %65 = load i64, ptr %64, align 8
+  %reass.sub.i99 = tail call i64 @llvm.usub.sat.i64(i64 %63, i64 %65)
   %66 = add i64 %reass.sub.i99, 1048575
   %67 = and i64 %66, -1048576
-  %68 = add i64 %67, %64
+  %68 = add i64 %67, %65
   %69 = tail call i32 @avifRWDataRealloc(ptr noundef %.val.i98, i64 noundef %68) #11
   %.not29.i100 = icmp eq i32 %69, 0
   br i1 %.not29.i100, label %70, label %avifRWStreamWriteBits.exit
@@ -2051,13 +2051,13 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 
 107:                                              ; preds = %104
   %.val.i110 = load ptr, ptr %0, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %.val.i110, i64 8
-  %109 = load i64, ptr %108, align 8
-  %110 = add i64 %.pre35.i105, 1
-  %reass.sub.i111 = tail call i64 @llvm.usub.sat.i64(i64 %110, i64 %109)
+  %108 = add i64 %.pre35.i105, 1
+  %109 = getelementptr inbounds nuw i8, ptr %.val.i110, i64 8
+  %110 = load i64, ptr %109, align 8
+  %reass.sub.i111 = tail call i64 @llvm.usub.sat.i64(i64 %108, i64 %110)
   %111 = add i64 %reass.sub.i111, 1048575
   %112 = and i64 %111, -1048576
-  %113 = add i64 %112, %109
+  %113 = add i64 %112, %110
   %114 = tail call i32 @avifRWDataRealloc(ptr noundef %.val.i110, i64 noundef %113) #11
   %.not29.i112 = icmp eq i32 %114, 0
   br i1 %.not29.i112, label %115, label %avifRWStreamWriteBits.exit
@@ -2131,13 +2131,13 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 
 156:                                              ; preds = %153
   %.val.i122 = load ptr, ptr %0, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %.val.i122, i64 8
-  %158 = load i64, ptr %157, align 8
-  %159 = add i64 %.pre35.i117, 1
-  %reass.sub.i123 = tail call i64 @llvm.usub.sat.i64(i64 %159, i64 %158)
+  %157 = add i64 %.pre35.i117, 1
+  %158 = getelementptr inbounds nuw i8, ptr %.val.i122, i64 8
+  %159 = load i64, ptr %158, align 8
+  %reass.sub.i123 = tail call i64 @llvm.usub.sat.i64(i64 %157, i64 %159)
   %160 = add i64 %reass.sub.i123, 1048575
   %161 = and i64 %160, -1048576
-  %162 = add i64 %161, %158
+  %162 = add i64 %161, %159
   %163 = tail call i32 @avifRWDataRealloc(ptr noundef %.val.i122, i64 noundef %162) #11
   %.not29.i124 = icmp eq i32 %163, 0
   br i1 %.not29.i124, label %164, label %avifRWStreamWriteBits.exit
@@ -2206,13 +2206,13 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 
 202:                                              ; preds = %199
   %.val.i134 = load ptr, ptr %0, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %.val.i134, i64 8
-  %204 = load i64, ptr %203, align 8
-  %205 = add i64 %.pre35.i129, 1
-  %reass.sub.i135 = tail call i64 @llvm.usub.sat.i64(i64 %205, i64 %204)
+  %203 = add i64 %.pre35.i129, 1
+  %204 = getelementptr inbounds nuw i8, ptr %.val.i134, i64 8
+  %205 = load i64, ptr %204, align 8
+  %reass.sub.i135 = tail call i64 @llvm.usub.sat.i64(i64 %203, i64 %205)
   %206 = add i64 %reass.sub.i135, 1048575
   %207 = and i64 %206, -1048576
-  %208 = add i64 %207, %204
+  %208 = add i64 %207, %205
   %209 = tail call i32 @avifRWDataRealloc(ptr noundef %.val.i134, i64 noundef %208) #11
   %.not29.i136 = icmp eq i32 %209, 0
   br i1 %.not29.i136, label %210, label %avifRWStreamWriteBits.exit
@@ -2289,13 +2289,13 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 
 252:                                              ; preds = %.preheader
   %.val.i146 = load ptr, ptr %0, align 8
-  %253 = getelementptr inbounds nuw i8, ptr %.val.i146, i64 8
-  %254 = load i64, ptr %253, align 8
-  %255 = add i64 %.pre35.i141, 1
-  %reass.sub.i147 = tail call i64 @llvm.usub.sat.i64(i64 %255, i64 %254)
+  %253 = add i64 %.pre35.i141, 1
+  %254 = getelementptr inbounds nuw i8, ptr %.val.i146, i64 8
+  %255 = load i64, ptr %254, align 8
+  %reass.sub.i147 = tail call i64 @llvm.usub.sat.i64(i64 %253, i64 %255)
   %256 = add i64 %reass.sub.i147, 1048575
   %257 = and i64 %256, -1048576
-  %258 = add i64 %257, %254
+  %258 = add i64 %257, %255
   %259 = tail call i32 @avifRWDataRealloc(ptr noundef %.val.i146, i64 noundef %258) #11
   %.not29.i148 = icmp eq i32 %259, 0
   br i1 %.not29.i148, label %260, label %avifRWStreamWriteBits.exit
@@ -2363,13 +2363,13 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 
 297:                                              ; preds = %294
   %.val.i158 = load ptr, ptr %0, align 8
-  %298 = getelementptr inbounds nuw i8, ptr %.val.i158, i64 8
-  %299 = load i64, ptr %298, align 8
-  %300 = add i64 %.pre35.i153, 1
-  %reass.sub.i159 = tail call i64 @llvm.usub.sat.i64(i64 %300, i64 %299)
+  %298 = add i64 %.pre35.i153, 1
+  %299 = getelementptr inbounds nuw i8, ptr %.val.i158, i64 8
+  %300 = load i64, ptr %299, align 8
+  %reass.sub.i159 = tail call i64 @llvm.usub.sat.i64(i64 %298, i64 %300)
   %301 = add i64 %reass.sub.i159, 1048575
   %302 = and i64 %301, -1048576
-  %303 = add i64 %302, %299
+  %303 = add i64 %302, %300
   %304 = tail call i32 @avifRWDataRealloc(ptr noundef %.val.i158, i64 noundef %303) #11
   %.not29.i160 = icmp eq i32 %304, 0
   br i1 %.not29.i160, label %305, label %avifRWStreamWriteBits.exit
@@ -2446,13 +2446,13 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 
 347:                                              ; preds = %.preheader307
   %.val.i170 = load ptr, ptr %0, align 8
-  %348 = getelementptr inbounds nuw i8, ptr %.val.i170, i64 8
-  %349 = load i64, ptr %348, align 8
-  %350 = add i64 %.pre35.i165, 1
-  %reass.sub.i171 = tail call i64 @llvm.usub.sat.i64(i64 %350, i64 %349)
+  %348 = add i64 %.pre35.i165, 1
+  %349 = getelementptr inbounds nuw i8, ptr %.val.i170, i64 8
+  %350 = load i64, ptr %349, align 8
+  %reass.sub.i171 = tail call i64 @llvm.usub.sat.i64(i64 %348, i64 %350)
   %351 = add i64 %reass.sub.i171, 1048575
   %352 = and i64 %351, -1048576
-  %353 = add i64 %352, %349
+  %353 = add i64 %352, %350
   %354 = tail call i32 @avifRWDataRealloc(ptr noundef %.val.i170, i64 noundef %353) #11
   %.not29.i172 = icmp eq i32 %354, 0
   br i1 %.not29.i172, label %355, label %avifRWStreamWriteBits.exit
@@ -2520,13 +2520,13 @@ define hidden i32 @avifRWStreamWriteVarInt(ptr noundef %0, i32 noundef %1) local
 
 392:                                              ; preds = %389
   %.val.i182 = load ptr, ptr %0, align 8
-  %393 = getelementptr inbounds nuw i8, ptr %.val.i182, i64 8
-  %394 = load i64, ptr %393, align 8
-  %395 = add i64 %.pre35.i177, 1
-  %reass.sub.i183 = tail call i64 @llvm.usub.sat.i64(i64 %395, i64 %394)
+  %393 = add i64 %.pre35.i177, 1
+  %394 = getelementptr inbounds nuw i8, ptr %.val.i182, i64 8
+  %395 = load i64, ptr %394, align 8
+  %reass.sub.i183 = tail call i64 @llvm.usub.sat.i64(i64 %393, i64 %395)
   %396 = add i64 %reass.sub.i183, 1048575
   %397 = and i64 %396, -1048576
-  %398 = add i64 %397, %394
+  %398 = add i64 %397, %395
   %399 = tail call i32 @avifRWDataRealloc(ptr noundef %.val.i182, i64 noundef %398) #11
   %.not29.i184 = icmp eq i32 %399, 0
   br i1 %.not29.i184, label %400, label %avifRWStreamWriteBits.exit

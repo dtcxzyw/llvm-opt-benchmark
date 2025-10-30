@@ -1021,11 +1021,11 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %12
 .noexc42:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %15 = shl nuw nsw i64 %13, 2
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #31
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %15
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %16, i8 0, i64 %15, i1 false), !tbaa !21
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %13
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %15
-  %19 = ptrtoint ptr %18 to i64
-  %20 = ptrtoint ptr %17 to i64
+  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %13
+  %19 = ptrtoint ptr %17 to i64
+  %20 = ptrtoint ptr %18 to i64
   br label %.lr.ph75.preheader
 
 .lr.ph75.preheader:                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %.noexc42

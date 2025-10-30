@@ -868,50 +868,50 @@ define hidden void @_ZNK7nanogui10GridLayout14compute_layoutEP10NVGcontextPKNS_6
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %"struct.nanogui::Array", align 4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %10 = load i32, ptr %9, align 4
-  %11 = add nsw i32 %10, 1
-  %12 = srem i32 %11, 2
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %13, align 8
-  %17 = ptrtoint ptr %15 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %20 = ashr exact i64 %19, 3
-  %.not7077 = icmp eq ptr %16, %15
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %9, align 8
+  %.not7077 = icmp eq ptr %12, %11
   br i1 %.not7077, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.05079 = phi i64 [ %26, %.lr.ph ], [ 0, %4 ]
-  %.sroa.067.078 = phi ptr [ %27, %.lr.ph ], [ %16, %4 ]
-  %21 = load ptr, ptr %.sroa.067.078, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
-  %23 = load i8, ptr %22, align 8
-  %24 = and i8 %23, 1
-  %25 = zext nneg i8 %24 to i64
-  %26 = add i64 %.05079, %25
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.067.078, i64 8
-  %.not70 = icmp eq ptr %27, %15
+  %.05079 = phi i64 [ %18, %.lr.ph ], [ 0, %4 ]
+  %.sroa.067.078 = phi ptr [ %19, %.lr.ph ], [ %12, %4 ]
+  %13 = load ptr, ptr %.sroa.067.078, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  %15 = load i8, ptr %14, align 8
+  %16 = and i8 %15, 1
+  %17 = zext nneg i8 %16 to i64
+  %18 = add i64 %.05079, %17
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.067.078, i64 8
+  %.not70 = icmp eq ptr %19, %11
   br i1 %.not70, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %28 = add i64 %26, -1
+  %20 = add i64 %18, -1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.050.lcssa = phi i64 [ -1, %4 ], [ %28, %._crit_edge.loopexit ]
+  %.050.lcssa = phi i64 [ -1, %4 ], [ %20, %._crit_edge.loopexit ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %22 = load i32, ptr %21, align 4
+  %23 = add nsw i32 %22, 1
+  %24 = srem i32 %23, 2
+  %25 = ptrtoint ptr %11 to i64
+  %26 = ptrtoint ptr %12 to i64
+  %27 = sub i64 %25, %26
+  %28 = ashr exact i64 %27, 3
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load i32, ptr %29, align 8
-  %31 = sext i32 %10 to i64
+  %31 = sext i32 %22 to i64
   %32 = getelementptr inbounds i32, ptr %5, i64 %31
   store i32 %30, ptr %32, align 4
   %33 = sext i32 %30 to i64
   %34 = add i64 %.050.lcssa, %33
   %35 = udiv i64 %34, %33
   %36 = trunc i64 %35 to i32
-  %37 = sext i32 %12 to i64
+  %37 = sext i32 %24 to i64
   %38 = getelementptr inbounds i32, ptr %5, i64 %37
   store i32 %36, ptr %38, align 4
   %39 = getelementptr inbounds %"class.std::vector.5", ptr %3, i64 %31
@@ -1020,12 +1020,12 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit58:          ; preds = %71, %73, %75, %77
 
 84:                                               ; preds = %.preheader.us, %85
   %.2.us = phi i64 [ %86, %85 ], [ %.180.us, %.preheader.us ]
-  %.not.us = icmp ult i64 %.2.us, %20
+  %.not.us = icmp ult i64 %.2.us, %28
   br i1 %.not.us, label %85, label %.loopexit
 
 85:                                               ; preds = %84
   %86 = add nuw i64 %.2.us, 1
-  %87 = load ptr, ptr %13, align 8
+  %87 = load ptr, ptr %9, align 8
   %88 = getelementptr inbounds ptr, ptr %87, i64 %.2.us
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 88
@@ -1248,16 +1248,16 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %21
   %83 = sub nsw i32 %80, %.098.lcssa
   %84 = load i32, ptr %indvars.iv182.sroa.phi, align 4
   %85 = sdiv i32 %83, %84
-  %86 = mul nsw i32 %85, %84
   %.recomposed = srem i32 %83, %84
-  %87 = icmp sgt i32 %84, 0
-  br i1 %87, label %.lr.ph157.preheader, label %.critedge
+  %86 = icmp sgt i32 %84, 0
+  br i1 %86, label %.lr.ph157.preheader, label %.critedge
 
 .lr.ph157.preheader:                              ; preds = %82
   %wide.trip.count = zext nneg i32 %84 to i64
   br label %.lr.ph157
 
 .preheader148:                                    ; preds = %.lr.ph157
+  %87 = mul nsw i32 %85, %84
   %88 = icmp sgt i32 %.recomposed, 0
   br i1 %88, label %.lr.ph161.preheader, label %.critedge
 

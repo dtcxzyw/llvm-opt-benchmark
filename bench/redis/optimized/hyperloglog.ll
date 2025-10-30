@@ -59,31 +59,31 @@ define dso_local i64 @MurmurHash64A(ptr noundef readonly captures(address) %0, i
   %5 = sext i32 %1 to i64
   %6 = mul i64 %5, -4132994306676758123
   %7 = xor i64 %6, %4
-  %8 = and i32 %1, 7
-  %9 = and i32 %1, -8
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr i8, ptr %0, i64 %10
-  %.not39 = icmp eq i32 %9, 0
+  %8 = and i32 %1, -8
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr i8, ptr %0, i64 %9
+  %.not39 = icmp eq i32 %8, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.041 = phi i64 [ %18, %.lr.ph ], [ %7, %3 ]
-  %.03840 = phi ptr [ %19, %.lr.ph ], [ %0, %3 ]
-  %12 = load i64, ptr %.03840, align 8, !tbaa !5
-  %13 = mul i64 %12, -4132994306676758123
-  %14 = lshr i64 %13, 47
-  %15 = xor i64 %14, %13
-  %16 = mul i64 %15, -4132994306676758123
-  %17 = xor i64 %16, %.041
-  %18 = mul i64 %17, -4132994306676758123
-  %19 = getelementptr inbounds nuw i8, ptr %.03840, i64 8
-  %.not = icmp eq ptr %19, %11
+  %.041 = phi i64 [ %17, %.lr.ph ], [ %7, %3 ]
+  %.03840 = phi ptr [ %18, %.lr.ph ], [ %0, %3 ]
+  %11 = load i64, ptr %.03840, align 8, !tbaa !5
+  %12 = mul i64 %11, -4132994306676758123
+  %13 = lshr i64 %12, 47
+  %14 = xor i64 %13, %12
+  %15 = mul i64 %14, -4132994306676758123
+  %16 = xor i64 %15, %.041
+  %17 = mul i64 %16, -4132994306676758123
+  %18 = getelementptr inbounds nuw i8, ptr %.03840, i64 8
+  %.not = icmp eq ptr %18, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.038.lcssa = phi ptr [ %0, %3 ], [ %11, %.lr.ph ]
-  %.0.lcssa = phi i64 [ %7, %3 ], [ %18, %.lr.ph ]
-  switch i32 %8, label %default.unreachable44 [
+  %.038.lcssa = phi ptr [ %0, %3 ], [ %10, %.lr.ph ]
+  %.0.lcssa = phi i64 [ %7, %3 ], [ %17, %.lr.ph ]
+  %19 = and i32 %1, 7
+  switch i32 %19, label %default.unreachable44 [
     i32 7, label %20
     i32 6, label %26
     i32 5, label %32
@@ -175,31 +175,31 @@ define dso_local range(i32 1, 52) i32 @hllPatLen(ptr noundef readonly captures(a
   %5 = ashr exact i64 %sext, 32
   %6 = mul i64 %5, -4132994306676758123
   %7 = xor i64 %6, 2915580697
-  %8 = and i32 %4, 7
-  %9 = and i32 %4, -8
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr i8, ptr %0, i64 %10
-  %.not39.i = icmp eq i32 %9, 0
+  %8 = and i32 %4, -8
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr i8, ptr %0, i64 %9
+  %.not39.i = icmp eq i32 %8, 0
   br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.041.i = phi i64 [ %18, %.lr.ph.i ], [ %7, %3 ]
-  %.03840.i = phi ptr [ %19, %.lr.ph.i ], [ %0, %3 ]
-  %12 = load i64, ptr %.03840.i, align 8, !tbaa !5
-  %13 = mul i64 %12, -4132994306676758123
-  %14 = lshr i64 %13, 47
-  %15 = xor i64 %14, %13
-  %16 = mul i64 %15, -4132994306676758123
-  %17 = xor i64 %16, %.041.i
-  %18 = mul i64 %17, -4132994306676758123
-  %19 = getelementptr inbounds nuw i8, ptr %.03840.i, i64 8
-  %.not.i = icmp eq ptr %19, %11
+  %.041.i = phi i64 [ %17, %.lr.ph.i ], [ %7, %3 ]
+  %.03840.i = phi ptr [ %18, %.lr.ph.i ], [ %0, %3 ]
+  %11 = load i64, ptr %.03840.i, align 8, !tbaa !5
+  %12 = mul i64 %11, -4132994306676758123
+  %13 = lshr i64 %12, 47
+  %14 = xor i64 %13, %12
+  %15 = mul i64 %14, -4132994306676758123
+  %16 = xor i64 %15, %.041.i
+  %17 = mul i64 %16, -4132994306676758123
+  %18 = getelementptr inbounds nuw i8, ptr %.03840.i, i64 8
+  %.not.i = icmp eq ptr %18, %10
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %3
-  %.038.lcssa.i = phi ptr [ %0, %3 ], [ %11, %.lr.ph.i ]
-  %.0.lcssa.i = phi i64 [ %7, %3 ], [ %18, %.lr.ph.i ]
-  switch i32 %8, label %default.unreachable [
+  %.038.lcssa.i = phi ptr [ %0, %3 ], [ %10, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ %7, %3 ], [ %17, %.lr.ph.i ]
+  %19 = and i32 %4, 7
+  switch i32 %19, label %default.unreachable [
     i32 7, label %20
     i32 6, label %26
     i32 5, label %32

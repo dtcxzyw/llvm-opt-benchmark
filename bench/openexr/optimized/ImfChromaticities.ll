@@ -718,7 +718,6 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %.loopexit ]
   %61 = getelementptr inbounds nuw [4 x float], ptr %4, i64 %indvars.iv146
   %62 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv146
-  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %invariant.gep = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv146
   %63 = trunc nuw nsw i64 %indvars.iv146 to i32
   %64 = load float, ptr %62, align 4, !tbaa !18
@@ -745,6 +744,7 @@ define linkonce_odr hidden void @_ZNK9Imath_3_28Matrix44IfE9gjInverseEv(ptr dead
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %72 = fcmp une float %.299, 0.000000e+00
   br i1 %72, label %79, label %.thread
 

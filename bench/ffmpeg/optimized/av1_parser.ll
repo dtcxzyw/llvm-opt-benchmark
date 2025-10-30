@@ -101,21 +101,21 @@ define internal noundef i32 @av1_parser_parse(ptr noundef captures(none) initial
   br label %165
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 575
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %38 = load i32, ptr %37, align 8, !tbaa !51
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph, label %._crit_edge
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %37 = load i32, ptr %36, align 8, !tbaa !51
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %41 = load ptr, ptr %40, align 8, !tbaa !52
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %wide.trip.count = zext nneg i32 %38 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %40 = load ptr, ptr %39, align 8, !tbaa !52
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 316
+  %wide.trip.count = zext nneg i32 %37 to i64
   br label %46
 
 ._crit_edge:                                      ; preds = %78, %35
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 575
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 68
   %45 = load i32, ptr %44, align 4, !tbaa !53
   switch i32 %45, label %98 [
@@ -126,7 +126,7 @@ define internal noundef i32 @av1_parser_parse(ptr noundef captures(none) initial
 
 46:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %47 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %41, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %40, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8, !tbaa !54
   %50 = load i32, ptr %47, align 8, !tbaa !56
@@ -158,12 +158,12 @@ define internal noundef i32 @av1_parser_parse(ptr noundef captures(none) initial
   %61 = load i16, ptr %60, align 2, !tbaa !65
   %62 = zext i16 %61 to i32
   %63 = add nuw nsw i32 %62, 1
-  store i32 %63, ptr %42, align 8, !tbaa !66
+  store i32 %63, ptr %41, align 8, !tbaa !66
   %64 = getelementptr inbounds nuw i8, ptr %49, i64 176
   %65 = load i16, ptr %64, align 4, !tbaa !67
   %66 = zext i16 %65 to i32
   %67 = add nuw nsw i32 %66, 1
-  store i32 %67, ptr %43, align 4, !tbaa !68
+  store i32 %67, ptr %42, align 4, !tbaa !68
   %68 = getelementptr inbounds nuw i8, ptr %49, i64 28
   %69 = load i8, ptr %68, align 4, !tbaa !69
   %70 = icmp eq i8 %69, 0
@@ -270,7 +270,7 @@ switch.lookup:                                    ; preds = %73
   br i1 %115, label %116, label %126
 
 116:                                              ; preds = %112
-  %117 = load i8, ptr %36, align 1, !tbaa !80
+  %117 = load i8, ptr %43, align 1, !tbaa !80
   %118 = zext i8 %117 to i64
   %119 = getelementptr inbounds nuw i8, ptr %33, i64 576
   %120 = load i8, ptr %119, align 1, !tbaa !81

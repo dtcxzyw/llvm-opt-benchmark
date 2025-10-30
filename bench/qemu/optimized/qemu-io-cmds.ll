@@ -1625,7 +1625,6 @@ define internal fastcc void @dump_buffer(ptr noundef readonly captures(none) %0,
   %indvars.iv45 = phi i64 [ %4, %.lr.ph39.preheader ], [ %indvars.iv.next46, %.critedge2 ]
   %.02338 = phi ptr [ %0, %.lr.ph39.preheader ], [ %11, %.critedge2 ]
   %.02637 = phi i64 [ 0, %.lr.ph39.preheader ], [ %32, %.critedge2 ]
-  %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv45, i64 15)
   %5 = add i64 %.02637, %1
   %6 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.34, i64 noundef %5) #26
   br label %7
@@ -1645,6 +1644,7 @@ define internal fastcc void @dump_buffer(ptr noundef readonly captures(none) %0,
   br i1 %or.cond, label %7, label %.lr.ph, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %7
+  %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv45, i64 15)
   %15 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.4) #26
   %16 = tail call ptr @__ctype_b_loc() #29
   br label %17

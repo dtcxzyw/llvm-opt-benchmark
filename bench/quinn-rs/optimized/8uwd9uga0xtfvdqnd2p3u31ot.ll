@@ -805,23 +805,12 @@ define { i64, ptr } @_ZN9quinn_udp3imp14UdpSocketState4recv17ha083ed936ae1c98dE(
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.637.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.623.i.i)
-  %.sroa.051.0.copyload.i.i = load i16, ptr %37, align 8, !alias.scope !17, !noalias !20
-  %.sroa.452.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 2
-  %.sroa.452.0.copyload.i.i = load i16, ptr %.sroa.452.0..sroa_idx.i.i, align 2, !alias.scope !17, !noalias !20
-  %.sroa.553.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %.sroa.553.0.copyload.i.i = load i32, ptr %.sroa.553.0..sroa_idx.i.i, align 4, !alias.scope !17, !noalias !20
-  %.sroa.654.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %.sroa.654.0.copyload.i.i = load i16, ptr %.sroa.654.0..sroa_idx.i.i, align 8, !alias.scope !17, !noalias !20
-  %.sroa.755.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 10
-  %.sroa.755.0.copyload.i.i = load i16, ptr %.sroa.755.0..sroa_idx.i.i, align 2, !alias.scope !17, !noalias !20
   %.sroa.856.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 12
-  %.sroa.957.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %.sroa.957.0.copyload.i.i = load i32, ptr %.sroa.957.0..sroa_idx.i.i, align 8, !alias.scope !17, !noalias !20
-  %42 = call noundef ptr @"_ZN9quinn_udp4cmsg3imp96_$LT$impl$u20$quinn_udp..cmsg..MsgHdr$u20$for$u20$libc..unix..linux_like..linux..gnu..msghdr$GT$14cmsg_first_hdr17hd76d41448d78bb29E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %38), !noalias !23
-  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !24
-  store ptr %38, ptr %9, align 8, !noalias !24
-  store ptr %42, ptr %27, align 8, !noalias !24
-  %43 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN89_$LT$quinn_udp..cmsg..Iter$LT$M$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa70d0c21e12fa7fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !23
+  %42 = call noundef ptr @"_ZN9quinn_udp4cmsg3imp96_$LT$impl$u20$quinn_udp..cmsg..MsgHdr$u20$for$u20$libc..unix..linux_like..linux..gnu..msghdr$GT$14cmsg_first_hdr17hd76d41448d78bb29E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %38), !noalias !20
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !22
+  store ptr %38, ptr %9, align 8, !noalias !22
+  store ptr %42, ptr %27, align 8, !noalias !22
+  %43 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN89_$LT$quinn_udp..cmsg..Iter$LT$M$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa70d0c21e12fa7fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !20
   %.not61.i.i = icmp eq ptr %43, null
   br i1 %.not61.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -832,9 +821,9 @@ define { i64, ptr } @_ZN9quinn_udp3imp14UdpSocketState4recv17ha083ed936ae1c98dE(
   %.sroa.034.063.i.i = phi i8 [ %.sroa.034.1.i.i, %54 ], [ 0, %36 ]
   %.sroa.020.062.i.i = phi i64 [ %.sroa.020.1.i.i, %54 ], [ %41, %36 ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load i32, ptr %45, align 8, !noalias !23, !noundef !5
+  %46 = load i32, ptr %45, align 8, !noalias !20, !noundef !5
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %48 = load i32, ptr %47, align 4, !noalias !23, !noundef !5
+  %48 = load i32, ptr %47, align 4, !noalias !20, !noundef !5
   switch i32 %46, label %54 [
     i32 0, label %56
     i32 41, label %57
@@ -846,14 +835,25 @@ define { i64, ptr } @_ZN9quinn_udp3imp14UdpSocketState4recv17ha083ed936ae1c98dE(
   %.sroa.034.0.lcssa.i.i = phi i8 [ 0, %36 ], [ %.sroa.034.1.i.i, %54 ]
   %.sroa.035.0.lcssa.i.i = phi i8 [ 2, %36 ], [ %.sroa.035.1.i.i, %54 ]
   %.sroa.436.0.lcssa.i.i = phi i32 [ undef, %36 ], [ %.sroa.436.1.i.i, %54 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !24
+  %.sroa.051.0.copyload.i.i = load i16, ptr %37, align 8, !alias.scope !17, !noalias !24
+  %.sroa.452.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 2
+  %.sroa.452.0.copyload.i.i = load i16, ptr %.sroa.452.0..sroa_idx.i.i, align 2, !alias.scope !17, !noalias !24
+  %.sroa.553.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %.sroa.553.0.copyload.i.i = load i32, ptr %.sroa.553.0..sroa_idx.i.i, align 4, !alias.scope !17, !noalias !24
+  %.sroa.654.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %.sroa.654.0.copyload.i.i = load i16, ptr %.sroa.654.0..sroa_idx.i.i, align 8, !alias.scope !17, !noalias !24
+  %.sroa.755.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 10
+  %.sroa.755.0.copyload.i.i = load i16, ptr %.sroa.755.0..sroa_idx.i.i, align 2, !alias.scope !17, !noalias !24
+  %.sroa.957.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %.sroa.957.0.copyload.i.i = load i32, ptr %.sroa.957.0..sroa_idx.i.i, align 8, !alias.scope !17, !noalias !24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !22
   switch i16 %.sroa.051.0.copyload.i.i, label %49 [
     i16 2, label %50
     i16 10, label %52
   ], !prof !25
 
 49:                                               ; preds = %._crit_edge.i.i
-  call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.3b32b8fd91e47b7024bed3f1642a2f1c.0, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3b32b8fd91e47b7024bed3f1642a2f1c.45) #19, !noalias !23
+  call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.3b32b8fd91e47b7024bed3f1642a2f1c.0, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3b32b8fd91e47b7024bed3f1642a2f1c.45) #19, !noalias !20
   unreachable
 
 50:                                               ; preds = %._crit_edge.i.i
@@ -861,7 +861,7 @@ define { i64, ptr } @_ZN9quinn_udp3imp14UdpSocketState4recv17ha083ed936ae1c98dE(
   br label %_ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E.exit.i
 
 52:                                               ; preds = %._crit_edge.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.623.i.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %.sroa.856.0..sroa_idx.i.i, i64 12, i1 false), !noalias !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.623.i.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %.sroa.856.0..sroa_idx.i.i, i64 12, i1 false), !noalias !24
   %53 = call i16 @llvm.bswap.i16(i16 %.sroa.452.0.copyload.i.i)
   %.sroa.3.2.insert.ext.i.i = zext i16 %.sroa.654.0.copyload.i.i to i32
   %.sroa.3.2.insert.shift.i.i = shl nuw i32 %.sroa.3.2.insert.ext.i.i, 16
@@ -872,7 +872,7 @@ define { i64, ptr } @_ZN9quinn_udp3imp14UdpSocketState4recv17ha083ed936ae1c98dE(
   %.sroa.034.1.i.i = phi i8 [ %.sroa.034.063.i.i, %.lr.ph.i.i ], [ %.sroa.034.063.i.i, %56 ], [ %61, %60 ], [ %63, %62 ], [ %.sroa.034.063.i.i, %64 ], [ %.sroa.034.063.i.i, %57 ], [ %68, %66 ], [ %.sroa.034.063.i.i, %69 ], [ %.sroa.034.063.i.i, %70 ], [ %.sroa.034.063.i.i, %58 ]
   %.sroa.035.1.i.i = phi i8 [ %.sroa.035.064.i.i, %.lr.ph.i.i ], [ %.sroa.035.064.i.i, %56 ], [ %.sroa.035.064.i.i, %60 ], [ %.sroa.035.064.i.i, %62 ], [ 0, %64 ], [ %.sroa.035.064.i.i, %57 ], [ %.sroa.035.064.i.i, %66 ], [ 1, %69 ], [ %.sroa.035.064.i.i, %70 ], [ %.sroa.035.064.i.i, %58 ]
   %.sroa.436.1.i.i = phi i32 [ %.sroa.436.065.i.i, %.lr.ph.i.i ], [ %.sroa.436.065.i.i, %56 ], [ %.sroa.436.065.i.i, %60 ], [ %.sroa.436.065.i.i, %62 ], [ %65, %64 ], [ %.sroa.436.065.i.i, %57 ], [ %.sroa.436.065.i.i, %66 ], [ %.sroa.040.0.copyload.i.i, %69 ], [ %.sroa.436.065.i.i, %70 ], [ %.sroa.436.065.i.i, %58 ]
-  %55 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN89_$LT$quinn_udp..cmsg..Iter$LT$M$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa70d0c21e12fa7fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !23
+  %55 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN89_$LT$quinn_udp..cmsg..Iter$LT$M$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haa70d0c21e12fa7fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !20
   %.not.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -894,35 +894,35 @@ define { i64, ptr } @_ZN9quinn_udp3imp14UdpSocketState4recv17ha083ed936ae1c98dE(
   br i1 %59, label %70, label %54
 
 60:                                               ; preds = %56
-  %61 = call noundef i8 @_ZN9quinn_udp4cmsg6decode17h0b5f41f752f049bcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44), !noalias !23
+  %61 = call noundef i8 @_ZN9quinn_udp4cmsg6decode17h0b5f41f752f049bcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44), !noalias !20
   br label %54
 
 62:                                               ; preds = %56
-  %63 = call noundef i8 @_ZN9quinn_udp4cmsg6decode17h0b5f41f752f049bcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44), !noalias !23
+  %63 = call noundef i8 @_ZN9quinn_udp4cmsg6decode17h0b5f41f752f049bcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44), !noalias !20
   br label %54
 
 64:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !24
-  call void @_ZN9quinn_udp4cmsg6decode17hf220d803c1442a2aE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44), !noalias !23
-  %65 = load i32, ptr %28, align 4, !noalias !24, !noundef !5
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !22
+  call void @_ZN9quinn_udp4cmsg6decode17hf220d803c1442a2aE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44), !noalias !20
+  %65 = load i32, ptr %28, align 4, !noalias !22, !noundef !5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !22
   br label %54
 
 66:                                               ; preds = %57
-  %67 = call noundef i32 @_ZN9quinn_udp4cmsg6decode17h26a2fc76b9a73bb2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44), !noalias !23
+  %67 = call noundef i32 @_ZN9quinn_udp4cmsg6decode17h26a2fc76b9a73bb2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44), !noalias !20
   %68 = trunc i32 %67 to i8
   br label %54
 
 69:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !24
-  call void @_ZN9quinn_udp4cmsg6decode17h9be348fe03fff6bfE(ptr noalias noundef nonnull sret([20 x i8]) align 4 captures(none) dereferenceable(20) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44), !noalias !23
-  %.sroa.040.0.copyload.i.i = load i32, ptr %7, align 4, !noalias !24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.sroa.637.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.441.0..sroa_idx.i.i, i64 12, i1 false), !noalias !24
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !22
+  call void @_ZN9quinn_udp4cmsg6decode17h9be348fe03fff6bfE(ptr noalias noundef nonnull sret([20 x i8]) align 4 captures(none) dereferenceable(20) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44), !noalias !20
+  %.sroa.040.0.copyload.i.i = load i32, ptr %7, align 4, !noalias !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.sroa.637.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.441.0..sroa_idx.i.i, i64 12, i1 false), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !22
   br label %54
 
 70:                                               ; preds = %58
-  %71 = call noundef i32 @_ZN9quinn_udp4cmsg6decode17h26a2fc76b9a73bb2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44), !noalias !23
+  %71 = call noundef i32 @_ZN9quinn_udp4cmsg6decode17h26a2fc76b9a73bb2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44), !noalias !20
   %72 = sext i32 %71 to i64
   br label %54
 
@@ -933,7 +933,7 @@ _ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E.exit.i: ; preds = %52, %50
   %.sroa.725.0.i.i = phi i32 [ undef, %50 ], [ %.sroa.957.0.copyload.i.i, %52 ]
   %.sroa.826.0.i.i = phi i16 [ undef, %50 ], [ %53, %52 ]
   %.sroa.3.0.i.i = phi i32 [ %.sroa.553.0.copyload.i.i, %50 ], [ %.sroa.3.2.insert.shift.i.i, %52 ]
-  %73 = call noundef i8 @_ZN9quinn_udp12EcnCodepoint9from_bits17he259dda146ceb1d4E(i8 noundef %.sroa.034.0.lcssa.i.i), !noalias !23
+  %73 = call noundef i8 @_ZN9quinn_udp12EcnCodepoint9from_bits17he259dda146ceb1d4E(i8 noundef %.sroa.034.0.lcssa.i.i), !noalias !20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.623.i.i, i64 12, i1 false), !noalias !26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.sroa.14.i, ptr noundef nonnull align 1 dereferenceable(12) %.sroa.637.i.i, i64 12, i1 false), !noalias !26
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.637.i.i)
@@ -1827,13 +1827,13 @@ attributes #21 = { nounwind }
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E: argument 1"}
 !19 = distinct !{!19, !"_ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E"}
-!20 = !{!21, !22, !16, !13}
+!20 = !{!21, !18, !13}
 !21 = distinct !{!21, !19, !"_ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E: argument 0"}
-!22 = distinct !{!22, !19, !"_ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E: argument 2"}
-!23 = !{!21, !18, !13}
-!24 = !{!21, !18, !22, !16, !13}
+!22 = !{!21, !18, !23, !16, !13}
+!23 = distinct !{!23, !19, !"_ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E: argument 2"}
+!24 = !{!21, !23, !16, !13}
 !25 = !{!"branch_weights", i32 1, i32 2000, i32 2000}
-!26 = !{!18, !22, !16, !13}
+!26 = !{!18, !23, !16, !13}
 !27 = !{!16}
 !28 = !{!29}
 !29 = distinct !{!29, !30, !"_ZN9quinn_udp3imp12prepare_recv17h3d6e2e2c464c0f49E: argument 3"}

@@ -1070,40 +1070,40 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
 95:                                               ; preds = %78
   %96 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %99 = load i64, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %84, i64 40
-  %101 = load i64, ptr %100, align 8
-  %102 = and i64 %97, 1
-  %.not7181.i.i = icmp eq i64 %102, 0
+  %98 = and i64 %97, 1
+  %.not7181.i.i = icmp eq i64 %98, 0
   br i1 %.not7181.i.i, label %.lr.ph84.i.i, label %.preheader77.i.i
 
 .preheader77.i.i:                                 ; preds = %.lr.ph84.i.i, %95
-  %.066.lcssa.i.i = phi i64 [ %97, %95 ], [ %105, %.lr.ph84.i.i ]
-  %.063.lcssa.i.i = phi i32 [ 0, %95 ], [ %104, %.lr.ph84.i.i ]
-  %103 = and i64 %99, 1
-  %.not7286.i.i = icmp eq i64 %103, 0
+  %.066.lcssa.i.i = phi i64 [ %97, %95 ], [ %103, %.lr.ph84.i.i ]
+  %.063.lcssa.i.i = phi i32 [ 0, %95 ], [ %102, %.lr.ph84.i.i ]
+  %99 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  %100 = load i64, ptr %99, align 8
+  %101 = and i64 %100, 1
+  %.not7286.i.i = icmp eq i64 %101, 0
   br i1 %.not7286.i.i, label %.lr.ph89.i.i, label %.preheader.i.i
 
 .lr.ph84.i.i:                                     ; preds = %95, %.lr.ph84.i.i
-  %.06383.i.i = phi i32 [ %104, %.lr.ph84.i.i ], [ 0, %95 ]
-  %.06682.i.i = phi i64 [ %105, %.lr.ph84.i.i ], [ %97, %95 ]
-  %104 = add nuw nsw i32 %.06383.i.i, 1
-  %105 = lshr exact i64 %.06682.i.i, 1
-  %106 = and i64 %.06682.i.i, 2
-  %.not71.i.i = icmp eq i64 %106, 0
+  %.06383.i.i = phi i32 [ %102, %.lr.ph84.i.i ], [ 0, %95 ]
+  %.06682.i.i = phi i64 [ %103, %.lr.ph84.i.i ], [ %97, %95 ]
+  %102 = add nuw nsw i32 %.06383.i.i, 1
+  %103 = lshr exact i64 %.06682.i.i, 1
+  %104 = and i64 %.06682.i.i, 2
+  %.not71.i.i = icmp eq i64 %104, 0
   br i1 %.not71.i.i, label %.lr.ph84.i.i, label %.preheader77.i.i, !llvm.loop !23
 
 .preheader.i.i:                                   ; preds = %.lr.ph89.i.i, %.preheader77.i.i
-  %.065.lcssa.i.i = phi i64 [ %99, %.preheader77.i.i ], [ %109, %.lr.ph89.i.i ]
+  %.065.lcssa.i.i = phi i64 [ %100, %.preheader77.i.i ], [ %109, %.lr.ph89.i.i ]
   %.062.lcssa.i.i = phi i32 [ 0, %.preheader77.i.i ], [ %108, %.lr.ph89.i.i ]
-  %107 = and i64 %101, 1
+  %105 = getelementptr inbounds nuw i8, ptr %84, i64 40
+  %106 = load i64, ptr %105, align 8
+  %107 = and i64 %106, 1
   %.not7392.i.i = icmp eq i64 %107, 0
   br i1 %.not7392.i.i, label %.lr.ph95.i.i, label %._crit_edge.i.i
 
 .lr.ph89.i.i:                                     ; preds = %.preheader77.i.i, %.lr.ph89.i.i
   %.06288.i.i = phi i32 [ %108, %.lr.ph89.i.i ], [ 0, %.preheader77.i.i ]
-  %.06587.i.i = phi i64 [ %109, %.lr.ph89.i.i ], [ %99, %.preheader77.i.i ]
+  %.06587.i.i = phi i64 [ %109, %.lr.ph89.i.i ], [ %100, %.preheader77.i.i ]
   %108 = add nuw nsw i32 %.06288.i.i, 1
   %109 = lshr exact i64 %.06587.i.i, 1
   %110 = and i64 %.06587.i.i, 2
@@ -1112,7 +1112,7 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
 
 .lr.ph95.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph95.i.i
   %.06194.i.i = phi i32 [ %111, %.lr.ph95.i.i ], [ 0, %.preheader.i.i ]
-  %.06493.i.i = phi i64 [ %112, %.lr.ph95.i.i ], [ %101, %.preheader.i.i ]
+  %.06493.i.i = phi i64 [ %112, %.lr.ph95.i.i ], [ %106, %.preheader.i.i ]
   %111 = add nuw nsw i32 %.06194.i.i, 1
   %112 = lshr exact i64 %.06493.i.i, 1
   %113 = and i64 %.06493.i.i, 2
@@ -1120,7 +1120,7 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
   br i1 %.not73.i.i, label %.lr.ph95.i.i, label %._crit_edge.i.i, !llvm.loop !25
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph95.i.i, %.preheader.i.i
-  %.064.lcssa.i.i = phi i64 [ %101, %.preheader.i.i ], [ %112, %.lr.ph95.i.i ]
+  %.064.lcssa.i.i = phi i64 [ %106, %.preheader.i.i ], [ %112, %.lr.ph95.i.i ]
   %.061.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %111, %.lr.ph95.i.i ]
   %.not101.i.i = icmp eq i32 %86, 0
   br i1 %.not101.i.i, label %QueryColorMap.exit.i, label %.lr.ph100.i.i

@@ -15607,29 +15607,29 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_12IRSimilarity17IRInstructionDataEE8Alloca
   %125 = or disjoint i64 %124, %123
   store i64 %125, ptr %115, align 8
   %126 = load ptr, ptr %1, align 8, !tbaa !56
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !139
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  %130 = load ptr, ptr %129, align 8, !tbaa !99
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %132 = load ptr, ptr %131, align 8, !tbaa !138
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %132, align 8
-  %133 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %134 = inttoptr i64 %133 to ptr
-  %.0.copyload.i.i.i.i.i.i.i99 = load i64, ptr %128, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
+  %128 = load ptr, ptr %127, align 8, !tbaa !99
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  %130 = load ptr, ptr %129, align 8, !tbaa !138
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %130, align 8
+  %131 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
+  %132 = inttoptr i64 %131 to ptr
+  %133 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %134 = load ptr, ptr %133, align 8, !tbaa !139
+  %.0.copyload.i.i.i.i.i.i.i99 = load i64, ptr %134, align 8
   %135 = and i64 %.0.copyload.i.i.i.i.i.i.i99, -8
   %136 = inttoptr i64 %135 to ptr
-  %.0.copyload.i.i.i.i8.i.i.i = load i64, ptr %134, align 8
+  %.0.copyload.i.i.i.i8.i.i.i = load i64, ptr %132, align 8
   %137 = and i64 %.0.copyload.i.i.i.i8.i.i.i, -8
   %138 = inttoptr i64 %137 to ptr
   %139 = and i64 %.0.copyload.i.i.i.i8.i.i.i, 7
   %140 = or disjoint i64 %139, %135
-  store i64 %140, ptr %134, align 8
+  store i64 %140, ptr %132, align 8
   %141 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store ptr %134, ptr %141, align 8, !tbaa !138
-  %.0.copyload.i.i.i.i10.i.i.i100 = load i64, ptr %128, align 8
+  store ptr %132, ptr %141, align 8, !tbaa !138
+  %.0.copyload.i.i.i.i10.i.i.i100 = load i64, ptr %134, align 8
   %142 = and i64 %.0.copyload.i.i.i.i10.i.i.i100, 7
-  store i64 %142, ptr %128, align 8
+  store i64 %142, ptr %134, align 8
   %143 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store ptr null, ptr %143, align 8, !tbaa !138
   %144 = getelementptr inbounds nuw i8, ptr %34, i64 48

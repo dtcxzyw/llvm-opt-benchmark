@@ -2557,7 +2557,7 @@ zend_worklist_push.exit191:                       ; preds = %90, %82
 
 .outer:                                           ; preds = %.outer.backedge, %.preheader233
   %.0171.ph = phi i32 [ 8, %.preheader233 ], [ %.2173, %.outer.backedge ]
-  %.3167.ph = phi i32 [ %.0164274, %.preheader233 ], [ %135, %.outer.backedge ]
+  %.3167.ph = phi i32 [ %.0164274, %.preheader233 ], [ %142, %.outer.backedge ]
   %122 = zext i32 %.3167.ph to i64
   br label %123
 
@@ -2579,19 +2579,19 @@ zend_worklist_push.exit191:                       ; preds = %90, %82
   br i1 %134, label %123, label %.lr.ph280
 
 .lr.ph280:                                        ; preds = %126
-  %135 = trunc i64 %127 to i32
-  %136 = load ptr, ptr %105, align 8, !tbaa !95
-  %137 = getelementptr inbounds nuw i8, ptr %131, i64 28
-  %138 = getelementptr inbounds nuw i8, ptr %131, i64 32
-  %139 = getelementptr inbounds nuw i8, ptr %131, i64 40
-  %140 = getelementptr inbounds i32, ptr %32, i64 %130
-  %141 = getelementptr inbounds i32, ptr %35, i64 %130
-  %142 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %.pre323 = load i32, ptr %137, align 4, !tbaa !96
-  %.pre324 = load i32, ptr %138, align 8, !tbaa !98
+  %135 = load ptr, ptr %105, align 8, !tbaa !95
+  %136 = getelementptr inbounds nuw i8, ptr %131, i64 28
+  %137 = getelementptr inbounds nuw i8, ptr %131, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %131, i64 40
+  %139 = getelementptr inbounds i32, ptr %32, i64 %130
+  %140 = getelementptr inbounds i32, ptr %35, i64 %130
+  %141 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %.pre323 = load i32, ptr %136, align 4, !tbaa !96
+  %.pre324 = load i32, ptr %137, align 8, !tbaa !98
   br label %143
 
 .preheader:                                       ; preds = %zend_worklist_push.exit193
+  %142 = trunc i64 %127 to i32
   %.not181288 = icmp eq i32 %.sroa.19.7, 0
   br i1 %.not181288, label %.outer.backedge, label %.lr.ph290
 
@@ -2604,13 +2604,13 @@ zend_worklist_push.exit191:                       ; preds = %90, %82
   %.sroa.19.6277 = phi i32 [ 0, %.lr.ph280 ], [ %.sroa.19.7, %zend_worklist_push.exit193 ]
   %144 = add nsw i32 %.pre323, %.3279
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds i32, ptr %136, i64 %145
+  %146 = getelementptr inbounds i32, ptr %135, i64 %145
   %147 = load i32, ptr %146, align 4, !tbaa !34
   %148 = icmp eq i32 %.pre324, %147
   br i1 %148, label %zend_worklist_push.exit193, label %149
 
 149:                                              ; preds = %143
-  %150 = load i32, ptr %139, align 8, !tbaa !97
+  %150 = load i32, ptr %138, align 8, !tbaa !97
   %151 = sext i32 %147 to i64
   %152 = getelementptr inbounds %struct._zend_basic_block, ptr %4, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 40
@@ -2636,9 +2636,9 @@ dominates.exit:                                   ; preds = %.lr.ph.i, %149
   br i1 %165, label %166, label %194
 
 166:                                              ; preds = %dominates.exit
-  %167 = load i32, ptr %142, align 8, !tbaa !13
+  %167 = load i32, ptr %141, align 8, !tbaa !13
   %168 = or i32 %167, 65536
-  store i32 %168, ptr %142, align 8, !tbaa !13
+  store i32 %168, ptr %141, align 8, !tbaa !13
   %169 = and i32 %.1172278, -9
   %.not183 = icmp eq i32 %.sroa.19.6277, 0
   br i1 %.not183, label %170, label %171
@@ -2683,21 +2683,21 @@ dominates.exit:                                   ; preds = %.lr.ph.i, %149
 194:                                              ; preds = %dominates.exit
   %195 = getelementptr inbounds i32, ptr %32, i64 %151
   %196 = load i32, ptr %195, align 4, !tbaa !34
-  %197 = load i32, ptr %140, align 4, !tbaa !34
+  %197 = load i32, ptr %139, align 4, !tbaa !34
   %198 = icmp sgt i32 %196, %197
   br i1 %198, label %199, label %zend_worklist_push.exit193
 
 199:                                              ; preds = %194
   %200 = getelementptr inbounds i32, ptr %35, i64 %151
   %201 = load i32, ptr %200, align 4, !tbaa !34
-  %202 = load i32, ptr %141, align 4, !tbaa !34
+  %202 = load i32, ptr %140, align 4, !tbaa !34
   %203 = icmp slt i32 %201, %202
   br i1 %203, label %204, label %zend_worklist_push.exit193
 
 204:                                              ; preds = %199
-  %205 = load i32, ptr %142, align 8, !tbaa !13
+  %205 = load i32, ptr %141, align 8, !tbaa !13
   %206 = or i32 %205, 131072
-  store i32 %206, ptr %142, align 8, !tbaa !13
+  store i32 %206, ptr %141, align 8, !tbaa !13
   %207 = and i32 %.1172278, -25
   %208 = or disjoint i32 %207, 16
   br label %zend_worklist_push.exit193

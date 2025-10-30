@@ -3893,9 +3893,9 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorImSaImE
   %add.ptr.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i4, i64 %sub.ptr.div.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %offsets, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i4, i64 %mul.i.i.i.i.i.i
   %2 = and i64 %mul.i.i.i.i.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i4, i8 0, i64 %2, i1 false)
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i4, i64 %mul.i.i.i.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i
@@ -14131,8 +14131,8 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.end.i.i.i.i.i.i.
   %add.ptr.i.i.i540 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i544, i64 %conv.i349
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %nestedOffsets.i, i64 16
   store ptr %add.ptr.i.i.i540, ptr %_M_end_of_storage.i.i.i, align 8, !noalias !415
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i544, i8 0, i64 %mul.i.i.i.i.i.i, i1 false), !noalias !415
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i544, i64 %mul.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i544, i8 0, i64 %mul.i.i.i.i.i.i, i1 false), !noalias !415
   br label %invoke.cont12.i
 
 invoke.cont12.i:                                  ; preds = %call5.i.i.i.i2.i.i.noexc, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i
@@ -19200,15 +19200,15 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 64
-  br i1 %cmp, label %for.body.lr.ph.i, label %if.else
+  br i1 %cmp, label %for.body.i.preheader, label %if.else
 
-for.body.lr.ph.i:                                 ; preds = %entry
+for.body.i.preheader:                             ; preds = %entry
   %scevgep = getelementptr i8, ptr %__first.coerce, i64 4
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %__i.sroa.0.012.i.idx = phi i64 [ 4, %for.body.lr.ph.i ], [ %__i.sroa.0.012.i.add, %for.inc.i ]
-  %__first.coerce.pn11.i = phi ptr [ %__first.coerce, %for.body.lr.ph.i ], [ %__i.sroa.0.012.i.ptr, %for.inc.i ]
+for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
+  %__i.sroa.0.012.i.idx = phi i64 [ %__i.sroa.0.012.i.add, %for.inc.i ], [ 4, %for.body.i.preheader ]
+  %__first.coerce.pn11.i = phi ptr [ %__i.sroa.0.012.i.ptr, %for.inc.i ], [ %__first.coerce, %for.body.i.preheader ]
   %__i.sroa.0.012.i.ptr = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 %__i.sroa.0.012.i.idx
   %0 = load i32, ptr %__i.sroa.0.012.i.ptr, align 4
   %1 = load i32, ptr %__first.coerce, align 4

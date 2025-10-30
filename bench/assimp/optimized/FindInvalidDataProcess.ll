@@ -358,8 +358,8 @@ define void @_ZN6Assimp22FindInvalidDataProcess7ExecuteEP7aiScene(ptr noundef no
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %13, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %12, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %12, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
   br label %.lr.ph
 
 16:                                               ; preds = %2

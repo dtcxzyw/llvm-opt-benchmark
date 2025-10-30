@@ -5309,12 +5309,12 @@ define i64 @ZSTD_compressBlock_doubleFast_dictMatchState(ptr noundef readonly ca
 68:                                               ; preds = %67
   %69 = zext nneg i32 %57 to i64
   %70 = shl i64 4, %69
-  %71 = zext nneg i32 %59 to i64
-  %72 = shl i64 4, %71
   %.not250.i = icmp ugt i32 %57, 61
   br i1 %.not250.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %68
+  %71 = zext nneg i32 %59 to i64
+  %72 = shl i64 4, %71
   %.not251.i = icmp ugt i32 %59, 61
   br i1 %.not251.i, label %.loopexit.i, label %.lr.ph184.i
 
@@ -6415,12 +6415,12 @@ ZSTD_compressBlock_doubleFast_dictMatchState_generic.exit.loopexit.i: ; preds = 
 623:                                              ; preds = %622
   %624 = zext nneg i32 %57 to i64
   %625 = shl i64 4, %624
-  %626 = zext nneg i32 %59 to i64
-  %627 = shl i64 4, %626
   %.not250.i28 = icmp ugt i32 %57, 61
   br i1 %.not250.i28, label %.preheader.i31, label %.lr.ph.i29
 
 .preheader.i31:                                   ; preds = %.lr.ph.i29, %623
+  %626 = zext nneg i32 %59 to i64
+  %627 = shl i64 4, %626
   %.not251.i32 = icmp ugt i32 %59, 61
   br i1 %.not251.i32, label %.loopexit.i35, label %.lr.ph184.i33
 
@@ -7516,12 +7516,12 @@ ZSTD_compressBlock_doubleFast_dictMatchState_generic.exit.loopexit.i58: ; preds 
 1175:                                             ; preds = %1174
   %1176 = zext nneg i32 %57 to i64
   %1177 = shl i64 4, %1176
-  %1178 = zext nneg i32 %59 to i64
-  %1179 = shl i64 4, %1178
   %.not250.i269 = icmp ugt i32 %57, 61
   br i1 %.not250.i269, label %.preheader.i272, label %.lr.ph.i270
 
 .preheader.i272:                                  ; preds = %.lr.ph.i270, %1175
+  %1178 = zext nneg i32 %59 to i64
+  %1179 = shl i64 4, %1178
   %.not251.i273 = icmp ugt i32 %59, 61
   br i1 %.not251.i273, label %.loopexit.i276, label %.lr.ph184.i274
 
@@ -8617,12 +8617,12 @@ ZSTD_compressBlock_doubleFast_dictMatchState_generic.exit.loopexit.i300: ; preds
 1727:                                             ; preds = %1726
   %1728 = zext nneg i32 %57 to i64
   %1729 = shl i64 4, %1728
-  %1730 = zext nneg i32 %59 to i64
-  %1731 = shl i64 4, %1730
   %.not250.i515 = icmp ugt i32 %57, 61
   br i1 %.not250.i515, label %.preheader.i518, label %.lr.ph.i516
 
 .preheader.i518:                                  ; preds = %.lr.ph.i516, %1727
+  %1730 = zext nneg i32 %59 to i64
+  %1731 = shl i64 4, %1730
   %.not251.i519 = icmp ugt i32 %59, 61
   br i1 %.not251.i519, label %.loopexit.i522, label %.lr.ph184.i520
 

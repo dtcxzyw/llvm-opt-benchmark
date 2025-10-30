@@ -41002,137 +41002,137 @@ _ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit59: ; pre
   br i1 %exitcond.not.i62, label %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit63, label %192
 
 _ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit63: ; preds = %192
-  %206 = getelementptr inbounds nuw i8, ptr %5, i64 1792
-  %207 = load i64, ptr %206, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5090)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5093)
-  br label %208
+  br label %206
 
-208:                                              ; preds = %208, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit63
-  %.sroa.0.09.i64 = phi i1 [ false, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit63 ], [ %220, %208 ]
-  %.sroa.02.08.i65 = phi i64 [ 0, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit63 ], [ %221, %208 ]
-  %209 = getelementptr inbounds nuw i16, ptr @anon.0de5ee8f4a9046f07397637c35d34c13.423, i64 %.sroa.02.08.i65
-  %210 = load i16, ptr %209, align 2, !range !2504, !alias.scope !5093, !noalias !5090, !noundef !3
-  %211 = and i16 %210, 63
-  %212 = zext nneg i16 %211 to i64
-  %213 = shl nuw i64 1, %212
-  %214 = lshr i16 %210, 6
-  %215 = zext nneg i16 %214 to i64
-  %216 = getelementptr inbounds nuw i64, ptr %163, i64 %215
-  %217 = load i64, ptr %216, align 8, !alias.scope !5090, !noalias !5093, !noundef !3
-  %218 = and i64 %213, %217
-  %219 = icmp ne i64 %218, 0
-  %220 = or i1 %.sroa.0.09.i64, %219
-  %221 = add nuw nsw i64 %.sroa.02.08.i65, 1
-  %exitcond.not.i66 = icmp eq i64 %221, 2
-  br i1 %exitcond.not.i66, label %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit67, label %208
+206:                                              ; preds = %206, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit63
+  %.sroa.0.09.i64 = phi i1 [ false, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit63 ], [ %218, %206 ]
+  %.sroa.02.08.i65 = phi i64 [ 0, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit63 ], [ %219, %206 ]
+  %207 = getelementptr inbounds nuw i16, ptr @anon.0de5ee8f4a9046f07397637c35d34c13.423, i64 %.sroa.02.08.i65
+  %208 = load i16, ptr %207, align 2, !range !2504, !alias.scope !5093, !noalias !5090, !noundef !3
+  %209 = and i16 %208, 63
+  %210 = zext nneg i16 %209 to i64
+  %211 = shl nuw i64 1, %210
+  %212 = lshr i16 %208, 6
+  %213 = zext nneg i16 %212 to i64
+  %214 = getelementptr inbounds nuw i64, ptr %163, i64 %213
+  %215 = load i64, ptr %214, align 8, !alias.scope !5090, !noalias !5093, !noundef !3
+  %216 = and i64 %211, %215
+  %217 = icmp ne i64 %216, 0
+  %218 = or i1 %.sroa.0.09.i64, %217
+  %219 = add nuw nsw i64 %.sroa.02.08.i65, 1
+  %exitcond.not.i66 = icmp eq i64 %219, 2
+  br i1 %exitcond.not.i66, label %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit67, label %206
 
-_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit67: ; preds = %208
+_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit67: ; preds = %206
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5095)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5098)
-  br label %222
+  br label %220
 
-222:                                              ; preds = %222, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit67
-  %.sroa.0.09.i68 = phi i1 [ false, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit67 ], [ %234, %222 ]
-  %.sroa.02.08.i69 = phi i64 [ 0, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit67 ], [ %235, %222 ]
-  %223 = getelementptr inbounds nuw i16, ptr @anon.0de5ee8f4a9046f07397637c35d34c13.424, i64 %.sroa.02.08.i69
-  %224 = load i16, ptr %223, align 2, !range !2504, !alias.scope !5098, !noalias !5095, !noundef !3
-  %225 = and i16 %224, 63
-  %226 = zext nneg i16 %225 to i64
-  %227 = shl nuw i64 1, %226
-  %228 = lshr i16 %224, 6
-  %229 = zext nneg i16 %228 to i64
-  %230 = getelementptr inbounds nuw i64, ptr %163, i64 %229
-  %231 = load i64, ptr %230, align 8, !alias.scope !5095, !noalias !5098, !noundef !3
-  %232 = and i64 %227, %231
-  %233 = icmp ne i64 %232, 0
-  %234 = or i1 %.sroa.0.09.i68, %233
-  %235 = add nuw nsw i64 %.sroa.02.08.i69, 1
-  %exitcond.not.i70 = icmp eq i64 %235, 3
-  br i1 %exitcond.not.i70, label %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit71, label %222
+220:                                              ; preds = %220, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit67
+  %.sroa.0.09.i68 = phi i1 [ false, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit67 ], [ %232, %220 ]
+  %.sroa.02.08.i69 = phi i64 [ 0, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit67 ], [ %233, %220 ]
+  %221 = getelementptr inbounds nuw i16, ptr @anon.0de5ee8f4a9046f07397637c35d34c13.424, i64 %.sroa.02.08.i69
+  %222 = load i16, ptr %221, align 2, !range !2504, !alias.scope !5098, !noalias !5095, !noundef !3
+  %223 = and i16 %222, 63
+  %224 = zext nneg i16 %223 to i64
+  %225 = shl nuw i64 1, %224
+  %226 = lshr i16 %222, 6
+  %227 = zext nneg i16 %226 to i64
+  %228 = getelementptr inbounds nuw i64, ptr %163, i64 %227
+  %229 = load i64, ptr %228, align 8, !alias.scope !5095, !noalias !5098, !noundef !3
+  %230 = and i64 %225, %229
+  %231 = icmp ne i64 %230, 0
+  %232 = or i1 %.sroa.0.09.i68, %231
+  %233 = add nuw nsw i64 %.sroa.02.08.i69, 1
+  %exitcond.not.i70 = icmp eq i64 %233, 3
+  br i1 %exitcond.not.i70, label %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit71, label %220
 
-_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit71: ; preds = %222
+_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit71: ; preds = %220
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5100)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5103)
-  br label %236
+  br label %234
 
-236:                                              ; preds = %236, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit71
-  %.sroa.0.09.i72 = phi i1 [ false, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit71 ], [ %248, %236 ]
-  %.sroa.02.08.i73 = phi i64 [ 0, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit71 ], [ %249, %236 ]
-  %237 = getelementptr inbounds nuw i16, ptr @anon.0de5ee8f4a9046f07397637c35d34c13.425, i64 %.sroa.02.08.i73
-  %238 = load i16, ptr %237, align 2, !range !2504, !alias.scope !5103, !noalias !5100, !noundef !3
-  %239 = and i16 %238, 63
-  %240 = zext nneg i16 %239 to i64
-  %241 = shl nuw i64 1, %240
-  %242 = lshr i16 %238, 6
-  %243 = zext nneg i16 %242 to i64
-  %244 = getelementptr inbounds nuw i64, ptr %163, i64 %243
-  %245 = load i64, ptr %244, align 8, !alias.scope !5100, !noalias !5103, !noundef !3
-  %246 = and i64 %241, %245
-  %247 = icmp ne i64 %246, 0
-  %248 = or i1 %.sroa.0.09.i72, %247
-  %249 = add nuw nsw i64 %.sroa.02.08.i73, 1
-  %exitcond.not.i74 = icmp eq i64 %249, 4
-  br i1 %exitcond.not.i74, label %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit75, label %236
+234:                                              ; preds = %234, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit71
+  %.sroa.0.09.i72 = phi i1 [ false, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit71 ], [ %246, %234 ]
+  %.sroa.02.08.i73 = phi i64 [ 0, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit71 ], [ %247, %234 ]
+  %235 = getelementptr inbounds nuw i16, ptr @anon.0de5ee8f4a9046f07397637c35d34c13.425, i64 %.sroa.02.08.i73
+  %236 = load i16, ptr %235, align 2, !range !2504, !alias.scope !5103, !noalias !5100, !noundef !3
+  %237 = and i16 %236, 63
+  %238 = zext nneg i16 %237 to i64
+  %239 = shl nuw i64 1, %238
+  %240 = lshr i16 %236, 6
+  %241 = zext nneg i16 %240 to i64
+  %242 = getelementptr inbounds nuw i64, ptr %163, i64 %241
+  %243 = load i64, ptr %242, align 8, !alias.scope !5100, !noalias !5103, !noundef !3
+  %244 = and i64 %239, %243
+  %245 = icmp ne i64 %244, 0
+  %246 = or i1 %.sroa.0.09.i72, %245
+  %247 = add nuw nsw i64 %.sroa.02.08.i73, 1
+  %exitcond.not.i74 = icmp eq i64 %247, 4
+  br i1 %exitcond.not.i74, label %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit75, label %234
 
-_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit75: ; preds = %236
+_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit75: ; preds = %234
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5105)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5108)
-  br label %250
+  br label %248
 
-250:                                              ; preds = %250, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit75
-  %.sroa.0.09.i76 = phi i1 [ false, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit75 ], [ %262, %250 ]
-  %.sroa.02.08.i77 = phi i64 [ 0, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit75 ], [ %263, %250 ]
-  %251 = getelementptr inbounds nuw i16, ptr @anon.0de5ee8f4a9046f07397637c35d34c13.426, i64 %.sroa.02.08.i77
-  %252 = load i16, ptr %251, align 2, !range !2504, !alias.scope !5108, !noalias !5105, !noundef !3
-  %253 = and i16 %252, 63
-  %254 = zext nneg i16 %253 to i64
-  %255 = shl nuw i64 1, %254
-  %256 = lshr i16 %252, 6
-  %257 = zext nneg i16 %256 to i64
-  %258 = getelementptr inbounds nuw i64, ptr %163, i64 %257
-  %259 = load i64, ptr %258, align 8, !alias.scope !5105, !noalias !5108, !noundef !3
-  %260 = and i64 %255, %259
-  %261 = icmp ne i64 %260, 0
-  %262 = or i1 %.sroa.0.09.i76, %261
-  %263 = add nuw nsw i64 %.sroa.02.08.i77, 1
-  %exitcond.not.i78 = icmp eq i64 %263, 4
-  br i1 %exitcond.not.i78, label %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit79, label %250
+248:                                              ; preds = %248, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit75
+  %.sroa.0.09.i76 = phi i1 [ false, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit75 ], [ %260, %248 ]
+  %.sroa.02.08.i77 = phi i64 [ 0, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit75 ], [ %261, %248 ]
+  %249 = getelementptr inbounds nuw i16, ptr @anon.0de5ee8f4a9046f07397637c35d34c13.426, i64 %.sroa.02.08.i77
+  %250 = load i16, ptr %249, align 2, !range !2504, !alias.scope !5108, !noalias !5105, !noundef !3
+  %251 = and i16 %250, 63
+  %252 = zext nneg i16 %251 to i64
+  %253 = shl nuw i64 1, %252
+  %254 = lshr i16 %250, 6
+  %255 = zext nneg i16 %254 to i64
+  %256 = getelementptr inbounds nuw i64, ptr %163, i64 %255
+  %257 = load i64, ptr %256, align 8, !alias.scope !5105, !noalias !5108, !noundef !3
+  %258 = and i64 %253, %257
+  %259 = icmp ne i64 %258, 0
+  %260 = or i1 %.sroa.0.09.i76, %259
+  %261 = add nuw nsw i64 %.sroa.02.08.i77, 1
+  %exitcond.not.i78 = icmp eq i64 %261, 4
+  br i1 %exitcond.not.i78, label %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit79, label %248
 
-_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit79: ; preds = %250
-  %264 = getelementptr inbounds nuw i8, ptr %5, i64 1784
-  %265 = load i64, ptr %264, align 8, !noundef !3
+_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit79: ; preds = %248
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5110)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5113)
-  br label %266
+  br label %262
 
-266:                                              ; preds = %266, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit79
-  %.sroa.0.09.i80 = phi i1 [ false, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit79 ], [ %278, %266 ]
-  %.sroa.02.08.i81 = phi i64 [ 0, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit79 ], [ %279, %266 ]
-  %267 = getelementptr inbounds nuw i16, ptr @anon.0de5ee8f4a9046f07397637c35d34c13.427, i64 %.sroa.02.08.i81
-  %268 = load i16, ptr %267, align 2, !range !2504, !alias.scope !5113, !noalias !5110, !noundef !3
-  %269 = and i16 %268, 63
-  %270 = zext nneg i16 %269 to i64
-  %271 = shl nuw i64 1, %270
-  %272 = lshr i16 %268, 6
-  %273 = zext nneg i16 %272 to i64
-  %274 = getelementptr inbounds nuw i64, ptr %163, i64 %273
-  %275 = load i64, ptr %274, align 8, !alias.scope !5110, !noalias !5113, !noundef !3
-  %276 = and i64 %271, %275
-  %277 = icmp ne i64 %276, 0
-  %278 = or i1 %.sroa.0.09.i80, %277
-  %279 = add nuw nsw i64 %.sroa.02.08.i81, 1
-  %exitcond.not.i82 = icmp eq i64 %279, 7
-  br i1 %exitcond.not.i82, label %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit83, label %266
+262:                                              ; preds = %262, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit79
+  %.sroa.0.09.i80 = phi i1 [ false, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit79 ], [ %274, %262 ]
+  %.sroa.02.08.i81 = phi i64 [ 0, %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit79 ], [ %275, %262 ]
+  %263 = getelementptr inbounds nuw i16, ptr @anon.0de5ee8f4a9046f07397637c35d34c13.427, i64 %.sroa.02.08.i81
+  %264 = load i16, ptr %263, align 2, !range !2504, !alias.scope !5113, !noalias !5110, !noundef !3
+  %265 = and i16 %264, 63
+  %266 = zext nneg i16 %265 to i64
+  %267 = shl nuw i64 1, %266
+  %268 = lshr i16 %264, 6
+  %269 = zext nneg i16 %268 to i64
+  %270 = getelementptr inbounds nuw i64, ptr %163, i64 %269
+  %271 = load i64, ptr %270, align 8, !alias.scope !5110, !noalias !5113, !noundef !3
+  %272 = and i64 %267, %271
+  %273 = icmp ne i64 %272, 0
+  %274 = or i1 %.sroa.0.09.i80, %273
+  %275 = add nuw nsw i64 %.sroa.02.08.i81, 1
+  %exitcond.not.i82 = icmp eq i64 %275, 7
+  br i1 %exitcond.not.i82, label %_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit83, label %262
 
-_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit83: ; preds = %266
-  %280 = and i64 %207, 2
-  %.not22 = icmp eq i64 %280, 0
-  %281 = and i64 %207, 16384
-  %.not23 = icmp eq i64 %281, 0
-  %282 = and i64 %265, 72057594037927936
+_ZN11ruff_linter8registry8rule_set7RuleSet3any17h445d8ffa4edb2a3dE.exit83: ; preds = %262
+  %276 = getelementptr inbounds nuw i8, ptr %5, i64 1792
+  %277 = load i64, ptr %276, align 8, !noundef !3
+  %278 = and i64 %277, 2
+  %.not22 = icmp eq i64 %278, 0
+  %279 = and i64 %277, 16384
+  %.not23 = icmp eq i64 %279, 0
+  %280 = getelementptr inbounds nuw i8, ptr %5, i64 1784
+  %281 = load i64, ptr %280, align 8, !noundef !3
+  %282 = and i64 %281, 72057594037927936
   %.not24 = icmp eq i64 %282, 0
-  %283 = and i64 %207, 16777216
+  %283 = and i64 %277, 16777216
   %.not25 = icmp eq i64 %283, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %152)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5115)
@@ -44923,7 +44923,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules13logical_lines18missing_whitespace18mi
   %1369 = load i8, ptr %1368, align 4, !noundef !3
   %1370 = and i8 %1369, 4
   %.not28 = icmp ne i8 %1370, 0
-  %brmerge4.not = and i1 %220, %.not28
+  %brmerge4.not = and i1 %218, %.not28
   br i1 %brmerge4.not, label %1371, label %1557
 
 1371:                                             ; preds = %1367
@@ -45493,7 +45493,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules13logical_lines21space_around_operator1
   %.val40 = phi ptr [ %.val39, %1367 ], [ %.val40.pre, %_ZN11ruff_linter5rules11pycodestyle5rules13logical_lines21space_around_operator17space_after_comma17h571c4539da119b53E.exit ]
   %1559 = and i8 %1558, 7
   %.not29 = icmp ne i8 %1559, 0
-  %brmerge.not = and i1 %234, %.not29
+  %brmerge.not = and i1 %232, %.not29
   br i1 %brmerge.not, label %1560, label %1886
 
 1560:                                             ; preds = %1557
@@ -46667,7 +46667,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules13logical_lines21extraneous_whitespace2
   br i1 %.not, label %1953, label %1889
 
 1889:                                             ; preds = %1886
-  br i1 %248, label %1891, label %1890
+  br i1 %246, label %1891, label %1890
 
 1890:                                             ; preds = %._crit_edge3874, %1889
   %.val42.pre3868 = phi ptr [ %.val42.pre3868.pre, %._crit_edge3874 ], [ %.val41, %1889 ]
@@ -46889,7 +46889,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules13logical_lines32missing_whitespace_aft
   %1955 = load i8, ptr %1954, align 4, !noundef !3
   %1956 = and i8 %1955, 16
   %.not30 = icmp ne i8 %1956, 0
-  %brmerge7.not = and i1 %262, %.not30
+  %brmerge7.not = and i1 %260, %.not30
   br i1 %brmerge7.not, label %1957, label %1958
 
 1957:                                             ; preds = %1953
@@ -47113,7 +47113,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules13logical_lines32missing_whitespace_aft
 
 _ZN11ruff_linter8checkers13logical_lines13expand_indent17hd000cd9223ea35d0E.exit: ; preds = %2044, %.lr.ph.split.i, %2032, %.lr.ph.split.us.i, %.noexc296
   %.sroa.0.0.lcssa.i = phi i64 [ 0, %.noexc296 ], [ %.sroa.0.013.us.i, %.lr.ph.split.us.i ], [ %2025, %2032 ], [ %.sroa.0.013.i, %.lr.ph.split.i ], [ %.sroa.0.1.i293, %2044 ]
-  br i1 %278, label %2046, label %2060
+  br i1 %274, label %2046, label %2060
 
 2046:                                             ; preds = %_ZN11ruff_linter8checkers13logical_lines13expand_indent17hd000cd9223ea35d0E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %150)

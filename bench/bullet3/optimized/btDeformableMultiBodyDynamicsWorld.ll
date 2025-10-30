@@ -5430,23 +5430,23 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %3, %._crit_edge272,
 
 198:                                              ; preds = %191, %189
   %.1112 = phi float [ %197, %191 ], [ %.0111, %189 ]
-  %199 = getelementptr inbounds nuw i8, ptr %51, i64 128
-  %200 = load i32, ptr %199, align 8, !tbaa !406
-  br label %201
+  br label %199
 
-201:                                              ; preds = %198, %201
-  %indvars.iv278 = phi i64 [ 0, %198 ], [ %indvars.iv.next279, %201 ]
-  %.0110266 = phi i32 [ 0, %198 ], [ %206, %201 ]
-  %202 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv278
-  %203 = load ptr, ptr %202, align 8, !tbaa !374
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 128
-  %205 = load i32, ptr %204, align 8, !tbaa !406
-  %206 = or i32 %205, %.0110266
+199:                                              ; preds = %198, %199
+  %indvars.iv278 = phi i64 [ 0, %198 ], [ %indvars.iv.next279, %199 ]
+  %.0110266 = phi i32 [ 0, %198 ], [ %204, %199 ]
+  %200 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv278
+  %201 = load ptr, ptr %200, align 8, !tbaa !374
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 128
+  %203 = load i32, ptr %202, align 8, !tbaa !406
+  %204 = or i32 %203, %.0110266
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond281.not = icmp eq i64 %indvars.iv.next279, 3
-  br i1 %exitcond281.not, label %207, label %201, !llvm.loop !407
+  br i1 %exitcond281.not, label %205, label %199, !llvm.loop !407
 
-207:                                              ; preds = %201
+205:                                              ; preds = %199
+  %206 = getelementptr inbounds nuw i8, ptr %51, i64 128
+  %207 = load i32, ptr %206, align 8, !tbaa !406
   %208 = fmul float %76, %76
   %209 = tail call float @llvm.fmuladd.f32(float %66, float %66, float %208)
   %210 = tail call noundef float @llvm.fmuladd.f32(float %89, float %89, float %209)
@@ -5456,16 +5456,16 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %3, %._crit_edge272,
   %214 = fadd double %213, 1.000000e+00
   %215 = fdiv double %212, %214
   %216 = fptrunc double %215 to float
-  %217 = icmp sgt i32 %206, 0
-  %218 = icmp sgt i32 %200, 0
+  %217 = icmp sgt i32 %204, 0
+  %218 = icmp sgt i32 %207, 0
   %or.cond = select i1 %217, i1 true, i1 %218
   %219 = fmul float %216, 2.000000e+00
   %storemerge = select i1 %or.cond, float %219, float %216
-  %220 = icmp slt i32 %206, 1
+  %220 = icmp slt i32 %204, 1
   br i1 %220, label %.preheader258, label %.loopexit259
 
-.preheader258:                                    ; preds = %207, %.preheader258
-  %indvars.iv282 = phi i64 [ %indvars.iv.next283, %.preheader258 ], [ 0, %207 ]
+.preheader258:                                    ; preds = %205, %.preheader258
+  %indvars.iv282 = phi i64 [ %indvars.iv.next283, %.preheader258 ], [ 0, %205 ]
   %221 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv282
   %222 = load float, ptr %55, align 4, !tbaa !45
   %223 = load float, ptr %221, align 4, !tbaa !45
@@ -5499,8 +5499,8 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %3, %._crit_edge272,
   %exitcond285.not = icmp eq i64 %indvars.iv.next283, 3
   br i1 %exitcond285.not, label %.loopexit259, label %.preheader258, !llvm.loop !408
 
-.loopexit259:                                     ; preds = %.preheader258, %207
-  %247 = icmp slt i32 %200, 1
+.loopexit259:                                     ; preds = %.preheader258, %205
+  %247 = icmp slt i32 %207, 1
   br i1 %247, label %248, label %263
 
 248:                                              ; preds = %.loopexit259
@@ -11986,52 +11986,52 @@ tailrecurse:                                      ; preds = %101, %4
   %16 = icmp sgt i32 %15, -1
   br i1 %16, label %.split.us.us, label %tailrecurse.split
 
-.split.us.us:                                     ; preds = %tailrecurse, %22
-  %.030.us = phi i32 [ %.232.us, %22 ], [ %3, %tailrecurse ]
-  %.0.us = phi i32 [ %.2.us, %22 ], [ %.tr39, %tailrecurse ]
+.split.us.us:                                     ; preds = %tailrecurse, %23
+  %.030.us = phi i32 [ %.232.us, %23 ], [ %3, %tailrecurse ]
+  %.0.us = phi i32 [ %.2.us, %23 ], [ %.tr39, %tailrecurse ]
   %17 = sext i32 %.0.us to i64
   br label %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i.us.us
 
 18:                                               ; preds = %.split54.us.us
   %19 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv84
-  store ptr %41, ptr %37, align 8, !tbaa !423
-  store ptr %24, ptr %19, align 8, !tbaa !423
-  %20 = add nsw i32 %54, 1
-  %21 = add nsw i32 %55, -1
-  br label %22
+  %20 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv81
+  store ptr %41, ptr %20, align 8, !tbaa !423
+  store ptr %25, ptr %19, align 8, !tbaa !423
+  %21 = add nsw i32 %54, 1
+  %22 = add nsw i32 %55, -1
+  br label %23
 
-22:                                               ; preds = %.split54.us.us, %18
-  %.232.us = phi i32 [ %21, %18 ], [ %55, %.split54.us.us ]
-  %.2.us = phi i32 [ %20, %18 ], [ %54, %.split54.us.us ]
+23:                                               ; preds = %.split54.us.us, %18
+  %.232.us = phi i32 [ %22, %18 ], [ %55, %.split54.us.us ]
+  %.2.us = phi i32 [ %21, %18 ], [ %54, %.split54.us.us ]
   %.not35.us = icmp sgt i32 %.2.us, %.232.us
   br i1 %.not35.us, label %.split66.us, label %.split.us.us, !llvm.loop !555
 
 _Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i.us.us: ; preds = %_ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit.us.us, %.split.us.us
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %_ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit.us.us ], [ %17, %.split.us.us ]
-  %23 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv81
-  %24 = load ptr, ptr %23, align 8, !tbaa !423
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !488
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 228
-  %28 = load i32, ptr %27, align 4, !tbaa !492
-  %29 = icmp sgt i32 %28, -1
-  br i1 %29, label %_ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit.us.us, label %30
+  %24 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv81
+  %25 = load ptr, ptr %24, align 8, !tbaa !423
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %27 = load ptr, ptr %26, align 8, !tbaa !488
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 228
+  %29 = load i32, ptr %28, align 4, !tbaa !492
+  %30 = icmp sgt i32 %29, -1
+  br i1 %30, label %_ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit.us.us, label %31
 
-30:                                               ; preds = %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i.us.us
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %32 = load ptr, ptr %31, align 8, !tbaa !493
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 228
-  %34 = load i32, ptr %33, align 4, !tbaa !492
+31:                                               ; preds = %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i.us.us
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  %33 = load ptr, ptr %32, align 8, !tbaa !493
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 228
+  %35 = load i32, ptr %34, align 4, !tbaa !492
   br label %_ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit.us.us
 
-_ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit.us.us: ; preds = %30, %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i.us.us
-  %35 = phi i32 [ %34, %30 ], [ %28, %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i.us.us ]
-  %36 = icmp slt i32 %35, %15
+_ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit.us.us: ; preds = %31, %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i.us.us
+  %36 = phi i32 [ %35, %31 ], [ %29, %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i.us.us ]
+  %37 = icmp slt i32 %36, %15
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, 1
-  br i1 %36, label %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i.us.us, label %.preheader.split.us.us, !llvm.loop !556
+  br i1 %37, label %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i.us.us, label %.preheader.split.us.us, !llvm.loop !556
 
 .preheader.split.us.us:                           ; preds = %_ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit.us.us
-  %37 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv81
   %38 = sext i32 %.030.us to i64
   br label %39
 
@@ -12063,7 +12063,7 @@ _Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36.us.us: ; preds = %47,
   %54 = trunc nsw i64 %indvars.iv81 to i32
   %55 = trunc nsw i64 %indvars.iv84 to i32
   %.not.us = icmp sgt i64 %indvars.iv81, %indvars.iv84
-  br i1 %.not.us, label %22, label %18
+  br i1 %.not.us, label %23, label %18
 
 tailrecurse.split:                                ; preds = %tailrecurse
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -12103,57 +12103,57 @@ _ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit: ; pred
   br i1 %74, label %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i, label %.preheader.split, !llvm.loop !556
 
 .preheader.split:                                 ; preds = %_ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit
-  %75 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
-  %76 = sext i32 %.030 to i64
-  br label %77
+  %75 = sext i32 %.030 to i64
+  br label %76
 
-77:                                               ; preds = %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36, %.preheader.split
-  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36 ], [ %76, %.preheader.split ]
-  %78 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv78
-  %79 = load ptr, ptr %78, align 8, !tbaa !423
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  %81 = load ptr, ptr %80, align 8, !tbaa !488
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 228
-  %83 = load i32, ptr %82, align 4, !tbaa !492
-  %84 = icmp sgt i32 %83, -1
-  br i1 %84, label %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36, label %85
+76:                                               ; preds = %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36, %.preheader.split
+  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36 ], [ %75, %.preheader.split ]
+  %77 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv78
+  %78 = load ptr, ptr %77, align 8, !tbaa !423
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
+  %80 = load ptr, ptr %79, align 8, !tbaa !488
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 228
+  %82 = load i32, ptr %81, align 4, !tbaa !492
+  %83 = icmp sgt i32 %82, -1
+  br i1 %83, label %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36, label %84
 
-85:                                               ; preds = %77
-  %86 = getelementptr inbounds nuw i8, ptr %79, i64 48
-  %87 = load ptr, ptr %86, align 8, !tbaa !493
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 228
-  %89 = load i32, ptr %88, align 4, !tbaa !492
+84:                                               ; preds = %76
+  %85 = getelementptr inbounds nuw i8, ptr %78, i64 48
+  %86 = load ptr, ptr %85, align 8, !tbaa !493
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 228
+  %88 = load i32, ptr %87, align 4, !tbaa !492
   br label %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36
 
-_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36: ; preds = %85, %77
-  %90 = phi i32 [ %89, %85 ], [ %83, %77 ]
-  %91 = icmp slt i32 %59, %90
+_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36: ; preds = %84, %76
+  %89 = phi i32 [ %88, %84 ], [ %82, %76 ]
+  %90 = icmp slt i32 %59, %89
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, -1
-  br i1 %91, label %77, label %.split54, !llvm.loop !557
+  br i1 %90, label %76, label %.split54, !llvm.loop !557
 
 .split54:                                         ; preds = %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i36
-  %92 = trunc nsw i64 %indvars.iv to i32
-  %93 = trunc nsw i64 %indvars.iv78 to i32
+  %91 = trunc nsw i64 %indvars.iv to i32
+  %92 = trunc nsw i64 %indvars.iv78 to i32
   %.not = icmp sgt i64 %indvars.iv, %indvars.iv78
-  br i1 %.not, label %98, label %94
+  br i1 %.not, label %98, label %93
 
-94:                                               ; preds = %.split54
-  %95 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv78
-  store ptr %79, ptr %75, align 8, !tbaa !423
-  store ptr %62, ptr %95, align 8, !tbaa !423
-  %96 = add nsw i32 %92, 1
-  %97 = add nsw i32 %93, -1
+93:                                               ; preds = %.split54
+  %94 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv78
+  %95 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  store ptr %78, ptr %95, align 8, !tbaa !423
+  store ptr %62, ptr %94, align 8, !tbaa !423
+  %96 = add nsw i32 %91, 1
+  %97 = add nsw i32 %92, -1
   br label %98
 
-98:                                               ; preds = %.split54, %94
-  %.232 = phi i32 [ %97, %94 ], [ %93, %.split54 ]
-  %.2 = phi i32 [ %96, %94 ], [ %92, %.split54 ]
+98:                                               ; preds = %.split54, %93
+  %.232 = phi i32 [ %97, %93 ], [ %92, %.split54 ]
+  %.2 = phi i32 [ %96, %93 ], [ %91, %.split54 ]
   %.not35 = icmp sgt i32 %.2, %.232
   br i1 %.not35, label %.split66.us, label %.split, !llvm.loop !555
 
-.split66.us:                                      ; preds = %98, %22
-  %.us-phi67 = phi i32 [ %.232.us, %22 ], [ %.232, %98 ]
-  %.us-phi68 = phi i32 [ %.2.us, %22 ], [ %.2, %98 ]
+.split66.us:                                      ; preds = %98, %23
+  %.us-phi67 = phi i32 [ %.232.us, %23 ], [ %.232, %98 ]
+  %.us-phi68 = phi i32 [ %.2.us, %23 ], [ %.2, %98 ]
   %99 = icmp slt i32 %.tr39, %.us-phi67
   br i1 %99, label %100, label %101
 

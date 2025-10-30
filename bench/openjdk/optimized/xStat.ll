@@ -1115,60 +1115,60 @@ define hidden void @_ZNK12XStatSampler17collect_and_resetEv(ptr dead_on_unwind n
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre22 = load i64, ptr @_ZN10XStatValue5_baseE, align 8
   %.pre24 = load i32, ptr @_ZN10XStatValue11_cpu_offsetE, align 4
-  br label %8
+  br label %6
 
-8:                                                ; preds = %.lr.ph, %30
-  %9 = phi i32 [ %.pre24, %.lr.ph ], [ %31, %30 ]
-  %10 = phi i64 [ %.pre22, %.lr.ph ], [ %32, %30 ]
-  %11 = phi i64 [ 0, %.lr.ph ], [ %33, %30 ]
-  %12 = phi i64 [ 0, %.lr.ph ], [ %34, %30 ]
-  %.013 = phi i32 [ 0, %.lr.ph ], [ %36, %30 ]
-  %13 = phi i64 [ 0, %.lr.ph ], [ %35, %30 ]
-  %14 = mul i32 %9, %.013
-  %15 = zext i32 %14 to i64
-  %16 = add i64 %10, %15
-  %17 = load i32, ptr %5, align 4
-  %18 = zext i32 %17 to i64
-  %19 = add i64 %16, %18
-  %20 = inttoptr i64 %19 to ptr
-  %21 = load i64, ptr %20, align 8
-  %.not = icmp eq i64 %21, 0
-  br i1 %.not, label %30, label %22
+6:                                                ; preds = %.lr.ph, %28
+  %7 = phi i32 [ %.pre24, %.lr.ph ], [ %29, %28 ]
+  %8 = phi i64 [ %.pre22, %.lr.ph ], [ %30, %28 ]
+  %9 = phi i64 [ 0, %.lr.ph ], [ %31, %28 ]
+  %10 = phi i64 [ 0, %.lr.ph ], [ %32, %28 ]
+  %.013 = phi i32 [ 0, %.lr.ph ], [ %34, %28 ]
+  %11 = phi i64 [ 0, %.lr.ph ], [ %33, %28 ]
+  %12 = mul i32 %7, %.013
+  %13 = zext i32 %12 to i64
+  %14 = add i64 %8, %13
+  %15 = load i32, ptr %5, align 4
+  %16 = zext i32 %15 to i64
+  %17 = add i64 %14, %16
+  %18 = inttoptr i64 %17 to ptr
+  %19 = load i64, ptr %18, align 8
+  %.not = icmp eq i64 %19, 0
+  br i1 %.not, label %28, label %20
 
-22:                                               ; preds = %8
-  %23 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %20) #22, !srcloc !6
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
+20:                                               ; preds = %6
+  %21 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %18) #22, !srcloc !6
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %23 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %22) #22, !srcloc !6
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %25 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %24) #22, !srcloc !6
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %27 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %26) #22, !srcloc !6
-  %28 = add i64 %13, %23
-  %29 = add i64 %12, %25
-  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %11, i64 %27)
+  %26 = add i64 %11, %21
+  %27 = add i64 %10, %23
+  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %9, i64 %25)
   %.pre = load i64, ptr @_ZN10XStatValue5_baseE, align 8
   %.pre23 = load i32, ptr @_ZN10XStatValue11_cpu_offsetE, align 4
-  br label %30
+  br label %28
 
-30:                                               ; preds = %22, %8
-  %31 = phi i32 [ %.pre23, %22 ], [ %9, %8 ]
-  %32 = phi i64 [ %.pre, %22 ], [ %10, %8 ]
-  %33 = phi i64 [ %spec.store.select, %22 ], [ %11, %8 ]
-  %34 = phi i64 [ %29, %22 ], [ %12, %8 ]
-  %35 = phi i64 [ %28, %22 ], [ %13, %8 ]
-  %36 = add nuw i32 %.013, 1
-  %exitcond.not = icmp eq i32 %36, %4
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !7
+28:                                               ; preds = %20, %6
+  %29 = phi i32 [ %.pre23, %20 ], [ %7, %6 ]
+  %30 = phi i64 [ %.pre, %20 ], [ %8, %6 ]
+  %31 = phi i64 [ %spec.store.select, %20 ], [ %9, %6 ]
+  %32 = phi i64 [ %27, %20 ], [ %10, %6 ]
+  %33 = phi i64 [ %26, %20 ], [ %11, %6 ]
+  %34 = add nuw i32 %.013, 1
+  %exitcond.not = icmp eq i32 %34, %4
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %30
-  store i64 %34, ptr %6, align 8
-  store i64 %33, ptr %7, align 8
+._crit_edge:                                      ; preds = %28
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %32, ptr %35, align 8
+  store i64 %31, ptr %36, align 8
   br label %37
 
 37:                                               ; preds = %._crit_edge, %2
-  %.lcssa = phi i64 [ %35, %._crit_edge ], [ 0, %2 ]
+  %.lcssa = phi i64 [ %33, %._crit_edge ], [ 0, %2 ]
   store i64 %.lcssa, ptr %0, align 8
   ret void
 }

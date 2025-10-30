@@ -2433,29 +2433,29 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit19
   %.0120 = phi i32 [ %87, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit199 ], [ %377, %376 ]
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 344
   %383 = load i32, ptr %382, align 8, !tbaa !107
-  %384 = add i32 %.0120, -1
-  %385 = add i32 %384, %383
-  %386 = sdiv i32 %385, %383
-  %387 = icmp sgt i32 %86, 2
-  br i1 %387, label %.lr.ph284, label %.preheader273
+  %384 = icmp sgt i32 %86, 2
+  br i1 %384, label %.lr.ph284, label %.preheader273
 
 .lr.ph284:                                        ; preds = %380
-  %388 = getelementptr inbounds nuw i8, ptr %381, i64 40
-  %389 = load ptr, ptr %388, align 8, !tbaa !17
-  %390 = add nsw i32 %87, -1
-  %391 = zext i32 %390 to i64
-  %392 = shl nuw nsw i64 %391, 2
-  %393 = add nuw nsw i64 %392, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %389, i8 -1, i64 %393, i1 false), !tbaa !18
+  %385 = getelementptr inbounds nuw i8, ptr %381, i64 40
+  %386 = load ptr, ptr %385, align 8, !tbaa !17
+  %387 = add nsw i32 %87, -1
+  %388 = zext i32 %387 to i64
+  %389 = shl nuw nsw i64 %388, 2
+  %390 = add nuw nsw i64 %389, 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %386, i8 -1, i64 %390, i1 false), !tbaa !18
   %.pre347 = load i32, ptr %382, align 8, !tbaa !107
   br label %.preheader273
 
 .preheader273:                                    ; preds = %.lr.ph284, %380
-  %394 = phi i32 [ %.pre347, %.lr.ph284 ], [ %383, %380 ]
-  %395 = icmp sgt i32 %394, 0
-  br i1 %395, label %.lr.ph299, label %._crit_edge300
+  %391 = phi i32 [ %.pre347, %.lr.ph284 ], [ %383, %380 ]
+  %392 = icmp sgt i32 %391, 0
+  br i1 %392, label %.lr.ph299, label %._crit_edge300
 
 .lr.ph299:                                        ; preds = %.preheader273
+  %393 = add i32 %.0120, -1
+  %394 = add i32 %393, %383
+  %395 = sdiv i32 %394, %383
   %396 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %397 = sext i32 %87 to i64
   br label %418
@@ -2506,9 +2506,9 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit19
 418:                                              ; preds = %.lr.ph299, %758
   %419 = phi ptr [ %381, %.lr.ph299 ], [ %759, %758 ]
   %indvars.iv323 = phi i64 [ 0, %.lr.ph299 ], [ %indvars.iv.next324, %758 ]
-  %420 = phi i32 [ %394, %.lr.ph299 ], [ %761, %758 ]
+  %420 = phi i32 [ %391, %.lr.ph299 ], [ %761, %758 ]
   %421 = phi ptr [ %382, %.lr.ph299 ], [ %760, %758 ]
-  %.0121298 = phi i32 [ %386, %.lr.ph299 ], [ %.1122, %758 ]
+  %.0121298 = phi i32 [ %395, %.lr.ph299 ], [ %.1122, %758 ]
   %.0124297 = phi i32 [ 0, %.lr.ph299 ], [ %.1125.lcssa, %758 ]
   %422 = getelementptr inbounds nuw i8, ptr %419, i64 352
   %.val144 = load ptr, ptr %422, align 8, !tbaa !117
@@ -3267,7 +3267,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit219:            ; preds = %844, %842, %840, %8
   br i1 %850, label %863, label %.preheader
 
 .preheader:                                       ; preds = %847
-  br i1 %387, label %.lr.ph303, label %_ZNSt6vectorIiSaIiEE5clearEv.exit221
+  br i1 %384, label %.lr.ph303, label %_ZNSt6vectorIiSaIiEE5clearEv.exit221
 
 .lr.ph303:                                        ; preds = %.preheader
   %852 = getelementptr inbounds nuw i8, ptr %851, i64 320
@@ -4548,8 +4548,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !18
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -5686,8 +5686,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !201
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !201
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i

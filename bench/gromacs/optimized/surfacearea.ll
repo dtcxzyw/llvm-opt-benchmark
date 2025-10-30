@@ -184,8 +184,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %27
   %33 = getelementptr inbounds nuw float, ptr %32, i64 %30
   %34 = getelementptr i8, ptr %32, i64 4
   %.idx.i.i.i.i.i.i.i.i.i = add nsw i64 %31, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %34, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !24, !noalias !18
   %35 = getelementptr i8, ptr %32, i64 %31
+  tail call void @llvm.memset.p0.i64(ptr align 4 %34, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !24, !noalias !18
   store float 0.000000e+00, ptr %32, align 4, !tbaa !24, !noalias !18
   store float 0.000000e+00, ptr %34, align 4, !tbaa !24, !noalias !18
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -2997,7 +2997,6 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit.i: ; preds = %_ZNSt6vecto
   br label %2304
 
 2253:                                             ; preds = %._crit_edge.i
-  %2254 = getelementptr inbounds nuw i8, ptr %2208, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(516) %2208, i8 0, i64 516, i1 false), !noalias !23
   br i1 %2207, label %.lr.ph229.preheader.i, label %.preheader212.i
 
@@ -3006,6 +3005,7 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit.i: ; preds = %_ZNSt6vecto
   br label %.lr.ph229.i
 
 .preheader212.i:                                  ; preds = %.lr.ph229.i, %2253
+  %2254 = getelementptr inbounds nuw i8, ptr %2208, i64 256
   %sext.i = shl i64 %2205, 32
   %wide.trip.count260.i = ashr exact i64 %sext.i, 32
   br label %.preheader211.i
@@ -3488,8 +3488,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %._crit_edge.
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc218.i
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %101, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %100, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !16
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx.i.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %100, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !16
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

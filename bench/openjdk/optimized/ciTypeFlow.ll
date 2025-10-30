@@ -3117,27 +3117,27 @@ _ZN10ciTypeFlow11StateVector4trapEP16ciBytecodeStreamP7ciKlassi.exit: ; preds = 
 
 .preheader:                                       ; preds = %3
   %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %50 = load i32, ptr %49, align 8
-  %51 = icmp sgt i32 %47, 0
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %47 = load i32, ptr %46, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 48
+  %49 = load i32, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %51 = icmp sgt i32 %49, 0
   %52 = or i1 %51, %2
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %.preheader
-  %.promoted = load i32, ptr %48, align 8
-  %54 = call i32 @llvm.smax.i32(i32 %47, i32 0)
+  %.promoted = load i32, ptr %50, align 8
+  %54 = call i32 @llvm.smax.i32(i32 %49, i32 0)
   %55 = sub i32 %.promoted, %54
   %56 = sext i1 %2 to i32
   %simplifycfg.merge = add nsw i32 %55, %56
-  store i32 %simplifycfg.merge, ptr %48, align 8
+  store i32 %simplifycfg.merge, ptr %50, align 8
   br label %57
 
 57:                                               ; preds = %.preheader, %53
-  %58 = load i32, ptr %49, align 4
-  %59 = icmp eq i32 %50, %58
+  %58 = load i32, ptr %46, align 4
+  %59 = icmp eq i32 %47, %58
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %57
@@ -3147,7 +3147,7 @@ _ZN10ciTypeFlow11StateVector4trapEP16ciBytecodeStreamP7ciKlassi.exit: ; preds = 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %64 = load ptr, ptr %63, align 8
-  %65 = zext nneg i32 %50 to i64
+  %65 = zext nneg i32 %47 to i64
   %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
   br label %_ZN17ciSignatureStream4typeEv.exit25
 
@@ -3190,9 +3190,9 @@ _ZNK10ciMetadata9is_loadedEv.exit.i:              ; preds = %77
 
 _ZN10ciTypeFlow11StateVector14do_null_assertEP7ciKlass.exit: ; preds = %77, %_ZNK10ciMetadata9is_loadedEv.exit.i, %83
   %.sink.i = phi ptr [ %84, %83 ], [ %.0.i24, %77 ], [ %.0.i24, %_ZNK10ciMetadata9is_loadedEv.exit.i ]
-  %85 = load i32, ptr %48, align 8
+  %85 = load i32, ptr %50, align 8
   %86 = add nsw i32 %85, 1
-  store i32 %86, ptr %48, align 8
+  store i32 %86, ptr %50, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8

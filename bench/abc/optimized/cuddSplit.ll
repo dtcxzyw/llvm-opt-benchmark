@@ -228,122 +228,118 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 define internal fastcc ptr @selectMintermsFromUniverse(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8, !tbaa !3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !24
-  %8 = ptrtoint ptr %7 to i64
-  %9 = xor i64 %8, 1
-  %10 = inttoptr i64 %9 to ptr
-  %11 = add i32 %5, -1
-  %12 = icmp sgt i32 %5, 0
-  br i1 %12, label %.lr.ph.preheader, label %._crit_edge.thread
+  %6 = add i32 %5, -1
+  %7 = icmp sgt i32 %5, 0
+  br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %3
-  %13 = zext nneg i32 %11 to i64
+  %8 = zext nneg i32 %6 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %13, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %indvars.iv = phi i64 [ %8, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.04251 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4, !tbaa !31
-  %16 = icmp eq i32 %15, 0
-  %17 = zext i1 %16 to i32
-  %spec.select = add nuw nsw i32 %.04251, %17
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %10 = load i32, ptr %9, align 4, !tbaa !31
+  %11 = icmp eq i32 %10, 0
+  %12 = zext i1 %11 to i32
+  %spec.select = add nuw nsw i32 %.04251, %12
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not75 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not75, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  %.not70 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not70, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %18 = zext nneg i32 %spec.select to i64
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  %.042.lcssa = phi i32 [ 0, %3 ], [ %spec.select, %.lr.ph ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = load ptr, ptr %13, align 8, !tbaa !24
+  %15 = ptrtoint ptr %14 to i64
+  %16 = xor i64 %15, 1
+  %17 = inttoptr i64 %16 to ptr
+  %18 = zext i32 %.042.lcssa to i64
   %19 = shl nuw nsw i64 %18, 3
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #8
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %24, label %.lr.ph54
+  br i1 %.not, label %23, label %.preheader
 
-._crit_edge.thread:                               ; preds = %3
-  %21 = tail call noalias ptr @malloc(i64 noundef 0) #8
-  %.not71 = icmp eq ptr %21, null
-  br i1 %.not71, label %24, label %._crit_edge55
+.preheader:                                       ; preds = %._crit_edge
+  br i1 %7, label %.lr.ph54, label %._crit_edge55
 
-.lr.ph54:                                         ; preds = %._crit_edge
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %23 = zext nneg i32 %11 to i64
-  br label %26
+.lr.ph54:                                         ; preds = %.preheader
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %22 = zext nneg i32 %6 to i64
+  br label %25
 
-24:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %25, align 8, !tbaa !34
-  br label %59
-
-26:                                               ; preds = %.lr.ph54, %44
-  %indvars.iv62 = phi i64 [ %23, %.lr.ph54 ], [ %indvars.iv.next63, %44 ]
-  %.04552 = phi i32 [ 0, %.lr.ph54 ], [ %.146, %44 ]
-  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv62
-  %28 = load i32, ptr %27, align 4, !tbaa !31
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %44
-
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %22, align 8, !tbaa !37
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv62
-  %33 = load i32, ptr %32, align 4, !tbaa !31
-  %34 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %33, ptr noundef %7, ptr noundef %10) #9
-  %35 = sext i32 %.04552 to i64
-  %36 = getelementptr inbounds ptr, ptr %20, i64 %35
-  store ptr %34, ptr %36, align 8, !tbaa !29
-  %37 = ptrtoint ptr %34 to i64
-  %38 = and i64 %37, -2
-  %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %41 = load i32, ptr %40, align 4, !tbaa !26
-  %42 = add i32 %41, 1
-  store i32 %42, ptr %40, align 4, !tbaa !26
-  %43 = add nsw i32 %.04552, 1
-  br label %44
-
-44:                                               ; preds = %26, %30
-  %.146 = phi i32 [ %43, %30 ], [ %.04552, %26 ]
-  %indvars.iv.next63 = add nsw i64 %indvars.iv62, -1
-  %45 = icmp sgt i64 %indvars.iv62, 0
-  br i1 %45, label %26, label %._crit_edge55, !llvm.loop !38
-
-._crit_edge55:                                    ; preds = %44, %._crit_edge.thread
-  %.042.lcssa7274 = phi i32 [ 0, %._crit_edge.thread ], [ %spec.select, %44 ]
-  %46 = phi i64 [ 0, %._crit_edge.thread ], [ %18, %44 ]
-  %47 = phi ptr [ %21, %._crit_edge.thread ], [ %20, %44 ]
-  %48 = tail call fastcc ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef %47, i32 noundef %.042.lcssa7274, double noundef %2, i32 noundef 0)
-  %.not49 = icmp eq ptr %48, null
-  br i1 %.not49, label %56, label %49
-
-49:                                               ; preds = %._crit_edge55
-  %50 = ptrtoint ptr %48 to i64
-  %51 = and i64 %50, -2
-  %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %54 = load i32, ptr %53, align 4, !tbaa !26
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %53, align 4, !tbaa !26
+23:                                               ; preds = %._crit_edge
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  store i32 1, ptr %24, align 8, !tbaa !34
   br label %56
 
-56:                                               ; preds = %49, %._crit_edge55
-  %.not60 = icmp eq i32 %.042.lcssa7274, 0
+25:                                               ; preds = %.lr.ph54, %43
+  %indvars.iv62 = phi i64 [ %22, %.lr.ph54 ], [ %indvars.iv.next63, %43 ]
+  %.04552 = phi i32 [ 0, %.lr.ph54 ], [ %.146, %43 ]
+  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv62
+  %27 = load i32, ptr %26, align 4, !tbaa !31
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %43
+
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %21, align 8, !tbaa !37
+  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv62
+  %32 = load i32, ptr %31, align 4, !tbaa !31
+  %33 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %32, ptr noundef %14, ptr noundef %17) #9
+  %34 = sext i32 %.04552 to i64
+  %35 = getelementptr inbounds ptr, ptr %20, i64 %34
+  store ptr %33, ptr %35, align 8, !tbaa !29
+  %36 = ptrtoint ptr %33 to i64
+  %37 = and i64 %36, -2
+  %38 = inttoptr i64 %37 to ptr
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %40 = load i32, ptr %39, align 4, !tbaa !26
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %39, align 4, !tbaa !26
+  %42 = add nsw i32 %.04552, 1
+  br label %43
+
+43:                                               ; preds = %25, %29
+  %.146 = phi i32 [ %42, %29 ], [ %.04552, %25 ]
+  %indvars.iv.next63 = add nsw i64 %indvars.iv62, -1
+  %44 = icmp sgt i64 %indvars.iv62, 0
+  br i1 %44, label %25, label %._crit_edge55, !llvm.loop !38
+
+._crit_edge55:                                    ; preds = %43, %.preheader
+  %45 = tail call fastcc ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef %20, i32 noundef %.042.lcssa, double noundef %2, i32 noundef 0)
+  %.not49 = icmp eq ptr %45, null
+  br i1 %.not49, label %53, label %46
+
+46:                                               ; preds = %._crit_edge55
+  %47 = ptrtoint ptr %45 to i64
+  %48 = and i64 %47, -2
+  %49 = inttoptr i64 %48 to ptr
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %51 = load i32, ptr %50, align 4, !tbaa !26
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %50, align 4, !tbaa !26
+  br label %53
+
+53:                                               ; preds = %46, %._crit_edge55
+  %.not60 = icmp eq i32 %.042.lcssa, 0
   br i1 %.not60, label %._crit_edge59, label %.lr.ph58
 
-.lr.ph58:                                         ; preds = %56, %.lr.ph58
-  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.lr.ph58 ], [ 0, %56 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv65
-  %58 = load ptr, ptr %57, align 8, !tbaa !29
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %58) #9
+.lr.ph58:                                         ; preds = %53, %.lr.ph58
+  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.lr.ph58 ], [ 0, %53 ]
+  %54 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv65
+  %55 = load ptr, ptr %54, align 8, !tbaa !29
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %55) #9
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next66, %46
+  %exitcond.not = icmp eq i64 %indvars.iv.next66, %18
   br i1 %exitcond.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !39
 
-._crit_edge59:                                    ; preds = %.lr.ph58, %56
-  tail call void @free(ptr noundef nonnull %47) #9
-  br label %59
+._crit_edge59:                                    ; preds = %.lr.ph58, %53
+  tail call void @free(ptr noundef nonnull %20) #9
+  br label %56
 
-59:                                               ; preds = %._crit_edge59, %24
-  %.0 = phi ptr [ %48, %._crit_edge59 ], [ null, %24 ]
+56:                                               ; preds = %._crit_edge59, %23
+  %.0 = phi ptr [ %45, %._crit_edge59 ], [ null, %23 ]
   ret ptr %.0
 }
 

@@ -343,37 +343,37 @@ parse_line.exit:                                  ; preds = %31, %41
   %112 = zext nneg i32 %.sroa.031.0109 to i64
   %113 = zext nneg i32 %.059115 to i64
   %114 = call i64 @av_gcd(i64 noundef %112, i64 noundef %113) #11
-  %115 = trunc i64 %114 to i32
-  %116 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %117 = load i32, ptr %116, align 8, !tbaa !47
-  %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %.lr.ph124, label %._crit_edge
+  %115 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %116 = load i32, ptr %115, align 8, !tbaa !47
+  %117 = icmp sgt i32 %116, 0
+  br i1 %117, label %.lr.ph124, label %._crit_edge
 
 .lr.ph124:                                        ; preds = %111
   %sext76 = shl i64 %114, 32
-  %119 = ashr exact i64 %sext76, 32
-  %120 = load ptr, ptr %12, align 8, !tbaa !51
-  %wide.trip.count = zext nneg i32 %117 to i64
-  br label %121
+  %118 = ashr exact i64 %sext76, 32
+  %119 = load ptr, ptr %12, align 8, !tbaa !51
+  %wide.trip.count = zext nneg i32 %116 to i64
+  br label %120
 
-121:                                              ; preds = %.lr.ph124, %121
-  %indvars.iv = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next, %121 ]
-  %122 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv
-  %123 = load ptr, ptr %122, align 8, !tbaa !52
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %125 = load i64, ptr %124, align 8, !tbaa !40
-  %126 = sdiv i64 %125, %119
-  store i64 %126, ptr %124, align 8, !tbaa !40
-  %127 = getelementptr inbounds nuw i8, ptr %123, i64 64
-  %128 = load i64, ptr %127, align 8, !tbaa !45
-  %129 = sdiv i64 %128, %119
-  store i64 %129, ptr %127, align 8, !tbaa !45
+120:                                              ; preds = %.lr.ph124, %120
+  %indvars.iv = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next, %120 ]
+  %121 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv
+  %122 = load ptr, ptr %121, align 8, !tbaa !52
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = load i64, ptr %123, align 8, !tbaa !40
+  %125 = sdiv i64 %124, %118
+  store i64 %125, ptr %123, align 8, !tbaa !40
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 64
+  %127 = load i64, ptr %126, align 8, !tbaa !45
+  %128 = sdiv i64 %127, %118
+  store i64 %128, ptr %126, align 8, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %121, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %120, !llvm.loop !54
 
-._crit_edge:                                      ; preds = %121, %111
-  %130 = sdiv i32 %.sroa.031.0109, %115
+._crit_edge:                                      ; preds = %120, %111
+  %129 = trunc i64 %114 to i32
+  %130 = sdiv i32 %.sroa.031.0109, %129
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %1, %._crit_edge, %.loopexit

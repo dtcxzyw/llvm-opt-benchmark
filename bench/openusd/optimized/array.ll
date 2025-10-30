@@ -8663,31 +8663,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE16_CapacityForSizeEm.exit, !llvm.loop !10
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE16_CapacityForSizeEm.exit, !llvm.loop !10
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit, label %48
 
@@ -8704,7 +8704,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -8731,7 +8731,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE8capacityEv.exit
@@ -8829,31 +8829,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE16_CapacityForSizeEm.exit, !llvm.loop !10
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE16_CapacityForSizeEm.exit, !llvm.loop !10
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit, label %48
 
@@ -8870,7 +8870,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -8897,7 +8897,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE8capacityEv.exit
@@ -11383,31 +11383,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE16_CapacityForSizeEm.exit, !llvm.loop !30
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE16_CapacityForSizeEm.exit, !llvm.loop !30
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE16_CapacityForSizeEm.exit
   %.idx.i = mul nsw i64 %19, 12
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %46, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit, label %48
 
@@ -11424,7 +11424,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -11451,7 +11451,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE8capacityEv.exit
@@ -11549,31 +11549,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE16_CapacityForSizeEm.exit, !llvm.loop !30
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE16_CapacityForSizeEm.exit, !llvm.loop !30
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE16_CapacityForSizeEm.exit
   %.idx.i = mul nsw i64 %19, 12
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %46, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit, label %48
 
@@ -11590,7 +11590,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -11617,7 +11617,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE8capacityEv.exit
@@ -13990,32 +13990,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE16_CapacityForSizeEm.exit, !llvm.loop !48
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE16_CapacityForSizeEm.exit, !llvm.loop !48
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %44, i64 %19
   %47 = load i64, ptr %1, align 4
   store i64 %47, ptr %46, align 4
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit, label %49
 
@@ -14032,7 +14032,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_m
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -14059,7 +14059,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE8capacityEv.exit
@@ -14158,32 +14158,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE16_CapacityForSizeEm.exit, !llvm.loop !48
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE16_CapacityForSizeEm.exit, !llvm.loop !48
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %44, i64 %19
   %47 = load i64, ptr %1, align 4
   store i64 %47, ptr %46, align 4
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit, label %49
 
@@ -14200,7 +14200,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_m
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -14227,7 +14227,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE8capacityEv.exit
@@ -16591,32 +16591,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE16_CapacityForSizeEm.exit, !llvm.loop !66
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE16_CapacityForSizeEm.exit, !llvm.loop !66
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %44, i64 %19
   %47 = load i64, ptr %1, align 2
   store i64 %47, ptr %46, align 2
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit, label %49
 
@@ -16633,7 +16633,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_m
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -16660,7 +16660,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE8capacityEv.exit
@@ -16759,32 +16759,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE16_CapacityForSizeEm.exit, !llvm.loop !66
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE16_CapacityForSizeEm.exit, !llvm.loop !66
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %44, i64 %19
   %47 = load i64, ptr %1, align 2
   store i64 %47, ptr %46, align 2
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit, label %49
 
@@ -16801,7 +16801,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_m
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -16828,7 +16828,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE8capacityEv.exit
@@ -19236,31 +19236,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE16_CapacityForSizeEm.exit, !llvm.loop !84
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE16_CapacityForSizeEm.exit, !llvm.loop !84
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE16_CapacityForSizeEm.exit
   %.idx.i = mul nsw i64 %19, 6
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %46, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit, label %48
 
@@ -19277,7 +19277,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -19304,7 +19304,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE8capacityEv.exit
@@ -19402,31 +19402,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE16_CapacityForSizeEm.exit, !llvm.loop !84
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE16_CapacityForSizeEm.exit, !llvm.loop !84
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE16_CapacityForSizeEm.exit
   %.idx.i = mul nsw i64 %19, 6
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %46, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit, label %48
 
@@ -19443,7 +19443,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -19470,7 +19470,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE8capacityEv.exit
@@ -21861,32 +21861,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE16_CapacityForSizeEm.exit, !llvm.loop !102
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE16_CapacityForSizeEm.exit, !llvm.loop !102
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %44, i64 %19
   %47 = load i32, ptr %1, align 2
   store i32 %47, ptr %46, align 2
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit, label %49
 
@@ -21903,7 +21903,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_m
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -21930,7 +21930,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE8capacityEv.exit
@@ -22029,32 +22029,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE16_CapacityForSizeEm.exit, !llvm.loop !102
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE16_CapacityForSizeEm.exit, !llvm.loop !102
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %44, i64 %19
   %47 = load i32, ptr %1, align 2
   store i32 %47, ptr %46, align 2
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit, label %49
 
@@ -22071,7 +22071,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_m
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -22098,7 +22098,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE8capacityEv.exit
@@ -24478,31 +24478,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE16_CapacityForSizeEm.exit, !llvm.loop !120
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE16_CapacityForSizeEm.exit, !llvm.loop !120
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit, label %48
 
@@ -24519,7 +24519,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -24546,7 +24546,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE8capacityEv.exit
@@ -24644,31 +24644,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE16_CapacityForSizeEm.exit, !llvm.loop !120
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE16_CapacityForSizeEm.exit, !llvm.loop !120
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit, label %48
 
@@ -24685,7 +24685,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -24712,7 +24712,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE8capacityEv.exit
@@ -27093,31 +27093,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE16_CapacityForSizeEm.exit, !llvm.loop !138
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE16_CapacityForSizeEm.exit, !llvm.loop !138
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE16_CapacityForSizeEm.exit
   %.idx.i = mul nsw i64 %19, 12
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %46, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit, label %48
 
@@ -27134,7 +27134,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -27161,7 +27161,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE8capacityEv.exit
@@ -27259,31 +27259,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE16_CapacityForSizeEm.exit, !llvm.loop !138
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE16_CapacityForSizeEm.exit, !llvm.loop !138
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE16_CapacityForSizeEm.exit
   %.idx.i = mul nsw i64 %19, 12
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %46, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit, label %48
 
@@ -27300,7 +27300,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -27327,7 +27327,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE8capacityEv.exit
@@ -29700,32 +29700,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE16_CapacityForSizeEm.exit, !llvm.loop !156
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE16_CapacityForSizeEm.exit, !llvm.loop !156
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %44, i64 %19
   %47 = load i64, ptr %1, align 4
   store i64 %47, ptr %46, align 4
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit, label %49
 
@@ -29742,7 +29742,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_m
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -29769,7 +29769,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE8capacityEv.exit
@@ -29868,32 +29868,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE16_CapacityForSizeEm.exit, !llvm.loop !156
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE16_CapacityForSizeEm.exit, !llvm.loop !156
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %44, i64 %19
   %47 = load i64, ptr %1, align 4
   store i64 %47, ptr %46, align 4
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit, label %49
 
@@ -29910,7 +29910,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_m
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -29937,7 +29937,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE8capacityEv.exit
@@ -32301,31 +32301,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE16_CapacityForSizeEm.exit, !llvm.loop !174
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE16_CapacityForSizeEm.exit, !llvm.loop !174
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 5
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit, label %48
 
@@ -32342,7 +32342,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -32369,7 +32369,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE8capacityEv.exit
@@ -32467,31 +32467,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE16_CapacityForSizeEm.exit, !llvm.loop !174
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE16_CapacityForSizeEm.exit, !llvm.loop !174
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 5
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit, label %48
 
@@ -32508,7 +32508,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -32535,7 +32535,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE8capacityEv.exit
@@ -34916,31 +34916,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE16_CapacityForSizeEm.exit, !llvm.loop !192
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE16_CapacityForSizeEm.exit, !llvm.loop !192
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE16_CapacityForSizeEm.exit
   %.idx.i = mul nsw i64 %19, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit, label %48
 
@@ -34957,7 +34957,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -34984,7 +34984,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE8capacityEv.exit
@@ -35082,31 +35082,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE16_CapacityForSizeEm.exit, !llvm.loop !192
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE16_CapacityForSizeEm.exit, !llvm.loop !192
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE16_CapacityForSizeEm.exit
   %.idx.i = mul nsw i64 %19, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit, label %48
 
@@ -35123,7 +35123,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -35150,7 +35150,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE8capacityEv.exit
@@ -37523,31 +37523,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE16_CapacityForSizeEm.exit, !llvm.loop !210
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE16_CapacityForSizeEm.exit, !llvm.loop !210
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit, label %48
 
@@ -37564,7 +37564,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -37591,7 +37591,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE8capacityEv.exit
@@ -37689,31 +37689,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE16_CapacityForSizeEm.exit, !llvm.loop !210
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE16_CapacityForSizeEm.exit, !llvm.loop !210
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit, label %48
 
@@ -37730,7 +37730,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_m
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -37757,7 +37757,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE8capacityEv.exit
@@ -40118,31 +40118,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE8capacityEv.exit
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE16_CapacityForSizeEm.exit, !llvm.loop !228
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE16_CapacityForSizeEm.exit, !llvm.loop !228
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 6
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %46, ptr noundef nonnull align 4 dereferenceable(64) %1, i64 64, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit, label %48
 
@@ -40159,7 +40159,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEP
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -40186,7 +40186,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE8capacityEv.exit
@@ -40284,31 +40284,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE8capacityEv.exit
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE16_CapacityForSizeEm.exit, !llvm.loop !228
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE16_CapacityForSizeEm.exit, !llvm.loop !228
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 6
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %46, ptr noundef nonnull align 4 dereferenceable(64) %1, i64 64, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit, label %48
 
@@ -40325,7 +40325,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEP
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -40352,7 +40352,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE8capacityEv.exit
@@ -42705,31 +42705,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE8capacityEv.exit
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE16_CapacityForSizeEm.exit, !llvm.loop !246
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE16_CapacityForSizeEm.exit, !llvm.loop !246
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE16_CapacityForSizeEm.exit
   %.idx.i = mul nsw i64 %19, 36
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %46, ptr noundef nonnull align 4 dereferenceable(36) %1, i64 36, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit, label %48
 
@@ -42746,7 +42746,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEP
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -42773,7 +42773,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE8capacityEv.exit
@@ -42871,31 +42871,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE8capacityEv.exit
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE16_CapacityForSizeEm.exit, !llvm.loop !246
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE16_CapacityForSizeEm.exit, !llvm.loop !246
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE16_CapacityForSizeEm.exit
   %.idx.i = mul nsw i64 %19, 36
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %46, ptr noundef nonnull align 4 dereferenceable(36) %1, i64 36, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit, label %48
 
@@ -42912,7 +42912,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEP
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -42939,7 +42939,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE8capacityEv.exit
@@ -45292,31 +45292,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE8capacityEv.exit
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE16_CapacityForSizeEm.exit, !llvm.loop !264
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE16_CapacityForSizeEm.exit, !llvm.loop !264
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit, label %48
 
@@ -45333,7 +45333,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEP
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -45360,7 +45360,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE8capacityEv.exit
@@ -45458,31 +45458,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE8capacityEv.exit
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE16_CapacityForSizeEm.exit, !llvm.loop !264
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE16_CapacityForSizeEm.exit, !llvm.loop !264
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit, label %48
 
@@ -45499,7 +45499,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEP
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -45526,7 +45526,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE8capacityEv.exit
@@ -47879,31 +47879,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE8capacityEv.exit
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE16_CapacityForSizeEm.exit, !llvm.loop !282
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE16_CapacityForSizeEm.exit, !llvm.loop !282
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 7
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %46, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit, label %48
 
@@ -47920,7 +47920,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEP
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -47947,7 +47947,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE8capacityEv.exit
@@ -48045,31 +48045,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE8capacityEv.exit
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE16_CapacityForSizeEm.exit, !llvm.loop !282
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE16_CapacityForSizeEm.exit, !llvm.loop !282
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 7
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %46, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit, label %48
 
@@ -48086,7 +48086,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEP
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -48113,7 +48113,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE8capacityEv.exit
@@ -50466,31 +50466,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE8capacityEv.exit
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE16_CapacityForSizeEm.exit, !llvm.loop !300
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE16_CapacityForSizeEm.exit, !llvm.loop !300
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE16_CapacityForSizeEm.exit
   %.idx.i = mul nsw i64 %19, 72
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %46, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit, label %48
 
@@ -50507,7 +50507,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEP
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -50534,7 +50534,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE8capacityEv.exit
@@ -50632,31 +50632,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE8capacityEv.exit
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE16_CapacityForSizeEm.exit, !llvm.loop !300
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE16_CapacityForSizeEm.exit, !llvm.loop !300
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE16_CapacityForSizeEm.exit
   %.idx.i = mul nsw i64 %19, 72
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %46, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit, label %48
 
@@ -50673,7 +50673,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEP
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -50700,7 +50700,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE8capacityEv.exit
@@ -53053,31 +53053,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE8capacityEv.exit
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE16_CapacityForSizeEm.exit, !llvm.loop !318
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE16_CapacityForSizeEm.exit, !llvm.loop !318
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 5
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit, label %48
 
@@ -53094,7 +53094,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEP
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -53121,7 +53121,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE8capacityEv.exit
@@ -53219,31 +53219,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE8capacityEv.exit
   br i1 %37, label %.critedge, label %65
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE16_CapacityForSizeEm.exit, !llvm.loop !318
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE16_CapacityForSizeEm.exit, !llvm.loop !318
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 5
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %47 = load ptr, ptr %38, align 8
+  %47 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %47, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit, label %48
 
@@ -53260,7 +53260,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEP
 
 54:                                               ; preds = %50
   fence acquire
-  %55 = load ptr, ptr %38, align 8
+  %55 = load ptr, ptr %42, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %56) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -53287,7 +53287,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %67
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE8capacityEv.exit
@@ -55656,27 +55656,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE8capacityEv.exit: 
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit, !llvm.loop !337
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit, !llvm.loop !337
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = mul nsw i64 %19, 24
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.011.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(24) %.0810.i.i.i.i, i64 24, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
@@ -55686,7 +55686,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSize
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %48, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit, label %50
 
@@ -55703,7 +55703,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -55730,7 +55730,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE8capacityEv.exit
@@ -55828,27 +55828,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE8capacityEv.exit: 
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit, !llvm.loop !337
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit, !llvm.loop !337
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = mul nsw i64 %19, 24
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.011.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(24) %.0810.i.i.i.i, i64 24, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
@@ -55858,7 +55858,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSize
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %48, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit, label %50
 
@@ -55875,7 +55875,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -55902,7 +55902,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE8capacityEv.exit
@@ -58365,27 +58365,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE8capacityEv.exit: 
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit, !llvm.loop !356
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit, !llvm.loop !356
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = mul nsw i64 %19, 48
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.0810.i.i.i.i, i64 48, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 48
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 48
@@ -58395,7 +58395,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSize
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit, label %50
 
@@ -58412,7 +58412,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -58439,7 +58439,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE8capacityEv.exit
@@ -58537,27 +58537,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE8capacityEv.exit: 
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit, !llvm.loop !356
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit, !llvm.loop !356
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = mul nsw i64 %19, 48
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.0810.i.i.i.i, i64 48, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 48
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 48
@@ -58567,7 +58567,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSize
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit, label %50
 
@@ -58584,7 +58584,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -58611,7 +58611,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE8capacityEv.exit
@@ -61070,27 +61070,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE8capacityEv.exit: 
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit, !llvm.loop !375
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit, !llvm.loop !375
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 4
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.011.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0810.i.i.i.i, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
@@ -61100,7 +61100,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSize
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit, label %50
 
@@ -61117,7 +61117,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -61144,7 +61144,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE8capacityEv.exit
@@ -61242,27 +61242,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE8capacityEv.exit: 
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit, !llvm.loop !375
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit, !llvm.loop !375
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 4
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.011.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0810.i.i.i.i, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
@@ -61272,7 +61272,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSize
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit, label %50
 
@@ -61289,7 +61289,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -61316,7 +61316,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE8capacityEv.exit
@@ -63751,27 +63751,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE8capacityEv.exit: 
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit, !llvm.loop !394
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit, !llvm.loop !394
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 5
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i, i64 32, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
@@ -63781,7 +63781,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSize
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit, label %50
 
@@ -63798,7 +63798,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -63825,7 +63825,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE8capacityEv.exit
@@ -63923,27 +63923,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE8capacityEv.exit: 
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit, !llvm.loop !394
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit, !llvm.loop !394
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 5
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i, i64 32, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
@@ -63953,7 +63953,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSize
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit, label %50
 
@@ -63970,7 +63970,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -63997,7 +63997,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE8capacityEv.exit
@@ -66429,27 +66429,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE8capacityEv.exit: 
   br i1 %37, label %.critedge, label %69
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit, !llvm.loop !413
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit, !llvm.loop !413
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 3
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit ]
   %46 = load i64, ptr %.0810.i.i.i.i, align 4
   store i64 %46, ptr %.011.i.i.i.i, align 4
   %47 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
@@ -66461,7 +66461,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1
   %49 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %44, i64 %19
   %50 = load i64, ptr %1, align 4
   store i64 %50, ptr %49, align 4
-  %51 = load ptr, ptr %38, align 8
+  %51 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %51, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit, label %52
 
@@ -66478,7 +66478,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1
 
 58:                                               ; preds = %54
   fence acquire
-  %59 = load ptr, ptr %38, align 8
+  %59 = load ptr, ptr %42, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %60) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -66505,7 +66505,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %72
 
 69:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE8capacityEv.exit
@@ -66604,27 +66604,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE8capacityEv.exit: 
   br i1 %37, label %.critedge, label %69
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit, !llvm.loop !413
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit, !llvm.loop !413
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 3
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE16_CapacityForSizeEm.exit ]
   %46 = load i64, ptr %.0810.i.i.i.i, align 4
   store i64 %46, ptr %.011.i.i.i.i, align 4
   %47 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
@@ -66636,7 +66636,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1
   %49 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %44, i64 %19
   %50 = load i64, ptr %1, align 4
   store i64 %50, ptr %49, align 4
-  %51 = load ptr, ptr %38, align 8
+  %51 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %51, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit, label %52
 
@@ -66653,7 +66653,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1
 
 58:                                               ; preds = %54
   fence acquire
-  %59 = load ptr, ptr %38, align 8
+  %59 = load ptr, ptr %42, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %60) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -66680,7 +66680,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %72
 
 69:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE8capacityEv.exit
@@ -69102,27 +69102,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE8capacityEv.exit: 
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit, !llvm.loop !432
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit, !llvm.loop !432
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 4
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0810.i.i.i.i, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
@@ -69132,7 +69132,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSize
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit, label %50
 
@@ -69149,7 +69149,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -69176,7 +69176,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE8capacityEv.exit
@@ -69274,27 +69274,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE8capacityEv.exit: 
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit, !llvm.loop !432
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit, !llvm.loop !432
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 4
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0810.i.i.i.i, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
@@ -69304,7 +69304,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSize
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit, label %50
 
@@ -69321,7 +69321,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -69348,7 +69348,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE8capacityEv.exit
@@ -71763,27 +71763,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE8capacityEv.exit
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit, !llvm.loop !451
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit, !llvm.loop !451
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 5
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i, i64 32, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
@@ -71793,7 +71793,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSi
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit, label %50
 
@@ -71810,7 +71810,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEP
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -71837,7 +71837,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE8capacityEv.exit
@@ -71935,27 +71935,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE8capacityEv.exit
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit, !llvm.loop !451
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit, !llvm.loop !451
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 5
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i, i64 32, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
@@ -71965,7 +71965,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSi
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit, label %50
 
@@ -71982,7 +71982,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEP
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -72009,7 +72009,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE8capacityEv.exit
@@ -74475,27 +74475,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE8capacityEv.exit: ;
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit, !llvm.loop !471
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit, !llvm.loop !471
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 4
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.011.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0810.i.i.i.i, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
@@ -74505,7 +74505,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit, label %50
 
@@ -74522,7 +74522,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -74549,7 +74549,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE8capacityEv.exit
@@ -74647,27 +74647,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE8capacityEv.exit: ;
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit, !llvm.loop !471
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit, !llvm.loop !471
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 4
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.011.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0810.i.i.i.i, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
@@ -74677,7 +74677,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit, label %50
 
@@ -74694,7 +74694,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -74721,7 +74721,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE8capacityEv.exit
@@ -77150,27 +77150,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %69
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit, !llvm.loop !490
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit, !llvm.loop !490
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 3
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit ]
   %46 = load i64, ptr %.0810.i.i.i.i, align 2
   store i64 %46, ptr %.011.i.i.i.i, align 2
   %47 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
@@ -77182,7 +77182,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_m
   %49 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %44, i64 %19
   %50 = load i64, ptr %1, align 2
   store i64 %50, ptr %49, align 2
-  %51 = load ptr, ptr %38, align 8
+  %51 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %51, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit, label %52
 
@@ -77199,7 +77199,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_m
 
 58:                                               ; preds = %54
   fence acquire
-  %59 = load ptr, ptr %38, align 8
+  %59 = load ptr, ptr %42, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %60) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -77226,7 +77226,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %72
 
 69:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE8capacityEv.exit
@@ -77325,27 +77325,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %69
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit, !llvm.loop !490
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit, !llvm.loop !490
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 3
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE16_CapacityForSizeEm.exit ]
   %46 = load i64, ptr %.0810.i.i.i.i, align 2
   store i64 %46, ptr %.011.i.i.i.i, align 2
   %47 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
@@ -77357,7 +77357,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_m
   %49 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %44, i64 %19
   %50 = load i64, ptr %1, align 2
   store i64 %50, ptr %49, align 2
-  %51 = load ptr, ptr %38, align 8
+  %51 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %51, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit, label %52
 
@@ -77374,7 +77374,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_m
 
 58:                                               ; preds = %54
   fence acquire
-  %59 = load ptr, ptr %38, align 8
+  %59 = load ptr, ptr %42, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %60) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -77401,7 +77401,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %72
 
 69:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE8capacityEv.exit
@@ -79861,27 +79861,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit, !llvm.loop !509
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit, !llvm.loop !509
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 4
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.011.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0810.i.i.i.i, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
@@ -79891,7 +79891,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit, label %50
 
@@ -79908,7 +79908,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_m
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -79935,7 +79935,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE8capacityEv.exit
@@ -80033,27 +80033,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit, !llvm.loop !509
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit, !llvm.loop !509
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 4
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.011.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0810.i.i.i.i, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
@@ -80063,7 +80063,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit, label %50
 
@@ -80080,7 +80080,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_m
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -80107,7 +80107,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE8capacityEv.exit
@@ -82532,27 +82532,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit, !llvm.loop !528
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit, !llvm.loop !528
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 5
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i, i64 32, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
@@ -82562,7 +82562,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit, label %50
 
@@ -82579,7 +82579,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_m
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -82606,7 +82606,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE8capacityEv.exit
@@ -82704,27 +82704,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit, !llvm.loop !528
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit, !llvm.loop !528
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 5
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i, i64 32, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
@@ -82734,7 +82734,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit, label %50
 
@@ -82751,7 +82751,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_m
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -82778,7 +82778,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE8capacityEv.exit
@@ -85203,27 +85203,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE8capacityEv.ex
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit, !llvm.loop !547
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit, !llvm.loop !547
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 5
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i, i64 32, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
@@ -85233,7 +85233,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityFor
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit, label %50
 
@@ -85250,7 +85250,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopy
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -85277,7 +85277,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE8capacityEv.exit
@@ -85375,27 +85375,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE8capacityEv.ex
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit, !llvm.loop !547
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit, !llvm.loop !547
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 5
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i, i64 32, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
@@ -85405,7 +85405,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityFor
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit, label %50
 
@@ -85422,7 +85422,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopy
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -85449,7 +85449,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE8capacityEv.exit
@@ -87874,27 +87874,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE8capacityEv.exi
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit, !llvm.loop !566
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit, !llvm.loop !566
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 4
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.011.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(16) %.0810.i.i.i.i, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
@@ -87904,7 +87904,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForS
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %48, ptr noundef nonnull align 2 dereferenceable(16) %1, i64 16, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit, label %50
 
@@ -87921,7 +87921,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyE
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -87948,7 +87948,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE8capacityEv.exit
@@ -88046,27 +88046,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE8capacityEv.exi
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit, !llvm.loop !566
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit, !llvm.loop !566
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 4
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.011.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(16) %.0810.i.i.i.i, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
@@ -88076,7 +88076,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForS
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %48, ptr noundef nonnull align 2 dereferenceable(16) %1, i64 16, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit, label %50
 
@@ -88093,7 +88093,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyE
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -88120,7 +88120,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE8capacityEv.exit
@@ -90517,27 +90517,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE8capacityEv.exi
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit, !llvm.loop !585
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit, !llvm.loop !585
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 5
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.011.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %.0810.i.i.i.i, i64 32, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
@@ -90547,7 +90547,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForS
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %48, ptr noundef nonnull align 4 dereferenceable(32) %1, i64 32, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit, label %50
 
@@ -90564,7 +90564,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyE
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -90591,7 +90591,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE8capacityEv.exit
@@ -90689,27 +90689,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE8capacityEv.exi
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit, !llvm.loop !585
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit, !llvm.loop !585
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 5
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.011.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %.0810.i.i.i.i, i64 32, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
@@ -90719,7 +90719,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForS
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %48, ptr noundef nonnull align 4 dereferenceable(32) %1, i64 32, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit, label %50
 
@@ -90736,7 +90736,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyE
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -90763,7 +90763,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE8capacityEv.exit
@@ -93220,27 +93220,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE8capacityEv.exi
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit, !llvm.loop !604
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit, !llvm.loop !604
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 6
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.0810.i.i.i.i, i64 64, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 64
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 64
@@ -93250,7 +93250,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForS
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit, label %50
 
@@ -93267,7 +93267,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyE
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -93294,7 +93294,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE8capacityEv.exit
@@ -93392,27 +93392,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE8capacityEv.exi
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit, !llvm.loop !604
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit, !llvm.loop !604
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 6
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.0810.i.i.i.i, i64 64, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 64
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 64
@@ -93422,7 +93422,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForS
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE16_CapacityForSizeEm.exit
   %48 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %44, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit, label %50
 
@@ -93439,7 +93439,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyE
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -93466,7 +93466,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE8capacityEv.exit
@@ -96019,24 +96019,24 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE16_CapacityForSizeEm.exit, !llvm.loop !622
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE16_CapacityForSizeEm.exit, !llvm.loop !622
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE16_CapacityForSizeEm.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %44, ptr align 1 %39, i64 %19, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %44, ptr align 1 %43, i64 %19, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE16_CapacityForSizeEm.exit, %45
@@ -96044,7 +96044,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit: ; pre
   %47 = load i8, ptr %1, align 1
   %48 = and i8 %47, 1
   store i8 %48, ptr %46, align 1
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit, label %50
 
@@ -96061,7 +96061,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit: ; pre
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -96088,7 +96088,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %71
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE8capacityEv.exit
@@ -96188,24 +96188,24 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %67
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE16_CapacityForSizeEm.exit, !llvm.loop !622
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE16_CapacityForSizeEm.exit, !llvm.loop !622
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE16_CapacityForSizeEm.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %44, ptr align 1 %39, i64 %19, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %44, ptr align 1 %43, i64 %19, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE16_CapacityForSizeEm.exit, %45
@@ -96213,7 +96213,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit: ; pre
   %47 = load i8, ptr %1, align 1
   %48 = and i8 %47, 1
   store i8 %48, ptr %46, align 1
-  %49 = load ptr, ptr %38, align 8
+  %49 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %49, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit, label %50
 
@@ -96230,7 +96230,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit: ; pre
 
 56:                                               ; preds = %52
   fence acquire
-  %57 = load ptr, ptr %38, align 8
+  %57 = load ptr, ptr %42, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %58) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -96257,7 +96257,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_AllocateCopyEPbmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %71
 
 67:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE8capacityEv.exit
@@ -98661,31 +98661,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE16_CapacityForSizeEm.exit, !llvm.loop !638
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE16_CapacityForSizeEm.exit, !llvm.loop !638
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE16_CapacityForSizeEm.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %44, ptr align 1 %39, i64 %19, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %44, ptr align 1 %43, i64 %19, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i8, ptr %44, i64 %19
   %47 = load i8, ptr %1, align 1
   store i8 %47, ptr %46, align 1
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit, label %49
 
@@ -98702,7 +98702,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -98729,7 +98729,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE8capacityEv.exit
@@ -98828,31 +98828,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE16_CapacityForSizeEm.exit, !llvm.loop !638
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE16_CapacityForSizeEm.exit, !llvm.loop !638
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE16_CapacityForSizeEm.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %44, ptr align 1 %39, i64 %19, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %44, ptr align 1 %43, i64 %19, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i8, ptr %44, i64 %19
   %47 = load i8, ptr %1, align 1
   store i8 %47, ptr %46, align 1
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit, label %49
 
@@ -98869,7 +98869,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -98896,7 +98896,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIcE13_AllocateCopyEPcmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIcE8capacityEv.exit
@@ -101293,31 +101293,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE16_CapacityForSizeEm.exit, !llvm.loop !654
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE16_CapacityForSizeEm.exit, !llvm.loop !654
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE16_CapacityForSizeEm.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %44, ptr align 1 %39, i64 %19, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %44, ptr align 1 %43, i64 %19, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i8, ptr %44, i64 %19
   %47 = load i8, ptr %1, align 1
   store i8 %47, ptr %46, align 1
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit, label %49
 
@@ -101334,7 +101334,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -101361,7 +101361,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE8capacityEv.exit
@@ -101460,31 +101460,31 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE16_CapacityForSizeEm.exit, !llvm.loop !654
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE16_CapacityForSizeEm.exit, !llvm.loop !654
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE16_CapacityForSizeEm.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %44, ptr align 1 %39, i64 %19, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %44, ptr align 1 %43, i64 %19, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i8, ptr %44, i64 %19
   %47 = load i8, ptr %1, align 1
   store i8 %47, ptr %46, align 1
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit, label %49
 
@@ -101501,7 +101501,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -101528,7 +101528,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhE13_AllocateCopyEPhmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIhE8capacityEv.exit
@@ -103824,32 +103824,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE16_CapacityForSizeEm.exit, !llvm.loop !670
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE16_CapacityForSizeEm.exit, !llvm.loop !670
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i16, ptr %44, i64 %19
   %47 = load i16, ptr %1, align 2
   store i16 %47, ptr %46, align 2
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit, label %49
 
@@ -103866,7 +103866,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -103893,7 +103893,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE8capacityEv.exit
@@ -103992,32 +103992,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE16_CapacityForSizeEm.exit, !llvm.loop !670
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE16_CapacityForSizeEm.exit, !llvm.loop !670
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i16, ptr %44, i64 %19
   %47 = load i16, ptr %1, align 2
   store i16 %47, ptr %46, align 2
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit, label %49
 
@@ -104034,7 +104034,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -104061,7 +104061,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIsE13_AllocateCopyEPsmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE8capacityEv.exit
@@ -106412,32 +106412,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE16_CapacityForSizeEm.exit, !llvm.loop !687
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE16_CapacityForSizeEm.exit, !llvm.loop !687
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i16, ptr %44, i64 %19
   %47 = load i16, ptr %1, align 2
   store i16 %47, ptr %46, align 2
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit, label %49
 
@@ -106454,7 +106454,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -106481,7 +106481,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE8capacityEv.exit
@@ -106580,32 +106580,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE16_CapacityForSizeEm.exit, !llvm.loop !687
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE16_CapacityForSizeEm.exit, !llvm.loop !687
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i16, ptr %44, i64 %19
   %47 = load i16, ptr %1, align 2
   store i16 %47, ptr %46, align 2
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit, label %49
 
@@ -106622,7 +106622,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -106649,7 +106649,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayItE13_AllocateCopyEPtmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE8capacityEv.exit
@@ -109000,32 +109000,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE16_CapacityForSizeEm.exit, !llvm.loop !704
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE16_CapacityForSizeEm.exit, !llvm.loop !704
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i32, ptr %44, i64 %19
   %47 = load i32, ptr %1, align 4
   store i32 %47, ptr %46, align 4
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit, label %49
 
@@ -109042,7 +109042,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -109069,7 +109069,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE8capacityEv.exit
@@ -109168,32 +109168,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE16_CapacityForSizeEm.exit, !llvm.loop !704
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE16_CapacityForSizeEm.exit, !llvm.loop !704
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i32, ptr %44, i64 %19
   %47 = load i32, ptr %1, align 4
   store i32 %47, ptr %46, align 4
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit, label %49
 
@@ -109210,7 +109210,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -109237,7 +109237,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE13_AllocateCopyEPimm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE8capacityEv.exit
@@ -111588,32 +111588,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE16_CapacityForSizeEm.exit, !llvm.loop !721
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE16_CapacityForSizeEm.exit, !llvm.loop !721
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i32, ptr %44, i64 %19
   %47 = load i32, ptr %1, align 4
   store i32 %47, ptr %46, align 4
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit, label %49
 
@@ -111630,7 +111630,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -111657,7 +111657,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE8capacityEv.exit
@@ -111756,32 +111756,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE16_CapacityForSizeEm.exit, !llvm.loop !721
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE16_CapacityForSizeEm.exit, !llvm.loop !721
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i32, ptr %44, i64 %19
   %47 = load i32, ptr %1, align 4
   store i32 %47, ptr %46, align 4
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit, label %49
 
@@ -111798,7 +111798,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -111825,7 +111825,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjE13_AllocateCopyEPjmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE8capacityEv.exit
@@ -114176,32 +114176,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE16_CapacityForSizeEm.exit, !llvm.loop !738
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE16_CapacityForSizeEm.exit, !llvm.loop !738
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i64, ptr %44, i64 %19
   %47 = load i64, ptr %1, align 8
   store i64 %47, ptr %46, align 8
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit, label %49
 
@@ -114218,7 +114218,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -114245,7 +114245,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE8capacityEv.exit
@@ -114344,32 +114344,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE16_CapacityForSizeEm.exit, !llvm.loop !738
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE16_CapacityForSizeEm.exit, !llvm.loop !738
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i64, ptr %44, i64 %19
   %47 = load i64, ptr %1, align 8
   store i64 %47, ptr %46, align 8
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit, label %49
 
@@ -114386,7 +114386,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -114413,7 +114413,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_AllocateCopyEPlmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE8capacityEv.exit
@@ -116764,32 +116764,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE16_CapacityForSizeEm.exit, !llvm.loop !755
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE16_CapacityForSizeEm.exit, !llvm.loop !755
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i64, ptr %44, i64 %19
   %47 = load i64, ptr %1, align 8
   store i64 %47, ptr %46, align 8
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit, label %49
 
@@ -116806,7 +116806,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -116833,7 +116833,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE8capacityEv.exit
@@ -116932,32 +116932,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE16_CapacityForSizeEm.exit, !llvm.loop !755
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE16_CapacityForSizeEm.exit, !llvm.loop !755
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds i64, ptr %44, i64 %19
   %47 = load i64, ptr %1, align 8
   store i64 %47, ptr %46, align 8
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit, label %49
 
@@ -116974,7 +116974,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -117001,7 +117001,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImE13_AllocateCopyEPmmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE8capacityEv.exit
@@ -119352,32 +119352,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE16_CapacityForSizeEm.exit, !llvm.loop !772
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE16_CapacityForSizeEm.exit, !llvm.loop !772
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds double, ptr %44, i64 %19
   %47 = load double, ptr %1, align 8
   store double %47, ptr %46, align 8
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit, label %49
 
@@ -119394,7 +119394,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -119421,7 +119421,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE8capacityEv.exit
@@ -119520,32 +119520,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE16_CapacityForSizeEm.exit, !llvm.loop !772
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE16_CapacityForSizeEm.exit, !llvm.loop !772
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %44, ptr align 8 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds double, ptr %44, i64 %19
   %47 = load double, ptr %1, align 8
   store double %47, ptr %46, align 8
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit, label %49
 
@@ -119562,7 +119562,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -119589,7 +119589,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdE13_AllocateCopyEPdmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE8capacityEv.exit
@@ -121949,32 +121949,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE16_CapacityForSizeEm.exit, !llvm.loop !790
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE16_CapacityForSizeEm.exit, !llvm.loop !790
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds float, ptr %44, i64 %19
   %47 = load float, ptr %1, align 4
   store float %47, ptr %46, align 4
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit, label %49
 
@@ -121991,7 +121991,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -122018,7 +122018,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE8capacityEv.exit
@@ -122117,32 +122117,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE8capacityEv.exit: ; preds = %22
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE16_CapacityForSizeEm.exit, !llvm.loop !790
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE16_CapacityForSizeEm.exit, !llvm.loop !790
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr align 4 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds float, ptr %44, i64 %19
   %47 = load float, ptr %1, align 4
   store float %47, ptr %46, align 4
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit, label %49
 
@@ -122159,7 +122159,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit: ; pre
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -122186,7 +122186,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfE13_AllocateCopyEPfmm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE8capacityEv.exit
@@ -124546,32 +124546,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE8capacityEv.ex
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE16_CapacityForSizeEm.exit, !llvm.loop !808
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE16_CapacityForSizeEm.exit, !llvm.loop !808
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %44, i64 %19
   %47 = load i16, ptr %1, align 2
   store i16 %47, ptr %46, align 2
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit, label %49
 
@@ -124588,7 +124588,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopy
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -124615,7 +124615,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE8capacityEv.exit
@@ -124714,32 +124714,32 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE8capacityEv.ex
   br i1 %37, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE16_CapacityForSizeEm.exit, !llvm.loop !808
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE16_CapacityForSizeEm.exit, !llvm.loop !808
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE16_CapacityForSizeEm.exit
   %.idx.i = shl nsw i64 %19, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %39, i64 %.idx.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %44, ptr align 2 %43, i64 %.idx.i, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE16_CapacityForSizeEm.exit, %45
   %46 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %44, i64 %19
   %47 = load i16, ptr %1, align 2
   store i16 %47, ptr %46, align 2
-  %48 = load ptr, ptr %38, align 8
+  %48 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %48, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit, label %49
 
@@ -124756,7 +124756,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopy
 
 55:                                               ; preds = %51
   fence acquire
-  %56 = load ptr, ptr %38, align 8
+  %56 = load ptr, ptr %42, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %57) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
@@ -124783,7 +124783,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE13_AllocateCopyEPS2_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %69
 
 66:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE8capacityEv.exit
@@ -127141,22 +127141,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11ch
   br i1 %37, label %.critedge, label %68
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16_CapacityForSizeEm.exit, !llvm.loop !827
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16_CapacityForSizeEm.exit, !llvm.loop !827
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16_CapacityForSizeEm.exit: ; preds = %41
-  %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13_AllocateCopyEPS6_mm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %39, i64 noundef %.0.i11, i64 noundef %19)
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13_AllocateCopyEPS6_mm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %43, i64 noundef %.0.i11, i64 noundef %19)
   %45 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %44, i64 %19
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %46 = load ptr, ptr %38, align 8
+  %46 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %46, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7_DecRefEv.exit, label %47
 
@@ -127173,7 +127173,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11ch
 
 53:                                               ; preds = %49
   fence acquire
-  %54 = load ptr, ptr %38, align 8
+  %54 = load ptr, ptr %42, align 8
   %55 = load i64, ptr %0, align 8
   %.idx.i = shl nsw i64 %55, 5
   %56 = getelementptr inbounds i8, ptr %54, i64 %.idx.i
@@ -127188,7 +127188,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11ch
   br i1 %.not28.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !820
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %.pre.i = load ptr, ptr %38, align 8
+  %.pre.i = load ptr, ptr %42, align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %53
@@ -127219,7 +127219,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7_DecRefEv.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16_CapacityForSizeEm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %70
 
 68:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8capacityEv.exit
@@ -127317,22 +127317,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11ch
   br i1 %37, label %.critedge, label %68
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16_CapacityForSizeEm.exit, !llvm.loop !827
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16_CapacityForSizeEm.exit, !llvm.loop !827
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16_CapacityForSizeEm.exit: ; preds = %41
-  %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13_AllocateCopyEPS6_mm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %39, i64 noundef %.0.i11, i64 noundef %19)
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13_AllocateCopyEPS6_mm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %43, i64 noundef %.0.i11, i64 noundef %19)
   %45 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %44, i64 %19
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %46 = load ptr, ptr %38, align 8
+  %46 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %46, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7_DecRefEv.exit, label %47
 
@@ -127349,7 +127349,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11ch
 
 53:                                               ; preds = %49
   fence acquire
-  %54 = load ptr, ptr %38, align 8
+  %54 = load ptr, ptr %42, align 8
   %55 = load i64, ptr %0, align 8
   %.idx.i = shl nsw i64 %55, 5
   %56 = getelementptr inbounds i8, ptr %54, i64 %.idx.i
@@ -127364,7 +127364,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11ch
   br i1 %.not28.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !820
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %.pre.i = load ptr, ptr %38, align 8
+  %.pre.i = load ptr, ptr %42, align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %53
@@ -127395,7 +127395,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7_DecRefEv.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16_CapacityForSizeEm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %70
 
 68:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8capacityEv.exit
@@ -130188,27 +130188,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %102
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit, !llvm.loop !854
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit, !llvm.loop !854
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 3
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRS1_EEvPT_DpOT0_.exit.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %59, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %58, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %58, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit ]
   %46 = load i64, ptr %.0810.i.i.i.i, align 8
   store i64 %46, ptr %.011.i.i.i.i, align 8
   %47 = and i64 %46, 7
@@ -130262,7 +130262,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_m
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit, %63, %68
-  %73 = load ptr, ptr %38, align 8
+  %73 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %73, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE7_DecRefEv.exit, label %74
 
@@ -130279,7 +130279,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %_ZN32pxrI
 
 80:                                               ; preds = %76
   fence acquire
-  %81 = load ptr, ptr %38, align 8
+  %81 = load ptr, ptr %42, align 8
   %82 = load i64, ptr %0, align 8
   %.idx.i14 = shl nsw i64 %82, 3
   %83 = getelementptr inbounds i8, ptr %81, i64 %.idx.i14
@@ -130306,7 +130306,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %87, %.lr.ph
   br i1 %.not28.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !846
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i
-  %.pre.i = load ptr, ptr %38, align 8
+  %.pre.i = load ptr, ptr %42, align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %80
@@ -130337,7 +130337,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit17
 
 102:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE8capacityEv.exit
@@ -130454,27 +130454,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %91
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit, !llvm.loop !854
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit, !llvm.loop !854
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 3
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRS1_EEvPT_DpOT0_.exit.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %59, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %58, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %58, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE16_CapacityForSizeEm.exit ]
   %46 = load i64, ptr %.0810.i.i.i.i, align 8
   store i64 %46, ptr %.011.i.i.i.i, align 8
   %47 = and i64 %46, 7
@@ -130508,7 +130508,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_m
   %61 = load i64, ptr %1, align 8
   store i64 %61, ptr %60, align 8
   store i64 0, ptr %1, align 8
-  %62 = load ptr, ptr %38, align 8
+  %62 = load ptr, ptr %42, align 8
   %.not.i12 = icmp eq ptr %62, null
   br i1 %.not.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE7_DecRefEv.exit, label %63
 
@@ -130525,7 +130525,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_m
 
 69:                                               ; preds = %65
   fence acquire
-  %70 = load ptr, ptr %38, align 8
+  %70 = load ptr, ptr %42, align 8
   %71 = load i64, ptr %0, align 8
   %.idx.i13 = shl nsw i64 %71, 3
   %72 = getelementptr inbounds i8, ptr %70, i64 %.idx.i13
@@ -130552,7 +130552,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %76, %.lr.ph
   br i1 %.not28.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !846
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i
-  %.pre.i = load ptr, ptr %38, align 8
+  %.pre.i = load ptr, ptr %42, align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %69
@@ -130583,7 +130583,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetache
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE7_DecRefEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE7_DecRefEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit, %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %94
 
 91:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE8capacityEv.exit

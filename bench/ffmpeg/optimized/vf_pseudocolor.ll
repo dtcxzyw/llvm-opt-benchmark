@@ -368,13 +368,13 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %124 = getelementptr inbounds nuw %struct.Preset, ptr @presets, i64 %123
   %125 = load i32, ptr %124, align 16, !tbaa !65
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %127 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %128 = getelementptr inbounds nuw i8, ptr %2, i64 200
-  %129 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  %130 = getelementptr inbounds nuw i8, ptr %2, i64 224
-  %131 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %132 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %133 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  %127 = getelementptr inbounds nuw i8, ptr %2, i64 200
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 224
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  %132 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %134 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %135 = icmp ne i32 %13, 0
   %136 = getelementptr inbounds nuw i8, ptr %6, i64 232
@@ -513,69 +513,69 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %214 = sitofp i32 %165 to double
   %215 = fdiv nsz double %213, %214
   %216 = fmul nsz double %215, 2.560000e+02
-  %217 = load double, ptr %128, align 8, !tbaa !58
+  %217 = load double, ptr %127, align 8, !tbaa !58
   %218 = fadd nsz double %217, %216
-  %219 = load ptr, ptr %130, align 8, !tbaa !76
-  br label %220
+  br label %219
 
-220:                                              ; preds = %220, %210
-  %indvars.iv.i = phi i64 [ 0, %210 ], [ %indvars.iv.next.i, %220 ]
-  %.089.i = phi double [ 0.000000e+00, %210 ], [ %227, %220 ]
-  %221 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %222 = uitofp nneg i32 %221 to double
-  %223 = tail call nsz double @llvm.pow.f64(double %218, double %222)
-  %224 = sub nuw nsw i64 7, %indvars.iv.i
-  %225 = getelementptr inbounds nuw double, ptr %126, i64 %224
-  %226 = load double, ptr %225, align 8, !tbaa !58
-  %227 = tail call nsz double @llvm.fmuladd.f64(double %223, double %226, double %.089.i)
+219:                                              ; preds = %219, %210
+  %indvars.iv.i = phi i64 [ 0, %210 ], [ %indvars.iv.next.i, %219 ]
+  %.089.i = phi double [ 0.000000e+00, %210 ], [ %226, %219 ]
+  %220 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %221 = uitofp nneg i32 %220 to double
+  %222 = tail call nsz double @llvm.pow.f64(double %218, double %221)
+  %223 = sub nuw nsw i64 7, %indvars.iv.i
+  %224 = getelementptr inbounds nuw double, ptr %126, i64 %223
+  %225 = load double, ptr %224, align 8, !tbaa !58
+  %226 = tail call nsz double @llvm.fmuladd.f64(double %222, double %225, double %.089.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %poly_eval.exit, label %220, !llvm.loop !77
+  br i1 %exitcond.not.i, label %poly_eval.exit, label %219, !llvm.loop !76
 
-poly_eval.exit:                                   ; preds = %220
-  %228 = tail call nsz double %219(double noundef %227) #11
-  %229 = load double, ptr %132, align 8, !tbaa !58
+poly_eval.exit:                                   ; preds = %219
+  %227 = load ptr, ptr %128, align 8, !tbaa !77
+  %228 = tail call nsz double %227(double noundef %226) #11
+  %229 = load double, ptr %130, align 8, !tbaa !58
   %230 = fadd nsz double %216, %229
-  %231 = load ptr, ptr %133, align 8, !tbaa !76
-  br label %232
+  br label %231
 
-232:                                              ; preds = %232, %poly_eval.exit
-  %indvars.iv.i296 = phi i64 [ 0, %poly_eval.exit ], [ %indvars.iv.next.i298, %232 ]
-  %.089.i297 = phi double [ 0.000000e+00, %poly_eval.exit ], [ %239, %232 ]
-  %233 = trunc nuw nsw i64 %indvars.iv.i296 to i32
-  %234 = uitofp nneg i32 %233 to double
-  %235 = tail call nsz double @llvm.pow.f64(double %230, double %234)
-  %236 = sub nuw nsw i64 7, %indvars.iv.i296
-  %237 = getelementptr inbounds nuw double, ptr %131, i64 %236
-  %238 = load double, ptr %237, align 8, !tbaa !58
-  %239 = tail call nsz double @llvm.fmuladd.f64(double %235, double %238, double %.089.i297)
+231:                                              ; preds = %231, %poly_eval.exit
+  %indvars.iv.i296 = phi i64 [ 0, %poly_eval.exit ], [ %indvars.iv.next.i298, %231 ]
+  %.089.i297 = phi double [ 0.000000e+00, %poly_eval.exit ], [ %238, %231 ]
+  %232 = trunc nuw nsw i64 %indvars.iv.i296 to i32
+  %233 = uitofp nneg i32 %232 to double
+  %234 = tail call nsz double @llvm.pow.f64(double %230, double %233)
+  %235 = sub nuw nsw i64 7, %indvars.iv.i296
+  %236 = getelementptr inbounds nuw double, ptr %129, i64 %235
+  %237 = load double, ptr %236, align 8, !tbaa !58
+  %238 = tail call nsz double @llvm.fmuladd.f64(double %234, double %237, double %.089.i297)
   %indvars.iv.next.i298 = add nuw nsw i64 %indvars.iv.i296, 1
   %exitcond.not.i299 = icmp eq i64 %indvars.iv.next.i298, 8
-  br i1 %exitcond.not.i299, label %poly_eval.exit300, label %232, !llvm.loop !77
+  br i1 %exitcond.not.i299, label %poly_eval.exit300, label %231, !llvm.loop !76
 
-poly_eval.exit300:                                ; preds = %232
-  %240 = tail call nsz double %231(double noundef %239) #11
-  %241 = load double, ptr %127, align 8, !tbaa !58
+poly_eval.exit300:                                ; preds = %231
+  %239 = load ptr, ptr %132, align 8, !tbaa !77
+  %240 = tail call nsz double %239(double noundef %238) #11
+  %241 = load double, ptr %131, align 8, !tbaa !58
   %242 = fadd nsz double %216, %241
-  %243 = load ptr, ptr %129, align 8, !tbaa !76
-  br label %244
+  br label %243
 
-244:                                              ; preds = %244, %poly_eval.exit300
-  %indvars.iv.i301 = phi i64 [ 0, %poly_eval.exit300 ], [ %indvars.iv.next.i303, %244 ]
-  %.089.i302 = phi double [ 0.000000e+00, %poly_eval.exit300 ], [ %251, %244 ]
-  %245 = trunc nuw nsw i64 %indvars.iv.i301 to i32
-  %246 = uitofp nneg i32 %245 to double
-  %247 = tail call nsz double @llvm.pow.f64(double %242, double %246)
-  %248 = sub nuw nsw i64 7, %indvars.iv.i301
-  %249 = getelementptr inbounds nuw double, ptr %2, i64 %248
-  %250 = load double, ptr %249, align 8, !tbaa !58
-  %251 = tail call nsz double @llvm.fmuladd.f64(double %247, double %250, double %.089.i302)
+243:                                              ; preds = %243, %poly_eval.exit300
+  %indvars.iv.i301 = phi i64 [ 0, %poly_eval.exit300 ], [ %indvars.iv.next.i303, %243 ]
+  %.089.i302 = phi double [ 0.000000e+00, %poly_eval.exit300 ], [ %250, %243 ]
+  %244 = trunc nuw nsw i64 %indvars.iv.i301 to i32
+  %245 = uitofp nneg i32 %244 to double
+  %246 = tail call nsz double @llvm.pow.f64(double %242, double %245)
+  %247 = sub nuw nsw i64 7, %indvars.iv.i301
+  %248 = getelementptr inbounds nuw double, ptr %2, i64 %247
+  %249 = load double, ptr %248, align 8, !tbaa !58
+  %250 = tail call nsz double @llvm.fmuladd.f64(double %246, double %249, double %.089.i302)
   %indvars.iv.next.i303 = add nuw nsw i64 %indvars.iv.i301, 1
   %exitcond.not.i304 = icmp eq i64 %indvars.iv.next.i303, 8
-  br i1 %exitcond.not.i304, label %poly_eval.exit305, label %244, !llvm.loop !77
+  br i1 %exitcond.not.i304, label %poly_eval.exit305, label %243, !llvm.loop !76
 
-poly_eval.exit305:                                ; preds = %244
-  %252 = tail call nsz double %243(double noundef %251) #11
+poly_eval.exit305:                                ; preds = %243
+  %251 = load ptr, ptr %133, align 8, !tbaa !77
+  %252 = tail call nsz double %251(double noundef %250) #11
   %253 = load i32, ptr %134, align 8, !tbaa !78
   %254 = icmp ne i32 %253, 0
   %or.cond5 = select i1 %254, i1 %135, i1 false
@@ -730,12 +730,12 @@ poly_eval.exit305:                                ; preds = %244
 315:                                              ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
   %316 = getelementptr inbounds nuw i8, ptr %6, i64 1048808
   %317 = getelementptr inbounds nuw i8, ptr %6, i64 1048832
-  store ptr @pseudocolor_filter, ptr %317, align 8, !tbaa !76
+  store ptr @pseudocolor_filter, ptr %317, align 8, !tbaa !77
   %318 = getelementptr inbounds nuw i8, ptr %6, i64 1048824
-  store ptr @pseudocolor_filter, ptr %318, align 8, !tbaa !76
+  store ptr @pseudocolor_filter, ptr %318, align 8, !tbaa !77
   %319 = getelementptr inbounds nuw i8, ptr %6, i64 1048816
-  store ptr @pseudocolor_filter, ptr %319, align 8, !tbaa !76
-  store ptr @pseudocolor_filter, ptr %316, align 8, !tbaa !76
+  store ptr @pseudocolor_filter, ptr %319, align 8, !tbaa !77
+  store ptr @pseudocolor_filter, ptr %316, align 8, !tbaa !77
   br label %.critedge293
 
 320:                                              ; preds = %.loopexit, %.loopexit
@@ -750,23 +750,23 @@ poly_eval.exit305:                                ; preds = %244
 322:                                              ; preds = %320, %320
   %323 = getelementptr inbounds nuw i8, ptr %6, i64 1048808
   %324 = getelementptr inbounds nuw i8, ptr %6, i64 1048832
-  store ptr @pseudocolor_filter, ptr %324, align 8, !tbaa !76
-  store ptr @pseudocolor_filter, ptr %323, align 8, !tbaa !76
+  store ptr @pseudocolor_filter, ptr %324, align 8, !tbaa !77
+  store ptr @pseudocolor_filter, ptr %323, align 8, !tbaa !77
   %325 = getelementptr inbounds nuw i8, ptr %6, i64 1048824
-  store ptr @pseudocolor_filter_11, ptr %325, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_11, ptr %325, align 8, !tbaa !77
   %326 = getelementptr inbounds nuw i8, ptr %6, i64 1048816
-  store ptr @pseudocolor_filter_11, ptr %326, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_11, ptr %326, align 8, !tbaa !77
   br label %.critedge293
 
 327:                                              ; preds = %320, %320
   %328 = getelementptr inbounds nuw i8, ptr %6, i64 1048808
   %329 = getelementptr inbounds nuw i8, ptr %6, i64 1048832
-  store ptr @pseudocolor_filter_11d, ptr %329, align 8, !tbaa !76
-  store ptr @pseudocolor_filter_11d, ptr %328, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_11d, ptr %329, align 8, !tbaa !77
+  store ptr @pseudocolor_filter_11d, ptr %328, align 8, !tbaa !77
   %330 = getelementptr inbounds nuw i8, ptr %6, i64 1048824
-  store ptr @pseudocolor_filter, ptr %330, align 8, !tbaa !76
+  store ptr @pseudocolor_filter, ptr %330, align 8, !tbaa !77
   %331 = getelementptr inbounds nuw i8, ptr %6, i64 1048816
-  store ptr @pseudocolor_filter, ptr %331, align 8, !tbaa !76
+  store ptr @pseudocolor_filter, ptr %331, align 8, !tbaa !77
   br label %.critedge293
 
 332:                                              ; preds = %.loopexit, %.loopexit
@@ -781,34 +781,34 @@ poly_eval.exit305:                                ; preds = %244
 334:                                              ; preds = %332, %332
   %335 = getelementptr inbounds nuw i8, ptr %6, i64 1048808
   %336 = getelementptr inbounds nuw i8, ptr %6, i64 1048832
-  store ptr @pseudocolor_filter, ptr %336, align 8, !tbaa !76
-  store ptr @pseudocolor_filter, ptr %335, align 8, !tbaa !76
+  store ptr @pseudocolor_filter, ptr %336, align 8, !tbaa !77
+  store ptr @pseudocolor_filter, ptr %335, align 8, !tbaa !77
   %337 = getelementptr inbounds nuw i8, ptr %6, i64 1048824
-  store ptr @pseudocolor_filter_10, ptr %337, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_10, ptr %337, align 8, !tbaa !77
   %338 = getelementptr inbounds nuw i8, ptr %6, i64 1048816
-  store ptr @pseudocolor_filter_10, ptr %338, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_10, ptr %338, align 8, !tbaa !77
   br label %.critedge293
 
 339:                                              ; preds = %332, %332
   %340 = getelementptr inbounds nuw i8, ptr %6, i64 1048808
   %341 = getelementptr inbounds nuw i8, ptr %6, i64 1048832
-  store ptr @pseudocolor_filter_10d, ptr %341, align 8, !tbaa !76
-  store ptr @pseudocolor_filter_10d, ptr %340, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_10d, ptr %341, align 8, !tbaa !77
+  store ptr @pseudocolor_filter_10d, ptr %340, align 8, !tbaa !77
   %342 = getelementptr inbounds nuw i8, ptr %6, i64 1048824
-  store ptr @pseudocolor_filter, ptr %342, align 8, !tbaa !76
+  store ptr @pseudocolor_filter, ptr %342, align 8, !tbaa !77
   %343 = getelementptr inbounds nuw i8, ptr %6, i64 1048816
-  store ptr @pseudocolor_filter, ptr %343, align 8, !tbaa !76
+  store ptr @pseudocolor_filter, ptr %343, align 8, !tbaa !77
   br label %.critedge293
 
 344:                                              ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
   %345 = getelementptr inbounds nuw i8, ptr %6, i64 1048808
   %346 = getelementptr inbounds nuw i8, ptr %6, i64 1048832
-  store ptr @pseudocolor_filter_16, ptr %346, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_16, ptr %346, align 8, !tbaa !77
   %347 = getelementptr inbounds nuw i8, ptr %6, i64 1048824
-  store ptr @pseudocolor_filter_16, ptr %347, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_16, ptr %347, align 8, !tbaa !77
   %348 = getelementptr inbounds nuw i8, ptr %6, i64 1048816
-  store ptr @pseudocolor_filter_16, ptr %348, align 8, !tbaa !76
-  store ptr @pseudocolor_filter_16, ptr %345, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_16, ptr %348, align 8, !tbaa !77
+  store ptr @pseudocolor_filter_16, ptr %345, align 8, !tbaa !77
   br label %.critedge293
 
 349:                                              ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
@@ -823,23 +823,23 @@ poly_eval.exit305:                                ; preds = %244
 351:                                              ; preds = %349, %349
   %352 = getelementptr inbounds nuw i8, ptr %6, i64 1048808
   %353 = getelementptr inbounds nuw i8, ptr %6, i64 1048832
-  store ptr @pseudocolor_filter_16, ptr %353, align 8, !tbaa !76
-  store ptr @pseudocolor_filter_16, ptr %352, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_16, ptr %353, align 8, !tbaa !77
+  store ptr @pseudocolor_filter_16, ptr %352, align 8, !tbaa !77
   %354 = getelementptr inbounds nuw i8, ptr %6, i64 1048824
-  store ptr @pseudocolor_filter_16_10, ptr %354, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_16_10, ptr %354, align 8, !tbaa !77
   %355 = getelementptr inbounds nuw i8, ptr %6, i64 1048816
-  store ptr @pseudocolor_filter_16_10, ptr %355, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_16_10, ptr %355, align 8, !tbaa !77
   br label %.critedge293
 
 356:                                              ; preds = %349, %349
   %357 = getelementptr inbounds nuw i8, ptr %6, i64 1048808
   %358 = getelementptr inbounds nuw i8, ptr %6, i64 1048832
-  store ptr @pseudocolor_filter_16_10d, ptr %358, align 8, !tbaa !76
-  store ptr @pseudocolor_filter_16_10d, ptr %357, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_16_10d, ptr %358, align 8, !tbaa !77
+  store ptr @pseudocolor_filter_16_10d, ptr %357, align 8, !tbaa !77
   %359 = getelementptr inbounds nuw i8, ptr %6, i64 1048824
-  store ptr @pseudocolor_filter_16, ptr %359, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_16, ptr %359, align 8, !tbaa !77
   %360 = getelementptr inbounds nuw i8, ptr %6, i64 1048816
-  store ptr @pseudocolor_filter_16, ptr %360, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_16, ptr %360, align 8, !tbaa !77
   br label %.critedge293
 
 361:                                              ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
@@ -854,23 +854,23 @@ poly_eval.exit305:                                ; preds = %244
 363:                                              ; preds = %361, %361
   %364 = getelementptr inbounds nuw i8, ptr %6, i64 1048808
   %365 = getelementptr inbounds nuw i8, ptr %6, i64 1048832
-  store ptr @pseudocolor_filter_16, ptr %365, align 8, !tbaa !76
-  store ptr @pseudocolor_filter_16, ptr %364, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_16, ptr %365, align 8, !tbaa !77
+  store ptr @pseudocolor_filter_16, ptr %364, align 8, !tbaa !77
   %366 = getelementptr inbounds nuw i8, ptr %6, i64 1048824
-  store ptr @pseudocolor_filter_16_11, ptr %366, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_16_11, ptr %366, align 8, !tbaa !77
   %367 = getelementptr inbounds nuw i8, ptr %6, i64 1048816
-  store ptr @pseudocolor_filter_16_11, ptr %367, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_16_11, ptr %367, align 8, !tbaa !77
   br label %.critedge293
 
 368:                                              ; preds = %361, %361
   %369 = getelementptr inbounds nuw i8, ptr %6, i64 1048808
   %370 = getelementptr inbounds nuw i8, ptr %6, i64 1048832
-  store ptr @pseudocolor_filter_16_11d, ptr %370, align 8, !tbaa !76
-  store ptr @pseudocolor_filter_16_11d, ptr %369, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_16_11d, ptr %370, align 8, !tbaa !77
+  store ptr @pseudocolor_filter_16_11d, ptr %369, align 8, !tbaa !77
   %371 = getelementptr inbounds nuw i8, ptr %6, i64 1048824
-  store ptr @pseudocolor_filter_16, ptr %371, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_16, ptr %371, align 8, !tbaa !77
   %372 = getelementptr inbounds nuw i8, ptr %6, i64 1048816
-  store ptr @pseudocolor_filter_16, ptr %372, align 8, !tbaa !76
+  store ptr @pseudocolor_filter_16, ptr %372, align 8, !tbaa !77
   br label %.critedge293
 
 .critedge293:                                     ; preds = %99, %109, %.loopexit, %315, %344, %327, %322, %320, %339, %334, %332, %356, %351, %349, %368, %363, %361, %24, %23
@@ -952,7 +952,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   %57 = mul nsw i64 %44, %52
   %58 = getelementptr inbounds i8, ptr %56, i64 %57
   %59 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
-  %60 = load ptr, ptr %59, align 8, !tbaa !76
+  %60 = load ptr, ptr %59, align 8, !tbaa !77
   %61 = load i32, ptr %19, align 8, !tbaa !51
   %62 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4, !tbaa !44
@@ -1867,8 +1867,8 @@ attributes #13 = { nounwind willreturn memory(none) }
 !73 = !{!66, !69, i64 24}
 !74 = !{!8, !8, i64 0}
 !75 = !{i64 0, i64 192, !74, i64 192, i64 24, !74, i64 216, i64 24, !74, i64 240, i64 4, !44}
-!76 = !{!7, !7, i64 0}
-!77 = distinct !{!77, !23}
+!76 = distinct !{!76, !23}
+!77 = !{!7, !7, i64 0}
 !78 = !{!79, !15, i64 240}
 !79 = !{!"Curve", !8, i64 0, !8, i64 192, !8, i64 216, !15, i64 240}
 !80 = distinct !{!80, !23}

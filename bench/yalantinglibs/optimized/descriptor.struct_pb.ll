@@ -8104,9 +8104,9 @@ if.end106:                                        ; preds = %_ZNKRSt8optionalIbE
   br i1 %tobool.i.i493, label %while.body.i516.preheader, label %if.end123
 
 while.body.i516.preheader:                        ; preds = %if.end106
+  %63 = add i64 %pos.21, 1
   %arrayidx.i520 = getelementptr inbounds i8, ptr %data, i64 %pos.21
   store i8 -94, ptr %arrayidx.i520, align 1
-  %63 = add i64 %pos.21, 1
   %arrayidx3.i515 = getelementptr inbounds i8, ptr %data, i64 %63
   store i8 2, ptr %arrayidx3.i515, align 1
   %64 = load i8, ptr %_M_engaged.i.i492, align 8
@@ -8179,9 +8179,9 @@ if.end123:                                        ; preds = %_ZNKRSt8optionalINS
   br i1 %tobool.i.i514, label %while.body.i484.preheader, label %if.end140
 
 while.body.i484.preheader:                        ; preds = %if.end123
+  %73 = add i64 %pos.23, 1
   %arrayidx.i488 = getelementptr inbounds i8, ptr %data, i64 %pos.23
   store i8 -86, ptr %arrayidx.i488, align 1
-  %73 = add i64 %pos.23, 1
   %arrayidx3.i483 = getelementptr inbounds i8, ptr %data, i64 %73
   store i8 2, ptr %arrayidx3.i483, align 1
   %74 = load i8, ptr %_M_engaged.i.i513, align 8
@@ -8254,9 +8254,9 @@ if.end140:                                        ; preds = %_ZNKRSt8optionalINS
   br i1 %tobool.i.i535, label %while.body.i452.preheader, label %if.end157
 
 while.body.i452.preheader:                        ; preds = %if.end140
+  %83 = add i64 %pos.26, 1
   %arrayidx.i456 = getelementptr inbounds i8, ptr %data, i64 %pos.26
   store i8 -70, ptr %arrayidx.i456, align 1
-  %83 = add i64 %pos.26, 1
   %arrayidx3.i451 = getelementptr inbounds i8, ptr %data, i64 %83
   store i8 2, ptr %arrayidx3.i451, align 1
   %84 = load i8, ptr %_M_engaged.i.i534, align 8
@@ -8329,9 +8329,9 @@ if.end157:                                        ; preds = %_ZNKRSt8optionalINS
   br i1 %tobool.i.i556, label %while.body.i420.preheader, label %if.end174
 
 while.body.i420.preheader:                        ; preds = %if.end157
+  %93 = add i64 %pos.29, 1
   %arrayidx.i424 = getelementptr inbounds i8, ptr %data, i64 %pos.29
   store i8 -62, ptr %arrayidx.i424, align 1
-  %93 = add i64 %pos.29, 1
   %arrayidx3.i419 = getelementptr inbounds i8, ptr %data, i64 %93
   store i8 2, ptr %arrayidx3.i419, align 1
   %94 = load i8, ptr %_M_engaged.i.i555, align 8
@@ -8404,9 +8404,9 @@ if.end174:                                        ; preds = %_ZNKRSt8optionalINS
   br i1 %tobool.i.i577, label %while.body.i388.preheader, label %if.end191
 
 while.body.i388.preheader:                        ; preds = %if.end174
+  %103 = add i64 %pos.32, 1
   %arrayidx.i392 = getelementptr inbounds i8, ptr %data, i64 %pos.32
   store i8 -54, ptr %arrayidx.i392, align 1
-  %103 = add i64 %pos.32, 1
   %arrayidx3.i387 = getelementptr inbounds i8, ptr %data, i64 %103
   store i8 2, ptr %arrayidx3.i387, align 1
   %104 = load i8, ptr %_M_engaged.i.i576, align 8
@@ -8509,9 +8509,9 @@ if.end198:                                        ; preds = %_ZNKRSt8optionalIbE
   br i1 %tobool.i.i604, label %while.body.i324.preheader, label %if.end215
 
 while.body.i324.preheader:                        ; preds = %if.end198
+  %117 = add i64 %pos.38, 1
   %arrayidx.i328 = getelementptr inbounds i8, ptr %data, i64 %pos.38
   store i8 -30, ptr %arrayidx.i328, align 1
-  %117 = add i64 %pos.38, 1
   %arrayidx3.i323 = getelementptr inbounds i8, ptr %data, i64 %117
   store i8 2, ptr %arrayidx3.i323, align 1
   %118 = load i8, ptr %_M_engaged.i.i603, align 8
@@ -8584,9 +8584,9 @@ if.end215:                                        ; preds = %_ZNKRSt8optionalINS
   br i1 %tobool.i.i625, label %while.body.i292.preheader, label %if.end232
 
 while.body.i292.preheader:                        ; preds = %if.end215
+  %127 = add i64 %pos.40, 1
   %arrayidx.i296 = getelementptr inbounds i8, ptr %data, i64 %pos.40
   store i8 -22, ptr %arrayidx.i296, align 1
-  %127 = add i64 %pos.40, 1
   %arrayidx3.i291 = getelementptr inbounds i8, ptr %data, i64 %127
   store i8 2, ptr %arrayidx3.i291, align 1
   %128 = load i8, ptr %_M_engaged.i.i624, align 8
@@ -30838,9 +30838,9 @@ if.end:                                           ; preds = %_ZNKRSt8optionalIbE
   br i1 %tobool.i.i57, label %while.body.i66.preheader, label %if.end8
 
 while.body.i66.preheader:                         ; preds = %if.end
+  %4 = add nuw nsw i64 %pos.0, 1
   %arrayidx.i70 = getelementptr inbounds nuw i8, ptr %data, i64 %pos.0
   store i8 -112, ptr %arrayidx.i70, align 1
-  %4 = add nuw nsw i64 %pos.0, 1
   %arrayidx3.i65 = getelementptr inbounds nuw i8, ptr %data, i64 %4
   store i8 2, ptr %arrayidx3.i65, align 1
   %5 = load i8, ptr %_M_engaged.i.i56, align 8

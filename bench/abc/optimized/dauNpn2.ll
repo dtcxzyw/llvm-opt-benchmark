@@ -3603,34 +3603,34 @@ define void @Dtt_MakeFormulaFI2(i32 noundef %0, ptr noundef readonly captures(no
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %Dtt_FunImpl2Str.exit41.us
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %Dtt_FunImpl2Str.exit41.us ], [ 0, %.lr.ph ]
   %20 = phi ptr [ %45, %Dtt_FunImpl2Str.exit41.us ], [ %16, %.lr.ph ]
-  %21 = getelementptr i8, ptr %20, i64 8
-  %.val32.us = load ptr, ptr %21, align 8, !tbaa !115
-  %22 = getelementptr inbounds nuw ptr, ptr %.val32.us, i64 %indvars.iv54
-  %23 = load ptr, ptr %22, align 8, !tbaa !112
-  %24 = load i32, ptr %19, align 4, !tbaa !116
-  br label %25
+  %21 = load i32, ptr %19, align 4, !tbaa !115
+  br label %22
 
-25:                                               ; preds = %25, %.lr.ph.split.us
-  %.017.i34.us = phi i32 [ 0, %.lr.ph.split.us ], [ %37, %25 ]
-  %.01316.i35.us = phi i32 [ 0, %.lr.ph.split.us ], [ %35, %25 ]
-  %.01415.i36.us = phi i32 [ %3, %.lr.ph.split.us ], [ %36, %25 ]
-  %26 = shl i32 %.01415.i36.us, 2
-  %27 = and i32 %26, 28
-  %28 = ashr i32 %24, %27
-  %29 = and i32 %28, 7
-  %30 = shl nuw nsw i32 %.017.i34.us, 2
-  %31 = xor i32 %28, %.01415.i36.us
-  %32 = and i32 %31, 8
-  %33 = or disjoint i32 %32, %29
-  %34 = shl nuw nsw i32 %33, %30
-  %35 = or i32 %34, %.01316.i35.us
-  %36 = ashr i32 %.01415.i36.us, 4
-  %37 = add nuw nsw i32 %.017.i34.us, 1
-  %exitcond.not.i37.us = icmp eq i32 %37, 5
-  br i1 %exitcond.not.i37.us, label %Dtt_ComposeNP.exit38.us, label %25, !llvm.loop !106
+22:                                               ; preds = %22, %.lr.ph.split.us
+  %.017.i34.us = phi i32 [ 0, %.lr.ph.split.us ], [ %34, %22 ]
+  %.01316.i35.us = phi i32 [ 0, %.lr.ph.split.us ], [ %32, %22 ]
+  %.01415.i36.us = phi i32 [ %3, %.lr.ph.split.us ], [ %33, %22 ]
+  %23 = shl i32 %.01415.i36.us, 2
+  %24 = and i32 %23, 28
+  %25 = ashr i32 %21, %24
+  %26 = and i32 %25, 7
+  %27 = shl nuw nsw i32 %.017.i34.us, 2
+  %28 = xor i32 %25, %.01415.i36.us
+  %29 = and i32 %28, 8
+  %30 = or disjoint i32 %29, %26
+  %31 = shl nuw nsw i32 %30, %27
+  %32 = or i32 %31, %.01316.i35.us
+  %33 = ashr i32 %.01415.i36.us, 4
+  %34 = add nuw nsw i32 %.017.i34.us, 1
+  %exitcond.not.i37.us = icmp eq i32 %34, 5
+  br i1 %exitcond.not.i37.us, label %Dtt_ComposeNP.exit38.us, label %22, !llvm.loop !106
 
-Dtt_ComposeNP.exit38.us:                          ; preds = %25
-  call void @Dtt_MakeFormula(i32 noundef %0, ptr noundef %23, ptr noundef nonnull %2, i32 noundef %35, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %7)
+Dtt_ComposeNP.exit38.us:                          ; preds = %22
+  %35 = getelementptr i8, ptr %20, i64 8
+  %.val32.us = load ptr, ptr %35, align 8, !tbaa !116
+  %36 = getelementptr inbounds nuw ptr, ptr %.val32.us, i64 %indvars.iv54
+  %37 = load ptr, ptr %36, align 8, !tbaa !112
+  call void @Dtt_MakeFormula(i32 noundef %0, ptr noundef %37, ptr noundef nonnull %2, i32 noundef %32, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %7)
   %38 = load i32, ptr %1, align 4, !tbaa !117
   %39 = icmp ult i32 %38, 10
   br i1 %39, label %switch.lookup, label %Dtt_FunImpl2Str.exit41.us
@@ -3657,7 +3657,7 @@ Dtt_FunImpl2Str.exit41.us:                        ; preds = %Dtt_ComposeNP.exit3
 
 49:                                               ; preds = %8
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %51 = load i32, ptr %50, align 4, !tbaa !116
+  %51 = load i32, ptr %50, align 4, !tbaa !115
   br label %52
 
 52:                                               ; preds = %52, %49
@@ -3733,34 +3733,34 @@ Dtt_FunImpl2Str.exit:                             ; preds = %Dtt_MakePI.exit, %s
 .lr.ph.split:                                     ; preds = %.lr.ph, %Dtt_FunImpl2Str.exit41
   %indvars.iv = phi i64 [ %indvars.iv.next, %Dtt_FunImpl2Str.exit41 ], [ 0, %.lr.ph ]
   %83 = phi ptr [ %109, %Dtt_FunImpl2Str.exit41 ], [ %16, %.lr.ph ]
-  %84 = getelementptr i8, ptr %83, i64 8
-  %.val32 = load ptr, ptr %84, align 8, !tbaa !115
-  %85 = getelementptr inbounds nuw ptr, ptr %.val32, i64 %indvars.iv
-  %86 = load ptr, ptr %85, align 8, !tbaa !112
-  %87 = load i32, ptr %19, align 4, !tbaa !116
-  br label %88
+  %84 = load i32, ptr %19, align 4, !tbaa !115
+  br label %85
 
-88:                                               ; preds = %88, %.lr.ph.split
-  %.017.i34 = phi i32 [ 0, %.lr.ph.split ], [ %100, %88 ]
-  %.01316.i35 = phi i32 [ 0, %.lr.ph.split ], [ %98, %88 ]
-  %.01415.i36 = phi i32 [ %3, %.lr.ph.split ], [ %99, %88 ]
-  %89 = shl i32 %.01415.i36, 2
-  %90 = and i32 %89, 28
-  %91 = ashr i32 %87, %90
-  %92 = and i32 %91, 7
-  %93 = shl nuw nsw i32 %.017.i34, 2
-  %94 = xor i32 %91, %.01415.i36
-  %95 = and i32 %94, 8
-  %96 = or disjoint i32 %95, %92
-  %97 = shl nuw nsw i32 %96, %93
-  %98 = or i32 %97, %.01316.i35
-  %99 = ashr i32 %.01415.i36, 4
-  %100 = add nuw nsw i32 %.017.i34, 1
-  %exitcond.not.i37 = icmp eq i32 %100, 5
-  br i1 %exitcond.not.i37, label %Dtt_ComposeNP.exit38, label %88, !llvm.loop !106
+85:                                               ; preds = %85, %.lr.ph.split
+  %.017.i34 = phi i32 [ 0, %.lr.ph.split ], [ %97, %85 ]
+  %.01316.i35 = phi i32 [ 0, %.lr.ph.split ], [ %95, %85 ]
+  %.01415.i36 = phi i32 [ %3, %.lr.ph.split ], [ %96, %85 ]
+  %86 = shl i32 %.01415.i36, 2
+  %87 = and i32 %86, 28
+  %88 = ashr i32 %84, %87
+  %89 = and i32 %88, 7
+  %90 = shl nuw nsw i32 %.017.i34, 2
+  %91 = xor i32 %88, %.01415.i36
+  %92 = and i32 %91, 8
+  %93 = or disjoint i32 %92, %89
+  %94 = shl nuw nsw i32 %93, %90
+  %95 = or i32 %94, %.01316.i35
+  %96 = ashr i32 %.01415.i36, 4
+  %97 = add nuw nsw i32 %.017.i34, 1
+  %exitcond.not.i37 = icmp eq i32 %97, 5
+  br i1 %exitcond.not.i37, label %Dtt_ComposeNP.exit38, label %85, !llvm.loop !106
 
-Dtt_ComposeNP.exit38:                             ; preds = %88
-  call void @Dtt_MakeFormula(i32 noundef %0, ptr noundef %86, ptr noundef nonnull %2, i32 noundef %98, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %7)
+Dtt_ComposeNP.exit38:                             ; preds = %85
+  %98 = getelementptr i8, ptr %83, i64 8
+  %.val32 = load ptr, ptr %98, align 8, !tbaa !116
+  %99 = getelementptr inbounds nuw ptr, ptr %.val32, i64 %indvars.iv
+  %100 = load ptr, ptr %99, align 8, !tbaa !112
+  call void @Dtt_MakeFormula(i32 noundef %0, ptr noundef %100, ptr noundef nonnull %2, i32 noundef %95, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %7)
   %101 = load i32, ptr %1, align 4, !tbaa !117
   %102 = icmp ult i32 %101, 10
   br i1 %102, label %switch.lookup71, label %Dtt_FunImpl2Str.exit41
@@ -3880,34 +3880,34 @@ Dtt_MakePI.exit:                                  ; preds = %44, %39, %42
 47:                                               ; preds = %.lr.ph, %Dtt_ComposeNP.exit40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Dtt_ComposeNP.exit40 ]
   %48 = phi ptr [ %15, %.lr.ph ], [ %69, %Dtt_ComposeNP.exit40 ]
-  %49 = getelementptr i8, ptr %48, i64 8
-  %.val34 = load ptr, ptr %49, align 8, !tbaa !115
-  %50 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv
-  %51 = load ptr, ptr %50, align 8, !tbaa !112
-  %52 = load i32, ptr %18, align 4, !tbaa !120
-  br label %53
+  %49 = load i32, ptr %18, align 4, !tbaa !120
+  br label %50
 
-53:                                               ; preds = %53, %47
-  %.017.i36 = phi i32 [ 0, %47 ], [ %65, %53 ]
-  %.01316.i37 = phi i32 [ 0, %47 ], [ %63, %53 ]
-  %.01415.i38 = phi i32 [ %3, %47 ], [ %64, %53 ]
-  %54 = shl i32 %.01415.i38, 2
-  %55 = and i32 %54, 28
-  %56 = ashr i32 %52, %55
-  %57 = and i32 %56, 7
-  %58 = shl nuw nsw i32 %.017.i36, 2
-  %59 = xor i32 %56, %.01415.i38
-  %60 = and i32 %59, 8
-  %61 = or disjoint i32 %60, %57
-  %62 = shl nuw nsw i32 %61, %58
-  %63 = or i32 %62, %.01316.i37
-  %64 = ashr i32 %.01415.i38, 4
-  %65 = add nuw nsw i32 %.017.i36, 1
-  %exitcond.not.i39 = icmp eq i32 %65, 5
-  br i1 %exitcond.not.i39, label %Dtt_ComposeNP.exit40, label %53, !llvm.loop !106
+50:                                               ; preds = %50, %47
+  %.017.i36 = phi i32 [ 0, %47 ], [ %62, %50 ]
+  %.01316.i37 = phi i32 [ 0, %47 ], [ %60, %50 ]
+  %.01415.i38 = phi i32 [ %3, %47 ], [ %61, %50 ]
+  %51 = shl i32 %.01415.i38, 2
+  %52 = and i32 %51, 28
+  %53 = ashr i32 %49, %52
+  %54 = and i32 %53, 7
+  %55 = shl nuw nsw i32 %.017.i36, 2
+  %56 = xor i32 %53, %.01415.i38
+  %57 = and i32 %56, 8
+  %58 = or disjoint i32 %57, %54
+  %59 = shl nuw nsw i32 %58, %55
+  %60 = or i32 %59, %.01316.i37
+  %61 = ashr i32 %.01415.i38, 4
+  %62 = add nuw nsw i32 %.017.i36, 1
+  %exitcond.not.i39 = icmp eq i32 %62, 5
+  br i1 %exitcond.not.i39, label %Dtt_ComposeNP.exit40, label %50, !llvm.loop !106
 
-Dtt_ComposeNP.exit40:                             ; preds = %53
-  call void @Dtt_MakeFormula(i32 noundef %0, ptr noundef %51, ptr noundef nonnull %2, i32 noundef %63, ptr noundef nonnull %8, i32 noundef 0, ptr noundef %6)
+Dtt_ComposeNP.exit40:                             ; preds = %50
+  %63 = getelementptr i8, ptr %48, i64 8
+  %.val34 = load ptr, ptr %63, align 8, !tbaa !116
+  %64 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv
+  %65 = load ptr, ptr %64, align 8, !tbaa !112
+  call void @Dtt_MakeFormula(i32 noundef %0, ptr noundef %65, ptr noundef nonnull %2, i32 noundef %60, ptr noundef nonnull %8, i32 noundef 0, ptr noundef %6)
   call void @Dtt_MakeFormulaFI2(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %5, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load i32, ptr %9, align 4, !tbaa !119
@@ -4693,7 +4693,7 @@ Vec_IntFind.exit159:                              ; preds = %116, %Vec_IntFind.e
   %118 = getelementptr inbounds ptr, ptr %.val117184187, i64 %.07.i152
   %119 = load ptr, ptr %118, align 8, !tbaa !112
   %120 = getelementptr i8, ptr %119, i64 8
-  %.val121 = load ptr, ptr %120, align 8, !tbaa !115
+  %.val121 = load ptr, ptr %120, align 8, !tbaa !116
   %121 = getelementptr inbounds nuw ptr, ptr %.val121, i64 %indvars.iv
   %122 = load ptr, ptr %121, align 8, !tbaa !112
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
@@ -4775,7 +4775,7 @@ Vec_IntFind.exit168:                              ; preds = %141, %.critedge98, 
 
 152:                                              ; preds = %150, %148
   %153 = phi ptr [ %149, %148 ], [ %151, %150 ]
-  store ptr %153, ptr %38, align 8, !tbaa !115
+  store ptr %153, ptr %38, align 8, !tbaa !116
   store i32 %143, ptr %31, align 8, !tbaa !133
   br label %Vec_PtrGrow.exit.i
 
@@ -4812,7 +4812,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %152, %144
 
 .Vec_PtrGrow.exit11_crit_edge.i.i:                ; preds = %158
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !115
+  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !116
   br label %Vec_VecPush.exit
 
 168:                                              ; preds = %158
@@ -4821,7 +4821,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %152, %144
 
 170:                                              ; preds = %168
   %171 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %172 = load ptr, ptr %171, align 8, !tbaa !115
+  %172 = load ptr, ptr %171, align 8, !tbaa !116
   %.not9.i.i.i = icmp eq ptr %172, null
   br i1 %.not9.i.i.i, label %175, label %173
 
@@ -4835,14 +4835,14 @@ Vec_PtrGrow.exit.i:                               ; preds = %152, %144
 
 Vec_PtrGrow.exit.i.i:                             ; preds = %175, %173
   %177 = phi ptr [ %174, %173 ], [ %176, %175 ]
-  store ptr %177, ptr %171, align 8, !tbaa !115
+  store ptr %177, ptr %171, align 8, !tbaa !116
   store i32 16, ptr %163, align 8, !tbaa !133
   br label %Vec_VecPush.exit
 
 178:                                              ; preds = %168
   %179 = shl nuw nsw i32 %165, 1
   %180 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %181 = load ptr, ptr %180, align 8, !tbaa !115
+  %181 = load ptr, ptr %180, align 8, !tbaa !116
   %.not9.i10.i.i = icmp eq ptr %181, null
   %182 = zext nneg i32 %179 to i64
   %183 = shl nuw nsw i64 %182, 3
@@ -4858,7 +4858,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %175, %173
 
 188:                                              ; preds = %186, %184
   %189 = phi ptr [ %185, %184 ], [ %187, %186 ]
-  store ptr %189, ptr %180, align 8, !tbaa !115
+  store ptr %189, ptr %180, align 8, !tbaa !116
   store i32 %179, ptr %163, align 8, !tbaa !133
   br label %Vec_VecPush.exit
 
@@ -4914,7 +4914,7 @@ Vec_VecPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv211 = phi i64 [ %indvars.iv.next212, %.lr.ph199 ], [ 0, %.preheader ]
   %210 = phi ptr [ %214, %.lr.ph199 ], [ %207, %.preheader ]
   %211 = getelementptr i8, ptr %210, i64 8
-  %.val120 = load ptr, ptr %211, align 8, !tbaa !115
+  %.val120 = load ptr, ptr %211, align 8, !tbaa !116
   %212 = getelementptr inbounds nuw ptr, ptr %.val120, i64 %indvars.iv211
   %213 = load ptr, ptr %212, align 8, !tbaa !112
   store i8 0, ptr %3, align 16, !tbaa !3
@@ -6985,8 +6985,8 @@ attributes #34 = { cold noreturn nounwind }
 !112 = !{!15, !15, i64 0}
 !113 = !{!114, !16, i64 4}
 !114 = !{!"Vec_Ptr_t_", !16, i64 0, !16, i64 4, !15, i64 8}
-!115 = !{!114, !15, i64 8}
-!116 = !{!109, !16, i64 12}
+!115 = !{!109, !16, i64 12}
+!116 = !{!114, !15, i64 8}
 !117 = !{!109, !16, i64 0}
 !118 = distinct !{!118, !7}
 !119 = !{!109, !16, i64 8}

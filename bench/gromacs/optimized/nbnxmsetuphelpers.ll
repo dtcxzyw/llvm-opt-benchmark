@@ -630,8 +630,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc8
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %9, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %8, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %8, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !4
   br label %.lr.ph
 
 12:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i

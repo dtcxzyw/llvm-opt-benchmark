@@ -3276,22 +3276,20 @@ define internal fastcc void @proc_receive_ref_append(ptr noundef nonnull %0) unn
 
 .preheader37:                                     ; preds = %1
   %6 = icmp ult ptr %0, %4
-  br i1 %6, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.preheader37
-  %7 = sub i64 %5, %2
-  %scevgep = getelementptr i8, ptr %0, i64 %7
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %14
-  %.03038 = phi ptr [ %15, %14 ], [ %0, %.lr.ph.preheader ]
-  %8 = load i8, ptr %.03038, align 1, !tbaa !60
-  switch i8 %8, label %14 [
+.lr.ph:                                           ; preds = %.preheader37, %13
+  %.03038 = phi ptr [ %14, %13 ], [ %0, %.preheader37 ]
+  %7 = load i8, ptr %.03038, align 1, !tbaa !60
+  switch i8 %7, label %13 [
     i8 97, label %.sink.split
-    i8 100, label %9
-    i8 109, label %10
-    i8 33, label %11
+    i8 100, label %8
+    i8 109, label %9
+    i8 33, label %10
   ]
+
+8:                                                ; preds = %.lr.ph
+  br label %.sink.split
 
 9:                                                ; preds = %.lr.ph
   br label %.sink.split
@@ -3299,23 +3297,25 @@ define internal fastcc void @proc_receive_ref_append(ptr noundef nonnull %0) unn
 10:                                               ; preds = %.lr.ph
   br label %.sink.split
 
-11:                                               ; preds = %.lr.ph
-  br label %.sink.split
+.sink.split:                                      ; preds = %.lr.ph, %9, %10, %8
+  %.sink55 = phi i8 [ 2, %8 ], [ 8, %10 ], [ 4, %9 ], [ 1, %.lr.ph ]
+  %11 = load i8, ptr %3, align 8
+  %12 = or i8 %11, %.sink55
+  store i8 %12, ptr %3, align 8
+  br label %13
 
-.sink.split:                                      ; preds = %.lr.ph, %10, %11, %9
-  %.sink55 = phi i8 [ 2, %9 ], [ 8, %11 ], [ 4, %10 ], [ 1, %.lr.ph ]
-  %12 = load i8, ptr %3, align 8
-  %13 = or i8 %12, %.sink55
-  store i8 %13, ptr %3, align 8
-  br label %14
+13:                                               ; preds = %.sink.split, %.lr.ph
+  %14 = getelementptr inbounds nuw i8, ptr %.03038, i64 1
+  %exitcond.not = icmp eq ptr %14, %4
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !178
 
-14:                                               ; preds = %.sink.split, %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.03038, i64 1
-  %exitcond.not = icmp eq ptr %15, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !178
+._crit_edge.loopexit:                             ; preds = %13
+  %15 = sub i64 %5, %2
+  %scevgep = getelementptr i8, ptr %0, i64 %15
+  br label %._crit_edge
 
-._crit_edge:                                      ; preds = %14, %.preheader37
-  %.030.lcssa = phi ptr [ %0, %.preheader37 ], [ %scevgep, %14 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader37
+  %.030.lcssa = phi ptr [ %0, %.preheader37 ], [ %scevgep, %._crit_edge.loopexit ]
   %16 = getelementptr inbounds nuw i8, ptr %.030.lcssa, i64 1
   br label %20
 

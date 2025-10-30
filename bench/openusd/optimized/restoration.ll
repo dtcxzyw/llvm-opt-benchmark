@@ -3573,7 +3573,7 @@ define internal fastcc void @boxsum(ptr noundef nonnull readonly captures(none) 
   br i1 %exitcond341.not.i, label %._crit_edge297.us.i, label %277, !llvm.loop !52
 
 ._crit_edge297.us.i:                              ; preds = %277
-  %286 = trunc i64 %262 to i32
+  %286 = trunc nsw i64 %262 to i32
   %287 = add i32 %285, %278
   %288 = add i32 %287, %.2244292.us.i
   %289 = add i32 %288, %.2247291.us.i

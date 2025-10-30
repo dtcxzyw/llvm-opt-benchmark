@@ -4752,12 +4752,12 @@ define hidden void @_ZN16wasmtime_environ9component9translate5adapt23PartitionAd
   ret void
 
 .loopexit30:                                      ; preds = %.lr.ph, %.lr.ph34
-  %39 = icmp eq ptr %40, %36
-  br i1 %39, label %.loopexit, label %.lr.ph34
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.018.033, i64 104
+  %40 = icmp eq ptr %39, %36
+  br i1 %40, label %.loopexit, label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %35, %.loopexit30
-  %.sroa.018.033 = phi ptr [ %40, %.loopexit30 ], [ %23, %35 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.018.033, i64 104
+  %.sroa.018.033 = phi ptr [ %39, %.loopexit30 ], [ %23, %35 ]
   %41 = getelementptr i8, ptr %.sroa.018.033, i64 32
   %.val14 = load ptr, ptr %41, align 8, !nonnull !4, !noundef !4
   %42 = getelementptr i8, ptr %.sroa.018.033, i64 40

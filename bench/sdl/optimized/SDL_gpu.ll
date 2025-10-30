@@ -1954,18 +1954,18 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   %143 = getelementptr inbounds nuw i8, ptr %18, i64 168
   %144 = load ptr, ptr %143, align 8
   tail call void %144(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #6
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %146, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 1, ptr %145, align 8
   %.not233 = icmp eq i32 %2, 0
   br i1 %.not233, label %._crit_edge, label %.lr.ph232
 
 .lr.ph232:                                        ; preds = %142
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count251 = zext nneg i32 %2 to i64
   br label %149
 
 ._crit_edge:                                      ; preds = %149, %142
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %2, ptr %148, align 8
   %.not156 = icmp eq ptr %3, null
@@ -1975,7 +1975,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   %indvars.iv248 = phi i64 [ 0, %.lr.ph232 ], [ %indvars.iv.next249, %149 ]
   %150 = getelementptr inbounds nuw %struct.SDL_GPUColorTargetInfo, ptr %1, i64 %indvars.iv248
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv248
+  %152 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv248
   store ptr %151, ptr %152, align 8
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
@@ -1988,7 +1988,7 @@ define hidden ptr @SDL_BeginGPURenderPass_REAL(ptr noundef %0, ptr noundef %1, i
   br label %.critedge175
 
 .critedge175:                                     ; preds = %.preheader222, %.preheader220, %.preheader218, %.preheader216, %.preheader214, %.preheader212, %.preheader210, %.preheader208, %.preheader206, %139, %126, %.preheader224, %40, %.preheader, %141, %128, %113, %106, %100, %93, %87, %82, %75, %70, %64, %54, %42, %27, %._crit_edge, %153, %15, %11, %6
-  %.0118 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %15 ], [ %145, %153 ], [ %145, %._crit_edge ], [ null, %27 ], [ null, %42 ], [ null, %54 ], [ null, %64 ], [ null, %70 ], [ null, %75 ], [ null, %82 ], [ null, %87 ], [ null, %93 ], [ null, %100 ], [ null, %106 ], [ null, %113 ], [ null, %128 ], [ null, %141 ], [ null, %.preheader ], [ null, %40 ], [ null, %.preheader224 ], [ null, %126 ], [ null, %139 ], [ null, %.preheader206 ], [ null, %.preheader208 ], [ null, %.preheader210 ], [ null, %.preheader212 ], [ null, %.preheader214 ], [ null, %.preheader216 ], [ null, %.preheader218 ], [ null, %.preheader220 ], [ null, %.preheader222 ]
+  %.0118 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %15 ], [ %147, %153 ], [ %147, %._crit_edge ], [ null, %27 ], [ null, %42 ], [ null, %54 ], [ null, %64 ], [ null, %70 ], [ null, %75 ], [ null, %82 ], [ null, %87 ], [ null, %93 ], [ null, %100 ], [ null, %106 ], [ null, %113 ], [ null, %128 ], [ null, %141 ], [ null, %.preheader ], [ null, %40 ], [ null, %.preheader224 ], [ null, %126 ], [ null, %139 ], [ null, %.preheader206 ], [ null, %.preheader208 ], [ null, %.preheader210 ], [ null, %.preheader212 ], [ null, %.preheader214 ], [ null, %.preheader216 ], [ null, %.preheader218 ], [ null, %.preheader220 ], [ null, %.preheader222 ]
   ret ptr %.0118
 }
 

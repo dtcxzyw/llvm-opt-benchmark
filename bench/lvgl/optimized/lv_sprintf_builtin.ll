@@ -968,24 +968,24 @@ _ntoa_long.exit323:                               ; preds = %441, %431
 
 .preheader388:                                    ; preds = %494
   %496 = icmp ugt i32 %.0217, 1
-  br i1 %496, label %.lr.ph.preheader, label %.loopexit389
+  br i1 %496, label %.lr.ph, label %.loopexit389
 
-.lr.ph.preheader:                                 ; preds = %.preheader388
-  %497 = add i32 %.0217, 1
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %498 = phi i32 [ %500, %.lr.ph ], [ 2, %.lr.ph.preheader ]
-  %.4228404 = phi i64 [ %499, %.lr.ph ], [ %.0224, %.lr.ph.preheader ]
-  %499 = add i64 %.4228404, 1
+.lr.ph:                                           ; preds = %.preheader388, %.lr.ph
+  %497 = phi i32 [ %499, %.lr.ph ], [ 2, %.preheader388 ]
+  %.4228404 = phi i64 [ %498, %.lr.ph ], [ %.0224, %.preheader388 ]
+  %498 = add i64 %.4228404, 1
   call void %spec.select(i8 noundef signext 32, ptr noundef %1, i64 noundef %.4228404, i64 noundef %2) #8, !callees !6
-  %500 = add i32 %498, 1
-  %exitcond.not = icmp eq i32 %498, %.0217
-  br i1 %exitcond.not, label %.loopexit389, label %.lr.ph, !llvm.loop !28
+  %499 = add i32 %497, 1
+  %exitcond.not = icmp eq i32 %497, %.0217
+  br i1 %exitcond.not, label %.loopexit389.loopexit, label %.lr.ph, !llvm.loop !28
 
-.loopexit389:                                     ; preds = %.lr.ph, %.preheader388, %494
-  %.3227 = phi i64 [ %.0224, %494 ], [ %.0224, %.preheader388 ], [ %499, %.lr.ph ]
-  %.0209 = phi i32 [ 1, %494 ], [ 2, %.preheader388 ], [ %497, %.lr.ph ]
+.loopexit389.loopexit:                            ; preds = %.lr.ph
+  %500 = add i32 %.0217, 1
+  br label %.loopexit389
+
+.loopexit389:                                     ; preds = %.loopexit389.loopexit, %.preheader388, %494
+  %.3227 = phi i64 [ %.0224, %494 ], [ %.0224, %.preheader388 ], [ %498, %.loopexit389.loopexit ]
+  %.0209 = phi i32 [ 1, %494 ], [ 2, %.preheader388 ], [ %500, %.loopexit389.loopexit ]
   %501 = load i32, ptr %4, align 8
   %502 = icmp ult i32 %501, 41
   br i1 %502, label %503, label %508
@@ -1082,29 +1082,26 @@ _strnlen_s.exit:                                  ; preds = %.lr.ph.i324, %530
 .preheader384:                                    ; preds = %_strnlen_s.exit
   %546 = add i32 %.0, 1
   %547 = icmp ult i32 %.0, %.0217
-  br i1 %547, label %.lr.ph411.preheader, label %.loopexit385
+  br i1 %547, label %.lr.ph411, label %.loopexit385
 
-.lr.ph411.preheader:                              ; preds = %.preheader384
-  %548 = add i32 %.0217, 1
-  br label %.lr.ph411
-
-.lr.ph411:                                        ; preds = %.lr.ph411.preheader, %.lr.ph411
-  %549 = phi i32 [ %551, %.lr.ph411 ], [ %546, %.lr.ph411.preheader ]
-  %.8232410 = phi i64 [ %550, %.lr.ph411 ], [ %.0224, %.lr.ph411.preheader ]
-  %550 = add i64 %.8232410, 1
+.lr.ph411:                                        ; preds = %.preheader384, %.lr.ph411
+  %548 = phi i32 [ %550, %.lr.ph411 ], [ %546, %.preheader384 ]
+  %.8232410 = phi i64 [ %549, %.lr.ph411 ], [ %.0224, %.preheader384 ]
+  %549 = add i64 %.8232410, 1
   call void %spec.select(i8 noundef signext 32, ptr noundef %1, i64 noundef %.8232410, i64 noundef %2) #8, !callees !6
-  %551 = add i32 %549, 1
-  %exitcond447.not = icmp eq i32 %549, %.0217
+  %550 = add i32 %548, 1
+  %exitcond447.not = icmp eq i32 %548, %.0217
   br i1 %exitcond447.not, label %.loopexit385.loopexit, label %.lr.ph411, !llvm.loop !32
 
 .loopexit385.loopexit:                            ; preds = %.lr.ph411
+  %551 = add i32 %.0217, 1
   %.pre449 = load i8, ptr %532, align 1, !tbaa !3
   br label %.loopexit385
 
 .loopexit385:                                     ; preds = %.loopexit385.loopexit, %.preheader384, %_strnlen_s.exit
   %552 = phi i8 [ %535, %_strnlen_s.exit ], [ %535, %.preheader384 ], [ %.pre449, %.loopexit385.loopexit ]
-  %.7231 = phi i64 [ %.0224, %_strnlen_s.exit ], [ %.0224, %.preheader384 ], [ %550, %.loopexit385.loopexit ]
-  %.1 = phi i32 [ %.0, %_strnlen_s.exit ], [ %546, %.preheader384 ], [ %548, %.loopexit385.loopexit ]
+  %.7231 = phi i64 [ %.0224, %_strnlen_s.exit ], [ %.0224, %.preheader384 ], [ %549, %.loopexit385.loopexit ]
+  %.1 = phi i32 [ %.0, %_strnlen_s.exit ], [ %546, %.preheader384 ], [ %551, %.loopexit385.loopexit ]
   %.not268414 = icmp eq i8 %552, 0
   br i1 %.not268414, label %.critedge, label %.lr.ph418
 
@@ -1333,39 +1330,39 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   br label %_out_rev.exit
 
 58:                                               ; preds = %54
-  %59 = fcmp olt double %4, 0.000000e+00
-  %60 = fsub double 0.000000e+00, %4
-  %.0123 = select i1 %59, double %60, double %4
-  %61 = and i32 %7, 1024
-  %.not = icmp eq i32 %61, 0
+  %59 = and i32 %7, 1024
+  %.not = icmp eq i32 %59, 0
   %.0126 = select i1 %.not, i32 6, i32 %5
-  %62 = icmp ugt i32 %.0126, 9
-  br i1 %62, label %.lr.ph.preheader, label %._crit_edge
+  %60 = icmp ugt i32 %.0126, 9
+  br i1 %60, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %58
-  %63 = add i32 %.0126, -10
-  %64 = tail call i32 @llvm.umin.i32(i32 %63, i32 31)
-  %narrow = add nuw nsw i32 %64, 1
-  %65 = zext nneg i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %9, i8 48, i64 %65, i1 false), !tbaa !3
+  %61 = add i32 %.0126, -10
+  %62 = tail call i32 @llvm.umin.i32(i32 %61, i32 31)
+  %narrow = add nuw nsw i32 %62, 1
+  %63 = zext nneg i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %9, i8 48, i64 %63, i1 false), !tbaa !3
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0120214 = phi i64 [ %66, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.1127213 = phi i32 [ %67, %.lr.ph ], [ %5, %.lr.ph.preheader ]
-  %66 = add nuw nsw i64 %.0120214, 1
-  %67 = add i32 %.1127213, -1
-  %exitcond.not = icmp eq i64 %66, %65
+  %.0120214 = phi i64 [ %64, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.1127213 = phi i32 [ %65, %.lr.ph ], [ %5, %.lr.ph.preheader ]
+  %64 = add nuw nsw i64 %.0120214, 1
+  %65 = add i32 %.1127213, -1
+  %exitcond.not = icmp eq i64 %64, %63
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %68 = icmp samesign ult i64 %.0120214, 31
+  %66 = icmp samesign ult i64 %.0120214, 31
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %58
-  %.1127.lcssa = phi i32 [ %.0126, %58 ], [ %67, %._crit_edge.loopexit ]
-  %.0120.lcssa = phi i64 [ 0, %58 ], [ %65, %._crit_edge.loopexit ]
-  %.lcssa212 = phi i1 [ true, %58 ], [ %68, %._crit_edge.loopexit ]
+  %.1127.lcssa = phi i32 [ %.0126, %58 ], [ %65, %._crit_edge.loopexit ]
+  %.0120.lcssa = phi i64 [ 0, %58 ], [ %63, %._crit_edge.loopexit ]
+  %.lcssa212 = phi i1 [ true, %58 ], [ %66, %._crit_edge.loopexit ]
+  %67 = fcmp olt double %4, 0.000000e+00
+  %68 = fsub double 0.000000e+00, %4
+  %.0123 = select i1 %67, double %68, double %4
   %69 = fptosi double %.0123 to i32
   %70 = sitofp i32 %69 to double
   %71 = fsub double %.0123, %70
@@ -1512,7 +1509,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
 134:                                              ; preds = %133
   %135 = and i32 %7, 12
   %.not139 = icmp ne i32 %135, 0
-  %or.cond149.not = or i1 %59, %.not139
+  %or.cond149.not = or i1 %67, %.not139
   %136 = sext i1 %or.cond149.not to i32
   %spec.select151 = add i32 %6, %136
   br label %137
@@ -1537,7 +1534,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   br i1 %141, label %142, label %149
 
 142:                                              ; preds = %.loopexit
-  br i1 %59, label %.sink.split, label %143
+  br i1 %67, label %.sink.split, label %143
 
 143:                                              ; preds = %142
   %144 = and i32 %7, 4

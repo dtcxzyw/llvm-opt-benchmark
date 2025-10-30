@@ -895,57 +895,57 @@ define void @ff_sws_ipt_rgb2lms(ptr dead_on_unwind noalias writable sret(%struct
   %3 = alloca %struct.SwsMatrix3x3, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, ptr noundef nonnull align 4 dereferenceable(36) @__const.ff_sws_ipt_rgb2lms.m, i64 36, i1 false)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %6
 
-12:                                               ; preds = %12, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw float, ptr @hpe, i64 %indvars.iv.i
+6:                                                ; preds = %6, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %6 ]
+  %7 = getelementptr inbounds nuw float, ptr @hpe, i64 %indvars.iv.i
+  %8 = load float, ptr %7, align 4, !tbaa !4
+  %9 = getelementptr inbounds nuw float, ptr getelementptr inbounds nuw (i8, ptr @hpe, i64 12), i64 %indvars.iv.i
+  %10 = load float, ptr %9, align 4, !tbaa !4
+  %11 = fmul nsz float %10, 0x3FA47AE140000000
+  %12 = tail call nsz float @llvm.fmuladd.f32(float %8, float 0x3FED70A3E0000000, float %11)
+  %13 = getelementptr inbounds nuw float, ptr getelementptr inbounds nuw (i8, ptr @hpe, i64 24), i64 %indvars.iv.i
   %14 = load float, ptr %13, align 4, !tbaa !4
-  %15 = getelementptr inbounds nuw float, ptr getelementptr inbounds nuw (i8, ptr @hpe, i64 12), i64 %indvars.iv.i
-  %16 = load float, ptr %15, align 4, !tbaa !4
-  %17 = fmul nsz float %16, 0x3FA47AE140000000
-  %18 = tail call nsz float @llvm.fmuladd.f32(float %14, float 0x3FED70A3E0000000, float %17)
-  %19 = getelementptr inbounds nuw float, ptr getelementptr inbounds nuw (i8, ptr @hpe, i64 24), i64 %indvars.iv.i
-  %20 = load float, ptr %19, align 4, !tbaa !4
-  %21 = tail call nsz float @llvm.fmuladd.f32(float %20, float 0x3FA47AE140000000, float %18)
-  %22 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i
-  store float %21, ptr %22, align 4, !tbaa !4
-  %23 = fmul nsz float %16, 0x3FED70A3E0000000
-  %24 = tail call nsz float @llvm.fmuladd.f32(float %14, float 0x3FA47AE140000000, float %23)
-  %25 = tail call nsz float @llvm.fmuladd.f32(float %20, float 0x3FA47AE140000000, float %24)
-  %26 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
-  store float %25, ptr %26, align 4, !tbaa !4
-  %27 = tail call nsz float @llvm.fmuladd.f32(float %14, float 0x3FA47AE140000000, float %17)
-  %28 = tail call nsz float @llvm.fmuladd.f32(float %20, float 0x3FED70A3E0000000, float %27)
-  %29 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
-  store float %28, ptr %29, align 4, !tbaa !4
+  %15 = tail call nsz float @llvm.fmuladd.f32(float %14, float 0x3FA47AE140000000, float %12)
+  %16 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i
+  store float %15, ptr %16, align 4, !tbaa !4
+  %17 = fmul nsz float %10, 0x3FED70A3E0000000
+  %18 = tail call nsz float @llvm.fmuladd.f32(float %8, float 0x3FA47AE140000000, float %17)
+  %19 = tail call nsz float @llvm.fmuladd.f32(float %14, float 0x3FA47AE140000000, float %18)
+  %20 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
+  store float %19, ptr %20, align 4, !tbaa !4
+  %21 = tail call nsz float @llvm.fmuladd.f32(float %8, float 0x3FA47AE140000000, float %11)
+  %22 = tail call nsz float @llvm.fmuladd.f32(float %14, float 0x3FED70A3E0000000, float %21)
+  %23 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  store float %22, ptr %23, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %ff_sws_matrix3x3_mul.exit, label %12, !llvm.loop !8
+  br i1 %exitcond.not.i, label %ff_sws_matrix3x3_mul.exit, label %6, !llvm.loop !8
 
-ff_sws_matrix3x3_mul.exit:                        ; preds = %12
+ff_sws_matrix3x3_mul.exit:                        ; preds = %6
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load i64, ptr %1, align 4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i64, ptr %31, align 4
   tail call fastcc void @apply_chromatic_adaptation(i64 %30, i64 %32, i64 42949672963127, i64 42949672963290, ptr noundef nonnull %0)
   call void @ff_sws_rgb2xyz(ptr dead_on_unwind nonnull writable sret(%struct.SwsMatrix3x3) align 4 %3, ptr noundef nonnull %1)
   %33 = load float, ptr %0, align 4, !tbaa !4
-  %34 = load float, ptr %4, align 4, !tbaa !4
-  %35 = load float, ptr %5, align 4, !tbaa !4
-  %36 = load float, ptr %6, align 4, !tbaa !4
-  %37 = load float, ptr %7, align 4, !tbaa !4
-  %38 = load float, ptr %8, align 4, !tbaa !4
-  %39 = load float, ptr %9, align 4, !tbaa !4
-  %40 = load float, ptr %10, align 4, !tbaa !4
-  %41 = load float, ptr %11, align 4, !tbaa !4
+  %34 = load float, ptr %24, align 4, !tbaa !4
+  %35 = load float, ptr %25, align 4, !tbaa !4
+  %36 = load float, ptr %4, align 4, !tbaa !4
+  %37 = load float, ptr %26, align 4, !tbaa !4
+  %38 = load float, ptr %27, align 4, !tbaa !4
+  %39 = load float, ptr %5, align 4, !tbaa !4
+  %40 = load float, ptr %28, align 4, !tbaa !4
+  %41 = load float, ptr %29, align 4, !tbaa !4
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %44
@@ -966,12 +966,12 @@ ff_sws_matrix3x3_mul.exit:                        ; preds = %12
   %55 = fmul nsz float %37, %48
   %56 = tail call nsz float @llvm.fmuladd.f32(float %36, float %46, float %55)
   %57 = tail call nsz float @llvm.fmuladd.f32(float %38, float %52, float %56)
-  %58 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i2
+  %58 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i2
   store float %57, ptr %58, align 4, !tbaa !4
   %59 = fmul nsz float %40, %48
   %60 = tail call nsz float @llvm.fmuladd.f32(float %39, float %46, float %59)
   %61 = tail call nsz float @llvm.fmuladd.f32(float %41, float %52, float %60)
-  %62 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i2
+  %62 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i2
   store float %61, ptr %62, align 4, !tbaa !4
   %indvars.iv.next.i3 = add nuw nsw i64 %indvars.iv.i2, 1
   %exitcond.not.i4 = icmp eq i64 %indvars.iv.next.i3, 3

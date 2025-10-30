@@ -7599,8 +7599,8 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i._ZNSt6vectorIjSaIjEEC2EmRK
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %30
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %35, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %34, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %34, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !17
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, %30

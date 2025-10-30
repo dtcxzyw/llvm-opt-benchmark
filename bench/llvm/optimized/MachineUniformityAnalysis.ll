@@ -7410,32 +7410,32 @@ _ZN4llvm20DivergencePropagatorINS_17GenericSSAContextINS_15MachineFunctionEEEE9v
   %.0301 = phi ptr [ null, %.lr.ph302 ], [ %.1, %445 ]
   %.1238299 = phi i32 [ %.0237.lcssa, %.lr.ph302 ], [ %.2239, %445 ]
   %145 = load ptr, ptr %62, align 8, !tbaa !520
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
-  %147 = load i32, ptr %146, align 8, !tbaa !556
-  %148 = getelementptr inbounds nuw i8, ptr %145, i64 24
-  br label %149
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
+  br label %147
 
-149:                                              ; preds = %149, %144
-  %.09.i.i = phi i32 [ 0, %144 ], [ %155, %149 ]
-  %150 = icmp samesign ult i32 %.09.i.i, 2
-  call void @llvm.assume(i1 %150)
-  %151 = xor i32 %.09.i.i, 1
-  %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw i64, ptr %148, i64 %152
-  %154 = load i64, ptr %153, align 8, !tbaa !416
-  %.not.i.i88 = icmp eq i64 %154, 0
-  %155 = add nuw nsw i32 %.09.i.i, 1
-  br i1 %.not.i.i88, label %149, label %_ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit, !llvm.loop !558
+147:                                              ; preds = %147, %144
+  %.09.i.i = phi i32 [ 0, %144 ], [ %153, %147 ]
+  %148 = icmp samesign ult i32 %.09.i.i, 2
+  call void @llvm.assume(i1 %148)
+  %149 = xor i32 %.09.i.i, 1
+  %150 = zext nneg i32 %149 to i64
+  %151 = getelementptr inbounds nuw i64, ptr %146, i64 %150
+  %152 = load i64, ptr %151, align 8, !tbaa !416
+  %.not.i.i88 = icmp eq i64 %152, 0
+  %153 = add nuw nsw i32 %.09.i.i, 1
+  br i1 %.not.i.i88, label %147, label %_ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit, !llvm.loop !556
 
-_ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit: ; preds = %149
-  %156 = shl i32 %147, 7
-  %157 = shl nuw nsw i32 %151, 6
-  %158 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %154, i1 true)
+_ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit: ; preds = %147
+  %154 = getelementptr inbounds nuw i8, ptr %145, i64 16
+  %155 = load i32, ptr %154, align 8, !tbaa !557
+  %156 = shl i32 %155, 7
+  %157 = shl nuw nsw i32 %149, 6
+  %158 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %152, i1 true)
   %159 = trunc nuw nsw i64 %158 to i32
   %160 = xor i32 %159, -1
-  %161 = or disjoint i32 %156, 64
-  %162 = add i32 %161, %157
-  %163 = add i32 %162, %160
+  %161 = add nuw nsw i32 %157, 64
+  %162 = add nsw i32 %161, %160
+  %163 = add nuw i32 %162, %156
   %164 = icmp eq i32 %163, -1
   %165 = icmp slt i32 %163, %.1238299
   %or.cond = select i1 %164, i1 true, i1 %165
@@ -8456,7 +8456,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE5resetEj(ptr n
 13:                                               ; preds = %10, %5
   %.in.i.i = phi ptr [ %12, %10 ], [ %8, %5 ]
   %14 = getelementptr inbounds nuw i8, ptr %.in.i.i, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !556
+  %15 = load i32, ptr %14, align 8, !tbaa !557
   %16 = icmp eq i32 %15, %6
   br i1 %16, label %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit, label %17
 
@@ -8475,7 +8475,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE5resetEj(ptr n
 .lr.ph24.i.i:                                     ; preds = %.preheader.i.i, %22
   %.sroa.08.123.i.i = phi ptr [ %24, %22 ], [ %.in.i.i, %.preheader.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !556
+  %20 = load i32, ptr %19, align 8, !tbaa !557
   %21 = icmp ugt i32 %20, %6
   br i1 %21, label %22, label %.sink.split.i.i
 
@@ -8488,7 +8488,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE5resetEj(ptr n
 .lr.ph.i.i:                                       ; preds = %.preheader16.i.i, %28
   %.sroa.08.219.i.i = phi ptr [ %29, %28 ], [ %.in.i.i, %.preheader16.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !556
+  %26 = load i32, ptr %25, align 8, !tbaa !557
   %27 = icmp ult i32 %26, %6
   br i1 %27, label %28, label %.sink.split.i.i
 
@@ -8511,7 +8511,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
 
 32:                                               ; preds = %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i, i64 16
-  %34 = load i32, ptr %33, align 8, !tbaa !556
+  %34 = load i32, ptr %33, align 8, !tbaa !557
   %.not = icmp eq i32 %34, %6
   br i1 %.not, label %35, label %.critedge
 
@@ -8910,7 +8910,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE3setEj(ptr nou
 13:                                               ; preds = %10, %6
   %.in.i.i = phi ptr [ %12, %10 ], [ %8, %6 ]
   %14 = getelementptr inbounds nuw i8, ptr %.in.i.i, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !556
+  %15 = load i32, ptr %14, align 8, !tbaa !557
   %16 = icmp eq i32 %15, %3
   br i1 %16, label %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit, label %17
 
@@ -8929,7 +8929,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE3setEj(ptr nou
 .lr.ph24.i.i:                                     ; preds = %.preheader.i.i, %22
   %.sroa.08.123.i.i = phi ptr [ %24, %22 ], [ %.in.i.i, %.preheader.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !556
+  %20 = load i32, ptr %19, align 8, !tbaa !557
   %21 = icmp ugt i32 %20, %3
   br i1 %21, label %22, label %.sink.split.i.i
 
@@ -8942,7 +8942,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE3setEj(ptr nou
 .lr.ph.i.i:                                       ; preds = %.preheader16.i.i, %28
   %.sroa.08.219.i.i = phi ptr [ %29, %28 ], [ %.in.i.i, %.preheader16.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !556
+  %26 = load i32, ptr %25, align 8, !tbaa !557
   %27 = icmp ult i32 %26, %3
   br i1 %27, label %28, label %.sink.split.i.i
 
@@ -8965,13 +8965,13 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
 
 32:                                               ; preds = %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i, i64 16
-  %34 = load i32, ptr %33, align 8, !tbaa !556
+  %34 = load i32, ptr %33, align 8, !tbaa !557
   %.not = icmp eq i32 %34, %3
   br i1 %.not, label %46, label %.critedge
 
 .critedge:                                        ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !556
+  %36 = load i32, ptr %35, align 8, !tbaa !557
   %37 = icmp ult i32 %36, %3
   br i1 %37, label %38, label %.sink.split
 
@@ -8983,7 +8983,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
   %.sroa.010.1.sink = phi ptr [ %0, %2 ], [ %39, %38 ], [ %.sroa.08.0.i.i, %.critedge ], [ %.sroa.08.0.i.i, %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit ]
   %40 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i32 %3, ptr %41, align 8, !tbaa !556
+  store i32 %3, ptr %41, align 8, !tbaa !557
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %.sroa.010.1.sink) #17
@@ -9693,147 +9693,147 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIPPKN4llvm12GenericCycleIN
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
   %6 = icmp sgt i64 %5, 128
-  br i1 %6, label %7, label %41
+  br i1 %6, label %.preheader, label %40
 
-7:                                                ; preds = %2
+.preheader:                                       ; preds = %2
   %scevgep = getelementptr i8, ptr %0, i64 8
-  br label %8
+  br label %7
 
-8:                                                ; preds = %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i, %7
-  %.020.i.idx = phi i64 [ 8, %7 ], [ %.020.i.add, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i ]
-  %.pn19.i = phi ptr [ %0, %7 ], [ %.020.i.ptr, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i ]
+7:                                                ; preds = %.preheader, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i
+  %.020.i.idx = phi i64 [ %.020.i.add, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i ], [ 8, %.preheader ]
+  %.pn19.i = phi ptr [ %.020.i.ptr, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i ], [ %0, %.preheader ]
   %.020.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.020.i.idx
-  %9 = load ptr, ptr %.020.i.ptr, align 8, !tbaa !395
-  %10 = load ptr, ptr %0, align 8, !tbaa !395
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 160
-  %12 = load i32, ptr %11, align 8, !tbaa !529
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 160
-  %14 = load i32, ptr %13, align 8, !tbaa !529
-  %15 = icmp ugt i32 %12, %14
-  br i1 %15, label %16, label %17
+  %8 = load ptr, ptr %.020.i.ptr, align 8, !tbaa !395
+  %9 = load ptr, ptr %0, align 8, !tbaa !395
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 160
+  %11 = load i32, ptr %10, align 8, !tbaa !529
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 160
+  %13 = load i32, ptr %12, align 8, !tbaa !529
+  %14 = icmp ugt i32 %11, %13
+  br i1 %14, label %15, label %16
 
-16:                                               ; preds = %8
+15:                                               ; preds = %7
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %.020.i.idx, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i
 
-17:                                               ; preds = %8
-  %18 = load ptr, ptr %.pn19.i, align 8, !tbaa !395
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 160
-  %20 = load i32, ptr %19, align 8, !tbaa !529
-  %21 = icmp ugt i32 %12, %20
-  br i1 %21, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i
+16:                                               ; preds = %7
+  %17 = load ptr, ptr %.pn19.i, align 8, !tbaa !395
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 160
+  %19 = load i32, ptr %18, align 8, !tbaa !529
+  %20 = icmp ugt i32 %11, %19
+  br i1 %20, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i
 
-.lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
-  %22 = phi ptr [ %23, %.lr.ph.i.i ], [ %18, %17 ]
-  %.013.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn19.i, %17 ]
-  %.0912.i.i = phi ptr [ %.013.i.i, %.lr.ph.i.i ], [ %.020.i.ptr, %17 ]
-  store ptr %22, ptr %.0912.i.i, align 8, !tbaa !395
+.lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
+  %21 = phi ptr [ %22, %.lr.ph.i.i ], [ %17, %16 ]
+  %.013.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn19.i, %16 ]
+  %.0912.i.i = phi ptr [ %.013.i.i, %.lr.ph.i.i ], [ %.020.i.ptr, %16 ]
+  store ptr %21, ptr %.0912.i.i, align 8, !tbaa !395
   %.0.i.i = getelementptr inbounds i8, ptr %.013.i.i, i64 -8
-  %23 = load ptr, ptr %.0.i.i, align 8, !tbaa !395
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
-  %25 = load i32, ptr %24, align 8, !tbaa !529
-  %26 = icmp ugt i32 %12, %25
-  br i1 %26, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i, !llvm.loop !599
+  %22 = load ptr, ptr %.0.i.i, align 8, !tbaa !395
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
+  %24 = load i32, ptr %23, align 8, !tbaa !529
+  %25 = icmp ugt i32 %11, %24
+  br i1 %25, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i, !llvm.loop !599
 
-_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %17, %16
-  %.sink.i = phi ptr [ %0, %16 ], [ %.020.i.ptr, %17 ], [ %.013.i.i, %.lr.ph.i.i ]
-  store ptr %9, ptr %.sink.i, align 8, !tbaa !395
+_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %16, %15
+  %.sink.i = phi ptr [ %0, %15 ], [ %.020.i.ptr, %16 ], [ %.013.i.i, %.lr.ph.i.i ]
+  store ptr %8, ptr %.sink.i, align 8, !tbaa !395
   %.020.i.add = add nuw nsw i64 %.020.i.idx, 8
   %.not.i = icmp eq i64 %.020.i.add, 128
-  br i1 %.not.i, label %_ZSt16__insertion_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_SJ_T0_.exit, label %8, !llvm.loop !600
+  br i1 %.not.i, label %_ZSt16__insertion_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_SJ_T0_.exit, label %7, !llvm.loop !600
 
 _ZSt16__insertion_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_SJ_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.not6.i = icmp eq ptr %27, %1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.not6.i = icmp eq ptr %26, %1
   br i1 %.not6.i, label %_ZSt26__unguarded_insertion_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_SJ_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_SJ_T0_.exit, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i13
-  %.07.i = phi ptr [ %40, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i13 ], [ %27, %_ZSt16__insertion_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_SJ_T0_.exit ]
-  %28 = load ptr, ptr %.07.i, align 8, !tbaa !395
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 160
-  %30 = load i32, ptr %29, align 8, !tbaa !529
+  %.07.i = phi ptr [ %39, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i13 ], [ %26, %_ZSt16__insertion_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_SJ_T0_.exit ]
+  %27 = load ptr, ptr %.07.i, align 8, !tbaa !395
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 160
+  %29 = load i32, ptr %28, align 8, !tbaa !529
   %.011.i.i = getelementptr inbounds i8, ptr %.07.i, i64 -8
-  %31 = load ptr, ptr %.011.i.i, align 8, !tbaa !395
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 160
-  %33 = load i32, ptr %32, align 8, !tbaa !529
-  %34 = icmp ugt i32 %30, %33
-  br i1 %34, label %.lr.ph.i.i15, label %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i13
+  %30 = load ptr, ptr %.011.i.i, align 8, !tbaa !395
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 160
+  %32 = load i32, ptr %31, align 8, !tbaa !529
+  %33 = icmp ugt i32 %29, %32
+  br i1 %33, label %.lr.ph.i.i15, label %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i13
 
 .lr.ph.i.i15:                                     ; preds = %.lr.ph.i, %.lr.ph.i.i15
-  %35 = phi ptr [ %36, %.lr.ph.i.i15 ], [ %31, %.lr.ph.i ]
+  %34 = phi ptr [ %35, %.lr.ph.i.i15 ], [ %30, %.lr.ph.i ]
   %.013.i.i16 = phi ptr [ %.0.i.i18, %.lr.ph.i.i15 ], [ %.011.i.i, %.lr.ph.i ]
   %.0912.i.i17 = phi ptr [ %.013.i.i16, %.lr.ph.i.i15 ], [ %.07.i, %.lr.ph.i ]
-  store ptr %35, ptr %.0912.i.i17, align 8, !tbaa !395
+  store ptr %34, ptr %.0912.i.i17, align 8, !tbaa !395
   %.0.i.i18 = getelementptr inbounds i8, ptr %.013.i.i16, i64 -8
-  %36 = load ptr, ptr %.0.i.i18, align 8, !tbaa !395
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 160
-  %38 = load i32, ptr %37, align 8, !tbaa !529
-  %39 = icmp ugt i32 %30, %38
-  br i1 %39, label %.lr.ph.i.i15, label %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i13, !llvm.loop !599
+  %35 = load ptr, ptr %.0.i.i18, align 8, !tbaa !395
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 160
+  %37 = load i32, ptr %36, align 8, !tbaa !529
+  %38 = icmp ugt i32 %29, %37
+  br i1 %38, label %.lr.ph.i.i15, label %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i13, !llvm.loop !599
 
 _ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i13: ; preds = %.lr.ph.i.i15, %.lr.ph.i
   %.09.lcssa.i.i = phi ptr [ %.07.i, %.lr.ph.i ], [ %.013.i.i16, %.lr.ph.i.i15 ]
-  store ptr %28, ptr %.09.lcssa.i.i, align 8, !tbaa !395
-  %40 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
-  %.not.i14 = icmp eq ptr %40, %1
+  store ptr %27, ptr %.09.lcssa.i.i, align 8, !tbaa !395
+  %39 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
+  %.not.i14 = icmp eq ptr %39, %1
   br i1 %.not.i14, label %_ZSt26__unguarded_insertion_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_SJ_T0_.exit, label %.lr.ph.i, !llvm.loop !601
 
-41:                                               ; preds = %2
-  %42 = icmp eq ptr %0, %1
+40:                                               ; preds = %2
+  %41 = icmp eq ptr %0, %1
   %.017.i19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not18.i = icmp eq ptr %.017.i19, %1
-  %or.cond = select i1 %42, i1 true, i1 %.not18.i
+  %or.cond = select i1 %41, i1 true, i1 %.not18.i
   br i1 %or.cond, label %_ZSt26__unguarded_insertion_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_SJ_T0_.exit, label %.lr.ph.i20
 
-.lr.ph.i20:                                       ; preds = %41, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i23
-  %.020.i21 = phi ptr [ %.0.i25, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i23 ], [ %.017.i19, %41 ]
-  %.pn19.i22 = phi ptr [ %.020.i21, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i23 ], [ %0, %41 ]
-  %43 = load ptr, ptr %.020.i21, align 8, !tbaa !395
-  %44 = load ptr, ptr %0, align 8, !tbaa !395
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 160
-  %46 = load i32, ptr %45, align 8, !tbaa !529
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 160
-  %48 = load i32, ptr %47, align 8, !tbaa !529
-  %49 = icmp ugt i32 %46, %48
-  br i1 %49, label %50, label %57
+.lr.ph.i20:                                       ; preds = %40, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i23
+  %.020.i21 = phi ptr [ %.0.i25, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i23 ], [ %.017.i19, %40 ]
+  %.pn19.i22 = phi ptr [ %.020.i21, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i23 ], [ %0, %40 ]
+  %42 = load ptr, ptr %.020.i21, align 8, !tbaa !395
+  %43 = load ptr, ptr %0, align 8, !tbaa !395
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 160
+  %45 = load i32, ptr %44, align 8, !tbaa !529
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 160
+  %47 = load i32, ptr %46, align 8, !tbaa !529
+  %48 = icmp ugt i32 %45, %47
+  br i1 %48, label %49, label %56
 
-50:                                               ; preds = %.lr.ph.i20
-  %51 = getelementptr inbounds nuw i8, ptr %.pn19.i22, i64 16
-  %52 = ptrtoint ptr %.020.i21 to i64
-  %53 = sub i64 %52, %4
-  %54 = ashr exact i64 %53, 3
-  %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds ptr, ptr %51, i64 %55
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %56, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %53, i1 false)
+49:                                               ; preds = %.lr.ph.i20
+  %50 = getelementptr inbounds nuw i8, ptr %.pn19.i22, i64 16
+  %51 = ptrtoint ptr %.020.i21 to i64
+  %52 = sub i64 %51, %4
+  %53 = ashr exact i64 %52, 3
+  %54 = sub nsw i64 0, %53
+  %55 = getelementptr inbounds ptr, ptr %50, i64 %54
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %55, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %52, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i23
 
-57:                                               ; preds = %.lr.ph.i20
-  %58 = load ptr, ptr %.pn19.i22, align 8, !tbaa !395
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 160
-  %60 = load i32, ptr %59, align 8, !tbaa !529
-  %61 = icmp ugt i32 %46, %60
-  br i1 %61, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i23
+56:                                               ; preds = %.lr.ph.i20
+  %57 = load ptr, ptr %.pn19.i22, align 8, !tbaa !395
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 160
+  %59 = load i32, ptr %58, align 8, !tbaa !529
+  %60 = icmp ugt i32 %45, %59
+  br i1 %60, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i23
 
-.lr.ph.i.i27:                                     ; preds = %57, %.lr.ph.i.i27
-  %62 = phi ptr [ %63, %.lr.ph.i.i27 ], [ %58, %57 ]
-  %.013.i.i28 = phi ptr [ %.0.i.i30, %.lr.ph.i.i27 ], [ %.pn19.i22, %57 ]
-  %.0912.i.i29 = phi ptr [ %.013.i.i28, %.lr.ph.i.i27 ], [ %.020.i21, %57 ]
-  store ptr %62, ptr %.0912.i.i29, align 8, !tbaa !395
+.lr.ph.i.i27:                                     ; preds = %56, %.lr.ph.i.i27
+  %61 = phi ptr [ %62, %.lr.ph.i.i27 ], [ %57, %56 ]
+  %.013.i.i28 = phi ptr [ %.0.i.i30, %.lr.ph.i.i27 ], [ %.pn19.i22, %56 ]
+  %.0912.i.i29 = phi ptr [ %.013.i.i28, %.lr.ph.i.i27 ], [ %.020.i21, %56 ]
+  store ptr %61, ptr %.0912.i.i29, align 8, !tbaa !395
   %.0.i.i30 = getelementptr inbounds i8, ptr %.013.i.i28, i64 -8
-  %63 = load ptr, ptr %.0.i.i30, align 8, !tbaa !395
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 160
-  %65 = load i32, ptr %64, align 8, !tbaa !529
-  %66 = icmp ugt i32 %46, %65
-  br i1 %66, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i23, !llvm.loop !599
+  %62 = load ptr, ptr %.0.i.i30, align 8, !tbaa !395
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 160
+  %64 = load i32, ptr %63, align 8, !tbaa !529
+  %65 = icmp ugt i32 %45, %64
+  br i1 %65, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i23, !llvm.loop !599
 
-_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i23: ; preds = %.lr.ph.i.i27, %57, %50
-  %.sink.i24 = phi ptr [ %0, %50 ], [ %.020.i21, %57 ], [ %.013.i.i28, %.lr.ph.i.i27 ]
-  store ptr %43, ptr %.sink.i24, align 8, !tbaa !395
+_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i23: ; preds = %.lr.ph.i.i27, %56, %49
+  %.sink.i24 = phi ptr [ %0, %49 ], [ %.020.i21, %56 ], [ %.013.i.i28, %.lr.ph.i.i27 ]
+  store ptr %42, ptr %.sink.i24, align 8, !tbaa !395
   %.0.i25 = getelementptr inbounds nuw i8, ptr %.020.i21, i64 8
   %.not.i26 = icmp eq ptr %.0.i25, %1
   br i1 %.not.i26, label %_ZSt26__unguarded_insertion_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_SJ_T0_.exit, label %.lr.ph.i20, !llvm.loop !600
 
-_ZSt26__unguarded_insertion_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_SJ_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i23, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i13, %41, %_ZSt16__insertion_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_SJ_T0_.exit
+_ZSt26__unguarded_insertion_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_SJ_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i23, %_ZSt25__unguarded_linear_insertIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_.exit.i13, %40, %_ZSt16__insertion_sortIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_SJ_T0_.exit
   ret void
 }
 
@@ -11595,9 +11595,9 @@ attributes #20 = { builtin nounwind }
 !553 = !{!554}
 !554 = distinct !{!554, !555, !"_ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_: argument 0"}
 !555 = distinct !{!555, !"_ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_"}
-!556 = !{!557, !19, i64 0}
-!557 = !{!"_ZTSN4llvm22SparseBitVectorElementILj128EEE", !19, i64 0, !12, i64 8}
-!558 = distinct !{!558, !34}
+!556 = distinct !{!556, !34}
+!557 = !{!558, !19, i64 0}
+!558 = !{!"_ZTSN4llvm22SparseBitVectorElementILj128EEE", !19, i64 0, !12, i64 8}
 !559 = distinct !{!559, !34}
 !560 = !{!535, !527, i64 80}
 !561 = distinct !{!561, !34}

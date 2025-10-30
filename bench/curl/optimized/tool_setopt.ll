@@ -809,111 +809,111 @@ define internal fastcc ptr @c_escape(ptr noundef %0, i64 noundef %1) unnamed_add
 
 7:                                                ; preds = %5, %2
   %.039 = phi i64 [ %6, %5 ], [ %1, %2 ]
-  %8 = icmp sgt i64 %.039, 2000
-  %spec.select55 = select i1 %8, i64 3, i64 0
-  %9 = call i32 @curlx_dyn_addn(ptr noundef nonnull %3, ptr noundef nonnull @.str.66, i64 noundef 0) #8
-  %.not63 = icmp eq i32 %9, 0
-  %10 = icmp ne i64 %.039, 0
-  %11 = select i1 %.not63, i1 %10, i1 false
-  br i1 %11, label %.lr.ph.preheader, label %._crit_edge
+  %8 = call i32 @curlx_dyn_addn(ptr noundef nonnull %3, ptr noundef nonnull @.str.66, i64 noundef 0) #8
+  %.not63 = icmp eq i32 %8, 0
+  %9 = icmp ne i64 %.039, 0
+  %10 = select i1 %.not63, i1 %9, i1 false
+  br i1 %10, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %7
   %spec.select = call i64 @llvm.smin.i64(i64 %.039, i64 2000)
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %52
-  %.066 = phi ptr [ %.1, %52 ], [ %0, %.lr.ph.preheader ]
-  %.03865 = phi ptr [ %53, %52 ], [ %0, %.lr.ph.preheader ]
-  %.24164 = phi i64 [ %54, %52 ], [ %spec.select, %.lr.ph.preheader ]
-  %12 = load i8, ptr %.03865, align 1, !tbaa !48
-  %13 = sext i8 %12 to i32
-  %memchr = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @c_escape.from, i32 %13, i64 7)
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %51
+  %.066 = phi ptr [ %.1, %51 ], [ %0, %.lr.ph.preheader ]
+  %.03865 = phi ptr [ %52, %51 ], [ %0, %.lr.ph.preheader ]
+  %.24164 = phi i64 [ %53, %51 ], [ %spec.select, %.lr.ph.preheader ]
+  %11 = load i8, ptr %.03865, align 1, !tbaa !48
+  %12 = sext i8 %11 to i32
+  %memchr = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @c_escape.from, i32 %12, i64 7)
   %.not51 = icmp eq ptr %memchr, null
-  br i1 %.not51, label %14, label %.thread
+  br i1 %.not51, label %13, label %.thread
 
-14:                                               ; preds = %.lr.ph
-  %15 = add i8 %12, -14
-  %or.cond = icmp ult i8 %15, -5
-  %16 = add i8 %12, -127
-  %or.cond56 = icmp ult i8 %16, -95
+13:                                               ; preds = %.lr.ph
+  %14 = add i8 %11, -14
+  %or.cond = icmp ult i8 %14, -5
+  %15 = add i8 %11, -127
+  %or.cond56 = icmp ult i8 %15, -95
   %or.cond61 = and i1 %or.cond, %or.cond56
-  br i1 %or.cond61, label %17, label %52
+  br i1 %or.cond61, label %16, label %51
 
-17:                                               ; preds = %14
-  %18 = ptrtoint ptr %.03865 to i64
-  %19 = ptrtoint ptr %.066 to i64
-  %20 = sub i64 %18, %19
-  %21 = call i32 @curlx_dyn_addn(ptr noundef nonnull %3, ptr noundef %.066, i64 noundef %20) #8
-  %22 = getelementptr inbounds nuw i8, ptr %.03865, i64 1
-  %.not53 = icmp eq i32 %21, 0
-  br i1 %.not53, label %35, label %.critedge
+16:                                               ; preds = %13
+  %17 = ptrtoint ptr %.03865 to i64
+  %18 = ptrtoint ptr %.066 to i64
+  %19 = sub i64 %17, %18
+  %20 = call i32 @curlx_dyn_addn(ptr noundef nonnull %3, ptr noundef %.066, i64 noundef %19) #8
+  %21 = getelementptr inbounds nuw i8, ptr %.03865, i64 1
+  %.not53 = icmp eq i32 %20, 0
+  br i1 %.not53, label %34, label %.critedge
 
 .thread:                                          ; preds = %.lr.ph
-  %23 = ptrtoint ptr %.03865 to i64
-  %24 = ptrtoint ptr %.066 to i64
-  %25 = sub i64 %23, %24
-  %26 = call i32 @curlx_dyn_addn(ptr noundef nonnull %3, ptr noundef %.066, i64 noundef %25) #8
-  %27 = getelementptr inbounds nuw i8, ptr %.03865, i64 1
-  %.not5359 = icmp eq i32 %26, 0
+  %22 = ptrtoint ptr %.03865 to i64
+  %23 = ptrtoint ptr %.066 to i64
+  %24 = sub i64 %22, %23
+  %25 = call i32 @curlx_dyn_addn(ptr noundef nonnull %3, ptr noundef %.066, i64 noundef %24) #8
+  %26 = getelementptr inbounds nuw i8, ptr %.03865, i64 1
+  %.not5359 = icmp eq i32 %25, 0
   br i1 %.not5359, label %.thread60, label %.critedge
 
 .thread60:                                        ; preds = %.thread
-  %28 = load i8, ptr %memchr, align 1, !tbaa !48
-  %.not54 = icmp eq i8 %28, 0
-  br i1 %.not54, label %35, label %29
+  %27 = load i8, ptr %memchr, align 1, !tbaa !48
+  %.not54 = icmp eq i8 %27, 0
+  br i1 %.not54, label %34, label %28
 
-29:                                               ; preds = %.thread60
-  %30 = ptrtoint ptr %memchr to i64
-  %31 = sub i64 %30, ptrtoint (ptr @c_escape.from to i64)
-  %32 = shl nsw i64 %31, 1
-  %33 = getelementptr inbounds i8, ptr @c_escape.to, i64 %32
-  %34 = call i32 @curlx_dyn_addn(ptr noundef nonnull %3, ptr noundef nonnull %33, i64 noundef 2) #8
-  br label %52
+28:                                               ; preds = %.thread60
+  %29 = ptrtoint ptr %memchr to i64
+  %30 = sub i64 %29, ptrtoint (ptr @c_escape.from to i64)
+  %31 = shl nsw i64 %30, 1
+  %32 = getelementptr inbounds i8, ptr @c_escape.to, i64 %31
+  %33 = call i32 @curlx_dyn_addn(ptr noundef nonnull %3, ptr noundef nonnull %32, i64 noundef 2) #8
+  br label %51
 
-35:                                               ; preds = %17, %.thread60
-  %36 = phi ptr [ %27, %.thread60 ], [ %22, %17 ]
-  %37 = icmp sgt i64 %.24164, 1
-  br i1 %37, label %38, label %47
+34:                                               ; preds = %16, %.thread60
+  %35 = phi ptr [ %26, %.thread60 ], [ %21, %16 ]
+  %36 = icmp sgt i64 %.24164, 1
+  br i1 %36, label %37, label %46
 
-38:                                               ; preds = %35
-  %39 = load i8, ptr %36, align 1, !tbaa !48
-  %40 = add i8 %39, -48
-  %or.cond57 = icmp ult i8 %40, 10
-  %41 = add i8 %39, -97
-  %or.cond58 = icmp ult i8 %41, 6
+37:                                               ; preds = %34
+  %38 = load i8, ptr %35, align 1, !tbaa !48
+  %39 = add i8 %38, -48
+  %or.cond57 = icmp ult i8 %39, 10
+  %40 = add i8 %38, -97
+  %or.cond58 = icmp ult i8 %40, 6
   %or.cond62 = or i1 %or.cond57, %or.cond58
-  br i1 %or.cond62, label %47, label %42
+  br i1 %or.cond62, label %46, label %41
 
-42:                                               ; preds = %38
-  %43 = icmp sgt i8 %39, 64
-  br i1 %43, label %44, label %47
+41:                                               ; preds = %37
+  %42 = icmp sgt i8 %38, 64
+  br i1 %42, label %43, label %46
 
-44:                                               ; preds = %42
-  %45 = icmp samesign ult i8 %39, 71
-  %46 = select i1 %45, ptr @.str.109, ptr @.str.110
-  br label %47
+43:                                               ; preds = %41
+  %44 = icmp samesign ult i8 %38, 71
+  %45 = select i1 %44, ptr @.str.109, ptr @.str.110
+  br label %46
 
-47:                                               ; preds = %38, %44, %42, %35
-  %48 = phi ptr [ @.str.110, %35 ], [ @.str.110, %42 ], [ %46, %44 ], [ @.str.109, %38 ]
-  %49 = load i8, ptr %.03865, align 1, !tbaa !48
-  %50 = zext i8 %49 to i32
-  %51 = call i32 (ptr, ptr, ...) @curlx_dyn_addf(ptr noundef nonnull %3, ptr noundef nonnull %48, i32 noundef %50) #8
-  br label %52
+46:                                               ; preds = %37, %43, %41, %34
+  %47 = phi ptr [ @.str.110, %34 ], [ @.str.110, %41 ], [ %45, %43 ], [ @.str.109, %37 ]
+  %48 = load i8, ptr %.03865, align 1, !tbaa !48
+  %49 = zext i8 %48 to i32
+  %50 = call i32 (ptr, ptr, ...) @curlx_dyn_addf(ptr noundef nonnull %3, ptr noundef nonnull %47, i32 noundef %49) #8
+  br label %51
 
-52:                                               ; preds = %47, %29, %14
-  %.136 = phi i32 [ 0, %14 ], [ %34, %29 ], [ %51, %47 ]
-  %.1 = phi ptr [ %.066, %14 ], [ %27, %29 ], [ %36, %47 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.03865, i64 1
-  %54 = add nsw i64 %.24164, -1
+51:                                               ; preds = %46, %28, %13
+  %.136 = phi i32 [ 0, %13 ], [ %33, %28 ], [ %50, %46 ]
+  %.1 = phi ptr [ %.066, %13 ], [ %26, %28 ], [ %35, %46 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.03865, i64 1
+  %53 = add nsw i64 %.24164, -1
   %.not = icmp eq i32 %.136, 0
-  %55 = icmp ne i64 %54, 0
-  %56 = select i1 %.not, i1 %55, i1 false
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !49
+  %54 = icmp ne i64 %53, 0
+  %55 = select i1 %.not, i1 %54, i1 false
+  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
-._crit_edge:                                      ; preds = %52, %7
-  %.038.lcssa = phi ptr [ %0, %7 ], [ %53, %52 ]
-  %.0.lcssa = phi ptr [ %0, %7 ], [ %.1, %52 ]
-  %.not.lcssa = phi i1 [ %.not63, %7 ], [ %.not, %52 ]
+._crit_edge:                                      ; preds = %51, %7
+  %.038.lcssa = phi ptr [ %0, %7 ], [ %52, %51 ]
+  %.0.lcssa = phi ptr [ %0, %7 ], [ %.1, %51 ]
+  %.not.lcssa = phi i1 [ %.not63, %7 ], [ %.not, %51 ]
+  %56 = icmp sgt i64 %.039, 2000
+  %spec.select55 = select i1 %56, i64 3, i64 0
   br i1 %.not.lcssa, label %57, label %.critedge
 
 57:                                               ; preds = %._crit_edge
@@ -928,7 +928,7 @@ define internal fastcc ptr @c_escape(ptr noundef %0, i64 noundef %1) unnamed_add
   %64 = call i32 @curlx_dyn_addn(ptr noundef nonnull %3, ptr noundef nonnull @.str.111, i64 noundef %spec.select55) #8
   br label %.critedge
 
-.critedge:                                        ; preds = %17, %.thread, %._crit_edge, %63, %57
+.critedge:                                        ; preds = %16, %.thread, %._crit_edge, %63, %57
   %65 = call ptr @curlx_dyn_ptr(ptr noundef nonnull %3) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %65

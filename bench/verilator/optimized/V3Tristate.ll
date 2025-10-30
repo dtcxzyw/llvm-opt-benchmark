@@ -22259,30 +22259,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %23,
   br label %84
 
 30:                                               ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.037.043 = load ptr, ptr %32, align 8, !tbaa !123
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.037.043 = load ptr, ptr %31, align 8, !tbaa !123
   %.not44 = icmp eq ptr %.sroa.037.043, null
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph
-  %.sroa.031.046.pre = load ptr, ptr %32, align 8, !tbaa !123
+  %.sroa.031.046.pre = load ptr, ptr %31, align 8, !tbaa !123
   %.not4247 = icmp eq ptr %.sroa.031.046.pre, null
   br i1 %.not4247, label %._crit_edge, label %.lr.ph49
 
 .lr.ph:                                           ; preds = %30, %.lr.ph
   %.sroa.037.045 = phi ptr [ %.sroa.037.0, %.lr.ph ], [ %.sroa.037.043, %30 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.037.045, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !124
-  %.not.i = icmp eq ptr %34, null
-  %35 = select i1 %.not.i, ptr %.sroa.037.045, ptr %34
-  call void @llvm.prefetch.p0(ptr nonnull %35, i32 1, i32 3, i32 1)
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.037.045, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !124
+  %.not.i = icmp eq ptr %33, null
+  %34 = select i1 %.not.i, ptr %.sroa.037.045, ptr %33
+  call void @llvm.prefetch.p0(ptr nonnull %34, i32 1, i32 3, i32 1)
   call void @_ZN13TristateGraph19graphWalkRecurseFwdEP14TristateVertexi(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.sroa.037.045, i32 noundef 0)
-  %.sroa.037.0 = load ptr, ptr %33, align 8, !tbaa !123
+  %.sroa.037.0 = load ptr, ptr %32, align 8, !tbaa !123
   %.not = icmp eq ptr %.sroa.037.0, null
   br i1 %.not, label %.preheader, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph49, %30, %.preheader
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = call noundef i32 @_ZL14dumpGraphLevelv()
   %37 = icmp sgt i32 %36, 8
   br i1 %37, label %41, label %83
@@ -22342,7 +22342,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   store ptr %48, ptr %45, align 8, !tbaa !5
   store i64 0, ptr %58, align 8, !tbaa !13
   store i8 0, ptr %48, align 8, !tbaa !14
-  invoke void @_ZNK7V3Graph19dumpDotFilePrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext false)
+  invoke void @_ZNK7V3Graph19dumpDotFilePrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext false)
           to label %60 unwind label %72
 
 60:                                               ; preds = %56

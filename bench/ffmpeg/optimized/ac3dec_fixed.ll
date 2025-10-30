@@ -497,8 +497,8 @@ define internal i32 @ac3_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %237 = getelementptr inbounds nuw i8, ptr %25, i64 71312
   %238 = getelementptr inbounds nuw i8, ptr %25, i64 70288
   %239 = getelementptr inbounds nuw i8, ptr %25, i64 69264
-  %240 = getelementptr inbounds nuw i8, ptr %25, i64 86672
-  %241 = getelementptr inbounds nuw i8, ptr %25, i64 87184
+  %240 = getelementptr inbounds nuw i8, ptr %25, i64 87184
+  %241 = getelementptr inbounds nuw i8, ptr %25, i64 86672
   %242 = getelementptr inbounds nuw i8, ptr %25, i64 192
   %243 = getelementptr inbounds nuw i8, ptr %25, i64 176
   %244 = getelementptr inbounds nuw i8, ptr %25, i64 64
@@ -6552,7 +6552,7 @@ ac3_upmix_delay.exit.i:                           ; preds = %3615, %3612, %3610,
   %.idx.i.i = shl nuw nsw i64 %indvars.iv.i696.i, 3
   %3623 = getelementptr inbounds nuw i8, ptr %3621, i64 %.idx.i.i
   %3624 = load i32, ptr %3623, align 4, !tbaa !43
-  %3625 = getelementptr inbounds nuw i32, ptr %241, i64 %indvars.iv.i696.i
+  %3625 = getelementptr inbounds nuw i32, ptr %240, i64 %indvars.iv.i696.i
   store i32 %3624, ptr %3625, align 4, !tbaa !43
   %indvars.iv.next.i697.i = add nuw nsw i64 %indvars.iv.i696.i, 1
   %exitcond.not.i698.i = icmp eq i64 %indvars.iv.next.i697.i, 128
@@ -6561,14 +6561,14 @@ ac3_upmix_delay.exit.i:                           ; preds = %3615, %3612, %3610,
 3626:                                             ; preds = %3622
   %3627 = load ptr, ptr %242, align 16, !tbaa !234
   %3628 = load ptr, ptr %243, align 16, !tbaa !235
-  call void %3627(ptr noundef %3628, ptr noundef nonnull %240, ptr noundef nonnull %241, i64 noundef 4) #12
+  call void %3627(ptr noundef %3628, ptr noundef nonnull %241, ptr noundef nonnull %240, i64 noundef 4) #12
   %3629 = load ptr, ptr %244, align 16, !tbaa !40
   %3630 = load ptr, ptr %3629, align 8, !tbaa !236
   %3631 = add nsw i64 %indvars.iv65.i.i, -1
   %3632 = getelementptr inbounds ptr, ptr %178, i64 %3631
   %3633 = load ptr, ptr %3632, align 8, !tbaa !156
   %gep.i.i488 = getelementptr [256 x i32], ptr %invariant.gep.i.i487, i64 %3631
-  call void %3630(ptr noundef %3633, ptr noundef nonnull %gep.i.i488, ptr noundef nonnull %240, ptr noundef nonnull %245, i32 noundef 128, i8 noundef zeroext 8) #12
+  call void %3630(ptr noundef %3633, ptr noundef nonnull %gep.i.i488, ptr noundef nonnull %241, ptr noundef nonnull %245, i32 noundef 128, i8 noundef zeroext 8) #12
   %3634 = getelementptr inbounds nuw [256 x i32], ptr %25, i64 %indvars.iv65.i.i
   br label %3635
 
@@ -6578,7 +6578,7 @@ ac3_upmix_delay.exit.i:                           ; preds = %3615, %3612, %3610,
   %3636 = getelementptr inbounds nuw i8, ptr %3634, i64 %.idx69.i.i
   %3637 = getelementptr inbounds nuw i8, ptr %3636, i64 62100
   %3638 = load i32, ptr %3637, align 4, !tbaa !43
-  %3639 = getelementptr inbounds nuw i32, ptr %241, i64 %indvars.iv61.i.i
+  %3639 = getelementptr inbounds nuw i32, ptr %240, i64 %indvars.iv61.i.i
   store i32 %3638, ptr %3639, align 4, !tbaa !43
   %indvars.iv.next62.i.i = add nuw nsw i64 %indvars.iv61.i.i, 1
   %exitcond64.not.i.i = icmp eq i64 %indvars.iv.next62.i.i, 128
@@ -6587,22 +6587,22 @@ ac3_upmix_delay.exit.i:                           ; preds = %3615, %3612, %3610,
 3640:                                             ; preds = %3635
   %3641 = load ptr, ptr %242, align 16, !tbaa !234
   %3642 = load ptr, ptr %243, align 16, !tbaa !235
-  call void %3641(ptr noundef %3642, ptr noundef nonnull %gep.i.i488, ptr noundef nonnull %241, i64 noundef 4) #12
+  call void %3641(ptr noundef %3642, ptr noundef nonnull %gep.i.i488, ptr noundef nonnull %240, i64 noundef 4) #12
   br label %3652
 
 3643:                                             ; preds = %3617
   %3644 = load ptr, ptr %246, align 8, !tbaa !239
   %3645 = load ptr, ptr %247, align 8, !tbaa !240
   %3646 = getelementptr inbounds nuw [256 x i32], ptr %228, i64 %indvars.iv65.i.i
-  call void %3644(ptr noundef %3645, ptr noundef nonnull %240, ptr noundef nonnull %3646, i64 noundef 4) #12
+  call void %3644(ptr noundef %3645, ptr noundef nonnull %241, ptr noundef nonnull %3646, i64 noundef 4) #12
   %3647 = load ptr, ptr %244, align 16, !tbaa !40
   %3648 = load ptr, ptr %3647, align 8, !tbaa !236
   %3649 = add nsw i64 %indvars.iv65.i.i, -1
   %3650 = getelementptr inbounds ptr, ptr %178, i64 %3649
   %3651 = load ptr, ptr %3650, align 8, !tbaa !156
   %gep71.i.i = getelementptr [256 x i32], ptr %invariant.gep.i.i487, i64 %3649
-  call void %3648(ptr noundef %3651, ptr noundef nonnull %gep71.i.i, ptr noundef nonnull %240, ptr noundef nonnull %245, i32 noundef 128, i8 noundef zeroext 8) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %gep71.i.i, ptr noundef nonnull align 4 dereferenceable(512) %241, i64 512, i1 false)
+  call void %3648(ptr noundef %3651, ptr noundef nonnull %gep71.i.i, ptr noundef nonnull %241, ptr noundef nonnull %245, i32 noundef 128, i8 noundef zeroext 8) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %gep71.i.i, ptr noundef nonnull align 4 dereferenceable(512) %240, i64 512, i1 false)
   br label %3652
 
 3652:                                             ; preds = %3643, %3640
@@ -6777,7 +6777,7 @@ do_imdct.exit.i:                                  ; preds = %do_imdct.exit.i.loo
   %.idx.i717.i = shl nuw nsw i64 %indvars.iv.i716.i, 3
   %3715 = getelementptr inbounds nuw i8, ptr %3713, i64 %.idx.i717.i
   %3716 = load i32, ptr %3715, align 4, !tbaa !43
-  %3717 = getelementptr inbounds nuw i32, ptr %241, i64 %indvars.iv.i716.i
+  %3717 = getelementptr inbounds nuw i32, ptr %240, i64 %indvars.iv.i716.i
   store i32 %3716, ptr %3717, align 4, !tbaa !43
   %indvars.iv.next.i718.i = add nuw nsw i64 %indvars.iv.i716.i, 1
   %exitcond.not.i719.i = icmp eq i64 %indvars.iv.next.i718.i, 128
@@ -6786,14 +6786,14 @@ do_imdct.exit.i:                                  ; preds = %do_imdct.exit.i.loo
 3718:                                             ; preds = %3714
   %3719 = load ptr, ptr %242, align 16, !tbaa !234
   %3720 = load ptr, ptr %243, align 16, !tbaa !235
-  call void %3719(ptr noundef %3720, ptr noundef nonnull %240, ptr noundef nonnull %241, i64 noundef 4) #12
+  call void %3719(ptr noundef %3720, ptr noundef nonnull %241, ptr noundef nonnull %240, i64 noundef 4) #12
   %3721 = load ptr, ptr %244, align 16, !tbaa !40
   %3722 = load ptr, ptr %3721, align 8, !tbaa !236
   %3723 = add nsw i64 %indvars.iv65.i714.i, -1
   %3724 = getelementptr inbounds ptr, ptr %178, i64 %3723
   %3725 = load ptr, ptr %3724, align 8, !tbaa !156
   %gep.i720.i = getelementptr [256 x i32], ptr %invariant.gep.i.i487, i64 %3723
-  call void %3722(ptr noundef %3725, ptr noundef nonnull %gep.i720.i, ptr noundef nonnull %240, ptr noundef nonnull %245, i32 noundef 128, i8 noundef zeroext 8) #12
+  call void %3722(ptr noundef %3725, ptr noundef nonnull %gep.i720.i, ptr noundef nonnull %241, ptr noundef nonnull %245, i32 noundef 128, i8 noundef zeroext 8) #12
   %3726 = getelementptr inbounds nuw [256 x i32], ptr %25, i64 %indvars.iv65.i714.i
   br label %3727
 
@@ -6803,7 +6803,7 @@ do_imdct.exit.i:                                  ; preds = %do_imdct.exit.i.loo
   %3728 = getelementptr inbounds nuw i8, ptr %3726, i64 %.idx69.i722.i
   %3729 = getelementptr inbounds nuw i8, ptr %3728, i64 62100
   %3730 = load i32, ptr %3729, align 4, !tbaa !43
-  %3731 = getelementptr inbounds nuw i32, ptr %241, i64 %indvars.iv61.i721.i
+  %3731 = getelementptr inbounds nuw i32, ptr %240, i64 %indvars.iv61.i721.i
   store i32 %3730, ptr %3731, align 4, !tbaa !43
   %indvars.iv.next62.i723.i = add nuw nsw i64 %indvars.iv61.i721.i, 1
   %exitcond64.not.i724.i = icmp eq i64 %indvars.iv.next62.i723.i, 128
@@ -6812,22 +6812,22 @@ do_imdct.exit.i:                                  ; preds = %do_imdct.exit.i.loo
 3732:                                             ; preds = %3727
   %3733 = load ptr, ptr %242, align 16, !tbaa !234
   %3734 = load ptr, ptr %243, align 16, !tbaa !235
-  call void %3733(ptr noundef %3734, ptr noundef nonnull %gep.i720.i, ptr noundef nonnull %241, i64 noundef 4) #12
+  call void %3733(ptr noundef %3734, ptr noundef nonnull %gep.i720.i, ptr noundef nonnull %240, i64 noundef 4) #12
   br label %3744
 
 3735:                                             ; preds = %3709
   %3736 = load ptr, ptr %246, align 8, !tbaa !239
   %3737 = load ptr, ptr %247, align 8, !tbaa !240
   %3738 = getelementptr inbounds nuw [256 x i32], ptr %228, i64 %indvars.iv65.i714.i
-  call void %3736(ptr noundef %3737, ptr noundef nonnull %240, ptr noundef nonnull %3738, i64 noundef 4) #12
+  call void %3736(ptr noundef %3737, ptr noundef nonnull %241, ptr noundef nonnull %3738, i64 noundef 4) #12
   %3739 = load ptr, ptr %244, align 16, !tbaa !40
   %3740 = load ptr, ptr %3739, align 8, !tbaa !236
   %3741 = add nsw i64 %indvars.iv65.i714.i, -1
   %3742 = getelementptr inbounds ptr, ptr %178, i64 %3741
   %3743 = load ptr, ptr %3742, align 8, !tbaa !156
   %gep71.i728.i = getelementptr [256 x i32], ptr %invariant.gep.i.i487, i64 %3741
-  call void %3740(ptr noundef %3743, ptr noundef nonnull %gep71.i728.i, ptr noundef nonnull %240, ptr noundef nonnull %245, i32 noundef 128, i8 noundef zeroext 8) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %gep71.i728.i, ptr noundef nonnull align 4 dereferenceable(512) %241, i64 512, i1 false)
+  call void %3740(ptr noundef %3743, ptr noundef nonnull %gep71.i728.i, ptr noundef nonnull %241, ptr noundef nonnull %245, i32 noundef 128, i8 noundef zeroext 8) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %gep71.i728.i, ptr noundef nonnull align 4 dereferenceable(512) %240, i64 512, i1 false)
   br label %3744
 
 3744:                                             ; preds = %3735, %3732
@@ -7101,45 +7101,45 @@ do_imdct.exit.i:                                  ; preds = %do_imdct.exit.i.loo
   %3845 = sext i32 %3844 to i64
   %3846 = getelementptr inbounds i16, ptr @ff_ac3_channel_layout_tab, i64 %3845
   %3847 = load i16, ptr %3846, align 2, !tbaa !161
-  %3848 = load i32, ptr %157, align 4, !tbaa !147
-  %3849 = and i32 %3848, -9
-  %3850 = sext i32 %3849 to i64
-  %3851 = getelementptr inbounds i8, ptr @ff_ac3_channels_tab, i64 %3850
-  %3852 = load i8, ptr %3851, align 1, !tbaa !44
-  %3853 = load i32, ptr %76, align 16, !tbaa !72
-  %3854 = and i32 %3843, 8
-  %3855 = zext i16 %3847 to i32
-  %spec.select458575 = or i32 %3854, %3855
+  %3848 = and i32 %3843, 8
+  %3849 = zext i16 %3847 to i32
+  %spec.select458575 = or i32 %3848, %3849
   %spec.select458 = zext nneg i32 %spec.select458575 to i64
-  %3856 = load i32, ptr %119, align 4, !tbaa !119
-  br label %3857
+  %3850 = load i32, ptr %119, align 4, !tbaa !119
+  br label %3851
 
-3857:                                             ; preds = %3842, %3867
-  %indvars.iv822 = phi i64 [ 0, %3842 ], [ %indvars.iv.next823, %3867 ]
-  %.0365717 = phi i64 [ %spec.select458, %3842 ], [ %.1366, %3867 ]
-  %3858 = trunc i64 %indvars.iv822 to i32
-  %3859 = sub i32 15, %3858
-  %3860 = shl nuw nsw i32 1, %3859
-  %3861 = and i32 %3856, %3860
-  %.not452 = icmp eq i32 %3861, 0
-  br i1 %.not452, label %3867, label %3862
+3851:                                             ; preds = %3842, %3861
+  %indvars.iv822 = phi i64 [ 0, %3842 ], [ %indvars.iv.next823, %3861 ]
+  %.0365717 = phi i64 [ %spec.select458, %3842 ], [ %.1366, %3861 ]
+  %3852 = trunc i64 %indvars.iv822 to i32
+  %3853 = sub i32 15, %3852
+  %3854 = shl nuw nsw i32 1, %3853
+  %3855 = and i32 %3850, %3854
+  %.not452 = icmp eq i32 %3855, 0
+  br i1 %.not452, label %3861, label %3856
 
-3862:                                             ; preds = %3857
-  %3863 = getelementptr inbounds nuw [2 x i64], ptr @ff_eac3_custom_channel_map_locations, i64 %indvars.iv822
-  %3864 = getelementptr inbounds nuw i8, ptr %3863, i64 8
-  %3865 = load i64, ptr %3864, align 8, !tbaa !117
-  %3866 = or i64 %3865, %.0365717
-  br label %3867
+3856:                                             ; preds = %3851
+  %3857 = getelementptr inbounds nuw [2 x i64], ptr @ff_eac3_custom_channel_map_locations, i64 %indvars.iv822
+  %3858 = getelementptr inbounds nuw i8, ptr %3857, i64 8
+  %3859 = load i64, ptr %3858, align 8, !tbaa !117
+  %3860 = or i64 %3859, %.0365717
+  br label %3861
 
-3867:                                             ; preds = %3857, %3862
-  %.1366 = phi i64 [ %3866, %3862 ], [ %.0365717, %3857 ]
+3861:                                             ; preds = %3851, %3856
+  %.1366 = phi i64 [ %3860, %3856 ], [ %.0365717, %3851 ]
   %indvars.iv.next823 = add nuw nsw i64 %indvars.iv822, 1
   %exitcond825.not = icmp eq i64 %indvars.iv.next823, 16
-  br i1 %exitcond825.not, label %3868, label %3857, !llvm.loop !262
+  br i1 %exitcond825.not, label %3862, label %3851, !llvm.loop !262
 
-3868:                                             ; preds = %3867
-  %3869 = zext i8 %3852 to i32
-  %3870 = add nsw i32 %3853, %3869
+3862:                                             ; preds = %3861
+  %3863 = load i32, ptr %157, align 4, !tbaa !147
+  %3864 = and i32 %3863, -9
+  %3865 = sext i32 %3864 to i64
+  %3866 = getelementptr inbounds i8, ptr @ff_ac3_channels_tab, i64 %3865
+  %3867 = load i8, ptr %3866, align 1, !tbaa !44
+  %3868 = zext i8 %3867 to i32
+  %3869 = load i32, ptr %76, align 16, !tbaa !72
+  %3870 = add nsw i32 %3869, %3868
   %3871 = trunc i64 %.1366 to i32
   %3872 = lshr i32 %3871, 1
   %3873 = and i32 %3872, 1431655765
@@ -7177,11 +7177,11 @@ do_imdct.exit.i:                                  ; preds = %do_imdct.exit.i.loo
   %3905 = icmp samesign ugt i32 %3904, 16
   br i1 %3905, label %3906, label %3907
 
-3906:                                             ; preds = %3868
+3906:                                             ; preds = %3862
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.27, i32 noundef %3904) #12
   br label %.thread560
 
-3907:                                             ; preds = %3868
+3907:                                             ; preds = %3862
   call void @av_channel_layout_uninit(ptr noundef nonnull %175) #12
   %3908 = call i32 @av_channel_layout_from_mask(ptr noundef nonnull %175, i64 noundef %.1366) #12
   %3909 = trunc nuw nsw i32 %1699 to i8

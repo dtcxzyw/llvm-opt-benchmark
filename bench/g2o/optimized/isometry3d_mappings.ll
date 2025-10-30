@@ -1285,14 +1285,14 @@ define void @_ZN3g2o8internal12fromVectorQTERKN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKNS_9EigenBaseIT_EE.exit, label %44, !llvm.loop !28
 
 _ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKNS_9EigenBaseIT_EE.exit: ; preds = %44
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double 0.000000e+00, ptr %55, align 8, !tbaa !7
-  store double 0.000000e+00, ptr %54, align 8, !tbaa !7
-  store i64 0, ptr %53, align 8
-  store double 1.000000e+00, ptr %52, align 8, !tbaa !7
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store double 0.000000e+00, ptr %52, align 8, !tbaa !7
+  store double 0.000000e+00, ptr %53, align 8, !tbaa !7
+  store i64 0, ptr %54, align 8
+  store double 1.000000e+00, ptr %55, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %57 = load <2 x double>, ptr %1, align 8, !tbaa !4

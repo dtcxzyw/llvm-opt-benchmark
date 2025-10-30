@@ -3275,9 +3275,9 @@ define internal fastcc ptr @exsub(ptr noundef %0, ptr noundef nonnull readonly c
   %spec.select73.idx = zext i1 %20 to i64
   %spec.select73 = getelementptr i8, ptr %12, i64 %spec.select73.idx
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %spec.select73)
-  %spec.select = select i1 %20, i32 2, i32 0
   %21 = getelementptr i8, ptr %12, i64 %strlen
   %scevgep = getelementptr i8, ptr %21, i64 %spec.select73.idx
+  %spec.select = select i1 %20, i32 2, i32 0
   %22 = icmp ugt ptr %scevgep, %spec.select73
   %spec.select74.idx = sext i1 %22 to i64
   %spec.select74 = getelementptr inbounds i8, ptr %scevgep, i64 %spec.select74.idx

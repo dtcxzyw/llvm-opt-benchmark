@@ -123,27 +123,27 @@ define hidden noundef i64 @_ZN3ue211hash_holderERKNS_8NGHolderE(ptr noundef nonn
   %.sroa.022.039 = phi ptr [ %.sroa.022.0, %.loopexit ], [ %.sroa.022.036, %1 ]
   %.038 = phi i64 [ %.1.lcssa, %.loopexit ], [ 0, %1 ]
   %3 = getelementptr inbounds nuw i8, ptr %.sroa.022.039, i64 16
-  %4 = getelementptr inbounds nuw i8, ptr %.sroa.022.039, i64 80
-  %5 = load i64, ptr %4, align 8
-  br label %6
+  br label %4
 
-6:                                                ; preds = %6, %.lr.ph40
-  %.0.idx11.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph40 ], [ %.0.add.i.i.i.i.i.i, %6 ]
-  %.0910.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph40 ], [ %10, %6 ]
+4:                                                ; preds = %4, %.lr.ph40
+  %.0.idx11.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph40 ], [ %.0.add.i.i.i.i.i.i, %4 ]
+  %.0910.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph40 ], [ %8, %4 ]
   %.0.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx11.i.i.i.i.i.i
-  %7 = load i64, ptr %.0.ptr.i.i.i.i.i.i, align 8
-  %8 = mul i64 %7, 814605021516865831
-  %9 = xor i64 %8, %.0910.i.i.i.i.i.i
-  %10 = add i64 %9, 3571081485394615273
+  %5 = load i64, ptr %.0.ptr.i.i.i.i.i.i, align 8
+  %6 = mul i64 %5, 814605021516865831
+  %7 = xor i64 %6, %.0910.i.i.i.i.i.i
+  %8 = add i64 %7, 3571081485394615273
   %.0.add.i.i.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i.i, 32
-  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail12hash_combineINS_9CharReachEEEvRmRKT_.exit, label %6
+  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail12hash_combineINS_9CharReachEEEvRmRKT_.exit, label %4
 
-_ZN3ue211hash_detail12hash_combineINS_9CharReachEEEvRmRKT_.exit: ; preds = %6
-  %11 = mul i64 %5, 814605021516865831
+_ZN3ue211hash_detail12hash_combineINS_9CharReachEEEvRmRKT_.exit: ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.022.039, i64 80
+  %10 = load i64, ptr %9, align 8
+  %11 = mul i64 %10, 814605021516865831
   %12 = xor i64 %11, %.038
   %13 = add i64 %12, 3571081485394615273
-  %14 = mul i64 %10, 814605021516865831
+  %14 = mul i64 %8, 814605021516865831
   %15 = xor i64 %14, %13
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.022.039, i64 136
   %.131 = add i64 %15, 3571081485394615273

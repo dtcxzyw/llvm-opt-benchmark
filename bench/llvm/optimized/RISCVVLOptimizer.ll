@@ -3447,13 +3447,13 @@ _ZL17getOperandLog2EEWRKN4llvm14MachineOperandEPKNS_19MachineRegisterInfoE.exit:
 191:                                              ; preds = %187
   %192 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %189, i1 true)
   %193 = lshr exact i32 %189, %192
-  %194 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.0.i, i32 %192)
-  %195 = icmp eq i32 %193, 1
-  br i1 %195, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %194 = icmp eq i32 %193, 1
+  br i1 %194, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %191
   %spec.select33.lcssa.i.i.i = phi i32 [ 1, %191 ], [ %spec.select33.i.i.i, %.lr.ph.i.i.i ]
-  %196 = shl nuw i32 %spec.select33.lcssa.i.i.i, %194
+  %195 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.0.i, i32 %192)
+  %196 = shl nuw i32 %spec.select33.lcssa.i.i.i, %195
   br label %_ZL31getEMULEqualsEEWDivSEWTimesLMULjRKN4llvm12MachineInstrE.exit
 
 .lr.ph.i.i.i:                                     ; preds = %191, %.lr.ph.i.i.i
@@ -3482,14 +3482,14 @@ _ZL17getOperandLog2EEWRKN4llvm14MachineOperandEPKNS_19MachineRegisterInfoE.exit:
   %206 = lshr exact i32 %202, %205
   %207 = select i1 %182, i32 3, i32 %181
   %208 = lshr exact i32 %184, %207
-  %209 = tail call i32 @llvm.umin.i32(i32 %205, i32 %207)
   %spec.select3334.i.i21.i = tail call i32 @llvm.umin.i32(i32 %206, i32 %208)
-  %210 = icmp eq i32 %206, %208
-  br i1 %210, label %._crit_edge.i.i28.i, label %.lr.ph.i.i22.i
+  %209 = icmp eq i32 %206, %208
+  br i1 %209, label %._crit_edge.i.i28.i, label %.lr.ph.i.i22.i
 
 ._crit_edge.i.i28.i:                              ; preds = %.lr.ph.i.i22.i, %204
   %spec.select33.lcssa.i.i29.i = phi i32 [ %spec.select3334.i.i21.i, %204 ], [ %spec.select33.i.i27.i, %.lr.ph.i.i22.i ]
-  %211 = shl i32 %spec.select33.lcssa.i.i29.i, %209
+  %210 = tail call i32 @llvm.umin.i32(i32 %205, i32 %207)
+  %211 = shl i32 %spec.select33.lcssa.i.i29.i, %210
   br label %_ZL31getEMULEqualsEEWDivSEWTimesLMULjRKN4llvm12MachineInstrE.exit
 
 .lr.ph.i.i22.i:                                   ; preds = %204, %.lr.ph.i.i22.i

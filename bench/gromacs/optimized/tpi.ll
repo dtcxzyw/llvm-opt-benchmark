@@ -3650,8 +3650,8 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !186
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !186
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -7522,22 +7522,22 @@ define noundef double @_ZN3gmx21TestParticleInsertion15insertIntoFrameEdllNS_8Ar
   %20 = load ptr, ptr %19, align 8, !tbaa !435
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 440
   %22 = load ptr, ptr %21, align 8, !tbaa !299
-  %23 = ptrtoint ptr %22 to i64
-  %24 = ptrtoint ptr %20 to i64
+  %23 = ptrtoint ptr %5 to i64
+  %24 = ptrtoint ptr %4 to i64
   %25 = sub i64 %23, %24
-  %26 = getelementptr inbounds i8, ptr %20, i64 %25
-  %27 = ptrtoint ptr %5 to i64
-  %28 = ptrtoint ptr %4 to i64
-  %29 = sub i64 %27, %28
-  %30 = sdiv exact i64 %29, 12
-  %31 = icmp sgt i64 %29, 0
-  br i1 %31, label %.lr.ph.preheader, label %._crit_edge
+  %26 = sdiv exact i64 %25, 12
+  %27 = icmp sgt i64 %25, 0
+  br i1 %27, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %10
-  %smax = tail call i64 @llvm.smax.i64(i64 %30, i64 1)
+  %smax = tail call i64 @llvm.smax.i64(i64 %26, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
+  %28 = ptrtoint ptr %22 to i64
+  %29 = ptrtoint ptr %20 to i64
+  %30 = sub i64 %28, %29
+  %31 = getelementptr inbounds i8, ptr %20, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %33 = load float, ptr %32, align 4, !tbaa !256
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -7892,7 +7892,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit: ; pr
 .preheader.lr.ph:                                 ; preds = %247
   %sext = shl i64 %244, 30
   %251 = ashr exact i64 %sext, 32
-  %252 = sub nsw i64 %30, %251
+  %252 = sub nsw i64 %26, %251
   %253 = getelementptr %"class.gmx::BasicVector", ptr %4, i64 %252
   %wide.trip.count = and i64 %248, 2147483647
   br label %.preheader
@@ -7977,7 +7977,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit: ; pr
   %290 = getelementptr inbounds nuw i8, ptr %284, i64 %289
   store ptr %290, ptr %94, align 8, !tbaa !572
   store ptr %20, ptr %16, align 8, !tbaa !574
-  store ptr %26, ptr %95, align 8, !tbaa !574
+  store ptr %31, ptr %95, align 8, !tbaa !574
   call void @_ZN3gmx18nonbonded_verlet_t14putAtomsOnGridEPA3_KfiRKNS_11BasicVectorIfEES7_PKNS_15UpdateGroupsCogENS_5RangeIiEEifNS_8ArrayRefIKiEENSD_IS6_EEPSE_(ptr noundef nonnull align 8 dereferenceable(64) %278, ptr noundef nonnull %32, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef null, i64 %.sroa.0.0.copyload, i32 noundef %282, float noundef -1.000000e+00, ptr noundef nonnull byval(%"class.gmx::ArrayRef.415") align 8 %15, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %16, ptr noundef null)
   %291 = load ptr, ptr %93, align 8, !tbaa !437
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 256
@@ -9051,7 +9051,6 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
           to label %.lr.ph571.preheader unwind label %356
 
 .lr.ph571.preheader:                              ; preds = %_ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %353, i64 %352
   %354 = sext i32 %342 to i64
   br label %.lr.ph571
 
@@ -9107,9 +9106,10 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
   %378 = phi float [ %351, %._crit_edge578.thread ], [ %376, %.lr.ph586 ]
   %379 = phi float [ %350, %._crit_edge578.thread ], [ %375, %.lr.ph586 ]
   %380 = phi float [ %349, %._crit_edge578.thread ], [ %374, %.lr.ph586 ]
-  %scevgep.i.i.i.i.i763765770 = phi ptr [ null, %._crit_edge578.thread ], [ %scevgep.i.i.i.i.i, %.lr.ph586 ]
   %381 = phi ptr [ null, %._crit_edge578.thread ], [ %353, %.lr.ph586 ]
+  %.pre-phi.i762764769 = phi i64 [ 0, %._crit_edge578.thread ], [ %352, %.lr.ph586 ]
   %.0.lcssa = phi float [ 0.000000e+00, %._crit_edge578.thread ], [ %.sroa.speculated, %.lr.ph586 ]
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %381, i64 %.pre-phi.i762764769
   %382 = call noundef float @sqrtf(float noundef %.0.lcssa) #28, !tbaa !181
   %383 = load ptr, ptr %36, align 8, !tbaa !578
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 404
@@ -9504,7 +9504,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
   %586 = load ptr, ptr %585, align 8, !tbaa !727
   store ptr %381, ptr %19, align 8, !tbaa !574
   %587 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %scevgep.i.i.i.i.i763765770, ptr %587, align 8, !tbaa !574
+  store ptr %scevgep.i.i.i.i.i, ptr %587, align 8, !tbaa !574
   %588 = getelementptr inbounds nuw i8, ptr %14, i64 116
   %589 = load float, ptr %588, align 4, !tbaa !256
   %590 = getelementptr inbounds nuw i8, ptr %14, i64 128
@@ -9677,20 +9677,20 @@ _ZNK3gmx21TestParticleInsertion17checkEnergyGroupsENS_8ArrayRefIKNS_27AtomInfoWi
   %701 = load ptr, ptr %700, align 8, !tbaa !435
   %702 = getelementptr inbounds nuw i8, ptr %699, i64 440
   %703 = load ptr, ptr %702, align 8, !tbaa !299
-  %704 = ptrtoint ptr %703 to i64
-  %705 = ptrtoint ptr %701 to i64
-  %706 = sub i64 %704, %705
-  %707 = getelementptr inbounds i8, ptr %701, i64 %706
-  %708 = load i32, ptr %544, align 8, !tbaa !707
-  %709 = icmp sgt i32 %708, 0
-  br i1 %709, label %.lr.ph598, label %._crit_edge599
+  %704 = load i32, ptr %544, align 8, !tbaa !707
+  %705 = icmp sgt i32 %704, 0
+  br i1 %705, label %.lr.ph598, label %._crit_edge599
 
 .lr.ph598:                                        ; preds = %698
-  %710 = load ptr, ptr %679, align 8, !tbaa !734
-  %wide.trip.count648 = zext nneg i32 %708 to i64
+  %706 = load ptr, ptr %679, align 8, !tbaa !734
+  %wide.trip.count648 = zext nneg i32 %704 to i64
   br label %745
 
 ._crit_edge599:                                   ; preds = %745, %698
+  %707 = ptrtoint ptr %703 to i64
+  %708 = ptrtoint ptr %701 to i64
+  %709 = sub i64 %707, %708
+  %710 = getelementptr inbounds i8, ptr %701, i64 %709
   %711 = getelementptr inbounds nuw i8, ptr %699, i64 52
   %712 = load float, ptr %588, align 4, !tbaa !256
   store float %712, ptr %711, align 4, !tbaa !256
@@ -9734,12 +9734,12 @@ _ZNK3gmx21TestParticleInsertion17checkEnergyGroupsENS_8ArrayRefIKNS_27AtomInfoWi
   %742 = load ptr, ptr %143, align 8, !tbaa !626
   %743 = getelementptr inbounds nuw i8, ptr %742, i64 8
   %744 = load i32, ptr %743, align 8, !tbaa !627
-  invoke void @_Z16put_atoms_in_box7PbcTypePA3_KfN3gmx8ArrayRefINS3_11BasicVectorIfEEEE(i32 noundef %744, ptr noundef nonnull %711, ptr %701, ptr %707)
+  invoke void @_Z16put_atoms_in_box7PbcTypePA3_KfN3gmx8ArrayRefINS3_11BasicVectorIfEEEE(i32 noundef %744, ptr noundef nonnull %711, ptr %701, ptr %710)
           to label %755 unwind label %814
 
 745:                                              ; preds = %.lr.ph598, %745
   %indvars.iv645 = phi i64 [ 0, %.lr.ph598 ], [ %indvars.iv.next646, %745 ]
-  %746 = getelementptr inbounds nuw [3 x float], ptr %710, i64 %indvars.iv645
+  %746 = getelementptr inbounds nuw [3 x float], ptr %706, i64 %indvars.iv645
   %747 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %701, i64 %indvars.iv645
   %748 = load float, ptr %746, align 4, !tbaa !256
   store float %748, ptr %747, align 4, !tbaa !256
@@ -9793,7 +9793,7 @@ _ZNK3gmx21TestParticleInsertion17checkEnergyGroupsENS_8ArrayRefIKNS_27AtomInfoWi
   %772 = getelementptr inbounds nuw i8, ptr %766, i64 %771
   store ptr %772, ptr %684, align 8, !tbaa !572
   store ptr %701, ptr %23, align 8, !tbaa !574
-  store ptr %707, ptr %685, align 8, !tbaa !574
+  store ptr %710, ptr %685, align 8, !tbaa !574
   %.sroa.2411.0.insert.ext = zext nneg i32 %762 to i64
   %.sroa.2411.0.insert.shift = shl nuw nsw i64 %.sroa.2411.0.insert.ext, 32
   invoke void @_ZN3gmx18nonbonded_verlet_t14putAtomsOnGridEPA3_KfiRKNS_11BasicVectorIfEES7_PKNS_15UpdateGroupsCogENS_5RangeIiEEifNS_8ArrayRefIKiEENSD_IS6_EEPSE_(ptr noundef nonnull align 8 dereferenceable(64) %761, ptr noundef nonnull %711, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef null, i64 %.sroa.2411.0.insert.shift, i32 noundef %762, float noundef -1.000000e+00, ptr noundef nonnull byval(%"class.gmx::ArrayRef.415") align 8 %22, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %23, ptr noundef null)
@@ -10161,8 +10161,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %963
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %965, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %964, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !186
   %967 = getelementptr inbounds nuw i8, ptr %964, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %964, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !186
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %963

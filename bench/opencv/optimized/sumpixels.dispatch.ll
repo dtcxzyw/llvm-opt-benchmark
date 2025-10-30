@@ -576,22 +576,22 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit.i:           ; preds = %.noexc257, %163
   %220 = getelementptr inbounds nuw i8, ptr %.1314362.us389.i, i64 4
   %221 = getelementptr inbounds nuw i8, ptr %.0303365.us387.i, i64 4
   %exitcond555.not.i = icmp eq i32 %218, %13
-  br i1 %exitcond555.not.i, label %.preheader357.loopexit516.i, label %.lr.ph371.split.split.us.i, !llvm.loop !26
+  br i1 %exitcond555.not.i, label %.preheader357.loopexit625.i, label %.lr.ph371.split.split.us.i, !llvm.loop !26
 
-.preheader357.loopexit516.i:                      ; preds = %217
+.preheader357.loopexit625.i:                      ; preds = %217
   %scevgep554.i = getelementptr i8, ptr %3, i64 %175
   br label %.preheader357.i
 
-.preheader357.loopexit517.i:                      ; preds = %392
+.preheader357.loopexit626.i:                      ; preds = %392
   %scevgep.i = getelementptr i8, ptr %3, i64 %175
   br label %.preheader357.i
 
-.preheader357.i:                                  ; preds = %184, %.preheader357.loopexit517.i, %.preheader357.loopexit516.i, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i
-  %.1314.lcssa.i = phi ptr [ %.0313.i, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i ], [ %220, %.preheader357.loopexit516.i ], [ %395, %.preheader357.loopexit517.i ], [ %188, %184 ]
-  %.3309.lcssa.i = phi ptr [ %.0306.i, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i ], [ %.4310.us392.i, %.preheader357.loopexit516.i ], [ %.4310.i, %.preheader357.loopexit517.i ], [ %.4310.us.i, %184 ]
-  %.0303.lcssa.i = phi ptr [ %170, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i ], [ %221, %.preheader357.loopexit516.i ], [ %396, %.preheader357.loopexit517.i ], [ %189, %184 ]
-  %.4296.lcssa.i = phi ptr [ %60, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i ], [ %219, %.preheader357.loopexit516.i ], [ %394, %.preheader357.loopexit517.i ], [ %187, %184 ]
-  %.4.lcssa.i = phi ptr [ %3, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i ], [ %scevgep554.i, %.preheader357.loopexit516.i ], [ %scevgep.i, %.preheader357.loopexit517.i ], [ %186, %184 ]
+.preheader357.i:                                  ; preds = %184, %.preheader357.loopexit626.i, %.preheader357.loopexit625.i, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i
+  %.1314.lcssa.i = phi ptr [ %.0313.i, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i ], [ %220, %.preheader357.loopexit625.i ], [ %395, %.preheader357.loopexit626.i ], [ %188, %184 ]
+  %.3309.lcssa.i = phi ptr [ %.0306.i, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i ], [ %.4310.us392.i, %.preheader357.loopexit625.i ], [ %.4310.i, %.preheader357.loopexit626.i ], [ %.4310.us.i, %184 ]
+  %.0303.lcssa.i = phi ptr [ %170, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i ], [ %221, %.preheader357.loopexit625.i ], [ %396, %.preheader357.loopexit626.i ], [ %189, %184 ]
+  %.4296.lcssa.i = phi ptr [ %60, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i ], [ %219, %.preheader357.loopexit625.i ], [ %394, %.preheader357.loopexit626.i ], [ %187, %184 ]
+  %.4.lcssa.i = phi ptr [ %3, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i ], [ %scevgep554.i, %.preheader357.loopexit625.i ], [ %scevgep.i, %.preheader357.loopexit626.i ], [ %186, %184 ]
   %222 = icmp sgt i32 %12, 1
   br i1 %222, label %.lr.ph439.i, label %._crit_edge440.i
 
@@ -886,7 +886,7 @@ select.unfold:                                    ; preds = %.lr.ph426.us.i, %31
   %395 = getelementptr inbounds nuw i8, ptr %.1314362.i, i64 4
   %396 = getelementptr inbounds nuw i8, ptr %.0303365.i, i64 4
   %exitcond.not.i = icmp eq i32 %393, %13
-  br i1 %exitcond.not.i, label %.preheader357.loopexit517.i, label %.lr.ph371.split.split.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %.preheader357.loopexit626.i, label %.lr.ph371.split.split.i, !llvm.loop !26
 
 ._crit_edge440.i:                                 ; preds = %._crit_edge427.us.i, %.lr.ph439.i, %.preheader357.i
   %.not.i.i349.i = icmp eq ptr %170, %164
@@ -1302,22 +1302,22 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit.i264:        ; preds = %.noexc426, %517
   %574 = getelementptr inbounds nuw i8, ptr %.1314362.us389.i338, i64 4
   %575 = getelementptr inbounds nuw i8, ptr %.0303365.us387.i336, i64 4
   %exitcond555.not.i342 = icmp eq i32 %572, %13
-  br i1 %exitcond555.not.i342, label %.preheader357.loopexit516.i343, label %.lr.ph371.split.split.us.i334, !llvm.loop !39
+  br i1 %exitcond555.not.i342, label %.preheader357.loopexit625.i343, label %.lr.ph371.split.split.us.i334, !llvm.loop !39
 
-.preheader357.loopexit516.i343:                   ; preds = %571
+.preheader357.loopexit625.i343:                   ; preds = %571
   %scevgep554.i344 = getelementptr i8, ptr %3, i64 %529
   br label %.preheader357.i265
 
-.preheader357.loopexit517.i332:                   ; preds = %746
+.preheader357.loopexit626.i332:                   ; preds = %746
   %scevgep.i333 = getelementptr i8, ptr %3, i64 %529
   br label %.preheader357.i265
 
-.preheader357.i265:                               ; preds = %538, %.preheader357.loopexit517.i332, %.preheader357.loopexit516.i343, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i264
-  %.1314.lcssa.i266 = phi ptr [ %.0313.i261, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i264 ], [ %574, %.preheader357.loopexit516.i343 ], [ %749, %.preheader357.loopexit517.i332 ], [ %542, %538 ]
-  %.3309.lcssa.i267 = phi ptr [ %.0306.i259, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i264 ], [ %.4310.us392.i341, %.preheader357.loopexit516.i343 ], [ %.4310.i330, %.preheader357.loopexit517.i332 ], [ %.4310.us.i359, %538 ]
-  %.0303.lcssa.i268 = phi ptr [ %524, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i264 ], [ %575, %.preheader357.loopexit516.i343 ], [ %750, %.preheader357.loopexit517.i332 ], [ %543, %538 ]
-  %.4296.lcssa.i269 = phi ptr [ %415, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i264 ], [ %573, %.preheader357.loopexit516.i343 ], [ %748, %.preheader357.loopexit517.i332 ], [ %541, %538 ]
-  %.4.lcssa.i270 = phi ptr [ %3, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i264 ], [ %scevgep554.i344, %.preheader357.loopexit516.i343 ], [ %scevgep.i333, %.preheader357.loopexit517.i332 ], [ %540, %538 ]
+.preheader357.i265:                               ; preds = %538, %.preheader357.loopexit626.i332, %.preheader357.loopexit625.i343, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i264
+  %.1314.lcssa.i266 = phi ptr [ %.0313.i261, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i264 ], [ %574, %.preheader357.loopexit625.i343 ], [ %749, %.preheader357.loopexit626.i332 ], [ %542, %538 ]
+  %.3309.lcssa.i267 = phi ptr [ %.0306.i259, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i264 ], [ %.4310.us392.i341, %.preheader357.loopexit625.i343 ], [ %.4310.i330, %.preheader357.loopexit626.i332 ], [ %.4310.us.i359, %538 ]
+  %.0303.lcssa.i268 = phi ptr [ %524, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i264 ], [ %575, %.preheader357.loopexit625.i343 ], [ %750, %.preheader357.loopexit626.i332 ], [ %543, %538 ]
+  %.4296.lcssa.i269 = phi ptr [ %415, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i264 ], [ %573, %.preheader357.loopexit625.i343 ], [ %748, %.preheader357.loopexit626.i332 ], [ %541, %538 ]
+  %.4.lcssa.i270 = phi ptr [ %3, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i264 ], [ %scevgep554.i344, %.preheader357.loopexit625.i343 ], [ %scevgep.i333, %.preheader357.loopexit626.i332 ], [ %540, %538 ]
   %576 = icmp sgt i32 %12, 1
   br i1 %576, label %.lr.ph439.i274, label %._crit_edge440.i271
 
@@ -1612,7 +1612,7 @@ select.unfold767:                                 ; preds = %.lr.ph426.us.i281, 
   %749 = getelementptr inbounds nuw i8, ptr %.1314362.i327, i64 4
   %750 = getelementptr inbounds nuw i8, ptr %.0303365.i325, i64 4
   %exitcond.not.i331 = icmp eq i32 %747, %13
-  br i1 %exitcond.not.i331, label %.preheader357.loopexit517.i332, label %.lr.ph371.split.split.i323, !llvm.loop !39
+  br i1 %exitcond.not.i331, label %.preheader357.loopexit626.i332, label %.lr.ph371.split.split.i323, !llvm.loop !39
 
 ._crit_edge440.i271:                              ; preds = %._crit_edge427.us.i305, %.lr.ph439.i274, %.preheader357.i265
   %.not.i.i349.i272 = icmp eq ptr %524, %518
@@ -2028,22 +2028,22 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit.i433:        ; preds = %.noexc595, %871
   %928 = getelementptr inbounds nuw i8, ptr %.1314362.us389.i507, i64 4
   %929 = getelementptr inbounds nuw i8, ptr %.0303365.us387.i505, i64 4
   %exitcond555.not.i511 = icmp eq i32 %926, %13
-  br i1 %exitcond555.not.i511, label %.preheader357.loopexit516.i512, label %.lr.ph371.split.split.us.i503, !llvm.loop !50
+  br i1 %exitcond555.not.i511, label %.preheader357.loopexit625.i512, label %.lr.ph371.split.split.us.i503, !llvm.loop !50
 
-.preheader357.loopexit516.i512:                   ; preds = %925
+.preheader357.loopexit625.i512:                   ; preds = %925
   %scevgep554.i513 = getelementptr i8, ptr %3, i64 %883
   br label %.preheader357.i434
 
-.preheader357.loopexit517.i501:                   ; preds = %1096
+.preheader357.loopexit626.i501:                   ; preds = %1096
   %scevgep.i502 = getelementptr i8, ptr %3, i64 %883
   br label %.preheader357.i434
 
-.preheader357.i434:                               ; preds = %892, %.preheader357.loopexit517.i501, %.preheader357.loopexit516.i512, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i433
-  %.1314.lcssa.i435 = phi ptr [ %.0313.i430, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i433 ], [ %928, %.preheader357.loopexit516.i512 ], [ %1099, %.preheader357.loopexit517.i501 ], [ %896, %892 ]
-  %.3309.lcssa.i436 = phi ptr [ %.0306.i428, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i433 ], [ %.4310.us392.i510, %.preheader357.loopexit516.i512 ], [ %.4310.i499, %.preheader357.loopexit517.i501 ], [ %.4310.us.i528, %892 ]
-  %.0303.lcssa.i437 = phi ptr [ %878, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i433 ], [ %929, %.preheader357.loopexit516.i512 ], [ %1100, %.preheader357.loopexit517.i501 ], [ %897, %892 ]
-  %.4296.lcssa.i438 = phi ptr [ %769, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i433 ], [ %927, %.preheader357.loopexit516.i512 ], [ %1098, %.preheader357.loopexit517.i501 ], [ %895, %892 ]
-  %.4.lcssa.i439 = phi ptr [ %3, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i433 ], [ %scevgep554.i513, %.preheader357.loopexit516.i512 ], [ %scevgep.i502, %.preheader357.loopexit517.i501 ], [ %894, %892 ]
+.preheader357.i434:                               ; preds = %892, %.preheader357.loopexit626.i501, %.preheader357.loopexit625.i512, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i433
+  %.1314.lcssa.i435 = phi ptr [ %.0313.i430, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i433 ], [ %928, %.preheader357.loopexit625.i512 ], [ %1099, %.preheader357.loopexit626.i501 ], [ %896, %892 ]
+  %.3309.lcssa.i436 = phi ptr [ %.0306.i428, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i433 ], [ %.4310.us392.i510, %.preheader357.loopexit625.i512 ], [ %.4310.i499, %.preheader357.loopexit626.i501 ], [ %.4310.us.i528, %892 ]
+  %.0303.lcssa.i437 = phi ptr [ %878, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i433 ], [ %929, %.preheader357.loopexit625.i512 ], [ %1100, %.preheader357.loopexit626.i501 ], [ %897, %892 ]
+  %.4296.lcssa.i438 = phi ptr [ %769, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i433 ], [ %927, %.preheader357.loopexit625.i512 ], [ %1098, %.preheader357.loopexit626.i501 ], [ %895, %892 ]
+  %.4.lcssa.i439 = phi ptr [ %3, %_ZN2cv10AutoBufferIiLm264EEC2Em.exit.i433 ], [ %scevgep554.i513, %.preheader357.loopexit625.i512 ], [ %scevgep.i502, %.preheader357.loopexit626.i501 ], [ %894, %892 ]
   %930 = icmp sgt i32 %12, 1
   br i1 %930, label %.lr.ph439.i443, label %._crit_edge440.i440
 
@@ -2334,7 +2334,7 @@ select.unfold768:                                 ; preds = %.lr.ph426.us.i450, 
   %1099 = getelementptr inbounds nuw i8, ptr %.1314362.i496, i64 4
   %1100 = getelementptr inbounds nuw i8, ptr %.0303365.i494, i64 4
   %exitcond.not.i500 = icmp eq i32 %1097, %13
-  br i1 %exitcond.not.i500, label %.preheader357.loopexit517.i501, label %.lr.ph371.split.split.i492, !llvm.loop !50
+  br i1 %exitcond.not.i500, label %.preheader357.loopexit626.i501, label %.lr.ph371.split.split.i492, !llvm.loop !50
 
 ._crit_edge440.i440:                              ; preds = %._crit_edge427.us.i474, %.lr.ph439.i443, %.preheader357.i434
   %.not.i.i349.i441 = icmp eq ptr %878, %872
@@ -2752,22 +2752,22 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i:           ; preds = %.noexc762, %1222
   %1279 = getelementptr inbounds nuw i8, ptr %.1314362.us389.i674, i64 4
   %1280 = getelementptr inbounds nuw i8, ptr %.0303365.us387.i672, i64 4
   %exitcond555.not.i678 = icmp eq i32 %1277, %13
-  br i1 %exitcond555.not.i678, label %.preheader357.loopexit516.i679, label %.lr.ph371.split.split.us.i670, !llvm.loop !65
+  br i1 %exitcond555.not.i678, label %.preheader357.loopexit625.i679, label %.lr.ph371.split.split.us.i670, !llvm.loop !65
 
-.preheader357.loopexit516.i679:                   ; preds = %1276
+.preheader357.loopexit625.i679:                   ; preds = %1276
   %scevgep554.i680 = getelementptr i8, ptr %3, i64 %1234
   br label %.preheader357.i602
 
-.preheader357.loopexit517.i668:                   ; preds = %1451
+.preheader357.loopexit626.i668:                   ; preds = %1451
   %scevgep.i669 = getelementptr i8, ptr %3, i64 %1234
   br label %.preheader357.i602
 
-.preheader357.i602:                               ; preds = %1243, %.preheader357.loopexit517.i668, %.preheader357.loopexit516.i679, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i
-  %.1314.lcssa.i603 = phi ptr [ %.0313.i599, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %1279, %.preheader357.loopexit516.i679 ], [ %1454, %.preheader357.loopexit517.i668 ], [ %1247, %1243 ]
-  %.3309.lcssa.i604 = phi ptr [ %.0306.i597, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.4310.us392.i677, %.preheader357.loopexit516.i679 ], [ %.4310.i666, %.preheader357.loopexit517.i668 ], [ %.4310.us.i695, %1243 ]
-  %.0303.lcssa.i605 = phi ptr [ %1229, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %1280, %.preheader357.loopexit516.i679 ], [ %1455, %.preheader357.loopexit517.i668 ], [ %1248, %1243 ]
-  %.4296.lcssa.i606 = phi ptr [ %1119, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %1278, %.preheader357.loopexit516.i679 ], [ %1453, %.preheader357.loopexit517.i668 ], [ %1246, %1243 ]
-  %.4.lcssa.i607 = phi ptr [ %3, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %scevgep554.i680, %.preheader357.loopexit516.i679 ], [ %scevgep.i669, %.preheader357.loopexit517.i668 ], [ %1245, %1243 ]
+.preheader357.i602:                               ; preds = %1243, %.preheader357.loopexit626.i668, %.preheader357.loopexit625.i679, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i
+  %.1314.lcssa.i603 = phi ptr [ %.0313.i599, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %1279, %.preheader357.loopexit625.i679 ], [ %1454, %.preheader357.loopexit626.i668 ], [ %1247, %1243 ]
+  %.3309.lcssa.i604 = phi ptr [ %.0306.i597, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %.4310.us392.i677, %.preheader357.loopexit625.i679 ], [ %.4310.i666, %.preheader357.loopexit626.i668 ], [ %.4310.us.i695, %1243 ]
+  %.0303.lcssa.i605 = phi ptr [ %1229, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %1280, %.preheader357.loopexit625.i679 ], [ %1455, %.preheader357.loopexit626.i668 ], [ %1248, %1243 ]
+  %.4296.lcssa.i606 = phi ptr [ %1119, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %1278, %.preheader357.loopexit625.i679 ], [ %1453, %.preheader357.loopexit626.i668 ], [ %1246, %1243 ]
+  %.4.lcssa.i607 = phi ptr [ %3, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit.i ], [ %scevgep554.i680, %.preheader357.loopexit625.i679 ], [ %scevgep.i669, %.preheader357.loopexit626.i668 ], [ %1245, %1243 ]
   %1281 = icmp sgt i32 %12, 1
   br i1 %1281, label %.lr.ph439.i610, label %._crit_edge440.i608
 
@@ -3062,7 +3062,7 @@ select.unfold769:                                 ; preds = %.lr.ph426.us.i617, 
   %1454 = getelementptr inbounds nuw i8, ptr %.1314362.i663, i64 4
   %1455 = getelementptr inbounds nuw i8, ptr %.0303365.i661, i64 4
   %exitcond.not.i667 = icmp eq i32 %1452, %13
-  br i1 %exitcond.not.i667, label %.preheader357.loopexit517.i668, label %.lr.ph371.split.split.i659, !llvm.loop !65
+  br i1 %exitcond.not.i667, label %.preheader357.loopexit626.i668, label %.lr.ph371.split.split.i659, !llvm.loop !65
 
 ._crit_edge440.i608:                              ; preds = %._crit_edge427.us.i641, %.lr.ph439.i610, %.preheader357.i602
   %.not.i.i349.i609 = icmp eq ptr %1229, %1223
@@ -3613,24 +3613,24 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %129, %132
   %185 = getelementptr inbounds nuw i8, ptr %.1314362.us389, i64 4
   %186 = getelementptr inbounds nuw i8, ptr %.0303365.us387, i64 4
   %exitcond555.not = icmp eq i32 %183, %10
-  br i1 %exitcond555.not, label %.preheader357.loopexit516, label %.lr.ph371.split.split.us, !llvm.loop !80
+  br i1 %exitcond555.not, label %.preheader357.loopexit625, label %.lr.ph371.split.split.us, !llvm.loop !80
 
-.preheader357.loopexit516:                        ; preds = %182
+.preheader357.loopexit625:                        ; preds = %182
   %187 = zext nneg i32 %10 to i64
   %scevgep554 = getelementptr i8, ptr %0, i64 %187
   br label %.preheader357
 
-.preheader357.loopexit517:                        ; preds = %356
+.preheader357.loopexit626:                        ; preds = %356
   %188 = zext nneg i32 %10 to i64
   %scevgep = getelementptr i8, ptr %0, i64 %188
   br label %.preheader357
 
-.preheader357:                                    ; preds = %150, %.preheader357.loopexit517, %.preheader357.loopexit516, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
-  %.1314.lcssa = phi ptr [ %.0313, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit ], [ %185, %.preheader357.loopexit516 ], [ %359, %.preheader357.loopexit517 ], [ %154, %150 ]
-  %.3309.lcssa = phi ptr [ %.0306, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit ], [ %.4310.us392, %.preheader357.loopexit516 ], [ %.4310, %.preheader357.loopexit517 ], [ %.4310.us, %150 ]
-  %.0303.lcssa = phi ptr [ %136, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit ], [ %186, %.preheader357.loopexit516 ], [ %360, %.preheader357.loopexit517 ], [ %155, %150 ]
-  %.4296.lcssa = phi ptr [ %27, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit ], [ %184, %.preheader357.loopexit516 ], [ %358, %.preheader357.loopexit517 ], [ %153, %150 ]
-  %.4.lcssa = phi ptr [ %0, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit ], [ %scevgep554, %.preheader357.loopexit516 ], [ %scevgep, %.preheader357.loopexit517 ], [ %152, %150 ]
+.preheader357:                                    ; preds = %150, %.preheader357.loopexit626, %.preheader357.loopexit625, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit
+  %.1314.lcssa = phi ptr [ %.0313, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit ], [ %185, %.preheader357.loopexit625 ], [ %359, %.preheader357.loopexit626 ], [ %154, %150 ]
+  %.3309.lcssa = phi ptr [ %.0306, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit ], [ %.4310.us392, %.preheader357.loopexit625 ], [ %.4310, %.preheader357.loopexit626 ], [ %.4310.us, %150 ]
+  %.0303.lcssa = phi ptr [ %136, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit ], [ %186, %.preheader357.loopexit625 ], [ %360, %.preheader357.loopexit626 ], [ %155, %150 ]
+  %.4296.lcssa = phi ptr [ %27, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit ], [ %184, %.preheader357.loopexit625 ], [ %358, %.preheader357.loopexit626 ], [ %153, %150 ]
+  %.4.lcssa = phi ptr [ %0, %_ZN2cv10AutoBufferIfLm264EEC2Em.exit ], [ %scevgep554, %.preheader357.loopexit625 ], [ %scevgep, %.preheader357.loopexit626 ], [ %152, %150 ]
   %189 = icmp sgt i32 %9, 1
   br i1 %189, label %.lr.ph439, label %._crit_edge440
 
@@ -3921,7 +3921,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %129, %132
   %359 = getelementptr inbounds nuw i8, ptr %.1314362, i64 4
   %360 = getelementptr inbounds nuw i8, ptr %.0303365, i64 4
   %exitcond.not = icmp eq i32 %357, %10
-  br i1 %exitcond.not, label %.preheader357.loopexit517, label %.lr.ph371.split.split, !llvm.loop !80
+  br i1 %exitcond.not, label %.preheader357.loopexit626, label %.lr.ph371.split.split, !llvm.loop !80
 
 ._crit_edge440:                                   ; preds = %._crit_edge427.us, %.lr.ph439, %.preheader357
   %.not.i.i349 = icmp eq ptr %136, %130
@@ -4334,24 +4334,24 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %129, %132
   %185 = getelementptr inbounds nuw i8, ptr %.1314362.us389, i64 8
   %186 = getelementptr inbounds nuw i8, ptr %.0303365.us387, i64 8
   %exitcond555.not = icmp eq i32 %183, %10
-  br i1 %exitcond555.not, label %.preheader357.loopexit516, label %.lr.ph371.split.split.us, !llvm.loop !95
+  br i1 %exitcond555.not, label %.preheader357.loopexit625, label %.lr.ph371.split.split.us, !llvm.loop !95
 
-.preheader357.loopexit516:                        ; preds = %182
+.preheader357.loopexit625:                        ; preds = %182
   %187 = zext nneg i32 %10 to i64
   %scevgep554 = getelementptr i8, ptr %0, i64 %187
   br label %.preheader357
 
-.preheader357.loopexit517:                        ; preds = %356
+.preheader357.loopexit626:                        ; preds = %356
   %188 = zext nneg i32 %10 to i64
   %scevgep = getelementptr i8, ptr %0, i64 %188
   br label %.preheader357
 
-.preheader357:                                    ; preds = %150, %.preheader357.loopexit517, %.preheader357.loopexit516, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
-  %.1314.lcssa = phi ptr [ %.0313, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit ], [ %185, %.preheader357.loopexit516 ], [ %359, %.preheader357.loopexit517 ], [ %154, %150 ]
-  %.3309.lcssa = phi ptr [ %.0306, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit ], [ %.4310.us392, %.preheader357.loopexit516 ], [ %.4310, %.preheader357.loopexit517 ], [ %.4310.us, %150 ]
-  %.0303.lcssa = phi ptr [ %136, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit ], [ %186, %.preheader357.loopexit516 ], [ %360, %.preheader357.loopexit517 ], [ %155, %150 ]
-  %.4296.lcssa = phi ptr [ %27, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit ], [ %184, %.preheader357.loopexit516 ], [ %358, %.preheader357.loopexit517 ], [ %153, %150 ]
-  %.4.lcssa = phi ptr [ %0, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit ], [ %scevgep554, %.preheader357.loopexit516 ], [ %scevgep, %.preheader357.loopexit517 ], [ %152, %150 ]
+.preheader357:                                    ; preds = %150, %.preheader357.loopexit626, %.preheader357.loopexit625, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit
+  %.1314.lcssa = phi ptr [ %.0313, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit ], [ %185, %.preheader357.loopexit625 ], [ %359, %.preheader357.loopexit626 ], [ %154, %150 ]
+  %.3309.lcssa = phi ptr [ %.0306, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit ], [ %.4310.us392, %.preheader357.loopexit625 ], [ %.4310, %.preheader357.loopexit626 ], [ %.4310.us, %150 ]
+  %.0303.lcssa = phi ptr [ %136, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit ], [ %186, %.preheader357.loopexit625 ], [ %360, %.preheader357.loopexit626 ], [ %155, %150 ]
+  %.4296.lcssa = phi ptr [ %27, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit ], [ %184, %.preheader357.loopexit625 ], [ %358, %.preheader357.loopexit626 ], [ %153, %150 ]
+  %.4.lcssa = phi ptr [ %0, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit ], [ %scevgep554, %.preheader357.loopexit625 ], [ %scevgep, %.preheader357.loopexit626 ], [ %152, %150 ]
   %189 = icmp sgt i32 %9, 1
   br i1 %189, label %.lr.ph439, label %._crit_edge440
 
@@ -4642,7 +4642,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %129, %132
   %359 = getelementptr inbounds nuw i8, ptr %.1314362, i64 8
   %360 = getelementptr inbounds nuw i8, ptr %.0303365, i64 8
   %exitcond.not = icmp eq i32 %357, %10
-  br i1 %exitcond.not, label %.preheader357.loopexit517, label %.lr.ph371.split.split, !llvm.loop !95
+  br i1 %exitcond.not, label %.preheader357.loopexit626, label %.lr.ph371.split.split, !llvm.loop !95
 
 ._crit_edge440:                                   ; preds = %._crit_edge427.us, %.lr.ph439, %.preheader357
   %.not.i.i349 = icmp eq ptr %136, %130

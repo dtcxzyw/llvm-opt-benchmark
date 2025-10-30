@@ -2319,68 +2319,68 @@ clusterManagerNodeArrayShift.exit.us:             ; preds = %113, %110
   %155 = phi i1 [ false, %.preheader463 ], [ false, %.preheader463.thread ], [ true, %..loopexit_crit_edge.us ]
   %.0274.lcssa737 = phi i32 [ %.1275, %.preheader463 ], [ 0, %.preheader463.thread ], [ %.1275, %..loopexit_crit_edge.us ]
   %.0265.lcssa = phi i32 [ 0, %.preheader463 ], [ 0, %.preheader463.thread ], [ %.2267.us, %..loopexit_crit_edge.us ]
-  %156 = zext nneg i32 %89 to i64
-  %157 = getelementptr inbounds nuw ptr, ptr %96, i64 %156
-  %158 = sub nsw i32 %.0265.lcssa, %89
-  %159 = uitofp nneg i32 %89 to float
-  %160 = fdiv float 1.638400e+04, %159
-  %161 = add nsw i32 %89, -1
-  %162 = zext nneg i32 %161 to i64
+  %156 = uitofp nneg i32 %89 to float
+  %157 = fdiv float 1.638400e+04, %156
+  %158 = add nsw i32 %89, -1
+  %159 = zext nneg i32 %158 to i64
   %smax = call i32 @llvm.smax.i32(i32 %89, i32 1)
   %wide.trip.count658 = zext nneg i32 %smax to i64
-  br label %163
+  br label %160
 
-163:                                              ; preds = %.lr.ph546, %._crit_edge541
+160:                                              ; preds = %.lr.ph546, %._crit_edge541
   %indvars.iv655 = phi i64 [ 0, %.lr.ph546 ], [ %indvars.iv.next656, %._crit_edge541 ]
-  %.0284543 = phi i64 [ 0, %.lr.ph546 ], [ %182, %._crit_edge541 ]
-  %.0295542 = phi float [ 0.000000e+00, %.lr.ph546 ], [ %166, %._crit_edge541 ]
-  %164 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv655
-  %165 = load ptr, ptr %164, align 8, !tbaa !92
-  %166 = fadd float %160, %.0295542
-  %167 = fadd float %166, -1.000000e+00
-  %168 = fpext float %167 to double
-  %169 = call i64 @lround(double noundef %168) #33, !tbaa !22
-  %170 = icmp sgt i64 %169, 16384
-  %171 = icmp eq i64 %indvars.iv655, %162
-  %or.cond366 = select i1 %170, i1 true, i1 %171
-  %.0302 = select i1 %or.cond366, i64 16383, i64 %169
+  %.0284543 = phi i64 [ 0, %.lr.ph546 ], [ %179, %._crit_edge541 ]
+  %.0295542 = phi float [ 0.000000e+00, %.lr.ph546 ], [ %163, %._crit_edge541 ]
+  %161 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv655
+  %162 = load ptr, ptr %161, align 8, !tbaa !92
+  %163 = fadd float %157, %.0295542
+  %164 = fadd float %163, -1.000000e+00
+  %165 = fpext float %164 to double
+  %166 = call i64 @lround(double noundef %165) #33, !tbaa !22
+  %167 = icmp sgt i64 %166, 16384
+  %168 = icmp eq i64 %indvars.iv655, %159
+  %or.cond366 = select i1 %167, i1 true, i1 %168
+  %.0302 = select i1 %or.cond366, i64 16383, i64 %166
   %.1303 = call i64 @llvm.smax.i64(i64 %.0302, i64 %.0284543)
-  %172 = trunc nuw nsw i64 %indvars.iv655 to i32
-  %173 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.172, i32 noundef %172, i64 noundef %.0284543, i64 noundef %.1303)
-  %174 = getelementptr inbounds nuw i8, ptr %165, i64 16468
-  store i32 0, ptr %174, align 4, !tbaa !101
+  %169 = trunc nuw nsw i64 %indvars.iv655 to i32
+  %170 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.172, i32 noundef %169, i64 noundef %.0284543, i64 noundef %.1303)
+  %171 = getelementptr inbounds nuw i8, ptr %162, i64 16468
+  store i32 0, ptr %171, align 4, !tbaa !101
   %sext602 = shl i64 %.0284543, 32
-  %175 = ashr exact i64 %sext602, 32
-  %.not354537 = icmp slt i64 %.1303, %175
+  %172 = ashr exact i64 %sext602, 32
+  %.not354537 = icmp slt i64 %.1303, %172
   br i1 %.not354537, label %._crit_edge541, label %.lr.ph540
 
-.lr.ph540:                                        ; preds = %163
-  %176 = getelementptr inbounds nuw i8, ptr %165, i64 84
-  br label %177
+.lr.ph540:                                        ; preds = %160
+  %173 = getelementptr inbounds nuw i8, ptr %162, i64 84
+  br label %174
 
-177:                                              ; preds = %.lr.ph540, %177
-  %indvars.iv652 = phi i64 [ %175, %.lr.ph540 ], [ %indvars.iv.next653, %177 ]
-  %178 = getelementptr inbounds i8, ptr %176, i64 %indvars.iv652
-  store i8 1, ptr %178, align 1, !tbaa !67
-  %179 = load i32, ptr %174, align 4, !tbaa !101
-  %180 = add nsw i32 %179, 1
-  store i32 %180, ptr %174, align 4, !tbaa !101
+174:                                              ; preds = %.lr.ph540, %174
+  %indvars.iv652 = phi i64 [ %172, %.lr.ph540 ], [ %indvars.iv.next653, %174 ]
+  %175 = getelementptr inbounds i8, ptr %173, i64 %indvars.iv652
+  store i8 1, ptr %175, align 1, !tbaa !67
+  %176 = load i32, ptr %171, align 4, !tbaa !101
+  %177 = add nsw i32 %176, 1
+  store i32 %177, ptr %171, align 4, !tbaa !101
   %indvars.iv.next653 = add nsw i64 %indvars.iv652, 1
   %.not354.not = icmp sgt i64 %.1303, %indvars.iv652
-  br i1 %.not354.not, label %177, label %._crit_edge541, !llvm.loop !102
+  br i1 %.not354.not, label %174, label %._crit_edge541, !llvm.loop !102
 
-._crit_edge541:                                   ; preds = %177, %163
-  %181 = getelementptr inbounds nuw i8, ptr %165, i64 80
-  store i32 1, ptr %181, align 8, !tbaa !103
-  %182 = add nuw nsw i64 %.1303, 1
+._crit_edge541:                                   ; preds = %174, %160
+  %178 = getelementptr inbounds nuw i8, ptr %162, i64 80
+  store i32 1, ptr %178, align 8, !tbaa !103
+  %179 = add nuw nsw i64 %.1303, 1
   %indvars.iv.next656 = add nuw nsw i64 %indvars.iv655, 1
   %exitcond659.not = icmp eq i64 %indvars.iv.next656, %wide.trip.count658
-  br i1 %exitcond659.not, label %._crit_edge547, label %163, !llvm.loop !104
+  br i1 %exitcond659.not, label %._crit_edge547, label %160, !llvm.loop !104
 
 ._crit_edge547:                                   ; preds = %._crit_edge541
-  %183 = load ptr, ptr %157, align 8, !tbaa !92
-  %184 = add nsw i32 %158, -1
-  %185 = icmp sgt i32 %158, 1
+  %180 = zext nneg i32 %89 to i64
+  %181 = getelementptr inbounds nuw ptr, ptr %96, i64 %180
+  %182 = sub nsw i32 %.0265.lcssa, %89
+  %183 = load ptr, ptr %181, align 8, !tbaa !92
+  %184 = add nsw i32 %182, -1
+  %185 = icmp sgt i32 %182, 1
   br i1 %185, label %.lr.ph550.preheader, label %._crit_edge551
 
 .lr.ph550.preheader:                              ; preds = %._crit_edge547
@@ -2390,16 +2390,16 @@ clusterManagerNodeArrayShift.exit.us:             ; preds = %113, %110
 .lr.ph550:                                        ; preds = %.lr.ph550.preheader, %.lr.ph550
   %indvars.iv660 = phi i64 [ 0, %.lr.ph550.preheader ], [ %indvars.iv.next661, %.lr.ph550 ]
   %indvars.iv.next661 = add nuw nsw i64 %indvars.iv660, 1
-  %186 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv.next661
+  %186 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv.next661
   %187 = load ptr, ptr %186, align 8, !tbaa !92
-  %188 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv660
+  %188 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv660
   store ptr %187, ptr %188, align 8, !tbaa !92
   %exitcond664.not = icmp eq i64 %indvars.iv.next661, %wide.trip.count663
   br i1 %exitcond664.not, label %._crit_edge551, label %.lr.ph550, !llvm.loop !105
 
 ._crit_edge551:                                   ; preds = %.lr.ph550, %._crit_edge547
   %189 = sext i32 %184 to i64
-  %190 = getelementptr inbounds ptr, ptr %157, i64 %189
+  %190 = getelementptr inbounds ptr, ptr %181, i64 %189
   store ptr %183, ptr %190, align 8, !tbaa !92
   %smax673 = call i32 @llvm.smax.i32(i32 %89, i32 1)
   %wide.trip.count674 = zext nneg i32 %smax673 to i64
@@ -2407,9 +2407,9 @@ clusterManagerNodeArrayShift.exit.us:             ; preds = %113, %110
 
 .lr.ph564.preheader:                              ; preds = %._crit_edge551, %242
   %191 = phi i1 [ true, %._crit_edge551 ], [ false, %242 ]
-  %.0296 = phi i32 [ %158, %._crit_edge551 ], [ %.3299, %242 ]
-  %.0276 = phi ptr [ %157, %._crit_edge551 ], [ %.3279, %242 ]
-  %.3268 = phi i32 [ %158, %._crit_edge551 ], [ %.6271, %242 ]
+  %.0296 = phi i32 [ %182, %._crit_edge551 ], [ %.3299, %242 ]
+  %.0276 = phi ptr [ %181, %._crit_edge551 ], [ %.3279, %242 ]
+  %.3268 = phi i32 [ %182, %._crit_edge551 ], [ %.6271, %242 ]
   br label %.lr.ph564
 
 .lr.ph564:                                        ; preds = %.lr.ph564.preheader, %.thread426
@@ -24871,41 +24871,41 @@ define internal fastcc ptr @clusterManagerComputeReshardTable(ptr noundef %0, i3
   %4 = tail call ptr @listCreate() #33
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8, !tbaa !84
-  %7 = trunc i64 %6 to i32
   %sext = shl i64 %6, 32
-  %8 = ashr exact i64 %sext, 32
-  %9 = ashr exact i64 %sext, 29
-  %10 = tail call noalias ptr @zmalloc(i64 noundef %9) #37
+  %7 = ashr exact i64 %sext, 29
+  %8 = tail call noalias ptr @zmalloc(i64 noundef %7) #37
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @listRewind(ptr noundef %0, ptr noundef nonnull %3) #33
-  %11 = call ptr @listNext(ptr noundef nonnull %3) #33
-  %.not53 = icmp eq ptr %11, null
+  %9 = call ptr @listNext(ptr noundef nonnull %3) #33
+  %.not53 = icmp eq ptr %9, null
   br i1 %.not53, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
-  %12 = phi ptr [ %19, %.lr.ph ], [ %11, %2 ]
-  %.04254 = phi i32 [ %17, %.lr.ph ], [ 0, %2 ]
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !96
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16468
-  %16 = load i32, ptr %15, align 4, !tbaa !101
-  %17 = add nsw i32 %16, %.04254
+  %10 = phi ptr [ %17, %.lr.ph ], [ %9, %2 ]
+  %.04254 = phi i32 [ %15, %.lr.ph ], [ 0, %2 ]
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16468
+  %14 = load i32, ptr %13, align 4, !tbaa !101
+  %15 = add nsw i32 %14, %.04254
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  store ptr %14, ptr %18, align 8, !tbaa !92
-  %19 = call ptr @listNext(ptr noundef nonnull %3) #33
-  %.not = icmp eq ptr %19, null
+  %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  store ptr %12, ptr %16, align 8, !tbaa !92
+  %17 = call ptr @listNext(ptr noundef nonnull %3) #33
+  %.not = icmp eq ptr %17, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !494
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %20 = sitofp i32 %17 to float
+  %18 = sitofp i32 %15 to float
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.042.lcssa = phi float [ 0.000000e+00, %2 ], [ %20, %._crit_edge.loopexit ]
-  call void @qsort(ptr noundef %10, i64 noundef %8, i64 noundef 8, ptr noundef nonnull @clusterManagerSlotCountCompareDesc) #33
-  %21 = icmp sgt i32 %7, 0
+  %.042.lcssa = phi float [ 0.000000e+00, %2 ], [ %18, %._crit_edge.loopexit ]
+  %19 = trunc i64 %6 to i32
+  %20 = ashr exact i64 %sext, 32
+  call void @qsort(ptr noundef %8, i64 noundef %20, i64 noundef 8, ptr noundef nonnull @clusterManagerSlotCountCompareDesc) #33
+  %21 = icmp sgt i32 %19, 0
   br i1 %21, label %.lr.ph60, label %._crit_edge61
 
 .lr.ph60:                                         ; preds = %._crit_edge
@@ -24917,7 +24917,7 @@ define internal fastcc ptr @clusterManagerComputeReshardTable(ptr noundef %0, i3
 
 25:                                               ; preds = %.lr.ph60, %.thread
   %indvars.iv66 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next67, %.thread ]
-  %26 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv66
+  %26 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv66
   %27 = load ptr, ptr %26, align 8, !tbaa !92
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16468
   %29 = load i32, ptr %28, align 4, !tbaa !101
@@ -24980,7 +24980,7 @@ define internal fastcc ptr @clusterManagerComputeReshardTable(ptr noundef %0, i3
   br i1 %exitcond69.not, label %._crit_edge61, label %25, !llvm.loop !496
 
 ._crit_edge61:                                    ; preds = %.thread, %._crit_edge
-  call void @zfree(ptr noundef %10) #33
+  call void @zfree(ptr noundef %8) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %4
 }

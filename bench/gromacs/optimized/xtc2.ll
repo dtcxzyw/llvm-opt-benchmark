@@ -1314,41 +1314,41 @@ Ptngc_find_magic_index.exit552._crit_edge.loopexit: ; preds = %480, %Ptngc_find_
 
 .lr.ph710.preheader:                              ; preds = %470, %Ptngc_find_magic_index.exit552._crit_edge.loopexit
   %.7.lcssa = phi i32 [ 0, %470 ], [ %482, %Ptngc_find_magic_index.exit552._crit_edge.loopexit ]
-  %483 = icmp sgt i32 %.7.lcssa, %.0357
   %spec.select437 = call i32 @llvm.smax.i32(i32 %.7.lcssa, i32 %.0357)
-  %484 = mul i32 %spec.select437, 3
-  %wide.trip.count818 = zext i32 %484 to i64
+  %483 = mul i32 %spec.select437, 3
+  %wide.trip.count818 = zext i32 %483 to i64
   br label %.lr.ph710
 
 .lr.ph710:                                        ; preds = %.lr.ph710.preheader, %.lr.ph710
   %indvars.iv815 = phi i64 [ 0, %.lr.ph710.preheader ], [ %indvars.iv.next816, %.lr.ph710 ]
   %.2369707 = phi i32 [ 0, %.lr.ph710.preheader ], [ %spec.select438, %.lr.ph710 ]
-  %485 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv815
-  %486 = load i32, ptr %485, align 4, !tbaa !3
-  %spec.select438 = call i32 @llvm.smax.i32(i32 %486, i32 %.2369707)
+  %484 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv815
+  %485 = load i32, ptr %484, align 4, !tbaa !3
+  %spec.select438 = call i32 @llvm.smax.i32(i32 %485, i32 %.2369707)
   %indvars.iv.next816 = add nuw nsw i64 %indvars.iv815, 1
   %exitcond819.not = icmp eq i64 %indvars.iv.next816, %wide.trip.count818
   br i1 %exitcond819.not, label %._crit_edge711, label %.lr.ph710, !llvm.loop !42
 
 ._crit_edge711:                                   ; preds = %.lr.ph710
-  %487 = icmp ugt i32 %spec.select438, 512
-  %488 = icmp ugt i32 %spec.select438, 104031
-  %..i553 = select i1 %488, i64 47, i64 24
-  %.0.i554 = select i1 %487, i64 %..i553, i64 0
-  br label %489
+  %486 = icmp ugt i32 %spec.select438, 512
+  %487 = icmp ugt i32 %spec.select438, 104031
+  %..i553 = select i1 %487, i64 47, i64 24
+  %.0.i554 = select i1 %486, i64 %..i553, i64 0
+  br label %488
 
-489:                                              ; preds = %489, %._crit_edge711
-  %indvars.iv.i555 = phi i64 [ %indvars.iv.next.i557, %489 ], [ %.0.i554, %._crit_edge711 ]
-  %490 = getelementptr inbounds nuw i32, ptr @magic, i64 %indvars.iv.i555
-  %491 = load i32, ptr %490, align 4, !tbaa !3
-  %.not.i556 = icmp ugt i32 %491, %spec.select438
+488:                                              ; preds = %488, %._crit_edge711
+  %indvars.iv.i555 = phi i64 [ %indvars.iv.next.i557, %488 ], [ %.0.i554, %._crit_edge711 ]
+  %489 = getelementptr inbounds nuw i32, ptr @magic, i64 %indvars.iv.i555
+  %490 = load i32, ptr %489, align 4, !tbaa !3
+  %.not.i556 = icmp ugt i32 %490, %spec.select438
   %indvars.iv.next.i557 = add nuw nsw i64 %indvars.iv.i555, 1
-  br i1 %.not.i556, label %Ptngc_find_magic_index.exit558, label %489, !llvm.loop !7
+  br i1 %.not.i556, label %Ptngc_find_magic_index.exit558, label %488, !llvm.loop !7
 
-Ptngc_find_magic_index.exit558:                   ; preds = %489
+Ptngc_find_magic_index.exit558:                   ; preds = %488
+  %491 = icmp sgt i32 %.7.lcssa, %.0357
   %492 = trunc nuw nsw i64 %indvars.iv.i555 to i32
   %493 = icmp ne i32 %.0355, %492
-  %494 = select i1 %483, i1 true, i1 %493
+  %494 = select i1 %491, i1 true, i1 %493
   br i1 %494, label %470, label %495, !llvm.loop !43
 
 495:                                              ; preds = %Ptngc_find_magic_index.exit558

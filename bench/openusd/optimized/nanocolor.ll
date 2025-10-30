@@ -1735,82 +1735,85 @@ pxr_nc_1_0_GetXYZtoRGBMatrix.exit:                ; preds = %4
   %.sroa.0.sroa.8.0.copyload.i = load float, ptr %.sroa.0.sroa.8.0..sink.i.sroa_idx.i, align 4, !noalias !26
   %.sroa.0.sroa.9.0..sink.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.0.sroa.9.0.copyload.i = load float, ptr %.sroa.0.sroa.9.0..sink.i.sroa_idx.i, align 4, !noalias !26
-  %10 = fneg float %.sroa.0.sroa.6.0.copyload.i
-  %11 = fmul float %.sroa.0.sroa.8.0.copyload.i, %10
-  %12 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.5.0.copyload.i, float %.sroa.0.sroa.9.0.copyload.i, float %11)
-  %13 = fneg float %.sroa.0.sroa.3.0.copyload.i
-  %14 = fmul float %.sroa.0.sroa.8.0.copyload.i, %13
-  %15 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.2.0.copyload.i, float %.sroa.0.sroa.9.0.copyload.i, float %14)
-  %16 = fneg float %15
-  %17 = fmul float %.sroa.0.sroa.4.0.copyload.i, %16
-  %18 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.0.0.copyload.i, float %12, float %17)
-  %19 = fmul float %.sroa.0.sroa.5.0.copyload.i, %13
-  %20 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.2.0.copyload.i, float %.sroa.0.sroa.6.0.copyload.i, float %19)
-  %21 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.7.0.copyload.i, float %20, float %18)
-  %22 = fdiv float 1.000000e+00, %21
-  %23 = fmul float %12, %22
-  %24 = fneg float %.sroa.0.sroa.9.0.copyload.i
-  %25 = fmul float %.sroa.0.sroa.4.0.copyload.i, %24
-  %26 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.7.0.copyload.i, float %.sroa.0.sroa.6.0.copyload.i, float %25)
-  %27 = fmul float %26, %22
-  %28 = fneg float %.sroa.0.sroa.5.0.copyload.i
-  %29 = fmul float %.sroa.0.sroa.7.0.copyload.i, %28
-  %30 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.4.0.copyload.i, float %.sroa.0.sroa.8.0.copyload.i, float %29)
-  %31 = fmul float %30, %22
-  %32 = fmul float %.sroa.0.sroa.2.0.copyload.i, %24
-  %33 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.8.0.copyload.i, float %.sroa.0.sroa.3.0.copyload.i, float %32)
-  %34 = fmul float %33, %22
-  %35 = fmul float %.sroa.0.sroa.7.0.copyload.i, %13
-  %36 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.0.0.copyload.i, float %.sroa.0.sroa.9.0.copyload.i, float %35)
-  %37 = fmul float %36, %22
-  %38 = fneg float %.sroa.0.sroa.8.0.copyload.i
-  %39 = fmul float %.sroa.0.sroa.0.0.copyload.i, %38
-  %40 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.7.0.copyload.i, float %.sroa.0.sroa.2.0.copyload.i, float %39)
-  %41 = fmul float %40, %22
-  %42 = fmul float %20, %22
-  %43 = fmul float %.sroa.0.sroa.0.0.copyload.i, %10
-  %44 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.4.0.copyload.i, float %.sroa.0.sroa.3.0.copyload.i, float %43)
-  %45 = fmul float %44, %22
-  %46 = fneg float %.sroa.0.sroa.2.0.copyload.i
-  %47 = fmul float %.sroa.0.sroa.4.0.copyload.i, %46
-  %48 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.0.0.copyload.i, float %.sroa.0.sroa.5.0.copyload.i, float %47)
-  %49 = fmul float %48, %22
-  %50 = fmul float %.sroa.089.sroa.2.0.copyload, %27
-  %51 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.0.0.copyload, float %23, float %50)
-  %52 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.3.0.copyload, float %31, float %51)
-  %53 = fmul float %.sroa.089.sroa.2.0.copyload, %37
-  %54 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.0.0.copyload, float %34, float %53)
-  %55 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.3.0.copyload, float %41, float %54)
-  %56 = fmul float %.sroa.089.sroa.2.0.copyload, %45
-  %57 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.0.0.copyload, float %42, float %56)
-  %58 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.3.0.copyload, float %49, float %57)
-  %59 = fmul float %.sroa.089.sroa.5.0.copyload, %27
-  %60 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.4.0.copyload, float %23, float %59)
-  %61 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.6.0.copyload, float %31, float %60)
-  %62 = fmul float %.sroa.089.sroa.5.0.copyload, %37
-  %63 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.4.0.copyload, float %34, float %62)
-  %64 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.6.0.copyload, float %41, float %63)
-  %65 = fmul float %.sroa.089.sroa.5.0.copyload, %45
-  %66 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.4.0.copyload, float %42, float %65)
-  %67 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.6.0.copyload, float %49, float %66)
-  %68 = fmul float %.sroa.089.sroa.8.0.copyload, %27
-  %69 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.7.0.copyload, float %23, float %68)
-  %70 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.9.0.copyload, float %31, float %69)
-  %71 = fmul float %.sroa.089.sroa.8.0.copyload, %37
-  %72 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.7.0.copyload, float %34, float %71)
-  %73 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.9.0.copyload, float %41, float %72)
-  %74 = fmul float %.sroa.089.sroa.8.0.copyload, %45
-  %75 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.7.0.copyload, float %42, float %74)
-  %76 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.9.0.copyload, float %49, float %75)
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.preheader111, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pxr_nc_1_0_GetXYZtoRGBMatrix.exit
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 52
   br label %81
+
+.preheader111:                                    ; preds = %nc_ToLinear.exit67, %pxr_nc_1_0_GetXYZtoRGBMatrix.exit
+  %14 = fneg float %.sroa.0.sroa.6.0.copyload.i
+  %15 = fmul float %.sroa.0.sroa.8.0.copyload.i, %14
+  %16 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.5.0.copyload.i, float %.sroa.0.sroa.9.0.copyload.i, float %15)
+  %17 = fneg float %.sroa.0.sroa.3.0.copyload.i
+  %18 = fmul float %.sroa.0.sroa.8.0.copyload.i, %17
+  %19 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.2.0.copyload.i, float %.sroa.0.sroa.9.0.copyload.i, float %18)
+  %20 = fneg float %19
+  %21 = fmul float %.sroa.0.sroa.4.0.copyload.i, %20
+  %22 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.0.0.copyload.i, float %16, float %21)
+  %23 = fmul float %.sroa.0.sroa.5.0.copyload.i, %17
+  %24 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.2.0.copyload.i, float %.sroa.0.sroa.6.0.copyload.i, float %23)
+  %25 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.7.0.copyload.i, float %24, float %22)
+  %26 = fdiv float 1.000000e+00, %25
+  %27 = fmul float %16, %26
+  %28 = fneg float %.sroa.0.sroa.9.0.copyload.i
+  %29 = fmul float %.sroa.0.sroa.4.0.copyload.i, %28
+  %30 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.7.0.copyload.i, float %.sroa.0.sroa.6.0.copyload.i, float %29)
+  %31 = fmul float %30, %26
+  %32 = fneg float %.sroa.0.sroa.5.0.copyload.i
+  %33 = fmul float %.sroa.0.sroa.7.0.copyload.i, %32
+  %34 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.4.0.copyload.i, float %.sroa.0.sroa.8.0.copyload.i, float %33)
+  %35 = fmul float %34, %26
+  %36 = fmul float %.sroa.0.sroa.2.0.copyload.i, %28
+  %37 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.8.0.copyload.i, float %.sroa.0.sroa.3.0.copyload.i, float %36)
+  %38 = fmul float %37, %26
+  %39 = fmul float %.sroa.0.sroa.7.0.copyload.i, %17
+  %40 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.0.0.copyload.i, float %.sroa.0.sroa.9.0.copyload.i, float %39)
+  %41 = fmul float %40, %26
+  %42 = fneg float %.sroa.0.sroa.8.0.copyload.i
+  %43 = fmul float %.sroa.0.sroa.0.0.copyload.i, %42
+  %44 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.7.0.copyload.i, float %.sroa.0.sroa.2.0.copyload.i, float %43)
+  %45 = fmul float %44, %26
+  %46 = fmul float %24, %26
+  %47 = fmul float %.sroa.0.sroa.0.0.copyload.i, %14
+  %48 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.4.0.copyload.i, float %.sroa.0.sroa.3.0.copyload.i, float %47)
+  %49 = fmul float %48, %26
+  %50 = fneg float %.sroa.0.sroa.2.0.copyload.i
+  %51 = fmul float %.sroa.0.sroa.4.0.copyload.i, %50
+  %52 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.0.0.copyload.i, float %.sroa.0.sroa.5.0.copyload.i, float %51)
+  %53 = fmul float %52, %26
+  %54 = fmul float %.sroa.089.sroa.2.0.copyload, %31
+  %55 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.0.0.copyload, float %27, float %54)
+  %56 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.3.0.copyload, float %35, float %55)
+  %57 = fmul float %.sroa.089.sroa.2.0.copyload, %41
+  %58 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.0.0.copyload, float %38, float %57)
+  %59 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.3.0.copyload, float %45, float %58)
+  %60 = fmul float %.sroa.089.sroa.2.0.copyload, %49
+  %61 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.0.0.copyload, float %46, float %60)
+  %62 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.3.0.copyload, float %53, float %61)
+  %63 = fmul float %.sroa.089.sroa.5.0.copyload, %31
+  %64 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.4.0.copyload, float %27, float %63)
+  %65 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.6.0.copyload, float %35, float %64)
+  %66 = fmul float %.sroa.089.sroa.5.0.copyload, %41
+  %67 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.4.0.copyload, float %38, float %66)
+  %68 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.6.0.copyload, float %45, float %67)
+  %69 = fmul float %.sroa.089.sroa.5.0.copyload, %49
+  %70 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.4.0.copyload, float %46, float %69)
+  %71 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.6.0.copyload, float %53, float %70)
+  %72 = fmul float %.sroa.089.sroa.8.0.copyload, %31
+  %73 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.7.0.copyload, float %27, float %72)
+  %74 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.9.0.copyload, float %35, float %73)
+  %75 = fmul float %.sroa.089.sroa.8.0.copyload, %41
+  %76 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.7.0.copyload, float %38, float %75)
+  %77 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.9.0.copyload, float %45, float %76)
+  %78 = fmul float %.sroa.089.sroa.8.0.copyload, %49
+  %79 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.7.0.copyload, float %46, float %78)
+  %80 = tail call float @llvm.fmuladd.f32(float %.sroa.089.sroa.9.0.copyload, float %53, float %79)
+  br i1 %.not, label %.loopexit, label %.lr.ph114
 
 81:                                               ; preds = %.lr.ph, %nc_ToLinear.exit67
   %.0112 = phi i64 [ 0, %.lr.ph ], [ %119, %nc_ToLinear.exit67 ]
@@ -1820,23 +1823,23 @@ pxr_nc_1_0_GetXYZtoRGBMatrix.exit:                ; preds = %4
   %.sroa.428.0.copyload = load float, ptr %.sroa.428.0..sroa_idx, align 4
   %.sroa.631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 8
   %.sroa.631.0.copyload = load float, ptr %.sroa.631.0..sroa_idx, align 4
-  %83 = load float, ptr %77, align 8
+  %83 = load float, ptr %10, align 8
   %84 = fcmp olt float %.sroa.026.0.copyload, %83
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %81
-  %86 = load float, ptr %80, align 4
+  %86 = load float, ptr %13, align 4
   %87 = fdiv float %.sroa.026.0.copyload, %86
   br label %nc_ToLinear.exit
 
 88:                                               ; preds = %81
-  %89 = load float, ptr %78, align 8
-  %90 = load float, ptr %79, align 4
+  %89 = load float, ptr %11, align 8
+  %90 = load float, ptr %12, align 4
   %91 = fadd float %.sroa.026.0.copyload, %90
   %92 = fadd float %90, 1.000000e+00
   %93 = fdiv float %91, %92
   %94 = tail call float @powf(float noundef %93, float noundef %89) #24
-  %.pre = load float, ptr %77, align 8
+  %.pre = load float, ptr %10, align 8
   br label %nc_ToLinear.exit
 
 nc_ToLinear.exit:                                 ; preds = %85, %88
@@ -1846,18 +1849,18 @@ nc_ToLinear.exit:                                 ; preds = %85, %88
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %nc_ToLinear.exit
-  %98 = load float, ptr %80, align 4
+  %98 = load float, ptr %13, align 4
   %99 = fdiv float %.sroa.428.0.copyload, %98
   br label %nc_ToLinear.exit65
 
 100:                                              ; preds = %nc_ToLinear.exit
-  %101 = load float, ptr %78, align 8
-  %102 = load float, ptr %79, align 4
+  %101 = load float, ptr %11, align 8
+  %102 = load float, ptr %12, align 4
   %103 = fadd float %.sroa.428.0.copyload, %102
   %104 = fadd float %102, 1.000000e+00
   %105 = fdiv float %103, %104
   %106 = tail call float @powf(float noundef %105, float noundef %101) #24
-  %.pre121 = load float, ptr %77, align 8
+  %.pre121 = load float, ptr %10, align 8
   br label %nc_ToLinear.exit65
 
 nc_ToLinear.exit65:                               ; preds = %97, %100
@@ -1867,13 +1870,13 @@ nc_ToLinear.exit65:                               ; preds = %97, %100
   br i1 %108, label %109, label %112
 
 109:                                              ; preds = %nc_ToLinear.exit65
-  %110 = load float, ptr %80, align 4
+  %110 = load float, ptr %13, align 4
   %111 = fdiv float %.sroa.631.0.copyload, %110
   br label %nc_ToLinear.exit67
 
 112:                                              ; preds = %nc_ToLinear.exit65
-  %113 = load float, ptr %78, align 8
-  %114 = load float, ptr %79, align 4
+  %113 = load float, ptr %11, align 8
+  %114 = load float, ptr %12, align 4
   %115 = fadd float %.sroa.631.0.copyload, %114
   %116 = fadd float %114, 1.000000e+00
   %117 = fdiv float %115, %116
@@ -1887,7 +1890,7 @@ nc_ToLinear.exit67:                               ; preds = %109, %112
   store float %.0.i66, ptr %.sroa.631.0..sroa_idx, align 4
   %119 = add nuw i64 %.0112, 1
   %exitcond.not = icmp eq i64 %119, %3
-  br i1 %exitcond.not, label %.lr.ph114, label %81, !llvm.loop !29
+  br i1 %exitcond.not, label %.preheader111, label %81, !llvm.loop !29
 
 .lr.ph116:                                        ; preds = %.lr.ph114
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1896,23 +1899,23 @@ nc_ToLinear.exit67:                               ; preds = %109, %112
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 44
   br label %135
 
-.lr.ph114:                                        ; preds = %nc_ToLinear.exit67, %.lr.ph114
-  %.057113 = phi i64 [ %134, %.lr.ph114 ], [ 0, %nc_ToLinear.exit67 ]
+.lr.ph114:                                        ; preds = %.preheader111, %.lr.ph114
+  %.057113 = phi i64 [ %134, %.lr.ph114 ], [ 0, %.preheader111 ]
   %124 = getelementptr inbounds %struct.pxr_nc_1_0_RGB, ptr %2, i64 %.057113
   %.sroa.013.0.copyload = load float, ptr %124, align 4
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 4
   %.sroa.416.0.copyload = load float, ptr %.sroa.416.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 8
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4
-  %125 = fmul float %55, %.sroa.416.0.copyload
-  %126 = tail call float @llvm.fmuladd.f32(float %52, float %.sroa.013.0.copyload, float %125)
-  %127 = tail call float @llvm.fmuladd.f32(float %58, float %.sroa.7.0.copyload, float %126)
-  %128 = fmul float %64, %.sroa.416.0.copyload
-  %129 = tail call float @llvm.fmuladd.f32(float %61, float %.sroa.013.0.copyload, float %128)
-  %130 = tail call float @llvm.fmuladd.f32(float %67, float %.sroa.7.0.copyload, float %129)
-  %131 = fmul float %73, %.sroa.416.0.copyload
-  %132 = tail call float @llvm.fmuladd.f32(float %70, float %.sroa.013.0.copyload, float %131)
-  %133 = tail call float @llvm.fmuladd.f32(float %76, float %.sroa.7.0.copyload, float %132)
+  %125 = fmul float %59, %.sroa.416.0.copyload
+  %126 = tail call float @llvm.fmuladd.f32(float %56, float %.sroa.013.0.copyload, float %125)
+  %127 = tail call float @llvm.fmuladd.f32(float %62, float %.sroa.7.0.copyload, float %126)
+  %128 = fmul float %68, %.sroa.416.0.copyload
+  %129 = tail call float @llvm.fmuladd.f32(float %65, float %.sroa.013.0.copyload, float %128)
+  %130 = tail call float @llvm.fmuladd.f32(float %71, float %.sroa.7.0.copyload, float %129)
+  %131 = fmul float %77, %.sroa.416.0.copyload
+  %132 = tail call float @llvm.fmuladd.f32(float %74, float %.sroa.013.0.copyload, float %131)
+  %133 = tail call float @llvm.fmuladd.f32(float %80, float %.sroa.7.0.copyload, float %132)
   store float %127, ptr %124, align 4
   store float %130, ptr %.sroa.416.0..sroa_idx, align 4
   store float %133, ptr %.sroa.7.0..sroa_idx, align 4
@@ -2005,7 +2008,7 @@ nc_FromLinear.exit72:                             ; preds = %165, %167
   %exitcond120.not = icmp eq i64 %175, %3
   br i1 %exitcond120.not, label %.loopexit, label %135, !llvm.loop !31
 
-.loopexit:                                        ; preds = %nc_FromLinear.exit72, %pxr_nc_1_0_GetXYZtoRGBMatrix.exit, %4
+.loopexit:                                        ; preds = %nc_FromLinear.exit72, %.preheader111, %4
   ret void
 }
 
@@ -2055,82 +2058,85 @@ pxr_nc_1_0_GetXYZtoRGBMatrix.exit:                ; preds = %4
   %.sroa.0.sroa.8.0.copyload.i = load float, ptr %.sroa.0.sroa.8.0..sink.i.sroa_idx.i, align 4, !noalias !32
   %.sroa.0.sroa.9.0..sink.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.0.sroa.9.0.copyload.i = load float, ptr %.sroa.0.sroa.9.0..sink.i.sroa_idx.i, align 4, !noalias !32
-  %10 = fneg float %.sroa.0.sroa.6.0.copyload.i
-  %11 = fmul float %.sroa.0.sroa.8.0.copyload.i, %10
-  %12 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.5.0.copyload.i, float %.sroa.0.sroa.9.0.copyload.i, float %11)
-  %13 = fneg float %.sroa.0.sroa.3.0.copyload.i
-  %14 = fmul float %.sroa.0.sroa.8.0.copyload.i, %13
-  %15 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.2.0.copyload.i, float %.sroa.0.sroa.9.0.copyload.i, float %14)
-  %16 = fneg float %15
-  %17 = fmul float %.sroa.0.sroa.4.0.copyload.i, %16
-  %18 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.0.0.copyload.i, float %12, float %17)
-  %19 = fmul float %.sroa.0.sroa.5.0.copyload.i, %13
-  %20 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.2.0.copyload.i, float %.sroa.0.sroa.6.0.copyload.i, float %19)
-  %21 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.7.0.copyload.i, float %20, float %18)
-  %22 = fdiv float 1.000000e+00, %21
-  %23 = fmul float %12, %22
-  %24 = fneg float %.sroa.0.sroa.9.0.copyload.i
-  %25 = fmul float %.sroa.0.sroa.4.0.copyload.i, %24
-  %26 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.7.0.copyload.i, float %.sroa.0.sroa.6.0.copyload.i, float %25)
-  %27 = fmul float %26, %22
-  %28 = fneg float %.sroa.0.sroa.5.0.copyload.i
-  %29 = fmul float %.sroa.0.sroa.7.0.copyload.i, %28
-  %30 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.4.0.copyload.i, float %.sroa.0.sroa.8.0.copyload.i, float %29)
-  %31 = fmul float %30, %22
-  %32 = fmul float %.sroa.0.sroa.2.0.copyload.i, %24
-  %33 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.8.0.copyload.i, float %.sroa.0.sroa.3.0.copyload.i, float %32)
-  %34 = fmul float %33, %22
-  %35 = fmul float %.sroa.0.sroa.7.0.copyload.i, %13
-  %36 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.0.0.copyload.i, float %.sroa.0.sroa.9.0.copyload.i, float %35)
-  %37 = fmul float %36, %22
-  %38 = fneg float %.sroa.0.sroa.8.0.copyload.i
-  %39 = fmul float %.sroa.0.sroa.0.0.copyload.i, %38
-  %40 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.7.0.copyload.i, float %.sroa.0.sroa.2.0.copyload.i, float %39)
-  %41 = fmul float %40, %22
-  %42 = fmul float %20, %22
-  %43 = fmul float %.sroa.0.sroa.0.0.copyload.i, %10
-  %44 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.4.0.copyload.i, float %.sroa.0.sroa.3.0.copyload.i, float %43)
-  %45 = fmul float %44, %22
-  %46 = fneg float %.sroa.0.sroa.2.0.copyload.i
-  %47 = fmul float %.sroa.0.sroa.4.0.copyload.i, %46
-  %48 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.0.0.copyload.i, float %.sroa.0.sroa.5.0.copyload.i, float %47)
-  %49 = fmul float %48, %22
-  %50 = fmul float %.sroa.0103.sroa.2.0.copyload, %27
-  %51 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.0.0.copyload, float %23, float %50)
-  %52 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.3.0.copyload, float %31, float %51)
-  %53 = fmul float %.sroa.0103.sroa.2.0.copyload, %37
-  %54 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.0.0.copyload, float %34, float %53)
-  %55 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.3.0.copyload, float %41, float %54)
-  %56 = fmul float %.sroa.0103.sroa.2.0.copyload, %45
-  %57 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.0.0.copyload, float %42, float %56)
-  %58 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.3.0.copyload, float %49, float %57)
-  %59 = fmul float %.sroa.0103.sroa.5.0.copyload, %27
-  %60 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.4.0.copyload, float %23, float %59)
-  %61 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.6.0.copyload, float %31, float %60)
-  %62 = fmul float %.sroa.0103.sroa.5.0.copyload, %37
-  %63 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.4.0.copyload, float %34, float %62)
-  %64 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.6.0.copyload, float %41, float %63)
-  %65 = fmul float %.sroa.0103.sroa.5.0.copyload, %45
-  %66 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.4.0.copyload, float %42, float %65)
-  %67 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.6.0.copyload, float %49, float %66)
-  %68 = fmul float %.sroa.0103.sroa.8.0.copyload, %27
-  %69 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.7.0.copyload, float %23, float %68)
-  %70 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.9.0.copyload, float %31, float %69)
-  %71 = fmul float %.sroa.0103.sroa.8.0.copyload, %37
-  %72 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.7.0.copyload, float %34, float %71)
-  %73 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.9.0.copyload, float %41, float %72)
-  %74 = fmul float %.sroa.0103.sroa.8.0.copyload, %45
-  %75 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.7.0.copyload, float %42, float %74)
-  %76 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.9.0.copyload, float %49, float %75)
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.preheader127, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pxr_nc_1_0_GetXYZtoRGBMatrix.exit
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 52
   br label %81
+
+.preheader127:                                    ; preds = %nc_ToLinear.exit88, %pxr_nc_1_0_GetXYZtoRGBMatrix.exit
+  %14 = fneg float %.sroa.0.sroa.6.0.copyload.i
+  %15 = fmul float %.sroa.0.sroa.8.0.copyload.i, %14
+  %16 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.5.0.copyload.i, float %.sroa.0.sroa.9.0.copyload.i, float %15)
+  %17 = fneg float %.sroa.0.sroa.3.0.copyload.i
+  %18 = fmul float %.sroa.0.sroa.8.0.copyload.i, %17
+  %19 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.2.0.copyload.i, float %.sroa.0.sroa.9.0.copyload.i, float %18)
+  %20 = fneg float %19
+  %21 = fmul float %.sroa.0.sroa.4.0.copyload.i, %20
+  %22 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.0.0.copyload.i, float %16, float %21)
+  %23 = fmul float %.sroa.0.sroa.5.0.copyload.i, %17
+  %24 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.2.0.copyload.i, float %.sroa.0.sroa.6.0.copyload.i, float %23)
+  %25 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.7.0.copyload.i, float %24, float %22)
+  %26 = fdiv float 1.000000e+00, %25
+  %27 = fmul float %16, %26
+  %28 = fneg float %.sroa.0.sroa.9.0.copyload.i
+  %29 = fmul float %.sroa.0.sroa.4.0.copyload.i, %28
+  %30 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.7.0.copyload.i, float %.sroa.0.sroa.6.0.copyload.i, float %29)
+  %31 = fmul float %30, %26
+  %32 = fneg float %.sroa.0.sroa.5.0.copyload.i
+  %33 = fmul float %.sroa.0.sroa.7.0.copyload.i, %32
+  %34 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.4.0.copyload.i, float %.sroa.0.sroa.8.0.copyload.i, float %33)
+  %35 = fmul float %34, %26
+  %36 = fmul float %.sroa.0.sroa.2.0.copyload.i, %28
+  %37 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.8.0.copyload.i, float %.sroa.0.sroa.3.0.copyload.i, float %36)
+  %38 = fmul float %37, %26
+  %39 = fmul float %.sroa.0.sroa.7.0.copyload.i, %17
+  %40 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.0.0.copyload.i, float %.sroa.0.sroa.9.0.copyload.i, float %39)
+  %41 = fmul float %40, %26
+  %42 = fneg float %.sroa.0.sroa.8.0.copyload.i
+  %43 = fmul float %.sroa.0.sroa.0.0.copyload.i, %42
+  %44 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.7.0.copyload.i, float %.sroa.0.sroa.2.0.copyload.i, float %43)
+  %45 = fmul float %44, %26
+  %46 = fmul float %24, %26
+  %47 = fmul float %.sroa.0.sroa.0.0.copyload.i, %14
+  %48 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.4.0.copyload.i, float %.sroa.0.sroa.3.0.copyload.i, float %47)
+  %49 = fmul float %48, %26
+  %50 = fneg float %.sroa.0.sroa.2.0.copyload.i
+  %51 = fmul float %.sroa.0.sroa.4.0.copyload.i, %50
+  %52 = tail call float @llvm.fmuladd.f32(float %.sroa.0.sroa.0.0.copyload.i, float %.sroa.0.sroa.5.0.copyload.i, float %51)
+  %53 = fmul float %52, %26
+  %54 = fmul float %.sroa.0103.sroa.2.0.copyload, %31
+  %55 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.0.0.copyload, float %27, float %54)
+  %56 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.3.0.copyload, float %35, float %55)
+  %57 = fmul float %.sroa.0103.sroa.2.0.copyload, %41
+  %58 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.0.0.copyload, float %38, float %57)
+  %59 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.3.0.copyload, float %45, float %58)
+  %60 = fmul float %.sroa.0103.sroa.2.0.copyload, %49
+  %61 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.0.0.copyload, float %46, float %60)
+  %62 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.3.0.copyload, float %53, float %61)
+  %63 = fmul float %.sroa.0103.sroa.5.0.copyload, %31
+  %64 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.4.0.copyload, float %27, float %63)
+  %65 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.6.0.copyload, float %35, float %64)
+  %66 = fmul float %.sroa.0103.sroa.5.0.copyload, %41
+  %67 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.4.0.copyload, float %38, float %66)
+  %68 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.6.0.copyload, float %45, float %67)
+  %69 = fmul float %.sroa.0103.sroa.5.0.copyload, %49
+  %70 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.4.0.copyload, float %46, float %69)
+  %71 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.6.0.copyload, float %53, float %70)
+  %72 = fmul float %.sroa.0103.sroa.8.0.copyload, %31
+  %73 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.7.0.copyload, float %27, float %72)
+  %74 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.9.0.copyload, float %35, float %73)
+  %75 = fmul float %.sroa.0103.sroa.8.0.copyload, %41
+  %76 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.7.0.copyload, float %38, float %75)
+  %77 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.9.0.copyload, float %45, float %76)
+  %78 = fmul float %.sroa.0103.sroa.8.0.copyload, %49
+  %79 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.7.0.copyload, float %46, float %78)
+  %80 = tail call float @llvm.fmuladd.f32(float %.sroa.0103.sroa.9.0.copyload, float %53, float %79)
+  br i1 %.not, label %.loopexit, label %.lr.ph130
 
 81:                                               ; preds = %.lr.ph, %nc_ToLinear.exit88
   %.0128 = phi i64 [ 0, %.lr.ph ], [ %124, %nc_ToLinear.exit88 ]
@@ -2141,23 +2147,23 @@ pxr_nc_1_0_GetXYZtoRGBMatrix.exit:                ; preds = %4
   %85 = load float, ptr %84, align 4
   %86 = getelementptr i8, ptr %82, i64 8
   %87 = load float, ptr %86, align 4
-  %88 = load float, ptr %77, align 8
+  %88 = load float, ptr %10, align 8
   %89 = fcmp olt float %83, %88
   br i1 %89, label %90, label %93
 
 90:                                               ; preds = %81
-  %91 = load float, ptr %80, align 4
+  %91 = load float, ptr %13, align 4
   %92 = fdiv float %83, %91
   br label %nc_ToLinear.exit
 
 93:                                               ; preds = %81
-  %94 = load float, ptr %78, align 8
-  %95 = load float, ptr %79, align 4
+  %94 = load float, ptr %11, align 8
+  %95 = load float, ptr %12, align 4
   %96 = fadd float %83, %95
   %97 = fadd float %95, 1.000000e+00
   %98 = fdiv float %96, %97
   %99 = tail call float @powf(float noundef %98, float noundef %94) #24
-  %.pre = load float, ptr %77, align 8
+  %.pre = load float, ptr %10, align 8
   br label %nc_ToLinear.exit
 
 nc_ToLinear.exit:                                 ; preds = %90, %93
@@ -2167,18 +2173,18 @@ nc_ToLinear.exit:                                 ; preds = %90, %93
   br i1 %101, label %102, label %105
 
 102:                                              ; preds = %nc_ToLinear.exit
-  %103 = load float, ptr %80, align 4
+  %103 = load float, ptr %13, align 4
   %104 = fdiv float %85, %103
   br label %nc_ToLinear.exit86
 
 105:                                              ; preds = %nc_ToLinear.exit
-  %106 = load float, ptr %78, align 8
-  %107 = load float, ptr %79, align 4
+  %106 = load float, ptr %11, align 8
+  %107 = load float, ptr %12, align 4
   %108 = fadd float %85, %107
   %109 = fadd float %107, 1.000000e+00
   %110 = fdiv float %108, %109
   %111 = tail call float @powf(float noundef %110, float noundef %106) #24
-  %.pre137 = load float, ptr %77, align 8
+  %.pre137 = load float, ptr %10, align 8
   br label %nc_ToLinear.exit86
 
 nc_ToLinear.exit86:                               ; preds = %102, %105
@@ -2188,13 +2194,13 @@ nc_ToLinear.exit86:                               ; preds = %102, %105
   br i1 %113, label %114, label %117
 
 114:                                              ; preds = %nc_ToLinear.exit86
-  %115 = load float, ptr %80, align 4
+  %115 = load float, ptr %13, align 4
   %116 = fdiv float %87, %115
   br label %nc_ToLinear.exit88
 
 117:                                              ; preds = %nc_ToLinear.exit86
-  %118 = load float, ptr %78, align 8
-  %119 = load float, ptr %79, align 4
+  %118 = load float, ptr %11, align 8
+  %119 = load float, ptr %12, align 4
   %120 = fadd float %87, %119
   %121 = fadd float %119, 1.000000e+00
   %122 = fdiv float %120, %121
@@ -2208,7 +2214,7 @@ nc_ToLinear.exit88:                               ; preds = %114, %117
   store float %.0.i87, ptr %86, align 4
   %124 = add nuw i64 %.0128, 1
   %exitcond.not = icmp eq i64 %124, %3
-  br i1 %exitcond.not, label %.lr.ph130, label %81, !llvm.loop !35
+  br i1 %exitcond.not, label %.preheader127, label %81, !llvm.loop !35
 
 .lr.ph132:                                        ; preds = %.lr.ph130
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2217,8 +2223,8 @@ nc_ToLinear.exit88:                               ; preds = %114, %117
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 44
   br label %145
 
-.lr.ph130:                                        ; preds = %nc_ToLinear.exit88, %.lr.ph130
-  %.078129 = phi i64 [ %144, %.lr.ph130 ], [ 0, %nc_ToLinear.exit88 ]
+.lr.ph130:                                        ; preds = %.preheader127, %.lr.ph130
+  %.078129 = phi i64 [ %144, %.lr.ph130 ], [ 0, %.preheader127 ]
   %.idx125 = shl i64 %.078129, 4
   %129 = getelementptr inbounds i8, ptr %2, i64 %.idx125
   %130 = load float, ptr %129, align 4
@@ -2226,15 +2232,15 @@ nc_ToLinear.exit88:                               ; preds = %114, %117
   %132 = load float, ptr %131, align 4
   %133 = getelementptr i8, ptr %129, i64 8
   %134 = load float, ptr %133, align 4
-  %135 = fmul float %55, %132
-  %136 = tail call float @llvm.fmuladd.f32(float %52, float %130, float %135)
-  %137 = tail call float @llvm.fmuladd.f32(float %58, float %134, float %136)
-  %138 = fmul float %64, %132
-  %139 = tail call float @llvm.fmuladd.f32(float %61, float %130, float %138)
-  %140 = tail call float @llvm.fmuladd.f32(float %67, float %134, float %139)
-  %141 = fmul float %73, %132
-  %142 = tail call float @llvm.fmuladd.f32(float %70, float %130, float %141)
-  %143 = tail call float @llvm.fmuladd.f32(float %76, float %134, float %142)
+  %135 = fmul float %59, %132
+  %136 = tail call float @llvm.fmuladd.f32(float %56, float %130, float %135)
+  %137 = tail call float @llvm.fmuladd.f32(float %62, float %134, float %136)
+  %138 = fmul float %68, %132
+  %139 = tail call float @llvm.fmuladd.f32(float %65, float %130, float %138)
+  %140 = tail call float @llvm.fmuladd.f32(float %71, float %134, float %139)
+  %141 = fmul float %77, %132
+  %142 = tail call float @llvm.fmuladd.f32(float %74, float %130, float %141)
+  %143 = tail call float @llvm.fmuladd.f32(float %80, float %134, float %142)
   store float %137, ptr %129, align 4
   store float %140, ptr %131, align 4
   store float %143, ptr %133, align 4
@@ -2328,7 +2334,7 @@ nc_FromLinear.exit93:                             ; preds = %180, %182
   %exitcond136.not = icmp eq i64 %190, %3
   br i1 %exitcond136.not, label %.loopexit, label %145, !llvm.loop !37
 
-.loopexit:                                        ; preds = %nc_FromLinear.exit93, %pxr_nc_1_0_GetXYZtoRGBMatrix.exit, %4
+.loopexit:                                        ; preds = %nc_FromLinear.exit93, %.preheader127, %4
   ret void
 }
 

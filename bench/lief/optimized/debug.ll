@@ -171,71 +171,71 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly captures(addres
 .lr.ph.preheader:                                 ; preds = %20
   %26 = add i64 %6, -1
   %umin = call i64 @llvm.umin.i64(i64 %26, i64 4095)
-  %27 = add nuw nsw i64 %umin, 1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %44
-  %.069 = phi i64 [ %52, %44 ], [ 0, %.lr.ph.preheader ]
-  %.05268 = phi i64 [ %57, %44 ], [ 0, %.lr.ph.preheader ]
-  %28 = and i64 %.05268, 15
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %44
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
+  %.069 = phi i64 [ %51, %43 ], [ 0, %.lr.ph.preheader ]
+  %.05268 = phi i64 [ %56, %43 ], [ 0, %.lr.ph.preheader ]
+  %27 = and i64 %.05268, 15
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %29, label %43
 
-30:                                               ; preds = %.lr.ph
+29:                                               ; preds = %.lr.ph
   %.not = icmp eq i64 %.05268, 0
-  br i1 %.not, label %37, label %31
+  br i1 %.not, label %36, label %30
 
-31:                                               ; preds = %30
-  %32 = getelementptr inbounds nuw i8, ptr %8, i64 %.069
-  %33 = sub i64 512, %.069
-  %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %32, i64 noundef %33, ptr noundef nonnull @.str.2, ptr noundef nonnull %9) #9
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 %.069
+  %32 = sub i64 512, %.069
+  %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %31, i64 noundef %32, ptr noundef nonnull @.str.2, ptr noundef nonnull %9) #9
   %.val63 = load ptr, ptr %0, align 8, !tbaa !7
-  %35 = getelementptr i8, ptr %.val63, i64 40
-  %.val63.val = load ptr, ptr %35, align 8, !tbaa !17
-  %36 = getelementptr i8, ptr %.val63, i64 48
-  %.val63.val66 = load ptr, ptr %36, align 8, !tbaa !30
+  %34 = getelementptr i8, ptr %.val63, i64 40
+  %.val63.val = load ptr, ptr %34, align 8, !tbaa !17
+  %35 = getelementptr i8, ptr %.val63, i64 48
+  %.val63.val66 = load ptr, ptr %35, align 8, !tbaa !30
   call void %.val63.val(ptr noundef %.val63.val66, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %9, i8 0, i64 17, i1 false)
-  br label %37
+  br label %36
 
-37:                                               ; preds = %31, %30
-  %.2 = phi i64 [ 0, %31 ], [ %.069, %30 ]
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 %.2
-  %39 = sub i64 512, %.2
-  %40 = trunc nuw nsw i64 %.05268 to i32
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %38, i64 noundef %39, ptr noundef nonnull @.str.3, i32 noundef %40) #9
-  %42 = sext i32 %41 to i64
-  %43 = add i64 %.2, %42
-  br label %44
+36:                                               ; preds = %30, %29
+  %.2 = phi i64 [ 0, %30 ], [ %.069, %29 ]
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 %.2
+  %38 = sub i64 512, %.2
+  %39 = trunc nuw nsw i64 %.05268 to i32
+  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %37, i64 noundef %38, ptr noundef nonnull @.str.3, i32 noundef %39) #9
+  %41 = sext i32 %40 to i64
+  %42 = add i64 %.2, %41
+  br label %43
 
-44:                                               ; preds = %37, %.lr.ph
-  %.1 = phi i64 [ %43, %37 ], [ %.069, %.lr.ph ]
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 %.1
-  %46 = sub i64 512, %.1
-  %47 = getelementptr inbounds nuw i8, ptr %5, i64 %.05268
-  %48 = load i8, ptr %47, align 1, !tbaa !29
-  %49 = zext i8 %48 to i32
-  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %45, i64 noundef %46, ptr noundef nonnull @.str.4, i32 noundef %49) #9
-  %51 = sext i32 %50 to i64
-  %52 = add i64 %.1, %51
-  %53 = load i8, ptr %47, align 1, !tbaa !29
-  %54 = add i8 %53, -32
-  %or.cond62 = icmp ult i8 %54, 95
-  %55 = select i1 %or.cond62, i8 %53, i8 46
-  %56 = getelementptr inbounds nuw i8, ptr %9, i64 %28
-  store i8 %55, ptr %56, align 1, !tbaa !29
-  %57 = add nuw nsw i64 %.05268, 1
+43:                                               ; preds = %36, %.lr.ph
+  %.1 = phi i64 [ %42, %36 ], [ %.069, %.lr.ph ]
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 %.1
+  %45 = sub i64 512, %.1
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 %.05268
+  %47 = load i8, ptr %46, align 1, !tbaa !29
+  %48 = zext i8 %47 to i32
+  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %44, i64 noundef %45, ptr noundef nonnull @.str.4, i32 noundef %48) #9
+  %50 = sext i32 %49 to i64
+  %51 = add i64 %.1, %50
+  %52 = load i8, ptr %46, align 1, !tbaa !29
+  %53 = add i8 %52, -32
+  %or.cond62 = icmp ult i8 %53, 95
+  %54 = select i1 %or.cond62, i8 %52, i8 46
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 %27
+  store i8 %54, ptr %55, align 1, !tbaa !29
+  %56 = add nuw nsw i64 %.05268, 1
   %exitcond = icmp eq i64 %.05268, %umin
   br i1 %exitcond, label %.preheader, label %.lr.ph, !llvm.loop !31
 
-.preheader:                                       ; preds = %44
-  %58 = and i64 %27, 15
+.preheader:                                       ; preds = %43
+  %57 = add nuw nsw i64 %umin, 1
+  %58 = and i64 %57, 15
   %.not5971 = icmp eq i64 %58, 0
   br i1 %.not5971, label %._crit_edge75, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %.preheader, %.lr.ph74
-  %.373 = phi i64 [ %63, %.lr.ph74 ], [ %52, %.preheader ]
-  %.15372 = phi i64 [ %64, %.lr.ph74 ], [ %27, %.preheader ]
+  %.373 = phi i64 [ %63, %.lr.ph74 ], [ %51, %.preheader ]
+  %.15372 = phi i64 [ %64, %.lr.ph74 ], [ %57, %.preheader ]
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 %.373
   %60 = sub i64 512, %.373
   %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %59, i64 noundef %60, ptr noundef nonnull @.str.5) #9
@@ -247,7 +247,7 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly captures(addres
   br i1 %exitcond79, label %._crit_edge75, label %.lr.ph74, !llvm.loop !33
 
 ._crit_edge75:                                    ; preds = %.lr.ph74, %.preheader
-  %.3.lcssa = phi i64 [ %52, %.preheader ], [ %63, %.lr.ph74 ]
+  %.3.lcssa = phi i64 [ %51, %.preheader ], [ %63, %.lr.ph74 ]
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 %.3.lcssa
   %67 = sub i64 512, %.3.lcssa
   %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %66, i64 noundef %67, ptr noundef nonnull @.str.2, ptr noundef nonnull %9) #9

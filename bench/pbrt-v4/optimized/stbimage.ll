@@ -17467,10 +17467,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__psd_decode_rleP13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 57
   br label %15
 
-15:                                               ; preds = %.lr.ph, %.loopexit
-  %16 = phi i32 [ %2, %.lr.ph ], [ %116, %.loopexit ]
-  %.03168 = phi ptr [ %1, %.lr.ph ], [ %.132, %.loopexit ]
-  %.03567 = phi i32 [ 0, %.lr.ph ], [ %.136, %.loopexit ]
+15:                                               ; preds = %.lr.ph, %116
+  %16 = phi i32 [ %2, %.lr.ph ], [ %117, %116 ]
+  %.03168 = phi ptr [ %1, %.lr.ph ], [ %.132, %116 ]
+  %.03567 = phi i32 [ 0, %.lr.ph ], [ %.136, %116 ]
   %17 = load ptr, ptr %5, align 8, !tbaa !20
   %18 = load ptr, ptr %6, align 8, !tbaa !23
   %19 = icmp ult ptr %17, %18
@@ -17528,7 +17528,7 @@ _ZL10stbi__get8P13stbi__context.exit:             ; preds = %20, %_ZL19stbi__ref
   %.0.i = phi i8 [ %22, %20 ], [ %43, %_ZL19stbi__refill_bufferP13stbi__context.exit.i ]
   %46 = zext i8 %.0.i to i32
   %47 = icmp eq i8 %.0.i, -128
-  br i1 %47, label %.loopexit, label %48
+  br i1 %47, label %116, label %48
 
 48:                                               ; preds = %_ZL10stbi__get8P13stbi__context.exit
   %49 = icmp sgt i8 %.0.i, -1
@@ -17603,7 +17603,7 @@ _ZL10stbi__get8P13stbi__context.exit50:           ; preds = %57, %60, %_ZL19stbi
   %81 = getelementptr inbounds nuw i8, ptr %.23365, i64 4
   %82 = add nsw i32 %.02966, -1
   %.not44 = icmp eq i32 %82, 0
-  br i1 %.not44, label %.loopexit.loopexit, label %53, !llvm.loop !311
+  br i1 %.not44, label %.loopexit, label %53, !llvm.loop !311
 
 83:                                               ; preds = %48
   %84 = sub nuw nsw i32 257, %46
@@ -17671,25 +17671,25 @@ _ZL10stbi__get8P13stbi__context.exit56:           ; preds = %87, %90, %_ZL19stbi
   %112 = getelementptr inbounds nuw i8, ptr %.463, i64 4
   %113 = add nsw i32 %.13064, -1
   %.not = icmp eq i32 %113, 0
-  br i1 %.not, label %.loopexit.loopexit73, label %111, !llvm.loop !312
+  br i1 %.not, label %.loopexit62, label %111, !llvm.loop !312
 
-.loopexit.loopexit:                               ; preds = %_ZL10stbi__get8P13stbi__context.exit50
+.loopexit:                                        ; preds = %_ZL10stbi__get8P13stbi__context.exit50
   %114 = add nsw i32 %52, %.03567
-  br label %.loopexit
+  br label %116
 
-.loopexit.loopexit73:                             ; preds = %111
+.loopexit62:                                      ; preds = %111
   %115 = add nsw i32 %84, %.03567
-  br label %.loopexit
+  br label %116
 
-.loopexit:                                        ; preds = %.loopexit.loopexit73, %.loopexit.loopexit, %_ZL10stbi__get8P13stbi__context.exit
-  %.136 = phi i32 [ %.03567, %_ZL10stbi__get8P13stbi__context.exit ], [ %114, %.loopexit.loopexit ], [ %115, %.loopexit.loopexit73 ]
-  %.132 = phi ptr [ %.03168, %_ZL10stbi__get8P13stbi__context.exit ], [ %81, %.loopexit.loopexit ], [ %112, %.loopexit.loopexit73 ]
-  %116 = sub nsw i32 %2, %.136
-  %117 = icmp sgt i32 %116, 0
-  br i1 %117, label %15, label %.critedge, !llvm.loop !313
+116:                                              ; preds = %.loopexit62, %.loopexit, %_ZL10stbi__get8P13stbi__context.exit
+  %.136 = phi i32 [ %.03567, %_ZL10stbi__get8P13stbi__context.exit ], [ %114, %.loopexit ], [ %115, %.loopexit62 ]
+  %.132 = phi ptr [ %.03168, %_ZL10stbi__get8P13stbi__context.exit ], [ %81, %.loopexit ], [ %112, %.loopexit62 ]
+  %117 = sub nsw i32 %2, %.136
+  %118 = icmp sgt i32 %117, 0
+  br i1 %118, label %15, label %.critedge, !llvm.loop !313
 
-.critedge:                                        ; preds = %50, %.loopexit, %83, %3
-  %.2 = phi i32 [ 1, %3 ], [ 0, %83 ], [ 1, %.loopexit ], [ 0, %50 ]
+.critedge:                                        ; preds = %50, %116, %83, %3
+  %.2 = phi i32 [ 1, %3 ], [ 0, %83 ], [ 1, %116 ], [ 0, %50 ]
   ret i32 %.2
 }
 

@@ -239,16 +239,16 @@ define internal range(i32 -2147483648, 1) i32 @flashsv2_encode_frame(ptr noundef
 
 .preheader.i.i.i:                                 ; preds = %83, %.preheader19.i.i.i
   %indvars.iv24.i.i.i = phi i64 [ 4, %.preheader19.i.i.i ], [ %indvars.iv.next25.i.i.i, %83 ]
-  %51 = shl nuw nsw i64 %indvars.iv24.i.i.i, 2
-  %52 = and i64 %51, 992
-  %53 = add nuw nsw i64 %indvars.iv24.i.i.i, %indvars.iv27.i.i.i
+  %51 = add nuw nsw i64 %indvars.iv24.i.i.i, %indvars.iv27.i.i.i
+  %52 = shl nuw nsw i64 %indvars.iv24.i.i.i, 2
+  %53 = and i64 %52, 992
   %54 = trunc nuw nsw i64 %indvars.iv24.i.i.i to i32
-  %gep.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i, i64 %52
+  %gep.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i, i64 %53
   br label %55
 
 55:                                               ; preds = %pixel_color7_slow.exit.i.i.i, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 4, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %pixel_color7_slow.exit.i.i.i ]
-  %56 = add nuw nsw i64 %53, %indvars.iv.i.i.i
+  %56 = add nuw nsw i64 %51, %indvars.iv.i.i.i
   %57 = trunc nuw nsw i64 %56 to i32
   %58 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   br label %59

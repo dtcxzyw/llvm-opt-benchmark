@@ -1018,8 +1018,8 @@ call5.i.i.i.i2.i.i.noexc357:                      ; preds = %if.then.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i351:                          ; preds = %call5.i.i.i.i2.i.i.noexc357
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !19
   %add.ptr.i.i.i.i.i.i.i352 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !19
   br label %invoke.cont378.lr.ph
 
 invoke.cont378.lr.ph:                             ; preds = %call5.i.i.i.i2.i.i.noexc357, %if.end.i.i.i.i.i.i.i351

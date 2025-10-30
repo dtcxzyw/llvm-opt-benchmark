@@ -18659,20 +18659,23 @@ invoke.cont1641:                                  ; preds = %_ZN5eastl4listIiNS_
 
 invoke.cont1654:                                  ; preds = %invoke.cont1641
   %940 = load ptr, ptr %a11629, align 8, !noalias !573
-  %941 = load ptr, ptr %a21642, align 8, !noalias !576
   br label %while.body.i.i.i2398
 
 while.body.i.i.i2398:                             ; preds = %while.body.i.i.i2398, %invoke.cont1654
   %n.addr.08.i.i.i2399 = phi i32 [ 2, %invoke.cont1654 ], [ %dec.i.i.i2400, %while.body.i.i.i2398 ]
-  %942 = phi ptr [ %940, %invoke.cont1654 ], [ %943, %while.body.i.i.i2398 ]
+  %941 = phi ptr [ %940, %invoke.cont1654 ], [ %942, %while.body.i.i.i2398 ]
   %dec.i.i.i2400 = add nsw i32 %n.addr.08.i.i.i2399, -1
-  %943 = load ptr, ptr %942, align 8
+  %942 = load ptr, ptr %941, align 8
   %tobool.not.i.i.i2401 = icmp eq i32 %dec.i.i.i2400, 0
-  br i1 %tobool.not.i.i.i2401, label %while.body.i.i.i2404, label %while.body.i.i.i2398, !llvm.loop !409
+  br i1 %tobool.not.i.i.i2401, label %while.body.i.i.i2404.preheader, label %while.body.i.i.i2398, !llvm.loop !409
 
-while.body.i.i.i2404:                             ; preds = %while.body.i.i.i2398, %while.body.i.i.i2404
-  %n.addr.08.i.i.i2405 = phi i32 [ %dec.i.i.i2406, %while.body.i.i.i2404 ], [ 2, %while.body.i.i.i2398 ]
-  %944 = phi ptr [ %945, %while.body.i.i.i2404 ], [ %941, %while.body.i.i.i2398 ]
+while.body.i.i.i2404.preheader:                   ; preds = %while.body.i.i.i2398
+  %943 = load ptr, ptr %a21642, align 8, !noalias !576
+  br label %while.body.i.i.i2404
+
+while.body.i.i.i2404:                             ; preds = %while.body.i.i.i2404.preheader, %while.body.i.i.i2404
+  %n.addr.08.i.i.i2405 = phi i32 [ %dec.i.i.i2406, %while.body.i.i.i2404 ], [ 2, %while.body.i.i.i2404.preheader ]
+  %944 = phi ptr [ %945, %while.body.i.i.i2404 ], [ %943, %while.body.i.i.i2404.preheader ]
   %dec.i.i.i2406 = add nsw i32 %n.addr.08.i.i.i2405, -1
   %945 = load ptr, ptr %944, align 8
   %tobool.not.i.i.i2407 = icmp eq i32 %dec.i.i.i2406, 0
@@ -18719,8 +18722,8 @@ if.then8.i:                                       ; preds = %invoke.cont1659
 
 invoke.cont1666:                                  ; preds = %if.then8.i, %invoke.cont1659
   %956 = phi ptr [ %.pre4327, %if.then8.i ], [ %946, %invoke.cont1659 ]
-  %957 = load ptr, ptr %943, align 8
-  %cmp.i.i2417 = icmp ne ptr %956, %943
+  %957 = load ptr, ptr %942, align 8
+  %cmp.i.i2417 = icmp ne ptr %956, %942
   %cmp.i3.i2418 = icmp ne ptr %956, %957
   %or.cond.i2419 = select i1 %cmp.i.i2417, i1 %cmp.i3.i2418, i1 false
   br i1 %or.cond.i2419, label %if.then8.i2420, label %invoke.cont1666.invoke.cont1672_crit_edge
@@ -18734,12 +18737,12 @@ if.then8.i2420:                                   ; preds = %invoke.cont1666
   %mpPrev.i.i2421 = getelementptr inbounds nuw i8, ptr %957, i64 8
   %958 = load ptr, ptr %mpPrev.i.i2421, align 8
   store ptr %956, ptr %958, align 8
-  %mpPrev2.i.i2422 = getelementptr inbounds nuw i8, ptr %943, i64 8
+  %mpPrev2.i.i2422 = getelementptr inbounds nuw i8, ptr %942, i64 8
   %959 = load ptr, ptr %mpPrev2.i.i2422, align 8
   store ptr %957, ptr %959, align 8
   %mpPrev4.i.i2423 = getelementptr inbounds nuw i8, ptr %956, i64 8
   %960 = load ptr, ptr %mpPrev4.i.i2423, align 8
-  store ptr %943, ptr %960, align 8
+  store ptr %942, ptr %960, align 8
   %961 = load ptr, ptr %mpPrev4.i.i2423, align 8
   %962 = load ptr, ptr %mpPrev.i.i2421, align 8
   store ptr %962, ptr %mpPrev4.i.i2423, align 8
@@ -18860,20 +18863,23 @@ invoke.cont1707:                                  ; preds = %_ZN5eastl4listIiNS_
 
 invoke.cont1718:                                  ; preds = %invoke.cont1707
   %980 = load ptr, ptr %a11697, align 8, !noalias !585
-  %981 = load ptr, ptr %a21708, align 8, !noalias !588
   br label %while.body.i.i.i2473
 
 while.body.i.i.i2473:                             ; preds = %while.body.i.i.i2473, %invoke.cont1718
   %n.addr.08.i.i.i2474 = phi i32 [ 2, %invoke.cont1718 ], [ %dec.i.i.i2475, %while.body.i.i.i2473 ]
-  %982 = phi ptr [ %980, %invoke.cont1718 ], [ %983, %while.body.i.i.i2473 ]
+  %981 = phi ptr [ %980, %invoke.cont1718 ], [ %982, %while.body.i.i.i2473 ]
   %dec.i.i.i2475 = add nsw i32 %n.addr.08.i.i.i2474, -1
-  %983 = load ptr, ptr %982, align 8
+  %982 = load ptr, ptr %981, align 8
   %tobool.not.i.i.i2476 = icmp eq i32 %dec.i.i.i2475, 0
-  br i1 %tobool.not.i.i.i2476, label %while.body.i.i.i2479, label %while.body.i.i.i2473, !llvm.loop !409
+  br i1 %tobool.not.i.i.i2476, label %while.body.i.i.i2479.preheader, label %while.body.i.i.i2473, !llvm.loop !409
 
-while.body.i.i.i2479:                             ; preds = %while.body.i.i.i2473, %while.body.i.i.i2479
-  %n.addr.08.i.i.i2480 = phi i32 [ %dec.i.i.i2481, %while.body.i.i.i2479 ], [ 2, %while.body.i.i.i2473 ]
-  %984 = phi ptr [ %985, %while.body.i.i.i2479 ], [ %981, %while.body.i.i.i2473 ]
+while.body.i.i.i2479.preheader:                   ; preds = %while.body.i.i.i2473
+  %983 = load ptr, ptr %a21708, align 8, !noalias !588
+  br label %while.body.i.i.i2479
+
+while.body.i.i.i2479:                             ; preds = %while.body.i.i.i2479.preheader, %while.body.i.i.i2479
+  %n.addr.08.i.i.i2480 = phi i32 [ %dec.i.i.i2481, %while.body.i.i.i2479 ], [ 2, %while.body.i.i.i2479.preheader ]
+  %984 = phi ptr [ %985, %while.body.i.i.i2479 ], [ %983, %while.body.i.i.i2479.preheader ]
   %dec.i.i.i2481 = add nsw i32 %n.addr.08.i.i.i2480, -1
   %985 = load ptr, ptr %984, align 8
   %tobool.not.i.i.i2482 = icmp eq i32 %dec.i.i.i2481, 0
@@ -18943,12 +18949,12 @@ if.then10.i:                                      ; preds = %while.body.i.i.i249
 
 invoke.cont1736:                                  ; preds = %if.then10.i, %invoke.cont1727
   %1000 = phi ptr [ %.pre4329, %if.then10.i ], [ %990, %invoke.cont1727 ]
-  %cmp.i.not3.i.i.i2505 = icmp eq ptr %983, %987
+  %cmp.i.not3.i.i.i2505 = icmp eq ptr %982, %987
   br i1 %cmp.i.not3.i.i.i2505, label %invoke.cont1744, label %while.body.i.i.i2506
 
 while.body.i.i.i2506:                             ; preds = %invoke.cont1736, %while.body.i.i.i2506
   %n.05.i.i.i2507 = phi i64 [ %inc.i.i.i2509, %while.body.i.i.i2506 ], [ 0, %invoke.cont1736 ]
-  %first.sroa.0.04.i.i.i2508 = phi ptr [ %1001, %while.body.i.i.i2506 ], [ %983, %invoke.cont1736 ]
+  %first.sroa.0.04.i.i.i2508 = phi ptr [ %1001, %while.body.i.i.i2506 ], [ %982, %invoke.cont1736 ]
   %1001 = load ptr, ptr %first.sroa.0.04.i.i.i2508, align 8
   %inc.i.i.i2509 = add nuw nsw i64 %n.05.i.i.i2507, 1
   %cmp.i.not.i.i.i2510 = icmp eq ptr %1001, %987
@@ -18958,12 +18964,12 @@ if.then10.i2511:                                  ; preds = %while.body.i.i.i250
   %mpPrev.i.i2512 = getelementptr inbounds nuw i8, ptr %987, i64 8
   %1002 = load ptr, ptr %mpPrev.i.i2512, align 8
   store ptr %1000, ptr %1002, align 8
-  %mpPrev2.i.i2513 = getelementptr inbounds nuw i8, ptr %983, i64 8
+  %mpPrev2.i.i2513 = getelementptr inbounds nuw i8, ptr %982, i64 8
   %1003 = load ptr, ptr %mpPrev2.i.i2513, align 8
   store ptr %987, ptr %1003, align 8
   %mpPrev4.i.i2514 = getelementptr inbounds nuw i8, ptr %1000, i64 8
   %1004 = load ptr, ptr %mpPrev4.i.i2514, align 8
-  store ptr %983, ptr %1004, align 8
+  store ptr %982, ptr %1004, align 8
   %1005 = load ptr, ptr %mpPrev4.i.i2514, align 8
   %1006 = load ptr, ptr %mpPrev.i.i2512, align 8
   store ptr %1006, ptr %mpPrev4.i.i2514, align 8
@@ -19328,20 +19334,23 @@ invoke.cont1854:                                  ; preds = %_ZN5eastl4listIiNS_
 
 invoke.cont1867:                                  ; preds = %invoke.cont1854
   %1068 = load ptr, ptr %a11842, align 8, !noalias !604
-  %1069 = load ptr, ptr %a21855, align 8, !noalias !607
   br label %while.body.i.i.i2651
 
 while.body.i.i.i2651:                             ; preds = %while.body.i.i.i2651, %invoke.cont1867
   %n.addr.08.i.i.i2652 = phi i32 [ 2, %invoke.cont1867 ], [ %dec.i.i.i2653, %while.body.i.i.i2651 ]
-  %1070 = phi ptr [ %1068, %invoke.cont1867 ], [ %1071, %while.body.i.i.i2651 ]
+  %1069 = phi ptr [ %1068, %invoke.cont1867 ], [ %1070, %while.body.i.i.i2651 ]
   %dec.i.i.i2653 = add nsw i32 %n.addr.08.i.i.i2652, -1
-  %1071 = load ptr, ptr %1070, align 8
+  %1070 = load ptr, ptr %1069, align 8
   %tobool.not.i.i.i2654 = icmp eq i32 %dec.i.i.i2653, 0
-  br i1 %tobool.not.i.i.i2654, label %while.body.i.i.i2657, label %while.body.i.i.i2651, !llvm.loop !409
+  br i1 %tobool.not.i.i.i2654, label %while.body.i.i.i2657.preheader, label %while.body.i.i.i2651, !llvm.loop !409
 
-while.body.i.i.i2657:                             ; preds = %while.body.i.i.i2651, %while.body.i.i.i2657
-  %n.addr.08.i.i.i2658 = phi i32 [ %dec.i.i.i2659, %while.body.i.i.i2657 ], [ 2, %while.body.i.i.i2651 ]
-  %1072 = phi ptr [ %1073, %while.body.i.i.i2657 ], [ %1069, %while.body.i.i.i2651 ]
+while.body.i.i.i2657.preheader:                   ; preds = %while.body.i.i.i2651
+  %1071 = load ptr, ptr %a21855, align 8, !noalias !607
+  br label %while.body.i.i.i2657
+
+while.body.i.i.i2657:                             ; preds = %while.body.i.i.i2657.preheader, %while.body.i.i.i2657
+  %n.addr.08.i.i.i2658 = phi i32 [ %dec.i.i.i2659, %while.body.i.i.i2657 ], [ 2, %while.body.i.i.i2657.preheader ]
+  %1072 = phi ptr [ %1073, %while.body.i.i.i2657 ], [ %1071, %while.body.i.i.i2657.preheader ]
   %dec.i.i.i2659 = add nsw i32 %n.addr.08.i.i.i2658, -1
   %1073 = load ptr, ptr %1072, align 8
   %tobool.not.i.i.i2660 = icmp eq i32 %dec.i.i.i2659, 0
@@ -19388,8 +19397,8 @@ if.then8.i.i:                                     ; preds = %invoke.cont1874
 
 invoke.cont1882:                                  ; preds = %if.then8.i.i, %invoke.cont1874
   %1084 = phi ptr [ %.pre4331, %if.then8.i.i ], [ %1074, %invoke.cont1874 ]
-  %1085 = load ptr, ptr %1071, align 8
-  %cmp.i.i.i2669 = icmp ne ptr %1084, %1071
+  %1085 = load ptr, ptr %1070, align 8
+  %cmp.i.i.i2669 = icmp ne ptr %1084, %1070
   %cmp.i3.i.i2670 = icmp ne ptr %1084, %1085
   %or.cond.i.i2671 = select i1 %cmp.i.i.i2669, i1 %cmp.i3.i.i2670, i1 false
   br i1 %or.cond.i.i2671, label %if.then8.i.i2672, label %invoke.cont1882.invoke.cont1889_crit_edge
@@ -19403,12 +19412,12 @@ if.then8.i.i2672:                                 ; preds = %invoke.cont1882
   %mpPrev.i.i.i2673 = getelementptr inbounds nuw i8, ptr %1085, i64 8
   %1086 = load ptr, ptr %mpPrev.i.i.i2673, align 8
   store ptr %1084, ptr %1086, align 8
-  %mpPrev2.i.i.i2674 = getelementptr inbounds nuw i8, ptr %1071, i64 8
+  %mpPrev2.i.i.i2674 = getelementptr inbounds nuw i8, ptr %1070, i64 8
   %1087 = load ptr, ptr %mpPrev2.i.i.i2674, align 8
   store ptr %1085, ptr %1087, align 8
   %mpPrev4.i.i.i2675 = getelementptr inbounds nuw i8, ptr %1084, i64 8
   %1088 = load ptr, ptr %mpPrev4.i.i.i2675, align 8
-  store ptr %1071, ptr %1088, align 8
+  store ptr %1070, ptr %1088, align 8
   %1089 = load ptr, ptr %mpPrev4.i.i.i2675, align 8
   %1090 = load ptr, ptr %mpPrev.i.i.i2673, align 8
   store ptr %1090, ptr %mpPrev4.i.i.i2675, align 8
@@ -19529,20 +19538,23 @@ invoke.cont1924:                                  ; preds = %_ZN5eastl4listIiNS_
 
 invoke.cont1935:                                  ; preds = %invoke.cont1924
   %1108 = load ptr, ptr %a11914, align 8, !noalias !616
-  %1109 = load ptr, ptr %a21925, align 8, !noalias !619
   br label %while.body.i.i.i2725
 
 while.body.i.i.i2725:                             ; preds = %while.body.i.i.i2725, %invoke.cont1935
   %n.addr.08.i.i.i2726 = phi i32 [ 2, %invoke.cont1935 ], [ %dec.i.i.i2727, %while.body.i.i.i2725 ]
-  %1110 = phi ptr [ %1108, %invoke.cont1935 ], [ %1111, %while.body.i.i.i2725 ]
+  %1109 = phi ptr [ %1108, %invoke.cont1935 ], [ %1110, %while.body.i.i.i2725 ]
   %dec.i.i.i2727 = add nsw i32 %n.addr.08.i.i.i2726, -1
-  %1111 = load ptr, ptr %1110, align 8
+  %1110 = load ptr, ptr %1109, align 8
   %tobool.not.i.i.i2728 = icmp eq i32 %dec.i.i.i2727, 0
-  br i1 %tobool.not.i.i.i2728, label %while.body.i.i.i2731, label %while.body.i.i.i2725, !llvm.loop !409
+  br i1 %tobool.not.i.i.i2728, label %while.body.i.i.i2731.preheader, label %while.body.i.i.i2725, !llvm.loop !409
 
-while.body.i.i.i2731:                             ; preds = %while.body.i.i.i2725, %while.body.i.i.i2731
-  %n.addr.08.i.i.i2732 = phi i32 [ %dec.i.i.i2733, %while.body.i.i.i2731 ], [ 2, %while.body.i.i.i2725 ]
-  %1112 = phi ptr [ %1113, %while.body.i.i.i2731 ], [ %1109, %while.body.i.i.i2725 ]
+while.body.i.i.i2731.preheader:                   ; preds = %while.body.i.i.i2725
+  %1111 = load ptr, ptr %a21925, align 8, !noalias !619
+  br label %while.body.i.i.i2731
+
+while.body.i.i.i2731:                             ; preds = %while.body.i.i.i2731.preheader, %while.body.i.i.i2731
+  %n.addr.08.i.i.i2732 = phi i32 [ %dec.i.i.i2733, %while.body.i.i.i2731 ], [ 2, %while.body.i.i.i2731.preheader ]
+  %1112 = phi ptr [ %1113, %while.body.i.i.i2731 ], [ %1111, %while.body.i.i.i2731.preheader ]
   %dec.i.i.i2733 = add nsw i32 %n.addr.08.i.i.i2732, -1
   %1113 = load ptr, ptr %1112, align 8
   %tobool.not.i.i.i2734 = icmp eq i32 %dec.i.i.i2733, 0
@@ -19612,12 +19624,12 @@ if.then10.i.i:                                    ; preds = %while.body.i.i.i.i
 
 invoke.cont1956:                                  ; preds = %if.then10.i.i, %invoke.cont1946
   %1128 = phi ptr [ %.pre4333, %if.then10.i.i ], [ %1118, %invoke.cont1946 ]
-  %cmp.i.not3.i.i.i.i2757 = icmp eq ptr %1111, %1115
+  %cmp.i.not3.i.i.i.i2757 = icmp eq ptr %1110, %1115
   br i1 %cmp.i.not3.i.i.i.i2757, label %invoke.cont1965, label %while.body.i.i.i.i2758
 
 while.body.i.i.i.i2758:                           ; preds = %invoke.cont1956, %while.body.i.i.i.i2758
   %n.05.i.i.i.i2759 = phi i64 [ %inc.i.i.i.i2761, %while.body.i.i.i.i2758 ], [ 0, %invoke.cont1956 ]
-  %first.sroa.0.04.i.i.i.i2760 = phi ptr [ %1129, %while.body.i.i.i.i2758 ], [ %1111, %invoke.cont1956 ]
+  %first.sroa.0.04.i.i.i.i2760 = phi ptr [ %1129, %while.body.i.i.i.i2758 ], [ %1110, %invoke.cont1956 ]
   %1129 = load ptr, ptr %first.sroa.0.04.i.i.i.i2760, align 8
   %inc.i.i.i.i2761 = add nuw nsw i64 %n.05.i.i.i.i2759, 1
   %cmp.i.not.i.i.i.i2762 = icmp eq ptr %1129, %1115
@@ -19627,12 +19639,12 @@ if.then10.i.i2763:                                ; preds = %while.body.i.i.i.i2
   %mpPrev.i.i.i2764 = getelementptr inbounds nuw i8, ptr %1115, i64 8
   %1130 = load ptr, ptr %mpPrev.i.i.i2764, align 8
   store ptr %1128, ptr %1130, align 8
-  %mpPrev2.i.i.i2765 = getelementptr inbounds nuw i8, ptr %1111, i64 8
+  %mpPrev2.i.i.i2765 = getelementptr inbounds nuw i8, ptr %1110, i64 8
   %1131 = load ptr, ptr %mpPrev2.i.i.i2765, align 8
   store ptr %1115, ptr %1131, align 8
   %mpPrev4.i.i.i2766 = getelementptr inbounds nuw i8, ptr %1128, i64 8
   %1132 = load ptr, ptr %mpPrev4.i.i.i2766, align 8
-  store ptr %1111, ptr %1132, align 8
+  store ptr %1110, ptr %1132, align 8
   %1133 = load ptr, ptr %mpPrev4.i.i.i2766, align 8
   %1134 = load ptr, ptr %mpPrev.i.i.i2764, align 8
   store ptr %1134, ptr %mpPrev4.i.i.i2766, align 8

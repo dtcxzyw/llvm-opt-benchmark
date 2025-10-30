@@ -10940,92 +10940,92 @@ define void @stbte__palette_of_tiles(ptr noundef captures(none) %0, i32 noundef 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 800880
   %17 = load i32, ptr %16, align 8, !tbaa !70
-  %18 = add i32 %13, -1
-  %19 = add i32 %18, %17
-  %20 = sdiv i32 %19, %13
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 800884
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 800864
-  %23 = load i32, ptr %22, align 8, !tbaa !51
-  %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph, label %.._crit_edge_crit_edge
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 800884
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 800864
+  %20 = load i32, ptr %19, align 8, !tbaa !51
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %.lr.ph, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %15
   %.pre61 = add nsw i32 %2, 6
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %15
-  %25 = load i32, ptr %21, align 4, !tbaa !35
-  %26 = sub nsw i32 0, %25
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 800036
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 800856
-  %29 = add nsw i32 %1, 2
-  %30 = add nsw i32 %2, 6
-  br label %31
+  %22 = load i32, ptr %18, align 4, !tbaa !35
+  %23 = sub nsw i32 0, %22
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 800036
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 800856
+  %26 = add nsw i32 %1, 2
+  %27 = add nsw i32 %2, 6
+  br label %28
 
-31:                                               ; preds = %.lr.ph, %56
-  %.pre58 = phi i32 [ %23, %.lr.ph ], [ %.pre59, %56 ]
-  %32 = phi i32 [ %23, %.lr.ph ], [ %57, %56 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %.04554 = phi i32 [ %26, %.lr.ph ], [ %.1, %56 ]
-  %.04653 = phi i32 [ 0, %.lr.ph ], [ %.147, %56 ]
-  %33 = load i32, ptr %27, align 4, !tbaa !38
-  %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %35, label %41
+28:                                               ; preds = %.lr.ph, %53
+  %.pre58 = phi i32 [ %20, %.lr.ph ], [ %.pre59, %53 ]
+  %29 = phi i32 [ %20, %.lr.ph ], [ %54, %53 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
+  %.04554 = phi i32 [ %23, %.lr.ph ], [ %.1, %53 ]
+  %.04653 = phi i32 [ 0, %.lr.ph ], [ %.147, %53 ]
+  %30 = load i32, ptr %24, align 4, !tbaa !38
+  %31 = icmp sgt i32 %30, -1
+  br i1 %31, label %32, label %38
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %28, align 8, !tbaa !24
-  %37 = getelementptr inbounds nuw %struct.stbte__tileinfo, ptr %36, i64 %indvars.iv
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 2
-  %39 = load i16, ptr %38, align 2, !tbaa !68
-  %40 = zext i16 %39 to i32
-  %.not = icmp eq i32 %33, %40
-  br i1 %.not, label %41, label %56
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %25, align 8, !tbaa !24
+  %34 = getelementptr inbounds nuw %struct.stbte__tileinfo, ptr %33, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 2
+  %36 = load i16, ptr %35, align 2, !tbaa !68
+  %37 = zext i16 %36 to i32
+  %.not = icmp eq i32 %30, %37
+  br i1 %.not, label %38, label %53
 
-41:                                               ; preds = %35, %31
-  %42 = icmp sgt i32 %.04554, -1
-  %43 = icmp slt i32 %.04554, %9
-  %or.cond = select i1 %42, i1 %43, i1 false
-  br i1 %or.cond, label %44, label %52
+38:                                               ; preds = %32, %28
+  %39 = icmp sgt i32 %.04554, -1
+  %40 = icmp slt i32 %.04554, %9
+  %or.cond = select i1 %39, i1 %40, i1 false
+  br i1 %or.cond, label %41, label %49
 
-44:                                               ; preds = %41
-  %45 = load i32, ptr %11, align 4, !tbaa !36
-  %46 = mul nsw i32 %45, %.04653
-  %47 = add nsw i32 %29, %46
-  %48 = load i32, ptr %7, align 8, !tbaa !37
-  %49 = mul nsw i32 %48, %.04554
-  %50 = add nsw i32 %30, %49
-  %51 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @stbte__tile_in_palette(ptr noundef nonnull %0, i32 noundef %47, i32 noundef %50, i32 noundef %51)
-  %.pre.pre = load i32, ptr %22, align 8, !tbaa !51
-  br label %52
+41:                                               ; preds = %38
+  %42 = load i32, ptr %11, align 4, !tbaa !36
+  %43 = mul nsw i32 %42, %.04653
+  %44 = add nsw i32 %26, %43
+  %45 = load i32, ptr %7, align 8, !tbaa !37
+  %46 = mul nsw i32 %45, %.04554
+  %47 = add nsw i32 %27, %46
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @stbte__tile_in_palette(ptr noundef nonnull %0, i32 noundef %44, i32 noundef %47, i32 noundef %48)
+  %.pre.pre = load i32, ptr %19, align 8, !tbaa !51
+  br label %49
 
-52:                                               ; preds = %44, %41
-  %.pre = phi i32 [ %.pre.pre, %44 ], [ %.pre58, %41 ]
-  %53 = add nsw i32 %.04653, 1
-  %54 = icmp eq i32 %53, %13
-  %spec.select = select i1 %54, i32 0, i32 %53
-  %55 = zext i1 %54 to i32
-  %spec.select52 = add nsw i32 %.04554, %55
-  br label %56
+49:                                               ; preds = %41, %38
+  %.pre = phi i32 [ %.pre.pre, %41 ], [ %.pre58, %38 ]
+  %50 = add nsw i32 %.04653, 1
+  %51 = icmp eq i32 %50, %13
+  %spec.select = select i1 %51, i32 0, i32 %50
+  %52 = zext i1 %51 to i32
+  %spec.select52 = add nsw i32 %.04554, %52
+  br label %53
 
-56:                                               ; preds = %35, %52
-  %.pre59 = phi i32 [ %.pre, %52 ], [ %.pre58, %35 ]
-  %57 = phi i32 [ %.pre, %52 ], [ %32, %35 ]
-  %.147 = phi i32 [ %spec.select, %52 ], [ %.04653, %35 ]
-  %.1 = phi i32 [ %spec.select52, %52 ], [ %.04554, %35 ]
+53:                                               ; preds = %32, %49
+  %.pre59 = phi i32 [ %.pre, %49 ], [ %.pre58, %32 ]
+  %54 = phi i32 [ %.pre, %49 ], [ %29, %32 ]
+  %.147 = phi i32 [ %spec.select, %49 ], [ %.04653, %32 ]
+  %.1 = phi i32 [ %spec.select52, %49 ], [ %.04554, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = sext i32 %57 to i64
-  %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %31, label %._crit_edge, !llvm.loop !196
+  %55 = sext i32 %54 to i64
+  %56 = icmp slt i64 %indvars.iv.next, %55
+  br i1 %56, label %28, label %._crit_edge, !llvm.loop !196
 
-._crit_edge:                                      ; preds = %56, %.._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre61, %.._crit_edge_crit_edge ], [ %30, %56 ]
+._crit_edge:                                      ; preds = %53, %.._crit_edge_crit_edge
+  %.pre-phi = phi i32 [ %.pre61, %.._crit_edge_crit_edge ], [ %27, %53 ]
+  %57 = add i32 %13, -1
+  %58 = add i32 %57, %17
+  %59 = sdiv i32 %58, %13
   tail call void @stbte__flush_delay()
   %60 = add i32 %1, -4
   %61 = add i32 %60, %3
   %62 = add i32 %2, -2
   %63 = add i32 %62, %4
-  tail call void @stbte__scrollbar(i32 noundef %61, i32 noundef %.pre-phi, i32 noundef %63, ptr noundef nonnull %21, i32 noundef 0, i32 noundef %20, i32 noundef %9, i32 noundef 912)
+  tail call void @stbte__scrollbar(i32 noundef %61, i32 noundef %.pre-phi, i32 noundef %63, ptr noundef nonnull %18, i32 noundef 0, i32 noundef %59, i32 noundef %9, i32 noundef 912)
   br label %64
 
 64:                                               ; preds = %5, %._crit_edge
@@ -11326,18 +11326,18 @@ stbte__prepare_tileinfo.exit:                     ; preds = %12, %stbte__compute
   %154 = sub i32 %152, %153
   %155 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5328), align 8, !tbaa !55
   %156 = load i32, ptr %103, align 8, !tbaa !32
-  %157 = mul nsw i32 %156, %spec.store.select6
-  %158 = add nsw i32 %157, %155
-  %159 = load i32, ptr %101, align 8, !tbaa !34
-  %160 = sub i32 %158, %159
-  %161 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5332), align 4, !tbaa !56
-  %162 = icmp slt i32 %154, %161
-  %163 = select i1 %162, i1 %128, i1 false
-  br i1 %163, label %.lr.ph, label %.preheader293
+  %157 = load i32, ptr %101, align 8, !tbaa !34
+  %158 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5332), align 4, !tbaa !56
+  %159 = icmp slt i32 %154, %158
+  %160 = select i1 %159, i1 %128, i1 false
+  br i1 %160, label %.lr.ph, label %.preheader293
 
 .preheader293:                                    ; preds = %.lr.ph, %148
+  %161 = mul nsw i32 %156, %spec.store.select6
+  %162 = add nsw i32 %161, %155
+  %163 = sub i32 %162, %157
   %164 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5336), align 8, !tbaa !57
-  %165 = icmp slt i32 %160, %164
+  %165 = icmp slt i32 %163, %164
   %166 = select i1 %165, i1 %129, i1 false
   br i1 %166, label %.lr.ph308, label %.loopexit294
 
@@ -11359,7 +11359,7 @@ stbte__prepare_tileinfo.exit:                     ; preds = %12, %stbte__compute
 
 .lr.ph308:                                        ; preds = %.preheader293, %.lr.ph308
   %.1247307 = phi i32 [ %180, %.lr.ph308 ], [ 0, %.preheader293 ]
-  %.0256306 = phi i32 [ %182, %.lr.ph308 ], [ %160, %.preheader293 ]
+  %.0256306 = phi i32 [ %182, %.lr.ph308 ], [ %163, %.preheader293 ]
   %177 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5324), align 4, !tbaa !54
   %178 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5332), align 4, !tbaa !56
   %179 = add nsw i32 %.0256306, 1
@@ -11400,19 +11400,19 @@ stbte__prepare_tileinfo.exit:                     ; preds = %12, %stbte__compute
   %200 = sub i32 %198, %199
   %201 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5328), align 8, !tbaa !55
   %202 = load i32, ptr %103, align 8, !tbaa !32
-  %203 = mul nsw i32 %202, %spec.store.select6
-  %204 = add nsw i32 %203, %201
-  %205 = load i32, ptr %101, align 8, !tbaa !34
-  %206 = sub i32 %204, %205
-  %207 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5332), align 4, !tbaa !56
-  %208 = icmp slt i32 %200, %207
-  %209 = icmp sgt i32 %spec.select, -1
-  %210 = select i1 %208, i1 %209, i1 false
-  br i1 %210, label %.lr.ph313, label %.preheader291
+  %203 = load i32, ptr %101, align 8, !tbaa !34
+  %204 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5332), align 4, !tbaa !56
+  %205 = icmp slt i32 %200, %204
+  %206 = icmp sgt i32 %spec.select, -1
+  %207 = select i1 %205, i1 %206, i1 false
+  br i1 %207, label %.lr.ph313, label %.preheader291
 
 .preheader291:                                    ; preds = %.lr.ph313, %194
+  %208 = mul nsw i32 %202, %spec.store.select6
+  %209 = add nsw i32 %208, %201
+  %210 = sub i32 %209, %203
   %211 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5336), align 8, !tbaa !57
-  %212 = icmp slt i32 %206, %211
+  %212 = icmp slt i32 %210, %211
   %213 = icmp sgt i32 %.0253, -1
   %214 = select i1 %212, i1 %213, i1 false
   br i1 %214, label %.lr.ph316, label %.loopexit
@@ -11435,7 +11435,7 @@ stbte__prepare_tileinfo.exit:                     ; preds = %12, %stbte__compute
 
 .lr.ph316:                                        ; preds = %.preheader291, %.lr.ph316
   %.2248315 = phi i32 [ %228, %.lr.ph316 ], [ 0, %.preheader291 ]
-  %.0258314 = phi i32 [ %230, %.lr.ph316 ], [ %206, %.preheader291 ]
+  %.0258314 = phi i32 [ %230, %.lr.ph316 ], [ %210, %.preheader291 ]
   %225 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5324), align 4, !tbaa !54
   %226 = load i32, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5332), align 4, !tbaa !56
   %227 = add nsw i32 %.0258314, 1

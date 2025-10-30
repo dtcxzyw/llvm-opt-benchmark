@@ -5114,8 +5114,8 @@ call5.i.i.i.i2.i.i.noexc.i:                       ; preds = %if.then.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %call5.i.i.i.i2.i.i.noexc.i
   %add.ptr.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i.i, 4
-  call void @llvm.memset.p0.i64(ptr align 16 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i.i, i1 false), !noalias !56
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 16 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i.i, i1 false), !noalias !56
   br label %for.body.preheader.i
 
 invoke.cont9.i:                                   ; preds = %_ZNSt6vectorInSaInEE17_S_check_init_lenEmRKS0_.exit.i.i
@@ -14850,27 +14850,24 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %spec.select.i.i = select i1 %cmp.i4.i.i, ptr %incdec.ptr.i11.i.i, ptr %retval.sroa.0.110.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i11.i.i, i64 16
   %cmp.i3.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.i3.not.i.i, label %while.body.preheader.i.i10, label %while.body.i.i, !llvm.loop !196
+  br i1 %cmp.i3.not.i.i, label %while.body.i.i12, label %while.body.i.i, !llvm.loop !196
 
-while.body.preheader.i.i10:                       ; preds = %while.body.i.i
-  %6 = load i128, ptr %spec.select.i.i, align 16
-  br label %while.body.i.i12
-
-while.body.i.i12:                                 ; preds = %while.body.i.i12, %while.body.preheader.i.i10
-  %7 = phi i128 [ %9, %while.body.i.i12 ], [ %2, %while.body.preheader.i.i10 ]
-  %incdec.ptr.i11.i.i13 = phi ptr [ %incdec.ptr.i.i.i17, %while.body.i.i12 ], [ %incdec.ptr.i8.i.i, %while.body.preheader.i.i10 ]
-  %retval.sroa.0.110.i.i14 = phi ptr [ %spec.select.i.i16, %while.body.i.i12 ], [ %0, %while.body.preheader.i.i10 ]
-  %8 = load i128, ptr %incdec.ptr.i11.i.i13, align 16
-  %cmp.i4.i.i15 = icmp slt i128 %7, %8
-  %9 = tail call i128 @llvm.smax.i128(i128 %7, i128 %8)
+while.body.i.i12:                                 ; preds = %while.body.i.i, %while.body.i.i12
+  %6 = phi i128 [ %8, %while.body.i.i12 ], [ %2, %while.body.i.i ]
+  %incdec.ptr.i11.i.i13 = phi ptr [ %incdec.ptr.i.i.i17, %while.body.i.i12 ], [ %incdec.ptr.i8.i.i, %while.body.i.i ]
+  %retval.sroa.0.110.i.i14 = phi ptr [ %spec.select.i.i16, %while.body.i.i12 ], [ %0, %while.body.i.i ]
+  %7 = load i128, ptr %incdec.ptr.i11.i.i13, align 16
+  %cmp.i4.i.i15 = icmp slt i128 %6, %7
+  %8 = tail call i128 @llvm.smax.i128(i128 %6, i128 %7)
   %spec.select.i.i16 = select i1 %cmp.i4.i.i15, ptr %incdec.ptr.i11.i.i13, ptr %retval.sroa.0.110.i.i14
   %incdec.ptr.i.i.i17 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i11.i.i13, i64 16
   %cmp.i3.not.i.i18 = icmp eq ptr %incdec.ptr.i.i.i17, %1
   br i1 %cmp.i3.not.i.i18, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKnSt6vectorInSaInEEEEET_S8_S8_.exit.loopexit, label %while.body.i.i12, !llvm.loop !197
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKnSt6vectorInSaInEEEEET_S8_S8_.exit.loopexit: ; preds = %while.body.i.i12
-  %extract.t.le = trunc i128 %6 to i64
-  %extract.le = lshr i128 %6, 64
+  %9 = load i128, ptr %spec.select.i.i, align 16
+  %extract.t.le = trunc i128 %9 to i64
+  %extract.le = lshr i128 %9, 64
   %extract.t23.le = trunc nuw i128 %extract.le to i64
   %.pre = load i128, ptr %spec.select.i.i16, align 16
   %.pre26 = trunc i128 %.pre to i64
@@ -48102,8 +48099,8 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i

@@ -3432,105 +3432,114 @@ _ZNK6icu_779UVector6410elementAtiEi.exit26.thread: ; preds = %_ZNK6icu_779UVecto
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7716CollationBuilder17getWeight16BeforeEili(ptr noundef nonnull align 8 dereferenceable(616) %0, i32 %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = and i64 %2, 3
-  %6 = icmp eq i64 %5, 2
-  %7 = lshr i64 %2, 48
-  %8 = trunc nuw nsw i64 %7 to i32
-  %.023 = select i1 %6, i32 %8, i32 1280
-  %9 = trunc i64 %2 to i32
-  %10 = and i32 %9, 3
-  %11 = icmp samesign ugt i32 %10, 1
-  br i1 %11, label %.lr.ph, label %._crit_edge
+  %5 = trunc i64 %2 to i32
+  %6 = and i32 %5, 3
+  %7 = icmp samesign ugt i32 %6, 1
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %15 = load ptr, ptr %14, align 8
-  br label %16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %9 = load i32, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %11 = load ptr, ptr %10, align 8
+  br label %12
 
-16:                                               ; preds = %.lr.ph, %_ZNK6icu_779UVector6410elementAtiEi.exit
+12:                                               ; preds = %.lr.ph, %_ZNK6icu_779UVector6410elementAtiEi.exit
   %.02429 = phi i64 [ %2, %.lr.ph ], [ %.fr, %_ZNK6icu_779UVector6410elementAtiEi.exit ]
-  %17 = lshr i64 %.02429, 28
-  %18 = trunc i64 %17 to i32
-  %19 = and i32 %18, 1048575
-  %20 = icmp slt i32 %19, %13
-  br i1 %20, label %_ZNK6icu_779UVector6410elementAtiEi.exit, label %._crit_edge35.thread
+  %13 = lshr i64 %.02429, 28
+  %14 = trunc i64 %13 to i32
+  %15 = and i32 %14, 1048575
+  %16 = icmp slt i32 %15, %9
+  br i1 %16, label %_ZNK6icu_779UVector6410elementAtiEi.exit, label %.thread67
 
-_ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %16
-  %21 = and i64 %17, 1048575
-  %22 = getelementptr inbounds nuw i64, ptr %15, i64 %21
+.thread67:                                        ; preds = %12
+  %17 = and i64 %2, 3
+  %18 = icmp eq i64 %17, 2
+  %19 = lshr i64 %2, 48
+  %20 = trunc nuw nsw i64 %19 to i32
+  %.02344 = select i1 %18, i32 %20, i32 1280
+  br label %50
+
+_ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %12
+  %21 = and i64 %13, 1048575
+  %22 = getelementptr inbounds nuw i64, ptr %11, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !99
   %.fr = freeze i64 %23
   %24 = trunc i64 %.fr to i32
   %25 = and i32 %24, 3
   %26 = icmp samesign ugt i32 %25, 1
-  br i1 %26, label %16, label %._crit_edge, !llvm.loop !128
+  br i1 %26, label %12, label %._crit_edge, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit, %4
   %.024.lcssa = phi i64 [ %2, %4 ], [ %.fr, %_ZNK6icu_779UVector6410elementAtiEi.exit ]
-  %.lcssa = phi i32 [ %10, %4 ], [ %25, %_ZNK6icu_779UVector6410elementAtiEi.exit ]
-  %27 = and i64 %.024.lcssa, 8
-  %.not = icmp eq i64 %27, 0
-  br i1 %.not, label %28, label %55
-
-28:                                               ; preds = %._crit_edge
-  %.not37 = icmp eq i32 %.lcssa, 0
-  %29 = lshr i64 %.024.lcssa, 48
+  %.lcssa = phi i32 [ %6, %4 ], [ %25, %_ZNK6icu_779UVector6410elementAtiEi.exit ]
+  %27 = and i64 %2, 3
+  %28 = icmp eq i64 %27, 2
+  %29 = lshr i64 %2, 48
   %30 = trunc nuw nsw i64 %29 to i32
-  %spec.select = select i1 %.not37, i32 1280, i32 %30
-  %31 = and i64 %.024.lcssa, 3
-  %.not2831 = icmp eq i64 %31, 0
+  %.023 = select i1 %28, i32 %30, i32 1280
+  %31 = and i64 %.024.lcssa, 8
+  %.not = icmp eq i64 %31, 0
+  br i1 %.not, label %32, label %60
+
+32:                                               ; preds = %._crit_edge
+  %33 = and i64 %.024.lcssa, 3
+  %.not2831 = icmp eq i64 %33, 0
   br i1 %.not2831, label %._crit_edge35, label %.lr.ph34
 
-.lr.ph34:                                         ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %35 = load ptr, ptr %34, align 8
-  br label %36
+.lr.ph34:                                         ; preds = %32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %35 = load i32, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %37 = load ptr, ptr %36, align 8
+  br label %38
 
-36:                                               ; preds = %.lr.ph34, %_ZNK6icu_779UVector6410elementAtiEi.exit27
-  %.12532 = phi i64 [ %.024.lcssa, %.lr.ph34 ], [ %43, %_ZNK6icu_779UVector6410elementAtiEi.exit27 ]
-  %37 = lshr i64 %.12532, 28
-  %38 = trunc i64 %37 to i32
-  %39 = and i32 %38, 1048575
-  %40 = icmp slt i32 %39, %33
-  br i1 %40, label %_ZNK6icu_779UVector6410elementAtiEi.exit27, label %._crit_edge35.thread
+38:                                               ; preds = %.lr.ph34, %_ZNK6icu_779UVector6410elementAtiEi.exit27
+  %.12532 = phi i64 [ %.024.lcssa, %.lr.ph34 ], [ %45, %_ZNK6icu_779UVector6410elementAtiEi.exit27 ]
+  %39 = lshr i64 %.12532, 28
+  %40 = trunc i64 %39 to i32
+  %41 = and i32 %40, 1048575
+  %42 = icmp slt i32 %41, %35
+  br i1 %42, label %_ZNK6icu_779UVector6410elementAtiEi.exit27, label %._crit_edge35
 
-_ZNK6icu_779UVector6410elementAtiEi.exit27:       ; preds = %36
-  %41 = and i64 %37, 1048575
-  %42 = getelementptr inbounds nuw i64, ptr %35, i64 %41
-  %43 = load i64, ptr %42, align 8, !tbaa !99
-  %44 = and i64 %43, 3
-  %.not28 = icmp eq i64 %44, 0
-  br i1 %.not28, label %._crit_edge35, label %36, !llvm.loop !129
+_ZNK6icu_779UVector6410elementAtiEi.exit27:       ; preds = %38
+  %43 = and i64 %39, 1048575
+  %44 = getelementptr inbounds nuw i64, ptr %37, i64 %43
+  %45 = load i64, ptr %44, align 8, !tbaa !99
+  %46 = and i64 %45, 3
+  %.not28 = icmp eq i64 %46, 0
+  br i1 %.not28, label %._crit_edge35, label %38, !llvm.loop !129
 
-._crit_edge35:                                    ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit27, %28
-  %.125.lcssa = phi i64 [ %.024.lcssa, %28 ], [ %43, %_ZNK6icu_779UVector6410elementAtiEi.exit27 ]
-  %45 = and i64 %.125.lcssa, 8
-  %.not26 = icmp eq i64 %45, 0
-  br i1 %.not26, label %._crit_edge35.thread, label %55
+._crit_edge35:                                    ; preds = %38, %_ZNK6icu_779UVector6410elementAtiEi.exit27, %32
+  %.125.lcssa = phi i64 [ %.024.lcssa, %32 ], [ 0, %38 ], [ %45, %_ZNK6icu_779UVector6410elementAtiEi.exit27 ]
+  %.not37 = icmp eq i32 %.lcssa, 0
+  %47 = lshr i64 %.024.lcssa, 48
+  %48 = trunc nuw nsw i64 %47 to i32
+  %spec.select = select i1 %.not37, i32 1280, i32 %48
+  %49 = and i64 %.125.lcssa, 8
+  %.not26 = icmp eq i64 %49, 0
+  br i1 %.not26, label %50, label %60
 
-._crit_edge35.thread:                             ; preds = %16, %36, %._crit_edge35
-  %.125.lcssa59 = phi i64 [ %.125.lcssa, %._crit_edge35 ], [ 0, %36 ], [ 0, %16 ]
-  %46 = phi i32 [ %spec.select, %._crit_edge35 ], [ %spec.select, %36 ], [ 1280, %16 ]
-  %47 = lshr i64 %.125.lcssa59, 32
-  %48 = trunc nuw i64 %47 to i32
-  %49 = icmp eq i32 %3, 1
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br i1 %49, label %51, label %53
+50:                                               ; preds = %.thread67, %._crit_edge35
+  %51 = phi i32 [ 1280, %.thread67 ], [ %spec.select, %._crit_edge35 ]
+  %.02348536372 = phi i32 [ %.02344, %.thread67 ], [ %.023, %._crit_edge35 ]
+  %.125.lcssa6571 = phi i64 [ 0, %.thread67 ], [ %.125.lcssa, %._crit_edge35 ]
+  %52 = lshr i64 %.125.lcssa6571, 32
+  %53 = trunc nuw i64 %52 to i32
+  %54 = icmp eq i32 %3, 1
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br i1 %54, label %56, label %58
 
-51:                                               ; preds = %._crit_edge35.thread
-  %52 = tail call noundef i32 @_ZNK6icu_7721CollationRootElements18getSecondaryBeforeEjj(ptr noundef nonnull align 8 dereferenceable(12) %50, i32 noundef %48, i32 noundef %46)
-  br label %55
+56:                                               ; preds = %50
+  %57 = tail call noundef i32 @_ZNK6icu_7721CollationRootElements18getSecondaryBeforeEjj(ptr noundef nonnull align 8 dereferenceable(12) %55, i32 noundef %53, i32 noundef %51)
+  br label %60
 
-53:                                               ; preds = %._crit_edge35.thread
-  %54 = tail call noundef i32 @_ZNK6icu_7721CollationRootElements17getTertiaryBeforeEjjj(ptr noundef nonnull align 8 dereferenceable(12) %50, i32 noundef %48, i32 noundef %46, i32 noundef %.023)
-  br label %55
+58:                                               ; preds = %50
+  %59 = tail call noundef i32 @_ZNK6icu_7721CollationRootElements17getTertiaryBeforeEjjj(ptr noundef nonnull align 8 dereferenceable(12) %55, i32 noundef %53, i32 noundef %51, i32 noundef %.02348536372)
+  br label %60
 
-55:                                               ; preds = %._crit_edge35, %53, %51, %._crit_edge
-  %.021 = phi i32 [ 256, %._crit_edge ], [ 256, %._crit_edge35 ], [ %52, %51 ], [ %54, %53 ]
+60:                                               ; preds = %._crit_edge35, %58, %56, %._crit_edge
+  %.021 = phi i32 [ 256, %._crit_edge ], [ 256, %._crit_edge35 ], [ %57, %56 ], [ %59, %58 ]
   ret i32 %.021
 }
 

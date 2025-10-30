@@ -1273,23 +1273,23 @@ define dso_local void @_ZNK4llvm20BalancedPartitioning5splitENS_14iterator_range
 define dso_local void @_ZNK4llvm20BalancedPartitioning13runIterationsENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS4_SaIS4_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65544) %0, ptr %1, ptr %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(5000) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::DenseMap.31", align 8
   %8 = alloca %"class.llvm::SmallVector.37", align 8
-  %9 = ptrtoint ptr %2 to i64
-  %10 = ptrtoint ptr %1 to i64
-  %11 = sub i64 %9, %10
-  %12 = sdiv exact i64 %11, 56
-  %13 = trunc i64 %12 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   %.not270332 = icmp eq ptr %1, %2
   br i1 %.not270332, label %._crit_edge339, label %.lr.ph335
 
 .lr.ph335:                                        ; preds = %6
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
   br label %20
 
-.lr.ph338:                                        ; preds = %._crit_edge
+.preheader279:                                    ; preds = %._crit_edge
+  %12 = ptrtoint ptr %2 to i64
+  %13 = ptrtoint ptr %1 to i64
+  %14 = sub i64 %12, %13
+  %15 = sdiv exact i64 %14, 56
+  %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -1312,12 +1312,12 @@ define dso_local void @_ZNK4llvm20BalancedPartitioning13runIterationsENS_14itera
   %28 = phi ptr [ %21, %20 ], [ %102, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj.exit ]
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0261.0333, i64 56
   %.not270 = icmp eq ptr %29, %2
-  br i1 %.not270, label %.lr.ph338, label %20
+  br i1 %.not270, label %.preheader279, label %20
 
 .lr.ph:                                           ; preds = %20, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj.exit
   %30 = phi ptr [ %102, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj.exit ], [ %21, %20 ]
   %.046329 = phi ptr [ %105, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj.exit ], [ %23, %20 ]
-  %31 = load i32, ptr %14, align 8, !tbaa !139
+  %31 = load i32, ptr %9, align 8, !tbaa !139
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i, label %33
 
@@ -1362,7 +1362,7 @@ define dso_local void @_ZNK4llvm20BalancedPartitioning13runIterationsENS_14itera
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i: ; preds = %44, %.lr.ph
   %.sink.i.i = phi ptr [ %45, %44 ], [ null, %.lr.ph ]
-  %55 = load i32, ptr %15, align 8, !tbaa !146
+  %55 = load i32, ptr %10, align 8, !tbaa !146
   %56 = shl i32 %55, 2
   %57 = add i32 %56, 4
   %58 = mul i32 %31, 3
@@ -1374,7 +1374,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   br label %.sink.split.i.i.i
 
 61:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i
-  %62 = load i32, ptr %16, align 4, !tbaa !147
+  %62 = load i32, ptr %11, align 4, !tbaa !147
   %.neg.i.i.i = xor i32 %55, -1
   %.neg11.i.i.i = add i32 %31, %.neg.i.i.i
   %63 = sub i32 %.neg11.i.i.i, %62
@@ -1386,7 +1386,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   %.sink.i.i.i = phi i32 [ %60, %59 ], [ %31, %61 ]
   call void @_ZN4llvm8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %7, i32 noundef %.sink.i.i.i)
   %65 = load ptr, ptr %7, align 8, !tbaa !148
-  %66 = load i32, ptr %14, align 8, !tbaa !139
+  %66 = load i32, ptr %9, align 8, !tbaa !139
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit, label %68
 
@@ -1431,7 +1431,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit: ; preds = %81, %.sink.split.i.i.i, %68, %79
   %.sink.i = phi ptr [ %80, %79 ], [ null, %.sink.split.i.i.i ], [ %73, %68 ], [ %87, %81 ]
-  %.pre.i.i = load i32, ptr %15, align 8, !tbaa !146
+  %.pre.i.i = load i32, ptr %10, align 8, !tbaa !146
   br label %90
 
 90:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit, %61
@@ -1439,15 +1439,15 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   %92 = phi ptr [ %.sink.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit ], [ %.sink.i.i, %61 ]
   %93 = phi i32 [ %.pre.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit ], [ %55, %61 ]
   %94 = add i32 %93, 1
-  store i32 %94, ptr %15, align 8, !tbaa !146
+  store i32 %94, ptr %10, align 8, !tbaa !146
   %95 = load i32, ptr %92, align 4, !tbaa !55
   %96 = icmp eq i32 %95, -1
   br i1 %96, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E16InsertIntoBucketIRKjJEEEPS6_SC_OT_DpOT0_.exit.i, label %97
 
 97:                                               ; preds = %90
-  %98 = load i32, ptr %16, align 4, !tbaa !147
+  %98 = load i32, ptr %11, align 4, !tbaa !147
   %99 = add i32 %98, -1
-  store i32 %99, ptr %16, align 4, !tbaa !147
+  store i32 %99, ptr %11, align 4, !tbaa !147
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E16InsertIntoBucketIRKjJEEEPS6_SC_OT_DpOT0_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E16InsertIntoBucketIRKjJEEEPS6_SC_OT_DpOT0_.exit.i: ; preds = %97, %90
@@ -1518,8 +1518,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   %124 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %511
 
-125:                                              ; preds = %.lr.ph338, %"_ZN4llvm8erase_ifINS_11SmallVectorIjLj4EEEZNKS_20BalancedPartitioning13runIterationsENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS7_SaIS7_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEvRT_T0_.exit"
-  %.sroa.0257.0337 = phi ptr [ %1, %.lr.ph338 ], [ %497, %"_ZN4llvm8erase_ifINS_11SmallVectorIjLj4EEEZNKS_20BalancedPartitioning13runIterationsENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS7_SaIS7_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEvRT_T0_.exit" ]
+125:                                              ; preds = %.preheader279, %"_ZN4llvm8erase_ifINS_11SmallVectorIjLj4EEEZNKS_20BalancedPartitioning13runIterationsENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS7_SaIS7_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEvRT_T0_.exit"
+  %.sroa.0257.0337 = phi ptr [ %1, %.preheader279 ], [ %497, %"_ZN4llvm8erase_ifINS_11SmallVectorIjLj4EEEZNKS_20BalancedPartitioning13runIterationsENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS7_SaIS7_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEvRT_T0_.exit" ]
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0337, i64 8
   %.val.i = load ptr, ptr %126, align 8, !tbaa !3
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.0257.0337, i64 16
@@ -1830,7 +1830,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   %.pn.i122 = phi ptr [ %267, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E16InsertIntoBucketIRKjJEEEPS6_SC_OT_DpOT0_.exit.i132 ], [ %214, %209 ], [ %228, %222 ]
   %.0.i123 = getelementptr inbounds nuw i8, ptr %.pn.i122, i64 4
   %277 = load i32, ptr %.0.i123, align 4, !tbaa !55
-  %278 = icmp eq i32 %277, %13
+  %278 = icmp eq i32 %277, %16
   br i1 %278, label %"_ZSt9__find_ifIPjN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS4_14iterator_rangeINS1_17__normal_iteratorIPNS4_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEET_SK_SK_T0_.exit.i.i.i.i", label %279
 
 279:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj.exit136
@@ -1843,7 +1843,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit30.i.i.i.i.i.i": ; preds = %279
   %284 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %280)
   %285 = load i32, ptr %284, align 4, !tbaa !55
-  %286 = icmp eq i32 %285, %13
+  %286 = icmp eq i32 %285, %16
   br i1 %286, label %"_ZSt9__find_ifIPjN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS4_14iterator_rangeINS1_17__normal_iteratorIPNS4_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEET_SK_SK_T0_.exit.i.i.i.i", label %287
 
 287:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit30.i.i.i.i.i.i"
@@ -1856,7 +1856,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit31.i.i.i.i.i.i": ; preds = %287
   %292 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %288)
   %293 = load i32, ptr %292, align 4, !tbaa !55
-  %294 = icmp eq i32 %293, %13
+  %294 = icmp eq i32 %293, %16
   br i1 %294, label %"_ZSt9__find_ifIPjN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS4_14iterator_rangeINS1_17__normal_iteratorIPNS4_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEET_SK_SK_T0_.exit.i.i.i.i", label %295
 
 295:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit31.i.i.i.i.i.i"
@@ -1869,7 +1869,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit32.i.i.i.i.i.i": ; preds = %295
   %300 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %296)
   %301 = load i32, ptr %300, align 4, !tbaa !55
-  %302 = icmp eq i32 %301, %13
+  %302 = icmp eq i32 %301, %16
   br i1 %302, label %"_ZSt9__find_ifIPjN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS4_14iterator_rangeINS1_17__normal_iteratorIPNS4_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEET_SK_SK_T0_.exit.i.i.i.i", label %303
 
 303:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit32.i.i.i.i.i.i"
@@ -1902,7 +1902,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit33.i.i.i.i.i.i": ; preds = %308
   %312 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %.029.lcssa.i.i.i.i.i.i)
   %313 = load i32, ptr %312, align 4, !tbaa !55
-  %314 = icmp eq i32 %313, %13
+  %314 = icmp eq i32 %313, %16
   br i1 %314, label %"_ZSt9__find_ifIPjN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS4_14iterator_rangeINS1_17__normal_iteratorIPNS4_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEET_SK_SK_T0_.exit.i.i.i.i", label %315
 
 315:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit33.i.i.i.i.i.i"
@@ -1919,7 +1919,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit34.i.i.i.i.i.i": ; preds = %317
   %321 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %.1.i.i.i.i.i.i)
   %322 = load i32, ptr %321, align 4, !tbaa !55
-  %323 = icmp eq i32 %322, %13
+  %323 = icmp eq i32 %322, %16
   br i1 %323, label %"_ZSt9__find_ifIPjN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS4_14iterator_rangeINS1_17__normal_iteratorIPNS4_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEET_SK_SK_T0_.exit.i.i.i.i", label %324
 
 324:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit34.i.i.i.i.i.i"
@@ -1936,7 +1936,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit35.i.i.i.i.i.i": ; preds = %326
   %330 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(4) %.2.i.i.i.i.i.i)
   %331 = load i32, ptr %330, align 4, !tbaa !55
-  %332 = icmp eq i32 %331, %13
+  %332 = icmp eq i32 %331, %16
   br i1 %332, label %"_ZSt9__find_ifIPjN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS4_14iterator_rangeINS1_17__normal_iteratorIPNS4_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEET_SK_SK_T0_.exit.i.i.i.i", label %"_ZN4llvm8erase_ifINS_11SmallVectorIjLj4EEEZNKS_20BalancedPartitioning13runIterationsENS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPNS_14BPFunctionNodeESt6vectorIS7_SaIS7_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEvRT_T0_.exit"
 
 "_ZSt9__find_ifIPjN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS4_14iterator_rangeINS1_17__normal_iteratorIPNS4_14BPFunctionNodeESt6vectorIS8_SaIS8_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EEET_SK_SK_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit32.i.i.i.i.i.i", %295, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit31.i.i.i.i.i.i", %287, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit30.i.i.i.i.i.i", %279, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj.exit136, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj.exit159, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit35.i.i.i.i.i.i", %326, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit34.i.i.i.i.i.i", %317, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit33.i.i.i.i.i.i", %308
@@ -2252,7 +2252,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   %.pn.i76 = phi ptr [ %473, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E16InsertIntoBucketIRKjJEEEPS6_SC_OT_DpOT0_.exit.i86 ], [ %419, %414 ], [ %433, %427 ]
   %.0.i77 = getelementptr inbounds nuw i8, ptr %.pn.i76, i64 4
   %484 = load i32, ptr %.0.i77, align 4, !tbaa !55
-  %485 = icmp eq i32 %484, %13
+  %485 = icmp eq i32 %484, %16
   br i1 %485, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm20BalancedPartitioning13runIterationsENS2_14iterator_rangeINS_17__normal_iteratorIPNS2_14BPFunctionNodeESt6vectorIS6_SaIS6_EEEEEEjjRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEE3$_0EclIPjEEbT_.exit.thread.i.i.i.i", label %486
 
 486:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj.exit90

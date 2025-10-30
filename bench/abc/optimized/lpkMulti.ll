@@ -235,38 +235,38 @@ define void @Lpk_CreateCommonOrder(ptr noundef readonly captures(none) %0, ptr n
   %20 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv126
   %21 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv126
   %.promoted = load i32, ptr %21, align 4, !tbaa !16
-  br label %23
+  br label %22
 
-.lr.ph85:                                         ; preds = %23
-  store i32 %28, ptr %21, align 4, !tbaa !16
+.lr.ph85:                                         ; preds = %22
+  store i32 %27, ptr %21, align 4, !tbaa !16
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv126
-  %22 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv126
-  br label %29
+  br label %28
 
-23:                                               ; preds = %.lr.ph83, %23
-  %indvars.iv116 = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next117, %23 ]
-  %24 = phi i32 [ %.promoted, %.lr.ph83 ], [ %28, %23 ]
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv116
-  %26 = load i8, ptr %25, align 1, !tbaa !21
-  %27 = sext i8 %26 to i32
-  %28 = add nsw i32 %24, %27
+22:                                               ; preds = %.lr.ph83, %22
+  %indvars.iv116 = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next117, %22 ]
+  %23 = phi i32 [ %.promoted, %.lr.ph83 ], [ %27, %22 ]
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv116
+  %25 = load i8, ptr %24, align 1, !tbaa !21
+  %26 = sext i8 %25 to i32
+  %27 = add nsw i32 %23, %26
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count129
-  br i1 %exitcond120.not, label %.lr.ph85, label %23, !llvm.loop !28
+  br i1 %exitcond120.not, label %.lr.ph85, label %22, !llvm.loop !28
 
-29:                                               ; preds = %.lr.ph85, %29
-  %indvars.iv121 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next122, %29 ]
-  %30 = phi i32 [ %28, %.lr.ph85 ], [ %33, %29 ]
+28:                                               ; preds = %.lr.ph85, %28
+  %indvars.iv121 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next122, %28 ]
+  %29 = phi i32 [ %27, %.lr.ph85 ], [ %32, %28 ]
   %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv121
-  %31 = load i8, ptr %gep, align 1, !tbaa !21
-  %32 = sext i8 %31 to i32
-  %33 = sub nsw i32 %30, %32
+  %30 = load i8, ptr %gep, align 1, !tbaa !21
+  %31 = sext i8 %30 to i32
+  %32 = sub nsw i32 %29, %31
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count129
-  br i1 %exitcond125.not, label %..loopexit_crit_edge, label %29, !llvm.loop !29
+  br i1 %exitcond125.not, label %..loopexit_crit_edge, label %28, !llvm.loop !29
 
-..loopexit_crit_edge:                             ; preds = %29
-  store i32 %33, ptr %22, align 4, !tbaa !16
+..loopexit_crit_edge:                             ; preds = %28
+  %33 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv126
+  store i32 %32, ptr %33, align 4, !tbaa !16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %..loopexit_crit_edge, %16

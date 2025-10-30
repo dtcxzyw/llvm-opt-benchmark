@@ -13998,16 +13998,16 @@ _ZN12_GLOBAL__N_112isMemoryInstEPKN4llvm11InstructionE.exit: ; preds = %116
   br i1 %119, label %_ZN12_GLOBAL__N_112isMemoryInstEPKN4llvm11InstructionE.exit.thread31, label %_ZN12_GLOBAL__N_112isMemoryInstEPKN4llvm11InstructionE.exit.thread
 
 _ZN12_GLOBAL__N_112isMemoryInstEPKN4llvm11InstructionE.exit.thread: ; preds = %_ZN12_GLOBAL__N_118InstructionUseExprC2EPN4llvm11InstructionERNS1_13ArrayRecyclerIPNS1_5ValueELm8EEERNS1_20BumpPtrAllocatorImplINS1_15MallocAllocatorELm4096ELm4096ELm128EEE.exit, %_ZN12_GLOBAL__N_118InstructionUseExprC2EPN4llvm11InstructionERNS1_13ArrayRecyclerIPNS1_5ValueELm8EEERNS1_20BumpPtrAllocatorImplINS1_15MallocAllocatorELm4096ELm4096ELm128EEE.exit, %114, %_ZN12_GLOBAL__N_112isMemoryInstEPKN4llvm11InstructionE.exit
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %121 = load ptr, ptr %120, align 8, !tbaa !132
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %123 = load ptr, ptr %122, align 8, !tbaa !165
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 48
-  %.not3743 = icmp eq ptr %123, %124
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %121 = load ptr, ptr %120, align 8, !tbaa !165
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %123 = load ptr, ptr %122, align 8, !tbaa !132
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 48
+  %.not3743 = icmp eq ptr %121, %124
   br i1 %.not3743, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_112isMemoryInstEPKN4llvm11InstructionE.exit.thread, %_ZN12_GLOBAL__N_112isMemoryInstEPKN4llvm11InstructionE.exit19.thread32
-  %.sroa.023.044 = phi ptr [ %141, %_ZN12_GLOBAL__N_112isMemoryInstEPKN4llvm11InstructionE.exit19.thread32 ], [ %123, %_ZN12_GLOBAL__N_112isMemoryInstEPKN4llvm11InstructionE.exit.thread ]
+  %.sroa.023.044 = phi ptr [ %141, %_ZN12_GLOBAL__N_112isMemoryInstEPKN4llvm11InstructionE.exit19.thread32 ], [ %121, %_ZN12_GLOBAL__N_112isMemoryInstEPKN4llvm11InstructionE.exit.thread ]
   %125 = getelementptr inbounds i8, ptr %.sroa.023.044, i64 -24
   %126 = load i8, ptr %125, align 8, !tbaa !97
   %127 = add i8 %126, -30

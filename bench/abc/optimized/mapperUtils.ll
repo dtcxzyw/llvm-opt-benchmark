@@ -1498,48 +1498,48 @@ Map_MappingGetMaxLevel.exit38:                    ; preds = %38, %._crit_edge.th
   %wide.trip.count = zext nneg i32 %51 to i64
   br label %54
 
-54:                                               ; preds = %.lr.ph49, %.loopexit
-  %indvars.iv56 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next57, %.loopexit ]
-  %.02448 = phi i32 [ 0, %.lr.ph49 ], [ %.1, %.loopexit ]
-  %.02746 = phi i32 [ 0, %.lr.ph49 ], [ %.2, %.loopexit ]
+54:                                               ; preds = %.lr.ph49, %67
+  %indvars.iv56 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next57, %67 ]
+  %.02448 = phi i32 [ 0, %.lr.ph49 ], [ %.1, %67 ]
+  %.02746 = phi i32 [ 0, %.lr.ph49 ], [ %.2, %67 ]
   %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv56
   %56 = load ptr, ptr %55, align 8, !tbaa !31
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 88
   %58 = load ptr, ptr %57, align 8, !tbaa !60
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %.loopexit
+  br i1 %59, label %60, label %67
 
 60:                                               ; preds = %54
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %62 = load ptr, ptr %61, align 8, !tbaa !15
   %.not = icmp eq ptr %62, null
-  br i1 %.not, label %.loopexit, label %.lr.ph44.preheader
+  br i1 %.not, label %67, label %.lr.ph44
 
-.lr.ph44.preheader:                               ; preds = %60
-  %63 = add nsw i32 %.02448, 1
-  br label %.lr.ph44
-
-.lr.ph44:                                         ; preds = %.lr.ph44.preheader, %.lr.ph44
-  %.042 = phi ptr [ %66, %.lr.ph44 ], [ %56, %.lr.ph44.preheader ]
-  %.12841 = phi i32 [ %64, %.lr.ph44 ], [ %.02746, %.lr.ph44.preheader ]
-  %64 = add nsw i32 %.12841, 1
-  %65 = getelementptr inbounds nuw i8, ptr %.042, i64 80
-  %66 = load ptr, ptr %65, align 8, !tbaa !15
-  %.not29 = icmp eq ptr %66, null
+.lr.ph44:                                         ; preds = %60, %.lr.ph44
+  %.042 = phi ptr [ %65, %.lr.ph44 ], [ %56, %60 ]
+  %.12841 = phi i32 [ %63, %.lr.ph44 ], [ %.02746, %60 ]
+  %63 = add nsw i32 %.12841, 1
+  %64 = getelementptr inbounds nuw i8, ptr %.042, i64 80
+  %65 = load ptr, ptr %64, align 8, !tbaa !15
+  %.not29 = icmp eq ptr %65, null
   br i1 %.not29, label %.loopexit, label %.lr.ph44, !llvm.loop !94
 
-.loopexit:                                        ; preds = %.lr.ph44, %54, %60
-  %.2 = phi i32 [ %.02746, %60 ], [ %.02746, %54 ], [ %64, %.lr.ph44 ]
-  %.1 = phi i32 [ %.02448, %60 ], [ %.02448, %54 ], [ %63, %.lr.ph44 ]
+.loopexit:                                        ; preds = %.lr.ph44
+  %66 = add nsw i32 %.02448, 1
+  br label %67
+
+67:                                               ; preds = %.loopexit, %54, %60
+  %.2 = phi i32 [ %.02746, %60 ], [ %.02746, %54 ], [ %63, %.loopexit ]
+  %.1 = phi i32 [ %.02448, %60 ], [ %.02448, %54 ], [ %66, %.loopexit ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge50, label %54, !llvm.loop !95
 
-._crit_edge50:                                    ; preds = %.loopexit, %Map_MappingGetMaxLevel.exit38
-  %.027.lcssa = phi i32 [ 0, %Map_MappingGetMaxLevel.exit38 ], [ %.2, %.loopexit ]
-  %.024.lcssa = phi i32 [ 0, %Map_MappingGetMaxLevel.exit38 ], [ %.1, %.loopexit ]
-  %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.09.lcssa.i6367, i32 noundef %.09.lcssa.i30)
-  %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.024.lcssa, i32 noundef %.027.lcssa)
+._crit_edge50:                                    ; preds = %67, %Map_MappingGetMaxLevel.exit38
+  %.027.lcssa = phi i32 [ 0, %Map_MappingGetMaxLevel.exit38 ], [ %.2, %67 ]
+  %.024.lcssa = phi i32 [ 0, %Map_MappingGetMaxLevel.exit38 ], [ %.1, %67 ]
+  %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.09.lcssa.i6367, i32 noundef %.09.lcssa.i30)
+  %69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.024.lcssa, i32 noundef %.027.lcssa)
   ret void
 }
 

@@ -4908,28 +4908,28 @@ define dso_local noundef range(i32 -22, 1) i32 @skb_copy_ubufs(ptr noundef %0, i
   %58 = zext i32 %53 to i64
   %59 = icmp ult i64 %57, %58
   %60 = add i32 %45, 1
-  br i1 %59, label %.preheader24, label %.split40, !llvm.loop !107
+  br i1 %59, label %.preheader24, label %.preheader22, !llvm.loop !107
 
-.split40:                                         ; preds = %.loopexit25
-  %61 = trunc i64 %56 to i32
-  br label %.preheader22
+.preheader22:                                     ; preds = %.loopexit25, %.preheader22
+  %61 = phi i64 [ %63, %.preheader22 ], [ %44, %.loopexit25 ]
+  %62 = phi i32 [ %67, %.preheader22 ], [ 0, %.loopexit25 ]
+  %63 = add nsw i64 %61, -1
+  %.idx16 = shl i64 %63, 4
+  %64 = getelementptr i8, ptr %43, i64 %.idx16
+  %65 = getelementptr i8, ptr %64, i64 8
+  %66 = load i32, ptr %65, align 8
+  %67 = add i32 %66, %62
+  %68 = icmp samesign ugt i64 %61, 1
+  br i1 %68, label %.preheader22, label %.loopexit23.loopexit, !llvm.loop !106
 
-.preheader22:                                     ; preds = %.split40, %.preheader22
-  %62 = phi i64 [ %64, %.preheader22 ], [ %44, %.split40 ]
-  %63 = phi i32 [ %68, %.preheader22 ], [ 0, %.split40 ]
-  %64 = add nsw i64 %62, -1
-  %.idx16 = shl i64 %64, 4
-  %65 = getelementptr i8, ptr %43, i64 %.idx16
-  %66 = getelementptr i8, ptr %65, i64 8
-  %67 = load i32, ptr %66, align 8
-  %68 = add i32 %67, %63
-  %69 = icmp samesign ugt i64 %62, 1
-  br i1 %69, label %.preheader22, label %.loopexit23, !llvm.loop !106
+.loopexit23.loopexit:                             ; preds = %.preheader22
+  %69 = trunc i64 %56 to i32
+  br label %.loopexit23
 
-.loopexit23:                                      ; preds = %.preheader22, %35
-  %.us-phi4179 = phi i32 [ 4096, %35 ], [ %61, %.preheader22 ]
-  %.us-phi78 = phi i32 [ 0, %35 ], [ %45, %.preheader22 ]
-  %70 = phi i32 [ 0, %35 ], [ %68, %.preheader22 ]
+.loopexit23:                                      ; preds = %.loopexit23.loopexit, %35
+  %.us-phi4179 = phi i32 [ 4096, %35 ], [ %69, %.loopexit23.loopexit ]
+  %.us-phi78 = phi i32 [ 0, %35 ], [ %45, %.loopexit23.loopexit ]
+  %70 = phi i32 [ 0, %35 ], [ %67, %.loopexit23.loopexit ]
   %71 = add i32 %.us-phi4179, -1
   %72 = add i32 %71, %70
   %73 = add i32 %.us-phi78, 12

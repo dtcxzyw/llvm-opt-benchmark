@@ -697,7 +697,6 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_coef_vlc(ptr noundef 
   %28 = trunc i32 %.03741 to i16
   %29 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv47
   store i16 %28, ptr %29, align 2, !tbaa !55
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %30 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv47
   %31 = load i16, ptr %30, align 2, !tbaa !55
   %32 = zext i16 %31 to i32
@@ -728,6 +727,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_coef_vlc(ptr noundef 
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph44
   %.1.lcssa = phi i32 [ %.03741, %.lr.ph44 ], [ %40, %._crit_edge.loopexit ]
+  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %41 = add nuw nsw i32 %.03443, 1
   %42 = icmp slt i32 %.1.lcssa, %9
   br i1 %42, label %.lr.ph44, label %._crit_edge45, !llvm.loop !83

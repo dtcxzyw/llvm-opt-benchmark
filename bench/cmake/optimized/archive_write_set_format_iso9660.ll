@@ -8803,27 +8803,27 @@ make_boot_catalog.exit.thread61:                  ; preds = %68, %make_boot_cata
 102:                                              ; preds = %97, %._crit_edge78, %91
   %.345 = phi i64 [ %.14371, %91 ], [ 0, %._crit_edge78 ], [ 0, %97 ]
   %.3 = phi i64 [ %.172, %91 ], [ %.pre, %._crit_edge78 ], [ %95, %97 ]
-  %103 = getelementptr inbounds nuw i8, ptr %.04673, i64 176
-  br label %104
+  br label %103
 
-104:                                              ; preds = %104, %102
-  %105 = phi ptr [ %94, %102 ], [ %111, %104 ]
-  %.4 = phi i64 [ %.345, %102 ], [ %109, %104 ]
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %107 = load i32, ptr %106, align 8, !tbaa !122
-  %108 = sext i32 %107 to i64
-  %109 = add nsw i64 %.4, %108
-  %110 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  %111 = load ptr, ptr %110, align 8, !tbaa !86
-  %.not59 = icmp eq ptr %111, null
-  br i1 %.not59, label %.loopexit, label %104, !llvm.loop !299
+103:                                              ; preds = %103, %102
+  %104 = phi ptr [ %94, %102 ], [ %110, %103 ]
+  %.4 = phi i64 [ %.345, %102 ], [ %108, %103 ]
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %106 = load i32, ptr %105, align 8, !tbaa !122
+  %107 = sext i32 %106 to i64
+  %108 = add nsw i64 %.4, %107
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  %110 = load ptr, ptr %109, align 8, !tbaa !86
+  %.not59 = icmp eq ptr %110, null
+  br i1 %.not59, label %.loopexit, label %103, !llvm.loop !299
 
-.loopexit:                                        ; preds = %104
-  store ptr null, ptr %103, align 8, !tbaa !84
+.loopexit:                                        ; preds = %103
+  %111 = getelementptr inbounds nuw i8, ptr %.04673, i64 176
+  store ptr null, ptr %111, align 8, !tbaa !84
   br label %112
 
 112:                                              ; preds = %.loopexit, %.lr.ph
-  %.244 = phi i64 [ %.14371, %.lr.ph ], [ %109, %.loopexit ]
+  %.244 = phi i64 [ %.14371, %.lr.ph ], [ %108, %.loopexit ]
   %.2 = phi i64 [ %.172, %.lr.ph ], [ %.3, %.loopexit ]
   %113 = getelementptr inbounds nuw i8, ptr %.04673, i64 8
   %.046 = load ptr, ptr %113, align 8, !tbaa !90

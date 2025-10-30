@@ -5757,11 +5757,10 @@ sub_1:                                            ; preds = %_ZL12parse_stringPP
 245:                                              ; preds = %241
   %246 = load i32, ptr %12, align 4, !tbaa !4
   %247 = tail call fastcc noundef i32 @_ZL17select_chainnamesPK7t_atomsiN3gmx8ArrayRefIPcEEPiS6_(ptr noundef %2, i32 noundef %246, ptr %243, ptr noundef %4, ptr noundef %5)
-  %248 = icmp ne i32 %247, 0
-  %249 = load ptr, ptr %243, align 8, !tbaa !21
-  %250 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.135, ptr noundef %249) #28
-  %251 = icmp sgt i32 %246, 1
-  br i1 %251, label %.lr.ph220.preheader, label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit
+  %248 = load ptr, ptr %243, align 8, !tbaa !21
+  %249 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.135, ptr noundef %248) #28
+  %250 = icmp sgt i32 %246, 1
+  br i1 %250, label %.lr.ph220.preheader, label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit.loopexit
 
 .lr.ph220.preheader:                              ; preds = %245
   %wide.trip.count = zext nneg i32 %246 to i64
@@ -5769,15 +5768,19 @@ sub_1:                                            ; preds = %_ZL12parse_stringPP
 
 .lr.ph220:                                        ; preds = %.lr.ph220.preheader, %.lr.ph220
   %indvars.iv = phi i64 [ 1, %.lr.ph220.preheader ], [ %indvars.iv.next, %.lr.ph220 ]
-  %252 = getelementptr inbounds nuw ptr, ptr %243, i64 %indvars.iv
-  %253 = load ptr, ptr %252, align 8, !tbaa !21
-  %254 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %253) #28
+  %251 = getelementptr inbounds nuw ptr, ptr %243, i64 %indvars.iv
+  %252 = load ptr, ptr %251, align 8, !tbaa !21
+  %253 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %252) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit, label %.lr.ph220, !llvm.loop !130
+  br i1 %exitcond.not, label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit.loopexit, label %.lr.ph220, !llvm.loop !130
 
-_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit:      ; preds = %.lr.ph.i163, %.lr.ph.i158, %.lr.ph220, %245, %176, %157, %_ZL18select_atomnumbersPPcPK7t_atomsiPiS4_S_.exit, %205, %226, %234, %218, %_ZL10copy_groupN3gmx8ArrayRefIKiEEPiS3_.exit
-  %.0133.shrunk = phi i1 [ true, %_ZL10copy_groupN3gmx8ArrayRefIKiEEPiS3_.exit ], [ %153, %_ZL18select_atomnumbersPPcPK7t_atomsiPiS4_S_.exit ], [ %207, %205 ], [ %222, %218 ], [ %230, %226 ], [ %237, %234 ], [ %160, %157 ], [ %179, %176 ], [ %248, %245 ], [ %248, %.lr.ph220 ], [ %160, %.lr.ph.i158 ], [ %179, %.lr.ph.i163 ]
+_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit.loopexit: ; preds = %.lr.ph220, %245
+  %254 = icmp ne i32 %247, 0
+  br label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit
+
+_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit:      ; preds = %.lr.ph.i163, %.lr.ph.i158, %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit.loopexit, %176, %157, %_ZL18select_atomnumbersPPcPK7t_atomsiPiS4_S_.exit, %205, %226, %234, %218, %_ZL10copy_groupN3gmx8ArrayRefIKiEEPiS3_.exit
+  %.0133.shrunk = phi i1 [ true, %_ZL10copy_groupN3gmx8ArrayRefIKiEEPiS3_.exit ], [ %153, %_ZL18select_atomnumbersPPcPK7t_atomsiPiS4_S_.exit ], [ %207, %205 ], [ %222, %218 ], [ %230, %226 ], [ %237, %234 ], [ %160, %157 ], [ %179, %176 ], [ %254, %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit.loopexit ], [ %160, %.lr.ph.i158 ], [ %179, %.lr.ph.i163 ]
   %or.cond3 = and i1 %21, %.0133.shrunk
   br i1 %or.cond3, label %255, label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit.thread
 

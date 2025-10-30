@@ -88,77 +88,77 @@ define dso_local noundef i64 @spg_kd_picksplit(ptr noundef readonly captures(non
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
-  %7 = inttoptr i64 %6 to ptr
-  %8 = load i32, ptr %4, align 8
-  %9 = sext i32 %8 to i64
-  %10 = shl nsw i64 %9, 4
-  %11 = tail call ptr @palloc(i64 noundef %10) #8
-  %12 = load i32, ptr %4, align 8
-  %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph, label %.._crit_edge_crit_edge
+  %7 = load i32, ptr %4, align 8
+  %8 = sext i32 %7 to i64
+  %9 = shl nsw i64 %8, 4
+  %10 = tail call ptr @palloc(i64 noundef %9) #8
+  %11 = load i32, ptr %4, align 8
+  %12 = icmp sgt i32 %11, 0
+  br i1 %12, label %.lr.ph, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %1
-  %.pre = sext i32 %12 to i64
+  %.pre = sext i32 %11 to i64
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %15
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %14
 
-15:                                               ; preds = %.lr.ph, %15
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
-  %18 = load i64, ptr %17, align 8
-  %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds nuw %struct.SortedPoint, ptr %11, i64 %indvars.iv
-  store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %22, ptr %21, align 8
+14:                                               ; preds = %.lr.ph, %14
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
+  %15 = load ptr, ptr %13, align 8
+  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
+  %17 = load i64, ptr %16, align 8
+  %18 = inttoptr i64 %17 to ptr
+  %19 = getelementptr inbounds nuw %struct.SortedPoint, ptr %10, i64 %indvars.iv
+  store ptr %18, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %21, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load i32, ptr %4, align 8
-  %24 = sext i32 %23 to i64
-  %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %15, label %._crit_edge, !llvm.loop !6
+  %22 = load i32, ptr %4, align 8
+  %23 = sext i32 %22 to i64
+  %24 = icmp slt i64 %indvars.iv.next, %23
+  br i1 %24, label %14, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %15, %.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %24, %15 ]
+._crit_edge:                                      ; preds = %14, %.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %23, %14 ]
+  %25 = inttoptr i64 %6 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not = icmp eq i32 %28, 0
   %29 = select i1 %.not, ptr @y_cmp, ptr @x_cmp
-  tail call void @pg_qsort(ptr noundef %11, i64 noundef %.pre-phi, i64 noundef 16, ptr noundef nonnull %29) #8
+  tail call void @pg_qsort(ptr noundef %10, i64 noundef %.pre-phi, i64 noundef 16, ptr noundef nonnull %29) #8
   %30 = load i32, ptr %4, align 8
   %31 = ashr i32 %30, 1
   %32 = load i32, ptr %26, align 8
   %33 = and i32 %32, 1
   %.not45 = icmp eq i32 %33, 0
   %34 = sext i32 %31 to i64
-  %35 = getelementptr inbounds %struct.SortedPoint, ptr %11, i64 %34
+  %35 = getelementptr inbounds %struct.SortedPoint, ptr %10, i64 %34
   %36 = load ptr, ptr %35, align 8
   %.in.idx = select i1 %.not45, i64 8, i64 0
   %.in = getelementptr inbounds nuw i8, ptr %36, i64 %.in.idx
   %37 = load i64, ptr %.in, align 8
-  store i8 1, ptr %7, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i8 1, ptr %25, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %37, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 2, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr null, ptr %40, align 8
   %41 = load i32, ptr %4, align 8
   %42 = sext i32 %41 to i64
   %43 = shl nsw i64 %42, 2
   %44 = tail call ptr @palloc(i64 noundef %43) #8
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %44, ptr %45, align 8
   %46 = load i32, ptr %4, align 8
   %47 = sext i32 %46 to i64
   %48 = shl nsw i64 %47, 3
   %49 = tail call ptr @palloc(i64 noundef %48) #8
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr %49, ptr %50, align 8
   %51 = load i32, ptr %4, align 8
   %52 = icmp sgt i32 %51, 0
@@ -170,7 +170,7 @@ define dso_local noundef i64 @spg_kd_picksplit(ptr noundef readonly captures(non
 
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
   %indvars.iv53 = phi i64 [ 0, %.lr.ph49.preheader ], [ %indvars.iv.next54, %.lr.ph49 ]
-  %54 = getelementptr inbounds nuw %struct.SortedPoint, ptr %11, i64 %indvars.iv53
+  %54 = getelementptr inbounds nuw %struct.SortedPoint, ptr %10, i64 %indvars.iv53
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %57 = load i32, ptr %56, align 8

@@ -1714,20 +1714,14 @@ _ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit: ; pre
   %4 = load ptr, ptr %TimersToPrint, align 8
   %5 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.i.not223 = icmp eq ptr %4, %5
-  br i1 %cmp.i.not223, label %for.end, label %for.body.lr.ph
+  br i1 %cmp.i.not223, label %for.end, label %for.body
 
-for.body.lr.ph:                                   ; preds = %_ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit
-  %UserTime3.i = getelementptr inbounds nuw i8, ptr %Total, i64 8
-  %SystemTime5.i = getelementptr inbounds nuw i8, ptr %Total, i64 16
-  %MemUsed7.i = getelementptr inbounds nuw i8, ptr %Total, i64 24
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %add8.i228 = phi i64 [ 0, %for.body.lr.ph ], [ %add8.i, %for.body ]
-  %add6.i227 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %add6.i, %for.body ]
-  %add4.i226 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %add4.i, %for.body ]
-  %__begin1.sroa.0.0225 = phi ptr [ %4, %for.body.lr.ph ], [ %incdec.ptr.i, %for.body ]
-  %add.i222224 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %add.i, %for.body ]
+for.body:                                         ; preds = %_ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit, %for.body
+  %add8.i228 = phi i64 [ %add8.i, %for.body ], [ 0, %_ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit ]
+  %add6.i227 = phi double [ %add6.i, %for.body ], [ 0.000000e+00, %_ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit ]
+  %add4.i226 = phi double [ %add4.i, %for.body ], [ 0.000000e+00, %_ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit ]
+  %__begin1.sroa.0.0225 = phi ptr [ %incdec.ptr.i, %for.body ], [ %4, %_ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit ]
+  %add.i222224 = phi double [ %add.i, %for.body ], [ 0.000000e+00, %_ZN4llvh4sortIRSt6vectorINS_10TimerGroup11PrintRecordESaIS3_EEEEvOT_.exit ]
   %6 = load double, ptr %__begin1.sroa.0.0225, align 8
   %add.i = fadd double %6, %add.i222224
   %UserTime.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0225, i64 8
@@ -1744,6 +1738,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i.not, label %for.cond.for.end_crit_edge, label %for.body
 
 for.cond.for.end_crit_edge:                       ; preds = %for.body
+  %UserTime3.i = getelementptr inbounds nuw i8, ptr %Total, i64 8
+  %SystemTime5.i = getelementptr inbounds nuw i8, ptr %Total, i64 16
+  %MemUsed7.i = getelementptr inbounds nuw i8, ptr %Total, i64 24
   store double %add4.i, ptr %UserTime3.i, align 8
   store double %add6.i, ptr %SystemTime5.i, align 8
   store i64 %add8.i, ptr %MemUsed7.i, align 8

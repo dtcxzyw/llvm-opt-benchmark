@@ -522,9 +522,9 @@ define void @Gia_ManInseFindStarting(ptr noundef readonly captures(none) %0, i32
   br i1 %8, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %4
-  %9 = getelementptr i8, ptr %0, i64 72
-  %10 = getelementptr i8, ptr %0, i64 768
-  %11 = getelementptr i8, ptr %0, i64 784
+  %9 = getelementptr i8, ptr %0, i64 784
+  %10 = getelementptr i8, ptr %0, i64 72
+  %11 = getelementptr i8, ptr %0, i64 768
   %12 = ashr i32 %1, 5
   %13 = sext i32 %12 to i64
   %14 = and i32 %1, 31
@@ -540,7 +540,8 @@ define void @Gia_ManInseFindStarting(ptr noundef readonly captures(none) %0, i32
   br i1 %.not, label %.critedge, label %17
 
 17:                                               ; preds = %16
-  %.val53 = load ptr, ptr %9, align 8, !tbaa !29
+  %.val61 = load i32, ptr %9, align 8, !tbaa !33
+  %.val53 = load ptr, ptr %10, align 8, !tbaa !29
   %18 = getelementptr i8, ptr %.val53, i64 8
   %.val55.val = load ptr, ptr %18, align 8, !tbaa !30
   %19 = getelementptr i8, ptr %.val53, i64 4
@@ -550,8 +551,7 @@ define void @Gia_ManInseFindStarting(ptr noundef readonly captures(none) %0, i32
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i32, ptr %.val55.val, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !34
-  %.val60 = load ptr, ptr %10, align 8, !tbaa !32
-  %.val61 = load i32, ptr %11, align 8, !tbaa !33
+  %.val60 = load ptr, ptr %11, align 8, !tbaa !32
   %25 = shl i32 %24, 1
   %26 = mul i32 %25, %.val61
   %27 = sext i32 %26 to i64
@@ -757,8 +757,8 @@ Vec_IntPush.exit:                                 ; preds = %105, %Vec_IntGrow.e
   br i1 %115, label %.lr.ph110, label %.critedge2
 
 .lr.ph110:                                        ; preds = %.critedge
-  %116 = getelementptr i8, ptr %0, i64 768
-  %117 = getelementptr i8, ptr %0, i64 784
+  %116 = getelementptr i8, ptr %0, i64 784
+  %117 = getelementptr i8, ptr %0, i64 768
   %118 = ashr i32 %1, 5
   %119 = sext i32 %118 to i64
   %120 = and i32 %1, 31
@@ -775,12 +775,12 @@ Vec_IntPush.exit:                                 ; preds = %105, %Vec_IntGrow.e
   br i1 %.not47, label %.critedge2, label %124
 
 124:                                              ; preds = %123
+  %.val59 = load i32, ptr %116, align 8, !tbaa !33
   %125 = getelementptr i8, ptr %.val63109, i64 8
   %.val65.val = load ptr, ptr %125, align 8, !tbaa !30
   %126 = getelementptr inbounds nuw i32, ptr %.val65.val, i64 %indvars.iv
   %127 = load i32, ptr %126, align 4, !tbaa !34
-  %.val58 = load ptr, ptr %116, align 8, !tbaa !32
-  %.val59 = load i32, ptr %117, align 8, !tbaa !33
+  %.val58 = load ptr, ptr %117, align 8, !tbaa !32
   %128 = shl i32 %127, 1
   %129 = mul i32 %128, %.val59
   %130 = sext i32 %129 to i64

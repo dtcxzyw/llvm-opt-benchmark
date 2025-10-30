@@ -4761,8 +4761,8 @@ _ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit.thread: ; preds = %_ZN6
 
 ._crit_edge:                                      ; preds = %87, %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit.thread.thread, %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit.thread
   %73 = phi ptr [ %67, %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit.thread.thread ], [ %70, %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit.thread ], [ %70, %87 ]
-  %.in97 = phi i32 [ %.in91, %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit.thread.thread ], [ %.in, %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit.thread ], [ %.in, %87 ]
-  %74 = xor i32 %.in97, 1
+  %.in92 = phi i32 [ %.in91, %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit.thread.thread ], [ %.in, %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit.thread ], [ %.in, %87 ]
+  %74 = xor i32 %.in92, 1
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %76 = load ptr, ptr %75, align 8, !tbaa !135
   %77 = sext i32 %74 to i64
@@ -15812,7 +15812,7 @@ define linkonce_odr void @_ZN6Gluco24sortINS_3LitENS_16LessThan_defaultIS1_EEEEv
   br i1 %3, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
-  %.tr.lcssa = phi ptr [ %0, %2 ], [ %24, %tailrecurse ]
+  %.tr.lcssa = phi ptr [ %0, %2 ], [ %29, %tailrecurse ]
   %.tr41.lcssa = phi i32 [ %1, %2 ], [ %34, %tailrecurse ]
   %4 = icmp sgt i32 %.tr41.lcssa, 1
   br i1 %4, label %.lr.ph29.preheader.i, label %_ZN6Gluco213selectionSortINS_3LitENS_16LessThan_defaultIS1_EEEEvPT_iT0_.exit
@@ -15859,7 +15859,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
   %.tr4147 = phi i32 [ %34, %tailrecurse ], [ %1, %2 ]
-  %.tr46 = phi ptr [ %24, %tailrecurse ], [ %0, %2 ]
+  %.tr46 = phi ptr [ %29, %tailrecurse ], [ %0, %2 ]
   %16 = lshr i32 %.tr4147, 1
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %.tr46, i64 %17
@@ -15882,30 +15882,30 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   br i1 %23, label %21, label %.preheader, !llvm.loop !343
 
 .preheader:                                       ; preds = %21
-  %24 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.tr46, i64 %indvars.iv.next
-  %25 = sext i32 %.034 to i64
-  br label %26
+  %24 = sext i32 %.034 to i64
+  br label %25
 
-26:                                               ; preds = %.preheader, %26
-  %indvars.iv55 = phi i64 [ %25, %.preheader ], [ %indvars.iv.next56, %26 ]
+25:                                               ; preds = %.preheader, %25
+  %indvars.iv55 = phi i64 [ %24, %.preheader ], [ %indvars.iv.next56, %25 ]
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
-  %27 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.tr46, i64 %indvars.iv.next56
-  %.sroa.0.0.copyload = load i32, ptr %27, align 4, !tbaa !55
-  %28 = icmp slt i32 %.sroa.018.0.copyload, %.sroa.0.0.copyload
-  br i1 %28, label %26, label %29, !llvm.loop !344
+  %26 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.tr46, i64 %indvars.iv.next56
+  %.sroa.0.0.copyload = load i32, ptr %26, align 4, !tbaa !55
+  %27 = icmp slt i32 %.sroa.018.0.copyload, %.sroa.0.0.copyload
+  br i1 %27, label %25, label %28, !llvm.loop !344
 
-29:                                               ; preds = %26
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.tr46, i64 %indvars.iv.next
   %.not = icmp slt i64 %indvars.iv.next, %indvars.iv.next56
   br i1 %.not, label %30, label %tailrecurse
 
-30:                                               ; preds = %29
+30:                                               ; preds = %28
   %31 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.tr46, i64 %indvars.iv.next56
   %32 = trunc nsw i64 %indvars.iv.next56 to i32
-  store i32 %.sroa.0.0.copyload, ptr %24, align 4, !tbaa !55
+  store i32 %.sroa.0.0.copyload, ptr %29, align 4, !tbaa !55
   store i32 %.sroa.03.0.copyload, ptr %31, align 4, !tbaa !55
   br label %19, !llvm.loop !345
 
-tailrecurse:                                      ; preds = %29
+tailrecurse:                                      ; preds = %28
   %33 = trunc nsw i64 %indvars.iv.next to i32
   tail call void @_ZN6Gluco24sortINS_3LitENS_16LessThan_defaultIS1_EEEEvPT_iT0_(ptr noundef nonnull %.tr46, i32 noundef %33)
   %34 = sub nsw i32 %.tr4147, %33

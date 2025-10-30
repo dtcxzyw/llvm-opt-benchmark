@@ -73,10 +73,10 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %indvars.iv182.sroa.gep238 = getelementptr inbounds nuw i8, ptr %24, i64 4
   br label %52
 
 42:                                               ; preds = %52
+  %indvars.iv182.sroa.gep238 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %43 = mul nsw i32 %3, %0
   %44 = sdiv i32 %43, %2
   %45 = add nsw i32 %3, 1

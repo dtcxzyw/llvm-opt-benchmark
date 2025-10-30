@@ -516,8 +516,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i207: ; preds = %44
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i209: ; preds = %.noexc214
   %.idx.i.i.i.i.i.i.i210 = shl nuw nsw i64 %33, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %32, i8 0, i64 %.idx.i.i.i.i.i.i.i210, i1 false), !tbaa !21
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i.i.i.i.i.i210
+  tail call void @llvm.memset.p0.i64(ptr align 8 %32, i8 0, i64 %.idx.i.i.i.i.i.i.i210, i1 false), !tbaa !21
   br label %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit215
 
 36:                                               ; preds = %.lr.ph, %44

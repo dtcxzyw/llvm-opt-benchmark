@@ -9355,12 +9355,10 @@ define internal fastcc void @add_digits_string(i32 noundef %0, ptr noundef %1, p
   br i1 %8, label %33, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp samesign ult i32 %3, %6
-  %spec.store.select = select i1 %10, i32 0, i32 %6
-  %11 = tail call ptr @wmem_packet_scope()
-  %12 = add nuw nsw i32 %4, 1
-  %13 = zext nneg i32 %12 to i64
-  %14 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef %13) #4
+  %10 = tail call ptr @wmem_packet_scope()
+  %11 = add nuw nsw i32 %4, 1
+  %12 = zext nneg i32 %11 to i64
+  %13 = tail call noalias ptr @wmem_alloc(ptr noundef %10, i64 noundef %12) #4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -9368,61 +9366,63 @@ define internal fastcc void @add_digits_string(i32 noundef %0, ptr noundef %1, p
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %27
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %.03539 = phi i32 [ %3, %.lr.ph.preheader ], [ %28, %27 ]
-  %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.03539)
-  %16 = icmp ult i8 %15, 10
-  br i1 %16, label %17, label %20
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
+  %.03539 = phi i32 [ %3, %.lr.ph.preheader ], [ %27, %26 ]
+  %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.03539)
+  %15 = icmp ult i8 %14, 10
+  br i1 %15, label %16, label %19
 
-17:                                               ; preds = %.lr.ph
-  %18 = or disjoint i8 %15, 48
-  %19 = getelementptr i8, ptr %14, i64 %indvars.iv
-  store i8 %18, ptr %19, align 1
-  br label %27
+16:                                               ; preds = %.lr.ph
+  %17 = or disjoint i8 %14, 48
+  %18 = getelementptr i8, ptr %13, i64 %indvars.iv
+  store i8 %17, ptr %18, align 1
+  br label %26
 
-20:                                               ; preds = %.lr.ph
-  %21 = getelementptr i8, ptr %14, i64 %indvars.iv
-  switch i8 %15, label %26 [
-    i8 10, label %22
-    i8 11, label %23
-    i8 12, label %24
-    i8 15, label %25
+19:                                               ; preds = %.lr.ph
+  %20 = getelementptr i8, ptr %13, i64 %indvars.iv
+  switch i8 %14, label %25 [
+    i8 10, label %21
+    i8 11, label %22
+    i8 12, label %23
+    i8 15, label %24
   ]
 
-22:                                               ; preds = %20
-  store i8 65, ptr %21, align 1
-  br label %27
+21:                                               ; preds = %19
+  store i8 65, ptr %20, align 1
+  br label %26
 
-23:                                               ; preds = %20
-  store i8 42, ptr %21, align 1
-  br label %27
+22:                                               ; preds = %19
+  store i8 42, ptr %20, align 1
+  br label %26
 
-24:                                               ; preds = %20
-  store i8 35, ptr %21, align 1
-  br label %27
+23:                                               ; preds = %19
+  store i8 35, ptr %20, align 1
+  br label %26
 
-25:                                               ; preds = %20
-  store i8 68, ptr %21, align 1
-  br label %27
+24:                                               ; preds = %19
+  store i8 68, ptr %20, align 1
+  br label %26
 
-26:                                               ; preds = %20
-  store i8 63, ptr %21, align 1
-  br label %27
+25:                                               ; preds = %19
+  store i8 63, ptr %20, align 1
+  br label %26
 
-27:                                               ; preds = %17, %26, %25, %24, %23, %22
-  %28 = add i32 %.03539, 1
+26:                                               ; preds = %16, %25, %24, %23, %22, %21
+  %27 = add i32 %.03539, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %27, %9
-  %.pre-phi = phi i64 [ 0, %9 ], [ %wide.trip.count, %27 ]
-  %29 = getelementptr i8, ptr %14, i64 %.pre-phi
+._crit_edge:                                      ; preds = %26, %9
+  %.pre-phi = phi i64 [ 0, %9 ], [ %wide.trip.count, %26 ]
+  %28 = icmp samesign ult i32 %3, %6
+  %spec.store.select = select i1 %28, i32 0, i32 %6
+  %29 = getelementptr i8, ptr %13, i64 %.pre-phi
   store i8 0, ptr %29, align 1
   %30 = sub nsw i32 %3, %spec.store.select
   %31 = add nuw nsw i32 %5, 1
-  %32 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %0, ptr noundef %1, i32 noundef %30, i32 noundef %31, ptr noundef %14)
+  %32 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %0, ptr noundef %1, i32 noundef %30, i32 noundef %31, ptr noundef %13)
   br label %33
 
 33:                                               ; preds = %7, %._crit_edge

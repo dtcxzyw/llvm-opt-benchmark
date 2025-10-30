@@ -25,115 +25,116 @@ $_ZNK6btAABB23overlapping_trans_cacheERKS_RK26BT_BOX_BOX_TRANSFORM_CACHEb = comd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef range(i32 0, 3) i32 @_ZN9btBvhTree20_calc_splitting_axisER18GIM_BVH_DATA_ARRAYii(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = sub nsw i32 %3, %2
-  %6 = icmp slt i32 %2, %3
-  br i1 %6, label %.lr.ph, label %._crit_edge
+  %5 = icmp slt i32 %2, %3
+  br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !4
-  %9 = sext i32 %2 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
+  %8 = sext i32 %2 to i64
   %wide.trip.count = sext i32 %3 to i64
-  br label %10
+  br label %9
 
-10:                                               ; preds = %.lr.ph, %10
-  %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %.sroa.1485.091 = phi float [ 0.000000e+00, %.lr.ph ], [ %31, %10 ]
-  %.sroa.882.090 = phi float [ 0.000000e+00, %.lr.ph ], [ %30, %10 ]
-  %.sroa.079.089 = phi float [ 0.000000e+00, %.lr.ph ], [ %29, %10 ]
-  %11 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %8, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load float, ptr %12, align 4, !tbaa !13
-  %14 = load float, ptr %11, align 4, !tbaa !13
-  %15 = fadd float %13, %14
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %17 = load float, ptr %16, align 4, !tbaa !13
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %19 = load float, ptr %18, align 4, !tbaa !13
-  %20 = fadd float %17, %19
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %22 = load float, ptr %21, align 4, !tbaa !13
-  %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %24 = load float, ptr %23, align 4, !tbaa !13
-  %25 = fadd float %22, %24
-  %26 = fmul float %15, 5.000000e-01
-  %27 = fmul float %20, 5.000000e-01
-  %28 = fmul float %25, 5.000000e-01
-  %29 = fadd float %.sroa.079.089, %26
-  %30 = fadd float %.sroa.882.090, %27
-  %31 = fadd float %.sroa.1485.091, %28
+9:                                                ; preds = %.lr.ph, %9
+  %indvars.iv = phi i64 [ %8, %.lr.ph ], [ %indvars.iv.next, %9 ]
+  %.sroa.1485.091 = phi float [ 0.000000e+00, %.lr.ph ], [ %30, %9 ]
+  %.sroa.882.090 = phi float [ 0.000000e+00, %.lr.ph ], [ %29, %9 ]
+  %.sroa.079.089 = phi float [ 0.000000e+00, %.lr.ph ], [ %28, %9 ]
+  %10 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load float, ptr %11, align 4, !tbaa !13
+  %13 = load float, ptr %10, align 4, !tbaa !13
+  %14 = fadd float %12, %13
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %16 = load float, ptr %15, align 4, !tbaa !13
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %18 = load float, ptr %17, align 4, !tbaa !13
+  %19 = fadd float %16, %18
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %21 = load float, ptr %20, align 4, !tbaa !13
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %23 = load float, ptr %22, align 4, !tbaa !13
+  %24 = fadd float %21, %23
+  %25 = fmul float %14, 5.000000e-01
+  %26 = fmul float %19, 5.000000e-01
+  %27 = fmul float %24, 5.000000e-01
+  %28 = fadd float %.sroa.079.089, %25
+  %29 = fadd float %.sroa.882.090, %26
+  %30 = fadd float %.sroa.1485.091, %27
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph100, label %10, !llvm.loop !15
+  br i1 %exitcond.not, label %.lr.ph100, label %9, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %4
-  %32 = sitofp i32 %5 to float
+  %31 = sub nsw i32 %3, %2
+  %32 = sitofp i32 %31 to float
   br label %._crit_edge101
 
-.lr.ph100:                                        ; preds = %10
-  %33 = sitofp i32 %5 to float
-  %34 = fdiv float 1.000000e+00, %33
-  %35 = fmul float %34, %29
-  %36 = fmul float %34, %30
-  %37 = fmul float %34, %31
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !4
-  %40 = sext i32 %2 to i64
+.lr.ph100:                                        ; preds = %9
+  %33 = sub nsw i32 %3, %2
+  %34 = sitofp i32 %33 to float
+  %35 = fdiv float 1.000000e+00, %34
+  %36 = fmul float %35, %28
+  %37 = fmul float %35, %29
+  %38 = fmul float %35, %30
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %40 = load ptr, ptr %39, align 8, !tbaa !4
+  %41 = sext i32 %2 to i64
   %wide.trip.count114 = sext i32 %3 to i64
-  br label %41
+  br label %42
 
-41:                                               ; preds = %.lr.ph100, %41
-  %indvars.iv111 = phi i64 [ %40, %.lr.ph100 ], [ %indvars.iv.next112, %41 ]
-  %.sroa.14.097 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %68, %41 ]
-  %.sroa.8.096 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %67, %41 ]
-  %.sroa.069.095 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %66, %41 ]
-  %42 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %39, i64 %indvars.iv111
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load float, ptr %43, align 4, !tbaa !13
-  %45 = load float, ptr %42, align 4, !tbaa !13
-  %46 = fadd float %44, %45
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 20
-  %48 = load float, ptr %47, align 4, !tbaa !13
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %50 = load float, ptr %49, align 4, !tbaa !13
-  %51 = fadd float %48, %50
-  %52 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %53 = load float, ptr %52, align 4, !tbaa !13
-  %54 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %55 = load float, ptr %54, align 4, !tbaa !13
-  %56 = fadd float %53, %55
-  %57 = fmul float %46, 5.000000e-01
-  %58 = fmul float %51, 5.000000e-01
-  %59 = fmul float %56, 5.000000e-01
-  %60 = fsub float %57, %35
+42:                                               ; preds = %.lr.ph100, %42
+  %indvars.iv111 = phi i64 [ %41, %.lr.ph100 ], [ %indvars.iv.next112, %42 ]
+  %.sroa.14.097 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %69, %42 ]
+  %.sroa.8.096 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %68, %42 ]
+  %.sroa.069.095 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %67, %42 ]
+  %43 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %40, i64 %indvars.iv111
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = load float, ptr %44, align 4, !tbaa !13
+  %46 = load float, ptr %43, align 4, !tbaa !13
+  %47 = fadd float %45, %46
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 20
+  %49 = load float, ptr %48, align 4, !tbaa !13
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %51 = load float, ptr %50, align 4, !tbaa !13
+  %52 = fadd float %49, %51
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %54 = load float, ptr %53, align 4, !tbaa !13
+  %55 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %56 = load float, ptr %55, align 4, !tbaa !13
+  %57 = fadd float %54, %56
+  %58 = fmul float %47, 5.000000e-01
+  %59 = fmul float %52, 5.000000e-01
+  %60 = fmul float %57, 5.000000e-01
   %61 = fsub float %58, %36
   %62 = fsub float %59, %37
-  %63 = fmul float %60, %60
+  %63 = fsub float %60, %38
   %64 = fmul float %61, %61
   %65 = fmul float %62, %62
-  %66 = fadd float %.sroa.069.095, %63
-  %67 = fadd float %.sroa.8.096, %64
-  %68 = fadd float %.sroa.14.097, %65
+  %66 = fmul float %63, %63
+  %67 = fadd float %.sroa.069.095, %64
+  %68 = fadd float %.sroa.8.096, %65
+  %69 = fadd float %.sroa.14.097, %66
   %indvars.iv.next112 = add nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
-  br i1 %exitcond115.not, label %._crit_edge101, label %41, !llvm.loop !17
+  br i1 %exitcond115.not, label %._crit_edge101, label %42, !llvm.loop !17
 
-._crit_edge101:                                   ; preds = %41, %._crit_edge
-  %69 = phi float [ %32, %._crit_edge ], [ %33, %41 ]
-  %.sroa.069.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %66, %41 ]
-  %.sroa.8.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %67, %41 ]
-  %.sroa.14.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %68, %41 ]
-  %70 = fadd float %69, -1.000000e+00
-  %71 = fdiv float 1.000000e+00, %70
-  %72 = fmul float %71, %.sroa.069.0.lcssa
-  %73 = fmul float %71, %.sroa.8.0.lcssa
-  %74 = fmul float %71, %.sroa.14.0.lcssa
-  %75 = fcmp olt float %72, %73
-  %..i = select i1 %75, float %73, float %72
-  %.5.i = zext i1 %75 to i32
-  %76 = fcmp olt float %..i, %74
-  %77 = select i1 %76, i32 2, i32 %.5.i
-  ret i32 %77
+._crit_edge101:                                   ; preds = %42, %._crit_edge
+  %70 = phi float [ %32, %._crit_edge ], [ %34, %42 ]
+  %.sroa.069.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %67, %42 ]
+  %.sroa.8.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %68, %42 ]
+  %.sroa.14.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %69, %42 ]
+  %71 = fadd float %70, -1.000000e+00
+  %72 = fdiv float 1.000000e+00, %71
+  %73 = fmul float %72, %.sroa.069.0.lcssa
+  %74 = fmul float %72, %.sroa.8.0.lcssa
+  %75 = fmul float %72, %.sroa.14.0.lcssa
+  %76 = fcmp olt float %73, %74
+  %..i = select i1 %76, float %74, float %73
+  %.5.i = zext i1 %76 to i32
+  %77 = fcmp olt float %..i, %75
+  %78 = select i1 %77, i32 2, i32 %.5.i
+  ret i32 %78
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -144,68 +145,68 @@ define dso_local noundef i32 @_ZN9btBvhTree30_sort_and_calc_splitting_indexER18G
   %.sroa.0.i = alloca %class.btAABB, align 8
   %6 = alloca %class.btVector3, align 4
   %7 = alloca %class.btVector3, align 8
-  %8 = sub nsw i32 %3, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = icmp slt i32 %2, %3
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 0, ptr %12, align 4
-  br i1 %11, label %.lr.ph, label %._crit_edge
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %10 = icmp slt i32 %2, %3
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i32 0, ptr %11, align 4
+  br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !4
-  %15 = sext i32 %2 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !4
+  %14 = sext i32 %2 to i64
   %wide.trip.count = sext i32 %3 to i64
-  br label %16
+  br label %15
 
-16:                                               ; preds = %.lr.ph, %16
-  %indvars.iv = phi i64 [ %15, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %.0.606170 = phi float [ 0.000000e+00, %.lr.ph ], [ %35, %16 ]
-  %.0.596269 = phi float [ 0.000000e+00, %.lr.ph ], [ %36, %16 ]
-  %.0.586368 = phi float [ 0.000000e+00, %.lr.ph ], [ %37, %16 ]
-  %17 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %14, i64 %indvars.iv
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load float, ptr %18, align 4, !tbaa !13
-  %20 = load float, ptr %17, align 4, !tbaa !13
-  %21 = fadd float %19, %20
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  %23 = load float, ptr %22, align 4, !tbaa !13
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %25 = load float, ptr %24, align 4, !tbaa !13
-  %26 = fadd float %23, %25
-  %27 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %28 = load float, ptr %27, align 4, !tbaa !13
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %30 = load float, ptr %29, align 4, !tbaa !13
-  %31 = fadd float %28, %30
-  %32 = fmul float %21, 5.000000e-01
-  %33 = fmul float %26, 5.000000e-01
-  %34 = fmul float %31, 5.000000e-01
-  %35 = fadd float %.0.606170, %32
-  %36 = fadd float %.0.596269, %33
-  %37 = fadd float %.0.586368, %34
+15:                                               ; preds = %.lr.ph, %15
+  %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %15 ]
+  %.0.606170 = phi float [ 0.000000e+00, %.lr.ph ], [ %34, %15 ]
+  %.0.596269 = phi float [ 0.000000e+00, %.lr.ph ], [ %35, %15 ]
+  %.0.586368 = phi float [ 0.000000e+00, %.lr.ph ], [ %36, %15 ]
+  %16 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %13, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load float, ptr %17, align 4, !tbaa !13
+  %19 = load float, ptr %16, align 4, !tbaa !13
+  %20 = fadd float %18, %19
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 20
+  %22 = load float, ptr %21, align 4, !tbaa !13
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %24 = load float, ptr %23, align 4, !tbaa !13
+  %25 = fadd float %22, %24
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %27 = load float, ptr %26, align 4, !tbaa !13
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %29 = load float, ptr %28, align 4, !tbaa !13
+  %30 = fadd float %27, %29
+  %31 = fmul float %20, 5.000000e-01
+  %32 = fmul float %25, 5.000000e-01
+  %33 = fmul float %30, 5.000000e-01
+  %34 = fadd float %.0.606170, %31
+  %35 = fadd float %.0.596269, %32
+  %36 = fadd float %.0.586368, %33
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %16, %5
-  %.lcssa = phi float [ 0.000000e+00, %5 ], [ %35, %16 ]
-  %.0.5863.lcssa = phi float [ 0.000000e+00, %5 ], [ %37, %16 ]
-  %.0.5962.lcssa = phi float [ 0.000000e+00, %5 ], [ %36, %16 ]
-  %38 = sitofp i32 %8 to float
+._crit_edge:                                      ; preds = %15, %5
+  %.lcssa = phi float [ 0.000000e+00, %5 ], [ %34, %15 ]
+  %.0.5863.lcssa = phi float [ 0.000000e+00, %5 ], [ %36, %15 ]
+  %.0.5962.lcssa = phi float [ 0.000000e+00, %5 ], [ %35, %15 ]
+  %37 = sub nsw i32 %3, %2
+  %38 = sitofp i32 %37 to float
   %39 = fdiv float 1.000000e+00, %38
   %40 = fmul float %39, %.lcssa
   store float %40, ptr %6, align 4, !tbaa !13
   %41 = fmul float %39, %.0.5962.lcssa
-  store float %41, ptr %9, align 4, !tbaa !13
+  store float %41, ptr %8, align 4, !tbaa !13
   %42 = fmul float %39, %.0.5863.lcssa
-  store float %42, ptr %10, align 4, !tbaa !13
+  store float %42, ptr %9, align 4, !tbaa !13
   %43 = sext i32 %4 to i64
   %44 = getelementptr inbounds float, ptr %6, i64 %43
   %45 = load float, ptr %44, align 4, !tbaa !13
-  br i1 %11, label %.lr.ph80, label %._crit_edge81
+  br i1 %10, label %.lr.ph80, label %._crit_edge81
 
 .lr.ph80:                                         ; preds = %._crit_edge
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -275,14 +276,14 @@ define dso_local noundef i32 @_ZN9btBvhTree30_sort_and_calc_splitting_indexER18G
 
 ._crit_edge81:                                    ; preds = %80, %._crit_edge
   %.037.lcssa = phi i32 [ %2, %._crit_edge ], [ %.138, %80 ]
-  %81 = sdiv i32 %8, 3
+  %81 = sdiv i32 %37, 3
   %82 = add nsw i32 %81, %2
   %.not = icmp sle i32 %.037.lcssa, %82
   %83 = xor i32 %81, -1
   %84 = add i32 %3, %83
   %85 = icmp sge i32 %.037.lcssa, %84
   %86 = or i1 %.not, %85
-  %87 = ashr i32 %8, 1
+  %87 = ashr i32 %37, 1
   %88 = add nsw i32 %87, %2
   %.2 = select i1 %86, i32 %88, i32 %.037.lcssa
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

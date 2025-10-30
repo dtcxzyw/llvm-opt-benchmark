@@ -1451,17 +1451,17 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i39: ; preds = %_ZNSt6vector
           to label %.noexc47 unwind label %209
 
 .noexc47:                                         ; preds = %149
-  %151 = add i64 %.pre-phi118, -8
-  %152 = sub i64 %151, %.pre-phi120
-  %153 = and i64 %152, -8
-  %154 = add i64 %153, 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %150, i8 0, i64 %154, i1 false)
-  %155 = getelementptr inbounds nuw i8, ptr %150, i64 %.pre-phi122
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 %.pre-phi122
+  %152 = add i64 %.pre-phi118, -8
+  %153 = sub i64 %152, %.pre-phi120
+  %154 = and i64 %153, -8
+  %155 = add i64 %154, 8
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %150, i8 0, i64 %155, i1 false)
   br label %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit48
 
 _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit48:          ; preds = %.noexc47, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i39
   %.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i39 ], [ %150, %.noexc47 ]
-  %.sroa.10.0 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i39 ], [ %155, %.noexc47 ]
+  %.sroa.10.0 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i39 ], [ %151, %.noexc47 ]
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds nuw i8, ptr %7, i64 176
@@ -2187,8 +2187,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %44
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %55, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %54, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %54, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
 
 _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc10
@@ -3144,18 +3144,18 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %_ZNSt6vectorIdSaIdE
   %69 = add i64 %68, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %65, i8 0, i64 %69, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 %62
+  %71 = ptrtoint ptr %70 to i64
   %.pre = load i32, ptr %42, align 8
   %.pre131 = load ptr, ptr %57, align 8
   %.pre132 = load ptr, ptr %56, align 8
   %.pre133 = sub nsw i32 1, %.pre
   %.pre134 = sext i32 %.pre133 to i64
-  %71 = icmp eq ptr %.pre131, %.pre132
-  %72 = ptrtoint ptr %70 to i64
+  %72 = icmp eq ptr %.pre131, %.pre132
   %73 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 192
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds double, ptr %74, i64 %.pre134
   %76 = load double, ptr %75, align 8
-  br i1 %71, label %._crit_edge, label %.lr.ph
+  br i1 %72, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit
   %77 = getelementptr inbounds nuw i8, ptr %35, i64 80
@@ -3407,7 +3407,7 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4p
   br i1 %227, label %203, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %203, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit.thread, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit, %.preheader
-  %.sroa.12.2147156 = phi i64 [ %72, %.preheader ], [ 0, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit.thread ], [ %72, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ], [ %72, %203 ]
+  %.sroa.12.2147156 = phi i64 [ %71, %.preheader ], [ 0, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit.thread ], [ %71, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ], [ %71, %203 ]
   %.sroa.080.2149155 = phi ptr [ %65, %.preheader ], [ null, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit.thread ], [ %65, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ], [ %65, %203 ]
   %228 = phi ptr [ %73, %.preheader ], [ %64, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit.thread ], [ %73, %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit ], [ %73, %203 ]
   %229 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 64

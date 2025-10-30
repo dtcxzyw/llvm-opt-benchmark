@@ -802,8 +802,6 @@ _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i: ; preds = %_ZNK3gmx7extents
   br i1 %exitcond.not.i, label %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i, !llvm.loop !23
 
 _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %36 = load ptr, ptr %35, align 8, !tbaa !66
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -813,31 +811,33 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
   br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i
 
 _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit
-  %.07.i.i = phi i64 [ 0, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit ], [ %44, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
-  %.056.i.i = phi i64 [ 1, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit ], [ %43, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
-  %37 = icmp eq i64 %.07.i.i, 0
-  %38 = icmp eq i64 %.07.i.i, 1
-  %39 = icmp eq i64 %.07.i.i, 2
-  %40 = select i1 %39, i64 %.sroa.3.0.copyload.i, i64 1
-  %41 = select i1 %38, i64 %.sroa.4.0.copyload.i, i64 %40
-  %42 = select i1 %37, i64 %.sroa.5.0.copyload.i, i64 %41
-  %43 = mul nsw i64 %42, %.056.i.i
-  %44 = add nuw nsw i64 %.07.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %44, 3
-  br i1 %exitcond.not.i.i, label %45, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, !llvm.loop !23
+  %.07.i.i = phi i64 [ 0, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit ], [ %42, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
+  %.056.i.i = phi i64 [ 1, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit ], [ %41, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
+  %35 = icmp eq i64 %.07.i.i, 0
+  %36 = icmp eq i64 %.07.i.i, 1
+  %37 = icmp eq i64 %.07.i.i, 2
+  %38 = select i1 %37, i64 %.sroa.3.0.copyload.i, i64 1
+  %39 = select i1 %36, i64 %.sroa.4.0.copyload.i, i64 %38
+  %40 = select i1 %35, i64 %.sroa.5.0.copyload.i, i64 %39
+  %41 = mul nsw i64 %40, %.056.i.i
+  %42 = add nuw nsw i64 %.07.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %42, 3
+  br i1 %exitcond.not.i.i, label %43, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, !llvm.loop !23
 
-45:                                               ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i
-  %.idx = shl nsw i64 %43, 2
-  %46 = getelementptr inbounds i8, ptr %36, i64 %.idx
-  %.not6.i = icmp eq i64 %43, 0
+43:                                               ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %45 = load ptr, ptr %44, align 8, !tbaa !66
+  %.idx = shl nsw i64 %41, 2
+  %46 = getelementptr inbounds i8, ptr %45, i64 %.idx
+  %.not6.i = icmp eq i64 %41, 0
   br i1 %.not6.i, label %"_ZSt9transformIPKfN3gmx12ArrayRefIterIfEEZNS2_12_GLOBAL__N_129DensitySimilarityInnerProductC1ENS2_12basic_mdspanIS0_NS2_7extentsIJLln1ELln1ELln1EEEENS2_12layout_rightENS2_14accessor_basicIS0_EEEEE3$_0ET0_T_SG_SF_T1_.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %45
+.lr.ph.i:                                         ; preds = %43
   %47 = sitofp i64 %33 to float
   br label %48
 
 48:                                               ; preds = %48, %.lr.ph.i
-  %.08.i = phi ptr [ %36, %.lr.ph.i ], [ %51, %48 ]
+  %.08.i = phi ptr [ %45, %.lr.ph.i ], [ %51, %48 ]
   %.sroa.04.07.i = phi ptr [ %26, %.lr.ph.i ], [ %52, %48 ]
   %49 = load float, ptr %.08.i, align 4, !tbaa !75
   %50 = fdiv float %49, %47
@@ -847,7 +847,7 @@ _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i: ; preds = %_ZNK3gmx7exten
   %.not.i7 = icmp eq ptr %51, %46
   br i1 %.not.i7, label %"_ZSt9transformIPKfN3gmx12ArrayRefIterIfEEZNS2_12_GLOBAL__N_129DensitySimilarityInnerProductC1ENS2_12basic_mdspanIS0_NS2_7extentsIJLln1ELln1ELln1EEEENS2_12layout_rightENS2_14accessor_basicIS0_EEEEE3$_0ET0_T_SG_SF_T1_.exit", label %48, !llvm.loop !77
 
-"_ZSt9transformIPKfN3gmx12ArrayRefIterIfEEZNS2_12_GLOBAL__N_129DensitySimilarityInnerProductC1ENS2_12basic_mdspanIS0_NS2_7extentsIJLln1ELln1ELln1EEEENS2_12layout_rightENS2_14accessor_basicIS0_EEEEE3$_0ET0_T_SG_SF_T1_.exit": ; preds = %48, %45
+"_ZSt9transformIPKfN3gmx12ArrayRefIterIfEEZNS2_12_GLOBAL__N_129DensitySimilarityInnerProductC1ENS2_12basic_mdspanIS0_NS2_7extentsIJLln1ELln1ELln1EEEENS2_12layout_rightENS2_14accessor_basicIS0_EEEEE3$_0ET0_T_SG_SF_T1_.exit": ; preds = %48, %43
   ret void
 
 .body:                                            ; preds = %19, %16
@@ -1247,8 +1247,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !75
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !75
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -1529,7 +1529,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_132DensitySimilarityRelativeEntropy8gr
   br i1 %exitcond.not.i.i21, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread, label %.backedge.backedge
 
 _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit: ; preds = %28
-  br i1 %31, label %44, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
+  br i1 %31, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
 
 _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread: ; preds = %.thread20, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
   %34 = tail call ptr @__cxa_allocate_exception(i64 24) #29
@@ -1556,7 +1556,7 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
 
 38:                                               ; preds = %36
   invoke void @__cxa_throw(ptr %34, ptr nonnull @_ZTIN3gmx10RangeErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #30
-          to label %72 unwind label %41
+          to label %71 unwind label %41
 
 .thread:                                          ; preds = %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
   %39 = landingpad { ptr, i32 }
@@ -1578,7 +1578,7 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #29
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.06, label %43, label %71
+  br i1 %.06, label %43, label %70
 
 .sink.split:                                      ; preds = %.thread, %.thread15
   %.pn.pn14.ph = phi { ptr, i32 } [ %40, %.thread15 ], [ %39, %.thread ]
@@ -1588,71 +1588,68 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
 43:                                               ; preds = %.sink.split, %41
   %.pn.pn14 = phi { ptr, i32 } [ %42, %41 ], [ %.pn.pn14.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %34) #29
-  br label %71
+  br label %70
 
-44:                                               ; preds = %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %46 = load ptr, ptr %45, align 8, !tbaa !66
-  br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i
-
-_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, %44
-  %.07.i.i = phi i64 [ 0, %44 ], [ %54, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
-  %.056.i.i = phi i64 [ 1, %44 ], [ %53, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
-  %47 = icmp eq i64 %.07.i.i, 0
-  %48 = icmp eq i64 %.07.i.i, 1
-  %49 = icmp eq i64 %.07.i.i, 2
-  %50 = select i1 %49, i64 %14, i64 1
-  %51 = select i1 %48, i64 %12, i64 %50
-  %52 = select i1 %47, i64 %18, i64 %51
-  %53 = mul nsw i64 %52, %.056.i.i
-  %54 = add nuw nsw i64 %.07.i.i, 1
-  %exitcond.not.i.i10 = icmp eq i64 %54, 3
+_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i: ; preds = %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i
+  %.07.i.i = phi i64 [ %51, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ], [ 0, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit ]
+  %.056.i.i = phi i64 [ %50, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ], [ 1, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit ]
+  %44 = icmp eq i64 %.07.i.i, 0
+  %45 = icmp eq i64 %.07.i.i, 1
+  %46 = icmp eq i64 %.07.i.i, 2
+  %47 = select i1 %46, i64 %14, i64 1
+  %48 = select i1 %45, i64 %12, i64 %47
+  %49 = select i1 %44, i64 %18, i64 %48
+  %50 = mul nsw i64 %49, %.056.i.i
+  %51 = add nuw nsw i64 %.07.i.i, 1
+  %exitcond.not.i.i10 = icmp eq i64 %51, 3
   br i1 %exitcond.not.i.i10, label %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, !llvm.loop !23
 
 _ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i
-  %.idx = shl nsw i64 %53, 2
-  %55 = getelementptr inbounds i8, ptr %46, i64 %.idx
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %57 = load ptr, ptr %56, align 8, !tbaa !25
-  %.not9.i = icmp eq i64 %53, 0
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %53 = load ptr, ptr %52, align 8, !tbaa !66
+  %.idx = shl nsw i64 %50, 2
+  %54 = getelementptr inbounds i8, ptr %53, i64 %.idx
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %56 = load ptr, ptr %55, align 8, !tbaa !25
+  %.not9.i = icmp eq i64 %50, 0
   br i1 %.not9.i, label %_ZSt9transformIPKfS1_N3gmx12ArrayRefIterIfEEPFfffEET1_T_S8_T0_S7_T2_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %59 = load ptr, ptr %58, align 8, !tbaa !66
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %58 = load ptr, ptr %57, align 8, !tbaa !66
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.012.i = phi ptr [ %65, %.lr.ph.i ], [ %46, %.lr.ph.i.preheader ]
-  %.0711.i = phi ptr [ %66, %.lr.ph.i ], [ %59, %.lr.ph.i.preheader ]
-  %.sroa.0.010.i = phi ptr [ %67, %.lr.ph.i ], [ %57, %.lr.ph.i.preheader ]
-  %60 = load float, ptr %.012.i, align 4, !tbaa !75
-  %61 = load float, ptr %.0711.i, align 4, !tbaa !75
+  %.012.i = phi ptr [ %64, %.lr.ph.i ], [ %53, %.lr.ph.i.preheader ]
+  %.0711.i = phi ptr [ %65, %.lr.ph.i ], [ %58, %.lr.ph.i.preheader ]
+  %.sroa.0.010.i = phi ptr [ %66, %.lr.ph.i ], [ %56, %.lr.ph.i.preheader ]
+  %59 = load float, ptr %.012.i, align 4, !tbaa !75
+  %60 = load float, ptr %.0711.i, align 4, !tbaa !75
+  %61 = fcmp ogt float %59, 0.000000e+00
   %62 = fcmp ogt float %60, 0.000000e+00
-  %63 = fcmp ogt float %61, 0.000000e+00
-  %or.cond.i = and i1 %62, %63
-  %64 = fdiv float %60, %61
-  %.0.i = select i1 %or.cond.i, float %64, float 0.000000e+00
+  %or.cond.i = and i1 %61, %62
+  %63 = fdiv float %59, %60
+  %.0.i = select i1 %or.cond.i, float %63, float 0.000000e+00
   store float %.0.i, ptr %.sroa.0.010.i, align 4, !tbaa !75
-  %65 = getelementptr inbounds nuw i8, ptr %.012.i, i64 4
-  %66 = getelementptr inbounds nuw i8, ptr %.0711.i, i64 4
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 4
-  %.not.i = icmp eq ptr %65, %55
+  %64 = getelementptr inbounds nuw i8, ptr %.012.i, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.0711.i, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 4
+  %.not.i = icmp eq ptr %64, %54
   br i1 %.not.i, label %_ZSt9transformIPKfS1_N3gmx12ArrayRefIterIfEEPFfffEET1_T_S8_T0_S7_T2_.exit, label %.lr.ph.i, !llvm.loop !87
 
 _ZSt9transformIPKfS1_N3gmx12ArrayRefIterIfEEPFfffEET1_T_S8_T0_S7_T2_.exit: ; preds = %.lr.ph.i, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %68, i64 32, i1 false)
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %57, ptr %70, align 8, !tbaa !66, !alias.scope !88
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %67, i64 32, i1 false)
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %56, ptr %69, align 8, !tbaa !66, !alias.scope !88
   ret void
 
-71:                                               ; preds = %41, %43
+70:                                               ; preds = %41, %43
   %.pn.pn13 = phi { ptr, i32 } [ %42, %41 ], [ %.pn.pn14, %43 ]
   resume { ptr, i32 } %.pn.pn13
 
-72:                                               ; preds = %38
+71:                                               ; preds = %38
   unreachable
 }
 
@@ -1712,7 +1709,7 @@ define internal noundef float @_ZN3gmx12_GLOBAL__N_132DensitySimilarityRelativeE
   br i1 %exitcond.not.i.i26, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread, label %.backedge.backedge
 
 _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit: ; preds = %27
-  br i1 %30, label %43, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
+  br i1 %30, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
 
 _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread: ; preds = %.thread25, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
   %33 = tail call ptr @__cxa_allocate_exception(i64 24) #29
@@ -1739,7 +1736,7 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
 
 37:                                               ; preds = %35
   invoke void @__cxa_throw(ptr %33, ptr nonnull @_ZTIN3gmx10RangeErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #30
-          to label %71 unwind label %40
+          to label %70 unwind label %40
 
 .thread:                                          ; preds = %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
   %38 = landingpad { ptr, i32 }
@@ -1761,7 +1758,7 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #29
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.0, label %42, label %70
+  br i1 %.0, label %42, label %69
 
 .sink.split:                                      ; preds = %.thread, %.thread14
   %.pn.pn13.ph = phi { ptr, i32 } [ %39, %.thread14 ], [ %38, %.thread ]
@@ -1771,77 +1768,74 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
 42:                                               ; preds = %.sink.split, %40
   %.pn.pn13 = phi { ptr, i32 } [ %41, %40 ], [ %.pn.pn13.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %33) #29
-  br label %70
+  br label %69
 
-43:                                               ; preds = %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %45 = load ptr, ptr %44, align 8, !tbaa !66
-  br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i
-
-_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, %43
-  %.07.i.i = phi i64 [ 0, %43 ], [ %53, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
-  %.056.i.i = phi i64 [ 1, %43 ], [ %52, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
-  %46 = icmp eq i64 %.07.i.i, 0
-  %47 = icmp eq i64 %.07.i.i, 1
-  %48 = icmp eq i64 %.07.i.i, 2
-  %49 = select i1 %48, i64 %13, i64 1
-  %50 = select i1 %47, i64 %11, i64 %49
-  %51 = select i1 %46, i64 %17, i64 %50
-  %52 = mul nsw i64 %51, %.056.i.i
-  %53 = add nuw nsw i64 %.07.i.i, 1
-  %exitcond.not.i.i9 = icmp eq i64 %53, 3
+_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i: ; preds = %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i
+  %.07.i.i = phi i64 [ %50, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ], [ 0, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit ]
+  %.056.i.i = phi i64 [ %49, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ], [ 1, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit ]
+  %43 = icmp eq i64 %.07.i.i, 0
+  %44 = icmp eq i64 %.07.i.i, 1
+  %45 = icmp eq i64 %.07.i.i, 2
+  %46 = select i1 %45, i64 %13, i64 1
+  %47 = select i1 %44, i64 %11, i64 %46
+  %48 = select i1 %43, i64 %17, i64 %47
+  %49 = mul nsw i64 %48, %.056.i.i
+  %50 = add nuw nsw i64 %.07.i.i, 1
+  %exitcond.not.i.i9 = icmp eq i64 %50, 3
   br i1 %exitcond.not.i.i9, label %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, !llvm.loop !23
 
 _ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i
-  %.idx = shl nsw i64 %52, 2
-  %54 = getelementptr inbounds i8, ptr %45, i64 %.idx
-  %.not11.i = icmp eq i64 %52, 0
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %52 = load ptr, ptr %51, align 8, !tbaa !66
+  %.idx = shl nsw i64 %49, 2
+  %53 = getelementptr inbounds i8, ptr %52, i64 %.idx
+  %.not11.i = icmp eq i64 %49, 0
   br i1 %.not11.i, label %_ZSt13inner_productIPKfS1_dSt4plusIvEPFfffEET1_T_S7_T0_S6_T2_T3_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %56 = load ptr, ptr %55, align 8, !tbaa !66
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %55 = load ptr, ptr %54, align 8, !tbaa !66
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN3gmx12_GLOBAL__N_122relativeEntropyAtVoxelEff.exit
-  %.014.i = phi ptr [ %67, %_ZN3gmx12_GLOBAL__N_122relativeEntropyAtVoxelEff.exit ], [ %45, %.lr.ph.i.preheader ]
-  %.0713.i = phi ptr [ %68, %_ZN3gmx12_GLOBAL__N_122relativeEntropyAtVoxelEff.exit ], [ %56, %.lr.ph.i.preheader ]
-  %.01012.i = phi double [ %66, %_ZN3gmx12_GLOBAL__N_122relativeEntropyAtVoxelEff.exit ], [ 0.000000e+00, %.lr.ph.i.preheader ]
-  %57 = load float, ptr %.014.i, align 4, !tbaa !75
-  %58 = load float, ptr %.0713.i, align 4, !tbaa !75
+  %.014.i = phi ptr [ %66, %_ZN3gmx12_GLOBAL__N_122relativeEntropyAtVoxelEff.exit ], [ %52, %.lr.ph.i.preheader ]
+  %.0713.i = phi ptr [ %67, %_ZN3gmx12_GLOBAL__N_122relativeEntropyAtVoxelEff.exit ], [ %55, %.lr.ph.i.preheader ]
+  %.01012.i = phi double [ %65, %_ZN3gmx12_GLOBAL__N_122relativeEntropyAtVoxelEff.exit ], [ 0.000000e+00, %.lr.ph.i.preheader ]
+  %56 = load float, ptr %.014.i, align 4, !tbaa !75
+  %57 = load float, ptr %.0713.i, align 4, !tbaa !75
+  %58 = fcmp ogt float %56, 0.000000e+00
   %59 = fcmp ogt float %57, 0.000000e+00
-  %60 = fcmp ogt float %58, 0.000000e+00
-  %or.cond.i = and i1 %59, %60
-  br i1 %or.cond.i, label %61, label %_ZN3gmx12_GLOBAL__N_122relativeEntropyAtVoxelEff.exit
+  %or.cond.i = and i1 %58, %59
+  br i1 %or.cond.i, label %60, label %_ZN3gmx12_GLOBAL__N_122relativeEntropyAtVoxelEff.exit
 
-61:                                               ; preds = %.lr.ph.i
-  %62 = fdiv float %58, %57
-  %63 = tail call noundef float @logf(float noundef %62) #29, !tbaa !33
-  %64 = fmul float %57, %63
-  %65 = fpext float %64 to double
+60:                                               ; preds = %.lr.ph.i
+  %61 = fdiv float %57, %56
+  %62 = tail call noundef float @logf(float noundef %61) #29, !tbaa !33
+  %63 = fmul float %56, %62
+  %64 = fpext float %63 to double
   br label %_ZN3gmx12_GLOBAL__N_122relativeEntropyAtVoxelEff.exit
 
-_ZN3gmx12_GLOBAL__N_122relativeEntropyAtVoxelEff.exit: ; preds = %.lr.ph.i, %61
-  %.0.i = phi double [ %65, %61 ], [ 0.000000e+00, %.lr.ph.i ]
-  %66 = fadd double %.01012.i, %.0.i
-  %67 = getelementptr inbounds nuw i8, ptr %.014.i, i64 4
-  %68 = getelementptr inbounds nuw i8, ptr %.0713.i, i64 4
-  %.not.i = icmp eq ptr %67, %54
+_ZN3gmx12_GLOBAL__N_122relativeEntropyAtVoxelEff.exit: ; preds = %.lr.ph.i, %60
+  %.0.i = phi double [ %64, %60 ], [ 0.000000e+00, %.lr.ph.i ]
+  %65 = fadd double %.01012.i, %.0.i
+  %66 = getelementptr inbounds nuw i8, ptr %.014.i, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %.0713.i, i64 4
+  %.not.i = icmp eq ptr %66, %53
   br i1 %.not.i, label %_ZSt13inner_productIPKfS1_dSt4plusIvEPFfffEET1_T_S7_T0_S6_T2_T3_.exit.loopexit, label %.lr.ph.i, !llvm.loop !91
 
 _ZSt13inner_productIPKfS1_dSt4plusIvEPFfffEET1_T_S7_T0_S6_T2_T3_.exit.loopexit: ; preds = %_ZN3gmx12_GLOBAL__N_122relativeEntropyAtVoxelEff.exit
-  %69 = fptrunc double %66 to float
+  %68 = fptrunc double %65 to float
   br label %_ZSt13inner_productIPKfS1_dSt4plusIvEPFfffEET1_T_S7_T0_S6_T2_T3_.exit
 
 _ZSt13inner_productIPKfS1_dSt4plusIvEPFfffEET1_T_S7_T0_S6_T2_T3_.exit: ; preds = %_ZSt13inner_productIPKfS1_dSt4plusIvEPFfffEET1_T_S7_T0_S6_T2_T3_.exit.loopexit, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit
-  %.010.lcssa.i = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit ], [ %69, %_ZSt13inner_productIPKfS1_dSt4plusIvEPFfffEET1_T_S7_T0_S6_T2_T3_.exit.loopexit ]
+  %.010.lcssa.i = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit ], [ %68, %_ZSt13inner_productIPKfS1_dSt4plusIvEPFfffEET1_T_S7_T0_S6_T2_T3_.exit.loopexit ]
   ret float %.010.lcssa.i
 
-70:                                               ; preds = %40, %42
+69:                                               ; preds = %40, %42
   %.pn.pn12 = phi { ptr, i32 } [ %41, %40 ], [ %.pn.pn13, %42 ]
   resume { ptr, i32 } %.pn.pn12
 
-71:                                               ; preds = %37
+70:                                               ; preds = %37
   unreachable
 }
 
@@ -2040,7 +2034,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_133DensitySimilarityCrossCorrelation8g
   br i1 %exitcond.not.i.i51, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread, label %.backedge.backedge
 
 _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit: ; preds = %28
-  br i1 %31, label %44, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
+  br i1 %31, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
 
 _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread: ; preds = %.thread50, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
   %34 = tail call ptr @__cxa_allocate_exception(i64 24) #29
@@ -2067,7 +2061,7 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
 
 38:                                               ; preds = %36
   invoke void @__cxa_throw(ptr %34, ptr nonnull @_ZTIN3gmx10RangeErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #30
-          to label %115 unwind label %41
+          to label %114 unwind label %41
 
 .thread:                                          ; preds = %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
   %39 = landingpad { ptr, i32 }
@@ -2089,7 +2083,7 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #29
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.06, label %43, label %114
+  br i1 %.06, label %43, label %113
 
 .sink.split:                                      ; preds = %.thread, %.thread33
   %.pn.pn32.ph = phi { ptr, i32 } [ %40, %.thread33 ], [ %39, %.thread ]
@@ -2099,141 +2093,138 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
 43:                                               ; preds = %.sink.split, %41
   %.pn.pn32 = phi { ptr, i32 } [ %42, %41 ], [ %.pn.pn32.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %34) #29
-  br label %114
+  br label %113
 
-44:                                               ; preds = %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
+_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i: ; preds = %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
+  %.07.i.i.i = phi i64 [ %51, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i ], [ 0, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit ]
+  %.056.i.i.i = phi i64 [ %50, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i ], [ 1, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit ]
+  %44 = icmp eq i64 %.07.i.i.i, 0
+  %45 = icmp eq i64 %.07.i.i.i, 1
+  %46 = icmp eq i64 %.07.i.i.i, 2
+  %47 = select i1 %46, i64 %10, i64 1
+  %48 = select i1 %45, i64 %8, i64 %47
+  %49 = select i1 %44, i64 %16, i64 %48
+  %50 = mul nsw i64 %49, %.056.i.i.i
+  %51 = add nuw nsw i64 %.07.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %51, 3
+  br i1 %exitcond.not.i.i.i, label %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i, !llvm.loop !23
+
+_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
   %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8, !tbaa !19
   %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.528.0.copyload = load ptr, ptr %.sroa.528.0..sroa_idx, align 8, !tbaa !19
-  br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
-
-_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i, %44
-  %.07.i.i.i = phi i64 [ 0, %44 ], [ %52, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i ]
-  %.056.i.i.i = phi i64 [ 1, %44 ], [ %51, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i ]
-  %45 = icmp eq i64 %.07.i.i.i, 0
-  %46 = icmp eq i64 %.07.i.i.i, 1
-  %47 = icmp eq i64 %.07.i.i.i, 2
-  %48 = select i1 %47, i64 %10, i64 1
-  %49 = select i1 %46, i64 %8, i64 %48
-  %50 = select i1 %45, i64 %16, i64 %49
-  %51 = mul nsw i64 %50, %.056.i.i.i
-  %52 = add nuw nsw i64 %.07.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %52, 3
-  br i1 %exitcond.not.i.i.i, label %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i, !llvm.loop !23
-
-_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
-  %.idx.i = shl nsw i64 %51, 2
-  %53 = getelementptr inbounds i8, ptr %.sroa.528.0.copyload, i64 %.idx.i
-  %.not1.i = icmp eq i64 %51, 0
+  %.idx.i = shl nsw i64 %50, 2
+  %52 = getelementptr inbounds i8, ptr %.sroa.528.0.copyload, i64 %.idx.i
+  %.not1.i = icmp eq i64 %50, 0
   br i1 %.not1.i, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i, %.lr.ph.i
-  %54 = phi float [ %77, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %55 = phi float [ %73, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %56 = phi float [ %69, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %57 = phi float [ %81, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %58 = phi float [ %79, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %.04.i = phi i64 [ %66, %.lr.ph.i ], [ 0, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %.0233.i = phi ptr [ %82, %.lr.ph.i ], [ %.sroa.1.0.copyload, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %.0242.i = phi ptr [ %83, %.lr.ph.i ], [ %.sroa.528.0.copyload, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %59 = load float, ptr %.0242.i, align 4, !tbaa !75, !noalias !95
-  %60 = load float, ptr %.0233.i, align 4, !tbaa !75, !noalias !95
-  %61 = fsub float %60, %58
-  %62 = fsub float %59, %57
-  %63 = uitofp nneg i64 %.04.i to float
-  %64 = fmul float %61, %61
-  %65 = fmul float %64, %63
-  %66 = add nuw nsw i64 %.04.i, 1
-  %67 = uitofp nneg i64 %66 to float
-  %68 = fdiv float %65, %67
-  %69 = fadd float %56, %68
-  %70 = fmul float %62, %62
-  %71 = fmul float %70, %63
-  %72 = fdiv float %71, %67
-  %73 = fadd float %55, %72
-  %74 = fmul float %61, %63
-  %75 = fmul float %62, %74
-  %76 = fdiv float %75, %67
-  %77 = fadd float %54, %76
-  %78 = fdiv float %61, %67
-  %79 = fadd float %58, %78
-  %80 = fdiv float %62, %67
-  %81 = fadd float %57, %80
-  %82 = getelementptr inbounds nuw i8, ptr %.0233.i, i64 4
-  %83 = getelementptr inbounds nuw i8, ptr %.0242.i, i64 4
-  %.not.i = icmp eq ptr %83, %53
+  %53 = phi float [ %76, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
+  %54 = phi float [ %72, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
+  %55 = phi float [ %68, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
+  %56 = phi float [ %80, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
+  %57 = phi float [ %78, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
+  %.04.i = phi i64 [ %65, %.lr.ph.i ], [ 0, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
+  %.0233.i = phi ptr [ %81, %.lr.ph.i ], [ %.sroa.1.0.copyload, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
+  %.0242.i = phi ptr [ %82, %.lr.ph.i ], [ %.sroa.528.0.copyload, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
+  %58 = load float, ptr %.0242.i, align 4, !tbaa !75, !noalias !95
+  %59 = load float, ptr %.0233.i, align 4, !tbaa !75, !noalias !95
+  %60 = fsub float %59, %57
+  %61 = fsub float %58, %56
+  %62 = uitofp nneg i64 %.04.i to float
+  %63 = fmul float %60, %60
+  %64 = fmul float %63, %62
+  %65 = add nuw nsw i64 %.04.i, 1
+  %66 = uitofp nneg i64 %65 to float
+  %67 = fdiv float %64, %66
+  %68 = fadd float %55, %67
+  %69 = fmul float %61, %61
+  %70 = fmul float %69, %62
+  %71 = fdiv float %70, %66
+  %72 = fadd float %54, %71
+  %73 = fmul float %60, %62
+  %74 = fmul float %61, %73
+  %75 = fdiv float %74, %66
+  %76 = fadd float %53, %75
+  %77 = fdiv float %60, %66
+  %78 = fadd float %57, %77
+  %79 = fdiv float %61, %66
+  %80 = fadd float %56, %79
+  %81 = getelementptr inbounds nuw i8, ptr %.0233.i, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.0242.i, i64 4
+  %.not.i = icmp eq ptr %82, %52
   br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit, label %.lr.ph.i
 
 _ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit: ; preds = %.lr.ph.i, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i
-  %.sroa.5.0 = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ], [ %81, %.lr.ph.i ]
-  %.sroa.7.0 = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ], [ %69, %.lr.ph.i ]
-  %.sroa.9.0 = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ], [ %73, %.lr.ph.i ]
-  %.sroa.11.0 = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ], [ %77, %.lr.ph.i ]
-  %.sroa.017.0 = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ], [ %79, %.lr.ph.i ]
+  %.sroa.5.0 = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ], [ %80, %.lr.ph.i ]
+  %.sroa.7.0 = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ], [ %68, %.lr.ph.i ]
+  %.sroa.9.0 = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ], [ %72, %.lr.ph.i ]
+  %.sroa.11.0 = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ], [ %76, %.lr.ph.i ]
+  %.sroa.017.0 = phi float [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ], [ %78, %.lr.ph.i ]
   br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i
 
 _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit
-  %.07.i.i = phi i64 [ 0, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit ], [ %91, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
-  %.056.i.i = phi i64 [ 1, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit ], [ %90, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
-  %84 = icmp eq i64 %.07.i.i, 0
-  %85 = icmp eq i64 %.07.i.i, 1
-  %86 = icmp eq i64 %.07.i.i, 2
-  %87 = select i1 %86, i64 %14, i64 1
-  %88 = select i1 %85, i64 %12, i64 %87
-  %89 = select i1 %84, i64 %18, i64 %88
-  %90 = mul nsw i64 %89, %.056.i.i
-  %91 = add nuw nsw i64 %.07.i.i, 1
-  %exitcond.not.i.i10 = icmp eq i64 %91, 3
+  %.07.i.i = phi i64 [ 0, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit ], [ %90, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
+  %.056.i.i = phi i64 [ 1, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit ], [ %89, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
+  %83 = icmp eq i64 %.07.i.i, 0
+  %84 = icmp eq i64 %.07.i.i, 1
+  %85 = icmp eq i64 %.07.i.i, 2
+  %86 = select i1 %85, i64 %14, i64 1
+  %87 = select i1 %84, i64 %12, i64 %86
+  %88 = select i1 %83, i64 %18, i64 %87
+  %89 = mul nsw i64 %88, %.056.i.i
+  %90 = add nuw nsw i64 %.07.i.i, 1
+  %exitcond.not.i.i10 = icmp eq i64 %90, 3
   br i1 %exitcond.not.i.i10, label %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, !llvm.loop !23
 
 _ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i
-  %.idx = shl nsw i64 %90, 2
-  %92 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 %.idx
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %94 = load ptr, ptr %93, align 8, !tbaa !25
-  %95 = tail call noundef float @sqrtf(float noundef %.sroa.9.0) #29, !tbaa !33
-  %96 = tail call noundef float @sqrtf(float noundef %.sroa.7.0) #29, !tbaa !33
-  %97 = fmul float %95, %96
-  %98 = fdiv float 1.000000e+00, %97
-  %.not9.i = icmp eq i64 %90, 0
+  %.idx = shl nsw i64 %89, 2
+  %91 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 %.idx
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %93 = load ptr, ptr %92, align 8, !tbaa !25
+  %94 = tail call noundef float @sqrtf(float noundef %.sroa.9.0) #29, !tbaa !33
+  %95 = tail call noundef float @sqrtf(float noundef %.sroa.7.0) #29, !tbaa !33
+  %96 = fmul float %94, %95
+  %97 = fdiv float 1.000000e+00, %96
+  %.not9.i = icmp eq i64 %89, 0
   br i1 %.not9.i, label %_ZSt9transformIPKfS1_N3gmx12ArrayRefIterIfEENS2_12_GLOBAL__N_131CrossCorrelationGradientAtVoxelEET1_T_S8_T0_S7_T2_.exit, label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit
-  %99 = fneg float %.sroa.11.0
-  %100 = fdiv float %99, %.sroa.9.0
-  br label %101
+  %98 = fneg float %.sroa.11.0
+  %99 = fdiv float %98, %.sroa.9.0
+  br label %100
 
-101:                                              ; preds = %101, %.lr.ph.i11
-  %.012.i = phi ptr [ %.sroa.528.0.copyload, %.lr.ph.i11 ], [ %109, %101 ]
-  %.0611.i = phi ptr [ %.sroa.1.0.copyload, %.lr.ph.i11 ], [ %108, %101 ]
-  %.sroa.07.010.i = phi ptr [ %94, %.lr.ph.i11 ], [ %110, %101 ]
-  %102 = load float, ptr %.0611.i, align 4, !tbaa !75
-  %103 = load float, ptr %.012.i, align 4, !tbaa !75
-  %104 = fsub float %102, %.sroa.017.0
-  %105 = fsub float %103, %.sroa.5.0
-  %106 = tail call float @llvm.fmuladd.f32(float %100, float %105, float %104)
-  %107 = fmul float %98, %106
-  store float %107, ptr %.sroa.07.010.i, align 4, !tbaa !75
-  %108 = getelementptr inbounds nuw i8, ptr %.0611.i, i64 4
-  %109 = getelementptr inbounds nuw i8, ptr %.012.i, i64 4
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.07.010.i, i64 4
-  %.not.i12 = icmp eq ptr %108, %92
-  br i1 %.not.i12, label %_ZSt9transformIPKfS1_N3gmx12ArrayRefIterIfEENS2_12_GLOBAL__N_131CrossCorrelationGradientAtVoxelEET1_T_S8_T0_S7_T2_.exit, label %101, !llvm.loop !98
+100:                                              ; preds = %100, %.lr.ph.i11
+  %.012.i = phi ptr [ %.sroa.528.0.copyload, %.lr.ph.i11 ], [ %108, %100 ]
+  %.0611.i = phi ptr [ %.sroa.1.0.copyload, %.lr.ph.i11 ], [ %107, %100 ]
+  %.sroa.07.010.i = phi ptr [ %93, %.lr.ph.i11 ], [ %109, %100 ]
+  %101 = load float, ptr %.0611.i, align 4, !tbaa !75
+  %102 = load float, ptr %.012.i, align 4, !tbaa !75
+  %103 = fsub float %101, %.sroa.017.0
+  %104 = fsub float %102, %.sroa.5.0
+  %105 = tail call float @llvm.fmuladd.f32(float %99, float %104, float %103)
+  %106 = fmul float %97, %105
+  store float %106, ptr %.sroa.07.010.i, align 4, !tbaa !75
+  %107 = getelementptr inbounds nuw i8, ptr %.0611.i, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %.012.i, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.07.010.i, i64 4
+  %.not.i12 = icmp eq ptr %107, %91
+  br i1 %.not.i12, label %_ZSt9transformIPKfS1_N3gmx12ArrayRefIterIfEENS2_12_GLOBAL__N_131CrossCorrelationGradientAtVoxelEET1_T_S8_T0_S7_T2_.exit, label %100, !llvm.loop !98
 
-_ZSt9transformIPKfS1_N3gmx12ArrayRefIterIfEENS2_12_GLOBAL__N_131CrossCorrelationGradientAtVoxelEET1_T_S8_T0_S7_T2_.exit: ; preds = %101, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(32) %111, i64 32, i1 false)
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %94, ptr %113, align 8, !tbaa !66, !alias.scope !99
+_ZSt9transformIPKfS1_N3gmx12ArrayRefIterIfEENS2_12_GLOBAL__N_131CrossCorrelationGradientAtVoxelEET1_T_S8_T0_S7_T2_.exit: ; preds = %100, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %110, i64 32, i1 false)
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %93, ptr %112, align 8, !tbaa !66, !alias.scope !99
   ret void
 
-114:                                              ; preds = %41, %43
+113:                                              ; preds = %41, %43
   %.pn.pn31 = phi { ptr, i32 } [ %42, %41 ], [ %.pn.pn32, %43 ]
   resume { ptr, i32 } %.pn.pn31
 
-115:                                              ; preds = %38
+114:                                              ; preds = %38
   unreachable
 }
 
@@ -2293,7 +2284,7 @@ define internal noundef float @_ZN3gmx12_GLOBAL__N_133DensitySimilarityCrossCorr
   br i1 %exitcond.not.i.i54, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread, label %.backedge.backedge
 
 _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit: ; preds = %27
-  br i1 %30, label %43, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
+  br i1 %30, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i, label %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
 
 _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread: ; preds = %.thread53, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
   %33 = tail call ptr @__cxa_allocate_exception(i64 24) #29
@@ -2320,7 +2311,7 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
 
 37:                                               ; preds = %35
   invoke void @__cxa_throw(ptr %33, ptr nonnull @_ZTIN3gmx10RangeErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #30
-          to label %96 unwind label %40
+          to label %95 unwind label %40
 
 .thread:                                          ; preds = %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit.thread
   %38 = landingpad { ptr, i32 }
@@ -2342,7 +2333,7 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #29
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.010, label %42, label %95
+  br i1 %.010, label %42, label %94
 
 .sink.split:                                      ; preds = %.thread, %.thread35
   %.pn.pn34.ph = phi { ptr, i32 } [ %39, %.thread35 ], [ %38, %.thread ]
@@ -2352,100 +2343,100 @@ _ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJX
 42:                                               ; preds = %.sink.split, %40
   %.pn.pn34 = phi { ptr, i32 } [ %41, %40 ], [ %.pn.pn34.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %33) #29
-  br label %95
+  br label %94
 
-43:                                               ; preds = %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit
-  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8, !tbaa !19
-  %.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.530.0.copyload = load ptr, ptr %.sroa.530.0..sroa_idx, align 8, !tbaa !19
-  br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
-
-_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i, %43
-  %.07.i.i.i = phi i64 [ 0, %43 ], [ %51, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i ]
-  %.056.i.i.i = phi i64 [ 1, %43 ], [ %50, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i ]
-  %44 = icmp eq i64 %.07.i.i.i, 0
-  %45 = icmp eq i64 %.07.i.i.i, 1
-  %46 = icmp eq i64 %.07.i.i.i, 2
-  %47 = select i1 %46, i64 %9, i64 1
-  %48 = select i1 %45, i64 %7, i64 %47
-  %49 = select i1 %44, i64 %15, i64 %48
-  %50 = mul nsw i64 %49, %.056.i.i.i
-  %51 = add nuw nsw i64 %.07.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %51, 3
+_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i: ; preds = %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
+  %.07.i.i.i = phi i64 [ %50, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i ], [ 0, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit ]
+  %.056.i.i.i = phi i64 [ %49, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i ], [ 1, %_ZN3gmxneIJLln1ELln1ELln1EEJLln1ELln1ELln1EEEEbRKNS_7extentsIJXspT_EEEERKNS1_IJXspT0_EEEE.exit ]
+  %43 = icmp eq i64 %.07.i.i.i, 0
+  %44 = icmp eq i64 %.07.i.i.i, 1
+  %45 = icmp eq i64 %.07.i.i.i, 2
+  %46 = select i1 %45, i64 %9, i64 1
+  %47 = select i1 %44, i64 %7, i64 %46
+  %48 = select i1 %43, i64 %15, i64 %47
+  %49 = mul nsw i64 %48, %.056.i.i.i
+  %50 = add nuw nsw i64 %.07.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %50, 3
   br i1 %exitcond.not.i.i.i, label %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i, !llvm.loop !23
 
 _ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
-  %.idx.i = shl nsw i64 %50, 2
-  %52 = getelementptr inbounds i8, ptr %.sroa.530.0.copyload, i64 %.idx.i
-  %.not1.i = icmp eq i64 %50, 0
-  br i1 %.not1.i, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit.thread, label %.lr.ph.i
+  %.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.530.0.copyload = load ptr, ptr %.sroa.530.0..sroa_idx, align 8, !tbaa !19
+  %.idx.i = shl nsw i64 %49, 2
+  %51 = getelementptr inbounds i8, ptr %.sroa.530.0.copyload, i64 %.idx.i
+  %.not1.i = icmp eq i64 %49, 0
+  br i1 %.not1.i, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit.thread, label %.lr.ph.i.preheader
 
-.lr.ph.i:                                         ; preds = %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i, %.lr.ph.i
-  %53 = phi float [ %76, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %54 = phi float [ %72, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %55 = phi float [ %68, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %56 = phi float [ %80, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %57 = phi float [ %78, %.lr.ph.i ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %.04.i = phi i64 [ %65, %.lr.ph.i ], [ 0, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %.0233.i = phi ptr [ %81, %.lr.ph.i ], [ %.sroa.1.0.copyload, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %.0242.i = phi ptr [ %82, %.lr.ph.i ], [ %.sroa.530.0.copyload, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
-  %58 = load float, ptr %.0242.i, align 4, !tbaa !75, !noalias !102
-  %59 = load float, ptr %.0233.i, align 4, !tbaa !75, !noalias !102
-  %60 = fsub float %59, %57
-  %61 = fsub float %58, %56
-  %62 = uitofp nneg i64 %.04.i to float
-  %63 = fmul float %60, %60
-  %64 = fmul float %63, %62
-  %65 = add nuw nsw i64 %.04.i, 1
-  %66 = uitofp nneg i64 %65 to float
-  %67 = fdiv float %64, %66
-  %68 = fadd float %55, %67
-  %69 = fmul float %61, %61
-  %70 = fmul float %69, %62
-  %71 = fdiv float %70, %66
-  %72 = fadd float %54, %71
-  %73 = fmul float %60, %62
-  %74 = fmul float %61, %73
-  %75 = fdiv float %74, %66
-  %76 = fadd float %53, %75
-  %77 = fdiv float %60, %66
-  %78 = fadd float %57, %77
-  %79 = fdiv float %61, %66
-  %80 = fadd float %56, %79
-  %81 = getelementptr inbounds nuw i8, ptr %.0233.i, i64 4
-  %82 = getelementptr inbounds nuw i8, ptr %.0242.i, i64 4
-  %.not.i = icmp eq ptr %82, %52
+.lr.ph.i.preheader:                               ; preds = %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8, !tbaa !19
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %52 = phi float [ %75, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.i.preheader ]
+  %53 = phi float [ %71, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.i.preheader ]
+  %54 = phi float [ %67, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.i.preheader ]
+  %55 = phi float [ %79, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.i.preheader ]
+  %56 = phi float [ %77, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.i.preheader ]
+  %.04.i = phi i64 [ %64, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.0233.i = phi ptr [ %80, %.lr.ph.i ], [ %.sroa.1.0.copyload, %.lr.ph.i.preheader ]
+  %.0242.i = phi ptr [ %81, %.lr.ph.i ], [ %.sroa.530.0.copyload, %.lr.ph.i.preheader ]
+  %57 = load float, ptr %.0242.i, align 4, !tbaa !75, !noalias !102
+  %58 = load float, ptr %.0233.i, align 4, !tbaa !75, !noalias !102
+  %59 = fsub float %58, %56
+  %60 = fsub float %57, %55
+  %61 = uitofp nneg i64 %.04.i to float
+  %62 = fmul float %59, %59
+  %63 = fmul float %62, %61
+  %64 = add nuw nsw i64 %.04.i, 1
+  %65 = uitofp nneg i64 %64 to float
+  %66 = fdiv float %63, %65
+  %67 = fadd float %54, %66
+  %68 = fmul float %60, %60
+  %69 = fmul float %68, %61
+  %70 = fdiv float %69, %65
+  %71 = fadd float %53, %70
+  %72 = fmul float %59, %61
+  %73 = fmul float %60, %72
+  %74 = fdiv float %73, %65
+  %75 = fadd float %52, %74
+  %76 = fdiv float %59, %65
+  %77 = fadd float %56, %76
+  %78 = fdiv float %60, %65
+  %79 = fadd float %55, %78
+  %80 = getelementptr inbounds nuw i8, ptr %.0233.i, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.0242.i, i64 4
+  %.not.i = icmp eq ptr %81, %51
   br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit, label %.lr.ph.i
 
 _ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit: ; preds = %.lr.ph.i
-  %83 = fcmp oeq float %68, 0.000000e+00
-  %84 = fcmp oeq float %72, 0.000000e+00
-  %or.cond = select i1 %83, i1 true, i1 %84
-  br i1 %or.cond, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit.thread, label %85
+  %82 = fcmp oeq float %67, 0.000000e+00
+  %83 = fcmp oeq float %71, 0.000000e+00
+  %or.cond = select i1 %82, i1 true, i1 %83
+  br i1 %or.cond, label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit.thread, label %84
 
-85:                                               ; preds = %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit
-  %86 = tail call noundef float @llvm.fabs.f32(float %76)
-  %sqrt = tail call float @llvm.sqrt.f32(float %86)
-  %87 = fcmp ogt float %76, 0.000000e+00
-  %88 = tail call noundef float @sqrtf(float noundef %68) #29, !tbaa !33
-  %89 = fdiv float %sqrt, %88
-  %90 = fneg float %89
-  %91 = select i1 %87, float %89, float %90
-  %92 = tail call noundef float @sqrtf(float noundef %72) #29, !tbaa !33
-  %93 = fdiv float %sqrt, %92
-  %94 = fmul float %91, %93
+84:                                               ; preds = %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit
+  %85 = tail call noundef float @llvm.fabs.f32(float %75)
+  %sqrt = tail call float @llvm.sqrt.f32(float %85)
+  %86 = fcmp ogt float %75, 0.000000e+00
+  %87 = tail call noundef float @sqrtf(float noundef %67) #29, !tbaa !33
+  %88 = fdiv float %sqrt, %87
+  %89 = fneg float %88
+  %90 = select i1 %86, float %88, float %89
+  %91 = tail call noundef float @sqrtf(float noundef %71) #29, !tbaa !33
+  %92 = fdiv float %sqrt, %91
+  %93 = fmul float %90, %92
   br label %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit.thread
 
-_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit.thread: ; preds = %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit, %85
-  %.0 = phi float [ %94, %85 ], [ 0.000000e+00, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
+_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit.thread: ; preds = %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit, %84
+  %.0 = phi float [ %93, %84 ], [ 0.000000e+00, %_ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEES8_.exit ], [ 0.000000e+00, %_ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS2_EEEEEENSt9enable_ifIXclsrT_20is_always_contiguousEENSA_7pointerEE4typeERKSA_.exit.i ]
   ret float %.0
 
-95:                                               ; preds = %40, %42
+94:                                               ; preds = %40, %42
   %.pn.pn33 = phi { ptr, i32 } [ %41, %40 ], [ %.pn.pn34, %42 ]
   resume { ptr, i32 } %.pn.pn33
 
-96:                                               ; preds = %37
+95:                                               ; preds = %37
   unreachable
 }
 

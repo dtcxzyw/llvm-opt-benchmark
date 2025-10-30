@@ -3630,43 +3630,43 @@ define internal fastcc void @rec_bb(ptr noundef %0, ptr noundef readonly capture
   br i1 %59, label %60, label %89
 
 60:                                               ; preds = %._crit_edge.i
-  %61 = getelementptr inbounds nuw i8, ptr %.lcssa76.i, i64 32
-  %62 = load double, ptr %61, align 8, !tbaa !125
-  %63 = getelementptr inbounds nuw i8, ptr %.lcssa76.i, i64 104
-  %64 = load double, ptr %63, align 8, !tbaa !89
-  %65 = fsub double %62, %64
-  %66 = fcmp olt double %.sroa.07.088.i, %65
-  %67 = select i1 %66, double %.sroa.07.088.i, double %65
-  %68 = sext i32 %35 to i64
-  %69 = getelementptr ptr, ptr %39, i64 %68
-  %70 = getelementptr i8, ptr %69, i64 -8
-  %.16880.i = load ptr, ptr %70, align 8, !tbaa !42
-  %71 = getelementptr inbounds nuw i8, ptr %.16880.i, i64 16
-  %72 = load ptr, ptr %71, align 8, !tbaa !3
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 216
-  %74 = load i8, ptr %73, align 8, !tbaa !107
-  %.not7481.i = icmp eq i8 %74, 0
+  %61 = sext i32 %35 to i64
+  %62 = getelementptr ptr, ptr %39, i64 %61
+  %63 = getelementptr i8, ptr %62, i64 -8
+  %.16880.i = load ptr, ptr %63, align 8, !tbaa !42
+  %64 = getelementptr inbounds nuw i8, ptr %.16880.i, i64 16
+  %65 = load ptr, ptr %64, align 8, !tbaa !3
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 216
+  %67 = load i8, ptr %66, align 8, !tbaa !107
+  %.not7481.i = icmp eq i8 %67, 0
   br i1 %.not7481.i, label %._crit_edge85.i, label %.lr.ph84.preheader.i
 
 .lr.ph84.preheader.i:                             ; preds = %60
-  %75 = add i32 %35, -2
-  %76 = sext i32 %75 to i64
+  %68 = add i32 %35, -2
+  %69 = sext i32 %68 to i64
   br label %.lr.ph84.i
 
 .lr.ph84.i:                                       ; preds = %.lr.ph84.i, %.lr.ph84.preheader.i
-  %indvars.iv108.i = phi i64 [ %76, %.lr.ph84.preheader.i ], [ %indvars.iv.next109.i, %.lr.ph84.i ]
-  %77 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv108.i
+  %indvars.iv108.i = phi i64 [ %69, %.lr.ph84.preheader.i ], [ %indvars.iv.next109.i, %.lr.ph84.i ]
+  %70 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv108.i
   %indvars.iv.next109.i = add nsw i64 %indvars.iv108.i, -1
-  %.168.i = load ptr, ptr %77, align 8, !tbaa !42
-  %78 = getelementptr inbounds nuw i8, ptr %.168.i, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !3
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 216
-  %81 = load i8, ptr %80, align 8, !tbaa !107
-  %.not74.i = icmp eq i8 %81, 0
+  %.168.i = load ptr, ptr %70, align 8, !tbaa !42
+  %71 = getelementptr inbounds nuw i8, ptr %.168.i, i64 16
+  %72 = load ptr, ptr %71, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 216
+  %74 = load i8, ptr %73, align 8, !tbaa !107
+  %.not74.i = icmp eq i8 %74, 0
   br i1 %.not74.i, label %._crit_edge85.i, label %.lr.ph84.i, !llvm.loop !188
 
 ._crit_edge85.i:                                  ; preds = %.lr.ph84.i, %60
-  %.lcssa77.i = phi ptr [ %72, %60 ], [ %79, %.lr.ph84.i ]
+  %.lcssa77.i = phi ptr [ %65, %60 ], [ %72, %.lr.ph84.i ]
+  %75 = getelementptr inbounds nuw i8, ptr %.lcssa76.i, i64 32
+  %76 = load double, ptr %75, align 8, !tbaa !125
+  %77 = getelementptr inbounds nuw i8, ptr %.lcssa76.i, i64 104
+  %78 = load double, ptr %77, align 8, !tbaa !89
+  %79 = fsub double %76, %78
+  %80 = fcmp olt double %.sroa.07.088.i, %79
+  %81 = select i1 %80, double %.sroa.07.088.i, double %79
   %82 = getelementptr inbounds nuw i8, ptr %.lcssa77.i, i64 32
   %83 = load double, ptr %82, align 8, !tbaa !125
   %84 = getelementptr inbounds nuw i8, ptr %.lcssa77.i, i64 112
@@ -3677,7 +3677,7 @@ define internal fastcc void @rec_bb(ptr noundef %0, ptr noundef readonly capture
   br label %89
 
 89:                                               ; preds = %._crit_edge85.i, %._crit_edge.i, %37, %33
-  %.sroa.07.1.i = phi double [ %67, %._crit_edge85.i ], [ %.sroa.07.088.i, %33 ], [ %.sroa.07.088.i, %37 ], [ %.sroa.07.088.i, %._crit_edge.i ]
+  %.sroa.07.1.i = phi double [ %81, %._crit_edge85.i ], [ %.sroa.07.088.i, %33 ], [ %.sroa.07.088.i, %37 ], [ %.sroa.07.088.i, %._crit_edge.i ]
   %.sroa.0.1.i = phi double [ %88, %._crit_edge85.i ], [ %.sroa.0.089.i, %33 ], [ %.sroa.0.089.i, %37 ], [ %.sroa.0.089.i, %._crit_edge.i ]
   %indvars.iv.next112.i = add nsw i64 %indvars.iv111.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next112.i to i32

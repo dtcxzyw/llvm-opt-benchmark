@@ -1780,8 +1780,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %58
           to label %.noexc61 unwind label %.loopexit
 
 .noexc61:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %60, i8 0, i64 %.idx.i.i.i, i1 false), !tbaa !36
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %60, i8 0, i64 %.idx.i.i.i, i1 false), !tbaa !36
   %62 = getelementptr inbounds nuw float, ptr %60, i64 %36
   %.not.i.i.i.i = icmp eq ptr %.sroa.0.092, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit, label %63
@@ -1810,22 +1810,22 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %58
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.preheader, %69
-  %74 = sub i64 %45, %66
-  call void @llvm.memset.p0.i64(ptr align 4 %.sroa.15.090, i8 0, i64 %74, i1 false), !tbaa !36
-  %75 = sub nsw i64 %36, %67
-  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %75, 2
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.15.090, i64 %.idx.i.i.i.i.i.i
+  %74 = sub nsw i64 %36, %67
+  %.idx.i.i.i.i.i.i = shl nuw nsw i64 %74, 2
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.15.090, i64 %.idx.i.i.i.i.i.i
+  %76 = sub i64 %45, %66
+  call void @llvm.memset.p0.i64(ptr align 4 %.sroa.15.090, i8 0, i64 %76, i1 false), !tbaa !36
   br label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.i:            ; preds = %64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.092, i8 0, i64 %.idx.i.i.i, i1 false), !tbaa !36
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.092, i64 %.idx.i.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.092, i8 0, i64 %.idx.i.i.i, i1 false), !tbaa !36
   %.not.i.i = icmp eq ptr %.sroa.15.090, %77
   %spec.select = select i1 %.not.i.i, ptr %.sroa.15.090, ptr %77
   br label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit
 
 _ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.i, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.i, %.noexc61, %63
-  %.sroa.15.1 = phi ptr [ %61, %.noexc61 ], [ %61, %63 ], [ %spec.select, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.i ], [ %76, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.i ]
+  %.sroa.15.1 = phi ptr [ %61, %.noexc61 ], [ %61, %63 ], [ %spec.select, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.i ], [ %75, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.i ]
   %.sroa.19.1 = phi ptr [ %62, %.noexc61 ], [ %62, %63 ], [ %.sroa.19.091, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.i ], [ %.sroa.19.091, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.i ]
   %.sroa.0.2 = phi ptr [ %60, %.noexc61 ], [ %60, %63 ], [ %.sroa.0.092, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.i ], [ %.sroa.0.092, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.i ]
   switch i32 %52, label %81 [

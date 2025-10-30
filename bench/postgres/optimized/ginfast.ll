@@ -707,31 +707,31 @@ BufferGetPage.exit96:                             ; preds = %BufferGetPage.exit9
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %98 = getelementptr i8, ptr %.076, i64 12
   %.076.val90 = load i16, ptr %98, align 4
-  %99 = icmp ult i16 %.076.val90, 25
-  %100 = zext i16 %.076.val90 to i32
-  %101 = add nuw nsw i32 %100, 262120
-  %102 = lshr i32 %101, 2
-  %103 = trunc i32 %102 to i16
-  %.0.i = select i1 %99, i16 0, i16 %103
   call void @LockBuffer(i32 noundef %.0, i32 noundef 0) #8
   call void @ginBeginBAScan(ptr noundef nonnull %9) #8
-  %104 = call ptr @ginGetBAEntry(ptr noundef nonnull %9, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %11) #8
-  %.not87104 = icmp eq ptr %104, null
+  %99 = call ptr @ginGetBAEntry(ptr noundef nonnull %9, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %11) #8
+  %.not87104 = icmp eq ptr %99, null
   br i1 %.not87104, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %97, %.lr.ph
-  %105 = phi ptr [ %110, %.lr.ph ], [ %104, %97 ]
-  %106 = load i16, ptr %14, align 2
-  %107 = load i64, ptr %12, align 8
-  %108 = load i8, ptr %13, align 1
-  %109 = load i32, ptr %11, align 4
-  call void @ginEntryInsert(ptr noundef nonnull %0, i16 noundef zeroext %106, i64 noundef %107, i8 noundef signext %108, ptr noundef nonnull %105, i32 noundef %109, ptr noundef null) #8
+  %100 = phi ptr [ %105, %.lr.ph ], [ %99, %97 ]
+  %101 = load i16, ptr %14, align 2
+  %102 = load i64, ptr %12, align 8
+  %103 = load i8, ptr %13, align 1
+  %104 = load i32, ptr %11, align 4
+  call void @ginEntryInsert(ptr noundef nonnull %0, i16 noundef zeroext %101, i64 noundef %102, i8 noundef signext %103, ptr noundef nonnull %100, i32 noundef %104, ptr noundef null) #8
   call void @vacuum_delay_point(i1 noundef zeroext false) #8
-  %110 = call ptr @ginGetBAEntry(ptr noundef nonnull %9, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %11) #8
-  %.not87 = icmp eq ptr %110, null
+  %105 = call ptr @ginGetBAEntry(ptr noundef nonnull %9, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %11) #8
+  %.not87 = icmp eq ptr %105, null
   br i1 %.not87, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %97
+  %106 = icmp ult i16 %.076.val90, 25
+  %107 = zext i16 %.076.val90 to i32
+  %108 = add nuw nsw i32 %107, 262120
+  %109 = lshr i32 %108, 2
+  %110 = trunc i32 %109 to i16
+  %.0.i = select i1 %106, i16 0, i16 %110
   call void @LockBuffer(i32 noundef %28, i32 noundef 2) #8
   call void @LockBuffer(i32 noundef %.0, i32 noundef 1) #8
   %.076.val = load i16, ptr %98, align 4

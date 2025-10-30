@@ -3124,7 +3124,6 @@ _ZNK4llvm8ArrayRefIPNS_10BasicBlockEEcvSt6vectorIS2_SaIS2_EEEv.exit: ; preds = %
   store i32 0, ptr %22, align 4, !tbaa !190
   %82 = load ptr, ptr %20, align 8, !tbaa !66
   %83 = call i64 @_ZN4llvm25getLoopEstimatedTripCountEPNS_4LoopEPj(ptr noundef %82, ptr noundef nonnull %22) #24
-  %.sroa.01020.0.extract.trunc = trunc i64 %83 to i32
   %.not354.not = icmp eq i32 %79, 0
   %84 = load i32, ptr %1, align 8
   %85 = call i32 @llvm.umin.i32(i32 %84, i32 %79)
@@ -3161,6 +3160,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.lr.ph: ; preds = %_ZNK4llvm8ArrayRefI
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK4llvm8ArrayRefIPNS_10BasicBlockEEcvSt6vectorIS2_SaIS2_EEEv.exit
   %97 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %spec.store.select, %_ZNK4llvm8ArrayRefIPNS_10BasicBlockEEcvSt6vectorIS2_SaIS2_EEEv.exit ]
+  %.sroa.01020.0.extract.trunc = trunc i64 %83 to i32
   %98 = icmp eq i32 %97, %79
   %99 = and i1 %81, %98
   br i1 %98, label %220, label %.thread
@@ -3320,14 +3320,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEZNS_10UnrollLoopEPNS_4LoopE
   %168 = lshr exact i32 %158, %167
   %169 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %155, i1 true)
   %170 = lshr exact i32 %155, %169
-  %171 = call i32 @llvm.umin.i32(i32 %167, i32 %169)
   %spec.select3334.i.i = call i32 @llvm.umin.i32(i32 %168, i32 %170)
-  %172 = icmp eq i32 %168, %170
-  br i1 %172, label %._crit_edge.i.i, label %.lr.ph.i.i408
+  %171 = icmp eq i32 %168, %170
+  br i1 %171, label %._crit_edge.i.i, label %.lr.ph.i.i408
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i408, %166
   %spec.select33.lcssa.i.i = phi i32 [ %spec.select3334.i.i, %166 ], [ %spec.select33.i.i, %.lr.ph.i.i408 ]
-  %173 = shl i32 %spec.select33.lcssa.i.i, %171
+  %172 = call i32 @llvm.umin.i32(i32 %167, i32 %169)
+  %173 = shl i32 %spec.select33.lcssa.i.i, %172
   br label %_ZSt3gcdIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit
 
 .lr.ph.i.i408:                                    ; preds = %166, %.lr.ph.i.i408
@@ -3981,9 +3981,9 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %438, %_ZN4llvm13Tra
   %457 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %458 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %459 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  %460 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %460 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %.not10931268 = icmp eq ptr %356, %358
   %461 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %462 = getelementptr inbounds nuw i8, ptr %33, i64 8

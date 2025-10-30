@@ -1335,8 +1335,8 @@ define void @ggml_vec_dot_q2_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %17
 
-._crit_edge:                                      ; preds = %44, %8
-  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %61, %44 ]
+._crit_edge:                                      ; preds = %31, %8
+  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %61, %31 ]
   %11 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %12 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %13 = fadd <4 x float> %11, %12
@@ -1348,52 +1348,52 @@ define void @ggml_vec_dot_q2_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   store float %16, ptr %1, align 4, !tbaa !13
   ret void
 
-17:                                               ; preds = %.lr.ph, %44
-  %indvars.iv96 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next97, %44 ]
-  %.093 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %61, %44 ]
+17:                                               ; preds = %.lr.ph, %31
+  %indvars.iv96 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next97, %31 ]
+  %.093 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %61, %31 ]
   %18 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv96
-  %19 = load float, ptr %18, align 4, !tbaa !32
-  %20 = getelementptr inbounds nuw %struct.block_q2_K, ptr %3, i64 %indvars.iv96
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  %22 = load i16, ptr %21, align 4, !tbaa !4
-  %23 = zext i16 %22 to i64
-  %24 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %23
-  %25 = load float, ptr %24, align 4, !tbaa !13
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 82
-  %27 = load i16, ptr %26, align 2, !tbaa !4
-  %28 = zext i16 %27 to i64
-  %29 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %28
-  %30 = load float, ptr %29, align 4, !tbaa !13
-  %31 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %32 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %33 = load <2 x i64>, ptr %20, align 4, !tbaa !4
-  %34 = getelementptr inbounds nuw i8, ptr %18, i64 260
-  %35 = load <16 x i16>, ptr %34, align 4, !tbaa !4
-  %36 = bitcast <2 x i64> %33 to <16 x i8>
-  %37 = and <16 x i8> %36, splat (i8 15)
-  %38 = zext nneg <16 x i8> %37 to <16 x i16>
-  %39 = shufflevector <16 x i16> %38, <16 x i16> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %40 = bitcast <16 x i16> %38 to <8 x i32>
-  %41 = shufflevector <8 x i32> %40, <8 x i32> poison, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 4, i32 5, i32 6, i32 7>
-  %42 = bitcast <16 x i16> %39 to <32 x i8>
-  %43 = bitcast <8 x i32> %41 to <32 x i8>
+  %19 = getelementptr inbounds nuw %struct.block_q2_K, ptr %3, i64 %indvars.iv96
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %22 = load <2 x i64>, ptr %19, align 4, !tbaa !4
+  %23 = bitcast <2 x i64> %22 to <16 x i8>
+  %24 = and <16 x i8> %23, splat (i8 15)
+  %25 = zext nneg <16 x i8> %24 to <16 x i16>
+  %26 = shufflevector <16 x i16> %25, <16 x i16> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %27 = bitcast <16 x i16> %25 to <8 x i32>
+  %28 = shufflevector <8 x i32> %27, <8 x i32> poison, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 4, i32 5, i32 6, i32 7>
+  %29 = bitcast <16 x i16> %26 to <32 x i8>
+  %30 = bitcast <8 x i32> %28 to <32 x i8>
   br label %62
 
-44:                                               ; preds = %62
-  %45 = fmul float %19, %25
-  %46 = fneg float %19
-  %47 = fmul float %30, %46
-  %48 = bitcast <2 x i64> %33 to <8 x i16>
-  %49 = lshr <8 x i16> %48, splat (i16 4)
-  %50 = bitcast <8 x i16> %49 to <16 x i8>
-  %51 = and <16 x i8> %50, splat (i8 15)
-  %52 = zext nneg <16 x i8> %51 to <16 x i16>
-  %53 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %52, <16 x i16> %35)
-  %54 = insertelement <8 x float> poison, float %47, i64 0
+31:                                               ; preds = %62
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 80
+  %33 = load i16, ptr %32, align 4, !tbaa !4
+  %34 = zext i16 %33 to i64
+  %35 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %34
+  %36 = load float, ptr %35, align 4, !tbaa !13
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 82
+  %38 = load i16, ptr %37, align 2, !tbaa !4
+  %39 = zext i16 %38 to i64
+  %40 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %39
+  %41 = load float, ptr %40, align 4, !tbaa !13
+  %42 = load float, ptr %18, align 4, !tbaa !32
+  %43 = fmul float %42, %36
+  %44 = fneg float %42
+  %45 = fmul float %41, %44
+  %46 = bitcast <2 x i64> %22 to <8 x i16>
+  %47 = lshr <8 x i16> %46, splat (i16 4)
+  %48 = bitcast <8 x i16> %47 to <16 x i8>
+  %49 = and <16 x i8> %48, splat (i8 15)
+  %50 = zext nneg <16 x i8> %49 to <16 x i16>
+  %51 = getelementptr inbounds nuw i8, ptr %18, i64 260
+  %52 = load <16 x i16>, ptr %51, align 4, !tbaa !4
+  %53 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %50, <16 x i16> %52)
+  %54 = insertelement <8 x float> poison, float %45, i64 0
   %55 = shufflevector <8 x float> %54, <8 x float> poison, <8 x i32> zeroinitializer
   %56 = sitofp <8 x i32> %53 to <8 x float>
   %57 = tail call <8 x float> @llvm.fma.v8f32(<8 x float> %55, <8 x float> %56, <8 x float> %.093)
-  %58 = insertelement <8 x float> poison, float %45, i64 0
+  %58 = insertelement <8 x float> poison, float %43, i64 0
   %59 = shufflevector <8 x float> %58, <8 x float> poison, <8 x i32> zeroinitializer
   %60 = sitofp <8 x i32> %106 to <8 x float>
   %61 = tail call <8 x float> @llvm.fma.v8f32(<8 x float> %59, <8 x float> %60, <8 x float> %57)
@@ -1403,9 +1403,9 @@ define void @ggml_vec_dot_q2_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
 
 62:                                               ; preds = %17, %62
   %63 = phi i1 [ true, %17 ], [ false, %62 ]
-  %indvars.iv.sroa.phi.sroa.speculated = phi <32 x i8> [ %42, %17 ], [ %43, %62 ]
-  %.08491 = phi ptr [ %31, %17 ], [ %66, %62 ]
-  %.08590 = phi ptr [ %32, %17 ], [ %74, %62 ]
+  %indvars.iv.sroa.phi.sroa.speculated = phi <32 x i8> [ %29, %17 ], [ %30, %62 ]
+  %.08491 = phi ptr [ %20, %17 ], [ %66, %62 ]
+  %.08590 = phi ptr [ %21, %17 ], [ %74, %62 ]
   %64 = phi <8 x i32> [ zeroinitializer, %17 ], [ %106, %62 ]
   %65 = load <4 x i64>, ptr %.08491, align 1, !tbaa !4
   %66 = getelementptr inbounds nuw i8, ptr %.08491, i64 32
@@ -1449,7 +1449,7 @@ define void @ggml_vec_dot_q2_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %104 = add <8 x i32> %103, %96
   %105 = add <8 x i32> %104, %99
   %106 = add <8 x i32> %105, %102
-  br i1 %63, label %62, label %44, !llvm.loop !42
+  br i1 %63, label %62, label %31, !llvm.loop !42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1462,8 +1462,8 @@ define void @ggml_vec_dot_q3_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %17
 
-._crit_edge:                                      ; preds = %59, %8
-  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %64, %59 ]
+._crit_edge:                                      ; preds = %53, %8
+  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %64, %53 ]
   %11 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %12 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %13 = fadd <4 x float> %11, %12
@@ -1475,59 +1475,59 @@ define void @ggml_vec_dot_q3_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   store float %16, ptr %1, align 4, !tbaa !13
   ret void
 
-17:                                               ; preds = %.lr.ph, %59
-  %indvars.iv132 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next133, %59 ]
-  %.0129 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %64, %59 ]
+17:                                               ; preds = %.lr.ph, %53
+  %indvars.iv132 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next133, %53 ]
+  %.0129 = phi <8 x float> [ zeroinitializer, %.lr.ph ], [ %64, %53 ]
   %18 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv132
-  %19 = load float, ptr %18, align 4, !tbaa !32
-  %20 = getelementptr inbounds nuw %struct.block_q3_K, ptr %3, i64 %indvars.iv132
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 108
-  %22 = load i16, ptr %21, align 2, !tbaa !43
-  %23 = zext i16 %22 to i64
-  %24 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %23
-  %25 = load float, ptr %24, align 4, !tbaa !13
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  %.sroa.0.0.copyload = load i32, ptr %27, align 2
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 100
+  %19 = getelementptr inbounds nuw %struct.block_q3_K, ptr %3, i64 %indvars.iv132
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 96
+  %.sroa.0.0.copyload = load i32, ptr %21, align 2
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 100
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 2
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 104
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 104
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 2
-  %28 = lshr i32 %.sroa.5.0.copyload, 4
-  %29 = and i32 %28, 252645135
-  %30 = lshr i32 %.sroa.7.0.copyload, 2
-  %31 = and i32 %30, 808464432
-  %32 = or disjoint i32 %31, %29
-  %33 = lshr i32 %.sroa.0.0.copyload, 4
-  %34 = and i32 %33, 252645135
-  %35 = and i32 %.sroa.7.0.copyload, 808464432
-  %36 = or disjoint i32 %35, %34
-  %37 = and i32 %.sroa.5.0.copyload, 252645135
-  %38 = shl i32 %.sroa.7.0.copyload, 2
-  %39 = and i32 %38, 808464432
-  %40 = or disjoint i32 %39, %37
-  %41 = and i32 %.sroa.0.0.copyload, 252645135
-  %42 = shl i32 %.sroa.7.0.copyload, 4
-  %43 = and i32 %42, 808464432
-  %44 = or disjoint i32 %43, %41
-  %45 = insertelement <4 x i32> poison, i32 %44, i64 0
-  %46 = insertelement <4 x i32> %45, i32 %40, i64 1
-  %47 = insertelement <4 x i32> %46, i32 %36, i64 2
-  %48 = insertelement <4 x i32> %47, i32 %32, i64 3
-  %49 = bitcast <4 x i32> %48 to <16 x i8>
-  %50 = add <16 x i8> %49, splat (i8 -32)
-  %51 = sext <16 x i8> %50 to <16 x i16>
-  %52 = shufflevector <16 x i16> %51, <16 x i16> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %53 = bitcast <16 x i16> %51 to <8 x i32>
-  %54 = shufflevector <8 x i32> %53, <8 x i32> poison, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 4, i32 5, i32 6, i32 7>
-  %55 = load <16 x i16>, ptr %20, align 2, !tbaa !4
-  %56 = xor <16 x i16> %55, splat (i16 -1)
-  %57 = bitcast <16 x i16> %52 to <32 x i8>
-  %58 = bitcast <8 x i32> %54 to <32 x i8>
+  %22 = lshr i32 %.sroa.5.0.copyload, 4
+  %23 = and i32 %22, 252645135
+  %24 = lshr i32 %.sroa.7.0.copyload, 2
+  %25 = and i32 %24, 808464432
+  %26 = or disjoint i32 %25, %23
+  %27 = lshr i32 %.sroa.0.0.copyload, 4
+  %28 = and i32 %27, 252645135
+  %29 = and i32 %.sroa.7.0.copyload, 808464432
+  %30 = or disjoint i32 %29, %28
+  %31 = and i32 %.sroa.5.0.copyload, 252645135
+  %32 = shl i32 %.sroa.7.0.copyload, 2
+  %33 = and i32 %32, 808464432
+  %34 = or disjoint i32 %33, %31
+  %35 = and i32 %.sroa.0.0.copyload, 252645135
+  %36 = shl i32 %.sroa.7.0.copyload, 4
+  %37 = and i32 %36, 808464432
+  %38 = or disjoint i32 %37, %35
+  %39 = insertelement <4 x i32> poison, i32 %38, i64 0
+  %40 = insertelement <4 x i32> %39, i32 %34, i64 1
+  %41 = insertelement <4 x i32> %40, i32 %30, i64 2
+  %42 = insertelement <4 x i32> %41, i32 %26, i64 3
+  %43 = bitcast <4 x i32> %42 to <16 x i8>
+  %44 = add <16 x i8> %43, splat (i8 -32)
+  %45 = sext <16 x i8> %44 to <16 x i16>
+  %46 = shufflevector <16 x i16> %45, <16 x i16> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %47 = bitcast <16 x i16> %45 to <8 x i32>
+  %48 = shufflevector <8 x i32> %47, <8 x i32> poison, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 4, i32 5, i32 6, i32 7>
+  %49 = load <16 x i16>, ptr %19, align 2, !tbaa !4
+  %50 = xor <16 x i16> %49, splat (i16 -1)
+  %51 = bitcast <16 x i16> %46 to <32 x i8>
+  %52 = bitcast <8 x i32> %48 to <32 x i8>
   br label %65
 
-59:                                               ; preds = %65
-  %60 = fmul float %19, %25
+53:                                               ; preds = %65
+  %54 = getelementptr inbounds nuw i8, ptr %19, i64 108
+  %55 = load i16, ptr %54, align 2, !tbaa !43
+  %56 = zext i16 %55 to i64
+  %57 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %56
+  %58 = load float, ptr %57, align 4, !tbaa !13
+  %59 = load float, ptr %18, align 4, !tbaa !32
+  %60 = fmul float %59, %58
   %61 = insertelement <8 x float> poison, float %60, i64 0
   %62 = shufflevector <8 x float> %61, <8 x float> poison, <8 x i32> zeroinitializer
   %63 = sitofp <8 x i32> %140 to <8 x float>
@@ -1538,34 +1538,34 @@ define void @ggml_vec_dot_q3_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
 
 65:                                               ; preds = %17, %65
   %66 = phi i1 [ true, %17 ], [ false, %65 ]
-  %indvars.iv.sroa.phi.sroa.speculated = phi <32 x i8> [ %57, %17 ], [ %58, %65 ]
-  %.pn127 = phi ptr [ %20, %17 ], [ %.0119, %65 ]
-  %.0120126 = phi ptr [ %26, %17 ], [ %100, %65 ]
+  %indvars.iv.sroa.phi.sroa.speculated = phi <32 x i8> [ %51, %17 ], [ %52, %65 ]
+  %.pn127 = phi ptr [ %19, %17 ], [ %.0119, %65 ]
+  %.0120126 = phi ptr [ %20, %17 ], [ %100, %65 ]
   %67 = phi <8 x i32> [ zeroinitializer, %17 ], [ %140, %65 ]
   %.0122125 = phi i32 [ 0, %17 ], [ %92, %65 ]
   %.0119 = getelementptr inbounds nuw i8, ptr %.pn127, i64 32
   %68 = load <4 x i64>, ptr %.0119, align 1, !tbaa !4
   %69 = tail call <16 x i16> @llvm.x86.avx2.pslli.w(<16 x i16> splat (i16 257), i32 %.0122125)
-  %70 = and <16 x i16> %69, %56
+  %70 = and <16 x i16> %69, %50
   %71 = tail call <16 x i16> @llvm.x86.avx2.psrli.w(<16 x i16> %70, i32 %.0122125)
   %72 = shl <16 x i16> %71, splat (i16 2)
   %73 = or disjoint i32 %.0122125, 1
   %74 = bitcast <4 x i64> %68 to <16 x i16>
   %75 = lshr <16 x i16> %74, splat (i16 2)
   %76 = tail call <16 x i16> @llvm.x86.avx2.pslli.w(<16 x i16> splat (i16 257), i32 %73)
-  %77 = and <16 x i16> %76, %56
+  %77 = and <16 x i16> %76, %50
   %78 = tail call <16 x i16> @llvm.x86.avx2.psrli.w(<16 x i16> %77, i32 %73)
   %79 = shl <16 x i16> %78, splat (i16 2)
   %80 = or disjoint i32 %.0122125, 2
   %81 = lshr <16 x i16> %74, splat (i16 4)
   %82 = tail call <16 x i16> @llvm.x86.avx2.pslli.w(<16 x i16> splat (i16 257), i32 %80)
-  %83 = and <16 x i16> %82, %56
+  %83 = and <16 x i16> %82, %50
   %84 = tail call <16 x i16> @llvm.x86.avx2.psrli.w(<16 x i16> %83, i32 %80)
   %85 = shl <16 x i16> %84, splat (i16 2)
   %86 = or disjoint i32 %.0122125, 3
   %87 = lshr <16 x i16> %74, splat (i16 6)
   %88 = tail call <16 x i16> @llvm.x86.avx2.pslli.w(<16 x i16> splat (i16 257), i32 %86)
-  %89 = and <16 x i16> %88, %56
+  %89 = and <16 x i16> %88, %50
   %90 = tail call <16 x i16> @llvm.x86.avx2.psrli.w(<16 x i16> %89, i32 %86)
   %91 = shl <16 x i16> %90, splat (i16 2)
   %92 = add nuw nsw i32 %.0122125, 4
@@ -1617,7 +1617,7 @@ define void @ggml_vec_dot_q3_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %138 = add <8 x i32> %137, %130
   %139 = add <8 x i32> %138, %133
   %140 = add <8 x i32> %139, %136
-  br i1 %66, label %65, label %59, !llvm.loop !46
+  br i1 %66, label %65, label %53, !llvm.loop !46
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1630,9 +1630,9 @@ define void @ggml_vec_dot_q4_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %55, %8
-  %.078.lcssa = phi <4 x float> [ zeroinitializer, %8 ], [ %69, %55 ]
-  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %73, %55 ]
+._crit_edge:                                      ; preds = %43, %8
+  %.078.lcssa = phi <4 x float> [ zeroinitializer, %8 ], [ %69, %43 ]
+  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %73, %43 ]
   %11 = shufflevector <4 x float> %.078.lcssa, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %12 = fadd <4 x float> %.078.lcssa, %11
   %shift = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
@@ -1649,69 +1649,69 @@ define void @ggml_vec_dot_q4_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   store float %18, ptr %1, align 4, !tbaa !13
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %55
-  %indvars.iv94 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next95, %55 ]
-  %.089 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %73, %55 ]
-  %.07888 = phi <4 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %69, %55 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
+  %indvars.iv94 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next95, %43 ]
+  %.089 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %73, %43 ]
+  %.07888 = phi <4 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %69, %43 ]
   %19 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv94
-  %20 = load float, ptr %19, align 4, !tbaa !32
-  %21 = getelementptr inbounds nuw %struct.block_q4_K, ptr %3, i64 %indvars.iv94
-  %22 = load i16, ptr %21, align 4, !tbaa !4
-  %23 = zext i16 %22 to i64
-  %24 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %23
-  %25 = load float, ptr %24, align 4, !tbaa !13
-  %26 = getelementptr inbounds nuw i8, ptr %21, i64 2
-  %27 = load i16, ptr %26, align 2, !tbaa !4
-  %28 = zext i16 %27 to i64
-  %29 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %28
-  %30 = load float, ptr %29, align 4, !tbaa !13
-  %31 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %.sroa.0.0.copyload = load i32, ptr %31, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %20 = getelementptr inbounds nuw %struct.block_q4_K, ptr %3, i64 %indvars.iv94
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %.sroa.0.0.copyload = load i32, ptr %21, align 4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 12
   %.sroa.11.0.copyload = load i32, ptr %.sroa.11.0..sroa_idx, align 4
-  %32 = lshr i32 %.sroa.11.0.copyload, 4
-  %33 = and i32 %32, 252645135
-  %34 = lshr i32 %.sroa.7.0.copyload, 2
-  %35 = and i32 %34, 808464432
-  %36 = or disjoint i32 %33, %35
-  %37 = and i32 %.sroa.7.0.copyload, 1061109567
-  %38 = and i32 %.sroa.11.0.copyload, 252645135
-  %39 = lshr i32 %.sroa.0.0.copyload, 2
-  %40 = and i32 %39, 808464432
-  %41 = or disjoint i32 %38, %40
-  %42 = and i32 %.sroa.0.0.copyload, 1061109567
-  %43 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %44 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %45 = insertelement <4 x i32> poison, i32 %42, i64 0
-  %46 = insertelement <4 x i32> %45, i32 %41, i64 1
-  %47 = insertelement <4 x i32> %46, i32 %37, i64 2
-  %48 = insertelement <4 x i32> %47, i32 %36, i64 3
-  %49 = bitcast <4 x i32> %48 to <16 x i8>
-  %50 = zext nneg <16 x i8> %49 to <16 x i16>
-  %51 = getelementptr inbounds nuw i8, ptr %19, i64 260
-  %52 = load <4 x i64>, ptr %51, align 4, !tbaa !4
-  %53 = shufflevector <16 x i16> %50, <16 x i16> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %54 = bitcast <16 x i16> %53 to <32 x i8>
+  %22 = lshr i32 %.sroa.11.0.copyload, 4
+  %23 = and i32 %22, 252645135
+  %24 = lshr i32 %.sroa.7.0.copyload, 2
+  %25 = and i32 %24, 808464432
+  %26 = or disjoint i32 %23, %25
+  %27 = and i32 %.sroa.7.0.copyload, 1061109567
+  %28 = and i32 %.sroa.11.0.copyload, 252645135
+  %29 = lshr i32 %.sroa.0.0.copyload, 2
+  %30 = and i32 %29, 808464432
+  %31 = or disjoint i32 %28, %30
+  %32 = and i32 %.sroa.0.0.copyload, 1061109567
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %35 = insertelement <4 x i32> poison, i32 %32, i64 0
+  %36 = insertelement <4 x i32> %35, i32 %31, i64 1
+  %37 = insertelement <4 x i32> %36, i32 %27, i64 2
+  %38 = insertelement <4 x i32> %37, i32 %26, i64 3
+  %39 = bitcast <4 x i32> %38 to <16 x i8>
+  %40 = zext nneg <16 x i8> %39 to <16 x i16>
+  %41 = shufflevector <16 x i16> %40, <16 x i16> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %42 = bitcast <16 x i16> %41 to <32 x i8>
   br label %74
 
-55:                                               ; preds = %74
-  %56 = fmul float %20, %25
-  %57 = fneg float %20
-  %58 = fmul float %30, %57
-  %59 = bitcast <4 x i64> %52 to <16 x i16>
+43:                                               ; preds = %74
+  %44 = load float, ptr %19, align 4, !tbaa !32
+  %45 = load i16, ptr %20, align 4, !tbaa !4
+  %46 = zext i16 %45 to i64
+  %47 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %46
+  %48 = load float, ptr %47, align 4, !tbaa !13
+  %49 = fmul float %44, %48
+  %50 = fneg float %44
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 2
+  %52 = load i16, ptr %51, align 2, !tbaa !4
+  %53 = zext i16 %52 to i64
+  %54 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %53
+  %55 = load float, ptr %54, align 4, !tbaa !13
+  %56 = fmul float %55, %50
+  %57 = getelementptr inbounds nuw i8, ptr %19, i64 260
+  %58 = load <4 x i64>, ptr %57, align 4, !tbaa !4
+  %59 = bitcast <4 x i64> %58 to <16 x i16>
   %60 = shufflevector <16 x i16> %59, <16 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %61 = bitcast <4 x i64> %52 to <16 x i16>
+  %61 = bitcast <4 x i64> %58 to <16 x i16>
   %62 = shufflevector <16 x i16> %61, <16 x i16> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %63 = tail call <8 x i16> @llvm.x86.ssse3.phadd.w.128(<8 x i16> %60, <8 x i16> %62)
-  %64 = shufflevector <16 x i16> %50, <16 x i16> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %64 = shufflevector <16 x i16> %40, <16 x i16> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %65 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %64, <8 x i16> %63)
-  %66 = insertelement <4 x float> poison, float %58, i64 0
+  %66 = insertelement <4 x float> poison, float %56, i64 0
   %67 = shufflevector <4 x float> %66, <4 x float> poison, <4 x i32> zeroinitializer
   %68 = sitofp <4 x i32> %65 to <4 x float>
   %69 = tail call <4 x float> @llvm.fma.v4f32(<4 x float> %67, <4 x float> %68, <4 x float> %.07888)
-  %70 = insertelement <8 x float> poison, float %56, i64 0
+  %70 = insertelement <8 x float> poison, float %49, i64 0
   %71 = shufflevector <8 x float> %70, <8 x float> poison, <8 x i32> zeroinitializer
   %72 = sitofp <8 x i32> %101 to <8 x float>
   %73 = tail call <8 x float> @llvm.fma.v8f32(<8 x float> %71, <8 x float> %72, <8 x float> %.089)
@@ -1721,16 +1721,16 @@ define void @ggml_vec_dot_q4_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
 
 74:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
-  %.08086 = phi ptr [ %43, %.lr.ph ], [ %83, %74 ]
-  %.08185 = phi ptr [ %44, %.lr.ph ], [ %94, %74 ]
+  %.08086 = phi ptr [ %33, %.lr.ph ], [ %83, %74 ]
+  %.08185 = phi ptr [ %34, %.lr.ph ], [ %94, %74 ]
   %75 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %101, %74 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 6
   %76 = getelementptr inbounds nuw i8, ptr @get_scale_shuffle_k4.k_shuffle, i64 %.idx
   %77 = load <32 x i8>, ptr %76, align 16, !tbaa !4
-  %78 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %54, <32 x i8> %77)
+  %78 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %42, <32 x i8> %77)
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %80 = load <32 x i8>, ptr %79, align 16, !tbaa !4
-  %81 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %54, <32 x i8> %80)
+  %81 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %42, <32 x i8> %80)
   %82 = load <4 x i64>, ptr %.08086, align 1, !tbaa !4
   %83 = getelementptr inbounds nuw i8, ptr %.08086, i64 32
   %84 = bitcast <4 x i64> %82 to <16 x i16>
@@ -1753,7 +1753,7 @@ define void @ggml_vec_dot_q4_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %101 = add <8 x i32> %100, %99
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %55, label %74, !llvm.loop !48
+  br i1 %exitcond.not, label %43, label %74, !llvm.loop !48
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
@@ -1775,9 +1775,9 @@ define void @ggml_vec_dot_q5_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %57, %8
-  %.090.lcssa = phi float [ 0.000000e+00, %8 ], [ %72, %57 ]
-  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %76, %57 ]
+._crit_edge:                                      ; preds = %45, %8
+  %.090.lcssa = phi float [ 0.000000e+00, %8 ], [ %72, %45 ]
+  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %76, %45 ]
   %11 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %12 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %13 = fadd <4 x float> %11, %12
@@ -1790,73 +1790,73 @@ define void @ggml_vec_dot_q5_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   store float %17, ptr %1, align 4, !tbaa !13
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %57
-  %indvars.iv110 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next111, %57 ]
-  %.0105 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %76, %57 ]
-  %.090104 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %72, %57 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %45
+  %indvars.iv110 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next111, %45 ]
+  %.0105 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %76, %45 ]
+  %.090104 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %72, %45 ]
   %18 = getelementptr inbounds nuw %struct.block_q5_K, ptr %3, i64 %indvars.iv110
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv110
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %22 = load float, ptr %20, align 4, !tbaa !32
-  %23 = load i16, ptr %18, align 4, !tbaa !4
-  %24 = zext i16 %23 to i64
-  %25 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %24
-  %26 = load float, ptr %25, align 4, !tbaa !13
-  %27 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  %28 = load i16, ptr %27, align 2, !tbaa !4
-  %29 = zext i16 %28 to i64
-  %30 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %29
-  %31 = load float, ptr %30, align 4, !tbaa !13
-  %32 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %.sroa.0.0.copyload = load i32, ptr %32, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %.sroa.0.0.copyload = load i32, ptr %22, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 12
   %.sroa.11.0.copyload = load i32, ptr %.sroa.11.0..sroa_idx, align 4
-  %33 = lshr i32 %.sroa.11.0.copyload, 4
-  %34 = and i32 %33, 252645135
-  %35 = lshr i32 %.sroa.7.0.copyload, 2
-  %36 = and i32 %35, 808464432
-  %37 = or disjoint i32 %34, %36
-  %38 = and i32 %.sroa.7.0.copyload, 1061109567
-  %39 = and i32 %.sroa.11.0.copyload, 252645135
-  %40 = lshr i32 %.sroa.0.0.copyload, 2
-  %41 = and i32 %40, 808464432
-  %42 = or disjoint i32 %39, %41
-  %43 = and i32 %.sroa.0.0.copyload, 1061109567
-  %44 = insertelement <4 x i32> poison, i32 %43, i64 0
-  %45 = insertelement <4 x i32> %44, i32 %42, i64 1
-  %46 = insertelement <4 x i32> %45, i32 %38, i64 2
-  %47 = insertelement <4 x i32> %46, i32 %37, i64 3
-  %48 = bitcast <4 x i32> %47 to <16 x i8>
-  %49 = zext nneg <16 x i8> %48 to <16 x i16>
-  %50 = getelementptr inbounds nuw i8, ptr %20, i64 260
-  %51 = load <4 x i64>, ptr %50, align 4, !tbaa !4
-  %52 = shufflevector <16 x i16> %49, <16 x i16> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %53 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %54 = load <4 x i64>, ptr %53, align 4, !tbaa !4
-  %55 = bitcast <16 x i16> %52 to <32 x i8>
-  %56 = bitcast <4 x i64> %54 to <16 x i16>
+  %23 = lshr i32 %.sroa.11.0.copyload, 4
+  %24 = and i32 %23, 252645135
+  %25 = lshr i32 %.sroa.7.0.copyload, 2
+  %26 = and i32 %25, 808464432
+  %27 = or disjoint i32 %24, %26
+  %28 = and i32 %.sroa.7.0.copyload, 1061109567
+  %29 = and i32 %.sroa.11.0.copyload, 252645135
+  %30 = lshr i32 %.sroa.0.0.copyload, 2
+  %31 = and i32 %30, 808464432
+  %32 = or disjoint i32 %29, %31
+  %33 = and i32 %.sroa.0.0.copyload, 1061109567
+  %34 = insertelement <4 x i32> poison, i32 %33, i64 0
+  %35 = insertelement <4 x i32> %34, i32 %32, i64 1
+  %36 = insertelement <4 x i32> %35, i32 %28, i64 2
+  %37 = insertelement <4 x i32> %36, i32 %27, i64 3
+  %38 = bitcast <4 x i32> %37 to <16 x i8>
+  %39 = zext nneg <16 x i8> %38 to <16 x i16>
+  %40 = shufflevector <16 x i16> %39, <16 x i16> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %42 = load <4 x i64>, ptr %41, align 4, !tbaa !4
+  %43 = bitcast <16 x i16> %40 to <32 x i8>
+  %44 = bitcast <4 x i64> %42 to <16 x i16>
   br label %77
 
-57:                                               ; preds = %77
-  %58 = fmul float %22, %26
-  %59 = fneg float %22
-  %60 = fmul float %31, %59
-  %61 = bitcast <4 x i64> %51 to <16 x i16>
+45:                                               ; preds = %77
+  %46 = load float, ptr %20, align 4, !tbaa !32
+  %47 = load i16, ptr %18, align 4, !tbaa !4
+  %48 = zext i16 %47 to i64
+  %49 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %48
+  %50 = load float, ptr %49, align 4, !tbaa !13
+  %51 = fmul float %46, %50
+  %52 = fneg float %46
+  %53 = getelementptr inbounds nuw i8, ptr %18, i64 2
+  %54 = load i16, ptr %53, align 2, !tbaa !4
+  %55 = zext i16 %54 to i64
+  %56 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %55
+  %57 = load float, ptr %56, align 4, !tbaa !13
+  %58 = fmul float %57, %52
+  %59 = getelementptr inbounds nuw i8, ptr %20, i64 260
+  %60 = load <4 x i64>, ptr %59, align 4, !tbaa !4
+  %61 = bitcast <4 x i64> %60 to <16 x i16>
   %62 = shufflevector <16 x i16> %61, <16 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %63 = bitcast <4 x i64> %51 to <16 x i16>
+  %63 = bitcast <4 x i64> %60 to <16 x i16>
   %64 = shufflevector <16 x i16> %63, <16 x i16> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %65 = tail call <8 x i16> @llvm.x86.ssse3.phadd.w.128(<8 x i16> %62, <8 x i16> %64)
-  %66 = shufflevector <16 x i16> %49, <16 x i16> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %66 = shufflevector <16 x i16> %39, <16 x i16> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %67 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %66, <8 x i16> %65)
   %68 = tail call <4 x i32> @llvm.x86.ssse3.phadd.d.128(<4 x i32> %67, <4 x i32> zeroinitializer)
   %69 = tail call <4 x i32> @llvm.x86.ssse3.phadd.d.128(<4 x i32> %68, <4 x i32> zeroinitializer)
   %70 = extractelement <4 x i32> %69, i64 0
   %71 = sitofp i32 %70 to float
-  %72 = tail call float @llvm.fmuladd.f32(float %60, float %71, float %.090104)
-  %73 = insertelement <8 x float> poison, float %58, i64 0
+  %72 = tail call float @llvm.fmuladd.f32(float %58, float %71, float %.090104)
+  %73 = insertelement <8 x float> poison, float %51, i64 0
   %74 = shufflevector <8 x float> %73, <8 x float> poison, <8 x i32> zeroinitializer
   %75 = sitofp <8 x i32> %121 to <8 x float>
   %76 = tail call <8 x float> @llvm.fma.v8f32(<8 x float> %74, <8 x float> %75, <8 x float> %.0105)
@@ -1874,13 +1874,13 @@ define void @ggml_vec_dot_q5_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %.idx = shl nuw nsw i64 %indvars.iv, 6
   %79 = getelementptr inbounds nuw i8, ptr @get_scale_shuffle_k4.k_shuffle, i64 %.idx
   %80 = load <32 x i8>, ptr %79, align 16, !tbaa !4
-  %81 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %55, <32 x i8> %80)
+  %81 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %43, <32 x i8> %80)
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %83 = load <32 x i8>, ptr %82, align 16, !tbaa !4
-  %84 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %55, <32 x i8> %83)
+  %84 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %43, <32 x i8> %83)
   %85 = load <4 x i64>, ptr %.092102, align 1, !tbaa !4
   %86 = getelementptr inbounds nuw i8, ptr %.092102, i64 32
-  %87 = and <4 x i64> %.094100, %54
+  %87 = and <4 x i64> %.094100, %42
   %88 = or disjoint i32 %.09699, 1
   %89 = bitcast <4 x i64> %87 to <16 x i16>
   %90 = tail call <16 x i16> @llvm.x86.avx2.psrli.w(<16 x i16> %89, i32 %.09699)
@@ -1894,7 +1894,7 @@ define void @ggml_vec_dot_q5_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %98 = bitcast <4 x i64> %85 to <16 x i16>
   %99 = lshr <16 x i16> %98, splat (i16 4)
   %100 = add nuw nsw i32 %.09699, 2
-  %101 = and <16 x i16> %97, %56
+  %101 = and <16 x i16> %97, %44
   %102 = tail call <16 x i16> @llvm.x86.avx2.psrli.w(<16 x i16> %101, i32 %88)
   %103 = shl <16 x i16> %102, splat (i16 4)
   %104 = bitcast <16 x i16> %99 to <32 x i8>
@@ -1917,7 +1917,7 @@ define void @ggml_vec_dot_q5_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %121 = add <8 x i32> %120, %119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %57, label %77, !llvm.loop !50
+  br i1 %exitcond.not, label %45, label %77, !llvm.loop !50
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
@@ -1933,8 +1933,8 @@ define void @ggml_vec_dot_q6_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %29, %8
-  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %34, %29 ]
+._crit_edge:                                      ; preds = %23, %8
+  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %34, %23 ]
   %11 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %12 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %13 = fadd <4 x float> %11, %12
@@ -1946,25 +1946,25 @@ define void @ggml_vec_dot_q6_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   store float %16, ptr %1, align 4, !tbaa !13
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %29
-  %indvars.iv120 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next121, %29 ]
-  %.0117 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %34, %29 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %23
+  %indvars.iv120 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next121, %23 ]
+  %.0117 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %34, %23 ]
   %17 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv120
-  %18 = load float, ptr %17, align 4, !tbaa !32
-  %19 = getelementptr inbounds nuw %struct.block_q6_K, ptr %3, i64 %indvars.iv120
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 208
-  %21 = load i16, ptr %20, align 2, !tbaa !51
-  %22 = zext i16 %21 to i64
-  %23 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %22
-  %24 = load float, ptr %23, align 4, !tbaa !13
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 128
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %27 = getelementptr inbounds nuw i8, ptr %19, i64 192
-  %28 = load <16 x i8>, ptr %27, align 2, !tbaa !4
+  %18 = getelementptr inbounds nuw %struct.block_q6_K, ptr %3, i64 %indvars.iv120
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 192
+  %22 = load <16 x i8>, ptr %21, align 1, !tbaa !4
   br label %35
 
-29:                                               ; preds = %35
-  %30 = fmul float %18, %24
+23:                                               ; preds = %35
+  %24 = load float, ptr %17, align 4, !tbaa !32
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 208
+  %26 = load i16, ptr %25, align 2, !tbaa !51
+  %27 = zext i16 %26 to i64
+  %28 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %27
+  %29 = load float, ptr %28, align 4, !tbaa !13
+  %30 = fmul float %24, %29
   %31 = insertelement <8 x float> poison, float %30, i64 0
   %32 = shufflevector <8 x float> %31, <8 x float> poison, <8 x i32> zeroinitializer
   %33 = sitofp <8 x i32> %111 to <8 x float>
@@ -1975,23 +1975,23 @@ define void @ggml_vec_dot_q6_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
 
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %.0105115 = phi ptr [ %19, %.lr.ph ], [ %53, %35 ]
-  %.0106114 = phi ptr [ %25, %.lr.ph ], [ %55, %35 ]
-  %.0107113 = phi ptr [ %26, %.lr.ph ], [ %83, %35 ]
+  %.0105115 = phi ptr [ %18, %.lr.ph ], [ %53, %35 ]
+  %.0106114 = phi ptr [ %19, %.lr.ph ], [ %55, %35 ]
+  %.0107113 = phi ptr [ %20, %.lr.ph ], [ %83, %35 ]
   %36 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %111, %35 ]
   %37 = phi i1 [ true, %.lr.ph ], [ false, %35 ]
   %38 = getelementptr inbounds nuw <2 x i64>, ptr @get_scale_shuffle.k_shuffle, i64 %indvars.iv
   %39 = load <16 x i8>, ptr %38, align 16, !tbaa !4
-  %40 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %28, <16 x i8> %39)
+  %40 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %22, <16 x i8> %39)
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %42 = load <16 x i8>, ptr %41, align 16, !tbaa !4
-  %43 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %28, <16 x i8> %42)
+  %43 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %22, <16 x i8> %42)
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %45 = load <16 x i8>, ptr %44, align 16, !tbaa !4
-  %46 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %28, <16 x i8> %45)
+  %46 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %22, <16 x i8> %45)
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %48 = load <16 x i8>, ptr %47, align 16, !tbaa !4
-  %49 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %28, <16 x i8> %48)
+  %49 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %22, <16 x i8> %48)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %50 = load <4 x i64>, ptr %.0105115, align 1, !tbaa !4
   %51 = getelementptr inbounds nuw i8, ptr %.0105115, i64 32
@@ -2058,7 +2058,7 @@ define void @ggml_vec_dot_q6_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %109 = add <8 x i32> %108, %103
   %110 = add <8 x i32> %109, %105
   %111 = add <8 x i32> %110, %107
-  br i1 %37, label %35, label %29, !llvm.loop !54
+  br i1 %37, label %35, label %23, !llvm.loop !54
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
@@ -2074,8 +2074,8 @@ define void @ggml_vec_dot_iq2_xxs_q8_K(i32 noundef %0, ptr noalias noundef write
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %27, %8
-  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %33, %27 ]
+._crit_edge:                                      ; preds = %22, %8
+  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %33, %22 ]
   %11 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %12 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %13 = fadd <4 x float> %11, %12
@@ -2088,22 +2088,22 @@ define void @ggml_vec_dot_iq2_xxs_q8_K(i32 noundef %0, ptr noalias noundef write
   store float %17, ptr %1, align 4, !tbaa !13
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %27
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %.078 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %33, %27 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %22
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
+  %.078 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %33, %22 ]
   %18 = getelementptr inbounds nuw %struct.block_iq2_xxs, ptr %3, i64 %indvars.iv
-  %19 = load i16, ptr %18, align 2, !tbaa !7
-  %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %20
-  %22 = load float, ptr %21, align 4, !tbaa !13
-  %23 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv
-  %24 = load float, ptr %23, align 4, !tbaa !32
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %19 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   br label %34
 
-27:                                               ; preds = %34
-  %28 = fmul float %22, %24
+22:                                               ; preds = %34
+  %23 = load i16, ptr %18, align 2, !tbaa !7
+  %24 = zext i16 %23 to i64
+  %25 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %24
+  %26 = load float, ptr %25, align 4, !tbaa !13
+  %27 = load float, ptr %19, align 4, !tbaa !32
+  %28 = fmul float %26, %27
   %29 = insertelement <8 x float> poison, float %28, i64 0
   %30 = shufflevector <8 x float> %29, <8 x float> poison, <8 x i32> zeroinitializer
   %31 = add <8 x i32> %140, %141
@@ -2114,8 +2114,8 @@ define void @ggml_vec_dot_iq2_xxs_q8_K(i32 noundef %0, ptr noalias noundef write
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 34:                                               ; preds = %.lr.ph, %34
-  %.06076 = phi ptr [ %25, %.lr.ph ], [ %41, %34 ]
-  %.06175 = phi ptr [ %26, %.lr.ph ], [ %40, %34 ]
+  %.06076 = phi ptr [ %20, %.lr.ph ], [ %41, %34 ]
+  %.06175 = phi ptr [ %21, %.lr.ph ], [ %40, %34 ]
   %35 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %140, %34 ]
   %36 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %141, %34 ]
   %.06474 = phi i32 [ 0, %.lr.ph ], [ %142, %34 ]
@@ -2245,7 +2245,7 @@ define void @ggml_vec_dot_iq2_xxs_q8_K(i32 noundef %0, ptr noalias noundef write
   %141 = add <8 x i32> %139, %36
   %142 = add nuw nsw i32 %.06474, 2
   %143 = icmp samesign ult i32 %.06474, 6
-  br i1 %143, label %34, label %27, !llvm.loop !58
+  br i1 %143, label %34, label %22, !llvm.loop !58
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -2258,8 +2258,8 @@ define void @ggml_vec_dot_iq2_xs_q8_K(i32 noundef %0, ptr noalias noundef writeo
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %41, %8
-  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %47, %41 ]
+._crit_edge:                                      ; preds = %36, %8
+  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %47, %36 ]
   %11 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %12 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %13 = fadd <4 x float> %11, %12
@@ -2272,37 +2272,37 @@ define void @ggml_vec_dot_iq2_xs_q8_K(i32 noundef %0, ptr noalias noundef writeo
   store float %17, ptr %1, align 4, !tbaa !13
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
-  %indvars.iv151 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next152, %41 ]
-  %.0147 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %47, %41 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %36
+  %indvars.iv151 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next152, %36 ]
+  %.0147 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %47, %36 ]
   %18 = getelementptr inbounds nuw %struct.block_iq2_xs, ptr %3, i64 %indvars.iv151
-  %19 = load i16, ptr %18, align 2, !tbaa !59
-  %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %20
-  %22 = load float, ptr %21, align 4, !tbaa !13
-  %23 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv151
-  %24 = load float, ptr %23, align 4, !tbaa !32
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %27 = getelementptr inbounds nuw i8, ptr %18, i64 66
-  %.0.copyload = load i64, ptr %27, align 2
-  %28 = insertelement <2 x i64> poison, i64 %.0.copyload, i64 0
-  %29 = shufflevector <2 x i64> %28, <2 x i64> poison, <2 x i32> zeroinitializer
-  %30 = bitcast <2 x i64> %29 to <8 x i16>
-  %31 = lshr <8 x i16> %30, splat (i16 4)
-  %32 = bitcast <2 x i64> %29 to <16 x i8>
-  %33 = and <16 x i8> %32, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>
-  %34 = bitcast <8 x i16> %31 to <16 x i8>
-  %35 = and <16 x i8> %34, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>
-  %36 = shufflevector <16 x i8> %33, <16 x i8> %35, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %37 = bitcast <16 x i8> %36 to <8 x i16>
-  %38 = shl nuw nsw <8 x i16> %37, splat (i16 1)
-  %39 = bitcast <8 x i16> %38 to <16 x i8>
-  %40 = or disjoint <16 x i8> %39, splat (i8 1)
+  %19 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv151
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 66
+  %.0.copyload = load i64, ptr %22, align 2
+  %23 = insertelement <2 x i64> poison, i64 %.0.copyload, i64 0
+  %24 = shufflevector <2 x i64> %23, <2 x i64> poison, <2 x i32> zeroinitializer
+  %25 = bitcast <2 x i64> %24 to <8 x i16>
+  %26 = lshr <8 x i16> %25, splat (i16 4)
+  %27 = bitcast <2 x i64> %24 to <16 x i8>
+  %28 = and <16 x i8> %27, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>
+  %29 = bitcast <8 x i16> %26 to <16 x i8>
+  %30 = and <16 x i8> %29, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>
+  %31 = shufflevector <16 x i8> %28, <16 x i8> %30, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %32 = bitcast <16 x i8> %31 to <8 x i16>
+  %33 = shl nuw nsw <8 x i16> %32, splat (i16 1)
+  %34 = bitcast <8 x i16> %33 to <16 x i8>
+  %35 = or disjoint <16 x i8> %34, splat (i8 1)
   br label %48
 
-41:                                               ; preds = %48
-  %42 = fmul float %22, %24
+36:                                               ; preds = %48
+  %37 = load i16, ptr %18, align 2, !tbaa !59
+  %38 = zext i16 %37 to i64
+  %39 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %38
+  %40 = load float, ptr %39, align 4, !tbaa !13
+  %41 = load float, ptr %19, align 4, !tbaa !32
+  %42 = fmul float %40, %41
   %43 = insertelement <8 x float> poison, float %42, i64 0
   %44 = shufflevector <8 x float> %43, <8 x float> poison, <8 x i32> zeroinitializer
   %45 = add <8 x i32> %185, %187
@@ -2315,8 +2315,8 @@ define void @ggml_vec_dot_iq2_xs_q8_K(i32 noundef %0, ptr noalias noundef writeo
 48:                                               ; preds = %.lr.ph, %48
   %49 = phi i1 [ true, %.lr.ph ], [ false, %48 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ 4, %48 ]
-  %.0133145 = phi ptr [ %25, %.lr.ph ], [ %53, %48 ]
-  %.0134144 = phi ptr [ %26, %.lr.ph ], [ %70, %48 ]
+  %.0133145 = phi ptr [ %20, %.lr.ph ], [ %53, %48 ]
+  %.0134144 = phi ptr [ %21, %.lr.ph ], [ %70, %48 ]
   %50 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %185, %48 ]
   %51 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %187, %48 ]
   %52 = load <16 x i16>, ptr %.0133145, align 1, !tbaa !4
@@ -2453,19 +2453,19 @@ define void @ggml_vec_dot_iq2_xs_q8_K(i32 noundef %0, ptr noalias noundef writeo
   %163 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %162, <32 x i8> %155)
   %164 = getelementptr inbounds nuw <2 x i64>, ptr @get_scale_shuffle.k_shuffle, i64 %indvars.iv
   %165 = load <16 x i8>, ptr %164, align 16, !tbaa !4
-  %166 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %40, <16 x i8> %165)
+  %166 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %35, <16 x i8> %165)
   %167 = sext <16 x i8> %166 to <16 x i16>
   %168 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %169 = load <16 x i8>, ptr %168, align 16, !tbaa !4
-  %170 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %40, <16 x i8> %169)
+  %170 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %35, <16 x i8> %169)
   %171 = sext <16 x i8> %170 to <16 x i16>
   %172 = getelementptr inbounds nuw i8, ptr %164, i64 32
   %173 = load <16 x i8>, ptr %172, align 16, !tbaa !4
-  %174 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %40, <16 x i8> %173)
+  %174 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %35, <16 x i8> %173)
   %175 = sext <16 x i8> %174 to <16 x i16>
   %176 = getelementptr inbounds nuw i8, ptr %164, i64 48
   %177 = load <16 x i8>, ptr %176, align 16, !tbaa !4
-  %178 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %40, <16 x i8> %177)
+  %178 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %35, <16 x i8> %177)
   %179 = sext <16 x i8> %178 to <16 x i16>
   %180 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %157, <16 x i16> %167)
   %181 = add <8 x i32> %180, %50
@@ -2475,7 +2475,7 @@ define void @ggml_vec_dot_iq2_xs_q8_K(i32 noundef %0, ptr noalias noundef writeo
   %185 = add <8 x i32> %181, %184
   %186 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %163, <16 x i16> %179)
   %187 = add <8 x i32> %183, %186
-  br i1 %49, label %48, label %41, !llvm.loop !62
+  br i1 %49, label %48, label %36, !llvm.loop !62
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -2488,8 +2488,8 @@ define void @ggml_vec_dot_iq2_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %40, %8
-  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %46, %40 ]
+._crit_edge:                                      ; preds = %35, %8
+  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %46, %35 ]
   %11 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %12 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %13 = fadd <4 x float> %11, %12
@@ -2502,36 +2502,36 @@ define void @ggml_vec_dot_iq2_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   store float %17, ptr %1, align 4, !tbaa !13
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
-  %indvars.iv114 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next115, %40 ]
-  %.0110 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %46, %40 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %35
+  %indvars.iv114 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next115, %35 ]
+  %.0110 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %46, %35 ]
   %18 = getelementptr inbounds nuw %struct.block_iq2_s, ptr %3, i64 %indvars.iv114
-  %19 = load i16, ptr %18, align 2, !tbaa !63
-  %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %20
-  %22 = load float, ptr %21, align 4, !tbaa !13
-  %23 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv114
-  %24 = load float, ptr %23, align 4, !tbaa !32
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 66
-  %27 = getelementptr inbounds nuw i8, ptr %18, i64 34
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %29 = getelementptr inbounds nuw i8, ptr %18, i64 74
-  %.0.copyload = load i64, ptr %29, align 2
-  %30 = lshr i64 %.0.copyload, 4
-  %31 = insertelement <2 x i64> poison, i64 %.0.copyload, i64 0
-  %32 = insertelement <2 x i64> %31, i64 %30, i64 1
-  %33 = bitcast <2 x i64> %32 to <8 x i16>
-  %34 = shl <8 x i16> %33, splat (i16 1)
-  %35 = bitcast <8 x i16> %34 to <16 x i8>
-  %36 = and <16 x i8> %35, splat (i8 30)
-  %37 = or disjoint <16 x i8> %36, splat (i8 1)
-  %38 = zext nneg <16 x i8> %37 to <16 x i16>
-  %39 = bitcast <16 x i16> %38 to <32 x i8>
+  %19 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv114
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 66
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 34
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 74
+  %.0.copyload = load i64, ptr %24, align 2
+  %25 = lshr i64 %.0.copyload, 4
+  %26 = insertelement <2 x i64> poison, i64 %.0.copyload, i64 0
+  %27 = insertelement <2 x i64> %26, i64 %25, i64 1
+  %28 = bitcast <2 x i64> %27 to <8 x i16>
+  %29 = shl <8 x i16> %28, splat (i16 1)
+  %30 = bitcast <8 x i16> %29 to <16 x i8>
+  %31 = and <16 x i8> %30, splat (i8 30)
+  %32 = or disjoint <16 x i8> %31, splat (i8 1)
+  %33 = zext nneg <16 x i8> %32 to <16 x i16>
+  %34 = bitcast <16 x i16> %33 to <32 x i8>
   br label %47
 
-40:                                               ; preds = %47
-  %41 = fmul float %22, %24
+35:                                               ; preds = %47
+  %36 = load i16, ptr %18, align 2, !tbaa !63
+  %37 = zext i16 %36 to i64
+  %38 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %37
+  %39 = load float, ptr %38, align 4, !tbaa !13
+  %40 = load float, ptr %19, align 4, !tbaa !32
+  %41 = fmul float %39, %40
   %42 = insertelement <8 x float> poison, float %41, i64 0
   %43 = shufflevector <8 x float> %42, <8 x float> poison, <8 x i32> zeroinitializer
   %44 = add <8 x i32> %171, %172
@@ -2543,9 +2543,9 @@ define void @ggml_vec_dot_iq2_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
 
 47:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %.097108 = phi ptr [ %25, %.lr.ph ], [ %140, %47 ]
-  %.098107 = phi ptr [ %27, %.lr.ph ], [ %156, %47 ]
-  %.099106 = phi ptr [ %28, %.lr.ph ], [ %53, %47 ]
+  %.097108 = phi ptr [ %20, %.lr.ph ], [ %140, %47 ]
+  %.098107 = phi ptr [ %22, %.lr.ph ], [ %156, %47 ]
+  %.099106 = phi ptr [ %23, %.lr.ph ], [ %53, %47 ]
   %48 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %171, %47 ]
   %49 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %172, %47 ]
   %50 = load <32 x i8>, ptr %.099106, align 1, !tbaa !4
@@ -2555,7 +2555,7 @@ define void @ggml_vec_dot_iq2_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %54 = getelementptr inbounds nuw i8, ptr %.097108, i64 3
   %55 = load i8, ptr %54, align 1, !tbaa !4
   %56 = zext i8 %55 to i32
-  %57 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
   %58 = load i8, ptr %57, align 1, !tbaa !4
   %59 = zext i8 %58 to i32
   %60 = shl nuw nsw i32 %59, 2
@@ -2598,7 +2598,7 @@ define void @ggml_vec_dot_iq2_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %97 = load i8, ptr %96, align 1, !tbaa !4
   %98 = zext i8 %97 to i32
   %99 = or disjoint i64 %indvars.iv, 1
-  %100 = getelementptr inbounds nuw i8, ptr %26, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr %21, i64 %99
   %101 = load i8, ptr %100, align 1, !tbaa !4
   %102 = zext i8 %101 to i32
   %103 = shl nuw nsw i32 %102, 2
@@ -2663,19 +2663,19 @@ define void @ggml_vec_dot_iq2_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %160 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %159, <32 x i8> %155)
   %161 = getelementptr inbounds nuw <4 x i64>, ptr @get_scale_shuffle_k4.k_shuffle, i64 %indvars.iv
   %162 = load <32 x i8>, ptr %161, align 16, !tbaa !4
-  %163 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %39, <32 x i8> %162)
+  %163 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %34, <32 x i8> %162)
   %164 = bitcast <32 x i8> %163 to <16 x i16>
   %165 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %158, <16 x i16> %164)
   %166 = getelementptr inbounds nuw <4 x i64>, ptr @get_scale_shuffle_k4.k_shuffle, i64 %99
   %167 = load <32 x i8>, ptr %166, align 16, !tbaa !4
-  %168 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %39, <32 x i8> %167)
+  %168 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> %34, <32 x i8> %167)
   %169 = bitcast <32 x i8> %168 to <16 x i16>
   %170 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %160, <16 x i16> %169)
   %171 = add <8 x i32> %165, %48
   %172 = add <8 x i32> %170, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %173 = icmp samesign ult i64 %indvars.iv, 6
-  br i1 %173, label %47, label %40, !llvm.loop !66
+  br i1 %173, label %47, label %35, !llvm.loop !66
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -2688,8 +2688,8 @@ define void @ggml_vec_dot_iq3_xxs_q8_K(i32 noundef %0, ptr noalias noundef write
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %28, %8
-  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %34, %28 ]
+._crit_edge:                                      ; preds = %23, %8
+  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %34, %23 ]
   %11 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %12 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %13 = fadd <4 x float> %11, %12
@@ -2702,23 +2702,23 @@ define void @ggml_vec_dot_iq3_xxs_q8_K(i32 noundef %0, ptr noalias noundef write
   store float %17, ptr %1, align 4, !tbaa !13
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %28
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %.092 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %34, %28 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %23
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
+  %.092 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %34, %23 ]
   %18 = getelementptr inbounds nuw %struct.block_iq3_xxs, ptr %3, i64 %indvars.iv
-  %19 = load i16, ptr %18, align 2, !tbaa !7
-  %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %20
-  %22 = load float, ptr %21, align 4, !tbaa !13
-  %23 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv
-  %24 = load float, ptr %23, align 4, !tbaa !32
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 66
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %19 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 66
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
   br label %35
 
-28:                                               ; preds = %35
-  %29 = fmul float %22, %24
+23:                                               ; preds = %35
+  %24 = load i16, ptr %18, align 2, !tbaa !7
+  %25 = zext i16 %24 to i64
+  %26 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %25
+  %27 = load float, ptr %26, align 4, !tbaa !13
+  %28 = load float, ptr %19, align 4, !tbaa !32
+  %29 = fmul float %27, %28
   %30 = insertelement <8 x float> poison, float %29, i64 0
   %31 = shufflevector <8 x float> %30, <8 x float> poison, <8 x i32> zeroinitializer
   %32 = add <8 x i32> %205, %206
@@ -2729,9 +2729,9 @@ define void @ggml_vec_dot_iq3_xxs_q8_K(i32 noundef %0, ptr noalias noundef write
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
 35:                                               ; preds = %.lr.ph, %35
-  %.08090 = phi ptr [ %25, %.lr.ph ], [ %137, %35 ]
-  %.08189 = phi ptr [ %26, %.lr.ph ], [ %138, %35 ]
-  %.08288 = phi ptr [ %27, %.lr.ph ], [ %41, %35 ]
+  %.08090 = phi ptr [ %20, %.lr.ph ], [ %137, %35 ]
+  %.08189 = phi ptr [ %21, %.lr.ph ], [ %138, %35 ]
+  %.08288 = phi ptr [ %22, %.lr.ph ], [ %41, %35 ]
   %36 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %205, %35 ]
   %37 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %206, %35 ]
   %.08587 = phi i32 [ 0, %.lr.ph ], [ %207, %35 ]
@@ -2909,7 +2909,7 @@ define void @ggml_vec_dot_iq3_xxs_q8_K(i32 noundef %0, ptr noalias noundef write
   %206 = add <8 x i32> %204, %37
   %207 = add nuw nsw i32 %.08587, 2
   %208 = icmp samesign ult i32 %.08587, 6
-  br i1 %208, label %35, label %28, !llvm.loop !70
+  br i1 %208, label %35, label %23, !llvm.loop !70
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -2922,8 +2922,8 @@ define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %29, %8
-  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %35, %29 ]
+._crit_edge:                                      ; preds = %24, %8
+  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %35, %24 ]
   %11 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %12 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %13 = fadd <4 x float> %11, %12
@@ -2935,25 +2935,25 @@ define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   store float %16, ptr %1, align 4, !tbaa !13
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %29
-  %indvars.iv108 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next109, %29 ]
-  %.0104 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %35, %29 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %24
+  %indvars.iv108 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next109, %24 ]
+  %.0104 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %35, %24 ]
   %17 = getelementptr inbounds nuw %struct.block_iq3_s, ptr %3, i64 %indvars.iv108
-  %18 = load i16, ptr %17, align 2, !tbaa !71
-  %19 = zext i16 %18 to i64
-  %20 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %19
-  %21 = load float, ptr %20, align 4, !tbaa !13
-  %22 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv108
-  %23 = load float, ptr %22, align 4, !tbaa !32
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 2
-  %25 = getelementptr inbounds nuw i8, ptr %17, i64 66
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 74
-  %27 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %28 = getelementptr inbounds nuw i8, ptr %17, i64 106
+  %18 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv108
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 66
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 74
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 106
   br label %36
 
-29:                                               ; preds = %36
-  %30 = fmul float %21, %23
+24:                                               ; preds = %36
+  %25 = load i16, ptr %17, align 2, !tbaa !71
+  %26 = zext i16 %25 to i64
+  %27 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %26
+  %28 = load float, ptr %27, align 4, !tbaa !13
+  %29 = load float, ptr %18, align 4, !tbaa !32
+  %30 = fmul float %28, %29
   %31 = insertelement <8 x float> poison, float %30, i64 0
   %32 = shufflevector <8 x float> %31, <8 x float> poison, <8 x i32> zeroinitializer
   %33 = add <8 x i32> %166, %167
@@ -2965,9 +2965,9 @@ define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
 
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %.091102 = phi ptr [ %24, %.lr.ph ], [ %45, %36 ]
-  %.092101 = phi ptr [ %26, %.lr.ph ], [ %145, %36 ]
-  %.093100 = phi ptr [ %27, %.lr.ph ], [ %42, %36 ]
+  %.091102 = phi ptr [ %19, %.lr.ph ], [ %45, %36 ]
+  %.092101 = phi ptr [ %21, %.lr.ph ], [ %145, %36 ]
+  %.093100 = phi ptr [ %22, %.lr.ph ], [ %42, %36 ]
   %37 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %166, %36 ]
   %38 = phi <8 x i32> [ zeroinitializer, %.lr.ph ], [ %167, %36 ]
   %39 = load <32 x i8>, ptr %.093100, align 1, !tbaa !4
@@ -2977,7 +2977,7 @@ define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %43 = load <16 x i8>, ptr %.091102, align 1, !tbaa !4
   %44 = zext <16 x i8> %43 to <16 x i16>
   %45 = getelementptr inbounds nuw i8, ptr %.091102, i64 16
-  %46 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
   %47 = load i8, ptr %46, align 1, !tbaa !4
   %48 = zext i8 %47 to i32
   %49 = insertelement <8 x i32> poison, i32 %48, i64 0
@@ -3100,7 +3100,7 @@ define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %148 = bitcast <8 x i32> %129 to <32 x i8>
   %149 = tail call <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8> %148, <32 x i8> %144)
   %150 = lshr exact i64 %indvars.iv, 1
-  %151 = getelementptr inbounds nuw i8, ptr %28, i64 %150
+  %151 = getelementptr inbounds nuw i8, ptr %23, i64 %150
   %152 = load i8, ptr %151, align 1, !tbaa !4
   %153 = shl i8 %152, 1
   %154 = and i8 %153, 30
@@ -3119,7 +3119,7 @@ define void @ggml_vec_dot_iq3_s_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %167 = add <8 x i32> %165, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %168 = icmp samesign ult i64 %indvars.iv, 6
-  br i1 %168, label %36, label %29, !llvm.loop !74
+  br i1 %168, label %36, label %24, !llvm.loop !74
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -3336,9 +3336,9 @@ define void @ggml_vec_dot_iq1_m_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %36, %8
-  %.096.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %56, %36 ]
-  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %54, %36 ]
+._crit_edge:                                      ; preds = %29, %8
+  %.096.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %56, %29 ]
+  %.0.lcssa = phi <8 x float> [ zeroinitializer, %8 ], [ %54, %29 ]
   %11 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %12 = shufflevector <8 x float> %.0.lcssa, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %13 = fadd <4 x float> %11, %12
@@ -3359,34 +3359,34 @@ define void @ggml_vec_dot_iq1_m_q8_K(i32 noundef %0, ptr noalias noundef writeon
   store float %23, ptr %1, align 4, !tbaa !13
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %36
-  %indvars.iv124 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next125, %36 ]
-  %.0118 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %54, %36 ]
-  %.096117 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %56, %36 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %29
+  %indvars.iv124 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next125, %29 ]
+  %.0118 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %54, %29 ]
+  %.096117 = phi <8 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %56, %29 ]
   %24 = getelementptr inbounds nuw %struct.block_q8_K, ptr %5, i64 %indvars.iv124
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = getelementptr inbounds nuw %struct.block_iq1_m, ptr %3, i64 %indvars.iv124
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %29 = load i16, ptr %28, align 2, !tbaa !78
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 50
-  %31 = load i16, ptr %30, align 2, !tbaa !78
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 52
-  %33 = load i16, ptr %32, align 2, !tbaa !78
-  %34 = getelementptr inbounds nuw i8, ptr %26, i64 54
-  %35 = load i16, ptr %34, align 2, !tbaa !78
   br label %57
 
-36:                                               ; preds = %57
-  %37 = lshr i16 %29, 12
-  %38 = lshr i16 %31, 8
-  %39 = and i16 %38, 240
-  %40 = or disjoint i16 %39, %37
-  %41 = lshr i16 %33, 4
-  %42 = and i16 %41, 3840
-  %43 = or disjoint i16 %40, %42
-  %44 = and i16 %35, -4096
-  %45 = or disjoint i16 %43, %44
+29:                                               ; preds = %57
+  %30 = load i16, ptr %28, align 2, !tbaa !78
+  %31 = lshr i16 %30, 12
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 50
+  %33 = load i16, ptr %32, align 2, !tbaa !78
+  %34 = lshr i16 %33, 8
+  %35 = and i16 %34, 240
+  %36 = or disjoint i16 %35, %31
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 52
+  %38 = load i16, ptr %37, align 2, !tbaa !78
+  %39 = lshr i16 %38, 4
+  %40 = and i16 %39, 3840
+  %41 = or disjoint i16 %36, %40
+  %42 = getelementptr inbounds nuw i8, ptr %26, i64 54
+  %43 = load i16, ptr %42, align 2, !tbaa !78
+  %44 = and i16 %43, -4096
+  %45 = or disjoint i16 %41, %44
   %46 = load float, ptr %24, align 4, !tbaa !32
   %47 = zext i16 %45 to i64
   %48 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %47
@@ -3576,7 +3576,7 @@ define void @ggml_vec_dot_iq1_m_q8_K(i32 noundef %0, ptr noalias noundef writeon
   %216 = getelementptr inbounds nuw i8, ptr %.0100113, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %217 = icmp samesign ult i64 %indvars.iv, 6
-  br i1 %217, label %57, label %36, !llvm.loop !81
+  br i1 %217, label %57, label %29, !llvm.loop !81
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -3687,25 +3687,25 @@ define void @ggml_vec_dot_iq4_nl_q8_0(i32 noundef %0, ptr noalias noundef writeo
   %wide.trip.count = zext i32 %9 to i64
   br label %.lr.ph95
 
-.lr.ph95:                                         ; preds = %.lr.ph95.preheader, %102
-  %indvars.iv107 = phi i64 [ %89, %.lr.ph95.preheader ], [ %indvars.iv.next108, %102 ]
-  %.07992 = phi float [ %87, %.lr.ph95.preheader ], [ %106, %102 ]
+.lr.ph95:                                         ; preds = %.lr.ph95.preheader, %94
+  %indvars.iv107 = phi i64 [ %89, %.lr.ph95.preheader ], [ %indvars.iv.next108, %94 ]
+  %.07992 = phi float [ %87, %.lr.ph95.preheader ], [ %106, %94 ]
   %90 = getelementptr inbounds nuw %struct.block_q8_0, ptr %5, i64 %indvars.iv107
-  %91 = load i16, ptr %90, align 2, !tbaa !7
-  %92 = zext i16 %91 to i64
-  %93 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %92
-  %94 = load float, ptr %93, align 4, !tbaa !13
-  %95 = getelementptr inbounds nuw %struct.block_iq4_nl, ptr %3, i64 %indvars.iv107
-  %96 = load i16, ptr %95, align 2, !tbaa !7
-  %97 = zext i16 %96 to i64
-  %98 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %97
-  %99 = load float, ptr %98, align 4, !tbaa !13
-  %100 = getelementptr inbounds nuw i8, ptr %90, i64 2
-  %101 = getelementptr inbounds nuw i8, ptr %95, i64 2
+  %91 = getelementptr inbounds nuw %struct.block_iq4_nl, ptr %3, i64 %indvars.iv107
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 2
   br label %107
 
-102:                                              ; preds = %107
-  %103 = fmul float %94, %99
+94:                                               ; preds = %107
+  %95 = load i16, ptr %90, align 2, !tbaa !7
+  %96 = zext i16 %95 to i64
+  %97 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %96
+  %98 = load float, ptr %97, align 4, !tbaa !13
+  %99 = load i16, ptr %91, align 2, !tbaa !7
+  %100 = zext i16 %99 to i64
+  %101 = getelementptr inbounds nuw float, ptr @ggml_table_f32_f16, i64 %100
+  %102 = load float, ptr %101, align 4, !tbaa !13
+  %103 = fmul float %98, %102
   %104 = add nsw i32 %130, %120
   %105 = sitofp i32 %104 to float
   %106 = tail call float @llvm.fmuladd.f32(float %103, float %105, float %.07992)
@@ -3717,10 +3717,10 @@ define void @ggml_vec_dot_iq4_nl_q8_0(i32 noundef %0, ptr noalias noundef writeo
   %indvars.iv104 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next105, %107 ]
   %.07690 = phi i32 [ 0, %.lr.ph95 ], [ %130, %107 ]
   %.07789 = phi i32 [ 0, %.lr.ph95 ], [ %120, %107 ]
-  %108 = getelementptr inbounds nuw i8, ptr %100, i64 %indvars.iv104
+  %108 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv104
   %109 = load i8, ptr %108, align 1, !tbaa !4
   %110 = sext i8 %109 to i32
-  %111 = getelementptr inbounds nuw i8, ptr %101, i64 %indvars.iv104
+  %111 = getelementptr inbounds nuw i8, ptr %93, i64 %indvars.iv104
   %112 = load i8, ptr %111, align 1, !tbaa !4
   %113 = zext i8 %112 to i32
   %114 = and i32 %113, 15
@@ -3742,10 +3742,10 @@ define void @ggml_vec_dot_iq4_nl_q8_0(i32 noundef %0, ptr noalias noundef writeo
   %130 = add nsw i32 %129, %.07690
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next105, 16
-  br i1 %exitcond.not, label %102, label %107, !llvm.loop !84
+  br i1 %exitcond.not, label %94, label %107, !llvm.loop !84
 
-._crit_edge96:                                    ; preds = %102, %._crit_edge
-  %.079.lcssa = phi float [ %87, %._crit_edge ], [ %106, %102 ]
+._crit_edge96:                                    ; preds = %94, %._crit_edge
+  %.079.lcssa = phi float [ %87, %._crit_edge ], [ %106, %94 ]
   store float %.079.lcssa, ptr %1, align 4, !tbaa !13
   ret void
 }

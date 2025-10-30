@@ -531,10 +531,7 @@ internal_rle_decompress.exit:                     ; preds = %39
 
 42:                                               ; preds = %internal_rle_decompress.exit
   %43 = load ptr, ptr %9, align 8, !tbaa !26
-  %44 = add i64 %.248.i, 1
-  %45 = lshr i64 %44, 1
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %45
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.248.i
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %.248.i
   %.not29 = icmp eq i64 %.248.i, 1
   br i1 %.not29, label %.lr.ph38.preheader.i, label %.lr.ph.preheader.i
 
@@ -544,29 +541,32 @@ internal_rle_decompress.exit:                     ; preds = %39
   br label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %.lr.ph.i27, %.lr.ph.preheader.i
-  %48 = phi i8 [ %51, %.lr.ph.i27 ], [ %.pre.i, %.lr.ph.preheader.i ]
+  %45 = phi i8 [ %48, %.lr.ph.i27 ], [ %.pre.i, %.lr.ph.preheader.i ]
   %.033.i = phi ptr [ %.0.i, %.lr.ph.i27 ], [ %.031.i, %.lr.ph.preheader.i ]
-  %49 = load i8, ptr %.033.i, align 1, !tbaa !3
-  %50 = add i8 %49, %48
-  %51 = xor i8 %50, -128
-  store i8 %51, ptr %.033.i, align 1, !tbaa !3
+  %46 = load i8, ptr %.033.i, align 1, !tbaa !3
+  %47 = add i8 %46, %45
+  %48 = xor i8 %47, -128
+  store i8 %48, ptr %.033.i, align 1, !tbaa !3
   %.0.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 1
-  %52 = icmp ult ptr %.0.i, %47
-  br i1 %52, label %.lr.ph.i27, label %.lr.ph38.preheader.i, !llvm.loop !28
+  %49 = icmp ult ptr %.0.i, %44
+  br i1 %49, label %.lr.ph.i27, label %.lr.ph38.preheader.i, !llvm.loop !28
 
 .lr.ph38.preheader.i:                             ; preds = %.lr.ph.i27, %42
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 %.248.i
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 %.248.i
+  %51 = add i64 %.248.i, 1
+  %52 = lshr i64 %51, 1
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 %52
   br label %.lr.ph38.i
 
 .lr.ph38.i:                                       ; preds = %62, %.lr.ph38.preheader.i
   %.136.i = phi ptr [ %54, %62 ], [ %43, %.lr.ph38.preheader.i ]
   %.02435.i = phi ptr [ %.125.i, %62 ], [ %3, %.lr.ph38.preheader.i ]
-  %.02634.i = phi ptr [ %.127.i, %62 ], [ %46, %.lr.ph38.preheader.i ]
+  %.02634.i = phi ptr [ %.127.i, %62 ], [ %53, %.lr.ph38.preheader.i ]
   %54 = getelementptr inbounds nuw i8, ptr %.136.i, i64 1
   %55 = load i8, ptr %.136.i, align 1, !tbaa !3
   %56 = getelementptr inbounds nuw i8, ptr %.02435.i, i64 1
   store i8 %55, ptr %.02435.i, align 1, !tbaa !3
-  %57 = icmp ult ptr %56, %53
+  %57 = icmp ult ptr %56, %50
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %.lr.ph38.i
@@ -579,7 +579,7 @@ internal_rle_decompress.exit:                     ; preds = %39
 62:                                               ; preds = %58, %.lr.ph38.i
   %.127.i = phi ptr [ %59, %58 ], [ %.02634.i, %.lr.ph38.i ]
   %.125.i = phi ptr [ %61, %58 ], [ %56, %.lr.ph38.i ]
-  %63 = icmp ult ptr %.125.i, %53
+  %63 = icmp ult ptr %.125.i, %50
   br i1 %63, label %.lr.ph38.i, label %internal_rle_decompress.exit.thread.sink.split, !llvm.loop !29
 
 internal_rle_decompress.exit.thread.sink.split:   ; preds = %62, %5

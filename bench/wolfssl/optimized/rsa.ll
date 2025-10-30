@@ -156,12 +156,12 @@ define range(i32 -173, 1) i32 @wc_FreeRsaKey(ptr noundef %0) local_unnamed_addr 
   %16 = sub i32 0, %15
   %17 = and i32 %16, 7
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %8, i32 %17)
-  %18 = sub i32 %8, %spec.select.i.i
   %.not24.i.i = icmp eq i32 %17, 0
   br i1 %.not24.i.i, label %.preheader23.i.i, label %.lr.ph.i.i
 
 .preheader23.i.i:                                 ; preds = %.lr.ph.i.i, %13
   %.016.lcssa.i.i = phi ptr [ %5, %13 ], [ %21, %.lr.ph.i.i ]
+  %18 = sub i32 %8, %spec.select.i.i
   %19 = icmp ugt i32 %18, 7
   br i1 %19, label %.lr.ph29.i.i, label %.preheader.i.i
 
@@ -1470,12 +1470,12 @@ wc_RsaFunctionSync.exit:                          ; preds = %26, %29, %31, %36, 
   %59 = sub i32 0, %58
   %60 = and i32 %59, 7
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %51, i32 %60)
-  %61 = sub i32 %51, %spec.select.i.i
   %.not24.i.i = icmp eq i32 %60, 0
   br i1 %.not24.i.i, label %.preheader23.i.i, label %.lr.ph.i.i
 
 .preheader23.i.i:                                 ; preds = %.lr.ph.i.i, %56
   %.016.lcssa.i.i = phi ptr [ %48, %56 ], [ %64, %.lr.ph.i.i ]
+  %61 = sub i32 %51, %spec.select.i.i
   %62 = icmp ugt i32 %61, 7
   br i1 %62, label %.lr.ph29.i.i, label %.preheader.i.i
 
@@ -1646,12 +1646,12 @@ wc_RsaEncryptSize.exit:                           ; preds = %14
   %57 = sub i32 0, %56
   %58 = and i32 %57, 7
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %49, i32 %58)
-  %59 = sub i32 %49, %spec.select.i.i
   %.not24.i.i = icmp eq i32 %58, 0
   br i1 %.not24.i.i, label %.preheader23.i.i, label %.lr.ph.i.i
 
 .preheader23.i.i:                                 ; preds = %.lr.ph.i.i, %54
   %.016.lcssa.i.i = phi ptr [ %46, %54 ], [ %62, %.lr.ph.i.i ]
+  %59 = sub i32 %49, %spec.select.i.i
   %60 = icmp ugt i32 %59, 7
   br i1 %60, label %.lr.ph29.i.i, label %.preheader.i.i
 
@@ -1937,12 +1937,12 @@ define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly captures(ad
   %120 = sub i32 0, %119
   %121 = and i32 %120, 7
   %spec.select.i.i = call i32 @llvm.umin.i32(i32 %112, i32 %121)
-  %122 = sub i32 %112, %spec.select.i.i
   %.not24.i.i = icmp eq i32 %121, 0
   br i1 %.not24.i.i, label %.preheader23.i.i, label %.lr.ph.i.i
 
 .preheader23.i.i:                                 ; preds = %.lr.ph.i.i, %117
   %.016.lcssa.i.i = phi ptr [ %109, %117 ], [ %125, %.lr.ph.i.i ]
+  %122 = sub i32 %112, %spec.select.i.i
   %123 = icmp ugt i32 %122, 7
   br i1 %123, label %.lr.ph29.i.i, label %.preheader.i.i
 
@@ -2705,12 +2705,12 @@ define internal fastcc void @ForceZero(ptr noundef %0, i32 noundef %1) unnamed_a
   %5 = sub i32 0, %4
   %6 = and i32 %5, 7
   %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 %6)
-  %7 = sub i32 %1, %spec.select
   %.not24 = icmp eq i32 %spec.select, 0
   br i1 %.not24, label %.preheader23, label %.lr.ph
 
 .preheader23:                                     ; preds = %.lr.ph, %2
   %.016.lcssa = phi ptr [ %0, %2 ], [ %10, %.lr.ph ]
+  %7 = sub i32 %1, %spec.select
   %8 = icmp ugt i32 %7, 7
   br i1 %8, label %.lr.ph29, label %.preheader
 

@@ -2394,19 +2394,19 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef captures(ad
 
 .lr.ph90.preheader:                               ; preds = %32, %.thread124
   %33 = phi ptr [ %24, %.thread124 ], [ %.pre, %32 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !11
+  %34 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !11
   br label %.lr.ph90
 
 .preheader:                                       ; preds = %.lr.ph90
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not7094 = icmp eq i64 %45, 0
   br i1 %.not7094, label %mbedtls_mpi_grow.exit, label %.lr.ph98
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
   %.04889 = phi i64 [ %45, %.lr.ph90 ], [ 0, %.lr.ph90.preheader ]
   %.04988 = phi ptr [ %48, %.lr.ph90 ], [ %33, %.lr.ph90.preheader ]
-  %.05187 = phi ptr [ %47, %.lr.ph90 ], [ %36, %.lr.ph90.preheader ]
+  %.05187 = phi ptr [ %47, %.lr.ph90 ], [ %35, %.lr.ph90.preheader ]
   %.05386 = phi i64 [ %46, %.lr.ph90 ], [ 0, %.lr.ph90.preheader ]
   %37 = load i64, ptr %.05187, align 8, !tbaa !13
   %38 = load i64, ptr %.04988, align 8, !tbaa !13
@@ -2456,13 +2456,13 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_add_abs(ptr noundef captures(ad
   %61 = shl nuw nsw i64 %51, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %57, ptr nonnull align 8 %50, i64 %61, i1 false)
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %50, i64 noundef %61)
-  %62 = load ptr, ptr %34, align 8, !tbaa !11
+  %62 = load ptr, ptr %36, align 8, !tbaa !11
   tail call void @free(ptr noundef %62) #15
   br label %63
 
 63:                                               ; preds = %60, %59
   store i64 %.pre109, ptr %20, align 8, !tbaa !12
-  store ptr %57, ptr %34, align 8, !tbaa !11
+  store ptr %57, ptr %36, align 8, !tbaa !11
   br label %64
 
 64:                                               ; preds = %63, %54

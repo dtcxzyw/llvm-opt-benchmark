@@ -282,112 +282,112 @@ define internal range(i32 -22, 1) i32 @config_output(ptr noundef %0) #2 {
   %9 = load double, ptr %8, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !56
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %11 = load i32, ptr %10, align 4, !tbaa !43
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !74
-  br label %14
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !74
+  br label %12
 
-14:                                               ; preds = %19, %1
-  %.1391 = phi i32 [ 1, %1 ], [ %.2392, %19 ]
-  %15 = phi i32 [ 1, %1 ], [ %20, %19 ]
-  %.0.i = phi ptr [ %13, %1 ], [ %21, %19 ]
-  %16 = load i8, ptr %.0.i, align 1, !tbaa !75
-  switch i8 %16, label %19 [
+12:                                               ; preds = %17, %1
+  %.1391 = phi i32 [ 1, %1 ], [ %.2392, %17 ]
+  %13 = phi i32 [ 1, %1 ], [ %18, %17 ]
+  %.0.i = phi ptr [ %11, %1 ], [ %19, %17 ]
+  %14 = load i8, ptr %.0.i, align 1, !tbaa !75
+  switch i8 %14, label %17 [
     i8 0, label %count_items.exit
-    i8 32, label %17
-    i8 124, label %17
+    i8 32, label %15
+    i8 124, label %15
   ]
 
-17:                                               ; preds = %14, %14
-  %18 = add nsw i32 %15, 1
-  br label %19
+15:                                               ; preds = %12, %12
+  %16 = add nsw i32 %13, 1
+  br label %17
 
-19:                                               ; preds = %17, %14
-  %.2392 = phi i32 [ %.1391, %14 ], [ %18, %17 ]
-  %20 = phi i32 [ %15, %14 ], [ %18, %17 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %14, !llvm.loop !76
+17:                                               ; preds = %15, %12
+  %.2392 = phi i32 [ %.1391, %12 ], [ %16, %15 ]
+  %18 = phi i32 [ %13, %12 ], [ %16, %15 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
+  br label %12, !llvm.loop !76
 
-count_items.exit:                                 ; preds = %14
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !77
-  br label %24
+count_items.exit:                                 ; preds = %12
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !77
+  br label %22
 
-24:                                               ; preds = %29, %count_items.exit
-  %.1389 = phi i32 [ 1, %count_items.exit ], [ %.2, %29 ]
-  %25 = phi i32 [ 1, %count_items.exit ], [ %30, %29 ]
-  %.0.i373 = phi ptr [ %23, %count_items.exit ], [ %31, %29 ]
-  %26 = load i8, ptr %.0.i373, align 1, !tbaa !75
-  switch i8 %26, label %29 [
+22:                                               ; preds = %27, %count_items.exit
+  %.1389 = phi i32 [ 1, %count_items.exit ], [ %.2, %27 ]
+  %23 = phi i32 [ 1, %count_items.exit ], [ %28, %27 ]
+  %.0.i373 = phi ptr [ %21, %count_items.exit ], [ %29, %27 ]
+  %24 = load i8, ptr %.0.i373, align 1, !tbaa !75
+  switch i8 %24, label %27 [
     i8 0, label %count_items.exit374
-    i8 32, label %27
-    i8 124, label %27
+    i8 32, label %25
+    i8 124, label %25
   ]
 
-27:                                               ; preds = %24, %24
-  %28 = add nsw i32 %25, 1
-  br label %29
+25:                                               ; preds = %22, %22
+  %26 = add nsw i32 %23, 1
+  br label %27
 
-29:                                               ; preds = %27, %24
-  %.2 = phi i32 [ %.1389, %24 ], [ %28, %27 ]
-  %30 = phi i32 [ %25, %24 ], [ %28, %27 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i373, i64 1
-  br label %24, !llvm.loop !76
+27:                                               ; preds = %25, %22
+  %.2 = phi i32 [ %.1389, %22 ], [ %26, %25 ]
+  %28 = phi i32 [ %23, %22 ], [ %26, %25 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i373, i64 1
+  br label %22, !llvm.loop !76
 
-count_items.exit374:                              ; preds = %24
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %33 = load ptr, ptr %32, align 8, !tbaa !78
-  br label %34
+count_items.exit374:                              ; preds = %22
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %31 = load ptr, ptr %30, align 8, !tbaa !78
+  br label %32
 
-34:                                               ; preds = %39, %count_items.exit374
-  %.0387 = phi i32 [ 1, %count_items.exit374 ], [ %.1, %39 ]
-  %35 = phi i32 [ 1, %count_items.exit374 ], [ %40, %39 ]
-  %.0.i375 = phi ptr [ %33, %count_items.exit374 ], [ %41, %39 ]
-  %36 = load i8, ptr %.0.i375, align 1, !tbaa !75
-  switch i8 %36, label %39 [
+32:                                               ; preds = %37, %count_items.exit374
+  %.0387 = phi i32 [ 1, %count_items.exit374 ], [ %.1, %37 ]
+  %33 = phi i32 [ 1, %count_items.exit374 ], [ %38, %37 ]
+  %.0.i375 = phi ptr [ %31, %count_items.exit374 ], [ %39, %37 ]
+  %34 = load i8, ptr %.0.i375, align 1, !tbaa !75
+  switch i8 %34, label %37 [
     i8 0, label %count_items.exit376
-    i8 32, label %37
-    i8 124, label %37
+    i8 32, label %35
+    i8 124, label %35
   ]
 
-37:                                               ; preds = %34, %34
-  %38 = add nsw i32 %35, 1
-  br label %39
+35:                                               ; preds = %32, %32
+  %36 = add nsw i32 %33, 1
+  br label %37
 
-39:                                               ; preds = %37, %34
-  %.1 = phi i32 [ %.0387, %34 ], [ %38, %37 ]
-  %40 = phi i32 [ %35, %34 ], [ %38, %37 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.0.i375, i64 1
-  br label %34, !llvm.loop !76
+37:                                               ; preds = %35, %32
+  %.1 = phi i32 [ %.0387, %32 ], [ %36, %35 ]
+  %38 = phi i32 [ %33, %32 ], [ %36, %35 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i375, i64 1
+  br label %32, !llvm.loop !76
 
-count_items.exit376:                              ; preds = %34
-  %42 = fmul nsz double %9, 0x40026BB1BBB55516
-  %43 = fdiv nsz double %42, 2.000000e+01
-  %44 = icmp slt i32 %11, 1
+count_items.exit376:                              ; preds = %32
+  %40 = fmul nsz double %9, 0x40026BB1BBB55516
+  %41 = fdiv nsz double %40, 2.000000e+01
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %43 = load i32, ptr %42, align 4, !tbaa !43
+  %44 = icmp slt i32 %43, 1
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %count_items.exit376
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %11) #12
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %43) #12
   br label %.critedge
 
 46:                                               ; preds = %count_items.exit376
-  %47 = icmp sgt i32 %.1391, %11
-  %48 = icmp sgt i32 %.1389, %11
+  %47 = icmp sgt i32 %.1391, %43
+  %48 = icmp sgt i32 %.1389, %43
   %or.cond = select i1 %47, i1 true, i1 %48
   br i1 %or.cond, label %49, label %52
 
 49:                                               ; preds = %46
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 24, ptr noundef nonnull @.str.7) #12
-  %50 = tail call i32 @llvm.smin.i32(i32 %.1391, i32 %11)
-  %51 = tail call i32 @llvm.smin.i32(i32 %.1389, i32 %11)
+  %50 = tail call i32 @llvm.smin.i32(i32 %.1391, i32 %43)
+  %51 = tail call i32 @llvm.smin.i32(i32 %.1389, i32 %43)
   br label %52
 
 52:                                               ; preds = %46, %49
   %.0390 = phi i32 [ %50, %49 ], [ %.1391, %46 ]
   %.0388 = phi i32 [ %51, %49 ], [ %.1389, %46 ]
   tail call void @uninit(ptr noundef %3) #15
-  %53 = zext nneg i32 %11 to i64
+  %53 = zext nneg i32 %43 to i64
   %54 = tail call noalias ptr @av_calloc(i64 noundef %53, i64 noundef 24) #12
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %54, ptr %55, align 8, !tbaa !53
@@ -414,7 +414,7 @@ count_items.exit376:                              ; preds = %34
   br i1 %65, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %64
-  %66 = load ptr, ptr %12, align 8, !tbaa !74
+  %66 = load ptr, ptr %10, align 8, !tbaa !74
   %wide.trip.count = zext nneg i32 %.0390 to i64
   br label %.lr.ph
 
@@ -459,7 +459,7 @@ count_items.exit376:                              ; preds = %34
   br i1 %83, label %.lr.ph408.preheader, label %._crit_edge409
 
 .lr.ph408.preheader:                              ; preds = %._crit_edge
-  %84 = load ptr, ptr %22, align 8, !tbaa !77
+  %84 = load ptr, ptr %20, align 8, !tbaa !77
   %wide.trip.count446 = zext nneg i32 %.0388 to i64
   br label %.lr.ph408
 
@@ -506,7 +506,7 @@ count_items.exit376:                              ; preds = %34
   br i1 %.not359, label %.preheader394, label %108
 
 .preheader394:                                    ; preds = %._crit_edge409
-  %103 = icmp slt i32 %.0328.lcssa, %11
+  %103 = icmp slt i32 %.0328.lcssa, %43
   br i1 %103, label %.lr.ph412, label %._crit_edge413
 
 .lr.ph412:                                        ; preds = %.preheader394
@@ -531,7 +531,7 @@ count_items.exit376:                              ; preds = %34
   store double %.pre474, ptr %111, align 8, !tbaa !81
   %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 1
   %112 = trunc nuw i64 %indvars.iv.next449 to i32
-  %113 = icmp sgt i32 %11, %112
+  %113 = icmp sgt i32 %43, %112
   br i1 %113, label %109, label %._crit_edge413, !llvm.loop !83
 
 ._crit_edge413:                                   ; preds = %109, %.preheader394
@@ -543,7 +543,7 @@ count_items.exit376:                              ; preds = %34
   br label %145
 
 .lr.ph418.preheader:                              ; preds = %._crit_edge413
-  %115 = load ptr, ptr %32, align 8, !tbaa !78
+  %115 = load ptr, ptr %30, align 8, !tbaa !78
   %wide.trip.count457 = zext nneg i32 %.0387 to i64
   br label %.lr.ph418
 
@@ -775,8 +775,8 @@ count_items.exit376:                              ; preds = %34
   store double %232, ptr %233, align 8, !tbaa !69
   %234 = call nsz double @llvm.atan2.f64(double %220, double %223)
   %235 = call nsz double @hypot(double noundef %223, double noundef %220) #13
-  %236 = fcmp nsz ogt double %43, %235
-  %237 = select nsz i1 %236, double %235, double %43
+  %236 = fcmp nsz ogt double %41, %235
+  %237 = select nsz i1 %236, double %235, double %41
   %238 = call nsz double @llvm.cos.f64(double %234)
   %239 = fneg nsz double %237
   %240 = call nsz double @llvm.fmuladd.f64(double %239, double %238, double %221)
@@ -789,8 +789,8 @@ count_items.exit376:                              ; preds = %34
   %245 = call nsz double @llvm.atan2.f64(double %229, double %231)
   %246 = call nsz double @hypot(double noundef %231, double noundef %229) #13
   %247 = fmul nsz double %246, 5.000000e-01
-  %248 = fcmp nsz ogt double %43, %247
-  %249 = select nsz i1 %248, double %247, double %43
+  %248 = fcmp nsz ogt double %41, %247
+  %249 = select nsz i1 %248, double %247, double %41
   %250 = call nsz double @llvm.cos.f64(double %245)
   %251 = call nsz double @llvm.fmuladd.f64(double %249, double %250, double %221)
   %252 = call nsz double @llvm.sin.f64(double %245)
@@ -853,7 +853,7 @@ count_items.exit376:                              ; preds = %34
   %293 = fdiv nsz double %292, 2.000000e+01
   %294 = fmul nsz double %293, 0x400A934F0979A371
   %295 = call nsz double @llvm.exp2.f64(double %294)
-  %smax = call i32 @llvm.smax.i32(i32 %11, i32 1)
+  %smax = call i32 @llvm.smax.i32(i32 %43, i32 1)
   %wide.trip.count472 = zext nneg i32 %smax to i64
   br label %296
 

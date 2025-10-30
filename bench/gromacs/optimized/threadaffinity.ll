@@ -453,30 +453,30 @@ _ZN3gmx14LogEntryWriterD2Ev.exit53:               ; preds = %100, %_ZNKSt7__cxx1
   %152 = getelementptr inbounds nuw i8, ptr %.sroa.0252.0273.i, i64 16
   %153 = load ptr, ptr %152, align 8, !tbaa !100
   %154 = load ptr, ptr %151, align 8, !tbaa !103
-  %155 = ptrtoint ptr %153 to i64
-  %156 = ptrtoint ptr %154 to i64
-  %157 = sub i64 %155, %156
-  %158 = ashr exact i64 %157, 3
-  %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %.1274.i, i64 %158)
   %.not268269.i = icmp eq ptr %154, %153
   br i1 %.not268269.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph277.i
-  %159 = sext i32 %.1119275.i to i64
+  %155 = sext i32 %.1119275.i to i64
   br label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %160 = trunc nsw i64 %indvars.iv.next.i to i32
+  %156 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph277.i
-  %.2120.lcssa.i = phi i32 [ %.1119275.i, %.lr.ph277.i ], [ %160, %._crit_edge.loopexit.i ]
+  %.2120.lcssa.i = phi i32 [ %.1119275.i, %.lr.ph277.i ], [ %156, %._crit_edge.loopexit.i ]
+  %157 = ptrtoint ptr %153 to i64
+  %158 = ptrtoint ptr %154 to i64
+  %159 = sub i64 %157, %158
+  %160 = ashr exact i64 %159, 3
+  %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %.1274.i, i64 %160)
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.0252.0273.i, i64 32
   %.not267.i = icmp eq ptr %161, %149
   br i1 %.not267.i, label %._crit_edge278.i, label %.lr.ph277.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %159, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %indvars.iv.i = phi i64 [ %155, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.sroa.0247.0270.i = phi ptr [ %154, %.lr.ph.preheader.i ], [ %165, %.lr.ph.i ]
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.0247.0270.i, i64 4
   %163 = load i32, ptr %162, align 4, !tbaa !104

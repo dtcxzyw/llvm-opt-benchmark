@@ -128,21 +128,21 @@ define internal i32 @cinvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %54 = getelementptr inbounds nuw i8, ptr %.2264287, i64 4
   %55 = add nuw nsw i32 %.1103288, 1
   %exitcond.not = icmp eq i32 %55, %17
-  br i1 %exitcond.not, label %.loopexit.loopexit304, label %41, !llvm.loop !43
+  br i1 %exitcond.not, label %.loopexit.loopexit357, label %41, !llvm.loop !43
 
 .loopexit.loopexit:                               ; preds = %30
   %.neg = mul nsw i32 %17, -3
   %56 = add nsw i32 %.neg, %21
   br label %.loopexit
 
-.loopexit.loopexit304:                            ; preds = %41
+.loopexit.loopexit357:                            ; preds = %41
   %57 = shl nuw nsw i32 %17, 2
   %58 = sub nsw i32 %21, %57
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit304, %.loopexit.loopexit, %.preheader280, %.preheader
-  %.1263 = phi ptr [ %20, %.preheader ], [ %20, %.preheader280 ], [ %31, %.loopexit.loopexit ], [ %54, %.loopexit.loopexit304 ]
-  %.1 = phi i32 [ %21, %.preheader ], [ %21, %.preheader280 ], [ %56, %.loopexit.loopexit ], [ %58, %.loopexit.loopexit304 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit357, %.loopexit.loopexit, %.preheader280, %.preheader
+  %.1263 = phi ptr [ %20, %.preheader ], [ %20, %.preheader280 ], [ %31, %.loopexit.loopexit ], [ %54, %.loopexit.loopexit357 ]
+  %.1 = phi i32 [ %21, %.preheader ], [ %21, %.preheader280 ], [ %56, %.loopexit.loopexit ], [ %58, %.loopexit.loopexit357 ]
   switch i8 %19, label %cin_decode_rle.exit [
     i8 9, label %59
     i8 34, label %109

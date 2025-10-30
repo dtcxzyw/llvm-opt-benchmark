@@ -6599,11 +6599,11 @@ gv_calloc.exit118:                                ; preds = %25
   br label %.preheader137
 
 .lr.ph142.preheader:                              ; preds = %42
-  %51 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %52 = zext nneg i32 %10 to i64
-  %53 = shl nuw nsw i64 %52, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %26, i8 0, i64 %53, i1 false), !tbaa !19
-  store i32 %10, ptr %51, align 4, !tbaa !19
+  %51 = zext nneg i32 %10 to i64
+  %52 = shl nuw nsw i64 %51, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %26, i8 0, i64 %52, i1 false), !tbaa !19
+  %53 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  store i32 %10, ptr %53, align 4, !tbaa !19
   %54 = zext nneg i32 %10 to i64
   %55 = shl nuw nsw i64 %54, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %35, i8 -1, i64 %55, i1 false), !tbaa !19

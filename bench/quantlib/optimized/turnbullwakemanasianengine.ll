@@ -1734,7 +1734,6 @@ invoke.cont348:                                   ; preds = %invoke.cont344
   br label %for.body359
 
 for.cond.cleanup358:                              ; preds = %invoke.cont429
-  %div443 = fdiv double %add432, %conv
   %sub.ptr.lhs.cast.i384 = ptrtoint ptr %forwards.sroa.14.1 to i64
   %sub.ptr.rhs.cast.i385 = ptrtoint ptr %forwards.sroa.0.3 to i64
   %sub.ptr.sub.i386 = sub i64 %sub.ptr.lhs.cast.i384, %sub.ptr.rhs.cast.i385
@@ -2255,8 +2254,9 @@ lpad428.loopexit.split-lp:                        ; preds = %if.then.i.i.i.i541
   br label %ehcleanup614
 
 for.cond.cleanup447:                              ; preds = %for.cond.cleanup457, %for.cond.cleanup358
-  %sub.ptr.sub.i3861601 = phi i64 [ 0, %for.cond.cleanup358 ], [ %sub.ptr.sub.i386, %for.cond.cleanup457 ]
+  %sub.ptr.sub.i3861600 = phi i64 [ 0, %for.cond.cleanup358 ], [ %sub.ptr.sub.i386, %for.cond.cleanup457 ]
   %EA2.0.lcssa = phi double [ 0.000000e+00, %for.cond.cleanup358 ], [ %EA2.1.lcssa, %for.cond.cleanup457 ]
+  %div443 = fdiv double %add432, %conv
   %mul471 = mul i64 %add, %add
   %conv472 = uitofp i64 %mul471 to double
   %div473 = fdiv double %EA2.0.lcssa, %conv472
@@ -2724,14 +2724,14 @@ call.i.i762.noexc:                                ; preds = %invoke.cont600
 
 invoke.cont.i.i.thread.i.i787:                    ; preds = %call.i.i762.noexc
   %_M_finish.i.i.i.i3.i.i788 = getelementptr inbounds nuw i8, ptr %call.i.i762791, i64 16
-  %add.ptr.i.i.i.i4.i.i789 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i3861601
+  %add.ptr.i.i.i.i4.i.i789 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i3861600
   %_M_end_of_storage.i.i.i.i5.i.i790 = getelementptr inbounds nuw i8, ptr %call.i.i762791, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %held.i.i.i763, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i4.i.i789, ptr %_M_end_of_storage.i.i.i.i5.i.i790, align 8, !tbaa !112
   br label %_ZN5boost3anyC2IRSt6vectorIdSaIdEEEEOT_PNSt9enable_ifIXntsr3std7is_sameIRS0_S6_EE5valueEvE4typeEPNS8_IXntsr3std8is_constIS6_EE5valueEvE4typeE.exit.i778
 
 cond.true.i.i.i.i.i.i.i769:                       ; preds = %call.i.i762.noexc
-  %cmp.i.i.i.i.i.i.i.i.i770 = icmp ugt i64 %sub.ptr.sub.i3861601, 9223372036854775800
+  %cmp.i.i.i.i.i.i.i.i.i770 = icmp ugt i64 %sub.ptr.sub.i3861600, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i.i.i.i770, label %if.then3.i.i.i.i.i.i.i.i.i785, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i771, !prof !41
 
 if.then3.i.i.i.i.i.i.i.i.i785:                    ; preds = %cond.true.i.i.i.i.i.i.i769
@@ -2742,17 +2742,17 @@ if.then3.i.i.i.i.i.i.i.i.i785:                    ; preds = %cond.true.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i771: ; preds = %cond.true.i.i.i.i.i.i.i769
-  %call5.i.i.i.i2.i6.i1.i1.i.i772 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i3861601) #31
+  %call5.i.i.i.i2.i6.i1.i1.i.i772 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i3861600) #31
           to label %if.then.i.i.i.i.i.i.i.i.i.i.i.i774 unwind label %lpad.i.i773
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i774:               ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i771
   store ptr %call5.i.i.i.i2.i6.i1.i1.i.i772, ptr %held.i.i.i763, align 8, !tbaa !114
   %_M_finish.i.i.i.i.i.i775 = getelementptr inbounds nuw i8, ptr %call.i.i762791, i64 16
   store ptr %call5.i.i.i.i2.i6.i1.i1.i.i772, ptr %_M_finish.i.i.i.i.i.i775, align 8, !tbaa !115
-  %add.ptr.i.i.i.i.i.i776 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i1.i1.i.i772, i64 %sub.ptr.sub.i3861601
+  %add.ptr.i.i.i.i.i.i776 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i1.i1.i.i772, i64 %sub.ptr.sub.i3861600
   %_M_end_of_storage.i.i.i.i.i.i777 = getelementptr inbounds nuw i8, ptr %call.i.i762791, i64 24
   store ptr %add.ptr.i.i.i.i.i.i776, ptr %_M_end_of_storage.i.i.i.i.i.i777, align 8, !tbaa !112
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i1.i1.i.i772, ptr align 8 %forwards.sroa.0.3, i64 %sub.ptr.sub.i3861601, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i1.i1.i.i772, ptr align 8 %forwards.sroa.0.3, i64 %sub.ptr.sub.i3861600, i1 false)
   br label %_ZN5boost3anyC2IRSt6vectorIdSaIdEEEEOT_PNSt9enable_ifIXntsr3std7is_sameIRS0_S6_EE5valueEvE4typeEPNS8_IXntsr3std8is_constIS6_EE5valueEvE4typeE.exit.i778
 
 lpad.i.i773:                                      ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i.i771, %if.then3.i.i.i.i.i.i.i.i.i785

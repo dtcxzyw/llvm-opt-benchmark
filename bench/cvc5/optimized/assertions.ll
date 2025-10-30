@@ -742,33 +742,33 @@ define hidden void @_ZN4cvc58internal3smt10Assertions7refreshEv(ptr noundef nonn
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %13 = load i64, ptr %12, align 8, !tbaa !58
-  %14 = icmp ult i64 %13, %10
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %12 = load i64, ptr %11, align 8, !tbaa !58
+  %13 = icmp ult i64 %12, %10
+  br i1 %13, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %16 = load ptr, ptr %15, align 8, !tbaa !24
-  %17 = load ptr, ptr %16, align 8, !tbaa !25
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !34
-  %20 = getelementptr inbounds i8, ptr %19, i64 -8
-  %21 = load ptr, ptr %20, align 8, !tbaa !36
-  %22 = icmp eq ptr %16, %21
-  br i1 %22, label %_ZN4cvc57context3CDOImEaSERKm.exit, label %23
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %15 = load ptr, ptr %14, align 8, !tbaa !24
+  %16 = load ptr, ptr %15, align 8, !tbaa !25
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !34
+  %19 = getelementptr inbounds i8, ptr %18, i64 -8
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %21 = icmp eq ptr %15, %20
+  br i1 %21, label %_ZN4cvc57context3CDOImEaSERKm.exit, label %22
 
-23:                                               ; preds = %._crit_edge
-  call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %11)
+22:                                               ; preds = %._crit_edge
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %23)
   br label %_ZN4cvc57context3CDOImEaSERKm.exit
 
-_ZN4cvc57context3CDOImEaSERKm.exit:               ; preds = %._crit_edge, %23
-  store i64 %10, ptr %12, align 8, !tbaa !22
+_ZN4cvc57context3CDOImEaSERKm.exit:               ; preds = %._crit_edge, %22
+  store i64 %10, ptr %11, align 8, !tbaa !22
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.06 = phi i64 [ %27, %.lr.ph ], [ %13, %1 ]
+  %.06 = phi i64 [ %27, %.lr.ph ], [ %12, %1 ]
   %24 = load ptr, ptr %3, align 8, !tbaa !37
   %25 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.283", ptr %24, i64 %.06
   %26 = load ptr, ptr %25, align 8, !tbaa !39

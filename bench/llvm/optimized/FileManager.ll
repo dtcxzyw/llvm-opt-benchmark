@@ -2556,23 +2556,23 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
   %42 = sub i64 %40, %41
   %43 = call ptr @_ZN5clang11FileManager17getVirtualFileRefEN4llvm9StringRefEll(ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %34, i64 %35, i64 noundef %42, i64 noundef 0)
   store ptr %43, ptr %5, align 8, !tbaa !170
-  %44 = ptrtoint ptr %43 to i64
-  br label %45
+  br label %44
 
-45:                                               ; preds = %45, %29
-  %.05.i.i = phi ptr [ %43, %29 ], [ %49, %45 ]
-  %46 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %46, align 8
-  %47 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 4
-  %.not.i.i.i.i.i.i = icmp eq i64 %47, 0
-  %48 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -8
-  %49 = inttoptr i64 %48 to ptr
-  %.not7.i.i = icmp eq i64 %48, 0
+44:                                               ; preds = %44, %29
+  %.05.i.i = phi ptr [ %43, %29 ], [ %48, %44 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %45, align 8
+  %46 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 4
+  %.not.i.i.i.i.i.i = icmp eq i64 %46, 0
+  %47 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -8
+  %48 = inttoptr i64 %47 to ptr
+  %.not7.i.i = icmp eq i64 %47, 0
   %.not.i.i6 = or i1 %.not.i.i.i.i.i.i, %.not7.i.i
-  br i1 %.not.i.i6, label %_ZNK5clang12FileEntryRef12getFileEntryEv.exit, label %45
+  br i1 %.not.i.i6, label %_ZNK5clang12FileEntryRef12getFileEntryEv.exit, label %44
 
-_ZNK5clang12FileEntryRef12getFileEntryEv.exit:    ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 88
+_ZNK5clang12FileEntryRef12getFileEntryEv.exit:    ; preds = %44
+  %49 = ptrtoint ptr %43 to i64
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 88
   %51 = load ptr, ptr %50, align 8, !tbaa !224
   store ptr %.sroa.010.0, ptr %50, align 8, !tbaa !224
   %.not.i.i.i.i7 = icmp eq ptr %51, null
@@ -2587,8 +2587,8 @@ _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i.i8: ; preds = %_
   br label %.thread
 
 .thread:                                          ; preds = %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i.i8, %_ZNK5clang12FileEntryRef12getFileEntryEv.exit
-  %55 = phi i64 [ %.pre17, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i.i8 ], [ %44, %_ZNK5clang12FileEntryRef12getFileEntryEv.exit ]
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 76
+  %55 = phi i64 [ %.pre17, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i.i8 ], [ %49, %_ZNK5clang12FileEntryRef12getFileEntryEv.exit ]
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 76
   store i8 1, ptr %56, align 4, !tbaa !202
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load i8, ptr %57, align 8
@@ -3932,7 +3932,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_7ErrorOrIN5clang12Fil
   ret void
 
 27:                                               ; preds = %.lr.ph, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_7ErrorOrIN5clang12FileEntryRef8MapValueEEEEEKNS_14StringMapEntryIS6_EEEppEv.exit.loopexit
-  %28 = phi ptr [ %.pre, %.lr.ph ], [ %62, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_7ErrorOrIN5clang12FileEntryRef8MapValueEEEEEKNS_14StringMapEntryIS6_EEEppEv.exit.loopexit ]
+  %28 = phi ptr [ %.pre, %.lr.ph ], [ %61, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_7ErrorOrIN5clang12FileEntryRef8MapValueEEEEEKNS_14StringMapEntryIS6_EEEppEv.exit.loopexit ]
   %.sroa.024.036 = phi ptr [ %.sroa.0.1.i, %.lr.ph ], [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_7ErrorOrIN5clang12FileEntryRef8MapValueEEEEEKNS_14StringMapEntryIS6_EEEppEv.exit.loopexit ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load i8, ptr %29, align 8
@@ -3979,43 +3979,40 @@ _ZNK5clang12FileEntryRef6getUIDEv.exit:           ; preds = %.preheader34
   %.not.i.i = or i1 %.not.i.i.i.i.i.i, %.not7.i.i
   br i1 %.not.i.i, label %_ZNK5clang12FileEntryRef7getNameEv.exit, label %.preheader
 
-_ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %.preheader
-  %49 = load i64, ptr %.05.i.i, align 8, !tbaa !55
-  br label %50
-
-50:                                               ; preds = %50, %_ZNK5clang12FileEntryRef7getNameEv.exit
-  %.05.i.i14 = phi ptr [ %44, %_ZNK5clang12FileEntryRef7getNameEv.exit ], [ %54, %50 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.05.i.i14, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i15 = load i64, ptr %51, align 8
-  %52 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i15, 4
-  %.not.i.i.i.i.i.i16 = icmp eq i64 %52, 0
-  %53 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i15, -8
-  %54 = inttoptr i64 %53 to ptr
-  %.not7.i.i17 = icmp eq i64 %53, 0
+_ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %.preheader, %_ZNK5clang12FileEntryRef7getNameEv.exit
+  %.05.i.i14 = phi ptr [ %52, %_ZNK5clang12FileEntryRef7getNameEv.exit ], [ %44, %.preheader ]
+  %49 = getelementptr inbounds nuw i8, ptr %.05.i.i14, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i15 = load i64, ptr %49, align 8
+  %50 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i15, 4
+  %.not.i.i.i.i.i.i16 = icmp eq i64 %50, 0
+  %51 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i15, -8
+  %52 = inttoptr i64 %51 to ptr
+  %.not7.i.i17 = icmp eq i64 %51, 0
   %.not.i.i18 = or i1 %.not.i.i.i.i.i.i16, %.not7.i.i17
-  br i1 %.not.i.i18, label %_ZNK5clang12FileEntryRef7getNameEv.exit21, label %50
+  br i1 %.not.i.i18, label %_ZNK5clang12FileEntryRef7getNameEv.exit21, label %_ZNK5clang12FileEntryRef7getNameEv.exit
 
-_ZNK5clang12FileEntryRef7getNameEv.exit21:        ; preds = %50
-  %55 = load i64, ptr %.05.i.i14, align 8, !tbaa !55
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %55, i64 %49)
-  %56 = icmp eq i64 %.sroa.speculated.i.i, 0
-  br i1 %56, label %.thread.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i
+_ZNK5clang12FileEntryRef7getNameEv.exit21:        ; preds = %_ZNK5clang12FileEntryRef7getNameEv.exit
+  %53 = load i64, ptr %.05.i.i, align 8, !tbaa !55
+  %54 = load i64, ptr %.05.i.i14, align 8, !tbaa !55
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %54, i64 %53)
+  %55 = icmp eq i64 %.sroa.speculated.i.i, 0
+  br i1 %55, label %.thread.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %_ZNK5clang12FileEntryRef7getNameEv.exit21
-  %57 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 32
-  %58 = getelementptr inbounds nuw i8, ptr %.05.i.i14, i64 32
-  %59 = tail call i32 @memcmp(ptr noundef nonnull %57, ptr noundef nonnull %58, i64 noundef %.sroa.speculated.i.i) #23
-  %.fr.i.i = freeze i32 %59
+  %56 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %.05.i.i14, i64 32
+  %58 = tail call i32 @memcmp(ptr noundef nonnull %56, ptr noundef nonnull %57, i64 noundef %.sroa.speculated.i.i) #23
+  %.fr.i.i = freeze i32 %58
   %.not.not.i.i = icmp eq i32 %.fr.i.i, 0
   br i1 %.not.not.i.i, label %.thread.i.i, label %_ZN4llvmltENS_9StringRefES0_.exit
 
 .thread.i.i:                                      ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %_ZNK5clang12FileEntryRef7getNameEv.exit21
-  %60 = icmp ult i64 %49, %55
-  br i1 %60, label %_ZN4llvmltENS_9StringRefES0_.exit.thread31, label %_ZN4llvmltENS_9StringRefES0_.exit.thread.preheader
+  %59 = icmp ult i64 %53, %54
+  br i1 %59, label %_ZN4llvmltENS_9StringRefES0_.exit.thread31, label %_ZN4llvmltENS_9StringRefES0_.exit.thread.preheader
 
 _ZN4llvmltENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i
-  %61 = icmp slt i32 %.fr.i.i, 0
-  br i1 %61, label %_ZN4llvmltENS_9StringRefES0_.exit.thread31, label %_ZN4llvmltENS_9StringRefES0_.exit.thread.preheader
+  %60 = icmp slt i32 %.fr.i.i, 0
+  br i1 %60, label %_ZN4llvmltENS_9StringRefES0_.exit.thread31, label %_ZN4llvmltENS_9StringRefES0_.exit.thread.preheader
 
 _ZN4llvmltENS_9StringRefES0_.exit.thread31:       ; preds = %.thread.i.i, %_ZN4llvmltENS_9StringRefES0_.exit, %_ZNK5clang12FileEntryRef6getUIDEv.exit
   store ptr %28, ptr %43, align 8, !tbaa !170
@@ -4027,8 +4024,8 @@ _ZN4llvmltENS_9StringRefES0_.exit.thread.preheader: ; preds = %.thread.i.i, %_ZN
 _ZN4llvmltENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmltENS_9StringRefES0_.exit.thread.backedge, %_ZN4llvmltENS_9StringRefES0_.exit.thread.preheader
   %.pn.i = phi ptr [ %.sroa.024.036, %_ZN4llvmltENS_9StringRefES0_.exit.thread.preheader ], [ %storemerge.i, %_ZN4llvmltENS_9StringRefES0_.exit.thread.backedge ]
   %storemerge.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
-  %62 = load ptr, ptr %storemerge.i, align 8, !tbaa !53
-  %magicptr.i.i = ptrtoint ptr %62 to i64
+  %61 = load ptr, ptr %storemerge.i, align 8, !tbaa !53
+  %magicptr.i.i = ptrtoint ptr %61 to i64
   switch i64 %magicptr.i.i, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_7ErrorOrIN5clang12FileEntryRef8MapValueEEEEEKNS_14StringMapEntryIS6_EEEppEv.exit.loopexit [
     i64 0, label %_ZN4llvmltENS_9StringRefES0_.exit.thread.backedge
     i64 -8, label %_ZN4llvmltENS_9StringRefES0_.exit.thread.backedge

@@ -1336,17 +1336,17 @@ define hidden void @_ZN2cv7Cloning5solveERKNS_3MatERS1_S4_(ptr noundef nonnull r
 
 37:                                               ; preds = %._crit_edge80
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %42 = icmp sgt i32 %7, 0
-  br i1 %42, label %.lr.ph.preheader, label %.preheader
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %40 = icmp sgt i32 %7, 0
+  br i1 %40, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %37
   %wide.trip.count101 = zext nneg i32 %7 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %37
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %43 = add i32 %9, -1
   br i1 %11, label %.lr.ph85, label %._crit_edge86
 
@@ -1362,7 +1362,7 @@ define hidden void @_ZN2cv7Cloning5solveERKNS_3MatERS1_S4_(ptr noundef nonnull r
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv98 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next99, %.lr.ph ]
-  %49 = load ptr, ptr %40, align 8, !tbaa !27
+  %49 = load ptr, ptr %39, align 8, !tbaa !27
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv98
   %51 = load i8, ptr %50, align 1, !tbaa !28
   %52 = load ptr, ptr %38, align 8, !tbaa !27
@@ -1374,17 +1374,17 @@ define hidden void @_ZN2cv7Cloning5solveERKNS_3MatERS1_S4_(ptr noundef nonnull r
 
 ._crit_edge86:                                    ; preds = %._crit_edge, %.preheader
   %54 = load ptr, ptr %38, align 8, !tbaa !27
-  %55 = load ptr, ptr %39, align 8, !tbaa !39
+  %55 = load ptr, ptr %41, align 8, !tbaa !39
   %56 = load i64, ptr %55, align 8, !tbaa !40
   %57 = sext i32 %43 to i64
   %58 = mul i64 %56, %57
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 %58
-  %60 = load ptr, ptr %40, align 8, !tbaa !27
-  %61 = load ptr, ptr %41, align 8, !tbaa !39
+  %60 = load ptr, ptr %39, align 8, !tbaa !27
+  %61 = load ptr, ptr %42, align 8, !tbaa !39
   %62 = load i64, ptr %61, align 8, !tbaa !40
   %63 = mul i64 %62, %57
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 %63
-  br i1 %42, label %.lr.ph89.preheader, label %._crit_edge90
+  br i1 %40, label %.lr.ph89.preheader, label %._crit_edge90
 
 .lr.ph89.preheader:                               ; preds = %._crit_edge86
   %wide.trip.count116 = zext nneg i32 %7 to i64
@@ -1393,12 +1393,12 @@ define hidden void @_ZN2cv7Cloning5solveERKNS_3MatERS1_S4_(ptr noundef nonnull r
 65:                                               ; preds = %.lr.ph85, %._crit_edge
   %indvars.iv108 = phi i64 [ 1, %.lr.ph85 ], [ %indvars.iv.next109, %._crit_edge ]
   %66 = load ptr, ptr %38, align 8, !tbaa !27
-  %67 = load ptr, ptr %39, align 8, !tbaa !39
+  %67 = load ptr, ptr %41, align 8, !tbaa !39
   %68 = load i64, ptr %67, align 8, !tbaa !40
   %69 = mul i64 %68, %indvars.iv108
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 %69
-  %71 = load ptr, ptr %40, align 8, !tbaa !27
-  %72 = load ptr, ptr %41, align 8, !tbaa !39
+  %71 = load ptr, ptr %39, align 8, !tbaa !27
+  %72 = load ptr, ptr %42, align 8, !tbaa !39
   %73 = load i64, ptr %72, align 8, !tbaa !40
   %74 = mul i64 %73, %indvars.iv108
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 %74
@@ -4283,8 +4283,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !58
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !58
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i

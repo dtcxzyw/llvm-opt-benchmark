@@ -1709,14 +1709,14 @@ _ZN6icu_77L7spanOneERKNS_10UnicodeSetEPKDsi.exit: ; preds = %.noexc219, %.noexc2
 
 293:                                              ; preds = %.preheader
   %294 = getelementptr inbounds nuw i8, ptr %276, i64 %indvars.iv30.i
-  %295 = sub i32 %275, %274
-  %296 = trunc nuw nsw i64 %indvars.iv30.i to i32
+  %295 = trunc nuw nsw i64 %indvars.iv30.i to i32
+  %296 = sub i32 %275, %274
   store i8 0, ptr %294, align 1, !tbaa !27
   %297 = load i32, ptr %16, align 4, !tbaa !45
   %298 = add nsw i32 %297, -1
   store i32 %298, ptr %16, align 4, !tbaa !45
-  store i32 %296, ptr %17, align 8, !tbaa !46
-  %299 = add nsw i32 %295, %296
+  store i32 %295, ptr %17, align 8, !tbaa !46
+  %299 = add nsw i32 %296, %295
   br label %_ZN6icu_7710OffsetList10popMinimumEv.exit
 
 _ZN6icu_7710OffsetList10popMinimumEv.exit:        ; preds = %284, %293
@@ -2712,14 +2712,14 @@ _ZN6icu_77L11spanOneBackERKNS_10UnicodeSetEPKDsi.exit: ; preds = %.noexc209, %.n
 
 295:                                              ; preds = %.preheader
   %296 = getelementptr inbounds nuw i8, ptr %278, i64 %indvars.iv30.i
-  %297 = sub i32 %277, %276
-  %298 = trunc nuw nsw i64 %indvars.iv30.i to i32
+  %297 = trunc nuw nsw i64 %indvars.iv30.i to i32
+  %298 = sub i32 %277, %276
   store i8 0, ptr %296, align 1, !tbaa !27
   %299 = load i32, ptr %17, align 4, !tbaa !45
   %300 = add nsw i32 %299, -1
   store i32 %300, ptr %17, align 4, !tbaa !45
-  store i32 %298, ptr %18, align 8, !tbaa !46
-  %301 = add nsw i32 %297, %298
+  store i32 %297, ptr %18, align 8, !tbaa !46
+  %301 = add nsw i32 %298, %297
   br label %_ZN6icu_7710OffsetList10popMinimumEv.exit
 
 _ZN6icu_7710OffsetList10popMinimumEv.exit:        ; preds = %286, %295
@@ -3465,14 +3465,14 @@ _ZN6icu_7710OffsetList5shiftEi.exit:              ; preds = %185, %195
 
 218:                                              ; preds = %.preheader
   %219 = getelementptr inbounds nuw i8, ptr %201, i64 %indvars.iv30.i
-  %220 = sub i32 %200, %199
-  %221 = trunc nuw nsw i64 %indvars.iv30.i to i32
+  %220 = trunc nuw nsw i64 %indvars.iv30.i to i32
+  %221 = sub i32 %200, %199
   store i8 0, ptr %219, align 1, !tbaa !27
   %222 = load i32, ptr %16, align 4, !tbaa !45
   %223 = add nsw i32 %222, -1
   store i32 %223, ptr %16, align 4, !tbaa !45
-  store i32 %221, ptr %17, align 8, !tbaa !46
-  %224 = add nsw i32 %220, %221
+  store i32 %220, ptr %17, align 8, !tbaa !46
+  %224 = add nsw i32 %221, %220
   br label %_ZN6icu_7710OffsetList10popMinimumEv.exit
 
 _ZN6icu_7710OffsetList10popMinimumEv.exit:        ; preds = %209, %218
@@ -4351,14 +4351,14 @@ _ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit.thread266: ; preds = %.
 
 270:                                              ; preds = %.preheader
   %271 = getelementptr inbounds nuw i8, ptr %253, i64 %indvars.iv30.i
-  %272 = sub i32 %252, %251
-  %273 = trunc nuw nsw i64 %indvars.iv30.i to i32
+  %272 = trunc nuw nsw i64 %indvars.iv30.i to i32
+  %273 = sub i32 %252, %251
   store i8 0, ptr %271, align 1, !tbaa !27
   %274 = load i32, ptr %18, align 4, !tbaa !45
   %275 = add nsw i32 %274, -1
   store i32 %275, ptr %18, align 4, !tbaa !45
-  store i32 %273, ptr %19, align 8, !tbaa !46
-  %276 = add nsw i32 %272, %273
+  store i32 %272, ptr %19, align 8, !tbaa !46
+  %276 = add nsw i32 %273, %272
   br label %_ZN6icu_7710OffsetList10popMinimumEv.exit
 
 _ZN6icu_7710OffsetList10popMinimumEv.exit:        ; preds = %261, %270

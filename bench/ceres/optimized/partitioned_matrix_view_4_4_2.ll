@@ -2071,9 +2071,9 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi4ELi4E
 .lr.ph:                                           ; preds = %29
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !92
-  %42 = load ptr, ptr %6, align 8, !tbaa !38
-  %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds double, ptr %1, i64 %43
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds double, ptr %1, i64 %42
+  %44 = load ptr, ptr %6, align 8, !tbaa !38
   br label %45
 
 ._crit_edge:                                      ; preds = %_ZN5ceres8internal29MatrixTransposeVectorMultiplyILi4ELi2ELi1EEEvPKdiiS3_Pd.exit, %29
@@ -2084,44 +2084,44 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi4ELi4E
 45:                                               ; preds = %.lr.ph, %_ZN5ceres8internal29MatrixTransposeVectorMultiplyILi4ELi2ELi1EEEvPKdiiS3_Pd.exit
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZN5ceres8internal29MatrixTransposeVectorMultiplyILi4ELi2ELi1EEEvPKdiiS3_Pd.exit ]
   %46 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %34, i64 %indvars.iv
-  %47 = load i32, ptr %46, align 4, !tbaa !48
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %42, i64 %48
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !93
-  %52 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %53 = load i32, ptr %52, align 4, !tbaa !94
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds double, ptr %9, i64 %54
-  br label %56
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %48 = load i32, ptr %47, align 4, !tbaa !94
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds double, ptr %9, i64 %49
+  br label %51
 
-56:                                               ; preds = %56, %45
-  %.026.i = phi ptr [ %55, %45 ], [ %64, %56 ]
-  %.01825.i = phi i32 [ 0, %45 ], [ %65, %56 ]
-  %.01924.i = phi double [ 0.000000e+00, %45 ], [ %63, %56 ]
-  %.02023.i = phi double [ 0.000000e+00, %45 ], [ %60, %56 ]
-  %.02122.i = phi ptr [ %44, %45 ], [ %57, %56 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.02122.i, i64 8
-  %58 = load double, ptr %.02122.i, align 8, !tbaa !95
-  %59 = load double, ptr %.026.i, align 8, !tbaa !95
-  %60 = tail call double @llvm.fmuladd.f64(double %59, double %58, double %.02023.i)
-  %61 = getelementptr inbounds nuw i8, ptr %.026.i, i64 8
-  %62 = load double, ptr %61, align 8, !tbaa !95
-  %63 = tail call double @llvm.fmuladd.f64(double %62, double %58, double %.01924.i)
-  %64 = getelementptr inbounds nuw i8, ptr %.026.i, i64 16
-  %65 = add nuw nsw i32 %.01825.i, 1
-  %exitcond.not.i = icmp eq i32 %65, 4
-  br i1 %exitcond.not.i, label %_ZN5ceres8internal29MatrixTransposeVectorMultiplyILi4ELi2ELi1EEEvPKdiiS3_Pd.exit, label %56, !llvm.loop !111
+51:                                               ; preds = %51, %45
+  %.026.i = phi ptr [ %50, %45 ], [ %59, %51 ]
+  %.01825.i = phi i32 [ 0, %45 ], [ %60, %51 ]
+  %.01924.i = phi double [ 0.000000e+00, %45 ], [ %58, %51 ]
+  %.02023.i = phi double [ 0.000000e+00, %45 ], [ %55, %51 ]
+  %.02122.i = phi ptr [ %43, %45 ], [ %52, %51 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.02122.i, i64 8
+  %53 = load double, ptr %.02122.i, align 8, !tbaa !95
+  %54 = load double, ptr %.026.i, align 8, !tbaa !95
+  %55 = tail call double @llvm.fmuladd.f64(double %54, double %53, double %.02023.i)
+  %56 = getelementptr inbounds nuw i8, ptr %.026.i, i64 8
+  %57 = load double, ptr %56, align 8, !tbaa !95
+  %58 = tail call double @llvm.fmuladd.f64(double %57, double %53, double %.01924.i)
+  %59 = getelementptr inbounds nuw i8, ptr %.026.i, i64 16
+  %60 = add nuw nsw i32 %.01825.i, 1
+  %exitcond.not.i = icmp eq i32 %60, 4
+  br i1 %exitcond.not.i, label %_ZN5ceres8internal29MatrixTransposeVectorMultiplyILi4ELi2ELi1EEEvPKdiiS3_Pd.exit, label %51, !llvm.loop !111
 
-_ZN5ceres8internal29MatrixTransposeVectorMultiplyILi4ELi2ELi1EEEvPKdiiS3_Pd.exit: ; preds = %56
-  %66 = sext i32 %51 to i64
+_ZN5ceres8internal29MatrixTransposeVectorMultiplyILi4ELi2ELi1EEEvPKdiiS3_Pd.exit: ; preds = %51
+  %61 = load i32, ptr %46, align 4, !tbaa !48
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %44, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %65 = load i32, ptr %64, align 4, !tbaa !93
+  %66 = sext i32 %65 to i64
   %gep = getelementptr double, ptr %invariant.gep, i64 %66
   %67 = load double, ptr %gep, align 8, !tbaa !95
-  %68 = fadd double %60, %67
+  %68 = fadd double %55, %67
   store double %68, ptr %gep, align 8, !tbaa !95
   %69 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %70 = load double, ptr %69, align 8, !tbaa !95
-  %71 = fadd double %63, %70
+  %71 = fadd double %58, %70
   store double %71, ptr %69, align 8, !tbaa !95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %38

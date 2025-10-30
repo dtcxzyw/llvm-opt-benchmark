@@ -11046,26 +11046,26 @@ _ZN4llvm5ErrorD2Ev.exit46:                        ; preds = %117
   %147 = add i32 %146, %145
   %148 = zext i32 %147 to i64
   store i64 %148, ptr %17, align 8, !tbaa !8
-  %149 = shl i32 %143, 2
-  %150 = zext i32 %149 to i64
-  %151 = add nuw nsw i64 %148, %150
-  %152 = shl i32 %144, 2
-  %153 = zext i32 %152 to i64
-  %154 = add nuw nsw i64 %151, %153
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !33
   %.not192 = icmp eq i32 %143, 0
   br i1 %.not192, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm5ErrorD2Ev.exit46
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %156 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %157 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %158 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %150 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br label %163
 
 ._crit_edge:                                      ; preds = %173, %_ZN4llvm5ErrorD2Ev.exit46
   %.023.lcssa = phi i32 [ 0, %_ZN4llvm5ErrorD2Ev.exit46 ], [ %.124, %173 ]
+  %153 = shl i32 %143, 2
+  %154 = zext i32 %153 to i64
+  %155 = add nuw nsw i64 %148, %154
+  %156 = shl i32 %144, 2
+  %157 = zext i32 %156 to i64
+  %158 = add nuw nsw i64 %155, %157
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %159 = call { ptr, i64 } @_ZN4llvm21AppleAcceleratorTable12getAtomsDescEv(ptr noundef nonnull align 8 dereferenceable(149) %11) #28
   %160 = extractvalue { ptr, i64 } %159, 1
@@ -11084,7 +11084,7 @@ _ZN4llvm5ErrorD2Ev.exit46:                        ; preds = %117
   br i1 %or.cond, label %167, label %173
 
 167:                                              ; preds = %163
-  store i64 0, ptr %158, align 8
+  store i64 0, ptr %152, align 8
   %168 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   store ptr %0, ptr %168, align 16, !tbaa !78
   %.sroa.4152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 8
@@ -11092,10 +11092,10 @@ _ZN4llvm5ErrorD2Ev.exit46:                        ; preds = %117
   %.sroa.5153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 16
   store ptr %19, ptr %.sroa.5153.0..sroa_idx, align 16, !tbaa !75
   store ptr %168, ptr %20, align 8, !tbaa !77
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E9_M_invokeERKSt9_Any_data", ptr %157, align 8, !tbaa !79
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %156, align 8, !tbaa !81
-  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %155, ptr nonnull @.str.88, i64 18, ptr noundef nonnull %20)
-  %169 = load ptr, ptr %156, align 8, !tbaa !81
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E9_M_invokeERKSt9_Any_data", ptr %151, align 8, !tbaa !79
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN4llvm13DWARFVerifier21verifyAppleAccelTableEPKNS1_12DWARFSectionEPNS1_13DataExtractorEPKcE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %150, align 8, !tbaa !81
+  call void @_ZN4llvm24OutputCategoryAggregator6ReportENS_9StringRefESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(49) %149, ptr nonnull @.str.88, i64 18, ptr noundef nonnull %20)
+  %169 = load ptr, ptr %150, align 8, !tbaa !81
   %.not.i47 = icmp eq ptr %169, null
   br i1 %.not.i47, label %_ZNSt14_Function_baseD2Ev.exit48, label %170
 
@@ -11197,10 +11197,10 @@ _ZNSt14_Function_baseD2Ev.exit48:                 ; preds = %167, %170
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %218 = shl i32 %storemerge28186, 2
   %219 = zext i32 %218 to i64
-  %220 = add nuw nsw i64 %151, %219
+  %220 = add nuw nsw i64 %155, %219
   store i64 %220, ptr %24, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %221 = add nuw nsw i64 %154, %219
+  %221 = add nuw nsw i64 %158, %219
   store i64 %221, ptr %25, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %222 = call noundef i32 @_ZNK4llvm13DataExtractor6getU32EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %10, ptr noundef nonnull %24, ptr noundef null) #28

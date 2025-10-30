@@ -2591,17 +2591,20 @@ _ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %65 = ashr exact i64 %62, 2
   %66 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #29
-  %67 = getelementptr inbounds nuw %"class.pstd::span.25", ptr %66, i64 %63
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %66, i8 0, i64 %65, i1 false)
+  br label %.lr.ph
+
+.preheader104.loopexit:                           ; preds = %.lr.ph
+  %67 = getelementptr inbounds nuw %"class.pstd::span.25", ptr %66, i64 %63
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %66, i64 %65
   %68 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   %69 = ptrtoint ptr %67 to i64
-  br label %.lr.ph
+  br label %.preheader104
 
-.preheader104:                                    ; preds = %.lr.ph, %_ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %.0.lcssa.i.i.i.i.i174 = phi i64 [ 0, %_ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %68, %.lr.ph ]
-  %.sink.i173 = phi i64 [ 0, %_ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %69, %.lr.ph ]
-  %.sroa.096.0172 = phi ptr [ null, %_ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %66, %.lr.ph ]
+.preheader104:                                    ; preds = %.preheader104.loopexit, %_ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
+  %.0.lcssa.i.i.i.i.i174 = phi i64 [ 0, %_ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %68, %.preheader104.loopexit ]
+  %.sink.i173 = phi i64 [ 0, %_ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %69, %.preheader104.loopexit ]
+  %.sroa.096.0172 = phi ptr [ null, %_ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %66, %.preheader104.loopexit ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %72 = load i32, ptr %71, align 4, !tbaa !118
@@ -2635,7 +2638,7 @@ _ZNSt6vectorIN4pstd4spanIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
   store i64 16384, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %63
-  br i1 %exitcond.not, label %.preheader104, label %.lr.ph, !llvm.loop !122
+  br i1 %exitcond.not, label %.preheader104.loopexit, label %.lr.ph, !llvm.loop !122
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge73
   %90 = phi i32 [ %197, %.critedge73 ], [ %72, %.preheader.lr.ph ]

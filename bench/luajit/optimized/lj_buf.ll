@@ -38,18 +38,18 @@ define internal fastcc void @buf_grow(ptr noundef captures(none) %0, i32 noundef
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = trunc i64 %9 to i32
-  %11 = load ptr, ptr %0, align 8, !tbaa !15
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %10, i32 32)
-  br label %12
+  br label %11
 
-12:                                               ; preds = %12, %2
-  %.0 = phi i32 [ %spec.store.select, %2 ], [ %14, %12 ]
-  %13 = icmp ult i32 %.0, %1
-  %14 = shl i32 %.0, 1
-  br i1 %13, label %12, label %15, !llvm.loop !16
+11:                                               ; preds = %11, %2
+  %.0 = phi i32 [ %spec.store.select, %2 ], [ %13, %11 ]
+  %12 = icmp ult i32 %.0, %1
+  %13 = shl i32 %.0, 1
+  br i1 %12, label %11, label %14, !llvm.loop !15
 
-15:                                               ; preds = %12
-  %16 = ptrtoint ptr %11 to i64
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %0, align 8, !tbaa !17
+  %16 = ptrtoint ptr %15 to i64
   %17 = sub i64 %16, %8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !5
@@ -59,7 +59,7 @@ define internal fastcc void @buf_grow(ptr noundef captures(none) %0, i32 noundef
   %22 = inttoptr i64 %21 to ptr
   br i1 %.not, label %30, label %23
 
-23:                                               ; preds = %15
+23:                                               ; preds = %14
   %24 = zext i32 %.0 to i64
   %25 = tail call ptr @lj_mem_realloc(ptr noundef %22, ptr noundef null, i64 noundef 0, i64 noundef %24) #9
   %26 = and i64 %19, -3
@@ -71,7 +71,7 @@ define internal fastcc void @buf_grow(ptr noundef captures(none) %0, i32 noundef
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %28, i64 %29, i1 false)
   br label %34
 
-30:                                               ; preds = %15
+30:                                               ; preds = %14
   %31 = and i64 %9, 4294967295
   %32 = zext i32 %.0 to i64
   %33 = tail call ptr @lj_mem_realloc(ptr noundef %22, ptr noundef %6, i64 noundef %31, i64 noundef %32) #9
@@ -98,7 +98,7 @@ define internal fastcc void @buf_grow(ptr noundef captures(none) %0, i32 noundef
   store ptr %.046, ptr %5, align 8, !tbaa !13
   %45 = and i64 %17, 4294967295
   %46 = getelementptr inbounds nuw i8, ptr %.046, i64 %45
-  store ptr %46, ptr %0, align 8, !tbaa !15
+  store ptr %46, ptr %0, align 8, !tbaa !17
   %47 = zext i32 %.0 to i64
   %48 = getelementptr inbounds nuw i8, ptr %.046, i64 %47
   store ptr %48, ptr %3, align 8, !tbaa !14
@@ -112,7 +112,7 @@ define internal fastcc void @buf_grow(ptr noundef captures(none) %0, i32 noundef
   %53 = inttoptr i64 %52 to ptr
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %.046, ptr %54, align 8, !tbaa !13
-  store ptr %46, ptr %53, align 8, !tbaa !15
+  store ptr %46, ptr %53, align 8, !tbaa !17
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %48, ptr %55, align 8, !tbaa !14
   br label %56
@@ -249,7 +249,7 @@ define hidden void @lj_buf_shrink(ptr noundef %0, ptr noundef captures(none) %1)
   %15 = and i64 %14, 2147483647
   %16 = tail call ptr @lj_mem_realloc(ptr noundef %0, ptr noundef %4, i64 noundef %13, i64 noundef %15) #9
   store ptr %16, ptr %3, align 8, !tbaa !13
-  store ptr %16, ptr %1, align 8, !tbaa !15
+  store ptr %16, ptr %1, align 8, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %15
   store ptr %17, ptr %5, align 8, !tbaa !14
   br label %18
@@ -367,7 +367,7 @@ declare hidden void @lj_gc_barrierf(ptr noundef, ptr noundef, ptr noundef) local
 define hidden i32 @lj_bufx_more(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !14
-  %5 = load ptr, ptr %0, align 8, !tbaa !15
+  %5 = load ptr, ptr %0, align 8, !tbaa !17
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -394,7 +394,7 @@ lj_buf_more.exit:                                 ; preds = %2, %11
 define hidden noundef ptr @lj_buf_putmem(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !14
-  %6 = load ptr, ptr %0, align 8, !tbaa !15
+  %6 = load ptr, ptr %0, align 8, !tbaa !17
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -411,13 +411,13 @@ lj_buf_more.exit:                                 ; preds = %3, %12
   %14 = zext i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr align 1 %1, i64 %14, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %14
-  store ptr %15, ptr %0, align 8, !tbaa !15
+  store ptr %15, ptr %0, align 8, !tbaa !17
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @lj_buf_putchar(ptr noundef returned captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !15
+  %3 = load ptr, ptr %0, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = icmp ult ptr %3, %5
@@ -427,7 +427,7 @@ define hidden noundef ptr @lj_buf_putchar(ptr noundef returned captures(ret: add
   %8 = trunc i32 %1 to i8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %8, ptr %3, align 1, !tbaa !18
-  store ptr %9, ptr %0, align 8, !tbaa !15
+  store ptr %9, ptr %0, align 8, !tbaa !17
   br label %12
 
 10:                                               ; preds = %2
@@ -444,7 +444,7 @@ define internal fastcc noundef ptr @lj_buf_putchar2(ptr noundef returned capture
   %4 = trunc i32 %1 to i8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %4, ptr %3, align 1, !tbaa !18
-  store ptr %5, ptr %0, align 8, !tbaa !15
+  store ptr %5, ptr %0, align 8, !tbaa !17
   ret ptr %0
 }
 
@@ -454,7 +454,7 @@ define hidden noundef ptr @lj_buf_putstr(ptr noundef returned captures(ret: addr
   %4 = load i32, ptr %3, align 4, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !14
-  %7 = load ptr, ptr %0, align 8, !tbaa !15
+  %7 = load ptr, ptr %0, align 8, !tbaa !17
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -472,7 +472,7 @@ lj_buf_more.exit:                                 ; preds = %2, %13
   %16 = zext i32 %4 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr nonnull align 1 %15, i64 %16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %16
-  store ptr %17, ptr %0, align 8, !tbaa !15
+  store ptr %17, ptr %0, align 8, !tbaa !17
   ret ptr %0
 }
 
@@ -482,7 +482,7 @@ define hidden noundef ptr @lj_buf_putstr_reverse(ptr noundef returned captures(r
   %4 = load i32, ptr %3, align 4, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !14
-  %7 = load ptr, ptr %0, align 8, !tbaa !15
+  %7 = load ptr, ptr %0, align 8, !tbaa !17
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -522,7 +522,7 @@ lj_buf_more.exit:                                 ; preds = %2
 
 ._crit_edge:                                      ; preds = %.lr.ph, %lj_buf_more.exit
   %.013.lcssa = phi ptr [ %7, %lj_buf_more.exit ], [ %24, %.lr.ph ]
-  store ptr %.013.lcssa, ptr %0, align 8, !tbaa !15
+  store ptr %.013.lcssa, ptr %0, align 8, !tbaa !17
   ret ptr %0
 }
 
@@ -532,7 +532,7 @@ define hidden noundef ptr @lj_buf_putstr_lower(ptr noundef returned captures(ret
   %4 = load i32, ptr %3, align 4, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !14
-  %7 = load ptr, ptr %0, align 8, !tbaa !15
+  %7 = load ptr, ptr %0, align 8, !tbaa !17
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -574,7 +574,7 @@ lj_buf_more.exit:                                 ; preds = %2
 
 ._crit_edge:                                      ; preds = %.lr.ph, %lj_buf_more.exit
   %.020.lcssa = phi ptr [ %7, %lj_buf_more.exit ], [ %23, %.lr.ph ]
-  store ptr %.020.lcssa, ptr %0, align 8, !tbaa !15
+  store ptr %.020.lcssa, ptr %0, align 8, !tbaa !17
   ret ptr %0
 }
 
@@ -584,7 +584,7 @@ define hidden noundef ptr @lj_buf_putstr_upper(ptr noundef returned captures(ret
   %4 = load i32, ptr %3, align 4, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !14
-  %7 = load ptr, ptr %0, align 8, !tbaa !15
+  %7 = load ptr, ptr %0, align 8, !tbaa !17
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -626,7 +626,7 @@ lj_buf_more.exit:                                 ; preds = %2
 
 ._crit_edge:                                      ; preds = %.lr.ph, %lj_buf_more.exit
   %.020.lcssa = phi ptr [ %7, %lj_buf_more.exit ], [ %23, %.lr.ph ]
-  store ptr %.020.lcssa, ptr %0, align 8, !tbaa !15
+  store ptr %.020.lcssa, ptr %0, align 8, !tbaa !17
   ret ptr %0
 }
 
@@ -658,7 +658,7 @@ define hidden noundef ptr @lj_buf_putstr_rep(ptr noundef returned captures(ret: 
   %19 = trunc nuw nsw i64 %11 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !14
-  %22 = load ptr, ptr %0, align 8, !tbaa !15
+  %22 = load ptr, ptr %0, align 8, !tbaa !17
   %23 = ptrtoint ptr %21 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
@@ -709,7 +709,7 @@ lj_buf_more.exit:                                 ; preds = %18, %28
 
 .loopexit:                                        ; preds = %42, %.loopexit.loopexit
   %.127 = phi ptr [ %scevgep, %.loopexit.loopexit ], [ %40, %42 ]
-  store ptr %.127, ptr %0, align 8, !tbaa !15
+  store ptr %.127, ptr %0, align 8, !tbaa !17
   br label %45
 
 45:                                               ; preds = %.loopexit, %3
@@ -784,7 +784,7 @@ define hidden noundef ptr @lj_buf_puttab(ptr noundef %0, ptr noundef %1, ptr nou
   %40 = load i32, ptr %39, align 4, !tbaa !18
   %41 = add i32 %40, %10
   %42 = load ptr, ptr %13, align 8, !tbaa !14
-  %43 = load ptr, ptr %0, align 8, !tbaa !15
+  %43 = load ptr, ptr %0, align 8, !tbaa !17
   %44 = ptrtoint ptr %42 to i64
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %44, %45
@@ -816,7 +816,7 @@ lj_buf_more.exit50:                               ; preds = %36, %49
   %57 = tail call ptr @lj_strfmt_putfnum(ptr noundef %0, i32 noundef 251658293, double noundef %35) #9
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !14
-  %60 = load ptr, ptr %57, align 8, !tbaa !15
+  %60 = load ptr, ptr %57, align 8, !tbaa !17
   %61 = ptrtoint ptr %59 to i64
   %62 = ptrtoint ptr %60 to i64
   %63 = sub i64 %61, %62
@@ -844,13 +844,13 @@ lj_buf_more.exit:                                 ; preds = %66, %56, %lj_buf_mo
 
 72:                                               ; preds = %69, %70
   %.138 = phi ptr [ %71, %70 ], [ %.037, %69 ]
-  store ptr %.138, ptr %0, align 8, !tbaa !15
+  store ptr %.138, ptr %0, align 8, !tbaa !17
   br label %17
 
 .sink.split:                                      ; preds = %lj_buf_more.exit, %.thread
   %.037.lcssa.sink = phi ptr [ %30, %.thread ], [ %.037, %lj_buf_more.exit ]
   %.2.ph = phi ptr [ null, %.thread ], [ %0, %lj_buf_more.exit ]
-  store ptr %.037.lcssa.sink, ptr %0, align 8, !tbaa !15
+  store ptr %.037.lcssa.sink, ptr %0, align 8, !tbaa !17
   br label %73
 
 73:                                               ; preds = %.sink.split, %9
@@ -870,7 +870,7 @@ define hidden ptr @lj_buf_tostr(ptr noundef readonly captures(none) %0) local_un
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !13
-  %8 = load ptr, ptr %0, align 8, !tbaa !15
+  %8 = load ptr, ptr %0, align 8, !tbaa !17
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %7 to i64
   %11 = sub i64 %9, %10
@@ -995,9 +995,9 @@ attributes #9 = { nounwind }
 !12 = !{!"long", !9, i64 0}
 !13 = !{!6, !7, i64 16}
 !14 = !{!6, !7, i64 8}
-!15 = !{!6, !7, i64 0}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.mustprogress"}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = !{!6, !7, i64 0}
 !18 = !{!9, !9, i64 0}
 !19 = !{!20, !7, i64 40}
 !20 = !{!"SBufExt", !7, i64 0, !7, i64 8, !7, i64 16, !11, i64 24, !9, i64 32, !7, i64 40, !21, i64 48, !21, i64 56, !22, i64 64}
@@ -1024,12 +1024,12 @@ attributes #9 = { nounwind }
 !41 = !{!32, !8, i64 8}
 !42 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !43 = !{!34, !22, i64 20}
-!44 = distinct !{!44, !17}
-!45 = distinct !{!45, !17}
-!46 = distinct !{!46, !17}
-!47 = distinct !{!47, !17}
-!48 = distinct !{!48, !17}
+!44 = distinct !{!44, !16}
+!45 = distinct !{!45, !16}
+!46 = distinct !{!46, !16}
+!47 = distinct !{!47, !16}
+!48 = distinct !{!48, !16}
 !49 = !{!50, !22, i64 48}
 !50 = !{!"GCtab", !21, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !9, i64 11, !11, i64 16, !21, i64 24, !21, i64 32, !11, i64 40, !22, i64 48, !22, i64 52, !11, i64 56}
 !51 = !{!50, !12, i64 16}
-!52 = distinct !{!52, !17}
+!52 = distinct !{!52, !16}

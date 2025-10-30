@@ -5104,8 +5104,8 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit307: ; preds = %316, %319
 
 _ZSt6fill_nIPPN7rocksdb12FileMetaDataEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %350
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %352, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %351, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !22
   %354 = getelementptr inbounds nuw i8, ptr %351, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %351, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !22
   br label %_ZSt27__uninitialized_default_n_aIPPN7rocksdb12FileMetaDataEmS2_ET_S4_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPPN7rocksdb12FileMetaDataEmS2_ET_S4_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPPN7rocksdb12FileMetaDataEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i, %350

@@ -640,31 +640,31 @@ define dso_local void @parse_arguments(ptr dead_on_unwind noalias writable sret(
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 41280
   store i32 -1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 41368
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 41372
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 41376
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 41380
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 41384
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 41388
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 41392
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 41396
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 41400
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 41404
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 41408
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 41412
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 41192
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 41192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, i8 -1, i64 48, i1 false)
-  store i32 0, ptr %29, align 8
-  br label %30
+  store i32 0, ptr %18, align 8
+  br label %19
 
-30:                                               ; preds = %.preheader57, %30
-  %indvars.iv = phi i64 [ 1, %.preheader57 ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
-  store i32 1, ptr %31, align 4
+19:                                               ; preds = %.preheader57, %19
+  %indvars.iv = phi i64 [ 1, %.preheader57 ], [ %indvars.iv.next, %19 ]
+  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  store i32 1, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %.preheader56, label %30, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader56, label %19, !llvm.loop !11
 
 .preheader:                                       ; preds = %.preheader56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 41372
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 41376
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 41380
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 41384
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 41388
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 41392
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 41396
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 41400
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 41404
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 41408
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 41412
   store i32 1, ptr @arg_index, align 4
   %32 = load i32, ptr @arg_count, align 4
   %33 = icmp sgt i32 %32, 1
@@ -730,9 +730,9 @@ define dso_local void @parse_arguments(ptr dead_on_unwind noalias writable sret(
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 41290
   br label %92
 
-.preheader56:                                     ; preds = %30, %.preheader56
-  %indvars.iv377 = phi i64 [ %indvars.iv.next378, %.preheader56 ], [ 13, %30 ]
-  %91 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv377
+.preheader56:                                     ; preds = %19, %.preheader56
+  %indvars.iv377 = phi i64 [ %indvars.iv.next378, %.preheader56 ], [ 13, %19 ]
+  %91 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv377
   store i32 2, ptr %91, align 4
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %exitcond380.not = icmp eq i64 %indvars.iv.next378, 18
@@ -1350,7 +1350,7 @@ sub_1308.i:                                       ; preds = %100
   unreachable
 
 parse_multi_option.exit25:                        ; preds = %356
-  store i32 %357, ptr %20, align 4
+  store i32 %357, ptr %23, align 4
   br label %parse_option.exit
 
 match_argopt.exit31.thread:                       ; preds = %352, %349
@@ -1377,7 +1377,7 @@ match_argopt.exit31.thread:                       ; preds = %352, %349
   unreachable
 
 parse_multi_option.exit18:                        ; preds = %364
-  store i32 %365, ptr %26, align 4
+  store i32 %365, ptr %29, align 4
   br label %parse_option.exit
 
 match_argopt.exit24.thread:                       ; preds = %360, %match_argopt.exit31.thread
@@ -1404,7 +1404,7 @@ match_argopt.exit24.thread:                       ; preds = %360, %match_argopt.
   unreachable
 
 parse_multi_option.exit:                          ; preds = %372
-  store i32 %373, ptr %25, align 8
+  store i32 %373, ptr %28, align 8
   br label %parse_option.exit
 
 match_argopt.exit.thread:                         ; preds = %368, %match_argopt.exit24.thread
@@ -1537,7 +1537,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
 
 436:                                              ; preds = %434
   %437 = tail call fastcc i32 @parse_multi_option(ptr noundef %435, i32 noundef 2, ptr noundef nonnull @on_off)
-  store i32 %437, ptr %23, align 8
+  store i32 %437, ptr %26, align 8
   br label %parse_option.exit
 
 438:                                              ; preds = %434
@@ -1547,7 +1547,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
 
 440:                                              ; preds = %438
   %441 = tail call fastcc i32 @parse_multi_option(ptr noundef %439, i32 noundef 2, ptr noundef nonnull @on_off)
-  store i32 %441, ptr %24, align 4
+  store i32 %441, ptr %27, align 4
   br label %parse_option.exit
 
 442:                                              ; preds = %438
@@ -1557,7 +1557,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
 
 444:                                              ; preds = %442
   %445 = tail call fastcc i32 @parse_multi_option(ptr noundef %443, i32 noundef 2, ptr noundef nonnull @on_off)
-  store i32 %445, ptr %21, align 8
+  store i32 %445, ptr %24, align 8
   br label %parse_option.exit
 
 446:                                              ; preds = %442
@@ -1567,7 +1567,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
 
 448:                                              ; preds = %446
   %449 = tail call fastcc i32 @parse_multi_option(ptr noundef %447, i32 noundef 2, ptr noundef nonnull @on_off)
-  store i32 %449, ptr %22, align 4
+  store i32 %449, ptr %25, align 4
   br label %parse_option.exit
 
 450:                                              ; preds = %446
@@ -1577,7 +1577,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
 
 452:                                              ; preds = %450
   %453 = tail call fastcc i32 @parse_multi_option(ptr noundef %451, i32 noundef 6, ptr noundef nonnull @x86_vector_capability)
-  store i32 %453, ptr %18, align 4
+  store i32 %453, ptr %21, align 4
   br label %parse_option.exit
 
 454:                                              ; preds = %450
@@ -1587,7 +1587,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
 
 456:                                              ; preds = %454
   %457 = tail call fastcc i32 @parse_multi_option(ptr noundef %455, i32 noundef 8, ptr noundef nonnull @x86_cpu_set)
-  store i32 %457, ptr %19, align 8
+  store i32 %457, ptr %22, align 8
   br label %parse_option.exit
 
 458:                                              ; preds = %454
@@ -1597,7 +1597,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
 
 460:                                              ; preds = %458
   %461 = tail call fastcc i32 @parse_multi_option(ptr noundef %459, i32 noundef 3, ptr noundef nonnull @riscv_capability)
-  store i32 %461, ptr %27, align 8
+  store i32 %461, ptr %30, align 8
   br label %parse_option.exit
 
 462:                                              ; preds = %458
@@ -1607,7 +1607,7 @@ match_argopt.exit.thread:                         ; preds = %368, %match_argopt.
 
 464:                                              ; preds = %462
   %465 = tail call fastcc i32 @parse_multi_option(ptr noundef %463, i32 noundef 4, ptr noundef nonnull @memory_environment)
-  store i32 %465, ptr %28, align 4
+  store i32 %465, ptr %31, align 4
   br label %parse_option.exit
 
 466:                                              ; preds = %462
@@ -2017,7 +2017,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   store ptr %672, ptr @current_arg, align 8
   %678 = tail call fastcc ptr @check_dir(ptr noundef nonnull %672)
   store ptr %672, ptr %72, align 8
-  store i32 1, ptr %21, align 8
+  store i32 1, ptr %24, align 8
   br label %parse_option.exit
 
 679:                                              ; preds = %658
@@ -2638,7 +2638,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 
 1031:                                             ; preds = %1027
   store i8 1, ptr %54, align 1
-  store i32 0, ptr %24, align 4
+  store i32 0, ptr %27, align 4
   br label %parse_option.exit
 
 1032:                                             ; preds = %1027

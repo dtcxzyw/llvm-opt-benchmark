@@ -1539,7 +1539,7 @@ define void @avtext_print_integers(ptr noundef %0, ptr noundef %1, ptr noundef r
   %25 = getelementptr inbounds nuw i8, ptr %.147.us, i64 %16
   %26 = add nuw nsw i32 %.048.us, 1
   %exitcond85.not = icmp eq i32 %26, %18
-  br i1 %exitcond85.not, label %._crit_edge.loopexit74, label %.lr.ph.split.us, !llvm.loop !78
+  br i1 %exitcond85.not, label %._crit_edge.loopexit, label %.lr.ph.split.us, !llvm.loop !78
 
 .lr.ph.split.us51:                                ; preds = %.lr.ph, %.lr.ph.split.us51
   %.048.us52 = phi i32 [ %30, %.lr.ph.split.us51 ], [ 0, %.lr.ph ]
@@ -1550,7 +1550,7 @@ define void @avtext_print_integers(ptr noundef %0, ptr noundef %1, ptr noundef r
   %29 = getelementptr inbounds nuw i8, ptr %.147.us53, i64 %16
   %30 = add nuw nsw i32 %.048.us52, 1
   %exitcond84.not = icmp eq i32 %30, %18
-  br i1 %exitcond84.not, label %._crit_edge.loopexit75, label %.lr.ph.split.us51, !llvm.loop !78
+  br i1 %exitcond84.not, label %._crit_edge.loopexit91, label %.lr.ph.split.us51, !llvm.loop !78
 
 .lr.ph.split.us59:                                ; preds = %.lr.ph, %.lr.ph.split.us59
   %.048.us60 = phi i32 [ %33, %.lr.ph.split.us59 ], [ 0, %.lr.ph ]
@@ -1560,23 +1560,23 @@ define void @avtext_print_integers(ptr noundef %0, ptr noundef %1, ptr noundef r
   %32 = getelementptr inbounds nuw i8, ptr %.147.us61, i64 %16
   %33 = add nuw nsw i32 %.048.us60, 1
   %exitcond.not = icmp eq i32 %33, %18
-  br i1 %exitcond.not, label %._crit_edge.loopexit76, label %.lr.ph.split.us59, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge.loopexit92, label %.lr.ph.split.us59, !llvm.loop !78
 
-._crit_edge.loopexit74:                           ; preds = %.lr.ph.split.us
+._crit_edge.loopexit:                             ; preds = %.lr.ph.split.us
   %34 = sub i32 %.03868, %18
   br label %._crit_edge
 
-._crit_edge.loopexit75:                           ; preds = %.lr.ph.split.us51
+._crit_edge.loopexit91:                           ; preds = %.lr.ph.split.us51
   %35 = sub i32 %.03868, %18
   br label %._crit_edge
 
-._crit_edge.loopexit76:                           ; preds = %.lr.ph.split.us59
+._crit_edge.loopexit92:                           ; preds = %.lr.ph.split.us59
   %36 = sub i32 %.03868, %18
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit76, %._crit_edge.loopexit75, %._crit_edge.loopexit74, %.lr.ph.split.preheader, %17
-  %.139.lcssa = phi i32 [ %.03868, %17 ], [ %22, %.lr.ph.split.preheader ], [ %34, %._crit_edge.loopexit74 ], [ %35, %._crit_edge.loopexit75 ], [ %36, %._crit_edge.loopexit76 ]
-  %.1.lcssa = phi ptr [ %.03670, %17 ], [ %scevgep, %.lr.ph.split.preheader ], [ %25, %._crit_edge.loopexit74 ], [ %29, %._crit_edge.loopexit75 ], [ %32, %._crit_edge.loopexit76 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit92, %._crit_edge.loopexit91, %._crit_edge.loopexit, %.lr.ph.split.preheader, %17
+  %.139.lcssa = phi i32 [ %.03868, %17 ], [ %22, %.lr.ph.split.preheader ], [ %34, %._crit_edge.loopexit ], [ %35, %._crit_edge.loopexit91 ], [ %36, %._crit_edge.loopexit92 ]
+  %.1.lcssa = phi ptr [ %.03670, %17 ], [ %scevgep, %.lr.ph.split.preheader ], [ %25, %._crit_edge.loopexit ], [ %29, %._crit_edge.loopexit91 ], [ %32, %._crit_edge.loopexit92 ]
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.10) #12
   %37 = add i32 %.03769, %7
   %.not = icmp eq i32 %.139.lcssa, 0

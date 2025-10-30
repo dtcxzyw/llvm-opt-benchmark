@@ -35102,30 +35102,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164: ; preds = %16
   %indvars.iv235 = phi i64 [ 0, %.lr.ph206 ], [ %indvars.iv.next236, %._crit_edge204 ]
   %250 = load ptr, ptr %194, align 8, !tbaa !38
   %251 = load i64, ptr %195, align 8, !tbaa !66
-  %252 = mul i64 %251, %indvars.iv235
-  %253 = getelementptr inbounds nuw i8, ptr %250, i64 %252
-  %254 = load ptr, ptr %196, align 8, !tbaa !38
-  %255 = load i64, ptr %197, align 8, !tbaa !66
-  %256 = mul i64 %255, %indvars.iv235
-  %257 = getelementptr inbounds nuw i8, ptr %254, i64 %256
+  %252 = load ptr, ptr %196, align 8, !tbaa !38
+  %253 = load i64, ptr %197, align 8, !tbaa !66
   br i1 %190, label %.lr.ph200, label %._crit_edge
 
 .lr.ph200:                                        ; preds = %249
-  %258 = trunc nuw nsw i64 %indvars.iv235 to i32
-  %259 = uitofp nneg i32 %258 to float
-  %260 = fsub float %259, %.sroa.084.4.vec.extract88
-  %261 = load ptr, ptr %198, align 8, !tbaa !38
-  br label %262
+  %254 = trunc nuw nsw i64 %indvars.iv235 to i32
+  %255 = uitofp nneg i32 %254 to float
+  %256 = fsub float %255, %.sroa.084.4.vec.extract88
+  %257 = load ptr, ptr %198, align 8, !tbaa !38
+  br label %258
 
-262:                                              ; preds = %.lr.ph200, %262
-  %indvars.iv225 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next226, %262 ]
-  %263 = getelementptr inbounds nuw float, ptr %261, i64 %indvars.iv225
-  store float %260, ptr %263, align 4, !tbaa !102
+258:                                              ; preds = %.lr.ph200, %258
+  %indvars.iv225 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next226, %258 ]
+  %259 = getelementptr inbounds nuw float, ptr %257, i64 %indvars.iv225
+  store float %256, ptr %259, align 4, !tbaa !102
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %.sroa.0171.0.insert.ext186
-  br i1 %exitcond229.not, label %._crit_edge, label %262, !llvm.loop !611
+  br i1 %exitcond229.not, label %._crit_edge, label %258, !llvm.loop !611
 
-._crit_edge:                                      ; preds = %262, %249
+._crit_edge:                                      ; preds = %258, %249
+  %260 = mul i64 %251, %indvars.iv235
+  %261 = getelementptr inbounds nuw i8, ptr %250, i64 %260
+  %262 = mul i64 %253, %indvars.iv235
+  %263 = getelementptr inbounds nuw i8, ptr %252, i64 %262
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 0, ptr %199, align 8, !tbaa !536
   store i32 0, ptr %200, align 4, !tbaa !537
@@ -35241,11 +35241,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164: ; preds = %16
   %285 = fpext float %284 to double
   %286 = fdiv double %285, %172
   %287 = fptrunc double %282 to float
-  %288 = getelementptr inbounds nuw float, ptr %253, i64 %indvars.iv230
+  %288 = getelementptr inbounds nuw float, ptr %261, i64 %indvars.iv230
   store float %287, ptr %288, align 4, !tbaa !102
   %289 = fptrunc double %286 to float
   %290 = fadd float %289, 1.000000e+00
-  %291 = getelementptr inbounds nuw float, ptr %257, i64 %indvars.iv230
+  %291 = getelementptr inbounds nuw float, ptr %263, i64 %indvars.iv230
   store float %290, ptr %291, align 4, !tbaa !102
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next231, %.sroa.0171.0.insert.ext186

@@ -99,22 +99,22 @@ define hidden { ptr, i64 } @_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5w
   br i1 %3, label %.thread, label %._crit_edge
 
 .thread:                                          ; preds = %2
+  %4 = udiv i16 %0, 10000
   %.lhs.trunc = urem i16 %0, 10000
-  %4 = udiv i16 %.lhs.trunc, 100
-  %5 = shl nuw nsw i16 %4, 1
-  %6 = zext nneg i16 %5 to i64
-  %7 = urem i16 %.lhs.trunc, 100
-  %8 = shl nuw nsw i16 %7, 1
-  %9 = zext nneg i16 %8 to i64
-  %10 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %6
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %12 = load i16, ptr %10, align 1
-  store i16 %12, ptr %11, align 1
-  %13 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %9
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %15 = load i16, ptr %13, align 1
-  store i16 %15, ptr %14, align 1
-  %16 = udiv i16 %0, 10000
+  %5 = udiv i16 %.lhs.trunc, 100
+  %6 = shl nuw nsw i16 %5, 1
+  %7 = zext nneg i16 %6 to i64
+  %8 = urem i16 %.lhs.trunc, 100
+  %9 = shl nuw nsw i16 %8, 1
+  %10 = zext nneg i16 %9 to i64
+  %11 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %7
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %13 = load i16, ptr %11, align 1
+  store i16 %13, ptr %12, align 1
+  %14 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %10
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %16 = load i16, ptr %14, align 1
+  store i16 %16, ptr %15, align 1
   br label %35
 
 ._crit_edge:                                      ; preds = %2
@@ -149,7 +149,7 @@ define hidden { ptr, i64 } @_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5w
   br label %40
 
 35:                                               ; preds = %.thread, %26
-  %.sroa.04.037 = phi i16 [ %16, %.thread ], [ %.sroa.04.0.in, %26 ]
+  %.sroa.04.037 = phi i16 [ %4, %.thread ], [ %.sroa.04.0.in, %26 ]
   %.sroa.010.136 = phi i64 [ 1, %.thread ], [ %.sroa.010.1, %26 ]
   %36 = add nsw i64 %.sroa.010.136, -1
   %37 = trunc nuw i16 %.sroa.04.037 to i8
@@ -178,14 +178,14 @@ define noundef zeroext i1 @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRStNtB5_5Debug3fmtCs
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: write) uwtable
 define hidden { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef %0, ptr noalias noundef align 1 dereferenceable(11) %1) unnamed_addr #4 {
-  %3 = icmp sgt i32 %0, -1
   %.sroa.0.0 = tail call i32 @llvm.abs.i32(i32 %0, i1 false)
-  %4 = icmp ugt i32 %.sroa.0.0, 9999
-  br i1 %4, label %.lr.ph, label %._crit_edge
+  %3 = icmp ugt i32 %.sroa.0.0, 9999
+  br i1 %3, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.sroa.010.0.lcssa = phi i64 [ 11, %2 ], [ %15, %.lr.ph ]
   %.sroa.0.1.lcssa = phi i32 [ %.sroa.0.0, %2 ], [ %8, %.lr.ph ]
+  %4 = icmp sgt i32 %0, -1
   %5 = zext nneg i32 %.sroa.0.1.lcssa to i64
   %6 = icmp samesign ugt i32 %.sroa.0.1.lcssa, 99
   br i1 %6, label %24, label %33
@@ -254,7 +254,7 @@ define hidden { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5w
 
 46:                                               ; preds = %41, %35
   %.sroa.010.2 = phi i64 [ %42, %41 ], [ %37, %35 ]
-  br i1 %3, label %50, label %47
+  br i1 %4, label %50, label %47
 
 47:                                               ; preds = %46
   %48 = add i64 %.sroa.010.2, -1
@@ -346,14 +346,14 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4
   %3 = alloca [40 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  %4 = icmp sgt i32 %1, -1
   %.sroa.0.0.i = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %5 = icmp ugt i32 %.sroa.0.0.i, 9999
-  br i1 %5, label %.lr.ph.i, label %._crit_edge.i
+  %4 = icmp ugt i32 %.sroa.0.0.i, 9999
+  br i1 %4, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
   %.sroa.010.0.lcssa.i = phi i64 [ 11, %2 ], [ %16, %.lr.ph.i ]
   %.sroa.0.1.lcssa.i = phi i32 [ %.sroa.0.0.i, %2 ], [ %9, %.lr.ph.i ]
+  %5 = icmp sgt i32 %1, -1
   %6 = zext nneg i32 %.sroa.0.1.lcssa.i to i64
   %7 = icmp samesign ugt i32 %.sroa.0.1.lcssa.i, 99
   br i1 %7, label %25, label %34
@@ -422,7 +422,7 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4
 
 47:                                               ; preds = %42, %36
   %.sroa.010.2.i = phi i64 [ %43, %42 ], [ %38, %36 ]
-  br i1 %4, label %_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit, label %48
+  br i1 %5, label %_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit, label %48
 
 48:                                               ; preds = %47
   %49 = add i64 %.sroa.010.2.i, -1
@@ -468,22 +468,22 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4
   br i1 %4, label %.thread.i, label %._crit_edge.i
 
 .thread.i:                                        ; preds = %2
+  %5 = udiv i16 %1, 10000
   %.lhs.trunc.i = urem i16 %1, 10000
-  %5 = udiv i16 %.lhs.trunc.i, 100
-  %6 = shl nuw nsw i16 %5, 1
-  %7 = zext nneg i16 %6 to i64
-  %8 = urem i16 %.lhs.trunc.i, 100
-  %9 = shl nuw nsw i16 %8, 1
-  %10 = zext nneg i16 %9 to i64
-  %11 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %7
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %13 = load i16, ptr %11, align 1, !noalias !18
-  store i16 %13, ptr %12, align 1, !alias.scope !18
-  %14 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %10
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %16 = load i16, ptr %14, align 1, !noalias !18
-  store i16 %16, ptr %15, align 1, !alias.scope !18
-  %17 = udiv i16 %1, 10000
+  %6 = udiv i16 %.lhs.trunc.i, 100
+  %7 = shl nuw nsw i16 %6, 1
+  %8 = zext nneg i16 %7 to i64
+  %9 = urem i16 %.lhs.trunc.i, 100
+  %10 = shl nuw nsw i16 %9, 1
+  %11 = zext nneg i16 %10 to i64
+  %12 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %14 = load i16, ptr %12, align 1, !noalias !18
+  store i16 %14, ptr %13, align 1, !alias.scope !18
+  %15 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %11
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %17 = load i16, ptr %15, align 1, !noalias !18
+  store i16 %17, ptr %16, align 1, !alias.scope !18
   br label %36
 
 ._crit_edge.i:                                    ; preds = %2
@@ -518,7 +518,7 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4
   br label %_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit
 
 36:                                               ; preds = %27, %.thread.i
-  %.sroa.04.037.i = phi i16 [ %17, %.thread.i ], [ %.sroa.04.0.in.i, %27 ]
+  %.sroa.04.037.i = phi i16 [ %5, %.thread.i ], [ %.sroa.04.0.in.i, %27 ]
   %.sroa.010.136.i = phi i64 [ 1, %.thread.i ], [ %.sroa.010.1.i, %27 ]
   %37 = add nsw i64 %.sroa.010.136.i, -1
   %38 = trunc nuw nsw i16 %.sroa.04.037.i to i8

@@ -973,8 +973,8 @@ default.unreachable30:                            ; preds = %3
   br i1 %127, label %"_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17hd2e32e5dddcdfd34E.exit.i.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit.i.i.i24"
 
 "_ZN67_$LT$block_buffer..Lazy$u20$as$u20$block_buffer..sealed..Sealed$GT$12split_blocks17hd2e32e5dddcdfd34E.exit.i.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit.i.i.i24", %126
-  %.sroa.0.025.i.i.i = phi ptr [ %1, %126 ], [ %139, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit.i.i.i24" ]
-  %.sroa.5.024.i.i.i = phi i64 [ %2, %126 ], [ %140, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit.i.i.i24" ]
+  %.sroa.0.025.i.i.i = phi ptr [ %139, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit.i.i.i24" ], [ %1, %126 ]
+  %.sroa.5.024.i.i.i = phi i64 [ %140, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha0b61a5da8fc637bE.exit.i.i.i24" ], [ %2, %126 ]
   %128 = and i64 %.sroa.5.024.i.i.i, 127
   %129 = icmp eq i64 %128, 0
   %130 = lshr i64 %.sroa.5.024.i.i.i, 7

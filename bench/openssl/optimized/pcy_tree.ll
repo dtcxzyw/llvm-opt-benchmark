@@ -617,39 +617,39 @@ tree_link_any.exit.i:                             ; preds = %248, %._crit_edge.i
   br label %.loopexit.i26.i
 
 .loopexit.i26.i:                                  ; preds = %.loopexit.i26.i.backedge, %.loopexit.i26.i.preheader
-  %.033.i.i = phi ptr [ %.01848.i, %.loopexit.i26.i.preheader ], [ %272, %.loopexit.i26.i.backedge ]
-  %272 = getelementptr inbounds i8, ptr %.033.i.i, i64 -32
-  %273 = getelementptr inbounds i8, ptr %.033.i.i, i64 -24
-  %274 = load ptr, ptr %273, align 8, !tbaa !20
-  %275 = tail call i32 @OPENSSL_sk_num(ptr noundef %274) #3
-  %276 = icmp sgt i32 %275, 0
-  br i1 %276, label %.lr.ph47.i.i, label %._crit_edge.i27.i
+  %.033.i.i = phi ptr [ %.01848.i, %.loopexit.i26.i.preheader ], [ %289, %.loopexit.i26.i.backedge ]
+  %272 = getelementptr inbounds i8, ptr %.033.i.i, i64 -24
+  %273 = load ptr, ptr %272, align 8, !tbaa !20
+  %274 = tail call i32 @OPENSSL_sk_num(ptr noundef %273) #3
+  %275 = icmp sgt i32 %274, 0
+  br i1 %275, label %.lr.ph47.i.i, label %._crit_edge.i27.i
 
-.lr.ph47.i.i:                                     ; preds = %.loopexit.i26.i, %288
-  %.146.in.i.i = phi i32 [ %.146.i.i, %288 ], [ %275, %.loopexit.i26.i ]
+.lr.ph47.i.i:                                     ; preds = %.loopexit.i26.i, %287
+  %.146.in.i.i = phi i32 [ %.146.i.i, %287 ], [ %274, %.loopexit.i26.i ]
   %.146.i.i = add nsw i32 %.146.in.i.i, -1
-  %277 = tail call ptr @OPENSSL_sk_value(ptr noundef %274, i32 noundef %.146.i.i) #3
-  %278 = getelementptr inbounds nuw i8, ptr %277, i64 16
-  %279 = load i32, ptr %278, align 8, !tbaa !51
-  %280 = icmp eq i32 %279, 0
-  br i1 %280, label %281, label %288
+  %276 = tail call ptr @OPENSSL_sk_value(ptr noundef %273, i32 noundef %.146.i.i) #3
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 16
+  %278 = load i32, ptr %277, align 8, !tbaa !51
+  %279 = icmp eq i32 %278, 0
+  br i1 %279, label %280, label %287
 
-281:                                              ; preds = %.lr.ph47.i.i
-  %282 = getelementptr inbounds nuw i8, ptr %277, i64 8
-  %283 = load ptr, ptr %282, align 8, !tbaa !56
-  %284 = getelementptr inbounds nuw i8, ptr %283, i64 16
-  %285 = load i32, ptr %284, align 8, !tbaa !51
-  %286 = add nsw i32 %285, -1
-  store i32 %286, ptr %284, align 8, !tbaa !51
-  tail call void @CRYPTO_free(ptr noundef nonnull %277, ptr noundef nonnull @.str, i32 noundef 430) #3
-  %287 = tail call ptr @OPENSSL_sk_delete(ptr noundef %274, i32 noundef %.146.i.i) #3
-  br label %288
+280:                                              ; preds = %.lr.ph47.i.i
+  %281 = getelementptr inbounds nuw i8, ptr %276, i64 8
+  %282 = load ptr, ptr %281, align 8, !tbaa !56
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 16
+  %284 = load i32, ptr %283, align 8, !tbaa !51
+  %285 = add nsw i32 %284, -1
+  store i32 %285, ptr %283, align 8, !tbaa !51
+  tail call void @CRYPTO_free(ptr noundef nonnull %276, ptr noundef nonnull @.str, i32 noundef 430) #3
+  %286 = tail call ptr @OPENSSL_sk_delete(ptr noundef %273, i32 noundef %.146.i.i) #3
+  br label %287
 
-288:                                              ; preds = %281, %.lr.ph47.i.i
-  %289 = icmp samesign ugt i32 %.146.in.i.i, 1
-  br i1 %289, label %.lr.ph47.i.i, label %._crit_edge.i27.i, !llvm.loop !58
+287:                                              ; preds = %280, %.lr.ph47.i.i
+  %288 = icmp samesign ugt i32 %.146.in.i.i, 1
+  br i1 %288, label %.lr.ph47.i.i, label %._crit_edge.i27.i, !llvm.loop !58
 
-._crit_edge.i27.i:                                ; preds = %288, %.loopexit.i26.i
+._crit_edge.i27.i:                                ; preds = %287, %.loopexit.i26.i
+  %289 = getelementptr inbounds i8, ptr %.033.i.i, i64 -32
   %290 = getelementptr inbounds i8, ptr %.033.i.i, i64 -16
   %291 = load ptr, ptr %290, align 8, !tbaa !21
   %.not38.i.i = icmp eq ptr %291, null
@@ -681,12 +681,12 @@ tree_link_any.exit.i:                             ; preds = %248, %._crit_edge.i
 
 303:                                              ; preds = %302, %._crit_edge.i27.i
   %304 = load ptr, ptr %131, align 8, !tbaa !15
-  %305 = icmp eq ptr %272, %304
+  %305 = icmp eq ptr %289, %304
   br i1 %305, label %tree_evaluate.exit, label %.loopexit.i26.i.backedge
 
 .thread.i:                                        ; preds = %292
   %306 = load ptr, ptr %131, align 8, !tbaa !15
-  %307 = icmp eq ptr %272, %306
+  %307 = icmp eq ptr %289, %306
   br i1 %307, label %308, label %.loopexit.i26.i.backedge
 
 .loopexit.i26.i.backedge:                         ; preds = %.thread.i, %303

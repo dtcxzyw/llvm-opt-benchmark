@@ -1463,29 +1463,29 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   br i1 %exitcond291.not, label %238, label %235, !llvm.loop !125
 
 238:                                              ; preds = %235
-  %239 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 4
-  %240 = icmp eq i32 %.1192, 0
-  br i1 %240, label %241, label %244
+  %239 = icmp eq i32 %.1192, 0
+  br i1 %239, label %240, label %243
 
-241:                                              ; preds = %238
-  %242 = getelementptr inbounds nuw [4 x i16], ptr %177, i64 %indvars.iv310
-  %243 = load i64, ptr %184, align 2
-  store i64 %243, ptr %242, align 2
+240:                                              ; preds = %238
+  %241 = getelementptr inbounds nuw [4 x i16], ptr %177, i64 %indvars.iv310
+  %242 = load i64, ptr %184, align 2
+  store i64 %242, ptr %241, align 2
   br label %.loopexit223
 
-244:                                              ; preds = %238
-  %245 = ashr i32 %.1192, 1
-  %246 = add nsw i32 %spec.select221, %245
+243:                                              ; preds = %238
+  %244 = ashr i32 %.1192, 1
+  %245 = add nsw i32 %spec.select221, %244
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %247 = tail call noundef i32 @_ZN6LibRaw4fcolEii(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %.2195265, i32 noundef %185)
-  %248 = load i32, ptr %147, align 4
-  %.fr270 = freeze i32 %248
-  %249 = icmp sgt i32 %.fr270, 0
-  br i1 %249, label %.split.us.preheader, label %.loopexit223
+  %246 = tail call noundef i32 @_ZN6LibRaw4fcolEii(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %.2195265, i32 noundef %185)
+  %247 = load i32, ptr %147, align 4
+  %.fr270 = freeze i32 %247
+  %248 = icmp sgt i32 %.fr270, 0
+  br i1 %248, label %.split.us.preheader, label %.loopexit223
 
-.split.us.preheader:                              ; preds = %244
+.split.us.preheader:                              ; preds = %243
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %.fr270, i32 4)
-  %250 = zext i32 %247 to i64
+  %249 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 4
+  %250 = zext i32 %246 to i64
   %wide.trip.count299 = zext nneg i32 %invariant.smin to i64
   %251 = getelementptr inbounds nuw i16, ptr %184, i64 %250
   %252 = getelementptr inbounds nuw i32, ptr %5, i64 %250
@@ -1494,10 +1494,10 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
 .split.us:                                        ; preds = %.split.us.preheader, %282
   %indvars.iv301 = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next302, %282 ]
   %.0178253.us = phi i32 [ 0, %.split.us.preheader ], [ %.1179.us, %282 ]
-  %.10251.us = phi ptr [ %239, %.split.us.preheader ], [ %283, %282 ]
+  %.10251.us = phi ptr [ %249, %.split.us.preheader ], [ %283, %282 ]
   %253 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv301
   %254 = load i32, ptr %253, align 4, !tbaa !96
-  %.not214.us = icmp sgt i32 %254, %246
+  %.not214.us = icmp sgt i32 %254, %245
   br i1 %.not214.us, label %282, label %.preheader.us
 
 255:                                              ; preds = %.preheader.us, %281
@@ -1560,11 +1560,11 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
 
 .lr.ph257:                                        ; preds = %282
   %286 = tail call i32 @llvm.umin.i32(i32 %.fr270, i32 4)
-  %287 = sext i32 %247 to i64
+  %287 = sext i32 %246 to i64
   %288 = getelementptr inbounds i16, ptr %184, i64 %287
   %289 = getelementptr inbounds i32, ptr %5, i64 %287
   %290 = getelementptr inbounds nuw [4 x i16], ptr %177, i64 %indvars.iv310
-  %291 = zext i32 %247 to i64
+  %291 = zext i32 %246 to i64
   %wide.trip.count308 = zext nneg i32 %286 to i64
   br label %292
 
@@ -1595,7 +1595,7 @@ define void @_ZN6LibRaw15vng_interpolateEv(ptr noundef nonnull align 8 dereferen
   %exitcond309.not = icmp eq i64 %indvars.iv.next306, %wide.trip.count308
   br i1 %exitcond309.not, label %.loopexit223, label %292, !llvm.loop !128
 
-.loopexit223:                                     ; preds = %305, %244, %241
+.loopexit223:                                     ; preds = %305, %243, %240
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
   %307 = load i16, ptr %13, align 2, !tbaa !79
   %308 = zext i16 %307 to i32

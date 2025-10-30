@@ -1445,12 +1445,12 @@ define internal fastcc range(i32 -22, 1) i32 @compute_kernel(ptr noundef %0) unn
   br i1 %19, label %.lr.ph186, label %.thread155
 
 .lr.ph186:                                        ; preds = %.preheader161
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %22 = sitofp i32 %8 to float
-  %23 = sub nsw i32 0, %6
-  %24 = sitofp i32 %23 to float
-  %25 = shl nsw i64 %17, 2
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  %21 = sitofp i32 %8 to float
+  %22 = sub nsw i32 0, %6
+  %23 = sitofp i32 %22 to float
+  %24 = shl nsw i64 %17, 2
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %wide.trip.count226 = zext nneg i32 %10 to i64
   br label %26
 
@@ -1458,20 +1458,20 @@ define internal fastcc range(i32 -22, 1) i32 @compute_kernel(ptr noundef %0) unn
   %indvars.iv223 = phi i64 [ 0, %.lr.ph186 ], [ %indvars.iv.next224, %._crit_edge ]
   %.0128185 = phi i32 [ 2147483647, %.lr.ph186 ], [ %..0128, %._crit_edge ]
   %.0130184 = phi i32 [ 0, %.lr.ph186 ], [ %104, %._crit_edge ]
-  %27 = load ptr, ptr %21, align 8, !tbaa !83
+  %27 = load ptr, ptr %20, align 8, !tbaa !83
   %.idx = shl nuw nsw i64 %indvars.iv223, 3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx
   %29 = load float, ptr %28, align 4, !tbaa !76
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %31 = load float, ptr %30, align 4, !tbaa !76
-  %32 = fmul nsz float %31, %22
+  %32 = fmul nsz float %31, %21
   %33 = fdiv nsz float 1.000000e+00, %32
   %34 = fdiv nsz float 1.000000e+00, %33
   %35 = tail call nsz float @llvm.sqrt.f32(float %34)
   %36 = tail call nsz float @llvm.fmuladd.f32(float %35, float -1.200000e+01, float %29)
   %37 = fadd nsz float %36, -5.000000e-01
-  %38 = fcmp nsz ogt float %37, %24
-  %. = select nsz i1 %38, float %37, float %24
+  %38 = fcmp nsz ogt float %37, %23
+  %. = select nsz i1 %38, float %37, float %23
   %39 = fptosi float %. to i32
   %40 = tail call nsz float @llvm.fmuladd.f32(float %35, float 1.200000e+01, float %29)
   %41 = fadd nsz float %40, -5.000000e-01
@@ -1480,7 +1480,7 @@ define internal fastcc range(i32 -22, 1) i32 @compute_kernel(ptr noundef %0) unn
   %44 = fcmp nsz ogt float %41, %43
   %45 = select nsz i1 %44, float %43, float %41
   %46 = fptosi float %45 to i32
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %18, i8 0, i64 %25, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %18, i8 0, i64 %24, i1 false)
   %47 = icmp slt i32 %39, %46
   br i1 %47, label %.lr.ph.preheader, label %.loopexit
 
@@ -1616,7 +1616,7 @@ define internal fastcc range(i32 -22, 1) i32 @compute_kernel(ptr noundef %0) unn
   %103 = add i32 %89, 1
   %..0128 = tail call i32 @llvm.smin.i32(i32 %.0128185, i32 %103)
   %104 = tail call i32 @llvm.smax.i32(i32 %.0130184, i32 %103)
-  %105 = load ptr, ptr %20, align 8, !tbaa !36
+  %105 = load ptr, ptr %25, align 8, !tbaa !36
   %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv223
   store ptr %93, ptr %106, align 8, !tbaa !133
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1

@@ -1311,7 +1311,7 @@ _ZZN5clang6format12_GLOBAL__N_110LineJoiner24tryFitMultipleLinesInOneERNS1_18Lev
   %indvars.iv.i = phi i64 [ 1, %.lr.ph477.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %223 = phi ptr [ %14, %.lr.ph477.i ], [ %264, %._crit_edge.i ]
   %.0186475.in.i = phi i64 [ %217, %.lr.ph477.i ], [ %.0186475.i, %._crit_edge.i ]
-  %.1181474.i = phi i32 [ %52, %.lr.ph477.i ], [ %257, %._crit_edge.i ]
+  %.1181474.i = phi i32 [ %52, %.lr.ph477.i ], [ %263, %._crit_edge.i ]
   %.0186475.i = add i64 %.0186475.in.i, -1
   %224 = load ptr, ptr %223, align 8, !tbaa !46
   %.val258.i = load ptr, ptr %224, align 8, !tbaa !167
@@ -1403,19 +1403,19 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %255, label %256, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread409.i
 
 256:                                              ; preds = %250
-  %.neg.i = xor i32 %254, -1
-  %257 = add i32 %.1181474.i, %.neg.i
-  %258 = load ptr, ptr %220, align 8, !tbaa !27
-  %259 = getelementptr inbounds nuw ptr, ptr %258, i64 %.0186475.i
-  %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
-  %261 = getelementptr inbounds nuw i8, ptr %224, i64 36
-  %262 = load i32, ptr %261, align 4, !tbaa !48
-  %263 = load i32, ptr %221, align 4, !tbaa !48
-  %.neg244.i = sub i32 %263, %262
-  %.not243469.i = icmp ugt ptr %223, %260
+  %257 = load ptr, ptr %220, align 8, !tbaa !27
+  %258 = getelementptr inbounds nuw ptr, ptr %257, i64 %.0186475.i
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %224, i64 36
+  %261 = load i32, ptr %260, align 4, !tbaa !48
+  %262 = load i32, ptr %221, align 4, !tbaa !48
+  %.neg244.i = sub i32 %262, %261
+  %.not243469.i = icmp ugt ptr %223, %259
   br i1 %.not243469.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %273, %256
+  %.neg.i = xor i32 %254, -1
+  %263 = add i32 %.1181474.i, %.neg.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %264 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.next.i
   %.not227.i = icmp eq ptr %264, %12
@@ -1439,7 +1439,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
 
 273:                                              ; preds = %269, %.lr.ph.i
   %274 = getelementptr inbounds nuw i8, ptr %.0187470.i, i64 8
-  %.not243.i = icmp ugt ptr %.0187470.i, %259
+  %.not243.i = icmp ugt ptr %.0187470.i, %258
   br i1 %.not243.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !277
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread409.i:    ; preds = %._crit_edge.i, %250, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN5clang6format12_GLOBAL__N_121getNamespaceTokenTextEPKNS0_13AnnotatedLineE.exit.i

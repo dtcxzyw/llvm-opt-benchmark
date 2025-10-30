@@ -10289,25 +10289,22 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN11opencv_test12_GLOBAL__N_112_GL
   %481 = call i32 @isspace(i32 noundef %480) #37, !noalias !418
   %.not.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %481, 0
   %indvars.iv.next63.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv62.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %.not.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader, label %.critedge.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !431
+  br i1 %.not.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.critedge.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !431
 
-.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader: ; preds = %.critedge.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %482 = getelementptr inbounds nuw i8, ptr @.str.54, i64 %indvars.iv62.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br label %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-
-.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %indvars.iv65.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next66.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv62.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader ]
-  %483 = getelementptr inbounds nuw i8, ptr @.str.54, i64 %indvars.iv65.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %484 = load i8, ptr %483, align 1, !tbaa !22, !noalias !418
-  %485 = sext i8 %484 to i32
-  %486 = call i32 @isspace(i32 noundef %485) #37, !noalias !418
-  %.not33.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %486, 0
-  %487 = icmp ne i64 %indvars.iv65.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
-  %488 = and i1 %487, %.not33.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %.critedge.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %indvars.iv65.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next66.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv62.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.critedge.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %482 = getelementptr inbounds nuw i8, ptr @.str.54, i64 %indvars.iv65.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %483 = load i8, ptr %482, align 1, !tbaa !22, !noalias !418
+  %484 = sext i8 %483 to i32
+  %485 = call i32 @isspace(i32 noundef %484) #37, !noalias !418
+  %.not33.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %485, 0
+  %486 = icmp ne i64 %indvars.iv65.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
+  %487 = and i1 %486, %.not33.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.next66.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv65.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %488, label %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.split51.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !432
+  br i1 %487, label %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.split51.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !432
 
 .split51.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %488 = getelementptr inbounds nuw i8, ptr @.str.54, i64 %indvars.iv62.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !418
   store ptr %65, ptr %8, align 8, !tbaa !14, !noalias !418
   store i64 0, ptr %66, align 8, !tbaa !20, !noalias !418
@@ -10339,7 +10336,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN11opencv_test12_GLOBAL__N_112_GL
   br label %495
 
 494:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %492, ptr nonnull align 1 %482, i64 %gepdiff.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false), !noalias !418
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %492, ptr nonnull align 1 %488, i64 %gepdiff.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false), !noalias !418
   br label %495
 
 495:                                              ; preds = %494, %493, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -10405,25 +10402,22 @@ _ZN7testing8internal18TuplePrefixPrinterILm1EE13PrintPrefixToISt5tupleIJN11openc
   %514 = call i32 @isspace(i32 noundef %513) #37, !noalias !418
   %.not.us.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %514, 0
   %indvars.iv.next63.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv62.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %.not.us.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader, label %.critedge.us.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !434
+  br i1 %.not.us.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.critedge.us.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !434
 
-.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader: ; preds = %.critedge.us.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %515 = getelementptr inbounds nuw i8, ptr @.str.56, i64 %indvars.iv62.i.i.i.i.i.i.i.i.i.i.i.i.i
-  br label %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i
-
-.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %indvars.iv65.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next66.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv62.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i.preheader ]
-  %516 = getelementptr inbounds nuw i8, ptr @.str.56, i64 %indvars.iv65.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %517 = load i8, ptr %516, align 1, !tbaa !22, !noalias !418
-  %518 = sext i8 %517 to i32
-  %519 = call i32 @isspace(i32 noundef %518) #37, !noalias !418
-  %.not33.us.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %519, 0
-  %520 = icmp ne i64 %indvars.iv65.i.i.i.i.i.i.i.i.i.i.i.i.i, 6
-  %521 = and i1 %520, %.not33.us.i.i.i.i.i.i.i.i.i.i.i.i.i
+.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %.critedge.us.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %indvars.iv65.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next66.i.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv62.i.i.i.i.i.i.i.i.i.i.i.i.i, %.critedge.us.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %515 = getelementptr inbounds nuw i8, ptr @.str.56, i64 %indvars.iv65.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %516 = load i8, ptr %515, align 1, !tbaa !22, !noalias !418
+  %517 = sext i8 %516 to i32
+  %518 = call i32 @isspace(i32 noundef %517) #37, !noalias !418
+  %.not33.us.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %518, 0
+  %519 = icmp ne i64 %indvars.iv65.i.i.i.i.i.i.i.i.i.i.i.i.i, 6
+  %520 = and i1 %519, %.not33.us.i.i.i.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.next66.i.i.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv65.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %521, label %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.split51.us.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !435
+  br i1 %520, label %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.split51.us.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !435
 
 .split51.us.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %521 = getelementptr inbounds nuw i8, ptr @.str.56, i64 %indvars.iv62.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !418
   store ptr %67, ptr %6, align 8, !tbaa !14, !noalias !418
   store i64 0, ptr %68, align 8, !tbaa !20, !noalias !418
@@ -10455,7 +10449,7 @@ _ZN7testing8internal18TuplePrefixPrinterILm1EE13PrintPrefixToISt5tupleIJN11openc
   br label %528
 
 527:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %525, ptr nonnull align 1 %515, i64 %gepdiff.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false), !noalias !418
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %525, ptr nonnull align 1 %521, i64 %gepdiff.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false), !noalias !418
   br label %528
 
 528:                                              ; preds = %527, %526, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i

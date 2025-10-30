@@ -797,55 +797,55 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br label %147
 
 58:                                               ; preds = %42
-  %59 = add i32 %.2, -1
-  %60 = icmp ult i32 %.3139, %.2
-  br i1 %60, label %.lr.ph216, label %._crit_edge217
+  %59 = icmp ult i32 %.3139, %.2
+  br i1 %59, label %.lr.ph216, label %._crit_edge217
 
 .lr.ph216:                                        ; preds = %58
   %.2147.tr168 = trunc i32 %.2147 to i8
-  %61 = shl i8 %.2147.tr168, 4
-  %62 = zext i32 %.3139 to i64
+  %60 = shl i8 %.2147.tr168, 4
+  %61 = zext i32 %.3139 to i64
   %wide.trip.count251 = zext i32 %.2 to i64
-  br label %63
+  br label %62
 
-63:                                               ; preds = %.lr.ph216, %63
-  %indvars.iv248 = phi i64 [ %62, %.lr.ph216 ], [ %indvars.iv.next249, %63 ]
-  %64 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv248
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 15
-  store i8 %61, ptr %65, align 1
+62:                                               ; preds = %.lr.ph216, %62
+  %indvars.iv248 = phi i64 [ %61, %.lr.ph216 ], [ %indvars.iv.next249, %62 ]
+  %63 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv248
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 15
+  store i8 %60, ptr %64, align 1
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
-  br i1 %exitcond252.not, label %._crit_edge217, label %63, !llvm.loop !19
+  br i1 %exitcond252.not, label %._crit_edge217, label %62, !llvm.loop !19
 
-._crit_edge217:                                   ; preds = %63, %58
+._crit_edge217:                                   ; preds = %62, %58
+  %65 = add i32 %.2, -1
   %66 = add i32 %.2147, 1
   %67 = icmp eq i32 %66, 16
   %spec.store.select2 = select i1 %67, i32 1, i32 %66
   br label %147
 
 68:                                               ; preds = %42
-  %69 = add i32 %.2, -1
-  %70 = icmp ult i32 %.3139, %.2
-  br i1 %70, label %.lr.ph212, label %._crit_edge213
+  %69 = icmp ult i32 %.3139, %.2
+  br i1 %69, label %.lr.ph212, label %._crit_edge213
 
 .lr.ph212:                                        ; preds = %68
   %.2147.tr167 = trunc i32 %.2147 to i8
-  %71 = shl i8 %.2147.tr167, 4
-  %72 = or disjoint i8 %71, 1
-  %73 = zext i32 %.3139 to i64
+  %70 = shl i8 %.2147.tr167, 4
+  %71 = or disjoint i8 %70, 1
+  %72 = zext i32 %.3139 to i64
   %wide.trip.count246 = zext i32 %.2 to i64
-  br label %74
+  br label %73
 
-74:                                               ; preds = %.lr.ph212, %74
-  %indvars.iv243 = phi i64 [ %73, %.lr.ph212 ], [ %indvars.iv.next244, %74 ]
-  %75 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv243
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 15
-  store i8 %72, ptr %76, align 1
+73:                                               ; preds = %.lr.ph212, %73
+  %indvars.iv243 = phi i64 [ %72, %.lr.ph212 ], [ %indvars.iv.next244, %73 ]
+  %74 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv243
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 15
+  store i8 %71, ptr %75, align 1
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %exitcond247.not = icmp eq i64 %indvars.iv.next244, %wide.trip.count246
-  br i1 %exitcond247.not, label %._crit_edge213, label %74, !llvm.loop !20
+  br i1 %exitcond247.not, label %._crit_edge213, label %73, !llvm.loop !20
 
-._crit_edge213:                                   ; preds = %74, %68
+._crit_edge213:                                   ; preds = %73, %68
+  %76 = add i32 %.2, -1
   %77 = add i32 %.2147, 1
   %78 = icmp eq i32 %77, 16
   %spec.store.select3 = select i1 %78, i32 1, i32 %77
@@ -856,83 +856,83 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br label %147
 
 82:                                               ; preds = %42
-  %83 = add i32 %.2, -1
-  %84 = icmp ult i32 %.3139, %.2
-  br i1 %84, label %.lr.ph208, label %._crit_edge209
+  %83 = icmp ult i32 %.3139, %.2
+  br i1 %83, label %.lr.ph208, label %._crit_edge209
 
 .lr.ph208:                                        ; preds = %82
   %.2147.tr166 = trunc i32 %.2147 to i8
-  %85 = shl i8 %.2147.tr166, 4
-  %86 = or disjoint i8 %85, 2
-  %87 = zext i32 %.3139 to i64
+  %84 = shl i8 %.2147.tr166, 4
+  %85 = or disjoint i8 %84, 2
+  %86 = zext i32 %.3139 to i64
   %wide.trip.count241 = zext i32 %.2 to i64
-  br label %88
+  br label %87
 
-88:                                               ; preds = %.lr.ph208, %88
-  %indvars.iv238 = phi i64 [ %87, %.lr.ph208 ], [ %indvars.iv.next239, %88 ]
-  %89 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv238
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 15
-  store i8 %86, ptr %90, align 1
+87:                                               ; preds = %.lr.ph208, %87
+  %indvars.iv238 = phi i64 [ %86, %.lr.ph208 ], [ %indvars.iv.next239, %87 ]
+  %88 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv238
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 15
+  store i8 %85, ptr %89, align 1
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241
-  br i1 %exitcond242.not, label %._crit_edge209, label %88, !llvm.loop !21
+  br i1 %exitcond242.not, label %._crit_edge209, label %87, !llvm.loop !21
 
-._crit_edge209:                                   ; preds = %88, %82
+._crit_edge209:                                   ; preds = %87, %82
+  %90 = add i32 %.2, -1
   %91 = add i32 %.2147, 1
   %92 = icmp eq i32 %91, 16
   %spec.store.select4 = select i1 %92, i32 1, i32 %91
   br label %147
 
 93:                                               ; preds = %42
-  %94 = add i32 %.2143, -1
-  %95 = icmp ult i32 %.3139, %.2143
-  br i1 %95, label %.lr.ph204, label %._crit_edge205
+  %94 = icmp ult i32 %.3139, %.2143
+  br i1 %94, label %.lr.ph204, label %._crit_edge205
 
 .lr.ph204:                                        ; preds = %93
   %.2147.tr165 = trunc i32 %.2147 to i8
-  %96 = shl i8 %.2147.tr165, 4
-  %97 = zext i32 %.3139 to i64
+  %95 = shl i8 %.2147.tr165, 4
+  %96 = zext i32 %.3139 to i64
   %wide.trip.count236 = zext i32 %.2143 to i64
-  br label %98
+  br label %97
 
-98:                                               ; preds = %.lr.ph204, %98
-  %indvars.iv233 = phi i64 [ %97, %.lr.ph204 ], [ %indvars.iv.next234, %98 ]
-  %99 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv233
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 15
-  store i8 %96, ptr %100, align 1
+97:                                               ; preds = %.lr.ph204, %97
+  %indvars.iv233 = phi i64 [ %96, %.lr.ph204 ], [ %indvars.iv.next234, %97 ]
+  %98 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv233
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 15
+  store i8 %95, ptr %99, align 1
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %exitcond237.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count236
-  br i1 %exitcond237.not, label %._crit_edge205, label %98, !llvm.loop !22
+  br i1 %exitcond237.not, label %._crit_edge205, label %97, !llvm.loop !22
 
-._crit_edge205:                                   ; preds = %98, %93
+._crit_edge205:                                   ; preds = %97, %93
+  %100 = add i32 %.2143, -1
   %101 = add i32 %.2147, 1
   %102 = icmp eq i32 %101, 16
   %spec.store.select5 = select i1 %102, i32 1, i32 %101
   br label %147
 
 103:                                              ; preds = %42
-  %104 = add i32 %.2143, -1
-  %105 = icmp ult i32 %.3139, %.2143
-  br i1 %105, label %.lr.ph200, label %._crit_edge201
+  %104 = icmp ult i32 %.3139, %.2143
+  br i1 %104, label %.lr.ph200, label %._crit_edge201
 
 .lr.ph200:                                        ; preds = %103
   %.2147.tr164 = trunc i32 %.2147 to i8
-  %106 = shl i8 %.2147.tr164, 4
-  %107 = or disjoint i8 %106, 1
-  %108 = zext i32 %.3139 to i64
+  %105 = shl i8 %.2147.tr164, 4
+  %106 = or disjoint i8 %105, 1
+  %107 = zext i32 %.3139 to i64
   %wide.trip.count231 = zext i32 %.2143 to i64
-  br label %109
+  br label %108
 
-109:                                              ; preds = %.lr.ph200, %109
-  %indvars.iv228 = phi i64 [ %108, %.lr.ph200 ], [ %indvars.iv.next229, %109 ]
-  %110 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv228
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 15
-  store i8 %107, ptr %111, align 1
+108:                                              ; preds = %.lr.ph200, %108
+  %indvars.iv228 = phi i64 [ %107, %.lr.ph200 ], [ %indvars.iv.next229, %108 ]
+  %109 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv228
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 15
+  store i8 %106, ptr %110, align 1
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %exitcond232.not = icmp eq i64 %indvars.iv.next229, %wide.trip.count231
-  br i1 %exitcond232.not, label %._crit_edge201, label %109, !llvm.loop !23
+  br i1 %exitcond232.not, label %._crit_edge201, label %108, !llvm.loop !23
 
-._crit_edge201:                                   ; preds = %109, %103
+._crit_edge201:                                   ; preds = %108, %103
+  %111 = add i32 %.2143, -1
   %112 = add i32 %.2147, 1
   %113 = icmp eq i32 %112, 16
   %spec.store.select6 = select i1 %113, i32 1, i32 %112
@@ -949,28 +949,28 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   ]
 
 118:                                              ; preds = %117
-  %119 = add i32 %.2143, -1
-  %120 = icmp ult i32 %.3139, %.2143
-  br i1 %120, label %.lr.ph196, label %._crit_edge197
+  %119 = icmp ult i32 %.3139, %.2143
+  br i1 %119, label %.lr.ph196, label %._crit_edge197
 
 .lr.ph196:                                        ; preds = %118
   %.2147.tr163 = trunc i32 %.2147 to i8
-  %121 = shl i8 %.2147.tr163, 4
-  %122 = or disjoint i8 %121, 1
-  %123 = zext i32 %.3139 to i64
+  %120 = shl i8 %.2147.tr163, 4
+  %121 = or disjoint i8 %120, 1
+  %122 = zext i32 %.3139 to i64
   %wide.trip.count226 = zext i32 %.2143 to i64
-  br label %124
+  br label %123
 
-124:                                              ; preds = %.lr.ph196, %124
-  %indvars.iv223 = phi i64 [ %123, %.lr.ph196 ], [ %indvars.iv.next224, %124 ]
-  %125 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv223
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 15
-  store i8 %122, ptr %126, align 1
+123:                                              ; preds = %.lr.ph196, %123
+  %indvars.iv223 = phi i64 [ %122, %.lr.ph196 ], [ %indvars.iv.next224, %123 ]
+  %124 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv223
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 15
+  store i8 %121, ptr %125, align 1
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %exitcond227.not = icmp eq i64 %indvars.iv.next224, %wide.trip.count226
-  br i1 %exitcond227.not, label %._crit_edge197, label %124, !llvm.loop !24
+  br i1 %exitcond227.not, label %._crit_edge197, label %123, !llvm.loop !24
 
-._crit_edge197:                                   ; preds = %124, %118
+._crit_edge197:                                   ; preds = %123, %118
+  %126 = add i32 %.2143, -1
   %127 = add i32 %.2147, 1
   %128 = icmp eq i32 %127, 16
   %spec.store.select7 = select i1 %128, i32 1, i32 %127
@@ -981,28 +981,28 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   br label %147
 
 132:                                              ; preds = %117
-  %133 = add i32 %.2143, -1
-  %134 = icmp ult i32 %.3139, %.2143
-  br i1 %134, label %.lr.ph, label %._crit_edge
+  %133 = icmp ult i32 %.3139, %.2143
+  br i1 %133, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %132
   %.2147.tr = trunc i32 %.2147 to i8
-  %135 = shl i8 %.2147.tr, 4
-  %136 = or disjoint i8 %135, 2
-  %137 = zext i32 %.3139 to i64
+  %134 = shl i8 %.2147.tr, 4
+  %135 = or disjoint i8 %134, 2
+  %136 = zext i32 %.3139 to i64
   %wide.trip.count = zext i32 %.2143 to i64
-  br label %138
+  br label %137
 
-138:                                              ; preds = %.lr.ph, %138
-  %indvars.iv = phi i64 [ %137, %.lr.ph ], [ %indvars.iv.next, %138 ]
-  %139 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 15
-  store i8 %136, ptr %140, align 1
+137:                                              ; preds = %.lr.ph, %137
+  %indvars.iv = phi i64 [ %136, %.lr.ph ], [ %indvars.iv.next, %137 ]
+  %138 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 15
+  store i8 %135, ptr %139, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %138, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %137, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %138, %132
+._crit_edge:                                      ; preds = %137, %132
+  %140 = add i32 %.2143, -1
   %141 = add i32 %.2147, 1
   %142 = icmp eq i32 %141, 16
   %spec.store.select8 = select i1 %142, i32 1, i32 %141
@@ -1020,7 +1020,7 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   %.3152 = phi i32 [ %.2151, %36 ], [ %.2151, %42 ], [ %.2151, %45 ], [ %.2151, %._crit_edge221 ], [ %.2151, %._crit_edge217 ], [ %.2151, %._crit_edge213 ], [ %.2151, %._crit_edge209 ], [ %.2151, %._crit_edge205 ], [ %.2151, %._crit_edge201 ], [ %.2151, %117 ], [ 2, %._crit_edge197 ], [ 3, %._crit_edge ], [ 2, %143 ], [ 3, %145 ]
   %.3148 = phi i32 [ %.2147, %36 ], [ %.2147, %42 ], [ %.2147, %45 ], [ %spec.store.select, %._crit_edge221 ], [ %spec.store.select2, %._crit_edge217 ], [ %spec.store.select3, %._crit_edge213 ], [ %spec.store.select4, %._crit_edge209 ], [ %spec.store.select5, %._crit_edge205 ], [ %spec.store.select6, %._crit_edge201 ], [ %.2147, %117 ], [ %spec.store.select7, %._crit_edge197 ], [ %spec.store.select8, %._crit_edge ], [ %.2147, %143 ], [ %.2147, %145 ]
   %.3144 = phi i32 [ %.2143, %36 ], [ %.2143, %42 ], [ %46, %45 ], [ %48, %._crit_edge221 ], [ %.2, %._crit_edge217 ], [ %.2, %._crit_edge213 ], [ %.2, %._crit_edge209 ], [ %.2143, %._crit_edge205 ], [ %.2143, %._crit_edge201 ], [ %.2143, %117 ], [ %.2143, %._crit_edge197 ], [ %.2143, %._crit_edge ], [ %144, %143 ], [ %146, %145 ]
-  %.3 = phi i32 [ %.2, %36 ], [ %.2, %42 ], [ %.2, %45 ], [ %.2, %._crit_edge221 ], [ %59, %._crit_edge217 ], [ %69, %._crit_edge213 ], [ %83, %._crit_edge209 ], [ %94, %._crit_edge205 ], [ %104, %._crit_edge201 ], [ %.2, %117 ], [ %119, %._crit_edge197 ], [ %133, %._crit_edge ], [ %.2, %143 ], [ %.2, %145 ]
+  %.3 = phi i32 [ %.2, %36 ], [ %.2, %42 ], [ %.2, %45 ], [ %.2, %._crit_edge221 ], [ %65, %._crit_edge217 ], [ %76, %._crit_edge213 ], [ %90, %._crit_edge209 ], [ %100, %._crit_edge205 ], [ %111, %._crit_edge201 ], [ %.2, %117 ], [ %126, %._crit_edge197 ], [ %140, %._crit_edge ], [ %.2, %143 ], [ %.2, %145 ]
   %148 = and i64 %.fr, 283678563909633
   %cond1.not = icmp eq i64 %148, 0
   %spec.select173 = select i1 %cond1.not, i32 %.3139, i32 0

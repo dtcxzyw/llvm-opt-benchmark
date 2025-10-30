@@ -570,8 +570,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %52
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc153
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %62, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %61, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !20
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %61, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !20
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %.noexc153
@@ -2563,8 +2563,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit225.i:     ; preds = %_ZNSt6vectorIiSaIiE
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i.i: ; preds = %821
   store i32 0, ptr %.sroa.35.18.i, align 4, !tbaa !20
   %828 = getelementptr i8, ptr %.pn376.i, i64 8
-  store i64 0, ptr %828, align 4
   %829 = getelementptr i8, ptr %.pn376.i, i64 16
+  store i64 0, ptr %828, align 4
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i
 
 830:                                              ; preds = %821
@@ -8084,16 +8084,16 @@ define noundef i32 @_Z10find_groupPKcN3gmx8ArrayRefIK10IndexGroupEE(ptr noundef 
   %8 = sub i64 %6, %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
-  %10 = trunc i64 %9 to i32
-  %11 = sdiv exact i64 %8, 56
-  %12 = icmp sgt i64 %8, 0
-  br i1 %12, label %.lr.ph.preheader.i, label %._crit_edge65.thread.i
+  %10 = sdiv exact i64 %8, 56
+  %11 = icmp sgt i64 %8, 0
+  br i1 %11, label %.lr.ph.preheader.i, label %._crit_edge65.thread.i
 
 .lr.ph.preheader.i:                               ; preds = %3
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %11, i64 1)
+  %smax.i = tail call i64 @llvm.smax.i64(i64 %10, i64 1)
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
+  %12 = trunc i64 %9 to i32
   %13 = icmp eq i32 %.1.i, -1
   br i1 %13, label %.lr.ph64.i, label %.thread.i
 
@@ -8120,7 +8120,7 @@ define noundef i32 @_Z10find_groupPKcN3gmx8ArrayRefIK10IndexGroupEE(ptr noundef 
   %.43161.i = phi i1 [ %.633.i, %.lr.ph64.i ], [ %.229.i, %._crit_edge.i ]
   %20 = getelementptr inbounds nuw %struct.IndexGroup, ptr %1, i64 %.02463.i
   %.val41.i = load ptr, ptr %20, align 8, !tbaa !11
-  %21 = tail call noundef i32 @_Z19gmx_strncasecmp_minPKcS0_i(ptr noundef nonnull %0, ptr noundef %.val41.i, i32 noundef %10)
+  %21 = tail call noundef i32 @_Z19gmx_strncasecmp_minPKcS0_i(ptr noundef nonnull %0, ptr noundef %.val41.i, i32 noundef %12)
   %22 = icmp eq i32 %21, 0
   %.not37.i = icmp ne i32 %.362.i, -1
   %23 = trunc i64 %.02463.i to i32
@@ -8167,10 +8167,10 @@ define noundef i32 @_Z10find_groupPKcN3gmx8ArrayRefIK10IndexGroupEE(ptr noundef 
   br i1 %39, label %.lr.ph.i.i, label %_ZL9minstringPc.exit.i, !llvm.loop !183
 
 _ZL9minstringPc.exit.i:                           ; preds = %36, %._crit_edge65.thread.i
-  br i1 %12, label %.lr.ph71.preheader.i, label %._crit_edge72.i
+  br i1 %11, label %.lr.ph71.preheader.i, label %._crit_edge72.i
 
 .lr.ph71.preheader.i:                             ; preds = %_ZL9minstringPc.exit.i
-  %smax78.i = call i64 @llvm.smax.i64(i64 %11, i64 1)
+  %smax78.i = call i64 @llvm.smax.i64(i64 %10, i64 1)
   br label %.lr.ph71.i
 
 ._crit_edge72.i:                                  ; preds = %_ZL9minstringPc.exit49.i, %_ZL9minstringPc.exit.i
@@ -8257,15 +8257,15 @@ define noundef i32 @_Z10find_groupPKciPKS0_(ptr noundef %0, i32 noundef %1, ptr 
   %spec.select.i = select i1 %.not.i, ptr null, ptr %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
-  %9 = trunc i64 %8 to i32
-  %10 = ptrtoint ptr %spec.select.i to i64
-  %11 = ptrtoint ptr %2 to i64
-  %12 = sub i64 %10, %11
-  %13 = ashr exact i64 %12, 3
-  %14 = icmp sgt i64 %13, 0
-  br i1 %14, label %.lr.ph.i, label %._crit_edge63.thread.i
+  %9 = ptrtoint ptr %spec.select.i to i64
+  %10 = ptrtoint ptr %2 to i64
+  %11 = sub i64 %9, %10
+  %12 = ashr exact i64 %11, 3
+  %13 = icmp sgt i64 %12, 0
+  br i1 %13, label %.lr.ph.i, label %._crit_edge63.thread.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
+  %14 = trunc i64 %8 to i32
   %15 = icmp eq i32 %.1.i, -1
   br i1 %15, label %.lr.ph62.i, label %.thread.i
 
@@ -8283,7 +8283,7 @@ define noundef i32 @_Z10find_groupPKciPKS0_(ptr noundef %0, i32 noundef %1, ptr 
   %.229.i = select i1 %21, i1 true, i1 %.02754.i
   %.1.i = select i1 %19, i32 %20, i32 %.02655.i
   %22 = add nuw nsw i64 %.02556.i, 1
-  %exitcond.not.i = icmp eq i64 %22, %13
+  %exitcond.not.i = icmp eq i64 %22, %12
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !185
 
 .lr.ph62.i:                                       ; preds = %._crit_edge.i, %.lr.ph62.i
@@ -8292,7 +8292,7 @@ define noundef i32 @_Z10find_groupPKciPKS0_(ptr noundef %0, i32 noundef %1, ptr 
   %.43159.i = phi i1 [ %.633.i, %.lr.ph62.i ], [ %.229.i, %._crit_edge.i ]
   %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %.02461.i
   %24 = load ptr, ptr %23, align 8, !tbaa !4
-  %25 = tail call noundef i32 @_Z19gmx_strncasecmp_minPKcS0_i(ptr noundef nonnull %0, ptr noundef %24, i32 noundef %9)
+  %25 = tail call noundef i32 @_Z19gmx_strncasecmp_minPKcS0_i(ptr noundef nonnull %0, ptr noundef %24, i32 noundef %14)
   %26 = icmp eq i32 %25, 0
   %.not37.i = icmp ne i32 %.360.i, -1
   %27 = trunc i64 %.02461.i to i32
@@ -8300,7 +8300,7 @@ define noundef i32 @_Z10find_groupPKciPKS0_(ptr noundef %0, i32 noundef %1, ptr 
   %.633.i = select i1 %28, i1 true, i1 %.43159.i
   %.4.i = select i1 %26, i32 %27, i32 %.360.i
   %29 = add nuw nsw i64 %.02461.i, 1
-  %exitcond74.not.i = icmp eq i64 %29, %13
+  %exitcond74.not.i = icmp eq i64 %29, %12
   br i1 %exitcond74.not.i, label %._crit_edge63.i, label %.lr.ph62.i, !llvm.loop !186
 
 ._crit_edge63.i:                                  ; preds = %.lr.ph62.i
@@ -8339,7 +8339,7 @@ define noundef i32 @_Z10find_groupPKciPKS0_(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %43, label %.lr.ph.i.i, label %_ZL9minstringPc.exit.i, !llvm.loop !183
 
 _ZL9minstringPc.exit.i:                           ; preds = %40, %._crit_edge63.thread.i
-  br i1 %14, label %.lr.ph69.i, label %._crit_edge70.i
+  br i1 %13, label %.lr.ph69.i, label %._crit_edge70.i
 
 ._crit_edge70.i:                                  ; preds = %_ZL9minstringPc.exit47.i, %_ZL9minstringPc.exit.i
   %.835.lcssa.i = phi i1 [ %.431.lcssa85.i, %_ZL9minstringPc.exit.i ], [ %.10.i, %_ZL9minstringPc.exit47.i ]
@@ -8388,7 +8388,7 @@ _ZL9minstringPc.exit47.i:                         ; preds = %54, %.lr.ph69.i
   %.10.i = select i1 %.not73.i, i1 true, i1 %.83566.i
   %.7.i = select i1 %.not.i2, i32 %59, i32 %.667.i
   %60 = add nuw nsw i64 %.068.i, 1
-  %exitcond75.not.i = icmp eq i64 %60, %13
+  %exitcond75.not.i = icmp eq i64 %60, %12
   br i1 %exitcond75.not.i, label %._crit_edge70.i, label %.lr.ph69.i, !llvm.loop !187
 
 .thread.i:                                        ; preds = %._crit_edge63.i, %._crit_edge.i

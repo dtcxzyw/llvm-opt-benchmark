@@ -635,66 +635,66 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
   br i1 %.not289, label %.critedge309, label %145
 
 145:                                              ; preds = %139
-  %146 = load i32, ptr %140, align 4
-  %147 = getelementptr inbounds nuw i8, ptr %.1250, i64 24
-  %148 = load i64, ptr %147, align 8
-  %149 = trunc i64 %148 to i32
-  %150 = and i32 %149, 1
-  %151 = icmp eq i32 %150, 0
-  br i1 %151, label %.lr.ph, label %._crit_edge
+  %146 = getelementptr inbounds nuw i8, ptr %.1250, i64 24
+  %147 = load i64, ptr %146, align 8
+  %148 = trunc i64 %147 to i32
+  %149 = and i32 %148, 1
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %145, %.lr.ph
-  %.0259318 = phi i32 [ %152, %.lr.ph ], [ 0, %145 ]
-  %.0262317 = phi i32 [ %153, %.lr.ph ], [ %149, %145 ]
-  %152 = add nuw nsw i32 %.0259318, 1
-  %153 = ashr exact i32 %.0262317, 1
-  %154 = and i32 %.0262317, 2
-  %155 = icmp eq i32 %154, 0
-  br i1 %155, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  %.0259318 = phi i32 [ %151, %.lr.ph ], [ 0, %145 ]
+  %.0262317 = phi i32 [ %152, %.lr.ph ], [ %148, %145 ]
+  %151 = add nuw nsw i32 %.0259318, 1
+  %152 = ashr exact i32 %.0262317, 1
+  %153 = and i32 %.0262317, 2
+  %154 = icmp eq i32 %153, 0
+  br i1 %154, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %145
-  %.0262.lcssa = phi i32 [ %149, %145 ], [ %153, %.lr.ph ]
-  %.0259.lcssa = phi i32 [ 0, %145 ], [ %152, %.lr.ph ]
-  %156 = getelementptr inbounds nuw i8, ptr %.1250, i64 32
-  %157 = load i64, ptr %156, align 8
-  %158 = trunc i64 %157 to i32
-  %159 = and i32 %158, 1
-  %160 = icmp eq i32 %159, 0
-  br i1 %160, label %.lr.ph323, label %._crit_edge324
+  %.0262.lcssa = phi i32 [ %148, %145 ], [ %152, %.lr.ph ]
+  %.0259.lcssa = phi i32 [ 0, %145 ], [ %151, %.lr.ph ]
+  %155 = getelementptr inbounds nuw i8, ptr %.1250, i64 32
+  %156 = load i64, ptr %155, align 8
+  %157 = trunc i64 %156 to i32
+  %158 = and i32 %157, 1
+  %159 = icmp eq i32 %158, 0
+  br i1 %159, label %.lr.ph323, label %._crit_edge324
 
 .lr.ph323:                                        ; preds = %._crit_edge, %.lr.ph323
-  %.0258321 = phi i32 [ %161, %.lr.ph323 ], [ 0, %._crit_edge ]
-  %.0261320 = phi i32 [ %162, %.lr.ph323 ], [ %158, %._crit_edge ]
-  %161 = add nuw nsw i32 %.0258321, 1
-  %162 = ashr exact i32 %.0261320, 1
-  %163 = and i32 %.0261320, 2
-  %164 = icmp eq i32 %163, 0
-  br i1 %164, label %.lr.ph323, label %._crit_edge324, !llvm.loop !8
+  %.0258321 = phi i32 [ %160, %.lr.ph323 ], [ 0, %._crit_edge ]
+  %.0261320 = phi i32 [ %161, %.lr.ph323 ], [ %157, %._crit_edge ]
+  %160 = add nuw nsw i32 %.0258321, 1
+  %161 = ashr exact i32 %.0261320, 1
+  %162 = and i32 %.0261320, 2
+  %163 = icmp eq i32 %162, 0
+  br i1 %163, label %.lr.ph323, label %._crit_edge324, !llvm.loop !8
 
 ._crit_edge324:                                   ; preds = %.lr.ph323, %._crit_edge
-  %.0261.lcssa = phi i32 [ %158, %._crit_edge ], [ %162, %.lr.ph323 ]
-  %.0258.lcssa = phi i32 [ 0, %._crit_edge ], [ %161, %.lr.ph323 ]
-  %165 = getelementptr inbounds nuw i8, ptr %.1250, i64 40
-  %166 = load i64, ptr %165, align 8
-  %167 = trunc i64 %166 to i32
-  %168 = and i32 %167, 1
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %.lr.ph330, label %.preheader
+  %.0261.lcssa = phi i32 [ %157, %._crit_edge ], [ %161, %.lr.ph323 ]
+  %.0258.lcssa = phi i32 [ 0, %._crit_edge ], [ %160, %.lr.ph323 ]
+  %164 = getelementptr inbounds nuw i8, ptr %.1250, i64 40
+  %165 = load i64, ptr %164, align 8
+  %166 = trunc i64 %165 to i32
+  %167 = and i32 %166, 1
+  %168 = icmp eq i32 %167, 0
+  br i1 %168, label %.lr.ph330, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph330, %._crit_edge324
-  %.0260.lcssa = phi i32 [ %167, %._crit_edge324 ], [ %173, %.lr.ph330 ]
+  %.0260.lcssa = phi i32 [ %166, %._crit_edge324 ], [ %173, %.lr.ph330 ]
   %.0257.lcssa = phi i32 [ 0, %._crit_edge324 ], [ %172, %.lr.ph330 ]
-  %170 = icmp sgt i32 %146, 0
+  %169 = load i32, ptr %140, align 4
+  %170 = icmp sgt i32 %169, 0
   br i1 %170, label %.lr.ph334, label %._crit_edge335
 
 .lr.ph334:                                        ; preds = %.preheader
-  %171 = add nsw i32 %146, -1
-  %wide.trip.count = zext nneg i32 %146 to i64
+  %171 = add nsw i32 %169, -1
+  %wide.trip.count = zext nneg i32 %169 to i64
   br label %176
 
 .lr.ph330:                                        ; preds = %._crit_edge324, %.lr.ph330
   %.0257328 = phi i32 [ %172, %.lr.ph330 ], [ 0, %._crit_edge324 ]
-  %.0260327 = phi i32 [ %173, %.lr.ph330 ], [ %167, %._crit_edge324 ]
+  %.0260327 = phi i32 [ %173, %.lr.ph330 ], [ %166, %._crit_edge324 ]
   %172 = add nuw nsw i32 %.0257328, 1
   %173 = ashr exact i32 %.0260327, 1
   %174 = and i32 %.0260327, 2
@@ -739,7 +739,7 @@ SetupWindowInput.exit:                            ; preds = %26, %32, %35
 ._crit_edge335:                                   ; preds = %176, %.preheader
   %201 = load ptr, ptr @X11_XStoreColors, align 8
   %202 = load i64, ptr %134, align 8
-  %203 = call i32 %201(ptr noundef nonnull %65, i64 noundef %202, ptr noundef nonnull %144, i32 noundef %146) #12
+  %203 = call i32 %201(ptr noundef nonnull %65, i64 noundef %202, ptr noundef nonnull %144, i32 noundef %169) #12
   call void @SDL_free_REAL(ptr noundef nonnull %144) #12
   br label %206
 

@@ -4108,8 +4108,8 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i116: ; preds = %._crit_edge
           to label %.noexc124 unwind label %168
 
 .noexc124:                                        ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i116
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %149, i8 0, i64 %148, i1 false)
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 %148
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %149, i8 0, i64 %148, i1 false)
   br i1 %.not.i.i.i.i112, label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit125._crit_edge, label %.lr.ph290
 
 .lr.ph290:                                        ; preds = %.noexc124, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit125

@@ -16,13 +16,13 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
   %5 = getelementptr inbounds i8, ptr %0, i64 -12
   %6 = getelementptr inbounds i8, ptr %0, i64 -16
+  br label %9
+
+.preheader:                                       ; preds = %.thread475
   %.sroa.0.8.gep624.sroa_idx625 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   %.sroa.0628.8.gep627.sroa_idx629 = getelementptr inbounds nuw i8, ptr %.sroa.0628, i64 8
   %.sroa.0632.8.gep631.sroa_idx633 = getelementptr inbounds nuw i8, ptr %.sroa.0632, i64 8
   %.sroa.0636.8.gep635.sroa_idx637 = getelementptr inbounds nuw i8, ptr %.sroa.0636, i64 8
-  br label %9
-
-.preheader:                                       ; preds = %.thread475
   %7 = sdiv i32 %1, 2
   %8 = sext i32 %7 to i64
   br label %49

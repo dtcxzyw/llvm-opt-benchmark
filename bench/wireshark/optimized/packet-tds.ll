@@ -8647,39 +8647,39 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
 
 434:                                              ; preds = %425
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %435 = zext i8 %7 to i32
-  %436 = icmp ult i8 %7, 3
-  %spec.select = select i1 %436, i32 3, i32 0
-  %437 = add i8 %7, -3
-  %or.cond = icmp ult i8 %437, 2
+  %435 = icmp ult i8 %7, 3
+  %spec.select = select i1 %435, i32 3, i32 0
+  %436 = add i8 %7, -3
+  %or.cond = icmp ult i8 %436, 2
   %.1559 = select i1 %or.cond, i32 4, i32 %spec.select
-  %438 = add i8 %7, -5
-  %or.cond5 = icmp ult i8 %438, 3
+  %437 = add i8 %7, -5
+  %or.cond5 = icmp ult i8 %437, 3
   %.2560 = select i1 %or.cond5, i32 5, i32 %.1559
-  %439 = icmp samesign ugt i32 %.2560, 1
-  br i1 %439, label %.lr.ph643, label %._crit_edge644
+  %438 = icmp samesign ugt i32 %.2560, 1
+  br i1 %438, label %.lr.ph643, label %._crit_edge644
 
 .lr.ph643:                                        ; preds = %434, %.lr.ph643
-  %.0557641 = phi i64 [ %445, %.lr.ph643 ], [ 0, %434 ]
+  %.0557641 = phi i64 [ %444, %.lr.ph643 ], [ 0, %434 ]
   %.0561.in640 = phi i32 [ %.0561, %.lr.ph643 ], [ %.2560, %434 ]
   %.0561 = add nsw i32 %.0561.in640, -1
-  %440 = load i32, ptr %1, align 4
-  %441 = add i32 %440, %.0561
-  %442 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %441)
-  %443 = zext i8 %442 to i64
-  %444 = or disjoint i64 %.0557641, %443
-  %445 = shl i64 %444, 8
-  %446 = icmp samesign ugt i32 %.0561.in640, 2
-  br i1 %446, label %.lr.ph643, label %._crit_edge644.loopexit, !llvm.loop !33
+  %439 = load i32, ptr %1, align 4
+  %440 = add i32 %439, %.0561
+  %441 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %440)
+  %442 = zext i8 %441 to i64
+  %443 = or disjoint i64 %.0557641, %442
+  %444 = shl i64 %443, 8
+  %445 = icmp samesign ugt i32 %.0561.in640, 2
+  br i1 %445, label %.lr.ph643, label %._crit_edge644.loopexit, !llvm.loop !33
 
 ._crit_edge644.loopexit:                          ; preds = %.lr.ph643
   %.pre693 = load i32, ptr %1, align 4
   br label %._crit_edge644
 
 ._crit_edge644:                                   ; preds = %._crit_edge644.loopexit, %434
-  %447 = phi i32 [ %433, %434 ], [ %.pre693, %._crit_edge644.loopexit ]
-  %.0557.lcssa = phi i64 [ 0, %434 ], [ %445, %._crit_edge644.loopexit ]
-  %448 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %447)
+  %446 = phi i32 [ %433, %434 ], [ %.pre693, %._crit_edge644.loopexit ]
+  %.0557.lcssa = phi i64 [ 0, %434 ], [ %444, %._crit_edge644.loopexit ]
+  %447 = zext i8 %7 to i32
+  %448 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %446)
   %449 = zext i8 %448 to i64
   %450 = or disjoint i64 %.0557.lcssa, %449
   %451 = uitofp i64 %450 to double
@@ -8691,7 +8691,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %.1562646 = phi i32 [ %453, %.lr.ph649 ], [ 0, %._crit_edge644 ]
   %452 = fdiv double %.0556647, 1.000000e+01
   %453 = add nuw nsw i32 %.1562646, 1
-  %exitcond689.not = icmp eq i32 %453, %435
+  %exitcond689.not = icmp eq i32 %453, %447
   br i1 %exitcond689.not, label %._crit_edge650, label %.lr.ph649, !llvm.loop !34
 
 ._crit_edge650:                                   ; preds = %.lr.ph649, %._crit_edge644
@@ -8751,39 +8751,39 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
 
 496:                                              ; preds = %487
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %497 = zext i8 %7 to i32
-  %498 = icmp ult i8 %7, 3
-  %spec.select602 = select i1 %498, i32 3, i32 0
-  %499 = add i8 %7, -3
-  %or.cond8 = icmp ult i8 %499, 2
+  %497 = icmp ult i8 %7, 3
+  %spec.select602 = select i1 %497, i32 3, i32 0
+  %498 = add i8 %7, -3
+  %or.cond8 = icmp ult i8 %498, 2
   %.1 = select i1 %or.cond8, i32 4, i32 %spec.select602
-  %500 = add i8 %7, -5
-  %or.cond11 = icmp ult i8 %500, 3
+  %499 = add i8 %7, -5
+  %or.cond11 = icmp ult i8 %499, 3
   %.2 = select i1 %or.cond11, i32 5, i32 %.1
-  %501 = icmp samesign ugt i32 %.2, 1
-  br i1 %501, label %.lr.ph631, label %._crit_edge632
+  %500 = icmp samesign ugt i32 %.2, 1
+  br i1 %500, label %.lr.ph631, label %._crit_edge632
 
 .lr.ph631:                                        ; preds = %496, %.lr.ph631
-  %.0552629 = phi i64 [ %507, %.lr.ph631 ], [ 0, %496 ]
+  %.0552629 = phi i64 [ %506, %.lr.ph631 ], [ 0, %496 ]
   %.0554.in628 = phi i32 [ %.0554, %.lr.ph631 ], [ %.2, %496 ]
   %.0554 = add nsw i32 %.0554.in628, -1
-  %502 = load i32, ptr %1, align 4
-  %503 = add i32 %502, %.0554
-  %504 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %503)
-  %505 = zext i8 %504 to i64
-  %506 = or disjoint i64 %.0552629, %505
-  %507 = shl i64 %506, 8
-  %508 = icmp samesign ugt i32 %.0554.in628, 2
-  br i1 %508, label %.lr.ph631, label %._crit_edge632.loopexit, !llvm.loop !35
+  %501 = load i32, ptr %1, align 4
+  %502 = add i32 %501, %.0554
+  %503 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %502)
+  %504 = zext i8 %503 to i64
+  %505 = or disjoint i64 %.0552629, %504
+  %506 = shl i64 %505, 8
+  %507 = icmp samesign ugt i32 %.0554.in628, 2
+  br i1 %507, label %.lr.ph631, label %._crit_edge632.loopexit, !llvm.loop !35
 
 ._crit_edge632.loopexit:                          ; preds = %.lr.ph631
   %.pre692 = load i32, ptr %1, align 4
   br label %._crit_edge632
 
 ._crit_edge632:                                   ; preds = %._crit_edge632.loopexit, %496
-  %509 = phi i32 [ %495, %496 ], [ %.pre692, %._crit_edge632.loopexit ]
-  %.0552.lcssa = phi i64 [ 0, %496 ], [ %507, %._crit_edge632.loopexit ]
-  %510 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %509)
+  %508 = phi i32 [ %495, %496 ], [ %.pre692, %._crit_edge632.loopexit ]
+  %.0552.lcssa = phi i64 [ 0, %496 ], [ %506, %._crit_edge632.loopexit ]
+  %509 = zext i8 %7 to i32
+  %510 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %508)
   %511 = zext i8 %510 to i64
   %512 = or disjoint i64 %.0552.lcssa, %511
   %513 = uitofp i64 %512 to double
@@ -8795,7 +8795,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %.1555634 = phi i32 [ %515, %.lr.ph637 ], [ 0, %._crit_edge632 ]
   %514 = fdiv double %.0551635, 1.000000e+01
   %515 = add nuw nsw i32 %.1555634, 1
-  %exitcond688.not = icmp eq i32 %515, %497
+  %exitcond688.not = icmp eq i32 %515, %509
   br i1 %exitcond688.not, label %._crit_edge638, label %.lr.ph637, !llvm.loop !36
 
 ._crit_edge638:                                   ; preds = %.lr.ph637, %._crit_edge632

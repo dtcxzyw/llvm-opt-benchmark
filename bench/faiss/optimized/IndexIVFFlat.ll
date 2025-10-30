@@ -2063,8 +2063,8 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIlSaI
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc67
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %231, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %230, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !36
   %233 = getelementptr inbounds nuw i8, ptr %230, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %230, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !36
   br label %234
 
 234:                                              ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc67, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i

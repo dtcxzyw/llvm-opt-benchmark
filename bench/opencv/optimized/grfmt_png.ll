@@ -5410,15 +5410,15 @@ define hidden void @_ZN2cv10PngEncoder11processRectEPhiiiiS1_(ptr noundef nonnul
 ._crit_edge228:                                   ; preds = %._crit_edge228.loopexit, %64
   %80 = phi ptr [ %65, %64 ], [ %.pre, %._crit_edge228.loopexit ]
   %.5 = phi i32 [ 0, %64 ], [ %77, %._crit_edge228.loopexit ]
-  %81 = icmp ult i32 %.5, %spec.select202
-  %spec.select203 = select i1 %81, ptr %80, ptr %spec.select
-  %spec.select204 = tail call i32 @llvm.umin.i32(i32 %.5, i32 %spec.select202)
-  %82 = load ptr, ptr %15, align 8, !tbaa !208
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
+  %81 = load ptr, ptr %15, align 8, !tbaa !208
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1
   br i1 %12, label %.lr.ph235, label %.preheader208
 
 .preheader208:                                    ; preds = %.lr.ph235, %._crit_edge228
   %.6.lcssa = phi i32 [ 0, %._crit_edge228 ], [ %95, %.lr.ph235 ]
+  %83 = icmp ult i32 %.5, %spec.select202
+  %spec.select203 = select i1 %83, ptr %80, ptr %spec.select
+  %spec.select204 = tail call i32 @llvm.umin.i32(i32 %.5, i32 %spec.select202)
   br i1 %13, label %.lr.ph239, label %._crit_edge240
 
 .lr.ph235:                                        ; preds = %._crit_edge228, %.lr.ph235
@@ -5430,7 +5430,7 @@ define hidden void @_ZN2cv10PngEncoder11processRectEPhiiiiS1_(ptr noundef nonnul
   %87 = load i8, ptr %86, align 1, !tbaa !121
   %88 = lshr i8 %87, 1
   %89 = sub i8 %85, %88
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv286
+  %90 = getelementptr inbounds nuw i8, ptr %82, i64 %indvars.iv286
   store i8 %89, ptr %90, align 1, !tbaa !121
   %91 = zext i8 %89 to i32
   %92 = sub nuw nsw i32 256, %91
@@ -5457,7 +5457,7 @@ define hidden void @_ZN2cv10PngEncoder11processRectEPhiiiiS1_(ptr noundef nonnul
   %106 = lshr i16 %105, 1
   %107 = trunc nuw i16 %106 to i8
   %108 = sub i8 %97, %107
-  %109 = getelementptr inbounds i8, ptr %83, i64 %indvars.iv291
+  %109 = getelementptr inbounds i8, ptr %82, i64 %indvars.iv291
   store i8 %108, ptr %109, align 1, !tbaa !121
   %110 = zext i8 %108 to i32
   %111 = sub nuw nsw i32 256, %110
@@ -5472,16 +5472,16 @@ define hidden void @_ZN2cv10PngEncoder11processRectEPhiiiiS1_(ptr noundef nonnul
 
 ._crit_edge240:                                   ; preds = %.lr.ph239, %.preheader208
   %.8 = phi i32 [ %.6.lcssa, %.preheader208 ], [ %114, %.lr.ph239 ]
-  %117 = icmp ult i32 %.8, %spec.select204
-  %118 = load ptr, ptr %15, align 8
-  %spec.select205 = select i1 %117, ptr %118, ptr %spec.select203
-  %spec.select206 = tail call i32 @llvm.umin.i32(i32 %.8, i32 %spec.select204)
-  %119 = load ptr, ptr %16, align 8, !tbaa !208
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1
+  %117 = load ptr, ptr %15, align 8
+  %118 = load ptr, ptr %16, align 8, !tbaa !208
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 1
   br i1 %12, label %.lr.ph247, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph247, %._crit_edge240
   %.9.lcssa = phi i32 [ 0, %._crit_edge240 ], [ %131, %.lr.ph247 ]
+  %120 = icmp ult i32 %.8, %spec.select204
+  %spec.select205 = select i1 %120, ptr %117, ptr %spec.select203
+  %spec.select206 = tail call i32 @llvm.umin.i32(i32 %.8, i32 %spec.select204)
   br i1 %13, label %.lr.ph251, label %._crit_edge252
 
 .lr.ph247:                                        ; preds = %._crit_edge240, %.lr.ph247
@@ -5492,7 +5492,7 @@ define hidden void @_ZN2cv10PngEncoder11processRectEPhiiiiS1_(ptr noundef nonnul
   %123 = getelementptr inbounds nuw i8, ptr %.0177258, i64 %indvars.iv294
   %124 = load i8, ptr %123, align 1, !tbaa !121
   %125 = sub i8 %122, %124
-  %126 = getelementptr inbounds nuw i8, ptr %120, i64 %indvars.iv294
+  %126 = getelementptr inbounds nuw i8, ptr %119, i64 %indvars.iv294
   store i8 %125, ptr %126, align 1, !tbaa !121
   %127 = zext i8 %125 to i32
   %128 = sub nuw nsw i32 256, %127
@@ -5531,7 +5531,7 @@ define hidden void @_ZN2cv10PngEncoder11processRectEPhiiiiS1_(ptr noundef nonnul
   %150 = getelementptr inbounds i8, ptr %.0178257, i64 %indvars.iv299
   %151 = load i8, ptr %150, align 1, !tbaa !121
   %152 = sub i8 %151, %149
-  %153 = getelementptr inbounds i8, ptr %120, i64 %indvars.iv299
+  %153 = getelementptr inbounds i8, ptr %119, i64 %indvars.iv299
   store i8 %152, ptr %153, align 1, !tbaa !121
   %154 = zext i8 %152 to i32
   %155 = sub nuw nsw i32 256, %154
@@ -8620,8 +8620,8 @@ define linkonce_odr void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr nound
 
 _ZSt6fill_nIPPhmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !36
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !36
   br label %_ZSt27__uninitialized_default_n_aIPPhmS0_ET_S2_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPhmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPhmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i

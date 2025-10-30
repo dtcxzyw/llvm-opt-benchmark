@@ -985,56 +985,56 @@ define hidden void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferencea
   %12 = zext nneg i8 %11 to i32
   %13 = shl i32 %1, 1
   %14 = or disjoint i32 %13, %12
-  %15 = xor i32 %14, 1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %17 = load ptr, ptr %16, align 8, !tbaa !16
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %19 = load ptr, ptr %18, align 8, !tbaa !16
-  %20 = zext i32 %14 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
-  %22 = load i32, ptr %21, align 4, !tbaa !12
-  %23 = add i32 %14, 1
-  %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %19, i64 %24
-  %26 = load i32, ptr %25, align 4, !tbaa !12
-  %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %17, i64 %27
-  %.not50 = icmp eq i32 %22, %26
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %16 = load ptr, ptr %15, align 8, !tbaa !16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  %18 = load ptr, ptr %17, align 8, !tbaa !16
+  %19 = zext i32 %14 to i64
+  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %21 = load i32, ptr %20, align 4, !tbaa !12
+  %22 = add i32 %14, 1
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds nuw i32, ptr %18, i64 %23
+  %25 = load i32, ptr %24, align 4, !tbaa !12
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw i32, ptr %16, i64 %26
+  %.not50 = icmp eq i32 %21, %25
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %29 = zext i32 %22 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %17, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %34 = and i32 %1, 2147483647
-  %35 = zext nneg i32 %34 to i64
+  %28 = zext i32 %21 to i64
+  %29 = getelementptr inbounds nuw i32, ptr %16, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %33 = and i32 %1, 2147483647
+  %34 = zext nneg i32 %33 to i64
   br label %61
 
 ._crit_edge.loopexit:                             ; preds = %83
-  %.pre = load ptr, ptr %16, align 8, !tbaa !16
-  %.pre57 = load ptr, ptr %18, align 8, !tbaa !16
+  %.pre = load ptr, ptr %15, align 8, !tbaa !16
+  %.pre57 = load ptr, ptr %17, align 8, !tbaa !16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %36 = phi ptr [ %.pre57, %._crit_edge.loopexit ], [ %19, %2 ]
-  %37 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %17, %2 ]
-  %38 = zext i32 %15 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %36, i64 %38
+  %35 = phi ptr [ %.pre57, %._crit_edge.loopexit ], [ %18, %2 ]
+  %36 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %16, %2 ]
+  %37 = xor i32 %14, 1
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw i32, ptr %35, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !12
-  %41 = add i32 %15, 1
+  %41 = add i32 %37, 1
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %36, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr %35, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !12
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %37, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %36, i64 %45
   %.not3852 = icmp eq i32 %40, %44
   br i1 %.not3852, label %._crit_edge56, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %._crit_edge
   %47 = zext i32 %40 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %37, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %36, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %50 = load ptr, ptr %49, align 8, !tbaa !30
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 752
@@ -1050,9 +1050,9 @@ define hidden void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferencea
   br label %89
 
 61:                                               ; preds = %.lr.ph, %83
-  %.051 = phi ptr [ %30, %.lr.ph ], [ %84, %83 ]
+  %.051 = phi ptr [ %29, %.lr.ph ], [ %84, %83 ]
   %62 = load i32, ptr %.051, align 4, !tbaa !12
-  %63 = load ptr, ptr %31, align 8, !tbaa !30
+  %63 = load ptr, ptr %30, align 8, !tbaa !30
   %64 = zext i32 %62 to i64
   %65 = getelementptr inbounds nuw %"struct.sat::prob::clause_info", ptr %63, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
@@ -1068,9 +1068,9 @@ define hidden void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferencea
   ]
 
 71:                                               ; preds = %61
-  tail call void @_ZN16indexed_uint_set12insert_freshEj(ptr noundef nonnull align 8 dereferenceable(24) %33, i32 noundef %62)
-  %72 = load ptr, ptr %32, align 8, !tbaa !16
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %35
+  tail call void @_ZN16indexed_uint_set12insert_freshEj(ptr noundef nonnull align 8 dereferenceable(24) %32, i32 noundef %62)
+  %72 = load ptr, ptr %31, align 8, !tbaa !16
+  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %34
   %74 = load i32, ptr %73, align 4, !tbaa !12
   %75 = add i32 %74, -1
   store i32 %75, ptr %73, align 4, !tbaa !12
@@ -1078,7 +1078,7 @@ define hidden void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferencea
 
 76:                                               ; preds = %61
   %77 = lshr i32 %70, 1
-  %78 = load ptr, ptr %32, align 8, !tbaa !16
+  %78 = load ptr, ptr %31, align 8, !tbaa !16
   %79 = zext nneg i32 %77 to i64
   %80 = getelementptr inbounds nuw i32, ptr %78, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !12
@@ -1088,7 +1088,7 @@ define hidden void @_ZN3sat4prob4flipEj(ptr noundef nonnull align 8 dereferencea
 
 83:                                               ; preds = %61, %76, %71
   %84 = getelementptr inbounds nuw i8, ptr %.051, i64 4
-  %.not = icmp eq ptr %84, %28
+  %.not = icmp eq ptr %84, %27
   br i1 %.not, label %._crit_edge.loopexit, label %61
 
 ._crit_edge56:                                    ; preds = %120, %._crit_edge
@@ -1158,7 +1158,7 @@ _ZN16indexed_uint_set6removeEj.exit:              ; preds = %95, %101
   %122 = add i32 %121, 1
   store i32 %122, ptr %93, align 4, !tbaa !90
   %123 = load i32, ptr %92, align 4, !tbaa !92
-  %124 = add i32 %123, %15
+  %124 = add i32 %123, %37
   store i32 %124, ptr %92, align 4, !tbaa !92
   %125 = getelementptr inbounds nuw i8, ptr %.03753, i64 4
   %.not38 = icmp eq ptr %125, %46

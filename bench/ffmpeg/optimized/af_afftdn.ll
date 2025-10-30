@@ -1582,8 +1582,6 @@ ff_clz_c.exit:                                    ; preds = %ff_clz_c.exit.loope
 
 75:                                               ; preds = %.preheader512, %85
   %indvars.iv667 = phi i64 [ 0, %.preheader512 ], [ %indvars.iv.next668, %85 ]
-  %.idx = mul nuw nsw i64 %indvars.iv667, 40
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %76 = add nuw nsw i64 %indvars.iv667, %indvars.iv671
   %77 = trunc nuw nsw i64 %76 to i32
   %78 = uitofp nneg i32 %77 to double
@@ -1600,6 +1598,8 @@ ff_clz_c.exit:                                    ; preds = %ff_clz_c.exit.loope
   br i1 %exitcond666.not, label %85, label %79, !llvm.loop !134
 
 85:                                               ; preds = %79
+  %.idx = mul nuw nsw i64 %indvars.iv667, 40
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   store double %83, ptr %gep, align 8, !tbaa !83
   %indvars.iv.next668 = add nuw nsw i64 %indvars.iv667, 1
   %exitcond670.not = icmp eq i64 %indvars.iv.next668, 5

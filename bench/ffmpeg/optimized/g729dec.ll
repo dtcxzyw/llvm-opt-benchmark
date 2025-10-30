@@ -913,33 +913,33 @@ ff_acelp_decode_4bit_to_2nd_delay3.exit:          ; preds = %357, %361, %332, %3
   %.0.i284 = select i1 %472, i32 2, i32 %475
   %476 = trunc nuw nsw i32 %.0.i284 to i16
   store i16 %476, ptr %243, align 2, !tbaa !56
-  %477 = load i16, ptr %244, align 4, !tbaa !57
-  %478 = load i16, ptr %235, align 4, !tbaa !37
-  br label %479
+  br label %477
 
-479:                                              ; preds = %479, %469
-  %indvars.iv.i285 = phi i64 [ 0, %469 ], [ %indvars.iv.next.i287, %479 ]
-  %.01928.i = phi i32 [ 0, %469 ], [ %spec.select.i286, %479 ]
-  %480 = getelementptr inbounds nuw i16, ptr %235, i64 %indvars.iv.i285
-  %481 = load i16, ptr %480, align 2, !tbaa !37
-  %482 = icmp slt i16 %481, 9830
-  %483 = zext i1 %482 to i32
-  %spec.select.i286 = add nuw nsw i32 %.01928.i, %483
+477:                                              ; preds = %477, %469
+  %indvars.iv.i285 = phi i64 [ 0, %469 ], [ %indvars.iv.next.i287, %477 ]
+  %.01928.i = phi i32 [ 0, %469 ], [ %spec.select.i286, %477 ]
+  %478 = getelementptr inbounds nuw i16, ptr %235, i64 %indvars.iv.i285
+  %479 = load i16, ptr %478, align 2, !tbaa !37
+  %480 = icmp slt i16 %479, 9830
+  %481 = zext i1 %480 to i32
+  %spec.select.i286 = add nuw nsw i32 %.01928.i, %481
   %indvars.iv.next.i287 = add nuw nsw i64 %indvars.iv.i285, 1
   %exitcond.not.i288 = icmp eq i64 %indvars.iv.next.i287, 6
-  br i1 %exitcond.not.i288, label %g729d_voice_decision.exit, label %479, !llvm.loop !79
+  br i1 %exitcond.not.i288, label %g729d_voice_decision.exit, label %477, !llvm.loop !79
 
-g729d_voice_decision.exit:                        ; preds = %479
-  %484 = sext i16 %477 to i32
-  %485 = icmp sgt i16 %478, 14744
-  %486 = icmp sgt i16 %478, 9830
+g729d_voice_decision.exit:                        ; preds = %477
+  %482 = load i16, ptr %244, align 4, !tbaa !57
+  %483 = sext i16 %482 to i32
+  %484 = load i16, ptr %235, align 4, !tbaa !37
+  %485 = icmp sgt i16 %484, 14744
+  %486 = icmp sgt i16 %484, 9830
   %..i289 = zext i1 %486 to i32
   %.0.i290 = select i1 %485, i32 2, i32 %..i289
   %487 = icmp samesign ult i32 %spec.select.i286, 3
   %488 = icmp ne i32 %.0.i284, 0
   %or.cond.i = or i1 %488, %487
   %spec.select23.i = select i1 %or.cond.i, i32 %.0.i290, i32 0
-  %489 = add nsw i32 %484, 1
+  %489 = add nsw i32 %483, 1
   %490 = icmp sgt i32 %spec.select23.i, %489
   %not..i = xor i1 %488, true
   %or.cond25.not.i = select i1 %not..i, i1 %490, i1 false

@@ -1890,63 +1890,63 @@ define void @_ZN6icu_778numparse4impl21AffixMatcherWarehouseC2EPNS1_26AffixToken
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6icu_778numparse4impl12AffixMatcherE, i64 16), ptr %.ptr, align 8, !tbaa !15
   %.add = add nuw nsw i64 %.idx, 32
   %4 = icmp eq i64 %.add, 576
-  br i1 %4, label %.preheader15.preheader, label %3
+  br i1 %4, label %.preheader15, label %3
 
-.preheader15.preheader:                           ; preds = %3
+.preheader15:                                     ; preds = %3
   %.ptr10 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  br label %.preheader15
+  br label %5
 
-.preheader15:                                     ; preds = %.preheader15.preheader, %5
-  %.idx6 = phi i64 [ %.add7, %5 ], [ 576, %.preheader15.preheader ]
+5:                                                ; preds = %.preheader15, %6
+  %.idx6 = phi i64 [ %.add7, %6 ], [ 576, %.preheader15 ]
   %.ptr8.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx6
   invoke void @_ZN6icu_778numparse4impl18ArraySeriesMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %.ptr8.ptr)
-          to label %5 unwind label %13
+          to label %6 unwind label %14
 
-5:                                                ; preds = %.preheader15
+6:                                                ; preds = %5
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN6icu_778numparse4impl19AffixPatternMatcherE, i64 16), ptr %.ptr8.ptr, align 8, !tbaa !15
-  %6 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr, i64 56
-  %7 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr, i64 70
-  store ptr %7, ptr %6, align 8, !tbaa !84
-  %8 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr, i64 64
-  store i32 4, ptr %8, align 8, !tbaa !87
-  %9 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr, i64 68
-  store i8 0, ptr %9, align 4, !tbaa !88
-  store i16 0, ptr %7, align 2, !tbaa !89
+  %7 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr, i64 70
+  store ptr %8, ptr %7, align 8, !tbaa !84
+  %9 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr, i64 64
+  store i32 4, ptr %9, align 8, !tbaa !87
+  %10 = getelementptr inbounds nuw i8, ptr %.ptr8.ptr, i64 68
+  store i8 0, ptr %10, align 4, !tbaa !88
+  store i16 0, ptr %8, align 2, !tbaa !89
   %.add7 = add nuw nsw i64 %.idx6, 80
-  %10 = icmp samesign eq i64 %.add7, 1536
-  br i1 %10, label %11, label %.preheader15
+  %11 = icmp samesign eq i64 %.add7, 1536
+  br i1 %11, label %12, label %5
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1536
-  store ptr %1, ptr %12, align 8, !tbaa !106
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1536
+  store ptr %1, ptr %13, align 8, !tbaa !106
   ret void
 
-13:                                               ; preds = %.preheader15
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %5
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %15 = icmp eq i64 %.idx6, 576
-  br i1 %15, label %.loopexit.preheader, label %.preheader
+  %16 = icmp eq i64 %.idx6, 576
+  br i1 %16, label %.loopexit.preheader, label %.preheader
 
-.preheader:                                       ; preds = %13, %.preheader
-  %.idx11 = phi i64 [ %.add12, %.preheader ], [ %.idx6, %13 ]
+.preheader:                                       ; preds = %14, %.preheader
+  %.idx11 = phi i64 [ %.add12, %.preheader ], [ %.idx6, %14 ]
   %.add12 = add nsw i64 %.idx11, -80
   %.ptr14 = getelementptr inbounds i8, ptr %0, i64 %.add12
   tail call void @_ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %.ptr14) #19
-  %16 = icmp eq i64 %.add12, 576
-  br i1 %16, label %.loopexit.preheader, label %.preheader
+  %17 = icmp eq i64 %.add12, 576
+  br i1 %17, label %.loopexit.preheader, label %.preheader
 
-.loopexit.preheader:                              ; preds = %.preheader, %13
+.loopexit.preheader:                              ; preds = %.preheader, %14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit
-  %17 = phi ptr [ %18, %.loopexit ], [ %.ptr10, %.loopexit.preheader ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 -32
-  tail call void @_ZN6icu_778numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %18) #19
-  %19 = icmp eq ptr %18, %0
-  br i1 %19, label %20, label %.loopexit
+  %18 = phi ptr [ %19, %.loopexit ], [ %.ptr10, %.loopexit.preheader ]
+  %19 = getelementptr inbounds i8, ptr %18, i64 -32
+  tail call void @_ZN6icu_778numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %19) #19
+  %20 = icmp eq ptr %19, %0
+  br i1 %20, label %21, label %.loopexit
 
-20:                                               ; preds = %.loopexit
-  resume { ptr, i32 } %14
+21:                                               ; preds = %.loopexit
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

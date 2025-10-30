@@ -3257,56 +3257,56 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18
   %772 = phi ptr [ %829, %825 ], [ %744, %.lr.ph3.split.split.i.preheader.i ]
   %.0271.i = phi i32 [ %.1.i, %825 ], [ %745, %.lr.ph3.split.split.i.preheader.i ]
   %.0292.i.i = phi i16 [ %830, %825 ], [ 0, %.lr.ph3.split.split.i.preheader.i ]
-  %773 = ptrtoint ptr %772 to i64
-  %774 = ptrtoint ptr %771 to i64
-  %775 = sub i64 %773, %774
-  %776 = trunc i64 %775 to i32
-  %777 = getelementptr inbounds nuw i8, ptr %772, i64 2
-  store ptr %777, ptr %76, align 8
-  %.0.i.i.i.i31.i.i = load i16, ptr %777, align 1
-  %778 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i31.i.i)
-  %779 = getelementptr inbounds nuw i8, ptr %772, i64 6
-  store ptr %779, ptr %76, align 8
-  %.0.i.i.i.i32.i.i = load i16, ptr %779, align 1
-  %780 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i32.i.i)
-  %781 = getelementptr inbounds nuw i8, ptr %772, i64 8
-  store ptr %781, ptr %76, align 8
+  %773 = getelementptr inbounds nuw i8, ptr %772, i64 2
+  store ptr %773, ptr %76, align 8
+  %.0.i.i.i.i31.i.i = load i16, ptr %773, align 1
+  %774 = getelementptr inbounds nuw i8, ptr %772, i64 6
+  store ptr %774, ptr %76, align 8
+  %.0.i.i.i.i32.i.i = load i16, ptr %774, align 1
+  %775 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i32.i.i)
+  %776 = getelementptr inbounds nuw i8, ptr %772, i64 8
+  store ptr %776, ptr %76, align 8
   %.not22.i.i = icmp eq i16 %.0.i.i.i.i32.i.i, 0
   br i1 %.not22.i.i, label %._crit_edge.i105.i, label %.lr.ph.i104.i
 
 .lr.ph.i104.i:                                    ; preds = %.lr.ph3.split.split.i.i, %.lr.ph.i104.i
-  %782 = phi ptr [ %787, %.lr.ph.i104.i ], [ %781, %.lr.ph3.split.split.i.i ]
-  %.01.i.i = phi i16 [ %788, %.lr.ph.i104.i ], [ 0, %.lr.ph3.split.split.i.i ]
-  %783 = getelementptr inbounds nuw i8, ptr %782, i64 2
-  store ptr %783, ptr %76, align 8
-  %.0.i.i.i.i33.i.i = load i32, ptr %783, align 1
-  %784 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i33.i.i)
-  %785 = getelementptr inbounds nuw i8, ptr %782, i64 6
-  %786 = sext i32 %784 to i64
-  %787 = getelementptr inbounds i8, ptr %785, i64 %786
-  store ptr %787, ptr %76, align 8
-  %788 = add nuw i16 %.01.i.i, 1
-  %exitcond30.not.i.i = icmp eq i16 %788, %780
+  %777 = phi ptr [ %782, %.lr.ph.i104.i ], [ %776, %.lr.ph3.split.split.i.i ]
+  %.01.i.i = phi i16 [ %783, %.lr.ph.i104.i ], [ 0, %.lr.ph3.split.split.i.i ]
+  %778 = getelementptr inbounds nuw i8, ptr %777, i64 2
+  store ptr %778, ptr %76, align 8
+  %.0.i.i.i.i33.i.i = load i32, ptr %778, align 1
+  %779 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i33.i.i)
+  %780 = getelementptr inbounds nuw i8, ptr %777, i64 6
+  %781 = sext i32 %779 to i64
+  %782 = getelementptr inbounds i8, ptr %780, i64 %781
+  store ptr %782, ptr %76, align 8
+  %783 = add nuw i16 %.01.i.i, 1
+  %exitcond30.not.i.i = icmp eq i16 %783, %775
   br i1 %exitcond30.not.i.i, label %._crit_edge.i105.i, label %.lr.ph.i104.i, !llvm.loop !23
 
 ._crit_edge.i105.i:                               ; preds = %.lr.ph.i104.i, %.lr.ph3.split.split.i.i
-  %789 = phi ptr [ %781, %.lr.ph3.split.split.i.i ], [ %787, %.lr.ph.i104.i ]
-  %790 = load ptr, ptr %746, align 8
-  %791 = getelementptr inbounds nuw i8, ptr %790, i64 36
-  %792 = load i16, ptr %791, align 4
-  %793 = icmp eq i16 %778, %792
-  br i1 %793, label %794, label %825
+  %784 = phi ptr [ %776, %.lr.ph3.split.split.i.i ], [ %782, %.lr.ph.i104.i ]
+  %785 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i31.i.i)
+  %786 = load ptr, ptr %746, align 8
+  %787 = getelementptr inbounds nuw i8, ptr %786, i64 36
+  %788 = load i16, ptr %787, align 4
+  %789 = icmp eq i16 %785, %788
+  br i1 %789, label %790, label %825
 
-794:                                              ; preds = %._crit_edge.i105.i
+790:                                              ; preds = %._crit_edge.i105.i
+  %791 = ptrtoint ptr %772 to i64
+  %792 = ptrtoint ptr %771 to i64
+  %793 = sub i64 %791, %792
+  %794 = trunc i64 %793 to i32
   %795 = zext i32 %.0271.i to i64
   %796 = getelementptr inbounds nuw i8, ptr %771, i64 %795
-  %797 = sub i32 %776, %.0271.i
+  %797 = sub i32 %794, %.0271.i
   %798 = zext i32 %797 to i64
   %799 = load ptr, ptr %122, align 8
   %.not.i.i34.i.i = icmp eq ptr %799, null
   br i1 %.not.i.i34.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i, label %800
 
-800:                                              ; preds = %794
+800:                                              ; preds = %790
   %801 = ptrtoint ptr %799 to i64
   %802 = ptrtoint ptr %770 to i64
   %803 = sub i64 %801, %802
@@ -3339,9 +3339,9 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18
   store ptr %816, ptr %121, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i: ; preds = %814, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i35.i.i, %794
-  %817 = phi ptr [ %816, %814 ], [ %812, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i35.i.i ], [ %769, %794 ]
-  %818 = phi ptr [ %816, %814 ], [ null, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i35.i.i ], [ %770, %794 ]
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i: ; preds = %814, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i35.i.i, %790
+  %817 = phi ptr [ %816, %814 ], [ %812, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i35.i.i ], [ %769, %790 ]
+  %818 = phi ptr [ %816, %814 ], [ null, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i35.i.i ], [ %770, %790 ]
   %819 = load ptr, ptr %76, align 8
   %820 = load ptr, ptr %71, align 8
   %821 = ptrtoint ptr %819 to i64
@@ -3354,7 +3354,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18
   %826 = phi ptr [ %817, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %769, %._crit_edge.i105.i ]
   %827 = phi ptr [ %818, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %770, %._crit_edge.i105.i ]
   %828 = phi ptr [ %820, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %771, %._crit_edge.i105.i ]
-  %829 = phi ptr [ %819, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %789, %._crit_edge.i105.i ]
+  %829 = phi ptr [ %819, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %784, %._crit_edge.i105.i ]
   %.1.i = phi i32 [ %824, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %.0271.i, %._crit_edge.i105.i ]
   %830 = add nuw i16 %.0292.i.i, 1
   %exitcond32.not.i.i = icmp eq i16 %830, %743

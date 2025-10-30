@@ -1378,8 +1378,8 @@ call5.i.i.i.i2.i.i.noexc79:                       ; preds = %_ZNSt6vectorISt8fun
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc79
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i75, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !10
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i75, i64 %add.ptr.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i75, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !10
   br label %invoke.cont44
 
 invoke.cont44:                                    ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc79

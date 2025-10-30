@@ -3025,14 +3025,14 @@ dissect_arrayrange.exit.i:                        ; preds = %115, %114
   %116 = add nuw nsw i32 %.089106.i, 8
   %117 = add nuw nsw i32 %.088107.i, 1
   %exitcond.not.i = icmp eq i32 %.088107.i, %105
-  br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %106, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %106, !llvm.loop !12
 
-._crit_edge.i.loopexit:                           ; preds = %dissect_arrayrange.exit.i
+._crit_edge.loopexit.i:                           ; preds = %dissect_arrayrange.exit.i
   %118 = add nuw nsw i32 %105, 1
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %92
-  %.088.lcssa.i = phi i32 [ 0, %92 ], [ %118, %._crit_edge.i.loopexit ]
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %92
+  %.088.lcssa.i = phi i32 [ 0, %92 ], [ %118, %._crit_edge.loopexit.i ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %98, ptr noundef nonnull @.str.17, i32 noundef %.088.lcssa.i)
   br label %dissect_storeddataspecifier.exit
 
@@ -3570,81 +3570,84 @@ define internal fastcc void @dissect_kindid_list(ptr noundef %0, ptr noundef %1,
   %21 = add nuw nsw i32 %6, 1
   %22 = add nsw i32 %8, -1
   %23 = lshr i32 %22, 2
-  %24 = add nuw nsw i32 %23, 1
-  br label %25
+  br label %24
 
-25:                                               ; preds = %.lr.ph, %dissect_kindid.exit
-  %.03345 = phi i32 [ 0, %.lr.ph ], [ %48, %dissect_kindid.exit ]
-  %.03444 = phi i32 [ 0, %.lr.ph ], [ %49, %dissect_kindid.exit ]
-  %26 = add nuw nsw i32 %21, %.03444
-  %27 = load i32, ptr @hf_reload_kindid, align 4
-  %28 = and i32 %26, 65535
-  %29 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %28)
-  %30 = load i32, ptr @nreloadkinds, align 4
-  %.not.i.i = icmp eq i32 %30, 0
+24:                                               ; preds = %.lr.ph, %dissect_kindid.exit
+  %.03345 = phi i32 [ 0, %.lr.ph ], [ %47, %dissect_kindid.exit ]
+  %.03444 = phi i32 [ 0, %.lr.ph ], [ %48, %dissect_kindid.exit ]
+  %25 = add nuw nsw i32 %21, %.03444
+  %26 = load i32, ptr @hf_reload_kindid, align 4
+  %27 = and i32 %25, 65535
+  %28 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %27)
+  %29 = load i32, ptr @nreloadkinds, align 4
+  %.not.i.i = icmp eq i32 %29, 0
   br i1 %.not.i.i, label %.preheader.i.i.preheader, label %.lr.ph.i.i
 
-.preheader.i.i.preheader:                         ; preds = %32, %25
+.preheader.i.i.preheader:                         ; preds = %31, %24
   br label %.preheader.i.i
 
-.lr.ph.i.i:                                       ; preds = %25
-  %31 = load ptr, ptr @kindidlist_uats, align 8
-  %wide.trip.count.i.i = zext i32 %30 to i64
-  br label %33
+.lr.ph.i.i:                                       ; preds = %24
+  %30 = load ptr, ptr @kindidlist_uats, align 8
+  %wide.trip.count.i.i = zext i32 %29 to i64
+  br label %32
 
-32:                                               ; preds = %33
+31:                                               ; preds = %32
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.preheader.i.i.preheader, label %33, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %.preheader.i.i.preheader, label %32, !llvm.loop !10
 
-33:                                               ; preds = %32, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %32 ]
-  %34 = getelementptr %struct._Kind, ptr %31, i64 %indvars.iv.i.i
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp eq i32 %29, %36
-  br i1 %37, label %getKindFromId.exit.i, label %32
+32:                                               ; preds = %31, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %31 ]
+  %33 = getelementptr %struct._Kind, ptr %30, i64 %indvars.iv.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp eq i32 %28, %35
+  br i1 %36, label %getKindFromId.exit.i, label %31
 
-38:                                               ; preds = %.preheader.i.i
+37:                                               ; preds = %.preheader.i.i
   %indvars.iv.next19.i.i = add nuw nsw i64 %indvars.iv18.i.i, 1
   %exitcond21.not.i.i = icmp eq i64 %indvars.iv.next19.i.i, 18
   br i1 %exitcond21.not.i.i, label %getKindFromId.exit.i.thread, label %.preheader.i.i, !llvm.loop !11
 
-getKindFromId.exit.i.thread:                      ; preds = %38
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef 0)
+getKindFromId.exit.i.thread:                      ; preds = %37
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %26, ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef 0)
   br label %dissect_kindid.exit
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %38
-  %indvars.iv18.i.i = phi i64 [ %indvars.iv.next19.i.i, %38 ], [ 0, %.preheader.i.i.preheader ]
-  %40 = getelementptr %struct._Kind, ptr @predefined_kinds, i64 %indvars.iv18.i.i
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp eq i32 %29, %42
-  br i1 %43, label %getKindFromId.exit.i, label %38
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %37
+  %indvars.iv18.i.i = phi i64 [ %indvars.iv.next19.i.i, %37 ], [ 0, %.preheader.i.i.preheader ]
+  %39 = getelementptr %struct._Kind, ptr @predefined_kinds, i64 %indvars.iv18.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load i32, ptr %40, align 8
+  %42 = icmp eq i32 %28, %41
+  br i1 %42, label %getKindFromId.exit.i, label %37
 
-getKindFromId.exit.i:                             ; preds = %33, %.preheader.i.i
-  %.010.i.i = phi ptr [ %40, %.preheader.i.i ], [ %34, %33 ]
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef 0)
+getKindFromId.exit.i:                             ; preds = %32, %.preheader.i.i
+  %.010.i.i = phi ptr [ %39, %.preheader.i.i ], [ %33, %32 ]
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %26, ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef 0)
   %.not.i = icmp eq ptr %.010.i.i, null
-  br i1 %.not.i, label %dissect_kindid.exit, label %45
+  br i1 %.not.i, label %dissect_kindid.exit, label %44
 
-45:                                               ; preds = %getKindFromId.exit.i
-  %46 = load ptr, ptr %.010.i.i, align 8
-  %.not17.i = icmp eq ptr %46, null
-  br i1 %.not17.i, label %dissect_kindid.exit, label %47
+44:                                               ; preds = %getKindFromId.exit.i
+  %45 = load ptr, ptr %.010.i.i, align 8
+  %.not17.i = icmp eq ptr %45, null
+  br i1 %.not17.i, label %dissect_kindid.exit, label %46
 
-47:                                               ; preds = %45
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.42, ptr noundef nonnull %46)
+46:                                               ; preds = %44
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef nonnull @.str.42, ptr noundef nonnull %45)
   br label %dissect_kindid.exit
 
-dissect_kindid.exit:                              ; preds = %getKindFromId.exit.i.thread, %getKindFromId.exit.i, %45, %47
-  %48 = add nuw nsw i32 %.03345, 1
-  %49 = add nuw nsw i32 %.03444, 4
+dissect_kindid.exit:                              ; preds = %getKindFromId.exit.i.thread, %getKindFromId.exit.i, %44, %46
+  %47 = add nuw nsw i32 %.03345, 1
+  %48 = add nuw nsw i32 %.03444, 4
   %exitcond.not = icmp eq i32 %.03345, %23
-  br i1 %exitcond.not, label %._crit_edge, label %25
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %24
 
-._crit_edge:                                      ; preds = %dissect_kindid.exit, %14
-  %.033.lcssa = phi i32 [ 0, %14 ], [ %24, %dissect_kindid.exit ]
+._crit_edge.loopexit:                             ; preds = %dissect_kindid.exit
+  %49 = add nuw nsw i32 %23, 1
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
+  %.033.lcssa = phi i32 [ 0, %14 ], [ %49, %._crit_edge.loopexit ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.17, i32 noundef %.033.lcssa)
   ret void
 }

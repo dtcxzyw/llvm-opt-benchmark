@@ -1970,12 +1970,12 @@ _ZN4llvm15SmallPtrSetImplIPN5clang13serialization10ModuleFileEE6insertES4_.exit.
   br i1 %.not.i.i, label %_ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_iteratorINS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EES4_EEEET_SG_.exit, label %.lr.ph.i.i, !llvm.loop !250
 
 _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_iteratorINS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EES4_EEEET_SG_.exit: ; preds = %_ZN4llvm15SmallPtrSetImplIPN5clang13serialization10ModuleFileEE6insertES4_.exit.i.i
-  %34 = ptrtoint ptr %1 to i64
-  %35 = load ptr, ptr %0, align 8, !tbaa !202
-  %.not67 = icmp eq ptr %35, %1
+  %34 = load ptr, ptr %0, align 8, !tbaa !202
+  %.not67 = icmp eq ptr %34, %1
   br i1 %.not67, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_iteratorINS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EES4_EEEET_SG_.exit
+  %35 = ptrtoint ptr %1 to i64
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.val.i = load ptr, ptr %36, align 8, !tbaa !202
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2405,7 +2405,7 @@ _ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_i
   br label %.lr.ph71
 
 .lr.ph:                                           ; preds = %_ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_iteratorINS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EES4_EEEET_SG_.exit, %.lr.ph
-  %.sroa.027.068 = phi ptr [ %179, %.lr.ph ], [ %35, %_ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_iteratorINS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EES4_EEEET_SG_.exit ]
+  %.sroa.027.068 = phi ptr [ %179, %.lr.ph ], [ %34, %_ZN4llvm11SmallPtrSetIPN5clang13serialization10ModuleFileELj4EEC2INS_16pointer_iteratorINS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EES4_EEEET_SG_.exit ]
   %175 = load ptr, ptr %.sroa.027.068, align 8, !tbaa !58
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 3280
   call fastcc void @"_ZN4llvm9SetVectorIPN5clang13serialization10ModuleFileENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE9remove_ifIZNS2_13ModuleManager13removeModulesENS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(40) %176, ptr %3)
@@ -2563,7 +2563,7 @@ _ZN4llvm15SmallVectorImplIPN5clang13serialization10ModuleFileEE5eraseEPKS4_S7_.e
 ._crit_edge84:                                    ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEPNS2_13serialization10ModuleFileENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5eraseERKS5_.exit
   %241 = load ptr, ptr %0, align 8, !tbaa !202
   %242 = ptrtoint ptr %241 to i64
-  %243 = sub i64 %34, %242
+  %243 = sub i64 %35, %242
   %244 = getelementptr inbounds i8, ptr %241, i64 %243
   %245 = load i32, ptr %5, align 8, !tbaa !88
   %246 = zext i32 %245 to i64

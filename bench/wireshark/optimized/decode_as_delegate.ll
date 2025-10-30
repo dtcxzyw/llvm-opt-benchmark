@@ -8063,9 +8063,9 @@ define linkonce_odr void @_ZSt16__introsort_loopIN5QListI7QStringE8iteratorExN9_
   tail call void @_ZSt22__move_median_to_firstIN5QListI7QStringE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_(ptr %0, ptr %10, ptr %19, ptr %20)
   br label %21
 
-21:                                               ; preds = %42, %17
-  %.sroa.010.0.i.i = phi ptr [ %10, %17 ], [ %31, %42 ]
-  %.sroa.0.0.i.i = phi ptr [ %storemerge20, %17 ], [ %.sroa.0.1.i.i, %42 ]
+21:                                               ; preds = %40, %17
+  %.sroa.010.0.i.i = phi ptr [ %10, %17 ], [ %31, %40 ]
+  %.sroa.0.0.i.i = phi ptr [ %storemerge20, %17 ], [ %.sroa.0.1.i.i, %40 ]
   %22 = load ptr, ptr %11, align 8
   %23 = load i64, ptr %12, align 8
   br label %24
@@ -8079,46 +8079,43 @@ define linkonce_odr void @_ZSt16__introsort_loopIN5QListI7QStringE8iteratorExN9_
   %29 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %28, ptr %26, i64 %23, ptr %22, i32 noundef 1) #25
   %30 = icmp slt i32 %29, 0
   %31 = getelementptr i8, ptr %.sroa.010.1.i.i, i64 24
-  br i1 %30, label %24, label %.preheader.i.i.preheader, !llvm.loop !92
+  br i1 %30, label %24, label %.preheader.i.i, !llvm.loop !92
 
-.preheader.i.i.preheader:                         ; preds = %24
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 8
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 16
-  br label %.preheader.i.i
-
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %.preheader.i.i.preheader ]
+.preheader.i.i:                                   ; preds = %24, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %24 ]
   %.sroa.0.1.i.i = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -24
-  %34 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -16
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %37 = load i64, ptr %36, align 8
-  %38 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %23, ptr %22, i64 %37, ptr %35, i32 noundef 1) #25
-  %39 = icmp slt i32 %38, 0
-  br i1 %39, label %.preheader.i.i, label %40, !llvm.loop !93
+  %32 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -16
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -8
+  %35 = load i64, ptr %34, align 8
+  %36 = tail call noundef i32 @_ZN9QtPrivate14compareStringsE11QStringViewS0_N2Qt15CaseSensitivityE(i64 %23, ptr %22, i64 %35, ptr %33, i32 noundef 1) #25
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %.preheader.i.i, label %38, !llvm.loop !93
 
-40:                                               ; preds = %.preheader.i.i
-  %41 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
-  br i1 %41, label %42, label %_ZSt27__unguarded_partition_pivotIN5QListI7QStringE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit
+38:                                               ; preds = %.preheader.i.i
+  %39 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
+  br i1 %39, label %40, label %_ZSt27__unguarded_partition_pivotIN5QListI7QStringE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit
 
-42:                                               ; preds = %40
-  %43 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %44 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -16
+40:                                               ; preds = %38
+  %41 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -8
+  %42 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -16
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 8
   %45 = load ptr, ptr %.sroa.010.1.i.i, align 8
   %46 = load ptr, ptr %.sroa.0.1.i.i, align 8
   store ptr %46, ptr %.sroa.010.1.i.i, align 8
   store ptr %45, ptr %.sroa.0.1.i.i, align 8
-  %47 = load ptr, ptr %32, align 8
-  %48 = load ptr, ptr %44, align 8
-  store ptr %48, ptr %32, align 8
-  store ptr %47, ptr %44, align 8
-  %49 = load i64, ptr %33, align 8
-  %50 = load i64, ptr %43, align 8
-  store i64 %50, ptr %33, align 8
-  store i64 %49, ptr %43, align 8
+  %47 = load ptr, ptr %44, align 8
+  %48 = load ptr, ptr %42, align 8
+  store ptr %48, ptr %44, align 8
+  store ptr %47, ptr %42, align 8
+  %49 = load i64, ptr %43, align 8
+  %50 = load i64, ptr %41, align 8
+  store i64 %50, ptr %43, align 8
+  store i64 %49, ptr %41, align 8
   br label %21, !llvm.loop !94
 
-_ZSt27__unguarded_partition_pivotIN5QListI7QStringE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit: ; preds = %40
+_ZSt27__unguarded_partition_pivotIN5QListI7QStringE8iteratorEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit: ; preds = %38
   %51 = add i64 %.021, -1
   tail call void @_ZSt16__introsort_loopIN5QListI7QStringE8iteratorExN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_(ptr %.sroa.010.1.i.i, ptr %storemerge20, i64 noundef %51)
   %52 = ptrtoint ptr %.sroa.010.1.i.i to i64

@@ -3393,52 +3393,52 @@ define internal fastcc void @_ZN12_GLOBAL__N_16toYamlERN4llvm4yaml6OutputERKSt3m
   ret void
 
 37:                                               ; preds = %.lr.ph30, %_ZN12_GLOBAL__N_16toYamlERN4llvm4yaml6OutputERKNS0_17PGOCtxProfContextE.exit
-  %.028 = phi i32 [ 0, %.lr.ph30 ], [ %38, %_ZN12_GLOBAL__N_16toYamlERN4llvm4yaml6OutputERKNS0_17PGOCtxProfContextE.exit ]
+  %.028 = phi i32 [ 0, %.lr.ph30 ], [ %66, %_ZN12_GLOBAL__N_16toYamlERN4llvm4yaml6OutputERKNS0_17PGOCtxProfContextE.exit ]
   %.sroa.011.027 = phi ptr [ %20, %.lr.ph30 ], [ %183, %_ZN12_GLOBAL__N_16toYamlERN4llvm4yaml6OutputERKNS0_17PGOCtxProfContextE.exit ]
-  %38 = add i32 %.028, 1
-  %39 = load ptr, ptr %0, align 8, !tbaa !60
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %41 = load ptr, ptr %40, align 8
-  %42 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %.028, ptr noundef nonnull align 8 dereferenceable(8) %14) #19
+  %38 = load ptr, ptr %0, align 8, !tbaa !60
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %40 = load ptr, ptr %39, align 8
+  %41 = call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %.028, ptr noundef nonnull align 8 dereferenceable(8) %14) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %43 = load ptr, ptr %0, align 8, !tbaa !60
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 104
-  %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(128) %0) #19
+  %42 = load ptr, ptr %0, align 8, !tbaa !60
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 104
+  %44 = load ptr, ptr %43, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(128) %0) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !70
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %11, align 1, !tbaa !327
-  %46 = load ptr, ptr %0, align 8, !tbaa !60
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 120
-  %48 = load ptr, ptr %47, align 8
-  %49 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull @.str.22, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(8) %10) #19
+  %45 = load ptr, ptr %0, align 8, !tbaa !60
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 120
+  %47 = load ptr, ptr %46, align 8
+  %48 = call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull @.str.22, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(8) %10) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.011.027, i64 56
-  %51 = load i64, ptr %50, align 8, !tbaa !19
-  store i64 %51, ptr %12, align 8, !tbaa !46
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.011.027, i64 56
+  %50 = load i64, ptr %49, align 8, !tbaa !19
+  store i64 %50, ptr %12, align 8, !tbaa !46
   call void @_ZN4llvm4yaml7yamlizeImEENSt9enable_ifIXsr16has_ScalarTraitsIT_EE5valueEvE4typeERNS0_2IOERS3_bRNS0_12EmptyContextE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(8) %12, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %9)
-  %52 = load ptr, ptr %0, align 8, !tbaa !60
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 128
-  %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef null) #19
+  %51 = load ptr, ptr %0, align 8, !tbaa !60
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 128
+  %53 = load ptr, ptr %52, align 8
+  call void %53(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %55 = load ptr, ptr %0, align 8, !tbaa !60
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 120
-  %57 = load ptr, ptr %56, align 8
-  %58 = call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull @.str.23, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(8) %10) #19
-  %59 = load ptr, ptr %0, align 8, !tbaa !60
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 64
-  %61 = load ptr, ptr %60, align 8
-  %62 = call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(128) %0) #19
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.011.027, i64 64
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.011.027, i64 72
-  %65 = load i32, ptr %64, align 8, !tbaa !35
-  %66 = zext i32 %65 to i64
-  %.not32 = icmp eq i32 %65, 0
+  %54 = load ptr, ptr %0, align 8, !tbaa !60
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 120
+  %56 = load ptr, ptr %55, align 8
+  %57 = call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull @.str.23, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(8) %10) #19
+  %58 = load ptr, ptr %0, align 8, !tbaa !60
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
+  %60 = load ptr, ptr %59, align 8
+  %61 = call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(128) %0) #19
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.011.027, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.011.027, i64 72
+  %64 = load i32, ptr %63, align 8, !tbaa !35
+  %65 = zext i32 %64 to i64
+  %.not32 = icmp eq i32 %64, 0
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm4yaml7yamlizeImEENSt9enable_ifIXsr16has_ScalarTraitsIT_EE5valueEvE4typeERNS0_2IOERS3_bRNS0_12EmptyContextE.exit, %37
+  %66 = add i32 %.028, 1
   %67 = load ptr, ptr %0, align 8, !tbaa !60
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 88
   %69 = load ptr, ptr %68, align 8
@@ -3460,7 +3460,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16toYamlERN4llvm4yaml6OutputERKSt3m
   %79 = load ptr, ptr %78, align 8
   %80 = call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %76, ptr noundef nonnull align 8 dereferenceable(8) %10) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %81 = load ptr, ptr %63, align 8, !tbaa !34
+  %81 = load ptr, ptr %62, align 8, !tbaa !34
   %82 = getelementptr inbounds nuw i64, ptr %81, i64 %.0.i23
   %83 = load i64, ptr %82, align 8, !tbaa !46
   store i64 %83, ptr %13, align 8, !tbaa !46
@@ -3552,7 +3552,7 @@ _ZN4llvm4yaml7yamlizeImEENSt9enable_ifIXsr16has_ScalarTraitsIT_EE5valueEvE4typeE
   call void %117(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %114) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %118 = add nuw nsw i64 %.0.i23, 1
-  %exitcond.not = icmp eq i64 %118, %66
+  %exitcond.not = icmp eq i64 %118, %65
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !337
 
 119:                                              ; preds = %._crit_edge

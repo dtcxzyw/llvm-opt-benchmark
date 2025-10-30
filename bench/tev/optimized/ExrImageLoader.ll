@@ -10785,29 +10785,29 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN3tev9ImageDataEEEEENS_19
 _ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEEC2EmmS5_.exit: ; preds = %_ZNKSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE11__recommendB8ne190000Em.exit, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN3tev9ImageDataEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS7_m.exit.i
   %storemerge.i = phi ptr [ %23, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN3tev9ImageDataEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS7_m.exit.i ], [ null, %_ZNKSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEE11__recommendB8ne190000Em.exit ]
   %24 = getelementptr inbounds i8, ptr %storemerge.i, i64 %8
-  %25 = getelementptr inbounds nuw %"struct.tev::ImageData", ptr %storemerge.i, i64 %.0.i
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %24, i8 0, i64 176, i1 false)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %27, %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEEC2EmmS5_.exit
-  %.05.i.i.i.i.i = phi i64 [ 0, %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEEC2EmmS5_.exit ], [ %30, %27 ]
-  %28 = getelementptr inbounds nuw [4 x float], ptr %26, i64 %.05.i.i.i.i.i
-  %29 = getelementptr inbounds nuw float, ptr %28, i64 %.05.i.i.i.i.i
-  store float 1.000000e+00, ptr %29, align 4
-  %30 = add nuw nsw i64 %.05.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %30, 4
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i, label %27, !llvm.loop !29
+26:                                               ; preds = %26, %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEEC2EmmS5_.exit
+  %.05.i.i.i.i.i = phi i64 [ 0, %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEEC2EmmS5_.exit ], [ %29, %26 ]
+  %27 = getelementptr inbounds nuw [4 x float], ptr %25, i64 %.05.i.i.i.i.i
+  %28 = getelementptr inbounds nuw float, ptr %27, i64 %.05.i.i.i.i.i
+  store float 1.000000e+00, ptr %28, align 4
+  %29 = add nuw nsw i64 %.05.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %29, 4
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i, label %26, !llvm.loop !29
 
-_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i:       ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 116
-  store i32 2147483647, ptr %31, align 4
+_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i:       ; preds = %26
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 116
+  store i32 2147483647, ptr %30, align 4
   %.sroa_idx6.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i32 2147483647, ptr %.sroa_idx6.i.i.i.i.i, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %24, i64 124
-  store i32 -2147483648, ptr %32, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 124
+  store i32 -2147483648, ptr %31, align 4
   %.sroa_idx4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 128
   store i32 -2147483648, ptr %.sroa_idx4.i.i.i.i.i, align 4
+  %32 = getelementptr inbounds nuw %"struct.tev::ImageData", ptr %storemerge.i, i64 %.0.i
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 132
   store i32 2147483647, ptr %33, align 4
   %.sroa_idx6.i11.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 136
@@ -10882,7 +10882,7 @@ _ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000E
   %63 = phi ptr [ %.pre, %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit ], [ %5, %_ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i ]
   store ptr %37, ptr %0, align 8
   store ptr %36, ptr %3, align 8
-  store ptr %25, ptr %2, align 8
+  store ptr %32, ptr %2, align 8
   %.not.i4 = icmp eq ptr %63, null
   br i1 %.not.i4, label %_ZNSt3__114__split_bufferIN3tev9ImageDataERNS_9allocatorIS2_EEED2Ev.exit, label %64
 

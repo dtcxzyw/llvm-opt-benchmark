@@ -723,20 +723,20 @@ define void @_ZN5arrow17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEll(p
   %57 = add nsw i64 %40, 1
   %58 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %58, %36
-  br i1 %exitcond.not.i, label %.loopexit.i.loopexit57, label %.lr.ph.i, !llvm.loop !79
+  br i1 %exitcond.not.i, label %.loopexit.i.loopexit73, label %.lr.ph.i, !llvm.loop !79
 
 .loopexit.i.loopexit:                             ; preds = %"_ZZN5arrow17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEllENK3$_0clEv.exit.i"
   %59 = add i64 %.lcssa5255, %25
   br label %.loopexit.i
 
-.loopexit.i.loopexit57:                           ; preds = %"_ZZN5arrow17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEllENK3$_0clEv.exit27.i"
+.loopexit.i.loopexit73:                           ; preds = %"_ZZN5arrow17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEllENK3$_0clEv.exit27.i"
   %60 = add i64 %.lcssa5255, %36
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.loopexit.i.loopexit57, %.loopexit.i.loopexit, %.preheader6.i, %.preheader8.i, %.preheader.i
-  %.lcssa5254 = phi i64 [ %.lcssa5255, %.preheader.i ], [ %.lcssa5255, %.preheader8.i ], [ %spec.select, %.preheader6.i ], [ %59, %.loopexit.i.loopexit ], [ %60, %.loopexit.i.loopexit57 ]
-  %.1 = phi i64 [ %.0, %.preheader.i ], [ %.0, %.preheader8.i ], [ %.0, %.preheader6.i ], [ %.6, %.loopexit.i.loopexit ], [ %.4, %.loopexit.i.loopexit57 ]
-  %.pre-phi.i = phi i64 [ %25, %.preheader.i ], [ %36, %.preheader8.i ], [ %36, %.preheader6.i ], [ %25, %.loopexit.i.loopexit ], [ %36, %.loopexit.i.loopexit57 ]
+.loopexit.i:                                      ; preds = %.loopexit.i.loopexit73, %.loopexit.i.loopexit, %.preheader6.i, %.preheader8.i, %.preheader.i
+  %.lcssa5254 = phi i64 [ %.lcssa5255, %.preheader.i ], [ %.lcssa5255, %.preheader8.i ], [ %spec.select, %.preheader6.i ], [ %59, %.loopexit.i.loopexit ], [ %60, %.loopexit.i.loopexit73 ]
+  %.1 = phi i64 [ %.0, %.preheader.i ], [ %.0, %.preheader8.i ], [ %.0, %.preheader6.i ], [ %.6, %.loopexit.i.loopexit ], [ %.4, %.loopexit.i.loopexit73 ]
+  %.pre-phi.i = phi i64 [ %25, %.preheader.i ], [ %36, %.preheader8.i ], [ %36, %.preheader6.i ], [ %25, %.loopexit.i.loopexit ], [ %36, %.loopexit.i.loopexit73 ]
   %61 = add nsw i64 %.pre-phi.i, %.02415.i
   %62 = add nsw i64 %.pre-phi.i, %.02316.i
   %63 = icmp slt i64 %61, %4
@@ -802,7 +802,7 @@ _ZN5arrow6StatusD2Ev.exit37.preheader:            ; preds = %_ZN5arrow6StatusD2E
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %.sroa.02.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx73 = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i, i64 4
+  %.sroa.02.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx74 = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i, i64 4
   %.sroa.02.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i, i64 4
   %.sroa.02.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.02.i.i.i.i.i, i64 8
   br label %91
@@ -916,7 +916,7 @@ _ZN5arrow4util14FromBinaryViewISt10shared_ptrINS_6BufferEEEESt17basic_string_vie
 
 167:                                              ; preds = %_ZN5arrow4util14FromBinaryViewISt10shared_ptrINS_6BufferEEEESt17basic_string_viewIcSt11char_traitsIcEERKNS_14BinaryViewType6c_typeEPKT_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02.i.i.i.i.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx73, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx74, i8 0, i64 12, i1 false)
   store i32 %131, ptr %.sroa.02.i.i.i.i.i, align 8, !tbaa !116
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.02.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx, ptr align 1 %152, i64 %153, i1 false)
   %.sroa.02.i.i.i.i.i.0..sroa.02.i.i.i.i.i.0..sroa.02.i.i.i.i.i.0..sroa.02.i.i.i.i.0..sroa.02.i.i.i.i.0..sroa.02.i.i.i.0..sroa.02.i.i.i.0..sroa.02.i.i.0..sroa.02.i.i.0..sroa.02.i.0..sroa.02.i.0..sroa.02.0..sroa.02.0..sroa.02.0..sroa.02.0..fca.0.load.i.i.i.i.i = load i64, ptr %.sroa.02.i.i.i.i.i, align 8
@@ -7857,7 +7857,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_18TypedBu
   %82 = or i8 %79, %81
   %83 = getelementptr inbounds nuw i8, ptr %.14154, i64 1
   store i8 %82, ptr %.14154, align 1, !tbaa !76
-  %84 = icmp sgt i64 %.in, 1
+  %84 = icmp samesign ugt i64 %.in, 1
   br i1 %84, label %.preheader48, label %._crit_edge55, !llvm.loop !499
 
 85:                                               ; preds = %.preheader48, %85

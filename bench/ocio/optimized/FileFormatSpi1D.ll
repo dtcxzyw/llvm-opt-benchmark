@@ -1939,8 +1939,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit464: ; preds = %_Z
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %566
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %568, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %567, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !97
   %570 = getelementptr inbounds nuw i8, ptr %567, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %567, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !97
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 571:                                              ; preds = %558

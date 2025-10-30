@@ -1918,28 +1918,28 @@ define internal fastcc range(i32 -268435456, 268435457) i32 @arith2_get_consumed
   %5 = load i32, ptr %0, align 8, !tbaa !87
   %6 = ashr i32 %5, 16
   %7 = sub nsw i32 %4, %6
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !75
-  %10 = load ptr, ptr %9, align 8, !tbaa !95
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !84
-  %13 = and i32 %7, 128
-  %.not10 = icmp eq i32 %13, 0
+  %8 = and i32 %7, 128
+  %.not10 = icmp eq i32 %8, 0
   br i1 %.not10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.012 = phi i32 [ %14, %.lr.ph ], [ 1, %1 ]
-  %.0911 = phi i32 [ %15, %.lr.ph ], [ %7, %1 ]
-  %14 = add nuw nsw i32 %.012, 1
-  %15 = shl i32 %.0911, 1
-  %16 = and i32 %.0911, 64
-  %.not = icmp eq i32 %16, 0
+  %.012 = phi i32 [ %9, %.lr.ph ], [ 1, %1 ]
+  %.0911 = phi i32 [ %10, %.lr.ph ], [ %7, %1 ]
+  %9 = add nuw nsw i32 %.012, 1
+  %10 = shl i32 %.0911, 1
+  %11 = and i32 %.0911, 64
+  %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !151
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 1, %1 ], [ %14, %.lr.ph ]
-  %17 = ptrtoint ptr %10 to i64
-  %18 = ptrtoint ptr %12 to i64
+  %.0.lcssa = phi i32 [ 1, %1 ], [ %9, %.lr.ph ]
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !75
+  %14 = load ptr, ptr %13, align 8, !tbaa !95
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !84
+  %17 = ptrtoint ptr %14 to i64
+  %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = trunc i64 %19 to i32
   %21 = shl i32 %20, 3

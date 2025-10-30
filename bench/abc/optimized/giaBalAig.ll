@@ -9890,36 +9890,36 @@ Gia_ManAppendAnd.exit:                            ; preds = %218, %215, %Gia_Man
   %.val117 = load ptr, ptr %227, align 8, !tbaa !91
   %228 = getelementptr i8, ptr %.val117, i64 4
   %.val117.val = load i32, ptr %228, align 4, !tbaa !3
-  %229 = sdiv i32 %.val117.val, 4
-  %230 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 0, ptr %230, align 4, !tbaa !3
-  %231 = load i32, ptr %.0.i, align 4, !tbaa !11
-  %.not166 = icmp slt i32 %231, 1
+  %229 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 0, ptr %229, align 4, !tbaa !3
+  %230 = load i32, ptr %.0.i, align 4, !tbaa !11
+  %.not166 = icmp slt i32 %230, 1
   br i1 %.not166, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Gia_ManAppendAnd.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %Gia_ManAppendAnd.exit ]
-  %.095167 = phi i32 [ %235, %.lr.ph ], [ 0, %Gia_ManAppendAnd.exit ]
-  %232 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv
-  %233 = load i32, ptr %232, align 4, !tbaa !11
-  %234 = tail call i32 @Dam_ManUpdateNode(ptr noundef nonnull %0, i32 noundef %233, i32 noundef %14, i32 noundef %16, i32 noundef %.094, ptr noundef nonnull %5)
-  %235 = add nuw nsw i32 %234, %.095167
+  %.095167 = phi i32 [ %234, %.lr.ph ], [ 0, %Gia_ManAppendAnd.exit ]
+  %231 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv
+  %232 = load i32, ptr %231, align 4, !tbaa !11
+  %233 = tail call i32 @Dam_ManUpdateNode(ptr noundef nonnull %0, i32 noundef %232, i32 noundef %14, i32 noundef %16, i32 noundef %.094, ptr noundef nonnull %5)
+  %234 = add nuw nsw i32 %233, %.095167
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %236 = load i32, ptr %.0.i, align 4, !tbaa !11
-  %237 = sext i32 %236 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %237
+  %235 = load i32, ptr %.0.i, align 4, !tbaa !11
+  %236 = sext i32 %235 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %236
   br i1 %.not.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !150
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %6, align 8, !tbaa !90
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 8
   %.val116.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !91
-  %238 = add nsw i32 %235, -1
+  %237 = add nsw i32 %234, -1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Gia_ManAppendAnd.exit
   %.val116 = phi ptr [ %.val117, %Gia_ManAppendAnd.exit ], [ %.val116.pre, %._crit_edge.loopexit ]
-  %.095.lcssa = phi i32 [ -1, %Gia_ManAppendAnd.exit ], [ %238, %._crit_edge.loopexit ]
+  %.095.lcssa = phi i32 [ -1, %Gia_ManAppendAnd.exit ], [ %237, %._crit_edge.loopexit ]
+  %238 = sdiv i32 %.val117.val, 4
   %239 = getelementptr i8, ptr %.val116, i64 4
   %.val116.val = load i32, ptr %239, align 4, !tbaa !3
   %240 = sdiv i32 %.val116.val, 4
@@ -10104,19 +10104,19 @@ Vec_IntGrow.exit.i:                               ; preds = %Vec_IntGrow.exit.si
   br label %Vec_IntFillExtra.exit
 
 Vec_IntFillExtra.exit:                            ; preds = %Vec_FltFillExtra.exit, %._crit_edge.i130
-  %.not106.not169 = icmp slt i32 %229, %240
+  %.not106.not169 = icmp slt i32 %238, %240
   br i1 %.not106.not169, label %.lr.ph172, label %.preheader
 
 .lr.ph172:                                        ; preds = %Vec_IntFillExtra.exit
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %326 = sext i32 %229 to i64
+  %326 = sext i32 %238 to i64
   %wide.trip.count = sext i32 %240 to i64
   br label %330
 
 .preheader:                                       ; preds = %433, %Vec_IntFillExtra.exit
-  %.val173 = load i32, ptr %230, align 4, !tbaa !3
+  %.val173 = load i32, ptr %229, align 4, !tbaa !3
   %327 = icmp sgt i32 %.val173, 0
   br i1 %327, label %.lr.ph176, label %.critedge.preheader
 
@@ -10394,7 +10394,7 @@ Dam_DivSet.exit163:                               ; preds = %457
   %473 = sext i32 %472 to i64
   %474 = getelementptr inbounds i32, ptr %470, i64 %473
   store i32 %.0175, ptr %474, align 4, !tbaa !11
-  %.val.pre = load i32, ptr %230, align 4, !tbaa !3
+  %.val.pre = load i32, ptr %229, align 4, !tbaa !3
   br label %475
 
 475:                                              ; preds = %457, %Dam_DivSet.exit163, %455

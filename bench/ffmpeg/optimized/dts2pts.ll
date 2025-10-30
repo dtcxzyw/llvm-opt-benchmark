@@ -540,15 +540,15 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 148
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 140
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 136
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 180
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  %31 = getelementptr inbounds nuw i8, ptr %8, i64 188
-  %32 = getelementptr inbounds nuw i8, ptr %8, i64 196
-  %33 = getelementptr inbounds nuw i8, ptr %8, i64 200
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 204
-  %35 = getelementptr inbounds nuw i8, ptr %8, i64 344
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 224
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 180
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 184
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 188
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 196
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 200
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 204
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 344
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 6300
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 132
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 120
@@ -610,31 +610,31 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 1846
   %64 = load i8, ptr %63, align 2, !tbaa !98
   %65 = zext i8 %64 to i32
-  store i32 %65, ptr %28, align 8, !tbaa !103
+  store i32 %65, ptr %27, align 8, !tbaa !103
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 800
   %67 = load i8, ptr %66, align 4, !tbaa !104
   %68 = zext i8 %67 to i32
   %69 = add nuw nsw i32 %68, 4
-  store i32 %69, ptr %29, align 4, !tbaa !105
+  store i32 %69, ptr %28, align 4, !tbaa !105
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 801
   %71 = load i8, ptr %70, align 1, !tbaa !106
   %72 = zext i8 %71 to i32
-  store i32 %72, ptr %30, align 8, !tbaa !107
+  store i32 %72, ptr %29, align 8, !tbaa !107
   %73 = getelementptr inbounds nuw i8, ptr %60, i64 802
   %74 = load i8, ptr %73, align 2, !tbaa !108
   %75 = zext i8 %74 to i32
   %76 = add nuw nsw i32 %75, 4
-  store i32 %76, ptr %31, align 4, !tbaa !109
+  store i32 %76, ptr %30, align 4, !tbaa !109
   %77 = getelementptr inbounds nuw i8, ptr %60, i64 804
   %78 = load i32, ptr %77, align 4, !tbaa !110
-  store i32 %78, ptr %32, align 4, !tbaa !111
+  store i32 %78, ptr %31, align 4, !tbaa !111
   %79 = getelementptr inbounds nuw i8, ptr %60, i64 808
   %80 = load i32, ptr %79, align 4, !tbaa !112
-  store i32 %80, ptr %33, align 8, !tbaa !113
+  store i32 %80, ptr %32, align 8, !tbaa !113
   %81 = getelementptr inbounds nuw i8, ptr %60, i64 812
   %82 = load i8, ptr %81, align 4, !tbaa !114
   %83 = zext i8 %82 to i32
-  store i32 %83, ptr %34, align 4, !tbaa !115
+  store i32 %83, ptr %33, align 4, !tbaa !115
   %.not230 = icmp eq i8 %82, 0
   br i1 %.not230, label %._crit_edge, label %.lr.ph
 
@@ -651,7 +651,7 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
   %87 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4, !tbaa !78
-  %89 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
   store i32 %88, ptr %89, align 4, !tbaa !78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %90 = icmp samesign ult i64 %indvars.iv.next, %85
@@ -695,7 +695,7 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
   store i32 2147483647, ptr %6, align 4, !tbaa !78
   %114 = load i8, ptr %55, align 4, !tbaa !127
   %115 = zext i8 %114 to i32
-  %116 = call i32 @ff_h264_init_poc(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %27, ptr noundef nonnull %9, i32 noundef %101, i32 noundef %115) #9
+  %116 = call i32 @ff_h264_init_poc(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %35, ptr noundef nonnull %9, i32 noundef %101, i32 noundef %115) #9
   %117 = icmp slt i32 %116, 0
   br i1 %117, label %118, label %119
 
@@ -821,7 +821,7 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
   br i1 %164, label %165, label %171
 
 165:                                              ; preds = %162
-  %166 = load i32, ptr %28, align 8, !tbaa !103
+  %166 = load i32, ptr %27, align 8, !tbaa !103
   %.not150 = icmp eq i32 %166, 0
   br i1 %.not150, label %171, label %167
 

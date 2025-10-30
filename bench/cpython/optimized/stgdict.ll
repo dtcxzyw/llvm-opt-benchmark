@@ -1795,24 +1795,24 @@ PyObject_TypeCheck.exit304.thread:                ; preds = %269, %PyObject_Type
   %298 = getelementptr ptr, ptr %255, i64 %.0184487
   %299 = getelementptr inbounds nuw i8, ptr %289, i64 16
   store ptr %298, ptr %299, align 8, !tbaa !66
-  %300 = add i64 %.0180488, 1
-  %301 = icmp sgt i64 %284, 0
-  br i1 %301, label %.lr.ph483.preheader, label %._crit_edge484
+  %300 = icmp sgt i64 %284, 0
+  br i1 %300, label %.lr.ph483.preheader, label %._crit_edge484
 
 .lr.ph483.preheader:                              ; preds = %288
-  %302 = add i64 %.0184487, %284
+  %301 = add i64 %.0184487, %284
   br label %.lr.ph483
 
 .lr.ph483:                                        ; preds = %.lr.ph483.preheader, %.lr.ph483
-  %.4188480 = phi i64 [ %303, %.lr.ph483 ], [ %.0184487, %.lr.ph483.preheader ]
-  %303 = add i64 %.4188480, 1
-  %304 = getelementptr ptr, ptr %255, i64 %.4188480
-  store ptr %291, ptr %304, align 8, !tbaa !54
-  %exitcond509.not = icmp eq i64 %303, %302
+  %.4188480 = phi i64 [ %302, %.lr.ph483 ], [ %.0184487, %.lr.ph483.preheader ]
+  %302 = add i64 %.4188480, 1
+  %303 = getelementptr ptr, ptr %255, i64 %.4188480
+  store ptr %291, ptr %303, align 8, !tbaa !54
+  %exitcond509.not = icmp eq i64 %302, %301
   br i1 %exitcond509.not, label %._crit_edge484, label %.lr.ph483, !llvm.loop !67
 
 ._crit_edge484:                                   ; preds = %.lr.ph483, %288
-  %.4188.lcssa = phi i64 [ %.0184487, %288 ], [ %302, %.lr.ph483 ]
+  %.4188.lcssa = phi i64 [ %.0184487, %288 ], [ %301, %.lr.ph483 ]
+  %304 = add i64 %.0180488, 1
   %305 = add i64 %.4188.lcssa, 1
   %306 = getelementptr ptr, ptr %255, i64 %.4188.lcssa
   store ptr null, ptr %306, align 8, !tbaa !54
@@ -1821,7 +1821,7 @@ PyObject_TypeCheck.exit304.thread:                ; preds = %269, %PyObject_Type
 
 .thread381:                                       ; preds = %._crit_edge484, %278
   %.1185.ph = phi i64 [ %305, %._crit_edge484 ], [ %.0184487, %278 ]
-  %.1181.ph = phi i64 [ %300, %._crit_edge484 ], [ %.0180488, %278 ]
+  %.1181.ph = phi i64 [ %304, %._crit_edge484 ], [ %.0180488, %278 ]
   %.2191.ph = add i64 %.0189486, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %307 = add nuw nsw i64 %.0175489, 1

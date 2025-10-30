@@ -8969,9 +8969,9 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 .noexc:                                           ; preds = %50
   %55 = icmp ugt i32 %46, 16
   %scevgep.i.i.i = getelementptr i8, ptr %.pr232, i64 8
-  br i1 %55, label %.preheader.i, label %62
+  br i1 %55, label %.preheader.i.i.i, label %62
 
-.preheader.i:                                     ; preds = %.noexc, %.noexc34
+.preheader.i.i.i:                                 ; preds = %.noexc, %.noexc34
   %.022.i.idx.i.i.i = phi i64 [ %.022.i.add.i.i.i, %.noexc34 ], [ 8, %.noexc ]
   %.022.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.pr232, i64 %.022.i.idx.i.i.i
   %.0.val.i.i.i.i = load ptr, ptr %.022.i.ptr.i.i.i, align 8, !tbaa !54
@@ -8979,7 +8979,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   %56 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEE3$_0EclIPPS5_SE_EEbT_T0_"(ptr nonnull %0, ptr %.0.val.i.i.i.i, ptr %.val18.i.i.i.i)
           to label %.noexc33 unwind label %.loopexit.split-lp120.loopexit
 
-.noexc33:                                         ; preds = %.preheader.i
+.noexc33:                                         ; preds = %.preheader.i.i.i
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %.noexc33
@@ -8995,7 +8995,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 .noexc34:                                         ; preds = %59, %57
   %.022.i.add.i.i.i = add nuw nsw i64 %.022.i.idx.i.i.i, 8
   %.not.i.i.i.i = icmp eq i64 %.022.i.add.i.i.i, 128
-  br i1 %.not.i.i.i.i, label %"_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_SF_T0_.exit.i.i.i", label %.preheader.i, !llvm.loop !193
+  br i1 %.not.i.i.i.i, label %"_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_SF_T0_.exit.i.i.i", label %.preheader.i.i.i, !llvm.loop !193
 
 "_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_SF_T0_.exit.i.i.i": ; preds = %.noexc34
   %60 = getelementptr inbounds nuw i8, ptr %.pr232, i64 128
@@ -9111,7 +9111,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit47: ; preds = %_ZNSo
           cleanup
   br label %.loopexit.split-lp120
 
-.loopexit.split-lp120.loopexit:                   ; preds = %59, %.preheader.i
+.loopexit.split-lp120.loopexit:                   ; preds = %59, %.preheader.i.i.i
   %lpad.loopexit124 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp120

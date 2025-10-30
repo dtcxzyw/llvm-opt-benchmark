@@ -74719,21 +74719,21 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   %31 = sdiv i32 %29, %30
   %32 = trunc i32 %31 to i16
   %33 = srem i32 %29, %30
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %35 = load i16, ptr %34, align 2, !tbaa !1591
-  %36 = load i16, ptr %4, align 4, !tbaa !1588
-  %37 = sext i16 %36 to i32
-  %38 = sext i16 %35 to i32
-  %39 = sdiv i32 %37, %38
-  %40 = trunc i32 %39 to i16
-  %41 = srem i32 %37, %38
-  %42 = icmp slt i32 %33, 0
-  br i1 %42, label %.lr.ph.i, label %.preheader51.i
+  %34 = icmp slt i32 %33, 0
+  br i1 %34, label %.lr.ph.i, label %.preheader51.i
 
 .preheader51.i:                                   ; preds = %.lr.ph.i, %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit
   %.sroa.1927.0.in.lcssa.i = phi i32 [ %33, %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit ], [ %45, %.lr.ph.i ]
   %.sroa.1223.0.lcssa.i = phi i16 [ %32, %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit ], [ %46, %.lr.ph.i ]
-  %43 = icmp slt i32 %41, 0
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %36 = load i16, ptr %35, align 2, !tbaa !1591
+  %37 = load i16, ptr %4, align 4, !tbaa !1588
+  %38 = sext i16 %37 to i32
+  %39 = sext i16 %36 to i32
+  %40 = sdiv i32 %38, %39
+  %41 = trunc i32 %40 to i16
+  %42 = srem i32 %38, %39
+  %43 = icmp slt i32 %42, 0
   br i1 %43, label %.lr.ph61.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit, %.lr.ph.i
@@ -74747,8 +74747,8 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   br i1 %48, label %.lr.ph.i, label %.preheader51.i, !llvm.loop !1592
 
 .preheader.i:                                     ; preds = %.lr.ph61.i, %.preheader51.i
-  %.sroa.19.0.in.lcssa.i = phi i32 [ %41, %.preheader51.i ], [ %51, %.lr.ph61.i ]
-  %.sroa.12.0.lcssa.i = phi i16 [ %40, %.preheader51.i ], [ %52, %.lr.ph61.i ]
+  %.sroa.19.0.in.lcssa.i = phi i32 [ %42, %.preheader51.i ], [ %51, %.lr.ph61.i ]
+  %.sroa.12.0.lcssa.i = phi i16 [ %41, %.preheader51.i ], [ %52, %.lr.ph61.i ]
   %.not66.i = icmp eq i16 %.sroa.1223.0.lcssa.i, %.sroa.12.0.lcssa.i
   br i1 %.not66.i, label %.lr.ph74.i, label %._crit_edge.thread.i
 
@@ -74757,9 +74757,9 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   br label %78
 
 .lr.ph61.i:                                       ; preds = %.preheader51.i, %.lr.ph61.i
-  %50 = phi i32 [ %53, %.lr.ph61.i ], [ %41, %.preheader51.i ]
-  %.sroa.12.060.i = phi i16 [ %52, %.lr.ph61.i ], [ %40, %.preheader51.i ]
-  %51 = add nsw i32 %50, %38
+  %50 = phi i32 [ %53, %.lr.ph61.i ], [ %42, %.preheader51.i ]
+  %.sroa.12.060.i = phi i16 [ %52, %.lr.ph61.i ], [ %41, %.preheader51.i ]
+  %51 = add nsw i32 %50, %39
   %52 = add i16 %.sroa.12.060.i, -1
   %sext47.i = shl i32 %51, 16
   %53 = ashr exact i32 %sext47.i, 16
@@ -74775,7 +74775,7 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
 
 .lr.ph74.i:                                       ; preds = %.preheader.i, %62
   %.071.i = phi i32 [ %63, %62 ], [ 0, %.preheader.i ]
-  %.sroa.6.070.i = phi i16 [ %.sroa.19.172.i, %62 ], [ %35, %.preheader.i ]
+  %.sroa.6.070.i = phi i16 [ %.sroa.19.172.i, %62 ], [ %36, %.preheader.i ]
   %.sroa.19.1.in69.i = phi i32 [ %71, %62 ], [ %.sroa.19.0.in.lcssa.i, %.preheader.i ]
   %.sroa.619.068.i = phi i16 [ %.sroa.1927.173.i, %62 ], [ %27, %.preheader.i ]
   %.sroa.1927.1.in67.i = phi i32 [ %67, %62 ], [ %.sroa.1927.0.in.lcssa.i, %.preheader.i ]
@@ -74990,18 +74990,18 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   %28 = load i32, ptr %3, align 8, !tbaa !1516
   %29 = sdiv i32 %28, %27
   %30 = srem i32 %28, %27
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !1518
-  %33 = load i32, ptr %4, align 8, !tbaa !1516
-  %34 = sdiv i32 %33, %32
-  %35 = srem i32 %33, %32
-  %36 = icmp slt i32 %30, 0
-  br i1 %36, label %.lr.ph.i, label %.preheader41.i
+  %31 = icmp slt i32 %30, 0
+  br i1 %31, label %.lr.ph.i, label %.preheader41.i
 
 .preheader41.i:                                   ; preds = %.lr.ph.i, %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit
   %.sroa.1926.0.lcssa.i = phi i32 [ %30, %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit ], [ %38, %.lr.ph.i ]
   %.sroa.1222.0.lcssa.i = phi i32 [ %29, %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit ], [ %39, %.lr.ph.i ]
-  %37 = icmp slt i32 %35, 0
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %33 = load i32, ptr %32, align 4, !tbaa !1518
+  %34 = load i32, ptr %4, align 8, !tbaa !1516
+  %35 = sdiv i32 %34, %33
+  %36 = srem i32 %34, %33
+  %37 = icmp slt i32 %36, 0
   br i1 %37, label %.lr.ph52.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit, %.lr.ph.i
@@ -75013,8 +75013,8 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   br i1 %40, label %.lr.ph.i, label %.preheader41.i, !llvm.loop !1607
 
 .preheader.i:                                     ; preds = %.lr.ph52.i, %.preheader41.i
-  %.sroa.19.0.lcssa.i = phi i32 [ %35, %.preheader41.i ], [ %42, %.lr.ph52.i ]
-  %.sroa.12.0.lcssa.i = phi i32 [ %34, %.preheader41.i ], [ %43, %.lr.ph52.i ]
+  %.sroa.19.0.lcssa.i = phi i32 [ %36, %.preheader41.i ], [ %42, %.lr.ph52.i ]
+  %.sroa.12.0.lcssa.i = phi i32 [ %35, %.preheader41.i ], [ %43, %.lr.ph52.i ]
   %.not55.i = icmp eq i32 %.sroa.1222.0.lcssa.i, %.sroa.12.0.lcssa.i
   br i1 %.not55.i, label %.lr.ph61.i, label %._crit_edge.thread.i
 
@@ -75023,9 +75023,9 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   br label %62
 
 .lr.ph52.i:                                       ; preds = %.preheader41.i, %.lr.ph52.i
-  %.sroa.12.051.i = phi i32 [ %43, %.lr.ph52.i ], [ %34, %.preheader41.i ]
-  %.sroa.19.050.i = phi i32 [ %42, %.lr.ph52.i ], [ %35, %.preheader41.i ]
-  %42 = add nsw i32 %.sroa.19.050.i, %32
+  %.sroa.12.051.i = phi i32 [ %43, %.lr.ph52.i ], [ %35, %.preheader41.i ]
+  %.sroa.19.050.i = phi i32 [ %42, %.lr.ph52.i ], [ %36, %.preheader41.i ]
+  %42 = add nsw i32 %.sroa.19.050.i, %33
   %43 = add nsw i32 %.sroa.12.051.i, -1
   %44 = icmp slt i32 %42, 0
   br i1 %44, label %.lr.ph52.i, label %.preheader.i, !llvm.loop !1608
@@ -75039,7 +75039,7 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
 
 .lr.ph61.i:                                       ; preds = %.preheader.i, %50
   %.060.i = phi i32 [ %51, %50 ], [ 0, %.preheader.i ]
-  %.sroa.6.059.i = phi i32 [ %.sroa.19.158.i, %50 ], [ %32, %.preheader.i ]
+  %.sroa.6.059.i = phi i32 [ %.sroa.19.158.i, %50 ], [ %33, %.preheader.i ]
   %.sroa.19.158.i = phi i32 [ %55, %50 ], [ %.sroa.19.0.lcssa.i, %.preheader.i ]
   %.sroa.618.057.i = phi i32 [ %.sroa.1926.156.i, %50 ], [ %27, %.preheader.i ]
   %.sroa.1926.156.i = phi i32 [ %53, %50 ], [ %.sroa.1926.0.lcssa.i, %.preheader.i ]
@@ -75249,17 +75249,17 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   %27 = load i64, ptr %3, align 8, !tbaa !1622
   %28 = sdiv i64 %27, %26
   %29 = srem i64 %27, %26
-  %30 = load i64, ptr %14, align 8, !tbaa !1624
-  %31 = load i64, ptr %4, align 8, !tbaa !1622
-  %32 = sdiv i64 %31, %30
-  %33 = srem i64 %31, %30
-  %34 = icmp slt i64 %29, 0
-  br i1 %34, label %.lr.ph.i, label %.preheader41.i
+  %30 = icmp slt i64 %29, 0
+  br i1 %30, label %.lr.ph.i, label %.preheader41.i
 
 .preheader41.i:                                   ; preds = %.lr.ph.i, %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit
   %.sroa.1926.0.lcssa.i = phi i64 [ %29, %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit ], [ %36, %.lr.ph.i ]
   %.sroa.1222.0.lcssa.i = phi i64 [ %28, %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit ], [ %37, %.lr.ph.i ]
-  %35 = icmp slt i64 %33, 0
+  %31 = load i64, ptr %14, align 8, !tbaa !1624
+  %32 = load i64, ptr %4, align 8, !tbaa !1622
+  %33 = sdiv i64 %32, %31
+  %34 = srem i64 %32, %31
+  %35 = icmp slt i64 %34, 0
   br i1 %35, label %.lr.ph52.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit, %.lr.ph.i
@@ -75271,8 +75271,8 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   br i1 %38, label %.lr.ph.i, label %.preheader41.i, !llvm.loop !1625
 
 .preheader.i:                                     ; preds = %.lr.ph52.i, %.preheader41.i
-  %.sroa.19.0.lcssa.i = phi i64 [ %33, %.preheader41.i ], [ %40, %.lr.ph52.i ]
-  %.sroa.12.0.lcssa.i = phi i64 [ %32, %.preheader41.i ], [ %41, %.lr.ph52.i ]
+  %.sroa.19.0.lcssa.i = phi i64 [ %34, %.preheader41.i ], [ %40, %.lr.ph52.i ]
+  %.sroa.12.0.lcssa.i = phi i64 [ %33, %.preheader41.i ], [ %41, %.lr.ph52.i ]
   %.not55.i = icmp eq i64 %.sroa.1222.0.lcssa.i, %.sroa.12.0.lcssa.i
   br i1 %.not55.i, label %.lr.ph61.i, label %._crit_edge.thread.i
 
@@ -75281,9 +75281,9 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   br label %60
 
 .lr.ph52.i:                                       ; preds = %.preheader41.i, %.lr.ph52.i
-  %.sroa.12.051.i = phi i64 [ %41, %.lr.ph52.i ], [ %32, %.preheader41.i ]
-  %.sroa.19.050.i = phi i64 [ %40, %.lr.ph52.i ], [ %33, %.preheader41.i ]
-  %40 = add nsw i64 %.sroa.19.050.i, %30
+  %.sroa.12.051.i = phi i64 [ %41, %.lr.ph52.i ], [ %33, %.preheader41.i ]
+  %.sroa.19.050.i = phi i64 [ %40, %.lr.ph52.i ], [ %34, %.preheader41.i ]
+  %40 = add nsw i64 %.sroa.19.050.i, %31
   %41 = add nsw i64 %.sroa.12.051.i, -1
   %42 = icmp slt i64 %40, 0
   br i1 %42, label %.lr.ph52.i, label %.preheader.i, !llvm.loop !1626
@@ -75297,7 +75297,7 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
 
 .lr.ph61.i:                                       ; preds = %.preheader.i, %48
   %.060.i = phi i32 [ %49, %48 ], [ 0, %.preheader.i ]
-  %.sroa.6.059.i = phi i64 [ %.sroa.19.158.i, %48 ], [ %30, %.preheader.i ]
+  %.sroa.6.059.i = phi i64 [ %.sroa.19.158.i, %48 ], [ %31, %.preheader.i ]
   %.sroa.19.158.i = phi i64 [ %53, %48 ], [ %.sroa.19.0.lcssa.i, %.preheader.i ]
   %.sroa.618.057.i = phi i64 [ %.sroa.1926.156.i, %48 ], [ %26, %.preheader.i ]
   %.sroa.1926.156.i = phi i64 [ %51, %48 ], [ %.sroa.1926.0.lcssa.i, %.preheader.i ]
@@ -75713,15 +75713,15 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   %.sroa.2.0.copyload.i.i.i91 = load i64, ptr %.sroa.42.0..sroa_idx.i.i.i.i80, align 8, !tbaa !93
   %116 = sdiv i64 %.sroa.0.0.copyload.i.i.i89, %.sroa.2.0.copyload.i.i.i91
   %117 = srem i64 %.sroa.0.0.copyload.i.i.i89, %.sroa.2.0.copyload.i.i.i91
-  %118 = sdiv i64 %.sroa.0.0.copyload.i.i.i, %.sroa.2.0.copyload.i.i.i
-  %119 = srem i64 %.sroa.0.0.copyload.i.i.i, %.sroa.2.0.copyload.i.i.i
-  %120 = icmp slt i64 %117, 0
-  br i1 %120, label %.lr.ph.i.i, label %.preheader41.i.i
+  %118 = icmp slt i64 %117, 0
+  br i1 %118, label %.lr.ph.i.i, label %.preheader41.i.i
 
 .preheader41.i.i:                                 ; preds = %.lr.ph.i.i, %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit
   %.sroa.1926.0.lcssa.i.i = phi i64 [ %117, %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit ], [ %122, %.lr.ph.i.i ]
   %.sroa.1222.0.lcssa.i.i = phi i64 [ %116, %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit ], [ %123, %.lr.ph.i.i ]
-  %121 = icmp slt i64 %119, 0
+  %119 = sdiv i64 %.sroa.0.0.copyload.i.i.i, %.sroa.2.0.copyload.i.i.i
+  %120 = srem i64 %.sroa.0.0.copyload.i.i.i, %.sroa.2.0.copyload.i.i.i
+  %121 = icmp slt i64 %120, 0
   br i1 %121, label %.lr.ph52.i.i, label %.preheader.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit, %.lr.ph.i.i
@@ -75733,8 +75733,8 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   br i1 %124, label %.lr.ph.i.i, label %.preheader41.i.i, !llvm.loop !1625
 
 .preheader.i.i:                                   ; preds = %.lr.ph52.i.i, %.preheader41.i.i
-  %.sroa.19.0.lcssa.i.i = phi i64 [ %119, %.preheader41.i.i ], [ %126, %.lr.ph52.i.i ]
-  %.sroa.12.0.lcssa.i.i = phi i64 [ %118, %.preheader41.i.i ], [ %127, %.lr.ph52.i.i ]
+  %.sroa.19.0.lcssa.i.i = phi i64 [ %120, %.preheader41.i.i ], [ %126, %.lr.ph52.i.i ]
+  %.sroa.12.0.lcssa.i.i = phi i64 [ %119, %.preheader41.i.i ], [ %127, %.lr.ph52.i.i ]
   %.not55.i.i = icmp eq i64 %.sroa.1222.0.lcssa.i.i, %.sroa.12.0.lcssa.i.i
   br i1 %.not55.i.i, label %.lr.ph61.i.i, label %._crit_edge.thread.i.i
 
@@ -75743,8 +75743,8 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   br label %146
 
 .lr.ph52.i.i:                                     ; preds = %.preheader41.i.i, %.lr.ph52.i.i
-  %.sroa.12.051.i.i = phi i64 [ %127, %.lr.ph52.i.i ], [ %118, %.preheader41.i.i ]
-  %.sroa.19.050.i.i = phi i64 [ %126, %.lr.ph52.i.i ], [ %119, %.preheader41.i.i ]
+  %.sroa.12.051.i.i = phi i64 [ %127, %.lr.ph52.i.i ], [ %119, %.preheader41.i.i ]
+  %.sroa.19.050.i.i = phi i64 [ %126, %.lr.ph52.i.i ], [ %120, %.preheader41.i.i ]
   %126 = add nsw i64 %.sroa.19.050.i.i, %.sroa.2.0.copyload.i.i.i
   %127 = add nsw i64 %.sroa.12.051.i.i, -1
   %128 = icmp slt i64 %126, 0
@@ -75946,15 +75946,15 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   %.sroa.2.0.copyload.i.i.i114 = load i64, ptr %.sroa.42.0..sroa_idx.i9.i.i.i88, align 8, !tbaa !93
   %204 = sdiv i64 %.sroa.0.0.copyload.i.i.i112, %.sroa.2.0.copyload.i.i.i114
   %205 = srem i64 %.sroa.0.0.copyload.i.i.i112, %.sroa.2.0.copyload.i.i.i114
-  %206 = sdiv i64 %.sroa.0.0.copyload.i.i.i107, %.sroa.2.0.copyload.i.i.i109
-  %207 = srem i64 %.sroa.0.0.copyload.i.i.i107, %.sroa.2.0.copyload.i.i.i109
-  %208 = icmp slt i64 %205, 0
-  br i1 %208, label %.lr.ph.i.i139, label %.preheader41.i.i117
+  %206 = icmp slt i64 %205, 0
+  br i1 %206, label %.lr.ph.i.i139, label %.preheader41.i.i117
 
 .preheader41.i.i117:                              ; preds = %.lr.ph.i.i139, %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit106
   %.sroa.1926.0.lcssa.i.i118 = phi i64 [ %205, %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit106 ], [ %210, %.lr.ph.i.i139 ]
   %.sroa.1222.0.lcssa.i.i119 = phi i64 [ %204, %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit106 ], [ %211, %.lr.ph.i.i139 ]
-  %209 = icmp slt i64 %207, 0
+  %207 = sdiv i64 %.sroa.0.0.copyload.i.i.i107, %.sroa.2.0.copyload.i.i.i109
+  %208 = srem i64 %.sroa.0.0.copyload.i.i.i107, %.sroa.2.0.copyload.i.i.i109
+  %209 = icmp slt i64 %208, 0
   br i1 %209, label %.lr.ph52.i.i136, label %.preheader.i.i120
 
 .lr.ph.i.i139:                                    ; preds = %_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_.exit106, %.lr.ph.i.i139
@@ -75966,8 +75966,8 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   br i1 %212, label %.lr.ph.i.i139, label %.preheader41.i.i117, !llvm.loop !1625
 
 .preheader.i.i120:                                ; preds = %.lr.ph52.i.i136, %.preheader41.i.i117
-  %.sroa.19.0.lcssa.i.i121 = phi i64 [ %207, %.preheader41.i.i117 ], [ %214, %.lr.ph52.i.i136 ]
-  %.sroa.12.0.lcssa.i.i122 = phi i64 [ %206, %.preheader41.i.i117 ], [ %215, %.lr.ph52.i.i136 ]
+  %.sroa.19.0.lcssa.i.i121 = phi i64 [ %208, %.preheader41.i.i117 ], [ %214, %.lr.ph52.i.i136 ]
+  %.sroa.12.0.lcssa.i.i122 = phi i64 [ %207, %.preheader41.i.i117 ], [ %215, %.lr.ph52.i.i136 ]
   %.not55.i.i123 = icmp eq i64 %.sroa.1222.0.lcssa.i.i119, %.sroa.12.0.lcssa.i.i122
   br i1 %.not55.i.i123, label %.lr.ph61.i.i126, label %._crit_edge.thread.i.i124
 
@@ -75976,8 +75976,8 @@ _ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4
   br label %234
 
 .lr.ph52.i.i136:                                  ; preds = %.preheader41.i.i117, %.lr.ph52.i.i136
-  %.sroa.12.051.i.i137 = phi i64 [ %215, %.lr.ph52.i.i136 ], [ %206, %.preheader41.i.i117 ]
-  %.sroa.19.050.i.i138 = phi i64 [ %214, %.lr.ph52.i.i136 ], [ %207, %.preheader41.i.i117 ]
+  %.sroa.12.051.i.i137 = phi i64 [ %215, %.lr.ph52.i.i136 ], [ %207, %.preheader41.i.i117 ]
+  %.sroa.19.050.i.i138 = phi i64 [ %214, %.lr.ph52.i.i136 ], [ %208, %.preheader41.i.i117 ]
   %214 = add nsw i64 %.sroa.19.050.i.i138, %.sroa.2.0.copyload.i.i.i109
   %215 = add nsw i64 %.sroa.12.051.i.i137, -1
   %216 = icmp slt i64 %214, 0
@@ -144794,15 +144794,15 @@ define linkonce_odr hidden void @_ZN5boost8geometry8strategy6expand6detail10poin
   %.sroa.2.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !93
   %3 = sdiv i64 %.sroa.0.0.copyload.i.i.i, %.sroa.2.0.copyload.i.i.i
   %4 = srem i64 %.sroa.0.0.copyload.i.i.i, %.sroa.2.0.copyload.i.i.i
-  %5 = sdiv i64 %.sroa.0.0.copyload.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
-  %6 = srem i64 %.sroa.0.0.copyload.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
-  %7 = icmp slt i64 %4, 0
-  br i1 %7, label %.lr.ph.i.i, label %.preheader41.i.i
+  %5 = icmp slt i64 %4, 0
+  br i1 %5, label %.lr.ph.i.i, label %.preheader41.i.i
 
 .preheader41.i.i:                                 ; preds = %.lr.ph.i.i, %2
   %.sroa.1926.0.lcssa.i.i = phi i64 [ %4, %2 ], [ %9, %.lr.ph.i.i ]
   %.sroa.1222.0.lcssa.i.i = phi i64 [ %3, %2 ], [ %10, %.lr.ph.i.i ]
-  %8 = icmp slt i64 %6, 0
+  %6 = sdiv i64 %.sroa.0.0.copyload.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
+  %7 = srem i64 %.sroa.0.0.copyload.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
+  %8 = icmp slt i64 %7, 0
   br i1 %8, label %.lr.ph52.i.i, label %.preheader.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
@@ -144814,8 +144814,8 @@ define linkonce_odr hidden void @_ZN5boost8geometry8strategy6expand6detail10poin
   br i1 %11, label %.lr.ph.i.i, label %.preheader41.i.i, !llvm.loop !1625
 
 .preheader.i.i:                                   ; preds = %.lr.ph52.i.i, %.preheader41.i.i
-  %.sroa.19.0.lcssa.i.i = phi i64 [ %6, %.preheader41.i.i ], [ %13, %.lr.ph52.i.i ]
-  %.sroa.12.0.lcssa.i.i = phi i64 [ %5, %.preheader41.i.i ], [ %14, %.lr.ph52.i.i ]
+  %.sroa.19.0.lcssa.i.i = phi i64 [ %7, %.preheader41.i.i ], [ %13, %.lr.ph52.i.i ]
+  %.sroa.12.0.lcssa.i.i = phi i64 [ %6, %.preheader41.i.i ], [ %14, %.lr.ph52.i.i ]
   %.not55.i.i = icmp eq i64 %.sroa.1222.0.lcssa.i.i, %.sroa.12.0.lcssa.i.i
   br i1 %.not55.i.i, label %.lr.ph61.i.i, label %._crit_edge.thread.i.i
 
@@ -144824,8 +144824,8 @@ define linkonce_odr hidden void @_ZN5boost8geometry8strategy6expand6detail10poin
   br i1 %12, label %33, label %_ZNKSt4lessIN5boost8rationalIlEEEclERKS2_S5_.exit.thread
 
 .lr.ph52.i.i:                                     ; preds = %.preheader41.i.i, %.lr.ph52.i.i
-  %.sroa.12.051.i.i = phi i64 [ %14, %.lr.ph52.i.i ], [ %5, %.preheader41.i.i ]
-  %.sroa.19.050.i.i = phi i64 [ %13, %.lr.ph52.i.i ], [ %6, %.preheader41.i.i ]
+  %.sroa.12.051.i.i = phi i64 [ %14, %.lr.ph52.i.i ], [ %6, %.preheader41.i.i ]
+  %.sroa.19.050.i.i = phi i64 [ %13, %.lr.ph52.i.i ], [ %7, %.preheader41.i.i ]
   %13 = add nsw i64 %.sroa.19.050.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
   %14 = add nsw i64 %.sroa.12.051.i.i, -1
   %15 = icmp slt i64 %13, 0
@@ -144886,7 +144886,7 @@ _ZNKSt4lessIN5boost8rationalIlEEEclERKS2_S5_.exit.thread: ; preds = %24, %._crit
 .preheader41.i.i.i:                               ; preds = %.lr.ph.i.i.i, %_ZNKSt4lessIN5boost8rationalIlEEEclERKS2_S5_.exit.thread
   %.sroa.1926.0.lcssa.i.i.i = phi i64 [ %36, %_ZNKSt4lessIN5boost8rationalIlEEEclERKS2_S5_.exit.thread ], [ %38, %.lr.ph.i.i.i ]
   %.sroa.1222.0.lcssa.i.i.i = phi i64 [ %35, %_ZNKSt4lessIN5boost8rationalIlEEEclERKS2_S5_.exit.thread ], [ %39, %.lr.ph.i.i.i ]
-  br i1 %7, label %.lr.ph52.i.i.i, label %.preheader.i.i.i
+  br i1 %5, label %.lr.ph52.i.i.i, label %.preheader.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt4lessIN5boost8rationalIlEEEclERKS2_S5_.exit.thread, %.lr.ph.i.i.i
   %.sroa.1222.048.i.i.i = phi i64 [ %39, %.lr.ph.i.i.i ], [ %35, %_ZNKSt4lessIN5boost8rationalIlEEEclERKS2_S5_.exit.thread ]
@@ -144973,15 +144973,15 @@ define linkonce_odr hidden void @_ZN5boost8geometry8strategy6expand6detail10poin
   %.sroa.2.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !93
   %5 = sdiv i64 %.sroa.0.0.copyload.i.i.i, %.sroa.2.0.copyload.i.i.i
   %6 = srem i64 %.sroa.0.0.copyload.i.i.i, %.sroa.2.0.copyload.i.i.i
-  %7 = sdiv i64 %.sroa.0.0.copyload.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
-  %8 = srem i64 %.sroa.0.0.copyload.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
-  %9 = icmp slt i64 %6, 0
-  br i1 %9, label %.lr.ph.i.i, label %.preheader41.i.i
+  %7 = icmp slt i64 %6, 0
+  br i1 %7, label %.lr.ph.i.i, label %.preheader41.i.i
 
 .preheader41.i.i:                                 ; preds = %.lr.ph.i.i, %2
   %.sroa.1926.0.lcssa.i.i = phi i64 [ %6, %2 ], [ %11, %.lr.ph.i.i ]
   %.sroa.1222.0.lcssa.i.i = phi i64 [ %5, %2 ], [ %12, %.lr.ph.i.i ]
-  %10 = icmp slt i64 %8, 0
+  %8 = sdiv i64 %.sroa.0.0.copyload.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
+  %9 = srem i64 %.sroa.0.0.copyload.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
+  %10 = icmp slt i64 %9, 0
   br i1 %10, label %.lr.ph52.i.i, label %.preheader.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
@@ -144993,8 +144993,8 @@ define linkonce_odr hidden void @_ZN5boost8geometry8strategy6expand6detail10poin
   br i1 %13, label %.lr.ph.i.i, label %.preheader41.i.i, !llvm.loop !1625
 
 .preheader.i.i:                                   ; preds = %.lr.ph52.i.i, %.preheader41.i.i
-  %.sroa.19.0.lcssa.i.i = phi i64 [ %8, %.preheader41.i.i ], [ %15, %.lr.ph52.i.i ]
-  %.sroa.12.0.lcssa.i.i = phi i64 [ %7, %.preheader41.i.i ], [ %16, %.lr.ph52.i.i ]
+  %.sroa.19.0.lcssa.i.i = phi i64 [ %9, %.preheader41.i.i ], [ %15, %.lr.ph52.i.i ]
+  %.sroa.12.0.lcssa.i.i = phi i64 [ %8, %.preheader41.i.i ], [ %16, %.lr.ph52.i.i ]
   %.not55.i.i = icmp eq i64 %.sroa.1222.0.lcssa.i.i, %.sroa.12.0.lcssa.i.i
   br i1 %.not55.i.i, label %.lr.ph61.i.i, label %._crit_edge.thread.i.i
 
@@ -145003,8 +145003,8 @@ define linkonce_odr hidden void @_ZN5boost8geometry8strategy6expand6detail10poin
   br i1 %14, label %35, label %_ZNKSt4lessIN5boost8rationalIlEEEclERKS2_S5_.exit.thread
 
 .lr.ph52.i.i:                                     ; preds = %.preheader41.i.i, %.lr.ph52.i.i
-  %.sroa.12.051.i.i = phi i64 [ %16, %.lr.ph52.i.i ], [ %7, %.preheader41.i.i ]
-  %.sroa.19.050.i.i = phi i64 [ %15, %.lr.ph52.i.i ], [ %8, %.preheader41.i.i ]
+  %.sroa.12.051.i.i = phi i64 [ %16, %.lr.ph52.i.i ], [ %8, %.preheader41.i.i ]
+  %.sroa.19.050.i.i = phi i64 [ %15, %.lr.ph52.i.i ], [ %9, %.preheader41.i.i ]
   %15 = add nsw i64 %.sroa.19.050.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i
   %16 = add nsw i64 %.sroa.12.051.i.i, -1
   %17 = icmp slt i64 %15, 0
@@ -145065,7 +145065,7 @@ _ZNKSt4lessIN5boost8rationalIlEEEclERKS2_S5_.exit.thread: ; preds = %26, %._crit
 .preheader41.i.i.i:                               ; preds = %.lr.ph.i.i.i, %_ZNKSt4lessIN5boost8rationalIlEEEclERKS2_S5_.exit.thread
   %.sroa.1926.0.lcssa.i.i.i = phi i64 [ %38, %_ZNKSt4lessIN5boost8rationalIlEEEclERKS2_S5_.exit.thread ], [ %40, %.lr.ph.i.i.i ]
   %.sroa.1222.0.lcssa.i.i.i = phi i64 [ %37, %_ZNKSt4lessIN5boost8rationalIlEEEclERKS2_S5_.exit.thread ], [ %41, %.lr.ph.i.i.i ]
-  br i1 %9, label %.lr.ph52.i.i.i, label %.preheader.i.i.i
+  br i1 %7, label %.lr.ph52.i.i.i, label %.preheader.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt4lessIN5boost8rationalIlEEEclERKS2_S5_.exit.thread, %.lr.ph.i.i.i
   %.sroa.1222.048.i.i.i = phi i64 [ %41, %.lr.ph.i.i.i ], [ %37, %_ZNKSt4lessIN5boost8rationalIlEEEclERKS2_S5_.exit.thread ]
@@ -145146,18 +145146,18 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry8strategy6withi
   %6 = load i64, ptr %1, align 8, !tbaa !1622
   %7 = sdiv i64 %6, %5
   %8 = srem i64 %6, %5
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !1624
-  %11 = load i64, ptr %0, align 8, !tbaa !1622
-  %12 = sdiv i64 %11, %10
-  %13 = srem i64 %11, %10
-  %14 = icmp slt i64 %8, 0
-  br i1 %14, label %.lr.ph.i.i, label %.preheader41.i.i
+  %9 = icmp slt i64 %8, 0
+  br i1 %9, label %.lr.ph.i.i, label %.preheader41.i.i
 
 .preheader41.i.i:                                 ; preds = %.lr.ph.i.i, %3
   %.sroa.1926.0.lcssa.i.i = phi i64 [ %8, %3 ], [ %16, %.lr.ph.i.i ]
   %.sroa.1222.0.lcssa.i.i = phi i64 [ %7, %3 ], [ %17, %.lr.ph.i.i ]
-  %15 = icmp slt i64 %13, 0
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i64, ptr %10, align 8, !tbaa !1624
+  %12 = load i64, ptr %0, align 8, !tbaa !1622
+  %13 = sdiv i64 %12, %11
+  %14 = srem i64 %12, %11
+  %15 = icmp slt i64 %14, 0
   br i1 %15, label %.lr.ph52.i.i, label %.preheader.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
@@ -145169,8 +145169,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry8strategy6withi
   br i1 %18, label %.lr.ph.i.i, label %.preheader41.i.i, !llvm.loop !1625
 
 .preheader.i.i:                                   ; preds = %.lr.ph52.i.i, %.preheader41.i.i
-  %.sroa.19.0.lcssa.i.i = phi i64 [ %13, %.preheader41.i.i ], [ %20, %.lr.ph52.i.i ]
-  %.sroa.12.0.lcssa.i.i = phi i64 [ %12, %.preheader41.i.i ], [ %21, %.lr.ph52.i.i ]
+  %.sroa.19.0.lcssa.i.i = phi i64 [ %14, %.preheader41.i.i ], [ %20, %.lr.ph52.i.i ]
+  %.sroa.12.0.lcssa.i.i = phi i64 [ %13, %.preheader41.i.i ], [ %21, %.lr.ph52.i.i ]
   %.not55.i.i = icmp eq i64 %.sroa.1222.0.lcssa.i.i, %.sroa.12.0.lcssa.i.i
   br i1 %.not55.i.i, label %.lr.ph61.i.i, label %._crit_edge.thread.i.i
 
@@ -145179,16 +145179,16 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry8strategy6withi
   br i1 %19, label %40, label %_ZNK5boost8rationalIlEltERKS1_.exit
 
 .lr.ph52.i.i:                                     ; preds = %.preheader41.i.i, %.lr.ph52.i.i
-  %.sroa.12.051.i.i = phi i64 [ %21, %.lr.ph52.i.i ], [ %12, %.preheader41.i.i ]
-  %.sroa.19.050.i.i = phi i64 [ %20, %.lr.ph52.i.i ], [ %13, %.preheader41.i.i ]
-  %20 = add nsw i64 %.sroa.19.050.i.i, %10
+  %.sroa.12.051.i.i = phi i64 [ %21, %.lr.ph52.i.i ], [ %13, %.preheader41.i.i ]
+  %.sroa.19.050.i.i = phi i64 [ %20, %.lr.ph52.i.i ], [ %14, %.preheader41.i.i ]
+  %20 = add nsw i64 %.sroa.19.050.i.i, %11
   %21 = add nsw i64 %.sroa.12.051.i.i, -1
   %22 = icmp slt i64 %20, 0
   br i1 %22, label %.lr.ph52.i.i, label %.preheader.i.i, !llvm.loop !1626
 
 .lr.ph61.i.i:                                     ; preds = %.preheader.i.i, %25
   %.060.i.i = phi i32 [ %26, %25 ], [ 0, %.preheader.i.i ]
-  %.sroa.6.059.i.i = phi i64 [ %.sroa.19.158.i.i, %25 ], [ %10, %.preheader.i.i ]
+  %.sroa.6.059.i.i = phi i64 [ %.sroa.19.158.i.i, %25 ], [ %11, %.preheader.i.i ]
   %.sroa.19.158.i.i = phi i64 [ %30, %25 ], [ %.sroa.19.0.lcssa.i.i, %.preheader.i.i ]
   %.sroa.618.057.i.i = phi i64 [ %.sroa.1926.156.i.i, %25 ], [ %5, %.preheader.i.i ]
   %.sroa.1926.156.i.i = phi i64 [ %28, %25 ], [ %.sroa.1926.0.lcssa.i.i, %.preheader.i.i ]
@@ -145224,23 +145224,23 @@ _ZNK5boost8rationalIlEgtERKS1_.exit:              ; preds = %25
   br i1 %spec.select.i.i, label %40, label %_ZNK5boost8rationalIlEltERKS1_.exit
 
 40:                                               ; preds = %._crit_edge.thread.i.i, %33, %_ZNK5boost8rationalIlEgtERKS1_.exit
+  br i1 %15, label %.lr.ph.i, label %.preheader41.i
+
+.preheader41.i:                                   ; preds = %.lr.ph.i, %40
+  %.sroa.1926.0.lcssa.i = phi i64 [ %14, %40 ], [ %47, %.lr.ph.i ]
+  %.sroa.1222.0.lcssa.i = phi i64 [ %13, %40 ], [ %48, %.lr.ph.i ]
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !1624
   %43 = load i64, ptr %2, align 8, !tbaa !1622
   %44 = sdiv i64 %43, %42
   %45 = srem i64 %43, %42
-  br i1 %15, label %.lr.ph.i, label %.preheader41.i
-
-.preheader41.i:                                   ; preds = %.lr.ph.i, %40
-  %.sroa.1926.0.lcssa.i = phi i64 [ %13, %40 ], [ %47, %.lr.ph.i ]
-  %.sroa.1222.0.lcssa.i = phi i64 [ %12, %40 ], [ %48, %.lr.ph.i ]
   %46 = icmp slt i64 %45, 0
   br i1 %46, label %.lr.ph52.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
-  %.sroa.1222.048.i = phi i64 [ %48, %.lr.ph.i ], [ %12, %40 ]
-  %.sroa.1926.047.i = phi i64 [ %47, %.lr.ph.i ], [ %13, %40 ]
-  %47 = add nsw i64 %.sroa.1926.047.i, %10
+  %.sroa.1222.048.i = phi i64 [ %48, %.lr.ph.i ], [ %13, %40 ]
+  %.sroa.1926.047.i = phi i64 [ %47, %.lr.ph.i ], [ %14, %40 ]
+  %47 = add nsw i64 %.sroa.1926.047.i, %11
   %48 = add nsw i64 %.sroa.1222.048.i, -1
   %49 = icmp slt i64 %47, 0
   br i1 %49, label %.lr.ph.i, label %.preheader41.i, !llvm.loop !1625
@@ -145274,7 +145274,7 @@ _ZNK5boost8rationalIlEgtERKS1_.exit:              ; preds = %25
   %.060.i = phi i32 [ %60, %59 ], [ 0, %.preheader.i ]
   %.sroa.6.059.i = phi i64 [ %.sroa.19.158.i, %59 ], [ %42, %.preheader.i ]
   %.sroa.19.158.i = phi i64 [ %64, %59 ], [ %.sroa.19.0.lcssa.i, %.preheader.i ]
-  %.sroa.618.057.i = phi i64 [ %.sroa.1926.156.i, %59 ], [ %10, %.preheader.i ]
+  %.sroa.618.057.i = phi i64 [ %.sroa.1926.156.i, %59 ], [ %11, %.preheader.i ]
   %.sroa.1926.156.i = phi i64 [ %62, %59 ], [ %.sroa.1926.0.lcssa.i, %.preheader.i ]
   %57 = icmp eq i64 %.sroa.1926.156.i, 0
   %58 = icmp eq i64 %.sroa.19.158.i, 0

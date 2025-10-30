@@ -321,12 +321,12 @@ define i32 @wc_ChaCha20Poly1305_Final(ptr noundef %0, ptr noundef %1) local_unna
   %31 = trunc i64 %30 to i32
   %32 = sub i32 0, %31
   %33 = and i32 %32, 7
-  %34 = sub nuw nsw i32 184, %33
   %.not24.i = icmp eq i32 %33, 0
-  br i1 %.not24.i, label %.lr.ph29.i.preheader, label %.lr.ph.i
+  br i1 %.not24.i, label %.lr.ph29.preheader.i, label %.lr.ph.i
 
-.lr.ph29.i.preheader:                             ; preds = %.lr.ph.i, %.thread28
-  %.01528.i.ph = phi ptr [ %0, %.thread28 ], [ %36, %.lr.ph.i ]
+.lr.ph29.preheader.i:                             ; preds = %.lr.ph.i, %.thread28
+  %.016.lcssa.i = phi ptr [ %0, %.thread28 ], [ %36, %.lr.ph.i ]
+  %34 = sub nuw nsw i32 184, %33
   br label %.lr.ph29.i
 
 .lr.ph.i:                                         ; preds = %.thread28, %.lr.ph.i
@@ -336,15 +336,15 @@ define i32 @wc_ChaCha20Poly1305_Final(ptr noundef %0, ptr noundef %1) local_unna
   %36 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
   store volatile i8 0, ptr %.01625.i, align 1, !tbaa !13
   %.not.i = icmp eq i32 %35, 0
-  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %.lr.ph29.preheader.i, label %.lr.ph.i, !llvm.loop !14
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
   %.not2232.i = icmp eq i32 %38, 0
   br i1 %.not2232.i, label %ForceZero.exit, label %.lr.ph35.i
 
-.lr.ph29.i:                                       ; preds = %.lr.ph29.i.preheader, %.lr.ph29.i
-  %.01528.i = phi ptr [ %37, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
-  %.01827.i = phi i32 [ %38, %.lr.ph29.i ], [ %34, %.lr.ph29.i.preheader ]
+.lr.ph29.i:                                       ; preds = %.lr.ph29.i, %.lr.ph29.preheader.i
+  %.01528.i = phi ptr [ %37, %.lr.ph29.i ], [ %.016.lcssa.i, %.lr.ph29.preheader.i ]
+  %.01827.i = phi i32 [ %38, %.lr.ph29.i ], [ %34, %.lr.ph29.preheader.i ]
   %37 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !16
   %38 = add nsw i32 %.01827.i, -8

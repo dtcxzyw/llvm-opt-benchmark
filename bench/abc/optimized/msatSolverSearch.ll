@@ -872,36 +872,36 @@ Msat_SolverRecord.exit:                           ; preds = %Msat_SolverAnalyze.
   %160 = load double, ptr %37, align 8, !tbaa !76
   %161 = load ptr, ptr %35, align 8, !tbaa !46
   %162 = call i32 @Msat_ClauseVecReadSize(ptr noundef %161) #7
-  %163 = sitofp i32 %162 to double
-  %164 = fdiv double %160, %163
   call void @Msat_SolverSortDB(ptr noundef nonnull %0) #7
+  %163 = load ptr, ptr %35, align 8, !tbaa !46
+  %164 = call i32 @Msat_ClauseVecReadSize(ptr noundef %163) #7
   %165 = load ptr, ptr %35, align 8, !tbaa !46
-  %166 = call i32 @Msat_ClauseVecReadSize(ptr noundef %165) #7
-  %167 = load ptr, ptr %35, align 8, !tbaa !46
-  %168 = call ptr @Msat_ClauseVecReadArray(ptr noundef %167) #7
-  %169 = sdiv i32 %166, 2
-  %170 = icmp sgt i32 %166, 1
-  br i1 %170, label %.lr.ph.preheader.i80, label %.preheader.i77
+  %166 = call ptr @Msat_ClauseVecReadArray(ptr noundef %165) #7
+  %167 = sdiv i32 %164, 2
+  %168 = icmp sgt i32 %164, 1
+  br i1 %168, label %.lr.ph.preheader.i80, label %.preheader.i77
 
 .lr.ph.preheader.i80:                             ; preds = %159
-  %wide.trip.count.i81 = zext nneg i32 %169 to i64
+  %wide.trip.count.i81 = zext nneg i32 %167 to i64
   br label %.lr.ph.i82
 
 .preheader.i77:                                   ; preds = %182, %159
   %.035.lcssa.i = phi i32 [ 0, %159 ], [ %.136.i, %182 ]
-  %.0.lcssa.i = phi i32 [ 0, %159 ], [ %169, %182 ]
-  %171 = icmp slt i32 %.0.lcssa.i, %166
+  %.0.lcssa.i = phi i32 [ 0, %159 ], [ %167, %182 ]
+  %169 = sitofp i32 %162 to double
+  %170 = fdiv double %160, %169
+  %171 = icmp slt i32 %.0.lcssa.i, %164
   br i1 %171, label %.lr.ph43.preheader.i, label %Msat_SolverReduceDB.exit
 
 .lr.ph43.preheader.i:                             ; preds = %.preheader.i77
   %172 = zext nneg i32 %.0.lcssa.i to i64
-  %wide.trip.count49.i = zext i32 %166 to i64
+  %wide.trip.count49.i = zext i32 %164 to i64
   br label %.lr.ph43.i
 
 .lr.ph.i82:                                       ; preds = %182, %.lr.ph.preheader.i80
   %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.preheader.i80 ], [ %indvars.iv.next.i84, %182 ]
   %.03538.i = phi i32 [ 0, %.lr.ph.preheader.i80 ], [ %.136.i, %182 ]
-  %173 = getelementptr inbounds nuw ptr, ptr %168, i64 %indvars.iv.i83
+  %173 = getelementptr inbounds nuw ptr, ptr %166, i64 %indvars.iv.i83
   %174 = load ptr, ptr %173, align 8, !tbaa !29
   %175 = call i32 @Msat_ClauseIsLocked(ptr noundef nonnull %0, ptr noundef %174) #7
   %.not37.i = icmp eq i32 %175, 0
@@ -915,7 +915,7 @@ Msat_SolverRecord.exit:                           ; preds = %Msat_SolverAnalyze.
 178:                                              ; preds = %.lr.ph.i82
   %179 = add nsw i32 %.03538.i, 1
   %180 = sext i32 %.03538.i to i64
-  %181 = getelementptr inbounds ptr, ptr %168, i64 %180
+  %181 = getelementptr inbounds ptr, ptr %166, i64 %180
   store ptr %176, ptr %181, align 8, !tbaa !29
   br label %182
 
@@ -928,7 +928,7 @@ Msat_SolverRecord.exit:                           ; preds = %Msat_SolverAnalyze.
 .lr.ph43.i:                                       ; preds = %198, %.lr.ph43.preheader.i
   %indvars.iv46.i = phi i64 [ %172, %.lr.ph43.preheader.i ], [ %indvars.iv.next47.i, %198 ]
   %.241.i = phi i32 [ %.035.lcssa.i, %.lr.ph43.preheader.i ], [ %.3.i, %198 ]
-  %183 = getelementptr inbounds nuw ptr, ptr %168, i64 %indvars.iv46.i
+  %183 = getelementptr inbounds nuw ptr, ptr %166, i64 %indvars.iv46.i
   %184 = load ptr, ptr %183, align 8, !tbaa !29
   %185 = call i32 @Msat_ClauseIsLocked(ptr noundef nonnull %0, ptr noundef %184) #7
   %.not.i79 = icmp eq i32 %185, 0
@@ -938,7 +938,7 @@ Msat_SolverRecord.exit:                           ; preds = %Msat_SolverAnalyze.
   %187 = load ptr, ptr %183, align 8, !tbaa !29
   %188 = call float @Msat_ClauseReadActivity(ptr noundef %187) #7
   %189 = fpext float %188 to double
-  %190 = fcmp ogt double %164, %189
+  %190 = fcmp ogt double %170, %189
   br i1 %190, label %191, label %193
 
 191:                                              ; preds = %186
@@ -950,7 +950,7 @@ Msat_SolverRecord.exit:                           ; preds = %Msat_SolverAnalyze.
   %194 = load ptr, ptr %183, align 8, !tbaa !29
   %195 = add nsw i32 %.241.i, 1
   %196 = sext i32 %.241.i to i64
-  %197 = getelementptr inbounds ptr, ptr %168, i64 %196
+  %197 = getelementptr inbounds ptr, ptr %166, i64 %196
   store ptr %194, ptr %197, align 8, !tbaa !29
   br label %198
 

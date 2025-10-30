@@ -1945,9 +1945,9 @@ _ZN12_GLOBAL__N_120CalcLiveRangeUtilSet13findInsertPosEN4llvm9LiveRange7SegmentE
 
 .preheader.i.i.i.i.i:                             ; preds = %181, %178
   %.sroa.034.1.i.i = phi ptr [ %152, %178 ], [ %182, %181 ]
-  %.val.val.i.i = load ptr, ptr %8, align 8, !tbaa !20
   %187 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.034.1.i.i) #18
   %188 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.0.i.i) #18
+  %.val.val.i.i = load ptr, ptr %8, align 8, !tbaa !20
   %189 = getelementptr inbounds nuw i8, ptr %.val.val.i.i, i64 24
   %190 = load ptr, ptr %189, align 8, !tbaa !32
   %191 = icmp eq ptr %187, %190
@@ -10075,14 +10075,14 @@ declare { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_121CalcLiveRangeUtilBaseINS_20CalcLiveRangeUtilSetESt23_Rb_tree_const_iteratorIN4llvm9LiveRange7SegmentEESt3setIS5_St4lessIS5_ESaIS5_EEE18extendSegmentEndToES6_NS3_9SlotIndexE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr %1, i64 %2) unnamed_addr #1 align 2 {
 .preheader.i.i.i:
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !54
-  %5 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #18
+  %3 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #18
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
   %.val15 = load ptr, ptr %0, align 8, !tbaa !84
   %6 = getelementptr i8, ptr %.val15, i64 96
   %.val15.val = load ptr, ptr %6, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %.val15.val, i64 8
-  %.not43 = icmp eq ptr %5, %7
+  %.not43 = icmp eq ptr %3, %7
   %.pre = and i64 %2, -8
   %.pre50 = inttoptr i64 %.pre to ptr
   br i1 %.not43, label %.preheader.i.i.i..critedge_crit_edge, label %.lr.ph
@@ -10103,7 +10103,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121CalcLiveRangeUtilBaseINS_20CalcL
   br label %14
 
 14:                                               ; preds = %.lr.ph, %_ZSt4nextISt23_Rb_tree_const_iteratorIN4llvm9LiveRange7SegmentEEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit
-  %.sroa.025.044 = phi ptr [ %5, %.lr.ph ], [ %24, %_ZSt4nextISt23_Rb_tree_const_iteratorIN4llvm9LiveRange7SegmentEEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit ]
+  %.sroa.025.044 = phi ptr [ %3, %.lr.ph ], [ %24, %_ZSt4nextISt23_Rb_tree_const_iteratorIN4llvm9LiveRange7SegmentEEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.025.044, i64 40
   %.sroa.08.0.copyload = load i64, ptr %15, align 8, !tbaa !29
   %16 = and i64 %.sroa.08.0.copyload, -8
@@ -10124,7 +10124,7 @@ _ZSt4nextISt23_Rb_tree_const_iteratorIN4llvm9LiveRange7SegmentEEET_S5_NSt15itera
 
 .critedge:                                        ; preds = %14, %_ZSt4nextISt23_Rb_tree_const_iteratorIN4llvm9LiveRange7SegmentEEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit, %.preheader.i.i.i..critedge_crit_edge
   %.pre-phi57 = phi i32 [ %.pre56, %.preheader.i.i.i..critedge_crit_edge ], [ %12, %_ZSt4nextISt23_Rb_tree_const_iteratorIN4llvm9LiveRange7SegmentEEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit ], [ %12, %14 ]
-  %.sroa.025.0.lcssa = phi ptr [ %5, %.preheader.i.i.i..critedge_crit_edge ], [ %.sroa.025.044, %14 ], [ %24, %_ZSt4nextISt23_Rb_tree_const_iteratorIN4llvm9LiveRange7SegmentEEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit ]
+  %.sroa.025.0.lcssa = phi ptr [ %3, %.preheader.i.i.i..critedge_crit_edge ], [ %.sroa.025.044, %14 ], [ %24, %_ZSt4nextISt23_Rb_tree_const_iteratorIN4llvm9LiveRange7SegmentEEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit ]
   %25 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.025.0.lcssa) #18
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %26, align 8, !tbaa !29
@@ -10175,7 +10175,7 @@ _ZSt4nextISt23_Rb_tree_const_iteratorIN4llvm9LiveRange7SegmentEEET_S5_NSt15itera
 60:                                               ; preds = %42
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.025.0.lcssa, i64 48
   %62 = load ptr, ptr %61, align 8, !tbaa !54
-  %63 = icmp eq ptr %62, %4
+  %63 = icmp eq ptr %62, %5
   br i1 %63, label %64, label %.critedge2
 
 64:                                               ; preds = %60

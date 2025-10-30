@@ -2037,12 +2037,6 @@ define dso_local range(i32 -1, 1) i32 @normalize_path_copy_len(ptr noundef %0, p
   %14 = ptrtoint ptr %.057.lcssa to i64
   br i1 %.not86, label %.preheader109.split.us.outer, label %.preheader109.split
 
-.preheader109.split.us.outer.backedge:            ; preds = %30, %.preheader.us, %.lr.ph120.us
-  %.ph.be = phi i8 [ %44, %.lr.ph120.us ], [ %.pr.us138, %.preheader.us ], [ %.pr.us138, %30 ]
-  %.262.us.ph.be = phi ptr [ %.9119.us, %.lr.ph120.us ], [ %.6.us, %.preheader.us ], [ %.6.us, %30 ]
-  %.158.us.ph.be = phi ptr [ %42, %.lr.ph120.us ], [ %.5.us, %.preheader.us ], [ %.5.us, %30 ]
-  br label %.preheader109.split.us.outer
-
 .preheader109.split.us.outer:                     ; preds = %.preheader109, %.preheader109.split.us.outer.backedge
   %.ph = phi i8 [ %.ph.be, %.preheader109.split.us.outer.backedge ], [ %12, %.preheader109 ]
   %.262.us.ph = phi ptr [ %.262.us.ph.be, %.preheader109.split.us.outer.backedge ], [ %.161, %.preheader109 ]
@@ -2053,13 +2047,13 @@ define dso_local range(i32 -1, 1) i32 @normalize_path_copy_len(ptr noundef %0, p
   %15 = phi i8 [ %.ph, %.preheader109.split.us.outer ], [ %36, %35 ]
   %.262.us = phi ptr [ %.262.us.ph, %.preheader109.split.us.outer ], [ %.464.us, %35 ]
   %16 = icmp eq i8 %15, 46
-  br i1 %16, label %17, label %.preheader180
+  br i1 %16, label %17, label %.preheader176
 
 17:                                               ; preds = %.preheader109.split.us
   %18 = getelementptr inbounds nuw i8, ptr %.262.us, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !14
-  switch i8 %19, label %.preheader180 [
-    i8 0, label %.preheader180.loopexit.split.loop.exit213
+  switch i8 %19, label %.preheader176 [
+    i8 0, label %.preheader176.loopexit.split.loop.exit207
     i8 47, label %33
     i8 46, label %20
   ]
@@ -2067,7 +2061,7 @@ define dso_local range(i32 -1, 1) i32 @normalize_path_copy_len(ptr noundef %0, p
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %.262.us, i64 2
   %22 = load i8, ptr %21, align 1, !tbaa !14
-  switch i8 %22, label %.preheader180 [
+  switch i8 %22, label %.preheader176 [
     i8 0, label %.loopexit.us
     i8 47, label %23
   ]
@@ -2112,17 +2106,17 @@ define dso_local range(i32 -1, 1) i32 @normalize_path_copy_len(ptr noundef %0, p
   %37 = getelementptr inbounds nuw i8, ptr %.464.us, i64 1
   br i1 %.not103.us, label %35, label %.preheader109.split.us, !llvm.loop !92
 
-.preheader180.loopexit.split.loop.exit213:        ; preds = %17
+.preheader176.loopexit.split.loop.exit207:        ; preds = %17
   %38 = getelementptr inbounds nuw i8, ptr %.262.us, i64 1
-  br label %.preheader180
+  br label %.preheader176
 
-.preheader180:                                    ; preds = %.preheader180.loopexit.split.loop.exit213, %.preheader109.split.us, %17, %20
-  %.8.us.ph = phi ptr [ %.262.us, %20 ], [ %.262.us, %17 ], [ %38, %.preheader180.loopexit.split.loop.exit213 ], [ %.262.us, %.preheader109.split.us ]
+.preheader176:                                    ; preds = %.preheader176.loopexit.split.loop.exit207, %.preheader109.split.us, %17, %20
+  %.8.us.ph = phi ptr [ %.262.us, %20 ], [ %.262.us, %17 ], [ %38, %.preheader176.loopexit.split.loop.exit207 ], [ %.262.us, %.preheader109.split.us ]
   br label %39
 
-39:                                               ; preds = %.preheader180, %45
-  %.8.us = phi ptr [ %40, %45 ], [ %.8.us.ph, %.preheader180 ]
-  %.3.us = phi ptr [ %46, %45 ], [ %.158.us.ph, %.preheader180 ]
+39:                                               ; preds = %.preheader176, %45
+  %.8.us = phi ptr [ %40, %45 ], [ %.8.us.ph, %.preheader176 ]
+  %.3.us = phi ptr [ %46, %45 ], [ %.158.us.ph, %.preheader176 ]
   %40 = getelementptr inbounds nuw i8, ptr %.8.us, i64 1
   %41 = load i8, ptr %.8.us, align 1, !tbaa !14
   switch i8 %41, label %45 [
@@ -2131,25 +2125,34 @@ define dso_local range(i32 -1, 1) i32 @normalize_path_copy_len(ptr noundef %0, p
   ]
 
 .lr.ph120.us.preheader:                           ; preds = %39
-  %42 = getelementptr inbounds nuw i8, ptr %.3.us, i64 1
   store i8 47, ptr %.3.us, align 1, !tbaa !14
   br label %.lr.ph120.us
+
+._crit_edge.us:                                   ; preds = %.lr.ph120.us
+  %42 = getelementptr inbounds nuw i8, ptr %.3.us, i64 1
+  br label %.preheader109.split.us.outer.backedge
+
+.preheader109.split.us.outer.backedge:            ; preds = %30, %.preheader.us, %._crit_edge.us
+  %.ph.be = phi i8 [ %44, %._crit_edge.us ], [ %.pr.us138, %.preheader.us ], [ %.pr.us138, %30 ]
+  %.262.us.ph.be = phi ptr [ %.9119.us, %._crit_edge.us ], [ %.6.us, %.preheader.us ], [ %.6.us, %30 ]
+  %.158.us.ph.be = phi ptr [ %42, %._crit_edge.us ], [ %.5.us, %.preheader.us ], [ %.5.us, %30 ]
+  br label %.preheader109.split.us.outer
 
 .lr.ph120.us:                                     ; preds = %.lr.ph120.us.preheader, %.lr.ph120.us
   %.9119.us = phi ptr [ %43, %.lr.ph120.us ], [ %40, %.lr.ph120.us.preheader ]
   %43 = getelementptr inbounds nuw i8, ptr %.9119.us, i64 1
   %44 = load i8, ptr %.9119.us, align 1, !tbaa !14
   %.not107.us = icmp eq i8 %44, 47
-  br i1 %.not107.us, label %.lr.ph120.us, label %.preheader109.split.us.outer.backedge, !llvm.loop !93
+  br i1 %.not107.us, label %.lr.ph120.us, label %._crit_edge.us, !llvm.loop !93
 
 45:                                               ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %.3.us, i64 1
   store i8 %41, ptr %.3.us, align 1, !tbaa !14
   br label %39, !llvm.loop !94
 
-thread-pre-split:                                 ; preds = %54, %.lr.ph120, %83, %.critedge2
-  %.565.ph = phi ptr [ %.6, %.critedge2 ], [ %.6, %83 ], [ %.9119, %.lr.ph120 ], [ %.464, %54 ]
-  %.259.ph = phi ptr [ %.5, %.critedge2 ], [ %.5, %83 ], [ %70, %.lr.ph120 ], [ %.158, %54 ]
+thread-pre-split:                                 ; preds = %54, %._crit_edge, %83, %.critedge2
+  %.565.ph = phi ptr [ %.6, %.critedge2 ], [ %.6, %83 ], [ %.9119, %._crit_edge ], [ %.464, %54 ]
+  %.259.ph = phi ptr [ %.5, %.critedge2 ], [ %.5, %83 ], [ %72, %._crit_edge ], [ %.158, %54 ]
   %.pr = load i8, ptr %.565.ph, align 1, !tbaa !14
   br label %.preheader109.split
 
@@ -2158,13 +2161,13 @@ thread-pre-split:                                 ; preds = %54, %.lr.ph120, %83
   %.262 = phi ptr [ %.565.ph, %thread-pre-split ], [ %.161, %.preheader109 ]
   %.158 = phi ptr [ %.259.ph, %thread-pre-split ], [ %.057.lcssa, %.preheader109 ]
   %48 = icmp eq i8 %47, 46
-  br i1 %48, label %49, label %.preheader190
+  br i1 %48, label %49, label %.preheader185
 
 49:                                               ; preds = %.preheader109.split
   %50 = getelementptr inbounds nuw i8, ptr %.262, i64 1
   %51 = load i8, ptr %50, align 1, !tbaa !14
   switch i8 %51, label %.fold.split [
-    i8 0, label %.preheader190
+    i8 0, label %.preheader185
     i8 47, label %52
     i8 46, label %57
   ]
@@ -2183,7 +2186,7 @@ thread-pre-split:                                 ; preds = %54, %.lr.ph120, %83
 57:                                               ; preds = %49
   %58 = getelementptr inbounds nuw i8, ptr %.262, i64 2
   %59 = load i8, ptr %58, align 1, !tbaa !14
-  switch i8 %59, label %.preheader190 [
+  switch i8 %59, label %.preheader185 [
     i8 0, label %.loopexit
     i8 47, label %60
   ]
@@ -2200,15 +2203,15 @@ thread-pre-split:                                 ; preds = %54, %.lr.ph120, %83
   br i1 %.not105, label %62, label %.loopexit, !llvm.loop !90
 
 .fold.split:                                      ; preds = %49
-  br label %.preheader190
+  br label %.preheader185
 
-.preheader190:                                    ; preds = %57, %49, %.fold.split, %.preheader109.split
+.preheader185:                                    ; preds = %57, %49, %.fold.split, %.preheader109.split
   %.8.ph = phi ptr [ %.262, %57 ], [ %.262, %.fold.split ], [ %50, %49 ], [ %.262, %.preheader109.split ]
   br label %65
 
-65:                                               ; preds = %.preheader190, %68
-  %.8 = phi ptr [ %66, %68 ], [ %.8.ph, %.preheader190 ]
-  %.3 = phi ptr [ %69, %68 ], [ %.158, %.preheader190 ]
+65:                                               ; preds = %.preheader185, %68
+  %.8 = phi ptr [ %66, %68 ], [ %.8.ph, %.preheader185 ]
+  %.3 = phi ptr [ %69, %68 ], [ %.158, %.preheader185 ]
   %66 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   %67 = load i8, ptr %.8, align 1, !tbaa !14
   switch i8 %67, label %68 [
@@ -2222,16 +2225,19 @@ thread-pre-split:                                 ; preds = %54, %.lr.ph120, %83
   br label %65, !llvm.loop !94
 
 .lr.ph120.preheader:                              ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   store i8 47, ptr %.3, align 1, !tbaa !14
   br label %.lr.ph120
 
 .lr.ph120:                                        ; preds = %.lr.ph120.preheader, %.lr.ph120
-  %.9119 = phi ptr [ %71, %.lr.ph120 ], [ %66, %.lr.ph120.preheader ]
-  %71 = getelementptr inbounds nuw i8, ptr %.9119, i64 1
-  %72 = load i8, ptr %.9119, align 1, !tbaa !14
-  %.not107 = icmp eq i8 %72, 47
-  br i1 %.not107, label %.lr.ph120, label %thread-pre-split, !llvm.loop !93
+  %.9119 = phi ptr [ %70, %.lr.ph120 ], [ %66, %.lr.ph120.preheader ]
+  %70 = getelementptr inbounds nuw i8, ptr %.9119, i64 1
+  %71 = load i8, ptr %.9119, align 1, !tbaa !14
+  %.not107 = icmp eq i8 %71, 47
+  br i1 %.not107, label %.lr.ph120, label %._crit_edge, !llvm.loop !93
+
+._crit_edge:                                      ; preds = %.lr.ph120
+  %72 = getelementptr inbounds nuw i8, ptr %.3, i64 1
+  br label %thread-pre-split
 
 .loopexit:                                        ; preds = %62, %57
   %.6 = phi ptr [ %58, %57 ], [ %.7, %62 ]
@@ -2319,7 +2325,7 @@ define dso_local range(i32 -1, 1) i32 @normalize_path_copy(ptr noundef captures(
   %16 = getelementptr inbounds nuw i8, ptr %.262.us.i, i64 1
   %17 = load i8, ptr %16, align 1, !tbaa !14
   switch i8 %17, label %.preheader [
-    i8 0, label %.preheader.loopexit.split.loop.exit68
+    i8 0, label %.preheader.loopexit.split.loop.exit64
     i8 47, label %31
     i8 46, label %18
   ]
@@ -2372,12 +2378,12 @@ define dso_local range(i32 -1, 1) i32 @normalize_path_copy(ptr noundef captures(
   %35 = getelementptr inbounds nuw i8, ptr %.464.us.i, i64 1
   br i1 %.not103.us.i, label %33, label %.preheader109.split.us.i, !llvm.loop !92
 
-.preheader.loopexit.split.loop.exit68:            ; preds = %15
+.preheader.loopexit.split.loop.exit64:            ; preds = %15
   %36 = getelementptr inbounds nuw i8, ptr %.262.us.i, i64 1
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.loopexit.split.loop.exit68, %.preheader109.split.us.i, %15, %18
-  %.8.us.i.ph = phi ptr [ %.262.us.i, %18 ], [ %.262.us.i, %15 ], [ %36, %.preheader.loopexit.split.loop.exit68 ], [ %.262.us.i, %.preheader109.split.us.i ]
+.preheader:                                       ; preds = %.preheader.loopexit.split.loop.exit64, %.preheader109.split.us.i, %15, %18
+  %.8.us.i.ph = phi ptr [ %.262.us.i, %18 ], [ %.262.us.i, %15 ], [ %36, %.preheader.loopexit.split.loop.exit64 ], [ %.262.us.i, %.preheader109.split.us.i ]
   br label %37
 
 37:                                               ; preds = %.preheader, %43
@@ -2394,14 +2400,14 @@ define dso_local range(i32 -1, 1) i32 @normalize_path_copy(ptr noundef captures(
   store i8 47, ptr %.3.us.i, align 1, !tbaa !14
   br label %.lr.ph120.us.i
 
-thread-pre-split.us.i.loopexit:                   ; preds = %.lr.ph120.us.i
+._crit_edge.us.i:                                 ; preds = %.lr.ph120.us.i
   %40 = getelementptr inbounds nuw i8, ptr %.3.us.i, i64 1
   br label %.preheader109.split.us.i.outer.backedge
 
-.preheader109.split.us.i.outer.backedge:          ; preds = %.preheader.us.i, %28, %thread-pre-split.us.i.loopexit
-  %.ph.be = phi i8 [ %42, %thread-pre-split.us.i.loopexit ], [ %.pr.us138.i, %28 ], [ %.pr.us138.i, %.preheader.us.i ]
-  %.262.us.i.ph.be = phi ptr [ %.9119.us.i, %thread-pre-split.us.i.loopexit ], [ %.6.us.i, %28 ], [ %.6.us.i, %.preheader.us.i ]
-  %.158.us.i.ph.be = phi ptr [ %40, %thread-pre-split.us.i.loopexit ], [ %.5.us.i, %28 ], [ %.5.us.i, %.preheader.us.i ]
+.preheader109.split.us.i.outer.backedge:          ; preds = %.preheader.us.i, %28, %._crit_edge.us.i
+  %.ph.be = phi i8 [ %42, %._crit_edge.us.i ], [ %.pr.us138.i, %28 ], [ %.pr.us138.i, %.preheader.us.i ]
+  %.262.us.i.ph.be = phi ptr [ %.9119.us.i, %._crit_edge.us.i ], [ %.6.us.i, %28 ], [ %.6.us.i, %.preheader.us.i ]
+  %.158.us.i.ph.be = phi ptr [ %40, %._crit_edge.us.i ], [ %.5.us.i, %28 ], [ %.5.us.i, %.preheader.us.i ]
   br label %.preheader109.split.us.i.outer
 
 .lr.ph120.us.i:                                   ; preds = %.lr.ph120.us.i, %.lr.ph120.us.preheader.i
@@ -2409,7 +2415,7 @@ thread-pre-split.us.i.loopexit:                   ; preds = %.lr.ph120.us.i
   %41 = getelementptr inbounds nuw i8, ptr %.9119.us.i, i64 1
   %42 = load i8, ptr %.9119.us.i, align 1, !tbaa !14
   %.not107.us.i = icmp eq i8 %42, 47
-  br i1 %.not107.us.i, label %.lr.ph120.us.i, label %thread-pre-split.us.i.loopexit, !llvm.loop !93
+  br i1 %.not107.us.i, label %.lr.ph120.us.i, label %._crit_edge.us.i, !llvm.loop !93
 
 43:                                               ; preds = %37
   %44 = getelementptr inbounds nuw i8, ptr %.3.us.i, i64 1
@@ -2557,14 +2563,14 @@ define dso_local range(i32 -1, 1) i32 @strbuf_normalize_path(ptr noundef capture
   store i8 47, ptr %.3.us.i.i, align 1, !tbaa !14
   br label %.lr.ph120.us.i.i
 
-thread-pre-split.us.i.loopexit.i:                 ; preds = %.lr.ph120.us.i.i
+._crit_edge.us.i.i:                               ; preds = %.lr.ph120.us.i.i
   %47 = getelementptr inbounds nuw i8, ptr %.3.us.i.i, i64 1
   br label %.preheader109.split.us.i.i.outer.backedge
 
-.preheader109.split.us.i.i.outer.backedge:        ; preds = %.preheader.us.i.i, %35, %thread-pre-split.us.i.loopexit.i
-  %.ph.be = phi i8 [ %49, %thread-pre-split.us.i.loopexit.i ], [ %.pr.us138.i.i, %35 ], [ %.pr.us138.i.i, %.preheader.us.i.i ]
-  %.262.us.i.i.ph.be = phi ptr [ %.9119.us.i.i, %thread-pre-split.us.i.loopexit.i ], [ %.6.us.i.i, %35 ], [ %.6.us.i.i, %.preheader.us.i.i ]
-  %.158.us.i.i.ph.be = phi ptr [ %47, %thread-pre-split.us.i.loopexit.i ], [ %.5.us.i.i, %35 ], [ %.5.us.i.i, %.preheader.us.i.i ]
+.preheader109.split.us.i.i.outer.backedge:        ; preds = %.preheader.us.i.i, %35, %._crit_edge.us.i.i
+  %.ph.be = phi i8 [ %49, %._crit_edge.us.i.i ], [ %.pr.us138.i.i, %35 ], [ %.pr.us138.i.i, %.preheader.us.i.i ]
+  %.262.us.i.i.ph.be = phi ptr [ %.9119.us.i.i, %._crit_edge.us.i.i ], [ %.6.us.i.i, %35 ], [ %.6.us.i.i, %.preheader.us.i.i ]
+  %.158.us.i.i.ph.be = phi ptr [ %47, %._crit_edge.us.i.i ], [ %.5.us.i.i, %35 ], [ %.5.us.i.i, %.preheader.us.i.i ]
   br label %.preheader109.split.us.i.i.outer
 
 .lr.ph120.us.i.i:                                 ; preds = %.lr.ph120.us.i.i, %.lr.ph120.us.preheader.i.i
@@ -2572,7 +2578,7 @@ thread-pre-split.us.i.loopexit.i:                 ; preds = %.lr.ph120.us.i.i
   %48 = getelementptr inbounds nuw i8, ptr %.9119.us.i.i, i64 1
   %49 = load i8, ptr %.9119.us.i.i, align 1, !tbaa !14
   %.not107.us.i.i = icmp eq i8 %49, 47
-  br i1 %.not107.us.i.i, label %.lr.ph120.us.i.i, label %thread-pre-split.us.i.loopexit.i, !llvm.loop !93
+  br i1 %.not107.us.i.i, label %.lr.ph120.us.i.i, label %._crit_edge.us.i.i, !llvm.loop !93
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds nuw i8, ptr %.3.us.i.i, i64 1

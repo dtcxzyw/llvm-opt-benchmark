@@ -2100,17 +2100,17 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImE6
 _ZSt4fillIPjiEvT_S1_RKT0_.exit:                   ; preds = %2
   %17 = icmp eq ptr %11, %12
   %.idx = select i1 %17, i64 32, i64 %15
-  %.ptr28 = getelementptr nuw i8, ptr %7, i64 %.idx
+  %scevgep = getelementptr nuw i8, ptr %7, i64 %.idx
   %18 = sub nsw i64 236, %.idx
   %19 = and i64 %18, -4
   %20 = add nsw i64 %19, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %.ptr28, i8 0, i64 %20, i1 false), !tbaa !20
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %scevgep, i8 0, i64 %20, i1 false), !tbaa !20
   %.not.i = icmp samesign eq i64 %.idx, 0
   br i1 %.not.i, label %_ZN4absl15random_internal13SaltedSeedSeqINS1_ISt8seed_seqEEE8generateIPjEEvT_S7_.exit.preheader, label %_ZN4absl15random_internal13SaltedSeedSeqINS1_ISt8seed_seqEEE13generate_implIPjEEvNS4_22ContiguousAndUint32TagET_S8_m.exit.i
 
 _ZN4absl15random_internal13SaltedSeedSeqINS1_ISt8seed_seqEEE13generate_implIPjEEvNS4_22ContiguousAndUint32TagET_S8_m.exit.i: ; preds = %_ZSt4fillIPjiEvT_S1_RKT0_.exit
   %21 = lshr exact i64 %.idx, 2
-  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %7, ptr noundef nonnull %.ptr28)
+  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %7, ptr noundef nonnull %scevgep)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = call i64 @_ZN4absl15random_internal15GetSaltMaterialEv()
   %.sroa.06.0.extract.trunc.i.i.i.i = trunc i64 %22 to i32
@@ -2264,28 +2264,29 @@ define linkonce_odr dso_local void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr nound
   %32 = sub i64 %12, %31
   %33 = lshr i64 %32, 1
   %34 = add nuw i64 %33, %31
-  %35 = add nsw i64 %19, 1
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %35, i64 %12)
-  %36 = trunc i64 %19 to i32
-  %37 = add i32 %36, 1371501266
-  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %33
-  %39 = load i32, ptr %38, align 4, !tbaa !20
-  %40 = add i32 %39, 1371501266
-  store i32 %40, ptr %38, align 4, !tbaa !20
-  %41 = getelementptr inbounds nuw i32, ptr %1, i64 %34
-  %42 = load i32, ptr %41, align 4, !tbaa !20
-  %43 = add i32 %42, %37
-  store i32 %43, ptr %41, align 4, !tbaa !20
-  store i32 %37, ptr %1, align 4, !tbaa !20
+  %35 = trunc i64 %19 to i32
+  %36 = add i32 %35, 1371501266
+  %37 = getelementptr inbounds nuw i32, ptr %1, i64 %33
+  %38 = load i32, ptr %37, align 4, !tbaa !20
+  %39 = add i32 %38, 1371501266
+  store i32 %39, ptr %37, align 4, !tbaa !20
+  %40 = getelementptr inbounds nuw i32, ptr %1, i64 %34
+  %41 = load i32, ptr %40, align 4, !tbaa !20
+  %42 = add i32 %41, %36
+  store i32 %42, ptr %40, align 4, !tbaa !20
+  store i32 %36, ptr %1, align 4, !tbaa !20
   %.not130 = icmp eq ptr %14, %15
   br i1 %.not130, label %.preheader129, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %30
-  %umax = tail call i64 @llvm.umax.i64(i64 %35, i64 2)
+  %43 = add nsw i64 %19, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %43, i64 2)
   br label %.lr.ph
 
 .preheader129:                                    ; preds = %.lr.ph, %30
-  %44 = icmp ugt i64 %12, %35
+  %.pre-phi = phi i64 [ 1, %30 ], [ %43, %.lr.ph ]
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %.pre-phi, i64 %12)
+  %44 = icmp ugt i64 %12, %.pre-phi
   br i1 %44, label %.lr.ph133, label %.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2330,7 +2331,7 @@ define linkonce_odr dso_local void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr nound
   br i1 %74, label %.lr.ph135, label %.loopexit
 
 .lr.ph133:                                        ; preds = %.preheader129, %.lr.ph133
-  %.0114132 = phi i64 [ %99, %.lr.ph133 ], [ %35, %.preheader129 ]
+  %.0114132 = phi i64 [ %99, %.lr.ph133 ], [ %.pre-phi, %.preheader129 ]
   %75 = urem i64 %.0114132, %12
   %76 = add i64 %.0114132, %33
   %77 = urem i64 %76, %12

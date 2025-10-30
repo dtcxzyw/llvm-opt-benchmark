@@ -502,24 +502,24 @@ arena_get.exit:                                   ; preds = %.lr.ph131, %62
   %64 = trunc nuw nsw i64 %63 to i32
   %65 = and i32 %64, 63
   %66 = load i32, ptr %30, align 4, !tbaa !60
-  %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 %67
-  %69 = load i32, ptr @je_bin_info_nbatched_sizes, align 4, !tbaa !60
-  %70 = icmp ult i32 %3, %69
-  %71 = and i64 %63, 63
-  %72 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %68, i64 %71
-  %73 = getelementptr inbounds nuw %struct.bin_s, ptr %68, i64 %71
-  %.0.i32 = select i1 %70, ptr %72, ptr %73
-  %74 = add nuw nsw i32 %.0160.i127, 1
-  %75 = icmp ult i32 %74, %spec.store.select.i
-  br i1 %75, label %.lr.ph.preheader, label %._crit_edge
+  %67 = load i32, ptr @je_bin_info_nbatched_sizes, align 4, !tbaa !60
+  %68 = add nuw nsw i32 %.0160.i127, 1
+  %69 = icmp ult i32 %68, %spec.store.select.i
+  br i1 %69, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %arena_get.exit
-  %76 = zext nneg i32 %74 to i64
+  %70 = zext nneg i32 %68 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %102, %arena_get.exit
-  %.1161.i.lcssa = phi i32 [ %74, %arena_get.exit ], [ %.2162.i, %102 ]
+  %.1161.i.lcssa = phi i32 [ %68, %arena_get.exit ], [ %.2162.i, %102 ]
+  %71 = zext i32 %66 to i64
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 %71
+  %73 = icmp ult i32 %3, %67
+  %74 = and i64 %63, 63
+  %75 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %72, i64 %74
+  %76 = getelementptr inbounds nuw %struct.bin_s, ptr %72, i64 %74
+  %.0.i32 = select i1 %73, ptr %75, ptr %76
   %77 = icmp ne ptr %.0.i31, %46
   %78 = icmp ne i32 %65, %48
   %.not93 = select i1 %77, i1 true, i1 %78
@@ -528,12 +528,12 @@ arena_get.exit:                                   ; preds = %.lr.ph131, %62
   %81 = load i64, ptr @je_opt_bin_info_remote_free_max_batch, align 8, !tbaa !19
   %82 = icmp uge i64 %81, %80
   %or.cond.i.not = select i1 %82, i1 %.not93, i1 false
-  %spec.select.i7 = select i1 %or.cond.i.not, i1 %70, i1 false
+  %spec.select.i7 = select i1 %or.cond.i.not, i1 %73, i1 false
   br i1 %spec.select.i7, label %103, label %.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %102
-  %indvars.iv = phi i64 [ %76, %.lr.ph.preheader ], [ %indvars.iv.next, %102 ]
-  %.1161.i97 = phi i32 [ %74, %.lr.ph.preheader ], [ %.2162.i, %102 ]
+  %indvars.iv = phi i64 [ %70, %.lr.ph.preheader ], [ %indvars.iv.next, %102 ]
+  %.1161.i97 = phi i32 [ %68, %.lr.ph.preheader ], [ %.2162.i, %102 ]
   %83 = getelementptr inbounds nuw %union.emap_batch_lookup_result_u, ptr %51, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8
   %.val15 = load i64, ptr %84, align 8, !tbaa !57
@@ -714,7 +714,7 @@ malloc_mutex_lock.exit.thread84:                  ; preds = %malloc_mutex_lock.e
   %.sroa.7.2.lcssa = phi i64 [ 0, %154 ], [ %162, %._crit_edge107.loopexit ]
   %.sroa.057.2.lcssa = phi ptr [ %.sroa.057.0125, %154 ], [ %.sroa.057.5, %._crit_edge107.loopexit ]
   %.1.lcssa = phi i32 [ %.0126, %154 ], [ %.4, %._crit_edge107.loopexit ]
-  br i1 %70, label %213, label %arena_bin_flush_batch_impl.exit
+  br i1 %73, label %213, label %arena_bin_flush_batch_impl.exit
 
 163:                                              ; preds = %.lr.ph106, %arena_dalloc_bin_locked_step.exit
   %indvars.iv151 = phi i64 [ %55, %.lr.ph106 ], [ %indvars.iv.next152, %arena_dalloc_bin_locked_step.exit ]
@@ -809,7 +809,7 @@ arena_dalloc_bin_locked_step.exit:                ; preds = %198, %194, %190, %2
   br i1 %exitcond155.not, label %._crit_edge107.loopexit, label %163, !llvm.loop !89
 
 213:                                              ; preds = %._crit_edge107
-  %214 = getelementptr inbounds nuw i8, ptr %72, i64 256
+  %214 = getelementptr inbounds nuw i8, ptr %75, i64 256
   %215 = tail call i64 @je_batcher_pop_begin(ptr noundef %0, ptr noundef nonnull %214) #16
   %216 = icmp eq i64 %215, -1
   br i1 %216, label %arena_bin_flush_batch_impl.exit, label %217
@@ -825,13 +825,13 @@ arena_dalloc_bin_locked_step.exit:                ; preds = %198, %194, %190, %2
   br label %._crit_edge121
 
 .lr.ph113:                                        ; preds = %217
-  %219 = getelementptr inbounds nuw i8, ptr %72, i64 392
+  %219 = getelementptr inbounds nuw i8, ptr %75, i64 392
   br label %222
 
 .lr.ph120:                                        ; preds = %222
   tail call void @je_batcher_pop_end(ptr noundef %0, ptr noundef nonnull %214) #16
   %220 = zext i32 %155 to i64
-  %221 = getelementptr inbounds nuw i8, ptr %72, i64 224
+  %221 = getelementptr inbounds nuw i8, ptr %75, i64 224
   br label %236
 
 222:                                              ; preds = %.lr.ph113, %222
@@ -847,10 +847,10 @@ arena_dalloc_bin_locked_step.exit:                ; preds = %198, %194, %190, %2
   %226 = add i64 %215, %.sroa.7.2.lcssa
   br label %._crit_edge121
 
-._crit_edge121:                                   ; preds = %._crit_edge114.thread, %._crit_edge121.loopexit
-  %.sroa.7.5.lcssa = phi i64 [ %226, %._crit_edge121.loopexit ], [ %.sroa.7.2.lcssa, %._crit_edge114.thread ]
-  %.sroa.057.6.lcssa = phi ptr [ %.sroa.057.7, %._crit_edge121.loopexit ], [ %.sroa.057.2.lcssa, %._crit_edge114.thread ]
-  %.5.lcssa = phi i32 [ %.6, %._crit_edge121.loopexit ], [ %.1.lcssa, %._crit_edge114.thread ]
+._crit_edge121:                                   ; preds = %._crit_edge121.loopexit, %._crit_edge114.thread
+  %.sroa.7.5.lcssa = phi i64 [ %.sroa.7.2.lcssa, %._crit_edge114.thread ], [ %226, %._crit_edge121.loopexit ]
+  %.sroa.057.6.lcssa = phi ptr [ %.sroa.057.2.lcssa, %._crit_edge114.thread ], [ %.sroa.057.7, %._crit_edge121.loopexit ]
+  %.5.lcssa = phi i32 [ %.1.lcssa, %._crit_edge114.thread ], [ %.6, %._crit_edge121.loopexit ]
   %227 = getelementptr inbounds nuw i8, ptr %.0.i32, i64 192
   %228 = load i64, ptr %227, align 8, !tbaa !92
   %229 = add i64 %228, 1
@@ -1682,24 +1682,24 @@ arena_get.exit.us:                                ; preds = %115, %.lr.ph182.us
   %117 = trunc nuw nsw i64 %116 to i32
   %118 = and i32 %117, 63
   %119 = load i32, ptr %37, align 4, !tbaa !60
-  %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw i8, ptr %.0.i50.us, i64 %120
-  %122 = load i32, ptr @je_bin_info_nbatched_sizes, align 4, !tbaa !60
-  %123 = icmp ult i32 %3, %122
-  %124 = and i64 %116, 63
-  %125 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %121, i64 %124
-  %126 = getelementptr inbounds nuw %struct.bin_s, ptr %121, i64 %124
-  %.0.i51.us = select i1 %123, ptr %125, ptr %126
-  %127 = add nuw nsw i32 %.0160.i178.us, 1
-  %128 = icmp ult i32 %127, %spec.store.select.i.us
-  br i1 %128, label %.lr.ph146.us.preheader, label %._crit_edge147.us
+  %120 = load i32, ptr @je_bin_info_nbatched_sizes, align 4, !tbaa !60
+  %121 = add nuw nsw i32 %.0160.i178.us, 1
+  %122 = icmp ult i32 %121, %spec.store.select.i.us
+  br i1 %122, label %.lr.ph146.us.preheader, label %._crit_edge147.us
 
 .lr.ph146.us.preheader:                           ; preds = %arena_get.exit.us
-  %129 = zext nneg i32 %127 to i64
+  %123 = zext nneg i32 %121 to i64
   br label %.lr.ph146.us
 
 ._crit_edge147.us:                                ; preds = %363, %arena_get.exit.us
-  %.1161.i.lcssa.us = phi i32 [ %127, %arena_get.exit.us ], [ %.2162.i.us, %363 ]
+  %.1161.i.lcssa.us = phi i32 [ %121, %arena_get.exit.us ], [ %.2162.i.us, %363 ]
+  %124 = zext i32 %119 to i64
+  %125 = getelementptr inbounds nuw i8, ptr %.0.i50.us, i64 %124
+  %126 = icmp ult i32 %3, %120
+  %127 = and i64 %116, 63
+  %128 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %125, i64 %127
+  %129 = getelementptr inbounds nuw %struct.bin_s, ptr %125, i64 %127
+  %.0.i51.us = select i1 %126, ptr %128, ptr %129
   %130 = icmp ne ptr %.0.i50.us, %46
   %131 = icmp ne i32 %118, %48
   %.not135.us = select i1 %130, i1 true, i1 %131
@@ -1708,7 +1708,7 @@ arena_get.exit.us:                                ; preds = %115, %.lr.ph182.us
   %134 = load i64, ptr @je_opt_bin_info_remote_free_max_batch, align 8, !tbaa !19
   %135 = icmp uge i64 %134, %133
   %or.cond.i.not.us = select i1 %135, i1 %.not135.us, i1 false
-  %spec.select.i.us = select i1 %or.cond.i.not.us, i1 %123, i1 false
+  %spec.select.i.us = select i1 %or.cond.i.not.us, i1 %126, i1 false
   br i1 %spec.select.i.us, label %136, label %.thread.us
 
 136:                                              ; preds = %._crit_edge147.us
@@ -1839,10 +1839,10 @@ malloc_mutex_lock.exit.thread121.us:              ; preds = %malloc_mutex_lock.e
   %.sroa.7.3.lcssa.us = phi i64 [ 0, %185 ], [ %191, %._crit_edge158.us.loopexit ]
   %.sroa.094.2.lcssa.us = phi ptr [ %.sroa.094.0176.us, %185 ], [ %.sroa.094.5.us, %._crit_edge158.us.loopexit ]
   %.1.lcssa.us = phi i32 [ %.0177.us, %185 ], [ %.4.us, %._crit_edge158.us.loopexit ]
-  br i1 %123, label %192, label %arena_bin_flush_batch_impl.exit.us
+  br i1 %126, label %192, label %arena_bin_flush_batch_impl.exit.us
 
 192:                                              ; preds = %._crit_edge158.us
-  %193 = getelementptr inbounds nuw i8, ptr %125, i64 256
+  %193 = getelementptr inbounds nuw i8, ptr %128, i64 256
   %194 = tail call i64 @je_batcher_pop_begin(ptr noundef %0, ptr noundef nonnull %193) #16
   %195 = icmp eq i64 %194, -1
   br i1 %195, label %arena_bin_flush_batch_impl.exit.us, label %196
@@ -1861,10 +1861,10 @@ malloc_mutex_lock.exit.thread121.us:              ; preds = %malloc_mutex_lock.e
   %198 = add i64 %194, %.sroa.7.3.lcssa.us
   br label %._crit_edge172.us
 
-._crit_edge172.us:                                ; preds = %._crit_edge165.us.thread, %._crit_edge172.us.loopexit
-  %.sroa.7.6.lcssa.us = phi i64 [ %198, %._crit_edge172.us.loopexit ], [ %.sroa.7.3.lcssa.us, %._crit_edge165.us.thread ]
-  %.sroa.094.6.lcssa.us = phi ptr [ %.sroa.094.7.us, %._crit_edge172.us.loopexit ], [ %.sroa.094.2.lcssa.us, %._crit_edge165.us.thread ]
-  %.5.lcssa.us = phi i32 [ %.6.us, %._crit_edge172.us.loopexit ], [ %.1.lcssa.us, %._crit_edge165.us.thread ]
+._crit_edge172.us:                                ; preds = %._crit_edge172.us.loopexit, %._crit_edge165.us.thread
+  %.sroa.7.6.lcssa.us = phi i64 [ %.sroa.7.3.lcssa.us, %._crit_edge165.us.thread ], [ %198, %._crit_edge172.us.loopexit ]
+  %.sroa.094.6.lcssa.us = phi ptr [ %.sroa.094.2.lcssa.us, %._crit_edge165.us.thread ], [ %.sroa.094.7.us, %._crit_edge172.us.loopexit ]
+  %.5.lcssa.us = phi i32 [ %.1.lcssa.us, %._crit_edge165.us.thread ], [ %.6.us, %._crit_edge172.us.loopexit ]
   %199 = getelementptr inbounds nuw i8, ptr %.0.i51.us, i64 192
   %200 = load i64, ptr %199, align 8, !tbaa !92
   %201 = add i64 %200, 1
@@ -2135,8 +2135,8 @@ arena_dalloc_bin_locked_step.exit.us:             ; preds = %340, %330, %326, %3
   br i1 %exitcond217.not, label %._crit_edge158.us.loopexit, label %294, !llvm.loop !89
 
 .lr.ph146.us:                                     ; preds = %.lr.ph146.us.preheader, %363
-  %indvars.iv204 = phi i64 [ %129, %.lr.ph146.us.preheader ], [ %indvars.iv.next205, %363 ]
-  %.1161.i145.us = phi i32 [ %127, %.lr.ph146.us.preheader ], [ %.2162.i.us, %363 ]
+  %indvars.iv204 = phi i64 [ %123, %.lr.ph146.us.preheader ], [ %indvars.iv.next205, %363 ]
+  %.1161.i145.us = phi i32 [ %121, %.lr.ph146.us.preheader ], [ %.2162.i.us, %363 ]
   %344 = getelementptr inbounds nuw %union.emap_batch_lookup_result_u, ptr %51, i64 %indvars.iv204
   %345 = load ptr, ptr %344, align 8
   %.val34.us = load i64, ptr %345, align 8, !tbaa !57
@@ -2203,13 +2203,13 @@ arena_dalloc_bin_locked_step.exit.us:             ; preds = %340, %330, %326, %3
   br label %294
 
 .lr.ph164.us:                                     ; preds = %196
-  %370 = getelementptr inbounds nuw i8, ptr %125, i64 392
+  %370 = getelementptr inbounds nuw i8, ptr %128, i64 392
   br label %259
 
 .lr.ph171.us:                                     ; preds = %259
   tail call void @je_batcher_pop_end(ptr noundef %0, ptr noundef nonnull %193) #16
   %371 = zext i32 %186 to i64
-  %372 = getelementptr inbounds nuw i8, ptr %125, i64 224
+  %372 = getelementptr inbounds nuw i8, ptr %128, i64 224
   br label %208
 
 .split:                                           ; preds = %14, %tcache_bin_flush_impl_large.exit

@@ -3795,7 +3795,6 @@ RSTRING_PTR.exit1149:                             ; preds = %564, %574
   %586 = load i64, ptr %576, align 8, !tbaa !19
   %587 = icmp sgt i64 %585, %586
   %.neg = sub i64 %586, %585
-  %.1957 = call i64 @llvm.smin.i64(i64 %585, i64 %586)
   %588 = select i1 %587, i64 %.neg, i64 0
   %.25860 = add i64 %588, %584
   %589 = icmp sgt i64 %.25860, 0
@@ -3904,6 +3903,7 @@ RSTRING_PTR.exit1149:                             ; preds = %564, %574
 ._crit_edge1602:                                  ; preds = %630, %580
   %.1959.lcssa = phi ptr [ %.09581605, %580 ], [ %641, %630 ]
   %.23811.lcssa = phi ptr [ %581, %580 ], [ %.27815, %630 ]
+  %.1957 = call i64 @llvm.smin.i64(i64 %585, i64 %586)
   %644 = icmp ult ptr %.23811.lcssa, %30
   br i1 %644, label %645, label %649
 

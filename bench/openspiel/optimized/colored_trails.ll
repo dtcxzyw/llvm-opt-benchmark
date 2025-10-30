@@ -1469,8 +1469,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   store ptr %52, ptr %2, align 8
   %53 = getelementptr inbounds nuw i32, ptr %52, i64 %49
   store ptr %53, ptr %45, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %52, i8 0, i64 %51, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 %51
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %52, i8 0, i64 %51, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc8, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
@@ -1618,8 +1618,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %4
   %14 = getelementptr inbounds nuw i32, ptr %12, i64 %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %14, ptr %15, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %12, i8 -1, i64 %11, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %11
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %12, i8 -1, i64 %11, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
@@ -1659,8 +1659,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i16: ; preds = %_ZNSt6vectorIiS
   %27 = getelementptr inbounds nuw i32, ptr %25, i64 %19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %27, ptr %28, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %25, i8 -1, i64 %24, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 %24
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %25, i8 -1, i64 %24, i1 false)
   br label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i20
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i20: ; preds = %.noexc18, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i16
@@ -1682,8 +1682,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i20: ; preds = %.noexc18, %_
   %38 = getelementptr inbounds nuw i32, ptr %36, i64 %34
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %38, ptr %39, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %36, i8 -1, i64 %35, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 %35
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %36, i8 -1, i64 %35, i1 false)
   store ptr %40, ptr %37, align 8
   invoke void @_ZN10open_spiel14colored_trails5Board4initEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
           to label %41 unwind label %46
@@ -7687,8 +7687,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %144 = getelementptr inbounds nuw i32, ptr %142, i64 %138
   %145 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %144, ptr %145, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %142, i8 0, i64 %141, i1 false)
   %146 = getelementptr inbounds nuw i8, ptr %142, i64 %141
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %142, i8 0, i64 %141, i1 false)
   br label %.loopexit110
 
 .loopexit110:                                     ; preds = %.noexc79, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
@@ -8358,8 +8358,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %79 = getelementptr inbounds nuw double, ptr %77, i64 %71
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %79, ptr %80, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %77, i8 0, i64 %76, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 %76
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %77, i8 0, i64 %76, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc13, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
@@ -16585,35 +16585,35 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   br label %36
 
 36:                                               ; preds = %287, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit
-  %.0 = phi i32 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit ], [ %37, %287 ]
-  %37 = add nuw nsw i32 %.0, 1
-  %38 = load ptr, ptr %30, align 8
-  %39 = getelementptr inbounds %"class.std::vector", ptr %38, i64 %31
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %39, align 8
-  %.not114 = icmp eq ptr %41, %42
+  %.0 = phi i32 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit ], [ %54, %287 ]
+  %37 = load ptr, ptr %30, align 8
+  %38 = getelementptr inbounds %"class.std::vector", ptr %37, i64 %31
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %38, align 8
+  %.not114 = icmp eq ptr %40, %41
   br i1 %.not114, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %36 ]
-  %43 = phi ptr [ %49, %.lr.ph ], [ %42, %36 ]
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
-  store i32 0, ptr %44, align 4
+  %42 = phi ptr [ %48, %.lr.ph ], [ %41, %36 ]
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  store i32 0, ptr %43, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = load ptr, ptr %30, align 8
-  %46 = getelementptr inbounds %"class.std::vector", ptr %45, i64 %31
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %46, align 8
+  %44 = load ptr, ptr %30, align 8
+  %45 = getelementptr inbounds %"class.std::vector", ptr %44, i64 %31
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %45, align 8
+  %49 = ptrtoint ptr %47 to i64
   %50 = ptrtoint ptr %48 to i64
-  %51 = ptrtoint ptr %49 to i64
-  %52 = sub i64 %50, %51
-  %53 = ashr exact i64 %52, 2
-  %54 = icmp ugt i64 %53, %indvars.iv.next
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !148
+  %51 = sub i64 %49, %50
+  %52 = ashr exact i64 %51, 2
+  %53 = icmp ugt i64 %52, %indvars.iv.next
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !148
 
 ._crit_edge:                                      ; preds = %.lr.ph, %36
+  %54 = add nuw nsw i32 %.0, 1
   %55 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %6)
           to label %.noexc unwind label %.loopexit95
 
@@ -16998,7 +16998,7 @@ _ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm
   br i1 %.not29, label %289, label %36, !llvm.loop !153
 
 289:                                              ; preds = %287
-  store i32 %37, ptr %8, align 4
+  store i32 %54, ptr %8, align 4
   store i32 1000, ptr %9, align 4
   %290 = icmp samesign ult i32 %.0, 999
   br i1 %290, label %296, label %291
@@ -17739,8 +17739,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %30 = getelementptr inbounds nuw double, ptr %28, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc4, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i

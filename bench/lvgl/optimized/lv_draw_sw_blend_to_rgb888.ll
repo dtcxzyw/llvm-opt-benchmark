@@ -76,8 +76,8 @@ define void @lv_draw_sw_blend_color_to_rgb888(ptr noundef readonly captures(none
   %.0189 = getelementptr inbounds i8, ptr %.pn240, i64 %35
   %39 = tail call ptr @lv_memcpy(ptr noundef %.0189, ptr noundef %20, i64 noundef %37) #3
   %40 = add nuw nsw i32 %.0184241, 1
-  %exitcond262.not = icmp eq i32 %40, %6
-  br i1 %exitcond262.not, label %.loopexit, label %38, !llvm.loop !24
+  %exitcond261.not = icmp eq i32 %40, %6
+  br i1 %exitcond261.not, label %.loopexit, label %38, !llvm.loop !24
 
 41:                                               ; preds = %18
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -101,7 +101,7 @@ define void @lv_draw_sw_blend_color_to_rgb888(ptr noundef readonly captures(none
   br i1 %.not244, label %.preheader, label %.lr.ph246
 
 .preheader.loopexit:                              ; preds = %.lr.ph246
-  %49 = trunc nuw nsw i64 %indvars.iv.next264 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv.next263 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader212
@@ -114,8 +114,8 @@ define void @lv_draw_sw_blend_color_to_rgb888(ptr noundef readonly captures(none
   br label %.lr.ph248
 
 .lr.ph246:                                        ; preds = %.preheader212, %.lr.ph246
-  %indvars.iv263 = phi i64 [ %indvars.iv.next264, %.lr.ph246 ], [ 0, %.preheader212 ]
-  %52 = getelementptr inbounds nuw i32, ptr %.0183251, i64 %indvars.iv263
+  %indvars.iv262 = phi i64 [ %indvars.iv.next263, %.lr.ph246 ], [ 0, %.preheader212 ]
+  %52 = getelementptr inbounds nuw i32, ptr %.0183251, i64 %indvars.iv262
   store i32 %43, ptr %52, align 4, !tbaa !25
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 %43, ptr %53, align 4, !tbaa !25
@@ -147,23 +147,23 @@ define void @lv_draw_sw_blend_color_to_rgb888(ptr noundef readonly captures(none
   store i32 %43, ptr %66, align 4, !tbaa !25
   %67 = getelementptr inbounds nuw i8, ptr %52, i64 60
   store i32 %43, ptr %67, align 4, !tbaa !25
-  %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 16
-  %.not = icmp sgt i64 %indvars.iv.next264, %48
+  %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 16
+  %.not = icmp sgt i64 %indvars.iv.next263, %48
   br i1 %.not, label %.preheader.loopexit, label %.lr.ph246, !llvm.loop !26
 
 .lr.ph248:                                        ; preds = %.lr.ph248.preheader, %.lr.ph248
-  %indvars.iv266 = phi i64 [ %51, %.lr.ph248.preheader ], [ %indvars.iv.next267, %.lr.ph248 ]
-  %68 = getelementptr inbounds nuw i32, ptr %.0183251, i64 %indvars.iv266
+  %indvars.iv265 = phi i64 [ %51, %.lr.ph248.preheader ], [ %indvars.iv.next266, %.lr.ph248 ]
+  %68 = getelementptr inbounds nuw i32, ptr %.0183251, i64 %indvars.iv265
   store i32 %43, ptr %68, align 4, !tbaa !25
-  %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
-  %exitcond269.not = icmp eq i64 %indvars.iv.next267, %wide.trip.count
-  br i1 %exitcond269.not, label %._crit_edge249, label %.lr.ph248, !llvm.loop !27
+  %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
+  %exitcond268.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count
+  br i1 %exitcond268.not, label %._crit_edge249, label %.lr.ph248, !llvm.loop !27
 
 ._crit_edge249:                                   ; preds = %.lr.ph248, %.preheader
   %69 = getelementptr inbounds nuw i8, ptr %.0183251, i64 %47
   %70 = add nuw nsw i32 %.1185250, 1
-  %exitcond270.not = icmp eq i32 %70, %6
-  br i1 %exitcond270.not, label %.loopexit, label %.preheader212, !llvm.loop !28
+  %exitcond269.not = icmp eq i32 %70, %6
+  br i1 %exitcond269.not, label %.loopexit, label %.preheader212, !llvm.loop !28
 
 71:                                               ; preds = %2
   %72 = icmp ult i8 %8, -3
@@ -193,8 +193,8 @@ define void @lv_draw_sw_blend_color_to_rgb888(ptr noundef readonly captures(none
   %87 = mul nuw nsw i32 %86, %79
   %88 = zext i32 %14 to i64
   %89 = icmp eq i8 %8, 0
-  %or.cond290 = select i1 %78, i1 true, i1 %89
-  br i1 %or.cond290, label %.loopexit, label %.preheader214.us.preheader
+  %or.cond289 = select i1 %78, i1 true, i1 %89
+  br i1 %or.cond289, label %.loopexit, label %.preheader214.us.preheader
 
 .preheader214.us.preheader:                       ; preds = %.preheader214.lr.ph
   %90 = load ptr, ptr %0, align 8, !tbaa !17
@@ -239,8 +239,8 @@ lv_color_24_24_mix.exit.us234:                    ; preds = %.preheader214.us, %
 ._crit_edge.split.us236:                          ; preds = %lv_color_24_24_mix.exit.us234
   %115 = getelementptr inbounds nuw i8, ptr %.0180233.us, i64 %88
   %116 = add nuw nsw i32 %.2186232.us, 1
-  %exitcond260.not = icmp eq i32 %116, %6
-  br i1 %exitcond260.not, label %.loopexit, label %.preheader214.us, !llvm.loop !30
+  %exitcond259.not = icmp eq i32 %116, %6
+  br i1 %exitcond259.not, label %.loopexit, label %.preheader214.us, !llvm.loop !30
 
 117:                                              ; preds = %71
   %118 = icmp ne ptr %10, null
@@ -344,8 +344,8 @@ lv_color_24_24_mix.exit193.us:                    ; preds = %167, %141, %131
   %173 = getelementptr inbounds i8, ptr %.0178229.us, i64 %128
   %174 = getelementptr inbounds i8, ptr %.0179228.us, i64 %129
   %175 = add nuw nsw i32 %.3187227.us, 1
-  %exitcond259.not = icmp eq i32 %175, %6
-  br i1 %exitcond259.not, label %.loopexit, label %.preheader216.us, !llvm.loop !32
+  %exitcond258.not = icmp eq i32 %175, %6
+  br i1 %exitcond258.not, label %.loopexit, label %.preheader216.us, !llvm.loop !32
 
 176:                                              ; preds = %117
   br i1 %122, label %.preheader218.lr.ph, label %.loopexit
@@ -440,7 +440,7 @@ lv_color_24_24_mix.exit194.us:                    ; preds = %223, %197, %184
   %exitcond.not = icmp eq i32 %231, %6
   br i1 %exitcond.not, label %.loopexit, label %.preheader218.us, !llvm.loop !34
 
-.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us230, %._crit_edge.split.us236, %._crit_edge249, %38, %18, %._crit_edge, %.preheader218.lr.ph, %.preheader216.lr.ph, %.preheader214.lr.ph, %176, %123, %73, %41
+.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us230, %._crit_edge.split.us236, %._crit_edge249, %38, %18, %._crit_edge, %73, %.preheader214.lr.ph, %.preheader218.lr.ph, %.preheader216.lr.ph, %176, %123, %41
   ret void
 }
 

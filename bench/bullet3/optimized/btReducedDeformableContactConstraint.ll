@@ -1530,7 +1530,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigi
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i8, ptr %2, align 8, !tbaa !82, !range !85, !noundef !86
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %125, label %5
+  br i1 %4, label %113, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 97
@@ -1574,7 +1574,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigi
   %.sroa.0.0.vec.insert.i30 = insertelement <2 x float> poison, float %35, i64 0
   %.sroa.0.4.vec.insert.i31 = insertelement <2 x float> %.sroa.0.0.vec.insert.i30, float %38, i64 1
   %.sroa.3.12.vec.insert.i32 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %41, i64 0
-  br label %125
+  br label %113
 
 42:                                               ; preds = %5
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1586,7 +1586,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigi
   %.not.i = icmp eq i32 %48, 0
   %.not87 = icmp eq ptr %45, null
   %.not = or i1 %.not87, %.not.i
-  br i1 %.not, label %125, label %49
+  br i1 %.not, label %113, label %49
 
 49:                                               ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 376
@@ -1596,126 +1596,109 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigi
   %54 = add i32 %53, 6
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 208
   %56 = load ptr, ptr %55, align 8, !tbaa !96
-  %57 = getelementptr inbounds nuw i8, ptr %44, i64 416
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 256
   %58 = load ptr, ptr %57, align 8, !tbaa !96
-  %59 = getelementptr inbounds nuw i8, ptr %44, i64 624
-  %60 = load ptr, ptr %59, align 8, !tbaa !96
-  %61 = getelementptr inbounds nuw i8, ptr %51, i64 256
-  %62 = load ptr, ptr %61, align 8, !tbaa !96
-  %63 = icmp sgt i32 %53, -6
-  br i1 %63, label %.lr.ph.preheader, label %._crit_edge
+  %59 = icmp sgt i32 %53, -6
+  br i1 %59, label %.lr.ph.preheader, label %._crit_edge100
 
 .lr.ph.preheader:                                 ; preds = %49
   %smax = tail call i32 @llvm.smax.i32(i32 %54, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %49
-  %64 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %65 = load float, ptr %64, align 4, !tbaa !35
-  %66 = fmul float %65, 0.000000e+00
-  %67 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %68 = load float, ptr %67, align 4, !tbaa !35
-  %69 = fmul float %68, 0.000000e+00
-  %70 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %71 = load float, ptr %70, align 4, !tbaa !35
-  %72 = fmul float %71, 0.000000e+00
-  br label %._crit_edge94
-
 .lr.ph93.preheader:                               ; preds = %.lr.ph
-  %73 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %74 = load float, ptr %73, align 4, !tbaa !35
-  %75 = fmul float %86, %74
-  %76 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %77 = load float, ptr %76, align 4, !tbaa !35
-  %78 = fmul float %86, %77
-  %79 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %80 = load float, ptr %79, align 4, !tbaa !35
-  %81 = fmul float %86, %80
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 416
+  %61 = load ptr, ptr %60, align 8, !tbaa !96
   %smax108 = tail call i32 @llvm.smax.i32(i32 %54, i32 1)
   %wide.trip.count109 = zext nneg i32 %smax108 to i64
   br label %.lr.ph93
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.08688 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %86, %.lr.ph ]
-  %82 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv
-  %83 = load float, ptr %82, align 4, !tbaa !35
-  %84 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
-  %85 = load float, ptr %84, align 4, !tbaa !35
-  %86 = tail call float @llvm.fmuladd.f32(float %83, float %85, float %.08688)
+  %.08688 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %66, %.lr.ph ]
+  %62 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv
+  %63 = load float, ptr %62, align 4, !tbaa !35
+  %64 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
+  %65 = load float, ptr %64, align 4, !tbaa !35
+  %66 = tail call float @llvm.fmuladd.f32(float %63, float %65, float %.08688)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph93.preheader, label %.lr.ph, !llvm.loop !208
 
-._crit_edge94:                                    ; preds = %.lr.ph93, %._crit_edge
-  %87 = phi float [ %72, %._crit_edge ], [ %81, %.lr.ph93 ]
-  %88 = phi float [ %69, %._crit_edge ], [ %78, %.lr.ph93 ]
-  %89 = phi float [ %66, %._crit_edge ], [ %75, %.lr.ph93 ]
-  %.1.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %106, %.lr.ph93 ]
-  %90 = getelementptr inbounds nuw i8, ptr %44, i64 816
-  %91 = load float, ptr %90, align 4, !tbaa !35
-  %92 = fmul float %.1.lcssa, %91
-  %93 = getelementptr inbounds nuw i8, ptr %44, i64 820
-  %94 = load float, ptr %93, align 4, !tbaa !35
-  %95 = fmul float %.1.lcssa, %94
-  %96 = getelementptr inbounds nuw i8, ptr %44, i64 824
-  %97 = load float, ptr %96, align 4, !tbaa !35
-  %98 = fmul float %.1.lcssa, %97
-  %99 = fadd float %89, %92
-  %100 = fadd float %88, %95
-  %101 = fadd float %87, %98
-  br i1 %63, label %.lr.ph99.preheader, label %._crit_edge100
-
-.lr.ph99.preheader:                               ; preds = %._crit_edge94
+.lr.ph99.preheader:                               ; preds = %.lr.ph93
+  %67 = getelementptr inbounds nuw i8, ptr %44, i64 624
+  %68 = load ptr, ptr %67, align 8, !tbaa !96
   %smax114 = tail call i32 @llvm.smax.i32(i32 %54, i32 1)
   %wide.trip.count115 = zext nneg i32 %smax114 to i64
   br label %.lr.ph99
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
   %indvars.iv105 = phi i64 [ 0, %.lr.ph93.preheader ], [ %indvars.iv.next106, %.lr.ph93 ]
-  %.190 = phi float [ 0.000000e+00, %.lr.ph93.preheader ], [ %106, %.lr.ph93 ]
-  %102 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv105
-  %103 = load float, ptr %102, align 4, !tbaa !35
-  %104 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv105
-  %105 = load float, ptr %104, align 4, !tbaa !35
-  %106 = tail call float @llvm.fmuladd.f32(float %103, float %105, float %.190)
+  %.190 = phi float [ 0.000000e+00, %.lr.ph93.preheader ], [ %73, %.lr.ph93 ]
+  %69 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv105
+  %70 = load float, ptr %69, align 4, !tbaa !35
+  %71 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv105
+  %72 = load float, ptr %71, align 4, !tbaa !35
+  %73 = tail call float @llvm.fmuladd.f32(float %70, float %72, float %.190)
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count109
-  br i1 %exitcond110.not, label %._crit_edge94, label %.lr.ph93, !llvm.loop !209
+  br i1 %exitcond110.not, label %.lr.ph99.preheader, label %.lr.ph93, !llvm.loop !209
 
-._crit_edge100:                                   ; preds = %.lr.ph99, %._crit_edge94
-  %.2.lcssa = phi float [ 0.000000e+00, %._crit_edge94 ], [ %124, %.lr.ph99 ]
-  %107 = getelementptr inbounds nuw i8, ptr %44, i64 832
-  %108 = load float, ptr %107, align 4, !tbaa !35
-  %109 = fmul float %.2.lcssa, %108
-  %110 = getelementptr inbounds nuw i8, ptr %44, i64 836
-  %111 = load float, ptr %110, align 4, !tbaa !35
-  %112 = fmul float %.2.lcssa, %111
-  %113 = getelementptr inbounds nuw i8, ptr %44, i64 840
-  %114 = load float, ptr %113, align 4, !tbaa !35
-  %115 = fmul float %.2.lcssa, %114
-  %116 = fadd float %99, %109
-  %117 = insertelement <2 x float> poison, float %116, i64 0
-  %118 = fadd float %100, %112
-  %.sroa.062.4.vec.insert77 = insertelement <2 x float> %117, float %118, i64 1
-  %119 = fadd float %101, %115
-  %.sroa.13.8.vec.insert85 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %119, i64 0
-  br label %125
+._crit_edge100:                                   ; preds = %.lr.ph99, %49
+  %.1.lcssa124 = phi float [ 0.000000e+00, %49 ], [ %73, %.lr.ph99 ]
+  %.086.lcssa118122 = phi float [ 0.000000e+00, %49 ], [ %66, %.lr.ph99 ]
+  %.2.lcssa = phi float [ 0.000000e+00, %49 ], [ %112, %.lr.ph99 ]
+  %74 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %75 = load float, ptr %74, align 4, !tbaa !35
+  %76 = fmul float %.086.lcssa118122, %75
+  %77 = getelementptr inbounds nuw i8, ptr %44, i64 12
+  %78 = load float, ptr %77, align 4, !tbaa !35
+  %79 = fmul float %.086.lcssa118122, %78
+  %80 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %81 = load float, ptr %80, align 4, !tbaa !35
+  %82 = fmul float %.086.lcssa118122, %81
+  %83 = getelementptr inbounds nuw i8, ptr %44, i64 816
+  %84 = load float, ptr %83, align 4, !tbaa !35
+  %85 = fmul float %.1.lcssa124, %84
+  %86 = getelementptr inbounds nuw i8, ptr %44, i64 820
+  %87 = load float, ptr %86, align 4, !tbaa !35
+  %88 = fmul float %.1.lcssa124, %87
+  %89 = getelementptr inbounds nuw i8, ptr %44, i64 824
+  %90 = load float, ptr %89, align 4, !tbaa !35
+  %91 = fmul float %.1.lcssa124, %90
+  %92 = fadd float %76, %85
+  %93 = fadd float %79, %88
+  %94 = fadd float %82, %91
+  %95 = getelementptr inbounds nuw i8, ptr %44, i64 832
+  %96 = load float, ptr %95, align 4, !tbaa !35
+  %97 = fmul float %.2.lcssa, %96
+  %98 = getelementptr inbounds nuw i8, ptr %44, i64 836
+  %99 = load float, ptr %98, align 4, !tbaa !35
+  %100 = fmul float %.2.lcssa, %99
+  %101 = getelementptr inbounds nuw i8, ptr %44, i64 840
+  %102 = load float, ptr %101, align 4, !tbaa !35
+  %103 = fmul float %.2.lcssa, %102
+  %104 = fadd float %92, %97
+  %105 = insertelement <2 x float> poison, float %104, i64 0
+  %106 = fadd float %93, %100
+  %.sroa.062.4.vec.insert77 = insertelement <2 x float> %105, float %106, i64 1
+  %107 = fadd float %94, %103
+  %.sroa.13.8.vec.insert85 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %107, i64 0
+  br label %113
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %.lr.ph99
   %indvars.iv111 = phi i64 [ 0, %.lr.ph99.preheader ], [ %indvars.iv.next112, %.lr.ph99 ]
-  %.296 = phi float [ 0.000000e+00, %.lr.ph99.preheader ], [ %124, %.lr.ph99 ]
-  %120 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv111
-  %121 = load float, ptr %120, align 4, !tbaa !35
-  %122 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv111
-  %123 = load float, ptr %122, align 4, !tbaa !35
-  %124 = tail call float @llvm.fmuladd.f32(float %121, float %123, float %.296)
+  %.296 = phi float [ 0.000000e+00, %.lr.ph99.preheader ], [ %112, %.lr.ph99 ]
+  %108 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv111
+  %109 = load float, ptr %108, align 4, !tbaa !35
+  %110 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv111
+  %111 = load float, ptr %110, align 4, !tbaa !35
+  %112 = tail call float @llvm.fmuladd.f32(float %109, float %111, float %.296)
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count115
   br i1 %exitcond116.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !210
 
-125:                                              ; preds = %42, %._crit_edge100, %9, %1
+113:                                              ; preds = %42, %._crit_edge100, %9, %1
   %.sroa.062.0 = phi <2 x float> [ zeroinitializer, %1 ], [ zeroinitializer, %42 ], [ %.sroa.062.4.vec.insert77, %._crit_edge100 ], [ %.sroa.0.4.vec.insert.i31, %9 ]
   %.sroa.13.0 = phi <2 x float> [ zeroinitializer, %1 ], [ zeroinitializer, %42 ], [ %.sroa.13.8.vec.insert85, %._crit_edge100 ], [ %.sroa.3.12.vec.insert.i32, %9 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.062.0, 0

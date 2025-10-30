@@ -318,27 +318,27 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge, %76
   br i1 %.not.i, label %_ZN2cv3hfs9RegionSet4findEi.exit, label %81, !llvm.loop !46
 
 _ZN2cv3hfs9RegionSet4findEi.exit:                 ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  %87 = sext i32 %80 to i64
-  %88 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %87
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  store i32 %.0.i, ptr %89, align 4, !tbaa !32
-  %90 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %91 = load i32, ptr %90, align 4, !tbaa !47
-  br label %92
+  %86 = sext i32 %80 to i64
+  %87 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %86
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
+  store i32 %.0.i, ptr %88, align 4, !tbaa !32
+  %89 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %90 = load i32, ptr %89, align 4, !tbaa !47
+  br label %91
 
-92:                                               ; preds = %92, %_ZN2cv3hfs9RegionSet4findEi.exit
-  %.0.i52 = phi i32 [ %91, %_ZN2cv3hfs9RegionSet4findEi.exit ], [ %96, %92 ]
-  %93 = sext i32 %.0.i52 to i64
-  %94 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %93
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %96 = load i32, ptr %95, align 4, !tbaa !32
-  %.not.i53 = icmp eq i32 %.0.i52, %96
-  br i1 %.not.i53, label %_ZN2cv3hfs9RegionSet4findEi.exit54, label %92, !llvm.loop !46
+91:                                               ; preds = %91, %_ZN2cv3hfs9RegionSet4findEi.exit
+  %.0.i52 = phi i32 [ %90, %_ZN2cv3hfs9RegionSet4findEi.exit ], [ %95, %91 ]
+  %92 = sext i32 %.0.i52 to i64
+  %93 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %92
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  %95 = load i32, ptr %94, align 4, !tbaa !32
+  %.not.i53 = icmp eq i32 %.0.i52, %95
+  br i1 %.not.i53, label %_ZN2cv3hfs9RegionSet4findEi.exit54, label %91, !llvm.loop !46
 
-_ZN2cv3hfs9RegionSet4findEi.exit54:               ; preds = %92
-  %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %98 = sext i32 %91 to i64
+_ZN2cv3hfs9RegionSet4findEi.exit54:               ; preds = %91
+  %96 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  %98 = sext i32 %90 to i64
   %99 = getelementptr inbounds nuw %"struct.cv::hfs::Region", ptr %68, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   store i32 %.0.i52, ptr %100, align 4, !tbaa !32
@@ -353,26 +353,26 @@ _ZN2cv3hfs9RegionSet4findEi.exit54:               ; preds = %92
   br i1 %105, label %152, label %106
 
 106:                                              ; preds = %101
-  %107 = getelementptr inbounds nuw float, ptr %.sroa.058.0120, i64 %93
+  %107 = getelementptr inbounds nuw float, ptr %.sroa.058.0120, i64 %92
   %108 = load float, ptr %107, align 4, !tbaa !39
   %109 = fcmp ugt float %102, %108
   br i1 %109, label %152, label %110
 
 110:                                              ; preds = %106
   %111 = load i32, ptr %83, align 4, !tbaa !28
-  %112 = load i32, ptr %94, align 4, !tbaa !28
+  %112 = load i32, ptr %93, align 4, !tbaa !28
   %113 = icmp sgt i32 %111, %112
   br i1 %113, label %114, label %125
 
 114:                                              ; preds = %110
   store i32 %.0.i, ptr %97, align 4, !tbaa !32
-  %115 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %116 = load i32, ptr %115, align 4, !tbaa !30
   %117 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %118 = load i32, ptr %117, align 4, !tbaa !30
   %119 = add nsw i32 %118, %116
   store i32 %119, ptr %117, align 4, !tbaa !30
-  %120 = getelementptr inbounds nuw i8, ptr %94, i64 12
+  %120 = getelementptr inbounds nuw i8, ptr %93, i64 12
   %121 = load i32, ptr %120, align 4, !tbaa !31
   %122 = getelementptr inbounds nuw i8, ptr %83, i64 12
   %123 = load i32, ptr %122, align 4, !tbaa !31
@@ -381,16 +381,16 @@ _ZN2cv3hfs9RegionSet4findEi.exit54:               ; preds = %92
   br label %_ZN2cv3hfs9RegionSet4joinEii.exit
 
 125:                                              ; preds = %110
-  store i32 %.0.i52, ptr %86, align 4, !tbaa !32
+  store i32 %.0.i52, ptr %96, align 4, !tbaa !32
   %126 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %127 = load i32, ptr %126, align 4, !tbaa !30
-  %128 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %129 = load i32, ptr %128, align 4, !tbaa !30
   %130 = add nsw i32 %129, %127
   store i32 %130, ptr %128, align 4, !tbaa !30
   %131 = getelementptr inbounds nuw i8, ptr %83, i64 12
   %132 = load i32, ptr %131, align 4, !tbaa !31
-  %133 = getelementptr inbounds nuw i8, ptr %94, i64 12
+  %133 = getelementptr inbounds nuw i8, ptr %93, i64 12
   %134 = load i32, ptr %133, align 4, !tbaa !31
   %135 = add nsw i32 %134, %132
   store i32 %135, ptr %133, align 4, !tbaa !31
@@ -399,7 +399,7 @@ _ZN2cv3hfs9RegionSet4findEi.exit54:               ; preds = %92
 
 137:                                              ; preds = %125
   %138 = add nsw i32 %111, 1
-  store i32 %138, ptr %94, align 4, !tbaa !28
+  store i32 %138, ptr %93, align 4, !tbaa !28
   br label %_ZN2cv3hfs9RegionSet4joinEii.exit
 
 _ZN2cv3hfs9RegionSet4joinEii.exit:                ; preds = %114, %125, %137
@@ -418,7 +418,7 @@ _ZN2cv3hfs9RegionSet4joinEii.exit:                ; preds = %114, %125, %137
   br i1 %.not.i56, label %_ZN2cv3hfs9RegionSet4findEi.exit57, label %141, !llvm.loop !46
 
 _ZN2cv3hfs9RegionSet4findEi.exit57:               ; preds = %141
-  store i32 %.0.i55, ptr %86, align 4, !tbaa !32
+  store i32 %.0.i55, ptr %96, align 4, !tbaa !32
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %147 = load i32, ptr %146, align 4, !tbaa !30
   %148 = sitofp i32 %147 to float

@@ -188,17 +188,17 @@ define dso_local void @_ZN5ImageC2ERKN9Imath_3_23BoxINS0_4Vec2IiEEEE(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !18
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.not4 = icmp eq ptr %4, %5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.not4 = icmp eq ptr %3, %4
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %18, %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !17
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P12ImageChannelESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P12ImageChannelESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP12ImageChannelSt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit unwind label %8
 
 8:                                                ; preds = %._crit_edge
@@ -212,7 +212,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP12ImageChannelSt4
   ret void
 
 .lr.ph:                                           ; preds = %1, %18
-  %.sroa.01.05 = phi ptr [ %19, %18 ], [ %4, %1 ]
+  %.sroa.01.05 = phi ptr [ %19, %18 ], [ %3, %1 ]
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.01.05, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   %13 = icmp eq ptr %12, null
@@ -227,7 +227,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP12ImageChannelSt4
 
 18:                                               ; preds = %.lr.ph, %14
   %19 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.05) #25
-  %.not = icmp eq ptr %19, %5
+  %.not = icmp eq ptr %19, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 }
 

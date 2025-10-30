@@ -2253,12 +2253,12 @@ vp56_rac_gets_nn.exit202:                         ; preds = %vpx_rac_renorm.exit
   br i1 %.not138, label %.preheader234, label %.preheader238
 
 .preheader238:                                    ; preds = %396
-  %399 = getelementptr inbounds nuw i8, ptr %0, i64 5240
-  %400 = getelementptr inbounds nuw i8, ptr %4, i64 100
-  %401 = getelementptr inbounds nuw i8, ptr %0, i64 5288
-  %402 = getelementptr inbounds nuw i8, ptr %3, i64 76
-  %403 = getelementptr inbounds nuw i8, ptr %0, i64 5336
-  %404 = getelementptr inbounds nuw i8, ptr %2, i64 100
+  %399 = getelementptr inbounds nuw i8, ptr %4, i64 100
+  %400 = getelementptr inbounds nuw i8, ptr %0, i64 5240
+  %401 = getelementptr inbounds nuw i8, ptr %3, i64 76
+  %402 = getelementptr inbounds nuw i8, ptr %0, i64 5288
+  %403 = getelementptr inbounds nuw i8, ptr %2, i64 100
+  %404 = getelementptr inbounds nuw i8, ptr %0, i64 5336
   br label %406
 
 .preheader234:                                    ; preds = %396
@@ -2270,7 +2270,7 @@ vp56_rac_gets_nn.exit202:                         ; preds = %vpx_rac_renorm.exit
   %indvars.iv312 = phi i64 [ 0, %.preheader238 ], [ 1, %509 ]
   %408 = getelementptr inbounds nuw [11 x i8], ptr %13, i64 %indvars.iv312
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i32 256, ptr %400, align 4, !tbaa !115
+  store i32 256, ptr %399, align 4, !tbaa !115
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %406
@@ -2310,7 +2310,7 @@ vp56_rac_gets_nn.exit202:                         ; preds = %vpx_rac_renorm.exit
   br i1 %exitcond.not.i206, label %vp6_build_huff_tree.exit, label %.lr.ph.i, !llvm.loop !117
 
 vp6_build_huff_tree.exit:                         ; preds = %.lr.ph.i
-  %435 = getelementptr inbounds nuw %struct.VLC, ptr %399, i64 %indvars.iv312
+  %435 = getelementptr inbounds nuw %struct.VLC, ptr %400, i64 %indvars.iv312
   call void @ff_vlc_free(ptr noundef nonnull %435) #11
   %436 = load ptr, ptr %0, align 16, !tbaa !118
   %437 = call i32 @ff_huff_build_tree(ptr noundef %436, ptr noundef nonnull %435, i32 noundef 12, i32 noundef 10, ptr noundef nonnull %4, ptr noundef nonnull @vp6_huff_cmp, i32 noundef 1) #11
@@ -2321,7 +2321,7 @@ vp6_build_huff_tree.exit:                         ; preds = %.lr.ph.i
 439:                                              ; preds = %vp6_build_huff_tree.exit
   %440 = getelementptr inbounds nuw [14 x i8], ptr %229, i64 %indvars.iv312
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i32 256, ptr %402, align 4, !tbaa !115
+  store i32 256, ptr %401, align 4, !tbaa !115
   br label %.lr.ph.i207
 
 .lr.ph.i207:                                      ; preds = %.lr.ph.i207, %439
@@ -2361,7 +2361,7 @@ vp6_build_huff_tree.exit:                         ; preds = %.lr.ph.i
   br i1 %exitcond.not.i212, label %vp6_build_huff_tree.exit213, label %.lr.ph.i207, !llvm.loop !117
 
 vp6_build_huff_tree.exit213:                      ; preds = %.lr.ph.i207
-  %467 = getelementptr inbounds nuw %struct.VLC, ptr %401, i64 %indvars.iv312
+  %467 = getelementptr inbounds nuw %struct.VLC, ptr %402, i64 %indvars.iv312
   call void @ff_vlc_free(ptr noundef nonnull %467) #11
   %468 = load ptr, ptr %0, align 16, !tbaa !118
   %469 = call i32 @ff_huff_build_tree(ptr noundef %468, ptr noundef nonnull %467, i32 noundef 9, i32 noundef 8, ptr noundef nonnull %3, ptr noundef nonnull @vp6_huff_cmp, i32 noundef 1) #11
@@ -2371,7 +2371,7 @@ vp6_build_huff_tree.exit213:                      ; preds = %.lr.ph.i207
 
 .preheader237:                                    ; preds = %vp6_build_huff_tree.exit213
   %471 = getelementptr inbounds nuw [3 x [6 x [11 x i8]]], ptr %233, i64 %indvars.iv312
-  %472 = getelementptr inbounds nuw [3 x [4 x %struct.VLC]], ptr %403, i64 %indvars.iv312
+  %472 = getelementptr inbounds nuw [3 x [4 x %struct.VLC]], ptr %404, i64 %indvars.iv312
   br label %.preheader235
 
 .preheader235:                                    ; preds = %.preheader237, %508
@@ -2389,7 +2389,7 @@ vp6_build_huff_tree.exit213:                      ; preds = %.lr.ph.i207
   %indvars.iv304 = phi i64 [ 0, %.preheader235 ], [ %indvars.iv.next305, %475 ]
   %477 = getelementptr inbounds nuw [11 x i8], ptr %473, i64 %indvars.iv304
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store i32 256, ptr %404, align 4, !tbaa !115
+  store i32 256, ptr %403, align 4, !tbaa !115
   br label %.lr.ph.i214
 
 .lr.ph.i214:                                      ; preds = %.lr.ph.i214, %476

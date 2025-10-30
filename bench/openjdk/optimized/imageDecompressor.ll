@@ -326,18 +326,18 @@ define hidden void @_ZN24SharedStringDecompressor19decompress_resourceEPhS0_P14R
   %11 = icmp ugt i16 %8, 1
   br i1 %11, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %294
-  %.0194 = phi ptr [ %.5, %294 ], [ %6, %5 ]
-  %.0108193 = phi i32 [ %295, %294 ], [ 1, %5 ]
-  %.0185192 = phi ptr [ %.2187, %294 ], [ %9, %5 ]
+.lr.ph:                                           ; preds = %5, %295
+  %.0194 = phi ptr [ %.5, %295 ], [ %6, %5 ]
+  %.0108193 = phi i32 [ %296, %295 ], [ 1, %5 ]
+  %.0185192 = phi ptr [ %.2187, %295 ], [ %9, %5 ]
   %12 = load i8, ptr %.0185192, align 1
   %13 = getelementptr inbounds nuw i8, ptr %.0185192, i64 1
-  switch i8 %12, label %286 [
+  switch i8 %12, label %287 [
     i8 23, label %14
     i8 25, label %65
-    i8 1, label %277
-    i8 5, label %284
-    i8 6, label %284
+    i8 1, label %278
+    i8 5, label %285
+    i8 6, label %285
   ]
 
 14:                                               ; preds = %.lr.ph
@@ -421,7 +421,7 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit: ; preds = %_ZN24SharedSt
   %63 = ashr exact i64 %sext124, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr nonnull align 1 %59, i64 %63, i1 false)
   %64 = getelementptr inbounds i8, ptr %62, i64 %63
-  br label %294
+  br label %295
 
 65:                                               ; preds = %.lr.ph
   store i8 1, ptr %.0194, align 1
@@ -762,7 +762,7 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit168: ; preds = %_ZN24Share
   %267 = getelementptr inbounds nuw i8, ptr %.0115, i64 1
   %268 = load i8, ptr %267, align 1
   %.not123 = icmp eq i8 %268, 0
-  br i1 %.not123, label %.loopexit.loopexit, label %156, !llvm.loop !10
+  br i1 %.not123, label %.loopexit, label %156, !llvm.loop !10
 
 269:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit146
   %270 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %152) #14
@@ -771,83 +771,83 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit168: ; preds = %_ZN24Share
   %272 = ashr exact i64 %sext121, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %149, ptr nonnull align 1 %152, i64 %272, i1 false)
   %273 = getelementptr inbounds i8, ptr %149, i64 %272
-  br label %.loopexit
+  br label %276
 
-.loopexit.loopexit:                               ; preds = %266
+.loopexit:                                        ; preds = %266
   %274 = zext nneg i32 %.1.i136 to i64
   %275 = getelementptr inbounds nuw i8, ptr %148, i64 %274
-  br label %.loopexit
+  br label %276
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %269
-  %.1186 = phi ptr [ %148, %269 ], [ %275, %.loopexit.loopexit ]
-  %.3114 = phi i32 [ %271, %269 ], [ %.1112, %.loopexit.loopexit ]
-  %.4 = phi ptr [ %273, %269 ], [ %.2, %.loopexit.loopexit ]
-  %276 = trunc i32 %.3114 to i16
-  tail call void @_ZN6Endian8set_javaEPht(ptr noundef nonnull %66, i16 noundef zeroext %276)
-  br label %294
+276:                                              ; preds = %.loopexit, %269
+  %.1186 = phi ptr [ %148, %269 ], [ %275, %.loopexit ]
+  %.3114 = phi i32 [ %271, %269 ], [ %.1112, %.loopexit ]
+  %.4 = phi ptr [ %273, %269 ], [ %.2, %.loopexit ]
+  %277 = trunc i32 %.3114 to i16
+  tail call void @_ZN6Endian8set_javaEPht(ptr noundef nonnull %66, i16 noundef zeroext %277)
+  br label %295
 
-277:                                              ; preds = %.lr.ph
+278:                                              ; preds = %.lr.ph
   store i8 1, ptr %.0194, align 1
-  %278 = getelementptr inbounds nuw i8, ptr %.0194, i64 1
-  %279 = tail call noundef zeroext i16 @_ZN6Endian8get_javaEPh(ptr noundef nonnull %13)
-  %280 = zext i16 %279 to i64
-  %281 = add nuw nsw i64 %280, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %278, ptr noundef nonnull align 1 dereferenceable(1) %13, i64 %281, i1 false)
-  %282 = getelementptr inbounds nuw i8, ptr %278, i64 %281
-  %283 = getelementptr inbounds nuw i8, ptr %13, i64 %281
-  br label %294
+  %279 = getelementptr inbounds nuw i8, ptr %.0194, i64 1
+  %280 = tail call noundef zeroext i16 @_ZN6Endian8get_javaEPh(ptr noundef nonnull %13)
+  %281 = zext i16 %280 to i64
+  %282 = add nuw nsw i64 %281, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %279, ptr noundef nonnull align 1 dereferenceable(1) %13, i64 %282, i1 false)
+  %283 = getelementptr inbounds nuw i8, ptr %279, i64 %282
+  %284 = getelementptr inbounds nuw i8, ptr %13, i64 %282
+  br label %295
 
-284:                                              ; preds = %.lr.ph, %.lr.ph
-  %285 = add nsw i32 %.0108193, 1
-  br label %286
+285:                                              ; preds = %.lr.ph, %.lr.ph
+  %286 = add nsw i32 %.0108193, 1
+  br label %287
 
-286:                                              ; preds = %284, %.lr.ph
-  %.1109 = phi i32 [ %.0108193, %.lr.ph ], [ %285, %284 ]
+287:                                              ; preds = %285, %.lr.ph
+  %.1109 = phi i32 [ %.0108193, %.lr.ph ], [ %286, %285 ]
   store i8 %12, ptr %.0194, align 1
-  %287 = getelementptr inbounds nuw i8, ptr %.0194, i64 1
-  %288 = zext i8 %12 to i64
-  %289 = getelementptr inbounds nuw i8, ptr @_ZN24SharedStringDecompressor5sizesE, i64 %288
-  %290 = load i8, ptr %289, align 1
-  %291 = zext i8 %290 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %287, ptr nonnull align 1 %13, i64 %291, i1 false)
-  %292 = getelementptr inbounds nuw i8, ptr %287, i64 %291
-  %293 = getelementptr inbounds nuw i8, ptr %13, i64 %291
-  br label %294
+  %288 = getelementptr inbounds nuw i8, ptr %.0194, i64 1
+  %289 = zext i8 %12 to i64
+  %290 = getelementptr inbounds nuw i8, ptr @_ZN24SharedStringDecompressor5sizesE, i64 %289
+  %291 = load i8, ptr %290, align 1
+  %292 = zext i8 %291 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %288, ptr nonnull align 1 %13, i64 %292, i1 false)
+  %293 = getelementptr inbounds nuw i8, ptr %288, i64 %292
+  %294 = getelementptr inbounds nuw i8, ptr %13, i64 %292
+  br label %295
 
-294:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit, %.loopexit, %277, %286
-  %.2187 = phi ptr [ %293, %286 ], [ %56, %_ZN24SharedStringDecompressor14decompress_intERPh.exit ], [ %.1186, %.loopexit ], [ %283, %277 ]
-  %.2110 = phi i32 [ %.1109, %286 ], [ %.0108193, %_ZN24SharedStringDecompressor14decompress_intERPh.exit ], [ %.0108193, %.loopexit ], [ %.0108193, %277 ]
-  %.5 = phi ptr [ %292, %286 ], [ %64, %_ZN24SharedStringDecompressor14decompress_intERPh.exit ], [ %.4, %.loopexit ], [ %282, %277 ]
-  %295 = add nsw i32 %.2110, 1
-  %296 = icmp slt i32 %295, %10
-  br i1 %296, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+295:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit, %276, %278, %287
+  %.2187 = phi ptr [ %294, %287 ], [ %56, %_ZN24SharedStringDecompressor14decompress_intERPh.exit ], [ %.1186, %276 ], [ %284, %278 ]
+  %.2110 = phi i32 [ %.1109, %287 ], [ %.0108193, %_ZN24SharedStringDecompressor14decompress_intERPh.exit ], [ %.0108193, %276 ], [ %.0108193, %278 ]
+  %.5 = phi ptr [ %293, %287 ], [ %64, %_ZN24SharedStringDecompressor14decompress_intERPh.exit ], [ %.4, %276 ], [ %283, %278 ]
+  %296 = add nsw i32 %.2110, 1
+  %297 = icmp slt i32 %296, %10
+  br i1 %297, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %294, %5
-  %.0185.lcssa = phi ptr [ %9, %5 ], [ %.2187, %294 ]
-  %.0.lcssa = phi ptr [ %6, %5 ], [ %.5, %294 ]
-  %297 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %298 = load i64, ptr %297, align 8
-  %299 = ptrtoint ptr %.0185.lcssa to i64
-  %300 = ptrtoint ptr %1 to i64
-  %301 = sub i64 %299, %300
-  %sext = shl i64 %301, 32
-  %302 = ashr exact i64 %sext, 32
-  %303 = sub i64 %298, %302
-  %304 = ptrtoint ptr %.0.lcssa to i64
-  %305 = ptrtoint ptr %2 to i64
-  %306 = sub i64 %304, %305
-  %307 = add i64 %303, %306
-  %308 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %309 = load i64, ptr %308, align 8
-  %.not = icmp eq i64 %309, %307
-  br i1 %.not, label %312, label %310
+._crit_edge:                                      ; preds = %295, %5
+  %.0185.lcssa = phi ptr [ %9, %5 ], [ %.2187, %295 ]
+  %.0.lcssa = phi ptr [ %6, %5 ], [ %.5, %295 ]
+  %298 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %299 = load i64, ptr %298, align 8
+  %300 = ptrtoint ptr %.0185.lcssa to i64
+  %301 = ptrtoint ptr %1 to i64
+  %302 = sub i64 %300, %301
+  %sext = shl i64 %302, 32
+  %303 = ashr exact i64 %sext, 32
+  %304 = sub i64 %299, %303
+  %305 = ptrtoint ptr %.0.lcssa to i64
+  %306 = ptrtoint ptr %2 to i64
+  %307 = sub i64 %305, %306
+  %308 = add i64 %304, %307
+  %309 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %310 = load i64, ptr %309, align 8
+  %.not = icmp eq i64 %310, %308
+  br i1 %.not, label %313, label %311
 
-310:                                              ; preds = %._crit_edge
-  %311 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef %309, i64 noundef %307)
-  br label %312
+311:                                              ; preds = %._crit_edge
+  %312 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef %310, i64 noundef %308)
+  br label %313
 
-312:                                              ; preds = %310, %._crit_edge
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.lcssa, ptr nonnull align 1 %.0185.lcssa, i64 %303, i1 false)
+313:                                              ; preds = %311, %._crit_edge
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.lcssa, ptr nonnull align 1 %.0185.lcssa, i64 %304, i1 false)
   ret void
 }
 

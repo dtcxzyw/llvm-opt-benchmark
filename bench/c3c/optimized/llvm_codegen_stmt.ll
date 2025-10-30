@@ -2697,27 +2697,27 @@ define dso_local void @gencontext_emit_next_stmt(ptr noundef %0, ptr noundef rea
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %24) #9
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %27 = load ptr, ptr %26, align 8
-  %28 = call ptr @llvm_store(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %3) #9
-  %29 = load i32, ptr %4, align 8
-  %.not2832 = icmp eq i32 %29, 0
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %26 = load ptr, ptr %25, align 8
+  %27 = call ptr @llvm_store(ptr noundef %0, ptr noundef %26, ptr noundef nonnull %3) #9
+  %28 = load i32, ptr %4, align 8
+  %.not2832 = icmp eq i32 %28, 0
   br i1 %.not2832, label %._crit_edge36, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %22, %.lr.ph35
-  %.033 = phi i32 [ %34, %.lr.ph35 ], [ %29, %22 ]
-  %30 = load ptr, ptr @ast_arena, align 8
-  %31 = zext i32 %.033 to i64
-  %32 = getelementptr inbounds nuw %struct.Ast_, ptr %30, i64 %31
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load i32, ptr %33, align 8
-  call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %32)
-  %.not28 = icmp eq i32 %34, 0
+  %.033 = phi i32 [ %33, %.lr.ph35 ], [ %28, %22 ]
+  %29 = load ptr, ptr @ast_arena, align 8
+  %30 = zext i32 %.033 to i64
+  %31 = getelementptr inbounds nuw %struct.Ast_, ptr %29, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load i32, ptr %32, align 8
+  call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %31)
+  %.not28 = icmp eq i32 %33, 0
   br i1 %.not28, label %._crit_edge36, label %.lr.ph35, !llvm.loop !27
 
 ._crit_edge36:                                    ; preds = %.lr.ph35, %22
-  %35 = load ptr, ptr %25, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %35 = load ptr, ptr %34, align 8
   call void @llvm_emit_br(ptr noundef %0, ptr noundef %35) #9
   %36 = call ptr @llvm_basic_block_new(ptr noundef %0, ptr noundef nonnull @.str.2) #9
   call void @llvm_emit_block(ptr noundef %0, ptr noundef %36) #9

@@ -13412,16 +13412,16 @@ define i32 @WasmEdge_AsyncGet(ptr noundef %0, ptr noundef writeonly captures(add
 
 _ZNSt16allocator_traitsISaISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEEEE8allocateERSI_m.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %23
   %29 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #36
-          to label %.noexc5.i.i.i.i.i.i unwind label %_ZN5cxx206detail24expected_operations_baseISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEED2Ev.exit.i.i.i.i.i.i
+          to label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.i unwind label %_ZN5cxx206detail24expected_operations_baseISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEED2Ev.exit.i.i.i.i.i.i
 
-.noexc5.i.i.i.i.i.i:                              ; preds = %_ZNSt16allocator_traitsISaISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEEEE8allocateERSI_m.exit.i.i.i.i.i.i.i.i.i.i.i
+.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.i:         ; preds = %_ZNSt16allocator_traitsISaISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEEEE8allocateERSI_m.exit.i.i.i.i.i.i.i.i.i.i.i
   %30 = add i64 %14, -32
   %31 = sub i64 %30, %15
   %32 = and i64 %31, -32
   %33 = add i64 %32, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %29, ptr nonnull align 16 %20, i64 %33, i1 false)
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 %27
   %scevgep.i = getelementptr i8, ptr %29, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 %27
   %35 = ptrtoint ptr %scevgep.i to i64
   %36 = ptrtoint ptr %34 to i64
   br label %_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEEC2ERKSN_.exit.i
@@ -13431,12 +13431,12 @@ _ZN5cxx206detail24expected_operations_baseISt6vectorISt4pairIN8WasmEdge7VariantI
           catch ptr null
   br label %.body.i
 
-_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEEC2ERKSN_.exit.i: ; preds = %.noexc5.i.i.i.i.i.i, %.noexc5.i.i.i.i.i.thread.i
-  %.sroa.414.1.ph38.i = phi ptr [ null, %.noexc5.i.i.i.i.i.thread.i ], [ %20, %.noexc5.i.i.i.i.i.i ]
-  %.sroa.16.1.ph35.i = phi ptr [ %17, %.noexc5.i.i.i.i.i.thread.i ], [ %24, %.noexc5.i.i.i.i.i.i ]
-  %.sroa.4.0.i = phi ptr [ null, %.noexc5.i.i.i.i.i.thread.i ], [ %29, %.noexc5.i.i.i.i.i.i ]
-  %.sroa.11.0.i = phi i64 [ 0, %.noexc5.i.i.i.i.i.thread.i ], [ %35, %.noexc5.i.i.i.i.i.i ]
-  %.sroa.14.0.i = phi i64 [ 0, %.noexc5.i.i.i.i.i.thread.i ], [ %36, %.noexc5.i.i.i.i.i.i ]
+_ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS3_10RefVariantENS3_10StrVariantEEEENS3_7ValTypeEESaISJ_EENS3_7ErrCodeEEC2ERKSN_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.i, %.noexc5.i.i.i.i.i.thread.i
+  %.sroa.414.1.ph38.i = phi ptr [ null, %.noexc5.i.i.i.i.i.thread.i ], [ %20, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.i ]
+  %.sroa.16.1.ph35.i = phi ptr [ %17, %.noexc5.i.i.i.i.i.thread.i ], [ %24, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.i ]
+  %.sroa.4.0.i = phi ptr [ null, %.noexc5.i.i.i.i.i.thread.i ], [ %29, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.i ]
+  %.sroa.11.0.i = phi i64 [ 0, %.noexc5.i.i.i.i.i.thread.i ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.i ]
+  %.sroa.14.0.i = phi i64 [ 0, %.noexc5.i.i.i.i.i.thread.i ], [ %36, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.i ]
   %38 = ptrtoint ptr %.sroa.4.0.i to i64
   %39 = sub i64 %.sroa.11.0.i, %38
   %40 = ashr exact i64 %39, 5

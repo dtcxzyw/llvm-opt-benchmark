@@ -1886,17 +1886,17 @@ select.unfold:                                    ; preds = %93, %81
   %338 = load i16, ptr %337, align 4
   %339 = add i16 %338, -1
   store i16 %339, ptr %337, align 4
-  %340 = zext i16 %339 to i64
-  %341 = getelementptr i8, ptr %336, i64 %340
-  %342 = load i8, ptr %341, align 1
-  %343 = load i16, ptr %334, align 16
-  %344 = trunc i16 %343 to i8
-  %345 = shl i8 %344, 1
-  %346 = or disjoint i8 %345, 1
-  %347 = xor i8 %346, %320
-  %indexer.ext83 = zext i8 %347 to i64
+  %340 = load i16, ptr %334, align 16
+  %341 = trunc i16 %340 to i8
+  %342 = shl i8 %341, 1
+  %343 = or disjoint i8 %342, 1
+  %344 = xor i8 %343, %320
+  %indexer.ext83 = zext i8 %344 to i64
   %tbl.ptradd84 = getelementptr inbounds nuw i16, ptr @.crctable.6, i64 %indexer.ext83
   %tbl.ld85 = load i16, ptr %tbl.ptradd84, align 2
+  %345 = zext i16 %339 to i64
+  %346 = getelementptr i8, ptr %336, i64 %345
+  %347 = load i8, ptr %346, align 1
   %348 = lshr i16 %tbl.ld85, 8
   %349 = trunc nuw i16 %348 to i8
   %350 = icmp eq i16 %339, 0
@@ -1914,12 +1914,12 @@ select.unfold:                                    ; preds = %93, %81
   %356 = lshr i16 %tbl.ld92, 8
   %357 = trunc nuw i16 %356 to i8
   %358 = add nuw nsw i64 %351, 1
-  %359 = icmp eq i64 %358, %340
+  %359 = icmp eq i64 %358, %345
   br i1 %359, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %333
   %360 = phi i8 [ %349, %333 ], [ %357, %.preheader ]
-  %361 = icmp eq i8 %342, %360
+  %361 = icmp eq i8 %347, %360
   %362 = select i1 %361, i32 0, i32 -74
   %363 = and i1 %263, %361
   br i1 %363, label %365, label %388

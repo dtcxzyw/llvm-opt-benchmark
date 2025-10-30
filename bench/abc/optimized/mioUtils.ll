@@ -1205,42 +1205,42 @@ Vec_PtrPush.exit68:                               ; preds = %.Vec_PtrGrow.exit11
 
 88:                                               ; preds = %.lr.ph89, %._crit_edge83
   %indvars.iv114 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next115, %._crit_edge83 ]
-  %.087 = phi i32 [ 0, %.lr.ph89 ], [ %104, %._crit_edge83 ]
+  %.087 = phi i32 [ 0, %.lr.ph89 ], [ %110, %._crit_edge83 ]
   %.04986 = phi i32 [ 0, %.lr.ph89 ], [ %.1.lcssa, %._crit_edge83 ]
-  %.05085 = phi i32 [ 0, %.lr.ph89 ], [ %94, %._crit_edge83 ]
+  %.05085 = phi i32 [ 0, %.lr.ph89 ], [ %108, %._crit_edge83 ]
   %89 = getelementptr inbounds nuw ptr, ptr %.val60, i64 %indvars.iv114
   %90 = load ptr, ptr %89, align 8, !tbaa !96
   %91 = load ptr, ptr %90, align 8, !tbaa !65
   %92 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #32
-  %93 = trunc i64 %92 to i32
-  %94 = call noundef i32 @llvm.smax.i32(i32 %.05085, i32 %93)
-  %95 = getelementptr inbounds nuw i8, ptr %90, i64 32
-  %96 = load ptr, ptr %95, align 8, !tbaa !64
-  %97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %96) #32
-  %98 = trunc i64 %97 to i32
-  %99 = call noundef i32 @llvm.smax.i32(i32 %.04986, i32 %98)
-  %100 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %101 = load ptr, ptr %100, align 8, !tbaa !66
-  %102 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %101) #32
-  %103 = trunc i64 %102 to i32
-  %104 = call noundef i32 @llvm.smax.i32(i32 %.087, i32 %103)
-  %105 = call ptr @Mio_GateReadPins(ptr noundef nonnull %90) #30
-  %.not5778 = icmp eq ptr %105, null
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 32
+  %94 = load ptr, ptr %93, align 8, !tbaa !64
+  %95 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #32
+  %96 = trunc i64 %95 to i32
+  %97 = call noundef i32 @llvm.smax.i32(i32 %.04986, i32 %96)
+  %98 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %99 = load ptr, ptr %98, align 8, !tbaa !66
+  %100 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #32
+  %101 = call ptr @Mio_GateReadPins(ptr noundef nonnull %90) #30
+  %.not5778 = icmp eq ptr %101, null
   br i1 %.not5778, label %._crit_edge83, label %.lr.ph82
 
 .lr.ph82:                                         ; preds = %88, %.lr.ph82
-  %.180 = phi i32 [ %109, %.lr.ph82 ], [ %99, %88 ]
-  %.05379 = phi ptr [ %110, %.lr.ph82 ], [ %105, %88 ]
-  %106 = load ptr, ptr %.05379, align 8, !tbaa !67
-  %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #32
-  %108 = trunc i64 %107 to i32
-  %109 = call noundef i32 @llvm.smax.i32(i32 %.180, i32 %108)
-  %110 = call ptr @Mio_PinReadNext(ptr noundef nonnull %.05379) #30
-  %.not57 = icmp eq ptr %110, null
+  %.180 = phi i32 [ %105, %.lr.ph82 ], [ %97, %88 ]
+  %.05379 = phi ptr [ %106, %.lr.ph82 ], [ %101, %88 ]
+  %102 = load ptr, ptr %.05379, align 8, !tbaa !67
+  %103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #32
+  %104 = trunc i64 %103 to i32
+  %105 = call noundef i32 @llvm.smax.i32(i32 %.180, i32 %104)
+  %106 = call ptr @Mio_PinReadNext(ptr noundef nonnull %.05379) #30
+  %.not57 = icmp eq ptr %106, null
   br i1 %.not57, label %._crit_edge83, label %.lr.ph82, !llvm.loop !100
 
 ._crit_edge83:                                    ; preds = %.lr.ph82, %88
-  %.1.lcssa = phi i32 [ %99, %88 ], [ %109, %.lr.ph82 ]
+  %.1.lcssa = phi i32 [ %97, %88 ], [ %105, %.lr.ph82 ]
+  %107 = trunc i64 %92 to i32
+  %108 = call noundef i32 @llvm.smax.i32(i32 %.05085, i32 %107)
+  %109 = trunc i64 %100 to i32
+  %110 = call noundef i32 @llvm.smax.i32(i32 %.087, i32 %109)
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
   br i1 %exitcond118.not, label %.critedge, label %88, !llvm.loop !101
@@ -1248,9 +1248,9 @@ Vec_PtrPush.exit68:                               ; preds = %.Vec_PtrGrow.exit11
 .critedge:                                        ; preds = %._crit_edge83, %53, %.preheader, %.loopexit
   %111 = phi i1 [ false, %.loopexit ], [ false, %.preheader ], [ false, %53 ], [ true, %._crit_edge83 ]
   %.val138 = phi i32 [ %.val, %.loopexit ], [ 0, %.preheader ], [ 0, %53 ], [ %.val, %._crit_edge83 ]
-  %.050.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %.preheader ], [ 0, %53 ], [ %94, %._crit_edge83 ]
+  %.050.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %.preheader ], [ 0, %53 ], [ %108, %._crit_edge83 ]
   %.049.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %.preheader ], [ 0, %53 ], [ %.1.lcssa, %._crit_edge83 ]
-  %.0.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %.preheader ], [ 0, %53 ], [ %104, %._crit_edge83 ]
+  %.0.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %.preheader ], [ 0, %53 ], [ %110, %._crit_edge83 ]
   %112 = load ptr, ptr %1, align 8, !tbaa !3
   %113 = call ptr (...) @Extra_TimeStamp() #30
   %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %112, i32 noundef %.val138, ptr noundef %113) #30
@@ -4015,27 +4015,24 @@ define noalias noundef ptr @Mio_GateCreatePseudo(i32 noundef %0) local_unnamed_a
   %2 = getelementptr inbounds nuw i8, ptr %calloc12, i64 68
   store i32 %0, ptr %2, align 4, !tbaa !58
   %3 = icmp sgt i32 %0, 0
-  br i1 %3, label %.lr.ph, label %9
+  br i1 %3, label %.lr.ph, label %8
 
-.lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %calloc12, i64 24
-  br label %5
-
-5:                                                ; preds = %.lr.ph, %5
-  %6 = phi ptr [ null, %.lr.ph ], [ %calloc, %5 ]
-  %.011 = phi i32 [ 0, %.lr.ph ], [ %8, %5 ]
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %4 = phi ptr [ %calloc, %.lr.ph ], [ null, %1 ]
+  %.011 = phi i32 [ %6, %.lr.ph ], [ 0, %1 ]
   %calloc = tail call dereferenceable_or_null(80) ptr @calloc(i64 1, i64 80)
-  %7 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
-  store ptr %6, ptr %7, align 8, !tbaa !75
-  %8 = add nuw nsw i32 %.011, 1
-  %exitcond.not = icmp eq i32 %8, %0
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !163
+  %5 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
+  store ptr %4, ptr %5, align 8, !tbaa !75
+  %6 = add nuw nsw i32 %.011, 1
+  %exitcond.not = icmp eq i32 %6, %0
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !163
 
-._crit_edge:                                      ; preds = %5
-  store ptr %calloc, ptr %4, align 8, !tbaa !87
-  br label %9
+._crit_edge:                                      ; preds = %.lr.ph
+  %7 = getelementptr inbounds nuw i8, ptr %calloc12, i64 24
+  store ptr %calloc, ptr %7, align 8, !tbaa !87
+  br label %8
 
-9:                                                ; preds = %._crit_edge, %1
+8:                                                ; preds = %._crit_edge, %1
   ret ptr %calloc12
 }
 
@@ -4417,27 +4414,27 @@ declare i32 @Extra_Factorial(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @Nf_ManPreparePrint(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @Extra_Factorial(i32 noundef %0) #30
-  %6 = shl nuw i32 1, %0
-  %7 = icmp sgt i32 %0, 0
-  br i1 %7, label %.lr.ph, label %._crit_edge
+  %6 = icmp sgt i32 %0, 0
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = add nuw nsw i32 %0, 64
+  %7 = add nuw nsw i32 %0, 64
   %wide.trip.count = zext nneg i32 %0 to i64
-  br label %9
+  br label %8
 
-9:                                                ; preds = %.lr.ph, %9
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = trunc i64 %indvars.iv to i32
-  %11 = sub i32 %8, %10
-  %12 = trunc i32 %11 to i8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  store i8 %12, ptr %13, align 1, !tbaa !63
+8:                                                ; preds = %.lr.ph, %8
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
+  %9 = trunc i64 %indvars.iv to i32
+  %10 = sub i32 %7, %9
+  %11 = trunc i32 %10 to i8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
+  store i8 %11, ptr %12, align 1, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !175
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !175
 
-._crit_edge:                                      ; preds = %9, %4
+._crit_edge:                                      ; preds = %8, %4
+  %13 = shl nuw i32 1, %0
   %14 = sext i32 %0 to i64
   %15 = getelementptr i8, ptr %3, i64 %14
   store i8 43, ptr %15, align 1, !tbaa !63
@@ -4455,7 +4452,7 @@ define void @Nf_ManPreparePrint(i32 noundef %0, ptr noundef readonly captures(no
   br i1 %.not, label %.preheader78.lr.ph.us.preheader, label %.preheader78.lr.ph.us.us.preheader
 
 .preheader78.lr.ph.us.us.preheader:               ; preds = %.split.us
-  %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
+  %smax = tail call i32 @llvm.smax.i32(i32 %13, i32 1)
   %wide.trip.count131 = zext nneg i32 %5 to i64
   %wide.trip.count126 = zext nneg i32 %smax to i64
   br label %.preheader78.lr.ph.us.us
@@ -4568,7 +4565,7 @@ define void @Nf_ManPreparePrint(i32 noundef %0, ptr noundef readonly captures(no
   br i1 %.not113, label %.split111.us, label %.preheader76.us.us.preheader
 
 .preheader76.us.us.preheader:                     ; preds = %.preheader77
-  %smax141 = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
+  %smax141 = tail call i32 @llvm.smax.i32(i32 %13, i32 1)
   br label %.preheader76.us.us
 
 .preheader76.us.us:                               ; preds = %.preheader76.us.us.preheader, %._crit_edge100.split.us.us.us

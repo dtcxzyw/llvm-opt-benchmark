@@ -7922,8 +7922,8 @@ _ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EEC2EmRKS4_.exit.thread.i: ; preds = %_Z
 
 _ZSt6fill_nIPPKN4Luau4TypeEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc56
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %72, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %71, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !24
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %71, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !24
   br label %75
 
 75:                                               ; preds = %_ZSt6fill_nIPPKN4Luau4TypeEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc56, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EEC2EmRKS4_.exit.thread.i
@@ -7976,8 +7976,8 @@ _ZNSt12_Vector_baseIPKN4Luau11TypePackVarESaIS3_EEC2EmRKS4_.exit.thread.i: ; pre
 
 _ZSt6fill_nIPPKN4Luau11TypePackVarEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc61
   %.idx.i.i.i.i.i.i.i58 = shl nuw nsw i64 %95, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %94, i8 0, i64 %.idx.i.i.i.i.i.i.i58, i1 false), !tbaa !33
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 %.idx.i.i.i.i.i.i.i58
+  tail call void @llvm.memset.p0.i64(ptr align 8 %94, i8 0, i64 %.idx.i.i.i.i.i.i.i58, i1 false), !tbaa !33
   br label %98
 
 98:                                               ; preds = %_ZSt6fill_nIPPKN4Luau11TypePackVarEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc61, %_ZNSt12_Vector_baseIPKN4Luau11TypePackVarESaIS3_EEC2EmRKS4_.exit.thread.i
@@ -19931,8 +19931,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_defa
 
 _ZSt6fill_nIPPKN4Luau4TypeEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !24
   br label %_ZSt27__uninitialized_default_n_aIPPKN4Luau4TypeEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPKN4Luau4TypeEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPKN4Luau4TypeEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i
@@ -20030,8 +20030,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE1
 
 _ZSt6fill_nIPPKN4Luau11TypePackVarEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !33
   br label %_ZSt27__uninitialized_default_n_aIPPKN4Luau11TypePackVarEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPKN4Luau11TypePackVarEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPKN4Luau11TypePackVarEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i

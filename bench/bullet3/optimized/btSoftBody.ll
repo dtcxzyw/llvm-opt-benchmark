@@ -6034,49 +6034,49 @@ define dso_local void @_ZN10btSoftBody17pointersToIndicesEv(ptr noundef nonnull 
   %2 = alloca i32, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 932
   %4 = load i32, ptr %3, align 4, !tbaa !138
-  %.not = icmp eq i32 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %6 = load ptr, ptr %5, align 8
-  %7 = ptrtoint ptr %6 to i64
-  %8 = select i1 %.not, i64 0, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8, !tbaa !356
-  %9 = icmp sgt i32 %4, 0
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  %7 = icmp sgt i32 %4, 0
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %wide.trip.count = zext nneg i32 %4 to i64
-  br label %10
+  br label %8
 
-10:                                               ; preds = %.lr.ph, %22
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %11 = load ptr, ptr %5, align 8, !tbaa !137
-  %12 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %11, i64 %indvars.iv
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
-  %14 = load ptr, ptr %13, align 8, !tbaa !244
-  %.not48 = icmp eq ptr %14, null
-  br i1 %.not48, label %22, label %15
+8:                                                ; preds = %.lr.ph, %20
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
+  %9 = load ptr, ptr %5, align 8, !tbaa !137
+  %10 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 120
+  %12 = load ptr, ptr %11, align 8, !tbaa !244
+  %.not48 = icmp eq ptr %12, null
+  br i1 %.not48, label %20, label %13
 
-15:                                               ; preds = %10
+13:                                               ; preds = %8
   %.0..0..0..0. = load ptr, ptr %2, align 8
-  %16 = ptrtoint ptr %.0..0..0..0. to i64
-  %sext = shl i64 %16, 32
-  %17 = ashr exact i64 %sext, 24
-  %18 = getelementptr inbounds i8, ptr %11, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
-  %20 = load ptr, ptr %19, align 8, !tbaa !244
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  store ptr %.0..0..0..0., ptr %21, align 8, !tbaa !228
-  br label %22
+  %14 = ptrtoint ptr %.0..0..0..0. to i64
+  %sext = shl i64 %14, 32
+  %15 = ashr exact i64 %sext, 24
+  %16 = getelementptr inbounds i8, ptr %9, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 120
+  %18 = load ptr, ptr %17, align 8, !tbaa !244
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  store ptr %.0..0..0..0., ptr %19, align 8, !tbaa !228
+  br label %20
 
-22:                                               ; preds = %10, %15
+20:                                               ; preds = %8, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = trunc nuw nsw i64 %indvars.iv.next to i32
-  store i32 %23, ptr %2, align 8, !tbaa !356
+  %21 = trunc nuw nsw i64 %indvars.iv.next to i32
+  store i32 %21, ptr %2, align 8, !tbaa !356
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !357
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !357
 
-._crit_edge:                                      ; preds = %22, %1
+._crit_edge:                                      ; preds = %20, %1
+  %.not = icmp eq i32 %4, 0
+  %22 = ptrtoint ptr %6 to i64
+  %23 = select i1 %.not, i64 0, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 996
   %25 = load i32, ptr %24, align 4, !tbaa !146
   %26 = icmp sgt i32 %25, 0
@@ -6094,14 +6094,14 @@ define dso_local void @_ZN10btSoftBody17pointersToIndicesEv(ptr noundef nonnull 
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !344
   %33 = ptrtoint ptr %32 to i64
-  %34 = sub i64 %33, %8
+  %34 = sub i64 %33, %23
   %35 = ashr exact i64 %34, 8
   %36 = inttoptr i64 %35 to ptr
   store ptr %36, ptr %31, align 8, !tbaa !344
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !344
   %39 = ptrtoint ptr %38 to i64
-  %40 = sub i64 %39, %8
+  %40 = sub i64 %39, %23
   %41 = ashr exact i64 %40, 8
   %42 = inttoptr i64 %41 to ptr
   store ptr %42, ptr %37, align 8, !tbaa !344
@@ -6128,21 +6128,21 @@ define dso_local void @_ZN10btSoftBody17pointersToIndicesEv(ptr noundef nonnull 
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !344
   %52 = ptrtoint ptr %51 to i64
-  %53 = sub i64 %52, %8
+  %53 = sub i64 %52, %23
   %54 = ashr exact i64 %53, 8
   %55 = inttoptr i64 %54 to ptr
   store ptr %55, ptr %50, align 8, !tbaa !344
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %57 = load ptr, ptr %56, align 8, !tbaa !344
   %58 = ptrtoint ptr %57 to i64
-  %59 = sub i64 %58, %8
+  %59 = sub i64 %58, %23
   %60 = ashr exact i64 %59, 8
   %61 = inttoptr i64 %60 to ptr
   store ptr %61, ptr %56, align 8, !tbaa !344
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %63 = load ptr, ptr %62, align 8, !tbaa !344
   %64 = ptrtoint ptr %63 to i64
-  %65 = sub i64 %64, %8
+  %65 = sub i64 %64, %23
   %66 = ashr exact i64 %65, 8
   %67 = inttoptr i64 %66 to ptr
   store ptr %67, ptr %62, align 8, !tbaa !344
@@ -6187,7 +6187,7 @@ define dso_local void @_ZN10btSoftBody17pointersToIndicesEv(ptr noundef nonnull 
   %85 = getelementptr inbounds nuw %"struct.btSoftBody::Anchor", ptr %83, i64 %indvars.iv82
   %86 = load ptr, ptr %85, align 8, !tbaa !363
   %87 = ptrtoint ptr %86 to i64
-  %88 = sub i64 %87, %8
+  %88 = sub i64 %87, %23
   %89 = ashr exact i64 %88, 8
   %90 = inttoptr i64 %89 to ptr
   store ptr %90, ptr %85, align 8, !tbaa !363
@@ -6230,7 +6230,7 @@ define dso_local void @_ZN10btSoftBody17pointersToIndicesEv(ptr noundef nonnull 
   %102 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv87
   %103 = load ptr, ptr %102, align 8, !tbaa !344
   %104 = ptrtoint ptr %103 to i64
-  %105 = sub i64 %104, %8
+  %105 = sub i64 %104, %23
   %106 = ashr exact i64 %105, 8
   %107 = inttoptr i64 %106 to ptr
   store ptr %107, ptr %102, align 8, !tbaa !344
@@ -6247,37 +6247,37 @@ define dso_local void @_ZN10btSoftBody17pointersToIndicesEv(ptr noundef nonnull 
 define dso_local void @_ZN10btSoftBody17indicesToPointersEPKi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2064) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 932
   %4 = load i32, ptr %3, align 4, !tbaa !138
-  %.not = icmp eq i32 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %6 = load ptr, ptr %5, align 8
-  %7 = select i1 %.not, ptr null, ptr %6
-  %8 = icmp sgt i32 %4, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge
+  %7 = icmp sgt i32 %4, 0
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
   %wide.trip.count = zext nneg i32 %4 to i64
-  br label %9
+  br label %8
 
-9:                                                ; preds = %.lr.ph, %16
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %10 = load ptr, ptr %5, align 8, !tbaa !137
-  %11 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %10, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
-  %13 = load ptr, ptr %12, align 8, !tbaa !244
-  %.not93 = icmp eq ptr %13, null
-  br i1 %.not93, label %16, label %14
+8:                                                ; preds = %.lr.ph, %15
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
+  %9 = load ptr, ptr %5, align 8, !tbaa !137
+  %10 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 120
+  %12 = load ptr, ptr %11, align 8, !tbaa !244
+  %.not93 = icmp eq ptr %12, null
+  br i1 %.not93, label %15, label %13
 
-14:                                               ; preds = %9
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store ptr %11, ptr %15, align 8, !tbaa !228
-  br label %16
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store ptr %10, ptr %14, align 8, !tbaa !228
+  br label %15
 
-16:                                               ; preds = %9, %14
+15:                                               ; preds = %8, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !372
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !372
 
-._crit_edge:                                      ; preds = %16, %2
+._crit_edge:                                      ; preds = %15, %2
+  %.not = icmp eq i32 %4, 0
+  %16 = select i1 %.not, ptr null, ptr %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 996
   %18 = load i32, ptr %17, align 4, !tbaa !146
   %19 = icmp sgt i32 %18, 0
@@ -6296,12 +6296,12 @@ define dso_local void @_ZN10btSoftBody17indicesToPointersEPKi(ptr noundef nonnul
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !344
   %25 = ptrtoint ptr %24 to i64
-  %26 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 %25
+  %26 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 %25
   store ptr %26, ptr %23, align 8, !tbaa !344
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %28 = load ptr, ptr %27, align 8, !tbaa !344
   %29 = ptrtoint ptr %28 to i64
-  %30 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 %29
+  %30 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 %29
   store ptr %30, ptr %27, align 8, !tbaa !344
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
@@ -6316,7 +6316,7 @@ define dso_local void @_ZN10btSoftBody17indicesToPointersEPKi(ptr noundef nonnul
   %35 = getelementptr inbounds i32, ptr %1, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !356
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 %37
+  %38 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 %37
   store ptr %38, ptr %32, align 8, !tbaa !344
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %40 = load ptr, ptr %39, align 8, !tbaa !344
@@ -6324,7 +6324,7 @@ define dso_local void @_ZN10btSoftBody17indicesToPointersEPKi(ptr noundef nonnul
   %42 = getelementptr inbounds i32, ptr %1, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !356
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 %44
+  %45 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 %44
   store ptr %45, ptr %39, align 8, !tbaa !344
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count130
@@ -6368,17 +6368,17 @@ define dso_local void @_ZN10btSoftBody17indicesToPointersEPKi(ptr noundef nonnul
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !344
   %60 = ptrtoint ptr %59 to i64
-  %61 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 %60
+  %61 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 %60
   store ptr %61, ptr %58, align 8, !tbaa !344
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %63 = load ptr, ptr %62, align 8, !tbaa !344
   %64 = ptrtoint ptr %63 to i64
-  %65 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 %64
+  %65 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 %64
   store ptr %65, ptr %62, align 8, !tbaa !344
   %66 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %67 = load ptr, ptr %66, align 8, !tbaa !344
   %68 = ptrtoint ptr %67 to i64
-  %69 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 %68
+  %69 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 %68
   store ptr %69, ptr %66, align 8, !tbaa !344
   %70 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %71 = load ptr, ptr %70, align 8, !tbaa !359
@@ -6405,7 +6405,7 @@ define dso_local void @_ZN10btSoftBody17indicesToPointersEPKi(ptr noundef nonnul
   %80 = getelementptr inbounds i32, ptr %1, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !356
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 %82
+  %83 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 %82
   store ptr %83, ptr %77, align 8, !tbaa !344
   %84 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %85 = load ptr, ptr %84, align 8, !tbaa !344
@@ -6413,7 +6413,7 @@ define dso_local void @_ZN10btSoftBody17indicesToPointersEPKi(ptr noundef nonnul
   %87 = getelementptr inbounds i32, ptr %1, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !356
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 %89
+  %90 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 %89
   store ptr %90, ptr %84, align 8, !tbaa !344
   %91 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %92 = load ptr, ptr %91, align 8, !tbaa !344
@@ -6421,7 +6421,7 @@ define dso_local void @_ZN10btSoftBody17indicesToPointersEPKi(ptr noundef nonnul
   %94 = getelementptr inbounds i32, ptr %1, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !356
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 %96
+  %97 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 %96
   store ptr %97, ptr %91, align 8, !tbaa !344
   %98 = getelementptr inbounds nuw i8, ptr %76, i64 64
   %99 = load ptr, ptr %98, align 8, !tbaa !359
@@ -6476,7 +6476,7 @@ define dso_local void @_ZN10btSoftBody17indicesToPointersEPKi(ptr noundef nonnul
   %115 = getelementptr inbounds nuw %"struct.btSoftBody::Anchor", ptr %113, i64 %indvars.iv147
   %116 = load ptr, ptr %115, align 8, !tbaa !363
   %117 = ptrtoint ptr %116 to i64
-  %118 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 %117
+  %118 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 %117
   store ptr %118, ptr %115, align 8, !tbaa !363
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
@@ -6490,7 +6490,7 @@ define dso_local void @_ZN10btSoftBody17indicesToPointersEPKi(ptr noundef nonnul
   %122 = getelementptr inbounds i32, ptr %1, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !356
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 %124
+  %125 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 %124
   store ptr %125, ptr %119, align 8, !tbaa !363
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
@@ -6532,7 +6532,7 @@ define dso_local void @_ZN10btSoftBody17indicesToPointersEPKi(ptr noundef nonnul
   %137 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv162
   %138 = load ptr, ptr %137, align 8, !tbaa !344
   %139 = ptrtoint ptr %138 to i64
-  %140 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 %139
+  %140 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 %139
   store ptr %140, ptr %137, align 8, !tbaa !344
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
@@ -6564,7 +6564,7 @@ define dso_local void @_ZN10btSoftBody17indicesToPointersEPKi(ptr noundef nonnul
   %150 = getelementptr inbounds i32, ptr %1, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !356
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %7, i64 %152
+  %153 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %16, i64 %152
   store ptr %153, ptr %147, align 8, !tbaa !344
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
@@ -27201,123 +27201,129 @@ define dso_local void @_ZN10btSoftBody16solveConstraintsEv(ptr noundef nonnull a
   %209 = load float, ptr %208, align 4, !tbaa !250
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 628
   %211 = load float, ptr %210, align 4, !tbaa !769
-  %212 = fmul float %209, %211
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  %214 = load i32, ptr %213, align 4, !tbaa !138
-  %215 = icmp sgt i32 %214, 0
-  br i1 %215, label %.lr.ph162, label %.preheader.lr.ph
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  %213 = load i32, ptr %212, align 4, !tbaa !138
+  %214 = icmp sgt i32 %213, 0
+  br i1 %214, label %.lr.ph162, label %.preheader131.thread
+
+.preheader131.thread:                             ; preds = %207
+  %215 = fmul float %209, %211
+  br label %.preheader.lr.ph
 
 .lr.ph162:                                        ; preds = %207
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %wide.trip.count198 = zext nneg i32 %214 to i64
-  br label %223
+  %wide.trip.count198 = zext nneg i32 %213 to i64
+  br label %225
 
-.preheader131:                                    ; preds = %223
+.preheader131:                                    ; preds = %225
   %.pre210 = load i32, ptr %204, align 4, !tbaa !267
-  %217 = icmp sgt i32 %.pre210, 0
-  br i1 %217, label %.preheader.lr.ph, label %._crit_edge167
+  %217 = fmul float %209, %211
+  %218 = icmp sgt i32 %.pre210, 0
+  br i1 %218, label %.preheader.lr.ph, label %._crit_edge167
 
-.preheader.lr.ph:                                 ; preds = %207, %.preheader131
-  %218 = phi i32 [ %.pre210, %.preheader131 ], [ %205, %207 ]
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 588
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %221 = load i32, ptr %219, align 4, !tbaa !121
-  %222 = icmp sgt i32 %221, 0
-  br i1 %222, label %.preheader, label %._crit_edge167
+.preheader.lr.ph:                                 ; preds = %.preheader131.thread, %.preheader131
+  %219 = phi float [ %215, %.preheader131.thread ], [ %217, %.preheader131 ]
+  %220 = phi i32 [ %205, %.preheader131.thread ], [ %.pre210, %.preheader131 ]
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 588
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %223 = load i32, ptr %221, align 4, !tbaa !121
+  %224 = icmp sgt i32 %223, 0
+  br i1 %224, label %.preheader, label %._crit_edge167
 
-223:                                              ; preds = %.lr.ph162, %223
-  %indvars.iv195 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next196, %223 ]
-  %224 = load ptr, ptr %216, align 8, !tbaa !137
-  %225 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %224, i64 %indvars.iv195
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 16
-  %227 = getelementptr inbounds nuw i8, ptr %225, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %227, ptr noundef nonnull align 8 dereferenceable(16) %226, i64 16, i1 false), !tbaa.struct !227
+225:                                              ; preds = %.lr.ph162, %225
+  %indvars.iv195 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next196, %225 ]
+  %226 = load ptr, ptr %216, align 8, !tbaa !137
+  %227 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %226, i64 %indvars.iv195
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %227, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %229, ptr noundef nonnull align 8 dereferenceable(16) %228, i64 16, i1 false), !tbaa.struct !227
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %.preheader131, label %223, !llvm.loop !825
+  br i1 %exitcond199.not, label %.preheader131, label %225, !llvm.loop !825
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge165
-  %228 = phi i32 [ %235, %._crit_edge165 ], [ %218, %.preheader.lr.ph ]
-  %229 = phi i32 [ %236, %._crit_edge165 ], [ %221, %.preheader.lr.ph ]
-  %.075166 = phi i32 [ %237, %._crit_edge165 ], [ 0, %.preheader.lr.ph ]
-  %230 = icmp sgt i32 %229, 0
-  br i1 %230, label %.lr.ph164, label %._crit_edge165
+  %230 = phi i32 [ %238, %._crit_edge165 ], [ %220, %.preheader.lr.ph ]
+  %231 = phi i32 [ %239, %._crit_edge165 ], [ %223, %.preheader.lr.ph ]
+  %.075166 = phi i32 [ %240, %._crit_edge165 ], [ 0, %.preheader.lr.ph ]
+  %232 = icmp sgt i32 %231, 0
+  br i1 %232, label %.lr.ph164, label %._crit_edge165
 
 ._crit_edge167:                                   ; preds = %._crit_edge165, %.preheader.lr.ph, %.preheader131
-  %231 = load i32, ptr %213, align 4, !tbaa !138
-  %232 = icmp sgt i32 %231, 0
-  br i1 %232, label %.lr.ph170, label %.loopexit
+  %233 = phi float [ %217, %.preheader131 ], [ %219, %.preheader.lr.ph ], [ %219, %._crit_edge165 ]
+  %234 = load i32, ptr %212, align 4, !tbaa !138
+  %235 = icmp sgt i32 %234, 0
+  br i1 %235, label %.lr.ph170, label %.loopexit
 
 .lr.ph170:                                        ; preds = %._crit_edge167
-  %233 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %234 = load ptr, ptr %233, align 8, !tbaa !137
-  %wide.trip.count206 = zext nneg i32 %231 to i64
-  br label %246
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %237 = load ptr, ptr %236, align 8, !tbaa !137
+  %wide.trip.count206 = zext nneg i32 %234 to i64
+  br label %249
 
 ._crit_edge165.loopexit:                          ; preds = %.lr.ph164
   %.pre211 = load i32, ptr %204, align 4, !tbaa !267
   br label %._crit_edge165
 
 ._crit_edge165:                                   ; preds = %._crit_edge165.loopexit, %.preheader
-  %235 = phi i32 [ %.pre211, %._crit_edge165.loopexit ], [ %228, %.preheader ]
-  %236 = phi i32 [ %243, %._crit_edge165.loopexit ], [ %229, %.preheader ]
-  %237 = add nuw nsw i32 %.075166, 1
-  %238 = icmp slt i32 %237, %235
-  br i1 %238, label %.preheader, label %._crit_edge167, !llvm.loop !826
+  %238 = phi i32 [ %.pre211, %._crit_edge165.loopexit ], [ %230, %.preheader ]
+  %239 = phi i32 [ %246, %._crit_edge165.loopexit ], [ %231, %.preheader ]
+  %240 = add nuw nsw i32 %.075166, 1
+  %241 = icmp slt i32 %240, %238
+  br i1 %241, label %.preheader, label %._crit_edge167, !llvm.loop !826
 
 .lr.ph164:                                        ; preds = %.preheader, %.lr.ph164
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %.lr.ph164 ], [ 0, %.preheader ]
-  %239 = load ptr, ptr %220, align 8, !tbaa !120
-  %240 = getelementptr inbounds nuw i32, ptr %239, i64 %indvars.iv200
-  %241 = load i32, ptr %240, align 4, !tbaa !325
-  %242 = zext nneg i32 %241 to i64
-  %switch.gep237 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN10btSoftBody11staticSolveEi, i64 %242
+  %242 = load ptr, ptr %222, align 8, !tbaa !120
+  %243 = getelementptr inbounds nuw i32, ptr %242, i64 %indvars.iv200
+  %244 = load i32, ptr %243, align 4, !tbaa !325
+  %245 = zext nneg i32 %244 to i64
+  %switch.gep237 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN10btSoftBody11staticSolveEi, i64 %245
   %switch.load238 = load ptr, ptr %switch.gep237, align 8
   tail call void %switch.load238(ptr noundef nonnull %0, float noundef 1.000000e+00, float noundef 0.000000e+00), !callees !822
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %243 = load i32, ptr %219, align 4, !tbaa !121
-  %244 = sext i32 %243 to i64
-  %245 = icmp slt i64 %indvars.iv.next201, %244
-  br i1 %245, label %.lr.ph164, label %._crit_edge165.loopexit, !llvm.loop !827
+  %246 = load i32, ptr %221, align 4, !tbaa !121
+  %247 = sext i32 %246 to i64
+  %248 = icmp slt i64 %indvars.iv.next201, %247
+  br i1 %248, label %.lr.ph164, label %._crit_edge165.loopexit, !llvm.loop !827
 
-246:                                              ; preds = %.lr.ph170, %246
-  %indvars.iv203 = phi i64 [ 0, %.lr.ph170 ], [ %indvars.iv.next204, %246 ]
-  %247 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %234, i64 %indvars.iv203
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
-  %249 = getelementptr inbounds nuw i8, ptr %247, i64 32
-  %250 = load float, ptr %248, align 4, !tbaa !234
-  %251 = load float, ptr %249, align 4, !tbaa !234
-  %252 = fsub float %250, %251
-  %253 = getelementptr inbounds nuw i8, ptr %247, i64 20
-  %254 = load float, ptr %253, align 4, !tbaa !234
-  %255 = getelementptr inbounds nuw i8, ptr %247, i64 36
-  %256 = load float, ptr %255, align 4, !tbaa !234
-  %257 = fsub float %254, %256
-  %258 = getelementptr inbounds nuw i8, ptr %247, i64 24
+249:                                              ; preds = %.lr.ph170, %249
+  %indvars.iv203 = phi i64 [ 0, %.lr.ph170 ], [ %indvars.iv.next204, %249 ]
+  %250 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %237, i64 %indvars.iv203
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 16
+  %252 = getelementptr inbounds nuw i8, ptr %250, i64 32
+  %253 = load float, ptr %251, align 4, !tbaa !234
+  %254 = load float, ptr %252, align 4, !tbaa !234
+  %255 = fsub float %253, %254
+  %256 = getelementptr inbounds nuw i8, ptr %250, i64 20
+  %257 = load float, ptr %256, align 4, !tbaa !234
+  %258 = getelementptr inbounds nuw i8, ptr %250, i64 36
   %259 = load float, ptr %258, align 4, !tbaa !234
-  %260 = getelementptr inbounds nuw i8, ptr %247, i64 40
-  %261 = load float, ptr %260, align 4, !tbaa !234
-  %262 = fsub float %259, %261
-  %263 = fmul float %212, %252
-  %264 = fmul float %212, %257
-  %265 = fmul float %212, %262
-  %266 = getelementptr inbounds nuw i8, ptr %247, i64 48
-  %267 = load float, ptr %266, align 4, !tbaa !234
-  %268 = fadd float %263, %267
-  store float %268, ptr %266, align 4, !tbaa !234
-  %269 = getelementptr inbounds nuw i8, ptr %247, i64 52
+  %260 = fsub float %257, %259
+  %261 = getelementptr inbounds nuw i8, ptr %250, i64 24
+  %262 = load float, ptr %261, align 4, !tbaa !234
+  %263 = getelementptr inbounds nuw i8, ptr %250, i64 40
+  %264 = load float, ptr %263, align 4, !tbaa !234
+  %265 = fsub float %262, %264
+  %266 = fmul float %233, %255
+  %267 = fmul float %233, %260
+  %268 = fmul float %233, %265
+  %269 = getelementptr inbounds nuw i8, ptr %250, i64 48
   %270 = load float, ptr %269, align 4, !tbaa !234
-  %271 = fadd float %264, %270
+  %271 = fadd float %266, %270
   store float %271, ptr %269, align 4, !tbaa !234
-  %272 = getelementptr inbounds nuw i8, ptr %247, i64 56
+  %272 = getelementptr inbounds nuw i8, ptr %250, i64 52
   %273 = load float, ptr %272, align 4, !tbaa !234
-  %274 = fadd float %265, %273
+  %274 = fadd float %267, %273
   store float %274, ptr %272, align 4, !tbaa !234
+  %275 = getelementptr inbounds nuw i8, ptr %250, i64 56
+  %276 = load float, ptr %275, align 4, !tbaa !234
+  %277 = fadd float %268, %276
+  store float %277, ptr %275, align 4, !tbaa !234
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond207.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count206
-  br i1 %exitcond207.not, label %.loopexit, label %246, !llvm.loop !828
+  br i1 %exitcond207.not, label %.loopexit, label %249, !llvm.loop !828
 
-.loopexit:                                        ; preds = %246, %._crit_edge167, %.loopexit132
+.loopexit:                                        ; preds = %249, %._crit_edge167, %.loopexit132
   tail call void @_ZN10btSoftBody12dampClustersEv(ptr noundef nonnull align 8 dereferenceable(2064) %0)
   tail call void @_ZN10btSoftBody13applyClustersEb(ptr noundef nonnull align 8 dereferenceable(2064) %0, i1 noundef zeroext true)
   ret void

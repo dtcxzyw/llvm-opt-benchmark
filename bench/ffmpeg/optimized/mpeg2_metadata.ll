@@ -91,67 +91,67 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !4
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !27
-  %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph, label %.thread127
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %10 = load i32, ptr %9, align 8, !tbaa !27
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %.lr.ph, label %.thread127
 
 .lr.ph:                                           ; preds = %3
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !28
-  %wide.trip.count = zext nneg i32 %12 to i64
-  br label %16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %13 = load ptr, ptr %12, align 8, !tbaa !28
+  %wide.trip.count = zext nneg i32 %10 to i64
+  br label %14
 
-16:                                               ; preds = %.lr.ph, %32
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %.080107 = phi ptr [ null, %.lr.ph ], [ %.181, %32 ]
-  %.082106 = phi ptr [ null, %.lr.ph ], [ %.2, %32 ]
-  %.084105 = phi ptr [ null, %.lr.ph ], [ %.286, %32 ]
-  %.088103 = phi i32 [ undef, %.lr.ph ], [ %.290, %32 ]
-  %17 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %15, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 8, !tbaa !29
-  switch i32 %18, label %32 [
-    i32 179, label %19
-    i32 181, label %22
+14:                                               ; preds = %.lr.ph, %30
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
+  %.080107 = phi ptr [ null, %.lr.ph ], [ %.181, %30 ]
+  %.082106 = phi ptr [ null, %.lr.ph ], [ %.2, %30 ]
+  %.084105 = phi ptr [ null, %.lr.ph ], [ %.286, %30 ]
+  %.088103 = phi i32 [ undef, %.lr.ph ], [ %.290, %30 ]
+  %15 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %13, i64 %indvars.iv
+  %16 = load i32, ptr %15, align 8, !tbaa !29
+  switch i32 %16, label %30 [
+    i32 179, label %17
+    i32 181, label %20
   ]
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !31
-  br label %32
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %19 = load ptr, ptr %18, align 8, !tbaa !31
+  br label %30
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !31
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
-  %26 = load i8, ptr %25, align 1, !tbaa !32
-  switch i8 %26, label %32 [
-    i8 1, label %27
-    i8 2, label %30
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %22 = load ptr, ptr %21, align 8, !tbaa !31
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  %24 = load i8, ptr %23, align 1, !tbaa !32
+  switch i8 %24, label %30 [
+    i8 1, label %25
+    i8 2, label %28
   ]
 
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 2
-  %29 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %32
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 2
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %30
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 2
-  br label %32
+28:                                               ; preds = %20
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 2
+  br label %30
 
-32:                                               ; preds = %27, %30, %22, %16, %19
-  %.290 = phi i32 [ %.088103, %19 ], [ %.088103, %16 ], [ %29, %27 ], [ %.088103, %30 ], [ %.088103, %22 ]
-  %.286 = phi ptr [ %.084105, %19 ], [ %.084105, %16 ], [ %.084105, %27 ], [ %31, %30 ], [ %.084105, %22 ]
-  %.2 = phi ptr [ %.082106, %19 ], [ %.082106, %16 ], [ %28, %27 ], [ %.082106, %30 ], [ %.082106, %22 ]
-  %.181 = phi ptr [ %21, %19 ], [ %.080107, %16 ], [ %.080107, %27 ], [ %.080107, %30 ], [ %.080107, %22 ]
+30:                                               ; preds = %25, %28, %20, %14, %17
+  %.290 = phi i32 [ %.088103, %17 ], [ %.088103, %14 ], [ %27, %25 ], [ %.088103, %28 ], [ %.088103, %20 ]
+  %.286 = phi ptr [ %.084105, %17 ], [ %.084105, %14 ], [ %.084105, %25 ], [ %29, %28 ], [ %.084105, %20 ]
+  %.2 = phi ptr [ %.082106, %17 ], [ %.082106, %14 ], [ %26, %25 ], [ %.082106, %28 ], [ %.082106, %20 ]
+  %.181 = phi ptr [ %19, %17 ], [ %.080107, %14 ], [ %.080107, %25 ], [ %.080107, %28 ], [ %.080107, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %32
-  %33 = add nsw i32 %.290, 1
+._crit_edge:                                      ; preds = %30
+  %31 = add nsw i32 %.290, 1
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = load ptr, ptr %32, align 8, !tbaa !4
   %34 = icmp ne ptr %.181, null
   %35 = icmp ne ptr %.2, null
   %or.cond = select i1 %34, i1 %35, i1 false
@@ -161,24 +161,24 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   br i1 %34, label %37, label %.thread127
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds nuw i8, ptr %10, i64 376
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 376
   %39 = load i32, ptr %38, align 8, !tbaa !35
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %40, label %.thread127
 
 40:                                               ; preds = %37
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.20) #3
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.20) #3
   store i32 1, ptr %38, align 8, !tbaa !35
   br label %.thread127
 
 41:                                               ; preds = %._crit_edge
-  %42 = getelementptr inbounds nuw i8, ptr %10, i64 344
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 344
   %43 = load i32, ptr %42, align 8, !tbaa !36
   %.not98 = icmp eq i32 %43, 0
   br i1 %.not98, label %69, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %10, i64 348
+  %45 = getelementptr inbounds nuw i8, ptr %33, i64 348
   %46 = load i32, ptr %45, align 4, !tbaa !37
   %.not99 = icmp eq i32 %46, 0
   br i1 %.not99, label %69, label %47
@@ -233,13 +233,13 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   br label %69
 
 69:                                               ; preds = %68, %44, %41
-  %70 = getelementptr inbounds nuw i8, ptr %10, i64 352
+  %70 = getelementptr inbounds nuw i8, ptr %33, i64 352
   %71 = load i32, ptr %70, align 8, !tbaa !42
   %.not100 = icmp eq i32 %71, 0
   br i1 %.not100, label %86, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds nuw i8, ptr %10, i64 356
+  %73 = getelementptr inbounds nuw i8, ptr %33, i64 356
   %74 = load i32, ptr %73, align 4, !tbaa !43
   %.not101 = icmp eq i32 %74, 0
   br i1 %.not101, label %86, label %75
@@ -268,25 +268,25 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   br label %86
 
 86:                                               ; preds = %75, %72, %69
-  %87 = getelementptr inbounds nuw i8, ptr %10, i64 360
+  %87 = getelementptr inbounds nuw i8, ptr %33, i64 360
   %88 = load i32, ptr %87, align 8, !tbaa !48
   %89 = icmp sgt i32 %88, -1
   br i1 %89, label %102, label %90
 
 90:                                               ; preds = %86
-  %91 = getelementptr inbounds nuw i8, ptr %10, i64 364
+  %91 = getelementptr inbounds nuw i8, ptr %33, i64 364
   %92 = load i32, ptr %91, align 4, !tbaa !14
   %93 = icmp sgt i32 %92, -1
   br i1 %93, label %102, label %94
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds nuw i8, ptr %10, i64 368
+  %95 = getelementptr inbounds nuw i8, ptr %33, i64 368
   %96 = load i32, ptr %95, align 8, !tbaa !25
   %97 = icmp sgt i32 %96, -1
   br i1 %97, label %102, label %98
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds nuw i8, ptr %10, i64 372
+  %99 = getelementptr inbounds nuw i8, ptr %33, i64 372
   %100 = load i32, ptr %99, align 4, !tbaa !26
   %101 = icmp sgt i32 %100, -1
   br i1 %101, label %102, label %.thread127
@@ -296,11 +296,11 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   br i1 %.not102, label %103, label %.critedge
 
 103:                                              ; preds = %102
-  %104 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %104 = getelementptr inbounds nuw i8, ptr %33, i64 80
   store i8 -75, ptr %104, align 8, !tbaa !49
-  %105 = getelementptr inbounds nuw i8, ptr %10, i64 81
+  %105 = getelementptr inbounds nuw i8, ptr %33, i64 81
   store i8 2, ptr %105, align 1, !tbaa !50
-  %106 = getelementptr inbounds nuw i8, ptr %10, i64 82
+  %106 = getelementptr inbounds nuw i8, ptr %33, i64 82
   %107 = getelementptr inbounds nuw i8, ptr %.2, i64 3
   %108 = load i8, ptr %107, align 1, !tbaa !51
   %109 = zext i8 %108 to i16
@@ -316,21 +316,21 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   %119 = load i16, ptr %118, align 4, !tbaa !54
   %120 = or i16 %117, %119
   store i8 5, ptr %106, align 2, !tbaa !55
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 83
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 83
   store i8 0, ptr %.sroa.2.0..sroa_idx, align 1, !tbaa !55
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 84
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 84
   store i8 2, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !55
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 85
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 85
   store i8 2, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !55
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 86
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 86
   store i8 2, ptr %.sroa.5.0..sroa_idx, align 2, !tbaa !55
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 87
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 87
   store i8 0, ptr %.sroa.6.0..sroa_idx, align 1
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 88
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 88
   store i16 %113, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !56
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 90
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 90
   store i16 %120, ptr %.sroa.8.0..sroa_idx, align 2, !tbaa !56
-  %121 = call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %2, i32 noundef %33, i32 noundef 181, ptr noundef nonnull %104, ptr noundef null) #3
+  %121 = call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %2, i32 noundef %31, i32 noundef 181, ptr noundef nonnull %104, ptr noundef null) #3
   %122 = icmp sgt i32 %121, -1
   br i1 %122, label %..critedge_crit_edge, label %123
 
@@ -339,7 +339,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   br label %.critedge
 
 123:                                              ; preds = %103
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.21) #3
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.21) #3
   br label %.thread127
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %102
@@ -354,19 +354,19 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   br label %128
 
 128:                                              ; preds = %126, %.critedge
-  %129 = getelementptr inbounds nuw i8, ptr %10, i64 364
+  %129 = getelementptr inbounds nuw i8, ptr %33, i64 364
   %130 = load i32, ptr %129, align 4, !tbaa !14
   %131 = icmp sgt i32 %130, -1
   br i1 %131, label %141, label %132
 
 132:                                              ; preds = %128
-  %133 = getelementptr inbounds nuw i8, ptr %10, i64 368
+  %133 = getelementptr inbounds nuw i8, ptr %33, i64 368
   %134 = load i32, ptr %133, align 8, !tbaa !25
   %135 = icmp sgt i32 %134, -1
   br i1 %135, label %.thread, label %136
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds nuw i8, ptr %10, i64 372
+  %137 = getelementptr inbounds nuw i8, ptr %33, i64 372
   %138 = load i32, ptr %137, align 4, !tbaa !26
   %139 = icmp sgt i32 %138, -1
   br i1 %139, label %.thread, label %.thread127
@@ -382,7 +382,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   %143 = trunc i32 %130 to i8
   %144 = getelementptr inbounds nuw i8, ptr %.3, i64 2
   store i8 %143, ptr %144, align 2, !tbaa !60
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 368
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %33, i64 368
   %.pre112 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !25
   br label %145
 
@@ -398,7 +398,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   br label %151
 
 151:                                              ; preds = %148, %145
-  %152 = getelementptr inbounds nuw i8, ptr %10, i64 372
+  %152 = getelementptr inbounds nuw i8, ptr %33, i64 372
   %153 = load i32, ptr %152, align 4, !tbaa !26
   %154 = icmp sgt i32 %153, -1
   br i1 %154, label %155, label %.thread127

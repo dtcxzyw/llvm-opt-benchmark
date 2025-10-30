@@ -75,39 +75,39 @@ define void @ff_emulated_edge_mc_8(ptr noundef captures(none) %0, ptr noundef re
   %51 = tail call i32 @llvm.smax.i32(i32 %50, i32 0)
   %52 = sub i32 0, %.0111
   %53 = tail call i32 @llvm.smax.i32(i32 %52, i32 0)
-  %54 = sub i32 %9, %.0112
-  %55 = tail call i32 @llvm.smin.i32(i32 %5, i32 %54)
-  %56 = sub i32 %8, %.0111
-  %57 = tail call i32 @llvm.smin.i32(i32 %4, i32 %56)
-  %58 = sub nsw i32 %57, %53
-  %59 = zext nneg i32 %51 to i64
-  %60 = mul nsw i64 %3, %59
-  %61 = zext nneg i32 %53 to i64
-  %62 = getelementptr i8, ptr %.1108, i64 %60
-  %63 = getelementptr i8, ptr %62, i64 %61
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %61
-  %65 = icmp slt i32 %.0112, 0
-  br i1 %65, label %.lr.ph, label %.preheader130
+  %54 = sub i32 %8, %.0111
+  %55 = tail call i32 @llvm.smin.i32(i32 %4, i32 %54)
+  %56 = sub nsw i32 %55, %53
+  %57 = zext nneg i32 %51 to i64
+  %58 = mul nsw i64 %3, %57
+  %59 = zext nneg i32 %53 to i64
+  %60 = getelementptr i8, ptr %.1108, i64 %58
+  %61 = getelementptr i8, ptr %60, i64 %59
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %59
+  %63 = icmp slt i32 %.0112, 0
+  br i1 %63, label %.lr.ph, label %.preheader130
 
 .lr.ph:                                           ; preds = %49
-  %66 = sext i32 %58 to i64
+  %64 = sext i32 %56 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %50, i32 1)
   br label %69
 
 .preheader130:                                    ; preds = %69, %49
   %.0113.lcssa = phi i32 [ 0, %49 ], [ %smax, %69 ]
-  %.0.lcssa = phi ptr [ %64, %49 ], [ %70, %69 ]
-  %67 = icmp slt i32 %.0113.lcssa, %55
+  %.0.lcssa = phi ptr [ %62, %49 ], [ %70, %69 ]
+  %65 = sub nsw i32 %9, %.0112
+  %66 = tail call i32 @llvm.smin.i32(i32 %5, i32 %65)
+  %67 = icmp slt i32 %.0113.lcssa, %66
   br i1 %67, label %.lr.ph137, label %._crit_edge
 
 .lr.ph137:                                        ; preds = %.preheader130
-  %68 = sext i32 %58 to i64
+  %68 = sext i32 %56 to i64
   br label %72
 
 69:                                               ; preds = %.lr.ph, %69
-  %.0132 = phi ptr [ %64, %.lr.ph ], [ %70, %69 ]
+  %.0132 = phi ptr [ %62, %.lr.ph ], [ %70, %69 ]
   %.0113131 = phi i32 [ 0, %.lr.ph ], [ %71, %69 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0132, ptr align 1 %63, i64 %66, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0132, ptr align 1 %61, i64 %64, i1 false)
   %70 = getelementptr inbounds i8, ptr %.0132, i64 %2
   %71 = add nuw nsw i32 %.0113131, 1
   %exitcond.not = icmp eq i32 %71, %smax
@@ -115,18 +115,18 @@ define void @ff_emulated_edge_mc_8(ptr noundef captures(none) %0, ptr noundef re
 
 72:                                               ; preds = %.lr.ph137, %72
   %.1136 = phi ptr [ %.0.lcssa, %.lr.ph137 ], [ %74, %72 ]
-  %.2109135 = phi ptr [ %63, %.lr.ph137 ], [ %73, %72 ]
+  %.2109135 = phi ptr [ %61, %.lr.ph137 ], [ %73, %72 ]
   %.1114134 = phi i32 [ %.0113.lcssa, %.lr.ph137 ], [ %75, %72 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1136, ptr align 1 %.2109135, i64 %68, i1 false)
   %73 = getelementptr inbounds i8, ptr %.2109135, i64 %3
   %74 = getelementptr inbounds i8, ptr %.1136, i64 %2
   %75 = add nuw nsw i32 %.1114134, 1
-  %exitcond169.not = icmp eq i32 %75, %55
+  %exitcond169.not = icmp eq i32 %75, %66
   br i1 %exitcond169.not, label %._crit_edge, label %72, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %72, %.preheader130
-  %.1114.lcssa = phi i32 [ %.0113.lcssa, %.preheader130 ], [ %55, %72 ]
-  %.2109.lcssa = phi ptr [ %63, %.preheader130 ], [ %73, %72 ]
+  %.1114.lcssa = phi i32 [ %.0113.lcssa, %.preheader130 ], [ %66, %72 ]
+  %.2109.lcssa = phi ptr [ %61, %.preheader130 ], [ %73, %72 ]
   %.1.lcssa = phi ptr [ %.0.lcssa, %.preheader130 ], [ %74, %72 ]
   %76 = sub i64 0, %3
   %77 = getelementptr inbounds i8, ptr %.2109.lcssa, i64 %76
@@ -134,7 +134,7 @@ define void @ff_emulated_edge_mc_8(ptr noundef captures(none) %0, ptr noundef re
   br i1 %78, label %.lr.ph144, label %._crit_edge145
 
 .lr.ph144:                                        ; preds = %._crit_edge
-  %79 = sext i32 %58 to i64
+  %79 = sext i32 %56 to i64
   br label %80
 
 80:                                               ; preds = %.lr.ph144, %80
@@ -149,7 +149,7 @@ define void @ff_emulated_edge_mc_8(ptr noundef captures(none) %0, ptr noundef re
 ._crit_edge145.thread:                            ; preds = %80
   %83 = zext nneg i32 %5 to i64
   %84 = mul nsw i64 %2, %83
-  %85 = add nsw i64 %84, %61
+  %85 = add nsw i64 %84, %59
   %86 = sub i64 0, %85
   %87 = getelementptr inbounds i8, ptr %81, i64 %86
   br label %.preheader129.lr.ph
@@ -157,7 +157,7 @@ define void @ff_emulated_edge_mc_8(ptr noundef captures(none) %0, ptr noundef re
 ._crit_edge145:                                   ; preds = %._crit_edge
   %88 = sext i32 %5 to i64
   %89 = mul nsw i64 %2, %88
-  %90 = add nsw i64 %89, %61
+  %90 = add nsw i64 %89, %59
   %91 = sub i64 0, %90
   %92 = getelementptr inbounds i8, ptr %.1.lcssa, i64 %91
   %.not128152 = icmp eq i32 %5, 0
@@ -167,8 +167,8 @@ define void @ff_emulated_edge_mc_8(ptr noundef captures(none) %0, ptr noundef re
   %93 = phi ptr [ %87, %._crit_edge145.thread ], [ %92, %._crit_edge145 ]
   %94 = add nsw i32 %5, -1
   %95 = icmp slt i32 %.0111, 0
-  %96 = icmp slt i32 %56, %4
-  %97 = sext i32 %57 to i64
+  %96 = icmp slt i32 %54, %4
+  %97 = sext i32 %55 to i64
   br i1 %96, label %.preheader129.lr.ph.split.us, label %.preheader129.lr.ph.split
 
 .preheader129.lr.ph.split.us:                     ; preds = %.preheader129.lr.ph
@@ -182,7 +182,7 @@ define void @ff_emulated_edge_mc_8(ptr noundef captures(none) %0, ptr noundef re
 .preheader129.us.us:                              ; preds = %.preheader129.us.us.preheader, %._crit_edge151.us.us
   %98 = phi i32 [ %107, %._crit_edge151.us.us ], [ %94, %.preheader129.us.us.preheader ]
   %.3153.us.us = phi ptr [ %106, %._crit_edge151.us.us ], [ %93, %.preheader129.us.us.preheader ]
-  %99 = getelementptr inbounds nuw i8, ptr %.3153.us.us, i64 %61
+  %99 = getelementptr inbounds nuw i8, ptr %.3153.us.us, i64 %59
   %.pre188 = load i8, ptr %99, align 1, !tbaa !8
   br label %102
 
@@ -249,7 +249,7 @@ define void @ff_emulated_edge_mc_8(ptr noundef captures(none) %0, ptr noundef re
 .preheader129.us154:                              ; preds = %.preheader129.us154.preheader, %..preheader_crit_edge.us160
   %115 = phi i32 [ %120, %..preheader_crit_edge.us160 ], [ %94, %.preheader129.us154.preheader ]
   %.3153.us155 = phi ptr [ %119, %..preheader_crit_edge.us160 ], [ %93, %.preheader129.us154.preheader ]
-  %116 = getelementptr inbounds nuw i8, ptr %.3153.us155, i64 %61
+  %116 = getelementptr inbounds nuw i8, ptr %.3153.us155, i64 %59
   %.pre = load i8, ptr %116, align 1, !tbaa !8
   br label %117
 
@@ -363,42 +363,42 @@ define internal void @ff_emulated_edge_mc_16(ptr noundef captures(none) %0, ptr 
   %53 = tail call i32 @llvm.smax.i32(i32 %52, i32 0)
   %54 = sub i32 0, %.0111
   %55 = tail call i32 @llvm.smax.i32(i32 %54, i32 0)
-  %56 = sub i32 %9, %.0112
-  %57 = tail call i32 @llvm.smin.i32(i32 %5, i32 %56)
-  %58 = sub i32 %8, %.0111
-  %59 = tail call i32 @llvm.smin.i32(i32 %4, i32 %58)
-  %60 = sub nsw i32 %59, %55
-  %61 = zext nneg i32 %53 to i64
-  %62 = mul nsw i64 %3, %61
-  %63 = zext nneg i32 %55 to i64
-  %64 = shl nuw nsw i64 %63, 1
-  %65 = getelementptr i8, ptr %.1108, i64 %62
-  %66 = getelementptr i8, ptr %65, i64 %64
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %64
-  %68 = icmp slt i32 %.0112, 0
-  br i1 %68, label %.lr.ph, label %.preheader130
+  %56 = sub i32 %8, %.0111
+  %57 = tail call i32 @llvm.smin.i32(i32 %4, i32 %56)
+  %58 = sub nsw i32 %57, %55
+  %59 = zext nneg i32 %53 to i64
+  %60 = mul nsw i64 %3, %59
+  %61 = zext nneg i32 %55 to i64
+  %62 = shl nuw nsw i64 %61, 1
+  %63 = getelementptr i8, ptr %.1108, i64 %60
+  %64 = getelementptr i8, ptr %63, i64 %62
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 %62
+  %66 = icmp slt i32 %.0112, 0
+  br i1 %66, label %.lr.ph, label %.preheader130
 
 .lr.ph:                                           ; preds = %51
-  %69 = sext i32 %60 to i64
-  %70 = shl nsw i64 %69, 1
+  %67 = sext i32 %58 to i64
+  %68 = shl nsw i64 %67, 1
   %smax = tail call i32 @llvm.smax.i32(i32 %52, i32 1)
   br label %74
 
 .preheader130:                                    ; preds = %74, %51
   %.0113.lcssa = phi i32 [ 0, %51 ], [ %smax, %74 ]
-  %.0.lcssa = phi ptr [ %67, %51 ], [ %75, %74 ]
-  %71 = icmp slt i32 %.0113.lcssa, %57
+  %.0.lcssa = phi ptr [ %65, %51 ], [ %75, %74 ]
+  %69 = sub nsw i32 %9, %.0112
+  %70 = tail call i32 @llvm.smin.i32(i32 %5, i32 %69)
+  %71 = icmp slt i32 %.0113.lcssa, %70
   br i1 %71, label %.lr.ph137, label %._crit_edge
 
 .lr.ph137:                                        ; preds = %.preheader130
-  %72 = sext i32 %60 to i64
+  %72 = sext i32 %58 to i64
   %73 = shl nsw i64 %72, 1
   br label %77
 
 74:                                               ; preds = %.lr.ph, %74
-  %.0132 = phi ptr [ %67, %.lr.ph ], [ %75, %74 ]
+  %.0132 = phi ptr [ %65, %.lr.ph ], [ %75, %74 ]
   %.0113131 = phi i32 [ 0, %.lr.ph ], [ %76, %74 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0132, ptr align 1 %66, i64 %70, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0132, ptr align 1 %64, i64 %68, i1 false)
   %75 = getelementptr inbounds i8, ptr %.0132, i64 %2
   %76 = add nuw nsw i32 %.0113131, 1
   %exitcond.not = icmp eq i32 %76, %smax
@@ -406,18 +406,18 @@ define internal void @ff_emulated_edge_mc_16(ptr noundef captures(none) %0, ptr 
 
 77:                                               ; preds = %.lr.ph137, %77
   %.1136 = phi ptr [ %.0.lcssa, %.lr.ph137 ], [ %79, %77 ]
-  %.2109135 = phi ptr [ %66, %.lr.ph137 ], [ %78, %77 ]
+  %.2109135 = phi ptr [ %64, %.lr.ph137 ], [ %78, %77 ]
   %.1114134 = phi i32 [ %.0113.lcssa, %.lr.ph137 ], [ %80, %77 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1136, ptr align 1 %.2109135, i64 %73, i1 false)
   %78 = getelementptr inbounds i8, ptr %.2109135, i64 %3
   %79 = getelementptr inbounds i8, ptr %.1136, i64 %2
   %80 = add nuw nsw i32 %.1114134, 1
-  %exitcond169.not = icmp eq i32 %80, %57
+  %exitcond169.not = icmp eq i32 %80, %70
   br i1 %exitcond169.not, label %._crit_edge, label %77, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %77, %.preheader130
-  %.1114.lcssa = phi i32 [ %.0113.lcssa, %.preheader130 ], [ %57, %77 ]
-  %.2109.lcssa = phi ptr [ %66, %.preheader130 ], [ %78, %77 ]
+  %.1114.lcssa = phi i32 [ %.0113.lcssa, %.preheader130 ], [ %70, %77 ]
+  %.2109.lcssa = phi ptr [ %64, %.preheader130 ], [ %78, %77 ]
   %.1.lcssa = phi ptr [ %.0.lcssa, %.preheader130 ], [ %79, %77 ]
   %81 = sub i64 0, %3
   %82 = getelementptr inbounds i8, ptr %.2109.lcssa, i64 %81
@@ -425,7 +425,7 @@ define internal void @ff_emulated_edge_mc_16(ptr noundef captures(none) %0, ptr 
   br i1 %83, label %.lr.ph144, label %._crit_edge145
 
 .lr.ph144:                                        ; preds = %._crit_edge
-  %84 = sext i32 %60 to i64
+  %84 = sext i32 %58 to i64
   %85 = shl nsw i64 %84, 1
   br label %86
 
@@ -441,7 +441,7 @@ define internal void @ff_emulated_edge_mc_16(ptr noundef captures(none) %0, ptr 
 ._crit_edge145.thread:                            ; preds = %86
   %89 = zext nneg i32 %5 to i64
   %90 = mul nsw i64 %2, %89
-  %91 = add nsw i64 %90, %64
+  %91 = add nsw i64 %90, %62
   %92 = sub i64 0, %91
   %93 = getelementptr inbounds i8, ptr %87, i64 %92
   br label %.preheader129.lr.ph
@@ -449,7 +449,7 @@ define internal void @ff_emulated_edge_mc_16(ptr noundef captures(none) %0, ptr 
 ._crit_edge145:                                   ; preds = %._crit_edge
   %94 = sext i32 %5 to i64
   %95 = mul nsw i64 %2, %94
-  %96 = add nsw i64 %95, %64
+  %96 = add nsw i64 %95, %62
   %97 = sub i64 0, %96
   %98 = getelementptr inbounds i8, ptr %.1.lcssa, i64 %97
   %.not128152 = icmp eq i32 %5, 0
@@ -459,8 +459,8 @@ define internal void @ff_emulated_edge_mc_16(ptr noundef captures(none) %0, ptr 
   %99 = phi ptr [ %93, %._crit_edge145.thread ], [ %98, %._crit_edge145 ]
   %100 = add nsw i32 %5, -1
   %101 = icmp slt i32 %.0111, 0
-  %102 = icmp slt i32 %58, %4
-  %103 = sext i32 %59 to i64
+  %102 = icmp slt i32 %56, %4
+  %103 = sext i32 %57 to i64
   br i1 %102, label %.preheader129.lr.ph.split.us, label %.preheader129.lr.ph.split
 
 .preheader129.lr.ph.split.us:                     ; preds = %.preheader129.lr.ph
@@ -474,7 +474,7 @@ define internal void @ff_emulated_edge_mc_16(ptr noundef captures(none) %0, ptr 
 .preheader129.us.us:                              ; preds = %.preheader129.us.us.preheader, %._crit_edge151.us.us
   %104 = phi i32 [ %113, %._crit_edge151.us.us ], [ %100, %.preheader129.us.us.preheader ]
   %.3153.us.us = phi ptr [ %112, %._crit_edge151.us.us ], [ %99, %.preheader129.us.us.preheader ]
-  %105 = getelementptr inbounds nuw i16, ptr %.3153.us.us, i64 %63
+  %105 = getelementptr inbounds nuw i16, ptr %.3153.us.us, i64 %61
   %.pre188 = load i16, ptr %105, align 2, !tbaa !21
   br label %108
 
@@ -541,7 +541,7 @@ define internal void @ff_emulated_edge_mc_16(ptr noundef captures(none) %0, ptr 
 .preheader129.us154:                              ; preds = %.preheader129.us154.preheader, %..preheader_crit_edge.us160
   %121 = phi i32 [ %126, %..preheader_crit_edge.us160 ], [ %100, %.preheader129.us154.preheader ]
   %.3153.us155 = phi ptr [ %125, %..preheader_crit_edge.us160 ], [ %99, %.preheader129.us154.preheader ]
-  %122 = getelementptr inbounds nuw i16, ptr %.3153.us155, i64 %63
+  %122 = getelementptr inbounds nuw i16, ptr %.3153.us155, i64 %61
   %.pre = load i16, ptr %122, align 2, !tbaa !21
   br label %123
 

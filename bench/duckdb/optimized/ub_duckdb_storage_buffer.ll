@@ -11649,8 +11649,8 @@ define linkonce_odr void @_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18Buff
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load atomic i64, ptr %4 monotonic, align 8
-  %.not = icmp eq i64 %5, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not2841 = icmp eq i64 %5, %3
+  br i1 %.not2841, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -11771,7 +11771,7 @@ _ZN6duckdb18BufferEvictionNodeD2Ev.exit:          ; preds = %49, %_ZN9__gnu_cxx2
 69:                                               ; preds = %._crit_edge
   %70 = and i64 %3, 31
   %.not30 = icmp eq i64 %70, 0
-  %or.cond35 = and i1 %.not, %.not30
+  %or.cond35 = and i1 %.not2841, %.not30
   br i1 %or.cond35, label %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS4_5BlockE.exit37, label %71
 
 71:                                               ; preds = %69

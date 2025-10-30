@@ -75,211 +75,211 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 
 33:                                               ; preds = %.loopexit325
   %34 = sext i32 %32 to i64
-  %35 = sitofp i32 %32 to double
-  %36 = fsub double %.1254, %35
-  %37 = icmp ugt i32 %32, 9999
-  br i1 %37, label %.lr.ph, label %._crit_edge
+  %35 = icmp ugt i32 %32, 9999
+  br i1 %35, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %33, %120
-  %.2267328 = phi i64 [ %38, %120 ], [ %34, %33 ]
-  %.1279327 = phi ptr [ %40, %120 ], [ getelementptr inbounds nuw (i8, ptr @_sfcvt.Buf, i64 512), %33 ]
-  %38 = udiv i64 %.2267328, 10000
-  %.neg = mul i64 %38, -10000
-  %39 = add i64 %.neg, %.2267328
-  %40 = getelementptr inbounds i8, ptr %.1279327, i64 -4
-  %41 = icmp slt i64 %39, 5000
-  br i1 %41, label %42, label %59
+.lr.ph:                                           ; preds = %33, %118
+  %.2267328 = phi i64 [ %36, %118 ], [ %34, %33 ]
+  %.1279327 = phi ptr [ %38, %118 ], [ getelementptr inbounds nuw (i8, ptr @_sfcvt.Buf, i64 512), %33 ]
+  %36 = udiv i64 %.2267328, 10000
+  %.neg = mul i64 %36, -10000
+  %37 = add i64 %.neg, %.2267328
+  %38 = getelementptr inbounds i8, ptr %.1279327, i64 -4
+  %39 = icmp slt i64 %37, 5000
+  br i1 %39, label %40, label %57
 
-42:                                               ; preds = %.lr.ph
-  %43 = icmp slt i64 %39, 2000
-  br i1 %43, label %44, label %49
+40:                                               ; preds = %.lr.ph
+  %41 = icmp slt i64 %37, 2000
+  br i1 %41, label %42, label %47
+
+42:                                               ; preds = %40
+  %43 = icmp slt i64 %37, 1000
+  br i1 %43, label %44, label %45
 
 44:                                               ; preds = %42
-  %45 = icmp slt i64 %39, 1000
-  br i1 %45, label %46, label %47
+  store i8 48, ptr %38, align 1, !tbaa !13
+  br label %75
 
-46:                                               ; preds = %44
-  store i8 48, ptr %40, align 1, !tbaa !13
-  br label %77
+45:                                               ; preds = %42
+  store i8 49, ptr %38, align 1, !tbaa !13
+  %46 = add nsw i64 %37, -1000
+  br label %75
 
-47:                                               ; preds = %44
-  store i8 49, ptr %40, align 1, !tbaa !13
-  %48 = add nsw i64 %39, -1000
-  br label %77
+47:                                               ; preds = %40
+  %48 = icmp samesign ult i64 %37, 3000
+  br i1 %48, label %49, label %51
 
-49:                                               ; preds = %42
-  %50 = icmp samesign ult i64 %39, 3000
-  br i1 %50, label %51, label %53
+49:                                               ; preds = %47
+  store i8 50, ptr %38, align 1, !tbaa !13
+  %50 = add nsw i64 %37, -2000
+  br label %75
 
-51:                                               ; preds = %49
-  store i8 50, ptr %40, align 1, !tbaa !13
-  %52 = add nsw i64 %39, -2000
-  br label %77
+51:                                               ; preds = %47
+  %52 = icmp samesign ult i64 %37, 4000
+  br i1 %52, label %53, label %55
 
-53:                                               ; preds = %49
-  %54 = icmp samesign ult i64 %39, 4000
-  br i1 %54, label %55, label %57
+53:                                               ; preds = %51
+  store i8 51, ptr %38, align 1, !tbaa !13
+  %54 = add nsw i64 %37, -3000
+  br label %75
 
-55:                                               ; preds = %53
-  store i8 51, ptr %40, align 1, !tbaa !13
-  %56 = add nsw i64 %39, -3000
-  br label %77
+55:                                               ; preds = %51
+  store i8 52, ptr %38, align 1, !tbaa !13
+  %56 = add nsw i64 %37, -4000
+  br label %75
 
-57:                                               ; preds = %53
-  store i8 52, ptr %40, align 1, !tbaa !13
-  %58 = add nsw i64 %39, -4000
-  br label %77
+57:                                               ; preds = %.lr.ph
+  %58 = icmp samesign ult i64 %37, 7000
+  br i1 %58, label %59, label %65
 
-59:                                               ; preds = %.lr.ph
-  %60 = icmp samesign ult i64 %39, 7000
-  br i1 %60, label %61, label %67
+59:                                               ; preds = %57
+  %60 = icmp samesign ult i64 %37, 6000
+  br i1 %60, label %61, label %63
 
 61:                                               ; preds = %59
-  %62 = icmp samesign ult i64 %39, 6000
-  br i1 %62, label %63, label %65
+  store i8 53, ptr %38, align 1, !tbaa !13
+  %62 = add nsw i64 %37, -5000
+  br label %75
 
-63:                                               ; preds = %61
-  store i8 53, ptr %40, align 1, !tbaa !13
-  %64 = add nsw i64 %39, -5000
-  br label %77
+63:                                               ; preds = %59
+  store i8 54, ptr %38, align 1, !tbaa !13
+  %64 = add nsw i64 %37, -6000
+  br label %75
 
-65:                                               ; preds = %61
-  store i8 54, ptr %40, align 1, !tbaa !13
-  %66 = add nsw i64 %39, -6000
-  br label %77
+65:                                               ; preds = %57
+  %66 = icmp samesign ult i64 %37, 8000
+  br i1 %66, label %67, label %69
 
-67:                                               ; preds = %59
-  %68 = icmp samesign ult i64 %39, 8000
-  br i1 %68, label %69, label %71
+67:                                               ; preds = %65
+  store i8 55, ptr %38, align 1, !tbaa !13
+  %68 = add nsw i64 %37, -7000
+  br label %75
 
-69:                                               ; preds = %67
-  store i8 55, ptr %40, align 1, !tbaa !13
-  %70 = add nsw i64 %39, -7000
-  br label %77
+69:                                               ; preds = %65
+  %70 = icmp samesign ult i64 %37, 9000
+  br i1 %70, label %71, label %73
 
-71:                                               ; preds = %67
-  %72 = icmp samesign ult i64 %39, 9000
-  br i1 %72, label %73, label %75
+71:                                               ; preds = %69
+  store i8 56, ptr %38, align 1, !tbaa !13
+  %72 = add nsw i64 %37, -8000
+  br label %75
 
-73:                                               ; preds = %71
-  store i8 56, ptr %40, align 1, !tbaa !13
-  %74 = add nsw i64 %39, -8000
-  br label %77
+73:                                               ; preds = %69
+  store i8 57, ptr %38, align 1, !tbaa !13
+  %74 = add nsw i64 %37, -9000
+  br label %75
 
-75:                                               ; preds = %71
-  store i8 57, ptr %40, align 1, !tbaa !13
-  %76 = add nsw i64 %39, -9000
-  br label %77
+75:                                               ; preds = %63, %61, %71, %73, %67, %45, %44, %53, %55, %49
+  %.3274 = phi i64 [ %37, %44 ], [ %46, %45 ], [ %50, %49 ], [ %54, %53 ], [ %56, %55 ], [ %62, %61 ], [ %64, %63 ], [ %68, %67 ], [ %72, %71 ], [ %74, %73 ]
+  %76 = icmp slt i64 %.3274, 500
+  br i1 %76, label %77, label %97
 
-77:                                               ; preds = %65, %63, %73, %75, %69, %47, %46, %55, %57, %51
-  %.3274 = phi i64 [ %39, %46 ], [ %48, %47 ], [ %52, %51 ], [ %56, %55 ], [ %58, %57 ], [ %64, %63 ], [ %66, %65 ], [ %70, %69 ], [ %74, %73 ], [ %76, %75 ]
-  %78 = icmp slt i64 %.3274, 500
-  br i1 %78, label %79, label %99
+77:                                               ; preds = %75
+  %78 = icmp slt i64 %.3274, 200
+  br i1 %78, label %79, label %85
 
 79:                                               ; preds = %77
-  %80 = icmp slt i64 %.3274, 200
-  br i1 %80, label %81, label %87
+  %80 = icmp slt i64 %.3274, 100
+  %81 = getelementptr inbounds i8, ptr %.1279327, i64 -3
+  br i1 %80, label %82, label %83
 
-81:                                               ; preds = %79
-  %82 = icmp slt i64 %.3274, 100
-  %83 = getelementptr inbounds i8, ptr %.1279327, i64 -3
-  br i1 %82, label %84, label %85
+82:                                               ; preds = %79
+  store i8 48, ptr %81, align 1, !tbaa !13
+  br label %118
 
-84:                                               ; preds = %81
-  store i8 48, ptr %83, align 1, !tbaa !13
-  br label %120
+83:                                               ; preds = %79
+  store i8 49, ptr %81, align 1, !tbaa !13
+  %84 = add nsw i64 %.3274, -100
+  br label %118
 
-85:                                               ; preds = %81
-  store i8 49, ptr %83, align 1, !tbaa !13
-  %86 = add nsw i64 %.3274, -100
-  br label %120
+85:                                               ; preds = %77
+  %86 = icmp samesign ult i64 %.3274, 300
+  br i1 %86, label %87, label %90
 
-87:                                               ; preds = %79
-  %88 = icmp samesign ult i64 %.3274, 300
-  br i1 %88, label %89, label %92
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds i8, ptr %.1279327, i64 -3
+  store i8 50, ptr %88, align 1, !tbaa !13
+  %89 = add nsw i64 %.3274, -200
+  br label %118
 
-89:                                               ; preds = %87
-  %90 = getelementptr inbounds i8, ptr %.1279327, i64 -3
-  store i8 50, ptr %90, align 1, !tbaa !13
-  %91 = add nsw i64 %.3274, -200
-  br label %120
+90:                                               ; preds = %85
+  %91 = icmp samesign ult i64 %.3274, 400
+  %92 = getelementptr inbounds i8, ptr %.1279327, i64 -3
+  br i1 %91, label %93, label %95
 
-92:                                               ; preds = %87
-  %93 = icmp samesign ult i64 %.3274, 400
-  %94 = getelementptr inbounds i8, ptr %.1279327, i64 -3
-  br i1 %93, label %95, label %97
+93:                                               ; preds = %90
+  store i8 51, ptr %92, align 1, !tbaa !13
+  %94 = add nsw i64 %.3274, -300
+  br label %118
 
-95:                                               ; preds = %92
-  store i8 51, ptr %94, align 1, !tbaa !13
-  %96 = add nsw i64 %.3274, -300
-  br label %120
+95:                                               ; preds = %90
+  store i8 52, ptr %92, align 1, !tbaa !13
+  %96 = add nsw i64 %.3274, -400
+  br label %118
 
-97:                                               ; preds = %92
-  store i8 52, ptr %94, align 1, !tbaa !13
-  %98 = add nsw i64 %.3274, -400
-  br label %120
+97:                                               ; preds = %75
+  %98 = icmp samesign ult i64 %.3274, 700
+  br i1 %98, label %99, label %106
 
-99:                                               ; preds = %77
-  %100 = icmp samesign ult i64 %.3274, 700
-  br i1 %100, label %101, label %108
+99:                                               ; preds = %97
+  %100 = icmp samesign ult i64 %.3274, 600
+  %101 = getelementptr inbounds i8, ptr %.1279327, i64 -3
+  br i1 %100, label %102, label %104
 
-101:                                              ; preds = %99
-  %102 = icmp samesign ult i64 %.3274, 600
-  %103 = getelementptr inbounds i8, ptr %.1279327, i64 -3
-  br i1 %102, label %104, label %106
+102:                                              ; preds = %99
+  store i8 53, ptr %101, align 1, !tbaa !13
+  %103 = add nsw i64 %.3274, -500
+  br label %118
 
-104:                                              ; preds = %101
-  store i8 53, ptr %103, align 1, !tbaa !13
-  %105 = add nsw i64 %.3274, -500
-  br label %120
+104:                                              ; preds = %99
+  store i8 54, ptr %101, align 1, !tbaa !13
+  %105 = add nsw i64 %.3274, -600
+  br label %118
 
-106:                                              ; preds = %101
-  store i8 54, ptr %103, align 1, !tbaa !13
-  %107 = add nsw i64 %.3274, -600
-  br label %120
+106:                                              ; preds = %97
+  %107 = icmp samesign ult i64 %.3274, 800
+  br i1 %107, label %108, label %111
 
-108:                                              ; preds = %99
-  %109 = icmp samesign ult i64 %.3274, 800
-  br i1 %109, label %110, label %113
+108:                                              ; preds = %106
+  %109 = getelementptr inbounds i8, ptr %.1279327, i64 -3
+  store i8 55, ptr %109, align 1, !tbaa !13
+  %110 = add nsw i64 %.3274, -700
+  br label %118
 
-110:                                              ; preds = %108
-  %111 = getelementptr inbounds i8, ptr %.1279327, i64 -3
-  store i8 55, ptr %111, align 1, !tbaa !13
-  %112 = add nsw i64 %.3274, -700
-  br label %120
+111:                                              ; preds = %106
+  %112 = icmp samesign ult i64 %.3274, 900
+  %113 = getelementptr inbounds i8, ptr %.1279327, i64 -3
+  br i1 %112, label %114, label %116
 
-113:                                              ; preds = %108
-  %114 = icmp samesign ult i64 %.3274, 900
-  %115 = getelementptr inbounds i8, ptr %.1279327, i64 -3
-  br i1 %114, label %116, label %118
+114:                                              ; preds = %111
+  store i8 56, ptr %113, align 1, !tbaa !13
+  %115 = add nsw i64 %.3274, -800
+  br label %118
 
-116:                                              ; preds = %113
-  store i8 56, ptr %115, align 1, !tbaa !13
-  %117 = add nsw i64 %.3274, -800
-  br label %120
+116:                                              ; preds = %111
+  store i8 57, ptr %113, align 1, !tbaa !13
+  %117 = add nsw i64 %.3274, -900
+  br label %118
 
-118:                                              ; preds = %113
-  store i8 57, ptr %115, align 1, !tbaa !13
-  %119 = add nsw i64 %.3274, -900
-  br label %120
+118:                                              ; preds = %104, %102, %114, %116, %108, %83, %82, %93, %95, %87
+  %.4275 = phi i64 [ %.3274, %82 ], [ %84, %83 ], [ %89, %87 ], [ %94, %93 ], [ %96, %95 ], [ %103, %102 ], [ %105, %104 ], [ %110, %108 ], [ %115, %114 ], [ %117, %116 ]
+  %119 = shl i64 %.4275, 1
+  %120 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 192), i64 %119
+  %121 = load i8, ptr %120, align 2, !tbaa !13
+  %122 = getelementptr inbounds i8, ptr %.1279327, i64 -2
+  store i8 %121, ptr %122, align 1, !tbaa !13
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 1
+  %124 = load i8, ptr %123, align 1, !tbaa !13
+  %125 = getelementptr inbounds i8, ptr %.1279327, i64 -1
+  store i8 %124, ptr %125, align 1, !tbaa !13
+  %126 = icmp ugt i64 %.2267328, 99999999
+  br i1 %126, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-120:                                              ; preds = %106, %104, %116, %118, %110, %85, %84, %95, %97, %89
-  %.4275 = phi i64 [ %.3274, %84 ], [ %86, %85 ], [ %91, %89 ], [ %96, %95 ], [ %98, %97 ], [ %105, %104 ], [ %107, %106 ], [ %112, %110 ], [ %117, %116 ], [ %119, %118 ]
-  %121 = shl i64 %.4275, 1
-  %122 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @_Sftable, i64 192), i64 %121
-  %123 = load i8, ptr %122, align 2, !tbaa !13
-  %124 = getelementptr inbounds i8, ptr %.1279327, i64 -2
-  store i8 %123, ptr %124, align 1, !tbaa !13
-  %125 = getelementptr inbounds nuw i8, ptr %122, i64 1
-  %126 = load i8, ptr %125, align 1, !tbaa !13
-  %127 = getelementptr inbounds i8, ptr %.1279327, i64 -1
-  store i8 %126, ptr %127, align 1, !tbaa !13
-  %128 = icmp ugt i64 %.2267328, 99999999
-  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !14
-
-._crit_edge:                                      ; preds = %120, %33
-  %.1279.lcssa = phi ptr [ getelementptr inbounds nuw (i8, ptr @_sfcvt.Buf, i64 512), %33 ], [ %40, %120 ]
-  %.2267.lcssa = phi i64 [ %34, %33 ], [ %38, %120 ]
+._crit_edge:                                      ; preds = %118, %33
+  %.1279.lcssa = phi ptr [ getelementptr inbounds nuw (i8, ptr @_sfcvt.Buf, i64 512), %33 ], [ %38, %118 ]
+  %.2267.lcssa = phi i64 [ %34, %33 ], [ %36, %118 ]
+  %127 = sitofp i32 %32 to double
+  %128 = fsub double %.1254, %127
   %129 = icmp samesign ult i64 %.2267.lcssa, 100
   br i1 %129, label %130, label %144
 
@@ -527,7 +527,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   %.promoted = phi i32 [ %246, %241 ], [ %.0271, %.loopexit325 ]
   %.5276 = phi i64 [ %243, %241 ], [ 0, %.loopexit325 ]
   %.1257 = phi ptr [ %.2280, %241 ], [ getelementptr inbounds nuw (i8, ptr @_sfcvt.Buf, i64 512), %.loopexit325 ]
-  %.4 = phi double [ %36, %241 ], [ %.1254, %.loopexit325 ]
+  %.4 = phi double [ %128, %241 ], [ %.1254, %.loopexit325 ]
   %249 = and i32 %4, 134217728
   %.not299 = icmp ne i32 %249, 0
   %250 = icmp slt i32 %.promoted, 1

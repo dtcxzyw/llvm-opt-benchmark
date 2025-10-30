@@ -1243,8 +1243,8 @@ _ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEED2B8ne190000Ev.exit: ; pred
           to label %.noexc46 unwind label %.thread73
 
 .noexc46:                                         ; preds = %.lr.ph.preheader.i10.i.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %135, i8 0, i64 %131, i1 false)
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 %131
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %135, i8 0, i64 %131, i1 false)
   store ptr %135, ptr %14, align 8
   store ptr %136, ptr %96, align 8
   store ptr %136, ptr %97, align 8
@@ -41131,8 +41131,8 @@ _ZNSt3__16vectorIN3tev9ImageDataENS_9allocatorIS2_EEED2B8ne190000Ev.exit: ; pred
           to label %.noexc36 unwind label %.thread62
 
 .noexc36:                                         ; preds = %.lr.ph.preheader.i10.i.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %112, i8 0, i64 %108, i1 false)
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 %108
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %112, i8 0, i64 %108, i1 false)
   store ptr %112, ptr %6, align 8
   store ptr %113, ptr %73, align 8
   store ptr %113, ptr %74, align 8

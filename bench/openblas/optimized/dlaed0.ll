@@ -187,9 +187,9 @@ thread-pre-split:                                 ; preds = %30
   br i1 %exitcond452.not, label %._crit_edge401, label %.lr.ph400, !llvm.loop !12
 
 ._crit_edge401:                                   ; preds = %.lr.ph400, %._crit_edge390, %._crit_edge390.thread
-  %.not351.not397497 = phi i1 [ false, %._crit_edge390.thread ], [ false, %._crit_edge390 ], [ true, %.lr.ph400 ]
-  %.0326.lcssa493496 = phi i32 [ 1, %._crit_edge390.thread ], [ %64, %._crit_edge390 ], [ %64, %.lr.ph400 ]
-  %91 = add nsw i32 %.0326.lcssa493496, -1
+  %.lcssa.sink = phi i32 [ %64, %._crit_edge390 ], [ 1, %._crit_edge390.thread ], [ %64, %.lr.ph400 ]
+  %.not351.not397497 = phi i1 [ false, %._crit_edge390 ], [ false, %._crit_edge390.thread ], [ true, %.lr.ph400 ]
+  %91 = add nsw i32 %.lcssa.sink, -1
   %92 = load i32, ptr %2, align 4, !tbaa !3
   %93 = shl i32 %92, 2
   %94 = or disjoint i32 %93, 3
@@ -272,21 +272,14 @@ pow_ii.exit381:                                   ; preds = %.lr.ph.i374, %pow_i
   %130 = add nsw i32 %129, %128
   %131 = add i32 %111, 2
   %132 = add i32 %131, %130
-  %133 = add nsw i32 %132, %128
-  %134 = shl i32 %111, 1
-  %135 = mul nsw i32 %134, %.1
-  %136 = or disjoint i32 %135, 1
-  %137 = mul nsw i32 %111, %111
-  %138 = add nuw i32 %137, 1
-  %139 = add i32 %138, %136
-  %.not353402 = icmp slt i32 %.0326.lcssa493496, 0
+  %.not353402 = icmp slt i32 %.lcssa.sink, 0
   %.pre480 = sext i32 %127 to i64
   %.pre481 = sext i32 %132 to i64
   br i1 %.not353402, label %._crit_edge405, label %.lr.ph404.preheader
 
 .lr.ph404.preheader:                              ; preds = %pow_ii.exit381
-  %140 = add nuw nsw i32 %.0326.lcssa493496, 1
-  %wide.trip.count456 = zext nneg i32 %140 to i64
+  %133 = add nuw nsw i32 %.lcssa.sink, 1
+  %wide.trip.count456 = zext nneg i32 %133 to i64
   %invariant.gep = getelementptr i32, ptr %28, i64 %.pre480
   %invariant.gep502 = getelementptr i32, ptr %28, i64 %.pre481
   br label %.lr.ph404
@@ -302,23 +295,30 @@ pow_ii.exit381:                                   ; preds = %.lr.ph.i374, %pow_i
   br i1 %exitcond457.not, label %._crit_edge405, label %.lr.ph404, !llvm.loop !13
 
 ._crit_edge405:                                   ; preds = %.lr.ph404, %pow_ii.exit381
+  %134 = add nsw i32 %132, %128
+  %135 = shl i32 %111, 1
+  %136 = mul nsw i32 %135, %.1
+  %137 = or disjoint i32 %136, 1
+  %138 = mul nsw i32 %111, %111
+  %139 = add nuw i32 %138, 1
+  %140 = add i32 %139, %137
   %141 = sext i32 %130 to i64
   %142 = getelementptr inbounds i32, ptr %28, i64 %141
   store i32 1, ptr %142, align 4, !tbaa !3
   %143 = sext i32 %129 to i64
-  %144 = sext i32 %133 to i64
-  %145 = sext i32 %139 to i64
+  %144 = sext i32 %134 to i64
+  %145 = sext i32 %140 to i64
   br label %146
 
 146:                                              ; preds = %._crit_edge405, %._crit_edge401
   %.0334 = phi i64 [ %143, %._crit_edge405 ], [ 0, %._crit_edge401 ]
   %.0333 = phi i64 [ %145, %._crit_edge405 ], [ 0, %._crit_edge401 ]
   %.0332 = phi i32 [ %130, %._crit_edge405 ], [ undef, %._crit_edge401 ]
-  %.0331 = phi i32 [ %136, %._crit_edge405 ], [ undef, %._crit_edge401 ]
+  %.0331 = phi i32 [ %137, %._crit_edge405 ], [ undef, %._crit_edge401 ]
   %.0330 = phi i64 [ %144, %._crit_edge405 ], [ 0, %._crit_edge401 ]
   %.0325 = phi i64 [ %.pre481, %._crit_edge405 ], [ 0, %._crit_edge401 ]
   %.0324 = phi i64 [ %.pre480, %._crit_edge405 ], [ 0, %._crit_edge401 ]
-  %.not354411 = icmp slt i32 %.0326.lcssa493496, 1
+  %.not354411 = icmp slt i32 %.lcssa.sink, 1
   br i1 %.not354411, label %.preheader, label %.lr.ph415
 
 .lr.ph415:                                        ; preds = %146
@@ -460,7 +460,7 @@ pow_ii.exit381:                                   ; preds = %.lr.ph.i374, %pow_i
 
 222:                                              ; preds = %.lr.ph422, %._crit_edge420
   %223 = phi i32 [ 1, %.lr.ph422 ], [ %283, %._crit_edge420 ]
-  %.1327421 = phi i32 [ %.0326.lcssa493496, %.lr.ph422 ], [ %282, %._crit_edge420 ]
+  %.1327421 = phi i32 [ %.lcssa.sink, %.lr.ph422 ], [ %282, %._crit_edge420 ]
   %224 = add nsw i32 %.1327421, -2
   %.not359416 = icmp slt i32 %.1327421, 2
   br i1 %.not359416, label %._crit_edge420, label %.lr.ph419

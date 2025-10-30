@@ -11546,9 +11546,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit136:                 ; preds = %279, %277, %221, %2
 
 ._crit_edge:                                      ; preds = %86, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit
   %291 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
-          to label %.noexc140 unwind label %335
+          to label %.lr.ph.i.i.i.i.i.i.preheader unwind label %335
 
-.noexc140:                                        ; preds = %._crit_edge
+.lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %._crit_edge
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
   store i64 9221120237041090560, ptr %291, align 8
   %293 = load i64, ptr %74, align 8
@@ -11556,14 +11556,14 @@ _ZNSt6vectorIdSaIdEED2Ev.exit136:                 ; preds = %279, %277, %221, %2
   %295 = icmp ugt i64 %294, 1152921504606846975
   br i1 %295, label %296, label %297
 
-296:                                              ; preds = %.noexc140
+296:                                              ; preds = %.lr.ph.i.i.i.i.i.i.preheader
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.23) #23
           to label %.noexc141 unwind label %.loopexit.split-lp248
 
 .noexc141:                                        ; preds = %296
   unreachable
 
-297:                                              ; preds = %.noexc140
+297:                                              ; preds = %.lr.ph.i.i.i.i.i.i.preheader
   %298 = icmp samesign ugt i64 %294, 1
   br i1 %298, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE7reserveEm.exit
 
@@ -13320,9 +13320,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit312:                 ; preds = %389, %387, %331, %3
 
 ._crit_edge:                                      ; preds = %200, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
   %401 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
-          to label %.noexc316 unwind label %463
+          to label %.lr.ph.i.i.i.i.i.i.preheader unwind label %463
 
-.noexc316:                                        ; preds = %._crit_edge
+.lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %._crit_edge
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 8
   store i64 9221120237041090560, ptr %401, align 8
   %403 = load i64, ptr %187, align 8
@@ -13330,14 +13330,14 @@ _ZNSt6vectorIdSaIdEED2Ev.exit312:                 ; preds = %389, %387, %331, %3
   %405 = icmp ugt i64 %404, 1152921504606846975
   br i1 %405, label %406, label %407
 
-406:                                              ; preds = %.noexc316
+406:                                              ; preds = %.lr.ph.i.i.i.i.i.i.preheader
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.23) #23
           to label %.noexc317 unwind label %.loopexit.split-lp597
 
 .noexc317:                                        ; preds = %406
   unreachable
 
-407:                                              ; preds = %.noexc316
+407:                                              ; preds = %.lr.ph.i.i.i.i.i.i.preheader
   %408 = icmp samesign ugt i64 %404, 1
   br i1 %408, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE7reserveEm.exit
 

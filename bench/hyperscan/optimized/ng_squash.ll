@@ -4741,17 +4741,20 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %81
 
 .lr.ph.i.preheader:                               ; preds = %.noexc60
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %83, ptr align 8 %.pre, i64 %.pre250, i1 false)
-  %87 = getelementptr inbounds i8, ptr %83, i64 %.pre250
-  %88 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %89 = load i64, ptr %88, align 8
-  %90 = ashr exact i64 %.pre250, 3
+  %87 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  %88 = load i64, ptr %87, align 8
+  %89 = ashr exact i64 %.pre250, 3
   br label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.thread
-  %91 = phi i64 [ %86, %.thread ], [ %89, %.lr.ph.i ]
-  %92 = phi ptr [ %.ph, %.thread ], [ %87, %.lr.ph.i ]
-  %.pre-phi251279283 = phi i64 [ 0, %.thread ], [ %.pre250, %.lr.ph.i ]
-  %93 = phi ptr [ %.ph, %.thread ], [ %83, %.lr.ph.i ]
+._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
+  %90 = getelementptr inbounds i8, ptr %83, i64 %.pre250
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.thread
+  %91 = phi i64 [ %86, %.thread ], [ %88, %._crit_edge.i.loopexit ]
+  %92 = phi ptr [ %.ph, %.thread ], [ %90, %._crit_edge.i.loopexit ]
+  %.pre-phi251279283 = phi i64 [ 0, %.thread ], [ %.pre250, %._crit_edge.i.loopexit ]
+  %93 = phi ptr [ %.ph, %.thread ], [ %83, %._crit_edge.i.loopexit ]
   %94 = and i64 %91, 63
   %.not.i.i = icmp eq i64 %94, 0
   br i1 %.not.i.i, label %_ZN5boost14dynamic_bitsetImSaImEE4flipEv.exit, label %95
@@ -4772,8 +4775,8 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %81
   %102 = xor i64 %101, -1
   store i64 %102, ptr %100, align 8
   %103 = add nuw i64 %.04.i, 1
-  %exitcond.not = icmp eq i64 %103, %90
-  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
+  %exitcond.not = icmp eq i64 %103, %89
+  br i1 %exitcond.not, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !20
 
 _ZN5boost14dynamic_bitsetImSaImEE4flipEv.exit:    ; preds = %95, %._crit_edge.i
   %104 = ptrtoint ptr %92 to i64

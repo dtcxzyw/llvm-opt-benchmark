@@ -762,38 +762,38 @@ _ZL9addUniquePhRhih.exit658.invoke:               ; preds = %.loopexit.i666.us, 
   br label %313
 
 .loopexit802:                                     ; preds = %_ZL8containsPKhhh.exit, %._crit_edge866
-  %.1576.lcssa = phi i32 [ %317, %._crit_edge866 ], [ %.2577, %_ZL8containsPKhhh.exit ]
+  %.1576.lcssa = phi i32 [ %315, %._crit_edge866 ], [ %.2577, %_ZL8containsPKhhh.exit ]
   %.not625 = icmp eq i32 %.1576.lcssa, 0
   br i1 %.not625, label %371, label %313, !llvm.loop !19
 
 313:                                              ; preds = %307, %.loopexit802
   %.0575876 = phi i32 [ 1, %307 ], [ %.1576.lcssa, %.loopexit802 ]
   %314 = load i8, ptr %8, align 16
-  %315 = zext i8 %314 to i64
-  %316 = getelementptr inbounds nuw %struct.rcLayerRegion, ptr %177, i64 %315
-  %317 = add i32 %.0575876, -1
-  %318 = icmp sgt i32 %.0575876, 1
-  br i1 %318, label %.lr.ph865.preheader, label %._crit_edge866
+  %315 = add i32 %.0575876, -1
+  %316 = icmp sgt i32 %.0575876, 1
+  br i1 %316, label %.lr.ph865.preheader, label %._crit_edge866
 
 .lr.ph865.preheader:                              ; preds = %313
-  %319 = zext nneg i32 %317 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 1 %scevgep, i64 %319, i1 false)
+  %317 = zext nneg i32 %315 to i64
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 1 %scevgep, i64 %317, i1 false)
   br label %._crit_edge866
 
 ._crit_edge866:                                   ; preds = %.lr.ph865.preheader, %313
-  %320 = getelementptr inbounds nuw i8, ptr %316, i64 86
+  %318 = zext i8 %314 to i64
+  %319 = getelementptr inbounds nuw %struct.rcLayerRegion, ptr %177, i64 %318
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 86
   %321 = load i8, ptr %320, align 2
   %.not927 = icmp eq i8 %321, 0
   br i1 %.not927, label %.loopexit802, label %.lr.ph874
 
 .lr.ph874:                                        ; preds = %._crit_edge866
-  %322 = getelementptr inbounds nuw i8, ptr %316, i64 63
+  %322 = getelementptr inbounds nuw i8, ptr %319, i64 63
   %wide.trip.count998 = zext i8 %321 to i64
   br label %323
 
 323:                                              ; preds = %.lr.ph874, %_ZL8containsPKhhh.exit
   %indvars.iv995 = phi i64 [ 0, %.lr.ph874 ], [ %indvars.iv.next996, %_ZL8containsPKhhh.exit ]
-  %.1576872 = phi i32 [ %317, %.lr.ph874 ], [ %.2577, %_ZL8containsPKhhh.exit ]
+  %.1576872 = phi i32 [ %315, %.lr.ph874 ], [ %.2577, %_ZL8containsPKhhh.exit ]
   %324 = getelementptr inbounds nuw i8, ptr %322, i64 %indvars.iv995
   %325 = load i8, ptr %324, align 1
   %326 = zext i8 %325 to i64

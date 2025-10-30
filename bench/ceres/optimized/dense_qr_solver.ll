@@ -1162,27 +1162,27 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
   %.03550.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %26, %.lr.ph52.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i ]
   %29 = mul i64 %27, %.03451.i.i.i.i.i.i.i.i.i.i.i.i
   %scevgep5.i = getelementptr i8, ptr %7, i64 %29
-  %30 = sub i64 %5, %.03550.i.i.i.i.i.i.i.i.i.i.i.i
-  %31 = and i64 %30, -2
-  %32 = add i64 %31, %.03550.i.i.i.i.i.i.i.i.i.i.i.i
-  %33 = icmp sgt i64 %.03550.i.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %33, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
+  %30 = icmp sgt i64 %.03550.i.i.i.i.i.i.i.i.i.i.i.i, 0
+  br i1 %30, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %28
-  %34 = mul nsw i64 %.03451.i.i.i.i.i.i.i.i.i.i.i.i, %11
-  %35 = getelementptr double, ptr %7, i64 %34
-  store double 0.000000e+00, ptr %35, align 8, !tbaa !43
+  %31 = mul nsw i64 %.03451.i.i.i.i.i.i.i.i.i.i.i.i, %11
+  %32 = getelementptr double, ptr %7, i64 %31
+  store double 0.000000e+00, ptr %32, align 8, !tbaa !43
   br label %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
 
 .preheader43.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %28
-  %36 = icmp sgt i64 %30, 1
+  %33 = sub i64 %5, %.03550.i.i.i.i.i.i.i.i.i.i.i.i
+  %34 = and i64 %33, -2
+  %35 = add i64 %34, %.03550.i.i.i.i.i.i.i.i.i.i.i.i
+  %36 = icmp sgt i64 %33, 1
   br i1 %36, label %.lr.ph47.i.preheader.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph47.i.preheader.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
   %37 = shl i64 %.03550.i.i.i.i.i.i.i.i.i.i.i.i, 3
   %scevgep4.i = getelementptr i8, ptr %scevgep5.i, i64 %37
   %38 = add nsw i64 %.03550.i.i.i.i.i.i.i.i.i.i.i.i, 2
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %32, i64 %38)
+  %smax.i = tail call i64 @llvm.smax.i64(i64 %35, i64 %38)
   %39 = xor i64 %.03550.i.i.i.i.i.i.i.i.i.i.i.i, -1
   %40 = add i64 %smax.i, %39
   %41 = shl i64 %40, 3
@@ -1192,15 +1192,15 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
   br label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %.lr.ph47.i.preheader.i.i.i.i.i.i.i.i.i.i.i, %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
-  %44 = icmp slt i64 %32, %5
+  %44 = icmp slt i64 %35, %5
   br i1 %44, label %.lr.ph49.i.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph49.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i.i.i
-  %45 = and i64 %30, 2305843009213693950
+  %45 = and i64 %33, 2305843009213693950
   %46 = add nsw i64 %45, %.03550.i.i.i.i.i.i.i.i.i.i.i.i
   %47 = shl i64 %46, 3
   %scevgep6.i = getelementptr i8, ptr %scevgep5.i, i64 %47
-  %48 = shl i64 %30, 3
+  %48 = shl i64 %33, 3
   %49 = and i64 %48, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep6.i, i8 0, i64 %49, i1 false), !tbaa !43
   br label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i

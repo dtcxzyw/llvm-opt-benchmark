@@ -9953,8 +9953,8 @@ _ZL27shouldUseMemSetToInitializePN4llvm8ConstantEmRKNS_10DataLayoutE.exit: ; pre
 
 113:                                              ; preds = %99
   %114 = load i32, ptr %36, align 8
-  %trunc301 = trunc i32 %114 to i8
-  switch i8 %trunc301, label %.critedge110 [
+  %trunc300 = trunc i32 %114 to i8
+  switch i8 %trunc300, label %.critedge110 [
     i8 15, label %115
     i8 16, label %152
   ]

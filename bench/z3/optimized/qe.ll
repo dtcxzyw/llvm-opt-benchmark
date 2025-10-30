@@ -33616,22 +33616,22 @@ _ZN6vectorIjLb0EjED2Ev.exit125:                   ; preds = %.critedge229, %409
   br label %.critedge
 
 414:                                              ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit123
-  %415 = getelementptr inbounds nuw i32, ptr %403, i64 %indvars.iv267
-  %416 = load i32, ptr %415, align 4, !tbaa !12
-  %417 = load ptr, ptr %29, align 8, !tbaa !387
-  %418 = trunc nuw i64 %indvars.iv267 to i32
-  br label %419
+  %415 = load ptr, ptr %29, align 8, !tbaa !387
+  %416 = trunc nuw i64 %indvars.iv267 to i32
+  br label %417
 
-419:                                              ; preds = %419, %414
-  %.08.i126 = phi i32 [ %418, %414 ], [ %422, %419 ]
-  %420 = zext i32 %.08.i126 to i64
-  %421 = getelementptr inbounds nuw i32, ptr %417, i64 %420
+417:                                              ; preds = %417, %414
+  %.08.i126 = phi i32 [ %416, %414 ], [ %420, %417 ]
+  %418 = zext i32 %.08.i126 to i64
+  %419 = getelementptr inbounds nuw i32, ptr %415, i64 %418
+  %420 = load i32, ptr %419, align 4, !tbaa !12
+  %.not.i127 = icmp eq i32 %420, %.08.i126
+  br i1 %.not.i127, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit128, label %417
+
+_ZNK10union_findI22union_find_default_ctxE4findEj.exit128: ; preds = %417
+  %421 = getelementptr inbounds nuw i32, ptr %403, i64 %indvars.iv267
   %422 = load i32, ptr %421, align 4, !tbaa !12
-  %.not.i127 = icmp eq i32 %422, %.08.i126
-  br i1 %.not.i127, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit128, label %419
-
-_ZNK10union_findI22union_find_default_ctxE4findEj.exit128: ; preds = %419
-  %423 = getelementptr inbounds nuw i32, ptr %403, i64 %420
+  %423 = getelementptr inbounds nuw i32, ptr %403, i64 %418
   %424 = load i32, ptr %423, align 4, !tbaa !12
   %425 = load ptr, ptr %21, align 8, !tbaa !387
   %426 = icmp eq ptr %425, null
@@ -33895,7 +33895,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i204: ; pr
   %532 = getelementptr inbounds i8, ptr %.sink378, i64 -4
   %533 = zext i32 %.sink to i64
   %534 = getelementptr inbounds nuw i32, ptr %.sink378, i64 %533
-  store i32 %416, ptr %534, align 4, !tbaa !12
+  store i32 %422, ptr %534, align 4, !tbaa !12
   %535 = add i32 %.sink, 1
   store i32 %535, ptr %532, align 4, !tbaa !12
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1

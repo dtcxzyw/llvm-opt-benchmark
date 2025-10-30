@@ -183,12 +183,6 @@ bytestream2_get_le16.exit220.i:                   ; preds = %bytestream2_get_le3
   %58 = lshr i32 %.0.i219.i, 8
   %59 = icmp samesign ult i32 %.0.i219.i, 256
   %spec.store.select.i = select i1 %59, i32 256, i32 %58
-  %60 = and i32 %.0.i219.i, 255
-  %61 = icmp eq i32 %60, 0
-  %62 = mul nuw nsw i32 %spec.store.select.i, 6
-  %63 = icmp ult i32 %62, %.0.i225.i
-  %spec.select.i = select i1 %63, i32 256, i32 0
-  %.0195.i = select i1 %61, i32 %spec.select.i, i32 %60
   %.not328.i = icmp eq i32 %spec.store.select.i, 0
   br i1 %.not328.i, label %.preheader276.i, label %.lr.ph.preheader.i
 
@@ -198,6 +192,12 @@ bytestream2_get_le16.exit220.i:                   ; preds = %bytestream2_get_le3
 
 .preheader276.i:                                  ; preds = %bytestream2_get_byte.exit236.i, %57
   %.sroa.0.23 = phi ptr [ %.sroa.0.17, %57 ], [ %.sroa.0.22, %bytestream2_get_byte.exit236.i ]
+  %60 = and i32 %.0.i219.i, 255
+  %61 = icmp eq i32 %60, 0
+  %62 = mul nuw nsw i32 %spec.store.select.i, 6
+  %63 = icmp ult i32 %62, %.0.i225.i
+  %spec.select.i = select i1 %63, i32 256, i32 0
+  %.0195.i = select i1 %61, i32 %spec.select.i, i32 %60
   %.not329.i = icmp eq i32 %.0195.i, 0
   br i1 %.not329.i, label %.loopexit277.i, label %.preheader275.lr.ph.i
 

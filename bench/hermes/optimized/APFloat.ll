@@ -7237,8 +7237,8 @@ sw.epilog.i:                                      ; preds = %_ZN4llvhL29lostFrac
 if.end14:                                         ; preds = %sw.bb16.i, %sw.bb11.i, %if.end9.i, %if.then7.i, %sw.bb3.i, %sw.bb.i, %_ZN4llvhL29lostFractionThroughTruncationEPKmjj.exit, %if.then, %entry
   %outputDigits.0 = phi i32 [ %div46, %entry ], [ %hexDigits, %if.then ], [ %hexDigits, %_ZN4llvhL29lostFractionThroughTruncationEPKmjj.exit ], [ %hexDigits, %sw.bb.i ], [ %hexDigits, %sw.bb3.i ], [ %hexDigits, %if.then7.i ], [ %hexDigits, %if.end9.i ], [ %hexDigits, %sw.bb11.i ], [ %hexDigits, %sw.bb16.i ]
   %roundUp.0 = phi i1 [ false, %entry ], [ false, %if.then ], [ false, %_ZN4llvhL29lostFractionThroughTruncationEPKmjj.exit ], [ %4, %sw.bb.i ], [ true, %sw.bb3.i ], [ %tobool.i, %if.then7.i ], [ false, %if.end9.i ], [ %tobool15.not.i, %sw.bb11.i ], [ %tobool22.i, %sw.bb16.i ]
-  %incdec.ptr15.ptr = getelementptr inbounds nuw i8, ptr %dst, i64 3
   %sub17 = add i32 %1, 66
+  %dst.addr.0.ptr64 = getelementptr inbounds nuw i8, ptr %dst, i64 3
   %tobool1965 = icmp ne i32 %outputDigits.0, 0
   %tobool2066 = icmp ugt i32 %sub17, 63
   %11 = and i1 %tobool1965, %tobool2066
@@ -7318,7 +7318,7 @@ while.end.loopexit:                               ; preds = %_ZN4llvhL9partAsHex
 while.end:                                        ; preds = %while.end.loopexit, %if.end14
   %outputDigits.1.lcssa = phi i32 [ %outputDigits.0, %if.end14 ], [ %sub37, %while.end.loopexit ]
   %dst.addr.0.idx.lcssa = phi i64 [ 3, %if.end14 ], [ %dst.addr.0.add48, %while.end.loopexit ]
-  %dst.addr.0.ptr.lcssa = phi ptr [ %incdec.ptr15.ptr, %if.end14 ], [ %dst.addr.0.ptr, %while.end.loopexit ]
+  %dst.addr.0.ptr.lcssa = phi ptr [ %dst.addr.0.ptr64, %if.end14 ], [ %dst.addr.0.ptr, %while.end.loopexit ]
   br i1 %roundUp.0, label %do.body, label %if.else46
 
 do.body:                                          ; preds = %while.end, %_ZN4llvh13hexDigitValueEc.exit
@@ -7368,14 +7368,14 @@ if.else46:                                        ; preds = %while.end
 
 if.end50:                                         ; preds = %_ZN4llvh13hexDigitValueEc.exit, %if.else46
   %dst.addr.1.idx = phi i64 [ %dst.addr.0.add, %if.else46 ], [ %dst.addr.0.idx.lcssa, %_ZN4llvh13hexDigitValueEc.exit ]
-  %28 = load i8, ptr %incdec.ptr15.ptr, align 1
+  %28 = load i8, ptr %dst.addr.0.ptr64, align 1
   %arrayidx52 = getelementptr inbounds nuw i8, ptr %dst, i64 2
   store i8 %28, ptr %arrayidx52, align 1
   %cmp54 = icmp eq i64 %dst.addr.1.idx, 4
   br i1 %cmp54, label %if.end59, label %if.else57
 
 if.else57:                                        ; preds = %if.end50
-  store i8 46, ptr %incdec.ptr15.ptr, align 1
+  store i8 46, ptr %dst.addr.0.ptr64, align 1
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end50, %if.else57

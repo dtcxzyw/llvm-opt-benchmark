@@ -93,112 +93,112 @@ define dso_local noundef i64 @spg_box_quad_picksplit(ptr noundef readonly captur
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
-  %7 = inttoptr i64 %6 to ptr
-  %8 = load i32, ptr %4, align 8
-  %9 = sext i32 %8 to i64
-  %10 = shl nsw i64 %9, 3
-  %11 = tail call ptr @palloc(i64 noundef %10) #7
-  %12 = load i32, ptr %4, align 8
-  %13 = sext i32 %12 to i64
-  %14 = shl nsw i64 %13, 3
-  %15 = tail call ptr @palloc(i64 noundef %14) #7
-  %16 = load i32, ptr %4, align 8
-  %17 = sext i32 %16 to i64
-  %18 = shl nsw i64 %17, 3
-  %19 = tail call ptr @palloc(i64 noundef %18) #7
-  %20 = load i32, ptr %4, align 8
-  %21 = sext i32 %20 to i64
-  %22 = shl nsw i64 %21, 3
-  %23 = tail call ptr @palloc(i64 noundef %22) #7
-  %24 = load i32, ptr %4, align 8
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph, label %.._crit_edge_crit_edge
+  %7 = load i32, ptr %4, align 8
+  %8 = sext i32 %7 to i64
+  %9 = shl nsw i64 %8, 3
+  %10 = tail call ptr @palloc(i64 noundef %9) #7
+  %11 = load i32, ptr %4, align 8
+  %12 = sext i32 %11 to i64
+  %13 = shl nsw i64 %12, 3
+  %14 = tail call ptr @palloc(i64 noundef %13) #7
+  %15 = load i32, ptr %4, align 8
+  %16 = sext i32 %15 to i64
+  %17 = shl nsw i64 %16, 3
+  %18 = tail call ptr @palloc(i64 noundef %17) #7
+  %19 = load i32, ptr %4, align 8
+  %20 = sext i32 %19 to i64
+  %21 = shl nsw i64 %20, 3
+  %22 = tail call ptr @palloc(i64 noundef %21) #7
+  %23 = load i32, ptr %4, align 8
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %.lr.ph, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %1
-  %.pre = sext i32 %24 to i64
+  %.pre = sext i32 %23 to i64
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %27
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %26
 
-27:                                               ; preds = %.lr.ph, %27
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv
-  %30 = load i64, ptr %29, align 8
-  %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
-  store double %33, ptr %34, align 8
-  %35 = load double, ptr %31, align 8
-  %36 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
-  store double %35, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %38 = load double, ptr %37, align 8
-  %39 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
-  store double %38, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %41 = load double, ptr %40, align 8
-  %42 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
-  store double %41, ptr %42, align 8
+26:                                               ; preds = %.lr.ph, %26
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
+  %27 = load ptr, ptr %25, align 8
+  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
+  %29 = load i64, ptr %28, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load double, ptr %31, align 8
+  %33 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
+  store double %32, ptr %33, align 8
+  %34 = load double, ptr %30, align 8
+  %35 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  store double %34, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %37 = load double, ptr %36, align 8
+  %38 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv
+  store double %37, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %40 = load double, ptr %39, align 8
+  %41 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv
+  store double %40, ptr %41, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = load i32, ptr %4, align 8
-  %44 = sext i32 %43 to i64
-  %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %27, label %._crit_edge, !llvm.loop !6
+  %42 = load i32, ptr %4, align 8
+  %43 = sext i32 %42 to i64
+  %44 = icmp slt i64 %indvars.iv.next, %43
+  br i1 %44, label %26, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %27, %.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %44, %27 ]
-  tail call void @pg_qsort(ptr noundef %11, i64 noundef %.pre-phi, i64 noundef 8, ptr noundef nonnull @compareDoubles) #7
+._crit_edge:                                      ; preds = %26, %.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %43, %26 ]
+  %45 = inttoptr i64 %6 to ptr
+  tail call void @pg_qsort(ptr noundef %10, i64 noundef %.pre-phi, i64 noundef 8, ptr noundef nonnull @compareDoubles) #7
   %46 = load i32, ptr %4, align 8
   %47 = sext i32 %46 to i64
-  tail call void @pg_qsort(ptr noundef %15, i64 noundef %47, i64 noundef 8, ptr noundef nonnull @compareDoubles) #7
+  tail call void @pg_qsort(ptr noundef %14, i64 noundef %47, i64 noundef 8, ptr noundef nonnull @compareDoubles) #7
   %48 = load i32, ptr %4, align 8
   %49 = sext i32 %48 to i64
-  tail call void @pg_qsort(ptr noundef %19, i64 noundef %49, i64 noundef 8, ptr noundef nonnull @compareDoubles) #7
+  tail call void @pg_qsort(ptr noundef %18, i64 noundef %49, i64 noundef 8, ptr noundef nonnull @compareDoubles) #7
   %50 = load i32, ptr %4, align 8
   %51 = sext i32 %50 to i64
-  tail call void @pg_qsort(ptr noundef %23, i64 noundef %51, i64 noundef 8, ptr noundef nonnull @compareDoubles) #7
+  tail call void @pg_qsort(ptr noundef %22, i64 noundef %51, i64 noundef 8, ptr noundef nonnull @compareDoubles) #7
   %52 = load i32, ptr %4, align 8
   %53 = sdiv i32 %52, 2
   %54 = tail call ptr @palloc(i64 noundef 32) #7
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds double, ptr %11, i64 %55
+  %56 = getelementptr inbounds double, ptr %10, i64 %55
   %57 = load double, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store double %57, ptr %58, align 8
-  %59 = getelementptr inbounds double, ptr %15, i64 %55
+  %59 = getelementptr inbounds double, ptr %14, i64 %55
   %60 = load double, ptr %59, align 8
   store double %60, ptr %54, align 8
-  %61 = getelementptr inbounds double, ptr %19, i64 %55
+  %61 = getelementptr inbounds double, ptr %18, i64 %55
   %62 = load double, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store double %62, ptr %63, align 8
-  %64 = getelementptr inbounds double, ptr %23, i64 %55
+  %64 = getelementptr inbounds double, ptr %22, i64 %55
   %65 = load double, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store double %65, ptr %66, align 8
-  store i8 1, ptr %7, align 8
+  store i8 1, ptr %45, align 8
   %67 = ptrtoint ptr %54 to i64
-  %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 %67, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i32 16, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr null, ptr %70, align 8
   %71 = load i32, ptr %4, align 8
   %72 = sext i32 %71 to i64
   %73 = shl nsw i64 %72, 2
   %74 = tail call ptr @palloc(i64 noundef %73) #7
-  %75 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr %74, ptr %75, align 8
   %76 = load i32, ptr %4, align 8
   %77 = sext i32 %76 to i64
   %78 = shl nsw i64 %77, 3
   %79 = tail call ptr @palloc(i64 noundef %78) #7
-  %80 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store ptr %79, ptr %80, align 8
   %81 = load i32, ptr %4, align 8
   %82 = icmp sgt i32 %81, 0

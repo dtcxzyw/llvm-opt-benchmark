@@ -533,8 +533,6 @@ _ZN7VMATree14IntervalChange7is_noopEv.exit70.thread: ; preds = %"_ZN5TreapImN7VM
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %205 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %206 = getelementptr inbounds nuw i8, ptr %14, i64 9
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 17
   %.pre125 = load ptr, ptr %28, align 8
   br label %207
 
@@ -603,6 +601,8 @@ _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAlloca
   br i1 %236, label %207, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE6removeERKm.exit72._crit_edge
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 17
   %.sroa.13.0.copyload = load i8, ptr %.sroa.13.0..sroa_idx, align 1
   %.sroa.10.0.copyload = load i8, ptr %.sroa.10.0..sroa_idx, align 8
   %.pre127 = load i64, ptr %9, align 8

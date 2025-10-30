@@ -18385,24 +18385,24 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIPNS_4T
 define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_9hash_codeET_SF_(ptr %0, ptr %1) local_unnamed_addr #0 comdat {
   %3 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %.not48 = icmp eq ptr %0, %1
   br i1 %.not48, label %_ZN4llvm7hashing6detail17store_and_advanceIcEEbRPcS3_RKT_m.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %5 = ptrtoint ptr %1 to i64
-  %6 = ptrtoint ptr %0 to i64
-  %7 = xor i64 %6, -1
-  %8 = add i64 %7, %5
-  %umin = tail call i64 @llvm.umin.i64(i64 %8, i64 63)
-  %9 = add nuw nsw i64 %umin, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %9, i1 false)
-  %scevgep = getelementptr i8, ptr %0, i64 %9
+  %4 = ptrtoint ptr %1 to i64
+  %5 = ptrtoint ptr %0 to i64
+  %6 = xor i64 %5, -1
+  %7 = add i64 %6, %4
+  %umin = tail call i64 @llvm.umin.i64(i64 %7, i64 63)
+  %8 = add nuw nsw i64 %umin, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %8, i1 false)
+  %scevgep = getelementptr i8, ptr %0, i64 %8
   br label %_ZN4llvm7hashing6detail17store_and_advanceIcEEbRPcS3_RKT_m.exit
 
 _ZN4llvm7hashing6detail17store_and_advanceIcEEbRPcS3_RKT_m.exit: ; preds = %.lr.ph.preheader, %2
-  %.038.idx.lcssa = phi i64 [ 0, %2 ], [ %9, %.lr.ph.preheader ]
+  %.038.idx.lcssa = phi i64 [ 0, %2 ], [ %8, %.lr.ph.preheader ]
   %.sroa.029.0.lcssa = phi ptr [ %0, %2 ], [ %scevgep, %.lr.ph.preheader ]
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %10 = icmp eq ptr %.sroa.029.0.lcssa, %1
   br i1 %10, label %11, label %13
 
@@ -18486,7 +18486,7 @@ _ZN4llvm7hashing6detail17store_and_advanceIcEEbRPcS3_RKT_m.exit: ; preds = %.lr.
 
 _ZN4llvm7hashing6detail17store_and_advanceIcEEbRPcS3_RKT_m.exit8: ; preds = %46
   %.2.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.2.add
-  %49 = call noundef ptr @_ZNSt3_V28__rotateIPcEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef nonnull %3, ptr noundef nonnull %.2.ptr, ptr noundef nonnull %4)
+  %49 = call noundef ptr @_ZNSt3_V28__rotateIPcEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef nonnull %3, ptr noundef nonnull %.2.ptr, ptr noundef nonnull %9)
   %.0.copyload.i.i = load i64, ptr %14, align 8
   %50 = add i64 %.sroa.8.062, %.sroa.18.060
   %51 = add i64 %50, %.sroa.0.063

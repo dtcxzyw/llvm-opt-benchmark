@@ -864,7 +864,6 @@ define internal fastcc void @put_swf_matrix(ptr noundef %0, i32 noundef range(i3
 put_bits.exit:
   %3 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.sroa.60.5.idx.sroa.gep138 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %4
 
 4:                                                ; preds = %4, %put_bits.exit
@@ -897,6 +896,7 @@ put_bits.exit21:                                  ; preds = %max_nbits.exit
   br label %put_bits.exit25
 
 15:                                               ; preds = %put_bits.exit21
+  %.sroa.60.5.idx.sroa.gep138 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %16 = shl i32 %10, 26
   %17 = add nsw i32 %spec.select, -26
   %18 = lshr i32 %1, %17

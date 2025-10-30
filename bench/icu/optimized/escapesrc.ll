@@ -160,8 +160,6 @@ define dso_local noundef zeroext i1 @_Z10appendUtf8RNSt7__cxx1112basic_stringIcS
   %7 = alloca i32, align 4
   %8 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %.2.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %.2.sroa.gep55 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -171,6 +169,8 @@ define dso_local noundef zeroext i1 @_Z10appendUtf8RNSt7__cxx1112basic_stringIcS
   br label %16
 
 ._crit_edge:                                      ; preds = %16, %4
+  %.2.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %.2.sroa.gep55 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %3
   store i8 0, ptr %10, align 1, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

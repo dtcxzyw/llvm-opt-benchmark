@@ -66,65 +66,65 @@ define void @_ZN6LibRaw12sony_decryptEPjiii(ptr noundef nonnull readonly align 8
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 381408
   %8 = load ptr, ptr %7, align 8, !tbaa !6
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 544
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  br label %11
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  br label %10
 
-11:                                               ; preds = %6, %11
-  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %11 ]
-  %.013 = phi i32 [ %4, %6 ], [ %13, %11 ]
-  %12 = mul i32 %.013, 48828125
-  %13 = add i32 %12, 1
-  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
-  store i32 %13, ptr %14, align 4, !tbaa !71
+10:                                               ; preds = %6, %10
+  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %10 ]
+  %.013 = phi i32 [ %4, %6 ], [ %12, %10 ]
+  %11 = mul i32 %.013, 48828125
+  %12 = add i32 %11, 1
+  %13 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  store i32 %12, ptr %13, align 4, !tbaa !71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %15, label %11, !llvm.loop !72
+  br i1 %exitcond.not, label %14, label %10, !llvm.loop !72
 
-15:                                               ; preds = %11
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 544
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %17 = load i32, ptr %16, align 4, !tbaa !71
-  %18 = load i32, ptr %10, align 8, !tbaa !71
+  %18 = load i32, ptr %9, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %20 = load i32, ptr %19, align 8, !tbaa !71
   %21 = xor i32 %20, %18
   %22 = tail call i32 @llvm.fshl.i32(i32 %17, i32 %21, i32 1)
   store i32 %22, ptr %16, align 4, !tbaa !71
-  store i32 4, ptr %9, align 8, !tbaa !74
+  store i32 4, ptr %15, align 8, !tbaa !74
   br label %23
 
 .preheader:                                       ; preds = %23
-  store i32 0, ptr %9, align 8, !tbaa !74
+  store i32 0, ptr %15, align 8, !tbaa !74
   br label %41
 
-23:                                               ; preds = %15, %23
-  %indvars.iv25 = phi i64 [ 4, %15 ], [ %indvars.iv.next26, %23 ]
-  %24 = getelementptr i32, ptr %10, i64 %indvars.iv25
+23:                                               ; preds = %14, %23
+  %indvars.iv25 = phi i64 [ 4, %14 ], [ %indvars.iv.next26, %23 ]
+  %24 = getelementptr i32, ptr %9, i64 %indvars.iv25
   %25 = getelementptr i8, ptr %24, i64 -16
   %26 = load i32, ptr %25, align 4, !tbaa !71
-  %27 = getelementptr i32, ptr %10, i64 %indvars.iv25
+  %27 = getelementptr i32, ptr %9, i64 %indvars.iv25
   %28 = getelementptr i8, ptr %27, i64 -8
   %29 = load i32, ptr %28, align 4, !tbaa !71
   %30 = xor i32 %29, %26
-  %31 = getelementptr i32, ptr %10, i64 %indvars.iv25
+  %31 = getelementptr i32, ptr %9, i64 %indvars.iv25
   %32 = getelementptr i8, ptr %31, i64 -12
   %33 = load i32, ptr %32, align 4, !tbaa !71
-  %34 = getelementptr i32, ptr %10, i64 %indvars.iv25
+  %34 = getelementptr i32, ptr %9, i64 %indvars.iv25
   %35 = getelementptr i8, ptr %34, i64 -4
   %36 = load i32, ptr %35, align 4, !tbaa !71
   %37 = xor i32 %36, %33
   %38 = tail call i32 @llvm.fshl.i32(i32 %30, i32 %37, i32 1)
-  %39 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv25
+  %39 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv25
   store i32 %38, ptr %39, align 4, !tbaa !71
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %40 = trunc nuw nsw i64 %indvars.iv.next26 to i32
-  store i32 %40, ptr %9, align 8, !tbaa !74
+  store i32 %40, ptr %15, align 8, !tbaa !74
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 127
   br i1 %exitcond28.not, label %.preheader, label %23, !llvm.loop !81
 
 41:                                               ; preds = %.preheader, %41
   %indvars.iv29 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next30, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv29
+  %42 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv29
   %43 = load i32, ptr %42, align 4, !tbaa !71
   %44 = tail call noundef i32 @llvm.bswap.i32(i32 %43)
   store i32 %44, ptr %42, align 4, !tbaa !71
@@ -133,7 +133,7 @@ define void @_ZN6LibRaw12sony_decryptEPjiii(ptr noundef nonnull readonly align 8
   br i1 %exitcond32.not, label %.loopexit, label %41, !llvm.loop !82
 
 .loopexit:                                        ; preds = %41
-  store i32 127, ptr %9, align 8, !tbaa !74
+  store i32 127, ptr %15, align 8, !tbaa !74
   br label %45
 
 45:                                               ; preds = %.loopexit, %5

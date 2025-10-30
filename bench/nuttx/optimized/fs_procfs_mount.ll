@@ -219,85 +219,85 @@ define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1,
   %13 = load i32, ptr %12, align 8
   %14 = trunc i64 %11 to i32
   %15 = mul i32 %13, %14
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i32, ptr %16, align 8
-  br label %18
+  br label %16
 
-18:                                               ; preds = %.critedge, %8
-  %.045 = phi i32 [ 0, %8 ], [ %25, %.critedge ]
-  %.0 = phi i32 [ %15, %8 ], [ %26, %.critedge ]
-  %19 = icmp ugt i32 %.0, 9998
-  br i1 %19, label %.critedge, label %20
+16:                                               ; preds = %.critedge, %8
+  %.045 = phi i32 [ 0, %8 ], [ %23, %.critedge ]
+  %.0 = phi i32 [ %15, %8 ], [ %24, %.critedge ]
+  %17 = icmp ugt i32 %.0, 9998
+  br i1 %17, label %.critedge, label %18
 
-20:                                               ; preds = %18
-  %21 = and i32 %.0, 1023
-  %22 = icmp eq i32 %21, 0
-  %23 = icmp ne i32 %.0, 0
-  %24 = and i1 %23, %22
-  br i1 %24, label %.critedge, label %27
+18:                                               ; preds = %16
+  %19 = and i32 %.0, 1023
+  %20 = icmp eq i32 %19, 0
+  %21 = icmp ne i32 %.0, 0
+  %22 = and i1 %21, %20
+  br i1 %22, label %.critedge, label %25
 
-.critedge:                                        ; preds = %18, %20
-  %25 = add nuw nsw i32 %.045, 1
-  %26 = lshr i32 %.0, 10
-  br label %18, !llvm.loop !6
+.critedge:                                        ; preds = %16, %18
+  %23 = add nuw nsw i32 %.045, 1
+  %24 = lshr i32 %.0, 10
+  br label %16, !llvm.loop !6
 
-27:                                               ; preds = %20
-  %28 = mul i32 %17, %14
-  %29 = zext nneg i32 %.045 to i64
-  %30 = getelementptr inbounds nuw i8, ptr @usage_entry.labels, i64 %29
-  %31 = load i8, ptr %30, align 1
-  br label %32
+25:                                               ; preds = %18
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %27 = load i32, ptr %26, align 8
+  %28 = mul i32 %27, %14
+  br label %29
 
-32:                                               ; preds = %.critedge2, %27
-  %.1 = phi i32 [ 0, %27 ], [ %39, %.critedge2 ]
-  %.044 = phi i32 [ %28, %27 ], [ %40, %.critedge2 ]
-  %33 = icmp ugt i32 %.044, 9998
-  br i1 %33, label %.critedge2, label %34
+29:                                               ; preds = %.critedge2, %25
+  %.1 = phi i32 [ 0, %25 ], [ %36, %.critedge2 ]
+  %.044 = phi i32 [ %28, %25 ], [ %37, %.critedge2 ]
+  %30 = icmp ugt i32 %.044, 9998
+  br i1 %30, label %.critedge2, label %31
 
-34:                                               ; preds = %32
-  %35 = and i32 %.044, 1023
-  %36 = icmp eq i32 %35, 0
-  %37 = icmp ne i32 %.044, 0
-  %38 = and i1 %37, %36
-  br i1 %38, label %.critedge2, label %41
+31:                                               ; preds = %29
+  %32 = and i32 %.044, 1023
+  %33 = icmp eq i32 %32, 0
+  %34 = icmp ne i32 %.044, 0
+  %35 = and i1 %34, %33
+  br i1 %35, label %.critedge2, label %38
 
-.critedge2:                                       ; preds = %32, %34
-  %39 = add nuw nsw i32 %.1, 1
-  %40 = lshr i32 %.044, 10
-  br label %32, !llvm.loop !8
+.critedge2:                                       ; preds = %29, %31
+  %36 = add nuw nsw i32 %.1, 1
+  %37 = lshr i32 %.044, 10
+  br label %29, !llvm.loop !8
 
-41:                                               ; preds = %34
-  %42 = sub i32 %15, %28
-  %43 = zext nneg i32 %.1 to i64
-  %44 = getelementptr inbounds nuw i8, ptr @usage_entry.labels, i64 %43
-  %45 = load i8, ptr %44, align 1
-  br label %46
+38:                                               ; preds = %31
+  %39 = sub i32 %15, %28
+  br label %40
 
-46:                                               ; preds = %.critedge4, %41
-  %.2 = phi i32 [ 0, %41 ], [ %53, %.critedge4 ]
-  %.043 = phi i32 [ %42, %41 ], [ %54, %.critedge4 ]
-  %47 = icmp ugt i32 %.043, 9998
-  br i1 %47, label %.critedge4, label %48
+40:                                               ; preds = %.critedge4, %38
+  %.2 = phi i32 [ 0, %38 ], [ %47, %.critedge4 ]
+  %.043 = phi i32 [ %39, %38 ], [ %48, %.critedge4 ]
+  %41 = icmp ugt i32 %.043, 9998
+  br i1 %41, label %.critedge4, label %42
 
-48:                                               ; preds = %46
-  %49 = and i32 %.043, 1023
-  %50 = icmp eq i32 %49, 0
-  %51 = icmp ne i32 %.043, 0
-  %52 = and i1 %51, %50
-  br i1 %52, label %.critedge4, label %55
+42:                                               ; preds = %40
+  %43 = and i32 %.043, 1023
+  %44 = icmp eq i32 %43, 0
+  %45 = icmp ne i32 %.043, 0
+  %46 = and i1 %45, %44
+  br i1 %46, label %.critedge4, label %49
 
-.critedge4:                                       ; preds = %46, %48
-  %53 = add nuw nsw i32 %.2, 1
-  %54 = lshr i32 %.043, 10
-  br label %46, !llvm.loop !9
+.critedge4:                                       ; preds = %40, %42
+  %47 = add nuw nsw i32 %.2, 1
+  %48 = lshr i32 %.043, 10
+  br label %40, !llvm.loop !9
 
-55:                                               ; preds = %48
+49:                                               ; preds = %42
+  %50 = zext nneg i32 %.045 to i64
+  %51 = getelementptr inbounds nuw i8, ptr @usage_entry.labels, i64 %50
+  %52 = load i8, ptr %51, align 1
+  %53 = zext nneg i32 %.1 to i64
+  %54 = getelementptr inbounds nuw i8, ptr @usage_entry.labels, i64 %53
+  %55 = load i8, ptr %54, align 1
   %56 = zext nneg i32 %.2 to i64
   %57 = getelementptr inbounds nuw i8, ptr @usage_entry.labels, i64 %56
   %58 = load i8, ptr %57, align 1
-  %59 = sext i8 %31 to i32
+  %59 = sext i8 %52 to i32
   %60 = sext i8 %58 to i32
-  %61 = sext i8 %45 to i32
+  %61 = sext i8 %55 to i32
   tail call void (ptr, ptr, ...) @mount_sprintf(ptr noundef %2, ptr noundef nonnull @.str.8, ptr noundef %9, i32 noundef %.0, i32 noundef %59, i32 noundef %.043, i32 noundef %60, i32 noundef %.044, i32 noundef %61, ptr noundef %0)
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %63 = load i64, ptr %62, align 8

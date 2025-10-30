@@ -2039,7 +2039,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
 
 .preheader484:                                    ; preds = %._crit_edge728, %792
   %767 = phi i32 [ %793, %792 ], [ %744, %._crit_edge728 ]
-  %.2305 = phi i32 [ %776, %792 ], [ %638, %._crit_edge728 ]
+  %.2305 = phi i32 [ %785, %792 ], [ %638, %._crit_edge728 ]
   %.1 = phi i32 [ %spec.store.select, %792 ], [ %748, %._crit_edge728 ]
   %768 = add i32 %.1, %.2305
   %769 = icmp ugt i32 %768, 32768
@@ -2051,28 +2051,26 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %.3301 = select i1 %772, i32 %773, i32 %spec.select420
   %774 = add i32 %.3301, %767
   store i32 %774, ptr %22, align 8, !tbaa !33
-  %775 = add i32 %.3301, %.1
-  %776 = sub i32 %.2305, %.3301
   %.not391735 = icmp eq i32 %.3301, 0
   br i1 %.not391735, label %._crit_edge741, label %.lr.ph740.preheader
 
 .lr.ph740.preheader:                              ; preds = %.preheader484
-  %777 = zext i32 %.1 to i64
+  %775 = zext i32 %.1 to i64
+  %776 = getelementptr inbounds nuw i8, ptr %23, i64 %775
+  %777 = zext i32 %767 to i64
   %778 = getelementptr inbounds nuw i8, ptr %23, i64 %777
-  %779 = zext i32 %767 to i64
-  %780 = getelementptr inbounds nuw i8, ptr %23, i64 %779
   br label %.lr.ph740
 
 .lr.ph740:                                        ; preds = %.lr.ph740.preheader, %.lr.ph740
-  %.0738 = phi ptr [ %784, %.lr.ph740 ], [ %780, %.lr.ph740.preheader ]
-  %.0291737 = phi ptr [ %782, %.lr.ph740 ], [ %778, %.lr.ph740.preheader ]
-  %.4302736 = phi i32 [ %781, %.lr.ph740 ], [ %.3301, %.lr.ph740.preheader ]
-  %781 = add i32 %.4302736, -1
-  %782 = getelementptr inbounds nuw i8, ptr %.0291737, i64 1
-  %783 = load i8, ptr %.0291737, align 1, !tbaa !32
-  %784 = getelementptr inbounds nuw i8, ptr %.0738, i64 1
-  store i8 %783, ptr %.0738, align 1, !tbaa !32
-  %.not391 = icmp eq i32 %781, 0
+  %.0738 = phi ptr [ %782, %.lr.ph740 ], [ %778, %.lr.ph740.preheader ]
+  %.0291737 = phi ptr [ %780, %.lr.ph740 ], [ %776, %.lr.ph740.preheader ]
+  %.4302736 = phi i32 [ %779, %.lr.ph740 ], [ %.3301, %.lr.ph740.preheader ]
+  %779 = add i32 %.4302736, -1
+  %780 = getelementptr inbounds nuw i8, ptr %.0291737, i64 1
+  %781 = load i8, ptr %.0291737, align 1, !tbaa !32
+  %782 = getelementptr inbounds nuw i8, ptr %.0738, i64 1
+  store i8 %781, ptr %.0738, align 1, !tbaa !32
+  %.not391 = icmp eq i32 %779, 0
   br i1 %.not391, label %._crit_edge741.loopexit, label %.lr.ph740
 
 ._crit_edge741.loopexit:                          ; preds = %.lr.ph740
@@ -2080,10 +2078,12 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   br label %._crit_edge741
 
 ._crit_edge741:                                   ; preds = %._crit_edge741.loopexit, %.preheader484
-  %785 = phi i32 [ %.pre, %._crit_edge741.loopexit ], [ %774, %.preheader484 ]
-  %786 = icmp eq i32 %775, 32768
-  %spec.store.select = select i1 %786, i32 0, i32 %775
-  %787 = icmp eq i32 %785, 32768
+  %783 = phi i32 [ %.pre, %._crit_edge741.loopexit ], [ %774, %.preheader484 ]
+  %784 = add i32 %.3301, %.1
+  %785 = sub i32 %.2305, %.3301
+  %786 = icmp eq i32 %784, 32768
+  %spec.store.select = select i1 %786, i32 0, i32 %784
+  %787 = icmp eq i32 %783, 32768
   br i1 %787, label %788, label %792
 
 788:                                              ; preds = %._crit_edge741
@@ -2097,8 +2097,8 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   br label %792
 
 792:                                              ; preds = %._crit_edge741, %791
-  %793 = phi i32 [ %785, %._crit_edge741 ], [ 0, %791 ]
-  %.not393 = icmp eq i32 %776, 0
+  %793 = phi i32 [ %783, %._crit_edge741 ], [ 0, %791 ]
+  %.not393 = icmp eq i32 %785, 0
   br i1 %.not393, label %.preheader497.backedge, label %.preheader484
 
 .loopexit498:                                     ; preds = %585, %._crit_edge766

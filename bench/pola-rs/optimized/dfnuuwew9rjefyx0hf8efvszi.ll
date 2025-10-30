@@ -10844,35 +10844,35 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
 ; Function Attrs: nonlazybind uwtable
 define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_rle7encoder6encode17ha465ab6b587d20b0E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
 .preheader:
-  %4 = ptrtoint ptr %2 to i64
+  %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %6 = alloca [24 x i8], align 8
-  %7 = alloca [32768 x i8], align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32768) %7, i8 0, i64 32768, i1 false)
-  %8 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32768
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %10 = zext i32 %3 to i64
+  %6 = alloca [32768 x i8], align 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32768) %6, i8 0, i64 32768, i1 false)
+  %7 = icmp ne ptr %2, null
+  tail call void @llvm.assume(i1 %7)
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32768
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %9 = zext i32 %3 to i64
   br label %.outer
 
-11:                                               ; preds = %.outer, %37
-  %.sroa.070.0 = phi ptr [ %14, %37 ], [ %.sroa.070.0.ph, %.outer ]
+10:                                               ; preds = %.outer, %37
+  %.sroa.070.0 = phi ptr [ %13, %37 ], [ %.sroa.070.0.ph, %.outer ]
   %.sroa.043.0 = phi i64 [ %29, %37 ], [ %.sroa.043.0.ph, %.outer ]
-  %12 = icmp eq ptr %.sroa.070.0, %2
-  br i1 %12, label %17, label %13
+  %11 = icmp eq ptr %.sroa.070.0, %2
+  br i1 %11, label %16, label %12
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.070.0, i64 1
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.070.0, i64 1
   %.val.i.i = load i8, ptr %.sroa.070.0, align 1, !noalias !1814, !noundef !3
-  %15 = zext i8 %.val.i.i to i32
-  %16 = icmp eq i32 %.sroa.0.0.ph, %15
-  br i1 %16, label %28, label %26
+  %14 = zext i8 %.val.i.i to i32
+  %15 = icmp eq i32 %.sroa.0.0.ph, %14
+  br i1 %15, label %28, label %26
 
-17:                                               ; preds = %11
-  %18 = add i64 %.sroa.043.0.ph, %4
+16:                                               ; preds = %10
+  %17 = ptrtoint ptr %2 to i64
+  %18 = add i64 %.sroa.043.0.ph, %17
   %.sroa.070.0.ph110.le = ptrtoint ptr %.sroa.070.0.ph to i64
   %19 = sub i64 %18, %.sroa.070.0.ph110.le
   %20 = icmp ult i64 %19, 9
@@ -10880,18 +10880,18 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %.not = icmp eq i64 %spec.select, 0
   br i1 %.not, label %22, label %21
 
-21:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr %7, ptr %5, align 8
-  %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %9, ptr %.sroa.430.0..sroa_idx, align 8
-  %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+21:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  store ptr %6, ptr %4, align 8
+  %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %8, ptr %.sroa.430.0..sroa_idx, align 8
+  %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %spec.select, ptr %.sroa.531.0..sroa_idx, align 8
-  call fastcc void @"_ZN98_$LT$u32$u20$as$u20$polars_parquet..parquet..encoding..hybrid_rle..encoder..Encoder$LT$u32$GT$$GT$16bitpacked_encode17h9d74cf0273319367E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, i64 noundef %10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call fastcc void @"_ZN98_$LT$u32$u20$as$u20$polars_parquet..parquet..encoding..hybrid_rle..encoder..Encoder$LT$u32$GT$$GT$16bitpacked_encode17h9d74cf0273319367E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, i64 noundef %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %22
 
-22:                                               ; preds = %17, %21
+22:                                               ; preds = %16, %21
   %23 = icmp ugt i64 %19, 8
   br i1 %23, label %24, label %25
 
@@ -10900,14 +10900,14 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   br label %25
 
 25:                                               ; preds = %24, %22
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr null
 
-26:                                               ; preds = %13
+26:                                               ; preds = %12
   %27 = icmp ugt i64 %.sroa.043.0, 8
   br i1 %27, label %31, label %.loopexit
 
-28:                                               ; preds = %13
+28:                                               ; preds = %12
   %29 = add i64 %.sroa.043.0, 1
   %30 = icmp ugt i64 %29, 7
   br i1 %30, label %37, label %.loopexit
@@ -10917,20 +10917,20 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   br i1 %.not64, label %36, label %35
 
 .loopexit:                                        ; preds = %28, %26, %38
-  %32 = phi ptr [ %scevgep111, %38 ], [ %14, %26 ], [ %14, %28 ]
-  %33 = phi i32 [ %.sroa.0.0.ph, %38 ], [ %15, %26 ], [ %.sroa.0.0.ph, %28 ]
+  %32 = phi ptr [ %scevgep111, %38 ], [ %13, %26 ], [ %13, %28 ]
+  %33 = phi i32 [ %.sroa.0.0.ph, %38 ], [ %14, %26 ], [ %.sroa.0.0.ph, %28 ]
   %.sroa.032.2 = phi i64 [ %42, %38 ], [ %.sroa.018.0.ph, %26 ], [ %.sroa.032.0.ph, %28 ]
   %.sroa.043.1 = phi i64 [ %41, %38 ], [ 1, %26 ], [ %29, %28 ]
   %34 = icmp eq i64 %.sroa.018.0.ph, 8192
   br i1 %34, label %43, label %.thread
 
 35:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %7, ptr %6, align 8
-  store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  store ptr %6, ptr %5, align 8
+  store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 %.sroa.032.0.ph, ptr %.sroa.5.0..sroa_idx, align 8
-  call fastcc void @"_ZN98_$LT$u32$u20$as$u20$polars_parquet..parquet..encoding..hybrid_rle..encoder..Encoder$LT$u32$GT$$GT$16bitpacked_encode17h9d74cf0273319367E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, i64 noundef %10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call fastcc void @"_ZN98_$LT$u32$u20$as$u20$polars_parquet..parquet..encoding..hybrid_rle..encoder..Encoder$LT$u32$GT$$GT$16bitpacked_encode17h9d74cf0273319367E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, i64 noundef %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %36
 
 36:                                               ; preds = %31, %35
@@ -10939,7 +10939,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
 
 37:                                               ; preds = %28
   %.not65 = icmp eq i64 %29, 8
-  br i1 %.not65, label %38, label %11
+  br i1 %.not65, label %38, label %10
 
 38:                                               ; preds = %37
   %39 = sub i64 0, %.sroa.032.0.ph
@@ -10949,16 +10949,16 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   br label %.loopexit
 
 43:                                               ; preds = %.loopexit
-  call fastcc void @"_ZN98_$LT$u32$u20$as$u20$polars_parquet..parquet..encoding..hybrid_rle..encoder..Encoder$LT$u32$GT$$GT$16bitpacked_encode17h42342e5ef1d3cf86E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef nonnull %7, ptr noundef %9, i64 noundef %10)
+  call fastcc void @"_ZN98_$LT$u32$u20$as$u20$polars_parquet..parquet..encoding..hybrid_rle..encoder..Encoder$LT$u32$GT$$GT$16bitpacked_encode17h42342e5ef1d3cf86E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef nonnull %6, ptr noundef %8, i64 noundef %9)
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %43, %36
-  %44 = phi ptr [ %14, %36 ], [ %32, %43 ], [ %32, %.loopexit ]
-  %45 = phi i32 [ %15, %36 ], [ %33, %43 ], [ %33, %.loopexit ]
+  %44 = phi ptr [ %13, %36 ], [ %32, %43 ], [ %32, %.loopexit ]
+  %45 = phi i32 [ %14, %36 ], [ %33, %43 ], [ %33, %.loopexit ]
   %.sroa.043.283 = phi i64 [ 1, %36 ], [ 1, %43 ], [ %.sroa.043.1, %.loopexit ]
   %.sroa.032.482 = phi i64 [ 0, %36 ], [ 0, %43 ], [ %.sroa.032.2, %.loopexit ]
   %.sroa.018.181 = phi i64 [ 0, %36 ], [ 0, %43 ], [ %.sroa.018.0.ph, %.loopexit ]
-  %46 = getelementptr inbounds nuw i32, ptr %7, i64 %.sroa.018.181
+  %46 = getelementptr inbounds nuw i32, ptr %6, i64 %.sroa.018.181
   store i32 %45, ptr %46, align 4
   %47 = add nuw nsw i64 %.sroa.018.181, 1
   br label %.outer
@@ -10972,7 +10972,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %scevgep = getelementptr i8, ptr %.sroa.070.0.ph, i64 8
   %48 = sub nsw i64 0, %.sroa.043.0.ph
   %scevgep111 = getelementptr i8, ptr %scevgep, i64 %48
-  br label %11
+  br label %10
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11961,37 +11961,37 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
 ; Function Attrs: nonlazybind uwtable
 define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_rle7encoder6encode17hd6c2aaeffc8f1553E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @rust_eh_personality {
 .preheader:
-  %4 = ptrtoint ptr %2 to i64
+  %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %6 = alloca [24 x i8], align 8
-  %7 = alloca [32768 x i8], align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32768) %7, i8 0, i64 32768, i1 false)
-  %8 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32768
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %10 = zext i32 %3 to i64
+  %6 = alloca [32768 x i8], align 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32768) %6, i8 0, i64 32768, i1 false)
+  %7 = icmp ne ptr %2, null
+  tail call void @llvm.assume(i1 %7)
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32768
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %9 = zext i32 %3 to i64
   br label %.outer
 
-11:                                               ; preds = %.outer, %37
-  %.sroa.070.0 = phi ptr [ %14, %37 ], [ %.sroa.070.0.ph, %.outer ]
+10:                                               ; preds = %.outer, %37
+  %.sroa.070.0 = phi ptr [ %13, %37 ], [ %.sroa.070.0.ph, %.outer ]
   %.sroa.043.0 = phi i64 [ %30, %37 ], [ %.sroa.043.0.ph, %.outer ]
-  %12 = icmp eq ptr %.sroa.070.0, %2
-  br i1 %12, label %18, label %13
+  %11 = icmp eq ptr %.sroa.070.0, %2
+  br i1 %11, label %17, label %12
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.070.0, i64 1
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.070.0, i64 1
   %.val.i.i = load i8, ptr %.sroa.070.0, align 1, !noalias !1907, !noundef !3
-  %15 = icmp sgt i8 %.val.i.i, -1
-  call void @llvm.assume(i1 %15)
-  %16 = zext nneg i8 %.val.i.i to i32
-  %17 = icmp eq i32 %.sroa.0.0.ph, %16
-  br i1 %17, label %29, label %27
+  %14 = icmp sgt i8 %.val.i.i, -1
+  call void @llvm.assume(i1 %14)
+  %15 = zext nneg i8 %.val.i.i to i32
+  %16 = icmp eq i32 %.sroa.0.0.ph, %15
+  br i1 %16, label %29, label %27
 
-18:                                               ; preds = %11
-  %19 = add i64 %.sroa.043.0.ph, %4
+17:                                               ; preds = %10
+  %18 = ptrtoint ptr %2 to i64
+  %19 = add i64 %.sroa.043.0.ph, %18
   %.sroa.070.0.ph110.le = ptrtoint ptr %.sroa.070.0.ph to i64
   %20 = sub i64 %19, %.sroa.070.0.ph110.le
   %21 = icmp ult i64 %20, 9
@@ -11999,18 +11999,18 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %.not = icmp eq i64 %spec.select, 0
   br i1 %.not, label %23, label %22
 
-22:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr %7, ptr %5, align 8
-  %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %9, ptr %.sroa.430.0..sroa_idx, align 8
-  %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+22:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  store ptr %6, ptr %4, align 8
+  %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %8, ptr %.sroa.430.0..sroa_idx, align 8
+  %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %spec.select, ptr %.sroa.531.0..sroa_idx, align 8
-  call fastcc void @"_ZN98_$LT$u32$u20$as$u20$polars_parquet..parquet..encoding..hybrid_rle..encoder..Encoder$LT$u32$GT$$GT$16bitpacked_encode17h9d74cf0273319367E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, i64 noundef %10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call fastcc void @"_ZN98_$LT$u32$u20$as$u20$polars_parquet..parquet..encoding..hybrid_rle..encoder..Encoder$LT$u32$GT$$GT$16bitpacked_encode17h9d74cf0273319367E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, i64 noundef %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %23
 
-23:                                               ; preds = %18, %22
+23:                                               ; preds = %17, %22
   %24 = icmp ugt i64 %20, 8
   br i1 %24, label %25, label %26
 
@@ -12019,14 +12019,14 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   br label %26
 
 26:                                               ; preds = %25, %23
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr null
 
-27:                                               ; preds = %13
+27:                                               ; preds = %12
   %28 = icmp ugt i64 %.sroa.043.0, 8
   br i1 %28, label %32, label %.loopexit
 
-29:                                               ; preds = %13
+29:                                               ; preds = %12
   %30 = add i64 %.sroa.043.0, 1
   %31 = icmp ugt i64 %30, 7
   br i1 %31, label %37, label %.loopexit
@@ -12036,19 +12036,19 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   br i1 %.not64, label %36, label %35
 
 .loopexit:                                        ; preds = %29, %27, %38
-  %33 = phi i32 [ %.sroa.0.0.ph, %38 ], [ %16, %27 ], [ %.sroa.0.0.ph, %29 ]
+  %33 = phi i32 [ %.sroa.0.0.ph, %38 ], [ %15, %27 ], [ %.sroa.0.0.ph, %29 ]
   %.sroa.032.2 = phi i64 [ %42, %38 ], [ %.sroa.018.0.ph, %27 ], [ %.sroa.032.0.ph, %29 ]
   %.sroa.043.1 = phi i64 [ %41, %38 ], [ 1, %27 ], [ %30, %29 ]
   %34 = icmp eq i64 %.sroa.018.0.ph, 8192
   br i1 %34, label %43, label %.thread
 
 35:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %7, ptr %6, align 8
-  store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  store ptr %6, ptr %5, align 8
+  store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 %.sroa.032.0.ph, ptr %.sroa.5.0..sroa_idx, align 8
-  call fastcc void @"_ZN98_$LT$u32$u20$as$u20$polars_parquet..parquet..encoding..hybrid_rle..encoder..Encoder$LT$u32$GT$$GT$16bitpacked_encode17h9d74cf0273319367E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, i64 noundef %10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call fastcc void @"_ZN98_$LT$u32$u20$as$u20$polars_parquet..parquet..encoding..hybrid_rle..encoder..Encoder$LT$u32$GT$$GT$16bitpacked_encode17h9d74cf0273319367E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, i64 noundef %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %36
 
 36:                                               ; preds = %32, %35
@@ -12057,7 +12057,7 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
 
 37:                                               ; preds = %29
   %.not65 = icmp eq i64 %30, 8
-  br i1 %.not65, label %38, label %11
+  br i1 %.not65, label %38, label %10
 
 38:                                               ; preds = %37
   %39 = sub i64 0, %.sroa.032.0.ph
@@ -12067,26 +12067,26 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   br label %.loopexit
 
 43:                                               ; preds = %.loopexit
-  call fastcc void @"_ZN98_$LT$u32$u20$as$u20$polars_parquet..parquet..encoding..hybrid_rle..encoder..Encoder$LT$u32$GT$$GT$16bitpacked_encode17h42342e5ef1d3cf86E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef nonnull %7, ptr noundef %9, i64 noundef %10)
+  call fastcc void @"_ZN98_$LT$u32$u20$as$u20$polars_parquet..parquet..encoding..hybrid_rle..encoder..Encoder$LT$u32$GT$$GT$16bitpacked_encode17h42342e5ef1d3cf86E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noundef nonnull %6, ptr noundef %8, i64 noundef %9)
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %43, %36
-  %44 = phi i32 [ %16, %36 ], [ %33, %43 ], [ %33, %.loopexit ]
+  %44 = phi i32 [ %15, %36 ], [ %33, %43 ], [ %33, %.loopexit ]
   %.sroa.043.283 = phi i64 [ 1, %36 ], [ 1, %43 ], [ %.sroa.043.1, %.loopexit ]
   %.sroa.032.482 = phi i64 [ 0, %36 ], [ 0, %43 ], [ %.sroa.032.2, %.loopexit ]
   %.sroa.018.181 = phi i64 [ 0, %36 ], [ 0, %43 ], [ %.sroa.018.0.ph, %.loopexit ]
-  %45 = getelementptr inbounds nuw i32, ptr %7, i64 %.sroa.018.181
+  %45 = getelementptr inbounds nuw i32, ptr %6, i64 %.sroa.018.181
   store i32 %44, ptr %45, align 4
   %46 = add nuw nsw i64 %.sroa.018.181, 1
   br label %.outer
 
 .outer:                                           ; preds = %.preheader, %.thread
-  %.sroa.070.0.ph = phi ptr [ %1, %.preheader ], [ %14, %.thread ]
+  %.sroa.070.0.ph = phi ptr [ %1, %.preheader ], [ %13, %.thread ]
   %.sroa.0.0.ph = phi i32 [ 0, %.preheader ], [ %44, %.thread ]
   %.sroa.018.0.ph = phi i64 [ 0, %.preheader ], [ %46, %.thread ]
   %.sroa.032.0.ph = phi i64 [ 0, %.preheader ], [ %.sroa.032.482, %.thread ]
   %.sroa.043.0.ph = phi i64 [ 0, %.preheader ], [ %.sroa.043.283, %.thread ]
-  br label %11
+  br label %10
 }
 
 ; Function Attrs: nonlazybind uwtable

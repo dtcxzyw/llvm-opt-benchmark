@@ -15525,33 +15525,33 @@ define internal void @_ZN12_GLOBAL__N_113MPPassManagerD2Ev(ptr noundef nonnull a
   store ptr getelementptr inbounds nuw inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_113MPPassManagerE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_113MPPassManagerE, i64 200), ptr %2, align 8, !tbaa !3
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %5 = load ptr, ptr %4, align 8, !tbaa !10
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %7 = load i32, ptr %6, align 8, !tbaa !79
-  %8 = zext i32 %7 to i64
-  %.idx = shl nuw nsw i64 %8, 4
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %.not10 = icmp eq i32 %7, 0
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %4 = load ptr, ptr %3, align 8, !tbaa !10
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %6 = load i32, ptr %5, align 8, !tbaa !79
+  %7 = zext i32 %6 to i64
+  %.idx = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
+  %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %55
-  %.pre = load ptr, ptr %4, align 8, !tbaa !10
+  %.pre = load ptr, ptr %3, align 8, !tbaa !10
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %10 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %5, %1 ]
+  %9 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %4, %1 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %12 = icmp eq ptr %10, %11
+  %12 = icmp eq ptr %9, %11
   br i1 %12, label %_ZN4llvm9MapVectorIPNS_4PassEPNS_6legacy23FunctionPassManagerImplENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S5_ELj0EEEED2Ev.exit, label %13
 
 13:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef %10) #32
+  tail call void @free(ptr noundef %9) #32
   br label %_ZN4llvm9MapVectorIPNS_4PassEPNS_6legacy23FunctionPassManagerImplENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S5_ELj0EEEED2Ev.exit
 
 _ZN4llvm9MapVectorIPNS_4PassEPNS_6legacy23FunctionPassManagerImplENS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_S5_ELj0EEEED2Ev.exit: ; preds = %._crit_edge, %13
-  %14 = load ptr, ptr %3, align 8, !tbaa !547
+  %14 = load ptr, ptr %10, align 8, !tbaa !547
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %16 = load i32, ptr %15, align 8, !tbaa !550
   %17 = zext i32 %16 to i64
@@ -15619,7 +15619,7 @@ _ZN4llvm13PMDataManagerD2Ev.exit:                 ; preds = %_ZN4llvm11SmallVect
   ret void
 
 .lr.ph:                                           ; preds = %1, %55
-  %.011 = phi ptr [ %56, %55 ], [ %5, %1 ]
+  %.011 = phi ptr [ %56, %55 ], [ %4, %1 ]
   %48 = getelementptr inbounds nuw i8, ptr %.011, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !307
   %50 = icmp eq ptr %49, null
@@ -15634,7 +15634,7 @@ _ZN4llvm13PMDataManagerD2Ev.exit:                 ; preds = %_ZN4llvm11SmallVect
 
 55:                                               ; preds = %51, %.lr.ph
   %56 = getelementptr inbounds nuw i8, ptr %.011, i64 16
-  %.not = icmp eq ptr %56, %9
+  %.not = icmp eq ptr %56, %8
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 

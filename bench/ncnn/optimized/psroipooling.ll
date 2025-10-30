@@ -318,22 +318,22 @@ define internal void @_ZNK4ncnn12PSROIPooling7forwardERKSt6vectorINS_3MatESaIS2_
   %93 = icmp slt i32 %48, %92
   %.val109.us.us.us = load i32, ptr %10, align 4
   %94 = select i1 %93, i32 %.val109.us.us.us, i32 %92
-  %95 = icmp sle i32 %91, %86
-  %96 = icmp sle i32 %94, %88
-  %97 = select i1 %95, i1 true, i1 %96
-  %98 = sub nsw i32 %91, %86
-  %99 = sub nsw i32 %94, %88
-  %100 = mul nsw i32 %99, %98
-  %101 = icmp slt i32 %86, %91
-  %102 = icmp slt i32 %88, %94
-  %or.cond = select i1 %101, i1 %102, i1 false
+  %95 = icmp slt i32 %86, %91
+  %96 = icmp slt i32 %88, %94
+  %or.cond = select i1 %95, i1 %96, i1 false
   br i1 %or.cond, label %.preheader.us.us.us.us.preheader, label %._crit_edge117.us.us.us
 
 ._crit_edge117.us.us.us:                          ; preds = %._crit_edge.us.us.us.us, %.noexc55.us.us.us
   %.049.lcssa.us.us.us = phi float [ 0.000000e+00, %.noexc55.us.us.us ], [ %118, %._crit_edge.us.us.us.us ]
-  %103 = sitofp i32 %100 to float
+  %97 = icmp sle i32 %91, %86
+  %98 = icmp sle i32 %94, %88
+  %99 = select i1 %97, i1 true, i1 %98
+  %100 = sub nsw i32 %91, %86
+  %101 = sub nsw i32 %94, %88
+  %102 = mul nsw i32 %101, %100
+  %103 = sitofp i32 %102 to float
   %104 = fdiv fast float %.049.lcssa.us.us.us, %103
-  %105 = select fast i1 %97, float 0.000000e+00, float %104
+  %105 = select fast i1 %99, float 0.000000e+00, float %104
   %106 = getelementptr inbounds nuw float, ptr %.050121.us.us.us, i64 %indvars.iv144
   store float %105, ptr %106, align 4, !tbaa !42
   %exitcond147.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count

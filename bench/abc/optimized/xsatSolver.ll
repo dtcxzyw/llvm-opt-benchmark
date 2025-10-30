@@ -4480,22 +4480,22 @@ xSAT_SolverClaCalcLBD2.exit.thread.i.i:           ; preds = %xSAT_SolverClaCalcL
   %.val108.i.i = load ptr, ptr %690, align 8, !tbaa !67
   %691 = getelementptr i8, ptr %689, i64 4
   %.val109.i.i = load i32, ptr %691, align 4, !tbaa !63
-  %692 = sext i32 %.val109.i.i to i64
-  %.idx.i.i = shl nsw i64 %692, 3
-  %693 = getelementptr inbounds i8, ptr %.val108.i.i, i64 %.idx.i.i
-  %694 = add i32 %683, 1
-  store i32 %694, ptr %18, align 8, !tbaa !50
+  %692 = add i32 %683, 1
+  store i32 %692, ptr %18, align 8, !tbaa !50
   br i1 %.val95137.i.i, label %.lr.ph139.i.i, label %.critedge.preheader.i.i
 
 .lr.ph139.i.i:                                    ; preds = %xSAT_SolverClaCalcLBD2.exit.thread.i.i
   %.val101.i.i = load ptr, ptr %.phi.trans.insert.i192.i, align 8, !tbaa !27
-  %695 = load ptr, ptr %20, align 8, !tbaa !52
-  %696 = getelementptr i8, ptr %695, i64 8
-  %.val105.i.i = load ptr, ptr %696, align 8, !tbaa !27
+  %693 = load ptr, ptr %20, align 8, !tbaa !52
+  %694 = getelementptr i8, ptr %693, i64 8
+  %.val105.i.i = load ptr, ptr %694, align 8, !tbaa !27
   br label %700
 
 .critedge.preheader.i.i:                          ; preds = %700, %xSAT_SolverClaCalcLBD2.exit.thread.i.i
   %.val151.pr308.i = phi i32 [ %.val151.pr309.i, %xSAT_SolverClaCalcLBD2.exit.thread.i.i ], [ %.val95.i.i, %700 ]
+  %695 = sext i32 %.val109.i.i to i64
+  %.idx.i.i = shl nsw i64 %695, 3
+  %696 = getelementptr inbounds i8, ptr %.val108.i.i, i64 %.idx.i.i
   %697 = icmp sgt i32 %.val109.i.i, 0
   br i1 %697, label %.lr.ph142.i.i, label %xSAT_SolverClaMinimisation.exit.i
 
@@ -4512,7 +4512,7 @@ xSAT_SolverClaCalcLBD2.exit.thread.i.i:           ; preds = %xSAT_SolverClaCalcL
   %703 = ashr i32 %702, 1
   %704 = sext i32 %703 to i64
   %705 = getelementptr inbounds i32, ptr %.val105.i.i, i64 %704
-  store i32 %694, ptr %705, align 4, !tbaa !30
+  store i32 %692, ptr %705, align 4, !tbaa !30
   %indvars.iv.next159.i.i = add nuw nsw i64 %indvars.iv158.i.i, 1
   %.val95.i.i = load i32, ptr %102, align 4, !tbaa !23
   %706 = sext i32 %.val95.i.i to i64
@@ -4552,7 +4552,7 @@ xSAT_SolverClaCalcLBD2.exit.thread.i.i:           ; preds = %xSAT_SolverClaCalcL
 .critedge.i.i:                                    ; preds = %725, %717, %708
   %.188.i.i = phi i32 [ %726, %725 ], [ %.087140.i.i, %717 ], [ %.087140.i.i, %708 ]
   %728 = getelementptr inbounds nuw i8, ptr %.084141.i.i, i64 8
-  %729 = icmp ult ptr %728, %693
+  %729 = icmp ult ptr %728, %696
   br i1 %729, label %708, label %.critedge._crit_edge.i.i, !llvm.loop !148
 
 .critedge._crit_edge.i.i:                         ; preds = %.critedge.i.i

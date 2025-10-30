@@ -1608,29 +1608,29 @@ define dso_local range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr n
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 2048
   %.not57.i10 = icmp eq i16 %17, 0
-  br i1 %.not57.i10, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not57.i10, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.outer.i
-  %18 = icmp eq i32 %.05272.ph.i, 0
-  %19 = select i1 %18, ptr %.04575.ph.i, ptr %.04376.ph.i
-  br label %.lr.ph
+.lr.ph:                                           ; preds = %.outer.i, %.lr.ph
+  %.04575.i12 = phi ptr [ %18, %.lr.ph ], [ %.04575.ph.i, %.outer.i ]
+  %18 = getelementptr inbounds nuw i8, ptr %.04575.i12, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = sext i8 %19 to i64
+  %21 = getelementptr inbounds i16, ptr %12, i64 %20
+  %22 = load i16, ptr %21, align 2
+  %23 = and i16 %22, 2048
+  %.not57.i = icmp eq i16 %23, 0
+  br i1 %.not57.i, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !31
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04575.i12 = phi ptr [ %20, %.lr.ph ], [ %.04575.ph.i, %.lr.ph.preheader ]
-  %20 = getelementptr inbounds nuw i8, ptr %.04575.i12, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = sext i8 %21 to i64
-  %23 = getelementptr inbounds i16, ptr %12, i64 %22
-  %24 = load i16, ptr %23, align 2
-  %25 = and i16 %24, 2048
-  %.not57.i = icmp eq i16 %25, 0
-  br i1 %.not57.i, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %24 = icmp eq i32 %.05272.ph.i, 0
+  %25 = select i1 %24, ptr %.04575.ph.i, ptr %.04376.ph.i
+  br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %.outer.i
-  %.04376.i.lcssa = phi ptr [ %.04376.ph.i, %.outer.i ], [ %19, %.lr.ph ]
-  %.04575.i.lcssa = phi ptr [ %.04575.ph.i, %.outer.i ], [ %20, %.lr.ph ]
-  %.05272.i.lcssa = phi i32 [ %.05272.ph.i, %.outer.i ], [ 1, %.lr.ph ]
-  %.lcssa = phi i8 [ %13, %.outer.i ], [ %21, %.lr.ph ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.outer.i
+  %.04376.i.lcssa = phi ptr [ %.04376.ph.i, %.outer.i ], [ %25, %._crit_edge.loopexit ]
+  %.04575.i.lcssa = phi ptr [ %.04575.ph.i, %.outer.i ], [ %18, %._crit_edge.loopexit ]
+  %.05272.i.lcssa = phi i32 [ %.05272.ph.i, %.outer.i ], [ 1, %._crit_edge.loopexit ]
+  %.lcssa = phi i8 [ %13, %.outer.i ], [ %19, %._crit_edge.loopexit ]
   switch i8 %.lcssa, label %_range_to_map.exit [
     i8 45, label %26
     i8 44, label %32

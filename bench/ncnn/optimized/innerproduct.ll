@@ -2959,19 +2959,19 @@ define internal void @_ZNK4ncnn12InnerProduct12forward_int8ERKNS_3MatERS1_RKNS_6
   br i1 %.not68, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %21 = load ptr, ptr %3, align 8, !tbaa !16
-  %22 = load i32, ptr %4, align 4, !tbaa !53
-  %23 = load i32, ptr %5, align 4, !tbaa !53
-  %factor.op.mul70 = mul i32 %22, %23
-  %24 = icmp sgt i32 %23, 0
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 304
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %30 = load i64, ptr %29, align 8
-  %factor.op.mul = mul i64 %28, %30
-  %31 = icmp sgt i32 %22, 0
+  %21 = load i32, ptr %4, align 4, !tbaa !53
+  %22 = load i32, ptr %5, align 4, !tbaa !53
+  %factor.op.mul70 = mul i32 %21, %22
+  %23 = icmp sgt i32 %22, 0
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 304
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %29 = load i64, ptr %28, align 8
+  %factor.op.mul = mul i64 %27, %29
+  %30 = icmp sgt i32 %21, 0
+  %31 = load ptr, ptr %3, align 8, !tbaa !16
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %33 = load ptr, ptr %32, align 8, !tbaa !16
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 520
@@ -2982,24 +2982,24 @@ define internal void @_ZNK4ncnn12InnerProduct12forward_int8ERKNS_3MatERS1_RKNS_6
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %39 = load i32, ptr %38, align 8, !tbaa !37
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %41 = sext i32 %22 to i64
+  %41 = sext i32 %21 to i64
   %42 = sext i32 %20 to i64
   %43 = add nsw i32 %19, 1
-  %wide.trip.count76 = zext nneg i32 %23 to i64
-  %wide.trip.count = zext nneg i32 %22 to i64
+  %wide.trip.count76 = zext nneg i32 %22 to i64
+  %wide.trip.count = zext nneg i32 %21 to i64
   br label %44
 
 44:                                               ; preds = %.lr.ph, %_ZL13activation_ssfiRKN4ncnn3MatE.exit
   %indvars.iv78 = phi i64 [ %42, %.lr.ph ], [ %indvars.iv.next79, %_ZL13activation_ssfiRKN4ncnn3MatE.exit ]
-  br i1 %24, label %_ZN4ncnn3MatD2Ev.exit.lr.ph, label %._crit_edge66
+  br i1 %23, label %_ZN4ncnn3MatD2Ev.exit.lr.ph, label %._crit_edge66
 
 _ZN4ncnn3MatD2Ev.exit.lr.ph:                      ; preds = %44
   %45 = trunc nsw i64 %indvars.iv78 to i32
   %.reass = mul i32 %factor.op.mul70, %45
-  %46 = load ptr, ptr %25, align 8, !tbaa !16
+  %46 = load ptr, ptr %24, align 8, !tbaa !16
   %47 = sext i32 %.reass to i64
   %48 = getelementptr inbounds i8, ptr %46, i64 %47
-  br i1 %31, label %_ZN4ncnn3MatD2Ev.exit.us, label %._crit_edge66
+  br i1 %30, label %_ZN4ncnn3MatD2Ev.exit.us, label %._crit_edge66
 
 _ZN4ncnn3MatD2Ev.exit.us:                         ; preds = %_ZN4ncnn3MatD2Ev.exit.lr.ph, %._crit_edge.us
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %._crit_edge.us ], [ 0, %_ZN4ncnn3MatD2Ev.exit.lr.ph ]
@@ -3007,7 +3007,7 @@ _ZN4ncnn3MatD2Ev.exit.us:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %49 = mul nuw nsw i64 %indvars.iv73, %41
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 %49
   %.reass.us = mul i64 %factor.op.mul, %indvars.iv73
-  %51 = getelementptr inbounds nuw i8, ptr %26, i64 %.reass.us
+  %51 = getelementptr inbounds nuw i8, ptr %25, i64 %.reass.us
   br label %52
 
 52:                                               ; preds = %_ZN4ncnn3MatD2Ev.exit.us, %52
@@ -3139,7 +3139,7 @@ _ZN4ncnn3MatD2Ev.exit.us:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %119, %115, %101, %94, %93, %86, %80, %78, %77, %107
   %.161 = phi nsz float [ %.0, %77 ], [ %79, %78 ], [ %85, %80 ], [ %90, %93 ], [ %.060, %86 ], [ %100, %94 ], [ %106, %101 ], [ %.0, %115 ], [ %122, %119 ], [ 0.000000e+00, %107 ]
-  %123 = getelementptr inbounds float, ptr %21, i64 %indvars.iv78
+  %123 = getelementptr inbounds float, ptr %31, i64 %indvars.iv78
   store float %.161, ptr %123, align 4, !tbaa !61
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next79 to i32

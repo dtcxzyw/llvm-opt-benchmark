@@ -139,40 +139,40 @@ _ZN10__cxxabiv1L11readULEB128EPPKh.exit.i:        ; preds = %.preheader.i
   %.0137.i = phi ptr [ %60, %_ZN10__cxxabiv1L11readULEB128EPPKh.exit.i ], [ null, %49 ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
   store ptr %63, ptr %7, align 8, !tbaa !16
-  %64 = load i8, ptr %62, align 1, !tbaa !17
-  br label %65
+  br label %64
 
-65:                                               ; preds = %65, %61
-  %.010.i172.i = phi i64 [ 0, %61 ], [ %72, %65 ]
-  %.09.i173.i = phi i64 [ 0, %61 ], [ %71, %65 ]
-  %.0.i174.i = phi ptr [ %63, %61 ], [ %66, %65 ]
-  %66 = getelementptr inbounds nuw i8, ptr %.0.i174.i, i64 1
-  %67 = load i8, ptr %.0.i174.i, align 1, !tbaa !17
-  %68 = and i8 %67, 127
-  %69 = zext nneg i8 %68 to i64
-  %70 = shl i64 %69, %.010.i172.i
-  %71 = or i64 %70, %.09.i173.i
-  %72 = add i64 %.010.i172.i, 7
-  %.not.i175.i = icmp sgt i8 %67, -1
-  br i1 %.not.i175.i, label %_ZN10__cxxabiv1L11readULEB128EPPKh.exit176.i, label %65, !llvm.loop !18
+64:                                               ; preds = %64, %61
+  %.010.i172.i = phi i64 [ 0, %61 ], [ %71, %64 ]
+  %.09.i173.i = phi i64 [ 0, %61 ], [ %70, %64 ]
+  %.0.i174.i = phi ptr [ %63, %61 ], [ %65, %64 ]
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i174.i, i64 1
+  %66 = load i8, ptr %.0.i174.i, align 1, !tbaa !17
+  %67 = and i8 %66, 127
+  %68 = zext nneg i8 %67 to i64
+  %69 = shl i64 %68, %.010.i172.i
+  %70 = or i64 %69, %.09.i173.i
+  %71 = add i64 %.010.i172.i, 7
+  %.not.i175.i = icmp sgt i8 %66, -1
+  br i1 %.not.i175.i, label %_ZN10__cxxabiv1L11readULEB128EPPKh.exit176.i, label %64, !llvm.loop !18
 
-_ZN10__cxxabiv1L11readULEB128EPPKh.exit176.i:     ; preds = %65
-  store ptr %66, ptr %7, align 8, !tbaa !16
-  %73 = and i64 %71, 4294967295
-  %74 = getelementptr inbounds nuw i8, ptr %66, i64 %73
+_ZN10__cxxabiv1L11readULEB128EPPKh.exit176.i:     ; preds = %64
+  %72 = load i8, ptr %62, align 1, !tbaa !17
+  store ptr %65, ptr %7, align 8, !tbaa !16
+  %73 = and i64 %70, 4294967295
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 %73
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr %66, ptr %8, align 8, !tbaa !16
+  store ptr %65, ptr %8, align 8, !tbaa !16
   br label %75
 
 75:                                               ; preds = %204, %_ZN10__cxxabiv1L11readULEB128EPPKh.exit176.i
-  %76 = phi ptr [ %84, %204 ], [ %66, %_ZN10__cxxabiv1L11readULEB128EPPKh.exit176.i ]
+  %76 = phi ptr [ %84, %204 ], [ %65, %_ZN10__cxxabiv1L11readULEB128EPPKh.exit176.i ]
   %77 = icmp ult ptr %76, %74
   br i1 %77, label %78, label %212
 
 78:                                               ; preds = %75
-  %79 = call fastcc noundef i64 @_ZN10__cxxabiv1L18readEncodedPointerEPPKhhm(ptr noundef %8, i8 noundef zeroext %64, i64 noundef 0)
-  %80 = call fastcc noundef i64 @_ZN10__cxxabiv1L18readEncodedPointerEPPKhhm(ptr noundef %8, i8 noundef zeroext %64, i64 noundef 0)
-  %81 = call fastcc noundef i64 @_ZN10__cxxabiv1L18readEncodedPointerEPPKhhm(ptr noundef %8, i8 noundef zeroext %64, i64 noundef 0)
+  %79 = call fastcc noundef i64 @_ZN10__cxxabiv1L18readEncodedPointerEPPKhhm(ptr noundef %8, i8 noundef zeroext %72, i64 noundef 0)
+  %80 = call fastcc noundef i64 @_ZN10__cxxabiv1L18readEncodedPointerEPPKhhm(ptr noundef %8, i8 noundef zeroext %72, i64 noundef 0)
+  %81 = call fastcc noundef i64 @_ZN10__cxxabiv1L18readEncodedPointerEPPKhhm(ptr noundef %8, i8 noundef zeroext %72, i64 noundef 0)
   %82 = load ptr, ptr %8, align 8, !tbaa !16
   br label %83
 

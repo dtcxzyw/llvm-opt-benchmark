@@ -166,18 +166,18 @@ split:                                            ; preds = %20, %29, %.preheade
 81:                                               ; preds = %75
   %82 = lshr i64 %52, 32
   %83 = trunc nuw i64 %82 to i32
-  %84 = lshr i64 %59, 32
-  %85 = trunc nuw i64 %84 to i32
-  %86 = icmp sgt i32 %83, 0
-  br i1 %86, label %.lr.ph.i, label %.preheader.i
+  %84 = icmp sgt i32 %83, 0
+  br i1 %84, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %81
-  %87 = shl nsw i32 %.0.lcssa, 1
-  %88 = shl nuw i32 1, %87
+  %85 = shl nsw i32 %.0.lcssa, 1
+  %86 = shl nuw i32 1, %85
   br label %92
 
 .preheader.i:                                     ; preds = %92, %81
-  %89 = icmp sgt i32 %85, 0
+  %87 = lshr i64 %59, 32
+  %88 = trunc nuw i64 %87 to i32
+  %89 = icmp sgt i32 %88, 0
   br i1 %89, label %.lr.ph19.i, label %Abc_IsopAddLits.exit
 
 .lr.ph19.i:                                       ; preds = %.preheader.i
@@ -189,7 +189,7 @@ split:                                            ; preds = %20, %29, %.preheade
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %92 ]
   %93 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
   %94 = load i32, ptr %93, align 4, !tbaa !7
-  %95 = or i32 %94, %88
+  %95 = or i32 %94, %86
   store i32 %95, ptr %93, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %82
@@ -202,7 +202,7 @@ split:                                            ; preds = %20, %29, %.preheade
   %98 = or i32 %97, %91
   store i32 %98, ptr %gep.i, align 4, !tbaa !7
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %84
+  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %87
   br i1 %exitcond25.not.i, label %Abc_IsopAddLits.exit, label %96, !llvm.loop !12
 
 Abc_IsopAddLits.exit:                             ; preds = %96, %75, %.preheader.i
@@ -3119,13 +3119,13 @@ define internal i64 @Abc_Isop7Cover(ptr noundef readonly captures(none) %0, ptr 
 50:                                               ; preds = %45
   %51 = lshr i64 %17, 32
   %52 = trunc nuw i64 %51 to i32
-  %53 = lshr i64 %25, 32
-  %54 = trunc nuw i64 %53 to i32
-  %55 = icmp sgt i32 %52, 0
-  br i1 %55, label %.lr.ph.i, label %.preheader.i
+  %53 = icmp sgt i32 %52, 0
+  br i1 %53, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %50
-  %56 = icmp sgt i32 %54, 0
+  %54 = lshr i64 %25, 32
+  %55 = trunc nuw i64 %54 to i32
+  %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph19.i, label %Abc_IsopAddLits.exit
 
 .lr.ph.i:                                         ; preds = %50, %.lr.ph.i
@@ -3145,7 +3145,7 @@ define internal i64 @Abc_Isop7Cover(ptr noundef readonly captures(none) %0, ptr 
   %61 = or i32 %60, 8192
   store i32 %61, ptr %gep.i, align 4, !tbaa !7
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %53
+  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %54
   br i1 %exitcond25.not.i, label %Abc_IsopAddLits.exit, label %.lr.ph19.i, !llvm.loop !12
 
 Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %45, %.preheader.i
@@ -3278,13 +3278,13 @@ define internal i64 @Abc_Isop8Cover(ptr noundef readonly captures(none) %0, ptr 
 89:                                               ; preds = %74
   %90 = lshr i64 %23, 32
   %91 = trunc nuw i64 %90 to i32
-  %92 = lshr i64 %39, 32
-  %93 = trunc nuw i64 %92 to i32
-  %94 = icmp sgt i32 %91, 0
-  br i1 %94, label %.lr.ph.i, label %.preheader.i
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %89
-  %95 = icmp sgt i32 %93, 0
+  %93 = lshr i64 %39, 32
+  %94 = trunc nuw i64 %93 to i32
+  %95 = icmp sgt i32 %94, 0
   br i1 %95, label %.lr.ph19.i, label %Abc_IsopAddLits.exit
 
 .lr.ph.i:                                         ; preds = %89, %.lr.ph.i
@@ -3304,7 +3304,7 @@ define internal i64 @Abc_Isop8Cover(ptr noundef readonly captures(none) %0, ptr 
   %100 = or i32 %99, 32768
   store i32 %100, ptr %gep.i, align 4, !tbaa !7
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %92
+  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %93
   br i1 %exitcond25.not.i, label %Abc_IsopAddLits.exit, label %.lr.ph19.i, !llvm.loop !12
 
 Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %74, %.preheader.i
@@ -3444,13 +3444,13 @@ define internal i64 @Abc_Isop9Cover(ptr noundef readonly captures(none) %0, ptr 
 74:                                               ; preds = %.preheader.preheader
   %75 = lshr i64 %21, 32
   %76 = trunc nuw i64 %75 to i32
-  %77 = lshr i64 %35, 32
-  %78 = trunc nuw i64 %77 to i32
-  %79 = icmp sgt i32 %76, 0
-  br i1 %79, label %.lr.ph.i, label %.preheader.i
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %74
-  %80 = icmp sgt i32 %78, 0
+  %78 = lshr i64 %35, 32
+  %79 = trunc nuw i64 %78 to i32
+  %80 = icmp sgt i32 %79, 0
   br i1 %80, label %.lr.ph19.i, label %Abc_IsopAddLits.exit
 
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.i
@@ -3470,7 +3470,7 @@ define internal i64 @Abc_Isop9Cover(ptr noundef readonly captures(none) %0, ptr 
   %85 = or i32 %84, 131072
   store i32 %85, ptr %gep.i, align 4, !tbaa !7
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %77
+  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %78
   br i1 %exitcond25.not.i, label %Abc_IsopAddLits.exit, label %.lr.ph19.i, !llvm.loop !12
 
 Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.preheader.preheader, %.preheader.i
@@ -3610,13 +3610,13 @@ define internal i64 @Abc_Isop10Cover(ptr noundef readonly captures(none) %0, ptr
 74:                                               ; preds = %.preheader.preheader
   %75 = lshr i64 %21, 32
   %76 = trunc nuw i64 %75 to i32
-  %77 = lshr i64 %35, 32
-  %78 = trunc nuw i64 %77 to i32
-  %79 = icmp sgt i32 %76, 0
-  br i1 %79, label %.lr.ph.i, label %.preheader.i
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %74
-  %80 = icmp sgt i32 %78, 0
+  %78 = lshr i64 %35, 32
+  %79 = trunc nuw i64 %78 to i32
+  %80 = icmp sgt i32 %79, 0
   br i1 %80, label %.lr.ph19.i, label %Abc_IsopAddLits.exit
 
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.i
@@ -3636,7 +3636,7 @@ define internal i64 @Abc_Isop10Cover(ptr noundef readonly captures(none) %0, ptr
   %85 = or i32 %84, 524288
   store i32 %85, ptr %gep.i, align 4, !tbaa !7
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %77
+  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %78
   br i1 %exitcond25.not.i, label %Abc_IsopAddLits.exit, label %.lr.ph19.i, !llvm.loop !12
 
 Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.preheader.preheader, %.preheader.i
@@ -3776,13 +3776,13 @@ define internal i64 @Abc_Isop11Cover(ptr noundef readonly captures(none) %0, ptr
 74:                                               ; preds = %.preheader.preheader
   %75 = lshr i64 %21, 32
   %76 = trunc nuw i64 %75 to i32
-  %77 = lshr i64 %35, 32
-  %78 = trunc nuw i64 %77 to i32
-  %79 = icmp sgt i32 %76, 0
-  br i1 %79, label %.lr.ph.i, label %.preheader.i
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %74
-  %80 = icmp sgt i32 %78, 0
+  %78 = lshr i64 %35, 32
+  %79 = trunc nuw i64 %78 to i32
+  %80 = icmp sgt i32 %79, 0
   br i1 %80, label %.lr.ph19.i, label %Abc_IsopAddLits.exit
 
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.i
@@ -3802,7 +3802,7 @@ define internal i64 @Abc_Isop11Cover(ptr noundef readonly captures(none) %0, ptr
   %85 = or i32 %84, 2097152
   store i32 %85, ptr %gep.i, align 4, !tbaa !7
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %77
+  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %78
   br i1 %exitcond25.not.i, label %Abc_IsopAddLits.exit, label %.lr.ph19.i, !llvm.loop !12
 
 Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.preheader.preheader, %.preheader.i
@@ -3942,13 +3942,13 @@ define internal i64 @Abc_Isop12Cover(ptr noundef readonly captures(none) %0, ptr
 74:                                               ; preds = %.preheader.preheader
   %75 = lshr i64 %21, 32
   %76 = trunc nuw i64 %75 to i32
-  %77 = lshr i64 %35, 32
-  %78 = trunc nuw i64 %77 to i32
-  %79 = icmp sgt i32 %76, 0
-  br i1 %79, label %.lr.ph.i, label %.preheader.i
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %74
-  %80 = icmp sgt i32 %78, 0
+  %78 = lshr i64 %35, 32
+  %79 = trunc nuw i64 %78 to i32
+  %80 = icmp sgt i32 %79, 0
   br i1 %80, label %.lr.ph19.i, label %Abc_IsopAddLits.exit
 
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.i
@@ -3968,7 +3968,7 @@ define internal i64 @Abc_Isop12Cover(ptr noundef readonly captures(none) %0, ptr
   %85 = or i32 %84, 8388608
   store i32 %85, ptr %gep.i, align 4, !tbaa !7
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %77
+  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %78
   br i1 %exitcond25.not.i, label %Abc_IsopAddLits.exit, label %.lr.ph19.i, !llvm.loop !12
 
 Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.preheader.preheader, %.preheader.i
@@ -4108,13 +4108,13 @@ define internal i64 @Abc_Isop13Cover(ptr noundef readonly captures(none) %0, ptr
 74:                                               ; preds = %.preheader.preheader
   %75 = lshr i64 %21, 32
   %76 = trunc nuw i64 %75 to i32
-  %77 = lshr i64 %35, 32
-  %78 = trunc nuw i64 %77 to i32
-  %79 = icmp sgt i32 %76, 0
-  br i1 %79, label %.lr.ph.i, label %.preheader.i
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %74
-  %80 = icmp sgt i32 %78, 0
+  %78 = lshr i64 %35, 32
+  %79 = trunc nuw i64 %78 to i32
+  %80 = icmp sgt i32 %79, 0
   br i1 %80, label %.lr.ph19.i, label %Abc_IsopAddLits.exit
 
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.i
@@ -4134,7 +4134,7 @@ define internal i64 @Abc_Isop13Cover(ptr noundef readonly captures(none) %0, ptr
   %85 = or i32 %84, 33554432
   store i32 %85, ptr %gep.i, align 4, !tbaa !7
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %77
+  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %78
   br i1 %exitcond25.not.i, label %Abc_IsopAddLits.exit, label %.lr.ph19.i, !llvm.loop !12
 
 Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.preheader.preheader, %.preheader.i
@@ -4274,13 +4274,13 @@ define internal i64 @Abc_Isop14Cover(ptr noundef readonly captures(none) %0, ptr
 74:                                               ; preds = %.preheader.preheader
   %75 = lshr i64 %21, 32
   %76 = trunc nuw i64 %75 to i32
-  %77 = lshr i64 %35, 32
-  %78 = trunc nuw i64 %77 to i32
-  %79 = icmp sgt i32 %76, 0
-  br i1 %79, label %.lr.ph.i, label %.preheader.i
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %74
-  %80 = icmp sgt i32 %78, 0
+  %78 = lshr i64 %35, 32
+  %79 = trunc nuw i64 %78 to i32
+  %80 = icmp sgt i32 %79, 0
   br i1 %80, label %.lr.ph19.i, label %Abc_IsopAddLits.exit
 
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.i
@@ -4300,7 +4300,7 @@ define internal i64 @Abc_Isop14Cover(ptr noundef readonly captures(none) %0, ptr
   %85 = or i32 %84, 134217728
   store i32 %85, ptr %gep.i, align 4, !tbaa !7
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %77
+  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %78
   br i1 %exitcond25.not.i, label %Abc_IsopAddLits.exit, label %.lr.ph19.i, !llvm.loop !12
 
 Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.preheader.preheader, %.preheader.i
@@ -4440,13 +4440,13 @@ define internal i64 @Abc_Isop15Cover(ptr noundef readonly captures(none) %0, ptr
 74:                                               ; preds = %.preheader.preheader
   %75 = lshr i64 %21, 32
   %76 = trunc nuw i64 %75 to i32
-  %77 = lshr i64 %35, 32
-  %78 = trunc nuw i64 %77 to i32
-  %79 = icmp sgt i32 %76, 0
-  br i1 %79, label %.lr.ph.i, label %.preheader.i
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %74
-  %80 = icmp sgt i32 %78, 0
+  %78 = lshr i64 %35, 32
+  %79 = trunc nuw i64 %78 to i32
+  %80 = icmp sgt i32 %79, 0
   br i1 %80, label %.lr.ph19.i, label %Abc_IsopAddLits.exit
 
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.i
@@ -4466,7 +4466,7 @@ define internal i64 @Abc_Isop15Cover(ptr noundef readonly captures(none) %0, ptr
   %85 = or i32 %84, 536870912
   store i32 %85, ptr %gep.i, align 4, !tbaa !7
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %77
+  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %78
   br i1 %exitcond25.not.i, label %Abc_IsopAddLits.exit, label %.lr.ph19.i, !llvm.loop !12
 
 Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.preheader.preheader, %.preheader.i
@@ -4606,13 +4606,13 @@ define internal i64 @Abc_Isop16Cover(ptr noundef readonly captures(none) %0, ptr
 74:                                               ; preds = %.preheader.preheader
   %75 = lshr i64 %21, 32
   %76 = trunc nuw i64 %75 to i32
-  %77 = lshr i64 %35, 32
-  %78 = trunc nuw i64 %77 to i32
-  %79 = icmp sgt i32 %76, 0
-  br i1 %79, label %.lr.ph.i, label %.preheader.i
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %74
-  %80 = icmp sgt i32 %78, 0
+  %78 = lshr i64 %35, 32
+  %79 = trunc nuw i64 %78 to i32
+  %80 = icmp sgt i32 %79, 0
   br i1 %80, label %.lr.ph19.i, label %Abc_IsopAddLits.exit
 
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.i
@@ -4632,7 +4632,7 @@ define internal i64 @Abc_Isop16Cover(ptr noundef readonly captures(none) %0, ptr
   %85 = or i32 %84, -2147483648
   store i32 %85, ptr %gep.i, align 4, !tbaa !7
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %77
+  %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %78
   br i1 %exitcond25.not.i, label %Abc_IsopAddLits.exit, label %.lr.ph19.i, !llvm.loop !12
 
 Abc_IsopAddLits.exit:                             ; preds = %.lr.ph19.i, %.preheader.preheader, %.preheader.i

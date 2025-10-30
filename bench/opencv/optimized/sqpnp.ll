@@ -1133,17 +1133,6 @@ _ZNK2cv11_InputArray6getMatEi.exit148._crit_edge: ; preds = %_ZNK2cv11_InputArra
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %89 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %90 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %91 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %92 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %93 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  %94 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %95 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  %96 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  %97 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  %98 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %.promoted223 = load double, ptr %65, align 8, !tbaa !69
   %.promoted224 = load double, ptr %66, align 8, !tbaa !69
   %.promoted225 = load double, ptr %67, align 8, !tbaa !69
@@ -1171,6 +1160,17 @@ _ZNK2cv11_InputArray6getMatEi.exit148._crit_edge: ; preds = %_ZNK2cv11_InputArra
   br label %232
 
 ._crit_edge:                                      ; preds = %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 136
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 192
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store double %360, ptr %88, align 8, !tbaa !69
   store double %361, ptr %89, align 8, !tbaa !69
   store double %362, ptr %90, align 8, !tbaa !69

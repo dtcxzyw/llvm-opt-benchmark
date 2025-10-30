@@ -817,65 +817,65 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 389:                                              ; preds = %._crit_edge2390, %.loopexit2364.thread
   %390 = phi i32 [ %.pre3132, %._crit_edge2390 ], [ %375, %.loopexit2364.thread ]
   %.11954.lcssa = phi double [ %.21955, %._crit_edge2390 ], [ 0.000000e+00, %.loopexit2364.thread ]
-  %391 = fneg double %.11954.lcssa
-  %392 = sitofp i32 %390 to double
-  %393 = call double @log(double noundef %392) #7, !tbaa !3
-  %394 = fdiv double %391, %393
-  %395 = load i32, ptr %7, align 4, !tbaa !3
-  %396 = load i32, ptr %6, align 4, !tbaa !3
-  %397 = add nsw i32 %396, %395
-  store i32 %397, ptr %20, align 4, !tbaa !3
-  %storemerge21312394 = add i32 %395, 1
-  %.not2132.not2395 = icmp sgt i32 %396, 0
-  br i1 %.not2132.not2395, label %.lr.ph2399, label %413
+  %391 = sitofp i32 %390 to double
+  %392 = call double @log(double noundef %391) #7, !tbaa !3
+  %393 = load i32, ptr %7, align 4, !tbaa !3
+  %394 = load i32, ptr %6, align 4, !tbaa !3
+  %395 = add nsw i32 %394, %393
+  store i32 %395, ptr %20, align 4, !tbaa !3
+  %storemerge21312394 = add i32 %393, 1
+  %.not2132.not2395 = icmp sgt i32 %394, 0
+  br i1 %.not2132.not2395, label %.lr.ph2399, label %411
 
 .lr.ph2399:                                       ; preds = %389
-  %398 = load double, ptr %33, align 8, !tbaa !7
-  %399 = sext i32 %storemerge21312394 to i64
-  %400 = sext i32 %397 to i64
-  br label %401
+  %396 = load double, ptr %33, align 8, !tbaa !7
+  %397 = sext i32 %storemerge21312394 to i64
+  %398 = sext i32 %395 to i64
+  br label %399
 
-401:                                              ; preds = %.lr.ph2399, %411
-  %indvars.iv2926 = phi i64 [ %399, %.lr.ph2399 ], [ %indvars.iv.next2927, %411 ]
-  %.119302396 = phi double [ 0.000000e+00, %.lr.ph2399 ], [ %.21931, %411 ]
-  %402 = getelementptr inbounds double, ptr %44, i64 %indvars.iv2926
-  %403 = load double, ptr %402, align 8, !tbaa !7
-  %404 = fdiv double %403, %398
-  %405 = fmul double %404, %404
-  %406 = fmul double %374, %405
-  %407 = fcmp une double %406, 0.000000e+00
-  br i1 %407, label %408, label %411
+399:                                              ; preds = %.lr.ph2399, %409
+  %indvars.iv2926 = phi i64 [ %397, %.lr.ph2399 ], [ %indvars.iv.next2927, %409 ]
+  %.119302396 = phi double [ 0.000000e+00, %.lr.ph2399 ], [ %.21931, %409 ]
+  %400 = getelementptr inbounds double, ptr %44, i64 %indvars.iv2926
+  %401 = load double, ptr %400, align 8, !tbaa !7
+  %402 = fdiv double %401, %396
+  %403 = fmul double %402, %402
+  %404 = fmul double %374, %403
+  %405 = fcmp une double %404, 0.000000e+00
+  br i1 %405, label %406, label %409
 
-408:                                              ; preds = %401
-  %409 = call double @log(double noundef %406) #7, !tbaa !3
-  %410 = call double @llvm.fmuladd.f64(double %406, double %409, double %.119302396)
+406:                                              ; preds = %399
+  %407 = call double @log(double noundef %404) #7, !tbaa !3
+  %408 = call double @llvm.fmuladd.f64(double %404, double %407, double %.119302396)
+  br label %409
+
+409:                                              ; preds = %399, %406
+  %.21931 = phi double [ %408, %406 ], [ %.119302396, %399 ]
+  %indvars.iv.next2927 = add nsw i64 %indvars.iv2926, 1
+  %.not2132.not = icmp slt i64 %indvars.iv2926, %398
+  br i1 %.not2132.not, label %399, label %._crit_edge2400, !llvm.loop !15
+
+._crit_edge2400:                                  ; preds = %409
+  %410 = trunc nsw i64 %indvars.iv.next2927 to i32
+  store double %402, ptr %22, align 8, !tbaa !7
+  %.pre3133 = load i32, ptr %6, align 4, !tbaa !3
   br label %411
 
-411:                                              ; preds = %401, %408
-  %.21931 = phi double [ %410, %408 ], [ %.119302396, %401 ]
-  %indvars.iv.next2927 = add nsw i64 %indvars.iv2926, 1
-  %.not2132.not = icmp slt i64 %indvars.iv2926, %400
-  br i1 %.not2132.not, label %401, label %._crit_edge2400, !llvm.loop !15
-
-._crit_edge2400:                                  ; preds = %411
-  %412 = trunc nsw i64 %indvars.iv.next2927 to i32
-  store double %404, ptr %22, align 8, !tbaa !7
-  %.pre3133 = load i32, ptr %6, align 4, !tbaa !3
-  br label %413
-
-413:                                              ; preds = %._crit_edge2400, %389
-  %414 = phi i32 [ %.pre3133, %._crit_edge2400 ], [ %396, %389 ]
-  %storemerge2131.lcssa = phi i32 [ %412, %._crit_edge2400 ], [ %storemerge21312394, %389 ]
+411:                                              ; preds = %._crit_edge2400, %389
+  %412 = phi i32 [ %.pre3133, %._crit_edge2400 ], [ %394, %389 ]
+  %storemerge2131.lcssa = phi i32 [ %410, %._crit_edge2400 ], [ %storemerge21312394, %389 ]
   %.11930.lcssa = phi double [ %.21931, %._crit_edge2400 ], [ 0.000000e+00, %389 ]
   store i32 %storemerge2131.lcssa, ptr %27, align 4, !tbaa !3
+  %413 = fneg double %.11954.lcssa
+  %414 = fdiv double %413, %392
   %415 = fneg double %.11930.lcssa
-  %416 = sitofp i32 %414 to double
+  %416 = sitofp i32 %412 to double
   %417 = call double @log(double noundef %416) #7, !tbaa !3
   %418 = fdiv double %415, %417
-  %419 = fcmp olt double %418, %394
+  %419 = fcmp olt double %418, %414
   br i1 %419, label %420, label %.thread2328
 
-420:                                              ; preds = %413
+420:                                              ; preds = %411
   %421 = load i32, ptr %7, align 4, !tbaa !3
   %.not2134.not2406 = icmp sgt i32 %421, 1
   br i1 %.not2134.not2406, label %.lr.ph2409.preheader, label %429
@@ -957,14 +957,14 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %421, ptr %28, align 4, !tbaa !3
   br label %.thread2328
 
-.thread2328:                                      ; preds = %.lr.ph2422, %312, %.thread2327, %.thread2325, %._crit_edge2416, %441, %413
-  %442 = phi i1 [ true, %413 ], [ true, %441 ], [ true, %._crit_edge2416 ], [ false, %.thread2325 ], [ false, %.thread2327 ], [ false, %312 ], [ false, %.lr.ph2422 ]
-  %.01953 = phi double [ %394, %413 ], [ %394, %441 ], [ %394, %._crit_edge2416 ], [ 0.000000e+00, %.thread2325 ], [ 0.000000e+00, %.thread2327 ], [ 0.000000e+00, %312 ], [ 0.000000e+00, %.lr.ph2422 ]
-  %.01952 = phi i32 [ %52, %413 ], [ 1, %441 ], [ 0, %._crit_edge2416 ], [ %52, %.thread2325 ], [ %52, %.thread2327 ], [ %52, %312 ], [ %52, %.lr.ph2422 ]
-  %.01951 = phi i32 [ %58, %413 ], [ %52, %441 ], [ %52, %._crit_edge2416 ], [ %58, %.thread2325 ], [ %58, %.thread2327 ], [ %58, %312 ], [ %58, %.lr.ph2422 ]
-  %.01929 = phi double [ %418, %413 ], [ %418, %441 ], [ %418, %._crit_edge2416 ], [ 0.000000e+00, %.thread2325 ], [ 0.000000e+00, %.thread2327 ], [ 0.000000e+00, %312 ], [ 0.000000e+00, %.lr.ph2422 ]
-  %.01926.shrunk = phi i1 [ false, %413 ], [ true, %441 ], [ true, %._crit_edge2416 ], [ false, %.thread2325 ], [ false, %.thread2327 ], [ false, %312 ], [ false, %.lr.ph2422 ]
-  %.01925.shrunk = phi i1 [ %64, %413 ], [ true, %441 ], [ true, %._crit_edge2416 ], [ false, %.thread2325 ], [ %64, %.thread2327 ], [ %64, %312 ], [ %64, %.lr.ph2422 ]
+.thread2328:                                      ; preds = %.lr.ph2422, %312, %.thread2327, %.thread2325, %._crit_edge2416, %441, %411
+  %442 = phi i1 [ true, %411 ], [ true, %441 ], [ true, %._crit_edge2416 ], [ false, %.thread2325 ], [ false, %.thread2327 ], [ false, %312 ], [ false, %.lr.ph2422 ]
+  %.01953 = phi double [ %414, %411 ], [ %414, %441 ], [ %414, %._crit_edge2416 ], [ 0.000000e+00, %.thread2325 ], [ 0.000000e+00, %.thread2327 ], [ 0.000000e+00, %312 ], [ 0.000000e+00, %.lr.ph2422 ]
+  %.01952 = phi i32 [ %52, %411 ], [ 1, %441 ], [ 0, %._crit_edge2416 ], [ %52, %.thread2325 ], [ %52, %.thread2327 ], [ %52, %312 ], [ %52, %.lr.ph2422 ]
+  %.01951 = phi i32 [ %58, %411 ], [ %52, %441 ], [ %52, %._crit_edge2416 ], [ %58, %.thread2325 ], [ %58, %.thread2327 ], [ %58, %312 ], [ %58, %.lr.ph2422 ]
+  %.01929 = phi double [ %418, %411 ], [ %418, %441 ], [ %418, %._crit_edge2416 ], [ 0.000000e+00, %.thread2325 ], [ 0.000000e+00, %.thread2327 ], [ 0.000000e+00, %312 ], [ 0.000000e+00, %.lr.ph2422 ]
+  %.01926.shrunk = phi i1 [ false, %411 ], [ true, %441 ], [ true, %._crit_edge2416 ], [ false, %.thread2325 ], [ false, %.thread2327 ], [ false, %312 ], [ false, %.lr.ph2422 ]
+  %.01925.shrunk = phi i1 [ %64, %411 ], [ true, %441 ], [ true, %._crit_edge2416 ], [ false, %.thread2325 ], [ %64, %.thread2327 ], [ %64, %312 ], [ %64, %.lr.ph2422 ]
   %443 = call double @sqrt(double noundef %180) #7, !tbaa !3
   %444 = load i32, ptr %7, align 4, !tbaa !3
   %445 = sitofp i32 %444 to double
@@ -2774,25 +2774,25 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 1400:                                             ; preds = %._crit_edge2685
   %.not21972686 = icmp slt i32 %1322, 1
-  br i1 %.not21972686, label %._crit_edge2690, label %.lr.ph2689.preheader
+  br i1 %.not21972686, label %._crit_edge2690, label %.lr.ph2689
 
-.lr.ph2689.preheader:                             ; preds = %1400
-  %1401 = add nuw i32 %1322, 1
-  br label %.lr.ph2689
-
-.lr.ph2689:                                       ; preds = %.lr.ph2689.preheader, %.lr.ph2689
-  %storemerge21962687 = phi i32 [ %1406, %.lr.ph2689 ], [ 1, %.lr.ph2689.preheader ]
-  %1402 = load i32, ptr %7, align 4, !tbaa !3
-  %1403 = add nsw i32 %1402, %storemerge21962687
-  %1404 = sext i32 %1403 to i64
-  %1405 = getelementptr inbounds i32, ptr %45, i64 %1404
-  store i32 0, ptr %1405, align 4, !tbaa !3
-  %1406 = add nuw i32 %storemerge21962687, 1
+.lr.ph2689:                                       ; preds = %1400, %.lr.ph2689
+  %storemerge21962687 = phi i32 [ %1405, %.lr.ph2689 ], [ 1, %1400 ]
+  %1401 = load i32, ptr %7, align 4, !tbaa !3
+  %1402 = add nsw i32 %1401, %storemerge21962687
+  %1403 = sext i32 %1402 to i64
+  %1404 = getelementptr inbounds i32, ptr %45, i64 %1403
+  store i32 0, ptr %1404, align 4, !tbaa !3
+  %1405 = add nuw i32 %storemerge21962687, 1
   %exitcond3047.not = icmp eq i32 %storemerge21962687, %1322
-  br i1 %exitcond3047.not, label %._crit_edge2690, label %.lr.ph2689, !llvm.loop !47
+  br i1 %exitcond3047.not, label %._crit_edge2690.loopexit, label %.lr.ph2689, !llvm.loop !47
 
-._crit_edge2690:                                  ; preds = %.lr.ph2689, %1400
-  %storemerge2196.lcssa = phi i32 [ 1, %1400 ], [ %1401, %.lr.ph2689 ]
+._crit_edge2690.loopexit:                         ; preds = %.lr.ph2689
+  %1406 = add nuw i32 %1322, 1
+  br label %._crit_edge2690
+
+._crit_edge2690:                                  ; preds = %._crit_edge2690.loopexit, %1400
+  %storemerge2196.lcssa = phi i32 [ 1, %1400 ], [ %1406, %._crit_edge2690.loopexit ]
   store i32 %storemerge2196.lcssa, ptr %27, align 4, !tbaa !3
   %1407 = load i32, ptr %16, align 4, !tbaa !3
   %1408 = load i32, ptr %7, align 4, !tbaa !3

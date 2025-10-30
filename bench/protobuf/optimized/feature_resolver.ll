@@ -6268,26 +6268,23 @@ if.end.i:                                         ; preds = %if.then
   %arrayidx.i.i45.i = getelementptr i8, ptr %1, i64 10
   %3 = load i8, ptr %arrayidx.i.i45.i, align 1
   %cmp.i1 = icmp eq i8 %3, 0
-  br i1 %cmp.i1, label %return.sink.split.i, label %while.body.preheader.i
+  br i1 %cmp.i1, label %return.sink.split.i, label %while.body.i
 
-while.body.preheader.i:                           ; preds = %if.end.i
-  %4 = load ptr, ptr %1, align 8
-  br label %while.body.i
-
-while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
-  %node.addr.071.i = phi ptr [ %5, %while.body.i ], [ %1, %while.body.preheader.i ]
+while.body.i:                                     ; preds = %if.end.i, %while.body.i
+  %node.addr.071.i = phi ptr [ %4, %while.body.i ], [ %1, %if.end.i ]
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %node.addr.071.i, i64 256
-  %5 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
-  %arrayidx.i.i46.i = getelementptr i8, ptr %5, i64 11
-  %6 = load i8, ptr %arrayidx.i.i46.i, align 1
-  %cmp.i.not.i.i = icmp eq i8 %6, 0
+  %4 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
+  %arrayidx.i.i46.i = getelementptr i8, ptr %4, i64 11
+  %5 = load i8, ptr %arrayidx.i.i46.i, align 1
+  %cmp.i.not.i.i = icmp eq i8 %5, 0
   br i1 %cmp.i.not.i.i, label %while.body.i, label %while.end.i, !llvm.loop !90
 
 while.end.i:                                      ; preds = %while.body.i
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %5, i64 8
+  %6 = load ptr, ptr %1, align 8
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %4, i64 8
   %7 = load i8, ptr %add.ptr.i.i.i.i, align 1
   %conv14.i = zext i8 %7 to i64
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %4, align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i.backedge, %while.end.i
@@ -6340,7 +6337,7 @@ do.body37.i:                                      ; preds = %if.end28.i, %if.end
   %16 = load i8, ptr %add.ptr.i.i.i63.i, align 1
   %17 = load ptr, ptr %parent.3.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %parent.3.i) #23
-  %cmp44.i = icmp eq ptr %17, %4
+  %cmp44.i = icmp eq ptr %17, %6
   br i1 %cmp44.i, label %if.end, label %if.end46.i
 
 if.end46.i:                                       ; preds = %do.body37.i

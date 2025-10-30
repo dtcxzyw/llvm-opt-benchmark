@@ -4953,8 +4953,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i247.i:         ; preds = %1149
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i296.i: ; preds = %1206
   %.idx.i.i.i.i.i.i286.i = shl nuw nsw i64 %1207, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %1199, i8 -1, i64 %.idx.i.i.i.i.i.i286.i, i1 false), !tbaa !158
   %1212 = getelementptr inbounds nuw i8, ptr %1199, i64 %.idx.i.i.i.i.i.i286.i
+  call void @llvm.memset.p0.i64(ptr align 4 %1199, i8 -1, i64 %.idx.i.i.i.i.i.i286.i, i1 false), !tbaa !158
   store ptr %1212, ptr %171, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i250.i
 
@@ -5310,8 +5310,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i.i:            ; preds = %1321, %_ZNSt6vector
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i.i: ; preds = %1357
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %1358, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %1350, i8 -1, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !158
   %1363 = getelementptr inbounds nuw i8, ptr %1350, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %1350, i8 -1, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !158
   store ptr %1363, ptr %171, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i.i
 
@@ -7842,8 +7842,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3908:          ; preds = %956
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i5417: ; preds = %1009
   %.idx.i.i.i.i.i.i5407 = shl nuw nsw i64 %1010, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %1002, i8 -1, i64 %.idx.i.i.i.i.i.i5407, i1 false), !tbaa !158
   %1015 = getelementptr inbounds nuw i8, ptr %1002, i64 %.idx.i.i.i.i.i.i5407
+  call void @llvm.memset.p0.i64(ptr align 4 %1002, i8 -1, i64 %.idx.i.i.i.i.i.i5407, i1 false), !tbaa !158
   store ptr %1015, ptr %251, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3909
 
@@ -8428,8 +8428,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %1241
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i: ; preds = %1304
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %1305, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %1297, i8 -1, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !158
   %1311 = getelementptr inbounds nuw i8, ptr %1297, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %1297, i8 -1, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !158
   store ptr %1311, ptr %1238, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
 
@@ -8839,8 +8839,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3950:          ; preds = %1464
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i5479: ; preds = %1517
   %.idx.i.i.i.i.i.i5469 = shl nuw nsw i64 %1518, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %1510, i8 -1, i64 %.idx.i.i.i.i.i.i5469, i1 false), !tbaa !158
   %1523 = getelementptr inbounds nuw i8, ptr %1510, i64 %.idx.i.i.i.i.i.i5469
+  call void @llvm.memset.p0.i64(ptr align 4 %1510, i8 -1, i64 %.idx.i.i.i.i.i.i5469, i1 false), !tbaa !158
   store ptr %1523, ptr %251, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3951
 
@@ -9426,8 +9426,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2829:          ; preds = %1749
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i3988: ; preds = %1813
   %.idx.i.i.i.i.i.i3978 = shl nuw nsw i64 %1814, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %1806, i8 -1, i64 %.idx.i.i.i.i.i.i3978, i1 false), !tbaa !158
   %1820 = getelementptr inbounds nuw i8, ptr %1806, i64 %.idx.i.i.i.i.i.i3978
+  call void @llvm.memset.p0.i64(ptr align 4 %1806, i8 -1, i64 %.idx.i.i.i.i.i.i3978, i1 false), !tbaa !158
   store ptr %1820, ptr %1746, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2830
 
@@ -10729,8 +10729,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4078:          ; preds = %2454
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i5563: ; preds = %2510
   %.idx.i.i.i.i.i.i5553 = shl nuw nsw i64 %2511, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %2503, i8 -1, i64 %.idx.i.i.i.i.i.i5553, i1 false), !tbaa !158
   %2516 = getelementptr inbounds nuw i8, ptr %2503, i64 %.idx.i.i.i.i.i.i5553
+  call void @llvm.memset.p0.i64(ptr align 4 %2503, i8 -1, i64 %.idx.i.i.i.i.i.i5553, i1 false), !tbaa !158
   store ptr %2516, ptr %251, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4079
 
@@ -11314,8 +11314,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i2985:          ; preds = %2742
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i4116: ; preds = %2804
   %.idx.i.i.i.i.i.i4106 = shl nuw nsw i64 %2805, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %2797, i8 -1, i64 %.idx.i.i.i.i.i.i4106, i1 false), !tbaa !158
   %2811 = getelementptr inbounds nuw i8, ptr %2797, i64 %.idx.i.i.i.i.i.i4106
+  call void @llvm.memset.p0.i64(ptr align 4 %2797, i8 -1, i64 %.idx.i.i.i.i.i.i4106, i1 false), !tbaa !158
   store ptr %2811, ptr %2739, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i2986
 
@@ -11823,8 +11823,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3005:          ; preds = %2976
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i4168: ; preds = %3037
   %.idx.i.i.i.i.i.i4158 = shl nuw nsw i64 %3038, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %3030, i8 -1, i64 %.idx.i.i.i.i.i.i4158, i1 false), !tbaa !158
   %3043 = getelementptr inbounds nuw i8, ptr %3030, i64 %.idx.i.i.i.i.i.i4158
+  call void @llvm.memset.p0.i64(ptr align 4 %3030, i8 -1, i64 %.idx.i.i.i.i.i.i4158, i1 false), !tbaa !158
   store ptr %3043, ptr %263, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3006
 
@@ -12108,8 +12108,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3021:          ; preds = %3135
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i4220: ; preds = %3192
   %.idx.i.i.i.i.i.i4210 = shl nuw nsw i64 %3193, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %3185, i8 -1, i64 %.idx.i.i.i.i.i.i4210, i1 false), !tbaa !158
   %3198 = getelementptr inbounds nuw i8, ptr %3185, i64 %.idx.i.i.i.i.i.i4210
+  call void @llvm.memset.p0.i64(ptr align 4 %3185, i8 -1, i64 %.idx.i.i.i.i.i.i4210, i1 false), !tbaa !158
   store ptr %3198, ptr %263, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3022
 
@@ -14592,8 +14592,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4295:          ; preds = %4220
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i5625: ; preds = %4273
   %.idx.i.i.i.i.i.i5615 = shl nuw nsw i64 %4274, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %4266, i8 -1, i64 %.idx.i.i.i.i.i.i5615, i1 false), !tbaa !158
   %4279 = getelementptr inbounds nuw i8, ptr %4266, i64 %.idx.i.i.i.i.i.i5615
+  call void @llvm.memset.p0.i64(ptr align 4 %4266, i8 -1, i64 %.idx.i.i.i.i.i.i5615, i1 false), !tbaa !158
   store ptr %4279, ptr %251, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4296
 
@@ -15189,8 +15189,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3139:          ; preds = %4508
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i4333: ; preds = %4572
   %.idx.i.i.i.i.i.i4323 = shl nuw nsw i64 %4573, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %4565, i8 -1, i64 %.idx.i.i.i.i.i.i4323, i1 false), !tbaa !158
   %4579 = getelementptr inbounds nuw i8, ptr %4565, i64 %.idx.i.i.i.i.i.i4323
+  call void @llvm.memset.p0.i64(ptr align 4 %4565, i8 -1, i64 %.idx.i.i.i.i.i.i4323, i1 false), !tbaa !158
   store ptr %4579, ptr %4505, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3140
 
@@ -16245,8 +16245,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3217:          ; preds = %5043
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i4422: ; preds = %5107
   %.idx.i.i.i.i.i.i4412 = shl nuw nsw i64 %5108, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %5100, i8 -1, i64 %.idx.i.i.i.i.i.i4412, i1 false), !tbaa !158
   %5114 = getelementptr inbounds nuw i8, ptr %5100, i64 %.idx.i.i.i.i.i.i4412
+  call void @llvm.memset.p0.i64(ptr align 4 %5100, i8 -1, i64 %.idx.i.i.i.i.i.i4412, i1 false), !tbaa !158
   store ptr %5114, ptr %5040, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3218
 
@@ -16767,8 +16767,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4473:          ; preds = %5309
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i5709: ; preds = %5362
   %.idx.i.i.i.i.i.i5699 = shl nuw nsw i64 %5363, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %5355, i8 -1, i64 %.idx.i.i.i.i.i.i5699, i1 false), !tbaa !158
   %5368 = getelementptr inbounds nuw i8, ptr %5355, i64 %.idx.i.i.i.i.i.i5699
+  call void @llvm.memset.p0.i64(ptr align 4 %5355, i8 -1, i64 %.idx.i.i.i.i.i.i5699, i1 false), !tbaa !158
   store ptr %5368, ptr %251, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4474
 
@@ -17354,8 +17354,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3295:          ; preds = %5594
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i4511: ; preds = %5658
   %.idx.i.i.i.i.i.i4501 = shl nuw nsw i64 %5659, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %5651, i8 -1, i64 %.idx.i.i.i.i.i.i4501, i1 false), !tbaa !158
   %5665 = getelementptr inbounds nuw i8, ptr %5651, i64 %.idx.i.i.i.i.i.i4501
+  call void @llvm.memset.p0.i64(ptr align 4 %5651, i8 -1, i64 %.idx.i.i.i.i.i.i4501, i1 false), !tbaa !158
   store ptr %5665, ptr %5591, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3296
 
@@ -18410,8 +18410,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3373:          ; preds = %6130
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i4600: ; preds = %6194
   %.idx.i.i.i.i.i.i4590 = shl nuw nsw i64 %6195, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %6187, i8 -1, i64 %.idx.i.i.i.i.i.i4590, i1 false), !tbaa !158
   %6201 = getelementptr inbounds nuw i8, ptr %6187, i64 %.idx.i.i.i.i.i.i4590
+  call void @llvm.memset.p0.i64(ptr align 4 %6187, i8 -1, i64 %.idx.i.i.i.i.i.i4590, i1 false), !tbaa !158
   store ptr %6201, ptr %6127, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3374
 
@@ -19033,8 +19033,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4651:          ; preds = %6430
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i5793: ; preds = %6486
   %.idx.i.i.i.i.i.i5783 = shl nuw nsw i64 %6487, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %6479, i8 -1, i64 %.idx.i.i.i.i.i.i5783, i1 false), !tbaa !158
   %6492 = getelementptr inbounds nuw i8, ptr %6479, i64 %.idx.i.i.i.i.i.i5783
+  call void @llvm.memset.p0.i64(ptr align 4 %6479, i8 -1, i64 %.idx.i.i.i.i.i.i5783, i1 false), !tbaa !158
   store ptr %6492, ptr %251, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4652
 
@@ -19618,8 +19618,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3451:          ; preds = %6718
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i4689: ; preds = %6780
   %.idx.i.i.i.i.i.i4679 = shl nuw nsw i64 %6781, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %6773, i8 -1, i64 %.idx.i.i.i.i.i.i4679, i1 false), !tbaa !158
   %6787 = getelementptr inbounds nuw i8, ptr %6773, i64 %.idx.i.i.i.i.i.i4679
+  call void @llvm.memset.p0.i64(ptr align 4 %6773, i8 -1, i64 %.idx.i.i.i.i.i.i4679, i1 false), !tbaa !158
   store ptr %6787, ptr %6715, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3452
 
@@ -20549,8 +20549,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4730:          ; preds = %7131
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i5845: ; preds = %7187
   %.idx.i.i.i.i.i.i5835 = shl nuw nsw i64 %7188, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %7180, i8 -1, i64 %.idx.i.i.i.i.i.i5835, i1 false), !tbaa !158
   %7193 = getelementptr inbounds nuw i8, ptr %7180, i64 %.idx.i.i.i.i.i.i5835
+  call void @llvm.memset.p0.i64(ptr align 4 %7180, i8 -1, i64 %.idx.i.i.i.i.i.i5835, i1 false), !tbaa !158
   store ptr %7193, ptr %571, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4731
 
@@ -20925,8 +20925,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3493:          ; preds = %7302
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i4765: ; preds = %7365
   %.idx.i.i.i.i.i.i4755 = shl nuw nsw i64 %7366, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %7358, i8 -1, i64 %.idx.i.i.i.i.i.i4755, i1 false), !tbaa !158
   %7372 = getelementptr inbounds nuw i8, ptr %7358, i64 %.idx.i.i.i.i.i.i4755
+  call void @llvm.memset.p0.i64(ptr align 4 %7358, i8 -1, i64 %.idx.i.i.i.i.i.i4755, i1 false), !tbaa !158
   store ptr %7372, ptr %7299, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3494
 
@@ -21332,8 +21332,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4806:          ; preds = %7526
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i5897: ; preds = %7582
   %.idx.i.i.i.i.i.i5887 = shl nuw nsw i64 %7583, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %7575, i8 -1, i64 %.idx.i.i.i.i.i.i5887, i1 false), !tbaa !158
   %7588 = getelementptr inbounds nuw i8, ptr %7575, i64 %.idx.i.i.i.i.i.i5887
+  call void @llvm.memset.p0.i64(ptr align 4 %7575, i8 -1, i64 %.idx.i.i.i.i.i.i5887, i1 false), !tbaa !158
   store ptr %7588, ptr %571, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4807
 
@@ -21707,8 +21707,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3547:          ; preds = %7697
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i4844: ; preds = %7759
   %.idx.i.i.i.i.i.i4834 = shl nuw nsw i64 %7760, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %7752, i8 -1, i64 %.idx.i.i.i.i.i.i4834, i1 false), !tbaa !158
   %7766 = getelementptr inbounds nuw i8, ptr %7752, i64 %.idx.i.i.i.i.i.i4834
+  call void @llvm.memset.p0.i64(ptr align 4 %7752, i8 -1, i64 %.idx.i.i.i.i.i.i4834, i1 false), !tbaa !158
   store ptr %7766, ptr %7694, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3548
 
@@ -22208,8 +22208,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3567:          ; preds = %7933
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i4896: ; preds = %7993
   %.idx.i.i.i.i.i.i4886 = shl nuw nsw i64 %7994, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %7986, i8 -1, i64 %.idx.i.i.i.i.i.i4886, i1 false), !tbaa !158
   %7999 = getelementptr inbounds nuw i8, ptr %7986, i64 %.idx.i.i.i.i.i.i4886
+  call void @llvm.memset.p0.i64(ptr align 4 %7986, i8 -1, i64 %.idx.i.i.i.i.i.i4886, i1 false), !tbaa !158
   store ptr %7999, ptr %583, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3568
 
@@ -22493,8 +22493,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3587:          ; preds = %8091
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i4948: ; preds = %8148
   %.idx.i.i.i.i.i.i4938 = shl nuw nsw i64 %8149, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %8141, i8 -1, i64 %.idx.i.i.i.i.i.i4938, i1 false), !tbaa !158
   %8154 = getelementptr inbounds nuw i8, ptr %8141, i64 %.idx.i.i.i.i.i.i4938
+  call void @llvm.memset.p0.i64(ptr align 4 %8141, i8 -1, i64 %.idx.i.i.i.i.i.i4938, i1 false), !tbaa !158
   store ptr %8154, ptr %583, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3588
 
@@ -24259,8 +24259,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i4989:          ; preds = %8834
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i5949: ; preds = %8887
   %.idx.i.i.i.i.i.i5939 = shl nuw nsw i64 %8888, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %8880, i8 -1, i64 %.idx.i.i.i.i.i.i5939, i1 false), !tbaa !158
   %8893 = getelementptr inbounds nuw i8, ptr %8880, i64 %.idx.i.i.i.i.i.i5939
+  call void @llvm.memset.p0.i64(ptr align 4 %8880, i8 -1, i64 %.idx.i.i.i.i.i.i5939, i1 false), !tbaa !158
   store ptr %8893, ptr %571, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i4990
 
@@ -24646,8 +24646,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3641:          ; preds = %9005
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i5027: ; preds = %9069
   %.idx.i.i.i.i.i.i5017 = shl nuw nsw i64 %9070, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %9062, i8 -1, i64 %.idx.i.i.i.i.i.i5017, i1 false), !tbaa !158
   %9076 = getelementptr inbounds nuw i8, ptr %9062, i64 %.idx.i.i.i.i.i.i5017
+  call void @llvm.memset.p0.i64(ptr align 4 %9062, i8 -1, i64 %.idx.i.i.i.i.i.i5017, i1 false), !tbaa !158
   store ptr %9076, ptr %9002, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3642
 
@@ -25404,8 +25404,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3695:          ; preds = %9369
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i5106: ; preds = %9433
   %.idx.i.i.i.i.i.i5096 = shl nuw nsw i64 %9434, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %9426, i8 -1, i64 %.idx.i.i.i.i.i.i5096, i1 false), !tbaa !158
   %9440 = getelementptr inbounds nuw i8, ptr %9426, i64 %.idx.i.i.i.i.i.i5096
+  call void @llvm.memset.p0.i64(ptr align 4 %9426, i8 -1, i64 %.idx.i.i.i.i.i.i5096, i1 false), !tbaa !158
   store ptr %9440, ptr %9366, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3696
 
@@ -25814,8 +25814,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i5147:          ; preds = %9579
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i6013: ; preds = %9632
   %.idx.i.i.i.i.i.i6003 = shl nuw nsw i64 %9633, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %9625, i8 -1, i64 %.idx.i.i.i.i.i.i6003, i1 false), !tbaa !158
   %9638 = getelementptr inbounds nuw i8, ptr %9625, i64 %.idx.i.i.i.i.i.i6003
+  call void @llvm.memset.p0.i64(ptr align 4 %9625, i8 -1, i64 %.idx.i.i.i.i.i.i6003, i1 false), !tbaa !158
   store ptr %9638, ptr %571, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i5148
 
@@ -26191,8 +26191,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3749:          ; preds = %9747
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i5185: ; preds = %9811
   %.idx.i.i.i.i.i.i5175 = shl nuw nsw i64 %9812, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %9804, i8 -1, i64 %.idx.i.i.i.i.i.i5175, i1 false), !tbaa !158
   %9818 = getelementptr inbounds nuw i8, ptr %9804, i64 %.idx.i.i.i.i.i.i5175
+  call void @llvm.memset.p0.i64(ptr align 4 %9804, i8 -1, i64 %.idx.i.i.i.i.i.i5175, i1 false), !tbaa !158
   store ptr %9818, ptr %9744, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3750
 
@@ -26949,8 +26949,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3803:          ; preds = %10112
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i5264: ; preds = %10176
   %.idx.i.i.i.i.i.i5254 = shl nuw nsw i64 %10177, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %10169, i8 -1, i64 %.idx.i.i.i.i.i.i5254, i1 false), !tbaa !158
   %10183 = getelementptr inbounds nuw i8, ptr %10169, i64 %.idx.i.i.i.i.i.i5254
+  call void @llvm.memset.p0.i64(ptr align 4 %10169, i8 -1, i64 %.idx.i.i.i.i.i.i5254, i1 false), !tbaa !158
   store ptr %10183, ptr %10109, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3804
 
@@ -27481,8 +27481,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i5305:          ; preds = %10358
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i6077: ; preds = %10414
   %.idx.i.i.i.i.i.i6067 = shl nuw nsw i64 %10415, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %10407, i8 -1, i64 %.idx.i.i.i.i.i.i6067, i1 false), !tbaa !158
   %10420 = getelementptr inbounds nuw i8, ptr %10407, i64 %.idx.i.i.i.i.i.i6067
+  call void @llvm.memset.p0.i64(ptr align 4 %10407, i8 -1, i64 %.idx.i.i.i.i.i.i6067, i1 false), !tbaa !158
   store ptr %10420, ptr %571, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i5306
 
@@ -27856,8 +27856,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i3857:          ; preds = %10529
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i5343: ; preds = %10591
   %.idx.i.i.i.i.i.i5333 = shl nuw nsw i64 %10592, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %10584, i8 -1, i64 %.idx.i.i.i.i.i.i5333, i1 false), !tbaa !158
   %10598 = getelementptr inbounds nuw i8, ptr %10584, i64 %.idx.i.i.i.i.i.i5333
+  call void @llvm.memset.p0.i64(ptr align 4 %10584, i8 -1, i64 %.idx.i.i.i.i.i.i5333, i1 false), !tbaa !158
   store ptr %10598, ptr %10526, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i3858
 
@@ -29121,8 +29121,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i158:           ; preds = %216
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i: ; preds = %263
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %264, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %256, i8 -1, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !158
   %269 = getelementptr inbounds nuw i8, ptr %256, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %256, i8 -1, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !158
   store ptr %269, ptr %42, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i159
 
@@ -30260,8 +30260,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i215:           ; preds = %733
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i246: ; preds = %784
   %.idx.i.i.i.i.i.i236 = shl nuw nsw i64 %785, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %777, i8 -1, i64 %.idx.i.i.i.i.i.i236, i1 false), !tbaa !158
   %790 = getelementptr inbounds nuw i8, ptr %777, i64 %.idx.i.i.i.i.i.i236
+  call void @llvm.memset.p0.i64(ptr align 4 %777, i8 -1, i64 %.idx.i.i.i.i.i.i236, i1 false), !tbaa !158
   store ptr %790, ptr %55, align 8, !tbaa !231
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i216
 

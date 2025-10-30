@@ -4890,7 +4890,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %11, %17, 
   br label %107
 
 ._crit_edge76:                                    ; preds = %_ZNK3gmx3Awh12isOutputStepEl.exit.thread, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
-  %.0.lcssa = phi double [ %52, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ], [ %122, %_ZNK3gmx3Awh12isOutputStepEl.exit.thread ]
+  %.0.lcssa = phi double [ %52, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit ], [ %174, %_ZNK3gmx3Awh12isOutputStepEl.exit.thread ]
   br i1 %16, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %68
 
 68:                                               ; preds = %._crit_edge76
@@ -4957,7 +4957,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %83, %94, %
   br i1 %106, label %229, label %225
 
 107:                                              ; preds = %.lr.ph75, %_ZNK3gmx3Awh12isOutputStepEl.exit.thread
-  %.074 = phi double [ %52, %.lr.ph75 ], [ %122, %_ZNK3gmx3Awh12isOutputStepEl.exit.thread ]
+  %.074 = phi double [ %52, %.lr.ph75 ], [ %174, %_ZNK3gmx3Awh12isOutputStepEl.exit.thread ]
   %.sroa.058.073 = phi ptr [ %53, %.lr.ph75 ], [ %224, %_ZNK3gmx3Awh12isOutputStepEl.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, i8 0, i64 32, i1 false)
@@ -4974,106 +4974,106 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %83, %94, %
 
 .lr.ph:                                           ; preds = %107
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.058.073, i64 584
-  br label %137
+  br label %136
 
-._crit_edge:                                      ; preds = %165, %107
+._crit_edge:                                      ; preds = %164, %107
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %118 = load i64, ptr %66, align 8, !tbaa !175
   %119 = call { ptr, ptr } @_ZN3gmx4Bias22calcForceAndUpdateBiasEPKdNS_8ArrayRefIS1_EES4_PdS5_dllP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(580) %.sroa.058.073, ptr noundef nonnull %13, ptr %2, ptr %61, ptr %4, ptr %65, ptr noundef nonnull %14, ptr noundef nonnull %15, double noundef %7, i64 noundef %8, i64 noundef %118, ptr noundef %10)
   %120 = extractvalue { ptr, ptr } %119, 0
   %121 = load double, ptr %14, align 8, !tbaa !23
-  %122 = fadd double %.074, %121
-  %123 = load double, ptr %15, align 8, !tbaa !23
-  %124 = load double, ptr %51, align 8, !tbaa !195
-  %125 = fsub double %124, %123
-  store double %125, ptr %51, align 8, !tbaa !195
-  %126 = load ptr, ptr %108, align 8, !tbaa !14
-  %127 = load ptr, ptr %.sroa.058.073, align 8, !tbaa !17
+  %122 = load double, ptr %15, align 8, !tbaa !23
+  %123 = load double, ptr %51, align 8, !tbaa !195
+  %124 = fsub double %123, %122
+  store double %124, ptr %51, align 8, !tbaa !195
+  %125 = load ptr, ptr %108, align 8, !tbaa !14
+  %126 = load ptr, ptr %.sroa.058.073, align 8, !tbaa !17
+  %127 = ptrtoint ptr %125 to i64
   %128 = ptrtoint ptr %126 to i64
-  %129 = ptrtoint ptr %127 to i64
-  %130 = sub i64 %128, %129
-  %131 = sdiv exact i64 %130, 40
-  %132 = trunc i64 %131 to i32
-  %133 = icmp sgt i32 %132, 0
-  br i1 %133, label %.lr.ph70, label %._crit_edge71
+  %129 = sub i64 %127, %128
+  %130 = sdiv exact i64 %129, 40
+  %131 = trunc i64 %130 to i32
+  %132 = icmp sgt i32 %131, 0
+  br i1 %132, label %.lr.ph70, label %._crit_edge71
 
 .lr.ph70:                                         ; preds = %._crit_edge
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.058.073, i64 252
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.058.073, i64 24
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.058.073, i64 584
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.058.073, i64 252
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.058.073, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.058.073, i64 584
   br label %180
 
-137:                                              ; preds = %.lr.ph, %165
-  %138 = phi ptr [ %110, %.lr.ph ], [ %166, %165 ]
-  %139 = phi ptr [ %109, %.lr.ph ], [ %167, %165 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %165 ]
-  %.04165 = phi i32 [ 0, %.lr.ph ], [ %.1, %165 ]
-  %140 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %138, i64 %indvars.iv
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
-  %142 = load i8, ptr %141, align 8, !tbaa !144
-  br label %143
+136:                                              ; preds = %.lr.ph, %164
+  %137 = phi ptr [ %110, %.lr.ph ], [ %165, %164 ]
+  %138 = phi ptr [ %109, %.lr.ph ], [ %166, %164 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %164 ]
+  %.04165 = phi i32 [ 0, %.lr.ph ], [ %.1, %164 ]
+  %139 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %137, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 24
+  %141 = load i8, ptr %140, align 8, !tbaa !144
+  br label %142
 
-143:                                              ; preds = %149, %137
-  %.not.i.i.i = phi i1 [ true, %137 ], [ false, %149 ]
-  %.0813.i.i.i = phi i64 [ 0, %137 ], [ 1, %149 ]
-  %.0912.i.i.i = phi i64 [ 2, %137 ], [ %.1.i.i.i, %149 ]
-  %144 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams13PullDimParamsEJS2_NS1_12FepDimParamsEEEmv.__found, i64 %.0813.i.i.i
-  %145 = load i8, ptr %144, align 1, !tbaa !31, !range !108, !noundef !109
-  %146 = trunc nuw i8 %145 to i1
-  br i1 %146, label %147, label %149
+142:                                              ; preds = %148, %136
+  %.not.i.i.i = phi i1 [ true, %136 ], [ false, %148 ]
+  %.0813.i.i.i = phi i64 [ 0, %136 ], [ 1, %148 ]
+  %.0912.i.i.i = phi i64 [ 2, %136 ], [ %.1.i.i.i, %148 ]
+  %143 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams13PullDimParamsEJS2_NS1_12FepDimParamsEEEmv.__found, i64 %.0813.i.i.i
+  %144 = load i8, ptr %143, align 1, !tbaa !31, !range !108, !noundef !109
+  %145 = trunc nuw i8 %144 to i1
+  br i1 %145, label %146, label %148
 
-147:                                              ; preds = %143
-  %148 = icmp samesign ult i64 %.0912.i.i.i, 2
-  br i1 %148, label %_ZNK3gmx9DimParams15isPullDimensionEv.exit, label %149
+146:                                              ; preds = %142
+  %147 = icmp samesign ult i64 %.0912.i.i.i, 2
+  br i1 %147, label %_ZNK3gmx9DimParams15isPullDimensionEv.exit, label %148
 
-149:                                              ; preds = %147, %143
-  %.1.i.i.i = phi i64 [ %.0912.i.i.i, %143 ], [ %.0813.i.i.i, %147 ]
-  br i1 %.not.i.i.i, label %143, label %_ZNK3gmx9DimParams15isPullDimensionEv.exit, !llvm.loop !422
+148:                                              ; preds = %146, %142
+  %.1.i.i.i = phi i64 [ %.0912.i.i.i, %142 ], [ %.0813.i.i.i, %146 ]
+  br i1 %.not.i.i.i, label %142, label %_ZNK3gmx9DimParams15isPullDimensionEv.exit, !llvm.loop !422
 
-_ZNK3gmx9DimParams15isPullDimensionEv.exit:       ; preds = %147, %149
-  %spec.select.i.i.i = phi i64 [ 2, %147 ], [ %.1.i.i.i, %149 ]
-  %150 = sext i8 %142 to i64
-  %151 = icmp eq i64 %spec.select.i.i.i, %150
-  br i1 %151, label %152, label %161
+_ZNK3gmx9DimParams15isPullDimensionEv.exit:       ; preds = %146, %148
+  %spec.select.i.i.i = phi i64 [ 2, %146 ], [ %.1.i.i.i, %148 ]
+  %149 = sext i8 %141 to i64
+  %150 = icmp eq i64 %spec.select.i.i.i, %149
+  br i1 %150, label %151, label %160
 
-152:                                              ; preds = %_ZNK3gmx9DimParams15isPullDimensionEv.exit
-  %153 = load ptr, ptr %57, align 8, !tbaa !194
-  %154 = trunc nuw nsw i64 %indvars.iv to i32
-  %155 = sub nsw i32 %154, %.04165
-  %156 = sext i32 %155 to i64
-  %157 = load ptr, ptr %117, align 8, !tbaa !10
-  %158 = getelementptr inbounds nuw i32, ptr %157, i64 %156
-  %159 = load i32, ptr %158, align 4, !tbaa !27
-  %160 = call noundef double @_Z20get_pull_coord_valueP6pull_tiRK5t_pbc(ptr noundef %153, i32 noundef %159, ptr noundef nonnull align 4 dereferenceable(384) %12)
+151:                                              ; preds = %_ZNK3gmx9DimParams15isPullDimensionEv.exit
+  %152 = load ptr, ptr %57, align 8, !tbaa !194
+  %153 = trunc nuw nsw i64 %indvars.iv to i32
+  %154 = sub nsw i32 %153, %.04165
+  %155 = sext i32 %154 to i64
+  %156 = load ptr, ptr %117, align 8, !tbaa !10
+  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %155
+  %158 = load i32, ptr %157, align 4, !tbaa !27
+  %159 = call noundef double @_Z20get_pull_coord_valueP6pull_tiRK5t_pbc(ptr noundef %152, i32 noundef %158, ptr noundef nonnull align 4 dereferenceable(384) %12)
   %.pre = load ptr, ptr %108, align 8, !tbaa !14
   %.pre81 = load ptr, ptr %.sroa.058.073, align 8, !tbaa !17
-  br label %165
+  br label %164
 
-161:                                              ; preds = %_ZNK3gmx9DimParams15isPullDimensionEv.exit
-  %162 = load i32, ptr %56, align 4, !tbaa !197
-  %163 = sitofp i32 %162 to double
-  %164 = add nsw i32 %.04165, 1
-  br label %165
+160:                                              ; preds = %_ZNK3gmx9DimParams15isPullDimensionEv.exit
+  %161 = load i32, ptr %56, align 4, !tbaa !197
+  %162 = sitofp i32 %161 to double
+  %163 = add nsw i32 %.04165, 1
+  br label %164
 
-165:                                              ; preds = %152, %161
-  %166 = phi ptr [ %.pre81, %152 ], [ %138, %161 ]
-  %167 = phi ptr [ %.pre, %152 ], [ %139, %161 ]
-  %.sink = phi double [ %160, %152 ], [ %163, %161 ]
-  %.1 = phi i32 [ %.04165, %152 ], [ %164, %161 ]
-  %168 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
-  store double %.sink, ptr %168, align 8, !tbaa !23
+164:                                              ; preds = %151, %160
+  %165 = phi ptr [ %.pre81, %151 ], [ %137, %160 ]
+  %166 = phi ptr [ %.pre, %151 ], [ %138, %160 ]
+  %.sink = phi double [ %159, %151 ], [ %162, %160 ]
+  %.1 = phi i32 [ %.04165, %151 ], [ %163, %160 ]
+  %167 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  store double %.sink, ptr %167, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %169 = ptrtoint ptr %167 to i64
-  %170 = ptrtoint ptr %166 to i64
-  %171 = sub i64 %169, %170
-  %172 = sdiv exact i64 %171, 40
-  %sext = shl i64 %172, 32
-  %173 = ashr exact i64 %sext, 32
-  %174 = icmp slt i64 %indvars.iv.next, %173
-  br i1 %174, label %137, label %._crit_edge, !llvm.loop !423
+  %168 = ptrtoint ptr %166 to i64
+  %169 = ptrtoint ptr %165 to i64
+  %170 = sub i64 %168, %169
+  %171 = sdiv exact i64 %170, 40
+  %sext = shl i64 %171, 32
+  %172 = ashr exact i64 %sext, 32
+  %173 = icmp slt i64 %indvars.iv.next, %172
+  br i1 %173, label %136, label %._crit_edge, !llvm.loop !423
 
 ._crit_edge71:                                    ; preds = %214, %._crit_edge
+  %174 = fadd double %.074, %121
   %175 = load i32, ptr %67, align 8, !tbaa !191
   %176 = icmp sgt i32 %175, 0
   br i1 %176, label %_ZNK3gmx3Awh12isOutputStepEl.exit, label %_ZNK3gmx3Awh12isOutputStepEl.exit.thread
@@ -5085,8 +5085,8 @@ _ZNK3gmx3Awh12isOutputStepEl.exit:                ; preds = %._crit_edge71
   br i1 %179, label %223, label %_ZNK3gmx3Awh12isOutputStepEl.exit.thread
 
 180:                                              ; preds = %.lr.ph70, %214
-  %181 = phi ptr [ %127, %.lr.ph70 ], [ %215, %214 ]
-  %182 = phi ptr [ %126, %.lr.ph70 ], [ %216, %214 ]
+  %181 = phi ptr [ %126, %.lr.ph70 ], [ %215, %214 ]
+  %182 = phi ptr [ %125, %.lr.ph70 ], [ %216, %214 ]
   %indvars.iv78 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next79, %214 ]
   %.267 = phi i32 [ 0, %.lr.ph70 ], [ %.3, %214 ]
   %183 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %181, i64 %indvars.iv78
@@ -5122,7 +5122,7 @@ _ZNK3gmx9DimParams15isPullDimensionEv.exit49:     ; preds = %190, %192
   %197 = trunc nuw nsw i64 %indvars.iv78 to i32
   %198 = sub nsw i32 %197, %.267
   %199 = sext i32 %198 to i64
-  %200 = load ptr, ptr %136, align 8, !tbaa !10
+  %200 = load ptr, ptr %135, align 8, !tbaa !10
   %201 = getelementptr inbounds nuw i32, ptr %200, i64 %199
   %202 = load i32, ptr %201, align 4, !tbaa !27
   %203 = getelementptr inbounds nuw double, ptr %120, i64 %indvars.iv78
@@ -5133,9 +5133,9 @@ _ZNK3gmx9DimParams15isPullDimensionEv.exit49:     ; preds = %190, %192
   br label %214
 
 205:                                              ; preds = %_ZNK3gmx9DimParams15isPullDimensionEv.exit49
-  %206 = load i32, ptr %134, align 4, !tbaa !424
+  %206 = load i32, ptr %133, align 4, !tbaa !424
   %207 = sext i32 %206 to i64
-  %208 = load ptr, ptr %135, align 8, !tbaa !134
+  %208 = load ptr, ptr %134, align 8, !tbaa !134
   %209 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %208, i64 %207
   %210 = getelementptr inbounds nuw double, ptr %209, i64 %indvars.iv78
   %211 = load double, ptr %210, align 8, !tbaa !23

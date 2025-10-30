@@ -1610,15 +1610,15 @@ _ZN13duckdb_brotliL22HuffmanTreeGroupDecodeEPNS_16HuffmanTreeGroupEPNS_24BrotliD
   %644 = load i64, ptr %59, align 8, !tbaa !80
   %645 = load i64, ptr %60, align 8, !tbaa !81
   %646 = load i16, ptr %85, align 2, !tbaa !108
-  %647 = zext i16 %646 to i64
-  %648 = trunc i64 %644 to i32
-  %649 = shl nuw i32 1, %648
-  %650 = zext i32 %649 to i64
   %.not.i458 = icmp eq i64 %645, 0
   br i1 %.not.i458, label %.preheader.i461, label %.lr.ph.i459
 
 .preheader.i461:                                  ; preds = %.lr.ph.i459, %643
   %.033.lcssa.i = phi i64 [ 16, %643 ], [ %656, %.lr.ph.i459 ]
+  %647 = zext i16 %646 to i64
+  %648 = trunc i64 %644 to i32
+  %649 = shl nuw i32 1, %648
+  %650 = zext i32 %649 to i64
   %651 = icmp ult i64 %.033.lcssa.i, %647
   br i1 %651, label %.lr.ph44.i, label %_ZN13duckdb_brotliL20CalculateDistanceLutEPNS_24BrotliDecoderStateStructE.exit
 

@@ -2999,100 +2999,100 @@ get_register_name_from_address.exit:              ; preds = %6, %is_extended_boo
   %23 = load ptr, ptr %22, align 8
   tail call void @col_append_str(ptr noundef %23, i32 noundef 25, ptr noundef %.0.i)
   %.not40 = icmp eq ptr %0, null
-  br i1 %.not40, label %dissect_register_data.exit, label %24
+  br i1 %.not40, label %dissect_register_data.exit, label %.preheader
 
-24:                                               ; preds = %get_register_name_from_address.exit
-  %25 = add nsw i32 %3, -4
-  %26 = load i32, ptr @hf_gvcp_readmemcmd_address, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %26, ptr noundef %1, i32 noundef 8, i32 noundef 4, i32 noundef 0)
-  %28 = tail call ptr @try_val_to_str(i32 noundef %7, ptr noundef nonnull @bootstrapregisternames)
-  %.not41 = icmp eq ptr %28, null
-  br i1 %.not41, label %46, label %29
+.preheader:                                       ; preds = %get_register_name_from_address.exit
+  %24 = add nsw i32 %3, -4
+  %25 = load i32, ptr @hf_gvcp_readmemcmd_address, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %25, ptr noundef %1, i32 noundef 8, i32 noundef 4, i32 noundef 0)
+  %27 = tail call ptr @try_val_to_str(i32 noundef %7, ptr noundef nonnull @bootstrapregisternames)
+  %.not41 = icmp eq ptr %27, null
+  br i1 %.not41, label %45, label %28
 
-29:                                               ; preds = %24
+28:                                               ; preds = %.preheader
   switch i32 %7, label %dissect_register_data.exit [
-    i32 72, label %30
-    i32 104, label %32
-    i32 136, label %34
-    i32 168, label %36
-    i32 216, label %38
-    i32 232, label %40
-    i32 512, label %42
-    i32 1024, label %44
+    i32 72, label %29
+    i32 104, label %31
+    i32 136, label %33
+    i32 168, label %35
+    i32 216, label %37
+    i32 232, label %39
+    i32 512, label %41
+    i32 1024, label %43
   ]
 
-30:                                               ; preds = %29
-  %31 = icmp eq i32 %25, 32
-  br i1 %31, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+29:                                               ; preds = %28
+  %30 = icmp eq i32 %24, 32
+  br i1 %30, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-32:                                               ; preds = %29
-  %33 = icmp eq i32 %25, 32
-  br i1 %33, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+31:                                               ; preds = %28
+  %32 = icmp eq i32 %24, 32
+  br i1 %32, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-34:                                               ; preds = %29
-  %35 = icmp eq i32 %25, 32
-  br i1 %35, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+33:                                               ; preds = %28
+  %34 = icmp eq i32 %24, 32
+  br i1 %34, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-36:                                               ; preds = %29
-  %37 = icmp eq i32 %25, 48
-  br i1 %37, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+35:                                               ; preds = %28
+  %36 = icmp eq i32 %24, 48
+  br i1 %36, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-38:                                               ; preds = %29
-  %39 = icmp eq i32 %25, 16
-  br i1 %39, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+37:                                               ; preds = %28
+  %38 = icmp eq i32 %24, 16
+  br i1 %38, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-40:                                               ; preds = %29
-  %41 = icmp eq i32 %25, 16
-  br i1 %41, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+39:                                               ; preds = %28
+  %40 = icmp eq i32 %24, 16
+  br i1 %40, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-42:                                               ; preds = %29
-  %43 = icmp eq i32 %25, 512
-  br i1 %43, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+41:                                               ; preds = %28
+  %42 = icmp eq i32 %24, 512
+  br i1 %42, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-44:                                               ; preds = %29
-  %45 = icmp eq i32 %25, 512
-  br i1 %45, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
+43:                                               ; preds = %28
+  %44 = icmp eq i32 %24, 512
+  br i1 %44, label %dissect_register_data.exit.sink.split, label %dissect_register_data.exit
 
-46:                                               ; preds = %24
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %49
+45:                                               ; preds = %.preheader
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %48
 
-48:                                               ; preds = %49
+47:                                               ; preds = %48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %dissect_register_data.exit.sink.split, label %49, !llvm.loop !9
+  br i1 %exitcond.not.i, label %dissect_register_data.exit.sink.split, label %48, !llvm.loop !9
 
-49:                                               ; preds = %48, %46
-  %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %48 ]
-  %50 = getelementptr i32, ptr %47, i64 %indvars.iv.i
-  %51 = load i32, ptr %50, align 4
-  %52 = add i32 %51, -1
-  %or.cond.i = icmp ult i32 %52, %7
-  %53 = add i32 %51, 12
-  %.not19.i = icmp ule i32 %7, %53
+48:                                               ; preds = %47, %45
+  %indvars.iv.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i, %47 ]
+  %49 = getelementptr i32, ptr %46, i64 %indvars.iv.i
+  %50 = load i32, ptr %49, align 4
+  %51 = add i32 %50, -1
+  %or.cond.i = icmp ult i32 %51, %7
+  %52 = add i32 %50, 12
+  %.not19.i = icmp ule i32 %7, %52
   %or.cond21.not.i = and i1 %or.cond.i, %.not19.i
-  br i1 %or.cond21.not.i, label %54, label %48
+  br i1 %or.cond21.not.i, label %53, label %47
 
-54:                                               ; preds = %49
-  %55 = sub i32 %7, %51
-  %56 = tail call i32 @llvm.fshl.i32(i32 %55, i32 %55, i32 30)
-  %57 = icmp ult i32 %56, 4
-  br i1 %57, label %switch.lookup, label %dissect_register_data.exit
+53:                                               ; preds = %48
+  %54 = sub i32 %7, %50
+  %55 = tail call i32 @llvm.fshl.i32(i32 %54, i32 %54, i32 30)
+  %56 = icmp ult i32 %55, 4
+  br i1 %56, label %switch.lookup, label %dissect_register_data.exit
 
-switch.lookup:                                    ; preds = %54
-  %58 = zext nneg i32 %56 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_readmem_ack, i64 %58
+switch.lookup:                                    ; preds = %53
+  %57 = zext nneg i32 %55 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_readmem_ack, i64 %57
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_register_data.exit.sink.split
 
-dissect_register_data.exit.sink.split:            ; preds = %48, %switch.lookup, %30, %32, %34, %36, %38, %40, %42, %44
-  %hf_gvcp_manufacturer_name.sink.i.sink = phi ptr [ @hf_gvcp_manufacturer_name, %30 ], [ @hf_gvcp_model_name, %32 ], [ @hf_gvcp_device_version, %34 ], [ @hf_gvcp_manufacturer_specific_info, %36 ], [ @hf_gvcp_serial_number, %38 ], [ @hf_gvcp_user_defined_name, %40 ], [ @hf_gvcp_first_xml_device_description_file, %42 ], [ @hf_gvcp_second_xml_device_description_file, %44 ], [ %switch.load, %switch.lookup ], [ @hf_gvcp_readmemcmd_data_read, %48 ]
-  %.sink61 = phi i32 [ -1, %30 ], [ -1, %32 ], [ -1, %34 ], [ -1, %36 ], [ -1, %38 ], [ -1, %40 ], [ -1, %42 ], [ -1, %44 ], [ 4, %switch.lookup ], [ %25, %48 ]
-  %59 = load i32, ptr %hf_gvcp_manufacturer_name.sink.i.sink, align 4
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %59, ptr noundef %1, i32 noundef 12, i32 noundef %.sink61, i32 noundef 0)
+dissect_register_data.exit.sink.split:            ; preds = %47, %switch.lookup, %29, %31, %33, %35, %37, %39, %41, %43
+  %hf_gvcp_manufacturer_name.sink.i.sink = phi ptr [ @hf_gvcp_manufacturer_name, %29 ], [ @hf_gvcp_model_name, %31 ], [ @hf_gvcp_device_version, %33 ], [ @hf_gvcp_manufacturer_specific_info, %35 ], [ @hf_gvcp_serial_number, %37 ], [ @hf_gvcp_user_defined_name, %39 ], [ @hf_gvcp_first_xml_device_description_file, %41 ], [ @hf_gvcp_second_xml_device_description_file, %43 ], [ %switch.load, %switch.lookup ], [ @hf_gvcp_readmemcmd_data_read, %47 ]
+  %.sink61 = phi i32 [ -1, %29 ], [ -1, %31 ], [ -1, %33 ], [ -1, %35 ], [ -1, %37 ], [ -1, %39 ], [ -1, %41 ], [ -1, %43 ], [ 4, %switch.lookup ], [ %24, %47 ]
+  %58 = load i32, ptr %hf_gvcp_manufacturer_name.sink.i.sink, align 4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %58, ptr noundef %1, i32 noundef 12, i32 noundef %.sink61, i32 noundef 0)
   br label %dissect_register_data.exit
 
-dissect_register_data.exit:                       ; preds = %54, %dissect_register_data.exit.sink.split, %get_register_name_from_address.exit, %29, %30, %32, %34, %36, %38, %40, %42, %44, %5
+dissect_register_data.exit:                       ; preds = %53, %dissect_register_data.exit.sink.split, %get_register_name_from_address.exit, %28, %29, %31, %33, %35, %37, %39, %41, %43, %5
   ret void
 }
 

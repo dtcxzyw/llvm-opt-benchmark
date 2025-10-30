@@ -5417,328 +5417,331 @@ define internal fastcc noundef zeroext i1 @erf_write_anchor_meta_update_phdr(ptr
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = and i64 %11, 281474976710655
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load i64, ptr %13, align 8
-  %15 = icmp eq i64 %14, -1
-  %spec.select = select i1 %15, i64 0, i64 %14
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = load i64, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %17 = load i8, ptr %16, align 8
-  %18 = icmp slt i8 %17, 0
-  br i1 %18, label %.lr.ph, label %.thread180
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %15 = load i8, ptr %14, align 8
+  %16 = icmp slt i8 %15, 0
+  br i1 %16, label %.lr.ph, label %.thread183
 
-.thread180:                                       ; preds = %5
-  %19 = icmp eq i64 %spec.select, %11
+.thread183:                                       ; preds = %5
+  %17 = icmp eq i64 %13, -1
+  %spec.select164 = select i1 %17, i64 0, i64 %13
+  %18 = icmp eq i64 %spec.select164, %11
   br label %53
 
 .lr.ph:                                           ; preds = %5
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %21
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  br label %20
 
-21:                                               ; preds = %.lr.ph, %39
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %.088136 = phi i8 [ 0, %.lr.ph ], [ %.1, %39 ]
-  %.089135 = phi i8 [ 0, %.lr.ph ], [ %.190, %39 ]
-  %.092134 = phi i8 [ 0, %.lr.ph ], [ %.193, %39 ]
-  %.094133 = phi i8 [ 0, %.lr.ph ], [ %.195, %39 ]
-  %.098132 = phi i8 [ 0, %.lr.ph ], [ %.199, %39 ]
-  %.0101131 = phi i64 [ 0, %.lr.ph ], [ %.1102, %39 ]
-  %.0105129 = phi i64 [ -1, %.lr.ph ], [ %.1106, %39 ]
+20:                                               ; preds = %.lr.ph, %38
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
+  %.088136 = phi i8 [ 0, %.lr.ph ], [ %.1, %38 ]
+  %.089135 = phi i8 [ 0, %.lr.ph ], [ %.190, %38 ]
+  %.092134 = phi i8 [ 0, %.lr.ph ], [ %.193, %38 ]
+  %.094133 = phi i8 [ 0, %.lr.ph ], [ %.195, %38 ]
+  %.098132 = phi i8 [ 0, %.lr.ph ], [ %.199, %38 ]
+  %.0101131 = phi i64 [ 0, %.lr.ph ], [ %.1102, %38 ]
+  %.0105129 = phi i64 [ -1, %.lr.ph ], [ %.1106, %38 ]
   %.094133.fr = freeze i8 %.094133
-  %22 = getelementptr %struct.erf_ehdr, ptr %20, i64 %indvars.iv
-  %23 = load i64, ptr %22, align 8
-  %24 = lshr i64 %23, 56
-  %25 = trunc nuw nsw i64 %24 to i32
-  %26 = and i32 %25, 127
-  switch i32 %26, label %39 [
-    i32 17, label %27
-    i32 16, label %34
+  %21 = getelementptr %struct.erf_ehdr, ptr %19, i64 %indvars.iv
+  %22 = load i64, ptr %21, align 8
+  %23 = lshr i64 %22, 56
+  %24 = trunc nuw nsw i64 %23 to i32
+  %25 = and i32 %24, 127
+  switch i32 %25, label %38 [
+    i32 17, label %26
+    i32 16, label %33
   ]
 
-27:                                               ; preds = %21
-  %28 = trunc i8 %.094133.fr to i1
-  %29 = icmp eq i8 %.089135, 0
-  %or.cond.not = and i1 %29, %28
-  %30 = trunc i64 %indvars.iv to i8
-  %spec.select120 = select i1 %or.cond.not, i8 %30, i8 %.089135
-  %31 = and i64 %23, 281474976710655
-  %32 = icmp eq i64 %31, %11
-  %.296 = select i1 %32, i8 1, i8 %.094133.fr
-  %33 = trunc nuw i8 %.098132 to i1
-  %.2107 = select i1 %33, i64 %.0105129, i64 %23
-  br label %39
+26:                                               ; preds = %20
+  %27 = trunc i8 %.094133.fr to i1
+  %28 = icmp eq i8 %.089135, 0
+  %or.cond.not = and i1 %28, %27
+  %29 = trunc i64 %indvars.iv to i8
+  %spec.select120 = select i1 %or.cond.not, i8 %29, i8 %.089135
+  %30 = and i64 %22, 281474976710655
+  %31 = icmp eq i64 %30, %11
+  %.296 = select i1 %31, i8 1, i8 %.094133.fr
+  %32 = trunc nuw i8 %.098132 to i1
+  %.2107 = select i1 %32, i64 %.0105129, i64 %22
+  br label %38
 
-34:                                               ; preds = %21
-  %35 = icmp eq i8 %.088136, 0
-  %36 = lshr i64 %23, 48
-  %37 = trunc i64 %36 to i8
-  %.2 = select i1 %35, i8 %37, i8 %.088136
-  %38 = trunc nuw i8 %.092134 to i1
-  %.2103 = select i1 %38, i64 %.0101131, i64 %23
-  br label %39
+33:                                               ; preds = %20
+  %34 = icmp eq i8 %.088136, 0
+  %35 = lshr i64 %22, 48
+  %36 = trunc i64 %35 to i8
+  %.2 = select i1 %34, i8 %36, i8 %.088136
+  %37 = trunc nuw i8 %.092134 to i1
+  %.2103 = select i1 %37, i64 %.0101131, i64 %22
+  br label %38
 
-39:                                               ; preds = %34, %27, %21
-  %.1106 = phi i64 [ %.0105129, %21 ], [ %.2107, %27 ], [ %.0105129, %34 ]
-  %.1102 = phi i64 [ %.0101131, %21 ], [ %.0101131, %27 ], [ %.2103, %34 ]
-  %.199 = phi i8 [ %.098132, %21 ], [ 1, %27 ], [ %.098132, %34 ]
-  %.195 = phi i8 [ %.094133.fr, %21 ], [ %.296, %27 ], [ %.094133.fr, %34 ]
-  %.193 = phi i8 [ %.092134, %21 ], [ %.092134, %27 ], [ 1, %34 ]
-  %.190 = phi i8 [ %.089135, %21 ], [ %spec.select120, %27 ], [ %.089135, %34 ]
-  %.1 = phi i8 [ %.088136, %21 ], [ %.088136, %27 ], [ %.2, %34 ]
+38:                                               ; preds = %33, %26, %20
+  %.1106 = phi i64 [ %.0105129, %20 ], [ %.2107, %26 ], [ %.0105129, %33 ]
+  %.1102 = phi i64 [ %.0101131, %20 ], [ %.0101131, %26 ], [ %.2103, %33 ]
+  %.199 = phi i8 [ %.098132, %20 ], [ 1, %26 ], [ %.098132, %33 ]
+  %.195 = phi i8 [ %.094133.fr, %20 ], [ %.296, %26 ], [ %.094133.fr, %33 ]
+  %.193 = phi i8 [ %.092134, %20 ], [ %.092134, %26 ], [ 1, %33 ]
+  %.190 = phi i8 [ %.089135, %20 ], [ %spec.select120, %26 ], [ %.089135, %33 ]
+  %.1 = phi i8 [ %.088136, %20 ], [ %.088136, %26 ], [ %.2, %33 ]
   %indvars.iv.next = add i64 %indvars.iv, 1
-  %40 = icmp slt i64 %23, 0
-  %41 = icmp samesign ult i64 %indvars.iv, 15
-  %42 = select i1 %40, i1 %41, i1 false
-  br i1 %42, label %21, label %._crit_edge, !llvm.loop !52
+  %39 = icmp slt i64 %22, 0
+  %40 = icmp samesign ult i64 %indvars.iv, 15
+  %41 = select i1 %39, i1 %40, i1 false
+  br i1 %41, label %20, label %._crit_edge, !llvm.loop !52
 
-._crit_edge:                                      ; preds = %39
-  %43 = trunc nuw nsw i64 %indvars.iv.next to i8
-  %44 = trunc nuw i8 %.199 to i1
-  %45 = zext i8 %.1 to i64
-  %46 = shl nuw nsw i64 %45, 48
-  %47 = trunc nuw i8 %.193 to i1
-  %48 = and i64 %.1102, 9151594822576898047
+._crit_edge:                                      ; preds = %38
+  %42 = trunc nuw nsw i64 %indvars.iv.next to i8
+  %43 = trunc nuw i8 %.199 to i1
+  %44 = zext i8 %.1 to i64
+  %45 = shl nuw nsw i64 %44, 48
+  %46 = trunc nuw i8 %.193 to i1
+  %47 = and i64 %.1102, 9151594822576898047
+  %48 = icmp eq i64 %13, -1
+  %spec.select = select i1 %48, i64 0, i64 %13
   %49 = trunc i64 %indvars.iv.next to i32
   %50 = and i32 %49, 255
   %.not116 = icmp eq i8 %.190, 0
   %51 = icmp eq i64 %spec.select, %11
-  %spec.select122196 = select i1 %51, i8 1, i8 %.195
-  %..190.lcssa = select i1 %.not116, i8 %43, i8 %.190
-  %spec.select205 = select i1 %44, i8 %.195, i8 %spec.select122196
-  %52 = trunc nuw i8 %spec.select205 to i1
+  %spec.select122201 = select i1 %51, i8 1, i8 %.195
+  %..190.lcssa = select i1 %.not116, i8 %42, i8 %.190
+  %spec.select211 = select i1 %43, i8 %.195, i8 %spec.select122201
+  %52 = trunc nuw i8 %spec.select211 to i1
   br label %53
 
-53:                                               ; preds = %._crit_edge, %.thread180
-  %54 = phi i8 [ 0, %.thread180 ], [ %..190.lcssa, %._crit_edge ]
-  %.0105.lcssa166195 = phi i64 [ -1, %.thread180 ], [ %.1106, %._crit_edge ]
-  %.0104.lcssa168194 = phi i8 [ 0, %.thread180 ], [ %43, %._crit_edge ]
-  %.0101.lcssa170193 = phi i64 [ 0, %.thread180 ], [ %48, %._crit_edge ]
-  %.098.lcssa172192 = phi i1 [ false, %.thread180 ], [ %44, %._crit_edge ]
-  %.092.lcssa176191 = phi i1 [ false, %.thread180 ], [ %47, %._crit_edge ]
-  %.088.lcssa178190 = phi i64 [ 0, %.thread180 ], [ %46, %._crit_edge ]
-  %55 = phi i32 [ 0, %.thread180 ], [ %50, %._crit_edge ]
-  %56 = phi i1 [ %19, %.thread180 ], [ %52, %._crit_edge ]
-  %57 = select i1 %56, i32 1, i32 2
-  %not. = xor i1 %.098.lcssa172192, true
-  %58 = zext i1 %not. to i32
-  %59 = add nuw nsw i32 %57, %58
-  %60 = add nuw nsw i32 %59, %55
-  %61 = icmp samesign ugt i32 %60, 16
-  br i1 %61, label %69, label %62
+53:                                               ; preds = %._crit_edge, %.thread183
+  %54 = phi i8 [ 0, %.thread183 ], [ %..190.lcssa, %._crit_edge ]
+  %.0105.lcssa167200 = phi i64 [ -1, %.thread183 ], [ %.1106, %._crit_edge ]
+  %.0104.lcssa169199 = phi i8 [ 0, %.thread183 ], [ %42, %._crit_edge ]
+  %.0101.lcssa171198 = phi i64 [ 0, %.thread183 ], [ %47, %._crit_edge ]
+  %.098.lcssa173197 = phi i1 [ false, %.thread183 ], [ %43, %._crit_edge ]
+  %.092.lcssa177196 = phi i1 [ false, %.thread183 ], [ %46, %._crit_edge ]
+  %.088.lcssa179195 = phi i64 [ 0, %.thread183 ], [ %45, %._crit_edge ]
+  %spec.select181194 = phi i64 [ %spec.select164, %.thread183 ], [ %spec.select, %._crit_edge ]
+  %55 = phi i32 [ 0, %.thread183 ], [ %50, %._crit_edge ]
+  %56 = phi i1 [ %18, %.thread183 ], [ %52, %._crit_edge ]
+  %57 = and i64 %11, 281474976710655
+  %58 = select i1 %56, i32 1, i32 2
+  %not. = xor i1 %.098.lcssa173197, true
+  %59 = zext i1 %not. to i32
+  %60 = add nuw nsw i32 %58, %59
+  %61 = add nuw nsw i32 %60, %55
+  %62 = icmp samesign ugt i32 %61, 16
+  br i1 %62, label %70, label %63
 
-62:                                               ; preds = %53
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  %64 = load i16, ptr %63, align 2
-  %65 = zext i16 %64 to i32
-  %66 = shl nuw nsw i32 %59, 3
-  %67 = add nuw nsw i32 %66, %65
-  %68 = icmp samesign ugt i32 %67, 65535
-  br i1 %68, label %69, label %70
+63:                                               ; preds = %53
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  %65 = load i16, ptr %64, align 2
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw nsw i32 %60, 3
+  %68 = add nuw nsw i32 %67, %66
+  %69 = icmp samesign ugt i32 %68, 65535
+  br i1 %69, label %70, label %71
 
-69:                                               ; preds = %62, %53
+70:                                               ; preds = %63, %53
   store i32 -22, ptr %4, align 4
-  br label %172
+  br label %173
 
-70:                                               ; preds = %62
-  %71 = trunc nuw i32 %67 to i16
-  store i16 %71, ptr %63, align 2
-  %72 = or i8 %17, -128
-  store i8 %72, ptr %16, align 8
+71:                                               ; preds = %63
+  %72 = trunc nuw i32 %68 to i16
+  store i16 %72, ptr %64, align 2
+  %73 = or i8 %15, -128
+  store i8 %73, ptr %14, align 8
   %.not117 = icmp eq i8 %54, 0
-  br i1 %.not117, label %79, label %73
+  br i1 %.not117, label %80, label %74
 
-73:                                               ; preds = %70
-  %74 = zext i8 %54 to i64
-  %75 = getelementptr %struct.erf_ehdr, ptr %3, i64 %74
-  %76 = getelementptr i8, ptr %75, i64 8
-  %77 = load i64, ptr %76, align 8
-  %78 = or i64 %77, -9223372036854775808
-  store i64 %78, ptr %76, align 8
-  br label %79
+74:                                               ; preds = %71
+  %75 = zext i8 %54 to i64
+  %76 = getelementptr %struct.erf_ehdr, ptr %3, i64 %75
+  %77 = getelementptr i8, ptr %76, i64 8
+  %78 = load i64, ptr %77, align 8
+  %79 = or i64 %78, -9223372036854775808
+  store i64 %79, ptr %77, align 8
+  br label %80
 
-79:                                               ; preds = %73, %70
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %81 = load ptr, ptr %80, align 8
-  %82 = tail call i32 @g_rand_int(ptr noundef %81)
-  %83 = zext i32 %82 to i64
-  %84 = shl nuw i64 %83, 32
-  %85 = load ptr, ptr %80, align 8
-  %86 = tail call i32 @g_rand_int(ptr noundef %85)
-  %87 = zext i32 %86 to i64
-  %88 = or disjoint i64 %84, %87
-  %89 = lshr i64 %88, 16
-  %90 = or disjoint i64 %89, 1297036692682702848
-  %91 = icmp ult i8 %54, %.0104.lcssa168194
-  br i1 %91, label %.preheader, label %103
+80:                                               ; preds = %74, %71
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %82 = load ptr, ptr %81, align 8
+  %83 = tail call i32 @g_rand_int(ptr noundef %82)
+  %84 = zext i32 %83 to i64
+  %85 = shl nuw i64 %84, 32
+  %86 = load ptr, ptr %81, align 8
+  %87 = tail call i32 @g_rand_int(ptr noundef %86)
+  %88 = zext i32 %87 to i64
+  %89 = or disjoint i64 %85, %88
+  %90 = lshr i64 %89, 16
+  %91 = or disjoint i64 %90, 1297036692682702848
+  %92 = icmp ult i8 %54, %.0104.lcssa169199
+  br i1 %92, label %.preheader, label %104
 
-.preheader:                                       ; preds = %79
-  %92 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %93 = zext nneg i8 %.0104.lcssa168194 to i64
-  br label %94
+.preheader:                                       ; preds = %80
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %94 = zext nneg i8 %.0104.lcssa169199 to i64
+  br label %95
 
-94:                                               ; preds = %.preheader, %94
-  %indvars.iv146 = phi i64 [ %93, %.preheader ], [ %indvars.iv.next147, %94 ]
-  %95 = add nuw nsw i64 %indvars.iv146, 4294967295
-  %96 = and i64 %95, 4294967295
-  %97 = getelementptr %struct.erf_ehdr, ptr %92, i64 %96
-  %98 = load i64, ptr %97, align 8
-  %99 = getelementptr %struct.erf_ehdr, ptr %92, i64 %indvars.iv146
-  store i64 %98, ptr %99, align 8
+95:                                               ; preds = %.preheader, %95
+  %indvars.iv146 = phi i64 [ %94, %.preheader ], [ %indvars.iv.next147, %95 ]
+  %96 = add nuw nsw i64 %indvars.iv146, 4294967295
+  %97 = and i64 %96, 4294967295
+  %98 = getelementptr %struct.erf_ehdr, ptr %93, i64 %97
+  %99 = load i64, ptr %98, align 8
+  %100 = getelementptr %struct.erf_ehdr, ptr %93, i64 %indvars.iv146
+  store i64 %99, ptr %100, align 8
   %indvars.iv.next147 = add nsw i64 %indvars.iv146, -1
   %indvars = trunc i64 %indvars.iv.next147 to i8
-  %100 = icmp ult i8 %54, %indvars
-  br i1 %100, label %94, label %101, !llvm.loop !53
+  %101 = icmp ult i8 %54, %indvars
+  br i1 %101, label %95, label %102, !llvm.loop !53
 
-101:                                              ; preds = %94
-  %102 = or disjoint i64 %89, -7926335344172072960
-  br label %103
+102:                                              ; preds = %95
+  %103 = or disjoint i64 %90, -7926335344172072960
+  br label %104
 
-103:                                              ; preds = %101, %79
-  %.0100 = phi i64 [ %102, %101 ], [ %90, %79 ]
-  br i1 %.098.lcssa172192, label %113, label %104
+104:                                              ; preds = %102, %80
+  %.0100 = phi i64 [ %103, %102 ], [ %91, %80 ]
+  br i1 %.098.lcssa173197, label %114, label %105
 
-104:                                              ; preds = %103
-  %105 = and i64 %spec.select, 281474976710655
-  %106 = or disjoint i64 %.088.lcssa178190, %105
-  %107 = or disjoint i64 %106, 1224979098644774912
-  %108 = or disjoint i64 %106, -7998392938210000896
-  %109 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %110 = add i8 %54, 1
-  %111 = zext i8 %54 to i64
-  %112 = getelementptr %struct.erf_ehdr, ptr %109, i64 %111
-  store i64 %108, ptr %112, align 8
-  br label %113
+105:                                              ; preds = %104
+  %106 = and i64 %spec.select181194, 281474976710655
+  %107 = or disjoint i64 %.088.lcssa179195, %106
+  %108 = or disjoint i64 %107, 1224979098644774912
+  %109 = or disjoint i64 %107, -7998392938210000896
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %111 = add i8 %54, 1
+  %112 = zext i8 %54 to i64
+  %113 = getelementptr %struct.erf_ehdr, ptr %110, i64 %112
+  store i64 %109, ptr %113, align 8
+  br label %114
 
-113:                                              ; preds = %104, %103
-  %.3108 = phi i64 [ %.0105.lcssa166195, %103 ], [ %107, %104 ]
-  %.4 = phi i8 [ %54, %103 ], [ %110, %104 ]
-  br i1 %56, label %120, label %114
+114:                                              ; preds = %105, %104
+  %.3108 = phi i64 [ %.0105.lcssa167200, %104 ], [ %108, %105 ]
+  %.4 = phi i8 [ %54, %104 ], [ %111, %105 ]
+  br i1 %56, label %121, label %115
 
-114:                                              ; preds = %113
-  %115 = or disjoint i64 %12, -7998392938210000896
-  %116 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %117 = add i8 %.4, 1
-  %118 = zext i8 %.4 to i64
-  %119 = getelementptr %struct.erf_ehdr, ptr %116, i64 %118
-  store i64 %115, ptr %119, align 8
-  br label %120
+115:                                              ; preds = %114
+  %116 = or disjoint i64 %57, -7998392938210000896
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %118 = add i8 %.4, 1
+  %119 = zext i8 %.4 to i64
+  %120 = getelementptr %struct.erf_ehdr, ptr %117, i64 %119
+  store i64 %116, ptr %120, align 8
+  br label %121
 
-120:                                              ; preds = %114, %113
-  %.5 = phi i8 [ %.4, %113 ], [ %117, %114 ]
-  %121 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %122 = zext i8 %.5 to i64
-  %123 = getelementptr %struct.erf_ehdr, ptr %121, i64 %122
-  store i64 %.0100, ptr %123, align 8
-  %124 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
+121:                                              ; preds = %115, %114
+  %.5 = phi i8 [ %.4, %114 ], [ %118, %115 ]
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %123 = zext i8 %.5 to i64
+  %124 = getelementptr %struct.erf_ehdr, ptr %122, i64 %123
+  store i64 %.0100, ptr %124, align 8
+  %125 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %.not.i.not = icmp eq ptr %124, null
-  br i1 %.not.i.not, label %erf_append_ext_hdr_to_list.exit125.thread, label %125
+  %.not.i.not = icmp eq ptr %125, null
+  br i1 %.not.i.not, label %erf_append_ext_hdr_to_list.exit125.thread, label %126
 
-125:                                              ; preds = %120
-  %126 = and i64 %.0100, 9187343239835811839
-  %127 = or disjoint i64 %126, 36028797018963968
-  store i64 %127, ptr %8, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %129 = load i32, ptr %128, align 8
-  %.not8.i = icmp eq i32 %129, 0
-  br i1 %.not8.i, label %137, label %130
+126:                                              ; preds = %121
+  %127 = and i64 %.0100, 9187343239835811839
+  %128 = or disjoint i64 %127, 36028797018963968
+  store i64 %128, ptr %8, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %130 = load i32, ptr %129, align 8
+  %.not8.i = icmp eq i32 %130, 0
+  br i1 %.not8.i, label %138, label %131
 
-130:                                              ; preds = %125
-  %131 = load ptr, ptr %124, align 8
-  %132 = add i32 %129, -1
-  %133 = zext i32 %132 to i64
-  %134 = getelementptr %struct.erf_ehdr, ptr %131, i64 %133
-  %135 = load i64, ptr %134, align 8
-  %136 = or i64 %135, -9223372036854775808
-  store i64 %136, ptr %134, align 8
-  br label %137
+131:                                              ; preds = %126
+  %132 = load ptr, ptr %125, align 8
+  %133 = add i32 %130, -1
+  %134 = zext i32 %133 to i64
+  %135 = getelementptr %struct.erf_ehdr, ptr %132, i64 %134
+  %136 = load i64, ptr %135, align 8
+  %137 = or i64 %136, -9223372036854775808
+  store i64 %137, ptr %135, align 8
+  br label %138
 
-137:                                              ; preds = %125, %130
-  %138 = call ptr @g_array_append_vals(ptr noundef nonnull %124, ptr noundef nonnull %8, i32 noundef 1)
+138:                                              ; preds = %126, %131
+  %139 = call ptr @g_array_append_vals(ptr noundef nonnull %125, ptr noundef nonnull %8, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %139 = and i64 %.3108, 9223372036854775807
-  store i64 %139, ptr %7, align 8
-  %140 = load i32, ptr %128, align 8
-  %.not8.i124 = icmp eq i32 %140, 0
-  br i1 %.not8.i124, label %erf_append_ext_hdr_to_list.exit125, label %141
+  %140 = and i64 %.3108, 9223372036854775807
+  store i64 %140, ptr %7, align 8
+  %141 = load i32, ptr %129, align 8
+  %.not8.i124 = icmp eq i32 %141, 0
+  br i1 %.not8.i124, label %erf_append_ext_hdr_to_list.exit125, label %142
 
-141:                                              ; preds = %137
-  %142 = load ptr, ptr %124, align 8
-  %143 = add i32 %140, -1
-  %144 = zext i32 %143 to i64
-  %145 = getelementptr %struct.erf_ehdr, ptr %142, i64 %144
-  %146 = load i64, ptr %145, align 8
-  %147 = or i64 %146, -9223372036854775808
-  store i64 %147, ptr %145, align 8
+142:                                              ; preds = %138
+  %143 = load ptr, ptr %125, align 8
+  %144 = add i32 %141, -1
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr %struct.erf_ehdr, ptr %143, i64 %145
+  %147 = load i64, ptr %146, align 8
+  %148 = or i64 %147, -9223372036854775808
+  store i64 %148, ptr %146, align 8
   br label %erf_append_ext_hdr_to_list.exit125
 
-erf_append_ext_hdr_to_list.exit125:               ; preds = %137, %141
-  %148 = call ptr @g_array_append_vals(ptr noundef nonnull %124, ptr noundef nonnull %7, i32 noundef 1)
+erf_append_ext_hdr_to_list.exit125:               ; preds = %138, %142
+  %149 = call ptr @g_array_append_vals(ptr noundef nonnull %125, ptr noundef nonnull %7, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.092.lcssa176191, label %149, label %160
+  br i1 %.092.lcssa177196, label %150, label %161
 
-erf_append_ext_hdr_to_list.exit125.thread:        ; preds = %120
+erf_append_ext_hdr_to_list.exit125.thread:        ; preds = %121
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.092.lcssa176191, label %.thread, label %160
+  br i1 %.092.lcssa177196, label %.thread, label %161
 
 .thread:                                          ; preds = %erf_append_ext_hdr_to_list.exit125.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %erf_append_ext_hdr_to_list.exit128
 
-149:                                              ; preds = %erf_append_ext_hdr_to_list.exit125
+150:                                              ; preds = %erf_append_ext_hdr_to_list.exit125
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 %.0101.lcssa170193, ptr %6, align 8
-  %150 = load i32, ptr %128, align 8
-  %.not8.i127 = icmp eq i32 %150, 0
-  br i1 %.not8.i127, label %158, label %151
+  store i64 %.0101.lcssa171198, ptr %6, align 8
+  %151 = load i32, ptr %129, align 8
+  %.not8.i127 = icmp eq i32 %151, 0
+  br i1 %.not8.i127, label %159, label %152
 
-151:                                              ; preds = %149
-  %152 = load ptr, ptr %124, align 8
-  %153 = add i32 %150, -1
-  %154 = zext i32 %153 to i64
-  %155 = getelementptr %struct.erf_ehdr, ptr %152, i64 %154
-  %156 = load i64, ptr %155, align 8
-  %157 = or i64 %156, -9223372036854775808
-  store i64 %157, ptr %155, align 8
-  br label %158
+152:                                              ; preds = %150
+  %153 = load ptr, ptr %125, align 8
+  %154 = add i32 %151, -1
+  %155 = zext i32 %154 to i64
+  %156 = getelementptr %struct.erf_ehdr, ptr %153, i64 %155
+  %157 = load i64, ptr %156, align 8
+  %158 = or i64 %157, -9223372036854775808
+  store i64 %158, ptr %156, align 8
+  br label %159
 
-158:                                              ; preds = %151, %149
-  %159 = call ptr @g_array_append_vals(ptr noundef nonnull %124, ptr noundef nonnull %6, i32 noundef 1)
+159:                                              ; preds = %152, %150
+  %160 = call ptr @g_array_append_vals(ptr noundef nonnull %125, ptr noundef nonnull %6, i32 noundef 1)
   br label %erf_append_ext_hdr_to_list.exit128
 
-erf_append_ext_hdr_to_list.exit128:               ; preds = %.thread, %158
+erf_append_ext_hdr_to_list.exit128:               ; preds = %.thread, %159
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %160
+  br label %161
 
-160:                                              ; preds = %erf_append_ext_hdr_to_list.exit125.thread, %erf_append_ext_hdr_to_list.exit128, %erf_append_ext_hdr_to_list.exit125
-  %161 = call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @erf_meta_section_free)
-  %162 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %163 = load ptr, ptr %162, align 8
-  %164 = call i32 @wtap_block_get_nth_string_option_value(ptr noundef %163, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
-  %.not118 = icmp eq i32 %164, 0
-  br i1 %.not118, label %._crit_edge149, label %165
+161:                                              ; preds = %erf_append_ext_hdr_to_list.exit125.thread, %erf_append_ext_hdr_to_list.exit128, %erf_append_ext_hdr_to_list.exit125
+  %162 = call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @erf_meta_section_free)
+  %163 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  %164 = load ptr, ptr %163, align 8
+  %165 = call i32 @wtap_block_get_nth_string_option_value(ptr noundef %164, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
+  %.not118 = icmp eq i32 %165, 0
+  br i1 %.not118, label %._crit_edge149, label %166
 
-._crit_edge149:                                   ; preds = %160
+._crit_edge149:                                   ; preds = %161
   %.pre = load ptr, ptr %9, align 8
-  br label %166
+  br label %167
 
-165:                                              ; preds = %160
+166:                                              ; preds = %161
   store ptr null, ptr %9, align 8
-  br label %166
+  br label %167
 
-166:                                              ; preds = %._crit_edge149, %165
-  %167 = phi ptr [ %.pre, %._crit_edge149 ], [ null, %165 ]
-  call fastcc void @erf_comment_to_sections(i16 noundef zeroext -250, i16 noundef zeroext -32768, ptr noundef %167, ptr noundef %161)
-  %168 = load i64, ptr %3, align 8
-  %169 = call fastcc zeroext i1 @erf_write_meta_record(ptr noundef %0, ptr noundef %1, i64 noundef %168, ptr noundef %161, ptr noundef %124, ptr noundef %4)
-  %170 = call ptr @g_ptr_array_free(ptr noundef %161, i32 noundef 1)
-  %171 = call ptr @g_array_free(ptr noundef %124, i32 noundef 1)
-  br label %172
+167:                                              ; preds = %._crit_edge149, %166
+  %168 = phi ptr [ %.pre, %._crit_edge149 ], [ null, %166 ]
+  call fastcc void @erf_comment_to_sections(i16 noundef zeroext -250, i16 noundef zeroext -32768, ptr noundef %168, ptr noundef %162)
+  %169 = load i64, ptr %3, align 8
+  %170 = call fastcc zeroext i1 @erf_write_meta_record(ptr noundef %0, ptr noundef %1, i64 noundef %169, ptr noundef %162, ptr noundef %125, ptr noundef %4)
+  %171 = call ptr @g_ptr_array_free(ptr noundef %162, i32 noundef 1)
+  %172 = call ptr @g_array_free(ptr noundef %125, i32 noundef 1)
+  br label %173
 
-172:                                              ; preds = %166, %69
-  %.0 = phi i1 [ false, %69 ], [ %169, %166 ]
+173:                                              ; preds = %167, %70
+  %.0 = phi i1 [ false, %70 ], [ %170, %167 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
 }

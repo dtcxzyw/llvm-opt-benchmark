@@ -1532,34 +1532,34 @@ define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14Layou
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = icmp eq ptr %2, null
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %.0 = select i1 %6, ptr %8, ptr %2
-  %9 = load i32, ptr %1, align 4
-  %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge
+  %6 = load i32, ptr %1, align 4
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %wide.trip.count = zext nneg i32 %9 to i64
-  br label %13
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %wide.trip.count = zext nneg i32 %6 to i64
+  br label %10
 
-13:                                               ; preds = %.lr.ph, %13
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %.02533 = phi i32 [ 0, %.lr.ph ], [ %18, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 28
-  %17 = load i32, ptr %16, align 4
-  %18 = add nsw i32 %17, %.02533
+10:                                               ; preds = %.lr.ph, %10
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
+  %.02533 = phi i32 [ 0, %.lr.ph ], [ %15, %10 ]
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 28
+  %14 = load i32, ptr %13, align 4
+  %15 = add nsw i32 %14, %.02533
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %13, %5
-  %.025.lcssa = phi i32 [ 0, %5 ], [ %18, %13 ]
+._crit_edge:                                      ; preds = %10, %5
+  %.025.lcssa = phi i32 [ 0, %5 ], [ %15, %10 ]
+  %16 = icmp eq ptr %2, null
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %.0 = select i1 %16, ptr %18, ptr %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %.0, %20
@@ -1601,7 +1601,7 @@ define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14Layou
 
 .loopexit31:                                      ; preds = %.critedge, %30, %._crit_edge
   %.026 = phi ptr [ %20, %._crit_edge ], [ %20, %.critedge ], [ %.1, %30 ]
-  br i1 %10, label %.lr.ph36, label %.loopexit
+  br i1 %7, label %.lr.ph36, label %.loopexit
 
 .lr.ph36:                                         ; preds = %.loopexit31
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3407,38 +3407,38 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102: ; p
   br i1 %470, label %_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit, label %471
 
 471:                                              ; preds = %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102
-  %472 = getelementptr inbounds nuw i8, ptr %465, i64 24
-  %473 = load ptr, ptr %472, align 8
-  %474 = load i32, ptr %469, align 4
-  %475 = icmp sgt i32 %474, 0
-  br i1 %475, label %.lr.ph.i108, label %._crit_edge.i104
+  %472 = load i32, ptr %469, align 4
+  %473 = icmp sgt i32 %472, 0
+  br i1 %473, label %.lr.ph.i108, label %._crit_edge.i103
 
 .lr.ph.i108:                                      ; preds = %471
-  %476 = getelementptr inbounds nuw i8, ptr %469, i64 8
-  %477 = load ptr, ptr %476, align 8
-  %wide.trip.count.i = zext nneg i32 %474 to i64
-  br label %478
+  %474 = getelementptr inbounds nuw i8, ptr %469, i64 8
+  %475 = load ptr, ptr %474, align 8
+  %wide.trip.count.i = zext nneg i32 %472 to i64
+  br label %476
 
-478:                                              ; preds = %478, %.lr.ph.i108
-  %indvars.iv.i109 = phi i64 [ 0, %.lr.ph.i108 ], [ %indvars.iv.next.i110, %478 ]
-  %.02533.i = phi i32 [ 0, %.lr.ph.i108 ], [ %483, %478 ]
-  %479 = getelementptr inbounds nuw ptr, ptr %477, i64 %indvars.iv.i109
-  %480 = load ptr, ptr %479, align 8
-  %481 = getelementptr inbounds nuw i8, ptr %480, i64 28
-  %482 = load i32, ptr %481, align 4
-  %483 = add nsw i32 %482, %.02533.i
+476:                                              ; preds = %476, %.lr.ph.i108
+  %indvars.iv.i109 = phi i64 [ 0, %.lr.ph.i108 ], [ %indvars.iv.next.i110, %476 ]
+  %.02533.i = phi i32 [ 0, %.lr.ph.i108 ], [ %481, %476 ]
+  %477 = getelementptr inbounds nuw ptr, ptr %475, i64 %indvars.iv.i109
+  %478 = load ptr, ptr %477, align 8
+  %479 = getelementptr inbounds nuw i8, ptr %478, i64 28
+  %480 = load i32, ptr %479, align 4
+  %481 = add nsw i32 %480, %.02533.i
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i109, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i110, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i104, label %478, !llvm.loop !18
+  br i1 %exitcond.not.i, label %._crit_edge.i103, label %476, !llvm.loop !18
 
-._crit_edge.i104:                                 ; preds = %478, %471
-  %.025.lcssa.i = phi i32 [ 0, %471 ], [ %483, %478 ]
+._crit_edge.i103:                                 ; preds = %476, %471
+  %.025.lcssa.i = phi i32 [ 0, %471 ], [ %481, %476 ]
+  %482 = getelementptr inbounds nuw i8, ptr %465, i64 24
+  %483 = load ptr, ptr %482, align 8
   %484 = getelementptr inbounds nuw i8, ptr %465, i64 32
   %485 = load ptr, ptr %484, align 8
-  %486 = icmp eq ptr %473, %485
+  %486 = icmp eq ptr %483, %485
   br i1 %486, label %.loopexit31.i, label %487
 
-487:                                              ; preds = %._crit_edge.i104
+487:                                              ; preds = %._crit_edge.i103
   %488 = getelementptr inbounds nuw i8, ptr %469, i64 8
   %489 = load ptr, ptr %488, align 8
   %490 = load ptr, ptr %489, align 8
@@ -3469,12 +3469,12 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102: ; p
   br i1 %.not30.i, label %.critedge.i, label %.loopexit31.i
 
 .critedge.i:                                      ; preds = %495, %492
-  %504 = icmp eq ptr %.1.i, %473
+  %504 = icmp eq ptr %.1.i, %483
   br i1 %504, label %.loopexit31.i, label %492, !llvm.loop !19
 
-.loopexit31.i:                                    ; preds = %.critedge.i, %495, %._crit_edge.i104
-  %.026.i = phi ptr [ %485, %._crit_edge.i104 ], [ %.1.i, %495 ], [ %485, %.critedge.i ]
-  br i1 %475, label %.lr.ph36.i, label %_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit
+.loopexit31.i:                                    ; preds = %.critedge.i, %495, %._crit_edge.i103
+  %.026.i = phi ptr [ %485, %._crit_edge.i103 ], [ %.1.i, %495 ], [ %485, %.critedge.i ]
+  br i1 %473, label %.lr.ph36.i, label %_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit
 
 .lr.ph36.i:                                       ; preds = %.loopexit31.i
   %505 = getelementptr inbounds nuw i8, ptr %469, i64 8

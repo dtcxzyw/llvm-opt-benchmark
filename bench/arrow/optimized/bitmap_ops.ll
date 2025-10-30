@@ -59,19 +59,19 @@ define noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef %0, i64 n
   %9 = and i64 %8, -64
   %10 = sub i64 %9, %7
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %10, i64 %2)
-  %11 = sub nsw i64 %2, %.sroa.speculated.i
-  %12 = lshr i64 %11, 6
-  %13 = and i64 %11, -64
-  %14 = add nsw i64 %.sroa.speculated.i, %1
-  %15 = add nsw i64 %13, %14
-  %16 = sdiv i64 %14, 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 %16
-  %18 = icmp sgt i64 %.sroa.speculated.i, 0
-  br i1 %18, label %.lr.ph, label %._crit_edge
+  %11 = add nsw i64 %.sroa.speculated.i, %1
+  %12 = icmp sgt i64 %.sroa.speculated.i, 0
+  br i1 %12, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.039.lcssa = phi i64 [ 0, %3 ], [ %spec.select, %.lr.ph ]
-  %.not = icmp ult i64 %11, 64
+  %13 = sub nsw i64 %2, %.sroa.speculated.i
+  %14 = lshr i64 %13, 6
+  %15 = and i64 %13, -64
+  %16 = add nsw i64 %15, %11
+  %17 = sdiv i64 %11, 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 %17
+  %.not = icmp ult i64 %13, 64
   br i1 %.not, label %56, label %30
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -88,47 +88,47 @@ define noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef %0, i64 n
   %27 = zext nneg i32 %26 to i64
   %spec.select = add nuw nsw i64 %.03950, %27
   %28 = add nsw i64 %.04049, 1
-  %29 = icmp slt i64 %28, %14
+  %29 = icmp slt i64 %28, %11
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 30:                                               ; preds = %._crit_edge
-  %31 = getelementptr inbounds nuw i64, ptr %17, i64 %12
-  %32 = and i64 %12, 288230376151711740
+  %31 = and i64 %14, 288230376151711740
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  %.not68 = icmp eq i64 %32, 0
+  %.not68 = icmp eq i64 %31, 0
   br i1 %.not68, label %.preheader47, label %.preheader48
 
-.preheader48:                                     ; preds = %30, %33
-  %.03853 = phi i64 [ %35, %33 ], [ 0, %30 ]
-  %.04152 = phi ptr [ %34, %33 ], [ %17, %30 ]
-  br label %37
+.preheader48:                                     ; preds = %30, %32
+  %.03853 = phi i64 [ %34, %32 ], [ 0, %30 ]
+  %.04152 = phi ptr [ %33, %32 ], [ %18, %30 ]
+  br label %36
 
-.preheader47:                                     ; preds = %33, %30
-  %.041.lcssa = phi ptr [ %17, %30 ], [ %34, %33 ]
+.preheader47:                                     ; preds = %32, %30
+  %.041.lcssa = phi ptr [ %18, %30 ], [ %33, %32 ]
   br label %46
 
-33:                                               ; preds = %37
-  %34 = getelementptr inbounds nuw i8, ptr %.04152, i64 32
-  %35 = add nuw nsw i64 %.03853, 4
-  %36 = icmp samesign ult i64 %35, %32
-  br i1 %36, label %.preheader48, label %.preheader47, !llvm.loop !8
+32:                                               ; preds = %36
+  %33 = getelementptr inbounds nuw i8, ptr %.04152, i64 32
+  %34 = add nuw nsw i64 %.03853, 4
+  %35 = icmp samesign ult i64 %34, %31
+  br i1 %35, label %.preheader48, label %.preheader47, !llvm.loop !8
 
-37:                                               ; preds = %.preheader48, %37
-  %.03751 = phi i64 [ 0, %.preheader48 ], [ %44, %37 ]
-  %38 = getelementptr inbounds nuw i64, ptr %.04152, i64 %.03751
-  %39 = load i64, ptr %38, align 8, !tbaa !9
-  %40 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %39)
-  %41 = getelementptr inbounds nuw i64, ptr %4, i64 %.03751
-  %42 = load i64, ptr %41, align 8, !tbaa !9
-  %43 = add i64 %42, %40
-  store i64 %43, ptr %41, align 8, !tbaa !9
-  %44 = add nuw nsw i64 %.03751, 1
-  %exitcond.not = icmp eq i64 %44, 4
-  br i1 %exitcond.not, label %33, label %37, !llvm.loop !11
+36:                                               ; preds = %.preheader48, %36
+  %.03751 = phi i64 [ 0, %.preheader48 ], [ %43, %36 ]
+  %37 = getelementptr inbounds nuw i64, ptr %.04152, i64 %.03751
+  %38 = load i64, ptr %37, align 8, !tbaa !9
+  %39 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %40 = getelementptr inbounds nuw i64, ptr %4, i64 %.03751
+  %41 = load i64, ptr %40, align 8, !tbaa !9
+  %42 = add i64 %41, %39
+  store i64 %42, ptr %40, align 8, !tbaa !9
+  %43 = add nuw nsw i64 %.03751, 1
+  %exitcond.not = icmp eq i64 %43, 4
+  br i1 %exitcond.not, label %32, label %36, !llvm.loop !11
 
 .preheader:                                       ; preds = %46
-  %45 = icmp ult ptr %.041.lcssa, %31
+  %44 = getelementptr inbounds nuw i64, ptr %18, i64 %14
+  %45 = icmp ult ptr %.041.lcssa, %44
   br i1 %45, label %.lr.ph59, label %._crit_edge60
 
 46:                                               ; preds = %.preheader47, %46
@@ -148,7 +148,7 @@ define noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef %0, i64 n
   %52 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %51)
   %53 = add i64 %52, %.458
   %54 = getelementptr inbounds nuw i8, ptr %.14257, i64 8
-  %55 = icmp ult ptr %54, %31
+  %55 = icmp ult ptr %54, %44
   br i1 %55, label %.lr.ph59, label %._crit_edge60, !llvm.loop !13
 
 ._crit_edge60:                                    ; preds = %.lr.ph59, %.preheader
@@ -159,7 +159,7 @@ define noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef %0, i64 n
 56:                                               ; preds = %._crit_edge60, %._crit_edge
   %.2 = phi i64 [ %.4.lcssa, %._crit_edge60 ], [ %.039.lcssa, %._crit_edge ]
   %57 = add nsw i64 %2, %1
-  %58 = icmp slt i64 %15, %57
+  %58 = icmp slt i64 %16, %57
   br i1 %58, label %.lr.ph65, label %._crit_edge66
 
 ._crit_edge66:                                    ; preds = %.lr.ph65, %56
@@ -167,7 +167,7 @@ define noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef %0, i64 n
   ret i64 %.5.lcssa
 
 .lr.ph65:                                         ; preds = %56, %.lr.ph65
-  %.063 = phi i64 [ %68, %.lr.ph65 ], [ %15, %56 ]
+  %.063 = phi i64 [ %68, %.lr.ph65 ], [ %16, %56 ]
   %.562 = phi i64 [ %spec.select44, %.lr.ph65 ], [ %.2, %56 ]
   %59 = lshr i64 %.063, 3
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 %59
@@ -1053,19 +1053,19 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit: ; pred
   %152 = getelementptr inbounds i8, ptr %0, i64 %151
   %153 = sdiv i64 %3, 8
   %154 = getelementptr inbounds i8, ptr %4, i64 %153
-  %155 = shl nsw i64 %150, 3
-  %.neg = sub i64 %2, %155
-  %156 = trunc i64 %.neg to i32
-  %157 = add i32 %156, 8
-  %notmask = shl nsw i32 -1, %157
-  %158 = add nsw i64 %150, -1
-  %159 = icmp sgt i64 %150, 1
-  br i1 %159, label %.lr.ph128, label %._crit_edge
+  %155 = add nsw i64 %150, -1
+  %156 = icmp sgt i64 %150, 1
+  br i1 %156, label %.lr.ph128, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph128, %145
-  %160 = getelementptr inbounds i8, ptr %152, i64 %158
+  %157 = shl nsw i64 %150, 3
+  %.neg = sub i64 %2, %157
+  %158 = trunc i64 %.neg to i32
+  %159 = add i32 %158, 8
+  %notmask = shl nsw i32 -1, %159
+  %160 = getelementptr inbounds i8, ptr %152, i64 %155
   %161 = load i8, ptr %160, align 1, !tbaa !3
-  %162 = getelementptr inbounds i8, ptr %154, i64 %158
+  %162 = getelementptr inbounds i8, ptr %154, i64 %155
   %163 = load i8, ptr %162, align 1, !tbaa !3
   %164 = trunc i32 %notmask to i8
   %165 = and i8 %163, %164
@@ -1083,7 +1083,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit: ; pred
   %171 = getelementptr inbounds nuw i8, ptr %154, i64 %.0127
   store i8 %170, ptr %171, align 1, !tbaa !3
   %172 = add nuw nsw i64 %.0127, 1
-  %exitcond.not = icmp eq i64 %172, %158
+  %exitcond.not = icmp eq i64 %172, %155
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph128, !llvm.loop !32
 
 .loopexit:                                        ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit, %.preheader, %144, %._crit_edge
@@ -5419,25 +5419,25 @@ define linkonce_odr i32 @_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_
 
 15:                                               ; preds = %4
   %.sroa.speculated32 = tail call i64 @llvm.smin.i64(i64 %3, i64 64)
-  %16 = trunc i64 %.sroa.speculated32 to i16
   %sext = shl i64 %.sroa.speculated32, 48
-  %17 = ashr exact i64 %sext, 48
-  %18 = icmp sgt i64 %17, 0
+  %16 = ashr exact i64 %sext, 48
+  %17 = icmp sgt i64 %16, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !16
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !21
-  br i1 %18, label %.lr.ph, label %._crit_edge
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !21
+  br i1 %17, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %.016.lcssa = phi i16 [ 0, %15 ], [ %spec.select20, %.lr.ph ]
-  %21 = sdiv i16 %16, 8
+  %20 = trunc i64 %.sroa.speculated32 to i16
+  %21 = sdiv i16 %20, 8
   %22 = sext i16 %21 to i64
   %23 = getelementptr inbounds i8, ptr %.pre, i64 %22
   store ptr %23, ptr %0, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = getelementptr inbounds i8, ptr %20, i64 %22
+  %25 = getelementptr inbounds i8, ptr %19, i64 %22
   store ptr %25, ptr %24, align 8, !tbaa !21
-  %26 = sub nsw i64 %3, %17
+  %26 = sub nsw i64 %3, %16
   store i64 %26, ptr %2, align 8, !tbaa !23
   %27 = trunc i64 %.sroa.speculated32 to i32
   %28 = and i32 %27, 65535
@@ -5458,7 +5458,7 @@ define linkonce_odr i32 @_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_
   %38 = icmp ne i32 %37, 0
   %39 = add nsw i64 %.01536, %10
   %40 = lshr i64 %39, 3
-  %41 = getelementptr inbounds nuw i8, ptr %20, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !3
   %43 = zext i8 %42 to i32
   %44 = trunc i64 %39 to i32
@@ -5470,7 +5470,7 @@ define linkonce_odr i32 @_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_
   %50 = zext i1 %49 to i16
   %spec.select20 = add i16 %.01635, %50
   %51 = add nuw nsw i64 %.01536, 1
-  %exitcond.not = icmp eq i64 %51, %17
+  %exitcond.not = icmp eq i64 %51, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !148
 
 52:                                               ; preds = %4

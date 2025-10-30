@@ -671,49 +671,49 @@ zend_bitset_pop_first.exit157:                    ; preds = %zend_bitset_first.e
 235:                                              ; preds = %zend_bitset_pop_first.exit157
   %236 = load ptr, ptr %15, align 8, !tbaa !80
   %237 = zext nneg i32 %225 to i64
-  %238 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %236, i64 %237
-  %239 = load ptr, ptr %20, align 8, !tbaa !28
-  %240 = getelementptr inbounds nuw %struct._zend_ssa_block, ptr %239, i64 %237
-  %241 = load ptr, ptr %12, align 8, !tbaa !26
-  %242 = shl nuw i64 1, %223
-  %243 = and i64 %indvars.iv.i.i151, 67108863
-  %244 = getelementptr inbounds nuw i64, ptr %241, i64 %243
-  %245 = load i64, ptr %244, align 8, !tbaa !24
-  %246 = or i64 %245, %242
-  store i64 %246, ptr %244, align 8, !tbaa !24
-  %.0103212 = load ptr, ptr %240, align 8, !tbaa !34
+  %238 = load ptr, ptr %20, align 8, !tbaa !28
+  %239 = getelementptr inbounds nuw %struct._zend_ssa_block, ptr %238, i64 %237
+  %240 = load ptr, ptr %12, align 8, !tbaa !26
+  %241 = shl nuw i64 1, %223
+  %242 = and i64 %indvars.iv.i.i151, 67108863
+  %243 = getelementptr inbounds nuw i64, ptr %240, i64 %242
+  %244 = load i64, ptr %243, align 8, !tbaa !24
+  %245 = or i64 %244, %241
+  store i64 %245, ptr %243, align 8, !tbaa !24
+  %.0103212 = load ptr, ptr %239, align 8, !tbaa !34
   %.not213 = icmp eq ptr %.0103212, null
   br i1 %.not213, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %235, %.lr.ph
   %.0103214 = phi ptr [ %.0103, %.lr.ph ], [ %.0103212, %235 ]
-  %247 = load ptr, ptr %7, align 8, !tbaa !36
-  %248 = getelementptr inbounds nuw i8, ptr %.0103214, i64 68
-  %249 = load i32, ptr %248, align 4, !tbaa !37
-  %250 = and i32 %249, 63
-  %251 = zext nneg i32 %250 to i64
-  %252 = shl nuw i64 1, %251
-  %253 = xor i64 %252, -1
-  %254 = lshr i32 %249, 6
-  %255 = zext nneg i32 %254 to i64
-  %256 = getelementptr inbounds nuw i64, ptr %247, i64 %255
-  %257 = load i64, ptr %256, align 8, !tbaa !24
-  %258 = and i64 %257, %253
-  store i64 %258, ptr %256, align 8, !tbaa !24
-  %259 = load ptr, ptr %13, align 8, !tbaa !41
-  tail call void %259(ptr noundef nonnull %0, ptr noundef nonnull %.0103214) #8
+  %246 = load ptr, ptr %7, align 8, !tbaa !36
+  %247 = getelementptr inbounds nuw i8, ptr %.0103214, i64 68
+  %248 = load i32, ptr %247, align 4, !tbaa !37
+  %249 = and i32 %248, 63
+  %250 = zext nneg i32 %249 to i64
+  %251 = shl nuw i64 1, %250
+  %252 = xor i64 %251, -1
+  %253 = lshr i32 %248, 6
+  %254 = zext nneg i32 %253 to i64
+  %255 = getelementptr inbounds nuw i64, ptr %246, i64 %254
+  %256 = load i64, ptr %255, align 8, !tbaa !24
+  %257 = and i64 %256, %252
+  store i64 %257, ptr %255, align 8, !tbaa !24
+  %258 = load ptr, ptr %13, align 8, !tbaa !41
+  tail call void %258(ptr noundef nonnull %0, ptr noundef nonnull %.0103214) #8
   %.0103 = load ptr, ptr %.0103214, align 8, !tbaa !34
   %.not = icmp eq ptr %.0103, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %235
-  %260 = getelementptr inbounds nuw i8, ptr %238, i64 16
+  %259 = getelementptr inbounds nuw %struct._zend_basic_block, ptr %236, i64 %237
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = load i32, ptr %260, align 8, !tbaa !87
   %262 = icmp eq i32 %261, 0
   br i1 %262, label %263, label %336
 
 263:                                              ; preds = %._crit_edge
-  %264 = load ptr, ptr %238, align 8, !tbaa !89
+  %264 = load ptr, ptr %259, align 8, !tbaa !89
   %265 = load i32, ptr %264, align 4, !tbaa !22
   %266 = load ptr, ptr %3, align 8, !tbaa !4
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 8
@@ -817,7 +817,7 @@ scdf_edge.exit.i161:                              ; preds = %278
   br i1 %.not.i169, label %scdf_mark_edge_feasible.exit170, label %.lr.ph.i166
 
 336:                                              ; preds = %._crit_edge
-  %337 = getelementptr inbounds nuw i8, ptr %238, i64 12
+  %337 = getelementptr inbounds nuw i8, ptr %259, i64 12
   %338 = load i32, ptr %337, align 4, !tbaa !86
   %339 = add i32 %338, %261
   %340 = icmp slt i32 %338, %339
@@ -864,13 +864,13 @@ scdf_edge.exit.i161:                              ; preds = %278
 ._crit_edge218:                                   ; preds = %361, %336
   %.0101.lcssa = phi ptr [ null, %336 ], [ %345, %361 ]
   %.0.lcssa = phi i32 [ %338, %336 ], [ %339, %361 ]
-  %362 = getelementptr inbounds nuw i8, ptr %238, i64 20
+  %362 = getelementptr inbounds nuw i8, ptr %259, i64 20
   %363 = load i32, ptr %362, align 4, !tbaa !88
   %364 = icmp eq i32 %363, 1
   br i1 %364, label %365, label %438
 
 365:                                              ; preds = %._crit_edge218
-  %366 = load ptr, ptr %238, align 8, !tbaa !89
+  %366 = load ptr, ptr %259, align 8, !tbaa !89
   %367 = load i32, ptr %366, align 4, !tbaa !22
   %368 = load ptr, ptr %3, align 8, !tbaa !4
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
@@ -992,7 +992,7 @@ scdf_edge.exit.i174:                              ; preds = %380
   %448 = sext i32 %.1 to i64
   %449 = getelementptr %struct._zend_ssa_op, ptr %447, i64 %448
   %450 = getelementptr i8, ptr %449, i64 -36
-  tail call void %446(ptr noundef nonnull %0, i32 noundef %225, ptr noundef nonnull %238, ptr noundef nonnull %.1102, ptr noundef %450) #8
+  tail call void %446(ptr noundef nonnull %0, i32 noundef %225, ptr noundef nonnull %259, ptr noundef nonnull %.1102, ptr noundef %450) #8
   br label %scdf_mark_edge_feasible.exit170
 
 scdf_mark_edge_feasible.exit170:                  ; preds = %.lr.ph.i179, %.lr.ph.i166, %421, %411, %scdf_edge.exit.i174, %319, %309, %scdf_edge.exit.i161, %440, %438

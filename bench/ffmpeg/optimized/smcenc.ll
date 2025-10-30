@@ -358,28 +358,28 @@ bytestream2_put_be32.exit:                        ; preds = %41, %45
   %160 = call i32 @llvm.smin.i32(i32 %159, i32 4)
   %161 = sub nsw i32 %64, %.910521413.i
   %162 = call i32 @llvm.smin.i32(i32 %161, i32 4)
-  %163 = mul nsw i32 %162, %160
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %164 = icmp sgt i32 %159, 0
-  br i1 %164, label %.lr.ph1400.i, label %._crit_edge.i
+  %163 = icmp sgt i32 %159, 0
+  br i1 %163, label %.lr.ph1400.i, label %._crit_edge.i
 
 .lr.ph1400.i:                                     ; preds = %.lr.ph1417.i
-  %165 = sext i32 %162 to i64
+  %164 = sext i32 %162 to i64
   %smax1693.i = call i32 @llvm.smax.i32(i32 %160, i32 1)
   %wide.trip.count1694.i = zext nneg i32 %smax1693.i to i64
   br label %179
 
 ._crit_edge.i:                                    ; preds = %179, %.lr.ph1417.i
-  %166 = sext i32 %163 to i64
+  %165 = mul nsw i32 %162, %160
+  %166 = sext i32 %165 to i64
   call void @qsort(ptr noundef nonnull %5, i64 noundef %166, i64 noundef 1, ptr noundef nonnull @smc_cmp_values) #11
   %167 = load i8, ptr %5, align 16, !tbaa !40
   store i8 %167, ptr %78, align 1, !tbaa !40
-  %168 = icmp sgt i32 %163, 1
+  %168 = icmp sgt i32 %165, 1
   br i1 %168, label %.lr.ph.preheader.i.i, label %count_distinct_items.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge.i
-  %wide.trip.count.i.i = zext nneg i32 %163 to i64
+  %wide.trip.count.i.i = zext nneg i32 %165 to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %177, %.lr.ph.preheader.i.i
@@ -413,11 +413,11 @@ count_distinct_items.exit.i:                      ; preds = %177, %._crit_edge.i
 
 179:                                              ; preds = %179, %.lr.ph1400.i
   %indvars.iv1690.i = phi i64 [ 0, %.lr.ph1400.i ], [ %indvars.iv.next1691.i, %179 ]
-  %180 = mul nsw i64 %indvars.iv1690.i, %165
+  %180 = mul nsw i64 %indvars.iv1690.i, %164
   %181 = getelementptr inbounds i8, ptr %5, i64 %180
   %182 = mul nsw i64 %indvars.iv1690.i, %54
   %183 = getelementptr inbounds i8, ptr %.91416.i, i64 %182
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %181, ptr align 1 %183, i64 %165, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %181, ptr align 1 %183, i64 %164, i1 false)
   %indvars.iv.next1691.i = add nuw nsw i64 %indvars.iv1690.i, 1
   %exitcond1695.not.i = icmp eq i64 %indvars.iv.next1691.i, %wide.trip.count1694.i
   br i1 %exitcond1695.not.i, label %._crit_edge.i, label %179, !llvm.loop !53

@@ -3892,19 +3892,19 @@ _ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit: ; preds = %103
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit
   %109 = add i32 %108, -1
   %umin = call i32 @llvm.umin.i32(i32 %109, i32 63)
-  %110 = add nuw nsw i32 %umin, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0242 = phi i32 [ %111, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %111 = add nuw nsw i32 %.0242, 1
+  %.0242 = phi i32 [ %110, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %110 = add nuw nsw i32 %.0242, 1
   %exitcond.not = icmp eq i32 %.0242, %umin
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !238
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %112 = icmp ne i32 %111, %108
+  %111 = add nuw nsw i32 %umin, 1
+  %112 = icmp ne i32 %110, %108
   %113 = zext i1 %112 to i32
-  %114 = add nuw nsw i32 %110, %113
+  %114 = add nuw nsw i32 %111, %113
   %115 = zext nneg i32 %114 to i64
   br label %._crit_edge
 
@@ -4304,12 +4304,15 @@ _ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit209: ; preds = %317
 .lr.ph246.preheader:                              ; preds = %_ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit209
   %323 = add i32 %322, -1
   %umin257 = call i32 @llvm.umin.i32(i32 %323, i32 63)
-  %324 = add nuw nsw i32 %umin257, 1
   br label %.lr.ph246
 
-.preheader:                                       ; preds = %330, %_ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit209
-  %.sink.i.i.i205285 = phi i32 [ 0, %_ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit209 ], [ %322, %330 ]
-  %.sroa.7.0.lcssa = phi i32 [ 0, %_ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit209 ], [ %324, %330 ]
+.preheader.loopexit:                              ; preds = %330
+  %324 = add nuw nsw i32 %umin257, 1
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.loopexit, %_ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit209
+  %.sink.i.i.i205285 = phi i32 [ 0, %_ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit209 ], [ %322, %.preheader.loopexit ]
+  %.sroa.7.0.lcssa = phi i32 [ 0, %_ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit209 ], [ %324, %.preheader.loopexit ]
   %.not248 = icmp eq i32 %.sroa.7.0.lcssa, %.sink.i.i.i205285
   br i1 %.not248, label %._crit_edge251, label %.lr.ph250
 
@@ -4328,7 +4331,7 @@ _ZN4llvm11GraphTraitsIPKNS_10BasicBlockEE9child_endES3_.exit209: ; preds = %317
 330:                                              ; preds = %.lr.ph246, %329
   %331 = add nuw nsw i32 %.055245, 1
   %exitcond258.not = icmp eq i32 %.055245, %umin257
-  br i1 %exitcond258.not, label %.preheader, label %.lr.ph246, !llvm.loop !251
+  br i1 %exitcond258.not, label %.preheader.loopexit, label %.lr.ph246, !llvm.loop !251
 
 .lr.ph250:                                        ; preds = %.preheader, %337
   %.sroa.7.1249 = phi i32 [ %338, %337 ], [ %.sroa.7.0.lcssa, %.preheader ]
@@ -4806,15 +4809,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %30, %28, %_ZN4llvm1
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %46 = zext i32 %.sink.i.i.i to i64
-  %47 = add i32 %.sink.i.i.i, -1
-  %umin = tail call i32 @llvm.umin.i32(i32 %47, i32 63)
-  %48 = add nuw nsw i32 %umin, 1
-  %wide.trip.count = zext nneg i32 %48 to i64
+  %46 = add i32 %.sink.i.i.i, -1
+  %umin = tail call i32 @llvm.umin.i32(i32 %46, i32 63)
+  %47 = add nuw nsw i32 %umin, 1
+  %wide.trip.count = zext nneg i32 %47 to i64
   br label %51
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51
-  %49 = icmp ne i64 %indvars.iv.next, %46
+  %48 = zext i32 %.sink.i.i.i to i64
+  %49 = icmp ne i64 %indvars.iv.next, %48
   %50 = select i1 %49, i1 %.1, i1 false
   br i1 %50, label %174, label %_ZN4llvm11raw_ostreamlsEPKc.exit54
 

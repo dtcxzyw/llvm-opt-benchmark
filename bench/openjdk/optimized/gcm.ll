@@ -2152,7 +2152,11 @@ _ZN9Node_List4pushEP4Node.exit138:                ; preds = %_ZN9Node_List4pushE
   br label %176
 
 ..loopexit158_crit_edge:                          ; preds = %.loopexit157
-  br label %.backedge, !llvm.loop !26
+  br label %.loopexit158, !llvm.loop !26
+
+.loopexit158:                                     ; preds = %..loopexit158_crit_edge, %194
+  %spec.store.select = select i1 %192, ptr null, ptr %.0113175
+  br label %.backedge
 
 176:                                              ; preds = %.lr.ph178, %.backedge
   %177 = phi i32 [ %175, %.lr.ph178 ], [ %329, %.backedge ]
@@ -2181,7 +2185,6 @@ _ZN9Node_List4pushEP4Node.exit138:                ; preds = %_ZN9Node_List4pushE
   br i1 %or.cond, label %194, label %239
 
 194:                                              ; preds = %176
-  %spec.store.select = select i1 %192, ptr null, ptr %.0113175
   %195 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds nuw i8, ptr %188, i64 32
@@ -2190,7 +2193,7 @@ _ZN9Node_List4pushEP4Node.exit138:                ; preds = %_ZN9Node_List4pushE
   %.idx = shl nuw nsw i64 %199, 3
   %200 = getelementptr inbounds nuw i8, ptr %196, i64 %.idx
   %.not185 = icmp eq i32 %198, 0
-  br i1 %.not185, label %.backedge, label %.lr.ph173, !llvm.loop !26
+  br i1 %.not185, label %.loopexit158, label %.lr.ph173, !llvm.loop !26
 
 .lr.ph173:                                        ; preds = %194
   br label %201, !llvm.loop !26
@@ -2443,10 +2446,10 @@ _ZN9Node_List4pushEP4Node.exit147:                ; preds = %318, %323
   call void @_ZN4Node8add_precEPS_(ptr noundef nonnull align 8 dereferenceable(52) %188, ptr noundef nonnull %2) #14
   br label %.backedge
 
-.backedge:                                        ; preds = %313, %315, %316, %_ZN9Node_List4pushEP4Node.exit147, %327, %328, %287, %194, %..loopexit158_crit_edge, %240, %242, %261, %265, %273, %239, %239
-  %.0113.be = phi ptr [ %.0113175, %239 ], [ %.0113175, %240 ], [ %.0113175, %261 ], [ %.0113175, %265 ], [ %.0113175, %273 ], [ %.0113175, %242 ], [ %.0113175, %239 ], [ %spec.store.select, %..loopexit158_crit_edge ], [ %spec.store.select, %194 ], [ %.0113175, %287 ], [ %.0113175, %328 ], [ %.0113175, %327 ], [ %.0113175, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0113175, %316 ], [ %.0113175, %315 ], [ %.0113175, %313 ]
-  %.0108.be = phi i1 [ %.0108176, %239 ], [ %.0108176, %240 ], [ %.0108176, %261 ], [ %.0108176, %265 ], [ %.0108176, %273 ], [ %.0108176, %242 ], [ %.0108176, %239 ], [ %.0108176, %..loopexit158_crit_edge ], [ %.0108176, %194 ], [ %.0108176, %287 ], [ %.0108176, %328 ], [ %.0108176, %327 ], [ true, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0108176, %316 ], [ %.0108176, %315 ], [ %.2110, %313 ]
-  %.0106.be = phi ptr [ %.0106177, %239 ], [ %.0106177, %240 ], [ %.0106177, %261 ], [ %.0106177, %265 ], [ %.0106177, %273 ], [ %.0106177, %242 ], [ %.0106177, %239 ], [ %.0106177, %..loopexit158_crit_edge ], [ %.0106177, %194 ], [ %.0106177, %287 ], [ %.0107, %328 ], [ %.0107, %327 ], [ %.0106177, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0106177, %316 ], [ %.0106177, %315 ], [ %.2, %313 ]
+.backedge:                                        ; preds = %313, %315, %316, %_ZN9Node_List4pushEP4Node.exit147, %327, %328, %287, %240, %242, %261, %265, %273, %239, %239, %.loopexit158
+  %.0113.be = phi ptr [ %.0113175, %239 ], [ %.0113175, %240 ], [ %.0113175, %261 ], [ %.0113175, %265 ], [ %.0113175, %273 ], [ %.0113175, %242 ], [ %.0113175, %239 ], [ %spec.store.select, %.loopexit158 ], [ %.0113175, %287 ], [ %.0113175, %328 ], [ %.0113175, %327 ], [ %.0113175, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0113175, %316 ], [ %.0113175, %315 ], [ %.0113175, %313 ]
+  %.0108.be = phi i1 [ %.0108176, %239 ], [ %.0108176, %240 ], [ %.0108176, %261 ], [ %.0108176, %265 ], [ %.0108176, %273 ], [ %.0108176, %242 ], [ %.0108176, %239 ], [ %.0108176, %.loopexit158 ], [ %.0108176, %287 ], [ %.0108176, %328 ], [ %.0108176, %327 ], [ true, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0108176, %316 ], [ %.0108176, %315 ], [ %.2110, %313 ]
+  %.0106.be = phi ptr [ %.0106177, %239 ], [ %.0106177, %240 ], [ %.0106177, %261 ], [ %.0106177, %265 ], [ %.0106177, %273 ], [ %.0106177, %242 ], [ %.0106177, %239 ], [ %.0106177, %.loopexit158 ], [ %.0106177, %287 ], [ %.0107, %328 ], [ %.0107, %327 ], [ %.0106177, %_ZN9Node_List4pushEP4Node.exit147 ], [ %.0106177, %316 ], [ %.0106177, %315 ], [ %.2, %313 ]
   %329 = load i32, ptr %119, align 8
   %.not = icmp eq i32 %329, 0
   br i1 %.not, label %._crit_edge, label %176, !llvm.loop !26

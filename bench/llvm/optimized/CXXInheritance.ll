@@ -4844,8 +4844,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_123FinalOverriderCollector7CollectE
 
 .lr.ph128:                                        ; preds = %.lr.ph.i.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %46 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %47 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -5134,7 +5134,7 @@ _ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread: ; preds = %156, %_ZNK5clang13
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %45, ptr %12, align 8, !tbaa !27
-  store i32 4, ptr %47, align 4, !tbaa !79
+  store i32 4, ptr %46, align 4, !tbaa !79
   store ptr %170, ptr %45, align 8, !tbaa !281
   store ptr %171, ptr %.sroa.4.0..09.i.i.i.sroa_idx.i.i, align 8, !tbaa !281
   br label %176
@@ -5149,12 +5149,12 @@ _ZNK5clang13CXXMethodDecl9isVirtualEv.exit.thread: ; preds = %156, %_ZNK5clang13
   %.sroa.2.0..sroa_idx.i80 = getelementptr inbounds i8, ptr %180, i64 -8
   %.sroa.2.0.copyload.i81 = load ptr, ptr %.sroa.2.0..sroa_idx.i80, align 8, !tbaa !281
   %182 = add i32 %177, -1
-  store i32 %182, ptr %46, align 8, !tbaa !44
+  store i32 %182, ptr %47, align 8, !tbaa !44
   %.not71121 = icmp eq ptr %.sroa.0.0.copyload.i79, %.sroa.2.0.copyload.i81
   br i1 %.not71121, label %._crit_edge125, label %.lr.ph124
 
 ._crit_edge125.loopexit:                          ; preds = %225
-  %.pr.pre = load i32, ptr %46, align 8, !tbaa !44
+  %.pr.pre = load i32, ptr %47, align 8, !tbaa !44
   br label %._crit_edge125
 
 ._crit_edge125:                                   ; preds = %._crit_edge125.loopexit, %176
@@ -5225,8 +5225,8 @@ _ZN5clang17OverridingMethods10replaceAllENS_19UniqueVirtualMethodE.exit: ; preds
   br i1 %212, label %225, label %213
 
 213:                                              ; preds = %_ZN5clang17OverridingMethods10replaceAllENS_19UniqueVirtualMethodE.exit
-  %214 = load i32, ptr %46, align 8, !tbaa !44
-  %215 = load i32, ptr %47, align 4, !tbaa !79
+  %214 = load i32, ptr %47, align 8, !tbaa !44
+  %215 = load i32, ptr %46, align 4, !tbaa !79
   %.not.i.i.not.i = icmp ult i32 %214, %215
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_14iterator_rangeIPKPKN5clang13CXXMethodDeclEEELb1EE9push_backES8_.exit, label %216, !prof !14
 
@@ -5234,7 +5234,7 @@ _ZN5clang17OverridingMethods10replaceAllENS_19UniqueVirtualMethodE.exit: ; preds
   %217 = zext i32 %214 to i64
   %218 = add nuw nsw i64 %217, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %45, i64 noundef %218, i64 noundef 16) #16
-  %.pre.i85 = load i32, ptr %46, align 8, !tbaa !44
+  %.pre.i85 = load i32, ptr %47, align 8, !tbaa !44
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_14iterator_rangeIPKPKN5clang13CXXMethodDeclEEELb1EE9push_backES8_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_14iterator_rangeIPKPKN5clang13CXXMethodDeclEEELb1EE9push_backES8_.exit: ; preds = %213, %216
@@ -5245,9 +5245,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14iterator_rangeIPKPKN5clang13CXXMethodDecl
   store ptr %210, ptr %222, align 1
   %.sroa.2.0..sroa_idx.i86 = getelementptr inbounds nuw i8, ptr %222, i64 8
   store ptr %211, ptr %.sroa.2.0..sroa_idx.i86, align 1
-  %223 = load i32, ptr %46, align 8, !tbaa !44
+  %223 = load i32, ptr %47, align 8, !tbaa !44
   %224 = add i32 %223, 1
-  store i32 %224, ptr %46, align 8, !tbaa !44
+  store i32 %224, ptr %47, align 8, !tbaa !44
   br label %225
 
 225:                                              ; preds = %_ZN5clang17OverridingMethods10replaceAllENS_19UniqueVirtualMethodE.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_14iterator_rangeIPKPKN5clang13CXXMethodDeclEEELb1EE9push_backES8_.exit

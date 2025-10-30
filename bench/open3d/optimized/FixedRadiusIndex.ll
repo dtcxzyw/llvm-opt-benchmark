@@ -3801,8 +3801,8 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZN6open3d4cor
   %234 = getelementptr inbounds nuw i32, ptr %233, i64 %223
   %235 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %234, ptr %235, align 8, !tbaa !74
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %233, i8 0, i64 %232, i1 false), !tbaa !38
   %236 = getelementptr inbounds nuw i8, ptr %233, i64 %232
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %233, i8 0, i64 %232, i1 false), !tbaa !38
   %237 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %236, ptr %237, align 8, !tbaa !75
   %.not228 = icmp eq i64 %223, 1

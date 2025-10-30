@@ -390,39 +390,39 @@ tailrecurse:                                      ; preds = %40, %4
   br i1 %18, label %15, label %.preheader, !llvm.loop !26
 
 .preheader:                                       ; preds = %15
-  %19 = getelementptr inbounds %struct.btElement, ptr %13, i64 %indvars.iv
-  %20 = sext i32 %.0 to i64
-  br label %21
+  %19 = sext i32 %.0 to i64
+  br label %20
 
-21:                                               ; preds = %21, %.preheader
-  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %21 ], [ %20, %.preheader ]
-  %22 = getelementptr inbounds %struct.btElement, ptr %13, i64 %indvars.iv45
-  %23 = load i32, ptr %22, align 4, !tbaa !20
-  %24 = icmp sgt i32 %23, %.sroa.0.0.extract.trunc
+20:                                               ; preds = %20, %.preheader
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %20 ], [ %19, %.preheader ]
+  %21 = getelementptr inbounds %struct.btElement, ptr %13, i64 %indvars.iv45
+  %22 = load i32, ptr %21, align 4, !tbaa !20
+  %23 = icmp sgt i32 %22, %.sroa.0.0.extract.trunc
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
-  br i1 %24, label %21, label %25, !llvm.loop !27
+  br i1 %23, label %20, label %24, !llvm.loop !27
 
-25:                                               ; preds = %21
-  %26 = trunc nsw i64 %indvars.iv to i32
-  %27 = trunc nsw i64 %indvars.iv45 to i32
+24:                                               ; preds = %20
+  %25 = trunc nsw i64 %indvars.iv to i32
+  %26 = trunc nsw i64 %indvars.iv45 to i32
   %.not = icmp sgt i64 %indvars.iv, %indvars.iv45
-  br i1 %.not, label %36, label %28
+  br i1 %.not, label %36, label %27
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds %struct.btElement, ptr %13, i64 %indvars.iv45
-  %30 = load i64, ptr %19, align 4
-  %31 = load i64, ptr %29, align 4
-  store i64 %31, ptr %19, align 4
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds %struct.btElement, ptr %13, i64 %indvars.iv45
+  %29 = getelementptr inbounds %struct.btElement, ptr %13, i64 %indvars.iv
+  %30 = load i64, ptr %29, align 4
+  %31 = load i64, ptr %28, align 4
+  store i64 %31, ptr %29, align 4
   %32 = load ptr, ptr %5, align 8, !tbaa !4
   %33 = getelementptr inbounds %struct.btElement, ptr %32, i64 %indvars.iv45
   store i64 %30, ptr %33, align 4
-  %34 = add nsw i32 %26, 1
-  %35 = add nsw i32 %27, -1
+  %34 = add nsw i32 %25, 1
+  %35 = add nsw i32 %26, -1
   br label %36
 
-36:                                               ; preds = %25, %28
-  %.230 = phi i32 [ %34, %28 ], [ %26, %25 ]
-  %.2 = phi i32 [ %35, %28 ], [ %27, %25 ]
+36:                                               ; preds = %24, %27
+  %.230 = phi i32 [ %34, %27 ], [ %25, %24 ]
+  %.2 = phi i32 [ %35, %27 ], [ %26, %24 ]
   %.not33 = icmp sgt i32 %.230, %.2
   br i1 %.not33, label %37, label %12, !llvm.loop !28
 

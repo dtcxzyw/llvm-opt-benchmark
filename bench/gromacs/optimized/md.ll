@@ -499,8 +499,6 @@ define void @_ZN3gmx15LegacySimulator5do_mdEv(ptr noundef nonnull readonly align
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i8 0, ptr %22, align 1, !tbaa !158
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %.sink1913.sroa.gep = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %.sink1913.sroa.gep1966 = getelementptr inbounds nuw i8, ptr %34, i64 8
   br label %112
 
 112:                                              ; preds = %112, %1
@@ -516,6 +514,8 @@ define void @_ZN3gmx15LegacySimulator5do_mdEv(ptr noundef nonnull readonly align
   br i1 %115, label %_ZNSt5arrayIN3gmx16SimulationSignalELm3EEC2Ev.exit, label %112
 
 _ZNSt5arrayIN3gmx16SimulationSignalELm3EEC2Ev.exit: ; preds = %112
+  %.sink1913.sroa.gep = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %.sink1913.sroa.gep1966 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   invoke void @_ZN3gmx19SimulationSignallerC1EPSt5arrayINS_16SimulationSignalELm3EEPK9t_commrecPK14gmx_multisim_tbb(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false)

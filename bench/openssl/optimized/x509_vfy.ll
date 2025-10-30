@@ -4289,27 +4289,24 @@ X509_self_signed.exit:                            ; preds = %97
   %or.cond4 = and i1 %105, %104
   %.not229 = icmp eq i32 %.lobit, 0
   %106 = and i1 %or.cond4, %.not229
-  br i1 %106, label %.lr.ph.preheader, label %107, !prof !175
+  br i1 %106, label %.lr.ph, label %107, !prof !175
 
 107:                                              ; preds = %103
   %108 = load ptr, ptr %2, align 8, !tbaa !90
   call void @X509_free(ptr noundef %108) #10
   br label %.critedge.sink.split
 
-.lr.ph.preheader:                                 ; preds = %103
-  %109 = and i32 %.2184354, -5
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.1194352 = phi i32 [ %112, %.lr.ph ], [ %76, %.lr.ph.preheader ]
-  %110 = load ptr, ptr %5, align 8, !tbaa !56
-  %111 = call ptr @OPENSSL_sk_pop(ptr noundef %110) #10
-  call void @X509_free(ptr noundef %111) #10
-  %112 = add nsw i32 %.1194352, -1
-  %113 = icmp samesign ugt i32 %112, %.0173356
-  br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !178
+.lr.ph:                                           ; preds = %103, %.lr.ph
+  %.1194352 = phi i32 [ %111, %.lr.ph ], [ %76, %103 ]
+  %109 = load ptr, ptr %5, align 8, !tbaa !56
+  %110 = call ptr @OPENSSL_sk_pop(ptr noundef %109) #10
+  call void @X509_free(ptr noundef %110) #10
+  %111 = add nsw i32 %.1194352, -1
+  %112 = icmp samesign ugt i32 %111, %.0173356
+  br i1 %112, label %.lr.ph, label %._crit_edge, !llvm.loop !178
 
 ._crit_edge:                                      ; preds = %.lr.ph
+  %113 = and i32 %.2184354, -5
   store i32 %.0173356, ptr %10, align 4, !tbaa !86
   br i1 %17, label %114, label %.critedge249.thread
 
@@ -4353,7 +4350,7 @@ X509_self_signed.exit:                            ; preds = %97
   br i1 %.not232, label %.critedge249.thread, label %146
 
 .critedge249.thread:                              ; preds = %130, %127, %123, %._crit_edge, %.critedge249
-  %.7189385 = phi i32 [ %.2184354, %.critedge249 ], [ %109, %._crit_edge ], [ %109, %123 ], [ %109, %127 ], [ %109, %130 ]
+  %.7189385 = phi i32 [ %.2184354, %.critedge249 ], [ %113, %._crit_edge ], [ %113, %123 ], [ %113, %127 ], [ %113, %130 ]
   %.0193383 = phi i32 [ %76, %.critedge249 ], [ %.0173356, %._crit_edge ], [ %.0173356, %123 ], [ %.0173356, %127 ], [ %.0173356, %130 ]
   %131 = load ptr, ptr %5, align 8, !tbaa !56
   %132 = load ptr, ptr %2, align 8, !tbaa !90

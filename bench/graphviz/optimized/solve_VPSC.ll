@@ -333,9 +333,9 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 define void @_ZN4VPSC6refineEv(ptr noundef nonnull align 8 dereferenceable(84) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %11
 
 .preheader:                                       ; preds = %._crit_edge, %25
@@ -351,17 +351,17 @@ define void @_ZN4VPSC6refineEv(ptr noundef nonnull align 8 dereferenceable(84) %
   br label %29
 
 11:                                               ; preds = %.loopexit, %1
-  %12 = load ptr, ptr %5, align 8, !tbaa !64
-  %.not3135 = icmp eq ptr %12, %6
+  %12 = load ptr, ptr %4, align 8, !tbaa !64
+  %.not3135 = icmp eq ptr %12, %5
   br i1 %.not3135, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load ptr, ptr %5, align 8, !tbaa !64
+  %.pre = load ptr, ptr %4, align 8, !tbaa !64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
   %13 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %12, %11 ]
-  %14 = icmp eq ptr %13, %6
+  %14 = icmp eq ptr %13, %5
   br i1 %14, label %.preheader, label %.lr.ph39
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
@@ -371,7 +371,7 @@ define void @_ZN4VPSC6refineEv(ptr noundef nonnull align 8 dereferenceable(84) %
   call void @_ZN5Block18setUpInConstraintsEv(ptr noundef nonnull align 8 dereferenceable(112) %16)
   call void @_ZN5Block19setUpOutConstraintsEv(ptr noundef nonnull align 8 dereferenceable(112) %16)
   %17 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.025.036) #26
-  %.not31 = icmp eq ptr %17, %6
+  %.not31 = icmp eq ptr %17, %5
   br i1 %.not31, label %._crit_edge.loopexit, label %.lr.ph
 
 .lr.ph39:                                         ; preds = %._crit_edge, %25
@@ -390,7 +390,7 @@ define void @_ZN4VPSC6refineEv(ptr noundef nonnull align 8 dereferenceable(84) %
 
 25:                                               ; preds = %21, %.lr.ph39
   %26 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.021.037) #26
-  %27 = icmp eq ptr %26, %6
+  %27 = icmp eq ptr %26, %5
   br i1 %27, label %.preheader, label %.lr.ph39
 
 .loopexit:                                        ; preds = %21
@@ -398,8 +398,8 @@ define void @_ZN4VPSC6refineEv(ptr noundef nonnull align 8 dereferenceable(84) %
   store ptr null, ptr %2, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !65
-  call void @_ZN6Blocks5splitEP5BlockRS1_S2_P10Constraint(ptr noundef nonnull align 8 dereferenceable(60) %4, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %20)
-  call void @_ZN6Blocks7cleanupEv(ptr noundef nonnull align 8 dereferenceable(60) %4)
+  call void @_ZN6Blocks5splitEP5BlockRS1_S2_P10Constraint(ptr noundef nonnull align 8 dereferenceable(60) %6, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %20)
+  call void @_ZN6Blocks7cleanupEv(ptr noundef nonnull align 8 dereferenceable(60) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %11, !llvm.loop !67
@@ -790,8 +790,8 @@ define void @_ZN7IncVPSC7satisfyEv(ptr noundef nonnull align 8 dereferenceable(1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !25
   %9 = load ptr, ptr %6, align 8, !tbaa !25
-  %.not23.i32 = icmp eq ptr %9, %8
-  br i1 %.not23.i32, label %_ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_EERS2_.exit.thread, label %.lr.ph.i.preheader.lr.ph
+  %.not23.i31 = icmp eq ptr %9, %8
+  br i1 %.not23.i31, label %_ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_EERS2_.exit.thread, label %.lr.ph.i.preheader.lr.ph
 
 .lr.ph.i.preheader.lr.ph:                         ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -804,8 +804,8 @@ define void @_ZN7IncVPSC7satisfyEv(ptr noundef nonnull align 8 dereferenceable(1
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader.lr.ph, %_ZNSt3setIP5BlockSt4lessIS1_ESaIS1_EE6insertERKS1_.exit
   %15 = phi ptr [ %9, %.lr.ph.i.preheader.lr.ph ], [ %113, %_ZNSt3setIP5BlockSt4lessIS1_ESaIS1_EE6insertERKS1_.exit ]
   %16 = phi ptr [ %8, %.lr.ph.i.preheader.lr.ph ], [ %112, %_ZNSt3setIP5BlockSt4lessIS1_ESaIS1_EE6insertERKS1_.exit ]
-  %.01134 = phi i64 [ 0, %.lr.ph.i.preheader.lr.ph ], [ %.112, %_ZNSt3setIP5BlockSt4lessIS1_ESaIS1_EE6insertERKS1_.exit ]
-  %.02433 = phi ptr [ null, %.lr.ph.i.preheader.lr.ph ], [ %.2, %_ZNSt3setIP5BlockSt4lessIS1_ESaIS1_EE6insertERKS1_.exit ]
+  %.01133 = phi i64 [ 0, %.lr.ph.i.preheader.lr.ph ], [ %.112, %_ZNSt3setIP5BlockSt4lessIS1_ESaIS1_EE6insertERKS1_.exit ]
+  %.02432 = phi ptr [ null, %.lr.ph.i.preheader.lr.ph ], [ %.2, %_ZNSt3setIP5BlockSt4lessIS1_ESaIS1_EE6insertERKS1_.exit ]
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
@@ -815,7 +815,7 @@ define void @_ZN7IncVPSC7satisfyEv(ptr noundef nonnull align 8 dereferenceable(1
   br i1 %or.cond.i, label %43, label %_ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_EERS2_.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.1 = phi ptr [ %.2, %.lr.ph.i ], [ %.02433, %.lr.ph.i.preheader ]
+  %.1 = phi ptr [ %.2, %.lr.ph.i ], [ %.02432, %.lr.ph.i.preheader ]
   %.026.i = phi double [ %.1.i, %.lr.ph.i ], [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i.preheader ]
   %.sroa.0.025.i = phi ptr [ %42, %.lr.ph.i ], [ %15, %.lr.ph.i.preheader ]
   %.sroa.018.024.i = phi ptr [ %.sroa.018.1.i, %.lr.ph.i ], [ %16, %.lr.ph.i.preheader ]
@@ -850,9 +850,9 @@ define void @_ZN7IncVPSC7satisfyEv(ptr noundef nonnull align 8 dereferenceable(1
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !78
 
 43:                                               ; preds = %._crit_edge.i
-  %.cast.i35 = ptrtoint ptr %16 to i64
+  %.cast.i = ptrtoint ptr %16 to i64
   %44 = ptrtoint ptr %15 to i64
-  %45 = sub i64 %.cast.i35, %44
+  %45 = sub i64 %.cast.i, %44
   %46 = getelementptr i8, ptr %15, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -8
   %48 = load ptr, ptr %47, align 8, !tbaa !29
@@ -887,7 +887,7 @@ _ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_EERS2_.exit: ; preds = %
   br label %_ZNSt3setIP5BlockSt4lessIS1_ESaIS1_EE6insertERKS1_.exit
 
 59:                                               ; preds = %50
-  %60 = icmp sgt i64 %.01134, 10000
+  %60 = icmp sgt i64 %.01133, 10000
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %59
@@ -897,7 +897,7 @@ _ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_EERS2_.exit: ; preds = %
   unreachable
 
 63:                                               ; preds = %59
-  %64 = add nsw i64 %.01134, 1
+  %64 = add nsw i64 %.01133, 1
   %65 = call noundef ptr @_ZN5Block12splitBetweenEP8VariableS1_RPS_S3_(ptr noundef nonnull align 8 dereferenceable(112) %53, ptr noundef nonnull %51, ptr noundef nonnull %55, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %66 = load ptr, ptr %7, align 8, !tbaa !77
   %67 = load ptr, ptr %10, align 8, !tbaa !28
@@ -1022,7 +1022,7 @@ _ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_
   br label %_ZNSt3setIP5BlockSt4lessIS1_ESaIS1_EE6insertERKS1_.exit
 
 _ZNSt3setIP5BlockSt4lessIS1_ESaIS1_EE6insertERKS1_.exit: ; preds = %_ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, %99, %58
-  %.112 = phi i64 [ %.01134, %58 ], [ %64, %99 ], [ %64, %_ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i ]
+  %.112 = phi i64 [ %.01133, %58 ], [ %64, %99 ], [ %64, %_ZNSt8_Rb_treeIP5BlockS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %112 = load ptr, ptr %7, align 8, !tbaa !25
@@ -1035,8 +1035,8 @@ _ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_EERS2_.exit.thread: ; pr
   call void @_ZN6Blocks7cleanupEv(ptr noundef nonnull align 8 dereferenceable(60) %114)
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %116 = load i32, ptr %115, align 8, !tbaa !24
-  %.not37 = icmp eq i32 %116, 0
-  br i1 %.not37, label %._crit_edge, label %.lr.ph
+  %.not35 = icmp eq i32 %116, 0
+  br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_EERS2_.exit.thread
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1146,7 +1146,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 define noundef double @_ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_EERS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !25
-  %.cast = ptrtoint ptr %5 to i64
   %6 = load ptr, ptr %1, align 8, !tbaa !25
   %.not23 = icmp eq ptr %6, %5
   br i1 %.not23, label %_ZNSt6vectorIP10ConstraintSaIS1_EE6resizeEm.exit, label %.lr.ph
@@ -1198,6 +1197,7 @@ define noundef double @_ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_E
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 35:                                               ; preds = %._crit_edge
+  %.cast = ptrtoint ptr %5 to i64
   %36 = ptrtoint ptr %6 to i64
   %37 = sub i64 %.cast, %36
   %38 = getelementptr i8, ptr %6, i64 %37

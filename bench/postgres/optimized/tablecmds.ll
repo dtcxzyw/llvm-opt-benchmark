@@ -5225,13 +5225,13 @@ define internal void @RangeVarCallbackForDropRelation(ptr noundef readonly captu
 
 .critedge:                                        ; preds = %4, %14, %11
   %.not77 = icmp eq i32 %1, 0
-  br i1 %.not77, label %112, label %15
+  br i1 %.not77, label %110, label %15
 
 15:                                               ; preds = %.critedge
   %16 = zext i32 %1 to i64
   %17 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %16) #14
   %.not78 = icmp eq ptr %17, null
-  br i1 %.not78, label %112, label %18
+  br i1 %.not78, label %110, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr i8, ptr %17, i64 16
@@ -5269,155 +5269,152 @@ define internal void @RangeVarCallbackForDropRelation(ptr noundef readonly captu
   %38 = load i8, ptr %3, align 4
   %39 = sext i8 %38 to i32
   %.not79 = icmp eq i32 %.0, %39
-  br i1 %.not79, label %61, label %40
+  br i1 %.not79, label %59, label %.preheader
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load ptr, ptr %41, align 8
-  br label %43
+.preheader:                                       ; preds = %37, %.preheader
+  %.011.i = phi ptr [ %42, %.preheader ], [ @dropmsgstringarray, %37 ]
+  %40 = load i8, ptr %.011.i, align 8
+  %.not.i = icmp eq i8 %40, 0
+  %41 = icmp eq i8 %40, %38
+  %or.cond.i = or i1 %.not.i, %41
+  %42 = getelementptr inbounds nuw i8, ptr %.011.i, i64 40
+  br i1 %or.cond.i, label %.preheader.i, label %.preheader, !llvm.loop !27
 
-43:                                               ; preds = %43, %40
-  %.011.i = phi ptr [ @dropmsgstringarray, %40 ], [ %46, %43 ]
-  %44 = load i8, ptr %.011.i, align 8
-  %.not.i = icmp eq i8 %44, 0
-  %45 = icmp eq i8 %44, %38
-  %or.cond.i = or i1 %.not.i, %45
-  %46 = getelementptr inbounds nuw i8, ptr %.011.i, i64 40
-  br i1 %or.cond.i, label %.preheader.i, label %43, !llvm.loop !27
+.preheader.i:                                     ; preds = %.preheader, %.preheader.i
+  %.0.i = phi ptr [ %45, %.preheader.i ], [ @dropmsgstringarray, %.preheader ]
+  %43 = load i8, ptr %.0.i, align 8
+  %.not14.i = icmp eq i8 %43, 0
+  %44 = icmp eq i8 %43, %33
+  %or.cond16.i = or i1 %.not14.i, %44
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
+  br i1 %or.cond16.i, label %46, label %.preheader.i, !llvm.loop !28
 
-.preheader.i:                                     ; preds = %43, %.preheader.i
-  %.0.i = phi ptr [ %49, %.preheader.i ], [ @dropmsgstringarray, %43 ]
-  %47 = load i8, ptr %.0.i, align 8
-  %.not14.i = icmp eq i8 %47, 0
-  %48 = icmp eq i8 %47, %33
-  %or.cond16.i = or i1 %.not14.i, %48
-  %49 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  br i1 %or.cond16.i, label %50, label %.preheader.i, !llvm.loop !28
+46:                                               ; preds = %.preheader.i
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %50 = tail call i32 @errcode(i32 noundef 151027844) #14
+  %51 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
+  %52 = load ptr, ptr %51, align 8
+  %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef %52, ptr noundef %48) #14
+  br i1 %.not14.i, label %58, label %54
 
-50:                                               ; preds = %.preheader.i
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  %52 = tail call i32 @errcode(i32 noundef 151027844) #14
-  %53 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef %54, ptr noundef %42) #14
-  br i1 %.not14.i, label %60, label %56
+54:                                               ; preds = %46
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.87, ptr noundef %56) #14
+  br label %58
 
-56:                                               ; preds = %50
-  %57 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
-  %58 = load ptr, ptr %57, align 8
-  %59 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.87, ptr noundef %58) #14
-  br label %60
-
-60:                                               ; preds = %56, %50
+58:                                               ; preds = %54, %46
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1492, ptr noundef nonnull @__func__.DropErrorMsgWrongType) #14
   unreachable
 
-61:                                               ; preds = %37
-  %62 = tail call i32 @GetUserId() #14
-  %63 = tail call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %1, i32 noundef %62) #14
-  br i1 %63, label %74, label %64
+59:                                               ; preds = %37
+  %60 = tail call i32 @GetUserId() #14
+  %61 = tail call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %1, i32 noundef %60) #14
+  br i1 %61, label %72, label %62
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %23, i64 68
-  %66 = load i32, ptr %65, align 4
-  %67 = tail call i32 @GetUserId() #14
-  %68 = tail call zeroext i1 @object_ownercheck(i32 noundef 2615, i32 noundef %66, i32 noundef %67) #14
-  br i1 %68, label %74, label %69
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds nuw i8, ptr %23, i64 68
+  %64 = load i32, ptr %63, align 4
+  %65 = tail call i32 @GetUserId() #14
+  %66 = tail call zeroext i1 @object_ownercheck(i32 noundef 2615, i32 noundef %64, i32 noundef %65) #14
+  br i1 %66, label %72, label %67
 
-69:                                               ; preds = %64
-  %70 = load i8, ptr %27, align 1
-  %71 = tail call i32 @get_relkind_objtype(i8 noundef signext %70) #14
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %73 = load ptr, ptr %72, align 8
-  tail call void @aclcheck_error(i32 noundef 2, i32 noundef %71, ptr noundef %73) #14
-  br label %74
+67:                                               ; preds = %62
+  %68 = load i8, ptr %27, align 1
+  %69 = tail call i32 @get_relkind_objtype(i8 noundef signext %68) #14
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %71 = load ptr, ptr %70, align 8
+  tail call void @aclcheck_error(i32 noundef 2, i32 noundef %69, ptr noundef %71) #14
+  br label %72
 
-74:                                               ; preds = %69, %64, %61
-  %75 = tail call zeroext i1 @IsSystemClass(i32 noundef %1, ptr noundef nonnull %23) #14
-  br i1 %75, label %76, label %90
+72:                                               ; preds = %67, %62, %59
+  %73 = tail call zeroext i1 @IsSystemClass(i32 noundef %1, ptr noundef nonnull %23) #14
+  br i1 %73, label %74, label %88
 
-76:                                               ; preds = %74
-  %77 = load i8, ptr %27, align 1
-  %78 = icmp eq i8 %77, 105
-  br i1 %78, label %79, label %90
+74:                                               ; preds = %72
+  %75 = load i8, ptr %27, align 1
+  %76 = icmp eq i8 %75, 105
+  br i1 %76, label %77, label %88
 
-79:                                               ; preds = %76
-  %80 = tail call ptr @SearchSysCache1(i32 noundef 34, i64 noundef %16) #14
-  %.not80.not = icmp eq ptr %80, null
-  br i1 %.not80.not, label %.thread, label %81
+77:                                               ; preds = %74
+  %78 = tail call ptr @SearchSysCache1(i32 noundef 34, i64 noundef %16) #14
+  %.not80.not = icmp eq ptr %78, null
+  br i1 %.not80.not, label %.thread, label %79
 
-.thread:                                          ; preds = %79
+.thread:                                          ; preds = %77
   tail call void @ReleaseSysCache(ptr noundef nonnull %17) #14
-  br label %112
+  br label %110
 
-81:                                               ; preds = %79
-  %82 = getelementptr i8, ptr %80, i64 16
-  %.val86 = load ptr, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %.val86, i64 22
-  %84 = load i8, ptr %83, align 2
-  %85 = zext i8 %84 to i64
-  %86 = getelementptr inbounds nuw i8, ptr %.val86, i64 %85
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 18
-  %88 = load i8, ptr %87, align 2, !range !6, !noundef !7
-  %89 = trunc nuw i8 %88 to i1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %80) #14
-  %.2 = xor i1 %89, true
-  br label %90
+79:                                               ; preds = %77
+  %80 = getelementptr i8, ptr %78, i64 16
+  %.val86 = load ptr, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %.val86, i64 22
+  %82 = load i8, ptr %81, align 2
+  %83 = zext i8 %82 to i64
+  %84 = getelementptr inbounds nuw i8, ptr %.val86, i64 %83
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 18
+  %86 = load i8, ptr %85, align 2, !range !6, !noundef !7
+  %87 = trunc nuw i8 %86 to i1
+  tail call void @ReleaseSysCache(ptr noundef nonnull %78) #14
+  %.2 = xor i1 %87, true
+  br label %88
 
-90:                                               ; preds = %81, %76, %74
-  %.065 = phi i1 [ %.2, %81 ], [ false, %76 ], [ false, %74 ]
-  %91 = load i8, ptr @allowSystemTableMods, align 1, !range !6
-  %92 = trunc nuw i8 %91 to i1
-  %or.cond = select i1 %.065, i1 true, i1 %92
-  br i1 %or.cond, label %101, label %93
+88:                                               ; preds = %79, %74, %72
+  %.065 = phi i1 [ %.2, %79 ], [ false, %74 ], [ false, %72 ]
+  %89 = load i8, ptr @allowSystemTableMods, align 1, !range !6
+  %90 = trunc nuw i8 %89 to i1
+  %or.cond = select i1 %.065, i1 true, i1 %90
+  br i1 %or.cond, label %99, label %91
 
-93:                                               ; preds = %90
-  %94 = tail call zeroext i1 @IsSystemClass(i32 noundef %1, ptr noundef nonnull %23) #14
-  br i1 %94, label %95, label %101
+91:                                               ; preds = %88
+  %92 = tail call zeroext i1 @IsSystemClass(i32 noundef %1, ptr noundef nonnull %23) #14
+  br i1 %92, label %93, label %99
 
-95:                                               ; preds = %93
-  %96 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  %97 = tail call i32 @errcode(i32 noundef 16797828) #14
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %99 = load ptr, ptr %98, align 8
-  %100 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, ptr noundef %99) #14
+93:                                               ; preds = %91
+  %94 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %95 = tail call i32 @errcode(i32 noundef 16797828) #14
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %97 = load ptr, ptr %96, align 8
+  %98 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, ptr noundef %97) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1774, ptr noundef nonnull @__func__.RangeVarCallbackForDropRelation) #14
   unreachable
 
-101:                                              ; preds = %93, %90
+99:                                               ; preds = %91, %88
   tail call void @ReleaseSysCache(ptr noundef nonnull %17) #14
-  %102 = icmp ne i32 %.0, 105
-  %brmerge = or i1 %.not, %102
-  br i1 %brmerge, label %107, label %103
+  %100 = icmp ne i32 %.0, 105
+  %brmerge = or i1 %.not, %100
+  br i1 %brmerge, label %105, label %101
 
-103:                                              ; preds = %101
-  %104 = tail call i32 @IndexGetRelation(i32 noundef %1, i1 noundef zeroext true) #14
-  %105 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %104, ptr %105, align 4
-  %.not81 = icmp eq i32 %104, 0
-  br i1 %.not81, label %107, label %106
+101:                                              ; preds = %99
+  %102 = tail call i32 @IndexGetRelation(i32 noundef %1, i1 noundef zeroext true) #14
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %102, ptr %103, align 4
+  %.not81 = icmp eq i32 %102, 0
+  br i1 %.not81, label %105, label %104
 
-106:                                              ; preds = %103
-  tail call void @LockRelationOid(i32 noundef %104, i32 noundef %6) #14
-  br label %107
+104:                                              ; preds = %101
+  tail call void @LockRelationOid(i32 noundef %102, i32 noundef %6) #14
+  br label %105
 
-107:                                              ; preds = %101, %103, %106
+105:                                              ; preds = %99, %101, %104
   %.not84 = xor i1 %26, true
   %brmerge85 = or i1 %.not, %.not84
-  br i1 %brmerge85, label %112, label %108
+  br i1 %brmerge85, label %110, label %106
 
-108:                                              ; preds = %107
-  %109 = tail call i32 @get_partition_parent(i32 noundef %1, i1 noundef zeroext true) #14
-  %110 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %109, ptr %110, align 4
-  %.not82 = icmp eq i32 %109, 0
-  br i1 %.not82, label %112, label %111
+106:                                              ; preds = %105
+  %107 = tail call i32 @get_partition_parent(i32 noundef %1, i1 noundef zeroext true) #14
+  %108 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %107, ptr %108, align 4
+  %.not82 = icmp eq i32 %107, 0
+  br i1 %.not82, label %110, label %109
 
-111:                                              ; preds = %108
-  tail call void @LockRelationOid(i32 noundef %109, i32 noundef 8) #14
-  br label %112
+109:                                              ; preds = %106
+  tail call void @LockRelationOid(i32 noundef %107, i32 noundef 8) #14
+  br label %110
 
-112:                                              ; preds = %.thread, %111, %108, %107, %15, %.critedge
+110:                                              ; preds = %.thread, %109, %106, %105, %15, %.critedge
   ret void
 }
 

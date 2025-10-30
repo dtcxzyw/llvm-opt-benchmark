@@ -424,12 +424,12 @@ define void @wc_Sha512Free(ptr noundef %0) local_unnamed_addr #1 {
   %5 = trunc i64 %4 to i32
   %6 = sub i32 0, %5
   %7 = and i32 %6, 7
-  %8 = sub nuw nsw i32 224, %7
   %.not24.i = icmp eq i32 %7, 0
-  br i1 %.not24.i, label %.lr.ph29.i.preheader, label %.lr.ph.i
+  br i1 %.not24.i, label %.lr.ph29.preheader.i, label %.lr.ph.i
 
-.lr.ph29.i.preheader:                             ; preds = %.lr.ph.i, %3
-  %.01528.i.ph = phi ptr [ %0, %3 ], [ %10, %.lr.ph.i ]
+.lr.ph29.preheader.i:                             ; preds = %.lr.ph.i, %3
+  %.016.lcssa.i = phi ptr [ %0, %3 ], [ %10, %.lr.ph.i ]
+  %8 = sub nuw nsw i32 224, %7
   br label %.lr.ph29.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -439,15 +439,15 @@ define void @wc_Sha512Free(ptr noundef %0) local_unnamed_addr #1 {
   %10 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
   store volatile i8 0, ptr %.01625.i, align 1, !tbaa !17
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %.lr.ph29.preheader.i, label %.lr.ph.i, !llvm.loop !18
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
   %.not2232.i = icmp eq i32 %12, 0
   br i1 %.not2232.i, label %ForceZero.exit, label %.lr.ph35.i
 
-.lr.ph29.i:                                       ; preds = %.lr.ph29.i.preheader, %.lr.ph29.i
-  %.01528.i = phi ptr [ %11, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
-  %.01827.i = phi i32 [ %12, %.lr.ph29.i ], [ %8, %.lr.ph29.i.preheader ]
+.lr.ph29.i:                                       ; preds = %.lr.ph29.i, %.lr.ph29.preheader.i
+  %.01528.i = phi ptr [ %11, %.lr.ph29.i ], [ %.016.lcssa.i, %.lr.ph29.preheader.i ]
+  %.01827.i = phi i32 [ %12, %.lr.ph29.i ], [ %8, %.lr.ph29.preheader.i ]
   %11 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !10
   %12 = add nsw i32 %.01827.i, -8
@@ -819,12 +819,12 @@ define void @wc_Sha384Free(ptr noundef %0) local_unnamed_addr #1 {
   %5 = trunc i64 %4 to i32
   %6 = sub i32 0, %5
   %7 = and i32 %6, 7
-  %8 = sub nuw nsw i32 224, %7
   %.not24.i = icmp eq i32 %7, 0
-  br i1 %.not24.i, label %.lr.ph29.i.preheader, label %.lr.ph.i
+  br i1 %.not24.i, label %.lr.ph29.preheader.i, label %.lr.ph.i
 
-.lr.ph29.i.preheader:                             ; preds = %.lr.ph.i, %3
-  %.01528.i.ph = phi ptr [ %0, %3 ], [ %10, %.lr.ph.i ]
+.lr.ph29.preheader.i:                             ; preds = %.lr.ph.i, %3
+  %.016.lcssa.i = phi ptr [ %0, %3 ], [ %10, %.lr.ph.i ]
+  %8 = sub nuw nsw i32 224, %7
   br label %.lr.ph29.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -834,15 +834,15 @@ define void @wc_Sha384Free(ptr noundef %0) local_unnamed_addr #1 {
   %10 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
   store volatile i8 0, ptr %.01625.i, align 1, !tbaa !17
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %.lr.ph29.preheader.i, label %.lr.ph.i, !llvm.loop !18
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
   %.not2232.i = icmp eq i32 %12, 0
   br i1 %.not2232.i, label %ForceZero.exit, label %.lr.ph35.i
 
-.lr.ph29.i:                                       ; preds = %.lr.ph29.i.preheader, %.lr.ph29.i
-  %.01528.i = phi ptr [ %11, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
-  %.01827.i = phi i32 [ %12, %.lr.ph29.i ], [ %8, %.lr.ph29.i.preheader ]
+.lr.ph29.i:                                       ; preds = %.lr.ph29.i, %.lr.ph29.preheader.i
+  %.01528.i = phi ptr [ %11, %.lr.ph29.i ], [ %.016.lcssa.i, %.lr.ph29.preheader.i ]
+  %.01827.i = phi i32 [ %12, %.lr.ph29.i ], [ %8, %.lr.ph29.preheader.i ]
   %11 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !10
   %12 = add nsw i32 %.01827.i, -8
@@ -1111,12 +1111,12 @@ define void @wc_Sha512_224Free(ptr noundef %0) local_unnamed_addr #1 {
   %5 = trunc i64 %4 to i32
   %6 = sub i32 0, %5
   %7 = and i32 %6, 7
-  %8 = sub nuw nsw i32 224, %7
   %.not24.i.i = icmp eq i32 %7, 0
-  br i1 %.not24.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i
+  br i1 %.not24.i.i, label %.lr.ph29.preheader.i.i, label %.lr.ph.i.i
 
-.lr.ph29.i.i.preheader:                           ; preds = %.lr.ph.i.i, %3
-  %.01528.i.i.ph = phi ptr [ %0, %3 ], [ %10, %.lr.ph.i.i ]
+.lr.ph29.preheader.i.i:                           ; preds = %.lr.ph.i.i, %3
+  %.016.lcssa.i.i = phi ptr [ %0, %3 ], [ %10, %.lr.ph.i.i ]
+  %8 = sub nuw nsw i32 224, %7
   br label %.lr.ph29.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
@@ -1126,15 +1126,15 @@ define void @wc_Sha512_224Free(ptr noundef %0) local_unnamed_addr #1 {
   %10 = getelementptr inbounds nuw i8, ptr %.01625.i.i, i64 1
   store volatile i8 0, ptr %.01625.i.i, align 1, !tbaa !17
   %.not.i.i = icmp eq i32 %9, 0
-  br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %.not.i.i, label %.lr.ph29.preheader.i.i, label %.lr.ph.i.i, !llvm.loop !18
 
 .preheader.i.i:                                   ; preds = %.lr.ph29.i.i
   %.not2232.i.i = icmp eq i32 %12, 0
   br i1 %.not2232.i.i, label %wc_Sha512Free.exit, label %.lr.ph35.i.i
 
-.lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i.preheader, %.lr.ph29.i.i
-  %.01528.i.i = phi ptr [ %11, %.lr.ph29.i.i ], [ %.01528.i.i.ph, %.lr.ph29.i.i.preheader ]
-  %.01827.i.i = phi i32 [ %12, %.lr.ph29.i.i ], [ %8, %.lr.ph29.i.i.preheader ]
+.lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i, %.lr.ph29.preheader.i.i
+  %.01528.i.i = phi ptr [ %11, %.lr.ph29.i.i ], [ %.016.lcssa.i.i, %.lr.ph29.preheader.i.i ]
+  %.01827.i.i = phi i32 [ %12, %.lr.ph29.i.i ], [ %8, %.lr.ph29.preheader.i.i ]
   %11 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !10
   %12 = add nsw i32 %.01827.i.i, -8
@@ -1403,12 +1403,12 @@ define void @wc_Sha512_256Free(ptr noundef %0) local_unnamed_addr #1 {
   %5 = trunc i64 %4 to i32
   %6 = sub i32 0, %5
   %7 = and i32 %6, 7
-  %8 = sub nuw nsw i32 224, %7
   %.not24.i.i = icmp eq i32 %7, 0
-  br i1 %.not24.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i
+  br i1 %.not24.i.i, label %.lr.ph29.preheader.i.i, label %.lr.ph.i.i
 
-.lr.ph29.i.i.preheader:                           ; preds = %.lr.ph.i.i, %3
-  %.01528.i.i.ph = phi ptr [ %0, %3 ], [ %10, %.lr.ph.i.i ]
+.lr.ph29.preheader.i.i:                           ; preds = %.lr.ph.i.i, %3
+  %.016.lcssa.i.i = phi ptr [ %0, %3 ], [ %10, %.lr.ph.i.i ]
+  %8 = sub nuw nsw i32 224, %7
   br label %.lr.ph29.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
@@ -1418,15 +1418,15 @@ define void @wc_Sha512_256Free(ptr noundef %0) local_unnamed_addr #1 {
   %10 = getelementptr inbounds nuw i8, ptr %.01625.i.i, i64 1
   store volatile i8 0, ptr %.01625.i.i, align 1, !tbaa !17
   %.not.i.i = icmp eq i32 %9, 0
-  br i1 %.not.i.i, label %.lr.ph29.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %.not.i.i, label %.lr.ph29.preheader.i.i, label %.lr.ph.i.i, !llvm.loop !18
 
 .preheader.i.i:                                   ; preds = %.lr.ph29.i.i
   %.not2232.i.i = icmp eq i32 %12, 0
   br i1 %.not2232.i.i, label %wc_Sha512Free.exit, label %.lr.ph35.i.i
 
-.lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i.preheader, %.lr.ph29.i.i
-  %.01528.i.i = phi ptr [ %11, %.lr.ph29.i.i ], [ %.01528.i.i.ph, %.lr.ph29.i.i.preheader ]
-  %.01827.i.i = phi i32 [ %12, %.lr.ph29.i.i ], [ %8, %.lr.ph29.i.i.preheader ]
+.lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i, %.lr.ph29.preheader.i.i
+  %.01528.i.i = phi ptr [ %11, %.lr.ph29.i.i ], [ %.016.lcssa.i.i, %.lr.ph29.preheader.i.i ]
+  %.01827.i.i = phi i32 [ %12, %.lr.ph29.i.i ], [ %8, %.lr.ph29.preheader.i.i ]
   %11 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !10
   %12 = add nsw i32 %.01827.i.i, -8

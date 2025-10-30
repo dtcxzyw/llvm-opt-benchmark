@@ -1040,72 +1040,72 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %39, label %160, label %40
 
 40:                                               ; preds = %32
-  %41 = sext i32 %38 to i64
-  %42 = getelementptr inbounds %struct.b2Island, ptr %.val45, i64 %41
-  %43 = getelementptr inbounds nuw i8, ptr %36, i64 12
-  %.094.i = load i32, ptr %43, align 4, !tbaa !95
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 12
+  %.094.i = load i32, ptr %41, align 4, !tbaa !95
   %.not95.i = icmp eq i32 %.094.i, -1
   br i1 %.not95.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40
   %.val87.i = load ptr, ptr %10, align 8, !tbaa !99
-  br label %44
+  br label %42
 
-44:                                               ; preds = %44, %.lr.ph.i
-  %.096.i = phi i32 [ %.094.i, %.lr.ph.i ], [ %.0.i, %44 ]
-  %45 = sext i32 %.096.i to i64
-  %46 = getelementptr inbounds %struct.b2Body, ptr %.val87.i, i64 %45
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 76
-  store i32 %38, ptr %47, align 4, !tbaa !102
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 84
-  %.0.i = load i32, ptr %48, align 4, !tbaa !95
+42:                                               ; preds = %42, %.lr.ph.i
+  %.096.i = phi i32 [ %.094.i, %.lr.ph.i ], [ %.0.i, %42 ]
+  %43 = sext i32 %.096.i to i64
+  %44 = getelementptr inbounds %struct.b2Body, ptr %.val87.i, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 76
+  store i32 %38, ptr %45, align 4, !tbaa !102
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 84
+  %.0.i = load i32, ptr %46, align 4, !tbaa !95
   %.not.i = icmp eq i32 %.0.i, -1
-  br i1 %.not.i, label %._crit_edge.i, label %44, !llvm.loop !124
+  br i1 %.not.i, label %._crit_edge.i, label %42, !llvm.loop !124
 
-._crit_edge.i:                                    ; preds = %44, %40
-  %49 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %.07997.i = load i32, ptr %49, align 4, !tbaa !95
+._crit_edge.i:                                    ; preds = %42, %40
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %.07997.i = load i32, ptr %47, align 4, !tbaa !95
   %.not8198.i = icmp eq i32 %.07997.i, -1
   br i1 %.not8198.i, label %._crit_edge102.i, label %.lr.ph101.i
 
 .lr.ph101.i:                                      ; preds = %._crit_edge.i
   %.val90.i = load ptr, ptr %11, align 8, !tbaa !106
-  br label %50
+  br label %48
 
-50:                                               ; preds = %50, %.lr.ph101.i
-  %.07999.i = phi i32 [ %.07997.i, %.lr.ph101.i ], [ %.079.i, %50 ]
-  %51 = sext i32 %.07999.i to i64
-  %52 = getelementptr inbounds %struct.b2Contact, ptr %.val90.i, i64 %51
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 52
-  store i32 %38, ptr %53, align 4, !tbaa !111
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  %.079.i = load i32, ptr %54, align 4, !tbaa !95
+48:                                               ; preds = %48, %.lr.ph101.i
+  %.07999.i = phi i32 [ %.07997.i, %.lr.ph101.i ], [ %.079.i, %48 ]
+  %49 = sext i32 %.07999.i to i64
+  %50 = getelementptr inbounds %struct.b2Contact, ptr %.val90.i, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 52
+  store i32 %38, ptr %51, align 4, !tbaa !111
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 48
+  %.079.i = load i32, ptr %52, align 4, !tbaa !95
   %.not81.i = icmp eq i32 %.079.i, -1
-  br i1 %.not81.i, label %._crit_edge102.i, label %50, !llvm.loop !125
+  br i1 %.not81.i, label %._crit_edge102.i, label %48, !llvm.loop !125
 
-._crit_edge102.i:                                 ; preds = %50, %._crit_edge.i
-  %55 = getelementptr inbounds nuw i8, ptr %36, i64 36
-  %.080103.i = load i32, ptr %55, align 4, !tbaa !95
+._crit_edge102.i:                                 ; preds = %48, %._crit_edge.i
+  %53 = getelementptr inbounds nuw i8, ptr %36, i64 36
+  %.080103.i = load i32, ptr %53, align 4, !tbaa !95
   %.not82104.i = icmp eq i32 %.080103.i, -1
   br i1 %.not82104.i, label %._crit_edge108.i, label %.lr.ph107.i
 
 .lr.ph107.i:                                      ; preds = %._crit_edge102.i
   %.val93.i = load ptr, ptr %12, align 8, !tbaa !117
-  br label %56
+  br label %54
 
-56:                                               ; preds = %56, %.lr.ph107.i
-  %.080105.i = phi i32 [ %.080103.i, %.lr.ph107.i ], [ %.080.i, %56 ]
-  %57 = sext i32 %.080105.i to i64
-  %58 = getelementptr inbounds %struct.b2Joint, ptr %.val93.i, i64 %57
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  store i32 %38, ptr %59, align 8, !tbaa !119
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 56
-  %.080.i = load i32, ptr %60, align 8, !tbaa !95
+54:                                               ; preds = %54, %.lr.ph107.i
+  %.080105.i = phi i32 [ %.080103.i, %.lr.ph107.i ], [ %.080.i, %54 ]
+  %55 = sext i32 %.080105.i to i64
+  %56 = getelementptr inbounds %struct.b2Joint, ptr %.val93.i, i64 %55
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
+  store i32 %38, ptr %57, align 8, !tbaa !119
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 56
+  %.080.i = load i32, ptr %58, align 8, !tbaa !95
   %.not82.i = icmp eq i32 %.080.i, -1
-  br i1 %.not82.i, label %._crit_edge108.i, label %56, !llvm.loop !126
+  br i1 %.not82.i, label %._crit_edge108.i, label %54, !llvm.loop !126
 
-._crit_edge108.i:                                 ; preds = %56, %._crit_edge102.i
-  %61 = getelementptr inbounds nuw i8, ptr %42, i64 16
+._crit_edge108.i:                                 ; preds = %54, %._crit_edge102.i
+  %59 = sext i32 %38 to i64
+  %60 = getelementptr inbounds %struct.b2Island, ptr %.val45, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i32, ptr %61, align 4, !tbaa !82
   %.val86.i = load ptr, ptr %10, align 8, !tbaa !99
   %63 = sext i32 %62 to i64
@@ -1121,11 +1121,11 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %70, ptr %61, align 4, !tbaa !82
   %71 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %72 = load i32, ptr %71, align 4, !tbaa !83
-  %73 = getelementptr inbounds nuw i8, ptr %42, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %60, i64 20
   %74 = load i32, ptr %73, align 4, !tbaa !83
   %75 = add nsw i32 %74, %72
   store i32 %75, ptr %73, align 4, !tbaa !83
-  %76 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %77 = load i32, ptr %76, align 4, !tbaa !84
   %78 = icmp eq i32 %77, -1
   br i1 %78, label %79, label %86
@@ -1134,11 +1134,11 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %.07997.i, ptr %76, align 4, !tbaa !84
   %80 = getelementptr inbounds nuw i8, ptr %36, i64 28
   %81 = load i32, ptr %80, align 4, !tbaa !85
-  %82 = getelementptr inbounds nuw i8, ptr %42, i64 28
+  %82 = getelementptr inbounds nuw i8, ptr %60, i64 28
   store i32 %81, ptr %82, align 4, !tbaa !85
   %83 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %84 = load i32, ptr %83, align 4, !tbaa !86
-  %85 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %60, i64 32
   store i32 %84, ptr %85, align 4, !tbaa !86
   br label %103
 
@@ -1146,7 +1146,7 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not8198.i, label %103, label %87
 
 87:                                               ; preds = %86
-  %88 = getelementptr inbounds nuw i8, ptr %42, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %89 = load i32, ptr %88, align 4, !tbaa !85
   %.val89.i = load ptr, ptr %11, align 8, !tbaa !106
   %90 = sext i32 %89 to i64
@@ -1162,14 +1162,14 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %97, ptr %88, align 4, !tbaa !85
   %98 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %99 = load i32, ptr %98, align 4, !tbaa !86
-  %100 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %101 = load i32, ptr %100, align 4, !tbaa !86
   %102 = add nsw i32 %101, %99
   store i32 %102, ptr %100, align 4, !tbaa !86
   br label %103
 
 103:                                              ; preds = %87, %86, %79
-  %104 = getelementptr inbounds nuw i8, ptr %42, i64 36
+  %104 = getelementptr inbounds nuw i8, ptr %60, i64 36
   %105 = load i32, ptr %104, align 4, !tbaa !87
   %106 = icmp eq i32 %105, -1
   br i1 %106, label %107, label %114
@@ -1178,11 +1178,11 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %.080103.i, ptr %104, align 4, !tbaa !87
   %108 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %109 = load i32, ptr %108, align 4, !tbaa !88
-  %110 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %60, i64 40
   store i32 %109, ptr %110, align 4, !tbaa !88
   %111 = getelementptr inbounds nuw i8, ptr %36, i64 44
   %112 = load i32, ptr %111, align 4, !tbaa !89
-  %113 = getelementptr inbounds nuw i8, ptr %42, i64 44
+  %113 = getelementptr inbounds nuw i8, ptr %60, i64 44
   store i32 %112, ptr %113, align 4, !tbaa !89
   br label %b2MergeIsland.exit
 
@@ -1190,7 +1190,7 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not82104.i, label %b2MergeIsland.exit, label %115
 
 115:                                              ; preds = %114
-  %116 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %117 = load i32, ptr %116, align 4, !tbaa !88
   %.val92.i = load ptr, ptr %12, align 8, !tbaa !117
   %118 = sext i32 %117 to i64
@@ -1206,7 +1206,7 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %125, ptr %116, align 4, !tbaa !88
   %126 = getelementptr inbounds nuw i8, ptr %36, i64 44
   %127 = load i32, ptr %126, align 4, !tbaa !89
-  %128 = getelementptr inbounds nuw i8, ptr %42, i64 44
+  %128 = getelementptr inbounds nuw i8, ptr %60, i64 44
   %129 = load i32, ptr %128, align 4, !tbaa !89
   %130 = add nsw i32 %129, %127
   store i32 %130, ptr %128, align 4, !tbaa !89
@@ -1215,7 +1215,7 @@ define hidden void @b2MergeAwakeIslands(ptr noundef %0) local_unnamed_addr #0 {
 b2MergeIsland.exit:                               ; preds = %107, %114, %115
   %131 = getelementptr inbounds nuw i8, ptr %36, i64 52
   %132 = load i32, ptr %131, align 4, !tbaa !91
-  %133 = getelementptr inbounds nuw i8, ptr %42, i64 52
+  %133 = getelementptr inbounds nuw i8, ptr %60, i64 52
   %134 = load i32, ptr %133, align 4, !tbaa !91
   %135 = add nsw i32 %134, %132
   store i32 %135, ptr %133, align 4, !tbaa !91

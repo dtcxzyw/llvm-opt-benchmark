@@ -1947,19 +1947,19 @@ lex_check.exit152:                                ; preds = %var_add.exit159
   %792 = getelementptr inbounds nuw i8, ptr %787, i64 40
   %793 = load i32, ptr %792, align 8, !tbaa !51
   %794 = zext i32 %789 to i64
-  %795 = getelementptr inbounds nuw i16, ptr %791, i64 %794
-  %796 = load i16, ptr %795, align 2, !tbaa !70
-  %797 = zext i16 %796 to i64
-  %798 = getelementptr inbounds nuw %struct.VarInfo, ptr %790, i64 %797
-  %799 = getelementptr inbounds nuw i8, ptr %798, i64 8
-  store i32 %793, ptr %799, align 8, !tbaa !90
-  %800 = trunc i32 %789 to i8
-  %801 = getelementptr inbounds nuw i8, ptr %798, i64 16
-  store i8 %800, ptr %801, align 8, !tbaa !91
-  %802 = getelementptr inbounds nuw i8, ptr %798, i64 17
-  store i8 0, ptr %802, align 1, !tbaa !92
-  %803 = add i32 %789, 1
-  store i32 %803, ptr %788, align 8, !tbaa !59
+  %795 = add i32 %789, 1
+  %796 = getelementptr inbounds nuw i16, ptr %791, i64 %794
+  %797 = load i16, ptr %796, align 2, !tbaa !70
+  %798 = zext i16 %797 to i64
+  %799 = getelementptr inbounds nuw %struct.VarInfo, ptr %790, i64 %798
+  %800 = getelementptr inbounds nuw i8, ptr %799, i64 8
+  store i32 %793, ptr %800, align 8, !tbaa !90
+  %801 = trunc i32 %789 to i8
+  %802 = getelementptr inbounds nuw i8, ptr %799, i64 16
+  store i8 %801, ptr %802, align 8, !tbaa !91
+  %803 = getelementptr inbounds nuw i8, ptr %799, i64 17
+  store i8 0, ptr %803, align 1, !tbaa !92
+  store i32 %795, ptr %788, align 8, !tbaa !59
   %804 = load i32, ptr %565, align 4, !tbaa !83
   %805 = add i32 %804, 1
   %806 = getelementptr inbounds nuw i8, ptr %564, i64 90
@@ -1984,7 +1984,7 @@ lex_check.exit152:                                ; preds = %var_add.exit159
 bcreg_reserve.exit143:                            ; preds = %lex_check.exit152, %813
   store i32 %805, ptr %565, align 4, !tbaa !83
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %815 = trunc i32 %803 to i8
+  %815 = trunc i32 %795 to i8
   store i8 %815, ptr %69, align 4, !tbaa !60
   store i8 0, ptr %70, align 1, !tbaa !62
   %816 = getelementptr inbounds nuw i8, ptr %787, i64 8
@@ -3166,19 +3166,19 @@ bcreg_reserve.exit.i:                             ; preds = %1387, %var_new.exit
   %1393 = getelementptr inbounds nuw i8, ptr %1389, i64 40
   %1394 = load i32, ptr %1393, align 8, !tbaa !51
   %1395 = zext i32 %1391 to i64
-  %1396 = getelementptr inbounds nuw i16, ptr %1392, i64 %1395
-  %1397 = load i16, ptr %1396, align 2, !tbaa !70
-  %1398 = zext i16 %1397 to i64
-  %1399 = getelementptr inbounds nuw %struct.VarInfo, ptr %1366, i64 %1398
-  %1400 = getelementptr inbounds nuw i8, ptr %1399, i64 8
-  store i32 %1394, ptr %1400, align 8, !tbaa !90
-  %1401 = trunc i32 %1391 to i8
-  %1402 = getelementptr inbounds nuw i8, ptr %1399, i64 16
-  store i8 %1401, ptr %1402, align 8, !tbaa !91
-  %1403 = getelementptr inbounds nuw i8, ptr %1399, i64 17
-  store i8 0, ptr %1403, align 1, !tbaa !92
-  %1404 = add i32 %1391, 1
-  store i32 %1404, ptr %1390, align 8, !tbaa !59
+  %1396 = add i32 %1391, 1
+  %1397 = getelementptr inbounds nuw i16, ptr %1392, i64 %1395
+  %1398 = load i16, ptr %1397, align 2, !tbaa !70
+  %1399 = zext i16 %1398 to i64
+  %1400 = getelementptr inbounds nuw %struct.VarInfo, ptr %1366, i64 %1399
+  %1401 = getelementptr inbounds nuw i8, ptr %1400, i64 8
+  store i32 %1394, ptr %1401, align 8, !tbaa !90
+  %1402 = trunc i32 %1391 to i8
+  %1403 = getelementptr inbounds nuw i8, ptr %1400, i64 16
+  store i8 %1402, ptr %1403, align 8, !tbaa !91
+  %1404 = getelementptr inbounds nuw i8, ptr %1400, i64 17
+  store i8 0, ptr %1404, align 1, !tbaa !92
+  store i32 %1396, ptr %1390, align 8, !tbaa !59
   %1405 = load i32, ptr %34, align 8, !tbaa !66
   call fastcc void @parse_body(ptr noundef nonnull %0, ptr noundef %25, i32 noundef 0, i32 noundef %1405)
   %1406 = load i32, ptr %43, align 8, !tbaa !79

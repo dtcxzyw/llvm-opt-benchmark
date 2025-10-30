@@ -7444,8 +7444,6 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
 67:                                               ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %69 = load i24, ptr %68, align 8
-  %70 = zext i24 %69 to i32
-  %71 = add nsw i32 %70, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %49, ptr %9, align 8, !tbaa !258
   store i64 0, ptr %50, align 8, !tbaa !260
@@ -7453,6 +7451,8 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
   br i1 %.not131279, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread, %67
+  %70 = zext i24 %69 to i32
+  %71 = add nsw i32 %70, -1
   %72 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %63, i32 %1, ptr noundef nonnull %0, i1 noundef zeroext false) #19
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %74 = load ptr, ptr %73, align 8, !tbaa !464

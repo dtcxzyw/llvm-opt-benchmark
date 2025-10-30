@@ -463,7 +463,6 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116SVEIntrinsicOpts11runOnMo
 .lr.ph22.i.i:                                     ; preds = %49, %_ZN4llvm9SetVectorIPNS_13IntrinsicInstENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EED2Ev.exit34.i.i
   %.sroa.05.020.i.i = phi ptr [ %.sroa.05.0.i.i, %_ZN4llvm9SetVectorIPNS_13IntrinsicInstENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EED2Ev.exit34.i.i ], [ %.sroa.05.017.i.i, %49 ]
   %.119.i.i = phi i1 [ %60, %_ZN4llvm9SetVectorIPNS_13IntrinsicInstENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EED2Ev.exit34.i.i ], [ %.026.i.i, %49 ]
-  %54 = getelementptr inbounds i8, ptr %.sroa.05.020.i.i, i64 -24
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, i8 0, i64 20, i1 false)
   store ptr %40, ptr %39, align 8, !tbaa !28
@@ -474,15 +473,16 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116SVEIntrinsicOpts11runOnMo
   store ptr %44, ptr %43, align 8, !tbaa !28
   store i32 0, ptr %45, align 8, !tbaa !31
   store i32 4, ptr %46, align 4, !tbaa !32
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.05.020.i.i, i64 32
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.05.020.i.i, i64 24
-  %.sroa.01.012.i.i = load ptr, ptr %55, align 8, !tbaa !53
-  %.not1113.i.i = icmp eq ptr %.sroa.01.012.i.i, %56
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.05.020.i.i, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.05.020.i.i, i64 24
+  %.sroa.01.012.i.i = load ptr, ptr %54, align 8, !tbaa !53
+  %.not1113.i.i = icmp eq ptr %.sroa.01.012.i.i, %55
   br i1 %.not1113.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %115, %.lr.ph22.i.i
-  %57 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116SVEIntrinsicOpts27coalescePTrueIntrinsicCallsERN4llvm10BasicBlockERNS1_14SmallSetVectorIPNS1_13IntrinsicInstELj4EEE(ptr noundef nonnull align 8 dereferenceable(80) %54, ptr noundef nonnull align 8 dereferenceable(72) %13)
-  %58 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116SVEIntrinsicOpts27coalescePTrueIntrinsicCallsERN4llvm10BasicBlockERNS1_14SmallSetVectorIPNS1_13IntrinsicInstELj4EEE(ptr noundef nonnull align 8 dereferenceable(80) %54, ptr noundef nonnull align 8 dereferenceable(72) %14)
+  %56 = getelementptr inbounds i8, ptr %.sroa.05.020.i.i, i64 -24
+  %57 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116SVEIntrinsicOpts27coalescePTrueIntrinsicCallsERN4llvm10BasicBlockERNS1_14SmallSetVectorIPNS1_13IntrinsicInstELj4EEE(ptr noundef nonnull align 8 dereferenceable(80) %56, ptr noundef nonnull align 8 dereferenceable(72) %13)
+  %58 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116SVEIntrinsicOpts27coalescePTrueIntrinsicCallsERN4llvm10BasicBlockERNS1_14SmallSetVectorIPNS1_13IntrinsicInstELj4EEE(ptr noundef nonnull align 8 dereferenceable(80) %56, ptr noundef nonnull align 8 dereferenceable(72) %14)
   %59 = or i1 %57, %58
   %60 = or i1 %.119.i.i, %59
   %61 = load ptr, ptr %43, align 8, !tbaa !28
@@ -602,7 +602,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.i.i: 
 115:                                              ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.i.i, %.lr.ph.i.i
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i.i, i64 8
   %.sroa.01.0.i.i = load ptr, ptr %116, align 8, !tbaa !53
-  %.not11.i.i = icmp eq ptr %.sroa.01.0.i.i, %56
+  %.not11.i.i = icmp eq ptr %.sroa.01.0.i.i, %55
   br i1 %.not11.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 _ZN12_GLOBAL__N_116SVEIntrinsicOpts27optimizePTrueIntrinsicCallsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.i: ; preds = %._crit_edge23.i.i

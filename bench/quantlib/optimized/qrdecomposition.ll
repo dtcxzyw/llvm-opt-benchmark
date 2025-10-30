@@ -533,8 +533,6 @@ lpad232:                                          ; preds = %cond.true.i237
 
 for.body238:                                      ; preds = %for.body238.lr.ph, %invoke.cont313
   %k234.0461 = phi i64 [ 0, %for.body238.lr.ph ], [ %add.i263, %invoke.cont313 ]
-  %87 = mul i64 %factor.op.mul462, %k234.0461
-  %scevgep486 = getelementptr i8, ptr %85, i64 %87
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i241, i8 0, i64 %add.ptr.i247.idx, i1 false), !tbaa !20
   %arrayidx.i254 = getelementptr inbounds nuw double, ptr %call.i241, i64 %k234.0461
   store double 1.000000e+00, ptr %arrayidx.i254, align 8, !tbaa !20
@@ -544,13 +542,15 @@ for.body238:                                      ; preds = %for.body238.lr.ph, 
 
 for.cond.cleanup255:                              ; preds = %if.end293
   %add.ptr.i259.idx445 = add i64 %mul.i.i294, %1
-  %88 = shl nuw i64 %add.ptr.i259.idx445, 3
+  %87 = shl nuw i64 %add.ptr.i259.idx445, 3
   %add.i263 = add nuw i64 %k234.0461, 1
   %mul.i264.reass = mul i64 %add.i263, %factor.op.mul462
-  %cmp.not3.i.i.i266 = icmp samesign eq i64 %88, %mul.i264.reass
+  %cmp.not3.i.i.i266 = icmp samesign eq i64 %87, %mul.i264.reass
   br i1 %cmp.not3.i.i.i266, label %invoke.cont313, label %for.body.i.i.i267.preheader
 
 for.body.i.i.i267.preheader:                      ; preds = %for.cond.cleanup255
+  %88 = mul i64 %factor.op.mul462, %k234.0461
+  %scevgep486 = getelementptr i8, ptr %85, i64 %88
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep486, i8 0, i64 %84, i1 false), !tbaa !20
   br label %invoke.cont313
 
@@ -655,8 +655,8 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i30
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i301, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !25
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i301, i64 %add.ptr.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i301, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !25
   br label %invoke.cont324
 
 invoke.cont324:                                   ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc

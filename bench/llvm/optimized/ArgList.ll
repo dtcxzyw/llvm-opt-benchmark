@@ -1647,12 +1647,12 @@ _ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit: ;
   store ptr %46, ptr %7, align 8
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %47, ptr %48, align 8
-  %.ptr8.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 %2, ptr %.ptr8.i, align 8
-  %.sroa.454.0..ptr8.i.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 %3, ptr %.sroa.454.0..ptr8.i.sroa_idx, align 4
-  %.sroa.555.0..ptr8.i.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 %4, ptr %.sroa.555.0..ptr8.i.sroa_idx, align 8
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 %2, ptr %scevgep.i, align 8
+  %.sroa.453.0.scevgep.i.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i32 %3, ptr %.sroa.453.0.scevgep.i.sroa_idx, align 4
+  %.sroa.554.0.scevgep.i.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i32 %4, ptr %.sroa.554.0.scevgep.i.sroa_idx, align 8
   %.not29.i.i = icmp samesign eq i64 %45, %.sroa.4.0.extract.shift
   br i1 %.not29.i.i, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj3EEC2ES5_S5_RA3_KNS0_12OptSpecifierE.exit, label %.lr.ph.i.i
 
@@ -1692,14 +1692,14 @@ _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj3EEC2ES5_S5_RA3_KNS0_12OptSpecifierE.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %47, ptr %56, align 8
-  %.sroa.457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %47, ptr %.sroa.457.0..sroa_idx, align 8
-  %.sroa.558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %2, ptr %.sroa.558.0..sroa_idx, align 8
-  %.sroa.659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %3, ptr %.sroa.659.0..sroa_idx, align 4
-  %.sroa.760.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %4, ptr %.sroa.760.0..sroa_idx, align 8
+  %.sroa.456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %47, ptr %.sroa.456.0..sroa_idx, align 8
+  %.sroa.557.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %2, ptr %.sroa.557.0..sroa_idx, align 8
+  %.sroa.658.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 %3, ptr %.sroa.658.0..sroa_idx, align 4
+  %.sroa.759.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %4, ptr %.sroa.759.0..sroa_idx, align 8
   ret void
 }
 
@@ -4355,10 +4355,10 @@ _ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit: ;
   store ptr %44, ptr %6, align 8
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %45, ptr %46, align 8
-  %.ptr8.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %2, ptr %.ptr8.i, align 8
-  %.sroa.447.0..ptr8.i.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 %3, ptr %.sroa.447.0..ptr8.i.sroa_idx, align 4
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 %2, ptr %scevgep.i, align 8
+  %.sroa.446.0.scevgep.i.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i32 %3, ptr %.sroa.446.0.scevgep.i.sroa_idx, align 4
   %.not29.i.i = icmp samesign eq i64 %43, %.sroa.4.0.extract.shift
   br i1 %.not29.i.i, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEC2ES5_S5_RA2_KNS0_12OptSpecifierE.exit, label %.lr.ph.i.i
 
@@ -4402,8 +4402,8 @@ _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEC2ES5_S5_RA2_KNS0_12OptSpecifierE.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %45, ptr %54, align 8
-  %.sroa.449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %45, ptr %.sroa.449.0..sroa_idx, align 8
+  %.sroa.448.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %45, ptr %.sroa.448.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sroa.3.20.insert.insert, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
@@ -4498,10 +4498,10 @@ _ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit: ;
   %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %.sroa.4.0.extract.shift
   %44 = and i64 %.sroa.014.0.insert.insert.i, 4294967295
   %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
-  %.ptr6.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %2, ptr %.ptr6.i, align 8, !tbaa !21
-  %.sroa.452.0..ptr6.i.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 %3, ptr %.sroa.452.0..ptr6.i.sroa_idx, align 4, !tbaa !21
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 %2, ptr %scevgep.i, align 8, !tbaa !21
+  %.sroa.451.0.scevgep.i.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i32 %3, ptr %.sroa.451.0.scevgep.i.sroa_idx, align 4, !tbaa !21
   %.not2327.i.i = icmp samesign eq i64 %.sroa.4.0.extract.shift, %44
   br i1 %.not2327.i.i, label %_ZN4llvm3opt12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEELj2EEC2ES7_S7_RA2_KNS0_12OptSpecifierE.exit, label %.lr.ph.i.i
 
@@ -4535,7 +4535,7 @@ _ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit: ;
 _ZN4llvm3opt12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEELj2EEC2ES7_S7_RA2_KNS0_12OptSpecifierE.exit: ; preds = %.thread22.i.i, %51, %_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit
   %53 = phi ptr [ %43, %_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit ], [ %46, %51 ], [ %45, %.thread22.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
-  %54 = load i64, ptr %.ptr6.i, align 8, !tbaa !21, !noalias !240
+  %54 = load i64, ptr %scevgep.i, align 8, !tbaa !21, !noalias !240
   %.sroa.6.16.insert.ext = zext i32 %3 to i64
   %.sroa.6.16.insert.shift = shl nuw i64 %.sroa.6.16.insert.ext, 32
   %.sroa.3.16.insert.ext = zext i32 %2 to i64

@@ -133232,8 +133232,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(pt
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !263
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !263
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -141669,8 +141669,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 _ZNSt6vectorIiSaIiEE17_M_default_appendEm.exit.i: ; preds = %150
   store i32 0, ptr %147, align 4, !tbaa !263
   %156 = getelementptr i8, ptr %147, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(18446744073709551608) %156, i8 0, i64 -8, i1 false), !tbaa !263
   %157 = getelementptr i8, ptr %147, i64 -4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(18446744073709551608) %156, i8 0, i64 -8, i1 false), !tbaa !263
   br label %_ZN5boost8geometry5range5eraseIRSt6vectorIiSaIiEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEENS_14range_iteratorIS9_vE4typeEOS9_SG_.exit.sink.split.i
 
 158:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i
@@ -143931,8 +143931,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 _ZNSt6vectorIiSaIiEE17_M_default_appendEm.exit.i320: ; preds = %1187
   store i32 0, ptr %.pre.i.i312, align 4, !tbaa !263
   %1194 = getelementptr i8, ptr %.pre.i.i312, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(18446744073709551608) %1194, i8 0, i64 -8, i1 false), !tbaa !263
   %1195 = getelementptr i8, ptr %.pre.i.i312, i64 -4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(18446744073709551608) %1194, i8 0, i64 -8, i1 false), !tbaa !263
   br label %_ZN5boost8geometry5range5eraseIRSt6vectorIiSaIiEETnNSt9enable_ifIXntsr3std8is_constINSt16remove_referenceIT_E4typeEEE5valueEiE4typeELi0EEENS_14range_iteratorIS9_vE4typeEOS9_SG_.exit.sink.split.i317
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i314.thread: ; preds = %1179, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i314

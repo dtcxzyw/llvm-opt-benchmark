@@ -8317,31 +8317,34 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %274 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %275 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %276 = getelementptr inbounds nuw i8, ptr %16, i64 33
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 2592
-  %278 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %279 = getelementptr inbounds nuw i8, ptr %17, i64 33
-  br label %280
+  %274 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %275 = getelementptr inbounds nuw i8, ptr %16, i64 33
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 2592
+  %277 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %278 = getelementptr inbounds nuw i8, ptr %17, i64 33
+  br label %279
 
-280:                                              ; preds = %280, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72
-  %.016.idx86 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72 ], [ %.016.add, %280 ]
+279:                                              ; preds = %279, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72
+  %.016.idx86 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72 ], [ %.016.add, %279 ]
   %.016.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.016.idx86
-  store i8 4, ptr %275, align 8, !tbaa !39
-  store i8 1, ptr %276, align 1, !tbaa !41
+  store i8 4, ptr %274, align 8, !tbaa !39
+  store i8 1, ptr %275, align 1, !tbaa !41
   store ptr %.016.ptr, ptr %16, align 8, !tbaa !23
-  store i8 4, ptr %278, align 8, !tbaa !39
-  store i8 1, ptr %279, align 1, !tbaa !41
-  store ptr %277, ptr %17, align 8, !tbaa !23
-  %281 = call noundef zeroext i1 @_ZNK5clang6driver10toolchains11Generic_GCC24addLibStdCXXIncludePathsEN4llvm5TwineENS3_9StringRefES4_RKNS3_3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEb(ptr noundef nonnull align 8 dereferenceable(5016) %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %16, ptr %23, i64 %25, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %17, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, i1 noundef zeroext false) #17
+  store i8 4, ptr %277, align 8, !tbaa !39
+  store i8 1, ptr %278, align 1, !tbaa !41
+  store ptr %276, ptr %17, align 8, !tbaa !23
+  %280 = call noundef zeroext i1 @_ZNK5clang6driver10toolchains11Generic_GCC24addLibStdCXXIncludePathsEN4llvm5TwineENS3_9StringRefES4_RKNS3_3opt7ArgListERNS3_11SmallVectorIPKcLj16EEEb(ptr noundef nonnull align 8 dereferenceable(5016) %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %16, ptr %23, i64 %25, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %17, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, i1 noundef zeroext false) #17
   %.016.add = add nuw nsw i64 %.016.idx86, 32
   %.not = icmp eq i64 %.016.add, 96
-  %or.cond = select i1 %281, i1 true, i1 %.not
-  br i1 %or.cond, label %.preheader, label %280
+  %or.cond = select i1 %280, i1 true, i1 %.not
+  br i1 %or.cond, label %.preheader.preheader, label %279
 
-.preheader:                                       ; preds = %280, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75
-  %282 = phi ptr [ %283, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75 ], [ %274, %280 ]
+.preheader.preheader:                             ; preds = %279
+  %281 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75
+  %282 = phi ptr [ %283, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75 ], [ %281, %.preheader.preheader ]
   %283 = getelementptr inbounds i8, ptr %282, i64 -32
   %284 = load ptr, ptr %283, align 8, !tbaa !22
   %285 = getelementptr inbounds i8, ptr %282, i64 -16

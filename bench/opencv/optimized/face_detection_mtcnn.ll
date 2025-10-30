@@ -54038,8 +54038,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i: ; preds = %82, %_
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i.i.i.i:       ; preds = %.noexc87.i.i.i.i
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %87, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %86, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !42, !noalias !1140
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %86, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !42, !noalias !1140
   br label %.lr.ph.i.preheader.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i.i.i.i, %.noexc87.i.i.i.i

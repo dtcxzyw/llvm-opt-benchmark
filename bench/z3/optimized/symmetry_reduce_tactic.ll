@@ -17894,136 +17894,136 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPP4exprN9__gnu_cxx
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
   %6 = icmp sgt i64 %5, 128
-  br i1 %6, label %7, label %34
+  br i1 %6, label %.preheader, label %33
 
-7:                                                ; preds = %2
+.preheader:                                       ; preds = %2
   %scevgep = getelementptr i8, ptr %0, i64 8
-  br label %8
+  br label %7
 
-8:                                                ; preds = %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i, %7
-  %.020.i.idx = phi i64 [ 8, %7 ], [ %.020.i.add, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i ]
-  %.pn19.i = phi ptr [ %0, %7 ], [ %.020.i.ptr, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i ]
+7:                                                ; preds = %.preheader, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i
+  %.020.i.idx = phi i64 [ %.020.i.add, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i ], [ 8, %.preheader ]
+  %.pn19.i = phi ptr [ %.020.i.ptr, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i ], [ %0, %.preheader ]
   %.020.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.020.i.idx
-  %9 = load ptr, ptr %.020.i.ptr, align 8, !tbaa !12
-  %10 = load ptr, ptr %0, align 8, !tbaa !12
+  %8 = load ptr, ptr %.020.i.ptr, align 8, !tbaa !12
+  %9 = load ptr, ptr %0, align 8, !tbaa !12
+  %10 = load i32, ptr %8, align 4, !tbaa !288
   %11 = load i32, ptr %9, align 4, !tbaa !288
-  %12 = load i32, ptr %10, align 4, !tbaa !288
-  %13 = icmp ult i32 %11, %12
-  br i1 %13, label %14, label %15
+  %12 = icmp ult i32 %10, %11
+  br i1 %12, label %13, label %14
 
-14:                                               ; preds = %8
+13:                                               ; preds = %7
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %.020.i.idx, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i
 
-15:                                               ; preds = %8
-  %16 = load ptr, ptr %.pn19.i, align 8, !tbaa !12
-  %17 = load i32, ptr %16, align 4, !tbaa !288
-  %18 = icmp ult i32 %11, %17
-  br i1 %18, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i
+14:                                               ; preds = %7
+  %15 = load ptr, ptr %.pn19.i, align 8, !tbaa !12
+  %16 = load i32, ptr %15, align 4, !tbaa !288
+  %17 = icmp ult i32 %10, %16
+  br i1 %17, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i
 
-.lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
-  %19 = phi ptr [ %20, %.lr.ph.i.i ], [ %16, %15 ]
-  %.013.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn19.i, %15 ]
-  %.0912.i.i = phi ptr [ %.013.i.i, %.lr.ph.i.i ], [ %.020.i.ptr, %15 ]
-  store ptr %19, ptr %.0912.i.i, align 8, !tbaa !12
+.lr.ph.i.i:                                       ; preds = %14, %.lr.ph.i.i
+  %18 = phi ptr [ %19, %.lr.ph.i.i ], [ %15, %14 ]
+  %.013.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn19.i, %14 ]
+  %.0912.i.i = phi ptr [ %.013.i.i, %.lr.ph.i.i ], [ %.020.i.ptr, %14 ]
+  store ptr %18, ptr %.0912.i.i, align 8, !tbaa !12
   %.0.i.i = getelementptr inbounds i8, ptr %.013.i.i, i64 -8
-  %20 = load ptr, ptr %.0.i.i, align 8, !tbaa !12
-  %21 = load i32, ptr %20, align 4, !tbaa !288
-  %22 = icmp ult i32 %11, %21
-  br i1 %22, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i, !llvm.loop !407
+  %19 = load ptr, ptr %.0.i.i, align 8, !tbaa !12
+  %20 = load i32, ptr %19, align 4, !tbaa !288
+  %21 = icmp ult i32 %10, %20
+  br i1 %21, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i, !llvm.loop !407
 
-_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %15, %14
-  %.sink.i = phi ptr [ %0, %14 ], [ %.020.i.ptr, %15 ], [ %.013.i.i, %.lr.ph.i.i ]
-  store ptr %9, ptr %.sink.i, align 8, !tbaa !12
+_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %14, %13
+  %.sink.i = phi ptr [ %0, %13 ], [ %.020.i.ptr, %14 ], [ %.013.i.i, %.lr.ph.i.i ]
+  store ptr %8, ptr %.sink.i, align 8, !tbaa !12
   %.020.i.add = add nuw nsw i64 %.020.i.idx, 8
   %.not.i = icmp eq i64 %.020.i.add, 128
-  br i1 %.not.i, label %_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_.exit, label %8, !llvm.loop !408
+  br i1 %.not.i, label %_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_.exit, label %7, !llvm.loop !408
 
 _ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.not6.i = icmp eq ptr %23, %1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.not6.i = icmp eq ptr %22, %1
   br i1 %.not6.i, label %_ZSt26__unguarded_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_.exit, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i13
-  %.07.i = phi ptr [ %33, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i13 ], [ %23, %_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_.exit ]
-  %24 = load ptr, ptr %.07.i, align 8, !tbaa !12
-  %25 = load i32, ptr %24, align 4, !tbaa !288
+  %.07.i = phi ptr [ %32, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i13 ], [ %22, %_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_.exit ]
+  %23 = load ptr, ptr %.07.i, align 8, !tbaa !12
+  %24 = load i32, ptr %23, align 4, !tbaa !288
   %.011.i.i = getelementptr inbounds i8, ptr %.07.i, i64 -8
-  %26 = load ptr, ptr %.011.i.i, align 8, !tbaa !12
-  %27 = load i32, ptr %26, align 4, !tbaa !288
-  %28 = icmp ult i32 %25, %27
-  br i1 %28, label %.lr.ph.i.i15, label %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i13
+  %25 = load ptr, ptr %.011.i.i, align 8, !tbaa !12
+  %26 = load i32, ptr %25, align 4, !tbaa !288
+  %27 = icmp ult i32 %24, %26
+  br i1 %27, label %.lr.ph.i.i15, label %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i13
 
 .lr.ph.i.i15:                                     ; preds = %.lr.ph.i, %.lr.ph.i.i15
-  %29 = phi ptr [ %30, %.lr.ph.i.i15 ], [ %26, %.lr.ph.i ]
+  %28 = phi ptr [ %29, %.lr.ph.i.i15 ], [ %25, %.lr.ph.i ]
   %.013.i.i16 = phi ptr [ %.0.i.i18, %.lr.ph.i.i15 ], [ %.011.i.i, %.lr.ph.i ]
   %.0912.i.i17 = phi ptr [ %.013.i.i16, %.lr.ph.i.i15 ], [ %.07.i, %.lr.ph.i ]
-  store ptr %29, ptr %.0912.i.i17, align 8, !tbaa !12
+  store ptr %28, ptr %.0912.i.i17, align 8, !tbaa !12
   %.0.i.i18 = getelementptr inbounds i8, ptr %.013.i.i16, i64 -8
-  %30 = load ptr, ptr %.0.i.i18, align 8, !tbaa !12
-  %31 = load i32, ptr %30, align 4, !tbaa !288
-  %32 = icmp ult i32 %25, %31
-  br i1 %32, label %.lr.ph.i.i15, label %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i13, !llvm.loop !407
+  %29 = load ptr, ptr %.0.i.i18, align 8, !tbaa !12
+  %30 = load i32, ptr %29, align 4, !tbaa !288
+  %31 = icmp ult i32 %24, %30
+  br i1 %31, label %.lr.ph.i.i15, label %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i13, !llvm.loop !407
 
 _ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i13: ; preds = %.lr.ph.i.i15, %.lr.ph.i
   %.09.lcssa.i.i = phi ptr [ %.07.i, %.lr.ph.i ], [ %.013.i.i16, %.lr.ph.i.i15 ]
-  store ptr %24, ptr %.09.lcssa.i.i, align 8, !tbaa !12
-  %33 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
-  %.not.i14 = icmp eq ptr %33, %1
+  store ptr %23, ptr %.09.lcssa.i.i, align 8, !tbaa !12
+  %32 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
+  %.not.i14 = icmp eq ptr %32, %1
   br i1 %.not.i14, label %_ZSt26__unguarded_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_.exit, label %.lr.ph.i, !llvm.loop !409
 
-34:                                               ; preds = %2
-  %35 = icmp eq ptr %0, %1
+33:                                               ; preds = %2
+  %34 = icmp eq ptr %0, %1
   %.017.i19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not18.i = icmp eq ptr %.017.i19, %1
-  %or.cond = select i1 %35, i1 true, i1 %.not18.i
+  %or.cond = select i1 %34, i1 true, i1 %.not18.i
   br i1 %or.cond, label %_ZSt26__unguarded_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_.exit, label %.lr.ph.i20
 
-.lr.ph.i20:                                       ; preds = %34, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i23
-  %.020.i21 = phi ptr [ %.0.i25, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i23 ], [ %.017.i19, %34 ]
-  %.pn19.i22 = phi ptr [ %.020.i21, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i23 ], [ %0, %34 ]
-  %36 = load ptr, ptr %.020.i21, align 8, !tbaa !12
-  %37 = load ptr, ptr %0, align 8, !tbaa !12
+.lr.ph.i20:                                       ; preds = %33, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i23
+  %.020.i21 = phi ptr [ %.0.i25, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i23 ], [ %.017.i19, %33 ]
+  %.pn19.i22 = phi ptr [ %.020.i21, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i23 ], [ %0, %33 ]
+  %35 = load ptr, ptr %.020.i21, align 8, !tbaa !12
+  %36 = load ptr, ptr %0, align 8, !tbaa !12
+  %37 = load i32, ptr %35, align 4, !tbaa !288
   %38 = load i32, ptr %36, align 4, !tbaa !288
-  %39 = load i32, ptr %37, align 4, !tbaa !288
-  %40 = icmp ult i32 %38, %39
-  br i1 %40, label %41, label %48
+  %39 = icmp ult i32 %37, %38
+  br i1 %39, label %40, label %47
 
-41:                                               ; preds = %.lr.ph.i20
-  %42 = getelementptr inbounds nuw i8, ptr %.pn19.i22, i64 16
-  %43 = ptrtoint ptr %.020.i21 to i64
-  %44 = sub i64 %43, %4
-  %45 = ashr exact i64 %44, 3
-  %46 = sub nsw i64 0, %45
-  %47 = getelementptr inbounds ptr, ptr %42, i64 %46
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %47, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %44, i1 false)
+40:                                               ; preds = %.lr.ph.i20
+  %41 = getelementptr inbounds nuw i8, ptr %.pn19.i22, i64 16
+  %42 = ptrtoint ptr %.020.i21 to i64
+  %43 = sub i64 %42, %4
+  %44 = ashr exact i64 %43, 3
+  %45 = sub nsw i64 0, %44
+  %46 = getelementptr inbounds ptr, ptr %41, i64 %45
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %46, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %43, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i23
 
-48:                                               ; preds = %.lr.ph.i20
-  %49 = load ptr, ptr %.pn19.i22, align 8, !tbaa !12
-  %50 = load i32, ptr %49, align 4, !tbaa !288
-  %51 = icmp ult i32 %38, %50
-  br i1 %51, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i23
+47:                                               ; preds = %.lr.ph.i20
+  %48 = load ptr, ptr %.pn19.i22, align 8, !tbaa !12
+  %49 = load i32, ptr %48, align 4, !tbaa !288
+  %50 = icmp ult i32 %37, %49
+  br i1 %50, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i23
 
-.lr.ph.i.i27:                                     ; preds = %48, %.lr.ph.i.i27
-  %52 = phi ptr [ %53, %.lr.ph.i.i27 ], [ %49, %48 ]
-  %.013.i.i28 = phi ptr [ %.0.i.i30, %.lr.ph.i.i27 ], [ %.pn19.i22, %48 ]
-  %.0912.i.i29 = phi ptr [ %.013.i.i28, %.lr.ph.i.i27 ], [ %.020.i21, %48 ]
-  store ptr %52, ptr %.0912.i.i29, align 8, !tbaa !12
+.lr.ph.i.i27:                                     ; preds = %47, %.lr.ph.i.i27
+  %51 = phi ptr [ %52, %.lr.ph.i.i27 ], [ %48, %47 ]
+  %.013.i.i28 = phi ptr [ %.0.i.i30, %.lr.ph.i.i27 ], [ %.pn19.i22, %47 ]
+  %.0912.i.i29 = phi ptr [ %.013.i.i28, %.lr.ph.i.i27 ], [ %.020.i21, %47 ]
+  store ptr %51, ptr %.0912.i.i29, align 8, !tbaa !12
   %.0.i.i30 = getelementptr inbounds i8, ptr %.013.i.i28, i64 -8
-  %53 = load ptr, ptr %.0.i.i30, align 8, !tbaa !12
-  %54 = load i32, ptr %53, align 4, !tbaa !288
-  %55 = icmp ult i32 %38, %54
-  br i1 %55, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i23, !llvm.loop !407
+  %52 = load ptr, ptr %.0.i.i30, align 8, !tbaa !12
+  %53 = load i32, ptr %52, align 4, !tbaa !288
+  %54 = icmp ult i32 %37, %53
+  br i1 %54, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i23, !llvm.loop !407
 
-_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i23: ; preds = %.lr.ph.i.i27, %48, %41
-  %.sink.i24 = phi ptr [ %0, %41 ], [ %.020.i21, %48 ], [ %.013.i.i28, %.lr.ph.i.i27 ]
-  store ptr %36, ptr %.sink.i24, align 8, !tbaa !12
+_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i23: ; preds = %.lr.ph.i.i27, %47, %40
+  %.sink.i24 = phi ptr [ %0, %40 ], [ %.020.i21, %47 ], [ %.013.i.i28, %.lr.ph.i.i27 ]
+  store ptr %35, ptr %.sink.i24, align 8, !tbaa !12
   %.0.i25 = getelementptr inbounds nuw i8, ptr %.020.i21, i64 8
   %.not.i26 = icmp eq ptr %.0.i25, %1
   br i1 %.not.i26, label %_ZSt26__unguarded_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_.exit, label %.lr.ph.i20, !llvm.loop !408
 
-_ZSt26__unguarded_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i23, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i13, %34, %_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_.exit
+_ZSt26__unguarded_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i23, %_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEEvT_T0_.exit.i13, %33, %_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterI11ast_lt_procEEEvT_S8_T0_.exit
   ret void
 }
 

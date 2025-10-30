@@ -6140,80 +6140,80 @@ define internal void @xdgSurfaceHandleConfigure(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @xdgToplevelHandleConfigure(ptr noundef captures(none) initializes((936, 940), (944, 952)) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  store i32 0, ptr %8, align 8, !tbaa !394
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i32 0, ptr %9, align 8, !tbaa !395
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 948
-  store i32 0, ptr %10, align 4, !tbaa !396
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !399
-  %13 = load i64, ptr %4, align 8, !tbaa !401
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
-  %.not31 = icmp eq i64 %13, 0
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  store i32 0, ptr %6, align 8, !tbaa !394
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i32 0, ptr %7, align 8, !tbaa !395
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 948
+  store i32 0, ptr %8, align 4, !tbaa !396
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %10 = load ptr, ptr %9, align 8, !tbaa !399
+  %11 = load i64, ptr %4, align 8, !tbaa !401
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
+  %.not31 = icmp eq i64 %11, 0
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %19
-  %.030 = phi ptr [ %20, %19 ], [ %12, %5 ]
-  %15 = load i32, ptr %.030, align 4, !tbaa !147
-  switch i32 %15, label %19 [
-    i32 1, label %16
-    i32 2, label %17
-    i32 4, label %18
+.lr.ph:                                           ; preds = %5, %17
+  %.030 = phi ptr [ %18, %17 ], [ %10, %5 ]
+  %13 = load i32, ptr %.030, align 4, !tbaa !147
+  switch i32 %13, label %17 [
+    i32 1, label %14
+    i32 2, label %15
+    i32 4, label %16
   ]
 
+14:                                               ; preds = %.lr.ph
+  store i32 1, ptr %7, align 8, !tbaa !395
+  br label %17
+
+15:                                               ; preds = %.lr.ph
+  store i32 1, ptr %8, align 4, !tbaa !396
+  br label %17
+
 16:                                               ; preds = %.lr.ph
-  store i32 1, ptr %9, align 8, !tbaa !395
-  br label %19
+  store i32 1, ptr %6, align 8, !tbaa !394
+  br label %17
 
-17:                                               ; preds = %.lr.ph
-  store i32 1, ptr %10, align 4, !tbaa !396
-  br label %19
+17:                                               ; preds = %.lr.ph, %14, %15, %16
+  %18 = getelementptr inbounds nuw i8, ptr %.030, i64 4
+  %19 = icmp ult ptr %18, %12
+  br i1 %19, label %.lr.ph, label %._crit_edge
 
-18:                                               ; preds = %.lr.ph
-  store i32 1, ptr %8, align 8, !tbaa !394
-  br label %19
+._crit_edge:                                      ; preds = %17, %5
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %21 = icmp ne i32 %2, 0
+  %22 = icmp ne i32 %3, 0
+  %or.cond = and i1 %21, %22
+  br i1 %or.cond, label %23, label %32
 
-19:                                               ; preds = %.lr.ph, %16, %17, %18
-  %20 = getelementptr inbounds nuw i8, ptr %.030, i64 4
-  %21 = icmp ult ptr %20, %14
-  br i1 %21, label %.lr.ph, label %._crit_edge
+23:                                               ; preds = %._crit_edge
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  %25 = load i32, ptr %24, align 8, !tbaa !162
+  %.not = icmp eq i32 %25, 0
+  br i1 %.not, label %31, label %26
 
-._crit_edge:                                      ; preds = %19, %5
-  %22 = icmp ne i32 %2, 0
-  %23 = icmp ne i32 %3, 0
-  %or.cond = and i1 %22, %23
-  br i1 %or.cond, label %24, label %33
-
-24:                                               ; preds = %._crit_edge
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %26 = load i32, ptr %25, align 8, !tbaa !162
-  %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %32, label %27
-
-27:                                               ; preds = %24
-  %28 = add nsw i32 %2, -8
-  %29 = tail call i32 @_glfw_max(i32 noundef 0, i32 noundef %28) #20
-  store i32 %29, ptr %7, align 8, !tbaa !397
-  %30 = add nsw i32 %3, -28
-  %31 = tail call i32 @_glfw_max(i32 noundef 0, i32 noundef %30) #20
+26:                                               ; preds = %23
+  %27 = add nsw i32 %2, -8
+  %28 = tail call i32 @_glfw_max(i32 noundef 0, i32 noundef %27) #20
+  store i32 %28, ptr %20, align 8, !tbaa !397
+  %29 = add nsw i32 %3, -28
+  %30 = tail call i32 @_glfw_max(i32 noundef 0, i32 noundef %29) #20
   br label %37
 
-32:                                               ; preds = %24
-  store i32 %2, ptr %7, align 8, !tbaa !397
+31:                                               ; preds = %23
+  store i32 %2, ptr %20, align 8, !tbaa !397
   br label %37
 
-33:                                               ; preds = %._crit_edge
-  %34 = load i32, ptr %6, align 8, !tbaa !138
-  store i32 %34, ptr %7, align 8, !tbaa !397
+32:                                               ; preds = %._crit_edge
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 856
+  %34 = load i32, ptr %33, align 8, !tbaa !138
+  store i32 %34, ptr %20, align 8, !tbaa !397
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 860
   %36 = load i32, ptr %35, align 4, !tbaa !140
   br label %37
 
-37:                                               ; preds = %27, %32, %33
-  %.sink = phi i32 [ %31, %27 ], [ %3, %32 ], [ %36, %33 ]
+37:                                               ; preds = %26, %31, %32
+  %.sink = phi i32 [ %30, %26 ], [ %3, %31 ], [ %36, %32 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 932
   store i32 %.sink, ptr %38, align 4, !tbaa !398
   ret void

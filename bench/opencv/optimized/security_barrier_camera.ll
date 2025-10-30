@@ -6661,35 +6661,35 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %99,
   %123 = getelementptr inbounds nuw %"class.cv::Mat", ptr %122, i64 %121
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !57
-  %126 = load ptr, ptr %3, align 8, !tbaa !156
-  %127 = getelementptr inbounds nuw %"class.cv::Mat", ptr %126, i64 %121
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %129 = load ptr, ptr %128, align 8, !tbaa !57
   %.pre.i.i = load float, ptr %125, align 4, !tbaa !65
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %116
-  %130 = phi float [ %133, %.lr.ph.i.i ], [ %.pre.i.i, %116 ]
+  %126 = phi float [ %129, %.lr.ph.i.i ], [ %.pre.i.i, %116 ]
   %.idx = phi i64 [ %.add, %.lr.ph.i.i ], [ 4, %116 ]
   %.018.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %125, %116 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %125, i64 %.idx
-  %131 = load float, ptr %.ptr, align 4, !tbaa !65
-  %132 = fcmp olt float %130, %131
-  %133 = select i1 %132, float %131, float %130
-  %spec.select.i.i = select i1 %132, ptr %.ptr, ptr %.018.i.i
+  %127 = load float, ptr %.ptr, align 4, !tbaa !65
+  %128 = fcmp olt float %126, %127
+  %129 = select i1 %128, float %127, float %126
+  %spec.select.i.i = select i1 %128, ptr %.ptr, ptr %.018.i.i
   %.add = add nuw nsw i64 %.idx, 4
   %.not.i.i = icmp eq i64 %.add, 28
   br i1 %.not.i.i, label %_ZSt11max_elementIPKfET_S2_S2_.exit, label %.lr.ph.i.i, !llvm.loop !304
 
 _ZSt11max_elementIPKfET_S2_S2_.exit:              ; preds = %.lr.ph.i.i
-  %.pre.i.i85 = load float, ptr %129, align 4, !tbaa !65
+  %130 = load ptr, ptr %3, align 8, !tbaa !156
+  %131 = getelementptr inbounds nuw %"class.cv::Mat", ptr %130, i64 %121
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  %133 = load ptr, ptr %132, align 8, !tbaa !57
+  %.pre.i.i85 = load float, ptr %133, align 4, !tbaa !65
   br label %.lr.ph.i.i86
 
 .lr.ph.i.i86:                                     ; preds = %.lr.ph.i.i86, %_ZSt11max_elementIPKfET_S2_S2_.exit
   %134 = phi float [ %137, %.lr.ph.i.i86 ], [ %.pre.i.i85, %_ZSt11max_elementIPKfET_S2_S2_.exit ]
   %.idx116 = phi i64 [ %.add117, %.lr.ph.i.i86 ], [ 4, %_ZSt11max_elementIPKfET_S2_S2_.exit ]
-  %.018.i.i87 = phi ptr [ %spec.select.i.i88, %.lr.ph.i.i86 ], [ %129, %_ZSt11max_elementIPKfET_S2_S2_.exit ]
-  %.ptr118 = getelementptr inbounds nuw i8, ptr %129, i64 %.idx116
+  %.018.i.i87 = phi ptr [ %spec.select.i.i88, %.lr.ph.i.i86 ], [ %133, %_ZSt11max_elementIPKfET_S2_S2_.exit ]
+  %.ptr118 = getelementptr inbounds nuw i8, ptr %133, i64 %.idx116
   %135 = load float, ptr %.ptr118, align 4, !tbaa !65
   %136 = fcmp olt float %134, %135
   %137 = select i1 %136, float %135, float %134
@@ -6704,7 +6704,7 @@ _ZSt11max_elementIPKfET_S2_S2_.exit:              ; preds = %.lr.ph.i.i
   %141 = sub i64 %139, %140
   %142 = ashr exact i64 %141, 2
   %143 = ptrtoint ptr %spec.select.i.i88 to i64
-  %144 = ptrtoint ptr %129 to i64
+  %144 = ptrtoint ptr %133 to i64
   %145 = sub i64 %143, %144
   %146 = ashr exact i64 %145, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %13)

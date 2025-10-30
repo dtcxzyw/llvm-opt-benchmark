@@ -559,7 +559,7 @@ decode_mvc1.exit:                                 ; preds = %._crit_edge.us.i, %
 280:                                              ; preds = %277
   %indvars.iv.next13.i274.i = add nuw nsw i64 %indvars.iv12.i270.i, 1
   %exitcond15.not.i275.i = icmp eq i64 %indvars.iv.next13.i274.i, 4
-  br i1 %exitcond15.not.i275.i, label %set_4x4_block.exit.i.loopexit39, label %.preheader.i269.i, !llvm.loop !49
+  br i1 %exitcond15.not.i275.i, label %set_4x4_block.exit.i.loopexit33, label %.preheader.i269.i, !llvm.loop !49
 
 281:                                              ; preds = %228
   %282 = ptrtoint ptr %230 to i64
@@ -874,12 +874,12 @@ decode_mvc1.exit:                                 ; preds = %._crit_edge.us.i, %
   store i32 %482, ptr %481, align 4, !tbaa !40
   br label %set_4x4_block.exit.i
 
-set_4x4_block.exit.i.loopexit39:                  ; preds = %280
+set_4x4_block.exit.i.loopexit33:                  ; preds = %280
   %483 = getelementptr inbounds nuw i8, ptr %229, i64 3
   br label %set_4x4_block.exit.i
 
-set_4x4_block.exit.i:                             ; preds = %253, %307, %set_4x4_block.exit.i.loopexit39, %408, %313
-  %.sroa.0.3 = phi ptr [ %409, %408 ], [ %320, %313 ], [ %483, %set_4x4_block.exit.i.loopexit39 ], [ %287, %307 ], [ %230, %253 ]
+set_4x4_block.exit.i:                             ; preds = %253, %307, %set_4x4_block.exit.i.loopexit33, %408, %313
+  %.sroa.0.3 = phi ptr [ %409, %408 ], [ %320, %313 ], [ %483, %set_4x4_block.exit.i.loopexit33 ], [ %287, %307 ], [ %230, %253 ]
   %484 = add nsw i32 %.0219293.i, 4
   %.not267.i = icmp slt i32 %484, %26
   br i1 %.not267.i, label %487, label %485

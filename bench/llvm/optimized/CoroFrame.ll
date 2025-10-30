@@ -4954,8 +4954,8 @@ _ZN12_GLOBAL__N_116FrameTypeBuilder17addFieldForAllocaEPN4llvm10AllocaInstEb.exi
 
 .lr.ph.i.i:                                       ; preds = %504
   %.ptr30.i.i = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %511 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %512 = getelementptr inbounds nuw i8, ptr %116, i64 12
+  %511 = getelementptr inbounds nuw i8, ptr %116, i64 12
+  %512 = getelementptr inbounds nuw i8, ptr %116, i64 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EED2Ev.exit.i.i, %.lr.ph.i.i
@@ -4963,9 +4963,9 @@ _ZN12_GLOBAL__N_116FrameTypeBuilder17addFieldForAllocaEPN4llvm10AllocaInstEb.exi
   %513 = load ptr, ptr %.075.i.i, align 8, !tbaa !372
   call void @llvm.lifetime.start.p0(ptr nonnull %116)
   store ptr %.ptr30.i.i, ptr %116, align 8, !tbaa !45
-  store i32 4, ptr %512, align 4, !tbaa !59
+  store i32 4, ptr %511, align 4, !tbaa !59
   store ptr %513, ptr %.ptr30.i.i, align 8, !tbaa !105
-  store i32 1, ptr %511, align 8, !tbaa !58
+  store i32 1, ptr %512, align 8, !tbaa !58
   %514 = load i32, ptr %502, align 8, !tbaa !58
   %515 = load i32, ptr %503, align 4, !tbaa !59
   %.not.i.i.i = icmp ult i32 %514, %515
@@ -4985,7 +4985,7 @@ _ZN12_GLOBAL__N_116FrameTypeBuilder17addFieldForAllocaEPN4llvm10AllocaInstEb.exi
   store i32 0, ptr %523, align 8, !tbaa !58
   %524 = getelementptr inbounds nuw i8, ptr %521, i64 12
   store i32 4, ptr %524, align 4, !tbaa !59
-  %525 = load i32, ptr %511, align 8, !tbaa !58
+  %525 = load i32, ptr %512, align 8, !tbaa !58
   %.not.i.i.i.i.i25 = icmp eq i32 %525, 0
   %526 = icmp eq ptr %521, %116
   %or.cond.i.i = or i1 %526, %.not.i.i.i.i.i25
@@ -4999,10 +4999,10 @@ _ZN12_GLOBAL__N_116FrameTypeBuilder17addFieldForAllocaEPN4llvm10AllocaInstEb.exi
 _ZN4llvm15SmallVectorImplIPNS_10AllocaInstEE12assignRemoteEOS3_.exit.i.i.i: ; preds = %527
   store ptr %528, ptr %521, align 8, !tbaa !45
   store i32 %525, ptr %523, align 8, !tbaa !58
-  %530 = load i32, ptr %512, align 4, !tbaa !59
+  %530 = load i32, ptr %511, align 4, !tbaa !59
   store i32 %530, ptr %524, align 4, !tbaa !59
   store ptr %.ptr30.i.i, ptr %116, align 8, !tbaa !45
-  store i32 0, ptr %512, align 4, !tbaa !59
+  store i32 0, ptr %511, align 4, !tbaa !59
   br label %_ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit.i.sink.split.i.i
 
 531:                                              ; preds = %527
@@ -5012,7 +5012,7 @@ _ZN4llvm15SmallVectorImplIPNS_10AllocaInstEE12assignRemoteEOS3_.exit.i.i.i: ; pr
 _ZSt4moveIPPN4llvm10AllocaInstES3_ET0_T_S5_S4_.exit35.i.i.i: ; preds = %531
   %533 = zext i32 %525 to i64
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %521, ptr noundef nonnull %522, i64 noundef %533, i64 noundef 8) #17
-  %.pre.i.i = load i32, ptr %511, align 8, !tbaa !58
+  %.pre.i.i = load i32, ptr %512, align 8, !tbaa !58
   %.not.i.i.i116.i.i = icmp eq i32 %.pre.i.i, 0
   br i1 %.not.i.i.i116.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_10AllocaInstELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i.i.i, label %_ZSt4moveIPPN4llvm10AllocaInstES3_ET0_T_S5_S4_.exit35.i.i._ZSt4moveIPPN4llvm10AllocaInstES3_ET0_T_S5_S4_.exit35.i.thread.i_crit_edge.i
 
@@ -5035,7 +5035,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10AllocaInstELb1EE18uninitialized_moveIPS2
   br label %_ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit.i.sink.split.i.i
 
 _ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit.i.sink.split.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_10AllocaInstELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_10AllocaInstEE12assignRemoteEOS3_.exit.i.i.i
-  store i32 0, ptr %511, align 8, !tbaa !58
+  store i32 0, ptr %512, align 8, !tbaa !58
   br label %_ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit.i.i.i
 
 _ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit.i.i.i: ; preds = %_ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit.i.sink.split.i.i, %518
@@ -5204,8 +5204,8 @@ _ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EED2Ev.exit71.i.i: ; preds = %583, %"_
 
 .lr.ph95.i.i:                                     ; preds = %"_ZN4llvm4sortIRNS_15SmallVectorImplINS_4coro10AllocaInfoEEEZN12_GLOBAL__N_116FrameTypeBuilder18addFieldForAllocasERKNS_8FunctionERNS6_13FrameDataInfoERNS2_5ShapeEbE3$_1EEvOT_T0_.exit.i.i"
   %.ptr34.i.i = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %603 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %604 = getelementptr inbounds nuw i8, ptr %121, i64 12
+  %603 = getelementptr inbounds nuw i8, ptr %121, i64 12
+  %604 = getelementptr inbounds nuw i8, ptr %121, i64 8
   br label %741
 
 605:                                              ; preds = %._crit_edge.i.i, %.lr.ph83.i.i
@@ -5862,9 +5862,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10SwitchInstEPNS_10BasicBlockENS_12Dense
   %909 = phi i32 [ %.pre133.i.i, %._crit_edge92.loopexit.i.i ], [ 0, %741 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
   store ptr %.ptr34.i.i, ptr %121, align 8, !tbaa !45
-  store i32 4, ptr %604, align 4, !tbaa !59
+  store i32 4, ptr %603, align 4, !tbaa !59
   store ptr %742, ptr %.ptr34.i.i, align 8, !tbaa !105
-  store i32 1, ptr %603, align 8, !tbaa !58
+  store i32 1, ptr %604, align 8, !tbaa !58
   %910 = load i32, ptr %503, align 4, !tbaa !59
   %.not.i88.i.i = icmp ult i32 %909, %910
   br i1 %.not.i88.i.i, label %913, label %911, !prof !190
@@ -5883,7 +5883,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10SwitchInstEPNS_10BasicBlockENS_12Dense
   store i32 0, ptr %918, align 8, !tbaa !58
   %919 = getelementptr inbounds nuw i8, ptr %916, i64 12
   store i32 4, ptr %919, align 4, !tbaa !59
-  %920 = load i32, ptr %603, align 8, !tbaa !58
+  %920 = load i32, ptr %604, align 8, !tbaa !58
   %.not.i.i.i90.i.i = icmp eq i32 %920, 0
   %921 = icmp eq ptr %916, %121
   %or.cond29.i.i = or i1 %921, %.not.i.i.i90.i.i
@@ -5897,10 +5897,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10SwitchInstEPNS_10BasicBlockENS_12Dense
 _ZN4llvm15SmallVectorImplIPNS_10AllocaInstEE12assignRemoteEOS3_.exit.i121.i.i: ; preds = %922
   store ptr %923, ptr %916, align 8, !tbaa !45
   store i32 %920, ptr %918, align 8, !tbaa !58
-  %925 = load i32, ptr %604, align 4, !tbaa !59
+  %925 = load i32, ptr %603, align 4, !tbaa !59
   store i32 %925, ptr %919, align 4, !tbaa !59
   store ptr %.ptr34.i.i, ptr %121, align 8, !tbaa !45
-  store i32 0, ptr %604, align 4, !tbaa !59
+  store i32 0, ptr %603, align 4, !tbaa !59
   br label %_ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit.i91.sink.split.i.i
 
 926:                                              ; preds = %922
@@ -5910,7 +5910,7 @@ _ZN4llvm15SmallVectorImplIPNS_10AllocaInstEE12assignRemoteEOS3_.exit.i121.i.i: ;
 _ZSt4moveIPPN4llvm10AllocaInstES3_ET0_T_S5_S4_.exit35.i128.i.i: ; preds = %926
   %928 = zext i32 %920 to i64
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %916, ptr noundef nonnull %917, i64 noundef %928, i64 noundef 8) #17
-  %.pre134.i.i = load i32, ptr %603, align 8, !tbaa !58
+  %.pre134.i.i = load i32, ptr %604, align 8, !tbaa !58
   %.not.i.i.i130.i.i = icmp eq i32 %.pre134.i.i, 0
   br i1 %.not.i.i.i130.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_10AllocaInstELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i133.i.i, label %_ZSt4moveIPPN4llvm10AllocaInstES3_ET0_T_S5_S4_.exit35.i128.i._ZSt4moveIPPN4llvm10AllocaInstES3_ET0_T_S5_S4_.exit35.i128.thread.i_crit_edge.i
 
@@ -5933,7 +5933,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10AllocaInstELb1EE18uninitialized_moveIPS2
   br label %_ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit.i91.sink.split.i.i
 
 _ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit.i91.sink.split.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_10AllocaInstELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i133.i.i, %_ZN4llvm15SmallVectorImplIPNS_10AllocaInstEE12assignRemoteEOS3_.exit.i121.i.i
-  store i32 0, ptr %603, align 8, !tbaa !58
+  store i32 0, ptr %604, align 8, !tbaa !58
   br label %_ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit.i91.i.i
 
 _ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit.i91.i.i: ; preds = %_ZN4llvm11SmallVectorIPNS_10AllocaInstELj4EEC2EOS3_.exit.i91.sink.split.i.i, %913

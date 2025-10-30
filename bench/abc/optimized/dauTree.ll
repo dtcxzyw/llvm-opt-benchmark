@@ -1236,11 +1236,11 @@ define void @Dss_ObjSort(ptr noundef readonly captures(none) %0, ptr noundef cap
 .lr.ph.us.preheader:                              ; preds = %.lr.ph41, %16
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %16 ], [ 0, %.lr.ph41 ]
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %16 ], [ 1, %.lr.ph41 ]
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %7 = trunc nuw nsw i64 %indvars.iv59 to i32
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %8 = zext i32 %spec.select.us to i64
   %9 = icmp eq i64 %indvars.iv59, %8
   br i1 %9, label %16, label %10
@@ -1279,7 +1279,6 @@ define void @Dss_ObjSort(ptr noundef readonly captures(none) %0, ptr noundef cap
 .lr.ph.preheader:                                 ; preds = %.lr.ph41, %46
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %46 ], [ 0, %.lr.ph41 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 1, %.lr.ph41 ]
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %25 = trunc nuw nsw i64 %indvars.iv47 to i32
   br label %.lr.ph
 
@@ -1300,6 +1299,7 @@ define void @Dss_ObjSort(ptr noundef readonly captures(none) %0, ptr noundef cap
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph
+  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %34 = zext i32 %spec.select to i64
   %35 = icmp eq i64 %indvars.iv47, %34
   br i1 %35, label %46, label %36
@@ -4903,47 +4903,47 @@ Dss_ObjSort.exit:                                 ; preds = %117, %._crit_edge27
   br label %.lr.ph.us.preheader.i201
 
 .lr.ph.us.preheader.i201:                         ; preds = %252, %.lr.ph41.i198
-  %indvars.iv59.i202 = phi i64 [ %indvars.iv.next60.i204, %252 ], [ 0, %.lr.ph41.i198 ]
+  %indvars.iv59.i202 = phi i64 [ %indvars.iv.next60.i211, %252 ], [ 0, %.lr.ph41.i198 ]
   %indvars.iv52.i203 = phi i64 [ %indvars.iv.next53.i212, %252 ], [ 1, %.lr.ph41.i198 ]
   %243 = trunc nuw nsw i64 %indvars.iv59.i202 to i32
-  br label %.lr.ph.us.i205
+  br label %.lr.ph.us.i204
 
-._crit_edge.us.i211:                              ; preds = %.lr.ph.us.i205
-  %indvars.iv.next60.i204 = add nuw nsw i64 %indvars.iv59.i202, 1
-  %244 = zext i32 %spec.select.us.i208 to i64
+._crit_edge.us.i210:                              ; preds = %.lr.ph.us.i204
+  %indvars.iv.next60.i211 = add nuw nsw i64 %indvars.iv59.i202, 1
+  %244 = zext i32 %spec.select.us.i207 to i64
   %245 = icmp eq i64 %indvars.iv59.i202, %244
   br i1 %245, label %252, label %246
 
-246:                                              ; preds = %._crit_edge.us.i211
+246:                                              ; preds = %._crit_edge.us.i210
   %247 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv59.i202
   %248 = load ptr, ptr %247, align 8, !tbaa !49
-  %249 = sext i32 %spec.select.us.i208 to i64
+  %249 = sext i32 %spec.select.us.i207 to i64
   %250 = getelementptr inbounds ptr, ptr %7, i64 %249
   %251 = load ptr, ptr %250, align 8, !tbaa !49
   store ptr %251, ptr %247, align 8, !tbaa !49
   store ptr %248, ptr %250, align 8, !tbaa !49
   br label %252
 
-252:                                              ; preds = %246, %._crit_edge.us.i211
+252:                                              ; preds = %246, %._crit_edge.us.i210
   %indvars.iv.next53.i212 = add nuw nsw i64 %indvars.iv52.i203, 1
-  %exitcond63.not.i213 = icmp eq i64 %indvars.iv.next60.i204, %wide.trip.count62.i199
+  %exitcond63.not.i213 = icmp eq i64 %indvars.iv.next60.i211, %wide.trip.count62.i199
   br i1 %exitcond63.not.i213, label %Dss_ObjSort.exit197, label %.lr.ph.us.preheader.i201, !llvm.loop !50
 
-.lr.ph.us.i205:                                   ; preds = %.lr.ph.us.i205, %.lr.ph.us.preheader.i201
-  %indvars.iv54.i206 = phi i64 [ %indvars.iv52.i203, %.lr.ph.us.preheader.i201 ], [ %indvars.iv.next55.i209, %.lr.ph.us.i205 ]
-  %.03537.us.i207 = phi i32 [ %243, %.lr.ph.us.preheader.i201 ], [ %spec.select.us.i208, %.lr.ph.us.i205 ]
-  %253 = sext i32 %.03537.us.i207 to i64
+.lr.ph.us.i204:                                   ; preds = %.lr.ph.us.i204, %.lr.ph.us.preheader.i201
+  %indvars.iv54.i205 = phi i64 [ %indvars.iv52.i203, %.lr.ph.us.preheader.i201 ], [ %indvars.iv.next55.i208, %.lr.ph.us.i204 ]
+  %.03537.us.i206 = phi i32 [ %243, %.lr.ph.us.preheader.i201 ], [ %spec.select.us.i207, %.lr.ph.us.i204 ]
+  %253 = sext i32 %.03537.us.i206 to i64
   %254 = getelementptr inbounds ptr, ptr %7, i64 %253
   %255 = load ptr, ptr %254, align 8, !tbaa !49
-  %256 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv54.i206
+  %256 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv54.i205
   %257 = load ptr, ptr %256, align 8, !tbaa !49
   %258 = tail call i32 @Dss_ObjCompare(ptr noundef readonly %205, ptr noundef %255, ptr noundef %257)
   %259 = icmp eq i32 %258, 1
-  %260 = trunc nuw nsw i64 %indvars.iv54.i206 to i32
-  %spec.select.us.i208 = select i1 %259, i32 %260, i32 %.03537.us.i207
-  %indvars.iv.next55.i209 = add nuw nsw i64 %indvars.iv54.i206, 1
-  %exitcond58.not.i210 = icmp eq i64 %indvars.iv.next55.i209, %wide.trip.count57.i200
-  br i1 %exitcond58.not.i210, label %._crit_edge.us.i211, label %.lr.ph.us.i205, !llvm.loop !51
+  %260 = trunc nuw nsw i64 %indvars.iv54.i205 to i32
+  %spec.select.us.i207 = select i1 %259, i32 %260, i32 %.03537.us.i206
+  %indvars.iv.next55.i208 = add nuw nsw i64 %indvars.iv54.i205, 1
+  %exitcond58.not.i209 = icmp eq i64 %indvars.iv.next55.i208, %wide.trip.count57.i200
+  br i1 %exitcond58.not.i209, label %._crit_edge.us.i210, label %.lr.ph.us.i204, !llvm.loop !51
 
 261:                                              ; preds = %198
   %262 = load i32, ptr %2, align 4, !tbaa !25
@@ -5273,8 +5273,6 @@ define noundef ptr @Dss_ManBooleanAnd(ptr noundef %0, ptr noundef readonly captu
   %26 = load ptr, ptr %25, align 8, !tbaa !20
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
-  %29 = lshr i32 %28, 3
-  %30 = and i32 %29, 255
   %.not88 = icmp eq i32 %23, 0
   br i1 %.not88, label %._crit_edge, label %.lr.ph.preheader
 
@@ -5284,18 +5282,20 @@ define noundef ptr @Dss_ManBooleanAnd(ptr noundef %0, ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %31 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
-  %32 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %32, ptr %31, align 4, !tbaa !25
+  %29 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %30, ptr %29, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %34 = shl i32 %indvars.iv.tr, 1
-  store i32 %34, ptr %33, align 4, !tbaa !25
+  %32 = shl i32 %indvars.iv.tr, 1
+  store i32 %32, ptr %31, align 4, !tbaa !25
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
+  %33 = lshr i32 %28, 3
+  %34 = and i32 %33, 255
   %35 = load i32, ptr %0, align 8, !tbaa !87
   %36 = call ptr @Dss_ManComputeTruth(ptr noundef nonnull %0, i32 noundef %14, i32 noundef %35, ptr noundef nonnull %7)
   %37 = load i32, ptr %0, align 8, !tbaa !87
@@ -5321,11 +5321,11 @@ define noundef ptr @Dss_ManBooleanAnd(ptr noundef %0, ptr noundef readonly captu
   br i1 %exitcond25.not.i, label %Abc_TtCopy.exit, label %.lr.ph18.i, !llvm.loop !46
 
 Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.i, %._crit_edge
-  %.not89 = icmp eq i32 %30, 0
+  %.not89 = icmp eq i32 %34, 0
   br i1 %.not89, label %.preheader73, label %.lr.ph77.preheader
 
 .lr.ph77.preheader:                               ; preds = %Abc_TtCopy.exit
-  %46 = shl nuw nsw i32 %29, 2
+  %46 = shl nuw nsw i32 %33, 2
   %47 = and i32 %46, 1020
   %48 = zext nneg i32 %47 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 -1, i64 %48, i1 false), !tbaa !25
@@ -5345,7 +5345,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.i, %._crit
   br i1 %.not89, label %._crit_edge84, label %.lr.ph83.preheader
 
 .lr.ph83.preheader:                               ; preds = %.preheader
-  %wide.trip.count107 = zext nneg i32 %30 to i64
+  %wide.trip.count107 = zext nneg i32 %34 to i64
   br label %.lr.ph83
 
 52:                                               ; preds = %.lr.ph79, %52

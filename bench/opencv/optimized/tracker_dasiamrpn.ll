@@ -1349,28 +1349,31 @@ _ZN2cv3Mat2atIfEERT_PKi.exit.us.us.us:            ; preds = %_ZN2cv3Mat2atIfEERT
   br i1 %exitcond.not.i.i68.us.us.us.us.us, label %.lr.ph.i.i71.us.us.us.us.us, label %81, !llvm.loop !95
 
 .lr.ph.i.i71.us.us.us.us.us:                      ; preds = %81
-  store float %101, ptr %88, align 4, !tbaa !54
+  %89 = getelementptr inbounds nuw %"class.cv::Rect_.3", ptr %.sroa.091.0.lcssa, i64 %indvars.iv155
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = load float, ptr %90, align 4, !tbaa !63
+  store float %91, ptr %88, align 4, !tbaa !54
   store i32 3, ptr %3, align 16, !tbaa !57
-  %89 = getelementptr inbounds nuw i8, ptr %99, i64 12
-  %90 = load float, ptr %89, align 4, !tbaa !75
-  br label %91
+  br label %92
 
-91:                                               ; preds = %91, %.lr.ph.i.i71.us.us.us.us.us
-  %indvars.iv.i.i73.us.us.us.us.us = phi i64 [ 0, %.lr.ph.i.i71.us.us.us.us.us ], [ %indvars.iv.next.i.i75.us.us.us.us.us, %91 ]
-  %.010.i.i74.us.us.us.us.us = phi ptr [ %45, %.lr.ph.i.i71.us.us.us.us.us ], [ %98, %91 ]
-  %92 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i73.us.us.us.us.us
-  %93 = load i32, ptr %92, align 4, !tbaa !57
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds nuw i64, ptr %60, i64 %indvars.iv.i.i73.us.us.us.us.us
-  %96 = load i64, ptr %95, align 8, !tbaa !80
-  %97 = mul i64 %96, %94
-  %98 = getelementptr inbounds nuw i8, ptr %.010.i.i74.us.us.us.us.us, i64 %97
+92:                                               ; preds = %92, %.lr.ph.i.i71.us.us.us.us.us
+  %indvars.iv.i.i73.us.us.us.us.us = phi i64 [ 0, %.lr.ph.i.i71.us.us.us.us.us ], [ %indvars.iv.next.i.i75.us.us.us.us.us, %92 ]
+  %.010.i.i74.us.us.us.us.us = phi ptr [ %45, %.lr.ph.i.i71.us.us.us.us.us ], [ %99, %92 ]
+  %93 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i73.us.us.us.us.us
+  %94 = load i32, ptr %93, align 4, !tbaa !57
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds nuw i64, ptr %60, i64 %indvars.iv.i.i73.us.us.us.us.us
+  %97 = load i64, ptr %96, align 8, !tbaa !80
+  %98 = mul i64 %97, %95
+  %99 = getelementptr inbounds nuw i8, ptr %.010.i.i74.us.us.us.us.us, i64 %98
   %indvars.iv.next.i.i75.us.us.us.us.us = add nuw nsw i64 %indvars.iv.i.i73.us.us.us.us.us, 1
   %exitcond.not.i.i76.us.us.us.us.us = icmp eq i64 %indvars.iv.next.i.i75.us.us.us.us.us, %wide.trip.count.i.i.us.us
-  br i1 %exitcond.not.i.i76.us.us.us.us.us, label %_ZN2cv3Mat2atIfEERT_PKi.exit77.loopexit.us.us.us.us.us, label %91, !llvm.loop !95
+  br i1 %exitcond.not.i.i76.us.us.us.us.us, label %_ZN2cv3Mat2atIfEERT_PKi.exit77.loopexit.us.us.us.us.us, label %92, !llvm.loop !95
 
-_ZN2cv3Mat2atIfEERT_PKi.exit77.loopexit.us.us.us.us.us: ; preds = %91
-  store float %90, ptr %98, align 4, !tbaa !54
+_ZN2cv3Mat2atIfEERT_PKi.exit77.loopexit.us.us.us.us.us: ; preds = %92
+  %100 = getelementptr inbounds nuw i8, ptr %89, i64 12
+  %101 = load float, ptr %100, align 4, !tbaa !75
+  store float %101, ptr %99, align 4, !tbaa !54
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
   br i1 %exitcond159.not, label %._crit_edge122.split.us.us.us.us.us, label %.lr.ph.i.i.us.us.us.us.us, !llvm.loop !91
@@ -1378,9 +1381,6 @@ _ZN2cv3Mat2atIfEERT_PKi.exit77.loopexit.us.us.us.us.us: ; preds = %91
 _ZN2cv3Mat2atIfEERT_PKi.exit61.loopexit.us.us.us.us.us: ; preds = %73
   store float %63, ptr %80, align 4, !tbaa !54
   store i32 2, ptr %3, align 16, !tbaa !57
-  %99 = getelementptr inbounds nuw %"class.cv::Rect_.3", ptr %.sroa.091.0.lcssa, i64 %indvars.iv155
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %101 = load float, ptr %100, align 4, !tbaa !63
   br label %81
 
 ._crit_edge122.split.us.us.us.us.us:              ; preds = %_ZN2cv3Mat2atIfEERT_PKi.exit77.loopexit.us.us.us.us.us

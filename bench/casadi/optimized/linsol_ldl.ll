@@ -1372,18 +1372,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
 define linkonce_odr hidden void @_ZN6casadi10casadi_ldlIdEEvPKxPKT_S2_PS3_S6_S2_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #5 comdat {
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !93
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i64, ptr %10, i64 %9
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i64, ptr %13, i64 %9
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = icmp sgt i64 %9, 0
-  br i1 %16, label %.lr.ph123.preheader, label %._crit_edge136
+  %10 = icmp sgt i64 %9, 0
+  br i1 %10, label %.lr.ph123.preheader, label %._crit_edge136
 
 .lr.ph123.preheader:                              ; preds = %7
-  %17 = shl nuw i64 %9, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %17, i1 false), !tbaa !91
+  %11 = shl nuw i64 %9, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %11, i1 false), !tbaa !91
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %9
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %9
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %.lr.ph123
 
 .loopexit106:                                     ; preds = %.lr.ph121, %._crit_edge117
@@ -1391,14 +1391,14 @@ define linkonce_odr hidden void @_ZN6casadi10casadi_ldlIdEEvPKxPKT_S2_PS3_S6_S2_
   br i1 %exitcond139.not, label %.lr.ph135.preheader, label %.lr.ph123, !llvm.loop !94
 
 .lr.ph135.preheader:                              ; preds = %.loopexit106
-  %.pre = load i64, ptr %10, align 8, !tbaa !93
+  %.pre = load i64, ptr %12, align 8, !tbaa !93
   br label %.lr.ph135
 
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %.loopexit106
   %.0102122 = phi i64 [ %33, %.loopexit106 ], [ 0, %.lr.ph123.preheader ]
   %18 = getelementptr inbounds nuw i64, ptr %5, i64 %.0102122
   %19 = load i64, ptr %18, align 8, !tbaa !93
-  %20 = getelementptr inbounds i64, ptr %13, i64 %19
+  %20 = getelementptr inbounds i64, ptr %15, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !93
   %22 = getelementptr i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !93
@@ -1409,7 +1409,7 @@ define linkonce_odr hidden void @_ZN6casadi10casadi_ldlIdEEvPKxPKT_S2_PS3_S6_S2_
   %.0100112 = phi i64 [ %30, %.lr.ph113 ], [ %21, %.lr.ph123 ]
   %25 = getelementptr inbounds double, ptr %1, i64 %.0100112
   %26 = load double, ptr %25, align 8, !tbaa !91
-  %27 = getelementptr inbounds i64, ptr %15, i64 %.0100112
+  %27 = getelementptr inbounds i64, ptr %17, i64 %.0100112
   %28 = load i64, ptr %27, align 8, !tbaa !93
   %29 = getelementptr inbounds double, ptr %6, i64 %28
   store double %26, ptr %29, align 8, !tbaa !91
@@ -1418,17 +1418,17 @@ define linkonce_odr hidden void @_ZN6casadi10casadi_ldlIdEEvPKxPKT_S2_PS3_S6_S2_
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph113, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %.lr.ph113, %.lr.ph123
-  %31 = getelementptr inbounds nuw i64, ptr %10, i64 %.0102122
+  %31 = getelementptr inbounds nuw i64, ptr %12, i64 %.0102122
   %32 = load i64, ptr %31, align 8, !tbaa !93
   %33 = add nuw nsw i64 %.0102122, 1
-  %34 = getelementptr inbounds nuw i64, ptr %10, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr %12, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !93
   %36 = icmp slt i64 %32, %35
   br i1 %36, label %.lr.ph116, label %._crit_edge117
 
 .lr.ph116:                                        ; preds = %._crit_edge, %.lr.ph116
   %.1114 = phi i64 [ %44, %.lr.ph116 ], [ %32, %._crit_edge ]
-  %37 = getelementptr inbounds i64, ptr %12, i64 %.1114
+  %37 = getelementptr inbounds i64, ptr %14, i64 %.1114
   %38 = load i64, ptr %37, align 8, !tbaa !93
   %39 = getelementptr inbounds i64, ptr %5, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !93
@@ -1449,7 +1449,7 @@ define linkonce_odr hidden void @_ZN6casadi10casadi_ldlIdEEvPKxPKT_S2_PS3_S6_S2_
 
 .lr.ph121:                                        ; preds = %._crit_edge117, %.lr.ph121
   %.2119 = phi i64 [ %51, %.lr.ph121 ], [ %21, %._crit_edge117 ]
-  %48 = getelementptr inbounds i64, ptr %15, i64 %.2119
+  %48 = getelementptr inbounds i64, ptr %17, i64 %.2119
   %49 = load i64, ptr %48, align 8, !tbaa !93
   %50 = getelementptr inbounds double, ptr %6, i64 %49
   store double 0.000000e+00, ptr %50, align 8, !tbaa !91
@@ -1465,7 +1465,7 @@ define linkonce_odr hidden void @_ZN6casadi10casadi_ldlIdEEvPKxPKT_S2_PS3_S6_S2_
   %52 = phi i64 [ %55, %.loopexit ], [ %.pre, %.lr.ph135.preheader ]
   %.1103134 = phi i64 [ %53, %.loopexit ], [ 0, %.lr.ph135.preheader ]
   %53 = add nuw nsw i64 %.1103134, 1
-  %54 = getelementptr inbounds nuw i64, ptr %10, i64 %53
+  %54 = getelementptr inbounds nuw i64, ptr %12, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !93
   %56 = icmp slt i64 %52, %55
   br i1 %56, label %.lr.ph130, label %.loopexit
@@ -1476,9 +1476,9 @@ define linkonce_odr hidden void @_ZN6casadi10casadi_ldlIdEEvPKxPKT_S2_PS3_S6_S2_
 
 58:                                               ; preds = %.lr.ph130, %._crit_edge127
   %.3128 = phi i64 [ %52, %.lr.ph130 ], [ %88, %._crit_edge127 ]
-  %59 = getelementptr inbounds i64, ptr %12, i64 %.3128
+  %59 = getelementptr inbounds i64, ptr %14, i64 %.3128
   %60 = load i64, ptr %59, align 8, !tbaa !93
-  %61 = getelementptr inbounds i64, ptr %10, i64 %60
+  %61 = getelementptr inbounds i64, ptr %12, i64 %60
   %62 = load i64, ptr %61, align 8, !tbaa !93
   %63 = getelementptr i8, ptr %61, i64 8
   %64 = load i64, ptr %63, align 8, !tbaa !93
@@ -1492,7 +1492,7 @@ define linkonce_odr hidden void @_ZN6casadi10casadi_ldlIdEEvPKxPKT_S2_PS3_S6_S2_
   %.0124 = phi i64 [ %76, %.lr.ph126 ], [ %62, %58 ]
   %68 = getelementptr inbounds double, ptr %3, i64 %.0124
   %69 = load double, ptr %68, align 8, !tbaa !91
-  %70 = getelementptr inbounds i64, ptr %12, i64 %.0124
+  %70 = getelementptr inbounds i64, ptr %14, i64 %.0124
   %71 = load i64, ptr %70, align 8, !tbaa !93
   %72 = getelementptr inbounds double, ptr %6, i64 %71
   %73 = load double, ptr %72, align 8, !tbaa !91
@@ -1524,7 +1524,7 @@ define linkonce_odr hidden void @_ZN6casadi10casadi_ldlIdEEvPKxPKT_S2_PS3_S6_S2_
 
 .lr.ph133:                                        ; preds = %._crit_edge127, %.lr.ph133
   %.4132 = phi i64 [ %92, %.lr.ph133 ], [ %52, %._crit_edge127 ]
-  %89 = getelementptr inbounds i64, ptr %12, i64 %.4132
+  %89 = getelementptr inbounds i64, ptr %14, i64 %.4132
   %90 = load i64, ptr %89, align 8, !tbaa !93
   %91 = getelementptr inbounds double, ptr %6, i64 %90
   store double 0.000000e+00, ptr %91, align 8, !tbaa !91
@@ -7066,8 +7066,8 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !91
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !91
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -7228,8 +7228,8 @@ define linkonce_odr void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !93
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !93
   br label %_ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPxmxET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i

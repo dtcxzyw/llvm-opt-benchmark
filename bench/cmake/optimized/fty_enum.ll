@@ -175,26 +175,26 @@ define internal noundef zeroext i1 @Check_Enum_Field(ptr noundef %0, ptr noundef
 
 .preheader95.us.preheader:                        ; preds = %.lr.ph.split.us.preheader, %Compare.exit.us
   %12 = phi ptr [ %31, %Compare.exit.us ], [ %11, %.lr.ph.split.us.preheader ]
-  %.pn346 = phi ptr [ %13, %Compare.exit.us ], [ %3, %.lr.ph.split.us.preheader ]
-  %13 = getelementptr inbounds nuw i8, ptr %.pn346, i64 8
+  %.pn346 = phi ptr [ %17, %Compare.exit.us ], [ %3, %.lr.ph.split.us.preheader ]
   br label %.preheader95.us
 
 .preheader95.us:                                  ; preds = %.preheader95.us.preheader, %.preheader95.us
-  %.029.i.us = phi ptr [ %15, %.preheader95.us ], [ %10, %.preheader95.us.preheader ]
-  %14 = load i8, ptr %.029.i.us, align 1, !tbaa !23
-  %cond.i.us = icmp eq i8 %14, 32
-  %15 = getelementptr inbounds nuw i8, ptr %.029.i.us, i64 1
+  %.029.i.us = phi ptr [ %14, %.preheader95.us ], [ %10, %.preheader95.us.preheader ]
+  %13 = load i8, ptr %.029.i.us, align 1, !tbaa !23
+  %cond.i.us = icmp eq i8 %13, 32
+  %14 = getelementptr inbounds nuw i8, ptr %.029.i.us, i64 1
   br i1 %cond.i.us, label %.preheader95.us, label %.critedge.i.us, !llvm.loop !24
 
 .critedge.i.us:                                   ; preds = %.preheader95.us, %.critedge.i.us
-  %.028.i.us = phi ptr [ %17, %.critedge.i.us ], [ %12, %.preheader95.us ]
-  %16 = load i8, ptr %.028.i.us, align 1, !tbaa !23
-  %cond40.i.us = icmp eq i8 %16, 32
-  %17 = getelementptr inbounds nuw i8, ptr %.028.i.us, i64 1
+  %.028.i.us = phi ptr [ %16, %.critedge.i.us ], [ %12, %.preheader95.us ]
+  %15 = load i8, ptr %.028.i.us, align 1, !tbaa !23
+  %cond40.i.us = icmp eq i8 %15, 32
+  %16 = getelementptr inbounds nuw i8, ptr %.028.i.us, i64 1
   br i1 %cond40.i.us, label %.critedge.i.us, label %.critedge2.i.us, !llvm.loop !26
 
 .critedge2.i.us:                                  ; preds = %.critedge.i.us
-  %18 = icmp eq i8 %14, 0
+  %17 = getelementptr inbounds nuw i8, ptr %.pn346, i64 8
+  %18 = icmp eq i8 %13, 0
   br i1 %18, label %29, label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %.critedge2.i.us, %25
@@ -225,40 +225,40 @@ define internal noundef zeroext i1 @Check_Enum_Field(ptr noundef %0, ptr noundef
   br i1 %28, label %.critedge3.thread84, label %.preheader.i.us, !llvm.loop !28
 
 29:                                               ; preds = %.critedge2.i.us
-  %30 = icmp eq i8 %16, 0
+  %30 = icmp eq i8 %15, 0
   br i1 %30, label %.critedge3.thread84, label %Compare.exit.us
 
 Compare.exit.us:                                  ; preds = %.loopexit42.i.loopexit.us, %29
-  %31 = load ptr, ptr %13, align 8, !tbaa !16
+  %31 = load ptr, ptr %17, align 8, !tbaa !16
   %.not38.us = icmp eq ptr %31, null
   br i1 %.not38.us, label %.critedge, label %.preheader95.us.preheader, !llvm.loop !29
 
 .preheader95.preheader:                           ; preds = %.lr.ph.split.preheader, %Compare.exit
   %32 = phi ptr [ %121, %Compare.exit ], [ %11, %.lr.ph.split.preheader ]
-  %.pn = phi ptr [ %33, %Compare.exit ], [ %3, %.lr.ph.split.preheader ]
-  %33 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
+  %.pn = phi ptr [ %37, %Compare.exit ], [ %3, %.lr.ph.split.preheader ]
   br label %.preheader95
 
 .preheader95:                                     ; preds = %.preheader95.preheader, %.preheader95
-  %.029.i = phi ptr [ %35, %.preheader95 ], [ %10, %.preheader95.preheader ]
-  %34 = load i8, ptr %.029.i, align 1, !tbaa !23
-  %cond.i = icmp eq i8 %34, 32
-  %35 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
+  %.029.i = phi ptr [ %34, %.preheader95 ], [ %10, %.preheader95.preheader ]
+  %33 = load i8, ptr %.029.i, align 1, !tbaa !23
+  %cond.i = icmp eq i8 %33, 32
+  %34 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
   br i1 %cond.i, label %.preheader95, label %.critedge.i, !llvm.loop !24
 
 .critedge.i:                                      ; preds = %.preheader95, %.critedge.i
-  %.028.i = phi ptr [ %37, %.critedge.i ], [ %32, %.preheader95 ]
-  %36 = load i8, ptr %.028.i, align 1, !tbaa !23
-  %cond40.i = icmp eq i8 %36, 32
-  %37 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
+  %.028.i = phi ptr [ %36, %.critedge.i ], [ %32, %.preheader95 ]
+  %35 = load i8, ptr %.028.i, align 1, !tbaa !23
+  %cond40.i = icmp eq i8 %35, 32
+  %36 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
   br i1 %cond40.i, label %.critedge.i, label %.critedge2.i, !llvm.loop !26
 
 .critedge2.i:                                     ; preds = %.critedge.i
-  %38 = icmp eq i8 %34, 0
+  %37 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
+  %38 = icmp eq i8 %33, 0
   br i1 %38, label %39, label %.preheader44.i
 
 39:                                               ; preds = %.critedge2.i
-  %40 = icmp eq i8 %36, 0
+  %40 = icmp eq i8 %35, 0
   br i1 %40, label %.critedge3.thread84, label %Compare.exit
 
 .preheader44.i:                                   ; preds = %.critedge2.i
@@ -300,7 +300,7 @@ Compare.exit.us:                                  ; preds = %.loopexit42.i.loope
   br label %.loopexit42.i.loopexit93, !llvm.loop !27
 
 .split.us:                                        ; preds = %.loopexit42.i.loopexit93, %.loopexit42.i.loopexit.us
-  %.us-phi = phi ptr [ %13, %.loopexit42.i.loopexit.us ], [ %33, %.loopexit42.i.loopexit93 ]
+  %.us-phi = phi ptr [ %17, %.loopexit42.i.loopexit.us ], [ %37, %.loopexit42.i.loopexit93 ]
   %.us-phi139 = phi ptr [ %12, %.loopexit42.i.loopexit.us ], [ %32, %.loopexit42.i.loopexit93 ]
   %.us-phi140 = phi i8 [ %19, %.loopexit42.i.loopexit.us ], [ %44, %.loopexit42.i.loopexit93 ]
   %60 = icmp ne i8 %.us-phi140, 0
@@ -470,7 +470,7 @@ Compare.exit62:                                   ; preds = %.loopexit42.i54.loo
   br label %.critedge
 
 Compare.exit:                                     ; preds = %.loopexit42.i.loopexit93, %39
-  %121 = load ptr, ptr %33, align 8, !tbaa !16
+  %121 = load ptr, ptr %37, align 8, !tbaa !16
   %.not38 = icmp eq ptr %121, null
   br i1 %.not38, label %.critedge, label %.preheader95.preheader, !llvm.loop !29
 
@@ -502,18 +502,21 @@ define internal noundef zeroext i1 @Next_Enum(ptr noundef %0, ptr noundef readon
 .lr.ph:                                           ; preds = %.preheader, %Compare.exit
   %.01787 = phi i32 [ %17, %Compare.exit ], [ %8, %.preheader ]
   %.01886 = phi ptr [ %18, %Compare.exit ], [ %3, %.preheader ]
-  %11 = load ptr, ptr %.01886, align 8, !tbaa !16
-  br label %12
+  br label %11
 
-12:                                               ; preds = %12, %.lr.ph
-  %.029.i = phi ptr [ %9, %.lr.ph ], [ %14, %12 ]
-  %13 = load i8, ptr %.029.i, align 1, !tbaa !23
-  %cond.i = icmp eq i8 %13, 32
-  %14 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
-  br i1 %cond.i, label %12, label %.critedge.i, !llvm.loop !24
+11:                                               ; preds = %11, %.lr.ph
+  %.029.i = phi ptr [ %9, %.lr.ph ], [ %13, %11 ]
+  %12 = load i8, ptr %.029.i, align 1, !tbaa !23
+  %cond.i = icmp eq i8 %12, 32
+  %13 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
+  br i1 %cond.i, label %11, label %.critedge.i.preheader, !llvm.loop !24
 
-.critedge.i:                                      ; preds = %12, %.critedge.i
-  %.028.i = phi ptr [ %16, %.critedge.i ], [ %11, %12 ]
+.critedge.i.preheader:                            ; preds = %11
+  %14 = load ptr, ptr %.01886, align 8, !tbaa !16
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %.critedge.i.preheader, %.critedge.i
+  %.028.i = phi ptr [ %16, %.critedge.i ], [ %14, %.critedge.i.preheader ]
   %15 = load i8, ptr %.028.i, align 1, !tbaa !23
   %cond40.i = icmp eq i8 %15, 32
   %16 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
@@ -522,7 +525,7 @@ define internal noundef zeroext i1 @Next_Enum(ptr noundef %0, ptr noundef readon
 .critedge2.i:                                     ; preds = %.critedge.i
   %17 = add nsw i32 %.01787, -1
   %18 = getelementptr inbounds nuw i8, ptr %.01886, i64 8
-  %19 = icmp eq i8 %13, 0
+  %19 = icmp eq i8 %12, 0
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.critedge2.i
@@ -726,18 +729,21 @@ define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr noundef re
 .lr.ph:                                           ; preds = %.preheader, %Compare.exit
   %.01989 = phi i32 [ %24, %Compare.exit ], [ %4, %.preheader ]
   %.02088 = phi ptr [ %25, %Compare.exit ], [ %8, %.preheader ]
-  %18 = load ptr, ptr %.02088, align 8, !tbaa !16
-  br label %19
+  br label %18
 
-19:                                               ; preds = %19, %.lr.ph
-  %.029.i = phi ptr [ %12, %.lr.ph ], [ %21, %19 ]
-  %20 = load i8, ptr %.029.i, align 1, !tbaa !23
-  %cond.i = icmp eq i8 %20, 32
-  %21 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
-  br i1 %cond.i, label %19, label %.critedge.i, !llvm.loop !24
+18:                                               ; preds = %18, %.lr.ph
+  %.029.i = phi ptr [ %12, %.lr.ph ], [ %20, %18 ]
+  %19 = load i8, ptr %.029.i, align 1, !tbaa !23
+  %cond.i = icmp eq i8 %19, 32
+  %20 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
+  br i1 %cond.i, label %18, label %.critedge.i.preheader, !llvm.loop !24
 
-.critedge.i:                                      ; preds = %19, %.critedge.i
-  %.028.i = phi ptr [ %23, %.critedge.i ], [ %18, %19 ]
+.critedge.i.preheader:                            ; preds = %18
+  %21 = load ptr, ptr %.02088, align 8, !tbaa !16
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %.critedge.i.preheader, %.critedge.i
+  %.028.i = phi ptr [ %23, %.critedge.i ], [ %21, %.critedge.i.preheader ]
   %22 = load i8, ptr %.028.i, align 1, !tbaa !23
   %cond40.i = icmp eq i8 %22, 32
   %23 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
@@ -746,7 +752,7 @@ define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr noundef re
 .critedge2.i:                                     ; preds = %.critedge.i
   %24 = add nsw i32 %.01989, -1
   %25 = getelementptr inbounds i8, ptr %.02088, i64 -8
-  %26 = icmp eq i8 %20, 0
+  %26 = icmp eq i8 %19, 0
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %.critedge2.i

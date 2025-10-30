@@ -246,42 +246,42 @@ _ZN4pbrt3RGBixEi.exit19:                          ; preds = %15, %17, %19
   %.sroa.072.4.vec.extract.sink = phi float [ %2, %19 ], [ %.sroa.072.4.vec.extract, %17 ], [ %.sroa.072.0.vec.extract, %15 ]
   %20 = phi i64 [ 2, %19 ], [ 1, %17 ], [ 0, %15 ]
   %.0.i18.sroa.speculated = phi float [ %.sroa.072.4.vec.extract, %19 ], [ %.sroa.072.0.vec.extract, %17 ], [ %2, %15 ]
-  %21 = fmul float %.sink190, 6.300000e+01
-  %22 = fdiv float %21, %.sroa.072.4.vec.extract.sink
   %.val.val.i = load ptr, ptr %0, align 8, !tbaa !23
-  br label %23
+  br label %21
 
-23:                                               ; preds = %23, %_ZN4pbrt3RGBixEi.exit19
-  %.02.i = phi i64 [ 62, %_ZN4pbrt3RGBixEi.exit19 ], [ %33, %23 ]
-  %.0151.i = phi i64 [ 1, %_ZN4pbrt3RGBixEi.exit19 ], [ %31, %23 ]
-  %24 = lshr i64 %.02.i, 1
-  %25 = add i64 %24, %.0151.i
-  %sext.i = shl i64 %25, 32
-  %26 = ashr exact i64 %sext.i, 30
-  %27 = getelementptr inbounds i8, ptr %.val.val.i, i64 %26
-  %28 = load float, ptr %27, align 4, !tbaa !26
-  %29 = fcmp olt float %28, %.sroa.072.4.vec.extract.sink
-  %30 = add i64 %25, 1
-  %31 = select i1 %29, i64 %30, i64 %.0151.i
-  %.neg.i = xor i64 %24, -1
-  %32 = add nsw i64 %.02.i, %.neg.i
-  %33 = select i1 %29, i64 %32, i64 %24
-  %34 = icmp sgt i64 %33, 0
-  br i1 %34, label %23, label %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit", !llvm.loop !28
+21:                                               ; preds = %21, %_ZN4pbrt3RGBixEi.exit19
+  %.02.i = phi i64 [ 62, %_ZN4pbrt3RGBixEi.exit19 ], [ %31, %21 ]
+  %.0151.i = phi i64 [ 1, %_ZN4pbrt3RGBixEi.exit19 ], [ %29, %21 ]
+  %22 = lshr i64 %.02.i, 1
+  %23 = add i64 %22, %.0151.i
+  %sext.i = shl i64 %23, 32
+  %24 = ashr exact i64 %sext.i, 30
+  %25 = getelementptr inbounds i8, ptr %.val.val.i, i64 %24
+  %26 = load float, ptr %25, align 4, !tbaa !26
+  %27 = fcmp olt float %26, %.sroa.072.4.vec.extract.sink
+  %28 = add i64 %23, 1
+  %29 = select i1 %27, i64 %28, i64 %.0151.i
+  %.neg.i = xor i64 %22, -1
+  %30 = add nsw i64 %.02.i, %.neg.i
+  %31 = select i1 %27, i64 %30, i64 %22
+  %32 = icmp sgt i64 %31, 0
+  br i1 %32, label %21, label %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit", !llvm.loop !28
 
-"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit": ; preds = %23
+"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit": ; preds = %21
+  %33 = fmul float %.sink190, 6.300000e+01
+  %34 = fdiv float %33, %.sroa.072.4.vec.extract.sink
   %35 = fmul float %.0.i18.sroa.speculated, 6.300000e+01
   %36 = fdiv float %35, %.sroa.072.4.vec.extract.sink
-  %37 = fptosi float %22 to i32
+  %37 = fptosi float %34 to i32
   %.sroa.speculated67 = tail call i32 @llvm.smin.i32(i32 %37, i32 62)
   %38 = fptosi float %36 to i32
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %38, i32 62)
-  %39 = add nsw i64 %31, -1
+  %39 = add nsw i64 %29, -1
   %..i.i = tail call i64 @llvm.umin.i64(i64 %39, i64 62)
-  %.inv.i = icmp sgt i64 %31, 0
+  %.inv.i = icmp sgt i64 %29, 0
   %.0.i.i = select i1 %.inv.i, i64 %..i.i, i64 0
   %40 = sitofp i32 %.sroa.speculated67 to float
-  %41 = fsub float %22, %40
+  %41 = fsub float %34, %40
   %42 = sitofp i32 %.sroa.speculated to float
   %43 = fsub float %36, %42
   %sext = shl nuw nsw i64 %.0.i.i, 32
@@ -1469,11 +1469,11 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 define dso_local void @_ZN4pbrt18GammaColorEncodingC2Ef(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(5124) initializes((0, 5124)) %0, float noundef %1) unnamed_addr #9 align 2 {
   store float %1, ptr %0, align 4, !tbaa !93
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1028
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5120) %3, i8 0, i64 5120, i1 false)
   br label %6
 
 .preheader:                                       ; preds = %6
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1028
   %5 = fdiv float 1.000000e+00, %1
   br label %13
 

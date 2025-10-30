@@ -3855,43 +3855,43 @@ common.resume:                                    ; preds = %3515, %3521, %3581,
   %1335 = getelementptr inbounds nuw i32, ptr %1279, i64 %indvars.iv519.i.i
   %1336 = load i32, ptr %1335, align 4, !tbaa !208
   %1337 = load i32, ptr %91, align 4, !tbaa !501
-  %1338 = icmp slt i32 %1336, %1337
-  %1339 = add nuw nsw i64 %indvars.iv519.i.i, 1
-  %1340 = getelementptr inbounds nuw %struct.DDCellsizesWithDlb, ptr %1281, i64 %1339
-  %1341 = getelementptr inbounds nuw i8, ptr %1340, i64 32
-  %1342 = load float, ptr %1341, align 8, !tbaa !225
-  %1343 = getelementptr inbounds nuw %"class.gmx::BasicVector.14", ptr %75, i64 %indvars.iv519.i.i
-  store float %1342, ptr %1343, align 4, !tbaa !209
-  %1344 = getelementptr inbounds nuw i8, ptr %1340, i64 36
-  %1345 = load float, ptr %1344, align 4, !tbaa !210
-  %1346 = getelementptr inbounds nuw i8, ptr %1343, i64 4
-  store float %1345, ptr %1346, align 4, !tbaa !209
-  %1347 = getelementptr inbounds nuw i8, ptr %1343, i64 8
-  store float %1345, ptr %1347, align 4, !tbaa !209
-  %1348 = load i32, ptr %1205, align 8, !tbaa !127
-  %1349 = add nsw i32 %1348, -1
-  %1350 = sext i32 %1349 to i64
-  %1351 = icmp slt i64 %indvars.iv519.i.i, %1350
-  br i1 %1351, label %.lr.ph418.i.i, label %._crit_edge419.i.i
+  %1338 = add nuw nsw i64 %indvars.iv519.i.i, 1
+  %1339 = getelementptr inbounds nuw %struct.DDCellsizesWithDlb, ptr %1281, i64 %1338
+  %1340 = getelementptr inbounds nuw i8, ptr %1339, i64 32
+  %1341 = load float, ptr %1340, align 8, !tbaa !225
+  %1342 = getelementptr inbounds nuw %"class.gmx::BasicVector.14", ptr %75, i64 %indvars.iv519.i.i
+  store float %1341, ptr %1342, align 4, !tbaa !209
+  %1343 = getelementptr inbounds nuw i8, ptr %1339, i64 36
+  %1344 = load float, ptr %1343, align 4, !tbaa !210
+  %1345 = getelementptr inbounds nuw i8, ptr %1342, i64 4
+  store float %1344, ptr %1345, align 4, !tbaa !209
+  %1346 = getelementptr inbounds nuw i8, ptr %1342, i64 8
+  store float %1344, ptr %1346, align 4, !tbaa !209
+  %1347 = load i32, ptr %1205, align 8, !tbaa !127
+  %1348 = add nsw i32 %1347, -1
+  %1349 = sext i32 %1348 to i64
+  %1350 = icmp slt i64 %indvars.iv519.i.i, %1349
+  br i1 %1350, label %.lr.ph418.i.i, label %._crit_edge419.i.i
 
 .lr.ph418.i.i:                                    ; preds = %1326
-  %1352 = sext i32 %1336 to i64
-  %1353 = getelementptr inbounds float, ptr %1283, i64 %1352
-  %1354 = add i32 %1348, %indvars.iv479.i.i
-  %wide.trip.count481.i.i = zext i32 %1354 to i64
-  %.pre.i.i = load float, ptr %1353, align 4, !tbaa !209
+  %1351 = sext i32 %1336 to i64
+  %1352 = getelementptr inbounds float, ptr %1283, i64 %1351
+  %1353 = add i32 %1347, %indvars.iv479.i.i
+  %wide.trip.count481.i.i = zext i32 %1353 to i64
+  %.pre.i.i = load float, ptr %1352, align 4, !tbaa !209
   br label %1362
 
 ._crit_edge419.i.i:                               ; preds = %1362, %1326
-  %.0311.lcssa.i.i = phi i32 [ 0, %1326 ], [ %1354, %1362 ]
-  %1355 = icmp eq i32 %1348, 2
+  %.0311.lcssa.i.i = phi i32 [ 0, %1326 ], [ %1353, %1362 ]
+  %1354 = icmp slt i32 %1336, %1337
+  %1355 = icmp eq i32 %1347, 2
   %.v.i.i = select i1 %1355, i64 688, i64 752
   %1356 = getelementptr inbounds nuw i8, ptr %1204, i64 %.v.i.i
   %1357 = zext nneg i32 %.0311.lcssa.i.i to i64
   %1358 = getelementptr inbounds nuw %struct.gmx_ddzone_t, ptr %72, i64 %1357
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1358, ptr noundef nonnull align 4 dereferenceable(32) %1356, i64 32, i1 false), !tbaa.struct !513
   %1359 = add nuw nsw i32 %.0311.lcssa.i.i, 1
-  %1360 = icmp eq i32 %1348, 3
+  %1360 = icmp eq i32 %1347, 3
   %1361 = icmp eq i64 %indvars.iv519.i.i, 0
   %or.cond.i.i = and i1 %1361, %1360
   br i1 %or.cond.i.i, label %1377, label %1382
@@ -3946,7 +3946,7 @@ common.resume:                                    ; preds = %3515, %3521, %3581,
   %1389 = sub i64 %1387, %1388
   %1390 = sdiv exact i64 %1389, 104
   %1391 = trunc i64 %1390 to i32
-  br i1 %1338, label %1392, label %1398
+  br i1 %1354, label %1392, label %1398
 
 1392:                                             ; preds = %1382
   %1393 = sext i32 %1336 to i64
@@ -3999,7 +3999,7 @@ common.resume:                                    ; preds = %3515, %3521, %3581,
 
 1425:                                             ; preds = %.loopexit409.i.i, %.lr.ph426.i.i
   %.0316424.i.i = phi i32 [ 0, %.lr.ph426.i.i ], [ %1463, %.loopexit409.i.i ]
-  br i1 %1338, label %.preheader408.critedge.i.i, label %1426
+  br i1 %1354, label %.preheader408.critedge.i.i, label %1426
 
 1426:                                             ; preds = %1425
   %1427 = load i32, ptr %1401, align 4, !tbaa !208
@@ -4007,22 +4007,22 @@ common.resume:                                    ; preds = %3515, %3521, %3581,
   %1429 = load i32, ptr %1205, align 8, !tbaa !127
   %1430 = add i32 %1429, %1402
   %1431 = sext i32 %1430 to i64
-  %1432 = getelementptr inbounds nuw %"class.gmx::BasicVector.14", ptr %1343, i64 %1431
+  %1432 = getelementptr inbounds nuw %"class.gmx::BasicVector.14", ptr %1342, i64 %1431
   %1433 = getelementptr inbounds nuw %"class.gmx::BasicVector.14", ptr %1403, i64 %1431
   store ptr %1403, ptr %77, align 8
   store ptr %1433, ptr %1289, align 8
-  call void @_Z10ddSendrecvIN3gmx11BasicVectorIfEEEvPK12gmx_domdec_tiiNS0_8ArrayRefIT_EES8_(ptr noundef nonnull %162, i32 noundef %indvars85.i, i32 noundef 0, ptr nonnull %1343, ptr nonnull %1432, ptr noundef nonnull byval(%"class.gmx::ArrayRef.584") align 8 %77)
+  call void @_Z10ddSendrecvIN3gmx11BasicVectorIfEEEvPK12gmx_domdec_tiiNS0_8ArrayRefIT_EES8_(ptr noundef nonnull %162, i32 noundef %indvars85.i, i32 noundef 0, ptr nonnull %1342, ptr nonnull %1432, ptr noundef nonnull byval(%"class.gmx::ArrayRef.584") align 8 %77)
   br i1 %1428, label %.preheader408.i.i, label %.loopexit409.i.i
 
 .preheader408.critedge.i.i:                       ; preds = %1425
   %1434 = load i32, ptr %1205, align 8, !tbaa !127
   %1435 = add i32 %1434, %1402
   %1436 = sext i32 %1435 to i64
-  %1437 = getelementptr inbounds nuw %"class.gmx::BasicVector.14", ptr %1343, i64 %1436
+  %1437 = getelementptr inbounds nuw %"class.gmx::BasicVector.14", ptr %1342, i64 %1436
   %1438 = getelementptr inbounds nuw %"class.gmx::BasicVector.14", ptr %1403, i64 %1436
   store ptr %1403, ptr %77, align 8
   store ptr %1438, ptr %1289, align 8
-  call void @_Z10ddSendrecvIN3gmx11BasicVectorIfEEEvPK12gmx_domdec_tiiNS0_8ArrayRefIT_EES8_(ptr noundef nonnull %162, i32 noundef %indvars85.i, i32 noundef 0, ptr nonnull %1343, ptr nonnull %1437, ptr noundef nonnull byval(%"class.gmx::ArrayRef.584") align 8 %77)
+  call void @_Z10ddSendrecvIN3gmx11BasicVectorIfEEEvPK12gmx_domdec_tiiNS0_8ArrayRefIT_EES8_(ptr noundef nonnull %162, i32 noundef %indvars85.i, i32 noundef 0, ptr nonnull %1342, ptr nonnull %1437, ptr noundef nonnull byval(%"class.gmx::ArrayRef.584") align 8 %77)
   br label %.preheader408.i.i
 
 .preheader408.i.i:                                ; preds = %.preheader408.critedge.i.i, %1426
@@ -4076,7 +4076,7 @@ common.resume:                                    ; preds = %3515, %3521, %3581,
 
 1464:                                             ; preds = %.critedge.i.i, %.lr.ph450.i.i
   %.0318448.i.i = phi i32 [ 0, %.lr.ph450.i.i ], [ %1593, %.critedge.i.i ]
-  br i1 %1338, label %1470, label %1465
+  br i1 %1354, label %1470, label %1465
 
 1465:                                             ; preds = %1464
   %1466 = load i32, ptr %1406, align 4, !tbaa !208
@@ -4098,7 +4098,7 @@ common.resume:                                    ; preds = %3515, %3521, %3581,
 .preheader406.i.i:                                ; preds = %1470
   %1472 = load i32, ptr %1205, align 8, !tbaa !127
   %1473 = sext i32 %1472 to i64
-  %1474 = icmp slt i64 %1339, %1473
+  %1474 = icmp slt i64 %1338, %1473
   br i1 %1474, label %.lr.ph428.i.i, label %.loopexit407.i.thread.i
 
 .lr.ph428.i.i:                                    ; preds = %.preheader406.i.i
@@ -4200,7 +4200,7 @@ common.resume:                                    ; preds = %3515, %3521, %3581,
   store float %1523, ptr %1518, align 8, !tbaa !506
   %1524 = icmp eq i64 %indvars.iv492.i.us71.i, %1423
   %or.cond340.i.us.i = select i1 %or.cond3.i.us.i, i1 %1524, i1 false
-  %.0308.i.us.i = select i1 %or.cond340.i.us.i, i64 1, i64 %1339
+  %.0308.i.us.i = select i1 %or.cond340.i.us.i, i64 1, i64 %1338
   %1525 = getelementptr inbounds nuw float, ptr %79, i64 %.0308.i.us.i
   %1526 = load float, ptr %1525, align 4, !tbaa !209
   %1527 = fcmp ult float %1526, 0.000000e+00
@@ -4231,7 +4231,7 @@ common.resume:                                    ; preds = %3515, %3521, %3581,
   br i1 %exitcond496.not.i.us74.i, label %._crit_edge432.i.i, label %.lr.ph431.i.us70.i, !llvm.loop !524
 
 ._crit_edge432.i.i:                               ; preds = %.critedge344.i.us72.i, %.lr.ph431.preheader.i.split.i, %.lr.ph431.preheader.i.thread104.i, %.loopexit407.i.thread.i, %.loopexit407.i.thread103.i, %.loopexit407.i.i
-  br i1 %1338, label %1547, label %1541
+  br i1 %1354, label %1547, label %1541
 
 1541:                                             ; preds = %._crit_edge432.i.i
   %1542 = load i32, ptr %1406, align 4, !tbaa !208
@@ -5721,19 +5721,19 @@ _ZL14set_dd_cornersPK12gmx_domdec_tiiibP12dd_corners_t.exit.thread.i: ; preds = 
   %2264 = load i32, ptr %2263, align 4, !tbaa !208
   store i32 %2264, ptr %30, align 4, !tbaa !208
   %2265 = load ptr, ptr %37, align 8, !tbaa !27
-  %2266 = getelementptr inbounds nuw i8, ptr %2265, i64 880
-  %2267 = getelementptr inbounds nuw %struct.gmx_domdec_comm_dim_t, ptr %2266, i64 %2262
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store i8 0, ptr %53, align 1, !tbaa !436
   %.not163576.i = icmp slt i32 %storemerge608.i, 0
   br i1 %.not163576.i, label %._crit_edge.i555, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2259
-  %2268 = add nuw nsw i32 %storemerge608.i, 1
-  %wide.trip.count.i550 = zext nneg i32 %2268 to i64
+  %2266 = add nuw nsw i32 %storemerge608.i, 1
+  %wide.trip.count.i550 = zext nneg i32 %2266 to i64
   br label %.lr.ph.i551
 
 ._crit_edge.i555:                                 ; preds = %2276, %2259
+  %2267 = getelementptr inbounds nuw i8, ptr %2265, i64 880
+  %2268 = getelementptr inbounds nuw %struct.gmx_domdec_comm_dim_t, ptr %2267, i64 %2262
   %2269 = load i32, ptr %91, align 4, !tbaa !501
   %.not164.i = icmp slt i32 %2264, %2269
   br i1 %.not164.i, label %._crit_edge._crit_edge.i, label %2277
@@ -5779,11 +5779,11 @@ _ZL14set_dd_cornersPK12gmx_domdec_tiiibP12dd_corners_t.exit.thread.i: ; preds = 
   %2286 = load float, ptr %2285, align 4, !tbaa !209
   %2287 = fmul float %2286, %2286
   store float %2287, ptr %47, align 4, !tbaa !209
-  %2288 = getelementptr inbounds nuw i8, ptr %2267, i64 24
+  %2288 = getelementptr inbounds nuw i8, ptr %2268, i64 24
   store i8 1, ptr %2288, align 8, !tbaa !576
-  %2289 = getelementptr inbounds nuw i8, ptr %2267, i64 8
+  %2289 = getelementptr inbounds nuw i8, ptr %2268, i64 8
   %2290 = load ptr, ptr %2289, align 8, !tbaa !515
-  %2291 = load ptr, ptr %2267, align 8, !tbaa !518
+  %2291 = load ptr, ptr %2268, align 8, !tbaa !518
   %2292 = ptrtoint ptr %2290 to i64
   %2293 = ptrtoint ptr %2291 to i64
   %2294 = sub i64 %2292, %2293
@@ -6023,7 +6023,7 @@ _ZNK3gmx11DomdecZones9atomRangeEi.exit193.i:      ; preds = %2386
 
 _ZNK3gmx11DomdecZones9atomRangeEi.exit199.i:      ; preds = %2393
   store i32 %2399, ptr %56, align 4, !tbaa !208
-  %2401 = load ptr, ptr %2267, align 8, !tbaa !518
+  %2401 = load ptr, ptr %2268, align 8, !tbaa !518
   %2402 = getelementptr %struct.gmx_domdec_ind_t, ptr %2401, i64 %indvars.iv689.i
   %2403 = getelementptr i8, ptr %2402, i64 -80
   %2404 = getelementptr inbounds i32, ptr %2403, i64 %2383
@@ -7029,7 +7029,7 @@ _ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.i: ; preds = %2865, %2851
   %2882 = load ptr, ptr %2881, align 8, !tbaa !470
   %2883 = getelementptr inbounds nuw i8, ptr %2880, i64 200
   %2884 = load ptr, ptr %2883, align 8, !tbaa !476
-  %2885 = load ptr, ptr %2267, align 8, !tbaa !518
+  %2885 = load ptr, ptr %2268, align 8, !tbaa !518
   %2886 = getelementptr inbounds nuw %struct.gmx_domdec_ind_t, ptr %2885, i64 %indvars.iv689.i
   %2887 = getelementptr inbounds nuw i8, ptr %2886, i64 24
   br i1 %2307, label %.lr.ph35.i.i, label %._crit_edge.i222.i
@@ -7123,7 +7123,7 @@ _ZNK3gmx11DomdecZones9atomRangeEi.exit103.preheader54.i.i: ; preds = %_ZNK3gmx11
   br label %_ZNK3gmx11DomdecZones9atomRangeEi.exit103.i.i
 
 .preheader18.loopexit.i.i:                        ; preds = %_ZNK3gmx11DomdecZones9atomRangeEi.exit103.i.i
-  %.pre.i230.i = load ptr, ptr %2267, align 8, !tbaa !518
+  %.pre.i230.i = load ptr, ptr %2268, align 8, !tbaa !518
   br label %.preheader18.i.i
 
 .preheader18.i.i:                                 ; preds = %.preheader18.loopexit.i.i, %_ZNK3gmx11DomdecZones9atomRangeEi.exit103.preheader.i.i
@@ -7398,7 +7398,7 @@ _ZN14DDBufferAccessIiED2Ev.exit.i:                ; preds = %_ZN14DDBufferAccess
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   %indvars.iv.next690.i = add nuw nsw i64 %indvars.iv689.i, 1
   %3036 = load ptr, ptr %2289, align 8, !tbaa !515
-  %3037 = load ptr, ptr %2267, align 8, !tbaa !518
+  %3037 = load ptr, ptr %2268, align 8, !tbaa !518
   %3038 = ptrtoint ptr %3036 to i64
   %3039 = ptrtoint ptr %3037 to i64
   %3040 = sub i64 %3038, %3039

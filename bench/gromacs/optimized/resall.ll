@@ -1125,25 +1125,25 @@ define void @_Z19readResidueDatabaseRKNSt10filesystem7__cxx114pathEPSt6vectorI17
   store i64 0, ptr %64, align 8, !tbaa !37
   store i8 0, ptr %63, align 8, !tbaa !22
   %65 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  %66 = getelementptr inbounds nuw i8, ptr %35, i64 116
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %65, i8 0, i64 48, i1 false)
-  %67 = getelementptr inbounds nuw i8, ptr %35, i64 120
-  %68 = getelementptr inbounds nuw i8, ptr %35, i64 121
-  %69 = getelementptr inbounds nuw i8, ptr %35, i64 128
-  br label %70
+  %66 = getelementptr inbounds nuw i8, ptr %35, i64 128
+  br label %67
 
-70:                                               ; preds = %70, %59
-  %.idx.i.i = phi i64 [ 0, %59 ], [ %.add.i.i, %70 ]
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i
+67:                                               ; preds = %67, %59
+  %.idx.i.i = phi i64 [ 0, %59 ], [ %.add.i.i, %67 ]
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i
   store i32 -1, ptr %.ptr.i.i, align 8, !tbaa !42
-  %71 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
+  %68 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 32
-  %72 = icmp eq i64 %.add.i.i, 192
-  br i1 %72, label %_ZN17PreprocessResidueC2Ev.exit, label %70
+  %69 = icmp eq i64 %.add.i.i, 192
+  br i1 %69, label %_ZN17PreprocessResidueC2Ev.exit, label %67
 
-_ZN17PreprocessResidueC2Ev.exit:                  ; preds = %70
-  store i32 1, ptr %69, align 8, !tbaa !42
+_ZN17PreprocessResidueC2Ev.exit:                  ; preds = %67
+  %70 = getelementptr inbounds nuw i8, ptr %35, i64 116
+  %71 = getelementptr inbounds nuw i8, ptr %35, i64 120
+  %72 = getelementptr inbounds nuw i8, ptr %35, i64 121
+  store i32 1, ptr %66, align 8, !tbaa !42
   %73 = getelementptr inbounds nuw i8, ptr %35, i64 160
   store i32 1, ptr %73, align 8, !tbaa !42
   %74 = getelementptr inbounds nuw i8, ptr %35, i64 192
@@ -1156,9 +1156,9 @@ _ZN17PreprocessResidueC2Ev.exit:                  ; preds = %70
   store i32 1, ptr %77, align 8, !tbaa !42
   %78 = getelementptr inbounds nuw i8, ptr %35, i64 112
   store i8 0, ptr %78, align 8, !tbaa !49
-  store i32 3, ptr %66, align 4, !tbaa !67
-  store i8 1, ptr %67, align 8, !tbaa !68
-  store i8 1, ptr %68, align 1, !tbaa !69
+  store i32 3, ptr %70, align 4, !tbaa !67
+  store i8 1, ptr %71, align 8, !tbaa !68
+  store i8 1, ptr %72, align 1, !tbaa !69
   %79 = invoke noundef zeroext i1 @_Z10get_a_lineP8_IO_FILEPci(ptr noundef %58, ptr noundef nonnull %29, i32 noundef 4096)
           to label %80 unwind label %88
 
@@ -1294,7 +1294,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
           to label %124 unwind label %88
 
 124:                                              ; preds = %122
-  %125 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.19, ptr noundef nonnull %69, ptr noundef nonnull %73, ptr noundef nonnull %74, ptr noundef nonnull %75, ptr noundef nonnull %31, ptr noundef nonnull %66, ptr noundef nonnull %32, ptr noundef nonnull %33) #23
+  %125 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.19, ptr noundef nonnull %66, ptr noundef nonnull %73, ptr noundef nonnull %74, ptr noundef nonnull %75, ptr noundef nonnull %31, ptr noundef nonnull %70, ptr noundef nonnull %32, ptr noundef nonnull %33) #23
   %126 = icmp slt i32 %125, 4
   br i1 %126, label %127, label %156
 
@@ -1394,11 +1394,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %14
   %160 = load i32, ptr %32, align 4, !tbaa !82
   %161 = icmp ne i32 %160, 0
   %162 = zext i1 %161 to i8
-  store i8 %162, ptr %67, align 8, !tbaa !68
+  store i8 %162, ptr %71, align 8, !tbaa !68
   %163 = load i32, ptr %33, align 4, !tbaa !82
   %164 = icmp ne i32 %163, 0
   %165 = zext i1 %164 to i8
-  store i8 %165, ptr %68, align 1, !tbaa !69
+  store i8 %165, ptr %72, align 1, !tbaa !69
   %166 = invoke noundef zeroext i1 @_Z10get_a_lineP8_IO_FILEPci(ptr noundef %58, ptr noundef nonnull %29, i32 noundef 4096)
           to label %167 unwind label %88
 
@@ -1531,7 +1531,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit167:              ; preds = %213, %_ZNKSt7__cxx1
   br label %.body
 
 .thread384:                                       ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit164, %195
-  store i32 3, ptr %66, align 4, !tbaa !67
+  store i32 3, ptr %70, align 4, !tbaa !67
   br label %221
 
 219:                                              ; preds = %193
@@ -1597,7 +1597,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit175:              ; preds = %239, %_ZNKSt7__cxx1
   br label %.body
 
 .thread385:                                       ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit172, %221
-  store i8 1, ptr %67, align 8, !tbaa !68
+  store i8 1, ptr %71, align 8, !tbaa !68
   br label %247
 
 245:                                              ; preds = %219
@@ -1662,7 +1662,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit183:              ; preds = %264, %_ZNKSt7__cxx1
   br label %.body
 
 270:                                              ; preds = %247, %_ZN3gmx14LogEntryWriterD2Ev.exit180
-  store i8 1, ptr %68, align 1, !tbaa !69
+  store i8 1, ptr %72, align 1, !tbaa !69
   br label %_ZL16print_resall_logRKN3gmx8MDLoggerENS_8ArrayRefIK17PreprocessResidueEE.exit
 
 271:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146
@@ -1843,16 +1843,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   store i64 0, ptr %340, align 8, !tbaa !37
   %341 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i8 1, ptr %341, align 8, !tbaa !86
-  %342 = load i32, ptr %69, align 8, !tbaa !42
+  %342 = load i32, ptr %66, align 8, !tbaa !42
   %343 = load i32, ptr %73, align 8, !tbaa !42
   %344 = load i32, ptr %74, align 8, !tbaa !42
   %345 = load i32, ptr %75, align 8, !tbaa !42
   %346 = load i8, ptr %78, align 8, !tbaa !49, !range !65, !noundef !66
   %347 = zext nneg i8 %346 to i32
-  %348 = load i32, ptr %66, align 4, !tbaa !67
-  %349 = load i8, ptr %67, align 8, !tbaa !68, !range !65, !noundef !66
+  %348 = load i32, ptr %70, align 4, !tbaa !67
+  %349 = load i8, ptr %71, align 8, !tbaa !68, !range !65, !noundef !66
   %350 = zext nneg i8 %349 to i32
-  %351 = load i8, ptr %68, align 1, !tbaa !69, !range !65, !noundef !66
+  %351 = load i8, ptr %72, align 1, !tbaa !69, !range !65, !noundef !66
   %352 = zext nneg i8 %351 to i32
   %353 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull @.str.34, i32 noundef %342, i32 noundef %343, i32 noundef %344, i32 noundef %345, i32 noundef %347, i32 noundef %348, i32 noundef %350, i32 noundef %352)
           to label %354 unwind label %362

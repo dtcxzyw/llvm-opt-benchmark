@@ -34525,7 +34525,6 @@ switch.lookup:                                    ; preds = %89, %89, %89
   %173 = call noundef ptr %172(ptr noundef nonnull align 8 dereferenceable(32) %169) #25
   %174 = call noundef ptr @_ZN7glslang16HlslParseContext16makeIntegerIndexEPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(2489) %0, ptr noundef %173)
   %switch.offset = add nsw i32 %42, -810
-  %switch.offset242 = add nsw i32 %42, -326
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %176 = load ptr, ptr %175, align 8
   %177 = call noundef ptr @_ZNK7glslang13TIntermediate16addConstantUnionEiRKNS_10TSourceLocEb(ptr noundef nonnull align 8 dereferenceable(2024) %176, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext true) #25
@@ -34750,6 +34749,7 @@ switch.lookup:                                    ; preds = %89, %89, %89
   br i1 %exitcond224.not, label %308, label %257, !llvm.loop !207
 
 308:                                              ; preds = %277
+  %switch.offset242 = add nsw i32 %42, -326
   %309 = load ptr, ptr %87, align 8
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 256
   %311 = load ptr, ptr %310, align 8

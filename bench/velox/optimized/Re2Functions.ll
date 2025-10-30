@@ -20946,7 +20946,6 @@ _ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZN
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %__begin0.sroa.0.015 = load ptr, ptr %0, align 8
   %cmp.i.not16 = icmp eq ptr %__begin0.sroa.0.015, null
@@ -20962,6 +20961,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
+  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %lifetimes = getelementptr inbounds nuw i8, ptr %this, i64 80
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %this.val.i.i.i = load ptr, ptr %2, align 8
@@ -26739,7 +26739,6 @@ _ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZN
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %__begin0.sroa.0.015 = load ptr, ptr %0, align 8
   %cmp.i.not16 = icmp eq ptr %__begin0.sroa.0.015, null
@@ -26755,6 +26754,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
+  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %lifetimes = getelementptr inbounds nuw i8, ptr %this, i64 80
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %this.val.i.i.i = load ptr, ptr %2, align 8
@@ -31350,7 +31350,6 @@ _ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZN
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %__begin0.sroa.0.015 = load ptr, ptr %0, align 8
   %cmp.i.not16 = icmp eq ptr %__begin0.sroa.0.015, null
@@ -31366,6 +31365,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
+  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %lifetimes = getelementptr inbounds nuw i8, ptr %this, i64 80
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %this.val.i.i.i = load ptr, ptr %2, align 8
@@ -35914,7 +35914,6 @@ _ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZN
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %__begin0.sroa.0.015 = load ptr, ptr %0, align 8
   %cmp.i.not16 = icmp eq ptr %__begin0.sroa.0.015, null
@@ -35930,6 +35929,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
+  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %lifetimes = getelementptr inbounds nuw i8, ptr %this, i64 80
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %this.val.i.i.i = load ptr, ptr %2, align 8
@@ -63857,7 +63857,6 @@ _ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZN
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %__begin0.sroa.0.015 = load ptr, ptr %0, align 8
   %cmp.i.not16 = icmp eq ptr %__begin0.sroa.0.015, null
@@ -63873,6 +63872,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
+  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %lifetimes = getelementptr inbounds nuw i8, ptr %this, i64 80
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %this.val.i.i.i = load ptr, ptr %2, align 8
@@ -69475,7 +69475,6 @@ _ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZN
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %__begin0.sroa.0.015 = load ptr, ptr %0, align 8
   %cmp.i.not16 = icmp eq ptr %__begin0.sroa.0.015, null
@@ -69491,6 +69490,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
+  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %lifetimes = getelementptr inbounds nuw i8, ptr %this, i64 80
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %this.val.i.i.i = load ptr, ptr %2, align 8
@@ -74492,7 +74492,6 @@ _ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZN
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %__begin0.sroa.0.015 = load ptr, ptr %0, align 8
   %cmp.i.not16 = icmp eq ptr %__begin0.sroa.0.015, null
@@ -74508,6 +74507,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
+  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %lifetimes = getelementptr inbounds nuw i8, ptr %this, i64 80
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %this.val.i.i.i = load ptr, ptr %2, align 8
@@ -79501,7 +79501,6 @@ _ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZN
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %__begin0.sroa.0.015 = load ptr, ptr %0, align 8
   %cmp.i.not16 = icmp eq ptr %__begin0.sroa.0.015, null
@@ -79517,6 +79516,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
+  %caches = getelementptr inbounds nuw i8, ptr %this, i64 24
   %lifetimes = getelementptr inbounds nuw i8, ptr %this, i64 80
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %this.val.i.i.i = load ptr, ptr %2, align 8

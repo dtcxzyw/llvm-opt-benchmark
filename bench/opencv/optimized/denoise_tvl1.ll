@@ -536,13 +536,13 @@ _ZN2cv4Mat_IdEaSERKNS_7MatExprE.exit:             ; preds = %173
   br i1 %129, label %.lr.ph352, label %._crit_edge353
 
 .lr.ph352:                                        ; preds = %.preheader293
-  %261 = load ptr, ptr %130, align 8, !tbaa !52
-  %262 = load ptr, ptr %131, align 8, !tbaa !53
-  %263 = load i64, ptr %262, align 8, !tbaa !54
-  %264 = load ptr, ptr %133, align 8, !tbaa !52
-  %265 = load ptr, ptr %134, align 8, !tbaa !53
-  %266 = load i64, ptr %265, align 8, !tbaa !54
-  %267 = icmp sgt i32 %.lcssa, 0
+  %261 = icmp sgt i32 %.lcssa, 0
+  %262 = load ptr, ptr %130, align 8, !tbaa !52
+  %263 = load ptr, ptr %131, align 8, !tbaa !53
+  %264 = load i64, ptr %263, align 8, !tbaa !54
+  %265 = load ptr, ptr %133, align 8, !tbaa !52
+  %266 = load ptr, ptr %134, align 8, !tbaa !53
+  %267 = load i64, ptr %266, align 8, !tbaa !54
   %wide.trip.count384 = zext nneg i32 %.lcssa to i64
   %wide.trip.count394 = zext nneg i32 %.lcssa to i64
   br label %484
@@ -1159,52 +1159,52 @@ _ZN2cv12MatIterator_IdEppEv.exit8.i:              ; preds = %453, %448, %_ZN2cv1
 
 484:                                              ; preds = %.lr.ph352, %._crit_edge350
   %indvars.iv401 = phi i64 [ 0, %.lr.ph352 ], [ %indvars.iv.next402, %._crit_edge350 ]
-  %485 = mul i64 %263, %indvars.iv401
-  %486 = getelementptr inbounds nuw i8, ptr %261, i64 %485
-  %487 = mul i64 %266, %indvars.iv401
-  %488 = getelementptr inbounds nuw i8, ptr %264, i64 %487
-  %489 = trunc nuw nsw i64 %indvars.iv401 to i32
-  %490 = call i32 @llvm.smax.i32(i32 %489, i32 1)
-  %.sroa.speculated = add nsw i32 %490, -1
-  %491 = zext nneg i32 %.sroa.speculated to i64
-  %492 = mul i64 %266, %491
-  %493 = getelementptr inbounds nuw i8, ptr %264, i64 %492
-  br i1 %267, label %.lr.ph341, label %._crit_edge342
+  br i1 %261, label %.lr.ph341, label %._crit_edge342
 
 .lr.ph341:                                        ; preds = %484, %.lr.ph341
   %indvars.iv381 = phi i64 [ %indvars.iv.next382, %.lr.ph341 ], [ 0, %484 ]
-  %.0167339 = phi double [ %503, %.lr.ph341 ], [ 0.000000e+00, %484 ]
-  %494 = getelementptr inbounds nuw %"class.cv::Mat_", ptr %259, i64 %indvars.iv381
-  %495 = getelementptr inbounds nuw i8, ptr %494, i64 16
-  %496 = load ptr, ptr %495, align 8, !tbaa !52
-  %497 = getelementptr inbounds nuw i8, ptr %494, i64 72
-  %498 = load ptr, ptr %497, align 8, !tbaa !53
-  %499 = load i64, ptr %498, align 8, !tbaa !54
-  %500 = mul i64 %499, %indvars.iv401
-  %501 = getelementptr inbounds nuw i8, ptr %496, i64 %500
-  %502 = load double, ptr %501, align 8, !tbaa !15
-  %503 = fadd double %.0167339, %502
+  %.0167339 = phi double [ %494, %.lr.ph341 ], [ 0.000000e+00, %484 ]
+  %485 = getelementptr inbounds nuw %"class.cv::Mat_", ptr %259, i64 %indvars.iv381
+  %486 = getelementptr inbounds nuw i8, ptr %485, i64 16
+  %487 = load ptr, ptr %486, align 8, !tbaa !52
+  %488 = getelementptr inbounds nuw i8, ptr %485, i64 72
+  %489 = load ptr, ptr %488, align 8, !tbaa !53
+  %490 = load i64, ptr %489, align 8, !tbaa !54
+  %491 = mul i64 %490, %indvars.iv401
+  %492 = getelementptr inbounds nuw i8, ptr %487, i64 %491
+  %493 = load double, ptr %492, align 8, !tbaa !15
+  %494 = fadd double %.0167339, %493
   %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
   %exitcond385.not = icmp eq i64 %indvars.iv.next382, %wide.trip.count384
   br i1 %exitcond385.not, label %._crit_edge342, label %.lr.ph341, !llvm.loop !93
 
 ._crit_edge342:                                   ; preds = %.lr.ph341, %484
-  %.0167.lcssa = phi double [ 0.000000e+00, %484 ], [ %503, %.lr.ph341 ]
-  %504 = load double, ptr %486, align 8, !tbaa !15
-  %505 = getelementptr inbounds nuw i8, ptr %488, i64 8
+  %.0167.lcssa = phi double [ 0.000000e+00, %484 ], [ %494, %.lr.ph341 ]
+  %495 = mul i64 %264, %indvars.iv401
+  %496 = getelementptr inbounds nuw i8, ptr %262, i64 %495
+  %497 = mul i64 %267, %indvars.iv401
+  %498 = getelementptr inbounds nuw i8, ptr %265, i64 %497
+  %499 = trunc nuw nsw i64 %indvars.iv401 to i32
+  %500 = call i32 @llvm.smax.i32(i32 %499, i32 1)
+  %.sroa.speculated = add nsw i32 %500, -1
+  %501 = zext nneg i32 %.sroa.speculated to i64
+  %502 = mul i64 %267, %501
+  %503 = getelementptr inbounds nuw i8, ptr %265, i64 %502
+  %504 = load double, ptr %496, align 8, !tbaa !15
+  %505 = getelementptr inbounds nuw i8, ptr %498, i64 8
   %506 = load double, ptr %505, align 8, !tbaa !57
-  %507 = getelementptr inbounds nuw i8, ptr %493, i64 8
+  %507 = getelementptr inbounds nuw i8, ptr %503, i64 8
   %508 = load double, ptr %507, align 8, !tbaa !57
   %509 = fsub double %506, %508
   %510 = call double @llvm.fmuladd.f64(double %509, double 2.000000e-02, double %504)
   %511 = call double @llvm.fmuladd.f64(double %.0167.lcssa, double -2.000000e-02, double %510)
   %512 = fsub double %511, %504
   %513 = fadd double %511, %512
-  store double %513, ptr %486, align 8, !tbaa !15
+  store double %513, ptr %496, align 8, !tbaa !15
   br i1 %136, label %.preheader.lr.ph, label %._crit_edge350
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge342
-  br i1 %267, label %.preheader.us, label %.preheader
+  br i1 %261, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge347.us
   %indvars.iv396 = phi i64 [ %indvars.iv.next397, %._crit_edge347.us ], [ 1, %.preheader.lr.ph ]
@@ -1229,9 +1229,9 @@ _ZN2cv12MatIterator_IdEppEv.exit8.i:              ; preds = %453, %448, %_ZN2cv1
   br i1 %exitcond395.not, label %._crit_edge347.us, label %514, !llvm.loop !94
 
 ._crit_edge347.us:                                ; preds = %514
-  %526 = getelementptr inbounds nuw double, ptr %486, i64 %indvars.iv396
+  %526 = getelementptr inbounds nuw double, ptr %496, i64 %indvars.iv396
   %527 = load double, ptr %526, align 8, !tbaa !15
-  %528 = getelementptr inbounds nuw %"class.cv::Point_", ptr %488, i64 %indvars.iv396
+  %528 = getelementptr inbounds nuw %"class.cv::Point_", ptr %498, i64 %indvars.iv396
   %529 = load double, ptr %528, align 8, !tbaa !55
   %530 = getelementptr i8, ptr %528, i64 -16
   %531 = load double, ptr %530, align 8, !tbaa !55
@@ -1239,7 +1239,7 @@ _ZN2cv12MatIterator_IdEppEv.exit8.i:              ; preds = %453, %448, %_ZN2cv1
   %533 = getelementptr inbounds nuw i8, ptr %528, i64 8
   %534 = load double, ptr %533, align 8, !tbaa !57
   %535 = fadd double %532, %534
-  %536 = getelementptr inbounds nuw %"class.cv::Point_", ptr %493, i64 %indvars.iv396
+  %536 = getelementptr inbounds nuw %"class.cv::Point_", ptr %503, i64 %indvars.iv396
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 8
   %538 = load double, ptr %537, align 8, !tbaa !57
   %539 = fsub double %535, %538
@@ -1254,9 +1254,9 @@ _ZN2cv12MatIterator_IdEppEv.exit8.i:              ; preds = %453, %448, %_ZN2cv1
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvars.iv386 = phi i64 [ %indvars.iv.next387, %.preheader ], [ 1, %.preheader.lr.ph ]
-  %544 = getelementptr inbounds nuw double, ptr %486, i64 %indvars.iv386
+  %544 = getelementptr inbounds nuw double, ptr %496, i64 %indvars.iv386
   %545 = load double, ptr %544, align 8, !tbaa !15
-  %546 = getelementptr inbounds nuw %"class.cv::Point_", ptr %488, i64 %indvars.iv386
+  %546 = getelementptr inbounds nuw %"class.cv::Point_", ptr %498, i64 %indvars.iv386
   %547 = load double, ptr %546, align 8, !tbaa !55
   %548 = getelementptr i8, ptr %546, i64 -16
   %549 = load double, ptr %548, align 8, !tbaa !55
@@ -1264,7 +1264,7 @@ _ZN2cv12MatIterator_IdEppEv.exit8.i:              ; preds = %453, %448, %_ZN2cv1
   %551 = getelementptr inbounds nuw i8, ptr %546, i64 8
   %552 = load double, ptr %551, align 8, !tbaa !57
   %553 = fadd double %550, %552
-  %554 = getelementptr inbounds nuw %"class.cv::Point_", ptr %493, i64 %indvars.iv386
+  %554 = getelementptr inbounds nuw %"class.cv::Point_", ptr %503, i64 %indvars.iv386
   %555 = getelementptr inbounds nuw i8, ptr %554, i64 8
   %556 = load double, ptr %555, align 8, !tbaa !57
   %557 = fsub double %553, %556

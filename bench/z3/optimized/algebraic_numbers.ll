@@ -12974,155 +12974,155 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPN17algebraic_numb
   %8 = ptrtoint ptr %0 to i64
   %9 = sub i64 %7, %8
   %10 = icmp sgt i64 %9, 128
-  br i1 %10, label %11, label %39
+  br i1 %10, label %.preheader, label %38
 
-11:                                               ; preds = %3
+.preheader:                                       ; preds = %3
   %scevgep = getelementptr i8, ptr %0, i64 8
-  br label %12
+  br label %11
 
-12:                                               ; preds = %27, %11
-  %.022.i.idx = phi i64 [ 8, %11 ], [ %.022.i.add, %27 ]
-  %.pn21.i = phi ptr [ %0, %11 ], [ %.022.i.ptr, %27 ]
+11:                                               ; preds = %.preheader, %26
+  %.022.i.idx = phi i64 [ %.022.i.add, %26 ], [ 8, %.preheader ]
+  %.pn21.i = phi ptr [ %.022.i.ptr, %26 ], [ %0, %.preheader ]
   %.022.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.022.i.idx
-  %13 = load ptr, ptr %2, align 8, !tbaa !12
-  %14 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %13, ptr noundef nonnull align 8 dereferenceable(8) %.022.i.ptr, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %17
+  %12 = load ptr, ptr %2, align 8, !tbaa !12
+  %13 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %12, ptr noundef nonnull align 8 dereferenceable(8) %.022.i.ptr, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %14 = icmp slt i32 %13, 0
+  br i1 %14, label %15, label %16
 
-16:                                               ; preds = %12
+15:                                               ; preds = %11
   %.sroa.02.0.copyload.i = load ptr, ptr %.022.i.ptr, align 8, !tbaa !87
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %.022.i.idx, i1 false)
   store ptr %.sroa.02.0.copyload.i, ptr %0, align 8, !tbaa !87
-  br label %27
+  br label %26
 
-17:                                               ; preds = %12
+16:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %18 = load i64, ptr %.022.i.ptr, align 8, !tbaa !87
-  store i64 %18, ptr %6, align 8, !tbaa !87
-  %19 = load ptr, ptr %2, align 8, !tbaa !12
-  %20 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %19, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %.pn21.i)
-  %21 = icmp slt i32 %20, 0
-  br i1 %21, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i
+  %17 = load i64, ptr %.022.i.ptr, align 8, !tbaa !87
+  store i64 %17, ptr %6, align 8, !tbaa !87
+  %18 = load ptr, ptr %2, align 8, !tbaa !12
+  %19 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %18, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %.pn21.i)
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i
 
-.lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
-  %.012.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn21.i, %17 ]
-  %.0911.i.i = phi ptr [ %.012.i.i, %.lr.ph.i.i ], [ %.022.i.ptr, %17 ]
-  %22 = load i64, ptr %.012.i.i, align 8, !tbaa !87
-  store i64 %22, ptr %.0911.i.i, align 8, !tbaa !87
+.lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
+  %.012.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn21.i, %16 ]
+  %.0911.i.i = phi ptr [ %.012.i.i, %.lr.ph.i.i ], [ %.022.i.ptr, %16 ]
+  %21 = load i64, ptr %.012.i.i, align 8, !tbaa !87
+  store i64 %21, ptr %.0911.i.i, align 8, !tbaa !87
   %.0.i.i = getelementptr inbounds i8, ptr %.012.i.i, i64 -8
-  %23 = load ptr, ptr %2, align 8, !tbaa !12
-  %24 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %23, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i)
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i, !llvm.loop !199
+  %22 = load ptr, ptr %2, align 8, !tbaa !12
+  %23 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %22, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i)
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i, !llvm.loop !199
 
-_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %17
-  %.09.lcssa.i.i = phi ptr [ %.022.i.ptr, %17 ], [ %.012.i.i, %.lr.ph.i.i ]
-  %26 = load i64, ptr %6, align 8, !tbaa !87
-  store i64 %26, ptr %.09.lcssa.i.i, align 8, !tbaa !87
+_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %16
+  %.09.lcssa.i.i = phi ptr [ %.022.i.ptr, %16 ], [ %.012.i.i, %.lr.ph.i.i ]
+  %25 = load i64, ptr %6, align 8, !tbaa !87
+  store i64 %25, ptr %.09.lcssa.i.i, align 8, !tbaa !87
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i, %16
+26:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i, %15
   %.022.i.add = add nuw nsw i64 %.022.i.idx, 8
   %.not.i = icmp eq i64 %.022.i.add, 128
-  br i1 %.not.i, label %_ZSt16__insertion_sortIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_T0_.exit, label %12, !llvm.loop !200
+  br i1 %.not.i, label %_ZSt16__insertion_sortIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_T0_.exit, label %11, !llvm.loop !200
 
-_ZSt16__insertion_sortIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_T0_.exit: ; preds = %27
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.not7.i = icmp eq ptr %28, %1
+_ZSt16__insertion_sortIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_T0_.exit: ; preds = %26
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.not7.i = icmp eq ptr %27, %1
   br i1 %.not7.i, label %_ZSt26__unguarded_insertion_sortIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_T0_.exit, %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i11
-  %.08.i = phi ptr [ %38, %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i11 ], [ %28, %_ZSt16__insertion_sortIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_T0_.exit ]
+  %.08.i = phi ptr [ %37, %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i11 ], [ %27, %_ZSt16__insertion_sortIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_T0_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %29 = load i64, ptr %.08.i, align 8, !tbaa !87
-  store i64 %29, ptr %5, align 8, !tbaa !87
+  %28 = load i64, ptr %.08.i, align 8, !tbaa !87
+  store i64 %28, ptr %5, align 8, !tbaa !87
   %.010.i.i = getelementptr inbounds i8, ptr %.08.i, i64 -8
-  %30 = load ptr, ptr %2, align 8, !tbaa !12
-  %31 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %30, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %.010.i.i)
-  %32 = icmp slt i32 %31, 0
-  br i1 %32, label %.lr.ph.i.i14, label %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i11
+  %29 = load ptr, ptr %2, align 8, !tbaa !12
+  %30 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %29, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %.010.i.i)
+  %31 = icmp slt i32 %30, 0
+  br i1 %31, label %.lr.ph.i.i14, label %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i11
 
 .lr.ph.i.i14:                                     ; preds = %.lr.ph.i, %.lr.ph.i.i14
   %.012.i.i15 = phi ptr [ %.0.i.i17, %.lr.ph.i.i14 ], [ %.010.i.i, %.lr.ph.i ]
   %.0911.i.i16 = phi ptr [ %.012.i.i15, %.lr.ph.i.i14 ], [ %.08.i, %.lr.ph.i ]
-  %33 = load i64, ptr %.012.i.i15, align 8, !tbaa !87
-  store i64 %33, ptr %.0911.i.i16, align 8, !tbaa !87
+  %32 = load i64, ptr %.012.i.i15, align 8, !tbaa !87
+  store i64 %32, ptr %.0911.i.i16, align 8, !tbaa !87
   %.0.i.i17 = getelementptr inbounds i8, ptr %.012.i.i15, i64 -8
-  %34 = load ptr, ptr %2, align 8, !tbaa !12
-  %35 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %34, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i17)
-  %36 = icmp slt i32 %35, 0
-  br i1 %36, label %.lr.ph.i.i14, label %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i11, !llvm.loop !199
+  %33 = load ptr, ptr %2, align 8, !tbaa !12
+  %34 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %33, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i17)
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %.lr.ph.i.i14, label %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i11, !llvm.loop !199
 
 _ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i11: ; preds = %.lr.ph.i.i14, %.lr.ph.i
   %.09.lcssa.i.i12 = phi ptr [ %.08.i, %.lr.ph.i ], [ %.012.i.i15, %.lr.ph.i.i14 ]
-  %37 = load i64, ptr %5, align 8, !tbaa !87
-  store i64 %37, ptr %.09.lcssa.i.i12, align 8, !tbaa !87
+  %36 = load i64, ptr %5, align 8, !tbaa !87
+  store i64 %36, ptr %.09.lcssa.i.i12, align 8, !tbaa !87
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %38 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
-  %.not.i13 = icmp eq ptr %38, %1
+  %37 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
+  %.not.i13 = icmp eq ptr %37, %1
   br i1 %.not.i13, label %_ZSt26__unguarded_insertion_sortIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_T0_.exit, label %.lr.ph.i, !llvm.loop !201
 
-39:                                               ; preds = %3
-  %40 = icmp eq ptr %0, %1
+38:                                               ; preds = %3
+  %39 = icmp eq ptr %0, %1
   %.019.i18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not20.i = icmp eq ptr %.019.i18, %1
-  %or.cond = select i1 %40, i1 true, i1 %.not20.i
+  %or.cond = select i1 %39, i1 true, i1 %.not20.i
   br i1 %or.cond, label %_ZSt26__unguarded_insertion_sortIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_T0_.exit, label %.lr.ph.i19
 
-.lr.ph.i19:                                       ; preds = %39, %61
-  %.022.i20 = phi ptr [ %.0.i24, %61 ], [ %.019.i18, %39 ]
-  %.pn21.i21 = phi ptr [ %.022.i20, %61 ], [ %0, %39 ]
-  %41 = load ptr, ptr %2, align 8, !tbaa !12
-  %42 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %41, ptr noundef nonnull align 8 dereferenceable(8) %.022.i20, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %44, label %51
+.lr.ph.i19:                                       ; preds = %38, %60
+  %.022.i20 = phi ptr [ %.0.i24, %60 ], [ %.019.i18, %38 ]
+  %.pn21.i21 = phi ptr [ %.022.i20, %60 ], [ %0, %38 ]
+  %40 = load ptr, ptr %2, align 8, !tbaa !12
+  %41 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %40, ptr noundef nonnull align 8 dereferenceable(8) %.022.i20, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %43, label %50
 
-44:                                               ; preds = %.lr.ph.i19
+43:                                               ; preds = %.lr.ph.i19
   %.sroa.02.0.copyload.i30 = load ptr, ptr %.022.i20, align 8, !tbaa !87
-  %45 = getelementptr inbounds nuw i8, ptr %.pn21.i21, i64 16
-  %46 = ptrtoint ptr %.022.i20 to i64
-  %47 = sub i64 %46, %8
-  %48 = ashr exact i64 %47, 3
-  %49 = sub nsw i64 0, %48
-  %50 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %45, i64 %49
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %50, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %47, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %.pn21.i21, i64 16
+  %45 = ptrtoint ptr %.022.i20 to i64
+  %46 = sub i64 %45, %8
+  %47 = ashr exact i64 %46, 3
+  %48 = sub nsw i64 0, %47
+  %49 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %44, i64 %48
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %49, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %46, i1 false)
   store ptr %.sroa.02.0.copyload.i30, ptr %0, align 8, !tbaa !87
-  br label %61
+  br label %60
 
-51:                                               ; preds = %.lr.ph.i19
+50:                                               ; preds = %.lr.ph.i19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %52 = load i64, ptr %.022.i20, align 8, !tbaa !87
-  store i64 %52, ptr %4, align 8, !tbaa !87
-  %53 = load ptr, ptr %2, align 8, !tbaa !12
-  %54 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %53, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %.pn21.i21)
-  %55 = icmp slt i32 %54, 0
-  br i1 %55, label %.lr.ph.i.i26, label %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i22
+  %51 = load i64, ptr %.022.i20, align 8, !tbaa !87
+  store i64 %51, ptr %4, align 8, !tbaa !87
+  %52 = load ptr, ptr %2, align 8, !tbaa !12
+  %53 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %52, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %.pn21.i21)
+  %54 = icmp slt i32 %53, 0
+  br i1 %54, label %.lr.ph.i.i26, label %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i22
 
-.lr.ph.i.i26:                                     ; preds = %51, %.lr.ph.i.i26
-  %.012.i.i27 = phi ptr [ %.0.i.i29, %.lr.ph.i.i26 ], [ %.pn21.i21, %51 ]
-  %.0911.i.i28 = phi ptr [ %.012.i.i27, %.lr.ph.i.i26 ], [ %.022.i20, %51 ]
-  %56 = load i64, ptr %.012.i.i27, align 8, !tbaa !87
-  store i64 %56, ptr %.0911.i.i28, align 8, !tbaa !87
+.lr.ph.i.i26:                                     ; preds = %50, %.lr.ph.i.i26
+  %.012.i.i27 = phi ptr [ %.0.i.i29, %.lr.ph.i.i26 ], [ %.pn21.i21, %50 ]
+  %.0911.i.i28 = phi ptr [ %.012.i.i27, %.lr.ph.i.i26 ], [ %.022.i20, %50 ]
+  %55 = load i64, ptr %.012.i.i27, align 8, !tbaa !87
+  store i64 %55, ptr %.0911.i.i28, align 8, !tbaa !87
   %.0.i.i29 = getelementptr inbounds i8, ptr %.012.i.i27, i64 -8
-  %57 = load ptr, ptr %2, align 8, !tbaa !12
-  %58 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %57, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i29)
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %.lr.ph.i.i26, label %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i22, !llvm.loop !199
+  %56 = load ptr, ptr %2, align 8, !tbaa !12
+  %57 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %56, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i29)
+  %58 = icmp slt i32 %57, 0
+  br i1 %58, label %.lr.ph.i.i26, label %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i22, !llvm.loop !199
 
-_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i22: ; preds = %.lr.ph.i.i26, %51
-  %.09.lcssa.i.i23 = phi ptr [ %.022.i20, %51 ], [ %.012.i.i27, %.lr.ph.i.i26 ]
-  %60 = load i64, ptr %4, align 8, !tbaa !87
-  store i64 %60, ptr %.09.lcssa.i.i23, align 8, !tbaa !87
+_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i22: ; preds = %.lr.ph.i.i26, %50
+  %.09.lcssa.i.i23 = phi ptr [ %.022.i20, %50 ], [ %.012.i.i27, %.lr.ph.i.i26 ]
+  %59 = load i64, ptr %4, align 8, !tbaa !87
+  store i64 %59, ptr %.09.lcssa.i.i23, align 8, !tbaa !87
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %61
+  br label %60
 
-61:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i22, %44
+60:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i22, %43
   %.0.i24 = getelementptr inbounds nuw i8, ptr %.022.i20, i64 8
   %.not.i25 = icmp eq ptr %.0.i24, %1
   br i1 %.not.i25, label %_ZSt26__unguarded_insertion_sortIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_T0_.exit, label %.lr.ph.i19, !llvm.loop !200
 
-_ZSt26__unguarded_insertion_sortIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_T0_.exit: ; preds = %61, %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i11, %39, %_ZSt16__insertion_sortIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_T0_.exit
+_ZSt26__unguarded_insertion_sortIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_T0_.exit: ; preds = %60, %_ZSt25__unguarded_linear_insertIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops14_Val_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_.exit.i11, %38, %_ZSt16__insertion_sortIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_T0_.exit
   ret void
 }
 

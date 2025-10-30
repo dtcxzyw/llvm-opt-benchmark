@@ -22386,7 +22386,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_18TypedBu
   %82 = or i8 %79, %81
   %83 = getelementptr inbounds nuw i8, ptr %.14154, i64 1
   store i8 %82, ptr %.14154, align 1, !tbaa !59
-  %84 = icmp sgt i64 %.in, 1
+  %84 = icmp samesign ugt i64 %.in, 1
   br i1 %84, label %.preheader48, label %._crit_edge55, !llvm.loop !1175
 
 85:                                               ; preds = %.preheader48, %85

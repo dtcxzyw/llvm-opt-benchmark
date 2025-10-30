@@ -4504,22 +4504,22 @@ switch.lookup:                                    ; preds = %103
   %314 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %313) #19
   %315 = add i64 %314, 7
   %316 = and i64 %315, 248
-  %317 = trunc nuw nsw i64 %316 to i32
-  %318 = tail call i64 @llvm.umin.i64(i64 %314, i64 %316)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull align 1 %313, i64 %318, i1 false)
-  %319 = icmp ult i64 %314, %316
-  br i1 %319, label %.lr.ph400, label %._crit_edge401
+  %317 = tail call i64 @llvm.umin.i64(i64 %314, i64 %316)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull align 1 %313, i64 %317, i1 false)
+  %318 = icmp ult i64 %314, %316
+  br i1 %318, label %.lr.ph400, label %._crit_edge401
 
 .lr.ph400:                                        ; preds = %311, %.lr.ph400
-  %.0347398 = phi i64 [ %322, %.lr.ph400 ], [ %318, %311 ]
-  %320 = load ptr, ptr %0, align 8, !tbaa !14
-  %321 = getelementptr inbounds nuw i8, ptr %320, i64 %.0347398
-  store i8 0, ptr %321, align 1, !tbaa !34
-  %322 = add nuw nsw i64 %.0347398, 1
-  %exitcond418.not = icmp eq i64 %322, %316
+  %.0347398 = phi i64 [ %321, %.lr.ph400 ], [ %317, %311 ]
+  %319 = load ptr, ptr %0, align 8, !tbaa !14
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 %.0347398
+  store i8 0, ptr %320, align 1, !tbaa !34
+  %321 = add nuw nsw i64 %.0347398, 1
+  %exitcond418.not = icmp eq i64 %321, %316
   br i1 %exitcond418.not, label %._crit_edge401, label %.lr.ph400, !llvm.loop !84
 
 ._crit_edge401:                                   ; preds = %.lr.ph400, %311
+  %322 = trunc nuw nsw i64 %316 to i32
   %323 = load ptr, ptr %0, align 8, !tbaa !14
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 %316
   store ptr %324, ptr %0, align 8, !tbaa !14
@@ -5222,7 +5222,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %332, %338, %344, %3
   br label %753
 
 .thread:                                          ; preds = %385, %H5VM_limit_enc_size.exit, %10, %732, %.loopexit368, %625, %526, %533, %._crit_edge383, %._crit_edge401, %285, %251, %238, %149, %77
-  %.4 = phi i32 [ 0, %10 ], [ %.3, %77 ], [ %154, %149 ], [ %233, %238 ], [ %259, %251 ], [ %.13, %285 ], [ %317, %._crit_edge401 ], [ %538, %533 ], [ %529, %526 ], [ %541, %._crit_edge383 ], [ %.14, %625 ], [ 0, %.loopexit368 ], [ 1, %732 ], [ 0, %H5VM_limit_enc_size.exit ], [ %381, %385 ]
+  %.4 = phi i32 [ 0, %10 ], [ %.3, %77 ], [ %154, %149 ], [ %233, %238 ], [ %259, %251 ], [ %.13, %285 ], [ %322, %._crit_edge401 ], [ %538, %533 ], [ %529, %526 ], [ %541, %._crit_edge383 ], [ %.14, %625 ], [ 0, %.loopexit368 ], [ 1, %732 ], [ 0, %H5VM_limit_enc_size.exit ], [ %381, %385 ]
   %741 = load ptr, ptr %12, align 8, !tbaa !42
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 12
   %743 = load i32, ptr %742, align 4, !tbaa !66

@@ -6930,9 +6930,9 @@ define internal fastcc void @ssl_bitmask_set(ptr noundef captures(none) %0, i64 
   br label %.loopexit50.thread
 
 .loopexit50:                                      ; preds = %21
+  store i8 %26, ptr %20, align 1, !tbaa !32
   %27 = add nuw nsw i64 %1, %9
   %28 = sub nuw nsw i64 %2, %9
-  store i8 %26, ptr %20, align 1, !tbaa !32
   br label %29
 
 29:                                               ; preds = %.loopexit50, %3

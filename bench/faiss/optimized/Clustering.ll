@@ -1541,12 +1541,12 @@ _ZN5faiss10Clustering22post_process_centroidsEv.exit: ; preds = %.lr.ph.i, %.pre
           to label %563 unwind label %532
 
 563:                                              ; preds = %561
-  %564 = fsub double %562, %526
-  %565 = fadd double %.1180652, %564
   br i1 %380, label %.lr.ph651, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph651, %563
   %.1175.lcssa = phi float [ 0.000000e+00, %563 ], [ %578, %.lr.ph651 ]
+  %564 = fsub double %562, %526
+  %565 = fadd double %.1180652, %564
   %566 = load i64, ptr %28, align 8, !tbaa !37
   %567 = icmp ugt i64 %566, 2305843009213693951
   br i1 %567, label %568, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i278
@@ -3226,8 +3226,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !47
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !47
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -4352,8 +4352,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %.noexc, %26
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i93: ; preds = %99
   %.idx.i.i.i.i.i.i94 = shl nuw nsw i64 %101, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %100, i8 0, i64 %.idx.i.i.i.i.i.i94, i1 false), !tbaa !47
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 %.idx.i.i.i.i.i.i94
+  call void @llvm.memset.p0.i64(ptr align 4 %100, i8 0, i64 %.idx.i.i.i.i.i.i94, i1 false), !tbaa !47
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i95
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i95: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i93, %99
@@ -4696,8 +4696,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i69: ; preds = %206
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i71: ; preds = %.noexc76
   %.idx.i.i.i.i.i.i.i72 = shl nuw nsw i64 %218, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %217, i8 0, i64 %.idx.i.i.i.i.i.i.i72, i1 false), !tbaa !47
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 %.idx.i.i.i.i.i.i.i72
+  call void @llvm.memset.p0.i64(ptr align 4 %217, i8 0, i64 %.idx.i.i.i.i.i.i.i72, i1 false), !tbaa !47
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit77
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit77:             ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i71, %.noexc76, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i69

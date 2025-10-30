@@ -365,32 +365,32 @@ define internal fastcc void @ir_strtab_resize(ptr noundef captures(none) %0) unn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ir_strtab_grow_buf(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %7 = load i32, ptr %6, align 4, !tbaa !17
-  %8 = add i32 %1, 1
-  %.promoted = load i32, ptr %5, align 8, !tbaa !16
-  br label %9
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %5 = load i32, ptr %4, align 4, !tbaa !17
+  %6 = add i32 %1, 1
+  %.promoted = load i32, ptr %3, align 8, !tbaa !16
+  br label %7
 
-9:                                                ; preds = %9, %2
-  %10 = phi i32 [ %11, %9 ], [ %.promoted, %2 ]
-  %11 = shl i32 %10, 1
-  %12 = sub i32 %11, %7
-  %13 = icmp ult i32 %12, %8
-  br i1 %13, label %9, label %14, !prof !26
+7:                                                ; preds = %7, %2
+  %8 = phi i32 [ %9, %7 ], [ %.promoted, %2 ]
+  %9 = shl i32 %8, 1
+  %10 = sub i32 %9, %5
+  %11 = icmp ult i32 %10, %6
+  br i1 %11, label %7, label %12, !prof !26
 
-14:                                               ; preds = %9
-  store i32 %11, ptr %5, align 8, !tbaa !16
-  %15 = zext i32 %11 to i64
-  %16 = tail call ptr @_erealloc(ptr noundef %4, i64 noundef %15) #13
-  store ptr %16, ptr %3, align 8, !tbaa !15
-  %.not = icmp eq ptr %16, %4
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = load ptr, ptr %13, align 8, !tbaa !15
+  store i32 %9, ptr %3, align 8, !tbaa !16
+  %15 = zext i32 %9 to i64
+  %16 = tail call ptr @_erealloc(ptr noundef %14, i64 noundef %15) #13
+  store ptr %16, ptr %13, align 8, !tbaa !15
+  %.not = icmp eq ptr %16, %14
   br i1 %.not, label %.loopexit, label %17
 
-17:                                               ; preds = %14
-  %18 = ptrtoint ptr %4 to i64
+17:                                               ; preds = %12
+  %18 = ptrtoint ptr %14 to i64
   %19 = ptrtoint ptr %16 to i64
   %20 = sub nsw i64 %19, %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -414,7 +414,7 @@ define internal fastcc void @ir_strtab_grow_buf(ptr noundef captures(none) %0, i
   %.not21 = icmp eq i32 %28, 0
   br i1 %.not21, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %17, %14
+.loopexit:                                        ; preds = %.lr.ph, %17, %12
   ret void
 }
 

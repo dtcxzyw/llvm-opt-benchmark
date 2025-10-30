@@ -2084,7 +2084,6 @@ if.end54:                                         ; preds = %if.then52, %while.e
 for.body.lr.ph:                                   ; preds = %if.end54
   %div = udiv i32 %BytesDecoded.0, %call56
   %wide.trip.count.i = zext nneg i32 %call56 to i64
-  %IsTruncated71 = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 40
   %82 = zext i32 %div to i64
   br label %for.body
 
@@ -2116,6 +2115,7 @@ _ZL19decodeMultiByteCharPKhjj.exit:               ; preds = %for.body.i119
   br i1 %cmp69, label %for.inc, label %lor.lhs.false70
 
 lor.lhs.false70:                                  ; preds = %_ZL19decodeMultiByteCharPKhjj.exit
+  %IsTruncated71 = getelementptr inbounds nuw i8, ptr %call2.i.sink11.i, i64 40
   %86 = load i8, ptr %IsTruncated71, align 8
   %tobool72 = trunc i8 %86 to i1
   br i1 %tobool72, label %for.inc.thread172, label %if.end76

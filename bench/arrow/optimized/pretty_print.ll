@@ -4398,16 +4398,16 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i185
   br i1 %781, label %._crit_edge.thread.i.i.i.i.i.i.i.i215, label %._crit_edge.i.i.i.i.i.i.i.i187
 
 ._crit_edge.thread.i.i.i.i.i.i.i.i215:            ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i185
-  %782 = urem i8 %780, 100
-  %783 = shl nuw i8 %782, 1
-  %784 = zext i8 %783 to i64
-  %785 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 %784
-  %786 = getelementptr inbounds nuw i8, ptr %785, i64 1
-  %787 = load i8, ptr %786, align 1, !tbaa !44, !noalias !327
-  store i8 %787, ptr %671, align 1, !tbaa !44, !noalias !327
-  %788 = load i8, ptr %785, align 1, !tbaa !44, !noalias !327
-  store i8 %788, ptr %672, align 1, !tbaa !44, !noalias !327
-  %789 = udiv i8 %780, 100
+  %782 = udiv i8 %780, 100
+  %783 = urem i8 %780, 100
+  %784 = shl nuw i8 %783, 1
+  %785 = zext i8 %784 to i64
+  %786 = getelementptr inbounds nuw i8, ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 %785
+  %787 = getelementptr inbounds nuw i8, ptr %786, i64 1
+  %788 = load i8, ptr %787, align 1, !tbaa !44, !noalias !327
+  store i8 %788, ptr %671, align 1, !tbaa !44, !noalias !327
+  %789 = load i8, ptr %786, align 1, !tbaa !44, !noalias !327
+  store i8 %789, ptr %672, align 1, !tbaa !44, !noalias !327
   br label %798
 
 ._crit_edge.i.i.i.i.i.i.i.i187:                   ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i185
@@ -4426,7 +4426,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i185
 
 798:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i187, %._crit_edge.thread.i.i.i.i.i.i.i.i215
   %.0.i.i47.i.i.i.i.i188 = phi ptr [ %672, %._crit_edge.thread.i.i.i.i.i.i.i.i215 ], [ %670, %._crit_edge.i.i.i.i.i.i.i.i187 ]
-  %.0.lcssa11.i.i.i.i.i.i.i.i189 = phi i8 [ %789, %._crit_edge.thread.i.i.i.i.i.i.i.i215 ], [ %780, %._crit_edge.i.i.i.i.i.i.i.i187 ]
+  %.0.lcssa11.i.i.i.i.i.i.i.i189 = phi i8 [ %782, %._crit_edge.thread.i.i.i.i.i.i.i.i215 ], [ %780, %._crit_edge.i.i.i.i.i.i.i.i187 ]
   %799 = or disjoint i8 %.0.lcssa11.i.i.i.i.i.i.i.i189, 48
   br label %_ZN5arrow6StatusD2Ev.exit49.i.i.i.i.i190
 

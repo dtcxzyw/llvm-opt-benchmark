@@ -1171,50 +1171,50 @@ define void @_ZN26MLSceneGLSharedDataContextD2Ev(ptr noundef nonnull align 8 der
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26MLSceneGLSharedDataContext, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26MLSceneGLSharedDataContext, i64 528), ptr %2, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.not7 = icmp eq ptr %5, %6
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.not7 = icmp eq ptr %4, %5
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %16
-  %.sroa.04.08 = phi ptr [ %17, %16 ], [ %5, %1 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 40
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %16, label %10
+.lr.ph:                                           ; preds = %1, %15
+  %.sroa.04.08 = phi ptr [ %16, %15 ], [ %4, %1 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 40
+  %7 = load ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %15, label %9
 
-10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 480
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 504
-  tail call void @_ZN14QReadWriteLockD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #27
-  %13 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i.i, label %_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev.exit, label %14
+9:                                                ; preds = %.lr.ph
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 504
+  tail call void @_ZN14QReadWriteLockD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #27
+  %12 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i.i.i, label %_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev.exit, label %13
 
-14:                                               ; preds = %10
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #26
+13:                                               ; preds = %9
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #26
   br label %_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev.exit
 
-_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev.exit: ; preds = %10, %14
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 472
-  tail call void @_ZN14QReadWriteLockD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #27
-  tail call void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev(ptr noundef nonnull align 8 dereferenceable(512) %8) #27
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #26
-  br label %16
+_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev.exit: ; preds = %9, %13
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 472
+  tail call void @_ZN14QReadWriteLockD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #27
+  tail call void @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev(ptr noundef nonnull align 8 dereferenceable(512) %7) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #26
+  br label %15
 
-16:                                               ; preds = %.lr.ph, %_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev.exit
-  %17 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.08) #29
-  %.not = icmp eq ptr %17, %6
+15:                                               ; preds = %.lr.ph, %_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsED2Ev.exit
+  %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.08) #29
+  %.not = icmp eq ptr %16, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %16, %1
+._crit_edge:                                      ; preds = %15, %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @_ZN6QTimerD1Ev(ptr noundef nonnull align 8 dereferenceable(29) %18) #27
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8
-  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %20)
+  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef %20)
           to label %_ZNSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEED2Ev.exit unwind label %21
 
 21:                                               ; preds = %._crit_edge
@@ -3931,41 +3931,41 @@ _ZN26MLSceneGLSharedDataContext20makeCurrentGLContextEv.exit: ; preds = %.noexc
   %63 = lshr i32 %62, 16
   %64 = or i32 %63, %62
   %65 = add i32 %64, 1
-  %66 = add i32 %52, -1
-  %67 = lshr i32 %66, 1
-  %68 = or i32 %67, %66
-  %69 = lshr i32 %68, 2
-  %70 = or i32 %69, %68
-  %71 = lshr i32 %70, 4
-  %72 = or i32 %71, %70
-  %73 = lshr i32 %72, 8
-  %74 = or i32 %73, %72
-  %75 = lshr i32 %74, 16
-  %76 = or i32 %75, %74
-  %77 = add i32 %76, 1
-  %78 = load i32, ptr %8, align 4
-  %79 = icmp sgt i32 %65, %78
-  br i1 %79, label %.lr.ph, label %.preheader
+  %66 = load i32, ptr %8, align 4
+  %67 = icmp sgt i32 %65, %66
+  br i1 %67, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %53
   %.021.lcssa = phi i32 [ %65, %53 ], [ %81, %.lr.ph ]
-  %80 = icmp sgt i32 %77, %78
+  %68 = add i32 %52, -1
+  %69 = lshr i32 %68, 1
+  %70 = or i32 %69, %68
+  %71 = lshr i32 %70, 2
+  %72 = or i32 %71, %70
+  %73 = lshr i32 %72, 4
+  %74 = or i32 %73, %72
+  %75 = lshr i32 %74, 8
+  %76 = or i32 %75, %74
+  %77 = lshr i32 %76, 16
+  %78 = or i32 %77, %76
+  %79 = add i32 %78, 1
+  %80 = icmp sgt i32 %79, %66
   br i1 %80, label %.lr.ph33, label %._crit_edge
 
 .lr.ph:                                           ; preds = %53, %.lr.ph
   %.02130 = phi i32 [ %81, %.lr.ph ], [ %65, %53 ]
   %81 = sdiv i32 %.02130, 2
-  %82 = icmp sgt i32 %81, %78
+  %82 = icmp sgt i32 %81, %66
   br i1 %82, label %.lr.ph, label %.preheader, !llvm.loop !35
 
 .lr.ph33:                                         ; preds = %.preheader, %.lr.ph33
-  %.02032 = phi i32 [ %83, %.lr.ph33 ], [ %77, %.preheader ]
+  %.02032 = phi i32 [ %83, %.lr.ph33 ], [ %79, %.preheader ]
   %83 = sdiv i32 %.02032, 2
-  %84 = icmp sgt i32 %83, %78
+  %84 = icmp sgt i32 %83, %66
   br i1 %84, label %.lr.ph33, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph33, %.preheader
-  %.020.lcssa = phi i32 [ %77, %.preheader ], [ %83, %.lr.ph33 ]
+  %.020.lcssa = phi i32 [ %79, %.preheader ], [ %83, %.lr.ph33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %.021.lcssa, ptr %5, align 4, !noalias !37
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 4

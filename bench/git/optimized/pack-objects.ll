@@ -4795,45 +4795,42 @@ _.exit.i65.i:                                     ; preds = %1809, %1806
   br i1 %1891, label %.lr.ph179.i.i, label %._crit_edge.i54.i, !llvm.loop !204
 
 ._crit_edge.i54.i:                                ; preds = %.lr.ph179.i.i
-  br i1 %.not140.i.i, label %.critedge198.i.i, label %.lr.ph185.i.i.preheader
-
-.lr.ph185.i.i.preheader:                          ; preds = %._crit_edge.i54.i
-  %1892 = getelementptr inbounds nuw i8, ptr %1887, i64 32
-  br label %.lr.ph185.i.i
+  br i1 %.not140.i.i, label %.critedge198.i.i, label %.lr.ph185.i.i
 
 .critedge198.i.i:                                 ; preds = %._crit_edge.i54.i, %1883
-  %1893 = call i32 @pthread_cond_wait(ptr noundef nonnull @progress_cond, ptr noundef nonnull @progress_mutex) #25
+  %1892 = call i32 @pthread_cond_wait(ptr noundef nonnull @progress_cond, ptr noundef nonnull @progress_mutex) #25
   br label %1883
 
-.lr.ph185.i.i:                                    ; preds = %.lr.ph185.i.i.preheader, %1904
-  %indvars.iv214.i.i = phi i64 [ %indvars.iv.next215.i.i, %1904 ], [ 0, %.lr.ph185.i.i.preheader ]
-  %.0116184.i.i = phi ptr [ %.1117.i.i, %1904 ], [ null, %.lr.ph185.i.i.preheader ]
-  %1894 = getelementptr inbounds nuw %struct.thread_params, ptr %1816, i64 %indvars.iv214.i.i
-  %1895 = getelementptr inbounds nuw i8, ptr %1894, i64 20
-  %1896 = load i32, ptr %1895, align 4, !tbaa !201
-  %1897 = icmp ugt i32 %1896, %1819
-  br i1 %1897, label %1898, label %1904
+.lr.ph185.i.i:                                    ; preds = %._crit_edge.i54.i, %1903
+  %indvars.iv214.i.i = phi i64 [ %indvars.iv.next215.i.i, %1903 ], [ 0, %._crit_edge.i54.i ]
+  %.0116184.i.i = phi ptr [ %.1117.i.i, %1903 ], [ null, %._crit_edge.i54.i ]
+  %1893 = getelementptr inbounds nuw %struct.thread_params, ptr %1816, i64 %indvars.iv214.i.i
+  %1894 = getelementptr inbounds nuw i8, ptr %1893, i64 20
+  %1895 = load i32, ptr %1894, align 4, !tbaa !201
+  %1896 = icmp ugt i32 %1895, %1819
+  br i1 %1896, label %1897, label %1903
 
-1898:                                             ; preds = %.lr.ph185.i.i
+1897:                                             ; preds = %.lr.ph185.i.i
   %.not145.i.i = icmp eq ptr %.0116184.i.i, null
-  br i1 %.not145.i.i, label %1903, label %1899
+  br i1 %.not145.i.i, label %1902, label %1898
 
-1899:                                             ; preds = %1898
-  %1900 = getelementptr inbounds nuw i8, ptr %.0116184.i.i, i64 20
-  %1901 = load i32, ptr %1900, align 4, !tbaa !201
-  %1902 = icmp ult i32 %1901, %1896
-  br i1 %1902, label %1903, label %1904
+1898:                                             ; preds = %1897
+  %1899 = getelementptr inbounds nuw i8, ptr %.0116184.i.i, i64 20
+  %1900 = load i32, ptr %1899, align 4, !tbaa !201
+  %1901 = icmp ult i32 %1900, %1895
+  br i1 %1901, label %1902, label %1903
 
-1903:                                             ; preds = %1899, %1898
-  br label %1904
+1902:                                             ; preds = %1898, %1897
+  br label %1903
 
-1904:                                             ; preds = %1903, %1899, %.lr.ph185.i.i
-  %.1117.i.i = phi ptr [ %1894, %1903 ], [ %.0116184.i.i, %1899 ], [ %.0116184.i.i, %.lr.ph185.i.i ]
+1903:                                             ; preds = %1902, %1898, %.lr.ph185.i.i
+  %.1117.i.i = phi ptr [ %1893, %1902 ], [ %.0116184.i.i, %1898 ], [ %.0116184.i.i, %.lr.ph185.i.i ]
   %indvars.iv.next215.i.i = add nuw nsw i64 %indvars.iv214.i.i, 1
   %exitcond218.not.i.i = icmp eq i64 %indvars.iv.next215.i.i, %1886
   br i1 %exitcond218.not.i.i, label %._crit_edge186.i.i, label %.lr.ph185.i.i, !llvm.loop !205
 
-._crit_edge186.i.i:                               ; preds = %1904
+._crit_edge186.i.i:                               ; preds = %1903
+  %1904 = getelementptr inbounds nuw i8, ptr %1887, i64 32
   %.not141.i.i = icmp eq ptr %.1117.i.i, null
   br i1 %.not141.i.i, label %1934, label %1905
 
@@ -4898,7 +4895,7 @@ _.exit.i65.i:                                     ; preds = %1809, %1806
   store i32 %.0.i56.i, ptr %1935, align 8, !tbaa !200
   %1936 = getelementptr inbounds nuw i8, ptr %1887, i64 20
   store i32 %.0.i56.i, ptr %1936, align 4, !tbaa !201
-  store i32 1, ptr %1892, align 8, !tbaa !195
+  store i32 1, ptr %1904, align 8, !tbaa !195
   %1937 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @progress_mutex) #25
   %1938 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 40
   %1939 = call i32 @pthread_mutex_lock(ptr noundef nonnull %1938) #25

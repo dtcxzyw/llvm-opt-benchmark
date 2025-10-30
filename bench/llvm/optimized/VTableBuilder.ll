@@ -4289,9 +4289,9 @@ _ZN4llvm11SmallVectorISt17reference_wrapperIN5clang8VPtrInfoEELj2EEC2INS_16point
   call fastcc void @"_ZSt16__introsort_loopIPSt17reference_wrapperIN5clang8VPtrInfoEElN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIS2_St14default_deleteIS2_EELj2EEEE3$_0EEEvT_SI_T0_T1_"(ptr noundef %.val.pre85.i, ptr noundef nonnull %511, i64 noundef %516)
   %517 = icmp ugt i32 %509, 16
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %.val.pre85.i, i64 8
-  br i1 %517, label %.preheader.i.i.i.i, label %582
+  br i1 %517, label %.preheader.i.i.i.i.i.i, label %582
 
-.preheader.i.i.i.i:                               ; preds = %512, %556
+.preheader.i.i.i.i.i.i:                           ; preds = %512, %556
   %.031.i.idx.i.i.i.i.i.i = phi i64 [ %.031.i.add.i.i.i.i.i.i, %556 ], [ 8, %512 ]
   %.031.i.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.pre85.i, i64 %.031.i.idx.i.i.i.i.i.i
   %.0.val.i.i.i.i.i.i.i = load ptr, ptr %.031.i.ptr.i.i.i.i.i.i, align 8
@@ -4316,9 +4316,9 @@ _ZN4llvm11SmallVectorISt17reference_wrapperIN5clang8VPtrInfoEELj2EEC2INS_16point
   %529 = ptrtoint ptr %.0.val.i.i.i.i.i.i.i to i64
   br i1 %.not22.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESH_EEbT_T0_.exit.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %.preheader.i.i.i.i, %535
-  %.01924.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %537, %535 ], [ %.val.val.i.i.i.i.i.i.i, %.preheader.i.i.i.i ]
-  %.02023.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %536, %535 ], [ %.0.val.val.i.i.i.i.i.i.i, %.preheader.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %.preheader.i.i.i.i.i.i, %535
+  %.01924.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %537, %535 ], [ %.val.val.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ]
+  %.02023.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %536, %535 ], [ %.0.val.val.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ]
   %530 = load ptr, ptr %.02023.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !85
   %531 = load ptr, ptr %.01924.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !85
   %532 = icmp ult ptr %530, %531
@@ -4334,8 +4334,8 @@ _ZN4llvm11SmallVectorISt17reference_wrapperIN5clang8VPtrInfoEELj2EEC2INS_16point
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %536, %528
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESH_EEbT_T0_.exit.i.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !685
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESH_EEbT_T0_.exit.i.i.i.i.i.i.i": ; preds = %535, %.preheader.i.i.i.i
-  %.019.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.val.val.i.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %537, %535 ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESH_EEbT_T0_.exit.i.i.i.i.i.i.i": ; preds = %535, %.preheader.i.i.i.i.i.i
+  %.019.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.val.val.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ %537, %535 ]
   %.not23.i.i.i.i.i.i.i = icmp eq ptr %.019.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %525
   br i1 %.not23.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESH_EEbT_T0_.exit.thread21.i.i.i.i.i.i.i.preheader", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESH_EEbT_T0_.exit.thread.i.i.i.i.i.i.i"
 
@@ -4405,7 +4405,7 @@ _ZN4llvm11SmallVectorISt17reference_wrapperIN5clang8VPtrInfoEELj2EEC2INS_16point
 556:                                              ; preds = %"_ZSt25__unguarded_linear_insertIPSt17reference_wrapperIN5clang8VPtrInfoEEN9__gnu_cxx5__ops14_Val_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIS2_St14default_deleteIS2_EELj2EEEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESH_EEbT_T0_.exit.thread.i.i.i.i.i.i.i"
   %.031.i.add.i.i.i.i.i.i = add nuw nsw i64 %.031.i.idx.i.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i25.i = icmp eq i64 %.031.i.add.i.i.i.i.i.i, 128
-  br i1 %.not.i.i.i.i.i.i25.i, label %"_ZSt16__insertion_sortIPSt17reference_wrapperIN5clang8VPtrInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIS2_St14default_deleteIS2_EELj2EEEE3$_0EEEvT_SI_T0_.exit.i.i.i.i.i.i", label %.preheader.i.i.i.i, !llvm.loop !687
+  br i1 %.not.i.i.i.i.i.i25.i, label %"_ZSt16__insertion_sortIPSt17reference_wrapperIN5clang8VPtrInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIS2_St14default_deleteIS2_EELj2EEEE3$_0EEEvT_SI_T0_.exit.i.i.i.i.i.i", label %.preheader.i.i.i.i.i.i, !llvm.loop !687
 
 "_ZSt16__insertion_sortIPSt17reference_wrapperIN5clang8VPtrInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIS2_St14default_deleteIS2_EELj2EEEE3$_0EEEvT_SI_T0_.exit.i.i.i.i.i.i": ; preds = %556
   %557 = getelementptr inbounds nuw i8, ptr %.val.pre85.i, i64 128

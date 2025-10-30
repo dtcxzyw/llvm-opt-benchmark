@@ -387,166 +387,166 @@ define hidden noundef i64 @_ZN20G1OopStarChunkedList7oops_doEP10OopClosureS1_(pt
   br i1 %.not15.i, label %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit, label %.lr.ph19.i
 
 .lr.ph19.i:                                       ; preds = %3, %._crit_edge.i
-  %.017.i = phi i64 [ %12, %._crit_edge.i ], [ 0, %3 ]
+  %.017.i = phi i64 [ %22, %._crit_edge.i ], [ 0, %3 ]
   %.01316.i = phi ptr [ %24, %._crit_edge.i ], [ %5, %3 ]
   %6 = getelementptr inbounds nuw i8, ptr %.01316.i, i64 512
   %7 = load ptr, ptr %6, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %9 = ptrtoint ptr %.01316.i to i64
-  %10 = sub i64 %8, %9
-  %11 = lshr i64 %10, 3
-  %12 = add i64 %11, %.017.i
+  %8 = ptrtoint ptr %.01316.i to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = sub i64 %9, %8
   %.not21.i = icmp ult i64 %10, 8
   br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph19.i, %.lr.ph.i
-  %.01214.i = phi i64 [ %17, %.lr.ph.i ], [ 0, %.lr.ph19.i ]
-  %13 = getelementptr inbounds nuw ptr, ptr %.01316.i, i64 %.01214.i
+  %.01214.i = phi i64 [ %15, %.lr.ph.i ], [ 0, %.lr.ph19.i ]
+  %11 = getelementptr inbounds nuw ptr, ptr %.01316.i, i64 %.01214.i
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %2, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %2, align 8
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %14) #7
-  %17 = add nuw nsw i64 %.01214.i, 1
-  %18 = load ptr, ptr %6, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %20 = sub i64 %19, %9
-  %21 = lshr i64 %20, 3
-  %22 = icmp samesign ult i64 %17, %21
-  br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %12) #7
+  %15 = add nuw nsw i64 %.01214.i, 1
+  %16 = load ptr, ptr %6, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %18 = sub i64 %17, %8
+  %19 = lshr i64 %18, 3
+  %20 = icmp samesign ult i64 %15, %19
+  br i1 %20, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph19.i
+  %21 = lshr i64 %10, 3
+  %22 = add i64 %21, %.017.i
   %23 = getelementptr inbounds nuw i8, ptr %.01316.i, i64 520
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit, label %.lr.ph19.i, !llvm.loop !10
 
 _ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit: ; preds = %._crit_edge.i, %3
-  %.0.lcssa.i = phi i64 [ 0, %3 ], [ %12, %._crit_edge.i ]
+  %.0.lcssa.i = phi i64 [ 0, %3 ], [ %22, %._crit_edge.i ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not15.i9 = icmp eq ptr %26, null
   br i1 %.not15.i9, label %_ZN20G1OopStarChunkedList9chunks_doI9narrowOopEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit, label %.lr.ph19.i10
 
 .lr.ph19.i10:                                     ; preds = %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit, %._crit_edge.i16
-  %.017.i11 = phi i64 [ %33, %._crit_edge.i16 ], [ 0, %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit ]
+  %.017.i11 = phi i64 [ %44, %._crit_edge.i16 ], [ 0, %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit ]
   %.01316.i12 = phi ptr [ %46, %._crit_edge.i16 ], [ %26, %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit ]
   %27 = getelementptr inbounds nuw i8, ptr %.01316.i12, i64 512
   %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %28 to i64
-  %30 = ptrtoint ptr %.01316.i12 to i64
-  %31 = sub i64 %29, %30
-  %32 = lshr i64 %31, 3
-  %33 = add i64 %32, %.017.i11
+  %29 = ptrtoint ptr %.01316.i12 to i64
+  %30 = ptrtoint ptr %28 to i64
+  %31 = sub i64 %30, %29
   %.not21.i13 = icmp ult i64 %31, 8
   br i1 %.not21.i13, label %._crit_edge.i16, label %.lr.ph.i14
 
 .lr.ph.i14:                                       ; preds = %.lr.ph19.i10, %.lr.ph.i14
-  %.01214.i15 = phi i64 [ %39, %.lr.ph.i14 ], [ 0, %.lr.ph19.i10 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %.01316.i12, i64 %.01214.i15
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %35) #7
-  %39 = add nuw nsw i64 %.01214.i15, 1
-  %40 = load ptr, ptr %27, align 8
-  %41 = ptrtoint ptr %40 to i64
-  %42 = sub i64 %41, %30
-  %43 = lshr i64 %42, 3
-  %44 = icmp samesign ult i64 %39, %43
-  br i1 %44, label %.lr.ph.i14, label %._crit_edge.i16, !llvm.loop !11
+  %.01214.i15 = phi i64 [ %37, %.lr.ph.i14 ], [ 0, %.lr.ph19.i10 ]
+  %32 = getelementptr inbounds nuw ptr, ptr %.01316.i12, i64 %.01214.i15
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %2, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %33) #7
+  %37 = add nuw nsw i64 %.01214.i15, 1
+  %38 = load ptr, ptr %27, align 8
+  %39 = ptrtoint ptr %38 to i64
+  %40 = sub i64 %39, %29
+  %41 = lshr i64 %40, 3
+  %42 = icmp samesign ult i64 %37, %41
+  br i1 %42, label %.lr.ph.i14, label %._crit_edge.i16, !llvm.loop !11
 
 ._crit_edge.i16:                                  ; preds = %.lr.ph.i14, %.lr.ph19.i10
+  %43 = lshr i64 %31, 3
+  %44 = add i64 %43, %.017.i11
   %45 = getelementptr inbounds nuw i8, ptr %.01316.i12, i64 520
   %46 = load ptr, ptr %45, align 8
   %.not.i17 = icmp eq ptr %46, null
   br i1 %.not.i17, label %_ZN20G1OopStarChunkedList9chunks_doI9narrowOopEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit, label %.lr.ph19.i10, !llvm.loop !12
 
 _ZN20G1OopStarChunkedList9chunks_doI9narrowOopEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit: ; preds = %._crit_edge.i16, %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit
-  %.0.lcssa.i18 = phi i64 [ 0, %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit ], [ %33, %._crit_edge.i16 ]
+  %.0.lcssa.i18 = phi i64 [ 0, %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit ], [ %44, %._crit_edge.i16 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8
   %.not15.i19 = icmp eq ptr %48, null
   br i1 %.not15.i19, label %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit29, label %.lr.ph19.i20
 
 .lr.ph19.i20:                                     ; preds = %_ZN20G1OopStarChunkedList9chunks_doI9narrowOopEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit, %._crit_edge.i26
-  %.017.i21 = phi i64 [ %55, %._crit_edge.i26 ], [ 0, %_ZN20G1OopStarChunkedList9chunks_doI9narrowOopEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit ]
+  %.017.i21 = phi i64 [ %65, %._crit_edge.i26 ], [ 0, %_ZN20G1OopStarChunkedList9chunks_doI9narrowOopEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit ]
   %.01316.i22 = phi ptr [ %67, %._crit_edge.i26 ], [ %48, %_ZN20G1OopStarChunkedList9chunks_doI9narrowOopEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit ]
   %49 = getelementptr inbounds nuw i8, ptr %.01316.i22, i64 512
   %50 = load ptr, ptr %49, align 8
-  %51 = ptrtoint ptr %50 to i64
-  %52 = ptrtoint ptr %.01316.i22 to i64
-  %53 = sub i64 %51, %52
-  %54 = lshr i64 %53, 3
-  %55 = add i64 %54, %.017.i21
+  %51 = ptrtoint ptr %.01316.i22 to i64
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %52, %51
   %.not21.i23 = icmp ult i64 %53, 8
   br i1 %.not21.i23, label %._crit_edge.i26, label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %.lr.ph19.i20, %.lr.ph.i24
-  %.01214.i25 = phi i64 [ %60, %.lr.ph.i24 ], [ 0, %.lr.ph19.i20 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %.01316.i22, i64 %.01214.i25
+  %.01214.i25 = phi i64 [ %58, %.lr.ph.i24 ], [ 0, %.lr.ph19.i20 ]
+  %54 = getelementptr inbounds nuw ptr, ptr %.01316.i22, i64 %.01214.i25
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %1, align 8
   %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %1, align 8
-  %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %57) #7
-  %60 = add nuw nsw i64 %.01214.i25, 1
-  %61 = load ptr, ptr %49, align 8
-  %62 = ptrtoint ptr %61 to i64
-  %63 = sub i64 %62, %52
-  %64 = lshr i64 %63, 3
-  %65 = icmp samesign ult i64 %60, %64
-  br i1 %65, label %.lr.ph.i24, label %._crit_edge.i26, !llvm.loop !9
+  tail call void %57(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %55) #7
+  %58 = add nuw nsw i64 %.01214.i25, 1
+  %59 = load ptr, ptr %49, align 8
+  %60 = ptrtoint ptr %59 to i64
+  %61 = sub i64 %60, %51
+  %62 = lshr i64 %61, 3
+  %63 = icmp samesign ult i64 %58, %62
+  br i1 %63, label %.lr.ph.i24, label %._crit_edge.i26, !llvm.loop !9
 
 ._crit_edge.i26:                                  ; preds = %.lr.ph.i24, %.lr.ph19.i20
+  %64 = lshr i64 %53, 3
+  %65 = add i64 %64, %.017.i21
   %66 = getelementptr inbounds nuw i8, ptr %.01316.i22, i64 520
   %67 = load ptr, ptr %66, align 8
   %.not.i27 = icmp eq ptr %67, null
   br i1 %.not.i27, label %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit29, label %.lr.ph19.i20, !llvm.loop !10
 
 _ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit29: ; preds = %._crit_edge.i26, %_ZN20G1OopStarChunkedList9chunks_doI9narrowOopEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit
-  %.0.lcssa.i28 = phi i64 [ 0, %_ZN20G1OopStarChunkedList9chunks_doI9narrowOopEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit ], [ %55, %._crit_edge.i26 ]
+  %.0.lcssa.i28 = phi i64 [ 0, %_ZN20G1OopStarChunkedList9chunks_doI9narrowOopEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit ], [ %65, %._crit_edge.i26 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load ptr, ptr %68, align 8
   %.not15.i30 = icmp eq ptr %69, null
   br i1 %.not15.i30, label %_ZN20G1OopStarChunkedList9chunks_doI9narrowOopEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit40, label %.lr.ph19.i31
 
 .lr.ph19.i31:                                     ; preds = %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit29, %._crit_edge.i37
-  %.017.i32 = phi i64 [ %76, %._crit_edge.i37 ], [ 0, %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit29 ]
+  %.017.i32 = phi i64 [ %87, %._crit_edge.i37 ], [ 0, %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit29 ]
   %.01316.i33 = phi ptr [ %89, %._crit_edge.i37 ], [ %69, %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit29 ]
   %70 = getelementptr inbounds nuw i8, ptr %.01316.i33, i64 512
   %71 = load ptr, ptr %70, align 8
-  %72 = ptrtoint ptr %71 to i64
-  %73 = ptrtoint ptr %.01316.i33 to i64
-  %74 = sub i64 %72, %73
-  %75 = lshr i64 %74, 3
-  %76 = add i64 %75, %.017.i32
+  %72 = ptrtoint ptr %.01316.i33 to i64
+  %73 = ptrtoint ptr %71 to i64
+  %74 = sub i64 %73, %72
   %.not21.i34 = icmp ult i64 %74, 8
   br i1 %.not21.i34, label %._crit_edge.i37, label %.lr.ph.i35
 
 .lr.ph.i35:                                       ; preds = %.lr.ph19.i31, %.lr.ph.i35
-  %.01214.i36 = phi i64 [ %82, %.lr.ph.i35 ], [ 0, %.lr.ph19.i31 ]
-  %77 = getelementptr inbounds nuw ptr, ptr %.01316.i33, i64 %.01214.i36
-  %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr %1, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %78) #7
-  %82 = add nuw nsw i64 %.01214.i36, 1
-  %83 = load ptr, ptr %70, align 8
-  %84 = ptrtoint ptr %83 to i64
-  %85 = sub i64 %84, %73
-  %86 = lshr i64 %85, 3
-  %87 = icmp samesign ult i64 %82, %86
-  br i1 %87, label %.lr.ph.i35, label %._crit_edge.i37, !llvm.loop !11
+  %.01214.i36 = phi i64 [ %80, %.lr.ph.i35 ], [ 0, %.lr.ph19.i31 ]
+  %75 = getelementptr inbounds nuw ptr, ptr %.01316.i33, i64 %.01214.i36
+  %76 = load ptr, ptr %75, align 8
+  %77 = load ptr, ptr %1, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8
+  tail call void %79(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %76) #7
+  %80 = add nuw nsw i64 %.01214.i36, 1
+  %81 = load ptr, ptr %70, align 8
+  %82 = ptrtoint ptr %81 to i64
+  %83 = sub i64 %82, %72
+  %84 = lshr i64 %83, 3
+  %85 = icmp samesign ult i64 %80, %84
+  br i1 %85, label %.lr.ph.i35, label %._crit_edge.i37, !llvm.loop !11
 
 ._crit_edge.i37:                                  ; preds = %.lr.ph.i35, %.lr.ph19.i31
+  %86 = lshr i64 %74, 3
+  %87 = add i64 %86, %.017.i32
   %88 = getelementptr inbounds nuw i8, ptr %.01316.i33, i64 520
   %89 = load ptr, ptr %88, align 8
   %.not.i38 = icmp eq ptr %89, null
   br i1 %.not.i38, label %_ZN20G1OopStarChunkedList9chunks_doI9narrowOopEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit40, label %.lr.ph19.i31, !llvm.loop !12
 
 _ZN20G1OopStarChunkedList9chunks_doI9narrowOopEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit40: ; preds = %._crit_edge.i37, %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit29
-  %.0.lcssa.i39 = phi i64 [ 0, %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit29 ], [ %76, %._crit_edge.i37 ]
+  %.0.lcssa.i39 = phi i64 [ 0, %_ZN20G1OopStarChunkedList9chunks_doIP7oopDescEEmP11ChunkedListIPT_L8MEMFLAGS5EEP10OopClosure.exit29 ], [ %87, %._crit_edge.i37 ]
   %90 = add i64 %.0.lcssa.i18, %.0.lcssa.i
   %91 = add i64 %90, %.0.lcssa.i28
   %92 = add i64 %91, %.0.lcssa.i39

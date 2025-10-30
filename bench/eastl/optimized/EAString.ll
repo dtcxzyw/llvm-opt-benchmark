@@ -9602,8 +9602,6 @@ for.body27:                                       ; preds = %if.end19, %for.body
 
 if.end31:                                         ; preds = %for.body27, %if.end19.thread
   %t.1.idx = phi i64 [ 1, %if.end19.thread ], [ %t.2.add, %for.body27 ]
-  %incdec.ptr20.ptr67 = getelementptr inbounds nuw i8, ptr %buffer, i64 1
-  %sub.ptr.rhs.cast = ptrtoint ptr %incdec.ptr20.ptr67 to i64
   %7 = trunc i64 %t.1.idx to i32
   %conv32 = add i32 %7, -1
   store i32 %conv32, ptr %decimalPos, align 4
@@ -9645,6 +9643,8 @@ while.end:                                        ; preds = %while.body, %if.end
   %t.3.idx.lcssa = phi i64 [ %t.1.idx, %if.end31 ], [ %t.3.add60, %while.body ]
   %t.3.ptr.lcssa = phi ptr [ %t.3.ptr73, %if.end31 ], [ %t.3.ptr, %while.body ]
   %tobool35.lcssa = phi i1 [ %tobool3575, %if.end31 ], [ %tobool35, %while.body ]
+  %incdec.ptr20.ptr67 = getelementptr inbounds nuw i8, ptr %buffer, i64 1
+  %sub.ptr.rhs.cast = ptrtoint ptr %incdec.ptr20.ptr67 to i64
   br i1 %tobool35.lcssa, label %if.then45, label %if.end95
 
 if.then45:                                        ; preds = %while.end

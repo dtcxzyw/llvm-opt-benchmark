@@ -6560,36 +6560,34 @@ define dso_local { i64, i64 } @_ZNK4llvm6Triple16getVulkanVersionEv(ptr noundef 
   %2 = alloca %"class.llvm::DenseMap", align 8
   %3 = alloca [2 x %"struct.llvm::detail::DenseMapPair"], align 8
   %4 = tail call { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %5 = extractvalue { i64, i64 } %4, 0
-  %6 = extractvalue { i64, i64 } %4, 1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %8 = load i32, ptr %7, align 4, !tbaa !30
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %6 = load i32, ptr %5, align 4, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 -9223372028264841215, ptr %3, align 8, !tbaa !52
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %.sroa.427.0..sroa_idx, align 8, !tbaa !52
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 47, ptr %9, align 8, !tbaa !207
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i64 -9223372023969873919, ptr %10, align 4, !tbaa !52
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 47, ptr %7, align 8, !tbaa !207
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i64 -9223372023969873919, ptr %8, align 4, !tbaa !52
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i64 0, ptr %.sroa.424.0..sroa_idx, align 4, !tbaa !52
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 48, ptr %11, align 4, !tbaa !207
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 4, ptr %12, align 8, !tbaa !210
-  %13 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 80, i64 noundef 4) #16
-  store ptr %13, ptr %2, align 8, !tbaa !213
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 0, ptr %14, align 8, !tbaa !214
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 0, ptr %15, align 4, !tbaa !215
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  store i32 48, ptr %9, align 4, !tbaa !207
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 4, ptr %10, align 8, !tbaa !210
+  %11 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 80, i64 noundef 4) #16
+  store ptr %11, ptr %2, align 8, !tbaa !213
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 0, ptr %12, align 8, !tbaa !214
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 0, ptr %13, align 4, !tbaa !215
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.06.i.i.i.idx = phi i64 [ %.06.i.i.i.add, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.i.i.preheader ]
-  %.06.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %13, i64 %.06.i.i.i.idx
+  %.06.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %11, i64 %.06.i.i.i.idx
   store i64 2147483647, ptr %.06.i.i.i.ptr, align 4, !tbaa !52
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.06.i.i.i.ptr, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4, !tbaa !52
@@ -6601,22 +6599,24 @@ define dso_local { i64, i64 } @_ZNK4llvm6Triple16getVulkanVersionEv(ptr noundef 
   %.06.i.i.idx = phi i64 [ %.06.i.i.add, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.i ]
   %.06.i.i.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.06.i.i.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %16 = getelementptr inbounds nuw i8, ptr %.06.i.i.ptr, i64 16
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleENS_6Triple11SubArchTypeENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E11try_emplaceIJRKS4_EEESt4pairINS_16DenseMapIteratorIS2_S4_S6_S9_Lb0EEEbERKS2_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.67") align 8 %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %.06.i.i.ptr, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %14 = getelementptr inbounds nuw i8, ptr %.06.i.i.ptr, i64 16
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleENS_6Triple11SubArchTypeENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E11try_emplaceIJRKS4_EEESt4pairINS_16DenseMapIteratorIS2_S4_S6_S9_Lb0EEEbERKS2_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.67") align 8 %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %.06.i.i.ptr, ptr noundef nonnull align 4 dereferenceable(4) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %.06.i.i.add = add nuw nsw i64 %.06.i.i.idx, 20
   %.not.i.i = icmp eq i64 %.06.i.i.add, 40
   br i1 %.not.i.i, label %_ZN4llvm8DenseMapINS_12VersionTupleENS_6Triple11SubArchTypeENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S3_EEEC2ESt16initializer_listIS8_E.exit, label %.lr.ph.i.i, !llvm.loop !217
 
 _ZN4llvm8DenseMapINS_12VersionTupleENS_6Triple11SubArchTypeENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S3_EEEC2ESt16initializer_listIS8_E.exit: ; preds = %.lr.ph.i.i
+  %15 = extractvalue { i64, i64 } %4, 0
+  %16 = extractvalue { i64, i64 } %4, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %17 = and i64 %5, 9223372036854775807
+  %17 = and i64 %15, 9223372036854775807
   %or.cond55 = icmp eq i64 %17, 0
-  %18 = and i64 %6, 9223372034707292159
+  %18 = and i64 %16, 9223372034707292159
   %19 = icmp eq i64 %18, 0
   %or.cond59 = select i1 %or.cond55, i1 %19, i1 false
   %20 = load ptr, ptr %2, align 8, !tbaa !213
-  %21 = load i32, ptr %12, align 8, !tbaa !210
+  %21 = load i32, ptr %10, align 8, !tbaa !210
   %22 = icmp eq i32 %21, 0
   br i1 %or.cond59, label %.thread, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread
 
@@ -6627,12 +6627,12 @@ _ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread:   ; preds = %_ZN4llvm8DenseMapIN
   br i1 %22, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleENS_6Triple11SubArchTypeENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E6doFindIS2_EEPS9_RKT_.exit.thread, label %.thread40
 
 23:                                               ; preds = %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread
-  %24 = icmp slt i64 %5, 0
+  %24 = icmp slt i64 %15, 0
   br i1 %24, label %.thread40, label %32
 
 .thread40:                                        ; preds = %.thread, %23
-  %.sroa.028.03646 = phi i64 [ %5, %23 ], [ -9223372028264841215, %.thread ]
-  %.sroa.8.03844 = phi i64 [ %6, %23 ], [ 0, %.thread ]
+  %.sroa.028.03646 = phi i64 [ %15, %23 ], [ -9223372028264841215, %.thread ]
+  %.sroa.8.03844 = phi i64 [ %16, %23 ], [ 0, %.thread ]
   %25 = lshr i64 %.sroa.028.03646, 32
   %26 = and i64 %25, 2147483647
   %27 = shl i64 %.sroa.028.03646, 32
@@ -6643,9 +6643,9 @@ _ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread:   ; preds = %_ZN4llvm8DenseMapIN
   br label %32
 
 32:                                               ; preds = %.thread40, %23
-  %.sroa.028.03645 = phi i64 [ %.sroa.028.03646, %.thread40 ], [ %5, %23 ]
-  %.sroa.8.03843 = phi i64 [ %.sroa.8.03844, %.thread40 ], [ %6, %23 ]
-  %.0.in.i.i.i = phi i64 [ %31, %.thread40 ], [ %5, %23 ]
+  %.sroa.028.03645 = phi i64 [ %.sroa.028.03646, %.thread40 ], [ %15, %23 ]
+  %.sroa.8.03843 = phi i64 [ %.sroa.8.03844, %.thread40 ], [ %16, %23 ]
+  %.0.in.i.i.i = phi i64 [ %31, %.thread40 ], [ %15, %23 ]
   %33 = and i64 %.sroa.8.03843, 2147483648
   %.not.i.i.i4 = icmp eq i64 %33, 0
   br i1 %.not.i.i.i4, label %40, label %34
@@ -6820,8 +6820,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleENS_6Triple11SubArchTypeENS
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleENS_6Triple11SubArchTypeENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E6lookupERKS2_.exit: ; preds = %118, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleENS_6Triple11SubArchTypeENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E6doFindIS2_EEPS9_RKT_.exit20
   %spec.select.i = phi i32 [ %126, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleENS_6Triple11SubArchTypeENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E6doFindIS2_EEPS9_RKT_.exit20 ], [ 0, %118 ]
-  %127 = icmp eq i32 %spec.select.i, %8
-  %128 = icmp eq i32 %8, 0
+  %127 = icmp eq i32 %spec.select.i, %6
+  %128 = icmp eq i32 %6, 0
   %or.cond = or i1 %128, %127
   %spec.select = select i1 %or.cond, i64 %.sroa.028.03645, i64 0
   %spec.select60 = select i1 %or.cond, i64 %.sroa.8.03843, i64 0

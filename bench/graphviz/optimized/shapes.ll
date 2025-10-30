@@ -7754,10 +7754,10 @@ define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr noundef nonnu
   %9 = getelementptr i8, ptr %0, i64 16
   br label %10
 
-10:                                               ; preds = %.lr.ph, %.loopexit
-  %11 = phi ptr [ %8, %.lr.ph ], [ %77, %.loopexit ]
-  %.sroa.037.178 = phi i32 [ 0, %.lr.ph ], [ %.sroa.037.2, %.loopexit ]
-  %.05577 = phi ptr [ %7, %.lr.ph ], [ %.156, %.loopexit ]
+10:                                               ; preds = %.lr.ph, %77
+  %11 = phi ptr [ %8, %.lr.ph ], [ %78, %77 ]
+  %.sroa.037.178 = phi i32 [ 0, %.lr.ph ], [ %.sroa.037.2, %77 ]
+  %.05577 = phi ptr [ %7, %.lr.ph ], [ %.156, %77 ]
   %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(7) @.str.100) #32
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %17
@@ -7765,7 +7765,7 @@ define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr noundef nonnu
 14:                                               ; preds = %10
   %15 = or i32 %.sroa.037.178, 1
   %16 = getelementptr inbounds nuw i8, ptr %.05577, i64 8
-  br label %.loopexit
+  br label %77
 
 17:                                               ; preds = %10
   %18 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(8) @.str.101) #32
@@ -7778,20 +7778,20 @@ define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr noundef nonnu
   %21 = load ptr, ptr %20, align 8, !tbaa !103
   store ptr %21, ptr %.054, align 8, !tbaa !103
   %.not65 = icmp eq ptr %21, null
-  br i1 %.not65, label %.loopexit.loopexit, label %.preheader, !llvm.loop !205
+  br i1 %.not65, label %.loopexit, label %.preheader, !llvm.loop !205
 
 22:                                               ; preds = %17
   %23 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(10) @.str.102) #32
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.preheader86, label %27
+  br i1 %24, label %.preheader79, label %27
 
-.preheader86:                                     ; preds = %22, %.preheader86
-  %.1 = phi ptr [ %25, %.preheader86 ], [ %.05577, %22 ]
+.preheader79:                                     ; preds = %22, %.preheader79
+  %.1 = phi ptr [ %25, %.preheader79 ], [ %.05577, %22 ]
   %25 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !103
   store ptr %26, ptr %.1, align 8, !tbaa !103
   %.not64 = icmp eq ptr %26, null
-  br i1 %.not64, label %.loopexit.loopexit79, label %.preheader86, !llvm.loop !206
+  br i1 %.not64, label %.loopexit71, label %.preheader79, !llvm.loop !206
 
 27:                                               ; preds = %22
   %28 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(6) @.str.103) #32
@@ -7801,20 +7801,20 @@ define internal fastcc noundef ptr @checkStyle(ptr noundef %0, ptr noundef nonnu
 30:                                               ; preds = %27
   %31 = or i32 %.sroa.037.178, 32
   %32 = getelementptr inbounds nuw i8, ptr %.05577, i64 8
-  br label %.loopexit
+  br label %77
 
 33:                                               ; preds = %27
   %34 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(7) @.str.104) #32
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %.preheader87, label %38
+  br i1 %35, label %.preheader80, label %38
 
-.preheader87:                                     ; preds = %33, %.preheader87
-  %.2 = phi ptr [ %36, %.preheader87 ], [ %.05577, %33 ]
+.preheader80:                                     ; preds = %33, %.preheader80
+  %.2 = phi ptr [ %36, %.preheader80 ], [ %.05577, %33 ]
   %36 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !103
   store ptr %37, ptr %.2, align 8, !tbaa !103
   %.not63 = icmp eq ptr %37, null
-  br i1 %.not63, label %.loopexit.loopexit80, label %.preheader87, !llvm.loop !207
+  br i1 %.not63, label %.loopexit72, label %.preheader80, !llvm.loop !207
 
 38:                                               ; preds = %33
   %39 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(8) @.str.105) #32
@@ -7854,15 +7854,15 @@ isBox.exit:                                       ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %.val.val.val, i64 40
   %58 = load double, ptr %57, align 8, !tbaa !54
   %.not.i.i7.i = tail call noundef i1 @llvm.is.fpclass.f64(double %58, i32 64)
-  br i1 %.not.i.i7.i, label %.preheader89, label %isBox.exit.thread
+  br i1 %.not.i.i7.i, label %.preheader82, label %isBox.exit.thread
 
-.preheader89:                                     ; preds = %isBox.exit, %.preheader89
-  %.3 = phi ptr [ %59, %.preheader89 ], [ %.05577, %isBox.exit ]
+.preheader82:                                     ; preds = %isBox.exit, %.preheader82
+  %.3 = phi ptr [ %59, %.preheader82 ], [ %.05577, %isBox.exit ]
   %59 = getelementptr inbounds nuw i8, ptr %.3, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !103
   store ptr %60, ptr %.3, align 8, !tbaa !103
   %.not62 = icmp eq ptr %60, null
-  br i1 %.not62, label %.loopexit.loopexit82, label %.preheader89, !llvm.loop !208
+  br i1 %.not62, label %.loopexit74, label %.preheader82, !llvm.loop !208
 
 isBox.exit.thread:                                ; preds = %41, %44, %48, %54, %isBox.exit, %38
   %61 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(7) @.str.106) #32
@@ -7882,149 +7882,149 @@ isEllipse.exit:                                   ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %.val66.val.val, i64 16
   %67 = load i64, ptr %66, align 8, !tbaa !52
   %68 = icmp ult i64 %67, 3
-  br i1 %68, label %.preheader88, label %isEllipse.exit.thread
+  br i1 %68, label %.preheader81, label %isEllipse.exit.thread
 
-.preheader88:                                     ; preds = %isEllipse.exit, %.preheader88
-  %.4 = phi ptr [ %69, %.preheader88 ], [ %.05577, %isEllipse.exit ]
+.preheader81:                                     ; preds = %isEllipse.exit, %.preheader81
+  %.4 = phi ptr [ %69, %.preheader81 ], [ %.05577, %isEllipse.exit ]
   %69 = getelementptr inbounds nuw i8, ptr %.4, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !103
   store ptr %70, ptr %.4, align 8, !tbaa !103
   %.not61 = icmp eq ptr %70, null
-  br i1 %.not61, label %.loopexit.loopexit81, label %.preheader88, !llvm.loop !209
+  br i1 %.not61, label %.loopexit73, label %.preheader81, !llvm.loop !209
 
 isEllipse.exit.thread:                            ; preds = %63, %isEllipse.exit, %isBox.exit.thread
   %71 = getelementptr inbounds nuw i8, ptr %.05577, i64 8
-  br label %.loopexit
+  br label %77
 
-.loopexit.loopexit:                               ; preds = %.preheader
+.loopexit:                                        ; preds = %.preheader
   %72 = or i32 %.sroa.037.178, 4
-  br label %.loopexit
+  br label %77
 
-.loopexit.loopexit79:                             ; preds = %.preheader86
+.loopexit71:                                      ; preds = %.preheader79
   %73 = or i32 %.sroa.037.178, 8
-  br label %.loopexit
+  br label %77
 
-.loopexit.loopexit80:                             ; preds = %.preheader87
+.loopexit72:                                      ; preds = %.preheader80
   %74 = or i32 %.sroa.037.178, 3
-  br label %.loopexit
+  br label %77
 
-.loopexit.loopexit81:                             ; preds = %.preheader88
+.loopexit73:                                      ; preds = %.preheader81
   %75 = or i32 %.sroa.037.178, 512
-  br label %.loopexit
+  br label %77
 
-.loopexit.loopexit82:                             ; preds = %.preheader89
+.loopexit74:                                      ; preds = %.preheader82
   %76 = or i32 %.sroa.037.178, 64
-  br label %.loopexit
+  br label %77
 
-.loopexit:                                        ; preds = %.loopexit.loopexit82, %.loopexit.loopexit81, %.loopexit.loopexit80, %.loopexit.loopexit79, %.loopexit.loopexit, %30, %isEllipse.exit.thread, %14
-  %.156 = phi ptr [ %16, %14 ], [ %32, %30 ], [ %71, %isEllipse.exit.thread ], [ %.05577, %.loopexit.loopexit ], [ %.05577, %.loopexit.loopexit79 ], [ %.05577, %.loopexit.loopexit80 ], [ %.05577, %.loopexit.loopexit81 ], [ %.05577, %.loopexit.loopexit82 ]
-  %.sroa.037.2 = phi i32 [ %15, %14 ], [ %31, %30 ], [ %.sroa.037.178, %isEllipse.exit.thread ], [ %72, %.loopexit.loopexit ], [ %73, %.loopexit.loopexit79 ], [ %74, %.loopexit.loopexit80 ], [ %75, %.loopexit.loopexit81 ], [ %76, %.loopexit.loopexit82 ]
-  %77 = load ptr, ptr %.156, align 8, !tbaa !103
-  %.not59 = icmp eq ptr %77, null
+77:                                               ; preds = %.loopexit74, %.loopexit73, %.loopexit72, %.loopexit71, %.loopexit, %30, %isEllipse.exit.thread, %14
+  %.156 = phi ptr [ %16, %14 ], [ %32, %30 ], [ %71, %isEllipse.exit.thread ], [ %.05577, %.loopexit ], [ %.05577, %.loopexit71 ], [ %.05577, %.loopexit72 ], [ %.05577, %.loopexit73 ], [ %.05577, %.loopexit74 ]
+  %.sroa.037.2 = phi i32 [ %15, %14 ], [ %31, %30 ], [ %.sroa.037.178, %isEllipse.exit.thread ], [ %72, %.loopexit ], [ %73, %.loopexit71 ], [ %74, %.loopexit72 ], [ %75, %.loopexit73 ], [ %76, %.loopexit74 ]
+  %78 = load ptr, ptr %.156, align 8, !tbaa !103
+  %.not59 = icmp eq ptr %78, null
   br i1 %.not59, label %.loopexit75, label %10, !llvm.loop !210
 
-.loopexit75:                                      ; preds = %.loopexit, %6, %2
-  %.sroa.037.0 = phi i32 [ 0, %2 ], [ 0, %6 ], [ %.sroa.037.2, %.loopexit ]
-  %.0 = phi ptr [ null, %2 ], [ %7, %6 ], [ %7, %.loopexit ]
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !21
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %81 = load ptr, ptr %80, align 8, !tbaa !26
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %83 = load ptr, ptr %82, align 8, !tbaa !46
-  %.not60 = icmp eq ptr %83, null
-  br i1 %.not60, label %164, label %84
+.loopexit75:                                      ; preds = %77, %6, %2
+  %.sroa.037.0 = phi i32 [ 0, %2 ], [ 0, %6 ], [ %.sroa.037.2, %77 ]
+  %.0 = phi ptr [ null, %2 ], [ %7, %6 ], [ %7, %77 ]
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load ptr, ptr %79, align 8, !tbaa !21
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !26
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %84 = load ptr, ptr %83, align 8, !tbaa !46
+  %.not60 = icmp eq ptr %84, null
+  br i1 %.not60, label %165, label %85
 
-84:                                               ; preds = %.loopexit75
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 48
-  %86 = load i32, ptr %85, align 8
-  %87 = trunc i32 %.sroa.037.0 to i1
-  %88 = and i32 %86, 1
-  %89 = select i1 %87, i32 1, i32 %88
-  %90 = and i32 %.sroa.037.0, 2
-  %91 = icmp ne i32 %90, 0
-  %92 = and i32 %86, 2
-  %93 = icmp ne i32 %92, 0
-  %94 = select i1 %91, i1 true, i1 %93
-  %95 = select i1 %94, i32 2, i32 0
-  %96 = and i32 %.sroa.037.0, 4
-  %97 = icmp ne i32 %96, 0
-  %98 = and i32 %86, 4
-  %99 = icmp ne i32 %98, 0
-  %100 = select i1 %97, i1 true, i1 %99
-  %101 = select i1 %100, i32 4, i32 0
-  %102 = and i32 %.sroa.037.0, 8
-  %103 = icmp ne i32 %102, 0
-  %104 = and i32 %86, 8
-  %105 = icmp ne i32 %104, 0
-  %106 = select i1 %103, i1 true, i1 %105
-  %107 = select i1 %106, i32 8, i32 0
-  %108 = and i32 %.sroa.037.0, 16
-  %109 = icmp ne i32 %108, 0
-  %110 = and i32 %86, 16
-  %111 = icmp ne i32 %110, 0
-  %112 = select i1 %109, i1 true, i1 %111
-  %113 = select i1 %112, i32 16, i32 0
-  %114 = and i32 %.sroa.037.0, 32
-  %115 = icmp ne i32 %114, 0
-  %116 = and i32 %86, 32
-  %117 = icmp ne i32 %116, 0
-  %118 = select i1 %115, i1 true, i1 %117
-  %119 = select i1 %118, i32 32, i32 0
-  %120 = and i32 %.sroa.037.0, 64
-  %121 = icmp ne i32 %120, 0
-  %122 = and i32 %86, 64
-  %123 = icmp ne i32 %122, 0
-  %124 = select i1 %121, i1 true, i1 %123
-  %125 = select i1 %124, i32 64, i32 0
-  %126 = and i32 %.sroa.037.0, 128
-  %127 = icmp ne i32 %126, 0
-  %128 = and i32 %86, 128
-  %129 = icmp ne i32 %128, 0
-  %130 = select i1 %127, i1 true, i1 %129
-  %131 = select i1 %130, i32 128, i32 0
-  %132 = and i32 %.sroa.037.0, 256
-  %133 = icmp ne i32 %132, 0
-  %134 = and i32 %86, 256
-  %135 = icmp ne i32 %134, 0
-  %136 = select i1 %133, i1 true, i1 %135
-  %137 = select i1 %136, i32 256, i32 0
-  %138 = and i32 %.sroa.037.0, 512
-  %139 = icmp ne i32 %138, 0
-  %140 = and i32 %86, 512
-  %141 = icmp ne i32 %140, 0
-  %142 = select i1 %139, i1 true, i1 %141
-  %143 = select i1 %142, i32 512, i32 0
-  %144 = and i32 %.sroa.037.0, 1024
-  %145 = icmp ne i32 %144, 0
-  %146 = and i32 %86, 1024
-  %147 = icmp ne i32 %146, 0
-  %148 = select i1 %145, i1 true, i1 %147
-  %149 = select i1 %148, i32 1024, i32 0
-  %150 = and i32 %.sroa.037.0, 2048
-  %151 = icmp ne i32 %150, 0
-  %152 = and i32 %86, 2048
-  %153 = icmp ne i32 %152, 0
-  %154 = select i1 %151, i1 true, i1 %153
-  %155 = select i1 %154, i32 2048, i32 0
-  %156 = or i32 %86, %.sroa.037.0
-  %157 = and i32 %156, 520192
-  %158 = or disjoint i32 %157, %89
-  %159 = or disjoint i32 %158, %95
-  %160 = or disjoint i32 %159, %101
-  %161 = or disjoint i32 %160, %107
-  %.masked.masked.masked.masked.masked.masked.i = or i32 %161, %113
-  %.masked41.masked.masked.masked.masked.i = or i32 %.masked.masked.masked.masked.masked.masked.i, %119
-  %.masked.masked.masked.masked.i = or i32 %.masked41.masked.masked.masked.masked.i, %125
-  %.masked44.masked.masked.i = or i32 %.masked.masked.masked.masked.i, %131
-  %.masked.masked.i = or i32 %.masked44.masked.masked.i, %137
-  %.masked46.i = or i32 %.masked.masked.i, %143
-  %162 = or i32 %.masked46.i, %149
-  %163 = or i32 %162, %155
-  br label %164
+85:                                               ; preds = %.loopexit75
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 48
+  %87 = load i32, ptr %86, align 8
+  %88 = trunc i32 %.sroa.037.0 to i1
+  %89 = and i32 %87, 1
+  %90 = select i1 %88, i32 1, i32 %89
+  %91 = and i32 %.sroa.037.0, 2
+  %92 = icmp ne i32 %91, 0
+  %93 = and i32 %87, 2
+  %94 = icmp ne i32 %93, 0
+  %95 = select i1 %92, i1 true, i1 %94
+  %96 = select i1 %95, i32 2, i32 0
+  %97 = and i32 %.sroa.037.0, 4
+  %98 = icmp ne i32 %97, 0
+  %99 = and i32 %87, 4
+  %100 = icmp ne i32 %99, 0
+  %101 = select i1 %98, i1 true, i1 %100
+  %102 = select i1 %101, i32 4, i32 0
+  %103 = and i32 %.sroa.037.0, 8
+  %104 = icmp ne i32 %103, 0
+  %105 = and i32 %87, 8
+  %106 = icmp ne i32 %105, 0
+  %107 = select i1 %104, i1 true, i1 %106
+  %108 = select i1 %107, i32 8, i32 0
+  %109 = and i32 %.sroa.037.0, 16
+  %110 = icmp ne i32 %109, 0
+  %111 = and i32 %87, 16
+  %112 = icmp ne i32 %111, 0
+  %113 = select i1 %110, i1 true, i1 %112
+  %114 = select i1 %113, i32 16, i32 0
+  %115 = and i32 %.sroa.037.0, 32
+  %116 = icmp ne i32 %115, 0
+  %117 = and i32 %87, 32
+  %118 = icmp ne i32 %117, 0
+  %119 = select i1 %116, i1 true, i1 %118
+  %120 = select i1 %119, i32 32, i32 0
+  %121 = and i32 %.sroa.037.0, 64
+  %122 = icmp ne i32 %121, 0
+  %123 = and i32 %87, 64
+  %124 = icmp ne i32 %123, 0
+  %125 = select i1 %122, i1 true, i1 %124
+  %126 = select i1 %125, i32 64, i32 0
+  %127 = and i32 %.sroa.037.0, 128
+  %128 = icmp ne i32 %127, 0
+  %129 = and i32 %87, 128
+  %130 = icmp ne i32 %129, 0
+  %131 = select i1 %128, i1 true, i1 %130
+  %132 = select i1 %131, i32 128, i32 0
+  %133 = and i32 %.sroa.037.0, 256
+  %134 = icmp ne i32 %133, 0
+  %135 = and i32 %87, 256
+  %136 = icmp ne i32 %135, 0
+  %137 = select i1 %134, i1 true, i1 %136
+  %138 = select i1 %137, i32 256, i32 0
+  %139 = and i32 %.sroa.037.0, 512
+  %140 = icmp ne i32 %139, 0
+  %141 = and i32 %87, 512
+  %142 = icmp ne i32 %141, 0
+  %143 = select i1 %140, i1 true, i1 %142
+  %144 = select i1 %143, i32 512, i32 0
+  %145 = and i32 %.sroa.037.0, 1024
+  %146 = icmp ne i32 %145, 0
+  %147 = and i32 %87, 1024
+  %148 = icmp ne i32 %147, 0
+  %149 = select i1 %146, i1 true, i1 %148
+  %150 = select i1 %149, i32 1024, i32 0
+  %151 = and i32 %.sroa.037.0, 2048
+  %152 = icmp ne i32 %151, 0
+  %153 = and i32 %87, 2048
+  %154 = icmp ne i32 %153, 0
+  %155 = select i1 %152, i1 true, i1 %154
+  %156 = select i1 %155, i32 2048, i32 0
+  %157 = or i32 %87, %.sroa.037.0
+  %158 = and i32 %157, 520192
+  %159 = or disjoint i32 %158, %90
+  %160 = or disjoint i32 %159, %96
+  %161 = or disjoint i32 %160, %102
+  %162 = or disjoint i32 %161, %108
+  %.masked.masked.masked.masked.masked.masked.i = or i32 %162, %114
+  %.masked41.masked.masked.masked.masked.i = or i32 %.masked.masked.masked.masked.masked.masked.i, %120
+  %.masked.masked.masked.masked.i = or i32 %.masked41.masked.masked.masked.masked.i, %126
+  %.masked44.masked.masked.i = or i32 %.masked.masked.masked.masked.i, %132
+  %.masked.masked.i = or i32 %.masked44.masked.masked.i, %138
+  %.masked46.i = or i32 %.masked.masked.i, %144
+  %163 = or i32 %.masked46.i, %150
+  %164 = or i32 %163, %156
+  br label %165
 
-164:                                              ; preds = %84, %.loopexit75
-  %.sroa.037.3 = phi i32 [ %163, %84 ], [ %.sroa.037.0, %.loopexit75 ]
+165:                                              ; preds = %85, %.loopexit75
+  %.sroa.037.3 = phi i32 [ %164, %85 ], [ %.sroa.037.0, %.loopexit75 ]
   store i32 %.sroa.037.3, ptr %1, align 4, !tbaa !81
   ret ptr %.0
 }

@@ -682,8 +682,8 @@ _ZNSt3mapISt4pairImmEN3ue212graph_detail15edge_descriptorINS2_9ue2_graphINS2_8NG
 
 _ZSt6fill_nIPymyET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %201
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %203, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %202, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %202, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIySaIyEE6resizeEm.exit.i.i
 
 _ZNKSt6vectorIySaIyEE12_M_check_lenEmPKc.exit.i.i: ; preds = %194
@@ -2995,8 +2995,8 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIlSaI
   %106 = getelementptr inbounds nuw i64, ptr %104, i64 %98
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store ptr %106, ptr %107, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %104, i8 0, i64 %103, i1 false)
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 %103
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %104, i8 0, i64 %103, i1 false)
   br label %.loopexit108
 
 .loopexit108:                                     ; preds = %.noexc76, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i

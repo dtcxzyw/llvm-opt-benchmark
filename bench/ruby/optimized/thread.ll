@@ -3152,17 +3152,17 @@ vm_check_ints_blocking.exit:                      ; preds = %123, %134
   %145 = and i32 %141, 10
   %146 = and i32 %145, %144
   %.not73 = icmp eq i32 %146, 0
-  br i1 %.not73, label %155, label %.preheader
+  br i1 %.not73, label %155, label %.preheader87
 
-.preheader:                                       ; preds = %138, %.preheader
+.preheader87:                                     ; preds = %138, %.preheader87
   %147 = load i32, ptr %140, align 8, !tbaa !46
   %148 = load i32, ptr %142, align 4, !tbaa !47
   %149 = and i32 %148, %147
   %150 = cmpxchg volatile ptr %140, i32 %147, i32 %149 seq_cst seq_cst, align 4
   %.not.i81 = extractvalue { i32, i1 } %150, 1
-  br i1 %.not.i81, label %threadptr_get_interrupts.exit, label %.preheader, !llvm.loop !185
+  br i1 %.not.i81, label %threadptr_get_interrupts.exit, label %.preheader87, !llvm.loop !185
 
-threadptr_get_interrupts.exit:                    ; preds = %.preheader
+threadptr_get_interrupts.exit:                    ; preds = %.preheader87
   %151 = icmp eq i32 %.086, 0
   %152 = load i32, ptr %142, align 4, !tbaa !47
   %153 = xor i32 %152, -1
@@ -7692,27 +7692,27 @@ rb_vm_lock_leave.exit:                            ; preds = %42, %rb_vm_lock_ent
 
 54:                                               ; preds = %49
   %55 = load i8, ptr %10, align 8
-  %56 = and i8 %55, 3
-  %57 = and i8 %55, -4
-  store i8 %57, ptr %10, align 8
-  %58 = call i32 @rb_get_next_signal() #16
-  %.not78145 = icmp eq i32 %58, 0
+  %56 = and i8 %55, -4
+  store i8 %56, ptr %10, align 8
+  %57 = call i32 @rb_get_next_signal() #16
+  %.not78145 = icmp eq i32 %57, 0
   br i1 %.not78145, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %.lr.ph
-  %59 = phi i32 [ %62, %.lr.ph ], [ %58, %54 ]
-  %.3146 = phi i32 [ %61, %.lr.ph ], [ %.064, %54 ]
-  %60 = call i32 @rb_signal_exec(ptr noundef nonnull %0, i32 noundef %59) #16
-  %61 = or i32 %60, %.3146
-  %62 = call i32 @rb_get_next_signal() #16
-  %.not78 = icmp eq i32 %62, 0
+  %58 = phi i32 [ %61, %.lr.ph ], [ %57, %54 ]
+  %.3146 = phi i32 [ %60, %.lr.ph ], [ %.064, %54 ]
+  %59 = call i32 @rb_signal_exec(ptr noundef nonnull %0, i32 noundef %58) #16
+  %60 = or i32 %59, %.3146
+  %61 = call i32 @rb_get_next_signal() #16
+  %.not78 = icmp eq i32 %61, 0
   br i1 %.not78, label %._crit_edge, label %.lr.ph, !llvm.loop !267
 
 ._crit_edge:                                      ; preds = %.lr.ph, %54
-  %.3.lcssa = phi i32 [ %.064, %54 ], [ %61, %.lr.ph ]
+  %.3.lcssa = phi i32 [ %.064, %54 ], [ %60, %.lr.ph ]
+  %62 = and i8 %55, 3
   %63 = load i8, ptr %10, align 8
   %64 = and i8 %63, -4
-  %65 = or disjoint i8 %64, %56
+  %65 = or disjoint i8 %64, %62
   store i8 %65, ptr %10, align 8
   br label %66
 
@@ -15743,20 +15743,20 @@ define internal fastcc void @rb_check_deadlock(ptr noundef %0) unnamed_addr #0 {
 
 77:                                               ; preds = %68
   %78 = tail call ptr @rb_check_typeddata(i64 noundef %76, ptr noundef nonnull @mutex_data_type) #16
-  %79 = load ptr, ptr %78, align 8, !tbaa !174
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  br label %81
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  br label %80
 
-81:                                               ; preds = %81, %77
-  %.pn.in.i.i = phi ptr [ %80, %77 ], [ %.pn.i.i, %81 ]
-  %.0.i.i = phi i64 [ 0, %77 ], [ %82, %81 ]
+80:                                               ; preds = %80, %77
+  %.pn.in.i.i = phi ptr [ %79, %77 ], [ %.pn.i.i, %80 ]
+  %.0.i.i = phi i64 [ 0, %77 ], [ %81, %80 ]
   %.pn.i.i = load ptr, ptr %.pn.in.i.i, align 8, !tbaa !84
-  %.not.i.i = icmp eq ptr %.pn.i.i, %80
-  %82 = add i64 %.0.i.i, 1
-  br i1 %.not.i.i, label %rb_mutex_num_waiting.exit.i, label %81, !llvm.loop !412
+  %.not.i.i = icmp eq ptr %.pn.i.i, %79
+  %81 = add i64 %.0.i.i, 1
+  br i1 %.not.i.i, label %rb_mutex_num_waiting.exit.i, label %80, !llvm.loop !412
 
-rb_mutex_num_waiting.exit.i:                      ; preds = %81
-  %83 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %51, ptr noundef nonnull @.str.150, ptr noundef %79, i64 noundef %.0.i.i) #16
+rb_mutex_num_waiting.exit.i:                      ; preds = %80
+  %82 = load ptr, ptr %78, align 8, !tbaa !174
+  %83 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %51, ptr noundef nonnull @.str.150, ptr noundef %82, i64 noundef %.0.i.i) #16
   br label %84
 
 84:                                               ; preds = %rb_mutex_num_waiting.exit.i, %68

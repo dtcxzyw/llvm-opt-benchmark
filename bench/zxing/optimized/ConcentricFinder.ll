@@ -1485,7 +1485,7 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %212 = add nuw nsw i64 %.idx360.i, 16
   %.not19.i.i.i = icmp samesign eq i64 %212, %.idx.i
   %or.cond375.i = select i1 %211, i1 true, i1 %.not19.i.i.i
-  br i1 %or.cond375.i, label %.loopexit.i126.i, label %.lr.ph.i.i104.i
+  br i1 %or.cond375.i, label %.thread.i126.i, label %.lr.ph.i.i104.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.074.i.i = phi double [ %218, %.lr.ph.i.i ], [ 0.000000e+00, %.lr.ph.preheader.i.i ]
@@ -1533,9 +1533,9 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %spec.select.i.i107.i = select i1 %234, ptr %223, ptr %.021.i.i.i
   %236 = getelementptr inbounds nuw i8, ptr %223, i64 16
   %.not.i.i108.i = icmp eq ptr %236, %161
-  br i1 %.not.i.i108.i, label %.loopexit.i126.i, label %222, !llvm.loop !75
+  br i1 %.not.i.i108.i, label %.thread.i126.i, label %222, !llvm.loop !75
 
-.loopexit.i126.i:                                 ; preds = %222, %._crit_edge.i.i
+.thread.i126.i:                                   ; preds = %222, %._crit_edge.i.i
   %.011.i.i109.i = phi ptr [ %210, %._crit_edge.i.i ], [ %spec.select.i.i107.i, %222 ]
   %237 = mul nsw i32 %95, 7
   %238 = sdiv i32 %237, 8
@@ -1548,7 +1548,7 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %or.cond376.i = select i1 %241, i1 true, i1 %.not19.i.i138.i
   br i1 %or.cond376.i, label %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit159.i", label %.lr.ph.i.i139.i
 
-.lr.ph.i.i139.i:                                  ; preds = %.loopexit.i126.i
+.lr.ph.i.i139.i:                                  ; preds = %.thread.i126.i
   %243 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %.0.val.pre.i.i142.i = load double, ptr %165, align 8, !tbaa !23, !noalias !64
   br label %244
@@ -1578,8 +1578,8 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %.not.i.i150.i = icmp eq ptr %258, %240
   br i1 %.not.i.i150.i, label %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit159.i", label %244, !llvm.loop !75
 
-"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit159.i": ; preds = %244, %.loopexit.i126.i
-  %.011.i.i152.i = phi ptr [ %165, %.loopexit.i126.i ], [ %spec.select.i.i149.i, %244 ]
+"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit159.i": ; preds = %244, %.thread.i126.i
+  %.011.i.i152.i = phi ptr [ %165, %.thread.i126.i ], [ %spec.select.i.i149.i, %244 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !64
   %259 = getelementptr inbounds nuw i8, ptr %11, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 40, i1 false), !noalias !64
@@ -1675,10 +1675,10 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
 
 306:                                              ; preds = %303, %292
   %307 = phi double [ %305, %303 ], [ %297, %292 ]
-  %.sroa.10.24.copyload7.i.i.i.i.i.i.i = phi double [ %304, %303 ], [ %295, %292 ]
-  %308 = fcmp ord double %.sroa.10.24.copyload7.i.i.i.i.i.i.i, 0.000000e+00
+  %.sroa.10.24.copyload8.i.i.i.i.i.i.i = phi double [ %304, %303 ], [ %295, %292 ]
+  %308 = fcmp ord double %.sroa.10.24.copyload8.i.i.i.i.i.i.i, 0.000000e+00
   %.sroa.3.0.i45.i234.i = select i1 %308, double %307, double 0.000000e+00
-  %.sroa.0.0.i46.i235.i = select i1 %308, double %.sroa.10.24.copyload7.i.i.i.i.i.i.i, double 0.000000e+00
+  %.sroa.0.0.i46.i235.i = select i1 %308, double %.sroa.10.24.copyload8.i.i.i.i.i.i.i, double 0.000000e+00
   %309 = fmul double %294, %.sroa.3.0.i45.i234.i
   %310 = call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i46.i235.i, double %293, double %309)
   store double %310, ptr %261, align 8, !tbaa !84, !noalias !64
@@ -1778,10 +1778,10 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
 
 360:                                              ; preds = %357, %346
   %361 = phi double [ %359, %357 ], [ %351, %346 ]
-  %.sroa.10.24.copyload7.i40.i.i.i.i.i.i = phi double [ %358, %357 ], [ %349, %346 ]
-  %362 = fcmp ord double %.sroa.10.24.copyload7.i40.i.i.i.i.i.i, 0.000000e+00
+  %.sroa.10.24.copyload8.i40.i.i.i.i.i.i = phi double [ %358, %357 ], [ %349, %346 ]
+  %362 = fcmp ord double %.sroa.10.24.copyload8.i40.i.i.i.i.i.i, 0.000000e+00
   %.sroa.3.0.i45.i262.i = select i1 %362, double %361, double 0.000000e+00
-  %.sroa.0.0.i46.i263.i = select i1 %362, double %.sroa.10.24.copyload7.i40.i.i.i.i.i.i, double 0.000000e+00
+  %.sroa.0.0.i46.i263.i = select i1 %362, double %.sroa.10.24.copyload8.i40.i.i.i.i.i.i, double 0.000000e+00
   %363 = fmul double %348, %.sroa.3.0.i45.i262.i
   %364 = call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i46.i263.i, double %347, double %363)
   store double %364, ptr %315, align 8, !tbaa !84, !noalias !64
@@ -1881,10 +1881,10 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
 
 414:                                              ; preds = %411, %400
   %415 = phi double [ %413, %411 ], [ %405, %400 ]
-  %.sroa.10.24.copyload7.i52.i.i.i.i.i.i = phi double [ %412, %411 ], [ %403, %400 ]
-  %416 = fcmp ord double %.sroa.10.24.copyload7.i52.i.i.i.i.i.i, 0.000000e+00
+  %.sroa.10.24.copyload8.i52.i.i.i.i.i.i = phi double [ %412, %411 ], [ %403, %400 ]
+  %416 = fcmp ord double %.sroa.10.24.copyload8.i52.i.i.i.i.i.i, 0.000000e+00
   %.sroa.3.0.i45.i291.i = select i1 %416, double %415, double 0.000000e+00
-  %.sroa.0.0.i46.i292.i = select i1 %416, double %.sroa.10.24.copyload7.i52.i.i.i.i.i.i, double 0.000000e+00
+  %.sroa.0.0.i46.i292.i = select i1 %416, double %.sroa.10.24.copyload8.i52.i.i.i.i.i.i, double 0.000000e+00
   %417 = fmul double %402, %.sroa.3.0.i45.i291.i
   %418 = call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i46.i292.i, double %401, double %417)
   store double %418, ptr %369, align 8, !tbaa !84, !noalias !64
@@ -1983,20 +1983,20 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXingL23FitQadrilateralToPointsENS2_6PointTIdEERSt6vectorIS4_SaIS4_EEE3$_2EclIPNS2_14RegressionLineEEEbT_.exit.i.i.i.i.i.i": ; preds = %464, %453
   %467 = phi double [ %466, %464 ], [ %458, %453 ]
-  %.sroa.10.24.copyload7.i64.i.i.i.i.i.i = phi double [ %465, %464 ], [ %456, %453 ]
-  %468 = fcmp ord double %.sroa.10.24.copyload7.i64.i.i.i.i.i.i, 0.000000e+00
+  %.sroa.10.24.copyload8.i64.i.i.i.i.i.i = phi double [ %465, %464 ], [ %456, %453 ]
+  %468 = fcmp ord double %.sroa.10.24.copyload8.i64.i.i.i.i.i.i, 0.000000e+00
   %.sroa.3.0.i45.i320.i = select i1 %468, double %467, double 0.000000e+00
-  %.sroa.0.0.i46.i321.i = select i1 %468, double %.sroa.10.24.copyload7.i64.i.i.i.i.i.i, double 0.000000e+00
+  %.sroa.0.0.i46.i321.i = select i1 %468, double %.sroa.10.24.copyload8.i64.i.i.i.i.i.i, double 0.000000e+00
   %469 = fmul double %455, %.sroa.3.0.i45.i320.i
   %470 = call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i46.i321.i, double %454, double %469)
   store double %470, ptr %423, align 8, !tbaa !84, !noalias !64
   %471 = getelementptr inbounds nuw i8, ptr %11, i64 256
-  %472 = fcmp uno double %.sroa.10.24.copyload7.i.i.i.i.i.i.i, 0.000000e+00
-  %473 = fcmp uno double %.sroa.10.24.copyload7.i40.i.i.i.i.i.i, 0.000000e+00
+  %472 = fcmp uno double %.sroa.10.24.copyload8.i.i.i.i.i.i.i, 0.000000e+00
+  %473 = fcmp uno double %.sroa.10.24.copyload8.i40.i.i.i.i.i.i, 0.000000e+00
   %or.cond528.i = select i1 %472, i1 true, i1 %473
-  %474 = fcmp uno double %.sroa.10.24.copyload7.i52.i.i.i.i.i.i, 0.000000e+00
+  %474 = fcmp uno double %.sroa.10.24.copyload8.i52.i.i.i.i.i.i, 0.000000e+00
   %or.cond529.i = select i1 %or.cond528.i, i1 true, i1 %474
-  %475 = fcmp uno double %.sroa.10.24.copyload7.i64.i.i.i.i.i.i, 0.000000e+00
+  %475 = fcmp uno double %.sroa.10.24.copyload8.i64.i.i.i.i.i.i, 0.000000e+00
   %or.cond530.i = select i1 %or.cond529.i, i1 true, i1 %475
   br i1 %or.cond530.i, label %.loopexit377.i, label %.thread.i12
 

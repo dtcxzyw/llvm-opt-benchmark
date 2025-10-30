@@ -9049,8 +9049,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorImSaImEE17_M_default_appendEm(pt
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -20310,17 +20310,17 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %_ZN3ue210verify_u32
   %1866 = icmp eq i64 %1865, 0
   br i1 %1866, label %.lr.ph.i432.preheader, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
+.lr.ph.i432.preheader:                            ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc936
+  br label %.lr.ph.i432
+
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc936
   %1867 = getelementptr i8, ptr %1864, i64 4
   %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %1865, 2
   call void @llvm.memset.p0.i64(ptr align 4 %1867, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false)
   br label %.lr.ph.i432.preheader
 
-.lr.ph.i432.preheader:                            ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc936
-  %.idx = shl nuw nsw i64 %1858, 2
-  br label %.lr.ph.i432
-
 ._crit_edge.i436:                                 ; preds = %.lr.ph.i432
+  %.idx = shl nuw nsw i64 %1858, 2
   %1868 = zext i32 %549 to i64
   %1869 = getelementptr inbounds nuw i8, ptr %569, i64 %1868
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1869, ptr nonnull align 4 %1864, i64 %.idx, i1 false)
@@ -29227,6 +29227,9 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %1080
 .noexc448.i:                                      ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i
   %.pre899.i = load ptr, ptr %1073, align 8
   %.pre900.i = load ptr, ptr %1074, align 8
+  %.pre907.i = ptrtoint ptr %.pre900.i to i64
+  %.pre909.i = ptrtoint ptr %.pre899.i to i64
+  %.pre911.i = sub i64 %.pre907.i, %.pre909.i
   %1083 = icmp eq ptr %.pre900.i, %.pre899.i
   br i1 %1083, label %.thread.i, label %.lr.ph.i.preheader.i
 
@@ -29237,23 +29240,20 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %1080
   br label %._crit_edge.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.noexc448.i
-  %.pre907.i = ptrtoint ptr %.pre900.i to i64
-  %.pre909.i = ptrtoint ptr %.pre899.i to i64
-  %.pre911.i = sub i64 %.pre907.i, %.pre909.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1082, ptr align 8 %.pre899.i, i64 %.pre911.i, i1 false)
   %1086 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i440.i, i64 48
   %1087 = load i64, ptr %1086, align 8
   %1088 = ashr exact i64 %.pre911.i, 3
   br label %.lr.ph.i.i
 
-._crit_edge.i.i.loopexit:                         ; preds = %.lr.ph.i.i
+._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i.i
   %1089 = getelementptr inbounds i8, ptr %1082, i64 %.pre911.i
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.loopexit, %.thread.i
-  %1090 = phi i64 [ %1085, %.thread.i ], [ %1087, %._crit_edge.i.i.loopexit ]
-  %1091 = phi ptr [ %.ph.i, %.thread.i ], [ %1089, %._crit_edge.i.i.loopexit ]
-  %1092 = phi ptr [ %.ph.i, %.thread.i ], [ %1082, %._crit_edge.i.i.loopexit ]
+._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %.thread.i
+  %1090 = phi i64 [ %1085, %.thread.i ], [ %1087, %._crit_edge.i.loopexit.i ]
+  %1091 = phi ptr [ %.ph.i, %.thread.i ], [ %1089, %._crit_edge.i.loopexit.i ]
+  %1092 = phi ptr [ %.ph.i, %.thread.i ], [ %1082, %._crit_edge.i.loopexit.i ]
   %1093 = and i64 %1090, 63
   %.not.i.i450.i = icmp eq i64 %1093, 0
   br i1 %.not.i.i450.i, label %.lr.ph831.i.preheader, label %1094
@@ -29278,7 +29278,7 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %1080
   store i64 %1101, ptr %1099, align 8
   %1102 = add nuw i64 %.04.i.i, 1
   %exitcond.not.i = icmp eq i64 %1102, %1088
-  br i1 %exitcond.not.i, label %._crit_edge.i.i.loopexit, label %.lr.ph.i.i, !llvm.loop !505
+  br i1 %exitcond.not.i, label %._crit_edge.i.loopexit.i, label %.lr.ph.i.i, !llvm.loop !505
 
 ._crit_edge.i159:                                 ; preds = %.lr.ph831.i
   call void @_ZdlPv(ptr noundef nonnull %1092) #30
@@ -47621,17 +47621,17 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %_ZN3ue210verify_u32
   %1866 = icmp eq i64 %1865, 0
   br i1 %1866, label %.lr.ph.i432.preheader, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
+.lr.ph.i432.preheader:                            ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc934
+  br label %.lr.ph.i432
+
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc934
   %1867 = getelementptr i8, ptr %1864, i64 4
   %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %1865, 2
   call void @llvm.memset.p0.i64(ptr align 4 %1867, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false)
   br label %.lr.ph.i432.preheader
 
-.lr.ph.i432.preheader:                            ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc934
-  %.idx = shl nuw nsw i64 %1858, 2
-  br label %.lr.ph.i432
-
 ._crit_edge.i436:                                 ; preds = %.lr.ph.i432
+  %.idx = shl nuw nsw i64 %1858, 2
   %1868 = zext i32 %549 to i64
   %1869 = getelementptr inbounds nuw i8, ptr %569, i64 %1868
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1869, ptr nonnull align 4 %1864, i64 %.idx, i1 false)
@@ -54336,17 +54336,17 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %_ZN3ue210verify_u32
   %2006 = icmp eq i64 %2005, 0
   br i1 %2006, label %.lr.ph.i436.preheader, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
+.lr.ph.i436.preheader:                            ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc1018
+  br label %.lr.ph.i436
+
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc1018
   %2007 = getelementptr i8, ptr %2004, i64 4
   %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %2005, 2
   call void @llvm.memset.p0.i64(ptr align 4 %2007, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false)
   br label %.lr.ph.i436.preheader
 
-.lr.ph.i436.preheader:                            ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc1018
-  %.idx = shl nuw nsw i64 %1998, 2
-  br label %.lr.ph.i436
-
 ._crit_edge.i440:                                 ; preds = %.lr.ph.i436
+  %.idx = shl nuw nsw i64 %1998, 2
   %2008 = zext i32 %549 to i64
   %2009 = getelementptr inbounds nuw i8, ptr %569, i64 %2008
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2009, ptr nonnull align 4 %2004, i64 %.idx, i1 false)
@@ -61048,17 +61048,17 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %_ZN3ue210verify_u32
   %2007 = icmp eq i64 %2006, 0
   br i1 %2007, label %.lr.ph.i436.preheader, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
+.lr.ph.i436.preheader:                            ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc1018
+  br label %.lr.ph.i436
+
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc1018
   %2008 = getelementptr i8, ptr %2005, i64 4
   %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %2006, 2
   call void @llvm.memset.p0.i64(ptr align 4 %2008, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false)
   br label %.lr.ph.i436.preheader
 
-.lr.ph.i436.preheader:                            ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc1018
-  %.idx = shl nuw nsw i64 %1999, 2
-  br label %.lr.ph.i436
-
 ._crit_edge.i440:                                 ; preds = %.lr.ph.i436
+  %.idx = shl nuw nsw i64 %1999, 2
   %2009 = zext i32 %550 to i64
   %2010 = getelementptr inbounds nuw i8, ptr %570, i64 %2009
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2010, ptr nonnull align 4 %2005, i64 %.idx, i1 false)
@@ -67762,17 +67762,17 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %_ZN3ue210verify_u32
   %2009 = icmp eq i64 %2008, 0
   br i1 %2009, label %.lr.ph.i433.preheader, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
+.lr.ph.i433.preheader:                            ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc1015
+  br label %.lr.ph.i433
+
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc1015
   %2010 = getelementptr i8, ptr %2007, i64 4
   %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %2008, 2
   call void @llvm.memset.p0.i64(ptr align 4 %2010, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false)
   br label %.lr.ph.i433.preheader
 
-.lr.ph.i433.preheader:                            ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc1015
-  %.idx = shl nuw nsw i64 %2001, 2
-  br label %.lr.ph.i433
-
 ._crit_edge.i437:                                 ; preds = %.lr.ph.i433
+  %.idx = shl nuw nsw i64 %2001, 2
   %2011 = zext i32 %552 to i64
   %2012 = getelementptr inbounds nuw i8, ptr %572, i64 %2011
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2012, ptr nonnull align 4 %2007, i64 %.idx, i1 false)
@@ -74475,17 +74475,17 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %_ZN3ue210verify_u32
   %2007 = icmp eq i64 %2006, 0
   br i1 %2007, label %.lr.ph.i436.preheader, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
 
+.lr.ph.i436.preheader:                            ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc1018
+  br label %.lr.ph.i436
+
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc1018
   %2008 = getelementptr i8, ptr %2005, i64 4
   %.idx.i.i.i.i.i31.i = shl nuw nsw i64 %2006, 2
   call void @llvm.memset.p0.i64(ptr align 4 %2008, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false)
   br label %.lr.ph.i436.preheader
 
-.lr.ph.i436.preheader:                            ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc1018
-  %.idx = shl nuw nsw i64 %1999, 2
-  br label %.lr.ph.i436
-
 ._crit_edge.i440:                                 ; preds = %.lr.ph.i436
+  %.idx = shl nuw nsw i64 %1999, 2
   %2009 = zext i32 %550 to i64
   %2010 = getelementptr inbounds nuw i8, ptr %570, i64 %2009
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2010, ptr nonnull align 4 %2005, i64 %.idx, i1 false)

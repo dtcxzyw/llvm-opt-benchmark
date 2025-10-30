@@ -130,34 +130,34 @@ define dso_local i32 @acct_gather_conf_init() local_unnamed_addr #0 {
 
 45:                                               ; preds = %41, %33, %36
   %46 = call fastcc i32 @_process_tbl(ptr noundef %27)
-  %47 = add nsw i32 %20, %46
-  %48 = load ptr, ptr %2, align 8
-  %49 = load i32, ptr %3, align 4
-  %50 = call ptr @s_p_pack_hashtbl(ptr noundef %27, ptr noundef %48, i32 noundef %49) #9
-  store ptr %50, ptr @acct_gather_options_buf, align 8
-  %51 = load i32, ptr %3, align 4
-  %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %.lr.ph, label %._crit_edge
+  %47 = load ptr, ptr %2, align 8
+  %48 = load i32, ptr %3, align 4
+  %49 = call ptr @s_p_pack_hashtbl(ptr noundef %27, ptr noundef %47, i32 noundef %48) #9
+  store ptr %49, ptr @acct_gather_options_buf, align 8
+  %50 = load i32, ptr %3, align 4
+  %51 = icmp sgt i32 %50, 0
+  br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %45, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %45 ]
-  %53 = load ptr, ptr %2, align 8
-  %54 = getelementptr inbounds nuw %struct.conf_file_options, ptr %53, i64 %indvars.iv
-  call void @slurm_xfree(ptr noundef %54) #9
+  %52 = load ptr, ptr %2, align 8
+  %53 = getelementptr inbounds nuw %struct.conf_file_options, ptr %52, i64 %indvars.iv
+  call void @slurm_xfree(ptr noundef %53) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = load i32, ptr %3, align 4
-  %56 = sext i32 %55 to i64
-  %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  %54 = load i32, ptr %3, align 4
+  %55 = sext i32 %54 to i64
+  %56 = icmp slt i64 %indvars.iv.next, %55
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %45
+  %57 = add nsw i32 %20, %46
   call void @slurm_xfree(ptr noundef nonnull %2) #9
   call void @slurm_xfree(ptr noundef nonnull %1) #9
   call void @s_p_hashtbl_destroy(ptr noundef %27) #9
   br label %58
 
 58:                                               ; preds = %5, %0, %._crit_edge
-  %.019 = phi i32 [ %47, %._crit_edge ], [ 0, %0 ], [ %12, %5 ]
+  %.019 = phi i32 [ %57, %._crit_edge ], [ 0, %0 ], [ %12, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

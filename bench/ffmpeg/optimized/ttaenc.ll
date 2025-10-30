@@ -127,24 +127,24 @@ define internal range(i32 -2147483648, 1) i32 @tta_encode_frame(ptr noundef %0, 
   %.0115256 = phi i64 [ %19, %.lr.ph258 ], [ %249, %248 ]
   %29 = load ptr, ptr %22, align 8, !tbaa !43
   %30 = load i32, ptr %23, align 8, !tbaa !45
-  %31 = icmp slt i32 %30, 0
-  %spec.select.i = select i1 %31, ptr null, ptr %29
-  %spec.select11.i = call i32 @llvm.smax.i32(i32 %30, i32 0)
-  %32 = zext nneg i32 %spec.select11.i to i64
-  %33 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %32
-  %34 = load i32, ptr %12, align 4, !tbaa !36
-  %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph, label %.preheader210
+  %31 = load i32, ptr %12, align 4, !tbaa !36
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %.lr.ph, label %.preheader210
 
 .preheader210:                                    ; preds = %.lr.ph, %28
-  %36 = phi i32 [ %34, %28 ], [ %53, %.lr.ph ]
+  %33 = phi i32 [ %31, %28 ], [ %53, %.lr.ph ]
+  %34 = icmp slt i32 %30, 0
+  %spec.select.i = select i1 %34, ptr null, ptr %29
+  %spec.select11.i = call i32 @llvm.smax.i32(i32 %30, i32 0)
+  %35 = zext nneg i32 %spec.select11.i to i64
+  %36 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %35
   %37 = load i32, ptr %8, align 8, !tbaa !38
-  %38 = mul nsw i32 %36, %37
+  %38 = mul nsw i32 %33, %37
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph240, label %flush_put_bits.exit
 
 .lr.ph240:                                        ; preds = %.preheader210
-  %40 = ptrtoint ptr %33 to i64
+  %40 = ptrtoint ptr %36 to i64
   br label %56
 
 .lr.ph:                                           ; preds = %28, %.lr.ph
@@ -172,7 +172,7 @@ define internal range(i32 -2147483648, 1) i32 @tta_encode_frame(ptr noundef %0, 
 
 56:                                               ; preds = %.lr.ph240, %252
   %indvars.iv272 = phi i64 [ 0, %.lr.ph240 ], [ %indvars.iv.next273, %252 ]
-  %57 = phi i32 [ %36, %.lr.ph240 ], [ %253, %252 ]
+  %57 = phi i32 [ %33, %.lr.ph240 ], [ %253, %252 ]
   %.0109238 = phi i32 [ 0, %.lr.ph240 ], [ %.2111, %252 ]
   %.0112237 = phi i32 [ 0, %.lr.ph240 ], [ %.1113, %252 ]
   %.sroa.0.0235 = phi i32 [ 0, %.lr.ph240 ], [ %.sroa.0.5, %252 ]
@@ -600,7 +600,7 @@ put_bits.exit147:                                 ; preds = %228, %244
   %.sroa.43.14 = phi ptr [ %265, %263 ], [ %.sroa.43.5, %.preheader210._crit_edge ]
   %.sroa.21.6 = phi i32 [ %267, %263 ], [ %.sroa.21.5, %.preheader210._crit_edge ]
   %.sroa.0.6 = phi i32 [ %266, %263 ], [ %.sroa.0.5, %.preheader210._crit_edge ]
-  %261 = icmp ult ptr %.sroa.43.14, %33
+  %261 = icmp ult ptr %.sroa.43.14, %36
   br i1 %261, label %263, label %262
 
 262:                                              ; preds = %.lr.ph.i
@@ -623,7 +623,7 @@ flush_put_bits.exit:                              ; preds = %.preheader210, %263
   %270 = ptrtoint ptr %spec.select.i to i64
   %271 = sub i64 %269, %270
   %272 = trunc i64 %271 to i32
-  %273 = ptrtoint ptr %33 to i64
+  %273 = ptrtoint ptr %36 to i64
   %274 = sub i64 %273, %269
   %275 = icmp ugt i64 %274, 3
   br i1 %275, label %276, label %282

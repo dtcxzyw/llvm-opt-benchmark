@@ -4385,11 +4385,11 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readn
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 228
   br label %12
 
-11:                                               ; preds = %27
+11:                                               ; preds = %26
   ret void
 
-12:                                               ; preds = %3, %27
-  %indvars.iv19 = phi i64 [ 0, %3 ], [ %indvars.iv.next20, %27 ]
+12:                                               ; preds = %3, %26
+  %indvars.iv19 = phi i64 [ 0, %3 ], [ %indvars.iv.next20, %26 ]
   %13 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #26
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 184
   store i32 65536, ptr %14, align 8, !tbaa !271
@@ -4399,24 +4399,24 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readn
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 192
   store ptr %16, ptr %17, align 8, !tbaa !277
   store i32 1, ptr %13, align 8, !tbaa !279
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  %19 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store float 0.000000e+00, ptr %19, align 4, !tbaa !280
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store float 1.000000e+00, ptr %20, align 8, !tbaa !281
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store float 0.000000e+00, ptr %21, align 4, !tbaa !282
-  %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store float 1.000000e+00, ptr %22, align 8, !tbaa !283
-  %23 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv19
-  store ptr %13, ptr %23, align 8, !tbaa !267
-  %24 = getelementptr inbounds nuw [7 x float], ptr %9, i64 %indvars.iv19
-  %25 = getelementptr inbounds nuw [7 x float], ptr %10, i64 %indvars.iv19
-  %26 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store float 0.000000e+00, ptr %18, align 4, !tbaa !280
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store float 1.000000e+00, ptr %19, align 8, !tbaa !281
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  store float 0.000000e+00, ptr %20, align 4, !tbaa !282
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store float 1.000000e+00, ptr %21, align 8, !tbaa !283
+  %22 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv19
+  store ptr %13, ptr %22, align 8, !tbaa !267
+  %23 = getelementptr inbounds nuw [7 x float], ptr %9, i64 %indvars.iv19
+  %24 = getelementptr inbounds nuw [7 x float], ptr %10, i64 %indvars.iv19
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %28
 
-27:                                               ; preds = %28
-  store i8 %37, ptr %18, align 4, !tbaa !284
+26:                                               ; preds = %28
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  store i8 %37, ptr %27, align 4, !tbaa !284
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 6
   br i1 %exitcond22.not, label %11, label %12
@@ -4424,19 +4424,19 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readn
 28:                                               ; preds = %12, %28
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %28 ]
   %29 = phi i8 [ 0, %12 ], [ %37, %28 ]
-  %30 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
   %31 = load float, ptr %30, align 4, !tbaa !36
-  %32 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
   %33 = load float, ptr %32, align 4, !tbaa !36
   %34 = zext i8 %29 to i64
-  %35 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %26, i64 %34
+  %35 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %25, i64 %34
   store float %31, ptr %35, align 8, !tbaa !268
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store float %33, ptr %36, align 4, !tbaa !270
   %37 = add i8 %29, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %27, label %28
+  br i1 %exitcond.not, label %26, label %28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4995,44 +4995,44 @@ _iop_gui_alloc.exit:                              ; preds = %1, %11
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 192
   store ptr %64, ptr %65, align 8, !tbaa !277
   store i32 1, ptr %61, align 8, !tbaa !279
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 20
-  %67 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  store float 0.000000e+00, ptr %67, align 4, !tbaa !280
-  %68 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store float 1.000000e+00, ptr %68, align 8, !tbaa !281
-  %69 = getelementptr inbounds nuw i8, ptr %61, i64 12
-  store float 0.000000e+00, ptr %69, align 4, !tbaa !282
-  %70 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  store float 1.000000e+00, ptr %70, align 8, !tbaa !283
-  %71 = getelementptr inbounds nuw i8, ptr %10, i64 192
-  store ptr %61, ptr %71, align 16, !tbaa !301
-  %72 = getelementptr inbounds nuw i8, ptr %14, i64 60
-  %73 = sext i32 %60 to i64
-  %74 = getelementptr inbounds [7 x float], ptr %72, i64 %73
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 20
-  %76 = load float, ptr %75, align 4, !tbaa !36
-  %77 = fadd reassoc nsz arcp contract afn float %76, -1.000000e+00
-  %78 = getelementptr inbounds nuw i8, ptr %14, i64 228
-  %79 = getelementptr inbounds [7 x float], ptr %78, i64 %73
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 20
-  %81 = load float, ptr %80, align 4, !tbaa !36
-  %82 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  store float %77, ptr %82, align 8, !tbaa !268
-  %83 = getelementptr inbounds nuw i8, ptr %61, i64 28
-  store float %81, ptr %83, align 4, !tbaa !270
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  store float 0.000000e+00, ptr %66, align 4, !tbaa !280
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store float 1.000000e+00, ptr %67, align 8, !tbaa !281
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 12
+  store float 0.000000e+00, ptr %68, align 4, !tbaa !282
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  store float 1.000000e+00, ptr %69, align 8, !tbaa !283
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 192
+  store ptr %61, ptr %70, align 16, !tbaa !301
+  %71 = getelementptr inbounds nuw i8, ptr %14, i64 60
+  %72 = sext i32 %60 to i64
+  %73 = getelementptr inbounds [7 x float], ptr %71, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 20
+  %75 = load float, ptr %74, align 4, !tbaa !36
+  %76 = fadd reassoc nsz arcp contract afn float %75, -1.000000e+00
+  %77 = getelementptr inbounds nuw i8, ptr %14, i64 228
+  %78 = getelementptr inbounds [7 x float], ptr %77, i64 %72
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 20
+  %80 = load float, ptr %79, align 4, !tbaa !36
+  %81 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  store float %76, ptr %81, align 8, !tbaa !268
+  %82 = getelementptr inbounds nuw i8, ptr %61, i64 28
+  store float %80, ptr %82, align 4, !tbaa !270
   br label %206
 
-84:                                               ; preds = %206
-  %85 = getelementptr inbounds nuw i8, ptr %74, i64 4
+83:                                               ; preds = %206
+  %84 = getelementptr inbounds nuw i8, ptr %61, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %86 = load float, ptr %85, align 4, !tbaa !36
   %87 = fadd reassoc nsz arcp contract afn float %86, 1.000000e+00
-  %88 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %89 = load float, ptr %88, align 4, !tbaa !36
   %90 = getelementptr inbounds nuw i8, ptr %61, i64 88
   store float %87, ptr %90, align 8, !tbaa !268
   %91 = getelementptr inbounds nuw i8, ptr %61, i64 92
   store float %89, ptr %91, align 4, !tbaa !270
-  store i8 9, ptr %66, align 4, !tbaa !284
+  store i8 9, ptr %84, align 4, !tbaa !284
   %92 = getelementptr inbounds nuw i8, ptr %10, i64 240
   store double -1.000000e+00, ptr %92, align 16, !tbaa !302
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 232
@@ -5199,25 +5199,25 @@ _iop_gui_alloc.exit:                              ; preds = %1, %11
 206:                                              ; preds = %_iop_gui_alloc.exit, %206
   %indvars.iv151 = phi i64 [ 1, %_iop_gui_alloc.exit ], [ %indvars.iv.next152, %206 ]
   %indvars.iv = phi i64 [ 0, %_iop_gui_alloc.exit ], [ %indvars.iv.next, %206 ]
-  %207 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv
+  %207 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv
   %208 = load float, ptr %207, align 4, !tbaa !36
-  %209 = getelementptr inbounds nuw float, ptr %79, i64 %indvars.iv
+  %209 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv
   %210 = load float, ptr %209, align 4, !tbaa !36
-  %211 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %82, i64 %indvars.iv151
+  %211 = getelementptr inbounds nuw %struct.CurveAnchorPoint, ptr %81, i64 %indvars.iv151
   store float %208, ptr %211, align 8, !tbaa !268
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 4
   store float %210, ptr %212, align 4, !tbaa !270
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %84, label %206
+  br i1 %exitcond.not, label %83, label %206
 
-213:                                              ; preds = %84
+213:                                              ; preds = %83
   %214 = load ptr, ptr %200, align 8, !tbaa !285
   call void @dt_bauhaus_combobox_remove_at(ptr noundef %214, i32 noundef %203) #20
   br label %215
 
-215:                                              ; preds = %213, %84
+215:                                              ; preds = %213, %83
   %216 = load ptr, ptr %18, align 16, !tbaa !299
   %217 = call ptr @g_type_check_instance_cast(ptr noundef %216, i64 noundef %123) #20
   %218 = load ptr, ptr %19, align 8, !tbaa !288

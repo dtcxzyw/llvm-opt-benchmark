@@ -101,7 +101,6 @@ gv_calloc.exit25.i.i:                             ; preds = %25
   %41 = load ptr, ptr %3, align 8, !tbaa !8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 184
   %43 = load ptr, ptr %42, align 8, !tbaa !37
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i.i
   store ptr %.030.i.i, ptr %44, align 8, !tbaa !45
   %45 = tail call i32 @agset(ptr noundef nonnull %.030.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #13
@@ -117,6 +116,7 @@ gv_calloc.exit25.i.i:                             ; preds = %25
   br i1 %.not22.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !46
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph31.i.i
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %49 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.030.i.i) #13
   %.not.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i, label %patchwork_init_graph.exit, label %.lr.ph31.i.i, !llvm.loop !48

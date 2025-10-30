@@ -1009,16 +1009,16 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %47
           to label %.noexc99 unwind label %168
 
 .noexc99:                                         ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %53
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %54, i8 0, i64 %53, i1 false), !tbaa !65
-  %55 = getelementptr inbounds nuw i64, ptr %54, i64 %49
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %53
-  %57 = ptrtoint ptr %55 to i64
+  %56 = getelementptr inbounds nuw i64, ptr %54, i64 %49
+  %57 = ptrtoint ptr %56 to i64
   br label %_ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit
 
 _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc99, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.18.0 = phi i64 [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %57, %.noexc99 ]
   %.sroa.0235.0 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %54, %.noexc99 ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %56, %.noexc99 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %55, %.noexc99 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %58 = load ptr, ptr %2, align 8, !tbaa !85, !noalias !99
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 72
@@ -1385,8 +1385,8 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; preds = %.
 
 _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit69.thread.i: ; preds = %202
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %203, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %195, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !65, !noalias !113
   %209 = getelementptr inbounds nuw i8, ptr %195, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %195, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !65, !noalias !113
   store ptr %209, ptr %194, align 8, !tbaa !119, !noalias !113
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i
 
@@ -8954,20 +8954,20 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %54 = load i64, ptr %53, align 8, !tbaa !65
   %55 = getelementptr i8, ptr %53, i64 8
   %56 = load i64, ptr %55, align 8, !tbaa !65
-  %57 = sub i64 %56, %54
-  %58 = getelementptr i8, ptr %51, i64 80
-  %59 = load i64, ptr %58, align 8, !tbaa !65
-  %60 = getelementptr i64, ptr %14, i64 %59
-  %61 = load i64, ptr %60, align 8, !tbaa !65
-  %62 = getelementptr i8, ptr %60, i64 8
-  %63 = load i64, ptr %62, align 8, !tbaa !65
-  %.idx = shl i64 %59, 3
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  call void @llvm.prefetch.p0(ptr %64, i32 0, i32 3, i32 1)
-  %65 = icmp ult i64 %61, %63
-  br i1 %65, label %.lr.ph, label %._crit_edge
+  %57 = getelementptr i8, ptr %51, i64 80
+  %58 = load i64, ptr %57, align 8, !tbaa !65
+  %59 = getelementptr i64, ptr %14, i64 %58
+  %60 = load i64, ptr %59, align 8, !tbaa !65
+  %61 = getelementptr i8, ptr %59, i64 8
+  %62 = load i64, ptr %61, align 8, !tbaa !65
+  %.idx = shl i64 %58, 3
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  call void @llvm.prefetch.p0(ptr %63, i32 0, i32 3, i32 1)
+  %64 = icmp ult i64 %60, %62
+  br i1 %64, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph91
+  %65 = sub i64 %56, %54
   %66 = getelementptr inbounds nuw i32, ptr %13, i64 %54
   %.not94 = icmp eq i64 %56, %54
   br i1 %.not94, label %._crit_edge89, label %.lr.ph88
@@ -8983,11 +8983,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %77
 
 .lr.ph:                                           ; preds = %.lr.ph91, %.lr.ph
-  %.05185 = phi i64 [ %74, %.lr.ph ], [ %61, %.lr.ph91 ]
+  %.05185 = phi i64 [ %74, %.lr.ph ], [ %60, %.lr.ph91 ]
   %73 = getelementptr inbounds nuw i32, ptr %13, i64 %.05185
   call void @llvm.prefetch.p0(ptr %73, i32 0, i32 3, i32 1)
   %74 = add i64 %.05185, 16
-  %75 = icmp ult i64 %74, %63
+  %75 = icmp ult i64 %74, %62
   br i1 %75, label %.lr.ph, label %._crit_edge, !llvm.loop !411
 
 ._crit_edge89:                                    ; preds = %77, %._crit_edge
@@ -9010,7 +9010,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %87 = fadd double %86, %72
   store double %87, ptr %85, align 8, !tbaa !270
   %88 = add nuw i64 %.04986, 1
-  %exitcond.not = icmp eq i64 %88, %57
+  %exitcond.not = icmp eq i64 %88, %65
   br i1 %exitcond.not, label %._crit_edge89, label %77, !llvm.loop !413
 
 89:                                               ; preds = %41, %24
@@ -9526,20 +9526,20 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %54 = load i64, ptr %53, align 8, !tbaa !65
   %55 = getelementptr i8, ptr %53, i64 8
   %56 = load i64, ptr %55, align 8, !tbaa !65
-  %57 = sub i64 %56, %54
-  %58 = getelementptr i8, ptr %51, i64 80
-  %59 = load i64, ptr %58, align 8, !tbaa !65
-  %60 = getelementptr i64, ptr %14, i64 %59
-  %61 = load i64, ptr %60, align 8, !tbaa !65
-  %62 = getelementptr i8, ptr %60, i64 8
-  %63 = load i64, ptr %62, align 8, !tbaa !65
-  %.idx = shl i64 %59, 3
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  call void @llvm.prefetch.p0(ptr %64, i32 0, i32 3, i32 1)
-  %65 = icmp ult i64 %61, %63
-  br i1 %65, label %.lr.ph, label %._crit_edge
+  %57 = getelementptr i8, ptr %51, i64 80
+  %58 = load i64, ptr %57, align 8, !tbaa !65
+  %59 = getelementptr i64, ptr %14, i64 %58
+  %60 = load i64, ptr %59, align 8, !tbaa !65
+  %61 = getelementptr i8, ptr %59, i64 8
+  %62 = load i64, ptr %61, align 8, !tbaa !65
+  %.idx = shl i64 %58, 3
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  call void @llvm.prefetch.p0(ptr %63, i32 0, i32 3, i32 1)
+  %64 = icmp ult i64 %60, %62
+  br i1 %64, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph92
+  %65 = sub i64 %56, %54
   %66 = getelementptr inbounds nuw i16, ptr %13, i64 %54
   %.not95 = icmp eq i64 %56, %54
   br i1 %.not95, label %._crit_edge90, label %.lr.ph89
@@ -9555,11 +9555,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %77
 
 .lr.ph:                                           ; preds = %.lr.ph92, %.lr.ph
-  %.05186 = phi i64 [ %74, %.lr.ph ], [ %61, %.lr.ph92 ]
+  %.05186 = phi i64 [ %74, %.lr.ph ], [ %60, %.lr.ph92 ]
   %73 = getelementptr inbounds nuw i16, ptr %13, i64 %.05186
   call void @llvm.prefetch.p0(ptr %73, i32 0, i32 3, i32 1)
   %74 = add i64 %.05186, 16
-  %75 = icmp ult i64 %74, %63
+  %75 = icmp ult i64 %74, %62
   br i1 %75, label %.lr.ph, label %._crit_edge, !llvm.loop !423
 
 ._crit_edge90:                                    ; preds = %77, %._crit_edge
@@ -9582,7 +9582,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %86 = fadd double %85, %72
   store double %86, ptr %84, align 8, !tbaa !270
   %87 = add nuw i64 %.04987, 1
-  %exitcond.not = icmp eq i64 %87, %57
+  %exitcond.not = icmp eq i64 %87, %65
   br i1 %exitcond.not, label %._crit_edge90, label %77, !llvm.loop !425
 
 88:                                               ; preds = %41, %24
@@ -9971,20 +9971,20 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %54 = load i64, ptr %53, align 8, !tbaa !65
   %55 = getelementptr i8, ptr %53, i64 8
   %56 = load i64, ptr %55, align 8, !tbaa !65
-  %57 = sub i64 %56, %54
-  %58 = getelementptr i8, ptr %51, i64 80
-  %59 = load i64, ptr %58, align 8, !tbaa !65
-  %60 = getelementptr i64, ptr %14, i64 %59
-  %61 = load i64, ptr %60, align 8, !tbaa !65
-  %62 = getelementptr i8, ptr %60, i64 8
-  %63 = load i64, ptr %62, align 8, !tbaa !65
-  %.idx = shl i64 %59, 3
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  call void @llvm.prefetch.p0(ptr %64, i32 0, i32 3, i32 1)
-  %65 = icmp ult i64 %61, %63
-  br i1 %65, label %.lr.ph, label %._crit_edge
+  %57 = getelementptr i8, ptr %51, i64 80
+  %58 = load i64, ptr %57, align 8, !tbaa !65
+  %59 = getelementptr i64, ptr %14, i64 %58
+  %60 = load i64, ptr %59, align 8, !tbaa !65
+  %61 = getelementptr i8, ptr %59, i64 8
+  %62 = load i64, ptr %61, align 8, !tbaa !65
+  %.idx = shl i64 %58, 3
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  call void @llvm.prefetch.p0(ptr %63, i32 0, i32 3, i32 1)
+  %64 = icmp ult i64 %60, %62
+  br i1 %64, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph92
+  %65 = sub i64 %56, %54
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 %54
   %.not95 = icmp eq i64 %56, %54
   br i1 %.not95, label %._crit_edge90, label %.lr.ph89
@@ -10000,11 +10000,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %77
 
 .lr.ph:                                           ; preds = %.lr.ph92, %.lr.ph
-  %.05186 = phi i64 [ %74, %.lr.ph ], [ %61, %.lr.ph92 ]
+  %.05186 = phi i64 [ %74, %.lr.ph ], [ %60, %.lr.ph92 ]
   %73 = getelementptr inbounds nuw i8, ptr %13, i64 %.05186
   call void @llvm.prefetch.p0(ptr %73, i32 0, i32 3, i32 1)
   %74 = add i64 %.05186, 16
-  %75 = icmp ult i64 %74, %63
+  %75 = icmp ult i64 %74, %62
   br i1 %75, label %.lr.ph, label %._crit_edge, !llvm.loop !428
 
 ._crit_edge90:                                    ; preds = %77, %._crit_edge
@@ -10027,7 +10027,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %86 = fadd double %85, %72
   store double %86, ptr %84, align 8, !tbaa !270
   %87 = add nuw i64 %.04987, 1
-  %exitcond.not = icmp eq i64 %87, %57
+  %exitcond.not = icmp eq i64 %87, %65
   br i1 %exitcond.not, label %._crit_edge90, label %77, !llvm.loop !430
 
 88:                                               ; preds = %41, %24
@@ -11211,21 +11211,21 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %58 = load i64, ptr %57, align 8, !tbaa !65
   %59 = getelementptr i8, ptr %57, i64 8
   %60 = load i64, ptr %59, align 8, !tbaa !65
-  %61 = sub i64 %60, %58
-  %62 = getelementptr i8, ptr %54, i64 80
-  %63 = load i64, ptr %62, align 8, !tbaa !65
-  %64 = sub i64 %63, %16
-  %65 = getelementptr i64, ptr %14, i64 %64
-  %66 = load i64, ptr %65, align 8, !tbaa !65
-  %67 = getelementptr i8, ptr %65, i64 8
-  %68 = load i64, ptr %67, align 8, !tbaa !65
-  %.idx = shl i64 %63, 3
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  call void @llvm.prefetch.p0(ptr %69, i32 0, i32 3, i32 1)
-  %70 = icmp ult i64 %66, %68
-  br i1 %70, label %.lr.ph, label %._crit_edge
+  %61 = getelementptr i8, ptr %54, i64 80
+  %62 = load i64, ptr %61, align 8, !tbaa !65
+  %63 = sub i64 %62, %16
+  %64 = getelementptr i64, ptr %14, i64 %63
+  %65 = load i64, ptr %64, align 8, !tbaa !65
+  %66 = getelementptr i8, ptr %64, i64 8
+  %67 = load i64, ptr %66, align 8, !tbaa !65
+  %.idx = shl i64 %62, 3
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  call void @llvm.prefetch.p0(ptr %68, i32 0, i32 3, i32 1)
+  %69 = icmp ult i64 %65, %67
+  br i1 %69, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %53
+  %70 = sub i64 %60, %58
   %71 = getelementptr inbounds nuw i32, ptr %13, i64 %58
   %.not105 = icmp eq i64 %60, %58
   br i1 %.not105, label %._crit_edge99, label %.lr.ph98
@@ -11241,11 +11241,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %82
 
 .lr.ph:                                           ; preds = %53, %.lr.ph
-  %.05195 = phi i64 [ %79, %.lr.ph ], [ %66, %53 ]
+  %.05195 = phi i64 [ %79, %.lr.ph ], [ %65, %53 ]
   %78 = getelementptr inbounds nuw i32, ptr %13, i64 %.05195
   call void @llvm.prefetch.p0(ptr %78, i32 0, i32 3, i32 1)
   %79 = add i64 %.05195, 16
-  %80 = icmp ult i64 %79, %68
+  %80 = icmp ult i64 %79, %67
   br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !452
 
 ._crit_edge99:                                    ; preds = %82, %._crit_edge
@@ -11268,7 +11268,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %92 = fadd double %91, %77
   store double %92, ptr %90, align 8, !tbaa !270
   %93 = add nuw i64 %.04996, 1
-  %exitcond.not = icmp eq i64 %93, %61
+  %exitcond.not = icmp eq i64 %93, %70
   br i1 %exitcond.not, label %._crit_edge99, label %82, !llvm.loop !454
 
 94:                                               ; preds = %43, %26
@@ -11663,21 +11663,21 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %58 = load i64, ptr %57, align 8, !tbaa !65
   %59 = getelementptr i8, ptr %57, i64 8
   %60 = load i64, ptr %59, align 8, !tbaa !65
-  %61 = sub i64 %60, %58
-  %62 = getelementptr i8, ptr %54, i64 80
-  %63 = load i64, ptr %62, align 8, !tbaa !65
-  %64 = sub i64 %63, %16
-  %65 = getelementptr i64, ptr %14, i64 %64
-  %66 = load i64, ptr %65, align 8, !tbaa !65
-  %67 = getelementptr i8, ptr %65, i64 8
-  %68 = load i64, ptr %67, align 8, !tbaa !65
-  %.idx = shl i64 %63, 3
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  call void @llvm.prefetch.p0(ptr %69, i32 0, i32 3, i32 1)
-  %70 = icmp ult i64 %66, %68
-  br i1 %70, label %.lr.ph, label %._crit_edge
+  %61 = getelementptr i8, ptr %54, i64 80
+  %62 = load i64, ptr %61, align 8, !tbaa !65
+  %63 = sub i64 %62, %16
+  %64 = getelementptr i64, ptr %14, i64 %63
+  %65 = load i64, ptr %64, align 8, !tbaa !65
+  %66 = getelementptr i8, ptr %64, i64 8
+  %67 = load i64, ptr %66, align 8, !tbaa !65
+  %.idx = shl i64 %62, 3
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  call void @llvm.prefetch.p0(ptr %68, i32 0, i32 3, i32 1)
+  %69 = icmp ult i64 %65, %67
+  br i1 %69, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %53
+  %70 = sub i64 %60, %58
   %71 = getelementptr inbounds nuw i16, ptr %13, i64 %58
   %.not106 = icmp eq i64 %60, %58
   br i1 %.not106, label %._crit_edge100, label %.lr.ph99
@@ -11693,11 +11693,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %82
 
 .lr.ph:                                           ; preds = %53, %.lr.ph
-  %.05196 = phi i64 [ %79, %.lr.ph ], [ %66, %53 ]
+  %.05196 = phi i64 [ %79, %.lr.ph ], [ %65, %53 ]
   %78 = getelementptr inbounds nuw i16, ptr %13, i64 %.05196
   call void @llvm.prefetch.p0(ptr %78, i32 0, i32 3, i32 1)
   %79 = add i64 %.05196, 16
-  %80 = icmp ult i64 %79, %68
+  %80 = icmp ult i64 %79, %67
   br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !457
 
 ._crit_edge100:                                   ; preds = %82, %._crit_edge
@@ -11720,7 +11720,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %91 = fadd double %90, %77
   store double %91, ptr %89, align 8, !tbaa !270
   %92 = add nuw i64 %.04997, 1
-  %exitcond.not = icmp eq i64 %92, %61
+  %exitcond.not = icmp eq i64 %92, %70
   br i1 %exitcond.not, label %._crit_edge100, label %82, !llvm.loop !459
 
 93:                                               ; preds = %43, %26
@@ -12115,21 +12115,21 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %58 = load i64, ptr %57, align 8, !tbaa !65
   %59 = getelementptr i8, ptr %57, i64 8
   %60 = load i64, ptr %59, align 8, !tbaa !65
-  %61 = sub i64 %60, %58
-  %62 = getelementptr i8, ptr %54, i64 80
-  %63 = load i64, ptr %62, align 8, !tbaa !65
-  %64 = sub i64 %63, %16
-  %65 = getelementptr i64, ptr %14, i64 %64
-  %66 = load i64, ptr %65, align 8, !tbaa !65
-  %67 = getelementptr i8, ptr %65, i64 8
-  %68 = load i64, ptr %67, align 8, !tbaa !65
-  %.idx = shl i64 %63, 3
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  call void @llvm.prefetch.p0(ptr %69, i32 0, i32 3, i32 1)
-  %70 = icmp ult i64 %66, %68
-  br i1 %70, label %.lr.ph, label %._crit_edge
+  %61 = getelementptr i8, ptr %54, i64 80
+  %62 = load i64, ptr %61, align 8, !tbaa !65
+  %63 = sub i64 %62, %16
+  %64 = getelementptr i64, ptr %14, i64 %63
+  %65 = load i64, ptr %64, align 8, !tbaa !65
+  %66 = getelementptr i8, ptr %64, i64 8
+  %67 = load i64, ptr %66, align 8, !tbaa !65
+  %.idx = shl i64 %62, 3
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  call void @llvm.prefetch.p0(ptr %68, i32 0, i32 3, i32 1)
+  %69 = icmp ult i64 %65, %67
+  br i1 %69, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %53
+  %70 = sub i64 %60, %58
   %71 = getelementptr inbounds nuw i8, ptr %13, i64 %58
   %.not106 = icmp eq i64 %60, %58
   br i1 %.not106, label %._crit_edge100, label %.lr.ph99
@@ -12145,11 +12145,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %82
 
 .lr.ph:                                           ; preds = %53, %.lr.ph
-  %.05196 = phi i64 [ %79, %.lr.ph ], [ %66, %53 ]
+  %.05196 = phi i64 [ %79, %.lr.ph ], [ %65, %53 ]
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 %.05196
   call void @llvm.prefetch.p0(ptr %78, i32 0, i32 3, i32 1)
   %79 = add i64 %.05196, 16
-  %80 = icmp ult i64 %79, %68
+  %80 = icmp ult i64 %79, %67
   br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !462
 
 ._crit_edge100:                                   ; preds = %82, %._crit_edge
@@ -12172,7 +12172,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %91 = fadd double %90, %77
   store double %91, ptr %89, align 8, !tbaa !270
   %92 = add nuw i64 %.04997, 1
-  %exitcond.not = icmp eq i64 %92, %61
+  %exitcond.not = icmp eq i64 %92, %70
   br i1 %exitcond.not, label %._crit_edge100, label %82, !llvm.loop !464
 
 93:                                               ; preds = %43, %26
@@ -13738,19 +13738,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.05386.us = phi i64 [ %91, %._crit_edge85.us ], [ 0, %.lr.ph87 ]
   %57 = getelementptr inbounds nuw i64, ptr %3, i64 %.05386.us
   %58 = load i64, ptr %57, align 8, !tbaa !65
-  %59 = mul i64 %58, %54
-  %60 = getelementptr i8, ptr %57, i64 80
-  %61 = load i64, ptr %60, align 8, !tbaa !65
-  %62 = mul i64 %61, %54
-  %63 = add i64 %62, %54
-  %.idx.us = shl i64 %61, 3
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.us
-  call void @llvm.prefetch.p0(ptr %64, i32 0, i32 3, i32 1)
-  %65 = icmp ult i64 %62, %63
-  br i1 %65, label %.lr.ph.us, label %.lr.ph84.us
+  %59 = getelementptr i8, ptr %57, i64 80
+  %60 = load i64, ptr %59, align 8, !tbaa !65
+  %61 = mul i64 %60, %54
+  %62 = add i64 %61, %54
+  %.idx.us = shl i64 %60, 3
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.us
+  call void @llvm.prefetch.p0(ptr %63, i32 0, i32 3, i32 1)
+  %64 = icmp ult i64 %61, %62
+  br i1 %64, label %.lr.ph.us, label %.lr.ph84.us
 
 .lr.ph84.us:                                      ; preds = %.lr.ph.us, %.lr.ph87.split.us
-  %66 = getelementptr inbounds nuw i32, ptr %13, i64 %59
+  %65 = mul i64 %58, %54
+  %66 = getelementptr inbounds nuw i32, ptr %13, i64 %65
   %.idx80.us = shl i64 %58, 3
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx80.us
   %68 = load float, ptr %67, align 4, !tbaa !334
@@ -13782,11 +13782,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %exitcond.not, label %._crit_edge85.us, label %73, !llvm.loop !496
 
 .lr.ph.us:                                        ; preds = %.lr.ph87.split.us, %.lr.ph.us
-  %.05481.us = phi i64 [ %89, %.lr.ph.us ], [ %62, %.lr.ph87.split.us ]
+  %.05481.us = phi i64 [ %89, %.lr.ph.us ], [ %61, %.lr.ph87.split.us ]
   %88 = getelementptr inbounds nuw i32, ptr %13, i64 %.05481.us
   call void @llvm.prefetch.p0(ptr %88, i32 0, i32 3, i32 1)
   %89 = add i64 %.05481.us, 16
-  %90 = icmp ult i64 %89, %63
+  %90 = icmp ult i64 %89, %62
   br i1 %90, label %.lr.ph.us, label %.lr.ph84.us, !llvm.loop !497
 
 ._crit_edge85.us:                                 ; preds = %73
@@ -14212,19 +14212,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.05386.us = phi i64 [ %92, %._crit_edge85.us ], [ 0, %.lr.ph87 ]
   %57 = getelementptr inbounds nuw i64, ptr %3, i64 %.05386.us
   %58 = load i64, ptr %57, align 8, !tbaa !65
-  %59 = mul i64 %58, %54
-  %60 = getelementptr i8, ptr %57, i64 80
-  %61 = load i64, ptr %60, align 8, !tbaa !65
-  %62 = mul i64 %61, %54
-  %63 = add i64 %62, %54
-  %.idx.us = shl i64 %61, 3
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.us
-  call void @llvm.prefetch.p0(ptr %64, i32 0, i32 3, i32 1)
-  %65 = icmp ult i64 %62, %63
-  br i1 %65, label %.lr.ph.us, label %.lr.ph84.us
+  %59 = getelementptr i8, ptr %57, i64 80
+  %60 = load i64, ptr %59, align 8, !tbaa !65
+  %61 = mul i64 %60, %54
+  %62 = add i64 %61, %54
+  %.idx.us = shl i64 %60, 3
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.us
+  call void @llvm.prefetch.p0(ptr %63, i32 0, i32 3, i32 1)
+  %64 = icmp ult i64 %61, %62
+  br i1 %64, label %.lr.ph.us, label %.lr.ph84.us
 
 .lr.ph84.us:                                      ; preds = %.lr.ph.us, %.lr.ph87.split.us
-  %66 = getelementptr inbounds nuw i16, ptr %13, i64 %59
+  %65 = mul i64 %58, %54
+  %66 = getelementptr inbounds nuw i16, ptr %13, i64 %65
   %.idx80.us = shl i64 %58, 3
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx80.us
   %68 = load float, ptr %67, align 4, !tbaa !334
@@ -14257,11 +14257,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %exitcond.not, label %._crit_edge85.us, label %73, !llvm.loop !501
 
 .lr.ph.us:                                        ; preds = %.lr.ph87.split.us, %.lr.ph.us
-  %.05481.us = phi i64 [ %90, %.lr.ph.us ], [ %62, %.lr.ph87.split.us ]
+  %.05481.us = phi i64 [ %90, %.lr.ph.us ], [ %61, %.lr.ph87.split.us ]
   %89 = getelementptr inbounds nuw i16, ptr %13, i64 %.05481.us
   call void @llvm.prefetch.p0(ptr %89, i32 0, i32 3, i32 1)
   %90 = add i64 %.05481.us, 16
-  %91 = icmp ult i64 %90, %63
+  %91 = icmp ult i64 %90, %62
   br i1 %91, label %.lr.ph.us, label %.lr.ph84.us, !llvm.loop !502
 
 ._crit_edge85.us:                                 ; preds = %73
@@ -14687,19 +14687,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.05386.us = phi i64 [ %92, %._crit_edge85.us ], [ 0, %.lr.ph87 ]
   %57 = getelementptr inbounds nuw i64, ptr %3, i64 %.05386.us
   %58 = load i64, ptr %57, align 8, !tbaa !65
-  %59 = mul i64 %58, %54
-  %60 = getelementptr i8, ptr %57, i64 80
-  %61 = load i64, ptr %60, align 8, !tbaa !65
-  %62 = mul i64 %61, %54
-  %63 = add i64 %62, %54
-  %.idx.us = shl i64 %61, 3
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.us
-  call void @llvm.prefetch.p0(ptr %64, i32 0, i32 3, i32 1)
-  %65 = icmp ult i64 %62, %63
-  br i1 %65, label %.lr.ph.us, label %.lr.ph84.us
+  %59 = getelementptr i8, ptr %57, i64 80
+  %60 = load i64, ptr %59, align 8, !tbaa !65
+  %61 = mul i64 %60, %54
+  %62 = add i64 %61, %54
+  %.idx.us = shl i64 %60, 3
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.us
+  call void @llvm.prefetch.p0(ptr %63, i32 0, i32 3, i32 1)
+  %64 = icmp ult i64 %61, %62
+  br i1 %64, label %.lr.ph.us, label %.lr.ph84.us
 
 .lr.ph84.us:                                      ; preds = %.lr.ph.us, %.lr.ph87.split.us
-  %66 = getelementptr inbounds nuw i8, ptr %13, i64 %59
+  %65 = mul i64 %58, %54
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 %65
   %.idx80.us = shl i64 %58, 3
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx80.us
   %68 = load float, ptr %67, align 4, !tbaa !334
@@ -14732,11 +14732,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %exitcond.not, label %._crit_edge85.us, label %73, !llvm.loop !506
 
 .lr.ph.us:                                        ; preds = %.lr.ph87.split.us, %.lr.ph.us
-  %.05481.us = phi i64 [ %90, %.lr.ph.us ], [ %62, %.lr.ph87.split.us ]
+  %.05481.us = phi i64 [ %90, %.lr.ph.us ], [ %61, %.lr.ph87.split.us ]
   %89 = getelementptr inbounds nuw i8, ptr %13, i64 %.05481.us
   call void @llvm.prefetch.p0(ptr %89, i32 0, i32 3, i32 1)
   %90 = add i64 %.05481.us, 16
-  %91 = icmp ult i64 %90, %63
+  %91 = icmp ult i64 %90, %62
   br i1 %91, label %.lr.ph.us, label %.lr.ph84.us, !llvm.loop !507
 
 ._crit_edge85.us:                                 ; preds = %73
@@ -15946,21 +15946,21 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.05391.us = phi i64 [ %95, %._crit_edge90.us ], [ 0, %.lr.ph92 ]
   %59 = getelementptr inbounds nuw i64, ptr %3, i64 %.05391.us
   %60 = load i64, ptr %59, align 8, !tbaa !65
-  %61 = sub i64 %60, %16
-  %62 = mul i64 %61, %56
-  %63 = getelementptr i8, ptr %59, i64 80
-  %64 = load i64, ptr %63, align 8, !tbaa !65
-  %65 = sub i64 %64, %16
-  %66 = mul i64 %65, %56
-  %67 = add i64 %66, %56
-  %.idx.us = shl i64 %64, 3
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.us
-  call void @llvm.prefetch.p0(ptr %68, i32 0, i32 3, i32 1)
-  %69 = icmp ult i64 %66, %67
-  br i1 %69, label %.lr.ph.us, label %.lr.ph89.us
+  %61 = getelementptr i8, ptr %59, i64 80
+  %62 = load i64, ptr %61, align 8, !tbaa !65
+  %63 = sub i64 %62, %16
+  %64 = mul i64 %63, %56
+  %65 = add i64 %64, %56
+  %.idx.us = shl i64 %62, 3
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.us
+  call void @llvm.prefetch.p0(ptr %66, i32 0, i32 3, i32 1)
+  %67 = icmp ult i64 %64, %65
+  br i1 %67, label %.lr.ph.us, label %.lr.ph89.us
 
 .lr.ph89.us:                                      ; preds = %.lr.ph.us, %.lr.ph92.split.us
-  %70 = getelementptr inbounds nuw i32, ptr %13, i64 %62
+  %68 = sub i64 %60, %16
+  %69 = mul i64 %68, %56
+  %70 = getelementptr inbounds nuw i32, ptr %13, i64 %69
   %.idx85.us = shl i64 %60, 3
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx85.us
   %72 = load float, ptr %71, align 4, !tbaa !334
@@ -15992,11 +15992,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %exitcond.not, label %._crit_edge90.us, label %77, !llvm.loop !530
 
 .lr.ph.us:                                        ; preds = %.lr.ph92.split.us, %.lr.ph.us
-  %.05486.us = phi i64 [ %93, %.lr.ph.us ], [ %66, %.lr.ph92.split.us ]
+  %.05486.us = phi i64 [ %93, %.lr.ph.us ], [ %64, %.lr.ph92.split.us ]
   %92 = getelementptr inbounds nuw i32, ptr %13, i64 %.05486.us
   call void @llvm.prefetch.p0(ptr %92, i32 0, i32 3, i32 1)
   %93 = add i64 %.05486.us, 16
-  %94 = icmp ult i64 %93, %67
+  %94 = icmp ult i64 %93, %65
   br i1 %94, label %.lr.ph.us, label %.lr.ph89.us, !llvm.loop !531
 
 ._crit_edge90.us:                                 ; preds = %77
@@ -16432,21 +16432,21 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.05391.us = phi i64 [ %96, %._crit_edge90.us ], [ 0, %.lr.ph92 ]
   %59 = getelementptr inbounds nuw i64, ptr %3, i64 %.05391.us
   %60 = load i64, ptr %59, align 8, !tbaa !65
-  %61 = sub i64 %60, %16
-  %62 = mul i64 %61, %56
-  %63 = getelementptr i8, ptr %59, i64 80
-  %64 = load i64, ptr %63, align 8, !tbaa !65
-  %65 = sub i64 %64, %16
-  %66 = mul i64 %65, %56
-  %67 = add i64 %66, %56
-  %.idx.us = shl i64 %64, 3
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.us
-  call void @llvm.prefetch.p0(ptr %68, i32 0, i32 3, i32 1)
-  %69 = icmp ult i64 %66, %67
-  br i1 %69, label %.lr.ph.us, label %.lr.ph89.us
+  %61 = getelementptr i8, ptr %59, i64 80
+  %62 = load i64, ptr %61, align 8, !tbaa !65
+  %63 = sub i64 %62, %16
+  %64 = mul i64 %63, %56
+  %65 = add i64 %64, %56
+  %.idx.us = shl i64 %62, 3
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.us
+  call void @llvm.prefetch.p0(ptr %66, i32 0, i32 3, i32 1)
+  %67 = icmp ult i64 %64, %65
+  br i1 %67, label %.lr.ph.us, label %.lr.ph89.us
 
 .lr.ph89.us:                                      ; preds = %.lr.ph.us, %.lr.ph92.split.us
-  %70 = getelementptr inbounds nuw i16, ptr %13, i64 %62
+  %68 = sub i64 %60, %16
+  %69 = mul i64 %68, %56
+  %70 = getelementptr inbounds nuw i16, ptr %13, i64 %69
   %.idx85.us = shl i64 %60, 3
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx85.us
   %72 = load float, ptr %71, align 4, !tbaa !334
@@ -16479,11 +16479,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %exitcond.not, label %._crit_edge90.us, label %77, !llvm.loop !535
 
 .lr.ph.us:                                        ; preds = %.lr.ph92.split.us, %.lr.ph.us
-  %.05486.us = phi i64 [ %94, %.lr.ph.us ], [ %66, %.lr.ph92.split.us ]
+  %.05486.us = phi i64 [ %94, %.lr.ph.us ], [ %64, %.lr.ph92.split.us ]
   %93 = getelementptr inbounds nuw i16, ptr %13, i64 %.05486.us
   call void @llvm.prefetch.p0(ptr %93, i32 0, i32 3, i32 1)
   %94 = add i64 %.05486.us, 16
-  %95 = icmp ult i64 %94, %67
+  %95 = icmp ult i64 %94, %65
   br i1 %95, label %.lr.ph.us, label %.lr.ph89.us, !llvm.loop !536
 
 ._crit_edge90.us:                                 ; preds = %77
@@ -16919,21 +16919,21 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %.05391.us = phi i64 [ %96, %._crit_edge90.us ], [ 0, %.lr.ph92 ]
   %59 = getelementptr inbounds nuw i64, ptr %3, i64 %.05391.us
   %60 = load i64, ptr %59, align 8, !tbaa !65
-  %61 = sub i64 %60, %16
-  %62 = mul i64 %61, %56
-  %63 = getelementptr i8, ptr %59, i64 80
-  %64 = load i64, ptr %63, align 8, !tbaa !65
-  %65 = sub i64 %64, %16
-  %66 = mul i64 %65, %56
-  %67 = add i64 %66, %56
-  %.idx.us = shl i64 %64, 3
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.us
-  call void @llvm.prefetch.p0(ptr %68, i32 0, i32 3, i32 1)
-  %69 = icmp ult i64 %66, %67
-  br i1 %69, label %.lr.ph.us, label %.lr.ph89.us
+  %61 = getelementptr i8, ptr %59, i64 80
+  %62 = load i64, ptr %61, align 8, !tbaa !65
+  %63 = sub i64 %62, %16
+  %64 = mul i64 %63, %56
+  %65 = add i64 %64, %56
+  %.idx.us = shl i64 %62, 3
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.us
+  call void @llvm.prefetch.p0(ptr %66, i32 0, i32 3, i32 1)
+  %67 = icmp ult i64 %64, %65
+  br i1 %67, label %.lr.ph.us, label %.lr.ph89.us
 
 .lr.ph89.us:                                      ; preds = %.lr.ph.us, %.lr.ph92.split.us
-  %70 = getelementptr inbounds nuw i8, ptr %13, i64 %62
+  %68 = sub i64 %60, %16
+  %69 = mul i64 %68, %56
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 %69
   %.idx85.us = shl i64 %60, 3
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx85.us
   %72 = load float, ptr %71, align 4, !tbaa !334
@@ -16966,11 +16966,11 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %exitcond.not, label %._crit_edge90.us, label %77, !llvm.loop !540
 
 .lr.ph.us:                                        ; preds = %.lr.ph92.split.us, %.lr.ph.us
-  %.05486.us = phi i64 [ %94, %.lr.ph.us ], [ %66, %.lr.ph92.split.us ]
+  %.05486.us = phi i64 [ %94, %.lr.ph.us ], [ %64, %.lr.ph92.split.us ]
   %93 = getelementptr inbounds nuw i8, ptr %13, i64 %.05486.us
   call void @llvm.prefetch.p0(ptr %93, i32 0, i32 3, i32 1)
   %94 = add i64 %.05486.us, 16
-  %95 = icmp ult i64 %94, %67
+  %95 = icmp ult i64 %94, %65
   br i1 %95, label %.lr.ph.us, label %.lr.ph89.us, !llvm.loop !541
 
 ._crit_edge90.us:                                 ; preds = %77

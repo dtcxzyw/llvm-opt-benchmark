@@ -670,45 +670,45 @@ _ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.thr
 
 _ZNSt8_Rb_treeImSt4pairIKmPKN6opencc9DictEntryEESt10_Select1stIS6_ESt4lessImESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %54 = icmp eq ptr %.19.i.i.i, %8
-  br i1 %54, label %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.thread, label %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit
+  br i1 %54, label %.lr.ph.i.i.i.i.preheader, label %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit
 
 _ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmPKN6opencc9DictEntryEESt10_Select1stIS6_ESt4lessImESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
   %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %53, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %55 = load i64, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !65
   %56 = icmp ult i64 %42, %55
-  br i1 %56, label %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.thread, label %90
+  br i1 %56, label %.lr.ph.i.i.i.i.preheader, label %90
 
-_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.thread: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmPKN6opencc9DictEntryEESt10_Select1stIS6_ESt4lessImESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit
-  %57 = load ptr, ptr %.sroa.038.059, align 8, !tbaa !58
+.lr.ph.i.i.i.i.preheader:                         ; preds = %_ZNSt8_Rb_treeImSt4pairIKmPKN6opencc9DictEntryEESt10_Select1stIS6_ESt4lessImESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.thread, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %49, %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.thread ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %8, %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.thread ]
-  %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %59 = load i64, ptr %58, align 8, !tbaa !65
-  %60 = icmp ult i64 %59, %42
-  %.19.i.i.i.i = select i1 %60, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.1.in.v.i.i.i.i = select i1 %60, i64 24, i64 16
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %49, %.lr.ph.i.i.i.i.preheader ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %8, %.lr.ph.i.i.i.i.preheader ]
+  %57 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %58 = load i64, ptr %57, align 8, !tbaa !65
+  %59 = icmp ult i64 %58, %42
+  %.19.i.i.i.i = select i1 %59, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %59, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !66
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !67
 
 _ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit.i: ; preds = %.lr.ph.i.i.i.i
+  %60 = load ptr, ptr %.sroa.038.059, align 8, !tbaa !58
   %61 = icmp eq ptr %.19.i.i.i.i, %8
   br i1 %61, label %.critedge.i, label %62
 
 62:                                               ; preds = %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit.i
-  %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %60, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %59, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %63 = load i64, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !65
   %64 = icmp ult i64 %42, %63
   br i1 %64, label %.critedge.i, label %85
 
 .critedge.i:                                      ; preds = %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.thread.thread, %62, %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit.i
-  %65 = phi ptr [ %57, %62 ], [ %57, %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit.i ], [ %50, %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.thread.thread ]
+  %65 = phi ptr [ %60, %62 ], [ %60, %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit.i ], [ %50, %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.thread.thread ]
   %.08.lcssa.i.i.i14.i = phi ptr [ %.19.i.i.i.i, %62 ], [ %.19.i.i.i.i, %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit.i ], [ %8, %_ZNSt3mapImPKN6opencc9DictEntryESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.thread.thread ]
   %66 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
           to label %.noexc23 unwind label %88
@@ -759,7 +759,7 @@ _ZNSt8_Rb_treeImSt4pairIKmPKN6opencc9DictEntryEESt10_Select1stIS6_ESt4lessImESaI
   br label %85
 
 85:                                               ; preds = %84, %.thread.i.i, %62
-  %86 = phi ptr [ %57, %62 ], [ %65, %.thread.i.i ], [ %65, %84 ]
+  %86 = phi ptr [ %60, %62 ], [ %65, %.thread.i.i ], [ %65, %84 ]
   %.sroa.09.0.i = phi ptr [ %.19.i.i.i.i, %62 ], [ %66, %.thread.i.i ], [ %71, %84 ]
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 40
   store ptr %86, ptr %87, align 8, !tbaa !58

@@ -13695,21 +13695,18 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
   %call.val.i.i10.i = load i64, ptr %71, align 8
   %cmp.i.i.i11.i = icmp sgt i64 %call.val.i.i10.i, %call3.val.i.i9.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 24
-  br i1 %cmp.i.i.i11.i, label %while.cond3.i.i, label %while.cond10.i.i.preheader, !llvm.loop !181
+  br i1 %cmp.i.i.i11.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !181
 
-while.cond10.i.i.preheader:                       ; preds = %while.cond3.i.i
-  %72 = getelementptr i8, ptr %__first.sroa.0.1.i.i, i64 16
-  br label %while.cond10.i.i
-
-while.cond10.i.i:                                 ; preds = %while.cond10.i.i.preheader, %while.cond10.i.i
-  %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond10.i.i.preheader ]
+while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
+  %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond3.i.i ]
   %__last.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -24
-  %73 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
-  %call3.val.i3.i.i = load i64, ptr %73, align 8
+  %72 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
+  %call3.val.i3.i.i = load i64, ptr %72, align 8
   %cmp.i.i4.i.i = icmp sgt i64 %call3.val.i.i9.i, %call3.val.i3.i.i
   br i1 %cmp.i.i4.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !182
 
 while.end18.i.i:                                  ; preds = %while.cond10.i.i
+  %73 = getelementptr i8, ptr %__first.sroa.0.1.i.i, i64 16
   %74 = getelementptr i8, ptr %__last.sroa.0.0.pn.i.i, i64 -8
   %cmp.i.i.i6 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
   br i1 %cmp.i.i.i6, label %if.end.i.i, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS4_10MemoryPoolEmmRNS5_5StatsEE9CandidateSt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNS5_7reclaimES7_mmS9_E3$_0EEET_SK_SK_T0_.exit"
@@ -13799,7 +13796,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i45:             ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS1_10MemoryPoolEmmRNS2_5StatsEEN9CandidateaSEOS7_.exit.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i45, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i42, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i32, %if.end.i.i
   %90 = load i64, ptr %74, align 8
-  store i64 %90, ptr %72, align 8
+  store i64 %90, ptr %73, align 8
   store ptr %75, ptr %__last.sroa.0.1.i.i, align 8
   %91 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i23, align 8
   store ptr %76, ptr %_M_refcount4.i.i.i.i.i.i23, align 8

@@ -498,12 +498,12 @@ Amap_CreateCheckAllZero.exit.preheader:           ; preds = %45
   %indvars.iv166 = phi i64 [ %51, %.lr.ph141.preheader ], [ %indvars.iv.next167, %Vec_IntFree.exit104 ]
   %indvars.iv159.in = phi i64 [ %50, %.lr.ph141.preheader ], [ %indvars.iv159, %Vec_IntFree.exit104 ]
   %.076140.in = phi i32 [ %.val84, %.lr.ph141.preheader ], [ %.076140, %Vec_IntFree.exit104 ]
-  %indvars.iv159 = add nsw i64 %indvars.iv159.in, -1
-  %.076140 = add nsw i32 %.076140.in, -1
   store i32 0, ptr %36, align 4, !tbaa !30
   br label %60
 
 .critedge.preheader:                              ; preds = %Vec_PtrPush.exit
+  %indvars.iv159 = add nsw i64 %indvars.iv159.in, -1
+  %.076140 = add nsw i32 %.076140.in, -1
   %59 = trunc nuw nsw i64 %indvars.iv166 to i32
   store i32 %59, ptr %28, align 4, !tbaa !30
   store i32 %84, ptr %26, align 8

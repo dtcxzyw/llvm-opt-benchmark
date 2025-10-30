@@ -1043,6 +1043,7 @@ Vec_VecStart.exit164:                             ; preds = %.lr.ph.i159, %Vec_V
   br label %160
 
 .loopexit:                                        ; preds = %.critedge4, %.critedge4.preheader
+  %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 4
   %.val129 = load i32, ptr %154, align 4, !tbaa !12
   %158 = trunc nuw i64 %indvars.iv.next311 to i32
   %159 = icmp sgt i32 %.val129, %158
@@ -1058,7 +1059,6 @@ Vec_VecStart.exit164:                             ; preds = %.lr.ph.i159, %Vec_V
   %165 = load i32, ptr %164, align 4, !tbaa !16
   %166 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %167 = load i32, ptr %166, align 4, !tbaa !16
-  %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 4
   %168 = getelementptr inbounds nuw i8, ptr %162, i64 12
   %169 = load i32, ptr %168, align 4, !tbaa !16
   %170 = sext i32 %163 to i64
@@ -2214,6 +2214,7 @@ Vec_VecStart.exit122:                             ; preds = %.lr.ph.i117, %Vec_V
 
 .loopexit:                                        ; preds = %193, %114
   %111 = phi ptr [ %115, %114 ], [ %194, %193 ]
+  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 4
   %.val95 = load i32, ptr %108, align 4, !tbaa !12
   %112 = trunc nuw i64 %indvars.iv.next211 to i32
   %113 = icmp sgt i32 %.val95, %112
@@ -2230,7 +2231,6 @@ Vec_VecStart.exit122:                             ; preds = %.lr.ph.i117, %Vec_V
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %121 = load i32, ptr %120, align 4, !tbaa !16
   %122 = add nsw i32 %121, -1
-  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 4
   %123 = getelementptr inbounds nuw i8, ptr %116, i64 12
   %124 = load i32, ptr %123, align 4, !tbaa !16
   %125 = sext i32 %117 to i64

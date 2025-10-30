@@ -44,8 +44,8 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %68
-  %indvars.iv98 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next99, %68 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %65
+  %indvars.iv98 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next99, %65 ]
   %.idx = mul nuw nsw i64 %indvars.iv98, 12
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %34 = getelementptr inbounds nuw %struct.BoundsItem, ptr %31, i64 %indvars.iv98
@@ -57,49 +57,49 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds float, ptr %0, i64 %39
   %41 = load float, ptr %40, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %43 = getelementptr i8, ptr %40, i64 8
-  %44 = load float, ptr %43, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  %46 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  br label %47
+  %42 = getelementptr i8, ptr %40, i64 8
+  %43 = load float, ptr %42, align 4
+  br label %44
 
-47:                                               ; preds = %.lr.ph, %47
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %48 = phi float [ %41, %.lr.ph ], [ %59, %47 ]
-  %49 = phi float [ %44, %.lr.ph ], [ %63, %47 ]
-  %50 = phi float [ %41, %.lr.ph ], [ %65, %47 ]
-  %51 = phi float [ %44, %.lr.ph ], [ %67, %47 ]
-  %52 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
-  %53 = load i32, ptr %52, align 4
-  %54 = mul nsw i32 %53, 3
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds float, ptr %0, i64 %55
-  %57 = load float, ptr %56, align 4
-  %58 = fcmp olt float %57, %48
-  %59 = select i1 %58, float %57, float %48
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %61 = load float, ptr %60, align 4
-  %62 = fcmp olt float %61, %49
-  %63 = select i1 %62, float %61, float %49
-  %64 = fcmp ogt float %57, %50
-  %65 = select i1 %64, float %57, float %50
-  %66 = fcmp ogt float %61, %51
-  %67 = select i1 %66, float %61, float %51
+44:                                               ; preds = %.lr.ph, %44
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %44 ]
+  %45 = phi float [ %41, %.lr.ph ], [ %56, %44 ]
+  %46 = phi float [ %43, %.lr.ph ], [ %60, %44 ]
+  %47 = phi float [ %41, %.lr.ph ], [ %62, %44 ]
+  %48 = phi float [ %43, %.lr.ph ], [ %64, %44 ]
+  %49 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
+  %50 = load i32, ptr %49, align 4
+  %51 = mul nsw i32 %50, 3
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds float, ptr %0, i64 %52
+  %54 = load float, ptr %53, align 4
+  %55 = fcmp olt float %54, %45
+  %56 = select i1 %55, float %54, float %45
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %58 = load float, ptr %57, align 4
+  %59 = fcmp olt float %58, %46
+  %60 = select i1 %59, float %58, float %46
+  %61 = fcmp ogt float %54, %47
+  %62 = select i1 %61, float %54, float %47
+  %63 = fcmp ogt float %58, %48
+  %64 = select i1 %63, float %58, float %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %68, label %47, !llvm.loop !5
+  br i1 %exitcond.not, label %65, label %44, !llvm.loop !5
 
-68:                                               ; preds = %47
-  store float %59, ptr %34, align 4
-  store float %63, ptr %46, align 4
-  store float %65, ptr %42, align 4
-  store float %67, ptr %45, align 4
+65:                                               ; preds = %44
+  %66 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %34, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  store float %56, ptr %34, align 4
+  store float %60, ptr %68, align 4
+  store float %62, ptr %66, align 4
+  store float %64, ptr %67, align 4
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count
   br i1 %exitcond101.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %68, %5
+._crit_edge:                                      ; preds = %65, %5
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 4
   call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef %31, i32 noundef 0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %17, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull %23, ptr noundef %1)

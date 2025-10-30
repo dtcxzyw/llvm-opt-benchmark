@@ -193,7 +193,6 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vp9_start_frame(ptr noundef
   %153 = load i32, ptr %152, align 8, !tbaa !69
   %154 = trunc i32 %153 to i16
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 55
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %.sroa.56.0..sroa_idx, i8 0, i64 10, i1 false)
   %155 = load i8, ptr %7, align 8, !tbaa !70
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 1
@@ -239,6 +238,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vp9_start_frame(ptr noundef
   br i1 %exitcond.not, label %163, label %159, !llvm.loop !74
 
 163:                                              ; preds = %159
+  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 55
   %164 = load i8, ptr %91, align 1, !tbaa !60
   %.not118 = icmp eq i8 %164, 0
   br i1 %.not118, label %170, label %.preheader

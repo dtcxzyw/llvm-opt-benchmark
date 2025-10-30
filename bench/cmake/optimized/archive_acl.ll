@@ -1449,27 +1449,27 @@ define internal fastcc i64 @archive_acl_text_len(ptr noundef readonly captures(n
   br i1 %.not91, label %98, label %88
 
 88:                                               ; preds = %87
-  %89 = add i64 %.7, 1
-  %90 = getelementptr inbounds nuw i8, ptr %.074107, i64 20
-  %91 = load i32, ptr %90, align 4, !tbaa !31
-  %92 = icmp sgt i32 %91, 9
-  br i1 %92, label %.lr.ph, label %._crit_edge
+  %89 = getelementptr inbounds nuw i8, ptr %.074107, i64 20
+  %90 = load i32, ptr %89, align 4, !tbaa !31
+  %91 = icmp sgt i32 %90, 9
+  br i1 %91, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %88, %.lr.ph
-  %.070102 = phi i32 [ %93, %.lr.ph ], [ %91, %88 ]
-  %.071101 = phi i32 [ %94, %.lr.ph ], [ 1, %88 ]
-  %93 = udiv i32 %.070102, 10
-  %94 = add nuw nsw i32 %.071101, 1
-  %95 = icmp samesign ugt i32 %.070102, 99
-  br i1 %95, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !47
+  %.070102 = phi i32 [ %92, %.lr.ph ], [ %90, %88 ]
+  %.071101 = phi i32 [ %93, %.lr.ph ], [ 1, %88 ]
+  %92 = udiv i32 %.070102, 10
+  %93 = add nuw nsw i32 %.071101, 1
+  %94 = icmp samesign ugt i32 %.070102, 99
+  br i1 %94, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !47
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %96 = zext nneg i32 %94 to i64
+  %95 = zext nneg i32 %93 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %88
-  %.071.lcssa = phi i64 [ 1, %88 ], [ %96, %._crit_edge.loopexit ]
-  %97 = add i64 %89, %.071.lcssa
+  %.071.lcssa = phi i64 [ 1, %88 ], [ %95, %._crit_edge.loopexit ]
+  %96 = add i64 %.7, 1
+  %97 = add i64 %96, %.071.lcssa
   br label %98
 
 98:                                               ; preds = %85, %._crit_edge, %87

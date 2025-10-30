@@ -307,23 +307,24 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %46 = load i32, ptr %43, align 8, !tbaa !30
   %47 = icmp sgt i32 %46, 0
-  %.pre = load i64, ptr %8, align 8, !tbaa !32
   br i1 %47, label %.lr.ph66.split.preheader, label %.lr.ph66.split.us
 
 .lr.ph66.split.preheader:                         ; preds = %.lr.ph66
   %wide.trip.count = zext nneg i32 %.0 to i64
+  %.pre = load i64, ptr %8, align 8, !tbaa !32
   br label %.lr.ph66.split
 
 .lr.ph66.split.us:                                ; preds = %.lr.ph66
-  %48 = load i32, ptr %10, align 8, !tbaa !44
-  %49 = sitofp i32 %48 to double
-  %50 = add nsw i32 %.0, -1
-  %51 = zext nneg i32 %50 to i64
-  %52 = add i64 %.pre, %51
-  %53 = add i64 %52, 1
-  %54 = uitofp i64 %52 to double
-  %55 = fdiv nsz double %54, %49
-  store i64 %53, ptr %8, align 8, !tbaa !32
+  %.promoted = load i64, ptr %8, align 8, !tbaa !32
+  %48 = add nsw i32 %.0, -1
+  %49 = zext nneg i32 %48 to i64
+  %50 = add i64 %.promoted, %49
+  %51 = add i64 %50, 1
+  %52 = load i32, ptr %10, align 8, !tbaa !44
+  %53 = sitofp i32 %52 to double
+  %54 = uitofp i64 %50 to double
+  %55 = fdiv nsz double %54, %53
+  store i64 %51, ptr %8, align 8, !tbaa !32
   store double %54, ptr %41, align 8, !tbaa !59
   store double %55, ptr %42, align 8, !tbaa !59
   br label %._crit_edge67
@@ -525,9 +526,6 @@ define internal fastcc i32 @parse_channel_expressions(ptr noundef %0, i32 nounde
   %16 = load ptr, ptr %15, align 8, !tbaa !25
   %17 = load ptr, ptr %16, align 8, !tbaa !26
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(6) @.str.2) #10
-  %.not77 = icmp eq i32 %18, 0
-  %spec.select = select i1 %.not77, ptr @aeval_func1, ptr null
-  %spec.select80 = select i1 %.not77, ptr @aeval_func1_names, ptr null
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %20 = load i32, ptr %19, align 8, !tbaa !30
   %21 = icmp sgt i32 %20, 0
@@ -554,6 +552,9 @@ define internal fastcc i32 @parse_channel_expressions(ptr noundef %0, i32 nounde
   br i1 %31, label %23, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %23, %14
+  %.not77 = icmp eq i32 %18, 0
+  %spec.select = select i1 %.not77, ptr @aeval_func1, ptr null
+  %spec.select80 = select i1 %.not77, ptr @aeval_func1_names, ptr null
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 80
   tail call void @av_freep(ptr noundef nonnull %32) #11
   store i32 0, ptr %19, align 8, !tbaa !30
@@ -744,13 +745,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph47:                                         ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 152
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 168
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 152
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 168
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 76
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 96
@@ -762,21 +763,21 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %43 = phi i64 [ %.pre, %.lr.ph47 ], [ %77, %._crit_edge ]
   %indvars.iv53 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next54, %._crit_edge ]
   %44 = uitofp i64 %43 to double
-  store double %44, ptr %33, align 8, !tbaa !59
+  store double %44, ptr %32, align 8, !tbaa !59
   %45 = trunc nuw nsw i64 %indvars.iv53 to i32
   %46 = uitofp nneg i32 %45 to double
-  %47 = load i32, ptr %34, align 8, !tbaa !75
+  %47 = load i32, ptr %33, align 8, !tbaa !75
   %48 = sitofp i32 %47 to double
   %49 = fdiv nsz double %46, %48
   %50 = fadd nsz double %29, %49
-  store double %50, ptr %35, align 8, !tbaa !59
-  %51 = load i32, ptr %36, align 4, !tbaa !76
+  store double %50, ptr %34, align 8, !tbaa !59
+  %51 = load i32, ptr %35, align 4, !tbaa !76
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %42
-  %53 = load ptr, ptr %37, align 8, !tbaa !61
-  %54 = load ptr, ptr %38, align 8, !tbaa !81
+  %53 = load ptr, ptr %36, align 8, !tbaa !61
+  %54 = load ptr, ptr %37, align 8, !tbaa !81
   %wide.trip.count = zext nneg i32 %51 to i64
   br label %57
 
@@ -801,11 +802,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.lr.ph44 ], [ 0, %.preheader ]
   %63 = trunc nuw nsw i64 %indvars.iv50 to i32
   %64 = uitofp nneg i32 %63 to double
-  store double %64, ptr %32, align 8, !tbaa !59
+  store double %64, ptr %38, align 8, !tbaa !59
   %65 = load ptr, ptr %40, align 8, !tbaa !33
   %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv50
   %67 = load ptr, ptr %66, align 8, !tbaa !34
-  %68 = tail call nsz double @av_expr_eval(ptr noundef %67, ptr noundef nonnull %32, ptr noundef nonnull %7) #11
+  %68 = tail call nsz double @av_expr_eval(ptr noundef %67, ptr noundef nonnull %38, ptr noundef nonnull %7) #11
   %69 = load ptr, ptr %41, align 8, !tbaa !61
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv50
   %71 = load ptr, ptr %70, align 8, !tbaa !66

@@ -631,48 +631,48 @@ define dso_local i32 @gres_select_filter_select_and_set(ptr noundef readonly cap
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %30 = load i32, ptr %29, align 8
   %31 = call i64 @slurm_bit_size(ptr noundef nonnull %27) #8
-  %32 = trunc i64 %31 to i32
-  %33 = load ptr, ptr %26, align 8
-  %34 = call i32 @slurm_bit_set_count(ptr noundef %33) #8
+  %32 = load ptr, ptr %26, align 8
+  %33 = call i32 @slurm_bit_set_count(ptr noundef %32) #8
   store i32 0, ptr %7, align 4
-  %35 = load ptr, ptr %26, align 8
-  %36 = call ptr @next_node_bitmap(ptr noundef %35, ptr noundef nonnull %7) #8
-  %37 = icmp ne ptr %36, null
-  %38 = load i32, ptr %10, align 4
-  %39 = icmp eq i32 %38, 0
-  %40 = select i1 %37, i1 %39, i1 false
-  br i1 %40, label %.lr.ph, label %._crit_edge
+  %34 = load ptr, ptr %26, align 8
+  %35 = call ptr @next_node_bitmap(ptr noundef %34, ptr noundef nonnull %7) #8
+  %36 = icmp ne ptr %35, null
+  %37 = load i32, ptr %10, align 4
+  %38 = icmp eq i32 %37, 0
+  %39 = select i1 %36, i1 %38, i1 false
+  br i1 %39, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %28, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %28 ]
-  %41 = phi ptr [ %51, %.lr.ph ], [ %36, %28 ]
-  %.03150 = phi i32 [ %47, %.lr.ph ], [ %34, %28 ]
-  %42 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %42, ptr %14, align 8
-  %43 = load i32, ptr %7, align 4
-  store i32 %43, ptr %17, align 8
-  store ptr %41, ptr %18, align 8
+  %40 = phi ptr [ %50, %.lr.ph ], [ %35, %28 ]
+  %.03150 = phi i32 [ %46, %.lr.ph ], [ %33, %28 ]
+  %41 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %41, ptr %14, align 8
+  %42 = load i32, ptr %7, align 4
+  store i32 %42, ptr %17, align 8
+  store ptr %40, ptr %18, align 8
   store i32 %.03150, ptr %20, align 8
   store i16 0, ptr %21, align 4
-  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  %45 = load ptr, ptr %44, align 8
-  %46 = call i32 @slurm_list_for_each(ptr noundef %45, ptr noundef nonnull @_select_and_set_node, ptr noundef nonnull %11) #8
+  %44 = load ptr, ptr %43, align 8
+  %45 = call i32 @slurm_list_for_each(ptr noundef %44, ptr noundef nonnull @_select_and_set_node, ptr noundef nonnull %11) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = add nsw i32 %.03150, -1
+  %46 = add nsw i32 %.03150, -1
   call void @slurm_xfree(ptr noundef nonnull %24) #8
-  %48 = load i32, ptr %7, align 4
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %7, align 4
-  %50 = load ptr, ptr %26, align 8
-  %51 = call ptr @next_node_bitmap(ptr noundef %50, ptr noundef nonnull %7) #8
-  %52 = icmp ne ptr %51, null
-  %53 = load i32, ptr %10, align 4
-  %54 = icmp eq i32 %53, 0
-  %55 = select i1 %52, i1 %54, i1 false
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  %47 = load i32, ptr %7, align 4
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %7, align 4
+  %49 = load ptr, ptr %26, align 8
+  %50 = call ptr @next_node_bitmap(ptr noundef %49, ptr noundef nonnull %7) #8
+  %51 = icmp ne ptr %50, null
+  %52 = load i32, ptr %10, align 4
+  %53 = icmp eq i32 %52, 0
+  %54 = select i1 %51, i1 %53, i1 false
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
+  %55 = trunc i64 %31 to i32
   %56 = load i32, ptr %8, align 4
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %.preheader, label %.thread
@@ -935,7 +935,7 @@ _set_job_bits2.exit:                              ; preds = %74, %87, %155
   br i1 %.not.i43, label %_free_tasks_per_node_sock.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.thread
-  %171 = icmp sgt i32 %32, 0
+  %171 = icmp sgt i32 %55, 0
   br i1 %171, label %.lr.ph.i45, label %._crit_edge.i44
 
 .lr.ph.i45:                                       ; preds = %.preheader.i

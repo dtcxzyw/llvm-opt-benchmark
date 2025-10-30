@@ -1132,60 +1132,60 @@ define hidden void @_ZNK12ZStatSampler17collect_and_resetEv(ptr dead_on_unwind n
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre22 = load i64, ptr @_ZN10ZStatValue5_baseE, align 8
   %.pre24 = load i32, ptr @_ZN10ZStatValue11_cpu_offsetE, align 4
-  br label %8
+  br label %6
 
-8:                                                ; preds = %.lr.ph, %30
-  %9 = phi i32 [ %.pre24, %.lr.ph ], [ %31, %30 ]
-  %10 = phi i64 [ %.pre22, %.lr.ph ], [ %32, %30 ]
-  %11 = phi i64 [ 0, %.lr.ph ], [ %33, %30 ]
-  %12 = phi i64 [ 0, %.lr.ph ], [ %34, %30 ]
-  %.013 = phi i32 [ 0, %.lr.ph ], [ %36, %30 ]
-  %13 = phi i64 [ 0, %.lr.ph ], [ %35, %30 ]
-  %14 = mul i32 %9, %.013
-  %15 = zext i32 %14 to i64
-  %16 = add i64 %10, %15
-  %17 = load i32, ptr %5, align 4
-  %18 = zext i32 %17 to i64
-  %19 = add i64 %16, %18
-  %20 = inttoptr i64 %19 to ptr
-  %21 = load i64, ptr %20, align 8
-  %.not = icmp eq i64 %21, 0
-  br i1 %.not, label %30, label %22
+6:                                                ; preds = %.lr.ph, %28
+  %7 = phi i32 [ %.pre24, %.lr.ph ], [ %29, %28 ]
+  %8 = phi i64 [ %.pre22, %.lr.ph ], [ %30, %28 ]
+  %9 = phi i64 [ 0, %.lr.ph ], [ %31, %28 ]
+  %10 = phi i64 [ 0, %.lr.ph ], [ %32, %28 ]
+  %.013 = phi i32 [ 0, %.lr.ph ], [ %34, %28 ]
+  %11 = phi i64 [ 0, %.lr.ph ], [ %33, %28 ]
+  %12 = mul i32 %7, %.013
+  %13 = zext i32 %12 to i64
+  %14 = add i64 %8, %13
+  %15 = load i32, ptr %5, align 4
+  %16 = zext i32 %15 to i64
+  %17 = add i64 %14, %16
+  %18 = inttoptr i64 %17 to ptr
+  %19 = load i64, ptr %18, align 8
+  %.not = icmp eq i64 %19, 0
+  br i1 %.not, label %28, label %20
 
-22:                                               ; preds = %8
-  %23 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %20) #20, !srcloc !6
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
+20:                                               ; preds = %6
+  %21 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %18) #20, !srcloc !6
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %23 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %22) #20, !srcloc !6
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %25 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %24) #20, !srcloc !6
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %27 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %26) #20, !srcloc !6
-  %28 = add i64 %13, %23
-  %29 = add i64 %12, %25
-  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %11, i64 %27)
+  %26 = add i64 %11, %21
+  %27 = add i64 %10, %23
+  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %9, i64 %25)
   %.pre = load i64, ptr @_ZN10ZStatValue5_baseE, align 8
   %.pre23 = load i32, ptr @_ZN10ZStatValue11_cpu_offsetE, align 4
-  br label %30
+  br label %28
 
-30:                                               ; preds = %22, %8
-  %31 = phi i32 [ %.pre23, %22 ], [ %9, %8 ]
-  %32 = phi i64 [ %.pre, %22 ], [ %10, %8 ]
-  %33 = phi i64 [ %spec.store.select, %22 ], [ %11, %8 ]
-  %34 = phi i64 [ %29, %22 ], [ %12, %8 ]
-  %35 = phi i64 [ %28, %22 ], [ %13, %8 ]
-  %36 = add nuw i32 %.013, 1
-  %exitcond.not = icmp eq i32 %36, %4
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !7
+28:                                               ; preds = %20, %6
+  %29 = phi i32 [ %.pre23, %20 ], [ %7, %6 ]
+  %30 = phi i64 [ %.pre, %20 ], [ %8, %6 ]
+  %31 = phi i64 [ %spec.store.select, %20 ], [ %9, %6 ]
+  %32 = phi i64 [ %27, %20 ], [ %10, %6 ]
+  %33 = phi i64 [ %26, %20 ], [ %11, %6 ]
+  %34 = add nuw i32 %.013, 1
+  %exitcond.not = icmp eq i32 %34, %4
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %30
-  store i64 %34, ptr %6, align 8
-  store i64 %33, ptr %7, align 8
+._crit_edge:                                      ; preds = %28
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %32, ptr %35, align 8
+  store i64 %31, ptr %36, align 8
   br label %37
 
 37:                                               ; preds = %._crit_edge, %2
-  %.lcssa = phi i64 [ %35, %._crit_edge ], [ 0, %2 ]
+  %.lcssa = phi i64 [ %33, %._crit_edge ], [ 0, %2 ]
   store i64 %.lcssa, ptr %0, align 8
   ret void
 }
@@ -3292,104 +3292,104 @@ define hidden void @_ZN15ZStatRelocation18print_page_summaryEv(ptr noundef nonnu
   store i64 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1536
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  br label %35
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1536
+  br label %23
 
-35:                                               ; preds = %17, %35
-  %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %35 ]
-  %36 = phi i64 [ 0, %17 ], [ %53, %35 ]
-  %37 = phi i64 [ 0, %17 ], [ %56, %35 ]
-  %38 = phi i64 [ 0, %17 ], [ %59, %35 ]
-  %39 = phi i64 [ 0, %17 ], [ %62, %35 ]
-  %40 = phi i64 [ 0, %17 ], [ %65, %35 ]
-  %41 = phi i64 [ 0, %17 ], [ %68, %35 ]
-  %42 = phi i64 [ 0, %17 ], [ %71, %35 ]
-  %43 = phi i64 [ 0, %17 ], [ %74, %35 ]
-  %44 = phi i64 [ 0, %17 ], [ %77, %35 ]
-  %45 = phi i64 [ 0, %17 ], [ %80, %35 ]
-  %46 = phi i64 [ 0, %17 ], [ %83, %35 ]
-  %47 = phi i64 [ 0, %17 ], [ %86, %35 ]
-  %48 = phi i64 [ 0, %17 ], [ %89, %35 ]
-  %49 = phi i64 [ 0, %17 ], [ %92, %35 ]
-  %50 = phi i64 [ 0, %17 ], [ %95, %35 ]
-  %51 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %0, i64 %indvars.iv
+23:                                               ; preds = %17, %23
+  %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %23 ]
+  %24 = phi i64 [ 0, %17 ], [ %41, %23 ]
+  %25 = phi i64 [ 0, %17 ], [ %44, %23 ]
+  %26 = phi i64 [ 0, %17 ], [ %47, %23 ]
+  %27 = phi i64 [ 0, %17 ], [ %50, %23 ]
+  %28 = phi i64 [ 0, %17 ], [ %53, %23 ]
+  %29 = phi i64 [ 0, %17 ], [ %56, %23 ]
+  %30 = phi i64 [ 0, %17 ], [ %59, %23 ]
+  %31 = phi i64 [ 0, %17 ], [ %62, %23 ]
+  %32 = phi i64 [ 0, %17 ], [ %65, %23 ]
+  %33 = phi i64 [ 0, %17 ], [ %68, %23 ]
+  %34 = phi i64 [ 0, %17 ], [ %71, %23 ]
+  %35 = phi i64 [ 0, %17 ], [ %74, %23 ]
+  %36 = phi i64 [ 0, %17 ], [ %77, %23 ]
+  %37 = phi i64 [ 0, %17 ], [ %80, %23 ]
+  %38 = phi i64 [ 0, %17 ], [ %83, %23 ]
+  %39 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %0, i64 %indvars.iv
+  %40 = load i64, ptr %39, align 8
+  %41 = add i64 %24, %40
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %43 = load i64, ptr %42, align 8
+  %44 = add i64 %25, %43
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %46 = load i64, ptr %45, align 8
+  %47 = add i64 %26, %46
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %49 = load i64, ptr %48, align 8
+  %50 = add i64 %27, %49
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %52 = load i64, ptr %51, align 8
-  %53 = add i64 %36, %52
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %53 = add i64 %28, %52
+  %54 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %21, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8
-  %56 = add i64 %37, %55
-  %57 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %56 = add i64 %29, %55
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %58 = load i64, ptr %57, align 8
-  %59 = add i64 %38, %58
-  %60 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  %59 = add i64 %30, %58
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %61 = load i64, ptr %60, align 8
-  %62 = add i64 %39, %61
-  %63 = getelementptr inbounds nuw i8, ptr %51, i64 40
+  %62 = add i64 %31, %61
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %64 = load i64, ptr %63, align 8
-  %65 = add i64 %40, %64
-  %66 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %25, i64 %indvars.iv
+  %65 = add i64 %32, %64
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %67 = load i64, ptr %66, align 8
-  %68 = add i64 %41, %67
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = add i64 %33, %67
+  %69 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %22, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8
-  %71 = add i64 %42, %70
-  %72 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  %71 = add i64 %34, %70
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %73 = load i64, ptr %72, align 8
-  %74 = add i64 %43, %73
-  %75 = getelementptr inbounds nuw i8, ptr %66, i64 32
+  %74 = add i64 %35, %73
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %76 = load i64, ptr %75, align 8
-  %77 = add i64 %44, %76
-  %78 = getelementptr inbounds nuw i8, ptr %66, i64 40
+  %77 = add i64 %36, %76
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %79 = load i64, ptr %78, align 8
-  %80 = add i64 %45, %79
-  %81 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %30, i64 %indvars.iv
+  %80 = add i64 %37, %79
+  %81 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %82 = load i64, ptr %81, align 8
-  %83 = add i64 %46, %82
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %85 = load i64, ptr %84, align 8
-  %86 = add i64 %47, %85
-  %87 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  %88 = load i64, ptr %87, align 8
-  %89 = add i64 %48, %88
-  %90 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %91 = load i64, ptr %90, align 8
-  %92 = add i64 %49, %91
-  %93 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  %94 = load i64, ptr %93, align 8
-  %95 = add i64 %50, %94
+  %83 = add i64 %38, %82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %96, label %35, !llvm.loop !40
+  br i1 %exitcond.not, label %84, label %23, !llvm.loop !40
 
-96:                                               ; preds = %35
-  store i64 %53, ptr %2, align 8
-  store i64 %56, ptr %21, align 8
-  store i64 %59, ptr %22, align 8
-  store i64 %62, ptr %23, align 8
-  store i64 %65, ptr %24, align 8
-  store i64 %68, ptr %3, align 8
-  store i64 %71, ptr %26, align 8
-  store i64 %74, ptr %27, align 8
-  store i64 %77, ptr %28, align 8
-  store i64 %80, ptr %29, align 8
-  store i64 %83, ptr %4, align 8
-  store i64 %86, ptr %31, align 8
-  store i64 %89, ptr %32, align 8
-  store i64 %92, ptr %33, align 8
-  store i64 %95, ptr %34, align 8
+84:                                               ; preds = %23
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i64 %41, ptr %2, align 8
+  store i64 %44, ptr %85, align 8
+  store i64 %47, ptr %86, align 8
+  store i64 %50, ptr %87, align 8
+  store i64 %53, ptr %88, align 8
+  store i64 %56, ptr %3, align 8
+  store i64 %59, ptr %89, align 8
+  store i64 %62, ptr %90, align 8
+  store i64 %65, ptr %91, align 8
+  store i64 %68, ptr %92, align 8
+  store i64 %71, ptr %4, align 8
+  store i64 %74, ptr %93, align 8
+  store i64 %77, ptr %94, align 8
+  store i64 %80, ptr %95, align 8
+  store i64 %83, ptr %96, align 8
   store i64 20, ptr %5, align 8
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 12, ptr %97, align 8
@@ -3422,13 +3422,13 @@ define hidden void @_ZN15ZStatRelocation18print_page_summaryEv(ptr noundef nonnu
   %.not = icmp eq i64 %109, 0
   br i1 %.not, label %113, label %110
 
-110:                                              ; preds = %96
+110:                                              ; preds = %84
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 2344
   %112 = load i64, ptr %111, align 8
   call fastcc void @"_ZZN15ZStatRelocation18print_page_summaryEvENK3$_1clEPKcR22ZStatRelocationSummarym"(ptr nonnull %5, ptr noundef nonnull @.str.50, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef %112)
   br label %113
 
-113:                                              ; preds = %110, %96
+113:                                              ; preds = %110, %84
   call fastcc void @"_ZZN15ZStatRelocation18print_page_summaryEvENK3$_1clEPKcR22ZStatRelocationSummarym"(ptr nonnull %5, ptr noundef nonnull @.str.51, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef 0)
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 2312
   %115 = load i64, ptr %114, align 8

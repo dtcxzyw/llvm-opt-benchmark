@@ -6461,9 +6461,9 @@ _ZNK3mbp4term7parents3endEv.exit:                 ; preds = %_ZN15ref_vector_cor
 
 .lr.ph:                                           ; preds = %_ZNK3mbp4term7parents3endEv.exit
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  br label %96
+  br label %94
 
-._crit_edge:                                      ; preds = %103, %_ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit, %_ZNK3mbp4term7parents3endEv.exit
+._crit_edge:                                      ; preds = %101, %_ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit, %_ZNK3mbp4term7parents3endEv.exit
   %85 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
   %86 = load ptr, ptr %85, align 8, !tbaa !19
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 64
@@ -6472,48 +6472,48 @@ _ZNK3mbp4term7parents3endEv.exit:                 ; preds = %_ZN15ref_vector_cor
   %90 = load ptr, ptr %89, align 8, !tbaa !19
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 64
   %92 = load i8, ptr %91, align 8
-  %93 = xor i8 %92, %88
-  %94 = and i8 %93, 1
-  %.not62 = icmp eq i8 %94, 0
   store ptr %spec.select60, ptr %85, align 8, !tbaa !19
-  %95 = getelementptr inbounds nuw i8, ptr %spec.select, i64 32
-  %.01966 = load ptr, ptr %95, align 8, !tbaa !199
+  %93 = getelementptr inbounds nuw i8, ptr %spec.select, i64 32
+  %.01966 = load ptr, ptr %93, align 8, !tbaa !199
   %.not2267 = icmp eq ptr %.01966, %spec.select
   br i1 %.not2267, label %._crit_edge71, label %.lr.ph70
 
-96:                                               ; preds = %.lr.ph, %103
-  %.01865 = phi ptr [ %77, %.lr.ph ], [ %104, %103 ]
+94:                                               ; preds = %.lr.ph, %101
+  %.01865 = phi ptr [ %77, %.lr.ph ], [ %102, %101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %97 = load ptr, ptr %.01865, align 8, !tbaa !46
-  store ptr %97, ptr %6, align 8, !tbaa !46
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 40
-  %99 = load i16, ptr %98, align 8
-  %100 = and i16 %99, 1
-  %.not61 = icmp eq i16 %100, 0
-  br i1 %.not61, label %101, label %103
+  %95 = load ptr, ptr %.01865, align 8, !tbaa !46
+  store ptr %95, ptr %6, align 8, !tbaa !46
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
+  %97 = load i16, ptr %96, align 8
+  %98 = and i16 %97, 1
+  %.not61 = icmp eq i16 %98, 0
+  br i1 %.not61, label %99, label %101
 
-101:                                              ; preds = %96
-  %102 = or disjoint i16 %99, 1
-  store i16 %102, ptr %98, align 8
+99:                                               ; preds = %94
+  %100 = or disjoint i16 %97, 1
+  store i16 %100, ptr %96, align 8
   call void @_ZN14core_hashtableI14ptr_hash_entryIN3mbp4termEENS1_10term_graph9term_hashENS4_7term_eqEE6removeERKPS2_(ptr noundef nonnull align 8 dereferenceable(20) %84, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  br label %103
+  br label %101
 
-103:                                              ; preds = %101, %96
+101:                                              ; preds = %99, %94
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %104 = getelementptr inbounds nuw i8, ptr %.01865, i64 8
-  %.not = icmp eq ptr %104, %83
-  br i1 %.not, label %._crit_edge, label %96
+  %102 = getelementptr inbounds nuw i8, ptr %.01865, i64 8
+  %.not = icmp eq ptr %102, %83
+  br i1 %.not, label %._crit_edge, label %94
 
 ._crit_edge71.loopexit:                           ; preds = %.lr.ph70
-  %.pre = load ptr, ptr %95, align 8, !tbaa !46
+  %.pre = load ptr, ptr %93, align 8, !tbaa !46
   br label %._crit_edge71
 
 ._crit_edge71:                                    ; preds = %._crit_edge71.loopexit, %._crit_edge
-  %105 = phi ptr [ %.pre, %._crit_edge71.loopexit ], [ %.01966, %._crit_edge ]
+  %103 = phi ptr [ %.pre, %._crit_edge71.loopexit ], [ %.01966, %._crit_edge ]
+  %104 = xor i8 %92, %88
+  %105 = and i8 %104, 1
+  %.not62 = icmp eq i8 %105, 0
   %106 = getelementptr inbounds nuw i8, ptr %spec.select60, i64 32
   %107 = load ptr, ptr %106, align 8, !tbaa !46
-  store ptr %105, ptr %106, align 8, !tbaa !46
-  store ptr %107, ptr %95, align 8, !tbaa !46
+  store ptr %103, ptr %106, align 8, !tbaa !46
+  store ptr %107, ptr %93, align 8, !tbaa !46
   %108 = getelementptr inbounds nuw i8, ptr %spec.select60, i64 64
   %109 = getelementptr inbounds nuw i8, ptr %spec.select, i64 64
   %110 = getelementptr inbounds nuw i8, ptr %spec.select, i64 68
@@ -27603,337 +27603,337 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPPN3mbp4termEN9__g
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
   %6 = icmp sgt i64 %5, 128
-  br i1 %6, label %7, label %83
+  br i1 %6, label %.preheader, label %82
 
-7:                                                ; preds = %2
+.preheader:                                       ; preds = %2
   %scevgep = getelementptr i8, ptr %0, i64 8
-  br label %8
+  br label %7
 
-8:                                                ; preds = %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i, %7
-  %.020.i.idx = phi i64 [ 8, %7 ], [ %.020.i.add, %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i ]
+7:                                                ; preds = %.preheader, %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i
+  %.020.i.idx = phi i64 [ %.020.i.add, %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i ], [ 8, %.preheader ]
   %.020.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.020.i.idx
-  %9 = load ptr, ptr %.020.i.ptr, align 8, !tbaa !46
-  %10 = load ptr, ptr %0, align 8, !tbaa !46
-  %11 = load ptr, ptr %9, align 8, !tbaa !79
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = load i32, ptr %12, align 4
-  %trunc.i.i.i.i = trunc i32 %13 to i16
+  %8 = load ptr, ptr %.020.i.ptr, align 8, !tbaa !46
+  %9 = load ptr, ptr %0, align 8, !tbaa !46
+  %10 = load ptr, ptr %8, align 8, !tbaa !79
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = load i32, ptr %11, align 4
+  %trunc.i.i.i.i = trunc i32 %12 to i16
   switch i16 %trunc.i.i.i.i, label %_Z9get_depthPK4expr.exit.i.i.i [
-    i16 0, label %14
-    i16 2, label %18
+    i16 0, label %13
+    i16 2, label %17
   ]
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %16 = load i16, ptr %15, align 4
-  %17 = zext i16 %16 to i32
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  %15 = load i16, ptr %14, align 4
+  %16 = zext i16 %15 to i32
   br label %_Z9get_depthPK4expr.exit.i.i.i
 
-18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %20 = load i32, ptr %19, align 8, !tbaa !484
+17:                                               ; preds = %7
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %19 = load i32, ptr %18, align 8, !tbaa !484
   br label %_Z9get_depthPK4expr.exit.i.i.i
 
-_Z9get_depthPK4expr.exit.i.i.i:                   ; preds = %18, %14, %8
-  %.0.i.i.i.i = phi i32 [ %17, %14 ], [ %20, %18 ], [ 1, %8 ]
-  %21 = load ptr, ptr %10, align 8, !tbaa !79
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %23 = load i32, ptr %22, align 4
-  %trunc.i2.i.i.i = trunc i32 %23 to i16
+_Z9get_depthPK4expr.exit.i.i.i:                   ; preds = %17, %13, %7
+  %.0.i.i.i.i = phi i32 [ %16, %13 ], [ %19, %17 ], [ 1, %7 ]
+  %20 = load ptr, ptr %9, align 8, !tbaa !79
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %22 = load i32, ptr %21, align 4
+  %trunc.i2.i.i.i = trunc i32 %22 to i16
   switch i16 %trunc.i2.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i [
-    i16 0, label %24
-    i16 2, label %28
+    i16 0, label %23
+    i16 2, label %27
   ]
 
-24:                                               ; preds = %_Z9get_depthPK4expr.exit.i.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 28
-  %26 = load i16, ptr %25, align 4
-  %27 = zext i16 %26 to i32
+23:                                               ; preds = %_Z9get_depthPK4expr.exit.i.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 28
+  %25 = load i16, ptr %24, align 4
+  %26 = zext i16 %25 to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i
 
-28:                                               ; preds = %_Z9get_depthPK4expr.exit.i.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %30 = load i32, ptr %29, align 8, !tbaa !484
+27:                                               ; preds = %_Z9get_depthPK4expr.exit.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %29 = load i32, ptr %28, align 8, !tbaa !484
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i: ; preds = %28, %24, %_Z9get_depthPK4expr.exit.i.i.i
-  %.0.i3.i.i.i = phi i32 [ %27, %24 ], [ %30, %28 ], [ 1, %_Z9get_depthPK4expr.exit.i.i.i ]
-  %31 = icmp ult i32 %.0.i.i.i.i, %.0.i3.i.i.i
-  br i1 %31, label %32, label %33
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i: ; preds = %27, %23, %_Z9get_depthPK4expr.exit.i.i.i
+  %.0.i3.i.i.i = phi i32 [ %26, %23 ], [ %29, %27 ], [ 1, %_Z9get_depthPK4expr.exit.i.i.i ]
+  %30 = icmp ult i32 %.0.i.i.i.i, %.0.i3.i.i.i
+  br i1 %30, label %31, label %32
 
-32:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i
+31:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %.020.i.idx, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i
 
-33:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i
-  %34 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %35 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  br label %36
+32:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  br label %35
 
-36:                                               ; preds = %55, %33
-  %37 = phi i32 [ %13, %33 ], [ %.pre.i, %55 ]
-  %.09.i.i = phi ptr [ %.020.i.ptr, %33 ], [ %.0.i.i, %55 ]
+35:                                               ; preds = %54, %32
+  %36 = phi i32 [ %12, %32 ], [ %.pre.i, %54 ]
+  %.09.i.i = phi ptr [ %.020.i.ptr, %32 ], [ %.0.i.i, %54 ]
   %.0.i.i = getelementptr inbounds i8, ptr %.09.i.i, i64 -8
-  %38 = load ptr, ptr %.0.i.i, align 8, !tbaa !46
-  %trunc.i.i.i.i.i = trunc i32 %37 to i16
+  %37 = load ptr, ptr %.0.i.i, align 8, !tbaa !46
+  %trunc.i.i.i.i.i = trunc i32 %36 to i16
   switch i16 %trunc.i.i.i.i.i, label %_Z9get_depthPK4expr.exit.i.i.i.i [
-    i16 0, label %39
-    i16 2, label %42
+    i16 0, label %38
+    i16 2, label %41
   ]
 
-39:                                               ; preds = %36
-  %40 = load i16, ptr %35, align 4
-  %41 = zext i16 %40 to i32
+38:                                               ; preds = %35
+  %39 = load i16, ptr %34, align 4
+  %40 = zext i16 %39 to i32
   br label %_Z9get_depthPK4expr.exit.i.i.i.i
 
-42:                                               ; preds = %36
-  %43 = load i32, ptr %34, align 8, !tbaa !484
+41:                                               ; preds = %35
+  %42 = load i32, ptr %33, align 8, !tbaa !484
   br label %_Z9get_depthPK4expr.exit.i.i.i.i
 
-_Z9get_depthPK4expr.exit.i.i.i.i:                 ; preds = %42, %39, %36
-  %.0.i.i.i.i.i = phi i32 [ %41, %39 ], [ %43, %42 ], [ 1, %36 ]
-  %44 = load ptr, ptr %38, align 8, !tbaa !79
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %46 = load i32, ptr %45, align 4
-  %trunc.i2.i.i.i.i = trunc i32 %46 to i16
+_Z9get_depthPK4expr.exit.i.i.i.i:                 ; preds = %41, %38, %35
+  %.0.i.i.i.i.i = phi i32 [ %40, %38 ], [ %42, %41 ], [ 1, %35 ]
+  %43 = load ptr, ptr %37, align 8, !tbaa !79
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %45 = load i32, ptr %44, align 4
+  %trunc.i2.i.i.i.i = trunc i32 %45 to i16
   switch i16 %trunc.i2.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i [
-    i16 0, label %47
-    i16 2, label %51
+    i16 0, label %46
+    i16 2, label %50
   ]
 
-47:                                               ; preds = %_Z9get_depthPK4expr.exit.i.i.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 28
-  %49 = load i16, ptr %48, align 4
-  %50 = zext i16 %49 to i32
+46:                                               ; preds = %_Z9get_depthPK4expr.exit.i.i.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 28
+  %48 = load i16, ptr %47, align 4
+  %49 = zext i16 %48 to i32
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i
 
-51:                                               ; preds = %_Z9get_depthPK4expr.exit.i.i.i.i
-  %52 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %53 = load i32, ptr %52, align 8, !tbaa !484
+50:                                               ; preds = %_Z9get_depthPK4expr.exit.i.i.i.i
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  %52 = load i32, ptr %51, align 8, !tbaa !484
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i: ; preds = %51, %47, %_Z9get_depthPK4expr.exit.i.i.i.i
-  %.0.i3.i.i.i.i = phi i32 [ %50, %47 ], [ %53, %51 ], [ 1, %_Z9get_depthPK4expr.exit.i.i.i.i ]
-  %54 = icmp ult i32 %.0.i.i.i.i.i, %.0.i3.i.i.i.i
-  br i1 %54, label %55, label %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i: ; preds = %50, %46, %_Z9get_depthPK4expr.exit.i.i.i.i
+  %.0.i3.i.i.i.i = phi i32 [ %49, %46 ], [ %52, %50 ], [ 1, %_Z9get_depthPK4expr.exit.i.i.i.i ]
+  %53 = icmp ult i32 %.0.i.i.i.i.i, %.0.i3.i.i.i.i
+  br i1 %53, label %54, label %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i
 
-55:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i
-  store ptr %38, ptr %.09.i.i, align 8, !tbaa !46
-  %.pre.i = load i32, ptr %12, align 4
-  br label %36, !llvm.loop !485
+54:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i
+  store ptr %37, ptr %.09.i.i, align 8, !tbaa !46
+  %.pre.i = load i32, ptr %11, align 4
+  br label %35, !llvm.loop !485
 
-_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i, %32
-  %.sink.i = phi ptr [ %0, %32 ], [ %.09.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i ]
-  store ptr %9, ptr %.sink.i, align 8, !tbaa !46
+_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i, %31
+  %.sink.i = phi ptr [ %0, %31 ], [ %.09.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i ]
+  store ptr %8, ptr %.sink.i, align 8, !tbaa !46
   %.020.i.add = add nuw nsw i64 %.020.i.idx, 8
   %.not.i = icmp eq i64 %.020.i.add, 128
-  br i1 %.not.i, label %_ZSt16__insertion_sortIPPN3mbp4termEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_SB_T0_.exit, label %8, !llvm.loop !486
+  br i1 %.not.i, label %_ZSt16__insertion_sortIPPN3mbp4termEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_SB_T0_.exit, label %7, !llvm.loop !486
 
 _ZSt16__insertion_sortIPPN3mbp4termEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_SB_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.not6.i = icmp eq ptr %56, %1
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.not6.i = icmp eq ptr %55, %1
   br i1 %.not6.i, label %_ZSt26__unguarded_insertion_sortIPPN3mbp4termEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_SB_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPPN3mbp4termEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_SB_T0_.exit, %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i21
-  %.07.i = phi ptr [ %82, %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i21 ], [ %56, %_ZSt16__insertion_sortIPPN3mbp4termEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_SB_T0_.exit ]
-  %57 = load ptr, ptr %.07.i, align 8, !tbaa !46
-  %58 = load ptr, ptr %57, align 8, !tbaa !79
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 28
-  br label %62
+  %.07.i = phi ptr [ %81, %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i21 ], [ %55, %_ZSt16__insertion_sortIPPN3mbp4termEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_SB_T0_.exit ]
+  %56 = load ptr, ptr %.07.i, align 8, !tbaa !46
+  %57 = load ptr, ptr %56, align 8, !tbaa !79
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 28
+  br label %61
 
-62:                                               ; preds = %81, %.lr.ph.i
-  %.09.i.i13 = phi ptr [ %.07.i, %.lr.ph.i ], [ %.0.i.i14, %81 ]
+61:                                               ; preds = %80, %.lr.ph.i
+  %.09.i.i13 = phi ptr [ %.07.i, %.lr.ph.i ], [ %.0.i.i14, %80 ]
   %.0.i.i14 = getelementptr inbounds i8, ptr %.09.i.i13, i64 -8
-  %63 = load ptr, ptr %.0.i.i14, align 8, !tbaa !46
-  %64 = load i32, ptr %59, align 4
-  %trunc.i.i.i.i.i15 = trunc i32 %64 to i16
+  %62 = load ptr, ptr %.0.i.i14, align 8, !tbaa !46
+  %63 = load i32, ptr %58, align 4
+  %trunc.i.i.i.i.i15 = trunc i32 %63 to i16
   switch i16 %trunc.i.i.i.i.i15, label %_Z9get_depthPK4expr.exit.i.i.i.i16 [
-    i16 0, label %65
-    i16 2, label %68
+    i16 0, label %64
+    i16 2, label %67
   ]
 
-65:                                               ; preds = %62
-  %66 = load i16, ptr %61, align 4
-  %67 = zext i16 %66 to i32
+64:                                               ; preds = %61
+  %65 = load i16, ptr %60, align 4
+  %66 = zext i16 %65 to i32
   br label %_Z9get_depthPK4expr.exit.i.i.i.i16
 
-68:                                               ; preds = %62
-  %69 = load i32, ptr %60, align 8, !tbaa !484
+67:                                               ; preds = %61
+  %68 = load i32, ptr %59, align 8, !tbaa !484
   br label %_Z9get_depthPK4expr.exit.i.i.i.i16
 
-_Z9get_depthPK4expr.exit.i.i.i.i16:               ; preds = %68, %65, %62
-  %.0.i.i.i.i.i17 = phi i32 [ %67, %65 ], [ %69, %68 ], [ 1, %62 ]
-  %70 = load ptr, ptr %63, align 8, !tbaa !79
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %72 = load i32, ptr %71, align 4
-  %trunc.i2.i.i.i.i18 = trunc i32 %72 to i16
+_Z9get_depthPK4expr.exit.i.i.i.i16:               ; preds = %67, %64, %61
+  %.0.i.i.i.i.i17 = phi i32 [ %66, %64 ], [ %68, %67 ], [ 1, %61 ]
+  %69 = load ptr, ptr %62, align 8, !tbaa !79
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %71 = load i32, ptr %70, align 4
+  %trunc.i2.i.i.i.i18 = trunc i32 %71 to i16
   switch i16 %trunc.i2.i.i.i.i18, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i19 [
-    i16 0, label %73
-    i16 2, label %77
+    i16 0, label %72
+    i16 2, label %76
   ]
 
-73:                                               ; preds = %_Z9get_depthPK4expr.exit.i.i.i.i16
-  %74 = getelementptr inbounds nuw i8, ptr %70, i64 28
-  %75 = load i16, ptr %74, align 4
-  %76 = zext i16 %75 to i32
+72:                                               ; preds = %_Z9get_depthPK4expr.exit.i.i.i.i16
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 28
+  %74 = load i16, ptr %73, align 4
+  %75 = zext i16 %74 to i32
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i19
 
-77:                                               ; preds = %_Z9get_depthPK4expr.exit.i.i.i.i16
-  %78 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  %79 = load i32, ptr %78, align 8, !tbaa !484
+76:                                               ; preds = %_Z9get_depthPK4expr.exit.i.i.i.i16
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 40
+  %78 = load i32, ptr %77, align 8, !tbaa !484
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i19
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i19: ; preds = %77, %73, %_Z9get_depthPK4expr.exit.i.i.i.i16
-  %.0.i3.i.i.i.i20 = phi i32 [ %76, %73 ], [ %79, %77 ], [ 1, %_Z9get_depthPK4expr.exit.i.i.i.i16 ]
-  %80 = icmp ult i32 %.0.i.i.i.i.i17, %.0.i3.i.i.i.i20
-  br i1 %80, label %81, label %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i21
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i19: ; preds = %76, %72, %_Z9get_depthPK4expr.exit.i.i.i.i16
+  %.0.i3.i.i.i.i20 = phi i32 [ %75, %72 ], [ %78, %76 ], [ 1, %_Z9get_depthPK4expr.exit.i.i.i.i16 ]
+  %79 = icmp ult i32 %.0.i.i.i.i.i17, %.0.i3.i.i.i.i20
+  br i1 %79, label %80, label %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i21
 
-81:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i19
-  store ptr %63, ptr %.09.i.i13, align 8, !tbaa !46
-  br label %62, !llvm.loop !485
+80:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i19
+  store ptr %62, ptr %.09.i.i13, align 8, !tbaa !46
+  br label %61, !llvm.loop !485
 
 _ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i21: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i19
-  store ptr %57, ptr %.09.i.i13, align 8, !tbaa !46
-  %82 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
-  %.not.i22 = icmp eq ptr %82, %1
+  store ptr %56, ptr %.09.i.i13, align 8, !tbaa !46
+  %81 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
+  %.not.i22 = icmp eq ptr %81, %1
   br i1 %.not.i22, label %_ZSt26__unguarded_insertion_sortIPPN3mbp4termEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_SB_T0_.exit, label %.lr.ph.i, !llvm.loop !487
 
-83:                                               ; preds = %2
-  %84 = icmp eq ptr %0, %1
+82:                                               ; preds = %2
+  %83 = icmp eq ptr %0, %1
   %.017.i23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not18.i = icmp eq ptr %.017.i23, %1
-  %or.cond = select i1 %84, i1 true, i1 %.not18.i
+  %or.cond = select i1 %83, i1 true, i1 %.not18.i
   br i1 %or.cond, label %_ZSt26__unguarded_insertion_sortIPPN3mbp4termEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_SB_T0_.exit, label %.lr.ph.i24
 
-.lr.ph.i24:                                       ; preds = %83, %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i41
-  %.020.i25 = phi ptr [ %.0.i43, %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i41 ], [ %.017.i23, %83 ]
-  %.pn19.i26 = phi ptr [ %.020.i25, %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i41 ], [ %0, %83 ]
-  %85 = load ptr, ptr %.020.i25, align 8, !tbaa !46
-  %86 = load ptr, ptr %0, align 8, !tbaa !46
-  %87 = load ptr, ptr %85, align 8, !tbaa !79
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %89 = load i32, ptr %88, align 4
-  %trunc.i.i.i.i27 = trunc i32 %89 to i16
+.lr.ph.i24:                                       ; preds = %82, %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i41
+  %.020.i25 = phi ptr [ %.0.i43, %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i41 ], [ %.017.i23, %82 ]
+  %.pn19.i26 = phi ptr [ %.020.i25, %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i41 ], [ %0, %82 ]
+  %84 = load ptr, ptr %.020.i25, align 8, !tbaa !46
+  %85 = load ptr, ptr %0, align 8, !tbaa !46
+  %86 = load ptr, ptr %84, align 8, !tbaa !79
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
+  %88 = load i32, ptr %87, align 4
+  %trunc.i.i.i.i27 = trunc i32 %88 to i16
   switch i16 %trunc.i.i.i.i27, label %_Z9get_depthPK4expr.exit.i.i.i28 [
-    i16 0, label %90
-    i16 2, label %94
+    i16 0, label %89
+    i16 2, label %93
   ]
 
-90:                                               ; preds = %.lr.ph.i24
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 28
-  %92 = load i16, ptr %91, align 4
-  %93 = zext i16 %92 to i32
+89:                                               ; preds = %.lr.ph.i24
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 28
+  %91 = load i16, ptr %90, align 4
+  %92 = zext i16 %91 to i32
   br label %_Z9get_depthPK4expr.exit.i.i.i28
 
-94:                                               ; preds = %.lr.ph.i24
-  %95 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  %96 = load i32, ptr %95, align 8, !tbaa !484
+93:                                               ; preds = %.lr.ph.i24
+  %94 = getelementptr inbounds nuw i8, ptr %86, i64 40
+  %95 = load i32, ptr %94, align 8, !tbaa !484
   br label %_Z9get_depthPK4expr.exit.i.i.i28
 
-_Z9get_depthPK4expr.exit.i.i.i28:                 ; preds = %94, %90, %.lr.ph.i24
-  %.0.i.i.i.i29 = phi i32 [ %93, %90 ], [ %96, %94 ], [ 1, %.lr.ph.i24 ]
-  %97 = load ptr, ptr %86, align 8, !tbaa !79
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  %99 = load i32, ptr %98, align 4
-  %trunc.i2.i.i.i30 = trunc i32 %99 to i16
+_Z9get_depthPK4expr.exit.i.i.i28:                 ; preds = %93, %89, %.lr.ph.i24
+  %.0.i.i.i.i29 = phi i32 [ %92, %89 ], [ %95, %93 ], [ 1, %.lr.ph.i24 ]
+  %96 = load ptr, ptr %85, align 8, !tbaa !79
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
+  %98 = load i32, ptr %97, align 4
+  %trunc.i2.i.i.i30 = trunc i32 %98 to i16
   switch i16 %trunc.i2.i.i.i30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i31 [
-    i16 0, label %100
-    i16 2, label %104
+    i16 0, label %99
+    i16 2, label %103
   ]
 
-100:                                              ; preds = %_Z9get_depthPK4expr.exit.i.i.i28
-  %101 = getelementptr inbounds nuw i8, ptr %97, i64 28
-  %102 = load i16, ptr %101, align 4
-  %103 = zext i16 %102 to i32
+99:                                               ; preds = %_Z9get_depthPK4expr.exit.i.i.i28
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 28
+  %101 = load i16, ptr %100, align 4
+  %102 = zext i16 %101 to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i31
 
-104:                                              ; preds = %_Z9get_depthPK4expr.exit.i.i.i28
-  %105 = getelementptr inbounds nuw i8, ptr %97, i64 40
-  %106 = load i32, ptr %105, align 8, !tbaa !484
+103:                                              ; preds = %_Z9get_depthPK4expr.exit.i.i.i28
+  %104 = getelementptr inbounds nuw i8, ptr %96, i64 40
+  %105 = load i32, ptr %104, align 8, !tbaa !484
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i31
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i31: ; preds = %104, %100, %_Z9get_depthPK4expr.exit.i.i.i28
-  %.0.i3.i.i.i32 = phi i32 [ %103, %100 ], [ %106, %104 ], [ 1, %_Z9get_depthPK4expr.exit.i.i.i28 ]
-  %107 = icmp ult i32 %.0.i.i.i.i29, %.0.i3.i.i.i32
-  br i1 %107, label %108, label %115
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i31: ; preds = %103, %99, %_Z9get_depthPK4expr.exit.i.i.i28
+  %.0.i3.i.i.i32 = phi i32 [ %102, %99 ], [ %105, %103 ], [ 1, %_Z9get_depthPK4expr.exit.i.i.i28 ]
+  %106 = icmp ult i32 %.0.i.i.i.i29, %.0.i3.i.i.i32
+  br i1 %106, label %107, label %114
 
-108:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i31
-  %109 = getelementptr inbounds nuw i8, ptr %.pn19.i26, i64 16
-  %110 = ptrtoint ptr %.020.i25 to i64
-  %111 = sub i64 %110, %4
-  %112 = ashr exact i64 %111, 3
-  %113 = sub nsw i64 0, %112
-  %114 = getelementptr inbounds ptr, ptr %109, i64 %113
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %114, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %111, i1 false)
+107:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i31
+  %108 = getelementptr inbounds nuw i8, ptr %.pn19.i26, i64 16
+  %109 = ptrtoint ptr %.020.i25 to i64
+  %110 = sub i64 %109, %4
+  %111 = ashr exact i64 %110, 3
+  %112 = sub nsw i64 0, %111
+  %113 = getelementptr inbounds ptr, ptr %108, i64 %112
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %113, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %110, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i41
 
-115:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i31
-  %116 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  %117 = getelementptr inbounds nuw i8, ptr %87, i64 28
-  br label %118
+114:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPPNS2_4termESA_EEbT_T0_.exit.i31
+  %115 = getelementptr inbounds nuw i8, ptr %86, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %86, i64 28
+  br label %117
 
-118:                                              ; preds = %137, %115
-  %119 = phi i32 [ %89, %115 ], [ %.pre.i45, %137 ]
-  %.09.i.i33 = phi ptr [ %.020.i25, %115 ], [ %.0.i.i34, %137 ]
+117:                                              ; preds = %136, %114
+  %118 = phi i32 [ %88, %114 ], [ %.pre.i45, %136 ]
+  %.09.i.i33 = phi ptr [ %.020.i25, %114 ], [ %.0.i.i34, %136 ]
   %.0.i.i34 = getelementptr inbounds i8, ptr %.09.i.i33, i64 -8
-  %120 = load ptr, ptr %.0.i.i34, align 8, !tbaa !46
-  %trunc.i.i.i.i.i35 = trunc i32 %119 to i16
+  %119 = load ptr, ptr %.0.i.i34, align 8, !tbaa !46
+  %trunc.i.i.i.i.i35 = trunc i32 %118 to i16
   switch i16 %trunc.i.i.i.i.i35, label %_Z9get_depthPK4expr.exit.i.i.i.i36 [
-    i16 0, label %121
-    i16 2, label %124
+    i16 0, label %120
+    i16 2, label %123
   ]
 
-121:                                              ; preds = %118
-  %122 = load i16, ptr %117, align 4
-  %123 = zext i16 %122 to i32
+120:                                              ; preds = %117
+  %121 = load i16, ptr %116, align 4
+  %122 = zext i16 %121 to i32
   br label %_Z9get_depthPK4expr.exit.i.i.i.i36
 
-124:                                              ; preds = %118
-  %125 = load i32, ptr %116, align 8, !tbaa !484
+123:                                              ; preds = %117
+  %124 = load i32, ptr %115, align 8, !tbaa !484
   br label %_Z9get_depthPK4expr.exit.i.i.i.i36
 
-_Z9get_depthPK4expr.exit.i.i.i.i36:               ; preds = %124, %121, %118
-  %.0.i.i.i.i.i37 = phi i32 [ %123, %121 ], [ %125, %124 ], [ 1, %118 ]
-  %126 = load ptr, ptr %120, align 8, !tbaa !79
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
-  %128 = load i32, ptr %127, align 4
-  %trunc.i2.i.i.i.i38 = trunc i32 %128 to i16
+_Z9get_depthPK4expr.exit.i.i.i.i36:               ; preds = %123, %120, %117
+  %.0.i.i.i.i.i37 = phi i32 [ %122, %120 ], [ %124, %123 ], [ 1, %117 ]
+  %125 = load ptr, ptr %119, align 8, !tbaa !79
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  %127 = load i32, ptr %126, align 4
+  %trunc.i2.i.i.i.i38 = trunc i32 %127 to i16
   switch i16 %trunc.i2.i.i.i.i38, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i39 [
-    i16 0, label %129
-    i16 2, label %133
+    i16 0, label %128
+    i16 2, label %132
   ]
 
-129:                                              ; preds = %_Z9get_depthPK4expr.exit.i.i.i.i36
-  %130 = getelementptr inbounds nuw i8, ptr %126, i64 28
-  %131 = load i16, ptr %130, align 4
-  %132 = zext i16 %131 to i32
+128:                                              ; preds = %_Z9get_depthPK4expr.exit.i.i.i.i36
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 28
+  %130 = load i16, ptr %129, align 4
+  %131 = zext i16 %130 to i32
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i39
 
-133:                                              ; preds = %_Z9get_depthPK4expr.exit.i.i.i.i36
-  %134 = getelementptr inbounds nuw i8, ptr %126, i64 40
-  %135 = load i32, ptr %134, align 8, !tbaa !484
+132:                                              ; preds = %_Z9get_depthPK4expr.exit.i.i.i.i36
+  %133 = getelementptr inbounds nuw i8, ptr %125, i64 40
+  %134 = load i32, ptr %133, align 8, !tbaa !484
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i39
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i39: ; preds = %133, %129, %_Z9get_depthPK4expr.exit.i.i.i.i36
-  %.0.i3.i.i.i.i40 = phi i32 [ %132, %129 ], [ %135, %133 ], [ 1, %_Z9get_depthPK4expr.exit.i.i.i.i36 ]
-  %136 = icmp ult i32 %.0.i.i.i.i.i37, %.0.i3.i.i.i.i40
-  br i1 %136, label %137, label %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i41
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i39: ; preds = %132, %128, %_Z9get_depthPK4expr.exit.i.i.i.i36
+  %.0.i3.i.i.i.i40 = phi i32 [ %131, %128 ], [ %134, %132 ], [ 1, %_Z9get_depthPK4expr.exit.i.i.i.i36 ]
+  %135 = icmp ult i32 %.0.i.i.i.i.i37, %.0.i3.i.i.i.i40
+  br i1 %135, label %136, label %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i41
 
-137:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i39
-  store ptr %120, ptr %.09.i.i33, align 8, !tbaa !46
-  %.pre.i45 = load i32, ptr %88, align 4
-  br label %118, !llvm.loop !485
+136:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i39
+  store ptr %119, ptr %.09.i.i33, align 8, !tbaa !46
+  %.pre.i45 = load i32, ptr %87, align 4
+  br label %117, !llvm.loop !485
 
-_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i41: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i39, %108
-  %.sink.i42 = phi ptr [ %0, %108 ], [ %.09.i.i33, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i39 ]
-  store ptr %85, ptr %.sink.i42, align 8, !tbaa !46
+_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i41: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i39, %107
+  %.sink.i42 = phi ptr [ %0, %107 ], [ %.09.i.i33, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN3mbp10term_graph9projector10term_depthEEclIPNS2_4termEPS9_EEbRT_T0_.exit.i.i39 ]
+  store ptr %84, ptr %.sink.i42, align 8, !tbaa !46
   %.0.i43 = getelementptr inbounds nuw i8, ptr %.020.i25, i64 8
   %.not.i44 = icmp eq ptr %.0.i43, %1
   br i1 %.not.i44, label %_ZSt26__unguarded_insertion_sortIPPN3mbp4termEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_SB_T0_.exit, label %.lr.ph.i24, !llvm.loop !486
 
-_ZSt26__unguarded_insertion_sortIPPN3mbp4termEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_SB_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i41, %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i21, %83, %_ZSt16__insertion_sortIPPN3mbp4termEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_SB_T0_.exit
+_ZSt26__unguarded_insertion_sortIPPN3mbp4termEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_SB_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i41, %_ZSt25__unguarded_linear_insertIPPN3mbp4termEN9__gnu_cxx5__ops14_Val_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_T0_.exit.i21, %82, %_ZSt16__insertion_sortIPPN3mbp4termEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_10term_graph9projector10term_depthEEEEvT_SB_T0_.exit
   ret void
 }
 

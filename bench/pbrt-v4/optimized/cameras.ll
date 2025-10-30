@@ -10981,32 +10981,29 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt15RealisticCamera14Bound
   %53 = icmp samesign uge i64 %.023.i, %22
   %54 = icmp ult i64 %51, %24
   %55 = select i1 %53, i1 %54, i1 false
-  br i1 %55, label %.lr.ph.i, label %.lr.ph.i28.preheader, !llvm.loop !391
+  br i1 %55, label %.lr.ph.i, label %.lr.ph.i28, !llvm.loop !391
 
-.lr.ph.i28.preheader:                             ; preds = %.lr.ph.i
-  %56 = uitofp i64 %51 to float
-  %57 = fmul float %52, %56
-  %58 = fcmp ogt float %57, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i = select i1 %58, float 0x3FEFFFFFE0000000, float %57
-  br label %.lr.ph.i28
-
-.lr.ph.i28:                                       ; preds = %.lr.ph.i28.preheader, %.lr.ph.i28
-  %.023.i29 = phi i64 [ %59, %.lr.ph.i28 ], [ %indvars.iv, %.lr.ph.i28.preheader ]
-  %.01922.i30 = phi float [ %61, %.lr.ph.i28 ], [ 1.000000e+00, %.lr.ph.i28.preheader ]
-  %.02021.i31 = phi i64 [ %60, %.lr.ph.i28 ], [ 0, %.lr.ph.i28.preheader ]
-  %59 = udiv i64 %.023.i29, %28
-  %reass.add.i32 = sub i64 %.02021.i31, %59
+.lr.ph.i28:                                       ; preds = %.lr.ph.i, %.lr.ph.i28
+  %.023.i29 = phi i64 [ %56, %.lr.ph.i28 ], [ %indvars.iv, %.lr.ph.i ]
+  %.01922.i30 = phi float [ %58, %.lr.ph.i28 ], [ 1.000000e+00, %.lr.ph.i ]
+  %.02021.i31 = phi i64 [ %57, %.lr.ph.i28 ], [ 0, %.lr.ph.i ]
+  %56 = udiv i64 %.023.i29, %28
+  %reass.add.i32 = sub i64 %.02021.i31, %56
   %reass.mul.i33 = mul i64 %reass.add.i32, %28
-  %60 = add i64 %reass.mul.i33, %.023.i29
-  %61 = fmul float %32, %.01922.i30
-  %62 = icmp samesign uge i64 %.023.i29, %28
-  %63 = icmp ult i64 %60, %30
-  %64 = select i1 %62, i1 %63, i1 false
-  br i1 %64, label %.lr.ph.i28, label %._crit_edge.loopexit.i34, !llvm.loop !391
+  %57 = add i64 %reass.mul.i33, %.023.i29
+  %58 = fmul float %32, %.01922.i30
+  %59 = icmp samesign uge i64 %.023.i29, %28
+  %60 = icmp ult i64 %57, %30
+  %61 = select i1 %59, i1 %60, i1 false
+  br i1 %61, label %.lr.ph.i28, label %._crit_edge.loopexit.i34, !llvm.loop !391
 
 ._crit_edge.loopexit.i34:                         ; preds = %.lr.ph.i28
-  %65 = uitofp i64 %60 to float
-  %66 = fmul float %61, %65
+  %62 = uitofp i64 %51 to float
+  %63 = fmul float %52, %62
+  %64 = fcmp ogt float %63, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i = select i1 %64, float 0x3FEFFFFFE0000000, float %63
+  %65 = uitofp i64 %57 to float
+  %66 = fmul float %58, %65
   br label %_ZN4pbrt14RadicalInverseEim.exit36
 
 _ZN4pbrt14RadicalInverseEim.exit36:               ; preds = %41, %._crit_edge.loopexit.i34

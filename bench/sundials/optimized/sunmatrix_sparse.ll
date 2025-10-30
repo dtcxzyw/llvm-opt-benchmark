@@ -372,110 +372,110 @@ SUNMatZero_Sparse.exit:                           ; preds = %.lr.ph17.i, %.prehe
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load ptr, ptr %1, align 8, !tbaa !20
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %7 = load i32, ptr %6, align 8, !tbaa !21
-  %8 = icmp eq i32 %7, 0
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %. = select i1 %8, ptr %5, ptr %9
-  %.252 = select i1 %8, ptr %9, ptr %5
+  %4 = load ptr, ptr %1, align 8, !tbaa !20
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %6 = load i32, ptr %5, align 8, !tbaa !21
+  %7 = icmp eq i32 %6, 0
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %. = select i1 %7, ptr %4, ptr %8
+  %.252 = select i1 %7, ptr %8, ptr %4
   %.0247 = load i64, ptr %.252, align 8, !tbaa !43
   %.0248 = load i64, ptr %., align 8, !tbaa !43
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !35
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !34
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !33
-  %16 = load ptr, ptr %2, align 8, !tbaa !20
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !35
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %20 = load ptr, ptr %19, align 8, !tbaa !34
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !33
-  %23 = shl i64 %.0248, 3
-  %24 = tail call noalias ptr @malloc(i64 noundef %23) #18
-  %25 = tail call noalias ptr @malloc(i64 noundef %23) #18
-  %26 = icmp sgt i64 %.0247, 0
-  br i1 %26, label %.preheader262.lr.ph, label %.loopexit254
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %10 = load ptr, ptr %9, align 8, !tbaa !35
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %12 = load ptr, ptr %11, align 8, !tbaa !34
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %14 = load ptr, ptr %13, align 8, !tbaa !33
+  %15 = load ptr, ptr %2, align 8, !tbaa !20
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %17 = load ptr, ptr %16, align 8, !tbaa !35
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %19 = load ptr, ptr %18, align 8, !tbaa !34
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %21 = load ptr, ptr %20, align 8, !tbaa !33
+  %22 = shl i64 %.0248, 3
+  %23 = tail call noalias ptr @malloc(i64 noundef %22) #18
+  %24 = tail call noalias ptr @malloc(i64 noundef %22) #18
+  %25 = icmp sgt i64 %.0247, 0
+  br i1 %25, label %.preheader262.lr.ph, label %.loopexit254
 
 .preheader262.lr.ph:                              ; preds = %3
-  %27 = icmp sgt i64 %.0248, 0
+  %26 = icmp sgt i64 %.0248, 0
   br label %.preheader262
 
 .loopexit261:                                     ; preds = %.lr.ph275, %.preheader260
   %.1250.lcssa = phi i64 [ %.0249277, %.preheader260 ], [ %spec.select, %.lr.ph275 ]
-  %exitcond338.not = icmp eq i64 %30, %.0247
+  %exitcond338.not = icmp eq i64 %29, %.0247
   br i1 %exitcond338.not, label %._crit_edge279, label %.preheader262
 
 .preheader262:                                    ; preds = %.preheader262.lr.ph, %.loopexit261
-  %.0278 = phi i64 [ 0, %.preheader262.lr.ph ], [ %30, %.loopexit261 ]
+  %.0278 = phi i64 [ 0, %.preheader262.lr.ph ], [ %29, %.loopexit261 ]
   %.0249277 = phi i64 [ 0, %.preheader262.lr.ph ], [ %.1250.lcssa, %.loopexit261 ]
-  br i1 %27, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %26, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader262
-  tail call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %23, i1 false), !tbaa !43
+  tail call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 %22, i1 false), !tbaa !43
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader262
-  %28 = getelementptr inbounds nuw i64, ptr %11, i64 %.0278
-  %29 = load i64, ptr %28, align 8, !tbaa !43
-  %30 = add nuw nsw i64 %.0278, 1
-  %31 = getelementptr inbounds nuw i64, ptr %11, i64 %30
-  %32 = load i64, ptr %31, align 8, !tbaa !43
-  %33 = icmp slt i64 %29, %32
-  br i1 %33, label %.lr.ph268, label %._crit_edge269
+  %27 = getelementptr inbounds nuw i64, ptr %10, i64 %.0278
+  %28 = load i64, ptr %27, align 8, !tbaa !43
+  %29 = add nuw nsw i64 %.0278, 1
+  %30 = getelementptr inbounds nuw i64, ptr %10, i64 %29
+  %31 = load i64, ptr %30, align 8, !tbaa !43
+  %32 = icmp slt i64 %28, %31
+  br i1 %32, label %.lr.ph268, label %._crit_edge269
 
 .lr.ph268:                                        ; preds = %._crit_edge, %.lr.ph268
-  %.1232266 = phi i64 [ %39, %.lr.ph268 ], [ %29, %._crit_edge ]
-  %34 = getelementptr inbounds i64, ptr %13, i64 %.1232266
-  %35 = load i64, ptr %34, align 8, !tbaa !43
-  %36 = getelementptr inbounds i64, ptr %24, i64 %35
-  %37 = load i64, ptr %36, align 8, !tbaa !43
-  %38 = add nsw i64 %37, 1
-  store i64 %38, ptr %36, align 8, !tbaa !43
-  %39 = add nsw i64 %.1232266, 1
-  %exitcond.not = icmp eq i64 %39, %32
+  %.1232266 = phi i64 [ %38, %.lr.ph268 ], [ %28, %._crit_edge ]
+  %33 = getelementptr inbounds i64, ptr %12, i64 %.1232266
+  %34 = load i64, ptr %33, align 8, !tbaa !43
+  %35 = getelementptr inbounds i64, ptr %23, i64 %34
+  %36 = load i64, ptr %35, align 8, !tbaa !43
+  %37 = add nsw i64 %36, 1
+  store i64 %37, ptr %35, align 8, !tbaa !43
+  %38 = add nsw i64 %.1232266, 1
+  %exitcond.not = icmp eq i64 %38, %31
   br i1 %exitcond.not, label %._crit_edge269, label %.lr.ph268
 
 ._crit_edge269:                                   ; preds = %.lr.ph268, %._crit_edge
-  %40 = getelementptr inbounds nuw i64, ptr %18, i64 %.0278
-  %41 = load i64, ptr %40, align 8, !tbaa !43
-  %42 = getelementptr inbounds nuw i64, ptr %18, i64 %30
-  %43 = load i64, ptr %42, align 8, !tbaa !43
-  %44 = icmp slt i64 %41, %43
-  br i1 %44, label %.lr.ph272, label %.preheader260
+  %39 = getelementptr inbounds nuw i64, ptr %17, i64 %.0278
+  %40 = load i64, ptr %39, align 8, !tbaa !43
+  %41 = getelementptr inbounds nuw i64, ptr %17, i64 %29
+  %42 = load i64, ptr %41, align 8, !tbaa !43
+  %43 = icmp slt i64 %40, %42
+  br i1 %43, label %.lr.ph272, label %.preheader260
 
 .preheader260:                                    ; preds = %.lr.ph272, %._crit_edge269
-  br i1 %27, label %.lr.ph275, label %.loopexit261
+  br i1 %26, label %.lr.ph275, label %.loopexit261
 
 .lr.ph272:                                        ; preds = %._crit_edge269, %.lr.ph272
-  %.2233270 = phi i64 [ %50, %.lr.ph272 ], [ %41, %._crit_edge269 ]
-  %45 = getelementptr inbounds i64, ptr %20, i64 %.2233270
-  %46 = load i64, ptr %45, align 8, !tbaa !43
-  %47 = getelementptr inbounds i64, ptr %24, i64 %46
-  %48 = load i64, ptr %47, align 8, !tbaa !43
-  %49 = add nsw i64 %48, -1
-  store i64 %49, ptr %47, align 8, !tbaa !43
-  %50 = add nsw i64 %.2233270, 1
-  %exitcond336.not = icmp eq i64 %50, %43
+  %.2233270 = phi i64 [ %49, %.lr.ph272 ], [ %40, %._crit_edge269 ]
+  %44 = getelementptr inbounds i64, ptr %19, i64 %.2233270
+  %45 = load i64, ptr %44, align 8, !tbaa !43
+  %46 = getelementptr inbounds i64, ptr %23, i64 %45
+  %47 = load i64, ptr %46, align 8, !tbaa !43
+  %48 = add nsw i64 %47, -1
+  store i64 %48, ptr %46, align 8, !tbaa !43
+  %49 = add nsw i64 %.2233270, 1
+  %exitcond336.not = icmp eq i64 %49, %42
   br i1 %exitcond336.not, label %.preheader260, label %.lr.ph272
 
 .lr.ph275:                                        ; preds = %.preheader260, %.lr.ph275
-  %.3234274 = phi i64 [ %54, %.lr.ph275 ], [ 0, %.preheader260 ]
+  %.3234274 = phi i64 [ %53, %.lr.ph275 ], [ 0, %.preheader260 ]
   %.1250273 = phi i64 [ %spec.select, %.lr.ph275 ], [ %.0249277, %.preheader260 ]
-  %51 = getelementptr inbounds nuw i64, ptr %24, i64 %.3234274
-  %52 = load i64, ptr %51, align 8, !tbaa !43
-  %53 = lshr i64 %52, 63
-  %spec.select = add nsw i64 %53, %.1250273
-  %54 = add nuw nsw i64 %.3234274, 1
-  %exitcond337.not = icmp eq i64 %54, %.0248
+  %50 = getelementptr inbounds nuw i64, ptr %23, i64 %.3234274
+  %51 = load i64, ptr %50, align 8, !tbaa !43
+  %52 = lshr i64 %51, 63
+  %spec.select = add nsw i64 %52, %.1250273
+  %53 = add nuw nsw i64 %.3234274, 1
+  %exitcond337.not = icmp eq i64 %53, %.0248
   br i1 %exitcond337.not, label %.loopexit261, label %.lr.ph275
 
 ._crit_edge279:                                   ; preds = %.loopexit261
-  %55 = getelementptr inbounds nuw i64, ptr %11, i64 %.0247
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %55 = getelementptr inbounds nuw i64, ptr %10, i64 %.0247
   %56 = load i64, ptr %55, align 8, !tbaa !43
   %57 = icmp eq i64 %.1250.lcssa, 0
   br i1 %57, label %.preheader.lr.ph, label %84
@@ -493,45 +493,45 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   br i1 %58, label %.lr.ph324.preheader, label %._crit_edge325
 
 .lr.ph324.preheader:                              ; preds = %.preheader
-  tail call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %23, i1 false), !tbaa !41
+  tail call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %22, i1 false), !tbaa !41
   br label %._crit_edge325
 
 ._crit_edge325:                                   ; preds = %.lr.ph324.preheader, %.preheader
-  %59 = getelementptr inbounds nuw i64, ptr %18, i64 %.1334
+  %59 = getelementptr inbounds nuw i64, ptr %17, i64 %.1334
   %60 = load i64, ptr %59, align 8, !tbaa !43
   %61 = add nuw nsw i64 %.1334, 1
-  %62 = getelementptr inbounds nuw i64, ptr %18, i64 %61
+  %62 = getelementptr inbounds nuw i64, ptr %17, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !43
   %64 = icmp slt i64 %60, %63
   br i1 %64, label %.lr.ph328, label %._crit_edge329
 
 .lr.ph328:                                        ; preds = %._crit_edge325, %.lr.ph328
   %.5326 = phi i64 [ %70, %.lr.ph328 ], [ %60, %._crit_edge325 ]
-  %65 = getelementptr inbounds double, ptr %22, i64 %.5326
+  %65 = getelementptr inbounds double, ptr %21, i64 %.5326
   %66 = load double, ptr %65, align 8, !tbaa !41
-  %67 = getelementptr inbounds i64, ptr %20, i64 %.5326
+  %67 = getelementptr inbounds i64, ptr %19, i64 %.5326
   %68 = load i64, ptr %67, align 8, !tbaa !43
-  %69 = getelementptr inbounds double, ptr %25, i64 %68
+  %69 = getelementptr inbounds double, ptr %24, i64 %68
   store double %66, ptr %69, align 8, !tbaa !41
   %70 = add nsw i64 %.5326, 1
   %exitcond345.not = icmp eq i64 %70, %63
   br i1 %exitcond345.not, label %._crit_edge329, label %.lr.ph328
 
 ._crit_edge329:                                   ; preds = %.lr.ph328, %._crit_edge325
-  %71 = getelementptr inbounds nuw i64, ptr %11, i64 %.1334
+  %71 = getelementptr inbounds nuw i64, ptr %10, i64 %.1334
   %72 = load i64, ptr %71, align 8, !tbaa !43
-  %73 = getelementptr inbounds nuw i64, ptr %11, i64 %61
+  %73 = getelementptr inbounds nuw i64, ptr %10, i64 %61
   %74 = load i64, ptr %73, align 8, !tbaa !43
   %75 = icmp slt i64 %72, %74
   br i1 %75, label %.lr.ph333, label %.loopexit
 
 .lr.ph333:                                        ; preds = %._crit_edge329, %.lr.ph333
   %.6331 = phi i64 [ %83, %.lr.ph333 ], [ %72, %._crit_edge329 ]
-  %76 = getelementptr inbounds double, ptr %15, i64 %.6331
+  %76 = getelementptr inbounds double, ptr %14, i64 %.6331
   %77 = load double, ptr %76, align 8, !tbaa !41
-  %78 = getelementptr inbounds i64, ptr %13, i64 %.6331
+  %78 = getelementptr inbounds i64, ptr %12, i64 %.6331
   %79 = load i64, ptr %78, align 8, !tbaa !43
-  %80 = getelementptr inbounds double, ptr %25, i64 %79
+  %80 = getelementptr inbounds double, ptr %24, i64 %79
   %81 = load double, ptr %80, align 8, !tbaa !41
   %82 = tail call double @llvm.fmuladd.f64(double %0, double %77, double %81)
   store double %82, ptr %76, align 8, !tbaa !41
@@ -540,7 +540,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   br i1 %exitcond346.not, label %.loopexit, label %.lr.ph333
 
 84:                                               ; preds = %._crit_edge279
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %86 = load i64, ptr %85, align 8, !tbaa !30
   %87 = sub nsw i64 %86, %56
   %.not = icmp sgt i64 %.1250.lcssa, %87
@@ -560,37 +560,37 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   br i1 %89, label %.lr.ph281.preheader, label %._crit_edge282
 
 .lr.ph281.preheader:                              ; preds = %.preheader258
-  tail call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %23, i1 false), !tbaa !43
-  tail call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %23, i1 false), !tbaa !41
+  tail call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 %22, i1 false), !tbaa !43
+  tail call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %22, i1 false), !tbaa !41
   br label %._crit_edge282
 
 ._crit_edge282:                                   ; preds = %.lr.ph281.preheader, %.preheader258
-  %90 = getelementptr inbounds nuw i64, ptr %11, i64 %.2300
+  %90 = getelementptr inbounds nuw i64, ptr %10, i64 %.2300
   %91 = load i64, ptr %90, align 8, !tbaa !43
   %92 = icmp slt i64 %91, %.0246297
   br i1 %92, label %.lr.ph285, label %._crit_edge286
 
 .lr.ph285:                                        ; preds = %._crit_edge282, %.lr.ph285
   %.0235283 = phi i64 [ %102, %.lr.ph285 ], [ %91, %._crit_edge282 ]
-  %93 = getelementptr inbounds i64, ptr %13, i64 %.0235283
+  %93 = getelementptr inbounds i64, ptr %12, i64 %.0235283
   %94 = load i64, ptr %93, align 8, !tbaa !43
-  %95 = getelementptr inbounds i64, ptr %24, i64 %94
+  %95 = getelementptr inbounds i64, ptr %23, i64 %94
   %96 = load i64, ptr %95, align 8, !tbaa !43
   %97 = add nsw i64 %96, 1
   store i64 %97, ptr %95, align 8, !tbaa !43
-  %98 = getelementptr inbounds double, ptr %15, i64 %.0235283
+  %98 = getelementptr inbounds double, ptr %14, i64 %.0235283
   %99 = load double, ptr %98, align 8, !tbaa !41
   %100 = fmul double %0, %99
-  %101 = getelementptr inbounds double, ptr %25, i64 %94
+  %101 = getelementptr inbounds double, ptr %24, i64 %94
   store double %100, ptr %101, align 8, !tbaa !41
   %102 = add nsw i64 %.0235283, 1
   %exitcond339.not = icmp eq i64 %102, %.0246297
   br i1 %exitcond339.not, label %._crit_edge286, label %.lr.ph285
 
 ._crit_edge286:                                   ; preds = %.lr.ph285, %._crit_edge282
-  %103 = getelementptr inbounds nuw i64, ptr %18, i64 %.2300
+  %103 = getelementptr inbounds nuw i64, ptr %17, i64 %.2300
   %104 = load i64, ptr %103, align 8, !tbaa !43
-  %105 = getelementptr inbounds nuw i64, ptr %18, i64 %.2.in299
+  %105 = getelementptr inbounds nuw i64, ptr %17, i64 %.2.in299
   %106 = load i64, ptr %105, align 8, !tbaa !43
   %107 = icmp slt i64 %104, %106
   br i1 %107, label %.lr.ph289, label %.preheader257
@@ -600,15 +600,15 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
 
 .lr.ph289:                                        ; preds = %._crit_edge286, %.lr.ph289
   %.1236287 = phi i64 [ %118, %.lr.ph289 ], [ %104, %._crit_edge286 ]
-  %108 = getelementptr inbounds i64, ptr %20, i64 %.1236287
+  %108 = getelementptr inbounds i64, ptr %19, i64 %.1236287
   %109 = load i64, ptr %108, align 8, !tbaa !43
-  %110 = getelementptr inbounds i64, ptr %24, i64 %109
+  %110 = getelementptr inbounds i64, ptr %23, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !43
   %112 = add nsw i64 %111, 1
   store i64 %112, ptr %110, align 8, !tbaa !43
-  %113 = getelementptr inbounds double, ptr %22, i64 %.1236287
+  %113 = getelementptr inbounds double, ptr %21, i64 %.1236287
   %114 = load double, ptr %113, align 8, !tbaa !41
-  %115 = getelementptr inbounds double, ptr %25, i64 %109
+  %115 = getelementptr inbounds double, ptr %24, i64 %109
   %116 = load double, ptr %115, align 8, !tbaa !41
   %117 = fadd double %114, %116
   store double %117, ptr %115, align 8, !tbaa !41
@@ -620,18 +620,18 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   %.8292.in = phi i64 [ %.8292, %128 ], [ %.0248, %.preheader257 ]
   %.1240291 = phi i64 [ %.2241, %128 ], [ %.0239298, %.preheader257 ]
   %.8292 = add nsw i64 %.8292.in, -1
-  %119 = getelementptr inbounds nuw i64, ptr %24, i64 %.8292
+  %119 = getelementptr inbounds nuw i64, ptr %23, i64 %.8292
   %120 = load i64, ptr %119, align 8, !tbaa !43
   %121 = icmp sgt i64 %120, 0
   br i1 %121, label %122, label %128
 
 122:                                              ; preds = %.lr.ph293
   %123 = add nsw i64 %.1240291, -1
-  %124 = getelementptr inbounds i64, ptr %13, i64 %123
+  %124 = getelementptr inbounds i64, ptr %12, i64 %123
   store i64 %.8292, ptr %124, align 8, !tbaa !43
-  %125 = getelementptr inbounds nuw double, ptr %25, i64 %.8292
+  %125 = getelementptr inbounds nuw double, ptr %24, i64 %.8292
   %126 = load double, ptr %125, align 8, !tbaa !41
-  %127 = getelementptr inbounds double, ptr %15, i64 %123
+  %127 = getelementptr inbounds double, ptr %14, i64 %123
   store double %126, ptr %127, align 8, !tbaa !41
   br label %128
 
@@ -652,11 +652,11 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   br i1 %131, label %.preheader258, label %.loopexit254
 
 .lr.ph320:                                        ; preds = %84
-  %132 = load i64, ptr %5, align 8, !tbaa !28
-  %133 = load i64, ptr %9, align 8, !tbaa !29
+  %132 = load i64, ptr %4, align 8, !tbaa !28
+  %133 = load i64, ptr %8, align 8, !tbaa !29
   %134 = add nsw i64 %56, %.1250.lcssa
-  %135 = load ptr, ptr %4, align 8, !tbaa !36
-  %136 = tail call ptr @SUNSparseMatrix(i64 noundef %132, i64 noundef %133, i64 noundef %134, i32 noundef %7, ptr noundef %135)
+  %135 = load ptr, ptr %54, align 8, !tbaa !36
+  %136 = tail call ptr @SUNSparseMatrix(i64 noundef %132, i64 noundef %133, i64 noundef %134, i32 noundef %6, ptr noundef %135)
   %137 = load ptr, ptr %136, align 8, !tbaa !20
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 56
   %139 = load ptr, ptr %138, align 8, !tbaa !35
@@ -680,40 +680,40 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   br i1 %144, label %.lr.ph303.preheader, label %._crit_edge304
 
 .lr.ph303.preheader:                              ; preds = %145
-  tail call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %23, i1 false), !tbaa !43
-  tail call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %23, i1 false), !tbaa !41
+  tail call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 %22, i1 false), !tbaa !43
+  tail call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %22, i1 false), !tbaa !41
   br label %._crit_edge304
 
 ._crit_edge304:                                   ; preds = %.lr.ph303.preheader, %145
-  %147 = getelementptr inbounds nuw i64, ptr %11, i64 %.3318
+  %147 = getelementptr inbounds nuw i64, ptr %10, i64 %.3318
   %148 = load i64, ptr %147, align 8, !tbaa !43
   %149 = add nuw nsw i64 %.3318, 1
-  %150 = getelementptr inbounds nuw i64, ptr %11, i64 %149
+  %150 = getelementptr inbounds nuw i64, ptr %10, i64 %149
   %151 = load i64, ptr %150, align 8, !tbaa !43
   %152 = icmp slt i64 %148, %151
   br i1 %152, label %.lr.ph307, label %._crit_edge308
 
 .lr.ph307:                                        ; preds = %._crit_edge304, %.lr.ph307
   %.2237305 = phi i64 [ %162, %.lr.ph307 ], [ %148, %._crit_edge304 ]
-  %153 = getelementptr inbounds i64, ptr %13, i64 %.2237305
+  %153 = getelementptr inbounds i64, ptr %12, i64 %.2237305
   %154 = load i64, ptr %153, align 8, !tbaa !43
-  %155 = getelementptr inbounds i64, ptr %24, i64 %154
+  %155 = getelementptr inbounds i64, ptr %23, i64 %154
   %156 = load i64, ptr %155, align 8, !tbaa !43
   %157 = add nsw i64 %156, 1
   store i64 %157, ptr %155, align 8, !tbaa !43
-  %158 = getelementptr inbounds double, ptr %15, i64 %.2237305
+  %158 = getelementptr inbounds double, ptr %14, i64 %.2237305
   %159 = load double, ptr %158, align 8, !tbaa !41
   %160 = fmul double %0, %159
-  %161 = getelementptr inbounds double, ptr %25, i64 %154
+  %161 = getelementptr inbounds double, ptr %24, i64 %154
   store double %160, ptr %161, align 8, !tbaa !41
   %162 = add nsw i64 %.2237305, 1
   %exitcond341.not = icmp eq i64 %162, %151
   br i1 %exitcond341.not, label %._crit_edge308, label %.lr.ph307
 
 ._crit_edge308:                                   ; preds = %.lr.ph307, %._crit_edge304
-  %163 = getelementptr inbounds nuw i64, ptr %18, i64 %.3318
+  %163 = getelementptr inbounds nuw i64, ptr %17, i64 %.3318
   %164 = load i64, ptr %163, align 8, !tbaa !43
-  %165 = getelementptr inbounds nuw i64, ptr %18, i64 %149
+  %165 = getelementptr inbounds nuw i64, ptr %17, i64 %149
   %166 = load i64, ptr %165, align 8, !tbaa !43
   %167 = icmp slt i64 %164, %166
   br i1 %167, label %.lr.ph312, label %.preheader255
@@ -723,15 +723,15 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
 
 .lr.ph312:                                        ; preds = %._crit_edge308, %.lr.ph312
   %.3238310 = phi i64 [ %178, %.lr.ph312 ], [ %164, %._crit_edge308 ]
-  %168 = getelementptr inbounds i64, ptr %20, i64 %.3238310
+  %168 = getelementptr inbounds i64, ptr %19, i64 %.3238310
   %169 = load i64, ptr %168, align 8, !tbaa !43
-  %170 = getelementptr inbounds i64, ptr %24, i64 %169
+  %170 = getelementptr inbounds i64, ptr %23, i64 %169
   %171 = load i64, ptr %170, align 8, !tbaa !43
   %172 = add nsw i64 %171, 1
   store i64 %172, ptr %170, align 8, !tbaa !43
-  %173 = getelementptr inbounds double, ptr %22, i64 %.3238310
+  %173 = getelementptr inbounds double, ptr %21, i64 %.3238310
   %174 = load double, ptr %173, align 8, !tbaa !41
-  %175 = getelementptr inbounds double, ptr %25, i64 %169
+  %175 = getelementptr inbounds double, ptr %24, i64 %169
   %176 = load double, ptr %175, align 8, !tbaa !41
   %177 = fadd double %174, %176
   store double %177, ptr %175, align 8, !tbaa !41
@@ -742,7 +742,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
 .lr.ph315:                                        ; preds = %.preheader255, %188
   %.10314 = phi i64 [ %189, %188 ], [ 0, %.preheader255 ]
   %.4243313 = phi i64 [ %.5244, %188 ], [ %.3242317, %.preheader255 ]
-  %179 = getelementptr inbounds nuw i64, ptr %24, i64 %.10314
+  %179 = getelementptr inbounds nuw i64, ptr %23, i64 %.10314
   %180 = load i64, ptr %179, align 8, !tbaa !43
   %181 = icmp sgt i64 %180, 0
   br i1 %181, label %182, label %188
@@ -750,7 +750,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
 182:                                              ; preds = %.lr.ph315
   %183 = getelementptr inbounds i64, ptr %141, i64 %.4243313
   store i64 %.10314, ptr %183, align 8, !tbaa !43
-  %184 = getelementptr inbounds nuw double, ptr %25, i64 %.10314
+  %184 = getelementptr inbounds nuw double, ptr %24, i64 %.10314
   %185 = load double, ptr %184, align 8, !tbaa !41
   %186 = add nsw i64 %.4243313, 1
   %187 = getelementptr inbounds double, ptr %143, i64 %.4243313
@@ -805,8 +805,8 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr noundef readonl
   br label %.loopexit254
 
 .loopexit254:                                     ; preds = %._crit_edge294, %.loopexit, %3, %._crit_edge321
+  tail call void @free(ptr noundef %23) #17
   tail call void @free(ptr noundef %24) #17
-  tail call void @free(ptr noundef %25) #17
   ret i32 0
 }
 
@@ -1118,55 +1118,55 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @SUNSparseFromDenseMatrix(ptr noundef readonly captures(none) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %0, align 8, !tbaa !20
-  %6 = load i64, ptr %5, align 8, !tbaa !44
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !47
-  %9 = icmp sgt i64 %8, 0
-  %10 = icmp sgt i64 %6, 0
-  %or.cond = select i1 %9, i1 %10, i1 false
+  %4 = load ptr, ptr %0, align 8, !tbaa !20
+  %5 = load i64, ptr %4, align 8, !tbaa !44
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %7 = load i64, ptr %6, align 8, !tbaa !47
+  %8 = icmp sgt i64 %7, 0
+  %9 = icmp sgt i64 %5, 0
+  %or.cond = select i1 %8, i1 %9, i1 false
   br i1 %or.cond, label %.preheader77.lr.ph.split.us, label %._crit_edge82
 
 .preheader77.lr.ph.split.us:                      ; preds = %3
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !48
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %11 = load ptr, ptr %10, align 8, !tbaa !48
   br label %.preheader77.us
 
 .preheader77.us:                                  ; preds = %._crit_edge.us, %.preheader77.lr.ph.split.us
-  %.06881.us = phi i64 [ 0, %.preheader77.lr.ph.split.us ], [ %23, %._crit_edge.us ]
-  %.07180.us = phi i64 [ 0, %.preheader77.lr.ph.split.us ], [ %21, %._crit_edge.us ]
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.06881.us
-  %14 = load ptr, ptr %13, align 8, !tbaa !49
-  br label %15
+  %.06881.us = phi i64 [ 0, %.preheader77.lr.ph.split.us ], [ %22, %._crit_edge.us ]
+  %.07180.us = phi i64 [ 0, %.preheader77.lr.ph.split.us ], [ %20, %._crit_edge.us ]
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06881.us
+  %13 = load ptr, ptr %12, align 8, !tbaa !49
+  br label %14
 
-15:                                               ; preds = %.preheader77.us, %15
-  %.079.us = phi i64 [ 0, %.preheader77.us ], [ %22, %15 ]
-  %.17278.us = phi i64 [ %.07180.us, %.preheader77.us ], [ %21, %15 ]
-  %16 = getelementptr inbounds nuw double, ptr %14, i64 %.079.us
-  %17 = load double, ptr %16, align 8, !tbaa !41
-  %18 = tail call double @llvm.fabs.f64(double %17)
-  %19 = fcmp ogt double %18, %1
-  %20 = zext i1 %19 to i64
-  %21 = add nsw i64 %.17278.us, %20
-  %22 = add nuw nsw i64 %.079.us, 1
-  %exitcond.not = icmp eq i64 %22, %6
-  br i1 %exitcond.not, label %._crit_edge.us, label %15
+14:                                               ; preds = %.preheader77.us, %14
+  %.079.us = phi i64 [ 0, %.preheader77.us ], [ %21, %14 ]
+  %.17278.us = phi i64 [ %.07180.us, %.preheader77.us ], [ %20, %14 ]
+  %15 = getelementptr inbounds nuw double, ptr %13, i64 %.079.us
+  %16 = load double, ptr %15, align 8, !tbaa !41
+  %17 = tail call double @llvm.fabs.f64(double %16)
+  %18 = fcmp ogt double %17, %1
+  %19 = zext i1 %18 to i64
+  %20 = add nsw i64 %.17278.us, %19
+  %21 = add nuw nsw i64 %.079.us, 1
+  %exitcond.not = icmp eq i64 %21, %5
+  br i1 %exitcond.not, label %._crit_edge.us, label %14
 
-._crit_edge.us:                                   ; preds = %15
-  %23 = add nuw nsw i64 %.06881.us, 1
-  %exitcond108.not = icmp eq i64 %23, %8
+._crit_edge.us:                                   ; preds = %14
+  %22 = add nuw nsw i64 %.06881.us, 1
+  %exitcond108.not = icmp eq i64 %22, %7
   br i1 %exitcond108.not, label %._crit_edge82, label %.preheader77.us
 
 ._crit_edge82:                                    ; preds = %._crit_edge.us, %3
-  %.071.lcssa = phi i64 [ 0, %3 ], [ %21, %._crit_edge.us ]
-  %24 = load ptr, ptr %4, align 8, !tbaa !36
-  %25 = tail call ptr @SUNSparseMatrix(i64 noundef %6, i64 noundef %8, i64 noundef %.071.lcssa, i32 noundef %2, ptr noundef %24)
+  %.071.lcssa = phi i64 [ 0, %3 ], [ %20, %._crit_edge.us ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load ptr, ptr %23, align 8, !tbaa !36
+  %25 = tail call ptr @SUNSparseMatrix(i64 noundef %5, i64 noundef %7, i64 noundef %.071.lcssa, i32 noundef %2, ptr noundef %24)
   %26 = icmp eq i32 %2, 0
   br i1 %26, label %.preheader, label %.preheader76
 
 .preheader76:                                     ; preds = %._crit_edge82
-  %27 = icmp sgt i64 %6, 0
+  %27 = icmp sgt i64 %5, 0
   %.pre = load ptr, ptr %25, align 8, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !35
@@ -1175,10 +1175,10 @@ define noundef ptr @SUNSparseFromDenseMatrix(ptr noundef readonly captures(none)
 .lr.ph88:                                         ; preds = %.preheader76
   %30 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %31 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  br i1 %9, label %.lr.ph88.split.us, label %.lr.ph88.split.preheader
+  br i1 %8, label %.lr.ph88.split.us, label %.lr.ph88.split.preheader
 
 .lr.ph88.split.preheader:                         ; preds = %.lr.ph88
-  %32 = shl nuw i64 %6, 3
+  %32 = shl nuw i64 %5, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %29, i8 0, i64 %32, i1 false), !tbaa !43
   br label %._crit_edge89
 
@@ -1219,28 +1219,28 @@ define noundef ptr @SUNSparseFromDenseMatrix(ptr noundef readonly captures(none)
 50:                                               ; preds = %44, %37
   %.7.us = phi i64 [ %48, %44 ], [ %.684.us, %37 ]
   %51 = add nuw nsw i64 %.27085.us, 1
-  %exitcond109.not = icmp eq i64 %51, %8
+  %exitcond109.not = icmp eq i64 %51, %7
   br i1 %exitcond109.not, label %._crit_edge.us91, label %37
 
 ._crit_edge.us91:                                 ; preds = %50
   %52 = add nuw nsw i64 %.287.us, 1
-  %exitcond110.not = icmp eq i64 %52, %6
+  %exitcond110.not = icmp eq i64 %52, %5
   br i1 %exitcond110.not, label %._crit_edge89, label %.lr.ph.us
 
 .preheader:                                       ; preds = %._crit_edge82
   %.pre114 = load ptr, ptr %25, align 8, !tbaa !20
   %53 = getelementptr inbounds nuw i8, ptr %.pre114, i64 56
   %54 = load ptr, ptr %53, align 8, !tbaa !35
-  br i1 %9, label %.lr.ph98, label %._crit_edge99
+  br i1 %8, label %.lr.ph98, label %._crit_edge99
 
 .lr.ph98:                                         ; preds = %.preheader
-  %55 = icmp sgt i64 %6, 0
+  %55 = icmp sgt i64 %5, 0
   %56 = getelementptr inbounds nuw i8, ptr %.pre114, i64 48
   %57 = getelementptr inbounds nuw i8, ptr %.pre114, i64 32
   br i1 %55, label %.lr.ph98.split.us, label %.lr.ph98.split.preheader
 
 .lr.ph98.split.preheader:                         ; preds = %.lr.ph98
-  %58 = shl nuw i64 %8, 3
+  %58 = shl nuw i64 %7, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %54, i8 0, i64 %58, i1 false), !tbaa !43
   br label %._crit_edge99
 
@@ -1281,23 +1281,23 @@ define noundef ptr @SUNSparseFromDenseMatrix(ptr noundef readonly captures(none)
 76:                                               ; preds = %70, %65
   %.4.us = phi i64 [ %74, %70 ], [ %.394.us, %65 ]
   %77 = add nuw nsw i64 %.195.us, 1
-  %exitcond111.not = icmp eq i64 %77, %6
+  %exitcond111.not = icmp eq i64 %77, %5
   br i1 %exitcond111.not, label %._crit_edge.us102, label %65
 
 ._crit_edge.us102:                                ; preds = %76
   %78 = add nuw nsw i64 %.16997.us, 1
-  %exitcond112.not = icmp eq i64 %78, %8
+  %exitcond112.not = icmp eq i64 %78, %7
   br i1 %exitcond112.not, label %._crit_edge99, label %.lr.ph.us101
 
 ._crit_edge99:                                    ; preds = %._crit_edge.us102, %.preheader, %.lr.ph98.split.preheader
   %.273.lcssa = phi i64 [ 0, %.lr.ph98.split.preheader ], [ 0, %.preheader ], [ %.4.us, %._crit_edge.us102 ]
-  %79 = getelementptr inbounds i64, ptr %54, i64 %8
+  %79 = getelementptr inbounds i64, ptr %54, i64 %7
   store i64 %.273.lcssa, ptr %79, align 8, !tbaa !43
   br label %81
 
 ._crit_edge89:                                    ; preds = %._crit_edge.us91, %.preheader76, %.lr.ph88.split.preheader
   %.5.lcssa = phi i64 [ 0, %.lr.ph88.split.preheader ], [ 0, %.preheader76 ], [ %.7.us, %._crit_edge.us91 ]
-  %80 = getelementptr inbounds i64, ptr %29, i64 %6
+  %80 = getelementptr inbounds i64, ptr %29, i64 %5
   store i64 %.5.lcssa, ptr %80, align 8, !tbaa !43
   br label %81
 
@@ -1310,71 +1310,71 @@ declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %0, align 8, !tbaa !20
-  %6 = load i64, ptr %5, align 8, !tbaa !50
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !52
-  %9 = icmp sgt i64 %8, 0
-  br i1 %9, label %.lr.ph136, label %._crit_edge137
+  %4 = load ptr, ptr %0, align 8, !tbaa !20
+  %5 = load i64, ptr %4, align 8, !tbaa !50
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %7 = load i64, ptr %6, align 8, !tbaa !52
+  %8 = icmp sgt i64 %7, 0
+  br i1 %8, label %.lr.ph136, label %._crit_edge137
 
 .lr.ph136:                                        ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %11 = load i64, ptr %10, align 8, !tbaa !53
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %13 = load i64, ptr %12, align 8, !tbaa !54
-  %14 = add nsw i64 %6, -1
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  br label %17
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %10 = load i64, ptr %9, align 8, !tbaa !53
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %12 = load i64, ptr %11, align 8, !tbaa !54
+  %13 = add nsw i64 %5, -1
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  br label %16
 
-17:                                               ; preds = %.lr.ph136, %._crit_edge
-  %.0105134 = phi i64 [ 0, %.lr.ph136 ], [ %33, %._crit_edge ]
+16:                                               ; preds = %.lr.ph136, %._crit_edge
+  %.0105134 = phi i64 [ 0, %.lr.ph136 ], [ %32, %._crit_edge ]
   %.0108133 = phi i64 [ 0, %.lr.ph136 ], [ %.1109.lcssa, %._crit_edge ]
-  %18 = sub nsw i64 %.0105134, %11
-  %spec.select = tail call i64 @llvm.smax.i64(i64 %18, i64 0)
-  %19 = add nsw i64 %13, %.0105134
-  %20 = tail call i64 @llvm.smin.i64(i64 %19, i64 %14)
-  %.not126130 = icmp sgt i64 %spec.select, %20
+  %17 = sub nsw i64 %.0105134, %10
+  %spec.select = tail call i64 @llvm.smax.i64(i64 %17, i64 0)
+  %18 = add nsw i64 %12, %.0105134
+  %19 = tail call i64 @llvm.smin.i64(i64 %18, i64 %13)
+  %.not126130 = icmp sgt i64 %spec.select, %19
   br i1 %.not126130, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %17
-  %21 = load ptr, ptr %15, align 8, !tbaa !55
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.0105134
-  %23 = load ptr, ptr %22, align 8, !tbaa !49
-  %24 = load i64, ptr %16, align 8, !tbaa !56
-  %invariant.gep = getelementptr double, ptr %23, i64 %24
-  br label %25
+.lr.ph:                                           ; preds = %16
+  %20 = load ptr, ptr %14, align 8, !tbaa !55
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.0105134
+  %22 = load ptr, ptr %21, align 8, !tbaa !49
+  %23 = load i64, ptr %15, align 8, !tbaa !56
+  %invariant.gep = getelementptr double, ptr %22, i64 %23
+  br label %24
 
-25:                                               ; preds = %.lr.ph, %25
-  %.0132 = phi i64 [ %spec.select, %.lr.ph ], [ %32, %25 ]
-  %.1109131 = phi i64 [ %.0108133, %.lr.ph ], [ %31, %25 ]
-  %26 = sub nsw i64 %.0132, %.0105134
-  %gep = getelementptr double, ptr %invariant.gep, i64 %26
-  %27 = load double, ptr %gep, align 8, !tbaa !41
-  %28 = tail call double @llvm.fabs.f64(double %27)
-  %29 = fcmp ogt double %28, %1
-  %30 = zext i1 %29 to i64
-  %31 = add nsw i64 %.1109131, %30
-  %32 = add nuw nsw i64 %.0132, 1
-  %.not126.not = icmp slt i64 %.0132, %20
-  br i1 %.not126.not, label %25, label %._crit_edge
+24:                                               ; preds = %.lr.ph, %24
+  %.0132 = phi i64 [ %spec.select, %.lr.ph ], [ %31, %24 ]
+  %.1109131 = phi i64 [ %.0108133, %.lr.ph ], [ %30, %24 ]
+  %25 = sub nsw i64 %.0132, %.0105134
+  %gep = getelementptr double, ptr %invariant.gep, i64 %25
+  %26 = load double, ptr %gep, align 8, !tbaa !41
+  %27 = tail call double @llvm.fabs.f64(double %26)
+  %28 = fcmp ogt double %27, %1
+  %29 = zext i1 %28 to i64
+  %30 = add nsw i64 %.1109131, %29
+  %31 = add nuw nsw i64 %.0132, 1
+  %.not126.not = icmp slt i64 %.0132, %19
+  br i1 %.not126.not, label %24, label %._crit_edge
 
-._crit_edge:                                      ; preds = %25, %17
-  %.1109.lcssa = phi i64 [ %.0108133, %17 ], [ %31, %25 ]
-  %33 = add nuw nsw i64 %.0105134, 1
-  %exitcond.not = icmp eq i64 %33, %8
-  br i1 %exitcond.not, label %._crit_edge137, label %17
+._crit_edge:                                      ; preds = %24, %16
+  %.1109.lcssa = phi i64 [ %.0108133, %16 ], [ %30, %24 ]
+  %32 = add nuw nsw i64 %.0105134, 1
+  %exitcond.not = icmp eq i64 %32, %7
+  br i1 %exitcond.not, label %._crit_edge137, label %16
 
 ._crit_edge137:                                   ; preds = %._crit_edge, %3
   %.0108.lcssa = phi i64 [ 0, %3 ], [ %.1109.lcssa, %._crit_edge ]
-  %34 = load ptr, ptr %4, align 8, !tbaa !36
-  %35 = tail call ptr @SUNSparseMatrix(i64 noundef %6, i64 noundef %8, i64 noundef %.0108.lcssa, i32 noundef %2, ptr noundef %34)
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !36
+  %35 = tail call ptr @SUNSparseMatrix(i64 noundef %5, i64 noundef %7, i64 noundef %.0108.lcssa, i32 noundef %2, ptr noundef %34)
   %36 = icmp eq i32 %2, 0
   br i1 %36, label %.preheader, label %.preheader129
 
 .preheader129:                                    ; preds = %._crit_edge137
-  %37 = icmp sgt i64 %6, 0
+  %37 = icmp sgt i64 %5, 0
   %.pre166 = load ptr, ptr %35, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw i8, ptr %.pre166, i64 56
   %39 = load ptr, ptr %38, align 8, !tbaa !35
@@ -1384,7 +1384,7 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
   %40 = load ptr, ptr %0, align 8, !tbaa !20
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %43 = add nsw i64 %8, -1
+  %43 = add nsw i64 %7, -1
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %46 = getelementptr inbounds nuw i8, ptr %.pre166, i64 48
@@ -1395,13 +1395,13 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
   %.pre170 = load ptr, ptr %35, align 8, !tbaa !20
   %48 = getelementptr inbounds nuw i8, ptr %.pre170, i64 56
   %49 = load ptr, ptr %48, align 8, !tbaa !35
-  br i1 %9, label %.lr.ph160, label %._crit_edge161
+  br i1 %8, label %.lr.ph160, label %._crit_edge161
 
 .lr.ph160:                                        ; preds = %.preheader
   %50 = load ptr, ptr %0, align 8, !tbaa !20
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %53 = add nsw i64 %6, -1
+  %53 = add nsw i64 %5, -1
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %56 = getelementptr inbounds nuw i8, ptr %.pre170, i64 48
@@ -1469,12 +1469,12 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
 ._crit_edge156:                                   ; preds = %86, %58
   %.3.lcssa = phi i64 [ %.2110158, %58 ], [ %.4, %86 ]
   %92 = add nuw nsw i64 %.1106159, 1
-  %exitcond164.not = icmp eq i64 %92, %8
+  %exitcond164.not = icmp eq i64 %92, %7
   br i1 %exitcond164.not, label %._crit_edge161, label %58
 
 ._crit_edge161:                                   ; preds = %._crit_edge156, %.preheader
   %.2110.lcssa = phi i64 [ 0, %.preheader ], [ %.3.lcssa, %._crit_edge156 ]
-  %93 = getelementptr inbounds i64, ptr %49, i64 %8
+  %93 = getelementptr inbounds i64, ptr %49, i64 %7
   store i64 %.2110.lcssa, ptr %93, align 8, !tbaa !43
   br label %130
 
@@ -1539,12 +1539,12 @@ define noundef ptr @SUNSparseFromBandMatrix(ptr noundef readonly captures(none) 
 ._crit_edge144:                                   ; preds = %122, %94
   %.6.lcssa = phi i64 [ %.5146, %94 ], [ %.7, %122 ]
   %128 = add nuw nsw i64 %.2147, 1
-  %exitcond163.not = icmp eq i64 %128, %6
+  %exitcond163.not = icmp eq i64 %128, %5
   br i1 %exitcond163.not, label %._crit_edge149, label %94
 
 ._crit_edge149:                                   ; preds = %._crit_edge144, %.preheader129
   %.5.lcssa = phi i64 [ 0, %.preheader129 ], [ %.6.lcssa, %._crit_edge144 ]
-  %129 = getelementptr inbounds i64, ptr %39, i64 %6
+  %129 = getelementptr inbounds i64, ptr %39, i64 %5
   store i64 %.5.lcssa, ptr %129, align 8, !tbaa !43
   br label %130
 

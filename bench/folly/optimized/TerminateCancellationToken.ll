@@ -7284,38 +7284,38 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   store i64 %1, ptr %24, align 8, !tbaa !193
   store ptr %4, ptr %23, align 16, !tbaa !333
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %1
-  %27 = ptrtoint ptr %26 to i64
-  %28 = add i64 %27, 15
-  %29 = and i64 %28, -16
-  %30 = inttoptr i64 %29 to ptr
   %.not56 = icmp eq i64 %9, 0
   br i1 %.not56, label %.preheader49, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %33
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  br label %28
 
-.preheader49:                                     ; preds = %33, %8
-  %32 = icmp ult i64 %9, %1
-  br i1 %32, label %.lr.ph55, label %_ZN5folly6detail14ScopeGuardImplIZNS_17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultISA_EEE9new_arrayEmRPNSD_5arrayEEUlvE_Lb1EED2Ev.exit
+.preheader49:                                     ; preds = %28, %8
+  %27 = icmp ult i64 %9, %1
+  br i1 %27, label %.lr.ph55, label %_ZN5folly6detail14ScopeGuardImplIZNS_17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultISA_EEE9new_arrayEmRPNSD_5arrayEEUlvE_Lb1EED2Ev.exit
 
-33:                                               ; preds = %.lr.ph, %33
-  %.03950 = phi i64 [ 0, %.lr.ph ], [ %37, %33 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %.03950
-  %35 = load ptr, ptr %34, align 8, !tbaa !309
-  %36 = getelementptr inbounds nuw ptr, ptr %25, i64 %.03950
-  store ptr %35, ptr %36, align 8, !tbaa !309
-  %37 = add nuw i64 %.03950, 1
-  %exitcond.not = icmp eq i64 %37, %9
-  br i1 %exitcond.not, label %.preheader49, label %33, !llvm.loop !402
+28:                                               ; preds = %.lr.ph, %28
+  %.03950 = phi i64 [ 0, %.lr.ph ], [ %32, %28 ]
+  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %.03950
+  %30 = load ptr, ptr %29, align 8, !tbaa !309
+  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %.03950
+  store ptr %30, ptr %31, align 8, !tbaa !309
+  %32 = add nuw i64 %.03950, 1
+  %exitcond.not = icmp eq i64 %32, %9
+  br i1 %exitcond.not, label %.preheader49, label %28, !llvm.loop !402
 
 .lr.ph55:                                         ; preds = %.preheader49
-  %38 = shl i64 %9, 3
-  %39 = getelementptr i8, ptr %23, i64 %38
-  %scevgep = getelementptr i8, ptr %39, i64 16
-  %40 = sub i64 %10, %38
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %40, i1 false), !tbaa !309
+  %33 = shl i64 %9, 3
+  %34 = getelementptr i8, ptr %23, i64 %33
+  %scevgep = getelementptr i8, ptr %34, i64 16
+  %35 = sub i64 %10, %33
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %35, i1 false), !tbaa !309
+  %36 = getelementptr inbounds nuw ptr, ptr %25, i64 %1
+  %37 = ptrtoint ptr %36 to i64
+  %38 = add i64 %37, 15
+  %39 = and i64 %38, -16
+  %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %42
 
@@ -7329,7 +7329,7 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
 
 .critedge:                                        ; preds = %42
   %45 = sub nuw i64 %.03754, %9
-  %46 = getelementptr inbounds nuw %"struct.folly::Synchronized.216", ptr %30, i64 %45
+  %46 = getelementptr inbounds nuw %"struct.folly::Synchronized.216", ptr %40, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %46, i8 0, i64 88, i1 false), !alias.scope !403

@@ -25452,8 +25452,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1824: ; preds = %_
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %2708
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %2710, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %2709, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !668
   %2712 = getelementptr inbounds nuw i8, ptr %2709, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %2709, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !668
   br label %"_ZZN7AstNode11foreachImplI12AstExecGraphZN9EmitCSyms10emitSymImpEvE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i"
 
 2713:                                             ; preds = %2700

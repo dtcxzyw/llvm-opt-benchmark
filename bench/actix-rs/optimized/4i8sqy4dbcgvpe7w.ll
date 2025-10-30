@@ -1793,35 +1793,35 @@ define hidden void @_ZN6brotli3enc14block_splitter16BrotliSplitBlock17h384cc2614
   br label %243
 
 243:                                              ; preds = %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hee18a6ce4c73ca37E.llvm.10144161557925507027.exit.i.i.i"
-  %.sroa.0.07.i.i.i = phi ptr [ %234, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hee18a6ce4c73ca37E.llvm.10144161557925507027.exit.i.i.i" ], [ %244, %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i.i ]
-  %244 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i, i64 1040
-  %245 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i, i64 1024
+  %.sroa.0.07.i.i.i = phi ptr [ %234, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hee18a6ce4c73ca37E.llvm.10144161557925507027.exit.i.i.i" ], [ %250, %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i.i ]
+  %244 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i, i64 1024
   call void @llvm.lifetime.start.p0(ptr nonnull %191), !noalias !241
   store ptr %.sroa.0.07.i.i.i, ptr %191, align 8, !noalias !241
-  store ptr %245, ptr %242, align 8, !noalias !241
-  %246 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %191)
+  store ptr %244, ptr %242, align 8, !noalias !241
+  %245 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %191)
           to label %.noexc131.i unwind label %.thread.loopexit.split-lp.loopexit.i, !noalias !240
 
 .noexc131.i:                                      ; preds = %243
-  %247 = icmp eq ptr %246, null
-  br i1 %247, label %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i.i, label %.lr.ph.i.i.i
+  %246 = icmp eq ptr %245, null
+  br i1 %246, label %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc131.i, %.noexc132.i
-  %248 = phi ptr [ %249, %.noexc132.i ], [ %246, %.noexc131.i ]
-  store i32 0, ptr %248, align 4, !noalias !244
-  %249 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %191)
+  %247 = phi ptr [ %248, %.noexc132.i ], [ %245, %.noexc131.i ]
+  store i32 0, ptr %247, align 4, !noalias !244
+  %248 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %191)
           to label %.noexc132.i unwind label %.thread.loopexit.i, !noalias !240
 
 .noexc132.i:                                      ; preds = %.lr.ph.i.i.i
-  %250 = icmp eq ptr %249, null
-  br i1 %250, label %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i.i, label %.lr.ph.i.i.i
+  %249 = icmp eq ptr %248, null
+  br i1 %249, label %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i.i, label %.lr.ph.i.i.i
 
 _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i.i: ; preds = %.noexc132.i, %.noexc131.i
+  %250 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i, i64 1040
   call void @llvm.lifetime.end.p0(ptr nonnull %191), !noalias !241
-  store i64 0, ptr %245, align 8, !alias.scope !245, !noalias !244
+  store i64 0, ptr %244, align 8, !alias.scope !245, !noalias !244
   %251 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i, i64 1032
   store float 0x47EFFE0460000000, ptr %251, align 8, !alias.scope !248, !noalias !244
-  %252 = icmp eq ptr %244, %241
+  %252 = icmp eq ptr %250, %241
   br i1 %252, label %_ZN6brotli3enc9histogram15ClearHistograms17h48799de36060ce1eE.exit.preheader.split.i.i, label %243
 
 _ZN6brotli3enc9histogram15ClearHistograms17h48799de36060ce1eE.exit.preheader.split.i.i: ; preds = %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i.i
@@ -3709,8 +3709,8 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
 _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit370.i.i: ; preds = %.lr.ph1311.i.i
   %876 = mul nuw nsw i64 %.02191310.i.i, 1040
   %scevgep.i.i = getelementptr i8, ptr %442, i64 %876
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %scevgep.i.i, i8 0, i64 1024, i1 false), !noalias !366
   %877 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %442, i64 %.02191310.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %scevgep.i.i, i8 0, i64 1024, i1 false), !noalias !366
   %878 = getelementptr inbounds nuw i8, ptr %877, i64 1024
   store i64 0, ptr %878, align 8, !alias.scope !694, !noalias !366
   %879 = getelementptr inbounds nuw i8, ptr %877, i64 1032
@@ -4513,35 +4513,35 @@ _ZN6brotli3enc14block_splitter10FindBlocks17h624ba0df64485624E.exit.i: ; preds =
   br i1 %1180, label %_ZN6brotli3enc9histogram15ClearHistograms17h48799de36060ce1eE.exit.i.i, label %.lr.ph8.i.i.i
 
 .lr.ph8.i.i.i:                                    ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hee18a6ce4c73ca37E.llvm.10144161557925507027.exit.i.i205.i", %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i209.i
-  %.sroa.0.07.i.i207.i = phi ptr [ %1181, %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i209.i ], [ %234, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hee18a6ce4c73ca37E.llvm.10144161557925507027.exit.i.i205.i" ]
-  %1181 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i207.i, i64 1040
-  %1182 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i207.i, i64 1024
+  %.sroa.0.07.i.i207.i = phi ptr [ %1187, %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i209.i ], [ %234, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hee18a6ce4c73ca37E.llvm.10144161557925507027.exit.i.i205.i" ]
+  %1181 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i207.i, i64 1024
   call void @llvm.lifetime.start.p0(ptr nonnull %140), !noalias !824
   store ptr %.sroa.0.07.i.i207.i, ptr %140, align 8, !noalias !824
-  store ptr %1182, ptr %381, align 8, !noalias !824
-  %1183 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %140)
+  store ptr %1181, ptr %381, align 8, !noalias !824
+  %1182 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %140)
           to label %.noexc215.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !240
 
 .noexc215.i:                                      ; preds = %.lr.ph8.i.i.i
-  %1184 = icmp eq ptr %1183, null
-  br i1 %1184, label %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i209.i, label %.lr.ph.i.i208.i
+  %1183 = icmp eq ptr %1182, null
+  br i1 %1183, label %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i209.i, label %.lr.ph.i.i208.i
 
 .lr.ph.i.i208.i:                                  ; preds = %.noexc215.i, %.noexc216.i
-  %1185 = phi ptr [ %1186, %.noexc216.i ], [ %1183, %.noexc215.i ]
-  store i32 0, ptr %1185, align 4, !noalias !827
-  %1186 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %140)
+  %1184 = phi ptr [ %1185, %.noexc216.i ], [ %1182, %.noexc215.i ]
+  store i32 0, ptr %1184, align 4, !noalias !827
+  %1185 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %140)
           to label %.noexc216.i unwind label %.loopexit.i, !noalias !240
 
 .noexc216.i:                                      ; preds = %.lr.ph.i.i208.i
-  %1187 = icmp eq ptr %1186, null
-  br i1 %1187, label %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i209.i, label %.lr.ph.i.i208.i
+  %1186 = icmp eq ptr %1185, null
+  br i1 %1186, label %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i209.i, label %.lr.ph.i.i208.i
 
 _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i209.i: ; preds = %.noexc216.i, %.noexc215.i
+  %1187 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i207.i, i64 1040
   call void @llvm.lifetime.end.p0(ptr nonnull %140), !noalias !824
-  store i64 0, ptr %1182, align 8, !alias.scope !828, !noalias !827
+  store i64 0, ptr %1181, align 8, !alias.scope !828, !noalias !827
   %1188 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i207.i, i64 1032
   store float 0x47EFFE0460000000, ptr %1188, align 8, !alias.scope !831, !noalias !827
-  %1189 = icmp eq ptr %1181, %1179
+  %1189 = icmp eq ptr %1187, %1179
   br i1 %1189, label %_ZN6brotli3enc9histogram15ClearHistograms17h48799de36060ce1eE.exit.i.i, label %.lr.ph8.i.i.i
 
 _ZN6brotli3enc9histogram15ClearHistograms17h48799de36060ce1eE.exit.i.i: ; preds = %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925507027.exit.i.i209.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hee18a6ce4c73ca37E.llvm.10144161557925507027.exit.i.i205.i"
@@ -5014,35 +5014,35 @@ _ZN6brotli3enc14block_splitter15SplitByteVector17hef71092aac707b08E.exit: ; pred
   br label %1329
 
 1329:                                             ; preds = %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h46017f623b78fdd2E.llvm.10144161557925507027.exit.i.i.i"
-  %.sroa.0.07.i.i.i62 = phi ptr [ %1320, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h46017f623b78fdd2E.llvm.10144161557925507027.exit.i.i.i" ], [ %1330, %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i.i ]
-  %1330 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i62, i64 2832
-  %1331 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i62, i64 2816
+  %.sroa.0.07.i.i.i62 = phi ptr [ %1320, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h46017f623b78fdd2E.llvm.10144161557925507027.exit.i.i.i" ], [ %1336, %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i.i ]
+  %1330 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i62, i64 2816
   call void @llvm.lifetime.start.p0(ptr nonnull %131), !noalias !965
   store ptr %.sroa.0.07.i.i.i62, ptr %131, align 8, !noalias !965
-  store ptr %1331, ptr %1328, align 8, !noalias !965
-  %1332 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %131)
+  store ptr %1330, ptr %1328, align 8, !noalias !965
+  %1331 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %131)
           to label %.noexc131.i64 unwind label %.thread.loopexit.split-lp.loopexit.i63, !noalias !964
 
 .noexc131.i64:                                    ; preds = %1329
-  %1333 = icmp eq ptr %1332, null
-  br i1 %1333, label %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i.i, label %.lr.ph.i.i.i65
+  %1332 = icmp eq ptr %1331, null
+  br i1 %1332, label %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i.i, label %.lr.ph.i.i.i65
 
 .lr.ph.i.i.i65:                                   ; preds = %.noexc131.i64, %.noexc132.i67
-  %1334 = phi ptr [ %1335, %.noexc132.i67 ], [ %1332, %.noexc131.i64 ]
-  store i32 0, ptr %1334, align 4, !noalias !968
-  %1335 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %131)
+  %1333 = phi ptr [ %1334, %.noexc132.i67 ], [ %1331, %.noexc131.i64 ]
+  store i32 0, ptr %1333, align 4, !noalias !968
+  %1334 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %131)
           to label %.noexc132.i67 unwind label %.thread.loopexit.i66, !noalias !964
 
 .noexc132.i67:                                    ; preds = %.lr.ph.i.i.i65
-  %1336 = icmp eq ptr %1335, null
-  br i1 %1336, label %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i.i, label %.lr.ph.i.i.i65
+  %1335 = icmp eq ptr %1334, null
+  br i1 %1335, label %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i.i, label %.lr.ph.i.i.i65
 
 _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i.i: ; preds = %.noexc132.i67, %.noexc131.i64
+  %1336 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i62, i64 2832
   call void @llvm.lifetime.end.p0(ptr nonnull %131), !noalias !965
-  store i64 0, ptr %1331, align 8, !alias.scope !969, !noalias !968
+  store i64 0, ptr %1330, align 8, !alias.scope !969, !noalias !968
   %1337 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i62, i64 2824
   store float 0x47EFFE0460000000, ptr %1337, align 8, !alias.scope !972, !noalias !968
-  %1338 = icmp eq ptr %1330, %1327
+  %1338 = icmp eq ptr %1336, %1327
   br i1 %1338, label %_ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979aE.exit.preheader.split.i.i, label %1329
 
 _ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979aE.exit.preheader.split.i.i: ; preds = %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i.i
@@ -6950,8 +6950,8 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
 _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit370.i.i: ; preds = %.lr.ph1343.i.i291
   %1975 = mul nuw nsw i64 %.02191342.i.i, 2832
   %scevgep.i.i292 = getelementptr i8, ptr %1535, i64 %1975
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2816) %scevgep.i.i292, i8 0, i64 2816, i1 false), !noalias !1092
   %1976 = getelementptr inbounds nuw { [704 x i32], i64, float, [1 x i32] }, ptr %1535, i64 %.02191342.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2816) %scevgep.i.i292, i8 0, i64 2816, i1 false), !noalias !1092
   %1977 = getelementptr inbounds nuw i8, ptr %1976, i64 2816
   store i64 0, ptr %1977, align 8, !alias.scope !1424, !noalias !1092
   %1978 = getelementptr inbounds nuw i8, ptr %1976, i64 2824
@@ -7760,35 +7760,35 @@ _ZN6brotli3enc14block_splitter10FindBlocks17hb2fb3289f4df6c3dE.exit.i: ; preds =
   br i1 %2282, label %_ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979aE.exit.i.i, label %.lr.ph8.i.i.i244
 
 .lr.ph8.i.i.i244:                                 ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h46017f623b78fdd2E.llvm.10144161557925507027.exit.i.i207.i", %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i211.i
-  %.sroa.0.07.i.i209.i = phi ptr [ %2283, %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i211.i ], [ %1320, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h46017f623b78fdd2E.llvm.10144161557925507027.exit.i.i207.i" ]
-  %2283 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i209.i, i64 2832
-  %2284 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i209.i, i64 2816
+  %.sroa.0.07.i.i209.i = phi ptr [ %2289, %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i211.i ], [ %1320, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h46017f623b78fdd2E.llvm.10144161557925507027.exit.i.i207.i" ]
+  %2283 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i209.i, i64 2816
   call void @llvm.lifetime.start.p0(ptr nonnull %80), !noalias !1555
   store ptr %.sroa.0.07.i.i209.i, ptr %80, align 8, !noalias !1555
-  store ptr %2284, ptr %1474, align 8, !noalias !1555
-  %2285 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %80)
+  store ptr %2283, ptr %1474, align 8, !noalias !1555
+  %2284 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %80)
           to label %.noexc217.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i245, !noalias !964
 
 .noexc217.i:                                      ; preds = %.lr.ph8.i.i.i244
-  %2286 = icmp eq ptr %2285, null
-  br i1 %2286, label %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i211.i, label %.lr.ph.i.i210.i
+  %2285 = icmp eq ptr %2284, null
+  br i1 %2285, label %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i211.i, label %.lr.ph.i.i210.i
 
 .lr.ph.i.i210.i:                                  ; preds = %.noexc217.i, %.noexc218.i
-  %2287 = phi ptr [ %2288, %.noexc218.i ], [ %2285, %.noexc217.i ]
-  store i32 0, ptr %2287, align 4, !noalias !1558
-  %2288 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %80)
+  %2286 = phi ptr [ %2287, %.noexc218.i ], [ %2284, %.noexc217.i ]
+  store i32 0, ptr %2286, align 4, !noalias !1558
+  %2287 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %80)
           to label %.noexc218.i unwind label %.loopexit.i246, !noalias !964
 
 .noexc218.i:                                      ; preds = %.lr.ph.i.i210.i
-  %2289 = icmp eq ptr %2288, null
-  br i1 %2289, label %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i211.i, label %.lr.ph.i.i210.i
+  %2288 = icmp eq ptr %2287, null
+  br i1 %2288, label %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i211.i, label %.lr.ph.i.i210.i
 
 _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i211.i: ; preds = %.noexc218.i, %.noexc217.i
+  %2289 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i209.i, i64 2832
   call void @llvm.lifetime.end.p0(ptr nonnull %80), !noalias !1555
-  store i64 0, ptr %2284, align 8, !alias.scope !1559, !noalias !1558
+  store i64 0, ptr %2283, align 8, !alias.scope !1559, !noalias !1558
   %2290 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i209.i, i64 2824
   store float 0x47EFFE0460000000, ptr %2290, align 8, !alias.scope !1562, !noalias !1558
-  %2291 = icmp eq ptr %2283, %2281
+  %2291 = icmp eq ptr %2289, %2281
   br i1 %2291, label %_ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979aE.exit.i.i, label %.lr.ph8.i.i.i244
 
 _ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979aE.exit.i.i: ; preds = %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.llvm.10144161557925507027.exit.i.i211.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h46017f623b78fdd2E.llvm.10144161557925507027.exit.i.i207.i"
@@ -8275,35 +8275,35 @@ _ZN6brotli3enc14block_splitter15SplitByteVector17heaa0560b68f861d1E.exit: ; pred
   br label %2434
 
 2434:                                             ; preds = %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he00f0fc514440c59E.llvm.10144161557925507027.exit.i.i.i"
-  %.sroa.0.07.i.i.i449 = phi ptr [ %2425, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he00f0fc514440c59E.llvm.10144161557925507027.exit.i.i.i" ], [ %2435, %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i.i ]
-  %2435 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i449, i64 2192
-  %2436 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i449, i64 2176
+  %.sroa.0.07.i.i.i449 = phi ptr [ %2425, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he00f0fc514440c59E.llvm.10144161557925507027.exit.i.i.i" ], [ %2441, %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i.i ]
+  %2435 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i449, i64 2176
   call void @llvm.lifetime.start.p0(ptr nonnull %71), !noalias !1696
   store ptr %.sroa.0.07.i.i.i449, ptr %71, align 8, !noalias !1696
-  store ptr %2436, ptr %2433, align 8, !noalias !1696
-  %2437 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %71)
+  store ptr %2435, ptr %2433, align 8, !noalias !1696
+  %2436 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %71)
           to label %.noexc131.i452 unwind label %.thread.loopexit.split-lp.loopexit.i450, !noalias !1695
 
 .noexc131.i452:                                   ; preds = %2434
-  %2438 = icmp eq ptr %2437, null
-  br i1 %2438, label %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i.i, label %.lr.ph.i.i.i453
+  %2437 = icmp eq ptr %2436, null
+  br i1 %2437, label %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i.i, label %.lr.ph.i.i.i453
 
 .lr.ph.i.i.i453:                                  ; preds = %.noexc131.i452, %.noexc132.i456
-  %2439 = phi ptr [ %2440, %.noexc132.i456 ], [ %2437, %.noexc131.i452 ]
-  store i32 0, ptr %2439, align 4, !noalias !1699
-  %2440 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %71)
+  %2438 = phi ptr [ %2439, %.noexc132.i456 ], [ %2436, %.noexc131.i452 ]
+  store i32 0, ptr %2438, align 4, !noalias !1699
+  %2439 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %71)
           to label %.noexc132.i456 unwind label %.thread.loopexit.i454, !noalias !1695
 
 .noexc132.i456:                                   ; preds = %.lr.ph.i.i.i453
-  %2441 = icmp eq ptr %2440, null
-  br i1 %2441, label %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i.i, label %.lr.ph.i.i.i453
+  %2440 = icmp eq ptr %2439, null
+  br i1 %2440, label %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i.i, label %.lr.ph.i.i.i453
 
 _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i.i: ; preds = %.noexc132.i456, %.noexc131.i452
+  %2441 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i449, i64 2192
   call void @llvm.lifetime.end.p0(ptr nonnull %71), !noalias !1696
-  store i64 0, ptr %2436, align 8, !alias.scope !1700, !noalias !1699
+  store i64 0, ptr %2435, align 8, !alias.scope !1700, !noalias !1699
   %2442 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i449, i64 2184
   store float 0x47EFFE0460000000, ptr %2442, align 8, !alias.scope !1703, !noalias !1699
-  %2443 = icmp eq ptr %2435, %2432
+  %2443 = icmp eq ptr %2441, %2432
   br i1 %2443, label %_ZN6brotli3enc9histogram15ClearHistograms17ha69f88845c5332a9E.exit.preheader.split.i.i, label %2434
 
 _ZN6brotli3enc9histogram15ClearHistograms17ha69f88845c5332a9E.exit.preheader.split.i.i: ; preds = %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i.i
@@ -10211,8 +10211,8 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
 _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit370.i.i: ; preds = %.lr.ph1343.i.i776
   %3080 = mul nuw nsw i64 %.02191342.i.i777, 2192
   %scevgep.i.i780 = getelementptr i8, ptr %2640, i64 %3080
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2176) %scevgep.i.i780, i8 0, i64 2176, i1 false), !noalias !1823
   %3081 = getelementptr inbounds nuw { [544 x i32], i64, float, [1 x i32] }, ptr %2640, i64 %.02191342.i.i777
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2176) %scevgep.i.i780, i8 0, i64 2176, i1 false), !noalias !1823
   %3082 = getelementptr inbounds nuw i8, ptr %3081, i64 2176
   store i64 0, ptr %3082, align 8, !alias.scope !2155, !noalias !1823
   %3083 = getelementptr inbounds nuw i8, ptr %3081, i64 2184
@@ -11021,35 +11021,35 @@ _ZN6brotli3enc14block_splitter10FindBlocks17h770dced81d1d0840E.exit.i: ; preds =
   br i1 %3387, label %_ZN6brotli3enc9histogram15ClearHistograms17ha69f88845c5332a9E.exit.i.i, label %.lr.ph8.i.i.i665
 
 .lr.ph8.i.i.i665:                                 ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he00f0fc514440c59E.llvm.10144161557925507027.exit.i.i207.i", %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i211.i
-  %.sroa.0.07.i.i209.i666 = phi ptr [ %3388, %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i211.i ], [ %2425, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he00f0fc514440c59E.llvm.10144161557925507027.exit.i.i207.i" ]
-  %3388 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i209.i666, i64 2192
-  %3389 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i209.i666, i64 2176
+  %.sroa.0.07.i.i209.i666 = phi ptr [ %3394, %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i211.i ], [ %2425, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he00f0fc514440c59E.llvm.10144161557925507027.exit.i.i207.i" ]
+  %3388 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i209.i666, i64 2176
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !2286
   store ptr %.sroa.0.07.i.i209.i666, ptr %20, align 8, !noalias !2286
-  store ptr %3389, ptr %2579, align 8, !noalias !2286
-  %3390 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
+  store ptr %3388, ptr %2579, align 8, !noalias !2286
+  %3389 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
           to label %.noexc217.i669 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i667, !noalias !1695
 
 .noexc217.i669:                                   ; preds = %.lr.ph8.i.i.i665
-  %3391 = icmp eq ptr %3390, null
-  br i1 %3391, label %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i211.i, label %.lr.ph.i.i210.i670
+  %3390 = icmp eq ptr %3389, null
+  br i1 %3390, label %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i211.i, label %.lr.ph.i.i210.i670
 
 .lr.ph.i.i210.i670:                               ; preds = %.noexc217.i669, %.noexc218.i673
-  %3392 = phi ptr [ %3393, %.noexc218.i673 ], [ %3390, %.noexc217.i669 ]
-  store i32 0, ptr %3392, align 4, !noalias !2289
-  %3393 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
+  %3391 = phi ptr [ %3392, %.noexc218.i673 ], [ %3389, %.noexc217.i669 ]
+  store i32 0, ptr %3391, align 4, !noalias !2289
+  %3392 = invoke noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.llvm.10144161557925507027"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
           to label %.noexc218.i673 unwind label %.loopexit.i671, !noalias !1695
 
 .noexc218.i673:                                   ; preds = %.lr.ph.i.i210.i670
-  %3394 = icmp eq ptr %3393, null
-  br i1 %3394, label %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i211.i, label %.lr.ph.i.i210.i670
+  %3393 = icmp eq ptr %3392, null
+  br i1 %3393, label %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i211.i, label %.lr.ph.i.i210.i670
 
 _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i211.i: ; preds = %.noexc218.i673, %.noexc217.i669
+  %3394 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i209.i666, i64 2192
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !2286
-  store i64 0, ptr %3389, align 8, !alias.scope !2290, !noalias !2289
+  store i64 0, ptr %3388, align 8, !alias.scope !2290, !noalias !2289
   %3395 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i209.i666, i64 2184
   store float 0x47EFFE0460000000, ptr %3395, align 8, !alias.scope !2293, !noalias !2289
-  %3396 = icmp eq ptr %3388, %3386
+  %3396 = icmp eq ptr %3394, %3386
   br i1 %3396, label %_ZN6brotli3enc9histogram15ClearHistograms17ha69f88845c5332a9E.exit.i.i, label %.lr.ph8.i.i.i665
 
 _ZN6brotli3enc9histogram15ClearHistograms17ha69f88845c5332a9E.exit.i.i: ; preds = %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.llvm.10144161557925507027.exit.i.i211.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he00f0fc514440c59E.llvm.10144161557925507027.exit.i.i207.i"

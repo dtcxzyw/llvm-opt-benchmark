@@ -676,26 +676,26 @@ define range(i32 -1, 1) i32 @evdns_server_request_add_reply(ptr noundef captures
 switch.lookup:                                    ; preds = %17
   %21 = shl nuw nsw i32 %1, 3
   %switch.idx.mult = zext nneg i32 %21 to i64
-  %22 = shl nuw nsw i32 %1, 2
-  %switch.idx.mult72 = zext nneg i32 %22 to i64
-  %23 = getelementptr i8, ptr %0, i64 %switch.idx.mult
-  %24 = getelementptr i8, ptr %23, i64 -40
-  %25 = getelementptr i8, ptr %0, i64 %switch.idx.mult72
-  %26 = getelementptr i8, ptr %25, i64 -56
-  br label %27
+  %22 = getelementptr i8, ptr %0, i64 %switch.idx.mult
+  %23 = getelementptr i8, ptr %22, i64 -40
+  br label %24
 
-27:                                               ; preds = %27, %switch.lookup
-  %.1 = phi ptr [ %24, %switch.lookup ], [ %28, %27 ]
-  %28 = load ptr, ptr %.1, align 8
-  %.not57 = icmp eq ptr %28, null
-  br i1 %.not57, label %29, label %27, !llvm.loop !5
+24:                                               ; preds = %24, %switch.lookup
+  %.1 = phi ptr [ %23, %switch.lookup ], [ %25, %24 ]
+  %25 = load ptr, ptr %.1, align 8
+  %.not57 = icmp eq ptr %25, null
+  br i1 %.not57, label %26, label %24, !llvm.loop !5
 
-29:                                               ; preds = %27
+26:                                               ; preds = %24
+  %27 = shl nuw nsw i32 %1, 2
+  %switch.idx.mult72 = zext nneg i32 %27 to i64
+  %28 = getelementptr i8, ptr %0, i64 %switch.idx.mult72
+  %29 = getelementptr i8, ptr %28, i64 -56
   %30 = tail call ptr @event_mm_malloc_(i64 noundef 40) #21
   %.not58 = icmp eq ptr %30, null
   br i1 %.not58, label %62, label %31
 
-31:                                               ; preds = %29
+31:                                               ; preds = %26
   store ptr null, ptr %30, align 8
   %32 = tail call ptr @event_mm_strdup_(ptr noundef %2) #21
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -767,13 +767,13 @@ switch.lookup:                                    ; preds = %17
 
 59:                                               ; preds = %51, %57, %35
   store ptr %30, ptr %.1, align 8
-  %60 = load i32, ptr %26, align 4
+  %60 = load i32, ptr %29, align 4
   %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %26, align 4
+  store i32 %61, ptr %29, align 4
   br label %62
 
-62:                                               ; preds = %34, %49, %55, %59, %17, %29
-  %.0 = phi i32 [ -1, %17 ], [ 0, %59 ], [ -1, %49 ], [ -1, %55 ], [ -1, %34 ], [ -1, %29 ]
+62:                                               ; preds = %34, %49, %55, %59, %17, %26
+  %.0 = phi i32 [ -1, %17 ], [ 0, %59 ], [ -1, %49 ], [ -1, %55 ], [ -1, %34 ], [ -1, %26 ]
   %63 = load ptr, ptr %10, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 208
   %65 = load ptr, ptr %64, align 8

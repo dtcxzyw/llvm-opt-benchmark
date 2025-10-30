@@ -2947,13 +2947,13 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit178:            ; preds = %77, %.noexc177, %_Z
   %173 = tail call noundef float @llvm.floor.f32(float %167)
   %174 = tail call noundef float @llvm.floor.f32(float %162)
   %175 = fsub float %162, %174
-  %176 = mul nuw nsw i64 %indvars.iv271, %87
   %.not209 = icmp sgt i32 %168, %169
-  %177 = fpext float %175 to double
-  %178 = fsub double 1.000000e+00, %177
-  %179 = fsub float %173, %167
-  %180 = fadd float %179, 1.000000e+00
-  %181 = fpext float %180 to double
+  %176 = fpext float %175 to double
+  %177 = fsub double 1.000000e+00, %176
+  %178 = fsub float %173, %167
+  %179 = fadd float %178, 1.000000e+00
+  %180 = fpext float %179 to double
+  %181 = mul nuw nsw i64 %indvars.iv271, %87
   br i1 %.not209, label %.lr.ph218.split.us, label %.lr.ph213.preheader
 
 .lr.ph213.preheader:                              ; preds = %.lr.ph218
@@ -2969,7 +2969,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit178:            ; preds = %77, %.noexc177, %_Z
 
 186:                                              ; preds = %186, %.lr.ph218.split.us
   %indvars.iv266 = phi i64 [ %indvars.iv.next267, %186 ], [ 0, %.lr.ph218.split.us ]
-  %187 = add nuw nsw i64 %indvars.iv266, %176
+  %187 = add nuw nsw i64 %indvars.iv266, %181
   %188 = trunc nuw i64 %187 to i32
   %189 = mul i32 %188, %17
   %190 = add nsw i32 %189, %.0149222
@@ -2986,7 +2986,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit178:            ; preds = %77, %.noexc177, %_Z
   br label %202
 
 ._crit_edge214:                                   ; preds = %202
-  %194 = add nuw nsw i64 %indvars.iv261, %176
+  %194 = add nuw nsw i64 %indvars.iv261, %181
   %195 = trunc nuw i64 %194 to i32
   %196 = mul i32 %195, %17
   %197 = fmul double %172, %215
@@ -3007,9 +3007,9 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit178:            ; preds = %77, %.noexc177, %_Z
   %205 = add i32 %204, %193
   %206 = mul i32 %205, %17
   %207 = icmp eq i64 %indvars.iv254, %182
-  %.0151 = select i1 %207, double %178, double 1.000000e+00
+  %.0151 = select i1 %207, double %177, double 1.000000e+00
   %208 = icmp eq i64 %indvars.iv254, %sext257
-  %209 = fsub double %.0151, %181
+  %209 = fsub double %.0151, %180
   %.1 = select i1 %208, double %209, double %.0151
   %210 = add nsw i32 %206, %.0149222
   %211 = sext i32 %210 to i64

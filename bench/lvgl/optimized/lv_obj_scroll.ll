@@ -367,111 +367,112 @@ define i32 @lv_obj_get_scroll_left(ptr noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %67, label %10
+  br i1 %9, label %68, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load i32, ptr %11, align 8, !tbaa !15
   %13 = sub nsw i32 0, %12
-  br label %67
+  br label %68
 
 14:                                               ; preds = %2
   %15 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 19) #5
-  %16 = ptrtoint ptr %15 to i64
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %16 to i32
-  %17 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 48) #5
-  %18 = ptrtoint ptr %17 to i64
-  %.sroa.0.0.extract.trunc.i9.i = trunc i64 %18 to i32
-  %19 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 52) #5
-  %20 = ptrtoint ptr %19 to i64
-  %21 = and i64 %20, 8
-  %.not.i = icmp eq i64 %21, 0
-  %22 = select i1 %.not.i, i32 0, i32 %.sroa.0.0.extract.trunc.i9.i
-  %23 = add nsw i32 %22, %.sroa.0.0.extract.trunc.i.i
-  %24 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 18) #5
-  %25 = ptrtoint ptr %24 to i64
-  %.sroa.0.0.extract.trunc.i.i42 = trunc i64 %25 to i32
-  %26 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 48) #5
-  %27 = ptrtoint ptr %26 to i64
-  %.sroa.0.0.extract.trunc.i9.i43 = trunc i64 %27 to i32
-  %28 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 52) #5
-  %29 = ptrtoint ptr %28 to i64
-  %30 = and i64 %29, 4
-  %.not.i44 = icmp eq i64 %30, 0
-  %31 = select i1 %.not.i44, i32 0, i32 %.sroa.0.0.extract.trunc.i9.i43
-  %32 = add nsw i32 %31, %.sroa.0.0.extract.trunc.i.i42
-  %33 = tail call i32 @lv_obj_get_child_count(ptr noundef nonnull %0) #5
-  %.not49 = icmp eq i32 %33, 0
-  br i1 %.not49, label %._crit_edge.thread, label %.lr.ph
+  %16 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 48) #5
+  %17 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 52) #5
+  %18 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 18) #5
+  %19 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 48) #5
+  %20 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 52) #5
+  %21 = tail call i32 @lv_obj_get_child_count(ptr noundef nonnull %0) #5
+  %.not49 = icmp eq i32 %21, 0
+  br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %wide.trip.count = zext i32 %33 to i64
-  br label %35
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %wide.trip.count = zext i32 %21 to i64
+  br label %23
 
-35:                                               ; preds = %.lr.ph, %48
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %.03747 = phi i32 [ 536870911, %.lr.ph ], [ %.1, %48 ]
-  %36 = load ptr, ptr %34, align 8, !tbaa !3
-  %37 = load ptr, ptr %36, align 8, !tbaa !25
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
-  %39 = load ptr, ptr %38, align 8, !tbaa !26
-  %40 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %39, i32 noundef 262145) #5
-  br i1 %40, label %48, label %41
+23:                                               ; preds = %.lr.ph, %36
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
+  %.03747 = phi i32 [ 536870911, %.lr.ph ], [ %.1, %36 ]
+  %24 = load ptr, ptr %22, align 8, !tbaa !3
+  %25 = load ptr, ptr %24, align 8, !tbaa !25
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %27 = load ptr, ptr %26, align 8, !tbaa !26
+  %28 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %27, i32 noundef 262145) #5
+  br i1 %28, label %36, label %29
 
-41:                                               ; preds = %35
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %43 = load i32, ptr %42, align 8, !tbaa !30
-  %44 = tail call ptr @lv_obj_get_style_prop(ptr noundef %39, i32 noundef 0, i8 noundef zeroext 26) #5
-  %45 = ptrtoint ptr %44 to i64
-  %.sroa.0.0.extract.trunc.i45 = trunc i64 %45 to i32
-  %46 = sub nsw i32 %43, %.sroa.0.0.extract.trunc.i45
-  %47 = tail call i32 @llvm.smin.i32(i32 %.03747, i32 %46)
-  br label %48
+29:                                               ; preds = %23
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %31 = load i32, ptr %30, align 8, !tbaa !30
+  %32 = tail call ptr @lv_obj_get_style_prop(ptr noundef %27, i32 noundef 0, i8 noundef zeroext 26) #5
+  %33 = ptrtoint ptr %32 to i64
+  %.sroa.0.0.extract.trunc.i45 = trunc i64 %33 to i32
+  %34 = sub nsw i32 %31, %.sroa.0.0.extract.trunc.i45
+  %35 = tail call i32 @llvm.smin.i32(i32 %.03747, i32 %34)
+  br label %36
 
-48:                                               ; preds = %35, %41
-  %.1 = phi i32 [ %47, %41 ], [ %.03747, %35 ]
+36:                                               ; preds = %23, %29
+  %.1 = phi i32 [ %35, %29 ], [ %.03747, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %48
-  %.not41 = icmp eq i32 %.1, 536870911
-  br i1 %.not41, label %._crit_edge.thread, label %49
+._crit_edge:                                      ; preds = %36, %14
+  %.037.lcssa = phi i32 [ 536870911, %14 ], [ %.1, %36 ]
+  %37 = ptrtoint ptr %15 to i64
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %37 to i32
+  %38 = ptrtoint ptr %16 to i64
+  %.sroa.0.0.extract.trunc.i9.i = trunc i64 %38 to i32
+  %39 = ptrtoint ptr %17 to i64
+  %40 = and i64 %39, 8
+  %.not.i = icmp eq i64 %40, 0
+  %41 = select i1 %.not.i, i32 0, i32 %.sroa.0.0.extract.trunc.i9.i
+  %42 = add nsw i32 %41, %.sroa.0.0.extract.trunc.i.i
+  %43 = ptrtoint ptr %18 to i64
+  %.sroa.0.0.extract.trunc.i.i42 = trunc i64 %43 to i32
+  %44 = ptrtoint ptr %19 to i64
+  %.sroa.0.0.extract.trunc.i9.i43 = trunc i64 %44 to i32
+  %45 = ptrtoint ptr %20 to i64
+  %46 = and i64 %45, 4
+  %.not.i44 = icmp eq i64 %46, 0
+  %47 = select i1 %.not.i44, i32 0, i32 %.sroa.0.0.extract.trunc.i9.i43
+  %48 = add nsw i32 %47, %.sroa.0.0.extract.trunc.i.i42
+  %.not41 = icmp eq i32 %.037.lcssa, 536870911
+  br i1 %.not41, label %54, label %49
 
 49:                                               ; preds = %._crit_edge
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %51 = load i32, ptr %50, align 8, !tbaa !30
-  %52 = sub i32 %32, %.1
+  %52 = sub i32 %48, %.037.lcssa
   %53 = add i32 %52, %51
-  br label %._crit_edge.thread
+  br label %54
 
-._crit_edge.thread:                               ; preds = %14, %._crit_edge, %49
-  %.035 = phi i32 [ %53, %49 ], [ -536870911, %._crit_edge ], [ -536870911, %14 ]
-  %54 = tail call i32 @lv_obj_get_self_width(ptr noundef nonnull %0) #5
-  %55 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %0) #5
-  %56 = add i32 %23, %32
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !3
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %lv_obj_get_scroll_x.exit, label %60
+54:                                               ; preds = %._crit_edge, %49
+  %.035 = phi i32 [ %53, %49 ], [ -536870911, %._crit_edge ]
+  %55 = tail call i32 @lv_obj_get_self_width(ptr noundef nonnull %0) #5
+  %56 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %0) #5
+  %57 = add i32 %42, %48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %59 = load ptr, ptr %58, align 8, !tbaa !3
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %lv_obj_get_scroll_x.exit, label %61
 
-60:                                               ; preds = %._crit_edge.thread
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  %62 = load i32, ptr %61, align 8, !tbaa !15
-  %63 = sub nsw i32 0, %62
+61:                                               ; preds = %54
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 48
+  %63 = load i32, ptr %62, align 8, !tbaa !15
+  %64 = sub nsw i32 0, %63
   br label %lv_obj_get_scroll_x.exit
 
-lv_obj_get_scroll_x.exit:                         ; preds = %._crit_edge.thread, %60
-  %.0.i = phi i32 [ %63, %60 ], [ 0, %._crit_edge.thread ]
-  %.neg = add i32 %56, %54
-  %64 = sub i32 %.neg, %55
-  %65 = add nsw i32 %64, %.0.i
-  %66 = tail call i32 @llvm.smax.i32(i32 %.035, i32 %65)
-  br label %67
+lv_obj_get_scroll_x.exit:                         ; preds = %54, %61
+  %.0.i = phi i32 [ %64, %61 ], [ 0, %54 ]
+  %.neg = add i32 %57, %55
+  %65 = sub i32 %.neg, %56
+  %66 = add nsw i32 %65, %.0.i
+  %67 = tail call i32 @llvm.smax.i32(i32 %.035, i32 %66)
+  br label %68
 
-67:                                               ; preds = %6, %lv_obj_get_scroll_x.exit, %10
-  %.0 = phi i32 [ %13, %10 ], [ %66, %lv_obj_get_scroll_x.exit ], [ 0, %6 ]
+68:                                               ; preds = %6, %lv_obj_get_scroll_x.exit, %10
+  %.0 = phi i32 [ %13, %10 ], [ %67, %lv_obj_get_scroll_x.exit ], [ 0, %6 ]
   ret i32 %.0
 }
 

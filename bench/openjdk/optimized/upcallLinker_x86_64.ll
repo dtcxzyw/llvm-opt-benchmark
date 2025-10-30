@@ -221,88 +221,88 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   store i64 0, ptr %86, align 8
   %87 = call noundef i32 @_ZN14ForeignGlobals23java_calling_conventionEPK9BasicTypeiR13GrowableArrayI9VMStorageE(ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %38) #9
   %88 = call noundef i32 @_ZN13SharedRuntime24out_preserve_stack_slotsEv() #9
-  %89 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
-  br label %90
+  br label %89
 
-90:                                               ; preds = %96, %_ZN13GrowableArrayI9VMStorageEC2Ev.exit
-  %91 = phi i32 [ 0, %_ZN13GrowableArrayI9VMStorageEC2Ev.exit ], [ %102, %96 ]
-  %.028.i = phi i32 [ 0, %_ZN13GrowableArrayI9VMStorageEC2Ev.exit ], [ %.1.i, %96 ]
-  %storemerge27.i = phi i32 [ 0, %_ZN13GrowableArrayI9VMStorageEC2Ev.exit ], [ %spec.select.i.i17.i, %96 ]
-  %92 = and i32 %storemerge27.i, -2
-  %switch.i = icmp eq i32 %92, 4
-  br i1 %switch.i, label %96, label %93
+89:                                               ; preds = %95, %_ZN13GrowableArrayI9VMStorageEC2Ev.exit
+  %90 = phi i32 [ 0, %_ZN13GrowableArrayI9VMStorageEC2Ev.exit ], [ %101, %95 ]
+  %.028.i = phi i32 [ 0, %_ZN13GrowableArrayI9VMStorageEC2Ev.exit ], [ %.1.i, %95 ]
+  %storemerge27.i = phi i32 [ 0, %_ZN13GrowableArrayI9VMStorageEC2Ev.exit ], [ %spec.select.i.i17.i, %95 ]
+  %91 = and i32 %storemerge27.i, -2
+  %switch.i = icmp eq i32 %91, 4
+  br i1 %switch.i, label %95, label %92
 
-93:                                               ; preds = %90
-  %94 = call noundef zeroext i1 @_ZNK13ABIDescriptor15is_volatile_regE8Register(ptr noundef nonnull align 8 dereferenceable(176) %35, i32 %storemerge27.i) #9
-  %95 = add nsw i32 %.028.i, 8
-  %spec.select.i = select i1 %94, i32 %.028.i, i32 %95
-  br label %96
+92:                                               ; preds = %89
+  %93 = call noundef zeroext i1 @_ZNK13ABIDescriptor15is_volatile_regE8Register(ptr noundef nonnull align 8 dereferenceable(176) %35, i32 %storemerge27.i) #9
+  %94 = add nsw i32 %.028.i, 8
+  %spec.select.i = select i1 %93, i32 %.028.i, i32 %94
+  br label %95
 
-96:                                               ; preds = %93, %90
-  %.1.i = phi i32 [ %spec.select.i, %93 ], [ %.028.i, %90 ]
-  %97 = add nuw nsw i32 %91, 1
-  %or.cond.i.i.i = icmp samesign ult i32 %91, 31
-  %spec.select.i.i17.i = select i1 %or.cond.i.i.i, i32 %97, i32 -1
-  %98 = sext i32 %spec.select.i.i17.i to i64
-  %99 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %98
-  %100 = ptrtoint ptr %99 to i64
-  %101 = trunc i64 %100 to i32
-  %102 = sub i32 %101, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %spec.select.i.i.i = icmp ult i32 %102, 32
-  %103 = load i8, ptr @UseAPX, align 1
-  %104 = trunc i8 %103 to i1
-  %105 = select i1 %104, i32 32, i32 16
-  %106 = icmp samesign ult i32 %102, %105
-  %107 = select i1 %spec.select.i.i.i, i1 %106, i1 false
-  br i1 %107, label %90, label %.preheader.i, !llvm.loop !8
+95:                                               ; preds = %92, %89
+  %.1.i = phi i32 [ %spec.select.i, %92 ], [ %.028.i, %89 ]
+  %96 = add nuw nsw i32 %90, 1
+  %or.cond.i.i.i = icmp samesign ult i32 %90, 31
+  %spec.select.i.i17.i = select i1 %or.cond.i.i.i, i32 %96, i32 -1
+  %97 = sext i32 %spec.select.i.i17.i to i64
+  %98 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %97
+  %99 = ptrtoint ptr %98 to i64
+  %100 = trunc i64 %99 to i32
+  %101 = sub i32 %100, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %spec.select.i.i.i = icmp ult i32 %101, 32
+  %102 = load i8, ptr @UseAPX, align 1
+  %103 = trunc i8 %102 to i1
+  %104 = select i1 %103, i32 32, i32 16
+  %105 = icmp samesign ult i32 %101, %104
+  %106 = select i1 %spec.select.i.i.i, i1 %105, i1 false
+  br i1 %106, label %89, label %.preheader.i, !llvm.loop !8
 
-.preheader.i:                                     ; preds = %96, %120
-  %108 = phi i32 [ %126, %120 ], [ 0, %96 ]
-  %.230.i = phi i32 [ %.3.i, %120 ], [ %.1.i, %96 ]
-  %storemerge1529.i = phi i32 [ %spec.select.i.i20.i, %120 ], [ 0, %96 ]
-  %109 = call noundef zeroext i1 @_ZNK13ABIDescriptor15is_volatile_regE11XMMRegister(ptr noundef nonnull align 8 dereferenceable(176) %35, i32 %storemerge1529.i) #9
+.preheader.i:                                     ; preds = %95, %119
+  %107 = phi i32 [ %125, %119 ], [ 0, %95 ]
+  %.230.i = phi i32 [ %.3.i, %119 ], [ %.1.i, %95 ]
+  %storemerge1529.i = phi i32 [ %spec.select.i.i20.i, %119 ], [ 0, %95 ]
+  %108 = call noundef zeroext i1 @_ZNK13ABIDescriptor15is_volatile_regE11XMMRegister(ptr noundef nonnull align 8 dereferenceable(176) %35, i32 %storemerge1529.i) #9
   %.pre.i = load i32, ptr @UseAVX, align 4
-  br i1 %109, label %120, label %110
+  br i1 %108, label %119, label %109
 
-110:                                              ; preds = %.preheader.i
-  %111 = icmp sgt i32 %.pre.i, 2
-  br i1 %111, label %112, label %114
+109:                                              ; preds = %.preheader.i
+  %110 = icmp sgt i32 %.pre.i, 2
+  br i1 %110, label %111, label %113
 
-112:                                              ; preds = %110
-  %113 = add nsw i32 %.230.i, 64
-  br label %120
+111:                                              ; preds = %109
+  %112 = add nsw i32 %.230.i, 64
+  br label %119
 
-114:                                              ; preds = %110
-  %115 = icmp sgt i32 %.pre.i, 0
-  br i1 %115, label %116, label %118
+113:                                              ; preds = %109
+  %114 = icmp sgt i32 %.pre.i, 0
+  br i1 %114, label %115, label %117
 
-116:                                              ; preds = %114
-  %117 = add nsw i32 %.230.i, 32
-  br label %120
+115:                                              ; preds = %113
+  %116 = add nsw i32 %.230.i, 32
+  br label %119
 
-118:                                              ; preds = %114
-  %119 = add nsw i32 %.230.i, 16
-  br label %120
+117:                                              ; preds = %113
+  %118 = add nsw i32 %.230.i, 16
+  br label %119
 
-120:                                              ; preds = %118, %116, %112, %.preheader.i
-  %.3.i = phi i32 [ %.230.i, %.preheader.i ], [ %113, %112 ], [ %117, %116 ], [ %119, %118 ]
-  %121 = add nuw nsw i32 %108, 1
-  %or.cond.i.i19.i = icmp samesign ult i32 %108, 31
-  %spec.select.i.i20.i = select i1 %or.cond.i.i19.i, i32 %121, i32 -1
-  %122 = sext i32 %spec.select.i.i20.i to i64
-  %123 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %122
-  %124 = ptrtoint ptr %123 to i64
-  %125 = trunc i64 %124 to i32
-  %126 = sub i32 %125, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  %spec.select.i.i18.i = icmp ult i32 %126, 32
-  %127 = icmp sgt i32 %.pre.i, 2
-  %128 = select i1 %127, i32 32, i32 16
-  %129 = icmp samesign ult i32 %126, %128
-  %130 = select i1 %spec.select.i.i18.i, i1 %129, i1 false
-  br i1 %130, label %.preheader.i, label %_ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit, !llvm.loop !9
+119:                                              ; preds = %117, %115, %111, %.preheader.i
+  %.3.i = phi i32 [ %.230.i, %.preheader.i ], [ %112, %111 ], [ %116, %115 ], [ %118, %117 ]
+  %120 = add nuw nsw i32 %107, 1
+  %or.cond.i.i19.i = icmp samesign ult i32 %107, 31
+  %spec.select.i.i20.i = select i1 %or.cond.i.i19.i, i32 %120, i32 -1
+  %121 = sext i32 %spec.select.i.i20.i to i64
+  %122 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %121
+  %123 = ptrtoint ptr %122 to i64
+  %124 = trunc i64 %123 to i32
+  %125 = sub i32 %124, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  %spec.select.i.i18.i = icmp ult i32 %125, 32
+  %126 = icmp sgt i32 %.pre.i, 2
+  %127 = select i1 %126, i32 32, i32 16
+  %128 = icmp samesign ult i32 %125, %127
+  %129 = select i1 %spec.select.i.i18.i, i1 %128, i1 false
+  br i1 %129, label %.preheader.i, label %_ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit, !llvm.loop !9
 
-_ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %120
-  %131 = mul i32 %89, %88
+_ZL26compute_reg_save_area_sizeRK13ABIDescriptor.exit: ; preds = %119
+  %130 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
+  %131 = mul i32 %130, %88
   %132 = add i32 %87, 15
   %133 = add i32 %132, %131
   %134 = and i32 %133, -16

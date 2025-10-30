@@ -3811,24 +3811,24 @@ huff_reader_get_symbol.exit336:                   ; preds = %905, %908, %get_vlc
 1006:                                             ; preds = %1004, %.thread
   %.1248 = phi i32 [ %spec.select287, %.thread ], [ %1005, %1004 ]
   %.not278 = icmp sgt i32 %.1248, %.0213396
-  %1007 = sub nsw i32 %.0213396, %.1248
-  %1008 = sub nsw i32 %.1248, %.0213396
-  %.2249 = select i1 %.not278, i32 %1008, i32 0
-  %.0243 = select i1 %.not278, i32 0, i32 %1007
+  %1007 = sub nsw i32 %.1248, %.0213396
+  %.2249 = select i1 %.not278, i32 %1007, i32 0
   %.not279377 = icmp slt i32 %.2249, %.0232
   br i1 %.not279377, label %._crit_edge382, label %.lr.ph381
 
 .lr.ph381:                                        ; preds = %1006, %.lr.ph381
-  %.0239379 = phi i32 [ %1009, %.lr.ph381 ], [ %.0222395, %1006 ]
-  %.3250378 = phi i32 [ %1010, %.lr.ph381 ], [ %.2249, %1006 ]
-  %1009 = add nsw i32 %.0239379, -1
-  %1010 = sub nsw i32 %.3250378, %.0232
-  %.not279 = icmp slt i32 %1010, %.0232
+  %.0239379 = phi i32 [ %1008, %.lr.ph381 ], [ %.0222395, %1006 ]
+  %.3250378 = phi i32 [ %1009, %.lr.ph381 ], [ %.2249, %1006 ]
+  %1008 = add nsw i32 %.0239379, -1
+  %1009 = sub nsw i32 %.3250378, %.0232
+  %.not279 = icmp slt i32 %1009, %.0232
   br i1 %.not279, label %._crit_edge382, label %.lr.ph381, !llvm.loop !154
 
 ._crit_edge382:                                   ; preds = %.lr.ph381, %1006
-  %.3250.lcssa = phi i32 [ %.2249, %1006 ], [ %1010, %.lr.ph381 ]
-  %.0239.lcssa = phi i32 [ %.0222395, %1006 ], [ %1009, %.lr.ph381 ]
+  %.3250.lcssa = phi i32 [ %.2249, %1006 ], [ %1009, %.lr.ph381 ]
+  %.0239.lcssa = phi i32 [ %.0222395, %1006 ], [ %1008, %.lr.ph381 ]
+  %1010 = sub nsw i32 %.0213396, %.1248
+  %.0243 = select i1 %.not278, i32 0, i32 %1010
   %1011 = icmp sgt i32 %.3250.lcssa, 0
   %1012 = sub nsw i32 %.0232, %.3250.lcssa
   %.1244 = select i1 %1011, i32 %1012, i32 %.0243

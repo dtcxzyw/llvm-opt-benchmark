@@ -47480,9 +47480,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i:              ; preds = %262, %259
 
 278:                                              ; preds = %.preheader40.i.i.i
   %279 = invoke noalias noundef nonnull dereferenceable(36) ptr @_Znwm(i64 noundef 36) #34
-          to label %.noexc84.i.i.i unwind label %517
+          to label %.lr.ph.i.i.i.i.i.i.i.i.i81.preheader.i.i.i unwind label %517
 
-.noexc84.i.i.i:                                   ; preds = %278
+.lr.ph.i.i.i.i.i.i.i.i.i81.preheader.i.i.i:       ; preds = %278
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %279, i8 0, i64 36, i1 false), !tbaa !8
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
@@ -47500,7 +47500,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i:              ; preds = %262, %259
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 6
   br i1 %exitcond.not.i.i.i, label %278, label %.preheader40.i.i.i, !llvm.loop !862
 
-.noexc89.i.i.i:                                   ; preds = %.noexc84.i.i.i
+.noexc89.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i81.preheader.i.i.i
   store ptr %281, ptr %71, align 8, !tbaa !797
   %286 = getelementptr inbounds nuw i8, ptr %281, i64 36
   %287 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -48133,7 +48133,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit150.i.i.i:           ; preds = %506, %_ZNSt6vectorI
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit159.i.i.i
 
-_ZNSt6vectorIfSaIfEED2Ev.exit157.thread.i.i.i:    ; preds = %.noexc84.i.i.i
+_ZNSt6vectorIfSaIfEED2Ev.exit157.thread.i.i.i:    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i81.preheader.i.i.i
   %519 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
@@ -48726,9 +48726,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i:              ; preds = %693, %690
 
 709:                                              ; preds = %.preheader40.i.i33.i
   %710 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #34
-          to label %.noexc84.i.i37.i unwind label %948
+          to label %.lr.ph.i.i.i.i.i.i.i.i.i81.preheader.i.i37.i unwind label %948
 
-.noexc84.i.i37.i:                                 ; preds = %709
+.lr.ph.i.i.i.i.i.i.i.i.i81.preheader.i.i37.i:     ; preds = %709
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %710, i8 0, i64 72, i1 false), !tbaa !10
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
@@ -48746,7 +48746,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i:              ; preds = %693, %690
   %exitcond.not.i.i36.i = icmp eq i64 %indvars.iv.next.i.i35.i, 6
   br i1 %exitcond.not.i.i36.i, label %709, label %.preheader40.i.i33.i, !llvm.loop !895
 
-.noexc89.i.i41.i:                                 ; preds = %.noexc84.i.i37.i
+.noexc89.i.i41.i:                                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i81.preheader.i.i37.i
   store ptr %712, ptr %40, align 8, !tbaa !876
   %717 = getelementptr inbounds nuw i8, ptr %712, i64 72
   %718 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -49379,7 +49379,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit150.i.i.i:           ; preds = %937, %_ZNSt6vectorI
           cleanup
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit159.i.i.i
 
-_ZNSt6vectorIdSaIdEED2Ev.exit157.thread.i.i.i:    ; preds = %.noexc84.i.i37.i
+_ZNSt6vectorIdSaIdEED2Ev.exit157.thread.i.i.i:    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i81.preheader.i.i37.i
   %950 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %40)

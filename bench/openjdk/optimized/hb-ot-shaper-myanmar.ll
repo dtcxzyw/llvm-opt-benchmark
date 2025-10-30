@@ -892,55 +892,55 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br label %126
 
 91:                                               ; preds = %42
-  %92 = add i32 %.2, -1
-  %93 = icmp ult i32 %.3122, %.2
-  br i1 %93, label %.lr.ph167, label %._crit_edge168
+  %92 = icmp ult i32 %.3122, %.2
+  br i1 %92, label %.lr.ph167, label %._crit_edge168
 
 .lr.ph167:                                        ; preds = %91
   %.2126.tr138 = trunc i32 %.2126 to i8
-  %94 = shl i8 %.2126.tr138, 4
-  %95 = zext i32 %.3122 to i64
+  %93 = shl i8 %.2126.tr138, 4
+  %94 = zext i32 %.3122 to i64
   %wide.trip.count194 = zext i32 %.2 to i64
-  br label %96
+  br label %95
 
-96:                                               ; preds = %.lr.ph167, %96
-  %indvars.iv191 = phi i64 [ %95, %.lr.ph167 ], [ %indvars.iv.next192, %96 ]
-  %97 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv191
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 15
-  store i8 %94, ptr %98, align 1
+95:                                               ; preds = %.lr.ph167, %95
+  %indvars.iv191 = phi i64 [ %94, %.lr.ph167 ], [ %indvars.iv.next192, %95 ]
+  %96 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv191
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 15
+  store i8 %93, ptr %97, align 1
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count194
-  br i1 %exitcond195.not, label %._crit_edge168, label %96, !llvm.loop !25
+  br i1 %exitcond195.not, label %._crit_edge168, label %95, !llvm.loop !25
 
-._crit_edge168:                                   ; preds = %96, %91
+._crit_edge168:                                   ; preds = %95, %91
+  %98 = add i32 %.2, -1
   %99 = add i32 %.2126, 1
   %100 = icmp eq i32 %99, 16
   %spec.store.select5 = select i1 %100, i32 1, i32 %99
   br label %126
 
 101:                                              ; preds = %42
-  %102 = add i32 %.2, -1
-  %103 = icmp ult i32 %.3122, %.2
-  br i1 %103, label %.lr.ph163, label %._crit_edge164
+  %102 = icmp ult i32 %.3122, %.2
+  br i1 %102, label %.lr.ph163, label %._crit_edge164
 
 .lr.ph163:                                        ; preds = %101
   %.2126.tr137 = trunc i32 %.2126 to i8
-  %104 = shl i8 %.2126.tr137, 4
-  %105 = or disjoint i8 %104, 1
-  %106 = zext i32 %.3122 to i64
+  %103 = shl i8 %.2126.tr137, 4
+  %104 = or disjoint i8 %103, 1
+  %105 = zext i32 %.3122 to i64
   %wide.trip.count189 = zext i32 %.2 to i64
-  br label %107
+  br label %106
 
-107:                                              ; preds = %.lr.ph163, %107
-  %indvars.iv186 = phi i64 [ %106, %.lr.ph163 ], [ %indvars.iv.next187, %107 ]
-  %108 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv186
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 15
-  store i8 %105, ptr %109, align 1
+106:                                              ; preds = %.lr.ph163, %106
+  %indvars.iv186 = phi i64 [ %105, %.lr.ph163 ], [ %indvars.iv.next187, %106 ]
+  %107 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv186
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 15
+  store i8 %104, ptr %108, align 1
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
-  br i1 %exitcond190.not, label %._crit_edge164, label %107, !llvm.loop !26
+  br i1 %exitcond190.not, label %._crit_edge164, label %106, !llvm.loop !26
 
-._crit_edge164:                                   ; preds = %107, %101
+._crit_edge164:                                   ; preds = %106, %101
+  %109 = add i32 %.2, -1
   %110 = add i32 %.2126, 1
   %111 = icmp eq i32 %110, 16
   %spec.store.select6 = select i1 %111, i32 1, i32 %110
@@ -951,28 +951,28 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   br label %126
 
 115:                                              ; preds = %42
-  %116 = add i32 %.2, -1
-  %117 = icmp ult i32 %.3122, %.2
-  br i1 %117, label %.lr.ph, label %._crit_edge
+  %116 = icmp ult i32 %.3122, %.2
+  br i1 %116, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %115
   %.2126.tr = trunc i32 %.2126 to i8
-  %118 = shl i8 %.2126.tr, 4
-  %119 = or disjoint i8 %118, 2
-  %120 = zext i32 %.3122 to i64
+  %117 = shl i8 %.2126.tr, 4
+  %118 = or disjoint i8 %117, 2
+  %119 = zext i32 %.3122 to i64
   %wide.trip.count = zext i32 %.2 to i64
-  br label %121
+  br label %120
 
-121:                                              ; preds = %.lr.ph, %121
-  %indvars.iv = phi i64 [ %120, %.lr.ph ], [ %indvars.iv.next, %121 ]
-  %122 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 15
-  store i8 %119, ptr %123, align 1
+120:                                              ; preds = %.lr.ph, %120
+  %indvars.iv = phi i64 [ %119, %.lr.ph ], [ %indvars.iv.next, %120 ]
+  %121 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %3, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 15
+  store i8 %118, ptr %122, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %121, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %120, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %121, %115
+._crit_edge:                                      ; preds = %120, %115
+  %123 = add i32 %.2, -1
   %124 = add i32 %.2126, 1
   %125 = icmp eq i32 %124, 16
   %spec.store.select7 = select i1 %125, i32 1, i32 %124
@@ -980,7 +980,7 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
 
 126:                                              ; preds = %42, %._crit_edge184, %._crit_edge180, %._crit_edge176, %._crit_edge172, %._crit_edge168, %._crit_edge164, %._crit_edge, %36
   %.3127 = phi i32 [ %.2126, %36 ], [ %.2126, %42 ], [ %spec.store.select, %._crit_edge184 ], [ %spec.store.select2, %._crit_edge180 ], [ %spec.store.select3, %._crit_edge176 ], [ %spec.store.select4, %._crit_edge172 ], [ %spec.store.select5, %._crit_edge168 ], [ %spec.store.select6, %._crit_edge164 ], [ %spec.store.select7, %._crit_edge ]
-  %.3 = phi i32 [ %.2, %36 ], [ %.2, %42 ], [ %.2, %._crit_edge184 ], [ %.2, %._crit_edge180 ], [ %.2, %._crit_edge176 ], [ %.2, %._crit_edge172 ], [ %92, %._crit_edge168 ], [ %102, %._crit_edge164 ], [ %116, %._crit_edge ]
+  %.3 = phi i32 [ %.2, %36 ], [ %.2, %42 ], [ %.2, %._crit_edge184 ], [ %.2, %._crit_edge180 ], [ %.2, %._crit_edge176 ], [ %.2, %._crit_edge172 ], [ %98, %._crit_edge168 ], [ %109, %._crit_edge164 ], [ %123, %._crit_edge ]
   %127 = and i64 %.fr, 1153343717090787345
   %cond1.not = icmp eq i64 %127, 0
   %spec.select146 = select i1 %cond1.not, i32 %.3122, i32 0

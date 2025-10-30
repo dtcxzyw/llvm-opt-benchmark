@@ -39,48 +39,48 @@ declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @wspstat_init(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(10) @.str.2, i64 noundef 9) #7
-  %.not = icmp eq i32 %3, 0
-  %4 = getelementptr i8, ptr %0, i64 9
-  %.0 = select i1 %.not, ptr %4, ptr null
-  %5 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #8
-  %6 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %6, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wsp_vals_status_ext, i64 16), align 8
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load ptr, ptr %9, align 8
-  %.not9294 = icmp eq ptr %10, null
+  %4 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #8
+  %5 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %5, ptr %6, align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wsp_vals_status_ext, i64 16), align 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %.not9294 = icmp eq ptr %9, null
   br i1 %.not9294, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %11 = phi ptr [ %22, %.lr.ph ], [ %9, %2 ]
-  %12 = phi ptr [ %21, %.lr.ph ], [ %8, %2 ]
-  %.08795 = phi i32 [ %19, %.lr.ph ], [ 0, %2 ]
-  %13 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #8
-  %14 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #8
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 0, ptr %15, align 8
-  %16 = load ptr, ptr %11, align 8
-  store ptr %16, ptr %13, align 8
-  %17 = load i32, ptr %12, align 8
-  store i32 %17, ptr %14, align 4
-  %18 = tail call i32 @g_hash_table_insert(ptr noundef %6, ptr noundef %14, ptr noundef %13)
-  %19 = add i32 %.08795, 1
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr %struct._value_string, ptr %8, i64 %20
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %.not92 = icmp eq ptr %23, null
+  %10 = phi ptr [ %21, %.lr.ph ], [ %8, %2 ]
+  %11 = phi ptr [ %20, %.lr.ph ], [ %7, %2 ]
+  %.08795 = phi i32 [ %18, %.lr.ph ], [ 0, %2 ]
+  %12 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #8
+  %13 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 0, ptr %14, align 8
+  %15 = load ptr, ptr %10, align 8
+  store ptr %15, ptr %12, align 8
+  %16 = load i32, ptr %11, align 8
+  store i32 %16, ptr %13, align 4
+  %17 = tail call i32 @g_hash_table_insert(ptr noundef %5, ptr noundef %13, ptr noundef %12)
+  %18 = add i32 %.08795, 1
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr %struct._value_string, ptr %7, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %.not92 = icmp eq ptr %22, null
   br i1 %.not92, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.not = icmp eq i32 %3, 0
+  %23 = getelementptr i8, ptr %0, i64 9
+  %.0 = select i1 %.not, ptr %23, ptr null
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 16, ptr %24, align 8
   %25 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc(i64 noundef 272) #8
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %25, ptr %26, align 8
   %27 = tail call noalias ptr @g_strdup(ptr noundef %.0)
-  store ptr %27, ptr %5, align 8
+  store ptr %27, ptr %4, align 8
   %28 = load i32, ptr %24, align 8
   %.not100 = icmp eq i32 %28, 0
   br i1 %.not100, label %._crit_edge99, label %.lr.ph98.preheader
@@ -123,20 +123,20 @@ index2pdut.exit:                                  ; preds = %.lr.ph98, %35, %37
   br i1 %42, label %.lr.ph98, label %._crit_edge99, !llvm.loop !9
 
 ._crit_edge99:                                    ; preds = %index2pdut.exit, %._crit_edge
-  %43 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str.3, ptr noundef %5, ptr noundef %.0, i32 noundef 0, ptr noundef nonnull @wspstat_reset, ptr noundef nonnull @wspstat_packet, ptr noundef nonnull @wspstat_draw, ptr noundef null)
+  %43 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str.3, ptr noundef %4, ptr noundef %.0, i32 noundef 0, ptr noundef nonnull @wspstat_reset, ptr noundef nonnull @wspstat_packet, ptr noundef nonnull @wspstat_draw, ptr noundef null)
   %.not93 = icmp eq ptr %43, null
   br i1 %.not93, label %51, label %44
 
 44:                                               ; preds = %._crit_edge99
   %45 = load ptr, ptr %26, align 8
   tail call void @g_free(ptr noundef %45)
-  %46 = load ptr, ptr %5, align 8
+  %46 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %46)
-  %47 = load ptr, ptr %7, align 8
+  %47 = load ptr, ptr %6, align 8
   tail call void @g_hash_table_foreach(ptr noundef %47, ptr noundef nonnull @wsp_free_hash_table, ptr noundef null)
-  %48 = load ptr, ptr %7, align 8
+  %48 = load ptr, ptr %6, align 8
   tail call void @g_hash_table_destroy(ptr noundef %48)
-  tail call void @g_free(ptr noundef %5)
+  tail call void @g_free(ptr noundef %4)
   %49 = load ptr, ptr %43, align 8
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.4, ptr noundef %49)
   %50 = tail call ptr @g_string_free(ptr noundef nonnull %43, i32 noundef 1)

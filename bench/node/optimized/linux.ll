@@ -2272,10 +2272,6 @@ if.end:                                           ; preds = %if.then, %entry
   %time = getelementptr inbounds nuw i8, ptr %loop, i64 544
   %2 = load i64, ptr %time, align 8
   %3 = load i32, ptr %0, align 8
-  %and5 = and i32 %3, 1
-  %tobool6.not = icmp eq i32 %and5, 0
-  %.timeout = select i1 %tobool6.not, i32 0, i32 %timeout
-  %timeout. = select i1 %tobool6.not, i32 %timeout, i32 0
   %backend_fd = getelementptr inbounds nuw i8, ptr %loop, i64 64
   %4 = load i32, ptr %backend_fd, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %e, i8 0, i64 12, i1 false)
@@ -2316,6 +2312,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.body, %if.end
+  %and5 = and i32 %3, 1
+  %tobool6.not = icmp eq i32 %and5, 0
+  %.timeout = select i1 %tobool6.not, i32 0, i32 %timeout
+  %timeout. = select i1 %tobool6.not, i32 %timeout, i32 0
   %events21 = getelementptr inbounds nuw i8, ptr %inv, i64 8
   store ptr %events, ptr %events21, align 8
   store ptr %prep, ptr %inv, align 8
@@ -3355,17 +3355,13 @@ land.rhs:                                         ; preds = %land.rhs.backedge, 
 while.body:                                       ; preds = %land.rhs
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %buf, ptr noundef nonnull dereferenceable(13) @uv_cpu_info.model_marker, i64 13)
   %tobool53.not = icmp eq i32 %bcmp, 0
-  br i1 %tobool53.not, label %if.end56, label %land.rhs.backedge
+  br i1 %tobool53.not, label %for.body, label %land.rhs.backedge
 
 land.rhs.backedge:                                ; preds = %while.body, %for.cond42.loopexit
   br label %land.rhs
 
-if.end56:                                         ; preds = %while.body
-  %call59 = call i64 @strcspn(ptr noundef nonnull %add.ptr58, ptr noundef nonnull @.str.14) #19
-  br label %for.body
-
-for.body:                                         ; preds = %if.end56, %for.body
-  %model.0.idx57 = phi i64 [ 0, %if.end56 ], [ %model.0.add, %for.body ]
+for.body:                                         ; preds = %while.body, %for.body
+  %model.0.idx57 = phi i64 [ %model.0.add, %for.body ], [ 0, %while.body ]
   %model.0.ptr58 = getelementptr inbounds nuw i8, ptr %models, i64 %model.0.idx57
   %call72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %model.0.ptr58) #19
   %call73 = call i32 @strncmp(ptr noundef nonnull %add.ptr58, ptr noundef nonnull %model.0.ptr58, i64 noundef %call72) #19
@@ -3377,6 +3373,7 @@ for.body:                                         ; preds = %if.end56, %for.body
 
 for.end77:                                        ; preds = %for.body
   %model.0.ptr.le = getelementptr inbounds nuw i8, ptr %models, i64 %model.0.add
+  %call59 = call i64 @strcspn(ptr noundef nonnull %add.ptr58, ptr noundef nonnull @.str.14) #19
   %conv60 = trunc i64 %call59 to i32
   br i1 %tobool74, label %while.cond98.preheader, label %if.end80
 

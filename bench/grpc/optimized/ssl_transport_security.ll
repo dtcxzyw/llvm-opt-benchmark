@@ -339,341 +339,344 @@ define internal fastcc noundef i32 @_ZL14peer_from_x509P7x509_stiP8tsi_peer(ptr 
   br i1 %.not, label %.thread.thread, label %16
 
 .thread.thread:                                   ; preds = %3
-  %narrow99 = add nuw nsw i32 %1, 3
-  %15 = zext nneg i32 %narrow99 to i64
+  %narrow98 = add nuw nsw i32 %1, 3
+  %15 = zext nneg i32 %narrow98 to i64
   br label %._crit_edge
 
 16:                                               ; preds = %3
   %17 = tail call i64 @OPENSSL_sk_num(ptr noundef nonnull %14)
   %18 = trunc i64 %17 to i32
   %.not.i.i = icmp slt i32 %18, 0
-  br i1 %.not.i.i, label %21, label %.thread, !prof !3
+  br i1 %.not.i.i, label %20, label %.thread, !prof !3
 
 .thread:                                          ; preds = %16
   %narrow = add nuw nsw i32 %1, 3
-  %19 = and i64 %17, 2147483647
   %narrow78 = add nuw i32 %narrow, %18
-  %20 = zext i32 %narrow78 to i64
+  %19 = zext i32 %narrow78 to i64
   %.not81 = icmp eq i32 %18, 0
-  br i1 %.not81, label %._crit_edge, label %.lr.ph
+  br i1 %.not81, label %._crit_edge, label %.lr.ph.preheader
 
-21:                                               ; preds = %16
+.lr.ph.preheader:                                 ; preds = %.thread
+  %wide.trip.count = and i64 %17, 2147483647
+  br label %.lr.ph
+
+20:                                               ; preds = %16
   %sext = shl i64 %17, 32
-  %22 = ashr exact i64 %sext, 32
-  %23 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIllEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %22, i64 noundef 0, ptr noundef nonnull @.str.21)
+  %21 = ashr exact i64 %sext, 32
+  %22 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIllEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %21, i64 noundef 0, ptr noundef nonnull @.str.21)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %24 = load ptr, ptr %23, align 8, !tbaa !4
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !12
-  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str.1, i32 noundef 485, i64 %26, ptr %24) #31
+  %23 = load ptr, ptr %22, align 8, !tbaa !4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %25 = load i64, ptr %24, align 8, !tbaa !12
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str.1, i32 noundef 485, i64 %25, ptr %23) #31
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #33
   unreachable
 
-._crit_edge:                                      ; preds = %34, %.thread.thread, %.thread
-  %27 = phi i64 [ 0, %.thread ], [ 0, %.thread.thread ], [ %19, %34 ]
-  %28 = phi i1 [ false, %.thread ], [ false, %.thread.thread ], [ true, %34 ]
-  %.050.lcssa = phi i64 [ %20, %.thread ], [ %15, %.thread.thread ], [ %.1, %34 ]
-  %29 = tail call noundef i32 @_Z18tsi_construct_peermP8tsi_peer(i64 noundef %.050.lcssa, ptr noundef %2)
-  %.not63 = icmp eq i32 %29, 0
-  br i1 %.not63, label %35, label %129
+._crit_edge:                                      ; preds = %32, %.thread, %.thread.thread
+  %26 = phi i1 [ false, %.thread.thread ], [ false, %.thread ], [ true, %32 ]
+  %.pre-phi = phi i64 [ 0, %.thread.thread ], [ 0, %.thread ], [ %wide.trip.count, %32 ]
+  %.050.lcssa = phi i64 [ %15, %.thread.thread ], [ %19, %.thread ], [ %.1, %32 ]
+  %27 = tail call noundef i32 @_Z18tsi_construct_peermP8tsi_peer(i64 noundef %.050.lcssa, ptr noundef %2)
+  %.not63 = icmp eq i32 %27, 0
+  br i1 %.not63, label %33, label %127
 
-.lr.ph:                                           ; preds = %.thread, %34
-  %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.thread ]
-  %.05079 = phi i64 [ %.1, %34 ], [ %20, %.thread ]
-  %30 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %14, i64 noundef %indvars.iv)
-  %31 = load i32, ptr %30, align 8, !tbaa !13
-  switch i32 %31, label %34 [
-    i32 6, label %32
-    i32 2, label %32
-    i32 1, label %32
-    i32 7, label %32
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %32
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
+  %.05079 = phi i64 [ %19, %.lr.ph.preheader ], [ %.1, %32 ]
+  %28 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %14, i64 noundef %indvars.iv)
+  %29 = load i32, ptr %28, align 8, !tbaa !13
+  switch i32 %29, label %32 [
+    i32 6, label %30
+    i32 2, label %30
+    i32 1, label %30
+    i32 7, label %30
   ]
 
-32:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %33 = add i64 %.05079, 1
-  br label %34
+30:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %31 = add i64 %.05079, 1
+  br label %32
 
-34:                                               ; preds = %.lr.ph, %32
-  %.1 = phi i64 [ %33, %32 ], [ %.05079, %.lr.ph ]
+32:                                               ; preds = %.lr.ph, %30
+  %.1 = phi i64 [ %31, %30 ], [ %.05079, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %19
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
-35:                                               ; preds = %._crit_edge
-  %.not62.not103 = icmp eq i32 %1, 0
+33:                                               ; preds = %._crit_edge
+  %.not62.not = icmp eq i32 %1, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  br i1 %.not62.not103, label %39, label %36
+  br i1 %.not62.not, label %37, label %34
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %2, align 8, !tbaa !18
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %2, align 8, !tbaa !18
   store i32 1, ptr %12, align 4, !tbaa !21
-  %38 = tail call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef %37)
-  %.not64 = icmp eq i32 %38, 0
-  br i1 %.not64, label %39, label %119
+  %36 = tail call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef %35)
+  %.not64 = icmp eq i32 %36, 0
+  br i1 %.not64, label %37, label %117
 
-39:                                               ; preds = %36, %35
-  %40 = phi i32 [ 1, %36 ], [ 0, %35 ]
-  %41 = load ptr, ptr %2, align 8, !tbaa !18
-  %42 = add nuw nsw i32 %40, 1
-  store i32 %42, ptr %12, align 4, !tbaa !21
-  %43 = zext nneg i32 %40 to i64
-  %44 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %41, i64 %43
-  %45 = tail call fastcc noundef i32 @_ZL31peer_property_from_x509_subjectP7x509_stP17tsi_peer_propertyb(ptr noundef %0, ptr noundef %44, i1 noundef zeroext false)
-  %.not65 = icmp eq i32 %45, 0
-  br i1 %.not65, label %46, label %119
+37:                                               ; preds = %34, %33
+  %38 = phi i32 [ 1, %34 ], [ 0, %33 ]
+  %39 = load ptr, ptr %2, align 8, !tbaa !18
+  %40 = add nuw nsw i32 %38, 1
+  store i32 %40, ptr %12, align 4, !tbaa !21
+  %41 = zext nneg i32 %38 to i64
+  %42 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %39, i64 %41
+  %43 = tail call fastcc noundef i32 @_ZL31peer_property_from_x509_subjectP7x509_stP17tsi_peer_propertyb(ptr noundef %0, ptr noundef %42, i1 noundef zeroext false)
+  %.not65 = icmp eq i32 %43, 0
+  br i1 %.not65, label %44, label %117
 
-46:                                               ; preds = %39
-  %47 = load ptr, ptr %2, align 8, !tbaa !18
-  %48 = or disjoint i32 %40, 2
-  store i32 %48, ptr %12, align 4, !tbaa !21
-  %49 = zext nneg i32 %42 to i64
-  %50 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %47, i64 %49
+44:                                               ; preds = %37
+  %45 = load ptr, ptr %2, align 8, !tbaa !18
+  %46 = or disjoint i32 %38, 2
+  store i32 %46, ptr %12, align 4, !tbaa !21
+  %47 = zext nneg i32 %40 to i64
+  %48 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %45, i64 %47
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %51 = tail call ptr @X509_get_subject_name(ptr noundef nonnull %0)
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %62
+  %49 = tail call ptr @X509_get_subject_name(ptr noundef nonnull %0)
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %60
 
-53:                                               ; preds = %46
-  %54 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL24ssl_get_x509_common_nameP7x509_stPPhPmENK3$_0clEvE4site", i64 8) monotonic, align 8
-  %55 = icmp slt i32 %54, 2
-  br i1 %55, label %94, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit.i.i, !prof !22
+51:                                               ; preds = %44
+  %52 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL24ssl_get_x509_common_nameP7x509_stPPhPmENK3$_0clEvE4site", i64 8) monotonic, align 8
+  %53 = icmp slt i32 %52, 2
+  br i1 %53, label %92, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit.i.i, !prof !22
 
-_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit.i.i: ; preds = %53
-  %56 = tail call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZL24ssl_get_x509_common_nameP7x509_stPPhPmENK3$_0clEvE4site", i32 noundef %54)
-  br i1 %56, label %57, label %94
+_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit.i.i: ; preds = %51
+  %54 = tail call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZL24ssl_get_x509_common_nameP7x509_stPPhPmENK3$_0clEvE4site", i32 noundef %52)
+  br i1 %54, label %55, label %92
 
-57:                                               ; preds = %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit.i.i
+55:                                               ; preds = %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.1, i32 noundef 288) #31
-  %58 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 2)
-          to label %59 unwind label %60
+  %56 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 2)
+          to label %57 unwind label %58
 
-59:                                               ; preds = %57
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %58, i64 44, ptr nonnull @.str.25)
-          to label %.critedge.i.i unwind label %60
+57:                                               ; preds = %55
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %56, i64 44, ptr nonnull @.str.25)
+          to label %.critedge.i.i unwind label %58
 
-.critedge.i.i:                                    ; preds = %59
-  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %94
-
-60:                                               ; preds = %59, %57
-  %61 = landingpad { ptr, i32 }
-          cleanup
+.critedge.i.i:                                    ; preds = %57
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %92
 
-62:                                               ; preds = %46
-  %63 = tail call i32 @X509_NAME_get_index_by_NID(ptr noundef nonnull %51, i32 noundef 13, i32 noundef -1)
-  %64 = icmp eq i32 %63, -1
-  br i1 %64, label %65, label %74
+58:                                               ; preds = %57, %55
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %90
 
-65:                                               ; preds = %62
-  %66 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL24ssl_get_x509_common_nameP7x509_stPPhPmENK3$_1clEvE4site", i64 8) monotonic, align 8
-  %67 = icmp slt i32 %66, 2
-  br i1 %67, label %94, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit41.i.i, !prof !22
+60:                                               ; preds = %44
+  %61 = tail call i32 @X509_NAME_get_index_by_NID(ptr noundef nonnull %49, i32 noundef 13, i32 noundef -1)
+  %62 = icmp eq i32 %61, -1
+  br i1 %62, label %63, label %72
 
-_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit41.i.i: ; preds = %65
-  %68 = tail call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZL24ssl_get_x509_common_nameP7x509_stPPhPmENK3$_1clEvE4site", i32 noundef %66)
-  br i1 %68, label %69, label %94
+63:                                               ; preds = %60
+  %64 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL24ssl_get_x509_common_nameP7x509_stPPhPmENK3$_1clEvE4site", i64 8) monotonic, align 8
+  %65 = icmp slt i32 %64, 2
+  br i1 %65, label %92, label %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit41.i.i, !prof !22
 
-69:                                               ; preds = %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit41.i.i
+_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit41.i.i: ; preds = %63
+  %66 = tail call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal8VLogSite14SlowIsEnabled2Ei(ptr noundef nonnull align 8 dereferenceable(24) @"_ZZZL24ssl_get_x509_common_nameP7x509_stPPhPmENK3$_1clEvE4site", i32 noundef %64)
+  br i1 %66, label %67, label %92
+
+67:                                               ; preds = %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit41.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.1, i32 noundef 294) #31
-  %70 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 2)
-          to label %71 unwind label %72
+  %68 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage13WithVerbosityEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 2)
+          to label %69 unwind label %70
 
-71:                                               ; preds = %69
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %70, i64 54, ptr nonnull @.str.29)
-          to label %.critedge38.i.i unwind label %72
+69:                                               ; preds = %67
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %68, i64 54, ptr nonnull @.str.29)
+          to label %.critedge38.i.i unwind label %70
 
-.critedge38.i.i:                                  ; preds = %71
-  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #32
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %94
-
-72:                                               ; preds = %71, %69
-  %73 = landingpad { ptr, i32 }
-          cleanup
+.critedge38.i.i:                                  ; preds = %69
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %92
 
-74:                                               ; preds = %62
-  %75 = tail call ptr @X509_NAME_get_entry(ptr noundef nonnull %51, i32 noundef %63)
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %80
+70:                                               ; preds = %69, %67
+  %71 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %90
 
-77:                                               ; preds = %74
+72:                                               ; preds = %60
+  %73 = tail call ptr @X509_NAME_get_entry(ptr noundef nonnull %49, i32 noundef %61)
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %75, label %78
+
+75:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.1, i32 noundef 299) #31
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 49, ptr nonnull @.str.30)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit.i.i unwind label %78
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit.i.i unwind label %76
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit.i.i: ; preds = %77
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit.i.i: ; preds = %75
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit.thread
 
-78:                                               ; preds = %77
-  %79 = landingpad { ptr, i32 }
+76:                                               ; preds = %75
+  %77 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %92
+  br label %90
 
-80:                                               ; preds = %74
-  %81 = tail call ptr @X509_NAME_ENTRY_get_data(ptr noundef nonnull %75)
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %83, label %86
+78:                                               ; preds = %72
+  %79 = tail call ptr @X509_NAME_ENTRY_get_data(ptr noundef nonnull %73)
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %81, label %84
 
-83:                                               ; preds = %80
+81:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.1, i32 noundef 304) #31
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 54, ptr nonnull @.str.31)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit44.i.i unwind label %84
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit44.i.i unwind label %82
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit44.i.i: ; preds = %83
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit44.i.i: ; preds = %81
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit.thread
 
-84:                                               ; preds = %83
-  %85 = landingpad { ptr, i32 }
+82:                                               ; preds = %81
+  %83 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %92
+  br label %90
 
-86:                                               ; preds = %80
-  %87 = call i32 @ASN1_STRING_to_UTF8(ptr noundef nonnull %10, ptr noundef nonnull %81)
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %89, label %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i
+84:                                               ; preds = %78
+  %85 = call i32 @ASN1_STRING_to_UTF8(ptr noundef nonnull %10, ptr noundef nonnull %79)
+  %86 = icmp slt i32 %85, 0
+  br i1 %86, label %87, label %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i
 
-89:                                               ; preds = %86
+87:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.1, i32 noundef 309) #31
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 40, ptr nonnull @.str.32)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit.i.i unwind label %90
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit.i.i unwind label %88
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit.i.i: ; preds = %89
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit.i.i: ; preds = %87
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit.thread
 
-90:                                               ; preds = %89
-  %91 = landingpad { ptr, i32 }
+88:                                               ; preds = %87
+  %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %92
+  br label %90
 
-92:                                               ; preds = %90, %84, %78, %72, %60
-  %.pn.i.i = phi { ptr, i32 } [ %61, %60 ], [ %73, %72 ], [ %79, %78 ], [ %85, %84 ], [ %91, %90 ]
+90:                                               ; preds = %88, %82, %76, %70, %58
+  %.pn.i.i = phi { ptr, i32 } [ %59, %58 ], [ %71, %70 ], [ %77, %76 ], [ %83, %82 ], [ %89, %88 ]
   resume { ptr, i32 } %.pn.i.i
 
-_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i: ; preds = %86
-  %93 = zext nneg i32 %87 to i64
+_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i: ; preds = %84
+  %91 = zext nneg i32 %85 to i64
   %.pre.i = load ptr, ptr %10, align 8, !tbaa !23
   br label %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit
 
-94:                                               ; preds = %.critedge38.i.i, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit41.i.i, %65, %.critedge.i.i, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit.i.i, %53
+92:                                               ; preds = %.critedge38.i.i, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit41.i.i, %63, %.critedge.i.i, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit.i.i, %51
   store ptr null, ptr %10, align 8, !tbaa !23
   br label %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit
 
 _ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit.thread: ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit.i.i, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit44.i.i, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit.i.i
   %.0.i.ph = phi i32 [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit.i.i ], [ 7, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit44.i.i ], [ 12, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %119
+  br label %117
 
-_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit: ; preds = %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i, %94
-  %95 = phi ptr [ %.pre.i, %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i ], [ null, %94 ]
-  %.07.i = phi i64 [ %93, %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i ], [ 0, %94 ]
-  %96 = icmp eq ptr %95, null
-  %97 = select i1 %96, ptr @.str, ptr %95
-  %98 = call noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef nonnull @.str.18, ptr noundef nonnull %97, i64 noundef %.07.i, ptr noundef nonnull %50)
-  %99 = load ptr, ptr %10, align 8, !tbaa !23
-  call void @OPENSSL_free(ptr noundef %99)
+_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit: ; preds = %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i, %92
+  %93 = phi ptr [ %.pre.i, %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i ], [ null, %92 ]
+  %.07.i = phi i64 [ %91, %_ZL24ssl_get_x509_common_nameP7x509_stPPhPm.exit.i ], [ 0, %92 ]
+  %94 = icmp eq ptr %93, null
+  %95 = select i1 %94, ptr @.str, ptr %93
+  %96 = call noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef nonnull @.str.18, ptr noundef nonnull %95, i64 noundef %.07.i, ptr noundef nonnull %48)
+  %97 = load ptr, ptr %10, align 8, !tbaa !23
+  call void @OPENSSL_free(ptr noundef %97)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.not66 = icmp eq i32 %98, 0
-  br i1 %.not66, label %100, label %119
+  %.not66 = icmp eq i32 %96, 0
+  br i1 %.not66, label %98, label %117
 
-100:                                              ; preds = %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit
-  %101 = load ptr, ptr %2, align 8, !tbaa !18
-  %102 = add nuw nsw i32 %40, 3
-  store i32 %102, ptr %12, align 4, !tbaa !21
-  %103 = zext nneg i32 %48 to i64
-  %104 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %101, i64 %103
-  %105 = call ptr @BIO_s_mem()
-  %106 = call ptr @BIO_new(ptr noundef %105)
-  %107 = call i32 @PEM_write_bio_X509(ptr noundef %106, ptr noundef nonnull %0)
-  %.not.i = icmp eq i32 %107, 0
-  br i1 %.not.i, label %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit.thread, label %109
+98:                                               ; preds = %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit
+  %99 = load ptr, ptr %2, align 8, !tbaa !18
+  %100 = add nuw nsw i32 %38, 3
+  store i32 %100, ptr %12, align 4, !tbaa !21
+  %101 = zext nneg i32 %46 to i64
+  %102 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %99, i64 %101
+  %103 = call ptr @BIO_s_mem()
+  %104 = call ptr @BIO_new(ptr noundef %103)
+  %105 = call i32 @PEM_write_bio_X509(ptr noundef %104, ptr noundef nonnull %0)
+  %.not.i = icmp eq i32 %105, 0
+  br i1 %.not.i, label %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit.thread, label %107
 
-_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit.thread: ; preds = %100
-  %108 = call i32 @BIO_free(ptr noundef %106)
-  br label %119
+_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit.thread: ; preds = %98
+  %106 = call i32 @BIO_free(ptr noundef %104)
+  br label %117
 
-109:                                              ; preds = %100
+107:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %110 = call i64 @BIO_get_mem_data(ptr noundef %106, ptr noundef nonnull %4)
-  %111 = icmp slt i64 %110, 1
-  br i1 %111, label %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit, label %112
+  %108 = call i64 @BIO_get_mem_data(ptr noundef %104, ptr noundef nonnull %4)
+  %109 = icmp slt i64 %108, 1
+  br i1 %109, label %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit, label %110
 
-112:                                              ; preds = %109
-  %113 = load ptr, ptr %4, align 8, !tbaa !23
-  %114 = call noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef nonnull @.str.33, ptr noundef %113, i64 noundef %110, ptr noundef nonnull %104)
+110:                                              ; preds = %107
+  %111 = load ptr, ptr %4, align 8, !tbaa !23
+  %112 = call noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef nonnull @.str.33, ptr noundef %111, i64 noundef %108, ptr noundef nonnull %102)
   br label %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit
 
-_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit: ; preds = %109, %112
-  %.1.i = phi i32 [ %114, %112 ], [ 7, %109 ]
-  %115 = call i32 @BIO_free(ptr noundef %106)
+_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit: ; preds = %107, %110
+  %.1.i = phi i32 [ %112, %110 ], [ 7, %107 ]
+  %113 = call i32 @BIO_free(ptr noundef %104)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %116 = icmp eq i32 %.1.i, 0
-  %or.cond = and i1 %28, %116
-  br i1 %or.cond, label %117, label %119
+  %114 = icmp eq i32 %.1.i, 0
+  %or.cond = and i1 %26, %114
+  br i1 %or.cond, label %115, label %117
 
-117:                                              ; preds = %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit
-  %118 = call fastcc noundef i32 @_ZL40add_subject_alt_names_properties_to_peerP8tsi_peerP21stack_st_GENERAL_NAMEmPi(ptr noundef nonnull %2, ptr noundef %14, i64 noundef %27, ptr noundef %12)
+115:                                              ; preds = %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit
+  %116 = call fastcc noundef i32 @_ZL40add_subject_alt_names_properties_to_peerP8tsi_peerP21stack_st_GENERAL_NAMEmPi(ptr noundef nonnull %2, ptr noundef %14, i64 noundef %.pre-phi, ptr noundef %12)
+  br label %117
+
+117:                                              ; preds = %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit.thread, %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit.thread, %115, %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit, %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit, %37, %34
+  %.051 = phi i32 [ %36, %34 ], [ %43, %37 ], [ %96, %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit ], [ %116, %115 ], [ %.1.i, %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit ], [ %.0.i.ph, %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit.thread ], [ 7, %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit.thread ]
+  br i1 %.not, label %119, label %118
+
+118:                                              ; preds = %117
+  call void @OPENSSL_sk_pop_free_ex(ptr noundef nonnull %14, ptr noundef nonnull @sk_GENERAL_NAME_call_free_func, ptr noundef nonnull @GENERAL_NAME_free)
   br label %119
 
-119:                                              ; preds = %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit.thread, %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit.thread, %117, %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit, %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit, %39, %36
-  %.051 = phi i32 [ %38, %36 ], [ %45, %39 ], [ %98, %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit ], [ %118, %117 ], [ %.1.i, %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit ], [ %.0.i.ph, %_ZL35peer_property_from_x509_common_nameP7x509_stP17tsi_peer_property.exit.thread ], [ 7, %_ZL19add_pem_certificateP7x509_stP17tsi_peer_property.exit.thread ]
-  br i1 %.not, label %121, label %120
+119:                                              ; preds = %118, %117
+  %.not67 = icmp eq i32 %.051, 0
+  br i1 %.not67, label %121, label %120
 
 120:                                              ; preds = %119
-  call void @OPENSSL_sk_pop_free_ex(ptr noundef nonnull %14, ptr noundef nonnull @sk_GENERAL_NAME_call_free_func, ptr noundef nonnull @GENERAL_NAME_free)
+  call void @_Z17tsi_peer_destructP8tsi_peer(ptr noundef nonnull %2)
   br label %121
 
 121:                                              ; preds = %120, %119
-  %.not67 = icmp eq i32 %.051, 0
-  br i1 %.not67, label %123, label %122
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %123 = load i64, ptr %122, align 8, !tbaa !24
+  %124 = trunc i64 %123 to i32
+  %125 = load i32, ptr %12, align 4, !tbaa !21
+  %.not68.not = icmp eq i32 %125, %124
+  br i1 %.not68.not, label %.critedge, label %126, !prof !22
 
-122:                                              ; preds = %121
-  call void @_Z17tsi_peer_destructP8tsi_peer(ptr noundef nonnull %2)
-  br label %123
-
-123:                                              ; preds = %122, %121
-  %124 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %125 = load i64, ptr %124, align 8, !tbaa !24
-  %126 = trunc i64 %125 to i32
-  %127 = load i32, ptr %12, align 4, !tbaa !21
-  %.not68.not = icmp eq i32 %127, %126
-  br i1 %.not68.not, label %.critedge, label %128, !prof !22
-
-128:                                              ; preds = %123
+126:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull @.str.1, i32 noundef 540, i64 49, ptr nonnull @.str.24) #31
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #33
   unreachable
 
-.critedge:                                        ; preds = %123
+.critedge:                                        ; preds = %121
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %129
+  br label %127
 
-129:                                              ; preds = %._crit_edge, %.critedge
-  %.048 = phi i32 [ %.051, %.critedge ], [ %29, %._crit_edge ]
+127:                                              ; preds = %._crit_edge, %.critedge
+  %.048 = phi i32 [ %.051, %.critedge ], [ %27, %._crit_edge ]
   ret i32 %.048
 }
 

@@ -2242,7 +2242,7 @@ print_str.exit:                                   ; preds = %10
 .preheader:                                       ; preds = %.preheader202, %._crit_edge
   %.0139227 = phi i64 [ %51, %._crit_edge ], [ 0, %.preheader202 ]
   %.0141226 = phi i32 [ %71, %._crit_edge ], [ 128, %.preheader202 ]
-  %.0143225 = phi i64 [ %119, %._crit_edge ], [ 0, %.preheader202 ]
+  %.0143225 = phi i64 [ %126, %._crit_edge ], [ 0, %.preheader202 ]
   %.0146224 = phi i64 [ %129, %._crit_edge ], [ 72, %.preheader202 ]
   %.0149223 = phi i64 [ 2, %._crit_edge ], [ 700, %.preheader202 ]
   %.1153222 = phi i64 [ %67, %._crit_edge ], [ %14, %.preheader202 ]
@@ -2382,24 +2382,24 @@ print_str.exit:                                   ; preds = %10
   br i1 %117, label %.thread192, label %118
 
 118:                                              ; preds = %103
-  %119 = add nuw i64 %72, 1
-  %120 = udiv i64 %63, %.0149223
-  %121 = udiv i64 %120, %67
-  %122 = add nuw i64 %121, %120
-  %123 = icmp ugt i64 %122, 455
-  br i1 %123, label %.lr.ph217, label %._crit_edge
+  %119 = udiv i64 %63, %.0149223
+  %120 = udiv i64 %119, %67
+  %121 = add nuw i64 %120, %119
+  %122 = icmp ugt i64 %121, 455
+  br i1 %122, label %.lr.ph217, label %._crit_edge
 
 .lr.ph217:                                        ; preds = %118, %.lr.ph217
-  %.1135216 = phi i64 [ %125, %.lr.ph217 ], [ 0, %118 ]
-  %.1138215 = phi i64 [ %124, %.lr.ph217 ], [ %122, %118 ]
-  %124 = udiv i64 %.1138215, 35
-  %125 = add i64 %.1135216, 36
-  %126 = icmp ugt i64 %.1138215, 15959
-  br i1 %126, label %.lr.ph217, label %._crit_edge, !llvm.loop !49
+  %.1135216 = phi i64 [ %124, %.lr.ph217 ], [ 0, %118 ]
+  %.1138215 = phi i64 [ %123, %.lr.ph217 ], [ %121, %118 ]
+  %123 = udiv i64 %.1138215, 35
+  %124 = add i64 %.1135216, 36
+  %125 = icmp ugt i64 %.1138215, 15959
+  br i1 %125, label %.lr.ph217, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph217, %118
-  %.1138.lcssa = phi i64 [ %122, %118 ], [ %124, %.lr.ph217 ]
-  %.1135.lcssa = phi i64 [ 0, %118 ], [ %125, %.lr.ph217 ]
+  %.1138.lcssa = phi i64 [ %121, %118 ], [ %123, %.lr.ph217 ]
+  %.1135.lcssa = phi i64 [ 0, %118 ], [ %124, %.lr.ph217 ]
+  %126 = add nuw i64 %72, 1
   %127 = trunc nuw i64 %.1138.lcssa to i16
   %.lhs.trunc = mul nuw i16 %127, 36
   %.rhs.trunc = add nuw nsw i16 %127, 38

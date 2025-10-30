@@ -8465,9 +8465,6 @@ if.then.i.i1888:
   store i32 %add54, ptr %nErrorCount, align 4
   %call.i.i.i.i1892 = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store i32 0, ptr %call.i.i.i.i1892, align 4
-  %incdec.ptr25.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i1892, i64 4
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %incdec.ptr25.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %call.i.i.i.i1892 to i64
   br label %while.body.i.i.i
 
 common.resume:                                    ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1748, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1784, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1820, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1856, %lpad62, %ehcleanup190, %ehcleanup312, %ehcleanup434, %ehcleanup556, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1730
@@ -8490,6 +8487,9 @@ while.body.i.i.i:                                 ; preds = %if.then.i.i1888, %w
   br i1 %cmp.i.i.i18, label %while.body.i.i.i, label %if.then.i.i1917, !llvm.loop !9
 
 if.then.i.i1917:                                  ; preds = %while.body.i.i.i
+  %incdec.ptr25.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i1892, i64 4
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %incdec.ptr25.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %call.i.i.i.i1892 to i64
   %cmp3.not.i.i.i12 = icmp eq ptr %first.addr.1.i.i.i, %incdec.ptr25.i
   %sub.ptr.lhs.cast.i1908 = ptrtoint ptr %first.addr.1.i.i.i to i64
   %sub.ptr.sub.i1910 = sub i64 %sub.ptr.lhs.cast.i1908, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -131725,20 +131725,17 @@ for.cond:                                         ; preds = %if.end9, %if.end3
   %incdec.ptr5.ptr = getelementptr inbounds i8, ptr %__last, i64 %__i.0.add
   %1 = load i32, ptr %incdec.ptr5.ptr, align 8
   %cmp.i.i = icmp slt i32 %1, %0
-  br i1 %cmp.i.i, label %while.cond.preheader, label %if.end9
+  br i1 %cmp.i.i, label %while.cond, label %if.end9
 
-while.cond.preheader:                             ; preds = %for.cond
-  %__i.0.ptr.le = getelementptr inbounds i8, ptr %__last, i64 %__i.0.idx
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.cond.preheader, %while.cond
-  %__j.0 = phi ptr [ %incdec.ptr7, %while.cond ], [ %__last, %while.cond.preheader ]
+while.cond:                                       ; preds = %for.cond, %while.cond
+  %__j.0 = phi ptr [ %incdec.ptr7, %while.cond ], [ %__last, %for.cond ]
   %incdec.ptr7 = getelementptr inbounds i8, ptr %__j.0, i64 -24
   %2 = load i32, ptr %incdec.ptr7, align 8
   %cmp.i.i16 = icmp slt i32 %1, %2
   br i1 %cmp.i.i16, label %while.end, label %while.cond, !llvm.loop !4996
 
 while.end:                                        ; preds = %while.cond
+  %__i.0.ptr.le = getelementptr inbounds i8, ptr %__last, i64 %__i.0.idx
   %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %__i.0.ptr.le, i64 -20
   %3 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
   %frombool.i.i.i = and i8 %3, 1

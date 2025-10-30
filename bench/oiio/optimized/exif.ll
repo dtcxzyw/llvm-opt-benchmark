@@ -5871,26 +5871,26 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   %8 = load float, ptr %7, align 4, !tbaa !31
   call void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIiS7_St4hashIiESt8equal_toIiESaIS8_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_EC2EmRKSB_RKSD_RKSE_ff(ptr noundef nonnull align 8 dereferenceable(74) %3, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %4, float noundef %6, float noundef %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !174
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !174
-  %.not18 = icmp eq ptr %11, %13
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !174
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !174
+  %.not18 = icmp eq ptr %10, %12
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %62
 
 ._crit_edge.loopexit:                             ; preds = %88
-  %.pre = load ptr, ptr %10, align 8, !tbaa !167
-  %.pre20 = load ptr, ptr %12, align 8, !tbaa !168
+  %.pre = load ptr, ptr %9, align 8, !tbaa !167
+  %.pre20 = load ptr, ptr %11, align 8, !tbaa !168
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %15 = phi ptr [ %.pre20, %._crit_edge.loopexit ], [ %13, %2 ]
-  %16 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %11, %2 ]
+  %14 = phi ptr [ %.pre20, %._crit_edge.loopexit ], [ %12, %2 ]
+  %15 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %10, %2 ]
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i64, ptr %17, align 8, !tbaa !173
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -5904,13 +5904,13 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   %24 = load ptr, ptr %23, align 8, !tbaa !168
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !170
-  store ptr %16, ptr %21, align 8, !tbaa !167
-  store ptr %15, ptr %23, align 8, !tbaa !168
+  store ptr %15, ptr %21, align 8, !tbaa !167
+  store ptr %14, ptr %23, align 8, !tbaa !168
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !170
   store ptr %28, ptr %25, align 8, !tbaa !170
-  store ptr %22, ptr %10, align 8, !tbaa !167
-  store ptr %24, ptr %12, align 8, !tbaa !168
+  store ptr %22, ptr %9, align 8, !tbaa !167
+  store ptr %24, ptr %11, align 8, !tbaa !168
   store ptr %26, ptr %27, align 8, !tbaa !170
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5919,9 +5919,9 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   store ptr %32, ptr %29, align 8, !tbaa !174
   store ptr %31, ptr %30, align 8, !tbaa !174
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %34 = load i64, ptr %9, align 8, !tbaa !52
+  %34 = load i64, ptr %16, align 8, !tbaa !52
   %35 = load i64, ptr %33, align 8, !tbaa !52
-  store i64 %35, ptr %9, align 8, !tbaa !52
+  store i64 %35, ptr %16, align 8, !tbaa !52
   store i64 %34, ptr %33, align 8, !tbaa !52
   store i64 %18, ptr %19, align 8, !tbaa !52
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -5952,11 +5952,11 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   %53 = load i8, ptr %51, align 1, !tbaa !183, !range !126, !noundef !127
   store i8 %53, ptr %50, align 1, !tbaa !183
   store i8 %52, ptr %51, align 1, !tbaa !183
-  %.not4.i.i.i.i.i = icmp eq ptr %16, %15
+  %.not4.i.i.i.i.i = icmp eq ptr %15, %14
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEELb0EEESA_EvT_SC_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEELb0EEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %57, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEELb0EEEEvPT_.exit.i.i.i.i.i ], [ %16, %._crit_edge ]
+  %.05.i.i.i.i.i = phi ptr [ %57, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEELb0EEEEvPT_.exit.i.i.i.i.i ], [ %15, %._crit_edge ]
   %54 = load i16, ptr %.05.i.i.i.i.i, align 8, !tbaa !14
   %55 = icmp eq i16 %54, -1
   br i1 %55, label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEELb0EEEEvPT_.exit.i.i.i.i.i, label %56
@@ -5967,18 +5967,18 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
 
 _ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEELb0EEEEvPT_.exit.i.i.i.i.i: ; preds = %56, %.lr.ph.i.i.i.i.i
   %57 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %57, %15
+  %.not.i.i.i.i.i = icmp eq ptr %57, %14
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEELb0EEESA_EvT_SC_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !169
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEELb0EEESA_EvT_SC_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEELb0EEEEvPT_.exit.i.i.i.i.i, %._crit_edge
-  %.not.i.i.i.i = icmp eq ptr %16, null
+  %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIiS7_St4hashIiESt8equal_toIiESaIS8_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_ED2Ev.exit, label %58
 
 58:                                               ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEELb0EEESA_EvT_SC_RSaIT0_E.exit.i.i
   %59 = ptrtoint ptr %28 to i64
-  %60 = ptrtoint ptr %16 to i64
+  %60 = ptrtoint ptr %15 to i64
   %61 = sub i64 %59, %60
-  call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %61) #33
+  call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %61) #33
   br label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIiS7_St4hashIiESt8equal_toIiESaIS8_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_ED2Ev.exit
 
 _ZN3tsl17detail_robin_hash10robin_hashISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIiS7_St4hashIiESt8equal_toIiESaIS8_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_ED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEELb0EEESA_EvT_SC_RSaIT0_E.exit.i.i, %58
@@ -5986,7 +5986,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoE
   ret void
 
 62:                                               ; preds = %.lr.ph, %88
-  %.sroa.015.019 = phi ptr [ %11, %.lr.ph ], [ %89, %88 ]
+  %.sroa.015.019 = phi ptr [ %10, %.lr.ph ], [ %89, %88 ]
   %63 = load i16, ptr %.sroa.015.019, align 8, !tbaa !14
   %64 = icmp eq i16 %63, -1
   br i1 %64, label %88, label %65
@@ -5996,7 +5996,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoE
   %67 = load i32, ptr %66, align 4, !tbaa !73
   %68 = sext i32 %67 to i64
   %69 = load i64, ptr %3, align 8, !tbaa !72
-  %70 = load ptr, ptr %14, align 8, !tbaa !19
+  %70 = load ptr, ptr %13, align 8, !tbaa !19
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.015.019, i64 16
   br label %72
 
@@ -6040,7 +6040,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoE
 
 88:                                               ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIiS7_St4hashIiESt8equal_toIiESaIS8_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E22insert_value_on_rehashEmsjOS8_.exit, %62
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.015.019, i64 24
-  %.not = icmp eq ptr %89, %13
+  %.not = icmp eq ptr %89, %12
   br i1 %.not, label %._crit_edge.loopexit, label %62
 }
 

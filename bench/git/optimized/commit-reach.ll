@@ -2287,8 +2287,6 @@ define dso_local ptr @get_reachable_subset(ptr noundef %0, i64 noundef %1, ptr n
   store ptr null, ptr %6, align 8, !tbaa !12
   %.idx = shl nuw nsw i64 %3, 3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
-  %.idx75 = shl nuw nsw i64 %1, 3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx75
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) @__const.paint_down_to_common.queue, i64 48, i1 false)
   %.not74 = icmp eq i64 %3, 0
@@ -2297,6 +2295,8 @@ define dso_local ptr @get_reachable_subset(ptr noundef %0, i64 noundef %1, ptr n
 .preheader59:                                     ; preds = %19, %5
   %.049.lcssa = phi i32 [ 0, %5 ], [ %.150, %19 ]
   %.047.lcssa = phi i64 [ 9223372036854775807, %5 ], [ %spec.select, %19 ]
+  %.idx75 = shl nuw nsw i64 %1, 3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx75
   %.not76 = icmp eq i64 %1, 0
   br i1 %.not76, label %.preheader, label %.lr.ph65
 

@@ -13,13 +13,13 @@ define noundef i32 @_ZN5folly6detail20avx512_crc32c_v8s3x4EPKhmj(ptr noundef %0,
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.0305 = phi ptr [ %9, %.lr.ph ], [ %0, %3 ]
-  %.0227304 = phi i64 [ %12, %.lr.ph ], [ %1, %3 ]
-  %.0235303 = phi i32 [ %11, %.lr.ph ], [ %2, %3 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.0305, i64 1
-  %10 = load i8, ptr %.0305, align 1, !tbaa !7
-  %11 = tail call noundef i32 @llvm.x86.sse42.crc32.32.8(i32 %.0235303, i8 %10)
-  %12 = add i64 %.0227304, -1
+  %.0306 = phi ptr [ %9, %.lr.ph ], [ %0, %3 ]
+  %.0227305 = phi i64 [ %12, %.lr.ph ], [ %1, %3 ]
+  %.0235304 = phi i32 [ %11, %.lr.ph ], [ %2, %3 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.0306, i64 1
+  %10 = load i8, ptr %.0306, align 1, !tbaa !7
+  %11 = tail call noundef i32 @llvm.x86.sse42.crc32.32.8(i32 %.0235304, i8 %10)
+  %12 = add i64 %.0227305, -1
   %13 = icmp ne i64 %12, 0
   %14 = ptrtoint ptr %9 to i64
   %15 = and i64 %14, 7
@@ -31,8 +31,8 @@ define noundef i32 @_ZN5folly6detail20avx512_crc32c_v8s3x4EPKhmj(ptr noundef %0,
   %.0235.lcssa = phi i32 [ %2, %3 ], [ %11, %.lr.ph ]
   %.0227.lcssa = phi i64 [ %1, %3 ], [ %12, %.lr.ph ]
   %.0.lcssa = phi ptr [ %0, %3 ], [ %9, %.lr.ph ]
-  %.lcssa302 = phi i64 [ %5, %3 ], [ %14, %.lr.ph ]
-  %18 = and i64 %.lcssa302, 8
+  %.lcssa303 = phi i64 [ %5, %3 ], [ %14, %.lr.ph ]
+  %18 = and i64 %.lcssa303, 8
   %19 = icmp ne i64 %18, 0
   %20 = icmp ugt i64 %.0227.lcssa, 7
   %or.cond = and i1 %20, %19
@@ -52,7 +52,7 @@ define noundef i32 @_ZN5folly6detail20avx512_crc32c_v8s3x4EPKhmj(ptr noundef %0,
   %.1228 = phi i64 [ %27, %21 ], [ %.0227.lcssa, %._crit_edge ]
   %.1 = phi ptr [ %26, %21 ], [ %.0.lcssa, %._crit_edge ]
   %29 = icmp ugt i64 %.1228, 223
-  br i1 %29, label %30, label %286
+  br i1 %29, label %30, label %285
 
 30:                                               ; preds = %28
   %31 = udiv i64 %.1228, 224
@@ -74,415 +74,419 @@ define noundef i32 @_ZN5folly6detail20avx512_crc32c_v8s3x4EPKhmj(ptr noundef %0,
   %47 = load <2 x i64>, ptr %46, align 1, !tbaa !7
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 112
   %49 = load <2 x i64>, ptr %48, align 1, !tbaa !7
-  %.3230309 = add i64 %.1228, -224
-  %.0243310 = getelementptr inbounds nuw i8, ptr %34, i64 128
-  %50 = icmp ugt i64 %.3230309, 223
+  %.3230310 = add i64 %.1228, -224
+  %.0243311 = getelementptr inbounds nuw i8, ptr %34, i64 128
+  %50 = icmp ugt i64 %.3230310, 223
+  br i1 %50, label %.lr.ph328, label %._crit_edge329
+
+.lr.ph328:                                        ; preds = %30
   %51 = shl nuw nsw i64 %31, 6
-  br i1 %50, label %.lr.ph327, label %._crit_edge328
+  br label %52
 
-.lr.ph327:                                        ; preds = %30, %.lr.ph327
-  %.0243325 = phi ptr [ %.0243, %.lr.ph327 ], [ %.0243310, %30 ]
-  %.3230324 = phi i64 [ %.3230, %.lr.ph327 ], [ %.3230309, %30 ]
-  %.3323 = phi ptr [ %128, %.lr.ph327 ], [ %.1, %30 ]
-  %.0225322 = phi <2 x i64> [ %90, %.lr.ph327 ], [ %49, %30 ]
-  %.0226321 = phi <2 x i64> [ %87, %.lr.ph327 ], [ %47, %30 ]
-  %.0233320 = phi <2 x i64> [ %84, %.lr.ph327 ], [ %45, %30 ]
-  %.0234319 = phi <2 x i64> [ %81, %.lr.ph327 ], [ %43, %30 ]
-  %.3238318 = phi i32 [ %121, %.lr.ph327 ], [ %.1236, %30 ]
-  %.0241317 = phi <2 x i64> [ %78, %.lr.ph327 ], [ %41, %30 ]
-  %.0242316 = phi <2 x i64> [ %75, %.lr.ph327 ], [ %39, %30 ]
-  %.pn315 = phi ptr [ %.0243325, %.lr.ph327 ], [ %34, %30 ]
-  %.0244314 = phi <2 x i64> [ %72, %.lr.ph327 ], [ %37, %30 ]
-  %.0245313 = phi <2 x i64> [ %69, %.lr.ph327 ], [ %35, %30 ]
-  %.0246312 = phi i64 [ %124, %.lr.ph327 ], [ 0, %30 ]
-  %.0247311 = phi i64 [ %127, %.lr.ph327 ], [ 0, %30 ]
-  %52 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0245313, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
-  %53 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0245313, <2 x i64> <i64 poison, i64 221995154>, i8 17)
-  %54 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0244314, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
-  %55 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0244314, <2 x i64> <i64 poison, i64 221995154>, i8 17)
-  %56 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0242316, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
-  %57 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0242316, <2 x i64> <i64 poison, i64 221995154>, i8 17)
-  %58 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0241317, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
-  %59 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0241317, <2 x i64> <i64 poison, i64 221995154>, i8 17)
-  %60 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0234319, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
-  %61 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0234319, <2 x i64> <i64 poison, i64 221995154>, i8 17)
-  %62 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0233320, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
-  %63 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0233320, <2 x i64> <i64 poison, i64 221995154>, i8 17)
-  %64 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0226321, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
-  %65 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0226321, <2 x i64> <i64 poison, i64 221995154>, i8 17)
-  %66 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0225322, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
-  %67 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0225322, <2 x i64> <i64 poison, i64 221995154>, i8 17)
-  %68 = load <2 x i64>, ptr %.0243325, align 1, !tbaa !7
-  %69 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %53, <2 x i64> %52, <2 x i64> %68, i32 150)
-  %70 = getelementptr inbounds nuw i8, ptr %.pn315, i64 144
-  %71 = load <2 x i64>, ptr %70, align 1, !tbaa !7
-  %72 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %55, <2 x i64> %54, <2 x i64> %71, i32 150)
-  %73 = getelementptr inbounds nuw i8, ptr %.pn315, i64 160
-  %74 = load <2 x i64>, ptr %73, align 1, !tbaa !7
-  %75 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %57, <2 x i64> %56, <2 x i64> %74, i32 150)
-  %76 = getelementptr inbounds nuw i8, ptr %.pn315, i64 176
-  %77 = load <2 x i64>, ptr %76, align 1, !tbaa !7
-  %78 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %59, <2 x i64> %58, <2 x i64> %77, i32 150)
-  %79 = getelementptr inbounds nuw i8, ptr %.pn315, i64 192
-  %80 = load <2 x i64>, ptr %79, align 1, !tbaa !7
-  %81 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %61, <2 x i64> %60, <2 x i64> %80, i32 150)
-  %82 = getelementptr inbounds nuw i8, ptr %.pn315, i64 208
-  %83 = load <2 x i64>, ptr %82, align 1, !tbaa !7
-  %84 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %63, <2 x i64> %62, <2 x i64> %83, i32 150)
-  %85 = getelementptr inbounds nuw i8, ptr %.pn315, i64 224
-  %86 = load <2 x i64>, ptr %85, align 1, !tbaa !7
-  %87 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %65, <2 x i64> %64, <2 x i64> %86, i32 150)
-  %88 = getelementptr inbounds nuw i8, ptr %.pn315, i64 240
-  %89 = load <2 x i64>, ptr %88, align 1, !tbaa !7
-  %90 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %67, <2 x i64> %66, <2 x i64> %89, i32 150)
-  %91 = zext i32 %.3238318 to i64
-  %92 = load i64, ptr %.3323, align 8, !tbaa !12
-  %93 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %91, i64 %92)
-  %94 = getelementptr inbounds nuw i8, ptr %.3323, i64 %32
-  %95 = load i64, ptr %94, align 8, !tbaa !12
-  %96 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %.0246312, i64 %95)
-  %97 = getelementptr inbounds nuw i8, ptr %.3323, i64 %51
-  %98 = load i64, ptr %97, align 8, !tbaa !12
-  %99 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %.0247311, i64 %98)
-  %100 = getelementptr inbounds nuw i8, ptr %.3323, i64 8
-  %101 = load i64, ptr %100, align 8, !tbaa !12
-  %102 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %93, i64 %101)
-  %103 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %104 = load i64, ptr %103, align 8, !tbaa !12
-  %105 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %96, i64 %104)
-  %106 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %107 = load i64, ptr %106, align 8, !tbaa !12
-  %108 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %99, i64 %107)
-  %109 = getelementptr inbounds nuw i8, ptr %.3323, i64 16
-  %110 = load i64, ptr %109, align 8, !tbaa !12
-  %111 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %102, i64 %110)
-  %112 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %113 = load i64, ptr %112, align 8, !tbaa !12
-  %114 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %105, i64 %113)
-  %115 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %116 = load i64, ptr %115, align 8, !tbaa !12
-  %117 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %108, i64 %116)
-  %118 = getelementptr inbounds nuw i8, ptr %.3323, i64 24
-  %119 = load i64, ptr %118, align 8, !tbaa !12
-  %120 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %111, i64 %119)
-  %121 = trunc nuw i64 %120 to i32
-  %122 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %123 = load i64, ptr %122, align 8, !tbaa !12
-  %124 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %114, i64 %123)
-  %125 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  %126 = load i64, ptr %125, align 8, !tbaa !12
-  %127 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %117, i64 %126)
-  %128 = getelementptr inbounds nuw i8, ptr %.3323, i64 32
-  %.3230 = add i64 %.3230324, -224
-  %.0243 = getelementptr inbounds nuw i8, ptr %.0243325, i64 128
-  %129 = icmp ugt i64 %.3230, 223
-  br i1 %129, label %.lr.ph327, label %._crit_edge328, !llvm.loop !14
+52:                                               ; preds = %.lr.ph328, %52
+  %.0243326 = phi ptr [ %.0243311, %.lr.ph328 ], [ %.0243, %52 ]
+  %.3230325 = phi i64 [ %.3230310, %.lr.ph328 ], [ %.3230, %52 ]
+  %.3324 = phi ptr [ %.1, %.lr.ph328 ], [ %129, %52 ]
+  %.0225323 = phi <2 x i64> [ %49, %.lr.ph328 ], [ %91, %52 ]
+  %.0226322 = phi <2 x i64> [ %47, %.lr.ph328 ], [ %88, %52 ]
+  %.0233321 = phi <2 x i64> [ %45, %.lr.ph328 ], [ %85, %52 ]
+  %.0234320 = phi <2 x i64> [ %43, %.lr.ph328 ], [ %82, %52 ]
+  %.3238319 = phi i32 [ %.1236, %.lr.ph328 ], [ %122, %52 ]
+  %.0241318 = phi <2 x i64> [ %41, %.lr.ph328 ], [ %79, %52 ]
+  %.0242317 = phi <2 x i64> [ %39, %.lr.ph328 ], [ %76, %52 ]
+  %.pn316 = phi ptr [ %34, %.lr.ph328 ], [ %.0243326, %52 ]
+  %.0244315 = phi <2 x i64> [ %37, %.lr.ph328 ], [ %73, %52 ]
+  %.0245314 = phi <2 x i64> [ %35, %.lr.ph328 ], [ %70, %52 ]
+  %.0246313 = phi i64 [ 0, %.lr.ph328 ], [ %125, %52 ]
+  %.0247312 = phi i64 [ 0, %.lr.ph328 ], [ %128, %52 ]
+  %53 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0245314, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
+  %54 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0245314, <2 x i64> <i64 poison, i64 221995154>, i8 17)
+  %55 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0244315, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
+  %56 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0244315, <2 x i64> <i64 poison, i64 221995154>, i8 17)
+  %57 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0242317, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
+  %58 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0242317, <2 x i64> <i64 poison, i64 221995154>, i8 17)
+  %59 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0241318, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
+  %60 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0241318, <2 x i64> <i64 poison, i64 221995154>, i8 17)
+  %61 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0234320, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
+  %62 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0234320, <2 x i64> <i64 poison, i64 221995154>, i8 17)
+  %63 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0233321, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
+  %64 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0233321, <2 x i64> <i64 poison, i64 221995154>, i8 17)
+  %65 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0226322, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
+  %66 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0226322, <2 x i64> <i64 poison, i64 221995154>, i8 17)
+  %67 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0225323, <2 x i64> <i64 1771228834, i64 poison>, i8 0)
+  %68 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0225323, <2 x i64> <i64 poison, i64 221995154>, i8 17)
+  %69 = load <2 x i64>, ptr %.0243326, align 1, !tbaa !7
+  %70 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %54, <2 x i64> %53, <2 x i64> %69, i32 150)
+  %71 = getelementptr inbounds nuw i8, ptr %.pn316, i64 144
+  %72 = load <2 x i64>, ptr %71, align 1, !tbaa !7
+  %73 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %56, <2 x i64> %55, <2 x i64> %72, i32 150)
+  %74 = getelementptr inbounds nuw i8, ptr %.pn316, i64 160
+  %75 = load <2 x i64>, ptr %74, align 1, !tbaa !7
+  %76 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %58, <2 x i64> %57, <2 x i64> %75, i32 150)
+  %77 = getelementptr inbounds nuw i8, ptr %.pn316, i64 176
+  %78 = load <2 x i64>, ptr %77, align 1, !tbaa !7
+  %79 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %60, <2 x i64> %59, <2 x i64> %78, i32 150)
+  %80 = getelementptr inbounds nuw i8, ptr %.pn316, i64 192
+  %81 = load <2 x i64>, ptr %80, align 1, !tbaa !7
+  %82 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %62, <2 x i64> %61, <2 x i64> %81, i32 150)
+  %83 = getelementptr inbounds nuw i8, ptr %.pn316, i64 208
+  %84 = load <2 x i64>, ptr %83, align 1, !tbaa !7
+  %85 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %64, <2 x i64> %63, <2 x i64> %84, i32 150)
+  %86 = getelementptr inbounds nuw i8, ptr %.pn316, i64 224
+  %87 = load <2 x i64>, ptr %86, align 1, !tbaa !7
+  %88 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %66, <2 x i64> %65, <2 x i64> %87, i32 150)
+  %89 = getelementptr inbounds nuw i8, ptr %.pn316, i64 240
+  %90 = load <2 x i64>, ptr %89, align 1, !tbaa !7
+  %91 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %68, <2 x i64> %67, <2 x i64> %90, i32 150)
+  %92 = zext i32 %.3238319 to i64
+  %93 = load i64, ptr %.3324, align 8, !tbaa !12
+  %94 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %92, i64 %93)
+  %95 = getelementptr inbounds nuw i8, ptr %.3324, i64 %32
+  %96 = load i64, ptr %95, align 8, !tbaa !12
+  %97 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %.0246313, i64 %96)
+  %98 = getelementptr inbounds nuw i8, ptr %.3324, i64 %51
+  %99 = load i64, ptr %98, align 8, !tbaa !12
+  %100 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %.0247312, i64 %99)
+  %101 = getelementptr inbounds nuw i8, ptr %.3324, i64 8
+  %102 = load i64, ptr %101, align 8, !tbaa !12
+  %103 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %94, i64 %102)
+  %104 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %105 = load i64, ptr %104, align 8, !tbaa !12
+  %106 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %97, i64 %105)
+  %107 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %108 = load i64, ptr %107, align 8, !tbaa !12
+  %109 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %100, i64 %108)
+  %110 = getelementptr inbounds nuw i8, ptr %.3324, i64 16
+  %111 = load i64, ptr %110, align 8, !tbaa !12
+  %112 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %103, i64 %111)
+  %113 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %114 = load i64, ptr %113, align 8, !tbaa !12
+  %115 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %106, i64 %114)
+  %116 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %117 = load i64, ptr %116, align 8, !tbaa !12
+  %118 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %109, i64 %117)
+  %119 = getelementptr inbounds nuw i8, ptr %.3324, i64 24
+  %120 = load i64, ptr %119, align 8, !tbaa !12
+  %121 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %112, i64 %120)
+  %122 = trunc nuw i64 %121 to i32
+  %123 = getelementptr inbounds nuw i8, ptr %95, i64 24
+  %124 = load i64, ptr %123, align 8, !tbaa !12
+  %125 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %115, i64 %124)
+  %126 = getelementptr inbounds nuw i8, ptr %98, i64 24
+  %127 = load i64, ptr %126, align 8, !tbaa !12
+  %128 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %118, i64 %127)
+  %129 = getelementptr inbounds nuw i8, ptr %.3324, i64 32
+  %.3230 = add i64 %.3230325, -224
+  %.0243 = getelementptr inbounds nuw i8, ptr %.0243326, i64 128
+  %130 = icmp ugt i64 %.3230, 223
+  br i1 %130, label %52, label %._crit_edge329, !llvm.loop !14
 
-._crit_edge328:                                   ; preds = %.lr.ph327, %30
-  %.0247.lcssa = phi i64 [ 0, %30 ], [ %127, %.lr.ph327 ]
-  %.0246.lcssa = phi i64 [ 0, %30 ], [ %124, %.lr.ph327 ]
-  %.0245.lcssa = phi <2 x i64> [ %35, %30 ], [ %69, %.lr.ph327 ]
-  %.0244.lcssa = phi <2 x i64> [ %37, %30 ], [ %72, %.lr.ph327 ]
-  %.0242.lcssa = phi <2 x i64> [ %39, %30 ], [ %75, %.lr.ph327 ]
-  %.0241.lcssa = phi <2 x i64> [ %41, %30 ], [ %78, %.lr.ph327 ]
-  %.3238.lcssa = phi i32 [ %.1236, %30 ], [ %121, %.lr.ph327 ]
-  %.0234.lcssa = phi <2 x i64> [ %43, %30 ], [ %81, %.lr.ph327 ]
-  %.0233.lcssa = phi <2 x i64> [ %45, %30 ], [ %84, %.lr.ph327 ]
-  %.0226.lcssa = phi <2 x i64> [ %47, %30 ], [ %87, %.lr.ph327 ]
-  %.0225.lcssa = phi <2 x i64> [ %49, %30 ], [ %90, %.lr.ph327 ]
-  %.3.lcssa = phi ptr [ %.1, %30 ], [ %128, %.lr.ph327 ]
-  %.3230.lcssa = phi i64 [ %.3230309, %30 ], [ %.3230, %.lr.ph327 ]
-  %.0243.lcssa = phi ptr [ %.0243310, %30 ], [ %.0243, %.lr.ph327 ]
-  %130 = load i64, ptr %.3.lcssa, align 8, !tbaa !12
-  %131 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 %32
-  %132 = load i64, ptr %131, align 8, !tbaa !12
-  %133 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 %51
-  %134 = load i64, ptr %133, align 8, !tbaa !12
-  %135 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 8
-  %136 = load i64, ptr %135, align 8, !tbaa !12
-  %137 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %138 = load i64, ptr %137, align 8, !tbaa !12
-  %139 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %140 = load i64, ptr %139, align 8, !tbaa !12
-  %141 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 16
-  %142 = load i64, ptr %141, align 8, !tbaa !12
-  %143 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %144 = load i64, ptr %143, align 8, !tbaa !12
-  %145 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  %146 = load i64, ptr %145, align 8, !tbaa !12
-  %147 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 24
-  %148 = load i64, ptr %147, align 8, !tbaa !12
-  %149 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  %150 = load i64, ptr %149, align 8, !tbaa !12
-  %151 = getelementptr inbounds nuw i8, ptr %133, i64 24
-  %152 = load i64, ptr %151, align 8, !tbaa !12
-  %153 = mul i64 %31, 1536
-  %154 = add i64 %153, -33
+._crit_edge329:                                   ; preds = %52, %30
+  %.0247.lcssa = phi i64 [ 0, %30 ], [ %128, %52 ]
+  %.0246.lcssa = phi i64 [ 0, %30 ], [ %125, %52 ]
+  %.0245.lcssa = phi <2 x i64> [ %35, %30 ], [ %70, %52 ]
+  %.0244.lcssa = phi <2 x i64> [ %37, %30 ], [ %73, %52 ]
+  %.0242.lcssa = phi <2 x i64> [ %39, %30 ], [ %76, %52 ]
+  %.0241.lcssa = phi <2 x i64> [ %41, %30 ], [ %79, %52 ]
+  %.3238.lcssa = phi i32 [ %.1236, %30 ], [ %122, %52 ]
+  %.0234.lcssa = phi <2 x i64> [ %43, %30 ], [ %82, %52 ]
+  %.0233.lcssa = phi <2 x i64> [ %45, %30 ], [ %85, %52 ]
+  %.0226.lcssa = phi <2 x i64> [ %47, %30 ], [ %88, %52 ]
+  %.0225.lcssa = phi <2 x i64> [ %49, %30 ], [ %91, %52 ]
+  %.3.lcssa = phi ptr [ %.1, %30 ], [ %129, %52 ]
+  %.3230.lcssa = phi i64 [ %.3230310, %30 ], [ %.3230, %52 ]
+  %.0243.lcssa = phi ptr [ %.0243311, %30 ], [ %.0243, %52 ]
+  %131 = mul i64 %31, 1536
+  %132 = add i64 %131, -33
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge328, %.lr.ph.i
-  %.025.i = phi i64 [ %159, %.lr.ph.i ], [ %154, %._crit_edge328 ]
-  %.01824.i = phi i64 [ %157, %.lr.ph.i ], [ -2, %._crit_edge328 ]
-  %155 = shl i64 %.01824.i, 1
-  %156 = and i64 %.025.i, 1
-  %157 = or disjoint i64 %155, %156
-  %158 = lshr i64 %.025.i, 1
-  %159 = add nsw i64 %158, -16
-  %160 = icmp samesign ugt i64 %159, 191
-  br i1 %160, label %.lr.ph.i, label %._crit_edge.thread.i, !llvm.loop !15
+.lr.ph.i:                                         ; preds = %._crit_edge329, %.lr.ph.i
+  %.025.i = phi i64 [ %137, %.lr.ph.i ], [ %132, %._crit_edge329 ]
+  %.01824.i = phi i64 [ %135, %.lr.ph.i ], [ -2, %._crit_edge329 ]
+  %133 = shl i64 %.01824.i, 1
+  %134 = and i64 %.025.i, 1
+  %135 = or disjoint i64 %133, %134
+  %136 = lshr i64 %.025.i, 1
+  %137 = add nsw i64 %136, -16
+  %138 = icmp samesign ugt i64 %137, 191
+  br i1 %138, label %.lr.ph.i, label %._crit_edge.thread.i, !llvm.loop !15
 
 ._crit_edge.thread.i:                             ; preds = %.lr.ph.i
-  %161 = trunc nuw nsw i64 %159 to i32
-  %162 = and i32 %161, 31
-  %163 = lshr exact i32 -2147483648, %162
-  %164 = lshr i64 %159, 5
+  %139 = trunc nuw nsw i64 %137 to i32
+  %140 = and i32 %139, 31
+  %141 = lshr exact i32 -2147483648, %140
+  %142 = lshr i64 %137, 5
   br label %.lr.ph31.i
 
 .preheader.i:                                     ; preds = %.lr.ph31.i
-  %165 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0245.lcssa, <2 x i64> <i64 4060876286, i64 poison>, i8 0)
-  %166 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0245.lcssa, <2 x i64> <i64 poison, i64 1228700967>, i8 17)
-  %167 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0242.lcssa, <2 x i64> <i64 4060876286, i64 poison>, i8 0)
-  %168 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0242.lcssa, <2 x i64> <i64 poison, i64 1228700967>, i8 17)
-  %169 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0234.lcssa, <2 x i64> <i64 4060876286, i64 poison>, i8 0)
-  %170 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0234.lcssa, <2 x i64> <i64 poison, i64 1228700967>, i8 17)
-  %171 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0226.lcssa, <2 x i64> <i64 4060876286, i64 poison>, i8 0)
-  %172 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0226.lcssa, <2 x i64> <i64 poison, i64 1228700967>, i8 17)
-  %173 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %166, <2 x i64> %165, <2 x i64> %.0244.lcssa, i32 150)
-  %174 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %168, <2 x i64> %167, <2 x i64> %.0241.lcssa, i32 150)
-  %175 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %170, <2 x i64> %169, <2 x i64> %.0233.lcssa, i32 150)
-  %176 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %172, <2 x i64> %171, <2 x i64> %.0225.lcssa, i32 150)
-  %177 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %173, <2 x i64> <i64 1034342603, i64 poison>, i8 0)
-  %178 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %173, <2 x i64> <i64 poison, i64 3125789326>, i8 17)
-  %179 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %175, <2 x i64> <i64 1034342603, i64 poison>, i8 0)
-  %180 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %175, <2 x i64> <i64 poison, i64 3125789326>, i8 17)
-  %181 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %178, <2 x i64> %177, <2 x i64> %174, i32 150)
-  %182 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %180, <2 x i64> %179, <2 x i64> %176, i32 150)
-  %183 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %181, <2 x i64> <i64 1947135746, i64 poison>, i8 0)
-  %184 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %181, <2 x i64> <i64 poison, i64 2655706616>, i8 17)
-  %185 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %184, <2 x i64> %183, <2 x i64> %182, i32 150)
-  %186 = zext i32 %.3238.lcssa to i64
-  %187 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %186, i64 %130)
-  %188 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %.0246.lcssa, i64 %132)
-  %189 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %.0247.lcssa, i64 %134)
-  %190 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %187, i64 %136)
-  %191 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %188, i64 %138)
-  %192 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %189, i64 %140)
-  %193 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %190, i64 %142)
-  %194 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %191, i64 %144)
-  %195 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %192, i64 %146)
-  %196 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %193, i64 %148)
-  %197 = trunc nuw i64 %196 to i32
-  %198 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %194, i64 %150)
+  %143 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0245.lcssa, <2 x i64> <i64 4060876286, i64 poison>, i8 0)
+  %144 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0245.lcssa, <2 x i64> <i64 poison, i64 1228700967>, i8 17)
+  %145 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0242.lcssa, <2 x i64> <i64 4060876286, i64 poison>, i8 0)
+  %146 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0242.lcssa, <2 x i64> <i64 poison, i64 1228700967>, i8 17)
+  %147 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0234.lcssa, <2 x i64> <i64 4060876286, i64 poison>, i8 0)
+  %148 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0234.lcssa, <2 x i64> <i64 poison, i64 1228700967>, i8 17)
+  %149 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0226.lcssa, <2 x i64> <i64 4060876286, i64 poison>, i8 0)
+  %150 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0226.lcssa, <2 x i64> <i64 poison, i64 1228700967>, i8 17)
+  %151 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %144, <2 x i64> %143, <2 x i64> %.0244.lcssa, i32 150)
+  %152 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %146, <2 x i64> %145, <2 x i64> %.0241.lcssa, i32 150)
+  %153 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %148, <2 x i64> %147, <2 x i64> %.0233.lcssa, i32 150)
+  %154 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %150, <2 x i64> %149, <2 x i64> %.0225.lcssa, i32 150)
+  %155 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %151, <2 x i64> <i64 1034342603, i64 poison>, i8 0)
+  %156 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %151, <2 x i64> <i64 poison, i64 3125789326>, i8 17)
+  %157 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %153, <2 x i64> <i64 1034342603, i64 poison>, i8 0)
+  %158 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %153, <2 x i64> <i64 poison, i64 3125789326>, i8 17)
+  %159 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %156, <2 x i64> %155, <2 x i64> %152, i32 150)
+  %160 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %158, <2 x i64> %157, <2 x i64> %154, i32 150)
+  %161 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %159, <2 x i64> <i64 1947135746, i64 poison>, i8 0)
+  %162 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %159, <2 x i64> <i64 poison, i64 2655706616>, i8 17)
+  %163 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %162, <2 x i64> %161, <2 x i64> %160, i32 150)
+  %164 = zext i32 %.3238.lcssa to i64
+  %165 = load i64, ptr %.3.lcssa, align 8, !tbaa !12
+  %166 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %164, i64 %165)
+  %167 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 %32
+  %168 = load i64, ptr %167, align 8, !tbaa !12
+  %169 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %.0246.lcssa, i64 %168)
+  %170 = shl nuw nsw i64 %31, 6
+  %171 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 %170
+  %172 = load i64, ptr %171, align 8, !tbaa !12
+  %173 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %.0247.lcssa, i64 %172)
+  %174 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 8
+  %175 = load i64, ptr %174, align 8, !tbaa !12
+  %176 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %166, i64 %175)
+  %177 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  %178 = load i64, ptr %177, align 8, !tbaa !12
+  %179 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %169, i64 %178)
+  %180 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %181 = load i64, ptr %180, align 8, !tbaa !12
+  %182 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %173, i64 %181)
+  %183 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 16
+  %184 = load i64, ptr %183, align 8, !tbaa !12
+  %185 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %176, i64 %184)
+  %186 = getelementptr inbounds nuw i8, ptr %167, i64 16
+  %187 = load i64, ptr %186, align 8, !tbaa !12
+  %188 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %179, i64 %187)
+  %189 = getelementptr inbounds nuw i8, ptr %171, i64 16
+  %190 = load i64, ptr %189, align 8, !tbaa !12
+  %191 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %182, i64 %190)
+  %192 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 24
+  %193 = load i64, ptr %192, align 8, !tbaa !12
+  %194 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %185, i64 %193)
+  %195 = trunc nuw i64 %194 to i32
+  %196 = getelementptr inbounds nuw i8, ptr %167, i64 24
+  %197 = load i64, ptr %196, align 8, !tbaa !12
+  %198 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %188, i64 %197)
   %199 = trunc nuw i64 %198 to i32
-  %200 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %195, i64 %152)
-  %201 = trunc nuw i64 %200 to i32
-  %202 = shl i64 %31, 10
-  %203 = icmp eq i64 %155, -2
-  br i1 %203, label %_ZN5folly6detailL6xnmodpEm.exit, label %.lr.ph36.i.preheader
+  %200 = getelementptr inbounds nuw i8, ptr %171, i64 24
+  %201 = load i64, ptr %200, align 8, !tbaa !12
+  %202 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %191, i64 %201)
+  %203 = trunc nuw i64 %202 to i32
+  %204 = shl i64 %31, 10
+  %.not2333.i = icmp eq i64 %133, -2
+  br i1 %.not2333.i, label %_ZN5folly6detailL6xnmodpEm.exit, label %.lr.ph36.preheader.i
 
-.lr.ph36.i.preheader:                             ; preds = %.preheader.i
-  %204 = xor i64 %157, -1
+.lr.ph36.preheader.i:                             ; preds = %.preheader.i
+  %205 = xor i64 %135, -1
   br label %.lr.ph36.i
 
 .lr.ph31.i:                                       ; preds = %.lr.ph31.i, %._crit_edge.thread.i
-  %.129.i = phi i64 [ %206, %.lr.ph31.i ], [ %164, %._crit_edge.thread.i ]
-  %.02028.i = phi i32 [ %205, %.lr.ph31.i ], [ %163, %._crit_edge.thread.i ]
-  %205 = tail call noundef i32 @llvm.x86.sse42.crc32.32.32(i32 %.02028.i, i32 0)
-  %206 = add nsw i64 %.129.i, -1
-  %.not.i = icmp eq i64 %206, 0
+  %.129.i = phi i64 [ %207, %.lr.ph31.i ], [ %142, %._crit_edge.thread.i ]
+  %.02028.i = phi i32 [ %206, %.lr.ph31.i ], [ %141, %._crit_edge.thread.i ]
+  %206 = tail call noundef i32 @llvm.x86.sse42.crc32.32.32(i32 %.02028.i, i32 0)
+  %207 = add nsw i64 %.129.i, -1
+  %.not.i = icmp eq i64 %207, 0
   br i1 %.not.i, label %.preheader.i, label %.lr.ph31.i, !llvm.loop !16
 
-.lr.ph36.i:                                       ; preds = %.lr.ph36.i.preheader, %.lr.ph36.i
-  %.11935.i = phi i64 [ %207, %.lr.ph36.i ], [ %204, %.lr.ph36.i.preheader ]
-  %.12134.i = phi i32 [ %215, %.lr.ph36.i ], [ %205, %.lr.ph36.i.preheader ]
-  %207 = lshr i64 %.11935.i, 1
-  %208 = and i64 %.11935.i, 1
-  %209 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.12134.i, i64 0
-  %210 = bitcast <4 x i32> %209 to <2 x i64>
-  %211 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %210, <2 x i64> %210, i8 0)
-  %212 = extractelement <2 x i64> %211, i64 0
-  %213 = shl i64 %212, %208
-  %214 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %213)
-  %215 = trunc nuw i64 %214 to i32
+.lr.ph36.i:                                       ; preds = %.lr.ph36.i, %.lr.ph36.preheader.i
+  %.11935.i = phi i64 [ %208, %.lr.ph36.i ], [ %205, %.lr.ph36.preheader.i ]
+  %.12134.i = phi i32 [ %216, %.lr.ph36.i ], [ %206, %.lr.ph36.preheader.i ]
+  %208 = lshr i64 %.11935.i, 1
+  %209 = and i64 %.11935.i, 1
+  %210 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.12134.i, i64 0
+  %211 = bitcast <4 x i32> %210 to <2 x i64>
+  %212 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %211, <2 x i64> %211, i8 0)
+  %213 = extractelement <2 x i64> %212, i64 0
+  %214 = shl i64 %213, %209
+  %215 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %214)
+  %216 = trunc nuw i64 %215 to i32
   %.not23.i = icmp ult i64 %.11935.i, 4
   br i1 %.not23.i, label %_ZN5folly6detailL6xnmodpEm.exit, label %.lr.ph36.i, !llvm.loop !17
 
 _ZN5folly6detailL6xnmodpEm.exit:                  ; preds = %.lr.ph36.i, %.preheader.i
-  %.121.lcssa.i = phi i32 [ %205, %.preheader.i ], [ %215, %.lr.ph36.i ]
-  %216 = mul i64 %31, 1280
-  %217 = add i64 %216, -33
-  br label %.lr.ph.i263
+  %.121.lcssa.i = phi i32 [ %206, %.preheader.i ], [ %216, %.lr.ph36.i ]
+  %217 = mul i64 %31, 1280
+  %218 = add i64 %217, -33
+  br label %.lr.ph.i265
 
-.lr.ph.i263:                                      ; preds = %_ZN5folly6detailL6xnmodpEm.exit, %.lr.ph.i263
-  %.025.i264 = phi i64 [ %222, %.lr.ph.i263 ], [ %217, %_ZN5folly6detailL6xnmodpEm.exit ]
-  %.01824.i265 = phi i64 [ %220, %.lr.ph.i263 ], [ -2, %_ZN5folly6detailL6xnmodpEm.exit ]
-  %218 = shl i64 %.01824.i265, 1
-  %219 = and i64 %.025.i264, 1
-  %220 = or disjoint i64 %218, %219
-  %221 = lshr i64 %.025.i264, 1
-  %222 = add nsw i64 %221, -16
-  %223 = icmp samesign ugt i64 %222, 191
-  br i1 %223, label %.lr.ph.i263, label %._crit_edge.thread.i266, !llvm.loop !15
+.lr.ph.i265:                                      ; preds = %_ZN5folly6detailL6xnmodpEm.exit, %.lr.ph.i265
+  %.025.i266 = phi i64 [ %223, %.lr.ph.i265 ], [ %218, %_ZN5folly6detailL6xnmodpEm.exit ]
+  %.01824.i267 = phi i64 [ %221, %.lr.ph.i265 ], [ -2, %_ZN5folly6detailL6xnmodpEm.exit ]
+  %219 = shl i64 %.01824.i267, 1
+  %220 = and i64 %.025.i266, 1
+  %221 = or disjoint i64 %219, %220
+  %222 = lshr i64 %.025.i266, 1
+  %223 = add nsw i64 %222, -16
+  %224 = icmp samesign ugt i64 %223, 191
+  br i1 %224, label %.lr.ph.i265, label %._crit_edge.thread.i268, !llvm.loop !15
 
-._crit_edge.thread.i266:                          ; preds = %.lr.ph.i263
-  %224 = trunc nuw nsw i64 %222 to i32
-  %225 = and i32 %224, 31
-  %226 = lshr exact i32 -2147483648, %225
-  %227 = lshr i64 %222, 5
+._crit_edge.thread.i268:                          ; preds = %.lr.ph.i265
+  %225 = trunc nuw nsw i64 %223 to i32
+  %226 = and i32 %225, 31
+  %227 = lshr exact i32 -2147483648, %226
+  %228 = lshr i64 %223, 5
   br label %.lr.ph31.i253
 
 .preheader.i257:                                  ; preds = %.lr.ph31.i253
-  %228 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %197, i64 0
-  %229 = bitcast <4 x i32> %228 to <2 x i64>
-  %230 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %.121.lcssa.i, i64 0
-  %231 = bitcast <4 x i32> %230 to <2 x i64>
-  %232 = tail call noundef <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %229, <2 x i64> %231, i8 0)
-  %233 = icmp eq i64 %218, -2
-  br i1 %233, label %_ZN5folly6detailL6xnmodpEm.exit267, label %.lr.ph36.i258.preheader
+  %229 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %195, i64 0
+  %230 = bitcast <4 x i32> %229 to <2 x i64>
+  %231 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %.121.lcssa.i, i64 0
+  %232 = bitcast <4 x i32> %231 to <2 x i64>
+  %233 = tail call noundef <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %230, <2 x i64> %232, i8 0)
+  %.not2333.i258 = icmp eq i64 %219, -2
+  br i1 %.not2333.i258, label %_ZN5folly6detailL6xnmodpEm.exit269, label %.lr.ph36.preheader.i259
 
-.lr.ph36.i258.preheader:                          ; preds = %.preheader.i257
-  %234 = xor i64 %220, -1
-  br label %.lr.ph36.i258
+.lr.ph36.preheader.i259:                          ; preds = %.preheader.i257
+  %234 = xor i64 %221, -1
+  br label %.lr.ph36.i260
 
-.lr.ph31.i253:                                    ; preds = %.lr.ph31.i253, %._crit_edge.thread.i266
-  %.129.i254 = phi i64 [ %236, %.lr.ph31.i253 ], [ %227, %._crit_edge.thread.i266 ]
-  %.02028.i255 = phi i32 [ %235, %.lr.ph31.i253 ], [ %226, %._crit_edge.thread.i266 ]
+.lr.ph31.i253:                                    ; preds = %.lr.ph31.i253, %._crit_edge.thread.i268
+  %.129.i254 = phi i64 [ %236, %.lr.ph31.i253 ], [ %228, %._crit_edge.thread.i268 ]
+  %.02028.i255 = phi i32 [ %235, %.lr.ph31.i253 ], [ %227, %._crit_edge.thread.i268 ]
   %235 = tail call noundef i32 @llvm.x86.sse42.crc32.32.32(i32 %.02028.i255, i32 0)
   %236 = add nsw i64 %.129.i254, -1
   %.not.i256 = icmp eq i64 %236, 0
   br i1 %.not.i256, label %.preheader.i257, label %.lr.ph31.i253, !llvm.loop !16
 
-.lr.ph36.i258:                                    ; preds = %.lr.ph36.i258.preheader, %.lr.ph36.i258
-  %.11935.i259 = phi i64 [ %237, %.lr.ph36.i258 ], [ %234, %.lr.ph36.i258.preheader ]
-  %.12134.i260 = phi i32 [ %245, %.lr.ph36.i258 ], [ %235, %.lr.ph36.i258.preheader ]
-  %237 = lshr i64 %.11935.i259, 1
-  %238 = and i64 %.11935.i259, 1
-  %239 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.12134.i260, i64 0
+.lr.ph36.i260:                                    ; preds = %.lr.ph36.i260, %.lr.ph36.preheader.i259
+  %.11935.i261 = phi i64 [ %237, %.lr.ph36.i260 ], [ %234, %.lr.ph36.preheader.i259 ]
+  %.12134.i262 = phi i32 [ %245, %.lr.ph36.i260 ], [ %235, %.lr.ph36.preheader.i259 ]
+  %237 = lshr i64 %.11935.i261, 1
+  %238 = and i64 %.11935.i261, 1
+  %239 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.12134.i262, i64 0
   %240 = bitcast <4 x i32> %239 to <2 x i64>
   %241 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %240, <2 x i64> %240, i8 0)
   %242 = extractelement <2 x i64> %241, i64 0
   %243 = shl i64 %242, %238
   %244 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %243)
   %245 = trunc nuw i64 %244 to i32
-  %.not23.i261 = icmp ult i64 %.11935.i259, 4
-  br i1 %.not23.i261, label %_ZN5folly6detailL6xnmodpEm.exit267, label %.lr.ph36.i258, !llvm.loop !17
+  %.not23.i263 = icmp ult i64 %.11935.i261, 4
+  br i1 %.not23.i263, label %_ZN5folly6detailL6xnmodpEm.exit269, label %.lr.ph36.i260, !llvm.loop !17
 
-_ZN5folly6detailL6xnmodpEm.exit267:               ; preds = %.lr.ph36.i258, %.preheader.i257
-  %.121.lcssa.i262 = phi i32 [ %235, %.preheader.i257 ], [ %245, %.lr.ph36.i258 ]
-  %246 = add i64 %202, -33
-  br label %.lr.ph.i283
+_ZN5folly6detailL6xnmodpEm.exit269:               ; preds = %.lr.ph36.i260, %.preheader.i257
+  %.121.lcssa.i264 = phi i32 [ %235, %.preheader.i257 ], [ %245, %.lr.ph36.i260 ]
+  %246 = add i64 %204, -33
+  br label %.lr.ph.i287
 
-.lr.ph.i283:                                      ; preds = %_ZN5folly6detailL6xnmodpEm.exit267, %.lr.ph.i283
-  %.025.i284 = phi i64 [ %251, %.lr.ph.i283 ], [ %246, %_ZN5folly6detailL6xnmodpEm.exit267 ]
-  %.01824.i285 = phi i64 [ %249, %.lr.ph.i283 ], [ -2, %_ZN5folly6detailL6xnmodpEm.exit267 ]
-  %247 = shl i64 %.01824.i285, 1
-  %248 = and i64 %.025.i284, 1
+.lr.ph.i287:                                      ; preds = %_ZN5folly6detailL6xnmodpEm.exit269, %.lr.ph.i287
+  %.025.i288 = phi i64 [ %251, %.lr.ph.i287 ], [ %246, %_ZN5folly6detailL6xnmodpEm.exit269 ]
+  %.01824.i289 = phi i64 [ %249, %.lr.ph.i287 ], [ -2, %_ZN5folly6detailL6xnmodpEm.exit269 ]
+  %247 = shl i64 %.01824.i289, 1
+  %248 = and i64 %.025.i288, 1
   %249 = or disjoint i64 %247, %248
-  %250 = lshr i64 %.025.i284, 1
+  %250 = lshr i64 %.025.i288, 1
   %251 = add nsw i64 %250, -16
   %252 = icmp samesign ugt i64 %251, 191
-  br i1 %252, label %.lr.ph.i283, label %._crit_edge.thread.i286, !llvm.loop !15
+  br i1 %252, label %.lr.ph.i287, label %._crit_edge.thread.i290, !llvm.loop !15
 
-._crit_edge.thread.i286:                          ; preds = %.lr.ph.i283
+._crit_edge.thread.i290:                          ; preds = %.lr.ph.i287
   %253 = trunc nuw nsw i64 %251 to i32
   %254 = and i32 %253, 31
   %255 = lshr exact i32 -2147483648, %254
   %256 = lshr i64 %251, 5
-  br label %.lr.ph31.i273
+  br label %.lr.ph31.i275
 
-.preheader.i277:                                  ; preds = %.lr.ph31.i273
+.preheader.i279:                                  ; preds = %.lr.ph31.i275
   %257 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %199, i64 0
   %258 = bitcast <4 x i32> %257 to <2 x i64>
-  %259 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %.121.lcssa.i262, i64 0
+  %259 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %.121.lcssa.i264, i64 0
   %260 = bitcast <4 x i32> %259 to <2 x i64>
   %261 = tail call noundef <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %258, <2 x i64> %260, i8 0)
-  %262 = icmp eq i64 %247, -2
-  br i1 %262, label %_ZN5folly6detailL6xnmodpEm.exit287, label %.lr.ph36.i278.preheader
+  %.not2333.i280 = icmp eq i64 %247, -2
+  br i1 %.not2333.i280, label %_ZN5folly6detailL6xnmodpEm.exit291, label %.lr.ph36.preheader.i281
 
-.lr.ph36.i278.preheader:                          ; preds = %.preheader.i277
-  %263 = xor i64 %249, -1
-  br label %.lr.ph36.i278
+.lr.ph36.preheader.i281:                          ; preds = %.preheader.i279
+  %262 = xor i64 %249, -1
+  br label %.lr.ph36.i282
 
-.lr.ph31.i273:                                    ; preds = %.lr.ph31.i273, %._crit_edge.thread.i286
-  %.129.i274 = phi i64 [ %265, %.lr.ph31.i273 ], [ %256, %._crit_edge.thread.i286 ]
-  %.02028.i275 = phi i32 [ %264, %.lr.ph31.i273 ], [ %255, %._crit_edge.thread.i286 ]
-  %264 = tail call noundef i32 @llvm.x86.sse42.crc32.32.32(i32 %.02028.i275, i32 0)
-  %265 = add nsw i64 %.129.i274, -1
-  %.not.i276 = icmp eq i64 %265, 0
-  br i1 %.not.i276, label %.preheader.i277, label %.lr.ph31.i273, !llvm.loop !16
+.lr.ph31.i275:                                    ; preds = %.lr.ph31.i275, %._crit_edge.thread.i290
+  %.129.i276 = phi i64 [ %264, %.lr.ph31.i275 ], [ %256, %._crit_edge.thread.i290 ]
+  %.02028.i277 = phi i32 [ %263, %.lr.ph31.i275 ], [ %255, %._crit_edge.thread.i290 ]
+  %263 = tail call noundef i32 @llvm.x86.sse42.crc32.32.32(i32 %.02028.i277, i32 0)
+  %264 = add nsw i64 %.129.i276, -1
+  %.not.i278 = icmp eq i64 %264, 0
+  br i1 %.not.i278, label %.preheader.i279, label %.lr.ph31.i275, !llvm.loop !16
 
-.lr.ph36.i278:                                    ; preds = %.lr.ph36.i278.preheader, %.lr.ph36.i278
-  %.11935.i279 = phi i64 [ %266, %.lr.ph36.i278 ], [ %263, %.lr.ph36.i278.preheader ]
-  %.12134.i280 = phi i32 [ %274, %.lr.ph36.i278 ], [ %264, %.lr.ph36.i278.preheader ]
-  %266 = lshr i64 %.11935.i279, 1
-  %267 = and i64 %.11935.i279, 1
-  %268 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.12134.i280, i64 0
-  %269 = bitcast <4 x i32> %268 to <2 x i64>
-  %270 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %269, <2 x i64> %269, i8 0)
-  %271 = extractelement <2 x i64> %270, i64 0
-  %272 = shl i64 %271, %267
-  %273 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %272)
-  %274 = trunc nuw i64 %273 to i32
-  %.not23.i281 = icmp ult i64 %.11935.i279, 4
-  br i1 %.not23.i281, label %_ZN5folly6detailL6xnmodpEm.exit287, label %.lr.ph36.i278, !llvm.loop !17
+.lr.ph36.i282:                                    ; preds = %.lr.ph36.i282, %.lr.ph36.preheader.i281
+  %.11935.i283 = phi i64 [ %265, %.lr.ph36.i282 ], [ %262, %.lr.ph36.preheader.i281 ]
+  %.12134.i284 = phi i32 [ %273, %.lr.ph36.i282 ], [ %263, %.lr.ph36.preheader.i281 ]
+  %265 = lshr i64 %.11935.i283, 1
+  %266 = and i64 %.11935.i283, 1
+  %267 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.12134.i284, i64 0
+  %268 = bitcast <4 x i32> %267 to <2 x i64>
+  %269 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %268, <2 x i64> %268, i8 0)
+  %270 = extractelement <2 x i64> %269, i64 0
+  %271 = shl i64 %270, %266
+  %272 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %271)
+  %273 = trunc nuw i64 %272 to i32
+  %.not23.i285 = icmp ult i64 %.11935.i283, 4
+  br i1 %.not23.i285, label %_ZN5folly6detailL6xnmodpEm.exit291, label %.lr.ph36.i282, !llvm.loop !17
 
-_ZN5folly6detailL6xnmodpEm.exit287:               ; preds = %.lr.ph36.i278, %.preheader.i277
-  %.121.lcssa.i282 = phi i32 [ %264, %.preheader.i277 ], [ %274, %.lr.ph36.i278 ]
-  %275 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %201, i64 0
-  %276 = bitcast <4 x i32> %275 to <2 x i64>
-  %277 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %.121.lcssa.i282, i64 0
-  %278 = bitcast <4 x i32> %277 to <2 x i64>
-  %279 = tail call noundef <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %276, <2 x i64> %278, i8 0)
-  %280 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %232, <2 x i64> %261, <2 x i64> %279, i32 150)
-  %281 = extractelement <2 x i64> %185, i64 0
-  %282 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %281)
-  %shift = shufflevector <2 x i64> %185, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop = xor <2 x i64> %280, %shift
-  %283 = extractelement <2 x i64> %foldExtExtBinop, i64 0
-  %284 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %282, i64 %283)
-  %285 = trunc nuw i64 %284 to i32
-  br label %286
+_ZN5folly6detailL6xnmodpEm.exit291:               ; preds = %.lr.ph36.i282, %.preheader.i279
+  %.121.lcssa.i286 = phi i32 [ %263, %.preheader.i279 ], [ %273, %.lr.ph36.i282 ]
+  %274 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %203, i64 0
+  %275 = bitcast <4 x i32> %274 to <2 x i64>
+  %276 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %.121.lcssa.i286, i64 0
+  %277 = bitcast <4 x i32> %276 to <2 x i64>
+  %278 = tail call noundef <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %275, <2 x i64> %277, i8 0)
+  %279 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %233, <2 x i64> %261, <2 x i64> %278, i32 150)
+  %280 = extractelement <2 x i64> %163, i64 0
+  %281 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %280)
+  %shift = shufflevector <2 x i64> %163, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop = xor <2 x i64> %279, %shift
+  %282 = extractelement <2 x i64> %foldExtExtBinop, i64 0
+  %283 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %281, i64 %282)
+  %284 = trunc nuw i64 %283 to i32
+  br label %285
 
-286:                                              ; preds = %_ZN5folly6detailL6xnmodpEm.exit287, %28
-  %.2237 = phi i32 [ %285, %_ZN5folly6detailL6xnmodpEm.exit287 ], [ %.1236, %28 ]
-  %.2229 = phi i64 [ %.3230.lcssa, %_ZN5folly6detailL6xnmodpEm.exit287 ], [ %.1228, %28 ]
-  %.2 = phi ptr [ %.0243.lcssa, %_ZN5folly6detailL6xnmodpEm.exit287 ], [ %.1, %28 ]
-  %287 = icmp samesign ugt i64 %.2229, 7
-  br i1 %287, label %.lr.ph347, label %.preheader
+285:                                              ; preds = %_ZN5folly6detailL6xnmodpEm.exit291, %28
+  %.2237 = phi i32 [ %284, %_ZN5folly6detailL6xnmodpEm.exit291 ], [ %.1236, %28 ]
+  %.2229 = phi i64 [ %.3230.lcssa, %_ZN5folly6detailL6xnmodpEm.exit291 ], [ %.1228, %28 ]
+  %.2 = phi ptr [ %.0243.lcssa, %_ZN5folly6detailL6xnmodpEm.exit291 ], [ %.1, %28 ]
+  %286 = icmp samesign ugt i64 %.2229, 7
+  br i1 %286, label %.lr.ph348, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph347, %286
-  %.4239.lcssa = phi i32 [ %.2237, %286 ], [ %291, %.lr.ph347 ]
-  %.4231.lcssa = phi i64 [ %.2229, %286 ], [ %293, %.lr.ph347 ]
-  %.4.lcssa = phi ptr [ %.2, %286 ], [ %292, %.lr.ph347 ]
-  %.not351 = icmp eq i64 %.4231.lcssa, 0
-  br i1 %.not351, label %._crit_edge356, label %.lr.ph355
+.preheader:                                       ; preds = %.lr.ph348, %285
+  %.4239.lcssa = phi i32 [ %.2237, %285 ], [ %290, %.lr.ph348 ]
+  %.4231.lcssa = phi i64 [ %.2229, %285 ], [ %292, %.lr.ph348 ]
+  %.4.lcssa = phi ptr [ %.2, %285 ], [ %291, %.lr.ph348 ]
+  %.not352 = icmp eq i64 %.4231.lcssa, 0
+  br i1 %.not352, label %._crit_edge357, label %.lr.ph356
 
-.lr.ph347:                                        ; preds = %286, %.lr.ph347
-  %.4345 = phi ptr [ %292, %.lr.ph347 ], [ %.2, %286 ]
-  %.4231344 = phi i64 [ %293, %.lr.ph347 ], [ %.2229, %286 ]
-  %.4239343 = phi i32 [ %291, %.lr.ph347 ], [ %.2237, %286 ]
-  %288 = zext i32 %.4239343 to i64
-  %289 = load i64, ptr %.4345, align 8, !tbaa !12
-  %290 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %288, i64 %289)
-  %291 = trunc nuw i64 %290 to i32
-  %292 = getelementptr inbounds nuw i8, ptr %.4345, i64 8
-  %293 = add nsw i64 %.4231344, -8
-  %294 = icmp ugt i64 %293, 7
-  br i1 %294, label %.lr.ph347, label %.preheader, !llvm.loop !18
+.lr.ph348:                                        ; preds = %285, %.lr.ph348
+  %.4346 = phi ptr [ %291, %.lr.ph348 ], [ %.2, %285 ]
+  %.4231345 = phi i64 [ %292, %.lr.ph348 ], [ %.2229, %285 ]
+  %.4239344 = phi i32 [ %290, %.lr.ph348 ], [ %.2237, %285 ]
+  %287 = zext i32 %.4239344 to i64
+  %288 = load i64, ptr %.4346, align 8, !tbaa !12
+  %289 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %287, i64 %288)
+  %290 = trunc nuw i64 %289 to i32
+  %291 = getelementptr inbounds nuw i8, ptr %.4346, i64 8
+  %292 = add nsw i64 %.4231345, -8
+  %293 = icmp ugt i64 %292, 7
+  br i1 %293, label %.lr.ph348, label %.preheader, !llvm.loop !18
 
-.lr.ph355:                                        ; preds = %.preheader, %.lr.ph355
-  %.5354 = phi ptr [ %295, %.lr.ph355 ], [ %.4.lcssa, %.preheader ]
-  %.5232353 = phi i64 [ %298, %.lr.ph355 ], [ %.4231.lcssa, %.preheader ]
-  %.5240352 = phi i32 [ %297, %.lr.ph355 ], [ %.4239.lcssa, %.preheader ]
-  %295 = getelementptr inbounds nuw i8, ptr %.5354, i64 1
-  %296 = load i8, ptr %.5354, align 1, !tbaa !7
-  %297 = tail call noundef i32 @llvm.x86.sse42.crc32.32.8(i32 %.5240352, i8 %296)
-  %298 = add nsw i64 %.5232353, -1
-  %.not = icmp eq i64 %298, 0
-  br i1 %.not, label %._crit_edge356, label %.lr.ph355, !llvm.loop !19
+.lr.ph356:                                        ; preds = %.preheader, %.lr.ph356
+  %.5355 = phi ptr [ %294, %.lr.ph356 ], [ %.4.lcssa, %.preheader ]
+  %.5232354 = phi i64 [ %297, %.lr.ph356 ], [ %.4231.lcssa, %.preheader ]
+  %.5240353 = phi i32 [ %296, %.lr.ph356 ], [ %.4239.lcssa, %.preheader ]
+  %294 = getelementptr inbounds nuw i8, ptr %.5355, i64 1
+  %295 = load i8, ptr %.5355, align 1, !tbaa !7
+  %296 = tail call noundef i32 @llvm.x86.sse42.crc32.32.8(i32 %.5240353, i8 %295)
+  %297 = add nsw i64 %.5232354, -1
+  %.not = icmp eq i64 %297, 0
+  br i1 %.not, label %._crit_edge357, label %.lr.ph356, !llvm.loop !19
 
-._crit_edge356:                                   ; preds = %.lr.ph355, %.preheader
-  %.5240.lcssa = phi i32 [ %.4239.lcssa, %.preheader ], [ %297, %.lr.ph355 ]
+._crit_edge357:                                   ; preds = %.lr.ph356, %.preheader
+  %.5240.lcssa = phi i32 [ %.4239.lcssa, %.preheader ], [ %296, %.lr.ph356 ]
   ret i32 %.5240.lcssa
 }
 

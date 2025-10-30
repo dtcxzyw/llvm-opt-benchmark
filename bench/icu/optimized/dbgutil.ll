@@ -487,7 +487,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_Z15udbg_enumString14UDe
 8:                                                ; preds = %._crit_edge.i
   %9 = call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef 72) #15
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %_ZL10udbg_setupv.exit, label %.loopexit.loopexit.i
+  br i1 %10, label %_ZL10udbg_setupv.exit, label %.loopexit.i
 
 11:                                               ; preds = %._crit_edge.i, %6
   %indvars.iv59.i = phi i64 [ 0, %6 ], [ %indvars.iv.next60.i, %._crit_edge.i ]
@@ -572,7 +572,7 @@ _ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i: ; preds = %3
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
 
-.loopexit.loopexit.i:                             ; preds = %8
+.loopexit.i:                                      ; preds = %8
   store i64 1, ptr %9, align 8
   %.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %.ptr.ptr.i, align 8, !tbaa !20
@@ -580,8 +580,8 @@ _ZL12_fieldString14UDebugEnumTypeiRN6icu_7713UnicodeStringE.exit.i: ; preds = %3
   store i16 2, ptr %41, align 8, !tbaa !22
   br label %_ZL10udbg_setupv.exit
 
-_ZL10udbg_setupv.exit:                            ; preds = %8, %.loopexit.loopexit.i
-  %42 = phi ptr [ null, %8 ], [ %.ptr.ptr.i, %.loopexit.loopexit.i ]
+_ZL10udbg_setupv.exit:                            ; preds = %8, %.loopexit.i
+  %42 = phi ptr [ null, %8 ], [ %.ptr.ptr.i, %.loopexit.i ]
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %42, ptr %43, align 8, !tbaa !18
   store ptr %7, ptr @_ZL4strs, align 8, !tbaa !15

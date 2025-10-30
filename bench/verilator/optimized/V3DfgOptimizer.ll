@@ -1435,8 +1435,8 @@ _ZN12VNUser3InUseC2Ev.exit:                       ; preds = %49
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %104
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %106, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %105, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !84
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %105, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !84
   br label %"_ZZN7AstNode11foreachImplI10AstVarXRefZN14V3DfgOptimizer8optimizeEP10AstNetlistRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i"
 
 109:                                              ; preds = %93

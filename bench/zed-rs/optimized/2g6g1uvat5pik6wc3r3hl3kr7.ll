@@ -16060,7 +16060,6 @@ _ZN8terminal12task_summary17h6aad8fd01346b4cdE.exit: ; preds = %"_ZN4core3ptr42d
 221:                                              ; preds = %283, %207
   %.sroa.0.0.idx20.i = phi i64 [ 0, %207 ], [ %.sroa.0.0.add.i, %283 ]
   %.sroa.0.0.ptr.i = getelementptr inbounds nuw i8, ptr %29, i64 %.sroa.0.0.idx20.i
-  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx20.i, 16
   %222 = load ptr, ptr %.sroa.0.0.ptr.i, align 8, !alias.scope !3516, !noalias !3513, !nonnull !4, !align !257, !noundef !4
   %223 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr.i, i64 8
   %224 = load i64, ptr %223, align 8, !alias.scope !3516, !noalias !3513, !noundef !4
@@ -16122,6 +16121,7 @@ _ZN8terminal12task_summary17h6aad8fd01346b4cdE.exit: ; preds = %"_ZN4core3ptr42d
   br label %264
 
 ._crit_edge.i:                                    ; preds = %.noexc18, %221
+  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx20.i, 16
   invoke fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$u20$as$u20$vte..ansi..Handler$GT$8linefeed17h759ae79547740e31E"(ptr noalias noundef nonnull align 8 dereferenceable(1736) %171)
           to label %.noexc17 unwind label %.loopexit.split-lp.loopexit
 

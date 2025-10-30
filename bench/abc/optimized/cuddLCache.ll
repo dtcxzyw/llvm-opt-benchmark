@@ -880,36 +880,36 @@ define internal fastcc void @cuddHashTableResize(ptr noundef captures(none) %0) 
   br i1 %exitcond165.not, label %.loopexit, label %.lr.ph140.split.us, !llvm.loop !77
 
 .lr.ph.preheader.i.us.us:                         ; preds = %.lr.ph140.split.us, %ddLCHash.exit.loopexit.us.us
-  %.3103135.us.us = phi ptr [ %26, %ddLCHash.exit.loopexit.us.us ], [ %25, %.lr.ph140.split.us ]
-  %26 = load ptr, ptr %.3103135.us.us, align 8, !tbaa !76
-  %27 = getelementptr inbounds nuw i8, ptr %.3103135.us.us, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !45
-  %29 = ptrtoint ptr %28 to i64
-  %30 = trunc i64 %29 to i32
-  %31 = mul i32 %30, 4256249
+  %.3103135.us.us = phi ptr [ %37, %ddLCHash.exit.loopexit.us.us ], [ %25, %.lr.ph140.split.us ]
+  %26 = getelementptr inbounds nuw i8, ptr %.3103135.us.us, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !45
+  %28 = ptrtoint ptr %27 to i64
+  %29 = trunc i64 %28 to i32
+  %30 = mul i32 %29, 4256249
   br label %.lr.ph.i.us.us
 
 .lr.ph.i.us.us:                                   ; preds = %.lr.ph.i.us.us, %.lr.ph.preheader.i.us.us
   %indvars.iv.i.us.us = phi i64 [ 1, %.lr.ph.preheader.i.us.us ], [ %indvars.iv.next.i.us.us, %.lr.ph.i.us.us ]
-  %.089.i.us.us = phi i32 [ %31, %.lr.ph.preheader.i.us.us ], [ %37, %.lr.ph.i.us.us ]
-  %32 = mul i32 %.089.i.us.us, 12582917
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i.us.us
-  %34 = load ptr, ptr %33, align 8, !tbaa !45
-  %35 = ptrtoint ptr %34 to i64
-  %36 = trunc i64 %35 to i32
-  %37 = add i32 %32, %36
+  %.089.i.us.us = phi i32 [ %30, %.lr.ph.preheader.i.us.us ], [ %36, %.lr.ph.i.us.us ]
+  %31 = mul i32 %.089.i.us.us, 12582917
+  %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i.us.us
+  %33 = load ptr, ptr %32, align 8, !tbaa !45
+  %34 = ptrtoint ptr %33 to i64
+  %35 = trunc i64 %34 to i32
+  %36 = add i32 %31, %35
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us.us, label %ddLCHash.exit.loopexit.us.us, label %.lr.ph.i.us.us, !llvm.loop !46
 
 ddLCHash.exit.loopexit.us.us:                     ; preds = %.lr.ph.i.us.us
-  %38 = lshr i32 %37, %17
+  %37 = load ptr, ptr %.3103135.us.us, align 8, !tbaa !76
+  %38 = lshr i32 %36, %17
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !67
   store ptr %41, ptr %.3103135.us.us, align 8, !tbaa !76
   store ptr %.3103135.us.us, ptr %40, align 8, !tbaa !67
-  %.not.us.us = icmp eq ptr %26, null
+  %.not.us.us = icmp eq ptr %37, null
   br i1 %.not.us.us, label %._crit_edge138.split.us.us, label %.lr.ph.preheader.i.us.us, !llvm.loop !78
 
 .lr.ph133:                                        ; preds = %.lr.ph133.preheader, %._crit_edge131

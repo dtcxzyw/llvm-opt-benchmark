@@ -575,62 +575,62 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false), !tbaa !12
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %11 = load ptr, ptr %10, align 8, !tbaa !26
-  %12 = load i32, ptr %11, align 4, !tbaa !12
-  %13 = xor i32 %12, 1359893119
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !12
-  %17 = xor i32 %16, -1694144372
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %20 = load ptr, ptr %19, align 8, !tbaa !32
-  %21 = load i32, ptr %20, align 4, !tbaa !12
-  %22 = xor i32 %21, 528734635
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !12
-  %26 = xor i32 %25, 1541459225
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %8 = load i32, ptr %7, align 4, !tbaa !12
+  %9 = xor i32 %8, 1359893119
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !12
+  %12 = xor i32 %11, -1694144372
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %14 = load ptr, ptr %13, align 8, !tbaa !32
+  %15 = load i32, ptr %14, align 4, !tbaa !12
+  %16 = xor i32 %15, 528734635
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %18 = load i32, ptr %17, align 4, !tbaa !12
+  %19 = xor i32 %18, 1541459225
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %.promoted = load i32, ptr %3, align 16, !tbaa !12
-  %.promoted45 = load i32, ptr %28, align 16, !tbaa !12
-  %.promoted51 = load i32, ptr %29, align 4, !tbaa !12
-  %.promoted53 = load i32, ptr %30, align 4, !tbaa !12
-  %.promoted59 = load i32, ptr %31, align 8, !tbaa !12
-  %.promoted61 = load i32, ptr %32, align 8, !tbaa !12
-  %.promoted67 = load i32, ptr %33, align 4, !tbaa !12
-  %.promoted69 = load i32, ptr %34, align 4, !tbaa !12
+  %.promoted45 = load i32, ptr %20, align 16, !tbaa !12
+  %.promoted51 = load i32, ptr %21, align 4, !tbaa !12
+  %.promoted53 = load i32, ptr %22, align 4, !tbaa !12
+  %.promoted59 = load i32, ptr %23, align 8, !tbaa !12
+  %.promoted61 = load i32, ptr %24, align 8, !tbaa !12
+  %.promoted67 = load i32, ptr %25, align 4, !tbaa !12
+  %.promoted69 = load i32, ptr %26, align 4, !tbaa !12
   br label %36
 
 .preheader:                                       ; preds = %36
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 %167, ptr %3, align 16, !tbaa !12
-  store i32 %244, ptr %28, align 16, !tbaa !12
-  store i32 %193, ptr %14, align 16, !tbaa !12
-  store i32 %218, ptr %6, align 16, !tbaa !12
-  store i32 %191, ptr %29, align 4, !tbaa !12
-  store i32 %172, ptr %30, align 4, !tbaa !12
-  store i32 %217, ptr %18, align 4, !tbaa !12
-  store i32 %242, ptr %7, align 4, !tbaa !12
-  store i32 %215, ptr %31, align 8, !tbaa !12
-  store i32 %196, ptr %32, align 8, !tbaa !12
-  store i32 %241, ptr %23, align 8, !tbaa !12
-  store i32 %170, ptr %8, align 8, !tbaa !12
-  store i32 %239, ptr %33, align 4, !tbaa !12
-  store i32 %220, ptr %34, align 4, !tbaa !12
-  store i32 %169, ptr %27, align 4, !tbaa !12
-  store i32 %194, ptr %9, align 4, !tbaa !12
+  store i32 %244, ptr %20, align 16, !tbaa !12
+  store i32 %193, ptr %31, align 16, !tbaa !12
+  store i32 %218, ptr %27, align 16, !tbaa !12
+  store i32 %191, ptr %21, align 4, !tbaa !12
+  store i32 %172, ptr %22, align 4, !tbaa !12
+  store i32 %217, ptr %32, align 4, !tbaa !12
+  store i32 %242, ptr %28, align 4, !tbaa !12
+  store i32 %215, ptr %23, align 8, !tbaa !12
+  store i32 %196, ptr %24, align 8, !tbaa !12
+  store i32 %241, ptr %33, align 8, !tbaa !12
+  store i32 %170, ptr %29, align 8, !tbaa !12
+  store i32 %239, ptr %25, align 4, !tbaa !12
+  store i32 %220, ptr %26, align 4, !tbaa !12
+  store i32 %169, ptr %34, align 4, !tbaa !12
+  store i32 %194, ptr %30, align 4, !tbaa !12
   %35 = load ptr, ptr %4, align 8, !tbaa !11
   br label %246
 
@@ -638,19 +638,19 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   %indvars.iv = phi i64 [ 0, %.preheader42 ], [ %indvars.iv.next, %36 ]
   %37 = phi i32 [ %.promoted, %.preheader42 ], [ %167, %36 ]
   %38 = phi i32 [ %.promoted45, %.preheader42 ], [ %244, %36 ]
-  %39 = phi i32 [ %13, %.preheader42 ], [ %193, %36 ]
+  %39 = phi i32 [ %9, %.preheader42 ], [ %193, %36 ]
   %40 = phi i32 [ 1779033703, %.preheader42 ], [ %218, %36 ]
   %41 = phi i32 [ %.promoted51, %.preheader42 ], [ %191, %36 ]
   %42 = phi i32 [ %.promoted53, %.preheader42 ], [ %172, %36 ]
-  %43 = phi i32 [ %17, %.preheader42 ], [ %217, %36 ]
+  %43 = phi i32 [ %12, %.preheader42 ], [ %217, %36 ]
   %44 = phi i32 [ -1150833019, %.preheader42 ], [ %242, %36 ]
   %45 = phi i32 [ %.promoted59, %.preheader42 ], [ %215, %36 ]
   %46 = phi i32 [ %.promoted61, %.preheader42 ], [ %196, %36 ]
-  %47 = phi i32 [ %22, %.preheader42 ], [ %241, %36 ]
+  %47 = phi i32 [ %16, %.preheader42 ], [ %241, %36 ]
   %48 = phi i32 [ 1013904242, %.preheader42 ], [ %170, %36 ]
   %49 = phi i32 [ %.promoted67, %.preheader42 ], [ %239, %36 ]
   %50 = phi i32 [ %.promoted69, %.preheader42 ], [ %220, %36 ]
-  %51 = phi i32 [ %26, %.preheader42 ], [ %169, %36 ]
+  %51 = phi i32 [ %19, %.preheader42 ], [ %169, %36 ]
   %52 = phi i32 [ -1521486534, %.preheader42 ], [ %194, %36 ]
   %53 = add i32 %38, %37
   %54 = getelementptr inbounds nuw [16 x i8], ptr @_ZL13blake2s_sigma, i64 %indvars.iv

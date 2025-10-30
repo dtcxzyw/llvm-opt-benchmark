@@ -627,27 +627,27 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
   tail call void @llvm.assume(i1 %31)
   %32 = icmp sgt i32 %27, -1
   tail call void @llvm.assume(i1 %32)
-  %33 = icmp eq i32 %27, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %35 = load ptr, ptr %34, align 8, !tbaa !132, !noalias !134, !nonnull !99, !noundef !99
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %37 = load i32, ptr %36, align 4, !tbaa !137, !noalias !134
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %39 = load i32, ptr %38, align 8, !tbaa !139, !noalias !134
-  %40 = mul nuw nsw i32 %39, %37
-  %41 = and i32 %21, 1
-  %42 = shl nuw i32 %24, 1
-  %43 = and i32 %42, 2
-  %44 = or disjoint i32 %43, %41
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %46 = load i32, ptr %45, align 8, !tbaa !106
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %34 = load ptr, ptr %33, align 8, !tbaa !132, !noalias !134, !nonnull !99, !noundef !99
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %36 = load i32, ptr %35, align 4, !tbaa !137, !noalias !134
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %38 = load i32, ptr %37, align 8, !tbaa !139, !noalias !134
+  %39 = mul nuw nsw i32 %38, %36
+  %40 = and i32 %21, 1
+  %41 = shl nuw i32 %24, 1
+  %42 = and i32 %41, 2
+  %43 = or disjoint i32 %42, %40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %45 = load i32, ptr %44, align 8, !tbaa !106
   br label %78
 
 .preheader58:                                     ; preds = %78
+  %46 = icmp eq i32 %27, 0
   %47 = icmp sge i32 %1, %2
-  %brmerge = or i1 %47, %33
+  %brmerge = or i1 %47, %46
   br i1 %brmerge, label %._crit_edge62, label %.preheader.lr.ph.split.us
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader58
@@ -705,13 +705,13 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
 78:                                               ; preds = %_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit, %78
   %indvars.iv = phi i64 [ 0, %_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit ], [ %indvars.iv.next, %78 ]
   %79 = trunc nuw nsw i64 %indvars.iv to i32
-  %.1 = xor i32 %44, %79
-  %80 = icmp samesign ult i32 %.1, %40
+  %.1 = xor i32 %43, %79
+  %80 = icmp samesign ult i32 %.1, %39
   tail call void @llvm.assume(i1 %80)
   %81 = zext nneg i32 %.1 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %35, i64 %81
+  %82 = getelementptr inbounds nuw i32, ptr %34, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !106
-  %84 = sub nsw i32 %46, %83
+  %84 = sub nsw i32 %45, %83
   %85 = sitofp i32 %84 to float
   %86 = fdiv float 6.553500e+04, %85
   %87 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
@@ -755,7 +755,6 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr noundef
   tail call void @llvm.assume(i1 %22)
   %23 = icmp samesign uge i32 %18, %13
   tail call void @llvm.assume(i1 %23)
-  %24 = icmp ne i32 %15, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %.lr.ph.i.i.i.i.i
 
@@ -768,6 +767,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11fixBadPixelEjji(ptr noundef
   br i1 %.not.i.i.i.i.i, label %_ZNSt5arrayIfLm4EE4fillERKf.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !146
 
 _ZNSt5arrayIfLm4EE4fillERKf.exit:                 ; preds = %.lr.ph.i.i.i.i.i
+  %24 = icmp ne i32 %15, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %26 = load ptr, ptr %25, align 8, !tbaa !147, !nonnull !99, !noundef !99

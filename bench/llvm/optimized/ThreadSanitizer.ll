@@ -3323,8 +3323,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit534.i: ; preds = %
   br i1 %1052, label %switch.lookup, label %1151
 
 switch.lookup:                                    ; preds = %1051
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_115ThreadSanitizer16sanitizeFunctionERN4llvm8FunctionERKNS1_17TargetLibraryInfoE, i64 %indvars.iv.i
-  %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %124)
   call void @llvm.lifetime.start.p0(ptr nonnull %125)
   call void @llvm.lifetime.start.p0(ptr nonnull %126)
@@ -3347,6 +3345,8 @@ switch.lookup:                                    ; preds = %1051
   br i1 %.not.i6.i.i, label %._crit_edge.i7.i.i, label %.lr.ph.i3.i.i, !llvm.loop !226
 
 ._crit_edge.i7.i.i:                               ; preds = %.lr.ph.i3.i.i
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_115ThreadSanitizer16sanitizeFunctionERN4llvm8FunctionERKNS1_17TargetLibraryInfoE, i64 %indvars.iv.i
+  %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %349, ptr %127, align 8, !tbaa !228, !alias.scope !256
   store i64 0, ptr %350, align 8, !tbaa !229, !alias.scope !256
   call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !256

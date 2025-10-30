@@ -1138,8 +1138,8 @@ define ptr @Abc_NtkStrashBlifMv(ptr noundef %0) local_unnamed_addr #0 {
   %26 = add i32 %.1402, -1
   %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %26, i1 true)
   %28 = sub nuw nsw i32 32, %27
-  %spec.select857 = select i1 %25, i32 %.1402, i32 %28
-  %29 = sext i32 %spec.select857 to i64
+  %spec.select858 = select i1 %25, i32 %.1402, i32 %28
+  %29 = sext i32 %spec.select858 to i64
   %30 = shl nsw i64 %29, 3
   %31 = icmp eq i32 %.1402, 2
   br label %.critedge.thread
@@ -1513,12 +1513,12 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %._crit_edge563.spli
   %195 = add i32 %.09.i495, %.4399586
   br label %.preheader
 
-.preheader.loopexit681:                           ; preds = %.lr.ph572.split
+.preheader.loopexit853:                           ; preds = %.lr.ph572.split
   %196 = add i32 %.09.i495, %.4399586
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.loopexit681, %.preheader.loopexit, %175
-  %.6.lcssa = phi i32 [ %.4399586, %175 ], [ %195, %.preheader.loopexit ], [ %196, %.preheader.loopexit681 ]
+.preheader:                                       ; preds = %.preheader.loopexit853, %.preheader.loopexit, %175
+  %.6.lcssa = phi i32 [ %.4399586, %175 ], [ %195, %.preheader.loopexit ], [ %196, %.preheader.loopexit853 ]
   %197 = icmp sgt i32 %182, 0
   br i1 %197, label %.lr.ph576.us.preheader, label %._crit_edge579.split.us
 
@@ -1574,7 +1574,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %._crit_edge563.spli
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next712 = add nuw nsw i64 %indvars.iv711, 1
   %exitcond715.not = icmp eq i64 %indvars.iv.next712, %wide.trip.count719
-  br i1 %exitcond715.not, label %.preheader.loopexit681, label %.lr.ph572.split, !llvm.loop !74
+  br i1 %exitcond715.not, label %.preheader.loopexit853, label %.lr.ph572.split, !llvm.loop !74
 
 ._crit_edge579.split.us:                          ; preds = %._crit_edge.us580, %.preheader
   %221 = getelementptr inbounds nuw i8, ptr %181, i64 64

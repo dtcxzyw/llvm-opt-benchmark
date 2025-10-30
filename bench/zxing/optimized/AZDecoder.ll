@@ -725,8 +725,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %26
           to label %.noexc16 unwind label %1072
 
 .noexc16:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %36, i8 0, i64 %35, i1 false), !tbaa !73, !noalias !69
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %35
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %36, i8 0, i64 %35, i1 false), !tbaa !73, !noalias !69
   br i1 %29, label %.lr.ph.i.i, label %41
 
 .lr.ph.i.i:                                       ; preds = %.noexc16, %.lr.ph.i.i
@@ -1154,8 +1154,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i.i: ; preds = %_ZNSt6vectorI
   %223 = getelementptr inbounds nuw i32, ptr %222, i64 %219
   %224 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %223, ptr %224, align 8, !tbaa !90, !alias.scope !84, !noalias !80
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %222, i8 0, i64 %221, i1 false), !tbaa !73, !noalias !91
   %225 = getelementptr inbounds nuw i8, ptr %222, i64 %221
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %222, i8 0, i64 %221, i1 false), !tbaa !73, !noalias !91
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.noexc31, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i.i.i
@@ -1301,8 +1301,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %289
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %291, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %290, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !73, !noalias !80
   %293 = getelementptr inbounds nuw i8, ptr %290, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %290, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !73, !noalias !80
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i.i
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %289

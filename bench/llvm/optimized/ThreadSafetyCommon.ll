@@ -6709,18 +6709,18 @@ _ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SEx
 define dso_local void @_ZN5clang12threadSafety12SExprBuilder13mergeEntryMapENS0_17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8, !tbaa !222
-  %.not39 = icmp eq ptr %4, null
+  %.not40 = icmp eq ptr %4, null
   %5 = load ptr, ptr %1, align 8, !tbaa !222
-  br i1 %.not39, label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEEaSEOSA_.exit, label %6
+  br i1 %.not40, label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEEaSEOSA_.exit, label %6
 
 _ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEEaSEOSA_.exit: ; preds = %2
   store ptr %5, ptr %3, align 8, !tbaa !222
   store ptr null, ptr %1, align 8, !tbaa !222
-  br label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit32
+  br label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit33
 
 6:                                                ; preds = %2
   %7 = icmp eq ptr %4, %5
-  br i1 %7, label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit32, label %_ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit
+  br i1 %7, label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit33, label %_ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit
 
 _ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit: ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -6756,8 +6756,8 @@ _ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SE
   %32 = phi i32 [ %31, %22 ], [ 0, %_ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit ]
   %33 = icmp ult i32 %32, %21
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %32, i32 %21)
-  %.not46 = icmp eq i32 %.sroa.speculated, 0
-  br i1 %.not46, label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit, label %.lr.ph.preheader
+  %.not47 = icmp eq i32 %.sroa.speculated, 0
+  br i1 %.not47, label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit13
   %wide.trip.count = zext i32 %.sroa.speculated to i64
@@ -6875,7 +6875,7 @@ _ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SEx
   br i1 %exitcond.not, label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit, label %.lr.ph, !llvm.loop !486
 
 _ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit: ; preds = %81, %_ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit13, %72, %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE12makeWritableEv.exit
-  br i1 %33, label %82, label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit32
+  br i1 %33, label %82, label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit33
 
 82:                                               ; preds = %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit
   %83 = load ptr, ptr %3, align 8, !tbaa !222
@@ -6888,12 +6888,12 @@ _ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SEx
   store i32 1, ptr %85, align 8, !tbaa !223
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, i8 0, i64 24, i1 false)
-  br label %.sink.split.i25
+  br label %.sink.split.i26
 
 87:                                               ; preds = %82
   %88 = load i32, ptr %83, align 8, !tbaa !223
   %89 = icmp eq i32 %88, 1
-  br i1 %89, label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE12makeWritableEv.exit28, label %90
+  br i1 %89, label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE12makeWritableEv.exit29, label %90
 
 90:                                               ; preds = %87
   %91 = add i32 %88, -1
@@ -6910,14 +6910,14 @@ _ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SEx
   %100 = sub i64 %98, %99
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i17 = icmp eq ptr %96, %97
-  br i1 %.not.i.i.i.i.i.i17, label %_ZNSt12_Vector_baseISt4pairIPKN5clang9ValueDeclEPNS1_12threadSafety3til5SExprEESaIS9_EEC2EmRKSA_.exit.i.i.thread.i27, label %103
+  br i1 %.not.i.i.i.i.i.i17, label %_ZNSt12_Vector_baseISt4pairIPKN5clang9ValueDeclEPNS1_12threadSafety3til5SExprEESaIS9_EEC2EmRKSA_.exit.i.i.thread.i28, label %103
 
-_ZNSt12_Vector_baseISt4pairIPKN5clang9ValueDeclEPNS1_12threadSafety3til5SExprEESaIS9_EEC2EmRKSA_.exit.i.i.thread.i27: ; preds = %90
+_ZNSt12_Vector_baseISt4pairIPKN5clang9ValueDeclEPNS1_12threadSafety3til5SExprEESaIS9_EEC2EmRKSA_.exit.i.i.thread.i28: ; preds = %90
   %101 = getelementptr inbounds nuw i8, ptr null, i64 %100
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 24
   store i64 0, ptr %93, align 8
   store ptr %101, ptr %102, align 8, !tbaa !231
-  br label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE10VectorDataC2ERKSB_.exit.i23
+  br label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE10VectorDataC2ERKSB_.exit.i24
 
 103:                                              ; preds = %90
   %104 = icmp ugt i64 %100, 9223372036854775792
@@ -6942,26 +6942,26 @@ _ZNSt12_Vector_baseISt4pairIPKN5clang9ValueDeclEPNS1_12threadSafety3til5SExprEES
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i21, i64 16
   %110 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i20, i64 16
   %.not.i.i.i.i.i.i.i22 = icmp eq ptr %109, %96
-  br i1 %.not.i.i.i.i.i.i.i22, label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE10VectorDataC2ERKSB_.exit.i23, label %.lr.ph.i.i.i.i.i.i.i19, !llvm.loop !239
+  br i1 %.not.i.i.i.i.i.i.i22, label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE10VectorDataC2ERKSB_.exit.i24, label %.lr.ph.i.i.i.i.i.i.i19, !llvm.loop !239
 
-_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE10VectorDataC2ERKSB_.exit.i23: ; preds = %.lr.ph.i.i.i.i.i.i.i19, %_ZNSt12_Vector_baseISt4pairIPKN5clang9ValueDeclEPNS1_12threadSafety3til5SExprEESaIS9_EEC2EmRKSA_.exit.i.i.thread.i27
-  %.0.lcssa.i.i.i.i.i.i.i24 = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIPKN5clang9ValueDeclEPNS1_12threadSafety3til5SExprEESaIS9_EEC2EmRKSA_.exit.i.i.thread.i27 ], [ %110, %.lr.ph.i.i.i.i.i.i.i19 ]
+_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE10VectorDataC2ERKSB_.exit.i24: ; preds = %.lr.ph.i.i.i.i.i.i.i19, %_ZNSt12_Vector_baseISt4pairIPKN5clang9ValueDeclEPNS1_12threadSafety3til5SExprEESaIS9_EEC2EmRKSA_.exit.i.i.thread.i28
+  %.0.lcssa.i.i.i.i.i.i.i25 = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIPKN5clang9ValueDeclEPNS1_12threadSafety3til5SExprEESaIS9_EEC2EmRKSA_.exit.i.i.thread.i28 ], [ %110, %.lr.ph.i.i.i.i.i.i.i19 ]
   %111 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  store ptr %.0.lcssa.i.i.i.i.i.i.i24, ptr %111, align 8, !tbaa !237
-  br label %.sink.split.i25
+  store ptr %.0.lcssa.i.i.i.i.i.i.i25, ptr %111, align 8, !tbaa !237
+  br label %.sink.split.i26
 
-.sink.split.i25:                                  ; preds = %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE10VectorDataC2ERKSB_.exit.i23, %84
-  %.sink.i26 = phi ptr [ %92, %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE10VectorDataC2ERKSB_.exit.i23 ], [ %85, %84 ]
-  store ptr %.sink.i26, ptr %3, align 8, !tbaa !222
-  br label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE12makeWritableEv.exit28
+.sink.split.i26:                                  ; preds = %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE10VectorDataC2ERKSB_.exit.i24, %84
+  %.sink.i27 = phi ptr [ %92, %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE10VectorDataC2ERKSB_.exit.i24 ], [ %85, %84 ]
+  store ptr %.sink.i27, ptr %3, align 8, !tbaa !222
+  br label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE12makeWritableEv.exit29
 
-_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE12makeWritableEv.exit28: ; preds = %87, %.sink.split.i25
-  %112 = phi ptr [ %83, %87 ], [ %.sink.i26, %.sink.split.i25 ]
+_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE12makeWritableEv.exit29: ; preds = %87, %.sink.split.i26
+  %112 = phi ptr [ %83, %87 ], [ %.sink.i27, %.sink.split.i26 ]
   %113 = load ptr, ptr %1, align 8, !tbaa !222
-  %.not.i29 = icmp eq ptr %113, null
-  br i1 %.not.i29, label %_ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit30, label %114
+  %.not.i30 = icmp eq ptr %113, null
+  br i1 %.not.i30, label %_ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit31, label %114
 
-114:                                              ; preds = %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE12makeWritableEv.exit28
+114:                                              ; preds = %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE12makeWritableEv.exit29
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %117 = load ptr, ptr %116, align 8, !tbaa !237
@@ -6971,23 +6971,23 @@ _ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SEx
   %121 = sub i64 %119, %120
   %122 = lshr exact i64 %121, 4
   %123 = and i64 %122, 4294967295
-  br label %_ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit30
+  br label %_ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit31
 
-_ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit30: ; preds = %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE12makeWritableEv.exit28, %114
-  %124 = phi i64 [ %123, %114 ], [ 0, %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE12makeWritableEv.exit28 ]
+_ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit31: ; preds = %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE12makeWritableEv.exit29, %114
+  %124 = phi i64 [ %123, %114 ], [ 0, %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE12makeWritableEv.exit29 ]
   %125 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %126 = load ptr, ptr %125, align 8, !tbaa !485
   %127 = getelementptr inbounds nuw %"struct.std::pair.468", ptr %126, i64 %124
   %128 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !485
-  %.not.i.i.i31 = icmp eq ptr %127, %129
-  br i1 %.not.i.i.i31, label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit32, label %130
+  %.not.i.i.i32 = icmp eq ptr %127, %129
+  br i1 %.not.i.i.i32, label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit33, label %130
 
-130:                                              ; preds = %_ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit30
+130:                                              ; preds = %_ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit31
   store ptr %127, ptr %128, align 8, !tbaa !237
-  br label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit32
+  br label %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit33
 
-_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit32: ; preds = %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit, %_ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit30, %130, %6, %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEEaSEOSA_.exit
+_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit33: ; preds = %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE8downsizeEj.exit, %_ZNK5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEE4sizeEv.exit31, %130, %6, %_ZN5clang12threadSafety17CopyOnWriteVectorISt4pairIPKNS_9ValueDeclEPNS0_3til5SExprEEEaSEOSA_.exit
   ret void
 }
 

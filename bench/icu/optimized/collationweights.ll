@@ -333,73 +333,73 @@ _ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124: ; preds = %_ZN6icu_7716C
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = zext nneg i32 %.0.i to i64
   %35 = sext i32 %31 to i64
-  br label %47
+  br label %40
 
-._crit_edge:                                      ; preds = %70, %30
-  %.0105.lcssa = phi i32 [ %1, %30 ], [ %75, %70 ]
-  %36 = icmp ult i32 %.0105.lcssa, -16777216
-  %37 = shl i32 %31, 3
-  %38 = sub i32 32, %37
-  %39 = zext nneg i32 %38 to i64
-  %40 = shl nuw i64 1, %39
-  %41 = trunc i64 %40 to i32
-  %42 = add i32 %.0105.lcssa, %41
-  %.sroa.0.0 = select i1 %36, i32 %42, i32 -1
-  %43 = icmp sgt i32 %.0.i123, %31
-  br i1 %43, label %.lr.ph163, label %._crit_edge164
+._crit_edge:                                      ; preds = %63, %30
+  %.0105.lcssa = phi i32 [ %1, %30 ], [ %68, %63 ]
+  %36 = icmp sgt i32 %.0.i123, %31
+  br i1 %36, label %.lr.ph163, label %._crit_edge164
 
 .lr.ph163:                                        ; preds = %._crit_edge
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %45 = zext nneg i32 %.0.i123 to i64
-  %46 = sext i32 %31 to i64
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %38 = zext nneg i32 %.0.i123 to i64
+  %39 = sext i32 %31 to i64
   br label %83
 
-47:                                               ; preds = %.lr.ph, %70
-  %indvars.iv = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next, %70 ]
-  %.0105157 = phi i32 [ %1, %.lr.ph ], [ %75, %70 ]
-  %48 = trunc nsw i64 %indvars.iv to i32
-  %49 = shl i32 %48, 3
-  %50 = sub i32 32, %49
-  %51 = lshr i32 %.0105157, %50
-  %52 = and i32 %51, 255
-  %53 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv
-  %54 = load i32, ptr %53, align 4, !tbaa !9
-  %55 = icmp ult i32 %52, %54
-  br i1 %55, label %56, label %70
+40:                                               ; preds = %.lr.ph, %63
+  %indvars.iv = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next, %63 ]
+  %.0105157 = phi i32 [ %1, %.lr.ph ], [ %68, %63 ]
+  %41 = trunc nsw i64 %indvars.iv to i32
+  %42 = shl i32 %41, 3
+  %43 = sub i32 32, %42
+  %44 = lshr i32 %.0105157, %43
+  %45 = and i32 %44, 255
+  %46 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv
+  %47 = load i32, ptr %46, align 4, !tbaa !9
+  %48 = icmp ult i32 %45, %47
+  br i1 %48, label %49, label %63
 
-56:                                               ; preds = %47
-  %57 = zext nneg i32 %50 to i64
-  %58 = shl nuw i64 1, %57
-  %59 = trunc i64 %58 to i32
-  %60 = add i32 %.0105157, %59
-  %61 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %4, i64 %indvars.iv
-  store i32 %60, ptr %61, align 16, !tbaa !16
-  %62 = shl i32 -256, %50
-  %63 = and i32 %62, %.0105157
-  %64 = shl i32 %54, %50
-  %65 = or i32 %64, %63
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  store i32 %65, ptr %66, align 4, !tbaa !17
-  %67 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store i32 %48, ptr %67, align 8, !tbaa !14
-  %68 = sub nuw i32 %54, %52
-  %69 = getelementptr inbounds nuw i8, ptr %61, i64 12
-  store i32 %68, ptr %69, align 4, !tbaa !18
-  br label %70
+49:                                               ; preds = %40
+  %50 = zext nneg i32 %43 to i64
+  %51 = shl nuw i64 1, %50
+  %52 = trunc i64 %51 to i32
+  %53 = add i32 %.0105157, %52
+  %54 = getelementptr inbounds %"struct.icu_77::CollationWeights::WeightRange", ptr %4, i64 %indvars.iv
+  store i32 %53, ptr %54, align 16, !tbaa !16
+  %55 = shl i32 -256, %43
+  %56 = and i32 %55, %.0105157
+  %57 = shl i32 %47, %43
+  %58 = or i32 %57, %56
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  store i32 %58, ptr %59, align 4, !tbaa !17
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store i32 %41, ptr %60, align 8, !tbaa !14
+  %61 = sub nuw i32 %47, %45
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 12
+  store i32 %61, ptr %62, align 4, !tbaa !18
+  br label %63
 
-70:                                               ; preds = %56, %47
+63:                                               ; preds = %49, %40
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %71 = trunc nsw i64 %indvars.iv.next to i32
-  %72 = shl i32 %71, 3
-  %73 = sub i32 32, %72
-  %74 = shl nsw i32 -1, %73
-  %75 = and i32 %74, %.0105157
-  %76 = icmp sgt i64 %indvars.iv.next, %35
-  br i1 %76, label %47, label %._crit_edge, !llvm.loop !19
+  %64 = trunc nsw i64 %indvars.iv.next to i32
+  %65 = shl i32 %64, 3
+  %66 = sub i32 32, %65
+  %67 = shl nsw i32 -1, %66
+  %68 = and i32 %67, %.0105157
+  %69 = icmp sgt i64 %indvars.iv.next, %35
+  br i1 %69, label %40, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge164:                                   ; preds = %105, %._crit_edge
   %.1106.lcssa = phi i32 [ %2, %._crit_edge ], [ %110, %105 ]
-  %.neg.i = shl nsw i64 -1, %39
+  %70 = icmp ult i32 %.0105.lcssa, -16777216
+  %71 = shl i32 %31, 3
+  %72 = sub i32 32, %71
+  %73 = zext nneg i32 %72 to i64
+  %74 = shl nuw i64 1, %73
+  %75 = trunc i64 %74 to i32
+  %76 = add i32 %.0105.lcssa, %75
+  %.sroa.0.0 = select i1 %70, i32 %76, i32 -1
+  %.neg.i = shl nsw i64 -1, %73
   %77 = trunc i64 %.neg.i to i32
   %78 = add i32 %.1106.lcssa, %77
   %.not120 = icmp ult i32 %78, %.sroa.0.0
@@ -416,14 +416,14 @@ _ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124: ; preds = %_ZN6icu_7716C
   br label %112
 
 83:                                               ; preds = %.lr.ph163, %105
-  %indvars.iv202 = phi i64 [ %45, %.lr.ph163 ], [ %indvars.iv.next203, %105 ]
+  %indvars.iv202 = phi i64 [ %38, %.lr.ph163 ], [ %indvars.iv.next203, %105 ]
   %.1106160 = phi i32 [ %2, %.lr.ph163 ], [ %110, %105 ]
   %84 = trunc nsw i64 %indvars.iv202 to i32
   %85 = shl i32 %84, 3
   %86 = sub i32 32, %85
   %87 = lshr i32 %.1106160, %86
   %88 = and i32 %87, 255
-  %89 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv202
+  %89 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv202
   %90 = load i32, ptr %89, align 4, !tbaa !9
   %91 = icmp ugt i32 %88, %90
   br i1 %91, label %92, label %105
@@ -455,7 +455,7 @@ _ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124: ; preds = %_ZN6icu_7716C
   %108 = sub i32 32, %107
   %109 = shl nsw i32 -1, %108
   %110 = and i32 %109, %.1106160
-  %111 = icmp sgt i64 %indvars.iv.next203, %46
+  %111 = icmp sgt i64 %indvars.iv.next203, %39
   br i1 %111, label %83, label %._crit_edge164, !llvm.loop !20
 
 112:                                              ; preds = %.lr.ph173, %.thread128
@@ -604,7 +604,7 @@ _ZNK6icu_7716CollationWeights9incWeightEji.exit:  ; preds = %.lr.ph.i, %143
 
 199:                                              ; preds = %._crit_edge164
   %200 = sub nuw i32 %78, %.sroa.0.0
-  %201 = lshr i32 %200, %38
+  %201 = lshr i32 %200, %72
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 0, ptr %202, align 4, !tbaa !8
   %203 = icmp sgt i32 %201, -1

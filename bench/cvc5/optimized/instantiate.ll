@@ -900,17 +900,17 @@ define linkonce_odr hidden void @_ZN4cvc57context9CDHashMapINS_8internal12NodeTe
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers11InstantiateD2Ev(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers11InstantiateE, i64 16), ptr %0, align 8, !tbaa !3
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %4 = load ptr, ptr %3, align 8, !tbaa !41
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %.not7 = icmp eq ptr %4, %5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %3 = load ptr, ptr %2, align 8, !tbaa !41
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %.not7 = icmp eq ptr %3, %4
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %68, %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %7 = load ptr, ptr %6, align 8, !tbaa !40
-  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory11quantifiers15CDInstMatchTrieEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
+  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory11quantifiers15CDInstMatchTrieEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers15CDInstMatchTrieESt4lessIS3_ESaISt4pairIKS3_S7_EEE5clearEv.exit unwind label %8
 
 8:                                                ; preds = %._crit_edge
@@ -922,9 +922,9 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers11InstantiateD2Ev(ptr n
 
 _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers15CDInstMatchTrieESt4lessIS3_ESaISt4pairIKS3_S7_EEE5clearEv.exit: ; preds = %._crit_edge
   store ptr null, ptr %6, align 8, !tbaa !40
-  store ptr %5, ptr %3, align 8, !tbaa !41
+  store ptr %4, ptr %2, align 8, !tbaa !41
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store ptr %5, ptr %11, align 8, !tbaa !42
+  store ptr %4, ptr %11, align 8, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store i64 0, ptr %12, align 8, !tbaa !43
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -968,7 +968,7 @@ _ZNSt10unique_ptrIN4cvc58internal7CDProofESt14default_deleteIS2_EED2Ev.exit: ; p
 
 _ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EED2Ev.exit: ; preds = %19, %23
   %28 = load ptr, ptr %6, align 8, !tbaa !40
-  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory11quantifiers15CDInstMatchTrieEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %28)
+  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory11quantifiers15CDInstMatchTrieEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %28)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEPNS1_6theory11quantifiers15CDInstMatchTrieESt4lessIS3_ESaISt4pairIKS3_S7_EEED2Ev.exit unwind label %29
 
 29:                                               ; preds = %_ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EED2Ev.exit
@@ -1058,7 +1058,7 @@ _ZNSt6vectorIPN4cvc58internal6theory11quantifiers21InstantiationRewriterESaIS5_E
   ret void
 
 .lr.ph:                                           ; preds = %1, %68
-  %.sroa.04.08 = phi ptr [ %69, %68 ], [ %4, %1 ]
+  %.sroa.04.08 = phi ptr [ %69, %68 ], [ %3, %1 ]
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 40
   %65 = load ptr, ptr %64, align 8, !tbaa !68
   %66 = icmp eq ptr %65, null
@@ -1071,7 +1071,7 @@ _ZNSt6vectorIPN4cvc58internal6theory11quantifiers21InstantiationRewriterESaIS5_E
 
 68:                                               ; preds = %67, %.lr.ph
   %69 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.08) #31
-  %.not = icmp eq ptr %69, %5
+  %.not = icmp eq ptr %69, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

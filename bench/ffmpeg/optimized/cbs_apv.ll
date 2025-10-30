@@ -3414,41 +3414,41 @@ define internal fastcc void @cbs_apv_derive_tile_info(ptr noundef writeonly capt
   %6 = lshr i32 %5, 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 4, !tbaa !63
-  %9 = add i32 %8, 15
-  %10 = lshr i32 %9, 4
   %.not = icmp ult i32 %5, 16
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %13 = load i32, ptr %12, align 4, !tbaa !172
-  br label %14
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %11 = load i32, ptr %10, align 4, !tbaa !172
+  br label %12
 
-14:                                               ; preds = %.lr.ph, %14
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %.03338 = phi i32 [ 0, %.lr.ph ], [ %17, %14 ]
+12:                                               ; preds = %.lr.ph, %12
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
+  %.03338 = phi i32 [ 0, %.lr.ph ], [ %15, %12 ]
   %.033.tr = trunc i32 %.03338 to i16
-  %15 = shl i16 %.033.tr, 4
-  %16 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
-  store i16 %15, ptr %16, align 2, !tbaa !108
-  %17 = add i32 %13, %.03338
+  %13 = shl i16 %.033.tr, 4
+  %14 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv
+  store i16 %13, ptr %14, align 2, !tbaa !108
+  %15 = add i32 %11, %.03338
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = icmp slt i32 %17, %6
-  br i1 %18, label %14, label %._crit_edge, !llvm.loop !173
+  %16 = icmp slt i32 %15, %6
+  br i1 %16, label %12, label %._crit_edge, !llvm.loop !173
 
-._crit_edge:                                      ; preds = %14
-  %19 = trunc nuw i64 %indvars.iv.next to i32
-  %20 = icmp samesign ult i64 %indvars.iv, 20
-  br i1 %20, label %._crit_edge.thread, label %21
+._crit_edge:                                      ; preds = %12
+  %17 = trunc nuw i64 %indvars.iv.next to i32
+  %18 = icmp samesign ult i64 %indvars.iv, 20
+  br i1 %18, label %._crit_edge.thread, label %19
 
-21:                                               ; preds = %._crit_edge
+19:                                               ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.3, i32 noundef 52) #7
   tail call void @abort() #8
   unreachable
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.0.lcssa53 = phi i32 [ %19, %._crit_edge ], [ 0, %2 ]
+  %.0.lcssa53 = phi i32 [ %17, %._crit_edge ], [ 0, %2 ]
+  %20 = add i32 %8, 15
+  %21 = lshr i32 %20, 4
   %22 = trunc i32 %5 to i16
   %23 = and i16 %22, -16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3457,7 +3457,7 @@ define internal fastcc void @cbs_apv_derive_tile_info(ptr noundef writeonly capt
   store i16 %23, ptr %26, align 2, !tbaa !108
   %27 = trunc nuw nsw i32 %.0.lcssa53 to i8
   store i8 %27, ptr %0, align 2, !tbaa !174
-  %.not46 = icmp ult i32 %9, 16
+  %.not46 = icmp ult i32 %20, 16
   br i1 %.not46, label %._crit_edge44, label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %._crit_edge.thread
@@ -3484,7 +3484,7 @@ define internal fastcc void @cbs_apv_derive_tile_info(ptr noundef writeonly capt
   store i16 %34, ptr %35, align 2, !tbaa !108
   %36 = add i32 %30, %.13440
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %37 = icmp slt i32 %36, %10
+  %37 = icmp slt i32 %36, %21
   br i1 %37, label %31, label %._crit_edge44.loopexit, !llvm.loop !176
 
 ._crit_edge44.loopexit:                           ; preds = %33
@@ -3493,7 +3493,7 @@ define internal fastcc void @cbs_apv_derive_tile_info(ptr noundef writeonly capt
 
 ._crit_edge44:                                    ; preds = %._crit_edge44.loopexit, %._crit_edge.thread
   %.1.lcssa = phi i32 [ 0, %._crit_edge.thread ], [ %38, %._crit_edge44.loopexit ]
-  %39 = trunc i32 %9 to i16
+  %39 = trunc i32 %20 to i16
   %40 = and i16 %39, -16
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 46
   %42 = zext nneg i32 %.1.lcssa to i64

@@ -1574,33 +1574,33 @@ _ZN4llvm6TripleD2Ev.exit.i.i65:                   ; preds = %555, %_ZNKSt7__cxx1
 
 _ZNK4llvm6Target19createTargetMachineENS_9StringRefES1_S1_RKNS_13TargetOptionsESt8optionalINS_5Reloc5ModelEES5_INS_9CodeModel5ModelEENS_15CodeGenOptLevelEb.exit.i66: ; preds = %_ZN4llvm6TripleD2Ev.exit.i.i65, %522
   %.0.i.i67 = phi ptr [ %568, %_ZN4llvm6TripleD2Ev.exit.i.i65 ], [ null, %522 ]
-  %574 = getelementptr inbounds nuw i8, ptr %.0.i.i67, i64 512
-  %575 = getelementptr inbounds nuw i8, ptr %.0.i.i67, i64 680
-  %576 = load ptr, ptr %575, align 8, !tbaa !181
+  %574 = getelementptr inbounds nuw i8, ptr %.0.i.i67, i64 680
+  %575 = load ptr, ptr %574, align 8, !tbaa !181
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @_ZNK4llvm15MCSubtargetInfo27getEnabledProcessorFeaturesEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.555") align 8 %11, ptr noundef nonnull align 8 dereferenceable(304) %576) #23
+  call void @_ZNK4llvm15MCSubtargetInfo27getEnabledProcessorFeaturesEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.555") align 8 %11, ptr noundef nonnull align 8 dereferenceable(304) %575) #23
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %577 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 0, ptr %577, align 8, !tbaa !210
-  %578 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr null, ptr %578, align 8, !tbaa !211
-  %579 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %577, ptr %579, align 8, !tbaa !212
-  %580 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %577, ptr %580, align 8, !tbaa !213
-  %581 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store i64 0, ptr %581, align 8, !tbaa !214
-  %582 = load ptr, ptr %11, align 8, !tbaa !183
-  %583 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %584 = load ptr, ptr %583, align 8, !tbaa !183
-  %.not5557.i = icmp eq ptr %582, %584
+  %576 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 0, ptr %576, align 8, !tbaa !210
+  %577 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr null, ptr %577, align 8, !tbaa !211
+  %578 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr %576, ptr %578, align 8, !tbaa !212
+  %579 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr %576, ptr %579, align 8, !tbaa !213
+  %580 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store i64 0, ptr %580, align 8, !tbaa !214
+  %581 = load ptr, ptr %11, align 8, !tbaa !183
+  %582 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %583 = load ptr, ptr %582, align 8, !tbaa !183
+  %.not5557.i = icmp eq ptr %581, %583
   br i1 %.not5557.i, label %._crit_edge.i70, label %.lr.ph.i68
 
 .lr.ph.i68:                                       ; preds = %_ZNK4llvm6Target19createTargetMachineENS_9StringRefES1_S1_RKNS_13TargetOptionsESt8optionalINS_5Reloc5ModelEES5_INS_9CodeModel5ModelEENS_15CodeGenOptLevelEb.exit.i66
-  %585 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %584 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %588
 
 ._crit_edge.i70:                                  ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i, %_ZNK4llvm6Target19createTargetMachineENS_9StringRefES1_S1_RKNS_13TargetOptionsESt8optionalINS_5Reloc5ModelEES5_INS_9CodeModel5ModelEENS_15CodeGenOptLevelEb.exit.i66
+  %585 = getelementptr inbounds nuw i8, ptr %.0.i.i67, i64 512
   %586 = getelementptr inbounds nuw i8, ptr %.0.i.i67, i64 544
   %587 = load i32, ptr %586, align 8, !tbaa !188
   %.off.i.i71 = add i32 %587, -3
@@ -1608,7 +1608,7 @@ _ZNK4llvm6Target19createTargetMachineENS_9StringRefES1_S1_RKNS_13TargetOptionsES
   br i1 %switch.i.i72, label %595, label %596
 
 588:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i, %.lr.ph.i68
-  %.sroa.032.058.i = phi ptr [ %582, %.lr.ph.i68 ], [ %594, %_ZN4llvm9StringRefC2EPKc.exit.i ]
+  %.sroa.032.058.i = phi ptr [ %581, %.lr.ph.i68 ], [ %594, %_ZN4llvm9StringRefC2EPKc.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %589 = load ptr, ptr %.sroa.032.058.i, align 8, !tbaa !215
   store ptr %589, ptr %13, align 8, !tbaa !80
@@ -1621,11 +1621,11 @@ _ZNK4llvm6Target19createTargetMachineENS_9StringRefES1_S1_RKNS_13TargetOptionsES
 
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %590, %588
   %592 = phi i64 [ %591, %590 ], [ 0, %588 ]
-  store i64 %592, ptr %585, align 8, !tbaa !82
+  store i64 %592, ptr %584, align 8, !tbaa !82
   %593 = call { ptr, i8 } @_ZNSt8_Rb_treeIN4llvm9StringRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE16_M_insert_uniqueIS1_EESt4pairISt17_Rb_tree_iteratorIS1_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %594 = getelementptr inbounds nuw i8, ptr %.sroa.032.058.i, i64 64
-  %.not55.i = icmp eq ptr %594, %584
+  %.not55.i = icmp eq ptr %594, %583
   br i1 %.not55.i, label %._crit_edge.i70, label %588
 
 595:                                              ; preds = %._crit_edge.i70
@@ -1643,7 +1643,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %590, %588
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 20, i1 false)
   store i32 24, ptr %599, align 4, !tbaa !185
   %600 = load ptr, ptr %11, align 8, !tbaa !183
-  %601 = load ptr, ptr %583, align 8, !tbaa !183
+  %601 = load ptr, ptr %582, align 8, !tbaa !183
   %.not5659.i = icmp eq ptr %600, %601
   br i1 %.not5659.i, label %._crit_edge63.i, label %.lr.ph62.i
 
@@ -1654,7 +1654,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %590, %588
   br label %618
 
 ._crit_edge63.i:                                  ; preds = %_ZNSt4pairIN4llvm9StringRefES1_EC2IRKPKcS7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit.i97, %598
-  %602 = call noundef zeroext i1 @_ZNK4llvm6Triple11isArch64BitEv(ptr noundef nonnull align 8 dereferenceable(56) %574) #23
+  %602 = call noundef zeroext i1 @_ZNK4llvm6Triple11isArch64BitEv(ptr noundef nonnull align 8 dereferenceable(56) %585) #23
   call void @_ZN4llvm12RISCVISAInfo22printEnabledExtensionsEbRSt3setINS_9StringRefESt4lessIS2_ESaIS2_EERNS_9StringMapIS2_NS_15MallocAllocatorEEE(i1 noundef zeroext %602, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(24) %14) #23
   %603 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %604 = load i32, ptr %603, align 4, !tbaa !197
@@ -1736,7 +1736,7 @@ _ZNSt4pairIN4llvm9StringRefES1_EC2IRKPKcS7_TnNSt9enable_ifIXaaclsr5_PCCPE22_Move
 
 631:                                              ; preds = %_ZN4llvm9StringMapINS_9StringRefENS_15MallocAllocatorEED2Ev.exit.i104, %596, %595
   %.1.i74 = phi i32 [ 1, %596 ], [ 0, %_ZN4llvm9StringMapINS_9StringRefENS_15MallocAllocatorEED2Ev.exit.i104 ], [ 0, %595 ]
-  %632 = load ptr, ptr %578, align 8, !tbaa !211
+  %632 = load ptr, ptr %577, align 8, !tbaa !211
   call void @_ZNSt8_Rb_treeIN4llvm9StringRefES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %632)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %633 = load ptr, ptr %11, align 8, !tbaa !220

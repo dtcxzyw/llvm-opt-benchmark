@@ -5007,27 +5007,27 @@ define void @Emb_ManVecOrthogonolizeOne(ptr noundef readonly captures(none) %0, 
 
 .lr.ph.preheader.i.us:                            ; preds = %Emb_ManVecMultiplyOne.exit.loopexit.us, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %Emb_ManVecMultiplyOne.exit.loopexit.us ], [ 0, %.lr.ph ]
-  %6 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  %7 = load float, ptr %6, align 4, !tbaa !106
-  %8 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  %9 = load float, ptr %8, align 4, !tbaa !106
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us, %.lr.ph.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %.lr.ph.i.us ]
-  %.089.i.us = phi float [ 0.000000e+00, %.lr.ph.preheader.i.us ], [ %14, %.lr.ph.i.us ]
-  %10 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i.us
-  %11 = load float, ptr %10, align 4, !tbaa !106
-  %12 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i.us
-  %13 = load float, ptr %12, align 4, !tbaa !106
-  %14 = tail call float @llvm.fmuladd.f32(float %11, float %13, float %.089.i.us)
+  %.089.i.us = phi float [ 0.000000e+00, %.lr.ph.preheader.i.us ], [ %10, %.lr.ph.i.us ]
+  %6 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i.us
+  %7 = load float, ptr %6, align 4, !tbaa !106
+  %8 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i.us
+  %9 = load float, ptr %8, align 4, !tbaa !106
+  %10 = tail call float @llvm.fmuladd.f32(float %7, float %9, float %.089.i.us)
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us, label %Emb_ManVecMultiplyOne.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !128
 
 Emb_ManVecMultiplyOne.exit.loopexit.us:           ; preds = %.lr.ph.i.us
-  %15 = fneg float %9
-  %16 = tail call float @llvm.fmuladd.f32(float %15, float %14, float %7)
+  %11 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %12 = load float, ptr %11, align 4, !tbaa !106
+  %13 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %14 = load float, ptr %13, align 4, !tbaa !106
+  %15 = fneg float %14
+  %16 = tail call float @llvm.fmuladd.f32(float %15, float %10, float %12)
   %17 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   store float %16, ptr %17, align 4, !tbaa !106
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5135,27 +5135,27 @@ Emb_ManVecCopyOne.exit:                           ; preds = %.lr.ph.i50
 
 .lr.ph.preheader.i.us.i.us:                       ; preds = %Emb_ManVecMultiplyOne.exit.loopexit.us.i.us, %.lr.ph.i55.us
   %indvars.iv.i56.us = phi i64 [ %indvars.iv.next.i57.us, %Emb_ManVecMultiplyOne.exit.loopexit.us.i.us ], [ 0, %.lr.ph.i55.us ]
-  %38 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i56.us
-  %39 = load float, ptr %38, align 4, !tbaa !106
-  %40 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i56.us
-  %41 = load float, ptr %40, align 4, !tbaa !106
   br label %.lr.ph.i.us.i.us
 
 .lr.ph.i.us.i.us:                                 ; preds = %.lr.ph.i.us.i.us, %.lr.ph.preheader.i.us.i.us
   %indvars.iv.i.us.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us.i.us ], [ %indvars.iv.next.i.us.i.us, %.lr.ph.i.us.i.us ]
-  %.089.i.us.i.us = phi float [ 0.000000e+00, %.lr.ph.preheader.i.us.i.us ], [ %46, %.lr.ph.i.us.i.us ]
-  %42 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.us.i.us
-  %43 = load float, ptr %42, align 4, !tbaa !106
-  %44 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i.us.i.us
-  %45 = load float, ptr %44, align 4, !tbaa !106
-  %46 = tail call float @llvm.fmuladd.f32(float %43, float %45, float %.089.i.us.i.us)
+  %.089.i.us.i.us = phi float [ 0.000000e+00, %.lr.ph.preheader.i.us.i.us ], [ %42, %.lr.ph.i.us.i.us ]
+  %38 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.us.i.us
+  %39 = load float, ptr %38, align 4, !tbaa !106
+  %40 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i.us.i.us
+  %41 = load float, ptr %40, align 4, !tbaa !106
+  %42 = tail call float @llvm.fmuladd.f32(float %39, float %41, float %.089.i.us.i.us)
   %indvars.iv.next.i.us.i.us = add nuw nsw i64 %indvars.iv.i.us.i.us, 1
   %exitcond.not.i.us.i.us = icmp eq i64 %indvars.iv.next.i.us.i.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us.i.us, label %Emb_ManVecMultiplyOne.exit.loopexit.us.i.us, label %.lr.ph.i.us.i.us, !llvm.loop !128
 
 Emb_ManVecMultiplyOne.exit.loopexit.us.i.us:      ; preds = %.lr.ph.i.us.i.us
-  %47 = fneg float %41
-  %48 = tail call float @llvm.fmuladd.f32(float %47, float %46, float %39)
+  %43 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i56.us
+  %44 = load float, ptr %43, align 4, !tbaa !106
+  %45 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i56.us
+  %46 = load float, ptr %45, align 4, !tbaa !106
+  %47 = fneg float %46
+  %48 = tail call float @llvm.fmuladd.f32(float %47, float %42, float %44)
   %49 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i56.us
   store float %48, ptr %49, align 4, !tbaa !106
   %indvars.iv.next.i57.us = add nuw nsw i64 %indvars.iv.i56.us, 1

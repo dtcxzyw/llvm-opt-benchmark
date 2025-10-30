@@ -194,19 +194,14 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
 7:                                                ; preds = %6
   %8 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(480) %8, ptr noundef nonnull align 4 dereferenceable(480) @constinit, i64 480, i1 false)
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 480
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 484
   store i32 3, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 488
   store i32 3, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !6
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 492
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 496
   store i32 2, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 500
   store i32 2, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !6
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 504
-  %.sroa.932.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 508
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 512
   br label %10
 
 .preheader:                                       ; preds = %10
@@ -224,6 +219,11 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %exitcond.not, label %.preheader, label %10
 
 14:                                               ; preds = %15
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 480
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 492
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 504
+  %.sroa.932.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 508
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 512
   store i32 6, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !13
   store i32 0, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !13
   store i32 0, ptr %.sroa.9.0..sroa_idx, align 4, !tbaa !15

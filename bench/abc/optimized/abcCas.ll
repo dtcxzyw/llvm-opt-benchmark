@@ -1057,7 +1057,7 @@ define i32 @Abc_NtkDecPatDecompose_rec(i32 noundef %0, i32 noundef %1, i32 nound
 .lr.ph.us.preheader:                              ; preds = %.lr.ph54.split.us
   %22 = icmp eq i32 %4, 31
   %.not.us = icmp eq i32 %5, 31
-  br label %.lr.ph.us
+  br label %._crit_edge.split.us63
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph54.split.us, %select.unfold.us.us
   %.04152.us.us = phi i32 [ %.pre-phi, %select.unfold.us.us ], [ %2, %.lr.ph54.split.us ]
@@ -1158,28 +1158,28 @@ Abc_NtkDecPatCount.exit.us.us.us:                 ; preds = %.loopexit.i.us.us.u
   %.pre = add i32 %.04152.us.us, 1
   br label %select.unfold.us.us
 
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %select.unfold.us
-  %.04152.us = phi i32 [ %.pre-phi95, %select.unfold.us ], [ %2, %.lr.ph.us.preheader ]
-  %56 = shl nuw i32 1, %.04152.us
-  %57 = xor i32 %56, -1
-  %58 = and i32 %0, %57
-  br i1 %22, label %._crit_edge.split.us63.select.unfold.us_crit_edge, label %59
+56:                                               ; preds = %._crit_edge.split.us63
+  br i1 %.not.us, label %57, label %.thread
 
-59:                                               ; preds = %.lr.ph.us
-  br i1 %.not.us, label %60, label %.thread
-
-60:                                               ; preds = %59
-  %61 = add i32 %.04152.us, 1
-  %62 = tail call i32 @Abc_NtkDecPatDecompose_rec(i32 noundef %58, i32 noundef %16, i32 noundef %61, i32 noundef %3, i32 noundef %20, i32 noundef 31, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %.not47.us = icmp eq i32 %62, 0
+57:                                               ; preds = %56
+  %58 = add i32 %.04152.us, 1
+  %59 = tail call i32 @Abc_NtkDecPatDecompose_rec(i32 noundef %62, i32 noundef %16, i32 noundef %58, i32 noundef %3, i32 noundef %20, i32 noundef 31, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %.not47.us = icmp eq i32 %59, 0
   br i1 %.not47.us, label %select.unfold.us, label %.thread
 
-select.unfold.us:                                 ; preds = %._crit_edge.split.us63.select.unfold.us_crit_edge, %60
-  %.pre-phi95 = phi i32 [ %.pre94, %._crit_edge.split.us63.select.unfold.us_crit_edge ], [ %61, %60 ]
+select.unfold.us:                                 ; preds = %._crit_edge.split.us63.select.unfold.us_crit_edge, %57
+  %.pre-phi95 = phi i32 [ %.pre94, %._crit_edge.split.us63.select.unfold.us_crit_edge ], [ %58, %57 ]
   %exitcond.not = icmp eq i32 %.pre-phi95, %3
-  br i1 %exitcond.not, label %.thread, label %.lr.ph.us, !llvm.loop !55
+  br i1 %exitcond.not, label %.thread, label %._crit_edge.split.us63, !llvm.loop !55
 
-._crit_edge.split.us63.select.unfold.us_crit_edge: ; preds = %.lr.ph.us
+._crit_edge.split.us63:                           ; preds = %select.unfold.us, %.lr.ph.us.preheader
+  %.04152.us = phi i32 [ %.pre-phi95, %select.unfold.us ], [ %2, %.lr.ph.us.preheader ]
+  %60 = shl nuw i32 1, %.04152.us
+  %61 = xor i32 %60, -1
+  %62 = and i32 %0, %61
+  br i1 %22, label %._crit_edge.split.us63.select.unfold.us_crit_edge, label %56
+
+._crit_edge.split.us63.select.unfold.us_crit_edge: ; preds = %._crit_edge.split.us63
   %.pre94 = add i32 %.04152.us, 1
   br label %select.unfold.us
 
@@ -1211,8 +1211,8 @@ select.unfold.us74:                               ; preds = %.lr.ph54.split.spli
   %71 = and i32 %0, %70
   br label %.thread
 
-.thread:                                          ; preds = %select.unfold.us, %59, %60, %select.unfold.us.us, %29, %30, %select.unfold.us74, %.lr.ph54.split.split.split.us, %.lr.ph54.split, %12, %.lr.ph54.split.split.split, %8
-  %.039 = phi i32 [ 0, %8 ], [ 0, %12 ], [ %71, %.lr.ph54.split.split.split ], [ 0, %.lr.ph54.split ], [ 0, %select.unfold.us74 ], [ %68, %.lr.ph54.split.split.split.us ], [ 0, %select.unfold.us.us ], [ %25, %29 ], [ %32, %30 ], [ 0, %select.unfold.us ], [ %58, %59 ], [ %62, %60 ]
+.thread:                                          ; preds = %select.unfold.us, %56, %57, %select.unfold.us.us, %29, %30, %select.unfold.us74, %.lr.ph54.split.split.split.us, %.lr.ph54.split, %12, %.lr.ph54.split.split.split, %8
+  %.039 = phi i32 [ 0, %8 ], [ 0, %12 ], [ %71, %.lr.ph54.split.split.split ], [ 0, %.lr.ph54.split ], [ 0, %select.unfold.us74 ], [ %68, %.lr.ph54.split.split.split.us ], [ 0, %select.unfold.us.us ], [ %25, %29 ], [ %32, %30 ], [ 0, %select.unfold.us ], [ %62, %56 ], [ %59, %57 ]
   ret i32 %.039
 }
 
@@ -2053,46 +2053,46 @@ define void @Abc_LutCascadePrint(ptr noundef %0) local_unnamed_addr #0 {
   %9 = load i64, ptr %8, align 8, !tbaa !97
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = getelementptr inbounds nuw i64, ptr %10, i64 %9
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = trunc nuw nsw i64 %indvars.iv39 to i32
-  %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %13)
-  %15 = load i64, ptr %11, align 8, !tbaa !97
-  %16 = trunc i64 %15 to i32
-  %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %16)
+  %12 = trunc nuw nsw i64 %indvars.iv39 to i32
+  %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %12)
+  %14 = load i64, ptr %11, align 8, !tbaa !97
+  %15 = trunc i64 %14 to i32
+  %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %15)
   %.not36 = icmp eq i64 %9, 0
   br i1 %.not36, label %.lr.ph30.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph
-  %18 = trunc nuw i64 %9 to i32
-  %19 = icmp ult i64 %9, 8
-  br i1 %19, label %.lr.ph30.preheader, label %._crit_edge
+  %17 = trunc nuw i64 %9 to i32
+  %18 = icmp ult i64 %9, 8
+  br i1 %18, label %.lr.ph30.preheader, label %._crit_edge
 
 .lr.ph30.preheader:                               ; preds = %.lr.ph34, %.preheader
-  %.129.ph = phi i32 [ 0, %.lr.ph34 ], [ %18, %.preheader ]
+  %.129.ph = phi i32 [ 0, %.lr.ph34 ], [ %17, %.preheader ]
   br label %.lr.ph30
 
 .lr.ph:                                           ; preds = %.lr.ph34, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph34 ]
-  %20 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
-  %21 = load i64, ptr %20, align 8, !tbaa !97
-  %22 = trunc i64 %21 to i32
-  %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %22)
+  %19 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
+  %20 = load i64, ptr %19, align 8, !tbaa !97
+  %21 = trunc i64 %20 to i32
+  %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %21)
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !100
 
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %.lr.ph30
-  %.129 = phi i32 [ %25, %.lr.ph30 ], [ %.129.ph, %.lr.ph30.preheader ]
-  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  %25 = add i32 %.129, 1
-  %exitcond38.not = icmp eq i32 %25, 8
+  %.129 = phi i32 [ %24, %.lr.ph30 ], [ %.129.ph, %.lr.ph30.preheader ]
+  %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
+  %24 = add i32 %.129, 1
+  %exitcond38.not = icmp eq i32 %24, 8
   br i1 %exitcond38.not, label %._crit_edge, label %.lr.ph30, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %.lr.ph30, %.preheader
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14)
   %27 = load ptr, ptr @stdout, align 8, !tbaa !59
   %28 = trunc i64 %9 to i32
-  tail call void @Extra_PrintHex2(ptr noundef %27, ptr noundef nonnull %12, i32 noundef %28) #25
+  tail call void @Extra_PrintHex2(ptr noundef %27, ptr noundef nonnull %25, i32 noundef %28) #25
   %putchar = tail call i32 @putchar(i32 10)
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %29 = load i64, ptr %7, align 8, !tbaa !97
@@ -2252,34 +2252,34 @@ define ptr @Abc_NtkLutCascadeFromLuts(ptr noundef %0, ptr noundef %1, i32 nounde
   %14 = getelementptr i8, ptr %13, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !97
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %15
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = tail call ptr @Abc_NtkCreateObj(ptr noundef %5, i32 noundef 7) #25
+  %17 = tail call ptr @Abc_NtkCreateObj(ptr noundef %5, i32 noundef 7) #25
   %.not56 = icmp eq i64 %15, 0
   br i1 %.not56, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
-  %.04149 = phi i64 [ %28, %.lr.ph ], [ 0, %12 ]
-  %20 = getelementptr inbounds nuw i64, ptr %16, i64 %.04149
-  %21 = load i64, ptr %20, align 8, !tbaa !97
+  %.04149 = phi i64 [ %26, %.lr.ph ], [ 0, %12 ]
+  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %.04149
+  %19 = load i64, ptr %18, align 8, !tbaa !97
   %.val44 = load ptr, ptr %11, align 8, !tbaa !93
-  %22 = getelementptr i8, ptr %.val44, i64 8
-  %.val44.val = load ptr, ptr %22, align 8, !tbaa !9
-  %sext48 = shl i64 %21, 32
-  %23 = ashr exact i64 %sext48, 29
-  %24 = getelementptr inbounds i8, ptr %.val44.val, i64 %23
-  %25 = load ptr, ptr %24, align 8, !tbaa !10
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
-  %27 = load ptr, ptr %26, align 8, !tbaa !43
-  tail call void @Abc_ObjAddFanin(ptr noundef %19, ptr noundef %27) #25
-  %28 = add nuw i64 %.04149, 1
-  %exitcond.not = icmp eq i64 %28, %15
+  %20 = getelementptr i8, ptr %.val44, i64 8
+  %.val44.val = load ptr, ptr %20, align 8, !tbaa !9
+  %sext48 = shl i64 %19, 32
+  %21 = ashr exact i64 %sext48, 29
+  %22 = getelementptr inbounds i8, ptr %.val44.val, i64 %21
+  %23 = load ptr, ptr %22, align 8, !tbaa !10
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
+  %25 = load ptr, ptr %24, align 8, !tbaa !43
+  tail call void @Abc_ObjAddFanin(ptr noundef %17, ptr noundef %25) #25
+  %26 = add nuw i64 %.04149, 1
+  %exitcond.not = icmp eq i64 %26, %15
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !107
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
+  %27 = getelementptr inbounds nuw i64, ptr %16, i64 %15
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = trunc i64 %15 to i32
-  %30 = tail call ptr @Abc_NtkLutCascadeDeriveSop(ptr noundef %5, ptr noundef %19, ptr noundef nonnull %18, i32 noundef %29, ptr noundef nonnull %6)
-  %31 = load i64, ptr %17, align 8, !tbaa !97
+  %30 = tail call ptr @Abc_NtkLutCascadeDeriveSop(ptr noundef %5, ptr noundef %17, ptr noundef nonnull %28, i32 noundef %29, ptr noundef nonnull %6)
+  %31 = load i64, ptr %27, align 8, !tbaa !97
   %.val45 = load ptr, ptr %11, align 8, !tbaa !93
   %32 = getelementptr i8, ptr %.val45, i64 8
   %.val45.val = load ptr, ptr %32, align 8, !tbaa !9
@@ -2297,7 +2297,7 @@ define ptr @Abc_NtkLutCascadeFromLuts(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %41, label %12, label %._crit_edge54.loopexit, !llvm.loop !108
 
 ._crit_edge54.loopexit:                           ; preds = %._crit_edge
-  %42 = load i64, ptr %17, align 8, !tbaa !97
+  %42 = load i64, ptr %27, align 8, !tbaa !97
   %.pre = load ptr, ptr %9, align 8, !tbaa !104
   %43 = shl i64 %42, 32
   %44 = ashr exact i64 %43, 29

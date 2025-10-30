@@ -376,7 +376,6 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN9str
   br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
-  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0117, i64 32
   %add15 = add i64 %1, 4
   %add = add i64 %add15, %ret.i43.0
   %add9 = add i64 %add, %call12
@@ -427,6 +426,7 @@ while.body.i78:                                   ; preds = %_ZN9struct_pb8inter
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit84: ; preds = %while.body.i78, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit116
   %pos.2.lcssa = phi i64 [ %inc2.i92, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit116 ], [ %inc.i81, %while.body.i78 ]
   %v.addr.i72.0.lcssa = phi i64 [ %4, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit116 ], [ %shr.i83, %while.body.i78 ]
+  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0117, i64 32
   %conv1.i75 = trunc nuw nsw i64 %v.addr.i72.0.lcssa to i8
   %inc2.i76 = add i64 %pos.2.lcssa, 1
   %arrayidx3.i77 = getelementptr inbounds i8, ptr %data, i64 %pos.2.lcssa

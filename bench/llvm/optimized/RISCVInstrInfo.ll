@@ -19158,12 +19158,12 @@ _ZNRSt8optionalI29MachineOutlinerConstructionIDE5valueEv.exit: ; preds = %117
   %131 = select i1 %127, i1 true, i1 %130
   %132 = select i1 %131, i32 2, i32 4
   %133 = add nuw nsw i32 %132, 4
-  %.037 = select i1 %107, i32 %132, i32 0
   %.0 = select i1 %107, i32 8, i32 %133
   %.not46 = icmp eq ptr %110, %108
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNRSt8optionalI29MachineOutlinerConstructionIDE5valueEv.exit
+  %.037 = select i1 %107, i32 %132, i32 0
   %134 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %134, align 8
   %.sroa.0.0.copyload.i19 = load ptr, ptr %7, align 8

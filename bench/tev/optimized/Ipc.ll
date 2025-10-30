@@ -11593,21 +11593,21 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN3tev9VgCommandEEEEENS_19
 _ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEEC2EmmS5_.exit: ; preds = %_ZNKSt3__16vectorIN3tev9VgCommandENS_9allocatorIS2_EEE11__recommendB8ne190000Em.exit, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN3tev9VgCommandEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS7_m.exit.i
   %storemerge.i = phi ptr [ %30, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN3tev9VgCommandEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS7_m.exit.i ], [ null, %_ZNKSt3__16vectorIN3tev9VgCommandENS_9allocatorIS2_EEE11__recommendB8ne190000Em.exit ]
   %31 = getelementptr inbounds i8, ptr %storemerge.i, i64 %18
-  %32 = getelementptr inbounds %"struct.tev::VgCommand", ptr %storemerge.i, i64 %.0.i
   %.idx.i8 = shl nsw i64 %1, 5
-  %33 = getelementptr inbounds i8, ptr %31, i64 %.idx.i8
+  %32 = getelementptr inbounds i8, ptr %31, i64 %.idx.i8
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEEC2EmmS5_.exit, %.lr.ph.i9
-  %.sroa.0.09.i = phi ptr [ %35, %.lr.ph.i9 ], [ %31, %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEEC2EmmS5_.exit ]
+  %.sroa.0.09.i = phi ptr [ %34, %.lr.ph.i9 ], [ %31, %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEEC2EmmS5_.exit ]
   store i8 127, ptr %.sroa.0.09.i, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i, i64 32
-  %.not.i10 = icmp eq ptr %35, %33
-  br i1 %.not.i10, label %36, label %.lr.ph.i9, !llvm.loop !160
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i, i64 32
+  %.not.i10 = icmp eq ptr %34, %32
+  br i1 %.not.i10, label %35, label %.lr.ph.i9, !llvm.loop !160
 
-36:                                               ; preds = %.lr.ph.i9
+35:                                               ; preds = %.lr.ph.i9
+  %36 = getelementptr inbounds %"struct.tev::VgCommand", ptr %storemerge.i, i64 %.0.i
   %37 = load ptr, ptr %5, align 8
   %38 = load ptr, ptr %0, align 8
   %39 = ptrtoint ptr %37 to i64
@@ -11619,9 +11619,9 @@ _ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEEC2EmmS5_.exit: ; 
   %.not13.i.i = icmp eq ptr %38, %37
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %36, %.lr.ph.i.i
-  %.1.i.i = phi ptr [ %57, %.lr.ph.i.i ], [ %44, %36 ]
-  %.014.i.i = phi ptr [ %56, %.lr.ph.i.i ], [ %38, %36 ]
+.lr.ph.i.i:                                       ; preds = %35, %.lr.ph.i.i
+  %.1.i.i = phi ptr [ %57, %.lr.ph.i.i ], [ %44, %35 ]
+  %.014.i.i = phi ptr [ %56, %.lr.ph.i.i ], [ %38, %35 ]
   %45 = load i8, ptr %.014.i.i, align 8
   store i8 %45, ptr %.1.i.i, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
@@ -11666,11 +11666,11 @@ _ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000E
   %.pre = load ptr, ptr %0, align 8
   br label %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i
 
-_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i: ; preds = %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit, %36
-  %63 = phi ptr [ %.pre, %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit ], [ %38, %36 ]
+_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i: ; preds = %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit, %35
+  %63 = phi ptr [ %.pre, %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit ], [ %38, %35 ]
   store ptr %44, ptr %0, align 8
-  store ptr %33, ptr %5, align 8
-  store ptr %32, ptr %3, align 8
+  store ptr %32, ptr %5, align 8
+  store ptr %36, ptr %3, align 8
   %.not.i11 = icmp eq ptr %63, null
   br i1 %.not.i11, label %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEED2Ev.exit, label %64
 

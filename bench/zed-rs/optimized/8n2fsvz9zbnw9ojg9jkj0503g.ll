@@ -48849,8 +48849,6 @@ define internal fastcc void @"_ZN71_$LT$aes..autodetect..Aes128$u20$as$u20$ciphe
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull readonly align 1 dereferenceable(16) %.sroa.4.0.copyload, i64 16, i1 false)
   br label %4
 
@@ -48867,6 +48865,8 @@ define internal fastcc void @"_ZN71_$LT$aes..autodetect..Aes128$u20$as$u20$ciphe
   br i1 %exitcond.not, label %"_ZN84_$LT$cbc..encrypt..Closure$LT$BS$C$BC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17hf984d5dd2f84e6deE.exit", label %4
 
 "_ZN84_$LT$cbc..encrypt..Closure$LT$BS$C$BC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17hf984d5dd2f84e6deE.exit": ; preds = %4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %3, align 16
   %11 = load <2 x i64>, ptr %0, align 16, !alias.scope !11888, !noalias !11891
   %12 = xor <2 x i64> %11, %.sroa.0.0.copyload.i.i

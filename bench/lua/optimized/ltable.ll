@@ -261,58 +261,58 @@ setnodevector.exit:                               ; preds = %41, %16
   %51 = load ptr, ptr %50, align 8, !tbaa !18
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %53 = load i8, ptr %52, align 2, !tbaa !21
-  %54 = and i8 %53, 64
-  %55 = getelementptr inbounds nuw i8, ptr %8, i64 11
   store i8 %.val43, ptr %48, align 1, !tbaa !20
-  %56 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %.val3446, ptr %50, align 8, !tbaa !18
-  %57 = and i8 %53, -65
-  %58 = or disjoint i8 %57, %46
-  store i8 %58, ptr %52, align 2, !tbaa !21
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %61 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %62 = zext i32 %2 to i64
-  br label %63
+  %54 = and i8 %53, -65
+  %55 = or disjoint i8 %54, %46
+  store i8 %55, ptr %52, align 2, !tbaa !21
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %59 = zext i32 %2 to i64
+  br label %60
 
-63:                                               ; preds = %77, %.lr.ph.i
-  %indvars.iv.i35 = phi i64 [ %62, %.lr.ph.i ], [ %indvars.iv.next.pre-phi.i, %77 ]
-  %64 = load ptr, ptr %59, align 8, !tbaa !19
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv.i35
-  %67 = load i8, ptr %66, align 1, !tbaa !16
-  %68 = and i8 %67, 15
-  %69 = icmp eq i8 %68, 0
-  br i1 %69, label %._crit_edge15.i, label %70
+60:                                               ; preds = %74, %.lr.ph.i
+  %indvars.iv.i35 = phi i64 [ %59, %.lr.ph.i ], [ %indvars.iv.next.pre-phi.i, %74 ]
+  %61 = load ptr, ptr %56, align 8, !tbaa !19
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %indvars.iv.i35
+  %64 = load i8, ptr %63, align 1, !tbaa !16
+  %65 = and i8 %64, 15
+  %66 = icmp eq i8 %65, 0
+  br i1 %66, label %._crit_edge15.i, label %67
 
-._crit_edge15.i:                                  ; preds = %63
+._crit_edge15.i:                                  ; preds = %60
   %.pre.i37 = add nuw nsw i64 %indvars.iv.i35, 1
-  br label %77
+  br label %74
 
-70:                                               ; preds = %63
+67:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %71 = add nuw nsw i64 %indvars.iv.i35, 1
-  store i64 %71, ptr %6, align 8, !tbaa !16
-  store i8 3, ptr %60, align 8, !tbaa !14
-  store i8 %67, ptr %61, align 8, !tbaa !14
-  %72 = getelementptr inbounds i8, ptr %64, i64 -8
-  %73 = sub nsw i64 0, %indvars.iv.i35
-  %74 = getelementptr inbounds %union.Value, ptr %72, i64 %73
-  %75 = load i64, ptr %74, align 8, !tbaa !16
-  store i64 %75, ptr %7, align 8, !tbaa !16
-  %76 = call fastcc i32 @insertkey(ptr noundef nonnull readonly %1, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %68 = add nuw nsw i64 %indvars.iv.i35, 1
+  store i64 %68, ptr %6, align 8, !tbaa !16
+  store i8 3, ptr %57, align 8, !tbaa !14
+  store i8 %64, ptr %58, align 8, !tbaa !14
+  %69 = getelementptr inbounds i8, ptr %61, i64 -8
+  %70 = sub nsw i64 0, %indvars.iv.i35
+  %71 = getelementptr inbounds %union.Value, ptr %69, i64 %70
+  %72 = load i64, ptr %71, align 8, !tbaa !16
+  store i64 %72, ptr %7, align 8, !tbaa !16
+  %73 = call fastcc i32 @insertkey(ptr noundef nonnull readonly %1, ptr noundef nonnull %6, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %77
+  br label %74
 
-77:                                               ; preds = %70, %._crit_edge15.i
-  %indvars.iv.next.pre-phi.i = phi i64 [ %.pre.i37, %._crit_edge15.i ], [ %71, %70 ]
+74:                                               ; preds = %67, %._crit_edge15.i
+  %indvars.iv.next.pre-phi.i = phi i64 [ %.pre.i37, %._crit_edge15.i ], [ %68, %67 ]
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.pre-phi.i to i32
   %exitcond.not.i36 = icmp eq i32 %10, %lftr.wideiv.i
-  br i1 %exitcond.not.i36, label %reinsertOldSlice.exit, label %63
+  br i1 %exitcond.not.i36, label %reinsertOldSlice.exit, label %60
 
-reinsertOldSlice.exit:                            ; preds = %77
+reinsertOldSlice.exit:                            ; preds = %74
+  %75 = and i8 %53, 64
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 11
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %78 = load i8, ptr %48, align 1, !tbaa !20
   %79 = load ptr, ptr %50, align 8, !tbaa !18
   %80 = load i8, ptr %52, align 2, !tbaa !21
@@ -320,10 +320,10 @@ reinsertOldSlice.exit:                            ; preds = %77
   store i8 %49, ptr %48, align 1, !tbaa !20
   store ptr %51, ptr %50, align 8, !tbaa !18
   %82 = and i8 %80, -65
-  %83 = or disjoint i8 %82, %54
+  %83 = or disjoint i8 %82, %75
   store i8 %83, ptr %52, align 2, !tbaa !21
-  store i8 %78, ptr %55, align 1, !tbaa !20
-  store ptr %79, ptr %56, align 8, !tbaa !18
+  store i8 %78, ptr %76, align 1, !tbaa !20
+  store ptr %79, ptr %77, align 8, !tbaa !18
   store i8 %81, ptr %14, align 2, !tbaa !21
   br label %84
 

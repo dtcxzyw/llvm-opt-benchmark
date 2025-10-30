@@ -5821,34 +5821,34 @@ define internal fastcc noundef zeroext i1 @vfio_add_capabilities(ptr noundef %0,
 
 39:                                               ; preds = %trace_vfio_add_ext_cap_dropped.exit.i, %25
   %.050.i = phi i16 [ 256, %25 ], [ %120, %trace_vfio_add_ext_cap_dropped.exit.i ]
-  %40 = zext nneg i16 %.050.i to i64
-  %41 = getelementptr inbounds nuw i8, ptr %28, i64 %40
-  %.val41.i = load i32, ptr %41, align 1
-  br label %42
+  br label %40
 
-42:                                               ; preds = %42, %39
-  %.012.i.i = phi i16 [ 4096, %39 ], [ %.1.i.i, %42 ]
-  %.0911.i.i = phi i16 [ 256, %39 ], [ %49, %42 ]
-  %43 = icmp samesign ugt i16 %.0911.i.i, %.050.i
-  %44 = tail call i16 @llvm.umin.i16(i16 %.0911.i.i, i16 %.012.i.i)
-  %.1.i.i = select i1 %43, i16 %44, i16 %.012.i.i
-  %45 = zext nneg i16 %.0911.i.i to i64
-  %46 = getelementptr inbounds nuw i8, ptr %28, i64 %45
-  %.val.i.i = load i32, ptr %46, align 1
-  %47 = lshr i32 %.val.i.i, 20
-  %48 = trunc nuw nsw i32 %47 to i16
-  %49 = and i16 %48, 4092
-  %.not.i.i = icmp eq i16 %49, 0
-  br i1 %.not.i.i, label %vfio_ext_cap_max_size.exit.i, label %42, !llvm.loop !35
+40:                                               ; preds = %40, %39
+  %.012.i.i = phi i16 [ 4096, %39 ], [ %.1.i.i, %40 ]
+  %.0911.i.i = phi i16 [ 256, %39 ], [ %47, %40 ]
+  %41 = icmp samesign ugt i16 %.0911.i.i, %.050.i
+  %42 = tail call i16 @llvm.umin.i16(i16 %.0911.i.i, i16 %.012.i.i)
+  %.1.i.i = select i1 %41, i16 %42, i16 %.012.i.i
+  %43 = zext nneg i16 %.0911.i.i to i64
+  %44 = getelementptr inbounds nuw i8, ptr %28, i64 %43
+  %.val.i.i = load i32, ptr %44, align 1
+  %45 = lshr i32 %.val.i.i, 20
+  %46 = trunc nuw nsw i32 %45 to i16
+  %47 = and i16 %46, 4092
+  %.not.i.i = icmp eq i16 %47, 0
+  br i1 %.not.i.i, label %vfio_ext_cap_max_size.exit.i, label %40, !llvm.loop !35
 
-vfio_ext_cap_max_size.exit.i:                     ; preds = %42
+vfio_ext_cap_max_size.exit.i:                     ; preds = %40
+  %48 = zext nneg i16 %.050.i to i64
+  %49 = getelementptr inbounds nuw i8, ptr %28, i64 %48
+  %.val41.i = load i32, ptr %49, align 1
   %50 = trunc i32 %.val41.i to i16
   %51 = lshr i32 %.val41.i, 16
   %52 = trunc i32 %51 to i8
   %53 = and i8 %52, 15
   %54 = sub nsw i16 %.1.i.i, %.050.i
   %55 = load ptr, ptr %34, align 16
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %40
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %48
   %.val.i45.i = load i32, ptr %56, align 1
   %57 = or i32 %.val.i45.i, -4194304
   store i32 %57, ptr %56, align 1
@@ -5902,7 +5902,7 @@ vfio_ext_cap_max_size.exit.i:                     ; preds = %42
 
 79:                                               ; preds = %vfio_ext_cap_max_size.exit.i
   %80 = load ptr, ptr %4, align 16
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %40
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %48
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %.val25.i.i = load i32, ptr %82, align 1
   %83 = lshr i32 %.val25.i.i, 5
@@ -5922,7 +5922,7 @@ vfio_ext_cap_max_size.exit.i:                     ; preds = %42
 90:                                               ; preds = %102, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %102 ]
   %91 = load ptr, ptr %4, align 16
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %40
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %48
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = shl i64 %indvars.iv.i.i, 3
   %95 = getelementptr inbounds i8, ptr %93, i64 %94
@@ -5970,7 +5970,7 @@ vfio_ext_cap_max_size.exit.i:                     ; preds = %42
   br label %trace_vfio_add_ext_cap_dropped.exit.i
 
 trace_vfio_add_ext_cap_dropped.exit.i:            ; preds = %90, %117, %.loopexit.i, %76, %69, %63, %61, %58
-  %.val42.i = load i32, ptr %41, align 1
+  %.val42.i = load i32, ptr %49, align 1
   %118 = lshr i32 %.val42.i, 20
   %119 = trunc nuw nsw i32 %118 to i16
   %120 = and i16 %119, 4092

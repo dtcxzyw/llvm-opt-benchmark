@@ -874,7 +874,7 @@ define noundef double @_ZN5Ipopt11CGPenaltyCq16curr_jac_cd_normEi(ptr noundef no
   %50 = fadd double %.35286.us98, %49
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %35
-  br i1 %exitcond124.not, label %._crit_edge90.loopexit106, label %.lr.ph89.split.us95, !llvm.loop !39
+  br i1 %exitcond124.not, label %._crit_edge90.loopexit135, label %.lr.ph89.split.us95, !llvm.loop !39
 
 51:                                               ; preds = %._crit_edge
   %52 = landingpad { ptr, i32 }
@@ -888,14 +888,14 @@ define noundef double @_ZN5Ipopt11CGPenaltyCq16curr_jac_cd_normEi(ptr noundef no
   %.not.i.i63 = icmp eq ptr %55, null
   br i1 %.not.i.i63, label %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit64, label %81
 
-._crit_edge90.loopexit106:                        ; preds = %.lr.ph89.split.us95
+._crit_edge90.loopexit135:                        ; preds = %.lr.ph89.split.us95
   %56 = add nuw i32 %.039.lcssa, %33
   %57 = add i32 %56, -1
   br label %._crit_edge90
 
-._crit_edge90:                                    ; preds = %.thread68.us, %.lr.ph89, %._crit_edge90.loopexit106, %.preheader
-  %.352.lcssa = phi double [ %.049.lcssa, %.preheader ], [ %50, %._crit_edge90.loopexit106 ], [ %.049.lcssa, %.lr.ph89 ], [ %.sroa.speculated.i60.us, %.thread68.us ]
-  %.2.lcssa = phi i32 [ %.039.lcssa, %.preheader ], [ %57, %._crit_edge90.loopexit106 ], [ %.039.lcssa, %.lr.ph89 ], [ %.039.lcssa, %.thread68.us ]
+._crit_edge90:                                    ; preds = %.thread68.us, %._crit_edge90.loopexit135, %.lr.ph89, %.preheader
+  %.352.lcssa = phi double [ %.049.lcssa, %.preheader ], [ %.049.lcssa, %.lr.ph89 ], [ %50, %._crit_edge90.loopexit135 ], [ %.sroa.speculated.i60.us, %.thread68.us ]
+  %.2.lcssa = phi i32 [ %.039.lcssa, %.preheader ], [ %.039.lcssa, %.lr.ph89 ], [ %57, %._crit_edge90.loopexit135 ], [ %.039.lcssa, %.thread68.us ]
   call void @_ZdaPv(ptr noundef nonnull %39) #24
   %58 = load ptr, ptr %4, align 8, !tbaa !34
   %.not.i.i = icmp eq ptr %58, null
@@ -11332,8 +11332,8 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc21
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %25, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %24, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !140
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %24, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !140
   br label %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i
 
 _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc21

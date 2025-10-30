@@ -190,7 +190,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr noundef 
   %27 = zext i32 %26 to i64
   %28 = sub i64 %24, %27
   %.not72 = icmp ult i64 %1, %28
-  br i1 %.not72, label %.loopexit, label %.preheader81, !llvm.loop !26
+  br i1 %.not72, label %.loopexit82, label %.preheader81, !llvm.loop !26
 
 .preheader:                                       ; preds = %12, %.preheader
   %.06784 = phi i64 [ %..067, %.preheader ], [ %19, %12 ]
@@ -207,9 +207,9 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr noundef 
   %..067 = select i1 %36, i64 %30, i64 %.06784
   %37 = add nuw i64 %.2., 1
   %38 = icmp ult i64 %37, %..067
-  br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !28
+  br i1 %38, label %.preheader, label %.loopexit82, !llvm.loop !28
 
-.loopexit:                                        ; preds = %.preheader81, %.preheader
+.loopexit82:                                      ; preds = %.preheader81, %.preheader
   %.169 = phi i64 [ %.2., %.preheader ], [ %.068, %.preheader81 ]
   %39 = shl i64 %.169, 9
   %40 = getelementptr inbounds nuw %"class.marisa::grimoire::vector::RankIndex", ptr %22, i64 %.169
@@ -226,7 +226,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr noundef 
   %50 = icmp ult i64 %43, %49
   br i1 %50, label %51, label %76
 
-51:                                               ; preds = %.loopexit
+51:                                               ; preds = %.loopexit82
   %52 = lshr i32 %46, 7
   %53 = and i32 %52, 255
   %54 = zext nneg i32 %53 to i64
@@ -267,7 +267,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr noundef 
   %75 = add i64 %.neg77, %67
   br label %107
 
-76:                                               ; preds = %.loopexit
+76:                                               ; preds = %.loopexit82
   %77 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %78 = load i32, ptr %77, align 4, !tbaa !17
   %79 = lshr i32 %78, 9
@@ -398,7 +398,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr noundef 
   %25 = load i32, ptr %24, align 4, !tbaa !13
   %26 = zext i32 %25 to i64
   %.not69 = icmp ult i64 %1, %26
-  br i1 %.not69, label %.loopexit, label %.preheader71, !llvm.loop !30
+  br i1 %.not69, label %.loopexit72, label %.preheader71, !llvm.loop !30
 
 .preheader:                                       ; preds = %12, %.preheader
   %.06474 = phi i64 [ %..064, %.preheader ], [ %19, %12 ]
@@ -413,9 +413,9 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr noundef 
   %..064 = select i1 %32, i64 %28, i64 %.06474
   %33 = add nuw i64 %.2., 1
   %34 = icmp ult i64 %33, %..064
-  br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !31
+  br i1 %34, label %.preheader, label %.loopexit72, !llvm.loop !31
 
-.loopexit:                                        ; preds = %.preheader71, %.preheader
+.loopexit72:                                      ; preds = %.preheader71, %.preheader
   %.166 = phi i64 [ %.2., %.preheader ], [ %.065, %.preheader71 ]
   %35 = getelementptr inbounds nuw %"class.marisa::grimoire::vector::RankIndex", ptr %22, i64 %.166
   %36 = load i32, ptr %35, align 4, !tbaa !13
@@ -429,7 +429,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr noundef 
   %44 = icmp ult i64 %38, %43
   br i1 %44, label %45, label %67
 
-45:                                               ; preds = %.loopexit
+45:                                               ; preds = %.loopexit72
   %46 = lshr i32 %41, 7
   %47 = and i32 %46, 255
   %48 = zext nneg i32 %47 to i64
@@ -464,7 +464,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr noundef 
   %66 = sub nuw nsw i64 %38, %59
   br label %95
 
-67:                                               ; preds = %.loopexit
+67:                                               ; preds = %.loopexit72
   %68 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %69 = load i32, ptr %68, align 4, !tbaa !17
   %70 = lshr i32 %69, 9

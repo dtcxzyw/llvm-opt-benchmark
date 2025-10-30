@@ -182,7 +182,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %6, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.ptr15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -269,7 +269,7 @@ _ZN6vectorIjLb0EjE4backEv.exit.i:                 ; preds = %_ZNK6vectorIjLb0EjE
 
 38:                                               ; preds = %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit, %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit39
   %indvars.iv = phi i64 [ 0, %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit ], [ %indvars.iv.next, %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit39 ]
-  %39 = getelementptr inbounds nuw %class.svector, ptr %.ptr15, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw %class.svector, ptr %scevgep, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !3
   %41 = icmp eq ptr %40, null
   br i1 %41, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i36, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i22

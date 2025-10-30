@@ -7007,19 +7007,19 @@ reverse_blame.exit96:                             ; preds = %.lr.ph.i91, %9, %60
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !327
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %87 = add nsw i32 %78, -1
-  %88 = udiv i32 %87, %5
-  %89 = shl nuw nsw i32 %75, 1
-  %90 = add nsw i32 %89, -1
-  %91 = mul i32 %90, %63
-  %92 = zext i32 %91 to i64
-  %93 = shl nuw nsw i64 %92, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %83, i8 -1, i64 %93, i1 false), !tbaa !23
+  %87 = shl nuw nsw i32 %75, 1
+  %88 = add nsw i32 %87, -1
+  %89 = mul i32 %88, %63
+  %90 = zext i32 %89 to i64
+  %91 = shl nuw nsw i64 %90, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %83, i8 -1, i64 %91, i1 false), !tbaa !23
+  %92 = add nsw i32 %78, -1
+  %93 = udiv i32 %92, %5
   %94 = sext i32 %68 to i64
   %95 = getelementptr inbounds %struct.fingerprint, ptr %.val.i, i64 %94
   %96 = sext i32 %2 to i64
   %97 = getelementptr inbounds %struct.fingerprint, ptr %.val37.i, i64 %96
-  call fastcc void @fuzzy_find_matching_lines_recurse(i32 noundef %68, i32 noundef %2, i32 noundef %5, i32 noundef %63, ptr noundef %95, ptr noundef %97, ptr noundef %83, ptr noundef nonnull %81, ptr noundef nonnull %80, ptr noundef nonnull %79, i32 noundef %spec.select.i.i, i32 noundef %88, ptr noundef %11)
+  call fastcc void @fuzzy_find_matching_lines_recurse(i32 noundef %68, i32 noundef %2, i32 noundef %5, i32 noundef %63, ptr noundef %95, ptr noundef %97, ptr noundef %83, ptr noundef nonnull %81, ptr noundef nonnull %80, ptr noundef nonnull %79, i32 noundef %spec.select.i.i, i32 noundef %93, ptr noundef %11)
   call void @free(ptr noundef %83) #21
   call void @free(ptr noundef nonnull %81) #21
   call void @free(ptr noundef nonnull %80) #21

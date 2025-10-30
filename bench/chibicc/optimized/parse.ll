@@ -1808,25 +1808,25 @@ define internal fastcc void @mark_live(ptr noundef nonnull captures(none) %0) un
 
 14:                                               ; preds = %.lr.ph, %find_func.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %find_func.exit.thread ]
-  %15 = load ptr, ptr %13, align 8, !tbaa !113
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8, !tbaa !70
-  %18 = load ptr, ptr @scope, align 8, !tbaa !41
-  br label %19
+  %15 = load ptr, ptr @scope, align 8, !tbaa !41
+  br label %16
 
-19:                                               ; preds = %19, %14
-  %.09.i = phi ptr [ %18, %14 ], [ %20, %19 ]
-  %20 = load ptr, ptr %.09.i, align 8, !tbaa !86
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %21, label %19, !llvm.loop !88
+16:                                               ; preds = %16, %14
+  %.09.i = phi ptr [ %15, %14 ], [ %17, %16 ]
+  %17 = load ptr, ptr %.09.i, align 8, !tbaa !86
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %18, label %16, !llvm.loop !88
 
-21:                                               ; preds = %19
+18:                                               ; preds = %16
+  %19 = load ptr, ptr %13, align 8, !tbaa !113
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %21 = load ptr, ptr %20, align 8, !tbaa !70
   %22 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
-  %23 = tail call ptr @hashmap_get(ptr noundef nonnull %22, ptr noundef %17) #13
+  %23 = tail call ptr @hashmap_get(ptr noundef nonnull %22, ptr noundef %21) #13
   %.not13.i = icmp eq ptr %23, null
   br i1 %.not13.i, label %find_func.exit.thread, label %24
 
-24:                                               ; preds = %21
+24:                                               ; preds = %18
   %25 = load ptr, ptr %23, align 8, !tbaa !43
   %.not14.i = icmp eq ptr %25, null
   br i1 %.not14.i, label %find_func.exit.thread, label %26
@@ -1841,7 +1841,7 @@ find_func.exit:                                   ; preds = %26
   tail call fastcc void @mark_live(ptr noundef %25)
   br label %find_func.exit.thread
 
-find_func.exit.thread:                            ; preds = %26, %24, %21, %find_func.exit
+find_func.exit.thread:                            ; preds = %26, %24, %18, %find_func.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %10, align 4, !tbaa !112
   %31 = sext i32 %30 to i64

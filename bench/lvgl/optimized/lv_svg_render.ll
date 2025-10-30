@@ -258,22 +258,22 @@ _lv_svg_draw_dsc_create.exit:                     ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %24, align 8, !tbaa !57
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
-  %27 = call zeroext i1 @lv_tree_walk(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull @_lv_svg_doc_walk_cb, ptr noundef nonnull @_lv_svg_doc_walk_before_cb, ptr noundef nonnull @_lv_svg_doc_walk_after_cb, ptr noundef nonnull %2) #10
-  br label %28
+  %26 = call zeroext i1 @lv_tree_walk(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull @_lv_svg_doc_walk_cb, ptr noundef nonnull @_lv_svg_doc_walk_before_cb, ptr noundef nonnull @_lv_svg_doc_walk_after_cb, ptr noundef nonnull %2) #10
+  br label %27
 
-28:                                               ; preds = %28, %_lv_svg_draw_dsc_create.exit
-  %.05.i = phi ptr [ %4, %_lv_svg_draw_dsc_create.exit ], [ %29, %28 ]
-  %29 = load ptr, ptr %.05.i, align 8, !tbaa !58
-  %30 = getelementptr inbounds nuw i8, ptr %.05.i, i64 272
-  call void @lv_array_deinit(ptr noundef nonnull %30) #10
+27:                                               ; preds = %27, %_lv_svg_draw_dsc_create.exit
+  %.05.i = phi ptr [ %4, %_lv_svg_draw_dsc_create.exit ], [ %28, %27 ]
+  %28 = load ptr, ptr %.05.i, align 8, !tbaa !58
+  %29 = getelementptr inbounds nuw i8, ptr %.05.i, i64 272
+  call void @lv_array_deinit(ptr noundef nonnull %29) #10
   call void @lv_free(ptr noundef nonnull %.05.i) #10
-  %.not.i7 = icmp eq ptr %29, null
-  br i1 %.not.i7, label %_lv_svg_draw_dsc_delete.exit, label %28, !llvm.loop !60
+  %.not.i7 = icmp eq ptr %28, null
+  br i1 %.not.i7, label %_lv_svg_draw_dsc_delete.exit, label %27, !llvm.loop !60
 
-_lv_svg_draw_dsc_delete.exit:                     ; preds = %28
-  %31 = load ptr, ptr %26, align 8, !tbaa !62
+_lv_svg_draw_dsc_delete.exit:                     ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %31 = load ptr, ptr %30, align 8, !tbaa !62
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %32
 

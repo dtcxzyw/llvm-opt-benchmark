@@ -175988,59 +175988,59 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.experimental.noalias.scope.decl(metadata !3465)
   call void @llvm.experimental.noalias.scope.decl(metadata !3468)
-  %51 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %52 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %53 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %50, %.lr.ph.i.i.i
-  %54 = phi double [ %76, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
-  %55 = phi double [ %73, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
-  %56 = phi double [ %68, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
-  %57 = phi double [ %65, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
-  %58 = phi double [ %77, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
-  %59 = phi double [ %74, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
-  %60 = phi double [ %69, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
-  %.sroa.06.010.i.i.i = phi ptr [ %78, %.lr.ph.i.i.i ], [ %31, %50 ]
-  %61 = phi double [ %66, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
-  %62 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !3471, !noalias !3473
-  %63 = load double, ptr %62, align 8, !tbaa !2975, !noalias !3473
-  %64 = fcmp olt double %63, %61
-  %65 = select i1 %64, double %63, double %57
-  %66 = select i1 %64, double %63, double %61
-  %67 = fcmp ogt double %63, %60
-  %68 = select i1 %67, double %63, double %56
-  %69 = select i1 %67, double %63, double %60
-  %70 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %71 = load double, ptr %70, align 8, !tbaa !2975, !noalias !3473
-  %72 = fcmp olt double %71, %59
-  %73 = select i1 %72, double %71, double %55
-  %74 = select i1 %72, double %71, double %59
-  %75 = fcmp ogt double %71, %58
-  %76 = select i1 %75, double %71, double %54
-  %77 = select i1 %75, double %71, double %58
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %78, %33
+  %51 = phi double [ %73, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
+  %52 = phi double [ %70, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
+  %53 = phi double [ %65, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
+  %54 = phi double [ %62, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
+  %55 = phi double [ %74, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
+  %56 = phi double [ %71, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
+  %57 = phi double [ %66, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
+  %.sroa.06.010.i.i.i = phi ptr [ %75, %.lr.ph.i.i.i ], [ %31, %50 ]
+  %58 = phi double [ %63, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
+  %59 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !3471, !noalias !3473
+  %60 = load double, ptr %59, align 8, !tbaa !2975, !noalias !3473
+  %61 = fcmp olt double %60, %58
+  %62 = select i1 %61, double %60, double %54
+  %63 = select i1 %61, double %60, double %58
+  %64 = fcmp ogt double %60, %57
+  %65 = select i1 %64, double %60, double %53
+  %66 = select i1 %64, double %60, double %57
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %68 = load double, ptr %67, align 8, !tbaa !2975, !noalias !3473
+  %69 = fcmp olt double %68, %56
+  %70 = select i1 %69, double %68, double %52
+  %71 = select i1 %69, double %68, double %56
+  %72 = fcmp ogt double %68, %55
+  %73 = select i1 %72, double %68, double %51
+  %74 = select i1 %72, double %68, double %55
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %75, %33
   br i1 %.not.i.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, label %.lr.ph.i.i.i
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i
-  store double %65, ptr %20, align 8, !alias.scope !3473
-  store double %68, ptr %51, align 8, !alias.scope !3473
-  store double %73, ptr %52, align 8, !alias.scope !3473
-  store double %76, ptr %53, align 8, !alias.scope !3473
+  %76 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store double %62, ptr %20, align 8, !alias.scope !3473
+  store double %65, ptr %76, align 8, !alias.scope !3473
+  store double %70, ptr %77, align 8, !alias.scope !3473
+  store double %73, ptr %78, align 8, !alias.scope !3473
   %.not13.i.i = icmp eq ptr %42, %41
   br i1 %.not13.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEENS13_18expand_box_segmentIS18_EEEESA_RKT_RKT0_RKT1_RKT2_.exit, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
 _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
-  %.sroa.11.0.i.i20.i = phi double [ %.sroa.11.0.i.i21.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %76, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.11.0.i.i16.i = phi double [ %.sroa.11.0.i.i17.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %73, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.8.0.i.i12.i = phi double [ %.sroa.8.0.i.i13.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %68, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.0.0.i.i8.i = phi double [ %.sroa.0.0.i.i9.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %65, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.5.0.i27.i.i = phi double [ %.sroa.5.0.i25.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %76, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.5.0.i23.i.i = phi double [ %.sroa.5.0.i21.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %73, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.0.0.i19.i.i = phi double [ %.sroa.0.0.i17.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %68, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.11.0.i.i20.i = phi double [ %.sroa.11.0.i.i21.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %73, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.11.0.i.i16.i = phi double [ %.sroa.11.0.i.i17.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %70, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.8.0.i.i12.i = phi double [ %.sroa.8.0.i.i13.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %65, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.0.0.i.i8.i = phi double [ %.sroa.0.0.i.i9.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %62, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.5.0.i27.i.i = phi double [ %.sroa.5.0.i25.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %73, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.5.0.i23.i.i = phi double [ %.sroa.5.0.i21.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %70, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.0.0.i19.i.i = phi double [ %.sroa.0.0.i17.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %65, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %.sroa.07.015.i.i = phi ptr [ %101, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %42, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.0.0.i1214.i.i = phi double [ %.sroa.0.0.i10.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %65, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.0.0.i1214.i.i = phi double [ %.sroa.0.0.i10.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %62, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i, i64 8
   %80 = load i8, ptr %79, align 8, !tbaa !3474, !range !17, !noalias !3465, !noundef !18
   %81 = trunc nuw i8 %80 to i1
@@ -176091,9 +176091,9 @@ _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3bo
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEESt6vectorINS0_16segment_iteratorIKNS4_10linestringIS9_SB_SaEEEESaISG_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SB_SaEESE_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE18expand_box_segmentINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i: ; preds = %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
   store double %.sroa.0.0.i.i9.i, ptr %20, align 8, !alias.scope !3465
-  store double %.sroa.8.0.i.i13.i, ptr %51, align 8, !alias.scope !3465
-  store double %.sroa.11.0.i.i17.i, ptr %52, align 8, !alias.scope !3465
-  store double %.sroa.11.0.i.i21.i, ptr %53, align 8, !alias.scope !3465
+  store double %.sroa.8.0.i.i13.i, ptr %76, align 8, !alias.scope !3465
+  store double %.sroa.11.0.i.i17.i, ptr %77, align 8, !alias.scope !3465
+  store double %.sroa.11.0.i.i21.i, ptr %78, align 8, !alias.scope !3465
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEENS13_18expand_box_segmentIS18_EEEESA_RKT_RKT0_RKT1_RKT2_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEENS13_18expand_box_segmentIS18_EEEESA_RKT_RKT0_RKT1_RKT2_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEESt6vectorINS0_16segment_iteratorIKNS4_10linestringIS9_SB_SaEEEESaISG_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SB_SaEESE_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE18expand_box_segmentINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i
@@ -176292,9 +176292,6 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 204:                                              ; preds = %_ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_5model5pointIdLm2ENS0_2cs9cartesianEEES4_ISB_SaISB_EEEESaISG_EESI_S4_INS0_16segment_iteratorIKNS7_10linestringISB_S4_SaEEEESaISN_EEEEbRKT_RKT0_RKT1_mm.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.experimental.noalias.scope.decl(metadata !3485)
-  %205 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %206 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %207 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br label %.lr.ph.i.i107
 
 .lr.ph.i.i107:                                    ; preds = %204, %.lr.ph.i.i107
@@ -176305,66 +176302,69 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   %.sroa.5.0.i27.i.i109 = phi double [ %.sroa.5.0.i25.i.i128, %.lr.ph.i.i107 ], [ 0xFFEFFFFFFFFFFFFF, %204 ]
   %.sroa.5.0.i23.i.i110 = phi double [ %.sroa.5.0.i21.i.i126, %.lr.ph.i.i107 ], [ 0x7FEFFFFFFFFFFFFF, %204 ]
   %.sroa.0.0.i19.i.i111 = phi double [ %.sroa.0.0.i17.i.i125, %.lr.ph.i.i107 ], [ 0xFFEFFFFFFFFFFFFF, %204 ]
-  %.sroa.07.015.i.i112 = phi ptr [ %230, %.lr.ph.i.i107 ], [ %177, %204 ]
+  %.sroa.07.015.i.i112 = phi ptr [ %227, %.lr.ph.i.i107 ], [ %177, %204 ]
   %.sroa.0.0.i1214.i.i113 = phi double [ %.sroa.0.0.i10.i.i124, %.lr.ph.i.i107 ], [ 0x7FEFFFFFFFFFFFFF, %204 ]
-  %208 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 8
-  %209 = load i8, ptr %208, align 8, !tbaa !3474, !range !17, !noalias !3485, !noundef !18
-  %210 = trunc nuw i8 %209 to i1
-  %211 = load ptr, ptr %.sroa.07.015.i.i112, align 8, !noalias !3485
-  %.sroa.3.0.idx.i.i.i.i.i114 = select i1 %210, i64 0, i64 16
-  %.sroa.3.0.i.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %211, i64 %.sroa.3.0.idx.i.i.i.i.i114
-  %212 = load double, ptr %211, align 8, !tbaa !2975, !noalias !3488
-  %213 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 8
+  %206 = load i8, ptr %205, align 8, !tbaa !3474, !range !17, !noalias !3485, !noundef !18
+  %207 = trunc nuw i8 %206 to i1
+  %208 = load ptr, ptr %.sroa.07.015.i.i112, align 8, !noalias !3485
+  %.sroa.3.0.idx.i.i.i.i.i114 = select i1 %207, i64 0, i64 16
+  %.sroa.3.0.i.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %208, i64 %.sroa.3.0.idx.i.i.i.i.i114
+  %209 = load double, ptr %208, align 8, !tbaa !2975, !noalias !3488
+  %210 = getelementptr inbounds nuw i8, ptr %208, i64 8
+  %211 = load double, ptr %210, align 8, !tbaa !2975, !noalias !3488
+  %212 = load double, ptr %.sroa.3.0.i.i.i.i.i115, align 8, !tbaa !2975, !noalias !3488
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i115, i64 8
   %214 = load double, ptr %213, align 8, !tbaa !2975, !noalias !3488
-  %215 = load double, ptr %.sroa.3.0.i.i.i.i.i115, align 8, !tbaa !2975, !noalias !3488
-  %216 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i115, i64 8
-  %217 = load double, ptr %216, align 8, !tbaa !2975, !noalias !3488
-  %218 = fcmp olt double %215, %212
-  %.sroa.0.0.i.i.i116 = select i1 %218, double %215, double %212
-  %219 = fcmp ogt double %215, %212
-  %.sroa.8.0.i.i.i117 = select i1 %219, double %215, double %212
-  %220 = fcmp olt double %217, %214
-  %.sroa.5.0.i.i.i118 = select i1 %220, double %217, double %214
-  %221 = fcmp ogt double %217, %214
-  %.sroa.11.0.i.i.i119 = select i1 %221, double %217, double %214
-  %222 = fcmp olt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i1214.i.i113
-  %.sroa.0.0.i.i2.i = select i1 %222, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i.i3.i
-  %.sroa.0.0.i11.i.i120 = select i1 %222, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i1214.i.i113
-  %223 = fcmp ogt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i19.i.i111
-  %.sroa.8.0.i.i6.i = select i1 %223, double %.sroa.0.0.i.i.i116, double %.sroa.8.0.i.i7.i
-  %.sroa.0.0.i18.i.i121 = select i1 %223, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i19.i.i111
-  %224 = fcmp olt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i23.i.i110
-  %.sroa.11.0.i.i10.i = select i1 %224, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i11.i
-  %.sroa.5.0.i22.i.i122 = select i1 %224, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i23.i.i110
-  %225 = fcmp ogt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i27.i.i109
-  %.sroa.11.0.i.i14.i = select i1 %225, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i15.i108
-  %.sroa.5.0.i26.i.i123 = select i1 %225, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i27.i.i109
-  %226 = fcmp olt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i11.i.i120
-  %.sroa.0.0.i.i4.i = select i1 %226, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i.i2.i
-  %.sroa.0.0.i10.i.i124 = select i1 %226, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i11.i.i120
-  %227 = fcmp ogt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i18.i.i121
-  %.sroa.8.0.i.i8.i = select i1 %227, double %.sroa.8.0.i.i.i117, double %.sroa.8.0.i.i6.i
-  %.sroa.0.0.i17.i.i125 = select i1 %227, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i18.i.i121
-  %228 = fcmp olt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i22.i.i122
-  %.sroa.11.0.i.i12.i = select i1 %228, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i10.i
-  %.sroa.5.0.i21.i.i126 = select i1 %228, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i22.i.i122
-  %229 = fcmp ogt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i26.i.i123
-  %.sroa.11.0.i.i16.i127 = select i1 %229, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i14.i
-  %.sroa.5.0.i25.i.i128 = select i1 %229, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i26.i.i123
-  %230 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 16
-  %.not.i.i129 = icmp eq ptr %230, %179
-  br i1 %.not.i.i129, label %231, label %.lr.ph.i.i107
+  %215 = fcmp olt double %212, %209
+  %.sroa.0.0.i.i.i116 = select i1 %215, double %212, double %209
+  %216 = fcmp ogt double %212, %209
+  %.sroa.8.0.i.i.i117 = select i1 %216, double %212, double %209
+  %217 = fcmp olt double %214, %211
+  %.sroa.5.0.i.i.i118 = select i1 %217, double %214, double %211
+  %218 = fcmp ogt double %214, %211
+  %.sroa.11.0.i.i.i119 = select i1 %218, double %214, double %211
+  %219 = fcmp olt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i1214.i.i113
+  %.sroa.0.0.i.i2.i = select i1 %219, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i.i3.i
+  %.sroa.0.0.i11.i.i120 = select i1 %219, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i1214.i.i113
+  %220 = fcmp ogt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i19.i.i111
+  %.sroa.8.0.i.i6.i = select i1 %220, double %.sroa.0.0.i.i.i116, double %.sroa.8.0.i.i7.i
+  %.sroa.0.0.i18.i.i121 = select i1 %220, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i19.i.i111
+  %221 = fcmp olt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i23.i.i110
+  %.sroa.11.0.i.i10.i = select i1 %221, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i11.i
+  %.sroa.5.0.i22.i.i122 = select i1 %221, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i23.i.i110
+  %222 = fcmp ogt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i27.i.i109
+  %.sroa.11.0.i.i14.i = select i1 %222, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i15.i108
+  %.sroa.5.0.i26.i.i123 = select i1 %222, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i27.i.i109
+  %223 = fcmp olt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i11.i.i120
+  %.sroa.0.0.i.i4.i = select i1 %223, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i.i2.i
+  %.sroa.0.0.i10.i.i124 = select i1 %223, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i11.i.i120
+  %224 = fcmp ogt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i18.i.i121
+  %.sroa.8.0.i.i8.i = select i1 %224, double %.sroa.8.0.i.i.i117, double %.sroa.8.0.i.i6.i
+  %.sroa.0.0.i17.i.i125 = select i1 %224, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i18.i.i121
+  %225 = fcmp olt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i22.i.i122
+  %.sroa.11.0.i.i12.i = select i1 %225, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i10.i
+  %.sroa.5.0.i21.i.i126 = select i1 %225, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i22.i.i122
+  %226 = fcmp ogt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i26.i.i123
+  %.sroa.11.0.i.i16.i127 = select i1 %226, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i14.i
+  %.sroa.5.0.i25.i.i128 = select i1 %226, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i26.i.i123
+  %227 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 16
+  %.not.i.i129 = icmp eq ptr %227, %179
+  br i1 %.not.i.i129, label %228, label %.lr.ph.i.i107
 
-231:                                              ; preds = %.lr.ph.i.i107
+228:                                              ; preds = %.lr.ph.i.i107
+  %229 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store double %.sroa.0.0.i.i4.i, ptr %22, align 8, !alias.scope !3485
-  store double %.sroa.8.0.i.i8.i, ptr %205, align 8, !alias.scope !3485
-  store double %.sroa.11.0.i.i12.i, ptr %206, align 8, !alias.scope !3485
-  store double %.sroa.11.0.i.i16.i127, ptr %207, align 8, !alias.scope !3485
+  store double %.sroa.8.0.i.i8.i, ptr %229, align 8, !alias.scope !3485
+  store double %.sroa.11.0.i.i12.i, ptr %230, align 8, !alias.scope !3485
+  store double %.sroa.11.0.i.i16.i127, ptr %231, align 8, !alias.scope !3485
   %232 = add nuw nsw i64 %3, 1
   %233 = invoke noundef zeroext i1 @_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE5applyISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS13_16expand_box_pointIS1A_EENS13_18overlaps_box_pointIS1A_EENS13_18expand_box_segmentIS1A_EENS13_20overlaps_box_segmentIS1A_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %232, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS13_16expand_box_pointIS1A_EENS13_18overlaps_box_pointIS1A_EENS13_18expand_box_segmentIS1A_EENS13_20overlaps_box_segmentIS1A_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131 unwind label %236
 
-_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS13_16expand_box_pointIS1A_EENS13_18overlaps_box_pointIS1A_EENS13_18expand_box_segmentIS1A_EENS13_20overlaps_box_segmentIS1A_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131: ; preds = %231
+_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS13_16expand_box_pointIS1A_EENS13_18overlaps_box_pointIS1A_EENS13_18expand_box_segmentIS1A_EENS13_20overlaps_box_segmentIS1A_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131: ; preds = %228
   br i1 %233, label %234, label %238
 
 234:                                              ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS13_16expand_box_pointIS1A_EENS13_18overlaps_box_pointIS1A_EENS13_18expand_box_segmentIS1A_EENS13_20overlaps_box_segmentIS1A_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131
@@ -176374,7 +176374,7 @@ _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS13_16expand_box_pointIS1A_EENS13_18overlaps_box_pointIS1A_EENS13_18expand_box_segmentIS1A_EENS13_20overlaps_box_segmentIS1A_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit132: ; preds = %234
   br i1 %235, label %.critedge98, label %238
 
-236:                                              ; preds = %234, %231
+236:                                              ; preds = %234, %228
   %237 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -177786,59 +177786,59 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.experimental.noalias.scope.decl(metadata !3524)
   call void @llvm.experimental.noalias.scope.decl(metadata !3527)
-  %53 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %54 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %55 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %52, %.lr.ph.i.i.i
-  %56 = phi double [ %78, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
-  %57 = phi double [ %75, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
-  %58 = phi double [ %70, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
-  %59 = phi double [ %67, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
-  %60 = phi double [ %79, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
-  %61 = phi double [ %76, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
-  %62 = phi double [ %71, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
-  %.sroa.06.010.i.i.i = phi ptr [ %80, %.lr.ph.i.i.i ], [ %33, %52 ]
-  %63 = phi double [ %68, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
-  %64 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !3471, !noalias !3530
-  %65 = load double, ptr %64, align 8, !tbaa !2975, !noalias !3530
-  %66 = fcmp olt double %65, %63
-  %67 = select i1 %66, double %65, double %59
-  %68 = select i1 %66, double %65, double %63
-  %69 = fcmp ogt double %65, %62
-  %70 = select i1 %69, double %65, double %58
-  %71 = select i1 %69, double %65, double %62
-  %72 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %73 = load double, ptr %72, align 8, !tbaa !2975, !noalias !3530
-  %74 = fcmp olt double %73, %61
-  %75 = select i1 %74, double %73, double %57
-  %76 = select i1 %74, double %73, double %61
-  %77 = fcmp ogt double %73, %60
-  %78 = select i1 %77, double %73, double %56
-  %79 = select i1 %77, double %73, double %60
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %80, %35
+  %53 = phi double [ %75, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
+  %54 = phi double [ %72, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
+  %55 = phi double [ %67, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
+  %56 = phi double [ %64, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
+  %57 = phi double [ %76, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
+  %58 = phi double [ %73, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
+  %59 = phi double [ %68, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
+  %.sroa.06.010.i.i.i = phi ptr [ %77, %.lr.ph.i.i.i ], [ %33, %52 ]
+  %60 = phi double [ %65, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
+  %61 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !3471, !noalias !3530
+  %62 = load double, ptr %61, align 8, !tbaa !2975, !noalias !3530
+  %63 = fcmp olt double %62, %60
+  %64 = select i1 %63, double %62, double %56
+  %65 = select i1 %63, double %62, double %60
+  %66 = fcmp ogt double %62, %59
+  %67 = select i1 %66, double %62, double %55
+  %68 = select i1 %66, double %62, double %59
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %70 = load double, ptr %69, align 8, !tbaa !2975, !noalias !3530
+  %71 = fcmp olt double %70, %58
+  %72 = select i1 %71, double %70, double %54
+  %73 = select i1 %71, double %70, double %58
+  %74 = fcmp ogt double %70, %57
+  %75 = select i1 %74, double %70, double %53
+  %76 = select i1 %74, double %70, double %57
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %77, %35
   br i1 %.not.i.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, label %.lr.ph.i.i.i
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i
-  store double %67, ptr %20, align 8, !alias.scope !3530
-  store double %70, ptr %53, align 8, !alias.scope !3530
-  store double %75, ptr %54, align 8, !alias.scope !3530
-  store double %78, ptr %55, align 8, !alias.scope !3530
+  %78 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store double %64, ptr %20, align 8, !alias.scope !3530
+  store double %67, ptr %78, align 8, !alias.scope !3530
+  store double %72, ptr %79, align 8, !alias.scope !3530
+  store double %75, ptr %80, align 8, !alias.scope !3530
   %.not13.i.i = icmp eq ptr %44, %43
   br i1 %.not13.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEENS13_18expand_box_segmentIS18_EEEESA_RKT_RKT0_RKT1_RKT2_.exit, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
 _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
-  %.sroa.11.0.i.i20.i = phi double [ %.sroa.11.0.i.i21.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %78, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.11.0.i.i16.i = phi double [ %.sroa.11.0.i.i17.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %75, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.8.0.i.i12.i = phi double [ %.sroa.8.0.i.i13.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %70, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.0.0.i.i8.i = phi double [ %.sroa.0.0.i.i9.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %67, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.5.0.i27.i.i = phi double [ %.sroa.5.0.i25.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %78, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.5.0.i23.i.i = phi double [ %.sroa.5.0.i21.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %75, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.0.0.i19.i.i = phi double [ %.sroa.0.0.i17.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %70, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.11.0.i.i20.i = phi double [ %.sroa.11.0.i.i21.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %75, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.11.0.i.i16.i = phi double [ %.sroa.11.0.i.i17.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %72, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.8.0.i.i12.i = phi double [ %.sroa.8.0.i.i13.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %67, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.0.0.i.i8.i = phi double [ %.sroa.0.0.i.i9.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %64, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.5.0.i27.i.i = phi double [ %.sroa.5.0.i25.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %75, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.5.0.i23.i.i = phi double [ %.sroa.5.0.i21.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %72, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.0.0.i19.i.i = phi double [ %.sroa.0.0.i17.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %67, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %.sroa.07.015.i.i = phi ptr [ %103, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %44, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.0.0.i1214.i.i = phi double [ %.sroa.0.0.i10.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %67, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.0.0.i1214.i.i = phi double [ %.sroa.0.0.i10.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %64, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i, i64 8
   %82 = load i8, ptr %81, align 8, !tbaa !3474, !range !17, !noalias !3524, !noundef !18
   %83 = trunc nuw i8 %82 to i1
@@ -177889,9 +177889,9 @@ _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3bo
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEESt6vectorINS0_16segment_iteratorIKNS4_10linestringIS9_SB_SaEEEESaISG_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SB_SaEESE_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE18expand_box_segmentINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i: ; preds = %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
   store double %.sroa.0.0.i.i9.i, ptr %20, align 8, !alias.scope !3524
-  store double %.sroa.8.0.i.i13.i, ptr %53, align 8, !alias.scope !3524
-  store double %.sroa.11.0.i.i17.i, ptr %54, align 8, !alias.scope !3524
-  store double %.sroa.11.0.i.i21.i, ptr %55, align 8, !alias.scope !3524
+  store double %.sroa.8.0.i.i13.i, ptr %78, align 8, !alias.scope !3524
+  store double %.sroa.11.0.i.i17.i, ptr %79, align 8, !alias.scope !3524
+  store double %.sroa.11.0.i.i21.i, ptr %80, align 8, !alias.scope !3524
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEENS13_18expand_box_segmentIS18_EEEESA_RKT_RKT0_RKT1_RKT2_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEENS13_18expand_box_segmentIS18_EEEESA_RKT_RKT0_RKT1_RKT2_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEESt6vectorINS0_16segment_iteratorIKNS4_10linestringIS9_SB_SaEEEESaISG_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SB_SaEESE_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE18expand_box_segmentINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_10linestringIS9_SD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i
@@ -178090,9 +178090,6 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 206:                                              ; preds = %_ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_5model5pointIdLm2ENS0_2cs9cartesianEEES4_ISB_SaISB_EEEESaISG_EESI_S4_INS0_16segment_iteratorIKNS7_10linestringISB_S4_SaEEEESaISN_EEEEbRKT_RKT0_RKT1_mm.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.experimental.noalias.scope.decl(metadata !3540)
-  %207 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %208 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %209 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br label %.lr.ph.i.i107
 
 .lr.ph.i.i107:                                    ; preds = %206, %.lr.ph.i.i107
@@ -178103,66 +178100,69 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   %.sroa.5.0.i27.i.i109 = phi double [ %.sroa.5.0.i25.i.i128, %.lr.ph.i.i107 ], [ 0xFFEFFFFFFFFFFFFF, %206 ]
   %.sroa.5.0.i23.i.i110 = phi double [ %.sroa.5.0.i21.i.i126, %.lr.ph.i.i107 ], [ 0x7FEFFFFFFFFFFFFF, %206 ]
   %.sroa.0.0.i19.i.i111 = phi double [ %.sroa.0.0.i17.i.i125, %.lr.ph.i.i107 ], [ 0xFFEFFFFFFFFFFFFF, %206 ]
-  %.sroa.07.015.i.i112 = phi ptr [ %232, %.lr.ph.i.i107 ], [ %179, %206 ]
+  %.sroa.07.015.i.i112 = phi ptr [ %229, %.lr.ph.i.i107 ], [ %179, %206 ]
   %.sroa.0.0.i1214.i.i113 = phi double [ %.sroa.0.0.i10.i.i124, %.lr.ph.i.i107 ], [ 0x7FEFFFFFFFFFFFFF, %206 ]
-  %210 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 8
-  %211 = load i8, ptr %210, align 8, !tbaa !3474, !range !17, !noalias !3540, !noundef !18
-  %212 = trunc nuw i8 %211 to i1
-  %213 = load ptr, ptr %.sroa.07.015.i.i112, align 8, !noalias !3540
-  %.sroa.3.0.idx.i.i.i.i.i114 = select i1 %212, i64 0, i64 16
-  %.sroa.3.0.i.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %213, i64 %.sroa.3.0.idx.i.i.i.i.i114
-  %214 = load double, ptr %213, align 8, !tbaa !2975, !noalias !3543
-  %215 = getelementptr inbounds nuw i8, ptr %213, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 8
+  %208 = load i8, ptr %207, align 8, !tbaa !3474, !range !17, !noalias !3540, !noundef !18
+  %209 = trunc nuw i8 %208 to i1
+  %210 = load ptr, ptr %.sroa.07.015.i.i112, align 8, !noalias !3540
+  %.sroa.3.0.idx.i.i.i.i.i114 = select i1 %209, i64 0, i64 16
+  %.sroa.3.0.i.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %210, i64 %.sroa.3.0.idx.i.i.i.i.i114
+  %211 = load double, ptr %210, align 8, !tbaa !2975, !noalias !3543
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  %213 = load double, ptr %212, align 8, !tbaa !2975, !noalias !3543
+  %214 = load double, ptr %.sroa.3.0.i.i.i.i.i115, align 8, !tbaa !2975, !noalias !3543
+  %215 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i115, i64 8
   %216 = load double, ptr %215, align 8, !tbaa !2975, !noalias !3543
-  %217 = load double, ptr %.sroa.3.0.i.i.i.i.i115, align 8, !tbaa !2975, !noalias !3543
-  %218 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i115, i64 8
-  %219 = load double, ptr %218, align 8, !tbaa !2975, !noalias !3543
-  %220 = fcmp olt double %217, %214
-  %.sroa.0.0.i.i.i116 = select i1 %220, double %217, double %214
-  %221 = fcmp ogt double %217, %214
-  %.sroa.8.0.i.i.i117 = select i1 %221, double %217, double %214
-  %222 = fcmp olt double %219, %216
-  %.sroa.5.0.i.i.i118 = select i1 %222, double %219, double %216
-  %223 = fcmp ogt double %219, %216
-  %.sroa.11.0.i.i.i119 = select i1 %223, double %219, double %216
-  %224 = fcmp olt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i1214.i.i113
-  %.sroa.0.0.i.i2.i = select i1 %224, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i.i3.i
-  %.sroa.0.0.i11.i.i120 = select i1 %224, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i1214.i.i113
-  %225 = fcmp ogt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i19.i.i111
-  %.sroa.8.0.i.i6.i = select i1 %225, double %.sroa.0.0.i.i.i116, double %.sroa.8.0.i.i7.i
-  %.sroa.0.0.i18.i.i121 = select i1 %225, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i19.i.i111
-  %226 = fcmp olt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i23.i.i110
-  %.sroa.11.0.i.i10.i = select i1 %226, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i11.i
-  %.sroa.5.0.i22.i.i122 = select i1 %226, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i23.i.i110
-  %227 = fcmp ogt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i27.i.i109
-  %.sroa.11.0.i.i14.i = select i1 %227, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i15.i108
-  %.sroa.5.0.i26.i.i123 = select i1 %227, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i27.i.i109
-  %228 = fcmp olt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i11.i.i120
-  %.sroa.0.0.i.i4.i = select i1 %228, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i.i2.i
-  %.sroa.0.0.i10.i.i124 = select i1 %228, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i11.i.i120
-  %229 = fcmp ogt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i18.i.i121
-  %.sroa.8.0.i.i8.i = select i1 %229, double %.sroa.8.0.i.i.i117, double %.sroa.8.0.i.i6.i
-  %.sroa.0.0.i17.i.i125 = select i1 %229, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i18.i.i121
-  %230 = fcmp olt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i22.i.i122
-  %.sroa.11.0.i.i12.i = select i1 %230, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i10.i
-  %.sroa.5.0.i21.i.i126 = select i1 %230, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i22.i.i122
-  %231 = fcmp ogt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i26.i.i123
-  %.sroa.11.0.i.i16.i127 = select i1 %231, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i14.i
-  %.sroa.5.0.i25.i.i128 = select i1 %231, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i26.i.i123
-  %232 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 16
-  %.not.i.i129 = icmp eq ptr %232, %181
-  br i1 %.not.i.i129, label %233, label %.lr.ph.i.i107
+  %217 = fcmp olt double %214, %211
+  %.sroa.0.0.i.i.i116 = select i1 %217, double %214, double %211
+  %218 = fcmp ogt double %214, %211
+  %.sroa.8.0.i.i.i117 = select i1 %218, double %214, double %211
+  %219 = fcmp olt double %216, %213
+  %.sroa.5.0.i.i.i118 = select i1 %219, double %216, double %213
+  %220 = fcmp ogt double %216, %213
+  %.sroa.11.0.i.i.i119 = select i1 %220, double %216, double %213
+  %221 = fcmp olt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i1214.i.i113
+  %.sroa.0.0.i.i2.i = select i1 %221, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i.i3.i
+  %.sroa.0.0.i11.i.i120 = select i1 %221, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i1214.i.i113
+  %222 = fcmp ogt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i19.i.i111
+  %.sroa.8.0.i.i6.i = select i1 %222, double %.sroa.0.0.i.i.i116, double %.sroa.8.0.i.i7.i
+  %.sroa.0.0.i18.i.i121 = select i1 %222, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i19.i.i111
+  %223 = fcmp olt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i23.i.i110
+  %.sroa.11.0.i.i10.i = select i1 %223, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i11.i
+  %.sroa.5.0.i22.i.i122 = select i1 %223, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i23.i.i110
+  %224 = fcmp ogt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i27.i.i109
+  %.sroa.11.0.i.i14.i = select i1 %224, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i15.i108
+  %.sroa.5.0.i26.i.i123 = select i1 %224, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i27.i.i109
+  %225 = fcmp olt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i11.i.i120
+  %.sroa.0.0.i.i4.i = select i1 %225, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i.i2.i
+  %.sroa.0.0.i10.i.i124 = select i1 %225, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i11.i.i120
+  %226 = fcmp ogt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i18.i.i121
+  %.sroa.8.0.i.i8.i = select i1 %226, double %.sroa.8.0.i.i.i117, double %.sroa.8.0.i.i6.i
+  %.sroa.0.0.i17.i.i125 = select i1 %226, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i18.i.i121
+  %227 = fcmp olt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i22.i.i122
+  %.sroa.11.0.i.i12.i = select i1 %227, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i10.i
+  %.sroa.5.0.i21.i.i126 = select i1 %227, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i22.i.i122
+  %228 = fcmp ogt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i26.i.i123
+  %.sroa.11.0.i.i16.i127 = select i1 %228, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i14.i
+  %.sroa.5.0.i25.i.i128 = select i1 %228, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i26.i.i123
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 16
+  %.not.i.i129 = icmp eq ptr %229, %181
+  br i1 %.not.i.i129, label %230, label %.lr.ph.i.i107
 
-233:                                              ; preds = %.lr.ph.i.i107
+230:                                              ; preds = %.lr.ph.i.i107
+  %231 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store double %.sroa.0.0.i.i4.i, ptr %22, align 8, !alias.scope !3540
-  store double %.sroa.8.0.i.i8.i, ptr %207, align 8, !alias.scope !3540
-  store double %.sroa.11.0.i.i12.i, ptr %208, align 8, !alias.scope !3540
-  store double %.sroa.11.0.i.i16.i127, ptr %209, align 8, !alias.scope !3540
+  store double %.sroa.8.0.i.i8.i, ptr %231, align 8, !alias.scope !3540
+  store double %.sroa.11.0.i.i12.i, ptr %232, align 8, !alias.scope !3540
+  store double %.sroa.11.0.i.i16.i127, ptr %233, align 8, !alias.scope !3540
   %234 = add nuw nsw i64 %3, 1
   %235 = invoke noundef zeroext i1 @_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE5applyISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS13_16expand_box_pointIS1A_EENS13_18overlaps_box_pointIS1A_EENS13_18expand_box_segmentIS1A_EENS13_20overlaps_box_segmentIS1A_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %234, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS13_16expand_box_pointIS1A_EENS13_18overlaps_box_pointIS1A_EENS13_18expand_box_segmentIS1A_EENS13_20overlaps_box_segmentIS1A_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131 unwind label %238
 
-_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS13_16expand_box_pointIS1A_EENS13_18overlaps_box_pointIS1A_EENS13_18expand_box_segmentIS1A_EENS13_20overlaps_box_segmentIS1A_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131: ; preds = %233
+_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS13_16expand_box_pointIS1A_EENS13_18overlaps_box_pointIS1A_EENS13_18expand_box_segmentIS1A_EENS13_20overlaps_box_segmentIS1A_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131: ; preds = %230
   br i1 %235, label %236, label %240
 
 236:                                              ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS13_16expand_box_pointIS1A_EENS13_18overlaps_box_pointIS1A_EENS13_18expand_box_segmentIS1A_EENS13_20overlaps_box_segmentIS1A_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131
@@ -178172,7 +178172,7 @@ _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_10linestringIS9_SD_SaEEEESaISR_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESP_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS13_16expand_box_pointIS1A_EENS13_18overlaps_box_pointIS1A_EENS13_18expand_box_segmentIS1A_EENS13_20overlaps_box_segmentIS1A_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit132: ; preds = %236
   br i1 %237, label %.critedge98, label %240
 
-238:                                              ; preds = %236, %233
+238:                                              ; preds = %236, %230
   %239 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -181706,59 +181706,59 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.experimental.noalias.scope.decl(metadata !3714)
   call void @llvm.experimental.noalias.scope.decl(metadata !3717)
-  %51 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %52 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %53 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %50, %.lr.ph.i.i.i
-  %54 = phi double [ %76, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
-  %55 = phi double [ %73, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
-  %56 = phi double [ %68, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
-  %57 = phi double [ %65, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
-  %58 = phi double [ %77, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
-  %59 = phi double [ %74, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
-  %60 = phi double [ %69, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
-  %.sroa.06.010.i.i.i = phi ptr [ %78, %.lr.ph.i.i.i ], [ %31, %50 ]
-  %61 = phi double [ %66, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
-  %62 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !3471, !noalias !3720
-  %63 = load double, ptr %62, align 8, !tbaa !2975, !noalias !3720
-  %64 = fcmp olt double %63, %61
-  %65 = select i1 %64, double %63, double %57
-  %66 = select i1 %64, double %63, double %61
-  %67 = fcmp ogt double %63, %60
-  %68 = select i1 %67, double %63, double %56
-  %69 = select i1 %67, double %63, double %60
-  %70 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %71 = load double, ptr %70, align 8, !tbaa !2975, !noalias !3720
-  %72 = fcmp olt double %71, %59
-  %73 = select i1 %72, double %71, double %55
-  %74 = select i1 %72, double %71, double %59
-  %75 = fcmp ogt double %71, %58
-  %76 = select i1 %75, double %71, double %54
-  %77 = select i1 %75, double %71, double %58
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %78, %33
+  %51 = phi double [ %73, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
+  %52 = phi double [ %70, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
+  %53 = phi double [ %65, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
+  %54 = phi double [ %62, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
+  %55 = phi double [ %74, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
+  %56 = phi double [ %71, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
+  %57 = phi double [ %66, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %50 ]
+  %.sroa.06.010.i.i.i = phi ptr [ %75, %.lr.ph.i.i.i ], [ %31, %50 ]
+  %58 = phi double [ %63, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %50 ]
+  %59 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !3471, !noalias !3720
+  %60 = load double, ptr %59, align 8, !tbaa !2975, !noalias !3720
+  %61 = fcmp olt double %60, %58
+  %62 = select i1 %61, double %60, double %54
+  %63 = select i1 %61, double %60, double %58
+  %64 = fcmp ogt double %60, %57
+  %65 = select i1 %64, double %60, double %53
+  %66 = select i1 %64, double %60, double %57
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %68 = load double, ptr %67, align 8, !tbaa !2975, !noalias !3720
+  %69 = fcmp olt double %68, %56
+  %70 = select i1 %69, double %68, double %52
+  %71 = select i1 %69, double %68, double %56
+  %72 = fcmp ogt double %68, %55
+  %73 = select i1 %72, double %68, double %51
+  %74 = select i1 %72, double %68, double %55
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %75, %33
   br i1 %.not.i.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, label %.lr.ph.i.i.i
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i
-  store double %65, ptr %20, align 8, !alias.scope !3720
-  store double %68, ptr %51, align 8, !alias.scope !3720
-  store double %73, ptr %52, align 8, !alias.scope !3720
-  store double %76, ptr %53, align 8, !alias.scope !3720
+  %76 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store double %62, ptr %20, align 8, !alias.scope !3720
+  store double %65, ptr %76, align 8, !alias.scope !3720
+  store double %70, ptr %77, align 8, !alias.scope !3720
+  store double %73, ptr %78, align 8, !alias.scope !3720
   %.not13.i.i = icmp eq ptr %42, %41
   br i1 %.not13.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEENS15_18expand_box_segmentIS1A_EEEESA_RKT_RKT0_RKT1_RKT2_.exit, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
 _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
-  %.sroa.11.0.i.i20.i = phi double [ %.sroa.11.0.i.i21.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %76, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.11.0.i.i16.i = phi double [ %.sroa.11.0.i.i17.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %73, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.8.0.i.i12.i = phi double [ %.sroa.8.0.i.i13.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %68, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.0.0.i.i8.i = phi double [ %.sroa.0.0.i.i9.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %65, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.5.0.i27.i.i = phi double [ %.sroa.5.0.i25.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %76, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.5.0.i23.i.i = phi double [ %.sroa.5.0.i21.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %73, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.0.0.i19.i.i = phi double [ %.sroa.0.0.i17.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %68, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.11.0.i.i20.i = phi double [ %.sroa.11.0.i.i21.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %73, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.11.0.i.i16.i = phi double [ %.sroa.11.0.i.i17.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %70, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.8.0.i.i12.i = phi double [ %.sroa.8.0.i.i13.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %65, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.0.0.i.i8.i = phi double [ %.sroa.0.0.i.i9.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %62, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.5.0.i27.i.i = phi double [ %.sroa.5.0.i25.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %73, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.5.0.i23.i.i = phi double [ %.sroa.5.0.i21.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %70, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.0.0.i19.i.i = phi double [ %.sroa.0.0.i17.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %65, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %.sroa.07.015.i.i = phi ptr [ %102, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %42, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.0.0.i1214.i.i = phi double [ %.sroa.0.0.i10.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %65, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.0.0.i1214.i.i = phi double [ %.sroa.0.0.i10.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %62, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i, i64 24
   %81 = load i8, ptr %80, align 8, !tbaa !3474, !range !17, !noalias !3714, !noundef !18
@@ -181810,9 +181810,9 @@ _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3bo
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEESt6vectorINS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SB_SaEESB_SaEEEESaISI_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SB_SaEESG_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE18expand_box_segmentINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i: ; preds = %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
   store double %.sroa.0.0.i.i9.i, ptr %20, align 8, !alias.scope !3714
-  store double %.sroa.8.0.i.i13.i, ptr %51, align 8, !alias.scope !3714
-  store double %.sroa.11.0.i.i17.i, ptr %52, align 8, !alias.scope !3714
-  store double %.sroa.11.0.i.i21.i, ptr %53, align 8, !alias.scope !3714
+  store double %.sroa.8.0.i.i13.i, ptr %76, align 8, !alias.scope !3714
+  store double %.sroa.11.0.i.i17.i, ptr %77, align 8, !alias.scope !3714
+  store double %.sroa.11.0.i.i21.i, ptr %78, align 8, !alias.scope !3714
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEENS15_18expand_box_segmentIS1A_EEEESA_RKT_RKT0_RKT1_RKT2_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEENS15_18expand_box_segmentIS1A_EEEESA_RKT_RKT0_RKT1_RKT2_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEESt6vectorINS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SB_SaEESB_SaEEEESaISI_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SB_SaEESG_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE18expand_box_segmentINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i
@@ -182011,9 +182011,6 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 205:                                              ; preds = %_ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_5model5pointIdLm2ENS0_2cs9cartesianEEES4_ISB_SaISB_EEEESaISG_EESI_S4_INS0_16segment_iteratorIKNS7_16multi_linestringINS7_10linestringISB_S4_SaEES4_SaEEEESaISP_EEEEbRKT_RKT0_RKT1_mm.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.experimental.noalias.scope.decl(metadata !3730)
-  %206 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %207 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %208 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br label %.lr.ph.i.i107
 
 .lr.ph.i.i107:                                    ; preds = %205, %.lr.ph.i.i107
@@ -182024,67 +182021,70 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   %.sroa.5.0.i27.i.i109 = phi double [ %.sroa.5.0.i25.i.i128, %.lr.ph.i.i107 ], [ 0xFFEFFFFFFFFFFFFF, %205 ]
   %.sroa.5.0.i23.i.i110 = phi double [ %.sroa.5.0.i21.i.i126, %.lr.ph.i.i107 ], [ 0x7FEFFFFFFFFFFFFF, %205 ]
   %.sroa.0.0.i19.i.i111 = phi double [ %.sroa.0.0.i17.i.i125, %.lr.ph.i.i107 ], [ 0xFFEFFFFFFFFFFFFF, %205 ]
-  %.sroa.07.015.i.i112 = phi ptr [ %232, %.lr.ph.i.i107 ], [ %178, %205 ]
+  %.sroa.07.015.i.i112 = phi ptr [ %229, %.lr.ph.i.i107 ], [ %178, %205 ]
   %.sroa.0.0.i1214.i.i113 = phi double [ %.sroa.0.0.i10.i.i124, %.lr.ph.i.i107 ], [ 0x7FEFFFFFFFFFFFFF, %205 ]
-  %209 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 16
-  %210 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 24
-  %211 = load i8, ptr %210, align 8, !tbaa !3474, !range !17, !noalias !3730, !noundef !18
-  %212 = trunc nuw i8 %211 to i1
-  %213 = load ptr, ptr %209, align 8, !noalias !3730
-  %.sroa.3.0.idx.i.i.i.i.i.i.i.i114 = select i1 %212, i64 0, i64 16
-  %.sroa.3.0.i.i.i.i.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %213, i64 %.sroa.3.0.idx.i.i.i.i.i.i.i.i114
-  %214 = load double, ptr %213, align 8, !tbaa !2975, !noalias !3733
-  %215 = getelementptr inbounds nuw i8, ptr %213, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 24
+  %208 = load i8, ptr %207, align 8, !tbaa !3474, !range !17, !noalias !3730, !noundef !18
+  %209 = trunc nuw i8 %208 to i1
+  %210 = load ptr, ptr %206, align 8, !noalias !3730
+  %.sroa.3.0.idx.i.i.i.i.i.i.i.i114 = select i1 %209, i64 0, i64 16
+  %.sroa.3.0.i.i.i.i.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %210, i64 %.sroa.3.0.idx.i.i.i.i.i.i.i.i114
+  %211 = load double, ptr %210, align 8, !tbaa !2975, !noalias !3733
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  %213 = load double, ptr %212, align 8, !tbaa !2975, !noalias !3733
+  %214 = load double, ptr %.sroa.3.0.i.i.i.i.i.i.i.i115, align 8, !tbaa !2975, !noalias !3733
+  %215 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i.i115, i64 8
   %216 = load double, ptr %215, align 8, !tbaa !2975, !noalias !3733
-  %217 = load double, ptr %.sroa.3.0.i.i.i.i.i.i.i.i115, align 8, !tbaa !2975, !noalias !3733
-  %218 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i.i115, i64 8
-  %219 = load double, ptr %218, align 8, !tbaa !2975, !noalias !3733
-  %220 = fcmp olt double %217, %214
-  %.sroa.0.0.i.i.i116 = select i1 %220, double %217, double %214
-  %221 = fcmp ogt double %217, %214
-  %.sroa.8.0.i.i.i117 = select i1 %221, double %217, double %214
-  %222 = fcmp olt double %219, %216
-  %.sroa.5.0.i.i.i118 = select i1 %222, double %219, double %216
-  %223 = fcmp ogt double %219, %216
-  %.sroa.11.0.i.i.i119 = select i1 %223, double %219, double %216
-  %224 = fcmp olt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i1214.i.i113
-  %.sroa.0.0.i.i2.i = select i1 %224, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i.i3.i
-  %.sroa.0.0.i11.i.i120 = select i1 %224, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i1214.i.i113
-  %225 = fcmp ogt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i19.i.i111
-  %.sroa.8.0.i.i6.i = select i1 %225, double %.sroa.0.0.i.i.i116, double %.sroa.8.0.i.i7.i
-  %.sroa.0.0.i18.i.i121 = select i1 %225, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i19.i.i111
-  %226 = fcmp olt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i23.i.i110
-  %.sroa.11.0.i.i10.i = select i1 %226, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i11.i
-  %.sroa.5.0.i22.i.i122 = select i1 %226, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i23.i.i110
-  %227 = fcmp ogt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i27.i.i109
-  %.sroa.11.0.i.i14.i = select i1 %227, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i15.i108
-  %.sroa.5.0.i26.i.i123 = select i1 %227, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i27.i.i109
-  %228 = fcmp olt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i11.i.i120
-  %.sroa.0.0.i.i4.i = select i1 %228, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i.i2.i
-  %.sroa.0.0.i10.i.i124 = select i1 %228, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i11.i.i120
-  %229 = fcmp ogt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i18.i.i121
-  %.sroa.8.0.i.i8.i = select i1 %229, double %.sroa.8.0.i.i.i117, double %.sroa.8.0.i.i6.i
-  %.sroa.0.0.i17.i.i125 = select i1 %229, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i18.i.i121
-  %230 = fcmp olt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i22.i.i122
-  %.sroa.11.0.i.i12.i = select i1 %230, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i10.i
-  %.sroa.5.0.i21.i.i126 = select i1 %230, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i22.i.i122
-  %231 = fcmp ogt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i26.i.i123
-  %.sroa.11.0.i.i16.i127 = select i1 %231, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i14.i
-  %.sroa.5.0.i25.i.i128 = select i1 %231, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i26.i.i123
-  %232 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 32
-  %.not.i.i129 = icmp eq ptr %232, %180
-  br i1 %.not.i.i129, label %233, label %.lr.ph.i.i107
+  %217 = fcmp olt double %214, %211
+  %.sroa.0.0.i.i.i116 = select i1 %217, double %214, double %211
+  %218 = fcmp ogt double %214, %211
+  %.sroa.8.0.i.i.i117 = select i1 %218, double %214, double %211
+  %219 = fcmp olt double %216, %213
+  %.sroa.5.0.i.i.i118 = select i1 %219, double %216, double %213
+  %220 = fcmp ogt double %216, %213
+  %.sroa.11.0.i.i.i119 = select i1 %220, double %216, double %213
+  %221 = fcmp olt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i1214.i.i113
+  %.sroa.0.0.i.i2.i = select i1 %221, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i.i3.i
+  %.sroa.0.0.i11.i.i120 = select i1 %221, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i1214.i.i113
+  %222 = fcmp ogt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i19.i.i111
+  %.sroa.8.0.i.i6.i = select i1 %222, double %.sroa.0.0.i.i.i116, double %.sroa.8.0.i.i7.i
+  %.sroa.0.0.i18.i.i121 = select i1 %222, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i19.i.i111
+  %223 = fcmp olt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i23.i.i110
+  %.sroa.11.0.i.i10.i = select i1 %223, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i11.i
+  %.sroa.5.0.i22.i.i122 = select i1 %223, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i23.i.i110
+  %224 = fcmp ogt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i27.i.i109
+  %.sroa.11.0.i.i14.i = select i1 %224, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i15.i108
+  %.sroa.5.0.i26.i.i123 = select i1 %224, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i27.i.i109
+  %225 = fcmp olt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i11.i.i120
+  %.sroa.0.0.i.i4.i = select i1 %225, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i.i2.i
+  %.sroa.0.0.i10.i.i124 = select i1 %225, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i11.i.i120
+  %226 = fcmp ogt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i18.i.i121
+  %.sroa.8.0.i.i8.i = select i1 %226, double %.sroa.8.0.i.i.i117, double %.sroa.8.0.i.i6.i
+  %.sroa.0.0.i17.i.i125 = select i1 %226, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i18.i.i121
+  %227 = fcmp olt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i22.i.i122
+  %.sroa.11.0.i.i12.i = select i1 %227, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i10.i
+  %.sroa.5.0.i21.i.i126 = select i1 %227, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i22.i.i122
+  %228 = fcmp ogt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i26.i.i123
+  %.sroa.11.0.i.i16.i127 = select i1 %228, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i14.i
+  %.sroa.5.0.i25.i.i128 = select i1 %228, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i26.i.i123
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 32
+  %.not.i.i129 = icmp eq ptr %229, %180
+  br i1 %.not.i.i129, label %230, label %.lr.ph.i.i107
 
-233:                                              ; preds = %.lr.ph.i.i107
+230:                                              ; preds = %.lr.ph.i.i107
+  %231 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store double %.sroa.0.0.i.i4.i, ptr %22, align 8, !alias.scope !3730
-  store double %.sroa.8.0.i.i8.i, ptr %206, align 8, !alias.scope !3730
-  store double %.sroa.11.0.i.i12.i, ptr %207, align 8, !alias.scope !3730
-  store double %.sroa.11.0.i.i16.i127, ptr %208, align 8, !alias.scope !3730
+  store double %.sroa.8.0.i.i8.i, ptr %231, align 8, !alias.scope !3730
+  store double %.sroa.11.0.i.i12.i, ptr %232, align 8, !alias.scope !3730
+  store double %.sroa.11.0.i.i16.i127, ptr %233, align 8, !alias.scope !3730
   %234 = add nuw nsw i64 %3, 1
   %235 = invoke noundef zeroext i1 @_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE5applyISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS15_16expand_box_pointIS1C_EENS15_18overlaps_box_pointIS1C_EENS15_18expand_box_segmentIS1C_EENS15_20overlaps_box_segmentIS1C_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %234, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS15_16expand_box_pointIS1C_EENS15_18overlaps_box_pointIS1C_EENS15_18expand_box_segmentIS1C_EENS15_20overlaps_box_segmentIS1C_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131 unwind label %238
 
-_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS15_16expand_box_pointIS1C_EENS15_18overlaps_box_pointIS1C_EENS15_18expand_box_segmentIS1C_EENS15_20overlaps_box_segmentIS1C_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131: ; preds = %233
+_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS15_16expand_box_pointIS1C_EENS15_18overlaps_box_pointIS1C_EENS15_18expand_box_segmentIS1C_EENS15_20overlaps_box_segmentIS1C_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131: ; preds = %230
   br i1 %235, label %236, label %240
 
 236:                                              ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS15_16expand_box_pointIS1C_EENS15_18overlaps_box_pointIS1C_EENS15_18expand_box_segmentIS1C_EENS15_20overlaps_box_segmentIS1C_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131
@@ -182094,7 +182094,7 @@ _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS15_16expand_box_pointIS1C_EENS15_18overlaps_box_pointIS1C_EENS15_18expand_box_segmentIS1C_EENS15_20overlaps_box_segmentIS1C_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit132: ; preds = %236
   br i1 %237, label %.critedge98, label %240
 
-238:                                              ; preds = %236, %233
+238:                                              ; preds = %236, %230
   %239 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -183212,59 +183212,59 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.experimental.noalias.scope.decl(metadata !3766)
   call void @llvm.experimental.noalias.scope.decl(metadata !3769)
-  %53 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %54 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %55 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %52, %.lr.ph.i.i.i
-  %56 = phi double [ %78, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
-  %57 = phi double [ %75, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
-  %58 = phi double [ %70, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
-  %59 = phi double [ %67, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
-  %60 = phi double [ %79, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
-  %61 = phi double [ %76, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
-  %62 = phi double [ %71, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
-  %.sroa.06.010.i.i.i = phi ptr [ %80, %.lr.ph.i.i.i ], [ %33, %52 ]
-  %63 = phi double [ %68, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
-  %64 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !3471, !noalias !3772
-  %65 = load double, ptr %64, align 8, !tbaa !2975, !noalias !3772
-  %66 = fcmp olt double %65, %63
-  %67 = select i1 %66, double %65, double %59
-  %68 = select i1 %66, double %65, double %63
-  %69 = fcmp ogt double %65, %62
-  %70 = select i1 %69, double %65, double %58
-  %71 = select i1 %69, double %65, double %62
-  %72 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %73 = load double, ptr %72, align 8, !tbaa !2975, !noalias !3772
-  %74 = fcmp olt double %73, %61
-  %75 = select i1 %74, double %73, double %57
-  %76 = select i1 %74, double %73, double %61
-  %77 = fcmp ogt double %73, %60
-  %78 = select i1 %77, double %73, double %56
-  %79 = select i1 %77, double %73, double %60
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %80, %35
+  %53 = phi double [ %75, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
+  %54 = phi double [ %72, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
+  %55 = phi double [ %67, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
+  %56 = phi double [ %64, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
+  %57 = phi double [ %76, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
+  %58 = phi double [ %73, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
+  %59 = phi double [ %68, %.lr.ph.i.i.i ], [ 0xFFEFFFFFFFFFFFFF, %52 ]
+  %.sroa.06.010.i.i.i = phi ptr [ %77, %.lr.ph.i.i.i ], [ %33, %52 ]
+  %60 = phi double [ %65, %.lr.ph.i.i.i ], [ 0x7FEFFFFFFFFFFFFF, %52 ]
+  %61 = load ptr, ptr %.sroa.06.010.i.i.i, align 8, !tbaa !3471, !noalias !3772
+  %62 = load double, ptr %61, align 8, !tbaa !2975, !noalias !3772
+  %63 = fcmp olt double %62, %60
+  %64 = select i1 %63, double %62, double %56
+  %65 = select i1 %63, double %62, double %60
+  %66 = fcmp ogt double %62, %59
+  %67 = select i1 %66, double %62, double %55
+  %68 = select i1 %66, double %62, double %59
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %70 = load double, ptr %69, align 8, !tbaa !2975, !noalias !3772
+  %71 = fcmp olt double %70, %58
+  %72 = select i1 %71, double %70, double %54
+  %73 = select i1 %71, double %70, double %58
+  %74 = fcmp ogt double %70, %57
+  %75 = select i1 %74, double %70, double %53
+  %76 = select i1 %74, double %70, double %57
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %77, %35
   br i1 %.not.i.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, label %.lr.ph.i.i.i
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i
-  store double %67, ptr %20, align 8, !alias.scope !3772
-  store double %70, ptr %53, align 8, !alias.scope !3772
-  store double %75, ptr %54, align 8, !alias.scope !3772
-  store double %78, ptr %55, align 8, !alias.scope !3772
+  %78 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store double %64, ptr %20, align 8, !alias.scope !3772
+  store double %67, ptr %78, align 8, !alias.scope !3772
+  store double %72, ptr %79, align 8, !alias.scope !3772
+  store double %75, ptr %80, align 8, !alias.scope !3772
   %.not13.i.i = icmp eq ptr %44, %43
   br i1 %.not13.i.i, label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEENS15_18expand_box_segmentIS1A_EEEESA_RKT_RKT0_RKT1_RKT2_.exit, label %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
 
 _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
-  %.sroa.11.0.i.i20.i = phi double [ %.sroa.11.0.i.i21.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %78, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.11.0.i.i16.i = phi double [ %.sroa.11.0.i.i17.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %75, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.8.0.i.i12.i = phi double [ %.sroa.8.0.i.i13.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %70, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.0.0.i.i8.i = phi double [ %.sroa.0.0.i.i9.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %67, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.5.0.i27.i.i = phi double [ %.sroa.5.0.i25.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %78, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.5.0.i23.i.i = phi double [ %.sroa.5.0.i21.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %75, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.0.0.i19.i.i = phi double [ %.sroa.0.0.i17.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %70, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.11.0.i.i20.i = phi double [ %.sroa.11.0.i.i21.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %75, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.11.0.i.i16.i = phi double [ %.sroa.11.0.i.i17.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %72, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.8.0.i.i12.i = phi double [ %.sroa.8.0.i.i13.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %67, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.0.0.i.i8.i = phi double [ %.sroa.0.0.i.i9.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %64, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.5.0.i27.i.i = phi double [ %.sroa.5.0.i25.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %75, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.5.0.i23.i.i = phi double [ %.sroa.5.0.i21.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %72, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.0.0.i19.i.i = phi double [ %.sroa.0.0.i17.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %67, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %.sroa.07.015.i.i = phi ptr [ %104, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %44, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
-  %.sroa.0.0.i1214.i.i = phi double [ %.sroa.0.0.i10.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %67, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
+  %.sroa.0.0.i1214.i.i = phi double [ %.sroa.0.0.i10.i.i, %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i ], [ %64, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i ]
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i, i64 16
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i, i64 24
   %83 = load i8, ptr %82, align 8, !tbaa !3474, !range !17, !noalias !3766, !noundef !18
@@ -183316,9 +183316,9 @@ _ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3bo
 
 _ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEESt6vectorINS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SB_SaEESB_SaEEEESaISI_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SB_SaEESG_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE18expand_box_segmentINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i: ; preds = %_ZN5boost8geometry6detail6expand12indexed_loopILm0ELm0ELm2EE5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs9cartesianEEEEESC_EEvRT_RKT0_.exit.i.i.i.i.i.i.i.i.i
   store double %.sroa.0.0.i.i9.i, ptr %20, align 8, !alias.scope !3766
-  store double %.sroa.8.0.i.i13.i, ptr %53, align 8, !alias.scope !3766
-  store double %.sroa.11.0.i.i17.i, ptr %54, align 8, !alias.scope !3766
-  store double %.sroa.11.0.i.i21.i, ptr %55, align 8, !alias.scope !3766
+  store double %.sroa.8.0.i.i13.i, ptr %78, align 8, !alias.scope !3766
+  store double %.sroa.11.0.i.i17.i, ptr %79, align 8, !alias.scope !3766
+  store double %.sroa.11.0.i.i21.i, ptr %80, align 8, !alias.scope !3766
   br label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEENS15_18expand_box_segmentIS1A_EEEESA_RKT_RKT0_RKT1_RKT2_.exit
 
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEENS15_18expand_box_segmentIS1A_EEEESA_RKT_RKT0_RKT1_RKT2_.exit: ; preds = %_ZN5boost8geometry6detail9partition20expand_with_elementsINS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEESt6vectorINS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SB_SaEESB_SaEEEESaISI_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SB_SaEESG_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE18expand_box_segmentINS0_10strategies6relate9cartesianIvEEEEEEvRT_RKT0_RKT1_.exit.loopexit.i, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE11get_new_boxISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEENS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEES9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE16expand_box_pointINS0_10strategies6relate9cartesianIvEEEEEESA_RKT_RKT0_.exit.i
@@ -183517,9 +183517,6 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 207:                                              ; preds = %_ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_5model5pointIdLm2ENS0_2cs9cartesianEEES4_ISB_SaISB_EEEESaISG_EESI_S4_INS0_16segment_iteratorIKNS7_16multi_linestringINS7_10linestringISB_S4_SaEES4_SaEEEESaISP_EEEEbRKT_RKT0_RKT1_mm.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.experimental.noalias.scope.decl(metadata !3782)
-  %208 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %209 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %210 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br label %.lr.ph.i.i107
 
 .lr.ph.i.i107:                                    ; preds = %207, %.lr.ph.i.i107
@@ -183530,67 +183527,70 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   %.sroa.5.0.i27.i.i109 = phi double [ %.sroa.5.0.i25.i.i128, %.lr.ph.i.i107 ], [ 0xFFEFFFFFFFFFFFFF, %207 ]
   %.sroa.5.0.i23.i.i110 = phi double [ %.sroa.5.0.i21.i.i126, %.lr.ph.i.i107 ], [ 0x7FEFFFFFFFFFFFFF, %207 ]
   %.sroa.0.0.i19.i.i111 = phi double [ %.sroa.0.0.i17.i.i125, %.lr.ph.i.i107 ], [ 0xFFEFFFFFFFFFFFFF, %207 ]
-  %.sroa.07.015.i.i112 = phi ptr [ %234, %.lr.ph.i.i107 ], [ %180, %207 ]
+  %.sroa.07.015.i.i112 = phi ptr [ %231, %.lr.ph.i.i107 ], [ %180, %207 ]
   %.sroa.0.0.i1214.i.i113 = phi double [ %.sroa.0.0.i10.i.i124, %.lr.ph.i.i107 ], [ 0x7FEFFFFFFFFFFFFF, %207 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 16
-  %212 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 24
-  %213 = load i8, ptr %212, align 8, !tbaa !3474, !range !17, !noalias !3782, !noundef !18
-  %214 = trunc nuw i8 %213 to i1
-  %215 = load ptr, ptr %211, align 8, !noalias !3782
-  %.sroa.3.0.idx.i.i.i.i.i.i.i.i114 = select i1 %214, i64 0, i64 16
-  %.sroa.3.0.i.i.i.i.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %215, i64 %.sroa.3.0.idx.i.i.i.i.i.i.i.i114
-  %216 = load double, ptr %215, align 8, !tbaa !2975, !noalias !3785
-  %217 = getelementptr inbounds nuw i8, ptr %215, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 24
+  %210 = load i8, ptr %209, align 8, !tbaa !3474, !range !17, !noalias !3782, !noundef !18
+  %211 = trunc nuw i8 %210 to i1
+  %212 = load ptr, ptr %208, align 8, !noalias !3782
+  %.sroa.3.0.idx.i.i.i.i.i.i.i.i114 = select i1 %211, i64 0, i64 16
+  %.sroa.3.0.i.i.i.i.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %212, i64 %.sroa.3.0.idx.i.i.i.i.i.i.i.i114
+  %213 = load double, ptr %212, align 8, !tbaa !2975, !noalias !3785
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  %215 = load double, ptr %214, align 8, !tbaa !2975, !noalias !3785
+  %216 = load double, ptr %.sroa.3.0.i.i.i.i.i.i.i.i115, align 8, !tbaa !2975, !noalias !3785
+  %217 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i.i115, i64 8
   %218 = load double, ptr %217, align 8, !tbaa !2975, !noalias !3785
-  %219 = load double, ptr %.sroa.3.0.i.i.i.i.i.i.i.i115, align 8, !tbaa !2975, !noalias !3785
-  %220 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i.i.i.i.i.i115, i64 8
-  %221 = load double, ptr %220, align 8, !tbaa !2975, !noalias !3785
-  %222 = fcmp olt double %219, %216
-  %.sroa.0.0.i.i.i116 = select i1 %222, double %219, double %216
-  %223 = fcmp ogt double %219, %216
-  %.sroa.8.0.i.i.i117 = select i1 %223, double %219, double %216
-  %224 = fcmp olt double %221, %218
-  %.sroa.5.0.i.i.i118 = select i1 %224, double %221, double %218
-  %225 = fcmp ogt double %221, %218
-  %.sroa.11.0.i.i.i119 = select i1 %225, double %221, double %218
-  %226 = fcmp olt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i1214.i.i113
-  %.sroa.0.0.i.i2.i = select i1 %226, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i.i3.i
-  %.sroa.0.0.i11.i.i120 = select i1 %226, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i1214.i.i113
-  %227 = fcmp ogt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i19.i.i111
-  %.sroa.8.0.i.i6.i = select i1 %227, double %.sroa.0.0.i.i.i116, double %.sroa.8.0.i.i7.i
-  %.sroa.0.0.i18.i.i121 = select i1 %227, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i19.i.i111
-  %228 = fcmp olt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i23.i.i110
-  %.sroa.11.0.i.i10.i = select i1 %228, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i11.i
-  %.sroa.5.0.i22.i.i122 = select i1 %228, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i23.i.i110
-  %229 = fcmp ogt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i27.i.i109
-  %.sroa.11.0.i.i14.i = select i1 %229, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i15.i108
-  %.sroa.5.0.i26.i.i123 = select i1 %229, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i27.i.i109
-  %230 = fcmp olt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i11.i.i120
-  %.sroa.0.0.i.i4.i = select i1 %230, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i.i2.i
-  %.sroa.0.0.i10.i.i124 = select i1 %230, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i11.i.i120
-  %231 = fcmp ogt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i18.i.i121
-  %.sroa.8.0.i.i8.i = select i1 %231, double %.sroa.8.0.i.i.i117, double %.sroa.8.0.i.i6.i
-  %.sroa.0.0.i17.i.i125 = select i1 %231, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i18.i.i121
-  %232 = fcmp olt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i22.i.i122
-  %.sroa.11.0.i.i12.i = select i1 %232, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i10.i
-  %.sroa.5.0.i21.i.i126 = select i1 %232, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i22.i.i122
-  %233 = fcmp ogt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i26.i.i123
-  %.sroa.11.0.i.i16.i127 = select i1 %233, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i14.i
-  %.sroa.5.0.i25.i.i128 = select i1 %233, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i26.i.i123
-  %234 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 32
-  %.not.i.i129 = icmp eq ptr %234, %182
-  br i1 %.not.i.i129, label %235, label %.lr.ph.i.i107
+  %219 = fcmp olt double %216, %213
+  %.sroa.0.0.i.i.i116 = select i1 %219, double %216, double %213
+  %220 = fcmp ogt double %216, %213
+  %.sroa.8.0.i.i.i117 = select i1 %220, double %216, double %213
+  %221 = fcmp olt double %218, %215
+  %.sroa.5.0.i.i.i118 = select i1 %221, double %218, double %215
+  %222 = fcmp ogt double %218, %215
+  %.sroa.11.0.i.i.i119 = select i1 %222, double %218, double %215
+  %223 = fcmp olt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i1214.i.i113
+  %.sroa.0.0.i.i2.i = select i1 %223, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i.i3.i
+  %.sroa.0.0.i11.i.i120 = select i1 %223, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i1214.i.i113
+  %224 = fcmp ogt double %.sroa.0.0.i.i.i116, %.sroa.0.0.i19.i.i111
+  %.sroa.8.0.i.i6.i = select i1 %224, double %.sroa.0.0.i.i.i116, double %.sroa.8.0.i.i7.i
+  %.sroa.0.0.i18.i.i121 = select i1 %224, double %.sroa.0.0.i.i.i116, double %.sroa.0.0.i19.i.i111
+  %225 = fcmp olt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i23.i.i110
+  %.sroa.11.0.i.i10.i = select i1 %225, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i11.i
+  %.sroa.5.0.i22.i.i122 = select i1 %225, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i23.i.i110
+  %226 = fcmp ogt double %.sroa.5.0.i.i.i118, %.sroa.5.0.i27.i.i109
+  %.sroa.11.0.i.i14.i = select i1 %226, double %.sroa.5.0.i.i.i118, double %.sroa.11.0.i.i15.i108
+  %.sroa.5.0.i26.i.i123 = select i1 %226, double %.sroa.5.0.i.i.i118, double %.sroa.5.0.i27.i.i109
+  %227 = fcmp olt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i11.i.i120
+  %.sroa.0.0.i.i4.i = select i1 %227, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i.i2.i
+  %.sroa.0.0.i10.i.i124 = select i1 %227, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i11.i.i120
+  %228 = fcmp ogt double %.sroa.8.0.i.i.i117, %.sroa.0.0.i18.i.i121
+  %.sroa.8.0.i.i8.i = select i1 %228, double %.sroa.8.0.i.i.i117, double %.sroa.8.0.i.i6.i
+  %.sroa.0.0.i17.i.i125 = select i1 %228, double %.sroa.8.0.i.i.i117, double %.sroa.0.0.i18.i.i121
+  %229 = fcmp olt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i22.i.i122
+  %.sroa.11.0.i.i12.i = select i1 %229, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i10.i
+  %.sroa.5.0.i21.i.i126 = select i1 %229, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i22.i.i122
+  %230 = fcmp ogt double %.sroa.11.0.i.i.i119, %.sroa.5.0.i26.i.i123
+  %.sroa.11.0.i.i16.i127 = select i1 %230, double %.sroa.11.0.i.i.i119, double %.sroa.11.0.i.i14.i
+  %.sroa.5.0.i25.i.i128 = select i1 %230, double %.sroa.11.0.i.i.i119, double %.sroa.5.0.i26.i.i123
+  %231 = getelementptr inbounds nuw i8, ptr %.sroa.07.015.i.i112, i64 32
+  %.not.i.i129 = icmp eq ptr %231, %182
+  br i1 %.not.i.i129, label %232, label %.lr.ph.i.i107
 
-235:                                              ; preds = %.lr.ph.i.i107
+232:                                              ; preds = %.lr.ph.i.i107
+  %233 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store double %.sroa.0.0.i.i4.i, ptr %22, align 8, !alias.scope !3782
-  store double %.sroa.8.0.i.i8.i, ptr %208, align 8, !alias.scope !3782
-  store double %.sroa.11.0.i.i12.i, ptr %209, align 8, !alias.scope !3782
-  store double %.sroa.11.0.i.i16.i127, ptr %210, align 8, !alias.scope !3782
+  store double %.sroa.8.0.i.i8.i, ptr %233, align 8, !alias.scope !3782
+  store double %.sroa.11.0.i.i12.i, ptr %234, align 8, !alias.scope !3782
+  store double %.sroa.11.0.i.i16.i127, ptr %235, align 8, !alias.scope !3782
   %236 = add nuw nsw i64 %3, 1
   %237 = invoke noundef zeroext i1 @_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE5applyISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS15_16expand_box_pointIS1C_EENS15_18overlaps_box_pointIS1C_EENS15_18expand_box_segmentIS1C_EENS15_20overlaps_box_segmentIS1C_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %236, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS15_16expand_box_pointIS1C_EENS15_18overlaps_box_pointIS1C_EENS15_18expand_box_segmentIS1C_EENS15_20overlaps_box_segmentIS1C_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131 unwind label %240
 
-_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS15_16expand_box_pointIS1C_EENS15_18overlaps_box_pointIS1C_EENS15_18expand_box_segmentIS1C_EENS15_20overlaps_box_segmentIS1C_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131: ; preds = %235
+_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS15_16expand_box_pointIS1C_EENS15_18overlaps_box_pointIS1C_EENS15_18expand_box_segmentIS1C_EENS15_20overlaps_box_segmentIS1C_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131: ; preds = %232
   br i1 %237, label %238, label %242
 
 238:                                              ; preds = %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS15_16expand_box_pointIS1C_EENS15_18overlaps_box_pointIS1C_EENS15_18expand_box_segmentIS1C_EENS15_20overlaps_box_segmentIS1C_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit131
@@ -183600,7 +183600,7 @@ _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4
 _ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs9cartesianEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKS9_SD_IS9_SaIS9_EEEESaISK_EESD_INS0_16segment_iteratorIKNS4_16multi_linestringINS4_10linestringIS9_SD_SaEESD_SaEEEESaIST_EENS1_7overlay23multipoint_linear_pointINS4_11multi_pointIS9_SD_SaEESR_S9_LNS0_12overlay_typeE1ENS1_4not_INS1_8disjoint18reverse_covered_byEEEE17item_visitor_typeISt20back_insert_iteratorISJ_ENS0_10strategies6relate9cartesianIvEEEENS15_16expand_box_pointIS1C_EENS15_18overlaps_box_pointIS1C_EENS15_18expand_box_segmentIS1C_EENS15_20overlaps_box_segmentIS1C_EENS2_15visit_no_policyEEEbRKSA_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit132: ; preds = %238
   br i1 %239, label %.critedge98, label %242
 
-240:                                              ; preds = %238, %235
+240:                                              ; preds = %238, %232
   %241 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %22)

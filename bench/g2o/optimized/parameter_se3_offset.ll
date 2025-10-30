@@ -580,10 +580,10 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS_5BlockIKNS0_IdLi4ELi4EL
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9TransformIdLi3ELi1ELi0EEmlERKS1_.exit, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEES7_Li0EEEEERKT_.exit.i.i.i.i.i.i.i.i, !llvm.loop !59
 
 _ZNK5Eigen9TransformIdLi3ELi1ELi0EEmlERKS1_.exit: ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEES7_Li0EEEEERKT_.exit.i.i.i.i.i.i.i.i
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 120
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !57
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 288
@@ -615,10 +615,10 @@ _ZNK5Eigen9TransformIdLi3ELi1ELi0EEmlERKS1_.exit: ; preds = %_ZN5Eigen6MatrixIdL
   %85 = load double, ptr %84, align 8, !tbaa !22, !noalias !57
   %86 = fadd double %85, %80
   store double %86, ptr %83, align 16, !tbaa !22, !alias.scope !57
-  store double 0.000000e+00, ptr %57, align 8, !tbaa !22, !alias.scope !57
-  store double 0.000000e+00, ptr %56, align 8, !tbaa !22, !alias.scope !57
+  store double 0.000000e+00, ptr %54, align 8, !tbaa !22, !alias.scope !57
   store double 0.000000e+00, ptr %55, align 8, !tbaa !22, !alias.scope !57
-  store double 1.000000e+00, ptr %54, align 8, !tbaa !22, !alias.scope !57
+  store double 0.000000e+00, ptr %56, align 8, !tbaa !22, !alias.scope !57
+  store double 1.000000e+00, ptr %57, align 8, !tbaa !22, !alias.scope !57
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %88 = load <2 x double>, ptr %3, align 16, !tbaa !6
   store <2 x double> %88, ptr %87, align 16, !tbaa !6

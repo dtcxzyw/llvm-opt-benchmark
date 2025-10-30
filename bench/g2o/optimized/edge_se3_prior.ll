@@ -1051,10 +1051,10 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS_5BlockIKNS0_IdLi4ELi4EL
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9TransformIdLi3ELi1ELi0EEmlERKS1_.exit, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEES7_Li0EEEEERKT_.exit.i.i.i.i.i.i.i.i, !llvm.loop !134
 
 _ZNK5Eigen9TransformIdLi3ELi1ELi0EEmlERKS1_.exit: ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEES7_Li0EEEEERKT_.exit.i.i.i.i.i.i.i.i
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 120
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !132
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 304
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 768
@@ -1088,10 +1088,10 @@ _ZNK5Eigen9TransformIdLi3ELi1ELi0EEmlERKS1_.exit: ; preds = %_ZN5Eigen6MatrixIdL
   %86 = load double, ptr %85, align 16, !tbaa !3, !noalias !132
   %87 = fadd double %86, %81
   store double %87, ptr %84, align 16, !tbaa !3, !alias.scope !132
-  store double 0.000000e+00, ptr %57, align 8, !tbaa !3, !alias.scope !132
-  store double 0.000000e+00, ptr %56, align 8, !tbaa !3, !alias.scope !132
+  store double 0.000000e+00, ptr %54, align 8, !tbaa !3, !alias.scope !132
   store double 0.000000e+00, ptr %55, align 8, !tbaa !3, !alias.scope !132
-  store double 1.000000e+00, ptr %54, align 8, !tbaa !3, !alias.scope !132
+  store double 0.000000e+00, ptr %56, align 8, !tbaa !3, !alias.scope !132
+  store double 1.000000e+00, ptr %57, align 8, !tbaa !3, !alias.scope !132
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN3g2o8internal11toVectorMQTERKN5Eigen9TransformIdLi3ELi1ELi0EEE(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix.28") align 16 %4, ptr noundef nonnull align 16 dereferenceable(128) %3)
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -1359,10 +1359,10 @@ _ZNK5Eigen9TransformIdLi3ELi1ELi0EEmlERKS1_.exit: ; preds = %_ZN5Eigen6MatrixIdL
   %102 = fsub double %100, %101
   %103 = fmul double %34, %48
   %104 = fsub double %102, %103
-  %105 = getelementptr inbounds nuw i8, ptr %12, i64 120
-  %106 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  %107 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %108 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %107 = getelementptr inbounds nuw i8, ptr %12, i64 88
+  %108 = getelementptr inbounds nuw i8, ptr %12, i64 120
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !159
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %110 = getelementptr inbounds nuw i8, ptr %12, i64 96
@@ -1392,10 +1392,10 @@ _ZNK5Eigen9TransformIdLi3ELi1ELi0EEmlERKS1_.exit: ; preds = %_ZN5Eigen6MatrixIdL
   %133 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %134 = fadd double %104, %131
   store double %134, ptr %133, align 16, !tbaa !3, !alias.scope !159
-  store double 0.000000e+00, ptr %108, align 8, !tbaa !3, !alias.scope !159
-  store double 0.000000e+00, ptr %107, align 8, !tbaa !3, !alias.scope !159
+  store double 0.000000e+00, ptr %105, align 8, !tbaa !3, !alias.scope !159
   store double 0.000000e+00, ptr %106, align 8, !tbaa !3, !alias.scope !159
-  store double 1.000000e+00, ptr %105, align 8, !tbaa !3, !alias.scope !159
+  store double 0.000000e+00, ptr %107, align 8, !tbaa !3, !alias.scope !159
+  store double 1.000000e+00, ptr %108, align 8, !tbaa !3, !alias.scope !159
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
@@ -1466,10 +1466,10 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS_5BlockIKNS0_IdLi4ELi4EL
 
 _ZNK5Eigen9TransformIdLi3ELi1ELi0EEmlERKS1_.exit23: ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_7ProductINS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEES7_Li0EEEEERKT_.exit.i.i.i.i.i.i.i.i18
   %180 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %181 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  %182 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  %183 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %184 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %181 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %182 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %183 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  %184 = getelementptr inbounds nuw i8, ptr %13, i64 120
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !166
   %185 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %186 = load double, ptr %180, align 16, !tbaa !3, !noalias !166
@@ -1498,10 +1498,10 @@ _ZNK5Eigen9TransformIdLi3ELi1ELi0EEmlERKS1_.exit23: ; preds = %_ZN5Eigen6MatrixI
   %208 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %209 = fadd double %134, %206
   store double %209, ptr %208, align 16, !tbaa !3, !alias.scope !166
-  store double 0.000000e+00, ptr %184, align 8, !tbaa !3, !alias.scope !166
-  store double 0.000000e+00, ptr %183, align 8, !tbaa !3, !alias.scope !166
+  store double 0.000000e+00, ptr %181, align 8, !tbaa !3, !alias.scope !166
   store double 0.000000e+00, ptr %182, align 8, !tbaa !3, !alias.scope !166
-  store double 1.000000e+00, ptr %181, align 8, !tbaa !3, !alias.scope !166
+  store double 0.000000e+00, ptr %183, align 8, !tbaa !3, !alias.scope !166
+  store double 1.000000e+00, ptr %184, align 8, !tbaa !3, !alias.scope !166
   %210 = load <2 x double>, ptr %13, align 16, !tbaa !45
   store <2 x double> %210, ptr %0, align 16, !tbaa !45
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2228,10 +2228,10 @@ _ZNK5Eigen9TransformIdLi3ELi1ELi0EEmlERKS1_.exit: ; preds = %_ZN5Eigen6MatrixIdL
   %85 = fsub double %83, %84
   %86 = fmul double %16, %30
   %87 = fsub double %85, %86
-  %88 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %89 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %90 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 120
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !202
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -2261,10 +2261,10 @@ _ZNK5Eigen9TransformIdLi3ELi1ELi0EEmlERKS1_.exit: ; preds = %_ZN5Eigen6MatrixIdL
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %117 = fadd double %87, %114
   store double %117, ptr %116, align 16, !tbaa !3, !alias.scope !202
-  store double 0.000000e+00, ptr %91, align 8, !tbaa !3, !alias.scope !202
-  store double 0.000000e+00, ptr %90, align 8, !tbaa !3, !alias.scope !202
+  store double 0.000000e+00, ptr %88, align 8, !tbaa !3, !alias.scope !202
   store double 0.000000e+00, ptr %89, align 8, !tbaa !3, !alias.scope !202
-  store double 1.000000e+00, ptr %88, align 8, !tbaa !3, !alias.scope !202
+  store double 0.000000e+00, ptr %90, align 8, !tbaa !3, !alias.scope !202
+  store double 1.000000e+00, ptr %91, align 8, !tbaa !3, !alias.scope !202
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %119 = load <2 x double>, ptr %118, align 16, !tbaa !45
   %120 = tail call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %119)

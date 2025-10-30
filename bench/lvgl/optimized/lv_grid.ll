@@ -545,43 +545,43 @@ calc_cols.exit.i:                                 ; preds = %228, %._crit_edge14
   %250 = phi i1 [ false, %calc_cols.exit.i ], [ %.not.i, %245 ]
   %251 = tail call i32 @lv_obj_get_content_width(ptr noundef %0) #6
   %252 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext -126) #6
-  %253 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %254 = load i32, ptr %253, align 8, !tbaa !45
-  br i1 %250, label %255, label %256
+  %253 = ptrtoint ptr %252 to i64
+  %.sroa.0.0.extract.trunc.i.i58.i = trunc i64 %253 to i32
+  %254 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %255 = load i32, ptr %254, align 8, !tbaa !45
+  br i1 %250, label %256, label %257
 
-255:                                              ; preds = %249
+256:                                              ; preds = %249
   store i32 0, ptr %229, align 4, !tbaa !33
   br label %284
 
-256:                                              ; preds = %249
-  %257 = ptrtoint ptr %252 to i64
-  %.sroa.0.0.extract.trunc.i.i58.i = trunc i64 %257 to i32
+257:                                              ; preds = %249
   %258 = add i32 %.sroa.0.0.extract.trunc.i.i58.i, -4
   %or.cond3.i28 = icmp ult i32 %258, 3
-  %259 = icmp eq i32 %254, 1
   %.169.i = select i1 %or.cond3.i28, i32 0, i32 %.sroa.0.0.extract.trunc.i.i
-  %260 = and i1 %259, %or.cond3.i28
-  %.0.i = select i1 %260, i32 1, i32 %.sroa.0.0.extract.trunc.i.i58.i
-  %.not.i29 = icmp eq i32 %254, 0
+  %.not.i29 = icmp eq i32 %255, 0
   br i1 %.not.i29, label %._crit_edge.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %256
-  %wide.trip.count.i = zext i32 %254 to i64
+.lr.ph.preheader.i:                               ; preds = %257
+  %wide.trip.count.i = zext i32 %255 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.06776.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %264, %.lr.ph.i ]
-  %261 = getelementptr inbounds nuw i32, ptr %230, i64 %indvars.iv.i
-  %262 = load i32, ptr %261, align 4, !tbaa !33
-  %263 = add i32 %.06776.i, %.169.i
-  %264 = add i32 %263, %262
+  %.06776.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %262, %.lr.ph.i ]
+  %259 = getelementptr inbounds nuw i32, ptr %230, i64 %indvars.iv.i
+  %260 = load i32, ptr %259, align 4, !tbaa !33
+  %261 = add i32 %.06776.i, %.169.i
+  %262 = add i32 %261, %260
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !52
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %256
-  %.067.lcssa.i = phi i32 [ 0, %256 ], [ %264, %.lr.ph.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %257
+  %.067.lcssa.i = phi i32 [ 0, %257 ], [ %262, %.lr.ph.i ]
+  %263 = icmp eq i32 %255, 1
+  %264 = and i1 %263, %or.cond3.i28
+  %.0.i = select i1 %264, i32 1, i32 %.sroa.0.0.extract.trunc.i.i58.i
   %265 = sub nsw i32 %.067.lcssa.i, %.169.i
   switch i32 %.0.i, label %._crit_edge._crit_edge.i [
     i32 0, label %266
@@ -614,28 +614,28 @@ calc_cols.exit.i:                                 ; preds = %228, %._crit_edge14
 272:                                              ; preds = %._crit_edge.i
   store i32 0, ptr %229, align 4, !tbaa !33
   %273 = sub nsw i32 %251, %265
-  %274 = add i32 %254, -1
+  %274 = add i32 %255, -1
   %275 = sdiv i32 %273, %274
   br label %284
 
 276:                                              ; preds = %._crit_edge.i
   %277 = sub nsw i32 %251, %265
-  %278 = sdiv i32 %277, %254
+  %278 = sdiv i32 %277, %255
   %279 = sdiv i32 %278, 2
   store i32 %279, ptr %229, align 4, !tbaa !33
   br label %284
 
 280:                                              ; preds = %._crit_edge.i
   %281 = sub nsw i32 %251, %265
-  %282 = add i32 %254, 1
+  %282 = add i32 %255, 1
   %283 = sdiv i32 %281, %282
   store i32 %283, ptr %229, align 4, !tbaa !33
   br label %284
 
-284:                                              ; preds = %280, %276, %272, %270, %267, %266, %._crit_edge._crit_edge.i, %255
-  %.pre97.i = phi i32 [ 0, %255 ], [ %.pre97.pre.i, %._crit_edge._crit_edge.i ], [ 0, %266 ], [ %269, %267 ], [ %271, %270 ], [ 0, %272 ], [ %279, %276 ], [ %283, %280 ]
-  %.068.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i, %255 ], [ %.169.i, %._crit_edge._crit_edge.i ], [ %.169.i, %266 ], [ %.169.i, %267 ], [ %.169.i, %270 ], [ %275, %272 ], [ %278, %276 ], [ %283, %280 ]
-  %285 = add i32 %254, -1
+284:                                              ; preds = %280, %276, %272, %270, %267, %266, %._crit_edge._crit_edge.i, %256
+  %.pre97.i = phi i32 [ 0, %256 ], [ %.pre97.pre.i, %._crit_edge._crit_edge.i ], [ 0, %266 ], [ %269, %267 ], [ %271, %270 ], [ 0, %272 ], [ %279, %276 ], [ %283, %280 ]
+  %.068.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i, %256 ], [ %.169.i, %._crit_edge._crit_edge.i ], [ %.169.i, %266 ], [ %.169.i, %267 ], [ %.169.i, %270 ], [ %275, %272 ], [ %278, %276 ], [ %283, %280 ]
+  %285 = add i32 %255, -1
   %.not85.i = icmp eq i32 %285, 0
   br i1 %.not85.i, label %._crit_edge81.i, label %.lr.ph80.preheader.i
 
@@ -666,12 +666,12 @@ calc_cols.exit.i:                                 ; preds = %228, %._crit_edge14
   %.pre-phi.i = phi i64 [ 0, %284 ], [ %wide.trip.count90.i, %._crit_edge81.i.loopexit ]
   %293 = getelementptr inbounds nuw i32, ptr %230, i64 %.pre-phi.i
   %294 = load i32, ptr %293, align 4, !tbaa !33
-  %295 = icmp ne i32 %254, 0
+  %295 = icmp ne i32 %255, 0
   %or.cond.i30 = and i1 %238, %295
   br i1 %or.cond.i30, label %.lr.ph84.preheader.i, label %grid_align.exit
 
 .lr.ph84.preheader.i:                             ; preds = %._crit_edge81.i
-  %wide.trip.count95.i = zext i32 %254 to i64
+  %wide.trip.count95.i = zext i32 %255 to i64
   br label %.lr.ph84.i
 
 .lr.ph84.i:                                       ; preds = %.lr.ph84.i, %.lr.ph84.preheader.i
@@ -707,45 +707,45 @@ grid_align.exit:                                  ; preds = %.lr.ph84.i, %._crit
   %312 = phi i1 [ false, %grid_align.exit ], [ %.not33.i, %307 ]
   %313 = tail call i32 @lv_obj_get_content_height(ptr noundef %0) #6
   %314 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext -125) #6
-  %315 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %316 = load i32, ptr %315, align 4, !tbaa !36
-  br i1 %312, label %317, label %318
+  %315 = ptrtoint ptr %314 to i64
+  %.sroa.0.0.extract.trunc.i.i59.i = trunc i64 %315 to i32
+  %316 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  %317 = load i32, ptr %316, align 4, !tbaa !36
+  br i1 %312, label %318, label %319
 
-317:                                              ; preds = %311
+318:                                              ; preds = %311
   store i32 0, ptr %119, align 4, !tbaa !33
   br label %346
 
-318:                                              ; preds = %311
-  %319 = ptrtoint ptr %314 to i64
-  %.sroa.0.0.extract.trunc.i.i59.i = trunc i64 %319 to i32
+319:                                              ; preds = %311
   %320 = add i32 %.sroa.0.0.extract.trunc.i.i59.i, -4
   %or.cond3.i.i = icmp ult i32 %320, 3
-  %321 = icmp eq i32 %316, 1
   %.169.i.i = select i1 %or.cond3.i.i, i32 0, i32 %.sroa.0.0.extract.trunc.i54.i
-  %322 = and i1 %321, %or.cond3.i.i
-  %.0.i60.i = select i1 %322, i32 1, i32 %.sroa.0.0.extract.trunc.i.i59.i
-  %.not.i61.i = icmp eq i32 %316, 0
-  br i1 %.not.i61.i, label %._crit_edge.i65.i, label %.lr.ph.preheader.i.i
+  %.not.i60.i = icmp eq i32 %317, 0
+  br i1 %.not.i60.i, label %._crit_edge.i64.i, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %318
-  %wide.trip.count.i.i = zext i32 %316 to i64
-  br label %.lr.ph.i62.i
+.lr.ph.preheader.i.i:                             ; preds = %319
+  %wide.trip.count.i.i = zext i32 %317 to i64
+  br label %.lr.ph.i61.i
 
-.lr.ph.i62.i:                                     ; preds = %.lr.ph.i62.i, %.lr.ph.preheader.i.i
-  %indvars.iv.i63.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i64.i, %.lr.ph.i62.i ]
-  %.06776.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %326, %.lr.ph.i62.i ]
-  %323 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv.i63.i
-  %324 = load i32, ptr %323, align 4, !tbaa !33
-  %325 = add i32 %.06776.i.i, %.169.i.i
-  %326 = add i32 %325, %324
-  %indvars.iv.next.i64.i = add nuw nsw i64 %indvars.iv.i63.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i64.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i65.i, label %.lr.ph.i62.i, !llvm.loop !52
+.lr.ph.i61.i:                                     ; preds = %.lr.ph.i61.i, %.lr.ph.preheader.i.i
+  %indvars.iv.i62.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i63.i, %.lr.ph.i61.i ]
+  %.06776.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %324, %.lr.ph.i61.i ]
+  %321 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv.i62.i
+  %322 = load i32, ptr %321, align 4, !tbaa !33
+  %323 = add i32 %.06776.i.i, %.169.i.i
+  %324 = add i32 %323, %322
+  %indvars.iv.next.i63.i = add nuw nsw i64 %indvars.iv.i62.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i63.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %._crit_edge.i64.i, label %.lr.ph.i61.i, !llvm.loop !52
 
-._crit_edge.i65.i:                                ; preds = %.lr.ph.i62.i, %318
-  %.067.lcssa.i.i = phi i32 [ 0, %318 ], [ %326, %.lr.ph.i62.i ]
+._crit_edge.i64.i:                                ; preds = %.lr.ph.i61.i, %319
+  %.067.lcssa.i.i = phi i32 [ 0, %319 ], [ %324, %.lr.ph.i61.i ]
+  %325 = icmp eq i32 %317, 1
+  %326 = and i1 %325, %or.cond3.i.i
+  %.0.i65.i = select i1 %326, i32 1, i32 %.sroa.0.0.extract.trunc.i.i59.i
   %327 = sub nsw i32 %.067.lcssa.i.i, %.169.i.i
-  switch i32 %.0.i60.i, label %._crit_edge._crit_edge.i.i [
+  switch i32 %.0.i65.i, label %._crit_edge._crit_edge.i.i [
     i32 0, label %328
     i32 1, label %329
     i32 2, label %332
@@ -754,50 +754,50 @@ grid_align.exit:                                  ; preds = %.lr.ph84.i, %._crit
     i32 4, label %342
   ]
 
-._crit_edge._crit_edge.i.i:                       ; preds = %._crit_edge.i65.i
+._crit_edge._crit_edge.i.i:                       ; preds = %._crit_edge.i64.i
   %.pre97.pre.i.i = load i32, ptr %119, align 4, !tbaa !33
   br label %346
 
-328:                                              ; preds = %._crit_edge.i65.i
+328:                                              ; preds = %._crit_edge.i64.i
   store i32 0, ptr %119, align 4, !tbaa !33
   br label %346
 
-329:                                              ; preds = %._crit_edge.i65.i
+329:                                              ; preds = %._crit_edge.i64.i
   %330 = sub nsw i32 %313, %327
   %331 = sdiv i32 %330, 2
   store i32 %331, ptr %119, align 4, !tbaa !33
   br label %346
 
-332:                                              ; preds = %._crit_edge.i65.i
+332:                                              ; preds = %._crit_edge.i64.i
   %333 = sub nsw i32 %313, %327
   store i32 %333, ptr %119, align 4, !tbaa !33
   br label %346
 
-334:                                              ; preds = %._crit_edge.i65.i
+334:                                              ; preds = %._crit_edge.i64.i
   store i32 0, ptr %119, align 4, !tbaa !33
   %335 = sub nsw i32 %313, %327
-  %336 = add i32 %316, -1
+  %336 = add i32 %317, -1
   %337 = sdiv i32 %335, %336
   br label %346
 
-338:                                              ; preds = %._crit_edge.i65.i
+338:                                              ; preds = %._crit_edge.i64.i
   %339 = sub nsw i32 %313, %327
-  %340 = sdiv i32 %339, %316
+  %340 = sdiv i32 %339, %317
   %341 = sdiv i32 %340, 2
   store i32 %341, ptr %119, align 4, !tbaa !33
   br label %346
 
-342:                                              ; preds = %._crit_edge.i65.i
+342:                                              ; preds = %._crit_edge.i64.i
   %343 = sub nsw i32 %313, %327
-  %344 = add i32 %316, 1
+  %344 = add i32 %317, 1
   %345 = sdiv i32 %343, %344
   store i32 %345, ptr %119, align 4, !tbaa !33
   br label %346
 
-346:                                              ; preds = %342, %338, %334, %332, %329, %328, %._crit_edge._crit_edge.i.i, %317
-  %.pre97.i.i = phi i32 [ 0, %317 ], [ %.pre97.pre.i.i, %._crit_edge._crit_edge.i.i ], [ 0, %328 ], [ %331, %329 ], [ %333, %332 ], [ 0, %334 ], [ %341, %338 ], [ %345, %342 ]
-  %.068.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i54.i, %317 ], [ %.169.i.i, %._crit_edge._crit_edge.i.i ], [ %.169.i.i, %328 ], [ %.169.i.i, %329 ], [ %.169.i.i, %332 ], [ %337, %334 ], [ %340, %338 ], [ %345, %342 ]
-  %347 = add i32 %316, -1
+346:                                              ; preds = %342, %338, %334, %332, %329, %328, %._crit_edge._crit_edge.i.i, %318
+  %.pre97.i.i = phi i32 [ 0, %318 ], [ %.pre97.pre.i.i, %._crit_edge._crit_edge.i.i ], [ 0, %328 ], [ %331, %329 ], [ %333, %332 ], [ 0, %334 ], [ %341, %338 ], [ %345, %342 ]
+  %.068.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i54.i, %318 ], [ %.169.i.i, %._crit_edge._crit_edge.i.i ], [ %.169.i.i, %328 ], [ %.169.i.i, %329 ], [ %.169.i.i, %332 ], [ %337, %334 ], [ %340, %338 ], [ %345, %342 ]
+  %347 = add i32 %317, -1
   %.not85.i.i = icmp eq i32 %347, 0
   br i1 %.not85.i.i, label %grid_align.exit.i, label %.lr.ph80.preheader.i.i
 

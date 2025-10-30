@@ -1825,49 +1825,49 @@ BufferGetPage.exit.i58:                           ; preds = %1040, %1034
   %.0.i.i.i59 = phi ptr [ %1039, %1034 ], [ %1045, %1040 ]
   %1046 = getelementptr inbounds nuw i8, ptr %.0.i.i.i59, i64 16
   %1047 = load i16, ptr %1046, align 4
-  %1048 = zext i16 %1047 to i64
-  %1049 = getelementptr inbounds nuw i8, ptr %.0.i.i.i59, i64 %1048
-  %1050 = load i16, ptr %1018, align 4
-  %.not55.i60 = icmp eq i16 %1050, 0
+  %1048 = load i16, ptr %1018, align 4
+  %.not55.i60 = icmp eq i16 %1048, 0
   br i1 %.not55.i60, label %._crit_edge.i64, label %.lr.ph.i61
 
 .lr.ph.i61:                                       ; preds = %BufferGetPage.exit.i58
-  %1051 = getelementptr i8, ptr %.0.i.i.i59, i64 20
-  br label %1052
+  %1049 = getelementptr i8, ptr %.0.i.i.i59, i64 20
+  br label %1050
 
-1052:                                             ; preds = %1052, %.lr.ph.i61
-  %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i61 ], [ %indvars.iv.next.i63, %1052 ]
-  %1053 = getelementptr inbounds nuw i16, ptr %1019, i64 %indvars.iv.i62
-  %1054 = load i16, ptr %1053, align 2
-  %1055 = zext i16 %1054 to i64
-  %1056 = getelementptr %struct.ItemIdData, ptr %1051, i64 %1055
-  %.val47.i = load i32, ptr %1056, align 4
-  %1057 = and i32 %.val47.i, 32767
-  %1058 = zext nneg i32 %1057 to i64
-  %1059 = getelementptr inbounds nuw i8, ptr %.0.i.i.i59, i64 %1058
-  %1060 = load i32, ptr %1059, align 4
-  %1061 = or i32 %1060, 3
-  store i32 %1061, ptr %1059, align 4
-  %1062 = getelementptr inbounds nuw i8, ptr %1059, i64 6
-  store i16 -1, ptr %1062, align 2
-  %1063 = getelementptr inbounds nuw i8, ptr %1059, i64 8
-  store i16 -1, ptr %1063, align 4
-  %1064 = getelementptr inbounds nuw i8, ptr %1059, i64 10
-  store i16 0, ptr %1064, align 2
+1050:                                             ; preds = %1050, %.lr.ph.i61
+  %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i61 ], [ %indvars.iv.next.i63, %1050 ]
+  %1051 = getelementptr inbounds nuw i16, ptr %1019, i64 %indvars.iv.i62
+  %1052 = load i16, ptr %1051, align 2
+  %1053 = zext i16 %1052 to i64
+  %1054 = getelementptr %struct.ItemIdData, ptr %1049, i64 %1053
+  %.val47.i = load i32, ptr %1054, align 4
+  %1055 = and i32 %.val47.i, 32767
+  %1056 = zext nneg i32 %1055 to i64
+  %1057 = getelementptr inbounds nuw i8, ptr %.0.i.i.i59, i64 %1056
+  %1058 = load i32, ptr %1057, align 4
+  %1059 = or i32 %1058, 3
+  store i32 %1059, ptr %1057, align 4
+  %1060 = getelementptr inbounds nuw i8, ptr %1057, i64 6
+  store i16 -1, ptr %1060, align 2
+  %1061 = getelementptr inbounds nuw i8, ptr %1057, i64 8
+  store i16 -1, ptr %1061, align 4
+  %1062 = getelementptr inbounds nuw i8, ptr %1057, i64 10
+  store i16 0, ptr %1062, align 2
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
-  %1065 = load i16, ptr %1018, align 4
-  %1066 = zext i16 %1065 to i64
-  %1067 = icmp samesign ult i64 %indvars.iv.next.i63, %1066
-  br i1 %1067, label %1052, label %._crit_edge.i64, !llvm.loop !11
+  %1063 = load i16, ptr %1018, align 4
+  %1064 = zext i16 %1063 to i64
+  %1065 = icmp samesign ult i64 %indvars.iv.next.i63, %1064
+  br i1 %1065, label %1050, label %._crit_edge.i64, !llvm.loop !11
 
-._crit_edge.i64:                                  ; preds = %1052, %BufferGetPage.exit.i58
-  %.lcssa.i65 = phi i16 [ 0, %BufferGetPage.exit.i58 ], [ %1065, %1052 ]
-  %1068 = getelementptr inbounds nuw i8, ptr %1049, i64 2
+._crit_edge.i64:                                  ; preds = %1050, %BufferGetPage.exit.i58
+  %.lcssa.i65 = phi i16 [ 0, %BufferGetPage.exit.i58 ], [ %1063, %1050 ]
+  %1066 = zext i16 %1047 to i64
+  %1067 = getelementptr inbounds nuw i8, ptr %.0.i.i.i59, i64 %1066
+  %1068 = getelementptr inbounds nuw i8, ptr %1067, i64 2
   %1069 = load i16, ptr %1068, align 2
   %1070 = sub i16 %1069, %.lcssa.i65
   store i16 %1070, ptr %1068, align 2
   %1071 = load i16, ptr %1018, align 4
-  %1072 = getelementptr inbounds nuw i8, ptr %1049, i64 4
+  %1072 = getelementptr inbounds nuw i8, ptr %1067, i64 4
   %1073 = load i16, ptr %1072, align 2
   %1074 = add i16 %1073, %1071
   store i16 %1074, ptr %1072, align 2

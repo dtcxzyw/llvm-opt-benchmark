@@ -10031,109 +10031,109 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
   %213 = load ptr, ptr %118, align 8
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 57
   %215 = load i16, ptr %214, align 1
-  %216 = and i16 %215, 8
-  %.not294 = icmp eq i16 %216, 0
-  %217 = load i16, ptr %30, align 2
-  %218 = select i1 %.not294, i16 %217, i16 0
-  %.1273 = add i16 %218, %.0272321
-  %.not295313 = icmp eq i16 %217, 0
+  %216 = load i16, ptr %30, align 2
+  %.not295313 = icmp eq i16 %216, 0
   br i1 %.not295313, label %._crit_edge317, label %.lr.ph316
 
 .lr.ph316:                                        ; preds = %._crit_edge307
-  %219 = icmp ne ptr %.1275, null
-  br label %220
+  %217 = icmp ne ptr %.1275, null
+  br label %218
 
-220:                                              ; preds = %.lr.ph316, %.loopexit
-  %.in332 = phi i16 [ %217, %.lr.ph316 ], [ %221, %.loopexit ]
-  %.2269314 = phi i32 [ %212, %.lr.ph316 ], [ %231, %.loopexit ]
-  %221 = add i16 %.in332, -1
-  %222 = load i32, ptr @hf_pn_io_io_cs, align 4
-  %223 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %222, ptr noundef %0, i32 noundef %.2269314, i32 noundef 0, i32 noundef 0)
-  %224 = load i32, ptr @ett_pn_io_io_cs, align 4
-  %225 = call ptr @proto_item_add_subtree(ptr noundef %223, i32 noundef %224)
-  %226 = load i32, ptr @hf_pn_io_slot_nr, align 4
-  %227 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.2269314, ptr noundef %2, ptr noundef %225, ptr noundef %5, i32 noundef %226, ptr noundef nonnull %27)
-  %228 = load i32, ptr @hf_pn_io_subslot_nr, align 4
-  %229 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %227, ptr noundef %2, ptr noundef %225, ptr noundef %5, i32 noundef %228, ptr noundef nonnull %28)
-  %230 = load i32, ptr @hf_pn_io_iocs_frame_offset, align 4
-  %231 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %229, ptr noundef %2, ptr noundef %225, ptr noundef %5, i32 noundef %230, ptr noundef nonnull %31)
-  %232 = load i16, ptr %27, align 2
+218:                                              ; preds = %.lr.ph316, %.loopexit
+  %.in332 = phi i16 [ %216, %.lr.ph316 ], [ %219, %.loopexit ]
+  %.2269314 = phi i32 [ %212, %.lr.ph316 ], [ %229, %.loopexit ]
+  %219 = add i16 %.in332, -1
+  %220 = load i32, ptr @hf_pn_io_io_cs, align 4
+  %221 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %220, ptr noundef %0, i32 noundef %.2269314, i32 noundef 0, i32 noundef 0)
+  %222 = load i32, ptr @ett_pn_io_io_cs, align 4
+  %223 = call ptr @proto_item_add_subtree(ptr noundef %221, i32 noundef %222)
+  %224 = load i32, ptr @hf_pn_io_slot_nr, align 4
+  %225 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.2269314, ptr noundef %2, ptr noundef %223, ptr noundef %5, i32 noundef %224, ptr noundef nonnull %27)
+  %226 = load i32, ptr @hf_pn_io_subslot_nr, align 4
+  %227 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %225, ptr noundef %2, ptr noundef %223, ptr noundef %5, i32 noundef %226, ptr noundef nonnull %28)
+  %228 = load i32, ptr @hf_pn_io_iocs_frame_offset, align 4
+  %229 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %227, ptr noundef %2, ptr noundef %223, ptr noundef %5, i32 noundef %228, ptr noundef nonnull %31)
+  %230 = load i16, ptr %27, align 2
+  %231 = zext i16 %230 to i32
+  %232 = load i16, ptr %28, align 2
   %233 = zext i16 %232 to i32
-  %234 = load i16, ptr %28, align 2
+  %234 = load i16, ptr %31, align 2
   %235 = zext i16 %234 to i32
-  %236 = load i16, ptr %31, align 2
-  %237 = zext i16 %236 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %223, ptr noundef nonnull @.str.1456, i32 noundef %233, i32 noundef %235, i32 noundef %237)
-  %238 = sub i32 %231, %.2269314
-  call void @proto_item_set_len(ptr noundef %223, i32 noundef %238)
-  %239 = load ptr, ptr %118, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 57
-  %241 = load i16, ptr %240, align 1
-  %242 = and i16 %241, 8
-  %243 = icmp eq i16 %242, 0
-  %or.cond6 = select i1 %243, i1 %219, i1 false
-  br i1 %or.cond6, label %244, label %.loopexit
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %221, ptr noundef nonnull @.str.1456, i32 noundef %231, i32 noundef %233, i32 noundef %235)
+  %236 = sub i32 %229, %.2269314
+  call void @proto_item_set_len(ptr noundef %221, i32 noundef %236)
+  %237 = load ptr, ptr %118, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 57
+  %239 = load i16, ptr %238, align 1
+  %240 = and i16 %239, 8
+  %241 = icmp eq i16 %240, 0
+  %or.cond6 = select i1 %241, i1 %217, i1 false
+  br i1 %or.cond6, label %242, label %.loopexit
 
-244:                                              ; preds = %220
-  %245 = load i16, ptr %10, align 2
-  %246 = icmp eq i16 %245, 1
-  %.1263.in.v = select i1 %246, i64 40, i64 48
+242:                                              ; preds = %218
+  %243 = load i16, ptr %10, align 2
+  %244 = icmp eq i16 %243, 1
+  %.1263.in.v = select i1 %244, i64 40, i64 48
   %.1263.in = getelementptr inbounds nuw i8, ptr %.1275, i64 %.1263.in.v
   %.1263 = load ptr, ptr %.1263.in, align 8
-  %247 = call ptr @wmem_list_head(ptr noundef %.1263)
-  %cond299308 = icmp eq ptr %247, null
+  %245 = call ptr @wmem_list_head(ptr noundef %.1263)
+  %cond299308 = icmp eq ptr %245, null
   br i1 %cond299308, label %._crit_edge312, label %.lr.ph311
 
-.lr.ph311:                                        ; preds = %244, %257
-  %.1265309 = phi ptr [ %258, %257 ], [ %247, %244 ]
-  %248 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.1265309)
-  %249 = load i16, ptr %248, align 2
-  %250 = load i16, ptr %27, align 2
-  %251 = icmp eq i16 %249, %250
-  br i1 %251, label %252, label %257
+.lr.ph311:                                        ; preds = %242, %255
+  %.1265309 = phi ptr [ %256, %255 ], [ %245, %242 ]
+  %246 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.1265309)
+  %247 = load i16, ptr %246, align 2
+  %248 = load i16, ptr %27, align 2
+  %249 = icmp eq i16 %247, %248
+  br i1 %249, label %250, label %255
 
-252:                                              ; preds = %.lr.ph311
-  %253 = getelementptr inbounds nuw i8, ptr %248, i64 2
-  %254 = load i16, ptr %253, align 2
-  %255 = load i16, ptr %28, align 2
-  %256 = icmp eq i16 %254, %255
-  br i1 %256, label %.loopexit, label %257
+250:                                              ; preds = %.lr.ph311
+  %251 = getelementptr inbounds nuw i8, ptr %246, i64 2
+  %252 = load i16, ptr %251, align 2
+  %253 = load i16, ptr %28, align 2
+  %254 = icmp eq i16 %252, %253
+  br i1 %254, label %.loopexit, label %255
 
-257:                                              ; preds = %.lr.ph311, %252
-  %258 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.1265309)
-  %cond299 = icmp eq ptr %258, null
+255:                                              ; preds = %.lr.ph311, %250
+  %256 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.1265309)
+  %cond299 = icmp eq ptr %256, null
   br i1 %cond299, label %._crit_edge312, label %.lr.ph311, !llvm.loop !44
 
-._crit_edge312:                                   ; preds = %257, %244
-  %259 = call ptr @wmem_file_scope()
-  %260 = call noalias dereferenceable_or_null(6) ptr @wmem_alloc(ptr noundef %259, i64 noundef 6) #11
-  %261 = load i16, ptr %27, align 2
-  store i16 %261, ptr %260, align 2
-  %262 = load i16, ptr %28, align 2
-  %263 = getelementptr inbounds nuw i8, ptr %260, i64 2
+._crit_edge312:                                   ; preds = %255, %242
+  %257 = call ptr @wmem_file_scope()
+  %258 = call noalias dereferenceable_or_null(6) ptr @wmem_alloc(ptr noundef %257, i64 noundef 6) #11
+  %259 = load i16, ptr %27, align 2
+  store i16 %259, ptr %258, align 2
+  %260 = load i16, ptr %28, align 2
+  %261 = getelementptr inbounds nuw i8, ptr %258, i64 2
+  store i16 %260, ptr %261, align 2
+  %262 = load i16, ptr %31, align 2
+  %263 = getelementptr inbounds nuw i8, ptr %258, i64 4
   store i16 %262, ptr %263, align 2
-  %264 = load i16, ptr %31, align 2
-  %265 = getelementptr inbounds nuw i8, ptr %260, i64 4
-  store i16 %264, ptr %265, align 2
-  call void @wmem_list_append(ptr noundef %.1263, ptr noundef %260)
+  call void @wmem_list_append(ptr noundef %.1263, ptr noundef %258)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %252, %._crit_edge312, %220
-  %.not295 = icmp eq i16 %221, 0
-  br i1 %.not295, label %._crit_edge317.loopexit, label %220, !llvm.loop !45
+.loopexit:                                        ; preds = %250, %._crit_edge312, %218
+  %.not295 = icmp eq i16 %219, 0
+  br i1 %.not295, label %._crit_edge317.loopexit, label %218, !llvm.loop !45
 
 ._crit_edge317.loopexit:                          ; preds = %.loopexit
   %.pre = load i16, ptr %30, align 2
-  %266 = zext i16 %.pre to i32
+  %264 = zext i16 %.pre to i32
   br label %._crit_edge317
 
 ._crit_edge317:                                   ; preds = %._crit_edge317.loopexit, %._crit_edge307
-  %267 = phi i32 [ 0, %._crit_edge307 ], [ %266, %._crit_edge317.loopexit ]
-  %.2269.lcssa = phi i32 [ %212, %._crit_edge307 ], [ %231, %._crit_edge317.loopexit ]
+  %265 = phi i32 [ 0, %._crit_edge307 ], [ %264, %._crit_edge317.loopexit ]
+  %.2269.lcssa = phi i32 [ %212, %._crit_edge307 ], [ %229, %._crit_edge317.loopexit ]
+  %266 = and i16 %215, 8
+  %.not294 = icmp eq i16 %266, 0
+  %267 = select i1 %.not294, i16 %216, i16 0
+  %.1273 = add i16 %267, %.0272321
   %268 = load i32, ptr %25, align 4
   %269 = load i16, ptr %26, align 2
   %270 = zext i16 %269 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %123, ptr noundef nonnull @.str.1457, i32 noundef %268, i32 noundef %270, i32 noundef %267)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %123, ptr noundef nonnull @.str.1457, i32 noundef %268, i32 noundef %270, i32 noundef %265)
   %271 = sub i32 %.2269.lcssa, %.0267323
   call void @proto_item_set_len(ptr noundef %123, i32 noundef %271)
   %272 = load i16, ptr %24, align 2
@@ -21085,13 +21085,13 @@ define internal i32 @dissect_IPNIO_Read_resp(ptr noundef %0, i32 noundef %1, ptr
   %27 = tail call fastcc i32 @dissect_IPNIO_resp_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %28 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %27)
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %210, label %29
+  br i1 %.not, label %211, label %29
 
 29:                                               ; preds = %6
   %30 = call fastcc i32 @dissect_block(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26)
   %31 = load i32, ptr %25, align 4
   %.not26 = icmp eq i32 %31, 0
-  br i1 %.not26, label %207, label %32
+  br i1 %.not26, label %208, label %32
 
 32:                                               ; preds = %29
   %33 = load i16, ptr %24, align 2
@@ -21101,7 +21101,7 @@ define internal i32 @dissect_IPNIO_Read_resp(ptr noundef %0, i32 noundef %1, ptr
   store i32 %31, ptr %22, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr null, ptr %23, align 8
-  switch i16 %33, label %178 [
+  switch i16 %33, label %179 [
     i16 -20433, label %34
     i16 -20434, label %34
     i16 47, label %34
@@ -21211,9 +21211,9 @@ thread-pre-split.i.i:                             ; preds = %thread-pre-split.lo
   %or.cond.i.i = select i1 %90, i1 %91, i1 false
   br i1 %or.cond.i.i, label %.lr.ph162.i.i, label %.loopexit143.i.i
 
-.lr.ph162.i.i:                                    ; preds = %thread-pre-split.i.i, %.loopexit139.i.i
-  %.4161.i.i = phi i32 [ %.7.i.i, %.loopexit139.i.i ], [ %.0.i.i, %thread-pre-split.i.i ]
-  %.1125160.i.i = phi i8 [ %133, %.loopexit139.i.i ], [ 0, %thread-pre-split.i.i ]
+.lr.ph162.i.i:                                    ; preds = %thread-pre-split.i.i, %.loopexit141.i.i
+  %.4161.i.i = phi i32 [ %.7.i.i, %.loopexit141.i.i ], [ %.0.i.i, %thread-pre-split.i.i ]
+  %.1125160.i.i = phi i8 [ %133, %.loopexit141.i.i ], [ 0, %thread-pre-split.i.i ]
   %92 = zext i8 %.1125160.i.i to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -21243,67 +21243,71 @@ thread-pre-split.i.i:                             ; preds = %thread-pre-split.lo
   %110 = add i8 %109, -1
   store i8 %110, ptr %16, align 1
   %.not134151.i.i = icmp eq i8 %109, 0
-  br i1 %.not134151.i.i, label %.loopexit139.i.i, label %.lr.ph153.i.i
+  br i1 %.not134151.i.i, label %.loopexit141.i.i, label %.lr.ph153.i.i
 
 111:                                              ; preds = %.lr.ph162.i.i
   %112 = load i32, ptr @hf_pn_io_profidrive_param_value_error, align 4
   %113 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %101, ptr noundef %2, ptr noundef %96, ptr noundef %5, i32 noundef %112, ptr noundef nonnull %17)
   %114 = load i16, ptr %17, align 2
-  %115 = icmp eq i16 %114, 35
-  %116 = load i8, ptr %12, align 1
-  %spec.select.i.i = select i1 %115, i8 %116, i8 %.1125160.i.i
-  %117 = load i8, ptr %16, align 1
-  %118 = add i8 %117, -1
-  store i8 %118, ptr %16, align 1
-  %.not135155.i.i = icmp eq i8 %118, 0
+  %115 = load i8, ptr %12, align 1
+  %116 = load i8, ptr %16, align 1
+  %117 = add i8 %116, -1
+  store i8 %117, ptr %16, align 1
+  %.not135155.i.i = icmp eq i8 %117, 0
   br i1 %.not135155.i.i, label %.loopexit139.i.i, label %.lr.ph158.i.i
 
-.lr.ph158.i.i:                                    ; preds = %111, %126
-  %.5156.i.i = phi i32 [ %.6.i.i, %126 ], [ %113, %111 ]
-  %119 = load i16, ptr %17, align 2
-  switch i16 %119, label %123 [
-    i16 1, label %120
-    i16 2, label %120
-    i16 3, label %120
-    i16 6, label %120
-    i16 7, label %120
-    i16 20, label %120
-    i16 32, label %120
+.lr.ph158.i.i:                                    ; preds = %111, %125
+  %.5156.i.i = phi i32 [ %.6.i.i, %125 ], [ %113, %111 ]
+  %118 = load i16, ptr %17, align 2
+  switch i16 %118, label %122 [
+    i16 1, label %119
+    i16 2, label %119
+    i16 3, label %119
+    i16 6, label %119
+    i16 7, label %119
+    i16 20, label %119
+    i16 32, label %119
   ]
 
-120:                                              ; preds = %.lr.ph158.i.i, %.lr.ph158.i.i, %.lr.ph158.i.i, %.lr.ph158.i.i, %.lr.ph158.i.i, %.lr.ph158.i.i, %.lr.ph158.i.i
-  %121 = load i32, ptr @hf_pn_io_profidrive_param_value_error_sub, align 4
-  %122 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.5156.i.i, ptr noundef %2, ptr noundef %96, ptr noundef %5, i32 noundef %121, ptr noundef nonnull %17)
-  br label %126
+119:                                              ; preds = %.lr.ph158.i.i, %.lr.ph158.i.i, %.lr.ph158.i.i, %.lr.ph158.i.i, %.lr.ph158.i.i, %.lr.ph158.i.i, %.lr.ph158.i.i
+  %120 = load i32, ptr @hf_pn_io_profidrive_param_value_error_sub, align 4
+  %121 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.5156.i.i, ptr noundef %2, ptr noundef %96, ptr noundef %5, i32 noundef %120, ptr noundef nonnull %17)
+  br label %125
 
-123:                                              ; preds = %.lr.ph158.i.i
+122:                                              ; preds = %.lr.ph158.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %124 = load i32, ptr @hf_pn_io_profidrive_param_value_word, align 4
-  %125 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.5156.i.i, ptr noundef %2, ptr noundef %96, ptr noundef %5, i32 noundef %124, ptr noundef nonnull %8)
+  %123 = load i32, ptr @hf_pn_io_profidrive_param_value_word, align 4
+  %124 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.5156.i.i, ptr noundef %2, ptr noundef %96, ptr noundef %5, i32 noundef %123, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %126
+  br label %125
 
-126:                                              ; preds = %123, %120
-  %.6.i.i = phi i32 [ %125, %123 ], [ %122, %120 ]
-  %127 = load i8, ptr %16, align 1
-  %128 = add i8 %127, -1
-  store i8 %128, ptr %16, align 1
-  %.not135.i.i = icmp eq i8 %128, 0
+125:                                              ; preds = %122, %119
+  %.6.i.i = phi i32 [ %124, %122 ], [ %121, %119 ]
+  %126 = load i8, ptr %16, align 1
+  %127 = add i8 %126, -1
+  store i8 %127, ptr %16, align 1
+  %.not135.i.i = icmp eq i8 %127, 0
   br i1 %.not135.i.i, label %.loopexit139.i.i, label %.lr.ph158.i.i, !llvm.loop !109
 
 .lr.ph153.i.i:                                    ; preds = %.preheader140.i.i, %.lr.ph153.i.i
-  %.8152.i.i = phi i32 [ %130, %.lr.ph153.i.i ], [ %101, %.preheader140.i.i ]
-  %129 = load i8, ptr %15, align 1
-  %130 = call fastcc i32 @dissect_profidrive_value(ptr noundef %0, i32 noundef %.8152.i.i, ptr noundef %2, ptr noundef %96, ptr noundef %5, i8 noundef zeroext %129)
-  %131 = load i8, ptr %16, align 1
-  %132 = add i8 %131, -1
-  store i8 %132, ptr %16, align 1
-  %.not134.i.i = icmp eq i8 %131, 0
-  br i1 %.not134.i.i, label %.loopexit139.i.i, label %.lr.ph153.i.i, !llvm.loop !110
+  %.8152.i.i = phi i32 [ %129, %.lr.ph153.i.i ], [ %101, %.preheader140.i.i ]
+  %128 = load i8, ptr %15, align 1
+  %129 = call fastcc i32 @dissect_profidrive_value(ptr noundef %0, i32 noundef %.8152.i.i, ptr noundef %2, ptr noundef %96, ptr noundef %5, i8 noundef zeroext %128)
+  %130 = load i8, ptr %16, align 1
+  %131 = add i8 %130, -1
+  store i8 %131, ptr %16, align 1
+  %.not134.i.i = icmp eq i8 %130, 0
+  br i1 %.not134.i.i, label %.loopexit141.i.i, label %.lr.ph153.i.i, !llvm.loop !110
 
-.loopexit139.i.i:                                 ; preds = %.lr.ph153.i.i, %126, %111, %.preheader140.i.i
-  %.3127.i.i = phi i8 [ %spec.select.i.i, %111 ], [ %.1125160.i.i, %.preheader140.i.i ], [ %spec.select.i.i, %126 ], [ %.1125160.i.i, %.lr.ph153.i.i ]
-  %.7.i.i = phi i32 [ %113, %111 ], [ %101, %.preheader140.i.i ], [ %.6.i.i, %126 ], [ %130, %.lr.ph153.i.i ]
+.loopexit139.i.i:                                 ; preds = %125, %111
+  %.5.lcssa.i.i = phi i32 [ %113, %111 ], [ %.6.i.i, %125 ]
+  %132 = icmp eq i16 %114, 35
+  %spec.select.i.i = select i1 %132, i8 %115, i8 %.1125160.i.i
+  br label %.loopexit141.i.i
+
+.loopexit141.i.i:                                 ; preds = %.lr.ph153.i.i, %.loopexit139.i.i, %.preheader140.i.i
+  %.3127.i.i = phi i8 [ %spec.select.i.i, %.loopexit139.i.i ], [ %.1125160.i.i, %.preheader140.i.i ], [ %.1125160.i.i, %.lr.ph153.i.i ]
+  %.7.i.i = phi i32 [ %.5.lcssa.i.i, %.loopexit139.i.i ], [ %101, %.preheader140.i.i ], [ %129, %.lr.ph153.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -21312,22 +21316,22 @@ thread-pre-split.i.i:                             ; preds = %thread-pre-split.lo
   %135 = icmp ult i8 %133, %134
   br i1 %135, label %.lr.ph162.i.i, label %.loopexit143.loopexit.i.i, !llvm.loop !111
 
-.loopexit143.loopexit.i.i:                        ; preds = %.loopexit139.i.i
-  %.pre181.i.i = load i8, ptr %10, align 1
+.loopexit143.loopexit.i.i:                        ; preds = %.loopexit141.i.i
+  %.pre180.i.i = load i8, ptr %10, align 1
   br label %.loopexit143.i.i
 
 .loopexit143.i.i:                                 ; preds = %.loopexit143.loopexit.i.i, %thread-pre-split.i.i
   %136 = phi i8 [ %88, %thread-pre-split.i.i ], [ %134, %.loopexit143.loopexit.i.i ]
-  %137 = phi i8 [ %89, %thread-pre-split.i.i ], [ %.pre181.i.i, %.loopexit143.loopexit.i.i ]
+  %137 = phi i8 [ %89, %thread-pre-split.i.i ], [ %.pre180.i.i, %.loopexit143.loopexit.i.i ]
   %.3.i.i = phi i32 [ %.0.i.i, %thread-pre-split.i.i ], [ %.7.i.i, %.loopexit143.loopexit.i.i ]
   %138 = icmp eq i8 %137, -126
   %139 = icmp ne i8 %136, 0
   %or.cond175.i.i = select i1 %138, i1 %139, i1 false
   br i1 %or.cond175.i.i, label %.lr.ph171.i.i, label %dissect_ProfiDriveParameterResponse.exit.i
 
-.lr.ph171.i.i:                                    ; preds = %.loopexit143.i.i, %.loopexit.i.i
-  %.10170.i.i = phi i32 [ %.11.i.i, %.loopexit.i.i ], [ %.3.i.i, %.loopexit143.i.i ]
-  %.4128169.i.i = phi i8 [ %175, %.loopexit.i.i ], [ 0, %.loopexit143.i.i ]
+.lr.ph171.i.i:                                    ; preds = %.loopexit143.i.i, %175
+  %.10170.i.i = phi i32 [ %.11.i.i, %175 ], [ %.3.i.i, %.loopexit143.i.i ]
+  %.4128169.i.i = phi i8 [ %176, %175 ], [ 0, %.loopexit143.i.i ]
   %140 = zext i8 %.4128169.i.i to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -21350,308 +21354,312 @@ thread-pre-split.i.i:                             ; preds = %thread-pre-split.lo
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %142, ptr noundef nonnull @.str.1749, ptr noundef %152, i32 noundef %154)
   %155 = load i8, ptr %18, align 1
   %156 = icmp eq i8 %155, 68
-  br i1 %156, label %157, label %.loopexit.i.i
+  br i1 %156, label %157, label %175
 
 157:                                              ; preds = %.lr.ph171.i.i
   %158 = load i32, ptr @hf_pn_io_profidrive_param_value_error, align 4
   %159 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %149, ptr noundef %2, ptr noundef %144, ptr noundef %5, i32 noundef %158, ptr noundef nonnull %20)
   %160 = load i16, ptr %20, align 2
-  %161 = icmp eq i16 %160, 35
-  %162 = load i8, ptr %12, align 1
-  %spec.select137.i.i = select i1 %161, i8 %162, i8 %.4128169.i.i
-  %163 = load i8, ptr %19, align 1
-  %164 = add i8 %163, -1
-  store i8 %164, ptr %19, align 1
-  %.not164.i.i = icmp eq i8 %164, 0
+  %161 = load i8, ptr %12, align 1
+  %162 = load i8, ptr %19, align 1
+  %163 = add i8 %162, -1
+  store i8 %163, ptr %19, align 1
+  %.not164.i.i = icmp eq i8 %163, 0
   br i1 %.not164.i.i, label %.loopexit.i.i, label %.lr.ph167.i.i
 
-.lr.ph167.i.i:                                    ; preds = %157, %172
-  %.12165.i.i = phi i32 [ %.13.i.i, %172 ], [ %159, %157 ]
-  %165 = load i16, ptr %20, align 2
-  switch i16 %165, label %169 [
-    i16 1, label %166
-    i16 2, label %166
-    i16 3, label %166
-    i16 6, label %166
-    i16 7, label %166
-    i16 20, label %166
-    i16 32, label %166
+.lr.ph167.i.i:                                    ; preds = %157, %171
+  %.12165.i.i = phi i32 [ %.13.i.i, %171 ], [ %159, %157 ]
+  %164 = load i16, ptr %20, align 2
+  switch i16 %164, label %168 [
+    i16 1, label %165
+    i16 2, label %165
+    i16 3, label %165
+    i16 6, label %165
+    i16 7, label %165
+    i16 20, label %165
+    i16 32, label %165
   ]
 
-166:                                              ; preds = %.lr.ph167.i.i, %.lr.ph167.i.i, %.lr.ph167.i.i, %.lr.ph167.i.i, %.lr.ph167.i.i, %.lr.ph167.i.i, %.lr.ph167.i.i
-  %167 = load i32, ptr @hf_pn_io_profidrive_param_value_error_sub, align 4
-  %168 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.12165.i.i, ptr noundef %2, ptr noundef %144, ptr noundef %5, i32 noundef %167, ptr noundef nonnull %20)
-  br label %172
+165:                                              ; preds = %.lr.ph167.i.i, %.lr.ph167.i.i, %.lr.ph167.i.i, %.lr.ph167.i.i, %.lr.ph167.i.i, %.lr.ph167.i.i, %.lr.ph167.i.i
+  %166 = load i32, ptr @hf_pn_io_profidrive_param_value_error_sub, align 4
+  %167 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.12165.i.i, ptr noundef %2, ptr noundef %144, ptr noundef %5, i32 noundef %166, ptr noundef nonnull %20)
+  br label %171
 
-169:                                              ; preds = %.lr.ph167.i.i
+168:                                              ; preds = %.lr.ph167.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %170 = load i32, ptr @hf_pn_io_profidrive_param_value_word, align 4
-  %171 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.12165.i.i, ptr noundef %2, ptr noundef %144, ptr noundef %5, i32 noundef %170, ptr noundef nonnull %7)
+  %169 = load i32, ptr @hf_pn_io_profidrive_param_value_word, align 4
+  %170 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.12165.i.i, ptr noundef %2, ptr noundef %144, ptr noundef %5, i32 noundef %169, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %172
+  br label %171
 
-172:                                              ; preds = %169, %166
-  %.13.i.i = phi i32 [ %171, %169 ], [ %168, %166 ]
-  %173 = load i8, ptr %19, align 1
-  %174 = add i8 %173, -1
-  store i8 %174, ptr %19, align 1
-  %.not.i.i = icmp eq i8 %174, 0
+171:                                              ; preds = %168, %165
+  %.13.i.i = phi i32 [ %170, %168 ], [ %167, %165 ]
+  %172 = load i8, ptr %19, align 1
+  %173 = add i8 %172, -1
+  store i8 %173, ptr %19, align 1
+  %.not.i.i = icmp eq i8 %173, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph167.i.i, !llvm.loop !112
 
-.loopexit.i.i:                                    ; preds = %172, %157, %.lr.ph171.i.i
-  %.5129.i.i = phi i8 [ %.4128169.i.i, %.lr.ph171.i.i ], [ %spec.select137.i.i, %157 ], [ %spec.select137.i.i, %172 ]
-  %.11.i.i = phi i32 [ %149, %.lr.ph171.i.i ], [ %159, %157 ], [ %.13.i.i, %172 ]
+.loopexit.i.i:                                    ; preds = %171, %157
+  %.12.lcssa.i.i = phi i32 [ %159, %157 ], [ %.13.i.i, %171 ]
+  %174 = icmp eq i16 %160, 35
+  %spec.select137.i.i = select i1 %174, i8 %161, i8 %.4128169.i.i
+  br label %175
+
+175:                                              ; preds = %.loopexit.i.i, %.lr.ph171.i.i
+  %.5129.i.i = phi i8 [ %.4128169.i.i, %.lr.ph171.i.i ], [ %spec.select137.i.i, %.loopexit.i.i ]
+  %.11.i.i = phi i32 [ %149, %.lr.ph171.i.i ], [ %.12.lcssa.i.i, %.loopexit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %175 = add i8 %.5129.i.i, 1
-  %176 = load i8, ptr %12, align 1
-  %177 = icmp ult i8 %175, %176
-  br i1 %177, label %.lr.ph171.i.i, label %dissect_ProfiDriveParameterResponse.exit.i, !llvm.loop !113
+  %176 = add i8 %.5129.i.i, 1
+  %177 = load i8, ptr %12, align 1
+  %178 = icmp ult i8 %176, %177
+  br i1 %178, label %.lr.ph171.i.i, label %dissect_ProfiDriveParameterResponse.exit.i, !llvm.loop !113
 
-dissect_ProfiDriveParameterResponse.exit.i:       ; preds = %.loopexit.i.i, %.loopexit143.i.i, %.preheader144.i.i
-  %.9.i.i = phi i32 [ %.3.i.i, %.loopexit143.i.i ], [ %46, %.preheader144.i.i ], [ %.11.i.i, %.loopexit.i.i ]
+dissect_ProfiDriveParameterResponse.exit.i:       ; preds = %175, %.loopexit143.i.i, %.preheader144.i.i
+  %.9.i.i = phi i32 [ %.3.i.i, %.loopexit143.i.i ], [ %46, %.preheader144.i.i ], [ %.11.i.i, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_RecordDataRead.exit
 
-178:                                              ; preds = %32
-  %179 = icmp sgt i16 %33, -1
-  br i1 %179, label %180, label %182
+179:                                              ; preds = %32
+  %180 = icmp sgt i16 %33, -1
+  br i1 %180, label %181, label %183
 
-180:                                              ; preds = %178
-  %181 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, i32 noundef %31, ptr noundef nonnull @.str.1667)
+181:                                              ; preds = %179
+  %182 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, i32 noundef %31, ptr noundef nonnull @.str.1667)
   br label %dissect_RecordDataRead.exit
 
-182:                                              ; preds = %178
-  %183 = and i16 %33, -4096
-  switch i16 %183, label %184 [
+183:                                              ; preds = %179
+  %184 = and i16 %33, -4096
+  switch i16 %184, label %185 [
     i16 -20480, label %select.unfold.i
     i16 -12288, label %.fold.split.i.i
   ]
 
-184:                                              ; preds = %182
-  %185 = and i16 %33, -1024
-  switch i16 %185, label %186 [
+185:                                              ; preds = %183
+  %186 = and i16 %33, -1024
+  switch i16 %186, label %187 [
     i16 -5120, label %select.unfold.i
     i16 -3072, label %.fold.split20.i.i
   ]
 
-186:                                              ; preds = %184
-  %187 = icmp samesign ugt i16 %33, -1025
-  br i1 %187, label %select.unfold.i, label %indexReservedForProfiles.exit.i
+187:                                              ; preds = %185
+  %188 = icmp samesign ugt i16 %33, -1025
+  br i1 %188, label %select.unfold.i, label %indexReservedForProfiles.exit.i
 
-.fold.split.i.i:                                  ; preds = %182
+.fold.split.i.i:                                  ; preds = %183
   br label %select.unfold.i
 
-.fold.split20.i.i:                                ; preds = %184
+.fold.split20.i.i:                                ; preds = %185
   br label %select.unfold.i
 
-select.unfold.i:                                  ; preds = %.fold.split20.i.i, %.fold.split.i.i, %186, %184, %182
-  %.0.i66.ph.i = phi ptr [ @.str.1671, %.fold.split20.i.i ], [ @.str.1669, %.fold.split.i.i ], [ @.str.1670, %184 ], [ @.str.1668, %182 ], [ @.str.1672, %186 ]
-  %188 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, i32 noundef %31, ptr noundef nonnull %.0.i66.ph.i)
+select.unfold.i:                                  ; preds = %.fold.split20.i.i, %.fold.split.i.i, %187, %185, %183
+  %.0.i66.ph.i = phi ptr [ @.str.1671, %.fold.split20.i.i ], [ @.str.1669, %.fold.split.i.i ], [ @.str.1670, %185 ], [ @.str.1668, %183 ], [ @.str.1672, %187 ]
+  %189 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, i32 noundef %31, ptr noundef nonnull %.0.i66.ph.i)
   br label %dissect_RecordDataRead.exit
 
-indexReservedForProfiles.exit.i:                  ; preds = %186
-  switch i16 %33, label %205 [
-    i16 -32752, label %189
-    i16 -32751, label %189
-    i16 -32750, label %189
-    i16 -32749, label %189
-    i16 -32738, label %189
-    i16 -32736, label %189
-    i16 -32729, label %189
-    i16 -32728, label %189
-    i16 -32727, label %189
-    i16 -32688, label %189
-    i16 -32687, label %189
-    i16 -32686, label %189
-    i16 -32685, label %189
-    i16 -32684, label %189
-    i16 -32528, label %189
-    i16 -32526, label %189
-    i16 -32525, label %189
-    i16 -32524, label %189
-    i16 -32523, label %189
-    i16 -32672, label %189
-    i16 -32671, label %189
-    i16 -32670, label %189
-    i16 -32669, label %189
-    i16 -32656, label %189
-    i16 -32655, label %189
-    i16 -32640, label %189
-    i16 -32624, label %189
-    i16 -32608, label %189
-    i16 -32593, label %189
-    i16 -32561, label %189
-    i16 -32256, label %189
-    i16 -20496, label %189
-    i16 -20495, label %189
-    i16 -20494, label %189
-    i16 -20493, label %189
-    i16 -20492, label %189
-    i16 -20491, label %189
-    i16 -20490, label %189
-    i16 -20489, label %189
-    i16 -20488, label %189
-    i16 -20487, label %189
-    i16 -20486, label %189
-    i16 -20485, label %189
-    i16 -20484, label %189
-    i16 -20483, label %189
-    i16 -20482, label %189
-    i16 -20481, label %189
-    i16 -16368, label %189
-    i16 -16367, label %189
-    i16 -16366, label %189
-    i16 -16365, label %189
-    i16 -8190, label %189
-    i16 -8176, label %189
-    i16 -8175, label %189
-    i16 -8174, label %189
-    i16 -8173, label %189
-    i16 -8144, label %189
-    i16 -8143, label %189
-    i16 -4080, label %189
-    i16 -4079, label %189
-    i16 -4078, label %189
-    i16 -4077, label %189
-    i16 -4064, label %189
-    i16 -2016, label %189
-    i16 -2015, label %189
-    i16 -2000, label %189
-    i16 -1999, label %189
-    i16 -1936, label %189
-    i16 -1935, label %189
-    i16 -1920, label %189
-    i16 -1807, label %189
-    i16 -1984, label %191
-    i16 -20400, label %201
-    i16 -20399, label %201
-    i16 -20384, label %201
-    i16 -20383, label %201
-    i16 -32768, label %203
-    i16 -32767, label %203
-    i16 -32758, label %203
-    i16 -32757, label %203
-    i16 -32756, label %203
-    i16 -32726, label %203
-    i16 -32725, label %203
-    i16 -32723, label %203
-    i16 -32722, label %203
-    i16 -32721, label %203
-    i16 -32720, label %203
-    i16 -32719, label %203
-    i16 -32718, label %203
-    i16 -32717, label %203
-    i16 -32716, label %203
-    i16 -32715, label %203
-    i16 -32714, label %203
-    i16 -32713, label %203
-    i16 -32712, label %203
-    i16 -32711, label %203
-    i16 -32710, label %203
-    i16 -32709, label %203
-    i16 -32708, label %203
-    i16 -32707, label %203
-    i16 -32706, label %203
-    i16 -32705, label %203
-    i16 -32704, label %203
-    i16 -32703, label %203
-    i16 -32702, label %203
-    i16 -32701, label %203
-    i16 -32700, label %203
-    i16 -32699, label %203
-    i16 -32698, label %203
-    i16 -32697, label %203
-    i16 -32696, label %203
-    i16 -32695, label %203
-    i16 -32694, label %203
-    i16 -32693, label %203
-    i16 -32692, label %203
-    i16 -32691, label %203
-    i16 -32690, label %203
-    i16 -32689, label %203
-    i16 -32683, label %203
-    i16 -32682, label %203
-    i16 -32681, label %203
-    i16 -32654, label %203
-    i16 -16384, label %203
-    i16 -16383, label %203
-    i16 -16374, label %203
-    i16 -16373, label %203
-    i16 -16372, label %203
-    i16 -8192, label %203
-    i16 -8191, label %203
-    i16 -8182, label %203
-    i16 -8181, label %203
-    i16 -8180, label %203
-    i16 -8096, label %203
-    i16 -4096, label %203
-    i16 -4086, label %203
-    i16 -4085, label %203
-    i16 -4084, label %203
-    i16 -2036, label %203
-    i16 -1983, label %203
-    i16 -1982, label %203
+indexReservedForProfiles.exit.i:                  ; preds = %187
+  switch i16 %33, label %206 [
+    i16 -32752, label %190
+    i16 -32751, label %190
+    i16 -32750, label %190
+    i16 -32749, label %190
+    i16 -32738, label %190
+    i16 -32736, label %190
+    i16 -32729, label %190
+    i16 -32728, label %190
+    i16 -32727, label %190
+    i16 -32688, label %190
+    i16 -32687, label %190
+    i16 -32686, label %190
+    i16 -32685, label %190
+    i16 -32684, label %190
+    i16 -32528, label %190
+    i16 -32526, label %190
+    i16 -32525, label %190
+    i16 -32524, label %190
+    i16 -32523, label %190
+    i16 -32672, label %190
+    i16 -32671, label %190
+    i16 -32670, label %190
+    i16 -32669, label %190
+    i16 -32656, label %190
+    i16 -32655, label %190
+    i16 -32640, label %190
+    i16 -32624, label %190
+    i16 -32608, label %190
+    i16 -32593, label %190
+    i16 -32561, label %190
+    i16 -32256, label %190
+    i16 -20496, label %190
+    i16 -20495, label %190
+    i16 -20494, label %190
+    i16 -20493, label %190
+    i16 -20492, label %190
+    i16 -20491, label %190
+    i16 -20490, label %190
+    i16 -20489, label %190
+    i16 -20488, label %190
+    i16 -20487, label %190
+    i16 -20486, label %190
+    i16 -20485, label %190
+    i16 -20484, label %190
+    i16 -20483, label %190
+    i16 -20482, label %190
+    i16 -20481, label %190
+    i16 -16368, label %190
+    i16 -16367, label %190
+    i16 -16366, label %190
+    i16 -16365, label %190
+    i16 -8190, label %190
+    i16 -8176, label %190
+    i16 -8175, label %190
+    i16 -8174, label %190
+    i16 -8173, label %190
+    i16 -8144, label %190
+    i16 -8143, label %190
+    i16 -4080, label %190
+    i16 -4079, label %190
+    i16 -4078, label %190
+    i16 -4077, label %190
+    i16 -4064, label %190
+    i16 -2016, label %190
+    i16 -2015, label %190
+    i16 -2000, label %190
+    i16 -1999, label %190
+    i16 -1936, label %190
+    i16 -1935, label %190
+    i16 -1920, label %190
+    i16 -1807, label %190
+    i16 -1984, label %192
+    i16 -20400, label %202
+    i16 -20399, label %202
+    i16 -20384, label %202
+    i16 -20383, label %202
+    i16 -32768, label %204
+    i16 -32767, label %204
+    i16 -32758, label %204
+    i16 -32757, label %204
+    i16 -32756, label %204
+    i16 -32726, label %204
+    i16 -32725, label %204
+    i16 -32723, label %204
+    i16 -32722, label %204
+    i16 -32721, label %204
+    i16 -32720, label %204
+    i16 -32719, label %204
+    i16 -32718, label %204
+    i16 -32717, label %204
+    i16 -32716, label %204
+    i16 -32715, label %204
+    i16 -32714, label %204
+    i16 -32713, label %204
+    i16 -32712, label %204
+    i16 -32711, label %204
+    i16 -32710, label %204
+    i16 -32709, label %204
+    i16 -32708, label %204
+    i16 -32707, label %204
+    i16 -32706, label %204
+    i16 -32705, label %204
+    i16 -32704, label %204
+    i16 -32703, label %204
+    i16 -32702, label %204
+    i16 -32701, label %204
+    i16 -32700, label %204
+    i16 -32699, label %204
+    i16 -32698, label %204
+    i16 -32697, label %204
+    i16 -32696, label %204
+    i16 -32695, label %204
+    i16 -32694, label %204
+    i16 -32693, label %204
+    i16 -32692, label %204
+    i16 -32691, label %204
+    i16 -32690, label %204
+    i16 -32689, label %204
+    i16 -32683, label %204
+    i16 -32682, label %204
+    i16 -32681, label %204
+    i16 -32654, label %204
+    i16 -16384, label %204
+    i16 -16383, label %204
+    i16 -16374, label %204
+    i16 -16373, label %204
+    i16 -16372, label %204
+    i16 -8192, label %204
+    i16 -8191, label %204
+    i16 -8182, label %204
+    i16 -8181, label %204
+    i16 -8180, label %204
+    i16 -8096, label %204
+    i16 -4096, label %204
+    i16 -4086, label %204
+    i16 -4085, label %204
+    i16 -4084, label %204
+    i16 -2036, label %204
+    i16 -1983, label %204
+    i16 -1982, label %204
   ]
 
-189:                                              ; preds = %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i
-  %190 = call fastcc i32 @dissect_block(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23)
+190:                                              ; preds = %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i
+  %191 = call fastcc i32 @dissect_block(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23)
   br label %dissect_RecordDataRead.exit
 
-191:                                              ; preds = %indexReservedForProfiles.exit.i
-  %192 = add i32 %31, %30
-  %193 = call fastcc i32 @dissect_block(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23)
-  %194 = icmp sgt i32 %192, %193
-  br i1 %194, label %195, label %197
+192:                                              ; preds = %indexReservedForProfiles.exit.i
+  %193 = add i32 %31, %30
+  %194 = call fastcc i32 @dissect_block(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23)
+  %195 = icmp sgt i32 %193, %194
+  br i1 %195, label %196, label %198
 
-195:                                              ; preds = %191
-  %196 = call fastcc i32 @dissect_block(ptr noundef %0, i32 noundef %193, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23)
-  br label %197
+196:                                              ; preds = %192
+  %197 = call fastcc i32 @dissect_block(ptr noundef %0, i32 noundef %194, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23)
+  br label %198
 
-197:                                              ; preds = %195, %191
-  %.1.i = phi i32 [ %196, %195 ], [ %193, %191 ]
-  %198 = icmp sgt i32 %192, %.1.i
-  br i1 %198, label %199, label %dissect_RecordDataRead.exit
+198:                                              ; preds = %196, %192
+  %.1.i = phi i32 [ %197, %196 ], [ %194, %192 ]
+  %199 = icmp sgt i32 %193, %.1.i
+  br i1 %199, label %200, label %dissect_RecordDataRead.exit
 
-199:                                              ; preds = %197
-  %200 = call fastcc i32 @dissect_block(ptr noundef %0, i32 noundef %.1.i, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23)
+200:                                              ; preds = %198
+  %201 = call fastcc i32 @dissect_block(ptr noundef %0, i32 noundef %.1.i, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23)
   br label %dissect_RecordDataRead.exit
 
-201:                                              ; preds = %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i
-  %202 = call fastcc i32 @dissect_block(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23)
+202:                                              ; preds = %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i
+  %203 = call fastcc i32 @dissect_block(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23)
   br label %dissect_RecordDataRead.exit
 
-203:                                              ; preds = %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i
-  %204 = call i32 @dissect_blocks(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, ptr noundef %5)
+204:                                              ; preds = %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i, %indexReservedForProfiles.exit.i
+  %205 = call i32 @dissect_blocks(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   br label %dissect_RecordDataRead.exit
 
-205:                                              ; preds = %indexReservedForProfiles.exit.i
-  %206 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, i32 noundef %31)
+206:                                              ; preds = %indexReservedForProfiles.exit.i
+  %207 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, i32 noundef %31)
   br label %dissect_RecordDataRead.exit
 
-dissect_RecordDataRead.exit:                      ; preds = %dissect_ProfiDriveParameterResponse.exit.i, %180, %select.unfold.i, %189, %197, %199, %201, %203, %205
-  %.0.i = phi i32 [ %.9.i.i, %dissect_ProfiDriveParameterResponse.exit.i ], [ %181, %180 ], [ %188, %select.unfold.i ], [ %206, %205 ], [ %190, %189 ], [ %202, %201 ], [ %204, %203 ], [ %200, %199 ], [ %.1.i, %197 ]
+dissect_RecordDataRead.exit:                      ; preds = %dissect_ProfiDriveParameterResponse.exit.i, %181, %select.unfold.i, %190, %198, %200, %202, %204, %206
+  %.0.i = phi i32 [ %.9.i.i, %dissect_ProfiDriveParameterResponse.exit.i ], [ %182, %181 ], [ %189, %select.unfold.i ], [ %207, %206 ], [ %191, %190 ], [ %203, %202 ], [ %205, %204 ], [ %201, %200 ], [ %.1.i, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %207
+  br label %208
 
-207:                                              ; preds = %dissect_RecordDataRead.exit, %29
+208:                                              ; preds = %dissect_RecordDataRead.exit, %29
   %.023 = phi i32 [ %.0.i, %dissect_RecordDataRead.exit ], [ %30, %29 ]
-  %208 = load ptr, ptr %26, align 8
-  %.not27 = icmp eq ptr %208, null
-  br i1 %.not27, label %210, label %209
+  %209 = load ptr, ptr %26, align 8
+  %.not27 = icmp eq ptr %209, null
+  br i1 %.not27, label %211, label %210
 
-209:                                              ; preds = %207
-  call fastcc void @pnio_ar_info(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %208)
-  br label %210
+210:                                              ; preds = %208
+  call fastcc void @pnio_ar_info(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %209)
+  br label %211
 
-210:                                              ; preds = %207, %209, %6
-  %.0 = phi i32 [ %27, %6 ], [ %.023, %209 ], [ %.023, %207 ]
+211:                                              ; preds = %208, %210, %6
+  %.0 = phi i32 [ %27, %6 ], [ %.023, %210 ], [ %.023, %208 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)

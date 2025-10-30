@@ -911,40 +911,40 @@ define dso_local noundef i64 @postgresql_fdw_validator(ptr noundef readonly capt
   ret i64 1
 
 is_conninfo_option.exit:                          ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @initClosestMatch(ptr noundef nonnull %2, ptr noundef %18, i32 noundef 4) #7
-  br label %31
+  br label %30
 
-31:                                               ; preds = %is_conninfo_option.exit, %37
-  %32 = phi ptr [ @.str.15, %is_conninfo_option.exit ], [ %39, %37 ]
-  %.040 = phi i1 [ false, %is_conninfo_option.exit ], [ %.1, %37 ]
-  %.02439 = phi ptr [ @libpq_conninfo_options, %is_conninfo_option.exit ], [ %38, %37 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.02439, i64 8
-  %34 = load i32, ptr %33, align 8
-  %35 = icmp eq i32 %34, %8
-  br i1 %35, label %36, label %37
+30:                                               ; preds = %is_conninfo_option.exit, %36
+  %31 = phi ptr [ @.str.15, %is_conninfo_option.exit ], [ %38, %36 ]
+  %.040 = phi i1 [ false, %is_conninfo_option.exit ], [ %.1, %36 ]
+  %.02439 = phi ptr [ @libpq_conninfo_options, %is_conninfo_option.exit ], [ %37, %36 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.02439, i64 8
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp eq i32 %33, %8
+  br i1 %34, label %35, label %36
 
-36:                                               ; preds = %31
-  call void @updateClosestMatch(ptr noundef nonnull %2, ptr noundef nonnull %32) #7
-  br label %37
+35:                                               ; preds = %30
+  call void @updateClosestMatch(ptr noundef nonnull %2, ptr noundef nonnull %31) #7
+  br label %36
 
-37:                                               ; preds = %31, %36
-  %.1 = phi i1 [ true, %36 ], [ %.040, %31 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.02439, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %.not31 = icmp eq ptr %39, null
-  br i1 %.not31, label %40, label %31, !llvm.loop !9
+36:                                               ; preds = %30, %35
+  %.1 = phi i1 [ true, %35 ], [ %.040, %30 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.02439, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %.not31 = icmp eq ptr %38, null
+  br i1 %.not31, label %39, label %30, !llvm.loop !9
 
-40:                                               ; preds = %37
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %41 = call ptr @getClosestMatch(ptr noundef nonnull %2) #7
   %42 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %43 = call i32 @errcode(i32 noundef 16801924) #7
-  %44 = load ptr, ptr %30, align 8
+  %44 = load ptr, ptr %40, align 8
   %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %44) #7
   br i1 %.1, label %46, label %49
 
-46:                                               ; preds = %40
+46:                                               ; preds = %39
   %.not32 = icmp eq ptr %41, null
   br i1 %.not32, label %51, label %47
 
@@ -952,7 +952,7 @@ is_conninfo_option.exit:                          ; preds = %27
   %48 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.11, ptr noundef nonnull %41) #7
   br label %51
 
-49:                                               ; preds = %40
+49:                                               ; preds = %39
   %50 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.12) #7
   br label %51
 

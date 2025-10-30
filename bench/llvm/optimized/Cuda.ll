@@ -8710,8 +8710,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit49: ; preds = %82, 
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %102 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sroa.442.0..ptr8.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %scevgep.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.441.0.scevgep.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 20
   %103 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %104 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %105 = getelementptr inbounds nuw i8, ptr %18, i64 33
@@ -8787,8 +8787,8 @@ _ZN4llvm9StringRefC2EPKc.exit52:                  ; preds = %_ZN4llvm9StringRefC
   %143 = getelementptr inbounds nuw ptr, ptr %140, i64 %.sroa.4.0.extract.shift.i.i
   store ptr %142, ptr %12, align 8
   store ptr %143, ptr %102, align 8
-  store i32 238, ptr %.ptr8.i.i.i, align 8
-  store i32 2928, ptr %.sroa.442.0..ptr8.i.sroa_idx.i.i, align 4
+  store i32 238, ptr %scevgep.i.i.i, align 8
+  store i32 2928, ptr %.sroa.441.0.scevgep.i.sroa_idx.i.i, align 4
   %.not29.i.i.i.i = icmp samesign eq i64 %141, %.sroa.4.0.extract.shift.i.i
   br i1 %.not29.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDES6_EEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 

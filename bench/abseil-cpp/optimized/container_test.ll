@@ -91925,28 +91925,29 @@ define linkonce_odr dso_local void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr nound
   %32 = sub i64 %12, %31
   %33 = lshr i64 %32, 1
   %34 = add nuw i64 %33, %31
-  %35 = add nsw i64 %19, 1
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %35, i64 %12)
-  %36 = trunc i64 %19 to i32
-  %37 = add i32 %36, 1371501266
-  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %33
-  %39 = load i32, ptr %38, align 4, !tbaa !20
-  %40 = add i32 %39, 1371501266
-  store i32 %40, ptr %38, align 4, !tbaa !20
-  %41 = getelementptr inbounds nuw i32, ptr %1, i64 %34
-  %42 = load i32, ptr %41, align 4, !tbaa !20
-  %43 = add i32 %42, %37
-  store i32 %43, ptr %41, align 4, !tbaa !20
-  store i32 %37, ptr %1, align 4, !tbaa !20
+  %35 = trunc i64 %19 to i32
+  %36 = add i32 %35, 1371501266
+  %37 = getelementptr inbounds nuw i32, ptr %1, i64 %33
+  %38 = load i32, ptr %37, align 4, !tbaa !20
+  %39 = add i32 %38, 1371501266
+  store i32 %39, ptr %37, align 4, !tbaa !20
+  %40 = getelementptr inbounds nuw i32, ptr %1, i64 %34
+  %41 = load i32, ptr %40, align 4, !tbaa !20
+  %42 = add i32 %41, %36
+  store i32 %42, ptr %40, align 4, !tbaa !20
+  store i32 %36, ptr %1, align 4, !tbaa !20
   %.not130 = icmp eq ptr %14, %15
   br i1 %.not130, label %.preheader129, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %30
-  %umax = tail call i64 @llvm.umax.i64(i64 %35, i64 2)
+  %43 = add nsw i64 %19, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %43, i64 2)
   br label %.lr.ph
 
 .preheader129:                                    ; preds = %.lr.ph, %30
-  %44 = icmp ugt i64 %12, %35
+  %.pre-phi = phi i64 [ 1, %30 ], [ %43, %.lr.ph ]
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %.pre-phi, i64 %12)
+  %44 = icmp ugt i64 %12, %.pre-phi
   br i1 %44, label %.lr.ph133, label %.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -91991,7 +91992,7 @@ define linkonce_odr dso_local void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr nound
   br i1 %74, label %.lr.ph135, label %.loopexit
 
 .lr.ph133:                                        ; preds = %.preheader129, %.lr.ph133
-  %.0114132 = phi i64 [ %99, %.lr.ph133 ], [ %35, %.preheader129 ]
+  %.0114132 = phi i64 [ %99, %.lr.ph133 ], [ %.pre-phi, %.preheader129 ]
   %75 = urem i64 %.0114132, %12
   %76 = add i64 %.0114132, %33
   %77 = urem i64 %76, %12
@@ -99699,29 +99700,29 @@ define linkonce_odr dso_local ptr @_ZSt19__partial_sort_copyIN9__gnu_cxx17__norm
   br i1 %6, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_RT0_.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = ptrtoint ptr %.fr55 to i64
   %.not54 = icmp eq ptr %0, %1
   br i1 %.not54, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
-  %.sroa.020.130 = phi ptr [ %10, %.lr.ph ], [ %.fr55, %7 ]
-  %.sroa.014.029 = phi ptr [ %11, %.lr.ph ], [ %0, %7 ]
-  %9 = load i32, ptr %.sroa.014.029, align 4, !tbaa !20
-  store i32 %9, ptr %.sroa.020.130, align 4, !tbaa !20
-  %10 = getelementptr i8, ptr %.sroa.020.130, i64 4
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.014.029, i64 4
-  %12 = icmp ne ptr %11, %1
-  %13 = icmp ne ptr %10, %3
-  %or.cond = and i1 %12, %13
+  %.sroa.020.130 = phi ptr [ %9, %.lr.ph ], [ %.fr55, %7 ]
+  %.sroa.014.029 = phi ptr [ %10, %.lr.ph ], [ %0, %7 ]
+  %8 = load i32, ptr %.sroa.014.029, align 4, !tbaa !20
+  store i32 %8, ptr %.sroa.020.130, align 4, !tbaa !20
+  %9 = getelementptr i8, ptr %.sroa.020.130, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.029, i64 4
+  %11 = icmp ne ptr %10, %1
+  %12 = icmp ne ptr %9, %3
+  %or.cond = and i1 %11, %12
   br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !2601
 
 .critedge:                                        ; preds = %.lr.ph, %7
-  %.sroa.014.0.lcssa = phi ptr [ %0, %7 ], [ %11, %.lr.ph ]
-  %.sroa.020.1.lcssa = phi ptr [ %.fr55, %7 ], [ %10, %.lr.ph ]
+  %.sroa.014.0.lcssa = phi ptr [ %0, %7 ], [ %10, %.lr.ph ]
+  %.sroa.020.1.lcssa = phi ptr [ %.fr55, %7 ], [ %9, %.lr.ph ]
+  %13 = ptrtoint ptr %.fr55 to i64
   call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_RT0_(ptr %.fr55, ptr %.sroa.020.1.lcssa, ptr noundef nonnull align 1 dereferenceable(1) %5)
   %.not32 = icmp eq ptr %.sroa.014.0.lcssa, %1
   %.pre = ptrtoint ptr %.sroa.020.1.lcssa to i64
-  %.pre60 = sub i64 %.pre, %8
+  %.pre60 = sub i64 %.pre, %13
   br i1 %.not32, label %._crit_edge, label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %.critedge
@@ -99899,7 +99900,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   %79 = load i32, ptr %.fr55, align 4, !tbaa !20
   store i32 %79, ptr %77, align 4, !tbaa !20
   %80 = ptrtoint ptr %77 to i64
-  %81 = sub i64 %80, %8
+  %81 = sub i64 %80, %13
   %82 = ashr exact i64 %81, 2
   %83 = add nsw i64 %82, -1
   %84 = sdiv i64 %83, 2
@@ -99988,29 +99989,29 @@ define linkonce_odr dso_local ptr @_ZSt19__partial_sort_copyIN9__gnu_cxx17__norm
   br i1 %6, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterISt7greaterIiEEEEvT_SC_RT0_.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = ptrtoint ptr %.fr56 to i64
   %.not55 = icmp eq ptr %0, %1
   br i1 %.not55, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
-  %.sroa.021.131 = phi ptr [ %10, %.lr.ph ], [ %.fr56, %7 ]
-  %.sroa.015.030 = phi ptr [ %11, %.lr.ph ], [ %0, %7 ]
-  %9 = load i32, ptr %.sroa.015.030, align 4, !tbaa !20
-  store i32 %9, ptr %.sroa.021.131, align 4, !tbaa !20
-  %10 = getelementptr i8, ptr %.sroa.021.131, i64 4
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.015.030, i64 4
-  %12 = icmp ne ptr %11, %1
-  %13 = icmp ne ptr %10, %3
-  %or.cond = and i1 %12, %13
+  %.sroa.021.131 = phi ptr [ %9, %.lr.ph ], [ %.fr56, %7 ]
+  %.sroa.015.030 = phi ptr [ %10, %.lr.ph ], [ %0, %7 ]
+  %8 = load i32, ptr %.sroa.015.030, align 4, !tbaa !20
+  store i32 %8, ptr %.sroa.021.131, align 4, !tbaa !20
+  %9 = getelementptr i8, ptr %.sroa.021.131, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.015.030, i64 4
+  %11 = icmp ne ptr %10, %1
+  %12 = icmp ne ptr %9, %3
+  %or.cond = and i1 %11, %12
   br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !2603
 
 .critedge:                                        ; preds = %.lr.ph, %7
-  %.sroa.015.0.lcssa = phi ptr [ %0, %7 ], [ %11, %.lr.ph ]
-  %.sroa.021.1.lcssa = phi ptr [ %.fr56, %7 ], [ %10, %.lr.ph ]
+  %.sroa.015.0.lcssa = phi ptr [ %0, %7 ], [ %10, %.lr.ph ]
+  %.sroa.021.1.lcssa = phi ptr [ %.fr56, %7 ], [ %9, %.lr.ph ]
+  %13 = ptrtoint ptr %.fr56 to i64
   call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterISt7greaterIiEEEEvT_SC_RT0_(ptr %.fr56, ptr %.sroa.021.1.lcssa, ptr noundef nonnull align 1 dereferenceable(1) %5)
   %.not33 = icmp eq ptr %.sroa.015.0.lcssa, %1
   %.pre = ptrtoint ptr %.sroa.021.1.lcssa to i64
-  %.pre61 = sub i64 %.pre, %8
+  %.pre61 = sub i64 %.pre, %13
   br i1 %.not33, label %._crit_edge, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %.critedge
@@ -100188,7 +100189,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   %79 = load i32, ptr %.fr56, align 4, !tbaa !20
   store i32 %79, ptr %77, align 4, !tbaa !20
   %80 = ptrtoint ptr %77 to i64
-  %81 = sub i64 %80, %8
+  %81 = sub i64 %80, %13
   %82 = ashr exact i64 %81, 2
   %83 = add nsw i64 %82, -1
   %84 = sdiv i64 %83, 2
@@ -110561,20 +110562,17 @@ _ZSt9__reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_St26ra
   %.ptr.i.i.i = getelementptr inbounds i8, ptr %25, i64 %.sroa.019.0.add.i.i.i
   %28 = load i32, ptr %.ptr.i.i.i, align 4, !tbaa !20
   %29 = icmp slt i32 %28, %27
-  br i1 %29, label %.preheader.i.i.i.preheader, label %38
+  br i1 %29, label %.preheader.i.i.i, label %38
 
-.preheader.i.i.i.preheader:                       ; preds = %_ZSt9__reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_St26random_access_iterator_tag.exit.i.i.i
-  %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %25, i64 %.sroa.019.0.add.i.i.i
-  br label %.preheader.i.i.i
-
-.preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %.preheader.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %30, %.preheader.i.i.i ], [ %25, %.preheader.i.i.i.preheader ]
+.preheader.i.i.i:                                 ; preds = %_ZSt9__reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_St26random_access_iterator_tag.exit.i.i.i, %.preheader.i.i.i
+  %.sroa.0.0.i.i.i = phi ptr [ %30, %.preheader.i.i.i ], [ %25, %_ZSt9__reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_St26random_access_iterator_tag.exit.i.i.i ]
   %30 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 -4
   %31 = load i32, ptr %30, align 4, !tbaa !20
   %32 = icmp slt i32 %28, %31
   br i1 %32, label %33, label %.preheader.i.i.i, !llvm.loop !325
 
 33:                                               ; preds = %.preheader.i.i.i
+  %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %25, i64 %.sroa.019.0.add.i.i.i
   store i32 %31, ptr %.ptr.i.i.i.le, align 4, !tbaa !20
   store i32 %28, ptr %30, align 4, !tbaa !20
   %.not.i.i.i = icmp eq i64 %.sroa.019.0.idx.i.i.i, -4

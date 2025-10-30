@@ -134,17 +134,17 @@ define noundef i32 @dgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %66 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %67 = add nsw i64 %.065, -1
   %68 = icmp samesign ugt i64 %.065, 1
-  br i1 %68, label %.preheader76.split.split, label %.loopexit77.loopexit100, !llvm.loop !9
+  br i1 %68, label %.preheader76.split.split, label %.loopexit77.loopexit119, !llvm.loop !9
 
-.loopexit77.loopexit100:                          ; preds = %.preheader76.split.split
+.loopexit77.loopexit119:                          ; preds = %.preheader76.split.split
   %69 = shl i64 %9, 5
   %scevgep = getelementptr i8, ptr %4, i64 %69
   br label %.loopexit77
 
-.loopexit77:                                      ; preds = %.loopexit75.us, %.loopexit75.us.us, %.loopexit77.loopexit100, %.preheader76.split.split.us.preheader, %5
-  %.060 = phi ptr [ %2, %5 ], [ %scevgep113, %.preheader76.split.split.us.preheader ], [ %62, %.loopexit77.loopexit100 ], [ %30, %.loopexit75.us.us ], [ %50, %.loopexit75.us ]
-  %.053 = phi ptr [ %4, %5 ], [ %scevgep114, %.preheader76.split.split.us.preheader ], [ %scevgep, %.loopexit77.loopexit100 ], [ %31, %.loopexit75.us.us ], [ %51, %.loopexit75.us ]
-  %.0 = phi ptr [ %8, %5 ], [ %8, %.preheader76.split.split.us.preheader ], [ %66, %.loopexit77.loopexit100 ], [ %8, %.loopexit75.us.us ], [ %55, %.loopexit75.us ]
+.loopexit77:                                      ; preds = %.loopexit75.us, %.loopexit75.us.us, %.loopexit77.loopexit119, %.preheader76.split.split.us.preheader, %5
+  %.060 = phi ptr [ %2, %5 ], [ %scevgep113, %.preheader76.split.split.us.preheader ], [ %62, %.loopexit77.loopexit119 ], [ %30, %.loopexit75.us.us ], [ %50, %.loopexit75.us ]
+  %.053 = phi ptr [ %4, %5 ], [ %scevgep114, %.preheader76.split.split.us.preheader ], [ %scevgep, %.loopexit77.loopexit119 ], [ %31, %.loopexit75.us.us ], [ %51, %.loopexit75.us ]
+  %.0 = phi ptr [ %8, %5 ], [ %8, %.preheader76.split.split.us.preheader ], [ %66, %.loopexit77.loopexit119 ], [ %8, %.loopexit75.us.us ], [ %55, %.loopexit75.us ]
   %70 = and i64 %0, 1
   %.not71 = icmp eq i64 %70, 0
   br i1 %.not71, label %86, label %71

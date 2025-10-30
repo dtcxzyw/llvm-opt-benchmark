@@ -4026,13 +4026,13 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr noundef nonnull captu
 
 33:                                               ; preds = %30
   %34 = sub nuw nsw i32 16, %3
-  %35 = zext nneg i32 %3 to i64
-  %36 = add nuw nsw i32 %3, 1
-  %wide.trip.count161 = zext nneg i32 %36 to i64
-  %37 = sub nuw nsw i32 18, %3
+  %35 = add nuw nsw i32 %3, 1
+  %wide.trip.count161 = zext nneg i32 %35 to i64
+  %36 = sub nuw nsw i32 18, %3
   br label %39
 
 .preheader123:                                    ; preds = %39
+  %37 = zext nneg i32 %3 to i64
   %38 = icmp samesign ult i64 %indvars.iv158, 16
   br i1 %38, label %.lr.ph.preheader, label %._crit_edge
 
@@ -4041,7 +4041,7 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr noundef nonnull captu
   br label %.lr.ph
 
 39:                                               ; preds = %33, %39
-  %indvars.iv168 = phi i32 [ %37, %33 ], [ %indvars.iv.next169, %39 ]
+  %indvars.iv168 = phi i32 [ %36, %33 ], [ %indvars.iv.next169, %39 ]
   %indvars.iv163 = phi i64 [ 2, %33 ], [ %indvars.iv.next164, %39 ]
   %indvars.iv158 = phi i64 [ 1, %33 ], [ %indvars.iv.next159, %39 ]
   %40 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv158
@@ -4075,7 +4075,7 @@ define internal fastcc range(i32 0, 8) i32 @make_table(ptr noundef nonnull captu
   br i1 %exitcond171.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader123
-  %55 = getelementptr inbounds nuw i16, ptr %8, i64 %35
+  %55 = getelementptr inbounds nuw i16, ptr %8, i64 %37
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 2
   %57 = load i16, ptr %56, align 2, !tbaa !18
   %58 = zext i16 %57 to i32

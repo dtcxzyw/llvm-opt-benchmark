@@ -2952,8 +2952,8 @@ stbtt__buf_get8.exit.i.i277:                      ; preds = %642, %638
   br i1 %exitcond.not.i.i274, label %stbtt__buf_get.exit.i279, label %638, !llvm.loop !13
 
 stbtt__buf_get.exit.i279:                         ; preds = %stbtt__buf_get8.exit.i.i277
-  %651 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %648, ptr %432, align 8
+  %651 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.not.i280 = icmp eq i32 %650, 0
   br i1 %.not.i280, label %680, label %652
 
@@ -6846,50 +6846,50 @@ define range(i32 0, 2) i32 @stbtt__run_charstring(ptr noundef readonly captures(
   %5 = alloca [10 x %struct.stbtt__buf], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.sroa.073.0.copyload = load ptr, ptr %6, align 8, !tbaa !20
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %10 = load i64, ptr %9, align 8
-  %.sroa.18.8.extract.shift.i = lshr i64 %10, 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %9 = load i64, ptr %8, align 8
+  %.sroa.18.8.extract.shift.i = lshr i64 %9, 32
   %.sroa.18.8.extract.trunc.i = trunc nuw i64 %.sroa.18.8.extract.shift.i to i32
-  %11 = tail call i32 @llvm.smin.i32(i32 %.sroa.18.8.extract.trunc.i, i32 0)
-  br label %12
+  %10 = tail call i32 @llvm.smin.i32(i32 %.sroa.18.8.extract.trunc.i, i32 0)
+  br label %11
 
-12:                                               ; preds = %stbtt__buf_get8.exit.i.i, %3
-  %.sroa.6.0.i = phi i32 [ %11, %3 ], [ %.sroa.6.1.i, %stbtt__buf_get8.exit.i.i ]
-  %13 = phi i32 [ %11, %3 ], [ %21, %stbtt__buf_get8.exit.i.i ]
+11:                                               ; preds = %stbtt__buf_get8.exit.i.i, %3
+  %.sroa.6.0.i = phi i32 [ %10, %3 ], [ %.sroa.6.1.i, %stbtt__buf_get8.exit.i.i ]
+  %12 = phi i32 [ %10, %3 ], [ %20, %stbtt__buf_get8.exit.i.i ]
   %exitcond.not.i.i = phi i1 [ false, %3 ], [ true, %stbtt__buf_get8.exit.i.i ]
-  %.056.i.i = phi i32 [ 0, %3 ], [ %22, %stbtt__buf_get8.exit.i.i ]
-  %14 = shl i32 %.056.i.i, 8
-  %.not.i.i.i = icmp slt i32 %13, %.sroa.18.8.extract.trunc.i
-  br i1 %.not.i.i.i, label %15, label %stbtt__buf_get8.exit.i.i
+  %.056.i.i = phi i32 [ 0, %3 ], [ %21, %stbtt__buf_get8.exit.i.i ]
+  %13 = shl i32 %.056.i.i, 8
+  %.not.i.i.i = icmp slt i32 %12, %.sroa.18.8.extract.trunc.i
+  br i1 %.not.i.i.i, label %14, label %stbtt__buf_get8.exit.i.i
 
-15:                                               ; preds = %12
-  %16 = add nsw i32 %13, 1
-  %17 = sext i32 %13 to i64
-  %18 = getelementptr inbounds i8, ptr %8, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !12
-  %20 = zext i8 %19 to i32
+14:                                               ; preds = %11
+  %15 = add nsw i32 %12, 1
+  %16 = sext i32 %12 to i64
+  %17 = getelementptr inbounds i8, ptr %7, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !12
+  %19 = zext i8 %18 to i32
   br label %stbtt__buf_get8.exit.i.i
 
-stbtt__buf_get8.exit.i.i:                         ; preds = %15, %12
-  %.sroa.6.1.i = phi i32 [ %16, %15 ], [ %.sroa.6.0.i, %12 ]
-  %21 = phi i32 [ %16, %15 ], [ %13, %12 ]
-  %.0.i.i.i = phi i32 [ %20, %15 ], [ 0, %12 ]
-  %22 = or disjoint i32 %.0.i.i.i, %14
-  br i1 %exitcond.not.i.i, label %stbtt__buf_get.exit.i, label %12, !llvm.loop !13
+stbtt__buf_get8.exit.i.i:                         ; preds = %14, %11
+  %.sroa.6.1.i = phi i32 [ %15, %14 ], [ %.sroa.6.0.i, %11 ]
+  %20 = phi i32 [ %15, %14 ], [ %12, %11 ]
+  %.0.i.i.i = phi i32 [ %19, %14 ], [ 0, %11 ]
+  %21 = or disjoint i32 %.0.i.i.i, %13
+  br i1 %exitcond.not.i.i, label %stbtt__buf_get.exit.i, label %11, !llvm.loop !13
 
 stbtt__buf_get.exit.i:                            ; preds = %stbtt__buf_get8.exit.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %.sroa.073.0.copyload = load ptr, ptr %22, align 8, !tbaa !20
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %.not.i.i = icmp slt i32 %.sroa.6.1.i, %.sroa.18.8.extract.trunc.i
   br i1 %.not.i.i, label %stbtt__buf_get8.exit.i, label %stbtt__buf_get.exit26.i
 
 stbtt__buf_get8.exit.i:                           ; preds = %stbtt__buf_get.exit.i
   %23 = sext i32 %.sroa.6.1.i to i64
-  %24 = getelementptr inbounds i8, ptr %8, i64 %23
+  %24 = getelementptr inbounds i8, ptr %7, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !12
   %26 = zext i8 %25 to i32
   %.not.i = icmp eq i8 %25, 0
@@ -6916,7 +6916,7 @@ stbtt__buf_get8.exit.i:                           ; preds = %stbtt__buf_get.exit
 34:                                               ; preds = %.lr.ph.i.i
   %35 = add nsw i32 %32, 1
   %36 = sext i32 %32 to i64
-  %37 = getelementptr inbounds i8, ptr %8, i64 %36
+  %37 = getelementptr inbounds i8, ptr %7, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !12
   %39 = zext i8 %38 to i32
   br label %stbtt__buf_get8.exit.i13.i
@@ -6941,7 +6941,7 @@ stbtt__buf_get8.exit.i13.i:                       ; preds = %34, %.lr.ph.i.i
 45:                                               ; preds = %.lr.ph.i18.i
   %46 = add nsw i32 %43, 1
   %47 = sext i32 %43 to i64
-  %48 = getelementptr inbounds i8, ptr %8, i64 %47
+  %48 = getelementptr inbounds i8, ptr %7, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !12
   %50 = zext i8 %49 to i32
   br label %stbtt__buf_get8.exit.i23.i
@@ -6958,7 +6958,7 @@ stbtt__buf_get.exit26.i:                          ; preds = %stbtt__buf_get8.exi
   %.0.i57.i = phi i32 [ 0, %stbtt__buf_get8.exit.i ], [ 0, %stbtt__buf_get.exit.i ], [ %26, %stbtt__buf_get8.exit.i23.i ]
   %.05.lcssa.i40.i = phi i32 [ 0, %stbtt__buf_get8.exit.i ], [ 0, %stbtt__buf_get.exit.i ], [ %41, %stbtt__buf_get8.exit.i23.i ]
   %.05.lcssa.i17.i = phi i32 [ 0, %stbtt__buf_get8.exit.i ], [ 0, %stbtt__buf_get.exit.i ], [ %52, %stbtt__buf_get8.exit.i23.i ]
-  %54 = add nsw i32 %22, 1
+  %54 = add nsw i32 %21, 1
   %55 = mul nsw i32 %.0.i57.i, %54
   %56 = add nsw i32 %55, 2
   %57 = add nsw i32 %56, %.05.lcssa.i40.i
@@ -6980,7 +6980,7 @@ stbtt__buf_get8.exit.lr.ph:                       ; preds = %60
   %65 = zext nneg i32 %58 to i64
   %66 = shl nuw nsw i64 %65, 32
   %67 = zext nneg i32 %57 to i64
-  %68 = getelementptr inbounds nuw i8, ptr %8, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -11584,7 +11584,6 @@ define void @stbtt__fill_active_edges_new(ptr noundef %0, ptr noundef captures(n
   %256 = sub nsw i32 %.pre-phi479, %235
   %257 = sitofp i32 %256 to float
   %258 = fdiv float %255, %257
-  %.0306 = select i1 %254, float %6, float %241
   %.1304 = select i1 %254, float %258, float %.0303
   %259 = fmul float %244, %.1304
   %260 = icmp slt i32 %235, %.pre-phi479
@@ -11611,6 +11610,7 @@ define void @stbtt__fill_active_edges_new(ptr noundef %0, ptr noundef captures(n
 
 ._crit_edge:                                      ; preds = %263, %234
   %.0302.lcssa = phi float [ %246, %234 ], [ %268, %263 ]
+  %.0306 = select i1 %254, float %6, float %241
   %269 = fsub float %.1301, %.0306
   %270 = fadd float %239, 1.000000e+00
   %271 = fsub float %270, %239
@@ -12934,22 +12934,22 @@ define void @stbtt__rasterize_sorted_edges(ptr noundef readonly captures(none) %
   %.sroa.11.0122 = phi i32 [ 0, %.lr.ph128 ], [ %.sroa.11.1.lcssa, %._crit_edge120 ]
   %.sroa.7.0121 = phi ptr [ null, %.lr.ph128 ], [ %.sroa.7.3.lcssa, %._crit_edge120 ]
   %37 = sitofp i32 %.075125 to float
-  %38 = fadd float %37, 1.000000e+00
-  %39 = sext i32 %36 to i64
-  %40 = shl nsw i64 %39, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %.079, i8 0, i64 %40, i1 false)
-  %41 = add nsw i32 %36, 1
-  %42 = sext i32 %41 to i64
-  %43 = shl nsw i64 %42, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %43, i1 false)
+  %38 = sext i32 %36 to i64
+  %39 = shl nsw i64 %38, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %.079, i8 0, i64 %39, i1 false)
+  %40 = add nsw i32 %36, 1
+  %41 = sext i32 %40 to i64
+  %42 = shl nsw i64 %41, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %42, i1 false)
   %.not90102 = icmp eq ptr %.0., null
   br i1 %.not90102, label %.preheader101, label %.lr.ph
 
 .preheader101:                                    ; preds = %55, %35
   %.sroa.7.1.lcssa = phi ptr [ %.sroa.7.0121, %35 ], [ %.sroa.7.2, %55 ]
+  %43 = fadd float %37, 1.000000e+00
   %44 = getelementptr inbounds nuw i8, ptr %.0126, i64 4
   %45 = load float, ptr %44, align 4, !tbaa !104
-  %46 = fcmp ugt float %45, %38
+  %46 = fcmp ugt float %45, %43
   br i1 %46, label %._crit_edge, label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %.preheader101
@@ -13081,7 +13081,7 @@ stbtt__new_active.exit.thread:                    ; preds = %68, %101, %57
   %102 = getelementptr inbounds nuw i8, ptr %.1108, i64 20
   %103 = getelementptr inbounds nuw i8, ptr %.1108, i64 24
   %104 = load float, ptr %103, align 4, !tbaa !104
-  %105 = fcmp ugt float %104, %38
+  %105 = fcmp ugt float %104, %43
   br i1 %105, label %._crit_edge, label %57, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %stbtt__new_active.exit.thread, %.preheader101
@@ -13428,11 +13428,8 @@ stbtt__sort_edges_ins_sort.exit:                  ; preds = %18, %2
 ; Function Attrs: nounwind uwtable
 define void @stbtt__rasterize(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr readnone captures(none) %11) local_unnamed_addr #10 {
   %.sroa.5.i.i = alloca { float, float, i32 }, align 8
-  %.not = icmp eq i32 %10, 0
-  %13 = fneg float %5
-  %14 = select i1 %.not, float %5, float %13
-  %15 = icmp sgt i32 %3, 0
-  br i1 %15, label %.lr.ph.preheader, label %._crit_edge.thread
+  %13 = icmp sgt i32 %3, 0
+  br i1 %13, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %12
   %wide.trip.count = zext nneg i32 %3 to i64
@@ -13440,28 +13437,37 @@ define void @stbtt__rasterize(ptr noundef readonly captures(none) %0, ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.08393 = phi i32 [ 0, %.lr.ph.preheader ], [ %18, %.lr.ph ]
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 4, !tbaa !17
-  %18 = add nsw i32 %17, %.08393
+  %.08393 = phi i32 [ 0, %.lr.ph.preheader ], [ %16, %.lr.ph ]
+  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %15 = load i32, ptr %14, align 4, !tbaa !17
+  %16 = add nsw i32 %15, %.08393
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !133
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %19 = add nsw i32 %18, 1
-  %20 = sext i32 %19 to i64
-  %21 = mul nsw i64 %20, 20
-  %22 = tail call noalias ptr @malloc(i64 noundef %21) #33
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %17 = add nsw i32 %16, 1
+  %18 = sext i32 %17 to i64
+  %19 = mul nsw i64 %18, 20
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %12
+  %.083.lcssa = phi i64 [ 20, %12 ], [ %19, %._crit_edge.loopexit ]
+  %.not = icmp eq i32 %10, 0
+  %20 = fneg float %5
+  %21 = select i1 %.not, float %5, float %20
+  %22 = tail call noalias ptr @malloc(i64 noundef %.083.lcssa) #33
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %115, label %.lr.ph104
+  br i1 %23, label %112, label %.preheader
 
-._crit_edge.thread:                               ; preds = %12
-  %24 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #33
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %115, label %._crit_edge105.thread
+.preheader:                                       ; preds = %._crit_edge
+  br i1 %13, label %.lr.ph104, label %._crit_edge105.thread
 
-.lr.ph104:                                        ; preds = %._crit_edge
+._crit_edge105.thread:                            ; preds = %.preheader
+  tail call void @stbtt__sort_edges_quicksort(ptr noundef nonnull %22, i32 noundef 0)
+  br label %stbtt__sort_edges.exit
+
+.lr.ph104:                                        ; preds = %.preheader
   %wide.trip.count130 = zext nneg i32 %3 to i64
   br i1 %.not, label %.lr.ph104.split.us, label %.lr.ph104.split
 
@@ -13469,21 +13475,21 @@ define void @stbtt__rasterize(ptr noundef readonly captures(none) %0, ptr nounde
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %._crit_edge99.split.us.us ], [ 0, %.lr.ph104 ]
   %.1103.us = phi i32 [ %.2.lcssa.us, %._crit_edge99.split.us.us ], [ 0, %.lr.ph104 ]
   %.086101.us = phi i32 [ %30, %._crit_edge99.split.us.us ], [ 0, %.lr.ph104 ]
-  %26 = sext i32 %.086101.us to i64
-  %27 = getelementptr inbounds %struct.stbtt__point, ptr %1, i64 %26
-  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv127
-  %29 = load i32, ptr %28, align 4, !tbaa !17
-  %30 = add nsw i32 %29, %.086101.us
-  %31 = icmp sgt i32 %29, 0
-  br i1 %31, label %.lr.ph98.us.preheader, label %._crit_edge99.split.us.us
+  %24 = sext i32 %.086101.us to i64
+  %25 = getelementptr inbounds %struct.stbtt__point, ptr %1, i64 %24
+  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv127
+  %27 = load i32, ptr %26, align 4, !tbaa !17
+  %28 = icmp sgt i32 %27, 0
+  br i1 %28, label %.lr.ph98.us.preheader, label %._crit_edge99.split.us.us
 
 .lr.ph98.us.preheader:                            ; preds = %.lr.ph104.split.us
-  %32 = add nsw i32 %29, -1
-  %wide.trip.count125 = zext nneg i32 %29 to i64
+  %29 = add nsw i32 %27, -1
+  %wide.trip.count125 = zext nneg i32 %27 to i64
   br label %.lr.ph98.us
 
 ._crit_edge99.split.us.us:                        ; preds = %.lr.ph98.us._crit_edge, %.lr.ph104.split.us
   %.2.lcssa.us = phi i32 [ %.1103.us, %.lr.ph104.split.us ], [ %.3.us.us, %.lr.ph98.us._crit_edge ]
+  %30 = add nsw i32 %27, %.086101.us
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
   br i1 %exitcond131.not, label %._crit_edge105, label %.lr.ph104.split.us, !llvm.loop !134
@@ -13491,60 +13497,60 @@ define void @stbtt__rasterize(ptr noundef readonly captures(none) %0, ptr nounde
 .lr.ph98.us:                                      ; preds = %.lr.ph98.us.preheader, %.lr.ph98.us._crit_edge
   %indvars.iv122 = phi i64 [ 0, %.lr.ph98.us.preheader ], [ %indvars.iv.next123, %.lr.ph98.us._crit_edge ]
   %.296.us.us = phi i32 [ %.1103.us, %.lr.ph98.us.preheader ], [ %.3.us.us, %.lr.ph98.us._crit_edge ]
-  %.08894.us.us = phi i32 [ %32, %.lr.ph98.us.preheader ], [ %.pre-phi142, %.lr.ph98.us._crit_edge ]
-  %33 = sext i32 %.08894.us.us to i64
-  %34 = getelementptr inbounds %struct.stbtt__point, ptr %27, i64 %33
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %36 = load float, ptr %35, align 4, !tbaa !135
-  %37 = getelementptr inbounds nuw %struct.stbtt__point, ptr %27, i64 %indvars.iv122
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %39 = load float, ptr %38, align 4, !tbaa !135
-  %40 = fcmp oeq float %36, %39
-  br i1 %40, label %.lr.ph98.us._crit_edge, label %41
+  %.08894.us.us = phi i32 [ %29, %.lr.ph98.us.preheader ], [ %.pre-phi142, %.lr.ph98.us._crit_edge ]
+  %31 = sext i32 %.08894.us.us to i64
+  %32 = getelementptr inbounds %struct.stbtt__point, ptr %25, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %34 = load float, ptr %33, align 4, !tbaa !135
+  %35 = getelementptr inbounds nuw %struct.stbtt__point, ptr %25, i64 %indvars.iv122
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %37 = load float, ptr %36, align 4, !tbaa !135
+  %38 = fcmp oeq float %34, %37
+  br i1 %38, label %.lr.ph98.us._crit_edge, label %39
 
-41:                                               ; preds = %.lr.ph98.us
-  %42 = sext i32 %.296.us.us to i64
-  %43 = getelementptr inbounds %struct.stbtt__edge, ptr %22, i64 %42
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = fcmp olt float %36, %39
+39:                                               ; preds = %.lr.ph98.us
+  %40 = sext i32 %.296.us.us to i64
+  %41 = getelementptr inbounds %struct.stbtt__edge, ptr %22, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = fcmp olt float %34, %37
   %sext159 = shl i64 %indvars.iv122, 32
   %.pre134 = ashr exact i64 %sext159, 32
-  br i1 %45, label %46, label %._crit_edge140
+  br i1 %43, label %44, label %._crit_edge140
 
-46:                                               ; preds = %41
-  %.phi.trans.insert136 = getelementptr inbounds %struct.stbtt__point, ptr %27, i64 %.pre134
+44:                                               ; preds = %39
+  %.phi.trans.insert136 = getelementptr inbounds %struct.stbtt__point, ptr %25, i64 %.pre134
   %.phi.trans.insert137 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert136, i64 4
   %.pre138 = load float, ptr %.phi.trans.insert137, align 4, !tbaa !135
   br label %._crit_edge140
 
-._crit_edge140:                                   ; preds = %41, %46
-  %.pre-phi144 = phi i64 [ %33, %46 ], [ %.pre134, %41 ]
-  %47 = phi float [ %.pre138, %46 ], [ %36, %41 ]
-  %.pre-phi135 = phi i64 [ %.pre134, %46 ], [ %33, %41 ]
-  %storemerge108 = phi i32 [ 1, %46 ], [ 0, %41 ]
-  store i32 %storemerge108, ptr %44, align 4, !tbaa !110
-  %48 = getelementptr inbounds %struct.stbtt__point, ptr %27, i64 %.pre-phi144
-  %49 = load float, ptr %48, align 4, !tbaa !137
-  %50 = tail call float @llvm.fmuladd.f32(float %49, float %4, float %6)
-  store float %50, ptr %43, align 4, !tbaa !102
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %52 = load float, ptr %51, align 4, !tbaa !135
-  %53 = tail call float @llvm.fmuladd.f32(float %52, float %14, float %7)
-  %54 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  store float %53, ptr %54, align 4, !tbaa !104
-  %55 = getelementptr inbounds %struct.stbtt__point, ptr %27, i64 %.pre-phi135
-  %56 = load float, ptr %55, align 4, !tbaa !137
-  %57 = tail call float @llvm.fmuladd.f32(float %56, float %4, float %6)
-  %58 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store float %57, ptr %58, align 4, !tbaa !100
-  %59 = tail call float @llvm.fmuladd.f32(float %47, float %14, float %7)
-  %60 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  store float %59, ptr %60, align 4, !tbaa !103
-  %61 = add nsw i32 %.296.us.us, 1
+._crit_edge140:                                   ; preds = %39, %44
+  %.pre-phi144 = phi i64 [ %31, %44 ], [ %.pre134, %39 ]
+  %45 = phi float [ %.pre138, %44 ], [ %34, %39 ]
+  %.pre-phi135 = phi i64 [ %.pre134, %44 ], [ %31, %39 ]
+  %storemerge108 = phi i32 [ 1, %44 ], [ 0, %39 ]
+  store i32 %storemerge108, ptr %42, align 4, !tbaa !110
+  %46 = getelementptr inbounds %struct.stbtt__point, ptr %25, i64 %.pre-phi144
+  %47 = load float, ptr %46, align 4, !tbaa !137
+  %48 = tail call float @llvm.fmuladd.f32(float %47, float %4, float %6)
+  store float %48, ptr %41, align 4, !tbaa !102
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %50 = load float, ptr %49, align 4, !tbaa !135
+  %51 = tail call float @llvm.fmuladd.f32(float %50, float %21, float %7)
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  store float %51, ptr %52, align 4, !tbaa !104
+  %53 = getelementptr inbounds %struct.stbtt__point, ptr %25, i64 %.pre-phi135
+  %54 = load float, ptr %53, align 4, !tbaa !137
+  %55 = tail call float @llvm.fmuladd.f32(float %54, float %4, float %6)
+  %56 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store float %55, ptr %56, align 4, !tbaa !100
+  %57 = tail call float @llvm.fmuladd.f32(float %45, float %21, float %7)
+  %58 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  store float %57, ptr %58, align 4, !tbaa !103
+  %59 = add nsw i32 %.296.us.us, 1
   br label %.lr.ph98.us._crit_edge
 
 .lr.ph98.us._crit_edge:                           ; preds = %.lr.ph98.us, %._crit_edge140
-  %.3.us.us = phi i32 [ %61, %._crit_edge140 ], [ %.296.us.us, %.lr.ph98.us ]
+  %.3.us.us = phi i32 [ %59, %._crit_edge140 ], [ %.296.us.us, %.lr.ph98.us ]
   %.pre-phi142 = trunc i64 %indvars.iv122 to i32
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
@@ -13553,77 +13559,76 @@ define void @stbtt__rasterize(ptr noundef readonly captures(none) %0, ptr nounde
 .lr.ph104.split:                                  ; preds = %.lr.ph104, %._crit_edge99.split
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %._crit_edge99.split ], [ 0, %.lr.ph104 ]
   %.1103 = phi i32 [ %.2.lcssa, %._crit_edge99.split ], [ 0, %.lr.ph104 ]
-  %.086101 = phi i32 [ %66, %._crit_edge99.split ], [ 0, %.lr.ph104 ]
-  %62 = sext i32 %.086101 to i64
-  %63 = getelementptr inbounds %struct.stbtt__point, ptr %1, i64 %62
-  %64 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv117
-  %65 = load i32, ptr %64, align 4, !tbaa !17
-  %66 = add nsw i32 %65, %.086101
-  %67 = icmp sgt i32 %65, 0
-  br i1 %67, label %.lr.ph98.preheader, label %._crit_edge99.split
+  %.086101 = phi i32 [ %95, %._crit_edge99.split ], [ 0, %.lr.ph104 ]
+  %60 = sext i32 %.086101 to i64
+  %61 = getelementptr inbounds %struct.stbtt__point, ptr %1, i64 %60
+  %62 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv117
+  %63 = load i32, ptr %62, align 4, !tbaa !17
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %.lr.ph98.preheader, label %._crit_edge99.split
 
 .lr.ph98.preheader:                               ; preds = %.lr.ph104.split
-  %68 = add nsw i32 %65, -1
-  %wide.trip.count115 = zext nneg i32 %65 to i64
+  %65 = add nsw i32 %63, -1
+  %wide.trip.count115 = zext nneg i32 %63 to i64
   br label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %.lr.ph98.preheader, %.lr.ph98._crit_edge
   %indvars.iv112 = phi i64 [ 0, %.lr.ph98.preheader ], [ %indvars.iv.next113, %.lr.ph98._crit_edge ]
   %.296 = phi i32 [ %.1103, %.lr.ph98.preheader ], [ %.3, %.lr.ph98._crit_edge ]
-  %.08894 = phi i32 [ %68, %.lr.ph98.preheader ], [ %.pre-phi146, %.lr.ph98._crit_edge ]
-  %69 = sext i32 %.08894 to i64
-  %70 = getelementptr inbounds %struct.stbtt__point, ptr %63, i64 %69
+  %.08894 = phi i32 [ %65, %.lr.ph98.preheader ], [ %.pre-phi146, %.lr.ph98._crit_edge ]
+  %66 = sext i32 %.08894 to i64
+  %67 = getelementptr inbounds %struct.stbtt__point, ptr %61, i64 %66
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  %69 = load float, ptr %68, align 4, !tbaa !135
+  %70 = getelementptr inbounds nuw %struct.stbtt__point, ptr %61, i64 %indvars.iv112
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load float, ptr %71, align 4, !tbaa !135
-  %73 = getelementptr inbounds nuw %struct.stbtt__point, ptr %63, i64 %indvars.iv112
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  %75 = load float, ptr %74, align 4, !tbaa !135
-  %76 = fcmp oeq float %72, %75
-  br i1 %76, label %.lr.ph98._crit_edge, label %77
+  %73 = fcmp oeq float %69, %72
+  br i1 %73, label %.lr.ph98._crit_edge, label %74
 
-77:                                               ; preds = %.lr.ph98
-  %78 = sext i32 %.296 to i64
-  %79 = getelementptr inbounds %struct.stbtt__edge, ptr %22, i64 %78
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %81 = fcmp ogt float %72, %75
+74:                                               ; preds = %.lr.ph98
+  %75 = sext i32 %.296 to i64
+  %76 = getelementptr inbounds %struct.stbtt__edge, ptr %22, i64 %75
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %78 = fcmp ogt float %69, %72
   %sext157 = shl i64 %indvars.iv112, 32
   %.pre = ashr exact i64 %sext157, 32
-  br i1 %81, label %82, label %._crit_edge139
+  br i1 %78, label %79, label %._crit_edge139
 
-82:                                               ; preds = %77
-  %.phi.trans.insert = getelementptr inbounds %struct.stbtt__point, ptr %63, i64 %.pre
+79:                                               ; preds = %74
+  %.phi.trans.insert = getelementptr inbounds %struct.stbtt__point, ptr %61, i64 %.pre
   %.phi.trans.insert132 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 4
   %.pre133 = load float, ptr %.phi.trans.insert132, align 4, !tbaa !135
   br label %._crit_edge139
 
-._crit_edge139:                                   ; preds = %77, %82
-  %.pre-phi148 = phi i64 [ %69, %82 ], [ %.pre, %77 ]
-  %83 = phi float [ %.pre133, %82 ], [ %72, %77 ]
-  %.pre-phi = phi i64 [ %.pre, %82 ], [ %69, %77 ]
-  %storemerge = phi i32 [ 1, %82 ], [ 0, %77 ]
-  store i32 %storemerge, ptr %80, align 4, !tbaa !110
-  %84 = getelementptr inbounds %struct.stbtt__point, ptr %63, i64 %.pre-phi148
-  %85 = load float, ptr %84, align 4, !tbaa !137
-  %86 = tail call float @llvm.fmuladd.f32(float %85, float %4, float %6)
-  store float %86, ptr %79, align 4, !tbaa !102
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  %88 = load float, ptr %87, align 4, !tbaa !135
-  %89 = tail call float @llvm.fmuladd.f32(float %88, float %14, float %7)
-  %90 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  store float %89, ptr %90, align 4, !tbaa !104
-  %91 = getelementptr inbounds %struct.stbtt__point, ptr %63, i64 %.pre-phi
-  %92 = load float, ptr %91, align 4, !tbaa !137
-  %93 = tail call float @llvm.fmuladd.f32(float %92, float %4, float %6)
-  %94 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store float %93, ptr %94, align 4, !tbaa !100
-  %95 = tail call float @llvm.fmuladd.f32(float %83, float %14, float %7)
-  %96 = getelementptr inbounds nuw i8, ptr %79, i64 12
-  store float %95, ptr %96, align 4, !tbaa !103
-  %97 = add nsw i32 %.296, 1
+._crit_edge139:                                   ; preds = %74, %79
+  %.pre-phi148 = phi i64 [ %66, %79 ], [ %.pre, %74 ]
+  %80 = phi float [ %.pre133, %79 ], [ %69, %74 ]
+  %.pre-phi = phi i64 [ %.pre, %79 ], [ %66, %74 ]
+  %storemerge = phi i32 [ 1, %79 ], [ 0, %74 ]
+  store i32 %storemerge, ptr %77, align 4, !tbaa !110
+  %81 = getelementptr inbounds %struct.stbtt__point, ptr %61, i64 %.pre-phi148
+  %82 = load float, ptr %81, align 4, !tbaa !137
+  %83 = tail call float @llvm.fmuladd.f32(float %82, float %4, float %6)
+  store float %83, ptr %76, align 4, !tbaa !102
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %85 = load float, ptr %84, align 4, !tbaa !135
+  %86 = tail call float @llvm.fmuladd.f32(float %85, float %21, float %7)
+  %87 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  store float %86, ptr %87, align 4, !tbaa !104
+  %88 = getelementptr inbounds %struct.stbtt__point, ptr %61, i64 %.pre-phi
+  %89 = load float, ptr %88, align 4, !tbaa !137
+  %90 = tail call float @llvm.fmuladd.f32(float %89, float %4, float %6)
+  %91 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  store float %90, ptr %91, align 4, !tbaa !100
+  %92 = tail call float @llvm.fmuladd.f32(float %80, float %21, float %7)
+  %93 = getelementptr inbounds nuw i8, ptr %76, i64 12
+  store float %92, ptr %93, align 4, !tbaa !103
+  %94 = add nsw i32 %.296, 1
   br label %.lr.ph98._crit_edge
 
 .lr.ph98._crit_edge:                              ; preds = %.lr.ph98, %._crit_edge139
-  %.3 = phi i32 [ %97, %._crit_edge139 ], [ %.296, %.lr.ph98 ]
+  %.3 = phi i32 [ %94, %._crit_edge139 ], [ %.296, %.lr.ph98 ]
   %.pre-phi146 = trunc i64 %indvars.iv112 to i32
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
@@ -13631,84 +13636,80 @@ define void @stbtt__rasterize(ptr noundef readonly captures(none) %0, ptr nounde
 
 ._crit_edge99.split:                              ; preds = %.lr.ph98._crit_edge, %.lr.ph104.split
   %.2.lcssa = phi i32 [ %.1103, %.lr.ph104.split ], [ %.3, %.lr.ph98._crit_edge ]
+  %95 = add nsw i32 %63, %.086101
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count130
   br i1 %exitcond121.not, label %._crit_edge105, label %.lr.ph104.split, !llvm.loop !134
 
-._crit_edge105.thread:                            ; preds = %._crit_edge.thread
-  tail call void @stbtt__sort_edges_quicksort(ptr noundef nonnull %24, i32 noundef 0)
-  br label %stbtt__sort_edges.exit
-
 ._crit_edge105:                                   ; preds = %._crit_edge99.split, %._crit_edge99.split.us.us
   %.1.lcssa = phi i32 [ %.2.lcssa.us, %._crit_edge99.split.us.us ], [ %.2.lcssa, %._crit_edge99.split ]
   tail call void @stbtt__sort_edges_quicksort(ptr noundef nonnull %22, i32 noundef %.1.lcssa)
-  %98 = icmp sgt i32 %.1.lcssa, 1
-  br i1 %98, label %.lr.ph.preheader.i.i, label %stbtt__sort_edges.exit
+  %96 = icmp sgt i32 %.1.lcssa, 1
+  br i1 %96, label %.lr.ph.preheader.i.i, label %stbtt__sort_edges.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge105
   %wide.trip.count.i.i = zext nneg i32 %.1.lcssa to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %113, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %113 ]
+.lr.ph.i.i:                                       ; preds = %111, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %111 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i)
-  %99 = getelementptr inbounds nuw %struct.stbtt__edge, ptr %22, i64 %indvars.iv.i.i
-  %.sroa.0.0.copyload.i.i = load float, ptr %99, align 4, !tbaa !71
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %99, i64 4
+  %97 = getelementptr inbounds nuw %struct.stbtt__edge, ptr %22, i64 %indvars.iv.i.i
+  %.sroa.0.0.copyload.i.i = load float, ptr %97, align 4, !tbaa !71
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %97, i64 4
   %.sroa.4.0.copyload.i.i = load float, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !71
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %97, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.5.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx.i.i, i64 12, i1 false), !tbaa.struct !129
-  br label %100
+  br label %98
 
-100:                                              ; preds = %105, %.lr.ph.i.i
-  %indvars.iv31.i.i = phi i64 [ %indvars.iv.i.i, %.lr.ph.i.i ], [ %indvars.iv.next32.i.i, %105 ]
-  %101 = getelementptr %struct.stbtt__edge, ptr %22, i64 %indvars.iv31.i.i
-  %102 = getelementptr i8, ptr %101, i64 -16
-  %103 = load float, ptr %102, align 4, !tbaa !104
-  %104 = fcmp olt float %.sroa.4.0.copyload.i.i, %103
-  br i1 %104, label %105, label %.thread.split.loop.exit.i.i
+98:                                               ; preds = %103, %.lr.ph.i.i
+  %indvars.iv31.i.i = phi i64 [ %indvars.iv.i.i, %.lr.ph.i.i ], [ %indvars.iv.next32.i.i, %103 ]
+  %99 = getelementptr %struct.stbtt__edge, ptr %22, i64 %indvars.iv31.i.i
+  %100 = getelementptr i8, ptr %99, i64 -16
+  %101 = load float, ptr %100, align 4, !tbaa !104
+  %102 = fcmp olt float %.sroa.4.0.copyload.i.i, %101
+  br i1 %102, label %103, label %.thread.split.loop.exit.i.i
 
-105:                                              ; preds = %100
-  %106 = getelementptr i8, ptr %101, i64 -20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %101, ptr noundef nonnull align 4 dereferenceable(20) %106, i64 20, i1 false), !tbaa.struct !130
+103:                                              ; preds = %98
+  %104 = getelementptr i8, ptr %99, i64 -20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %99, ptr noundef nonnull align 4 dereferenceable(20) %104, i64 20, i1 false), !tbaa.struct !130
   %indvars.iv.next32.i.i = add nsw i64 %indvars.iv31.i.i, -1
-  %107 = icmp sgt i64 %indvars.iv31.i.i, 1
-  br i1 %107, label %100, label %.thread.i.i
+  %105 = icmp sgt i64 %indvars.iv31.i.i, 1
+  br i1 %105, label %98, label %.thread.i.i
 
-.thread.split.loop.exit.i.i:                      ; preds = %100
-  %108 = trunc nuw nsw i64 %indvars.iv31.i.i to i32
+.thread.split.loop.exit.i.i:                      ; preds = %98
+  %106 = trunc nuw nsw i64 %indvars.iv31.i.i to i32
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %105, %.thread.split.loop.exit.i.i
-  %.022.lcssa.i.i = phi i32 [ %108, %.thread.split.loop.exit.i.i ], [ 0, %105 ]
-  %109 = zext i32 %.022.lcssa.i.i to i64
-  %.not.i.i = icmp eq i64 %indvars.iv.i.i, %109
-  br i1 %.not.i.i, label %113, label %110
+.thread.i.i:                                      ; preds = %103, %.thread.split.loop.exit.i.i
+  %.022.lcssa.i.i = phi i32 [ %106, %.thread.split.loop.exit.i.i ], [ 0, %103 ]
+  %107 = zext i32 %.022.lcssa.i.i to i64
+  %.not.i.i = icmp eq i64 %indvars.iv.i.i, %107
+  br i1 %.not.i.i, label %111, label %108
 
-110:                                              ; preds = %.thread.i.i
-  %111 = sext i32 %.022.lcssa.i.i to i64
-  %112 = getelementptr inbounds %struct.stbtt__edge, ptr %22, i64 %111
-  store float %.sroa.0.0.copyload.i.i, ptr %112, align 4, !tbaa !71
-  %.sroa.4.0..sroa_idx24.i.i = getelementptr inbounds nuw i8, ptr %112, i64 4
+108:                                              ; preds = %.thread.i.i
+  %109 = sext i32 %.022.lcssa.i.i to i64
+  %110 = getelementptr inbounds %struct.stbtt__edge, ptr %22, i64 %109
+  store float %.sroa.0.0.copyload.i.i, ptr %110, align 4, !tbaa !71
+  %.sroa.4.0..sroa_idx24.i.i = getelementptr inbounds nuw i8, ptr %110, i64 4
   store float %.sroa.4.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx24.i.i, align 4, !tbaa !71
-  %.sroa.5.0..sroa_idx26.i.i = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %.sroa.5.0..sroa_idx26.i.i = getelementptr inbounds nuw i8, ptr %110, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx26.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.5.i.i, i64 12, i1 false), !tbaa.struct !129
-  br label %113
+  br label %111
 
-113:                                              ; preds = %110, %.thread.i.i
+111:                                              ; preds = %108, %.thread.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %stbtt__sort_edges.exit, label %.lr.ph.i.i, !llvm.loop !131
 
-stbtt__sort_edges.exit:                           ; preds = %113, %._crit_edge105.thread, %._crit_edge105
-  %.1.lcssa162 = phi i32 [ 0, %._crit_edge105.thread ], [ %.1.lcssa, %._crit_edge105 ], [ %.1.lcssa, %113 ]
-  %114 = phi ptr [ %24, %._crit_edge105.thread ], [ %22, %._crit_edge105 ], [ %22, %113 ]
-  tail call void @stbtt__rasterize_sorted_edges(ptr noundef %0, ptr noundef nonnull %114, i32 noundef %.1.lcssa162, i32 poison, i32 noundef %8, i32 noundef %9, ptr poison)
-  tail call void @free(ptr noundef nonnull %114) #34
-  br label %115
+stbtt__sort_edges.exit:                           ; preds = %111, %._crit_edge105.thread, %._crit_edge105
+  %.1.lcssa161 = phi i32 [ 0, %._crit_edge105.thread ], [ %.1.lcssa, %._crit_edge105 ], [ %.1.lcssa, %111 ]
+  tail call void @stbtt__rasterize_sorted_edges(ptr noundef %0, ptr noundef nonnull %22, i32 noundef %.1.lcssa161, i32 poison, i32 noundef %8, i32 noundef %9, ptr poison)
+  tail call void @free(ptr noundef nonnull %22) #34
+  br label %112
 
-115:                                              ; preds = %._crit_edge.thread, %._crit_edge, %stbtt__sort_edges.exit
+112:                                              ; preds = %._crit_edge, %stbtt__sort_edges.exit
   ret void
 }
 
@@ -13902,9 +13903,8 @@ stbtt__add_point.exit:                            ; preds = %64, %66
 define ptr @stbtt_FlattenCurves(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr readnone captures(none) %5) local_unnamed_addr #10 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = fmul float %2, %2
-  %9 = icmp sgt i32 %1, 0
-  br i1 %9, label %.lr.ph.preheader, label %.loopexit.sink.split
+  %8 = icmp sgt i32 %1, 0
+  br i1 %8, label %.lr.ph.preheader, label %.loopexit.sink.split
 
 .lr.ph.preheader:                                 ; preds = %6
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -13913,17 +13913,18 @@ define ptr @stbtt_FlattenCurves(ptr noundef readonly captures(none) %0, i32 noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.094117 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %10 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %0, i64 %indvars.iv
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %12 = load i8, ptr %11, align 2, !tbaa !45
-  %13 = icmp eq i8 %12, 1
-  %14 = zext i1 %13 to i32
-  %spec.select = add nuw nsw i32 %.094117, %14
+  %9 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %11 = load i8, ptr %10, align 2, !tbaa !45
+  %12 = icmp eq i8 %11, 1
+  %13 = zext i1 %12 to i32
+  %spec.select = add nuw nsw i32 %.094117, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %.lr.ph
+  %14 = fmul float %2, %2
   store i32 %spec.select, ptr %4, align 4, !tbaa !17
   %15 = icmp eq i32 %spec.select, 0
   br i1 %15, label %.loopexit, label %16
@@ -13996,7 +13997,7 @@ define ptr @stbtt_FlattenCurves(ptr noundef readonly captures(none) %0, i32 noun
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 2
   %50 = load i16, ptr %49, align 2, !tbaa !49
   %51 = sitofp i16 %50 to float
-  call void @stbtt__tesselate_cubic(ptr noundef %.1102.us, ptr noundef nonnull %7, float noundef %.088121.us, float noundef %.0122.us, float noundef %37, float noundef %40, float noundef %43, float noundef %46, float noundef %48, float noundef %51, float noundef %8, i32 noundef 0)
+  call void @stbtt__tesselate_cubic(ptr noundef %.1102.us, ptr noundef nonnull %7, float noundef %.088121.us, float noundef %.0122.us, float noundef %37, float noundef %40, float noundef %43, float noundef %46, float noundef %48, float noundef %51, float noundef %14, i32 noundef 0)
   %52 = load i16, ptr %31, align 2, !tbaa !48
   %53 = sitofp i16 %52 to float
   %54 = load i16, ptr %49, align 2, !tbaa !49
@@ -14015,7 +14016,7 @@ define ptr @stbtt_FlattenCurves(ptr noundef readonly captures(none) %0, i32 noun
   %65 = getelementptr inbounds nuw i8, ptr %31, i64 2
   %66 = load i16, ptr %65, align 2, !tbaa !49
   %67 = sitofp i16 %66 to float
-  %68 = call i32 @stbtt__tesselate_curve(ptr noundef %.1102.us, ptr noundef nonnull %7, float noundef %.088121.us, float noundef %.0122.us, float noundef %59, float noundef %62, float noundef %64, float noundef %67, float noundef %8, i32 noundef 0)
+  %68 = call i32 @stbtt__tesselate_curve(ptr noundef %.1102.us, ptr noundef nonnull %7, float noundef %.088121.us, float noundef %.0122.us, float noundef %59, float noundef %62, float noundef %64, float noundef %67, float noundef %14, i32 noundef 0)
   %69 = load i16, ptr %31, align 2, !tbaa !48
   %70 = sitofp i16 %69 to float
   %71 = load i16, ptr %65, align 2, !tbaa !49

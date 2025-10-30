@@ -919,15 +919,15 @@ define void @_ZN2cv15line_descriptor23BinaryDescriptorMatcher8Mihasher8populateE
   %85 = zext i32 %84 to i64
   %86 = shl nuw nsw i64 %85, 2
   %87 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %86) #27
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %86
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %87, i8 0, i64 %86, i1 false), !tbaa !30
-  %88 = getelementptr inbounds nuw i32, ptr %87, i64 %85
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 %86
+  %89 = getelementptr inbounds nuw i32, ptr %87, i64 %85
   br label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.i
 
 _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.i:          ; preds = %.noexc.i53, %81
-  %.sroa.11.0.i = phi ptr [ null, %81 ], [ %88, %.noexc.i53 ]
+  %.sroa.11.0.i = phi ptr [ null, %81 ], [ %89, %.noexc.i53 ]
   %.sroa.022.0.i = phi ptr [ null, %81 ], [ %87, %.noexc.i53 ]
-  %.0.i.i.i.i.i.i.i.i = phi ptr [ null, %81 ], [ %89, %.noexc.i53 ]
+  %.0.i.i.i.i.i.i.i.i = phi ptr [ null, %81 ], [ %88, %.noexc.i53 ]
   %90 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store ptr %.sroa.022.0.i, ptr %76, align 8, !tbaa !96
   store ptr %.0.i.i.i.i.i.i.i.i, ptr %77, align 8, !tbaa !95
@@ -5851,16 +5851,16 @@ _ZN2cv15line_descriptor5splitEPmPhiii.exit:       ; preds = %._crit_edge.i
   %indvars.iv189 = phi i64 [ %indvars.iv.next190, %231 ], [ 0, %.lr.ph146 ]
   %.1145 = phi i32 [ %239, %231 ], [ %.086152, %.lr.ph146 ]
   %81 = load i32, ptr %26, align 8, !tbaa !87
-  %82 = sext i32 %81 to i64
-  %83 = icmp slt i64 %indvars.iv189, %82
-  %84 = load i32, ptr %27, align 8
-  %85 = zext i1 %83 to i32
-  %.098 = add nsw i32 %84, %85
-  %86 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv189
-  %87 = load i64, ptr %86, align 8, !tbaa !89
+  %82 = load i32, ptr %27, align 8
+  %83 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv189
+  %84 = load i64, ptr %83, align 8, !tbaa !89
   br i1 %.not167, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %80
+  %85 = sext i32 %81 to i64
+  %86 = icmp slt i64 %indvars.iv189, %85
+  %87 = zext i1 %86 to i32
+  %.098 = add nsw i32 %82, %87
   store i32 %.098, ptr %72, align 4, !tbaa !30
   %88 = load ptr, ptr %65, align 8
   %89 = getelementptr inbounds nuw %"class.cv::line_descriptor::BinaryDescriptorMatcher::SparseHashtable", ptr %88, i64 %indvars.iv189
@@ -5900,7 +5900,7 @@ _ZN2cv15line_descriptor5splitEPmPhiii.exit:       ; preds = %._crit_edge.i
   br label %.backedge
 
 108:                                              ; preds = %93
-  %109 = xor i64 %.091, %87
+  %109 = xor i64 %.091, %84
   %110 = lshr i64 %109, 5
   %111 = load ptr, ptr %89, align 8, !tbaa !92
   %112 = getelementptr inbounds nuw %"class.cv::line_descriptor::BinaryDescriptorMatcher::BucketGroup", ptr %111, i64 %110
@@ -5961,11 +5961,11 @@ _ZN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtable5queryEmPi.exit
   %152 = sext i32 %151 to i64
   %153 = mul nsw i64 %152, %142
   %154 = getelementptr inbounds nuw i8, ptr %138, i64 %153
-  %155 = add i32 %151, -16
   %.not30.i = icmp slt i32 %151, 16
   br i1 %.not30.i, label %.preheader.i120, label %.lr.ph.preheader.i116
 
 .lr.ph.preheader.i116:                            ; preds = %149
+  %155 = add nsw i32 %151, -16
   %156 = zext nneg i32 %155 to i64
   br label %.lr.ph.i117
 
@@ -7269,15 +7269,15 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %36, %_ZNSt6vectorIj
   %77 = zext i32 %76 to i64
   %78 = shl nuw nsw i64 %77, 2
   %79 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %78) #27
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %78
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %79, i8 0, i64 %78, i1 false), !tbaa !30
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %77
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 %78
+  %81 = getelementptr inbounds nuw i32, ptr %79, i64 %77
   br label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc, %73
-  %.sroa.11.0 = phi ptr [ null, %73 ], [ %80, %.noexc ]
+  %.sroa.11.0 = phi ptr [ null, %73 ], [ %81, %.noexc ]
   %.sroa.022.0 = phi ptr [ null, %73 ], [ %79, %.noexc ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %73 ], [ %81, %.noexc ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %73 ], [ %80, %.noexc ]
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %.sroa.022.0, ptr %1, align 8, !tbaa !96
   store ptr %.0.i.i.i.i.i.i.i, ptr %4, align 8, !tbaa !95
@@ -8055,8 +8055,8 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !30
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i

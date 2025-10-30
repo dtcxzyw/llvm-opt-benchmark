@@ -543,14 +543,10 @@ entry:
 if.end:                                           ; preds = %entry
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %1 = load ptr, ptr %_M_start.i, align 8, !noalias !17
-  %_M_first3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %_M_last4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %_M_node5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %2 = load ptr, ptr %_M_finish.i, align 8, !noalias !20
-  %_M_first3.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 192
-  %_M_last4.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 200
-  %_M_node5.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 208
   %cmp.i.i.not17 = icmp eq ptr %1, %2
   br i1 %cmp.i.i.not17, label %for.end, label %for.body.lr.ph
 
@@ -605,6 +601,10 @@ for.end.loopexit:                                 ; preds = %_ZNSt15_Deque_itera
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %10 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %if.end ]
+  %_M_first3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
+  %_M_first3.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 192
+  %_M_last4.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 200
+  %_M_node5.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 208
   %total_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i64 0, ptr %total_, align 8
   %11 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !23

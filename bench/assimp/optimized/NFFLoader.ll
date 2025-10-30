@@ -5567,8 +5567,8 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit1265:            ; preds = %.lr.ph.i1257
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %983
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %985, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %984, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false)
   %987 = getelementptr inbounds nuw i8, ptr %984, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %984, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i:  ; preds = %976

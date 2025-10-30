@@ -78,15 +78,15 @@ _ZNSt6vectorIN11gmx_ga2la_t5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; p
           to label %.noexc8 unwind label %21
 
 .noexc8:                                          ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %15
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %16, i8 -1, i64 %15, i1 false)
-  %17 = getelementptr inbounds nuw %"struct.gmx_ga2la_t::Entry", ptr %16, i64 %11
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %15
+  %18 = getelementptr inbounds nuw %"struct.gmx_ga2la_t::Entry", ptr %16, i64 %11
   br label %_ZSt3getILm0EJSt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEN3gmx9HashedMapIS2_EEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSC_.exit.i
 
 _ZSt3getILm0EJSt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEN3gmx9HashedMapIS2_EEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSC_.exit.i: ; preds = %.noexc8, %_ZNSt6vectorIN11gmx_ga2la_t5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %.sroa.16.0 = phi ptr [ null, %_ZNSt6vectorIN11gmx_ga2la_t5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %17, %.noexc8 ]
+  %.sroa.16.0 = phi ptr [ null, %_ZNSt6vectorIN11gmx_ga2la_t5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %18, %.noexc8 ]
   %.sroa.014.0 = phi ptr [ null, %_ZNSt6vectorIN11gmx_ga2la_t5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %16, %.noexc8 ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN11gmx_ga2la_t5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %18, %.noexc8 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN11gmx_ga2la_t5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %17, %.noexc8 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.014.0, ptr %0, align 8, !tbaa !8

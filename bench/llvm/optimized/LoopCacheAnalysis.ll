@@ -3318,7 +3318,6 @@ _ZN4llvm14iterator_rangeINS_11bf_iteratorIPNS_4LoopENS_11SmallPtrSetIS3_Lj8EEENS
 
 68:                                               ; preds = %.preheader.i.i.i.i.i
   %.0.val.i.i.i.i.i = load ptr, ptr %.0.i.i.i.i.i, align 8, !tbaa !89
-  %.015.val.i.i.i.i.i = load ptr, ptr %.015.i.i.i.i.i, align 8, !tbaa !89
   br label %69
 
 69:                                               ; preds = %69, %68
@@ -3327,11 +3326,15 @@ _ZN4llvm14iterator_rangeINS_11bf_iteratorIPNS_4LoopENS_11SmallPtrSetIS3_Lj8EEENS
   %.0.i.i.i.i.i.i.i.i = load ptr, ptr %.0.in.i.i.i.i.i.i.i.i, align 8, !tbaa !143
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i.i.i.i, null
   %70 = add i32 %.04.i.i.i.i.i.i.i.i, 1
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i.i.i.i.i.i.i, label %69, !llvm.loop !157
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i.i.preheader.i.i.i.i.i, label %69, !llvm.loop !157
 
-_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i.i.i.i.i.i.i: ; preds = %69, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i.i.i.i.i.i.i
-  %.04.i2.i.i.i.i.i.i.i = phi i32 [ %71, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i.i.i.i.i.i.i ], [ 1, %69 ]
-  %.0.in.i3.i.i.i.i.i.i.i = phi ptr [ %.0.i4.i.i.i.i.i.i.i, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i.i.i.i.i.i.i ], [ %.015.val.i.i.i.i.i, %69 ]
+_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i.i.preheader.i.i.i.i.i: ; preds = %69
+  %.015.val.i.i.i.i.i = load ptr, ptr %.015.i.i.i.i.i, align 8, !tbaa !89
+  br label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i.i.i.i.i.i.i
+
+_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i.i.i.i.i.i.i, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i.i.preheader.i.i.i.i.i
+  %.04.i2.i.i.i.i.i.i.i = phi i32 [ %71, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i.i.i.i.i.i.i ], [ 1, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i.i.preheader.i.i.i.i.i ]
+  %.0.in.i3.i.i.i.i.i.i.i = phi ptr [ %.0.i4.i.i.i.i.i.i.i, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i.i.i.i.i.i.i ], [ %.015.val.i.i.i.i.i, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv.exit.i.i.preheader.i.i.i.i.i ]
   %.0.i4.i.i.i.i.i.i.i = load ptr, ptr %.0.in.i3.i.i.i.i.i.i.i, align 8, !tbaa !143
   %.not.i5.i.i.i.i.i.i.i = icmp eq ptr %.0.i4.i.i.i.i.i.i.i, null
   %71 = add i32 %.04.i2.i.i.i.i.i.i.i, 1

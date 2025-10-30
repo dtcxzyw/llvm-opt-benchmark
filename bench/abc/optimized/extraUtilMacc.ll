@@ -161,50 +161,50 @@ Vec_WecStart.exit:                                ; preds = %1, %7
   %12 = shl nuw i32 1, %0
   %13 = sext i32 %12 to i64
   %14 = tail call noalias ptr @calloc(i64 noundef %13, i64 noundef 4) #14
-  %15 = add nsw i32 %0, -1
-  %16 = shl nuw i32 1, %15
   store i32 -1, ptr %14, align 4, !tbaa !14
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  store i32 -1, ptr %15, align 4, !tbaa !14
+  %16 = zext i32 %3 to i64
+  %17 = getelementptr inbounds nuw i32, ptr %14, i64 %16
   store i32 -1, ptr %17, align 4, !tbaa !14
-  %18 = zext i32 %3 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %14, i64 %18
-  store i32 -1, ptr %19, align 4, !tbaa !14
-  %20 = icmp sgt i32 %12, 2
-  br i1 %20, label %.lr.ph.preheader, label %._crit_edge
+  %18 = icmp sgt i32 %12, 2
+  br i1 %18, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %Vec_WecStart.exit
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %25
-  %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
-  %21 = and i64 %indvars.iv, 1
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %25
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %23
+  %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
+  %19 = and i64 %indvars.iv, 1
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %21, label %23
 
-23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
-  store i32 -1, ptr %24, align 4, !tbaa !14
-  br label %25
+21:                                               ; preds = %.lr.ph
+  %22 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  store i32 -1, ptr %22, align 4, !tbaa !14
+  br label %23
 
-25:                                               ; preds = %.lr.ph, %23
+23:                                               ; preds = %.lr.ph, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %25, %Vec_WecStart.exit
-  %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef 0)
-  %27 = icmp sgt i32 %0, 0
-  br i1 %27, label %.lr.ph186, label %._crit_edge217
+._crit_edge:                                      ; preds = %23, %Vec_WecStart.exit
+  %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef 0)
+  %25 = icmp sgt i32 %0, 0
+  br i1 %25, label %.lr.ph186, label %._crit_edge217
 
 .preheader182:                                    ; preds = %Vec_WecPush.exit
   store ptr %.val.i187, ptr %11, align 8
+  %26 = add nsw i32 %0, -1
+  %27 = shl nuw i32 1, %26
   %.not = icmp eq i32 %0, 1
   br i1 %.not, label %._crit_edge217, label %.preheader181.lr.ph
 
 .preheader181.lr.ph:                              ; preds = %.preheader182
   %28 = icmp sgt i32 %12, 1
-  %29 = sub nsw i32 0, %16
+  %29 = sub nsw i32 0, %27
   %wide.trip.count258 = zext nneg i32 %0 to i64
   %wide.trip.count234 = zext nneg i32 %12 to i64
   br label %.preheader181.us
@@ -333,7 +333,7 @@ Vec_WecStart.exit:                                ; preds = %1, %7
   %72 = load i32, ptr %71, align 4, !tbaa !14
   %73 = add nsw i32 %72, %66
   %.not150.us.us = icmp sge i32 %73, %29
-  %74 = icmp slt i32 %73, %16
+  %74 = icmp slt i32 %73, %27
   %or.cond.us.us = and i1 %.not150.us.us, %74
   br i1 %or.cond.us.us, label %75, label %115
 
@@ -423,7 +423,7 @@ Vec_IntPush.exit.us.us:                           ; preds = %Vec_IntGrow.exit.i.
 115:                                              ; preds = %112, %75, %70
   %116 = sub nsw i32 %66, %72
   %.not151.us.us = icmp sge i32 %116, %29
-  %117 = icmp slt i32 %116, %16
+  %117 = icmp slt i32 %116, %27
   %or.cond153.us.us = and i1 %.not151.us.us, %117
   br i1 %or.cond153.us.us, label %118, label %157
 
@@ -513,7 +513,7 @@ Vec_IntPush.exit170.us.us:                        ; preds = %Vec_IntGrow.exit.i1
 157:                                              ; preds = %155, %118, %115
   %158 = sub nsw i32 %72, %66
   %.not152.us.us = icmp sge i32 %158, %29
-  %159 = icmp slt i32 %158, %16
+  %159 = icmp slt i32 %158, %27
   %or.cond154.us.us = and i1 %.not152.us.us, %159
   br i1 %or.cond154.us.us, label %160, label %200
 

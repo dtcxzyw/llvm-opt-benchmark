@@ -1003,18 +1003,18 @@ define void @Dtc_ManCutMerge(ptr noundef readonly captures(none) %0, i32 noundef
 
 Vec_IntGrow.exit.i:                               ; preds = %8, %18
   %20 = phi ptr [ %19, %18 ], [ %12, %8 ]
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %22
+  br label %21
 
-22:                                               ; preds = %22, %Vec_IntGrow.exit.i
-  %indvars.iv.i = phi i64 [ 0, %Vec_IntGrow.exit.i ], [ %indvars.iv.next.i, %22 ]
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
-  store i32 1, ptr %23, align 4, !tbaa !33
+21:                                               ; preds = %21, %Vec_IntGrow.exit.i
+  %indvars.iv.i = phi i64 [ 0, %Vec_IntGrow.exit.i ], [ %indvars.iv.next.i, %21 ]
+  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
+  store i32 1, ptr %22, align 4, !tbaa !33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
-  br i1 %exitcond.not.i, label %Vec_IntFill.exit, label %22, !llvm.loop !55
+  br i1 %exitcond.not.i, label %Vec_IntFill.exit, label %21, !llvm.loop !55
 
-Vec_IntFill.exit:                                 ; preds = %22
+Vec_IntFill.exit:                                 ; preds = %21
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2, ptr %24, align 4, !tbaa !3
   %25 = load i32, ptr %4, align 8, !tbaa !10
@@ -1023,7 +1023,7 @@ Vec_IntFill.exit:                                 ; preds = %22
 
 Vec_IntGrow.exit.i56:                             ; preds = %Vec_IntFill.exit
   %27 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %20, i64 noundef 64) #31
-  store ptr %27, ptr %21, align 8, !tbaa !11
+  store ptr %27, ptr %23, align 8, !tbaa !11
   store i32 16, ptr %4, align 8, !tbaa !10
   %.pre152 = load i32, ptr %24, align 4, !tbaa !3
   br label %Vec_IntPush.exit
@@ -1168,7 +1168,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntFill.exit, %
   br label %84
 
 84:                                               ; preds = %71, %83, %80
-  %.val.i = load ptr, ptr %21, align 8, !tbaa !11
+  %.val.i = load ptr, ptr %23, align 8, !tbaa !11
   %85 = load i32, ptr %.val.i, align 4, !tbaa !33
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %.preheader.i61, label %.loopexit
@@ -1236,7 +1236,7 @@ Vec_IntPush.exit73.sink.split:                    ; preds = %.lr.ph
   %.sink201 = select i1 %106, i64 64, i64 %109
   %.sink = select i1 %106, i32 16, i32 %107
   %110 = tail call ptr @realloc(ptr noundef nonnull %100, i64 noundef %.sink201) #31
-  store ptr %110, ptr %21, align 8, !tbaa !11
+  store ptr %110, ptr %23, align 8, !tbaa !11
   store i32 %.sink, ptr %4, align 8, !tbaa !10
   br label %Vec_IntPush.exit73
 

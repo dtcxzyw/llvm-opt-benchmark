@@ -35,12 +35,10 @@ define void @Dec_GraphPrint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 12:                                               ; preds = %7, %4
   %.038 = phi ptr [ %9, %7 ], [ null, %4 ]
   %.036 = phi ptr [ %11, %7 ], [ %2, %4 ]
-  %13 = icmp eq ptr %3, null
-  %spec.store.select = select i1 %13, ptr @.str, ptr %3
-  %14 = getelementptr i8, ptr %1, i64 4
-  %.val44 = load i32, ptr %14, align 4, !tbaa !3
-  %15 = icmp sgt i32 %.val44, 0
-  br i1 %15, label %.lr.ph.preheader, label %._crit_edge.thread
+  %13 = getelementptr i8, ptr %1, i64 4
+  %.val44 = load i32, ptr %13, align 4, !tbaa !3
+  %14 = icmp sgt i32 %.val44, 0
+  br i1 %14, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %12
   %wide.trip.count = zext nneg i32 %.val44 to i64
@@ -49,17 +47,19 @@ define void @Dec_GraphPrint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03756 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %16 = getelementptr inbounds nuw ptr, ptr %.036, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8, !tbaa !13
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #9
-  %.fr = freeze i64 %18
-  %19 = trunc i64 %.fr to i32
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.03756, i32 %19)
+  %15 = getelementptr inbounds nuw ptr, ptr %.036, i64 %indvars.iv
+  %16 = load ptr, ptr %15, align 8, !tbaa !13
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #9
+  %.fr = freeze i64 %17
+  %18 = trunc i64 %.fr to i32
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.03756, i32 %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %12
+  %19 = icmp eq ptr %3, null
+  %spec.store.select = select i1 %19, ptr @.str, ptr %3
   %.val45 = load i32, ptr %1, align 8, !tbaa !17
   %.not = icmp eq i32 %.val45, 0
   br i1 %.not, label %26, label %20

@@ -752,10 +752,10 @@ st_mult.exit:                                     ; preds = %._crit_edge355.thre
   %228 = call ptr @xcalloc(i64 noundef %227, i64 noundef 8) #15
   %229 = getelementptr inbounds nuw i8, ptr %185, i64 64
   store ptr %228, ptr %229, align 8, !tbaa !124
-  %230 = add nuw i64 %.2489, 1
   br label %240
 
 .preheader295:                                    ; preds = %240
+  %230 = add nuw i64 %.2489, 1
   br i1 %139, label %.preheader294.lr.ph, label %.preheader295.._crit_edge364_crit_edge
 
 .preheader295.._crit_edge364_crit_edge:           ; preds = %.preheader295

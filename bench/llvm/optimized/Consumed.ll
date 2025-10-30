@@ -7280,8 +7280,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.loopexit.i: ; preds = %_ZN5clang19Analysis
   %46 = getelementptr inbounds nuw i32, ptr %45, i64 %37
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %46, ptr %47, align 8, !tbaa !362
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %45, i8 0, i64 %44, i1 false), !tbaa !185
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 %44
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %45, i8 0, i64 %44, i1 false), !tbaa !185
   br label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.i
 
 _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.i:          ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.loopexit.i, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i.i

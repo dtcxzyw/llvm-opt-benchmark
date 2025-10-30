@@ -431,23 +431,23 @@ define hidden void @_ZN2cv12mapLuminanceENS_3MatES0_S0_S0_f(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   store ptr %17, ptr %5, align 8, !tbaa !39
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 288
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %19, ptr %20, align 8, !tbaa !41
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 288
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %18, ptr %19, align 8, !tbaa !41
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.noexc
-  %.08.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i ], [ %17, %.noexc ]
-  %.057.i.i.i.i.i = phi i64 [ %21, %.lr.ph.i.i.i.i.i ], [ 3, %.noexc ]
+  %.08.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i ], [ %17, %.noexc ]
+  %.057.i.i.i.i.i = phi i64 [ %20, %.lr.ph.i.i.i.i.i ], [ 3, %.noexc ]
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.08.i.i.i.i.i) #15
-  %21 = add nsw i64 %.057.i.i.i.i.i, -1
-  %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i = icmp eq i64 %21, 0
-  br i1 %.not.i.i.i.i.i, label %23, label %.lr.ph.i.i.i.i.i, !llvm.loop !42
+  %20 = add nsw i64 %.057.i.i.i.i.i, -1
+  %21 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
+  %.not.i.i.i.i.i = icmp eq i64 %20, 0
+  br i1 %.not.i.i.i.i.i, label %22, label %.lr.ph.i.i.i.i.i, !llvm.loop !42
 
-23:                                               ; preds = %.lr.ph.i.i.i.i.i
-  store ptr %22, ptr %18, align 8, !tbaa !43
+22:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %21, ptr %23, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %24, align 8, !tbaa !44
@@ -465,7 +465,7 @@ define hidden void @_ZN2cv12mapLuminanceENS_3MatES0_S0_S0_f(ptr noundef %0, ptr 
   invoke void @_ZN2cv5splitERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %29 unwind label %48
 
-29:                                               ; preds = %23
+29:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 208
@@ -488,7 +488,7 @@ define hidden void @_ZN2cv12mapLuminanceENS_3MatES0_S0_S0_f(ptr noundef %0, ptr 
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %50
 
-48:                                               ; preds = %23
+48:                                               ; preds = %22
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -660,7 +660,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit45:               ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %99 = load ptr, ptr %5, align 8, !tbaa !39
-  %100 = load ptr, ptr %18, align 8, !tbaa !43
+  %100 = load ptr, ptr %23, align 8, !tbaa !43
   %.not4.i.i.i.i = icmp eq ptr %99, %100
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 

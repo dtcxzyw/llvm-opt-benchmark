@@ -1036,22 +1036,22 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_B(ptr noundef %0, i6
   %.099.i146.lcssa = phi i32 [ %86, %100 ], [ %125, %121 ]
   %.1.i147.lcssa = phi ptr [ %.0576, %100 ], [ %123, %121 ]
   %129 = tail call i16 @llvm.umin.i16(i16 %.0101.i145.lcssa, i16 16)
-  %130 = zext nneg i16 %129 to i32
-  %131 = tail call i32 @llvm.umin.i32(i32 %.099.i146.lcssa, i32 16)
+  %130 = tail call i32 @llvm.umin.i32(i32 %.099.i146.lcssa, i32 16)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store <2 x i64> zeroinitializer, ptr %11, align 16
-  %132 = zext nneg i16 %129 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %.0104.i144.lcssa, i64 %132, i1 false)
+  %131 = zext nneg i16 %129 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %.0104.i144.lcssa, i64 %131, i1 false)
   %.0..0..0..0..i23069410541360 = load <16 x i8>, ptr %11, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %133 = zext nneg i32 %131 to i64
+  %132 = zext nneg i32 %130 to i64
   %.not866 = icmp eq i32 %.099.i146.lcssa, 0
   br i1 %.not866, label %._crit_edge797, label %.lr.ph796
 
 ._crit_edge797:                                   ; preds = %.lr.ph796, %._crit_edge
+  %133 = zext nneg i16 %129 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store <2 x i64> zeroinitializer, ptr %12, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 16 %16, i64 %133, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 16 %16, i64 %132, i1 false)
   %.0..0..0..0..i22969510551361 = load <16 x i8>, ptr %12, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %134 = icmp eq <16 x i8> %.0..0..0..0..i23069410541360, %.0..0..0..0..i22969510551361
@@ -1059,9 +1059,9 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_B(ptr noundef %0, i6
   %136 = zext i16 %135 to i32
   %137 = xor i32 %136, -1
   %138 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %137, i1 true)
-  %139 = tail call i32 @llvm.umin.i32(i32 %130, i32 %131)
+  %139 = tail call i32 @llvm.umin.i32(i32 %133, i32 %130)
   %..i149 = tail call i32 @llvm.umin.i32(i32 %138, i32 %139)
-  %.not118.i150 = icmp ult i32 %.099.i146.lcssa, %130
+  %.not118.i150 = icmp ult i32 %.099.i146.lcssa, %133
   br i1 %.not118.i150, label %147, label %159
 
 .lr.ph796:                                        ; preds = %._crit_edge, %.lr.ph796
@@ -1074,11 +1074,11 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_B(ptr noundef %0, i6
   %145 = getelementptr inbounds nuw i8, ptr %16, i64 %.097.i148794
   store i8 %144, ptr %145, align 1
   %146 = add nuw nsw i64 %.097.i148794, 1
-  %exitcond937.not = icmp eq i64 %146, %133
+  %exitcond937.not = icmp eq i64 %146, %132
   br i1 %exitcond937.not, label %._crit_edge797, label %.lr.ph796
 
 147:                                              ; preds = %._crit_edge797
-  %148 = icmp eq i32 %..i149, %131
+  %148 = icmp eq i32 %..i149, %130
   br i1 %148, label %149, label %.thread593
 
 149:                                              ; preds = %147
@@ -1086,9 +1086,9 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_B(ptr noundef %0, i6
   %151 = ptrtoint ptr %.0104.i144.lcssa to i64
   %152 = ptrtoint ptr %88 to i64
   %153 = sub i64 %151, %152
-  %154 = add i64 %153, %133
+  %154 = add i64 %153, %132
   %155 = trunc i64 %154 to i16
-  %156 = getelementptr inbounds nuw i8, ptr %150, i64 %133
+  %156 = getelementptr inbounds nuw i8, ptr %150, i64 %132
   br label %doWide16.exit166
 
 .thread593:                                       ; preds = %105, %98, %147
@@ -1515,22 +1515,22 @@ doNormal16.exit89:                                ; preds = %doSherman16.exit202
   %.099.i169.lcssa = phi i32 [ %350, %364 ], [ %389, %385 ]
   %.1.i170.lcssa = phi ptr [ %.0572, %364 ], [ %387, %385 ]
   %393 = tail call i16 @llvm.umin.i16(i16 %.0101.i168.lcssa, i16 16)
-  %394 = zext nneg i16 %393 to i32
-  %395 = tail call i32 @llvm.umin.i32(i32 %.099.i169.lcssa, i32 16)
+  %394 = tail call i32 @llvm.umin.i32(i32 %.099.i169.lcssa, i32 16)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store <2 x i64> zeroinitializer, ptr %13, align 16
-  %396 = zext nneg i16 %393 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %.0104.i167.lcssa, i64 %396, i1 false)
+  %395 = zext nneg i16 %393 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %.0104.i167.lcssa, i64 %395, i1 false)
   %.0..0..0..0..i22869810571362 = load <16 x i8>, ptr %13, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %397 = zext nneg i32 %395 to i64
+  %396 = zext nneg i32 %394 to i64
   %.not867 = icmp eq i32 %.099.i169.lcssa, 0
   br i1 %.not867, label %._crit_edge814, label %.lr.ph813
 
 ._crit_edge814:                                   ; preds = %.lr.ph813, %._crit_edge806
+  %397 = zext nneg i16 %393 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store <2 x i64> zeroinitializer, ptr %14, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr nonnull align 16 %15, i64 %397, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr nonnull align 16 %15, i64 %396, i1 false)
   %.0..0..0..0..i69910581363 = load <16 x i8>, ptr %14, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %398 = icmp eq <16 x i8> %.0..0..0..0..i22869810571362, %.0..0..0..0..i69910581363
@@ -1538,9 +1538,9 @@ doNormal16.exit89:                                ; preds = %doSherman16.exit202
   %400 = zext i16 %399 to i32
   %401 = xor i32 %400, -1
   %402 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %401, i1 true)
-  %403 = tail call i32 @llvm.umin.i32(i32 %394, i32 %395)
+  %403 = tail call i32 @llvm.umin.i32(i32 %397, i32 %394)
   %..i172 = tail call i32 @llvm.umin.i32(i32 %402, i32 %403)
-  %.not118.i173 = icmp ult i32 %.099.i169.lcssa, %394
+  %.not118.i173 = icmp ult i32 %.099.i169.lcssa, %397
   br i1 %.not118.i173, label %411, label %423
 
 .lr.ph813:                                        ; preds = %._crit_edge806, %.lr.ph813
@@ -1553,11 +1553,11 @@ doNormal16.exit89:                                ; preds = %doSherman16.exit202
   %409 = getelementptr inbounds nuw i8, ptr %15, i64 %.097.i171811
   store i8 %408, ptr %409, align 1
   %410 = add nuw nsw i64 %.097.i171811, 1
-  %exitcond939.not = icmp eq i64 %410, %397
+  %exitcond939.not = icmp eq i64 %410, %396
   br i1 %exitcond939.not, label %._crit_edge814, label %.lr.ph813
 
 411:                                              ; preds = %._crit_edge814
-  %412 = icmp eq i32 %..i172, %395
+  %412 = icmp eq i32 %..i172, %394
   br i1 %412, label %413, label %.thread612
 
 413:                                              ; preds = %411
@@ -1565,9 +1565,9 @@ doNormal16.exit89:                                ; preds = %doSherman16.exit202
   %415 = ptrtoint ptr %.0104.i167.lcssa to i64
   %416 = ptrtoint ptr %352 to i64
   %417 = sub i64 %415, %416
-  %418 = add i64 %417, %397
+  %418 = add i64 %417, %396
   %419 = trunc i64 %418 to i16
-  %420 = getelementptr inbounds nuw i8, ptr %414, i64 %397
+  %420 = getelementptr inbounds nuw i8, ptr %414, i64 %396
   br label %doWide16.exit189
 
 .thread612:                                       ; preds = %369, %362, %411
@@ -2047,22 +2047,22 @@ mcclellanExec16_i.exit48:                         ; preds = %52, %288, %291, %30
   %.099.i.lcssa = phi i32 [ %642, %656 ], [ %681, %677 ]
   %.1.i116.lcssa = phi ptr [ %.0584, %656 ], [ %679, %677 ]
   %685 = tail call i16 @llvm.umin.i16(i16 %.0101.i.lcssa, i16 16)
-  %686 = zext nneg i16 %685 to i32
-  %687 = tail call i32 @llvm.umin.i32(i32 %.099.i.lcssa, i32 16)
+  %686 = tail call i32 @llvm.umin.i32(i32 %.099.i.lcssa, i32 16)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x i64> zeroinitializer, ptr %7, align 16
-  %688 = zext nneg i16 %685 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %.0104.i.lcssa, i64 %688, i1 false)
+  %687 = zext nneg i16 %685 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %.0104.i.lcssa, i64 %687, i1 false)
   %.0..0..0..0..i23470210611364 = load <16 x i8>, ptr %7, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %689 = zext nneg i32 %687 to i64
+  %688 = zext nneg i32 %686 to i64
   %.not868 = icmp eq i32 %.099.i.lcssa, 0
   br i1 %.not868, label %._crit_edge836, label %.lr.ph835
 
 ._crit_edge836:                                   ; preds = %.lr.ph835, %._crit_edge828
+  %689 = zext nneg i16 %685 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x i64> zeroinitializer, ptr %8, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 16 %18, i64 %689, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 16 %18, i64 %688, i1 false)
   %.0..0..0..0..i23370310621365 = load <16 x i8>, ptr %8, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %690 = icmp eq <16 x i8> %.0..0..0..0..i23470210611364, %.0..0..0..0..i23370310621365
@@ -2070,9 +2070,9 @@ mcclellanExec16_i.exit48:                         ; preds = %52, %288, %291, %30
   %692 = zext i16 %691 to i32
   %693 = xor i32 %692, -1
   %694 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %693, i1 true)
-  %695 = tail call i32 @llvm.umin.i32(i32 %686, i32 %687)
+  %695 = tail call i32 @llvm.umin.i32(i32 %689, i32 %686)
   %..i = tail call i32 @llvm.umin.i32(i32 %694, i32 %695)
-  %.not118.i117 = icmp ult i32 %.099.i.lcssa, %686
+  %.not118.i117 = icmp ult i32 %.099.i.lcssa, %689
   br i1 %.not118.i117, label %703, label %715
 
 .lr.ph835:                                        ; preds = %._crit_edge828, %.lr.ph835
@@ -2085,11 +2085,11 @@ mcclellanExec16_i.exit48:                         ; preds = %52, %288, %291, %30
   %701 = getelementptr inbounds nuw i8, ptr %18, i64 %.097.i833
   store i8 %700, ptr %701, align 1
   %702 = add nuw nsw i64 %.097.i833, 1
-  %exitcond943.not = icmp eq i64 %702, %689
+  %exitcond943.not = icmp eq i64 %702, %688
   br i1 %exitcond943.not, label %._crit_edge836, label %.lr.ph835
 
 703:                                              ; preds = %._crit_edge836
-  %704 = icmp eq i32 %..i, %687
+  %704 = icmp eq i32 %..i, %686
   br i1 %704, label %705, label %.thread639
 
 705:                                              ; preds = %703
@@ -2097,9 +2097,9 @@ mcclellanExec16_i.exit48:                         ; preds = %52, %288, %291, %30
   %707 = ptrtoint ptr %.0104.i.lcssa to i64
   %708 = ptrtoint ptr %644 to i64
   %709 = sub i64 %707, %708
-  %710 = add i64 %709, %689
+  %710 = add i64 %709, %688
   %711 = trunc i64 %710 to i16
-  %712 = getelementptr inbounds nuw i8, ptr %706, i64 %689
+  %712 = getelementptr inbounds nuw i8, ptr %706, i64 %688
   br label %doWide16.exit
 
 .thread639:                                       ; preds = %661, %654, %703
@@ -2576,22 +2576,22 @@ doNormal16.exit115:                               ; preds = %doSherman16.exit, %
   %.099.i123.lcssa = phi i32 [ %930, %944 ], [ %969, %965 ]
   %.1.i124.lcssa = phi ptr [ %.0580, %944 ], [ %967, %965 ]
   %973 = tail call i16 @llvm.umin.i16(i16 %.0101.i122.lcssa, i16 16)
-  %974 = zext nneg i16 %973 to i32
-  %975 = tail call i32 @llvm.umin.i32(i32 %.099.i123.lcssa, i32 16)
+  %974 = tail call i32 @llvm.umin.i32(i32 %.099.i123.lcssa, i32 16)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store <2 x i64> zeroinitializer, ptr %9, align 16
-  %976 = zext nneg i16 %973 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %.0104.i121.lcssa, i64 %976, i1 false)
+  %975 = zext nneg i16 %973 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %.0104.i121.lcssa, i64 %975, i1 false)
   %.0..0..0..0..i23270610651366 = load <16 x i8>, ptr %9, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %977 = zext nneg i32 %975 to i64
+  %976 = zext nneg i32 %974 to i64
   %.not869 = icmp eq i32 %.099.i123.lcssa, 0
   br i1 %.not869, label %._crit_edge856, label %.lr.ph855
 
 ._crit_edge856:                                   ; preds = %.lr.ph855, %._crit_edge848
+  %977 = zext nneg i16 %973 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <2 x i64> zeroinitializer, ptr %10, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 16 %17, i64 %977, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 16 %17, i64 %976, i1 false)
   %.0..0..0..0..i23170710661367 = load <16 x i8>, ptr %10, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %978 = icmp eq <16 x i8> %.0..0..0..0..i23270610651366, %.0..0..0..0..i23170710661367
@@ -2599,9 +2599,9 @@ doNormal16.exit115:                               ; preds = %doSherman16.exit, %
   %980 = zext i16 %979 to i32
   %981 = xor i32 %980, -1
   %982 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %981, i1 true)
-  %983 = tail call i32 @llvm.umin.i32(i32 %974, i32 %975)
+  %983 = tail call i32 @llvm.umin.i32(i32 %977, i32 %974)
   %..i126 = tail call i32 @llvm.umin.i32(i32 %982, i32 %983)
-  %.not118.i127 = icmp ult i32 %.099.i123.lcssa, %974
+  %.not118.i127 = icmp ult i32 %.099.i123.lcssa, %977
   br i1 %.not118.i127, label %991, label %1003
 
 .lr.ph855:                                        ; preds = %._crit_edge848, %.lr.ph855
@@ -2614,11 +2614,11 @@ doNormal16.exit115:                               ; preds = %doSherman16.exit, %
   %989 = getelementptr inbounds nuw i8, ptr %17, i64 %.097.i125853
   store i8 %988, ptr %989, align 1
   %990 = add nuw nsw i64 %.097.i125853, 1
-  %exitcond950.not = icmp eq i64 %990, %977
+  %exitcond950.not = icmp eq i64 %990, %976
   br i1 %exitcond950.not, label %._crit_edge856, label %.lr.ph855
 
 991:                                              ; preds = %._crit_edge856
-  %992 = icmp eq i32 %..i126, %975
+  %992 = icmp eq i32 %..i126, %974
   br i1 %992, label %993, label %.thread664
 
 993:                                              ; preds = %991
@@ -2626,9 +2626,9 @@ doNormal16.exit115:                               ; preds = %doSherman16.exit, %
   %995 = ptrtoint ptr %.0104.i121.lcssa to i64
   %996 = ptrtoint ptr %932 to i64
   %997 = sub i64 %995, %996
-  %998 = add i64 %997, %977
+  %998 = add i64 %997, %976
   %999 = trunc i64 %998 to i16
-  %1000 = getelementptr inbounds nuw i8, ptr %994, i64 %977
+  %1000 = getelementptr inbounds nuw i8, ptr %994, i64 %976
   br label %doWide16.exit143
 
 .thread664:                                       ; preds = %949, %942, %991
@@ -5438,22 +5438,22 @@ define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %0, ptr noundef ca
   %.099.i.lcssa = phi i32 [ %101, %115 ], [ %140, %136 ]
   %.1.i117.lcssa = phi ptr [ %.0584, %115 ], [ %138, %136 ]
   %144 = tail call i16 @llvm.umin.i16(i16 %.0101.i.lcssa, i16 16)
-  %145 = zext nneg i16 %144 to i32
-  %146 = tail call i32 @llvm.umin.i32(i32 %.099.i.lcssa, i32 16)
+  %145 = tail call i32 @llvm.umin.i32(i32 %.099.i.lcssa, i32 16)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store <2 x i64> zeroinitializer, ptr %9, align 16
-  %147 = zext nneg i16 %144 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %.0104.i.lcssa, i64 %147, i1 false)
+  %146 = zext nneg i16 %144 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %.0104.i.lcssa, i64 %146, i1 false)
   %.0..0..0..0..i23866810081315 = load <16 x i8>, ptr %9, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %148 = zext nneg i32 %146 to i64
+  %147 = zext nneg i32 %145 to i64
   %.not832 = icmp eq i32 %.099.i.lcssa, 0
   br i1 %.not832, label %._crit_edge773, label %.lr.ph772
 
 ._crit_edge773:                                   ; preds = %.lr.ph772, %._crit_edge
+  %148 = zext nneg i16 %144 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <2 x i64> zeroinitializer, ptr %10, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 16 %20, i64 %148, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 16 %20, i64 %147, i1 false)
   %.0..0..0..0..i23766910091316 = load <16 x i8>, ptr %10, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %149 = icmp eq <16 x i8> %.0..0..0..0..i23866810081315, %.0..0..0..0..i23766910091316
@@ -5461,9 +5461,9 @@ define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %0, ptr noundef ca
   %151 = zext i16 %150 to i32
   %152 = xor i32 %151, -1
   %153 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %152, i1 true)
-  %154 = tail call i32 @llvm.umin.i32(i32 %145, i32 %146)
+  %154 = tail call i32 @llvm.umin.i32(i32 %148, i32 %145)
   %..i = tail call i32 @llvm.umin.i32(i32 %153, i32 %154)
-  %.not118.i118 = icmp ult i32 %.099.i.lcssa, %145
+  %.not118.i118 = icmp ult i32 %.099.i.lcssa, %148
   br i1 %.not118.i118, label %165, label %162
 
 .lr.ph772:                                        ; preds = %._crit_edge, %.lr.ph772
@@ -5476,7 +5476,7 @@ define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %0, ptr noundef ca
   %160 = getelementptr inbounds nuw i8, ptr %20, i64 %.097.i770
   store i8 %159, ptr %160, align 1
   %161 = add nuw nsw i64 %.097.i770, 1
-  %exitcond903.not = icmp eq i64 %161, %148
+  %exitcond903.not = icmp eq i64 %161, %147
   br i1 %exitcond903.not, label %._crit_edge773, label %.lr.ph772
 
 162:                                              ; preds = %._crit_edge773
@@ -5488,7 +5488,7 @@ define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %0, ptr noundef ca
   br label %.thread
 
 165:                                              ; preds = %._crit_edge773
-  %166 = icmp eq i32 %..i, %146
+  %166 = icmp eq i32 %..i, %145
   br i1 %166, label %167, label %.thread
 
 167:                                              ; preds = %165
@@ -5496,7 +5496,7 @@ define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %0, ptr noundef ca
   %169 = ptrtoint ptr %.0104.i.lcssa to i64
   %170 = ptrtoint ptr %103 to i64
   %171 = sub i64 %169, %170
-  %172 = add i64 %171, %148
+  %172 = add i64 %171, %147
   %173 = trunc i64 %172 to i16
   br i1 %.not.i116, label %188, label %187
 
@@ -5535,7 +5535,7 @@ define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %0, ptr noundef ca
   br label %188
 
 188:                                              ; preds = %187, %167
-  %189 = getelementptr inbounds nuw i8, ptr %168, i64 %148
+  %189 = getelementptr inbounds nuw i8, ptr %168, i64 %147
   br label %doWide16.exit
 
 doWide16.exit:                                    ; preds = %186, %188
@@ -5939,22 +5939,22 @@ doNormal16.exit115:                               ; preds = %doSherman16.exit, %
   %.099.i125.lcssa = phi i32 [ %369, %383 ], [ %408, %404 ]
   %.1.i126.lcssa = phi ptr [ %.0580, %383 ], [ %406, %404 ]
   %412 = tail call i16 @llvm.umin.i16(i16 %.0101.i124.lcssa, i16 16)
-  %413 = zext nneg i16 %412 to i32
-  %414 = tail call i32 @llvm.umin.i32(i32 %.099.i125.lcssa, i32 16)
+  %413 = tail call i32 @llvm.umin.i32(i32 %.099.i125.lcssa, i32 16)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store <2 x i64> zeroinitializer, ptr %11, align 16
-  %415 = zext nneg i16 %412 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %.0104.i123.lcssa, i64 %415, i1 false)
+  %414 = zext nneg i16 %412 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %.0104.i123.lcssa, i64 %414, i1 false)
   %.0..0..0..0..i23667210111317 = load <16 x i8>, ptr %11, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %416 = zext nneg i32 %414 to i64
+  %415 = zext nneg i32 %413 to i64
   %.not833 = icmp eq i32 %.099.i125.lcssa, 0
   br i1 %.not833, label %._crit_edge790, label %.lr.ph789
 
 ._crit_edge790:                                   ; preds = %.lr.ph789, %._crit_edge782
+  %416 = zext nneg i16 %412 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store <2 x i64> zeroinitializer, ptr %12, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 16 %19, i64 %416, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 16 %19, i64 %415, i1 false)
   %.0..0..0..0..i23567310121318 = load <16 x i8>, ptr %12, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %417 = icmp eq <16 x i8> %.0..0..0..0..i23667210111317, %.0..0..0..0..i23567310121318
@@ -5962,9 +5962,9 @@ doNormal16.exit115:                               ; preds = %doSherman16.exit, %
   %419 = zext i16 %418 to i32
   %420 = xor i32 %419, -1
   %421 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %420, i1 true)
-  %422 = tail call i32 @llvm.umin.i32(i32 %413, i32 %414)
+  %422 = tail call i32 @llvm.umin.i32(i32 %416, i32 %413)
   %..i128 = tail call i32 @llvm.umin.i32(i32 %421, i32 %422)
-  %.not118.i129 = icmp ult i32 %.099.i125.lcssa, %413
+  %.not118.i129 = icmp ult i32 %.099.i125.lcssa, %416
   br i1 %.not118.i129, label %433, label %430
 
 .lr.ph789:                                        ; preds = %._crit_edge782, %.lr.ph789
@@ -5977,7 +5977,7 @@ doNormal16.exit115:                               ; preds = %doSherman16.exit, %
   %428 = getelementptr inbounds nuw i8, ptr %19, i64 %.097.i127787
   store i8 %427, ptr %428, align 1
   %429 = add nuw nsw i64 %.097.i127787, 1
-  %exitcond905.not = icmp eq i64 %429, %416
+  %exitcond905.not = icmp eq i64 %429, %415
   br i1 %exitcond905.not, label %._crit_edge790, label %.lr.ph789
 
 430:                                              ; preds = %._crit_edge790
@@ -5989,7 +5989,7 @@ doNormal16.exit115:                               ; preds = %doSherman16.exit, %
   br label %.thread601
 
 433:                                              ; preds = %._crit_edge790
-  %434 = icmp eq i32 %..i128, %414
+  %434 = icmp eq i32 %..i128, %413
   br i1 %434, label %435, label %.thread601
 
 435:                                              ; preds = %433
@@ -5997,7 +5997,7 @@ doNormal16.exit115:                               ; preds = %doSherman16.exit, %
   %437 = ptrtoint ptr %.0104.i123.lcssa to i64
   %438 = ptrtoint ptr %371 to i64
   %439 = sub i64 %437, %438
-  %440 = add i64 %439, %416
+  %440 = add i64 %439, %415
   %441 = trunc i64 %440 to i16
   br i1 %.not.i122, label %456, label %455
 
@@ -6036,7 +6036,7 @@ doNormal16.exit115:                               ; preds = %doSherman16.exit, %
   br label %456
 
 456:                                              ; preds = %455, %435
-  %457 = getelementptr inbounds nuw i8, ptr %436, i64 %416
+  %457 = getelementptr inbounds nuw i8, ptr %436, i64 %415
   br label %doWide16.exit145
 
 doWide16.exit145:                                 ; preds = %454, %456
@@ -6439,22 +6439,22 @@ doNormal16.exit102:                               ; preds = %doSherman16.exit201
   %.099.i149.lcssa = phi i32 [ %639, %653 ], [ %678, %674 ]
   %.1.i150.lcssa = phi ptr [ %.0576, %653 ], [ %676, %674 ]
   %682 = tail call i16 @llvm.umin.i16(i16 %.0101.i148.lcssa, i16 16)
-  %683 = zext nneg i16 %682 to i32
-  %684 = tail call i32 @llvm.umin.i32(i32 %.099.i149.lcssa, i32 16)
+  %683 = tail call i32 @llvm.umin.i32(i32 %.099.i149.lcssa, i32 16)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store <2 x i64> zeroinitializer, ptr %13, align 16
-  %685 = zext nneg i16 %682 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %.0104.i147.lcssa, i64 %685, i1 false)
+  %684 = zext nneg i16 %682 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %.0104.i147.lcssa, i64 %684, i1 false)
   %.0..0..0..0..i23467710151319 = load <16 x i8>, ptr %13, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %686 = zext nneg i32 %684 to i64
+  %685 = zext nneg i32 %683 to i64
   %.not834 = icmp eq i32 %.099.i149.lcssa, 0
   br i1 %.not834, label %._crit_edge807, label %.lr.ph806
 
 ._crit_edge807:                                   ; preds = %.lr.ph806, %._crit_edge799
+  %686 = zext nneg i16 %682 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store <2 x i64> zeroinitializer, ptr %14, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr nonnull align 16 %18, i64 %686, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr nonnull align 16 %18, i64 %685, i1 false)
   %.0..0..0..0..i23367810161320 = load <16 x i8>, ptr %14, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %687 = icmp eq <16 x i8> %.0..0..0..0..i23467710151319, %.0..0..0..0..i23367810161320
@@ -6462,9 +6462,9 @@ doNormal16.exit102:                               ; preds = %doSherman16.exit201
   %689 = zext i16 %688 to i32
   %690 = xor i32 %689, -1
   %691 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %690, i1 true)
-  %692 = tail call i32 @llvm.umin.i32(i32 %683, i32 %684)
+  %692 = tail call i32 @llvm.umin.i32(i32 %686, i32 %683)
   %..i152 = tail call i32 @llvm.umin.i32(i32 %691, i32 %692)
-  %.not118.i153 = icmp ult i32 %.099.i149.lcssa, %683
+  %.not118.i153 = icmp ult i32 %.099.i149.lcssa, %686
   br i1 %.not118.i153, label %703, label %700
 
 .lr.ph806:                                        ; preds = %._crit_edge799, %.lr.ph806
@@ -6477,7 +6477,7 @@ doNormal16.exit102:                               ; preds = %doSherman16.exit201
   %698 = getelementptr inbounds nuw i8, ptr %18, i64 %.097.i151804
   store i8 %697, ptr %698, align 1
   %699 = add nuw nsw i64 %.097.i151804, 1
-  %exitcond907.not = icmp eq i64 %699, %686
+  %exitcond907.not = icmp eq i64 %699, %685
   br i1 %exitcond907.not, label %._crit_edge807, label %.lr.ph806
 
 700:                                              ; preds = %._crit_edge807
@@ -6489,7 +6489,7 @@ doNormal16.exit102:                               ; preds = %doSherman16.exit201
   br label %.thread619
 
 703:                                              ; preds = %._crit_edge807
-  %704 = icmp eq i32 %..i152, %684
+  %704 = icmp eq i32 %..i152, %683
   br i1 %704, label %705, label %.thread619
 
 705:                                              ; preds = %703
@@ -6497,7 +6497,7 @@ doNormal16.exit102:                               ; preds = %doSherman16.exit201
   %707 = ptrtoint ptr %.0104.i147.lcssa to i64
   %708 = ptrtoint ptr %641 to i64
   %709 = sub i64 %707, %708
-  %710 = add i64 %709, %686
+  %710 = add i64 %709, %685
   %711 = trunc i64 %710 to i16
   br i1 %.not.i146, label %726, label %725
 
@@ -6536,7 +6536,7 @@ doNormal16.exit102:                               ; preds = %doSherman16.exit201
   br label %726
 
 726:                                              ; preds = %725, %705
-  %727 = getelementptr inbounds nuw i8, ptr %706, i64 %686
+  %727 = getelementptr inbounds nuw i8, ptr %706, i64 %685
   br label %doWide16.exit169
 
 doWide16.exit169:                                 ; preds = %724, %726
@@ -6990,22 +6990,22 @@ doNormal16.exit89:                                ; preds = %doSherman16.exit206
   %.099.i173.lcssa = phi i32 [ %931, %945 ], [ %970, %966 ]
   %.1.i174.lcssa = phi ptr [ %.0572, %945 ], [ %968, %966 ]
   %974 = tail call i16 @llvm.umin.i16(i16 %.0101.i172.lcssa, i16 16)
-  %975 = zext nneg i16 %974 to i32
-  %976 = tail call i32 @llvm.umin.i32(i32 %.099.i173.lcssa, i32 16)
+  %975 = tail call i32 @llvm.umin.i32(i32 %.099.i173.lcssa, i32 16)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store <2 x i64> zeroinitializer, ptr %15, align 16
-  %977 = zext nneg i16 %974 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr nonnull align 1 %.0104.i171.lcssa, i64 %977, i1 false)
+  %976 = zext nneg i16 %974 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr nonnull align 1 %.0104.i171.lcssa, i64 %976, i1 false)
   %.0..0..0..0..i23268210191321 = load <16 x i8>, ptr %15, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %978 = zext nneg i32 %976 to i64
+  %977 = zext nneg i32 %975 to i64
   %.not835 = icmp eq i32 %.099.i173.lcssa, 0
   br i1 %.not835, label %._crit_edge827, label %.lr.ph826
 
 ._crit_edge827:                                   ; preds = %.lr.ph826, %._crit_edge819
+  %978 = zext nneg i16 %974 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store <2 x i64> zeroinitializer, ptr %16, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %16, ptr nonnull align 16 %17, i64 %978, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %16, ptr nonnull align 16 %17, i64 %977, i1 false)
   %.0..0..0..0..i68310201322 = load <16 x i8>, ptr %16, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %979 = icmp eq <16 x i8> %.0..0..0..0..i23268210191321, %.0..0..0..0..i68310201322
@@ -7013,9 +7013,9 @@ doNormal16.exit89:                                ; preds = %doSherman16.exit206
   %981 = zext i16 %980 to i32
   %982 = xor i32 %981, -1
   %983 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %982, i1 true)
-  %984 = tail call i32 @llvm.umin.i32(i32 %975, i32 %976)
+  %984 = tail call i32 @llvm.umin.i32(i32 %978, i32 %975)
   %..i176 = tail call i32 @llvm.umin.i32(i32 %983, i32 %984)
-  %.not118.i177 = icmp ult i32 %.099.i173.lcssa, %975
+  %.not118.i177 = icmp ult i32 %.099.i173.lcssa, %978
   br i1 %.not118.i177, label %995, label %992
 
 .lr.ph826:                                        ; preds = %._crit_edge819, %.lr.ph826
@@ -7028,7 +7028,7 @@ doNormal16.exit89:                                ; preds = %doSherman16.exit206
   %990 = getelementptr inbounds nuw i8, ptr %17, i64 %.097.i175824
   store i8 %989, ptr %990, align 1
   %991 = add nuw nsw i64 %.097.i175824, 1
-  %exitcond911.not = icmp eq i64 %991, %978
+  %exitcond911.not = icmp eq i64 %991, %977
   br i1 %exitcond911.not, label %._crit_edge827, label %.lr.ph826
 
 992:                                              ; preds = %._crit_edge827
@@ -7040,7 +7040,7 @@ doNormal16.exit89:                                ; preds = %doSherman16.exit206
   br label %.thread639
 
 995:                                              ; preds = %._crit_edge827
-  %996 = icmp eq i32 %..i176, %976
+  %996 = icmp eq i32 %..i176, %975
   br i1 %996, label %997, label %.thread639
 
 997:                                              ; preds = %995
@@ -7048,7 +7048,7 @@ doNormal16.exit89:                                ; preds = %doSherman16.exit206
   %999 = ptrtoint ptr %.0104.i171.lcssa to i64
   %1000 = ptrtoint ptr %933 to i64
   %1001 = sub i64 %999, %1000
-  %1002 = add i64 %1001, %978
+  %1002 = add i64 %1001, %977
   %1003 = trunc i64 %1002 to i16
   br i1 %.not.i170, label %1018, label %1017
 
@@ -7087,7 +7087,7 @@ doNormal16.exit89:                                ; preds = %doSherman16.exit206
   br label %1018
 
 1018:                                             ; preds = %1017, %997
-  %1019 = getelementptr inbounds nuw i8, ptr %998, i64 %978
+  %1019 = getelementptr inbounds nuw i8, ptr %998, i64 %977
   br label %doWide16.exit193
 
 doWide16.exit193:                                 ; preds = %1016, %1018
@@ -8553,22 +8553,22 @@ define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec16_i_cb(ptr nound
   %.099.i.lcssa = phi i32 [ %79, %93 ], [ %118, %114 ]
   %.1.i36.lcssa = phi ptr [ %.0166, %93 ], [ %116, %114 ]
   %122 = tail call i16 @llvm.umin.i16(i16 %.0101.i.lcssa, i16 16)
-  %123 = zext nneg i16 %122 to i32
-  %124 = tail call i32 @llvm.umin.i32(i32 %.099.i.lcssa, i32 16)
+  %123 = tail call i32 @llvm.umin.i32(i32 %.099.i.lcssa, i32 16)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <2 x i64> zeroinitializer, ptr %10, align 16
-  %125 = zext nneg i16 %122 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 1 %.0104.i.lcssa, i64 %125, i1 false)
+  %124 = zext nneg i16 %122 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 1 %.0104.i.lcssa, i64 %124, i1 false)
   %.0..0..0..0..i86215399570 = load <16 x i8>, ptr %10, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %126 = zext nneg i32 %124 to i64
+  %125 = zext nneg i32 %123 to i64
   %.not = icmp eq i32 %.099.i.lcssa, 0
   br i1 %.not, label %._crit_edge278, label %.lr.ph277
 
 ._crit_edge278:                                   ; preds = %.lr.ph277, %._crit_edge
+  %126 = zext nneg i16 %122 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store <2 x i64> zeroinitializer, ptr %11, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 16 %15, i64 %126, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 16 %15, i64 %125, i1 false)
   %.0..0..0..0..i85216400571 = load <16 x i8>, ptr %11, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %127 = icmp eq <16 x i8> %.0..0..0..0..i86215399570, %.0..0..0..0..i85216400571
@@ -8576,9 +8576,9 @@ define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec16_i_cb(ptr nound
   %129 = zext i16 %128 to i32
   %130 = xor i32 %129, -1
   %131 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %130, i1 true)
-  %132 = tail call i32 @llvm.umin.i32(i32 %123, i32 %124)
+  %132 = tail call i32 @llvm.umin.i32(i32 %126, i32 %123)
   %..i = tail call i32 @llvm.umin.i32(i32 %131, i32 %132)
-  %.not118.i37 = icmp ult i32 %.099.i.lcssa, %123
+  %.not118.i37 = icmp ult i32 %.099.i.lcssa, %126
   br i1 %.not118.i37, label %143, label %140
 
 .lr.ph277:                                        ; preds = %._crit_edge, %.lr.ph277
@@ -8591,7 +8591,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec16_i_cb(ptr nound
   %138 = getelementptr inbounds nuw i8, ptr %15, i64 %.097.i275
   store i8 %137, ptr %138, align 1
   %139 = add nuw nsw i64 %.097.i275, 1
-  %exitcond346.not = icmp eq i64 %139, %126
+  %exitcond346.not = icmp eq i64 %139, %125
   br i1 %exitcond346.not, label %._crit_edge278, label %.lr.ph277
 
 140:                                              ; preds = %._crit_edge278
@@ -8603,7 +8603,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec16_i_cb(ptr nound
   br label %.thread
 
 143:                                              ; preds = %._crit_edge278
-  %144 = icmp eq i32 %..i, %124
+  %144 = icmp eq i32 %..i, %123
   br i1 %144, label %145, label %.thread
 
 145:                                              ; preds = %143
@@ -8611,7 +8611,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec16_i_cb(ptr nound
   %147 = ptrtoint ptr %.0104.i.lcssa to i64
   %148 = ptrtoint ptr %81 to i64
   %149 = sub i64 %147, %148
-  %150 = add i64 %149, %126
+  %150 = add i64 %149, %125
   %151 = trunc i64 %150 to i16
   br i1 %.not.i35, label %166, label %165
 
@@ -8650,7 +8650,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec16_i_cb(ptr nound
   br label %166
 
 166:                                              ; preds = %165, %145
-  %167 = getelementptr inbounds nuw i8, ptr %146, i64 %126
+  %167 = getelementptr inbounds nuw i8, ptr %146, i64 %125
   br label %doWide16.exit
 
 doWide16.exit:                                    ; preds = %164, %166
@@ -9116,22 +9116,22 @@ doNormal16.exit34:                                ; preds = %doSherman16.exit, %
   %.099.i45.lcssa = phi i32 [ %378, %392 ], [ %417, %413 ]
   %.1.i46.lcssa = phi ptr [ %.0162, %392 ], [ %415, %413 ]
   %421 = tail call i16 @llvm.umin.i16(i16 %.0101.i44.lcssa, i16 16)
-  %422 = zext nneg i16 %421 to i32
-  %423 = tail call i32 @llvm.umin.i32(i32 %.099.i45.lcssa, i32 16)
+  %422 = tail call i32 @llvm.umin.i32(i32 %.099.i45.lcssa, i32 16)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store <2 x i64> zeroinitializer, ptr %12, align 16
-  %424 = zext nneg i16 %421 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 1 %.0104.i43.lcssa, i64 %424, i1 false)
+  %423 = zext nneg i16 %421 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 1 %.0104.i43.lcssa, i64 %423, i1 false)
   %.0..0..0..0..i84219402572 = load <16 x i8>, ptr %12, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %425 = zext nneg i32 %423 to i64
+  %424 = zext nneg i32 %422 to i64
   %.not305 = icmp eq i32 %.099.i45.lcssa, 0
   br i1 %.not305, label %._crit_edge298, label %.lr.ph297
 
 ._crit_edge298:                                   ; preds = %.lr.ph297, %._crit_edge290
+  %425 = zext nneg i16 %421 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store <2 x i64> zeroinitializer, ptr %13, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 16 %14, i64 %425, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 16 %14, i64 %424, i1 false)
   %.0..0..0..0..i220403573 = load <16 x i8>, ptr %13, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %426 = icmp eq <16 x i8> %.0..0..0..0..i84219402572, %.0..0..0..0..i220403573
@@ -9139,9 +9139,9 @@ doNormal16.exit34:                                ; preds = %doSherman16.exit, %
   %428 = zext i16 %427 to i32
   %429 = xor i32 %428, -1
   %430 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %429, i1 true)
-  %431 = tail call i32 @llvm.umin.i32(i32 %422, i32 %423)
+  %431 = tail call i32 @llvm.umin.i32(i32 %425, i32 %422)
   %..i48 = tail call i32 @llvm.umin.i32(i32 %430, i32 %431)
-  %.not118.i49 = icmp ult i32 %.099.i45.lcssa, %422
+  %.not118.i49 = icmp ult i32 %.099.i45.lcssa, %425
   br i1 %.not118.i49, label %442, label %439
 
 .lr.ph297:                                        ; preds = %._crit_edge290, %.lr.ph297
@@ -9154,7 +9154,7 @@ doNormal16.exit34:                                ; preds = %doSherman16.exit, %
   %437 = getelementptr inbounds nuw i8, ptr %14, i64 %.097.i47295
   store i8 %436, ptr %437, align 1
   %438 = add nuw nsw i64 %.097.i47295, 1
-  %exitcond350.not = icmp eq i64 %438, %425
+  %exitcond350.not = icmp eq i64 %438, %424
   br i1 %exitcond350.not, label %._crit_edge298, label %.lr.ph297
 
 439:                                              ; preds = %._crit_edge298
@@ -9166,7 +9166,7 @@ doNormal16.exit34:                                ; preds = %doSherman16.exit, %
   br label %.thread188
 
 442:                                              ; preds = %._crit_edge298
-  %443 = icmp eq i32 %..i48, %423
+  %443 = icmp eq i32 %..i48, %422
   br i1 %443, label %444, label %.thread188
 
 444:                                              ; preds = %442
@@ -9174,7 +9174,7 @@ doNormal16.exit34:                                ; preds = %doSherman16.exit, %
   %446 = ptrtoint ptr %.0104.i43.lcssa to i64
   %447 = ptrtoint ptr %380 to i64
   %448 = sub i64 %446, %447
-  %449 = add i64 %448, %425
+  %449 = add i64 %448, %424
   %450 = trunc i64 %449 to i16
   br i1 %.not.i42, label %465, label %464
 
@@ -9213,7 +9213,7 @@ doNormal16.exit34:                                ; preds = %doSherman16.exit, %
   br label %465
 
 465:                                              ; preds = %464, %444
-  %466 = getelementptr inbounds nuw i8, ptr %445, i64 %425
+  %466 = getelementptr inbounds nuw i8, ptr %445, i64 %424
   br label %doWide16.exit65
 
 doWide16.exit65:                                  ; preds = %463, %465
@@ -9688,22 +9688,22 @@ define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec16_i_sam(ptr noun
   %.099.i.lcssa = phi i32 [ %75, %89 ], [ %114, %110 ]
   %.1.i36.lcssa = phi ptr [ %.0148, %89 ], [ %112, %110 ]
   %118 = tail call i16 @llvm.umin.i16(i16 %.0101.i.lcssa, i16 16)
-  %119 = zext nneg i16 %118 to i32
-  %120 = tail call i32 @llvm.umin.i32(i32 %.099.i.lcssa, i32 16)
+  %119 = tail call i32 @llvm.umin.i32(i32 %.099.i.lcssa, i32 16)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x i64> zeroinitializer, ptr %7, align 16
-  %121 = zext nneg i16 %118 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %.0104.i.lcssa, i64 %121, i1 false)
+  %120 = zext nneg i16 %118 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %.0104.i.lcssa, i64 %120, i1 false)
   %.0..0..0..0..i8518331169 = load <16 x i8>, ptr %7, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %122 = zext nneg i32 %120 to i64
+  %121 = zext nneg i32 %119 to i64
   %.not = icmp eq i32 %.099.i.lcssa, 0
   br i1 %.not, label %._crit_edge227, label %.lr.ph226
 
 ._crit_edge227:                                   ; preds = %.lr.ph226, %._crit_edge
+  %122 = zext nneg i16 %118 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x i64> zeroinitializer, ptr %8, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 16 %12, i64 %122, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 16 %12, i64 %121, i1 false)
   %.0..0..0..0..i8418431270 = load <16 x i8>, ptr %8, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %123 = icmp eq <16 x i8> %.0..0..0..0..i8518331169, %.0..0..0..0..i8418431270
@@ -9711,9 +9711,9 @@ define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec16_i_sam(ptr noun
   %125 = zext i16 %124 to i32
   %126 = xor i32 %125, -1
   %127 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %126, i1 true)
-  %128 = tail call i32 @llvm.umin.i32(i32 %119, i32 %120)
+  %128 = tail call i32 @llvm.umin.i32(i32 %122, i32 %119)
   %..i = tail call i32 @llvm.umin.i32(i32 %127, i32 %128)
-  %.not118.i37 = icmp ult i32 %.099.i.lcssa, %119
+  %.not118.i37 = icmp ult i32 %.099.i.lcssa, %122
   br i1 %.not118.i37, label %139, label %136
 
 .lr.ph226:                                        ; preds = %._crit_edge, %.lr.ph226
@@ -9726,7 +9726,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec16_i_sam(ptr noun
   %134 = getelementptr inbounds nuw i8, ptr %12, i64 %.097.i224
   store i8 %133, ptr %134, align 1
   %135 = add nuw nsw i64 %.097.i224, 1
-  %exitcond272.not = icmp eq i64 %135, %122
+  %exitcond272.not = icmp eq i64 %135, %121
   br i1 %exitcond272.not, label %._crit_edge227, label %.lr.ph226
 
 136:                                              ; preds = %._crit_edge227
@@ -9738,7 +9738,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec16_i_sam(ptr noun
   br label %.thread
 
 139:                                              ; preds = %._crit_edge227
-  %140 = icmp eq i32 %..i, %120
+  %140 = icmp eq i32 %..i, %119
   br i1 %140, label %141, label %.thread
 
 141:                                              ; preds = %139
@@ -9746,7 +9746,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec16_i_sam(ptr noun
   %143 = ptrtoint ptr %.0104.i.lcssa to i64
   %144 = ptrtoint ptr %77 to i64
   %145 = sub i64 %143, %144
-  %146 = add i64 %145, %122
+  %146 = add i64 %145, %121
   %147 = trunc i64 %146 to i16
   br i1 %.not.i35, label %162, label %161
 
@@ -9785,7 +9785,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec16_i_sam(ptr noun
   br label %162
 
 162:                                              ; preds = %161, %141
-  %163 = getelementptr inbounds nuw i8, ptr %142, i64 %122
+  %163 = getelementptr inbounds nuw i8, ptr %142, i64 %121
   br label %doWide16.exit
 
 doWide16.exit:                                    ; preds = %160, %162
@@ -10177,22 +10177,22 @@ doNormal16.exit34:                                ; preds = %doSherman16.exit, %
   %.099.i44.lcssa = phi i32 [ %338, %352 ], [ %377, %373 ]
   %.1.i45.lcssa = phi ptr [ %.0144, %352 ], [ %375, %373 ]
   %381 = tail call i16 @llvm.umin.i16(i16 %.0101.i43.lcssa, i16 16)
-  %382 = zext nneg i16 %381 to i32
-  %383 = tail call i32 @llvm.umin.i32(i32 %.099.i44.lcssa, i32 16)
+  %382 = tail call i32 @llvm.umin.i32(i32 %.099.i44.lcssa, i32 16)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store <2 x i64> zeroinitializer, ptr %9, align 16
-  %384 = zext nneg i16 %381 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %.0104.i42.lcssa, i64 %384, i1 false)
+  %383 = zext nneg i16 %381 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %.0104.i42.lcssa, i64 %383, i1 false)
   %.0..0..0..0..i8318731471 = load <16 x i8>, ptr %9, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %385 = zext nneg i32 %383 to i64
+  %384 = zext nneg i32 %382 to i64
   %.not246 = icmp eq i32 %.099.i44.lcssa, 0
   br i1 %.not246, label %._crit_edge244, label %.lr.ph243
 
 ._crit_edge244:                                   ; preds = %.lr.ph243, %._crit_edge236
+  %385 = zext nneg i16 %381 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <2 x i64> zeroinitializer, ptr %10, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 16 %11, i64 %385, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 16 %11, i64 %384, i1 false)
   %.0..0..0..0..i18831572 = load <16 x i8>, ptr %10, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %386 = icmp eq <16 x i8> %.0..0..0..0..i8318731471, %.0..0..0..0..i18831572
@@ -10200,9 +10200,9 @@ doNormal16.exit34:                                ; preds = %doSherman16.exit, %
   %388 = zext i16 %387 to i32
   %389 = xor i32 %388, -1
   %390 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %389, i1 true)
-  %391 = tail call i32 @llvm.umin.i32(i32 %382, i32 %383)
+  %391 = tail call i32 @llvm.umin.i32(i32 %385, i32 %382)
   %..i47 = tail call i32 @llvm.umin.i32(i32 %390, i32 %391)
-  %.not118.i48 = icmp ult i32 %.099.i44.lcssa, %382
+  %.not118.i48 = icmp ult i32 %.099.i44.lcssa, %385
   br i1 %.not118.i48, label %402, label %399
 
 .lr.ph243:                                        ; preds = %._crit_edge236, %.lr.ph243
@@ -10215,7 +10215,7 @@ doNormal16.exit34:                                ; preds = %doSherman16.exit, %
   %397 = getelementptr inbounds nuw i8, ptr %11, i64 %.097.i46241
   store i8 %396, ptr %397, align 1
   %398 = add nuw nsw i64 %.097.i46241, 1
-  %exitcond274.not = icmp eq i64 %398, %385
+  %exitcond274.not = icmp eq i64 %398, %384
   br i1 %exitcond274.not, label %._crit_edge244, label %.lr.ph243
 
 399:                                              ; preds = %._crit_edge244
@@ -10227,7 +10227,7 @@ doNormal16.exit34:                                ; preds = %doSherman16.exit, %
   br label %.thread165
 
 402:                                              ; preds = %._crit_edge244
-  %403 = icmp eq i32 %..i47, %383
+  %403 = icmp eq i32 %..i47, %382
   br i1 %403, label %404, label %.thread165
 
 404:                                              ; preds = %402
@@ -10235,7 +10235,7 @@ doNormal16.exit34:                                ; preds = %doSherman16.exit, %
   %406 = ptrtoint ptr %.0104.i42.lcssa to i64
   %407 = ptrtoint ptr %340 to i64
   %408 = sub i64 %406, %407
-  %409 = add i64 %408, %385
+  %409 = add i64 %408, %384
   %410 = trunc i64 %409 to i16
   br i1 %.not.i41, label %425, label %424
 
@@ -10274,7 +10274,7 @@ doNormal16.exit34:                                ; preds = %doSherman16.exit, %
   br label %425
 
 425:                                              ; preds = %424, %404
-  %426 = getelementptr inbounds nuw i8, ptr %405, i64 %385
+  %426 = getelementptr inbounds nuw i8, ptr %405, i64 %384
   br label %doWide16.exit64
 
 doWide16.exit64:                                  ; preds = %423, %425
@@ -10685,22 +10685,22 @@ define internal fastcc noundef signext i8 @mcclellanExec16_i_nm(ptr noundef %0, 
   %.099.i.lcssa = phi i32 [ %69, %83 ], [ %108, %104 ]
   %.1.i32.lcssa = phi ptr [ %.0128197, %83 ], [ %106, %104 ]
   %112 = tail call i16 @llvm.umin.i16(i16 %.0101.i.lcssa, i16 16)
-  %113 = zext nneg i16 %112 to i32
-  %114 = tail call i32 @llvm.umin.i32(i32 %.099.i.lcssa, i32 16)
+  %113 = tail call i32 @llvm.umin.i32(i32 %.099.i.lcssa, i32 16)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store <2 x i64> zeroinitializer, ptr %6, align 16
-  %115 = zext nneg i16 %112 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %.0104.i.lcssa, i64 %115, i1 false)
+  %114 = zext nneg i16 %112 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %.0104.i.lcssa, i64 %114, i1 false)
   %.0..0..0..0..i8015729051 = load <16 x i8>, ptr %6, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %116 = zext nneg i32 %114 to i64
+  %115 = zext nneg i32 %113 to i64
   %.not = icmp eq i32 %.099.i.lcssa, 0
   br i1 %.not, label %._crit_edge193, label %.lr.ph192
 
 ._crit_edge193:                                   ; preds = %.lr.ph192, %._crit_edge
+  %116 = zext nneg i16 %112 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x i64> zeroinitializer, ptr %7, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 16 %11, i64 %116, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 16 %11, i64 %115, i1 false)
   %.0..0..0..0..i7915829152 = load <16 x i8>, ptr %7, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %117 = icmp eq <16 x i8> %.0..0..0..0..i8015729051, %.0..0..0..0..i7915829152
@@ -10708,9 +10708,9 @@ define internal fastcc noundef signext i8 @mcclellanExec16_i_nm(ptr noundef %0, 
   %119 = zext i16 %118 to i32
   %120 = xor i32 %119, -1
   %121 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %120, i1 true)
-  %122 = tail call i32 @llvm.umin.i32(i32 %113, i32 %114)
+  %122 = tail call i32 @llvm.umin.i32(i32 %116, i32 %113)
   %..i = tail call i32 @llvm.umin.i32(i32 %121, i32 %122)
-  %.not118.i33 = icmp ult i32 %.099.i.lcssa, %113
+  %.not118.i33 = icmp ult i32 %.099.i.lcssa, %116
   br i1 %.not118.i33, label %133, label %130
 
 .lr.ph192:                                        ; preds = %._crit_edge, %.lr.ph192
@@ -10723,7 +10723,7 @@ define internal fastcc noundef signext i8 @mcclellanExec16_i_nm(ptr noundef %0, 
   %128 = getelementptr inbounds nuw i8, ptr %11, i64 %.097.i190
   store i8 %127, ptr %128, align 1
   %129 = add nuw nsw i64 %.097.i190, 1
-  %exitcond251.not = icmp eq i64 %129, %116
+  %exitcond251.not = icmp eq i64 %129, %115
   br i1 %exitcond251.not, label %._crit_edge193, label %.lr.ph192
 
 130:                                              ; preds = %._crit_edge193
@@ -10735,7 +10735,7 @@ define internal fastcc noundef signext i8 @mcclellanExec16_i_nm(ptr noundef %0, 
   br label %.thread
 
 133:                                              ; preds = %._crit_edge193
-  %134 = icmp eq i32 %..i, %114
+  %134 = icmp eq i32 %..i, %113
   br i1 %134, label %135, label %.thread
 
 135:                                              ; preds = %133
@@ -10743,7 +10743,7 @@ define internal fastcc noundef signext i8 @mcclellanExec16_i_nm(ptr noundef %0, 
   %137 = ptrtoint ptr %.0104.i.lcssa to i64
   %138 = ptrtoint ptr %71 to i64
   %139 = sub i64 %137, %138
-  %140 = add i64 %139, %116
+  %140 = add i64 %139, %115
   %141 = trunc i64 %140 to i16
   br i1 %.not.i31, label %156, label %155
 
@@ -10782,7 +10782,7 @@ define internal fastcc noundef signext i8 @mcclellanExec16_i_nm(ptr noundef %0, 
   br label %156
 
 156:                                              ; preds = %155, %135
-  %157 = getelementptr inbounds nuw i8, ptr %136, i64 %116
+  %157 = getelementptr inbounds nuw i8, ptr %136, i64 %115
   br label %doWide16.exit
 
 doWide16.exit:                                    ; preds = %154, %156
@@ -11163,22 +11163,22 @@ doNormalWide16.exit15:                            ; preds = %201, %doSherman16.e
   %.099.i39.lcssa = phi i32 [ %333, %347 ], [ %372, %368 ]
   %.1.i40.lcssa = phi ptr [ %.0124, %347 ], [ %370, %368 ]
   %376 = tail call i16 @llvm.umin.i16(i16 %.0101.i38.lcssa, i16 16)
-  %377 = zext nneg i16 %376 to i32
-  %378 = tail call i32 @llvm.umin.i32(i32 %.099.i39.lcssa, i32 16)
+  %377 = tail call i32 @llvm.umin.i32(i32 %.099.i39.lcssa, i32 16)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x i64> zeroinitializer, ptr %8, align 16
-  %379 = zext nneg i16 %376 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 1 %.0104.i37.lcssa, i64 %379, i1 false)
+  %378 = zext nneg i16 %376 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 1 %.0104.i37.lcssa, i64 %378, i1 false)
   %.0..0..0..0..i7816129353 = load <16 x i8>, ptr %8, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %380 = zext nneg i32 %378 to i64
+  %379 = zext nneg i32 %377 to i64
   %.not230 = icmp eq i32 %.099.i39.lcssa, 0
   br i1 %.not230, label %._crit_edge228, label %.lr.ph227
 
 ._crit_edge228:                                   ; preds = %.lr.ph227, %._crit_edge220
+  %380 = zext nneg i16 %376 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store <2 x i64> zeroinitializer, ptr %9, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 16 %10, i64 %380, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 16 %10, i64 %379, i1 false)
   %.0..0..0..0..i16229454 = load <16 x i8>, ptr %9, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %381 = icmp eq <16 x i8> %.0..0..0..0..i7816129353, %.0..0..0..0..i16229454
@@ -11186,9 +11186,9 @@ doNormalWide16.exit15:                            ; preds = %201, %doSherman16.e
   %383 = zext i16 %382 to i32
   %384 = xor i32 %383, -1
   %385 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %384, i1 true)
-  %386 = tail call i32 @llvm.umin.i32(i32 %377, i32 %378)
+  %386 = tail call i32 @llvm.umin.i32(i32 %380, i32 %377)
   %..i42 = tail call i32 @llvm.umin.i32(i32 %385, i32 %386)
-  %.not118.i43 = icmp ult i32 %.099.i39.lcssa, %377
+  %.not118.i43 = icmp ult i32 %.099.i39.lcssa, %380
   br i1 %.not118.i43, label %397, label %394
 
 .lr.ph227:                                        ; preds = %._crit_edge220, %.lr.ph227
@@ -11201,7 +11201,7 @@ doNormalWide16.exit15:                            ; preds = %201, %doSherman16.e
   %392 = getelementptr inbounds nuw i8, ptr %10, i64 %.097.i41225
   store i8 %391, ptr %392, align 1
   %393 = add nuw nsw i64 %.097.i41225, 1
-  %exitcond253.not = icmp eq i64 %393, %380
+  %exitcond253.not = icmp eq i64 %393, %379
   br i1 %exitcond253.not, label %._crit_edge228, label %.lr.ph227
 
 394:                                              ; preds = %._crit_edge228
@@ -11213,7 +11213,7 @@ doNormalWide16.exit15:                            ; preds = %201, %doSherman16.e
   br label %.thread140
 
 397:                                              ; preds = %._crit_edge228
-  %398 = icmp eq i32 %..i42, %378
+  %398 = icmp eq i32 %..i42, %377
   br i1 %398, label %399, label %.thread140
 
 399:                                              ; preds = %397
@@ -11221,7 +11221,7 @@ doNormalWide16.exit15:                            ; preds = %201, %doSherman16.e
   %401 = ptrtoint ptr %.0104.i37.lcssa to i64
   %402 = ptrtoint ptr %335 to i64
   %403 = sub i64 %401, %402
-  %404 = add i64 %403, %380
+  %404 = add i64 %403, %379
   %405 = trunc i64 %404 to i16
   br i1 %.not.i36, label %420, label %419
 
@@ -11260,7 +11260,7 @@ doNormalWide16.exit15:                            ; preds = %201, %doSherman16.e
   br label %420
 
 420:                                              ; preds = %419, %399
-  %421 = getelementptr inbounds nuw i8, ptr %400, i64 %380
+  %421 = getelementptr inbounds nuw i8, ptr %400, i64 %379
   br label %doWide16.exit59
 
 doWide16.exit59:                                  ; preds = %418, %420

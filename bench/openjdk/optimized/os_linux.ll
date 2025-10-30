@@ -3491,38 +3491,38 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 71:                                               ; preds = %._crit_edge, %68
   %72 = phi i16 [ %.pre, %._crit_edge ], [ %rev.i, %68 ]
-  %73 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %74 = load i8, ptr %73, align 4
-  br label %75
+  br label %73
 
-75:                                               ; preds = %71, %84
-  %indvars.iv = phi i64 [ 0, %71 ], [ %indvars.iv.next, %84 ]
-  %.sroa.3.090 = phi i16 [ 0, %71 ], [ %.sroa.3.1, %84 ]
-  %.sroa.13.089 = phi ptr [ null, %71 ], [ %.sroa.13.1, %84 ]
-  %76 = getelementptr inbounds nuw %struct.arch_t, ptr @_ZZN2os8dll_loadEPKcPciE10arch_array, i64 %indvars.iv
-  %77 = load i16, ptr %76, align 16
-  %78 = icmp eq i16 %72, %77
-  br i1 %78, label %79, label %84
+73:                                               ; preds = %71, %82
+  %indvars.iv = phi i64 [ 0, %71 ], [ %indvars.iv.next, %82 ]
+  %.sroa.3.090 = phi i16 [ 0, %71 ], [ %.sroa.3.1, %82 ]
+  %.sroa.13.089 = phi ptr [ null, %71 ], [ %.sroa.13.1, %82 ]
+  %74 = getelementptr inbounds nuw %struct.arch_t, ptr @_ZZN2os8dll_loadEPKcPciE10arch_array, i64 %indvars.iv
+  %75 = load i16, ptr %74, align 16
+  %76 = icmp eq i16 %72, %75
+  br i1 %76, label %77, label %82
 
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds nuw i8, ptr %76, i64 2
-  %81 = load i16, ptr %80, align 2
-  %82 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %83 = load ptr, ptr %82, align 8
-  br label %84
+77:                                               ; preds = %73
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 2
+  %79 = load i16, ptr %78, align 2
+  %80 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %81 = load ptr, ptr %80, align 8
+  br label %82
 
-84:                                               ; preds = %75, %79
-  %.sroa.13.1 = phi ptr [ %83, %79 ], [ %.sroa.13.089, %75 ]
-  %.sroa.3.1 = phi i16 [ %81, %79 ], [ %.sroa.3.090, %75 ]
+82:                                               ; preds = %73, %77
+  %.sroa.13.1 = phi ptr [ %81, %77 ], [ %.sroa.13.089, %73 ]
+  %.sroa.3.1 = phi i16 [ %79, %77 ], [ %.sroa.3.090, %73 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %85, label %75, !llvm.loop !19
+  br i1 %exitcond.not, label %83, label %73, !llvm.loop !19
 
-85:                                               ; preds = %84
+83:                                               ; preds = %82
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %85 = load i8, ptr %84, align 4
   %.not82 = icmp eq i16 %.sroa.3.1, 62
   br i1 %.not82, label %93, label %86
 
-86:                                               ; preds = %85
+86:                                               ; preds = %83
   %.not85 = icmp eq ptr %.sroa.13.1, null
   %87 = add nsw i64 %55, -1
   br i1 %.not85, label %90, label %88
@@ -3536,7 +3536,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %92 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %58, i64 noundef %87, ptr noundef nonnull @.str.69, i32 noundef %91, ptr noundef nonnull @.str.52) #26
   br label %108
 
-93:                                               ; preds = %85
+93:                                               ; preds = %83
   br i1 %.not81, label %97, label %94
 
 94:                                               ; preds = %93
@@ -3545,7 +3545,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %108
 
 97:                                               ; preds = %93
-  %98 = add i8 %74, -3
+  %98 = add i8 %85, -3
   %or.cond10 = icmp ult i8 %98, -2
   br i1 %or.cond10, label %99, label %102
 
@@ -3555,12 +3555,12 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %108
 
 102:                                              ; preds = %97
-  %.not84 = icmp eq i8 %74, 2
+  %.not84 = icmp eq i8 %85, 2
   br i1 %.not84, label %108, label %103
 
 103:                                              ; preds = %102
   %104 = add nsw i64 %55, -1
-  %105 = shl nuw nsw i8 %74, 5
+  %105 = shl nuw nsw i8 %85, 5
   %106 = zext nneg i8 %105 to i32
   %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %58, i64 noundef %104, ptr noundef nonnull @.str.72, i32 noundef %106, i32 noundef 64) #26
   br label %108

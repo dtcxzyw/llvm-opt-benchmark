@@ -2242,16 +2242,16 @@ _ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_.exit: ; preds = 
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph74, %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb1EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit._crit_edge
   %.073 = phi ptr [ %56, %.lr.ph74 ], [ %72, %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb1EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit._crit_edge ]
-  %63 = load ptr, ptr %.073, align 8, !tbaa !239
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %65 = load ptr, ptr %64, align 8, !tbaa !302
-  %66 = getelementptr inbounds nuw i8, ptr %.073, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !244
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %69 = load ptr, ptr %68, align 8, !tbaa !302
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !194
-  %.not6570 = icmp eq ptr %65, %71
+  %63 = getelementptr inbounds nuw i8, ptr %.073, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !244
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %66 = load ptr, ptr %65, align 8, !tbaa !302
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !194
+  %69 = load ptr, ptr %.073, align 8, !tbaa !239
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  %71 = load ptr, ptr %70, align 8, !tbaa !302
+  %.not6570 = icmp eq ptr %71, %68
   br i1 %.not6570, label %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb1EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader.i.i.i
@@ -2265,7 +2265,7 @@ _ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineB
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_.exit52
   %73 = phi i8 [ %87, %_ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_.exit52 ], [ %.pre, %.lr.ph.preheader ]
-  %.sroa.054.071 = phi ptr [ %89, %_ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_.exit52 ], [ %65, %.lr.ph.preheader ]
+  %.sroa.054.071 = phi ptr [ %89, %_ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_.exit52 ], [ %71, %.lr.ph.preheader ]
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i23
 
@@ -2310,7 +2310,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_.exit52: ; preds 
   %87 = phi i8 [ %.pre.fr.i26, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i23 ], [ 1, %84 ], [ 1, %.lr.ph.i.i42 ]
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.054.071, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !194
-  %.not65 = icmp eq ptr %89, %71
+  %.not65 = icmp eq ptr %89, %68
   br i1 %.not65, label %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb1EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit._crit_edge, label %.lr.ph, !llvm.loop !306
 
 .loopexit:                                        ; preds = %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb1EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit._crit_edge, %_ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_.exit, %54, %31, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit

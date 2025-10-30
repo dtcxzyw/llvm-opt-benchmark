@@ -10510,20 +10510,20 @@ define hidden void @_ZN11quinn_proto6packet13PartialDecode3new17hac03d8144a4c7b7
   %.sroa.5.0.i.i = phi i64 [ %58, %57 ], [ %69, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h970d4ccf472c87deE.exit.i.i" ]
   %.sroa.0.03.i.i = phi ptr [ %3, %57 ], [ %68, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h970d4ccf472c87deE.exit.i.i" ]
   %62 = icmp eq i64 %.sroa.5.0.i.i, 0
-  br i1 %62, label %70, label %.preheader.i
+  br i1 %62, label %70, label %.preheader.i.i
 
-.preheader.i:                                     ; preds = %61, %.preheader.i
-  %.sroa.07.0.i.i.i = phi i1 [ %65, %.preheader.i ], [ false, %61 ]
-  %.sroa.09.0.i.i.i = phi i64 [ %66, %.preheader.i ], [ 0, %61 ]
+.preheader.i.i:                                   ; preds = %61, %.preheader.i.i
+  %.sroa.07.0.i.i.i = phi i1 [ %65, %.preheader.i.i ], [ false, %61 ]
+  %.sroa.09.0.i.i.i = phi i64 [ %66, %.preheader.i.i ], [ 0, %61 ]
   %63 = getelementptr inbounds nuw i32, ptr %.sroa.0.03.i.i, i64 %.sroa.09.0.i.i.i
   %.val19.i.i.i = load i32, ptr %63, align 4, !alias.scope !2734, !noalias !2737, !noundef !3
   %64 = icmp eq i32 %.val19.i.i.i, %37
   %65 = or i1 %.sroa.07.0.i.i.i, %64
   %66 = add nuw nsw i64 %.sroa.09.0.i.i.i, 1
   %67 = icmp eq i64 %66, 16
-  br i1 %67, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h970d4ccf472c87deE.exit.i.i", label %.preheader.i
+  br i1 %67, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h970d4ccf472c87deE.exit.i.i", label %.preheader.i.i
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h970d4ccf472c87deE.exit.i.i": ; preds = %.preheader.i
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h970d4ccf472c87deE.exit.i.i": ; preds = %.preheader.i.i
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i.i, i64 64
   %69 = add i64 %.sroa.5.0.i.i, -16
   br i1 %65, label %.loopexit.i, label %61

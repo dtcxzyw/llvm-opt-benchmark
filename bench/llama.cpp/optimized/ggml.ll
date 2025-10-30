@@ -15704,34 +15704,34 @@ ggml_graph_nbytes.exit:                           ; preds = %15, %18
 
 ggml_new_object.exit:                             ; preds = %64, %62
   store ptr %49, ptr %35, align 8, !tbaa !67
-  %66 = load ptr, ptr %47, align 8, !tbaa !66
-  br label %67
+  br label %66
 
-67:                                               ; preds = %67, %ggml_new_object.exit
-  %.015.i = phi i64 [ 0, %ggml_new_object.exit ], [ %.1.i, %67 ]
-  %.01214.i = phi i64 [ 32, %ggml_new_object.exit ], [ %.113.i, %67 ]
-  %68 = add i64 %.01214.i, %.015.i
-  %69 = lshr i64 %68, 1
-  %70 = getelementptr inbounds nuw i64, ptr @ggml_hash_size.primes, i64 %69
-  %71 = load i64, ptr %70, align 8, !tbaa !39
-  %72 = icmp ult i64 %71, %4
-  %73 = add nuw i64 %69, 1
-  %.113.i = select i1 %72, i64 %.01214.i, i64 %69
-  %.1.i = select i1 %72, i64 %73, i64 %.015.i
-  %74 = icmp ult i64 %.1.i, %.113.i
-  br i1 %74, label %67, label %75, !llvm.loop !90
+66:                                               ; preds = %66, %ggml_new_object.exit
+  %.015.i = phi i64 [ 0, %ggml_new_object.exit ], [ %.1.i, %66 ]
+  %.01214.i = phi i64 [ 32, %ggml_new_object.exit ], [ %.113.i, %66 ]
+  %67 = add i64 %.01214.i, %.015.i
+  %68 = lshr i64 %67, 1
+  %69 = getelementptr inbounds nuw i64, ptr @ggml_hash_size.primes, i64 %68
+  %70 = load i64, ptr %69, align 8, !tbaa !39
+  %71 = icmp ult i64 %70, %4
+  %72 = add nuw i64 %68, 1
+  %.113.i = select i1 %71, i64 %.01214.i, i64 %68
+  %.1.i = select i1 %71, i64 %72, i64 %.015.i
+  %73 = icmp ult i64 %.1.i, %.113.i
+  br i1 %73, label %66, label %74, !llvm.loop !90
 
-75:                                               ; preds = %67
-  %76 = getelementptr inbounds nuw i8, ptr %66, i64 %50
+74:                                               ; preds = %66
+  %75 = load ptr, ptr %47, align 8, !tbaa !66
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %50
   %77 = icmp ult i64 %.1.i, 32
   br i1 %77, label %78, label %81
 
-78:                                               ; preds = %75
+78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i64, ptr @ggml_hash_size.primes, i64 %.1.i
   %80 = load i64, ptr %79, align 8, !tbaa !39
   br label %ggml_hash_size.exit
 
-81:                                               ; preds = %75
+81:                                               ; preds = %74
   %82 = or disjoint i64 %4, 1
   br label %ggml_hash_size.exit
 

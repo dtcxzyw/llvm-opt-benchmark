@@ -107,84 +107,84 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
 .thread:                                          ; preds = %13, %1, %17
   %.0134174 = phi i32 [ %18, %17 ], [ 46, %1 ], [ 46, %13 ]
   %19 = phi ptr [ %spec.select186, %17 ], [ @.str, %1 ], [ @.str, %13 ]
-  %.in = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %20 = load ptr, ptr %.in, align 8
-  %.not139175.in = load i8, ptr %20, align 1
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i8, ptr %28, align 1
-  %30 = tail call ptr @__ctype_b_loc() #13
+  %20 = tail call ptr @__ctype_b_loc() #13
+  %21 = load ptr, ptr %20, align 8
+  br label %22
+
+22:                                               ; preds = %22, %.thread
+  %.0129 = phi ptr [ %4, %.thread ], [ %28, %22 ]
+  %23 = load i8, ptr %.0129, align 1
+  %24 = zext i8 %23 to i64
+  %25 = getelementptr inbounds nuw i16, ptr %21, i64 %24
+  %26 = load i16, ptr %25, align 2
+  %27 = and i16 %26, 8192
+  %.not144 = icmp eq i16 %27, 0
+  %28 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
+  br i1 %.not144, label %29, label %22, !llvm.loop !4
+
+29:                                               ; preds = %22
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %31 = load ptr, ptr %30, align 8
-  br label %32
-
-32:                                               ; preds = %32, %.thread
-  %.0129 = phi ptr [ %4, %.thread ], [ %38, %32 ]
-  %33 = load i8, ptr %.0129, align 1
-  %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i16, ptr %31, i64 %34
-  %36 = load i16, ptr %35, align 2
-  %37 = and i16 %36, 8192
-  %.not144 = icmp eq i16 %37, 0
-  %38 = getelementptr inbounds nuw i8, ptr %.0129, i64 1
-  br i1 %.not144, label %39, label %32, !llvm.loop !4
-
-39:                                               ; preds = %32
-  %.not141 = icmp eq i8 %23, 0
-  %40 = select i1 %.not141, ptr @.str.2, ptr %22
-  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #14
-  %42 = tail call i32 @strncmp(ptr noundef nonnull %.0129, ptr noundef nonnull %40, i64 noundef %41) #14
-  %43 = icmp eq i32 %42, 0
-  %spec.select.idx = select i1 %43, i64 %41, i64 0
+  %32 = load i8, ptr %31, align 1
+  %.not141 = icmp eq i8 %32, 0
+  %33 = select i1 %.not141, ptr @.str.2, ptr %31
+  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #14
+  %35 = tail call i32 @strncmp(ptr noundef nonnull %.0129, ptr noundef nonnull %33, i64 noundef %34) #14
+  %36 = icmp eq i32 %35, 0
+  %spec.select.idx = select i1 %36, i64 %34, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %.0129, i64 %spec.select.idx
-  br label %44
+  br label %37
 
-44:                                               ; preds = %44, %39
-  %.2131 = phi ptr [ %spec.select, %39 ], [ %50, %44 ]
-  %45 = load i8, ptr %.2131, align 1
-  %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %31, i64 %46
-  %48 = load i16, ptr %47, align 2
-  %49 = and i16 %48, 8192
-  %.not145 = icmp eq i16 %49, 0
-  %50 = getelementptr inbounds nuw i8, ptr %.2131, i64 1
-  br i1 %.not145, label %51, label %44, !llvm.loop !6
+37:                                               ; preds = %37, %29
+  %.2131 = phi ptr [ %spec.select, %29 ], [ %43, %37 ]
+  %38 = load i8, ptr %.2131, align 1
+  %39 = zext i8 %38 to i64
+  %40 = getelementptr inbounds nuw i16, ptr %21, i64 %39
+  %41 = load i16, ptr %40, align 2
+  %42 = and i16 %41, 8192
+  %.not145 = icmp eq i16 %42, 0
+  %43 = getelementptr inbounds nuw i8, ptr %.2131, i64 1
+  br i1 %.not145, label %44, label %37, !llvm.loop !6
 
-51:                                               ; preds = %44
+44:                                               ; preds = %37
+  %.in = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %45 = load ptr, ptr %.in, align 8
+  %.not139175.in = load i8, ptr %45, align 1
   %.not139175 = icmp eq i8 %.not139175.in, 0
-  %.0135 = select i1 %.not139175, ptr %19, ptr %20
-  %.not142 = icmp eq i8 %26, 0
-  %52 = select i1 %.not142, ptr @.str.3, ptr %25
-  %.not143 = icmp eq i8 %29, 0
-  %53 = select i1 %.not143, ptr @.str.4, ptr %28
+  %.0135 = select i1 %.not139175, ptr %19, ptr %45
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %47 = load ptr, ptr %46, align 8
+  %48 = load i8, ptr %47, align 1
+  %.not142 = icmp eq i8 %48, 0
+  %49 = select i1 %.not142, ptr @.str.3, ptr %47
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i8, ptr %51, align 1
+  %.not143 = icmp eq i8 %52, 0
+  %53 = select i1 %.not143, ptr @.str.4, ptr %51
   %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #14
   %55 = tail call i32 @strncmp(ptr noundef nonnull %.2131, ptr noundef nonnull %53, i64 noundef %54) #14
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %59
 
-57:                                               ; preds = %51
+57:                                               ; preds = %44
   %58 = getelementptr inbounds nuw i8, ptr %.2131, i64 %54
   br label %65
 
-59:                                               ; preds = %51
-  %60 = icmp eq i8 %45, 40
+59:                                               ; preds = %44
+  %60 = icmp eq i8 %38, 40
   br i1 %60, label %65, label %61
 
 61:                                               ; preds = %59
-  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #14
-  %63 = tail call i32 @strncmp(ptr noundef nonnull %.2131, ptr noundef nonnull %52, i64 noundef %62) #14
+  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #14
+  %63 = tail call i32 @strncmp(ptr noundef nonnull %.2131, ptr noundef nonnull %49, i64 noundef %62) #14
   %64 = icmp eq i32 %63, 0
   %spec.select154.idx = select i1 %64, i64 %62, i64 0
   %spec.select154 = getelementptr inbounds nuw i8, ptr %.2131, i64 %spec.select154.idx
   br label %65
 
 65:                                               ; preds = %59, %61, %57
-  %.3132 = phi ptr [ %58, %57 ], [ %spec.select154, %61 ], [ %50, %59 ]
+  %.3132 = phi ptr [ %58, %57 ], [ %spec.select154, %61 ], [ %43, %59 ]
   %.0123 = phi i64 [ -1, %57 ], [ 1, %61 ], [ -1, %59 ]
   br label %66
 
@@ -192,7 +192,7 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   %.4133 = phi ptr [ %.3132, %65 ], [ %72, %66 ]
   %67 = load i8, ptr %.4133, align 1
   %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw i16, ptr %31, i64 %68
+  %69 = getelementptr inbounds nuw i16, ptr %21, i64 %68
   %70 = load i16, ptr %69, align 2
   %71 = and i16 %70, 8192
   %.not146 = icmp eq i16 %71, 0
@@ -200,9 +200,9 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   br i1 %.not146, label %73, label %66, !llvm.loop !7
 
 73:                                               ; preds = %66
-  %74 = tail call i32 @strncmp(ptr noundef nonnull %.4133, ptr noundef nonnull %40, i64 noundef %41) #14
+  %74 = tail call i32 @strncmp(ptr noundef nonnull %.4133, ptr noundef nonnull %33, i64 noundef %34) #14
   %75 = icmp eq i32 %74, 0
-  %spec.select155.idx = select i1 %75, i64 %41, i64 0
+  %spec.select155.idx = select i1 %75, i64 %34, i64 0
   %spec.select155 = getelementptr inbounds nuw i8, ptr %.4133, i64 %spec.select155.idx
   br label %76
 
@@ -210,7 +210,7 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   %.6 = phi ptr [ %spec.select155, %73 ], [ %82, %76 ]
   %77 = load i8, ptr %.6, align 1
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw i16, ptr %31, i64 %78
+  %79 = getelementptr inbounds nuw i16, ptr %21, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = and i16 %80, 8192
   %.not147 = icmp eq i16 %81, 0
@@ -229,7 +229,7 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   %.7206 = phi ptr [ %119, %118 ], [ %.6, %.preheader189 ]
   %.0205 = phi i64 [ %.3, %118 ], [ 0, %.preheader189 ]
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw i16, ptr %31, i64 %84
+  %85 = getelementptr inbounds nuw i16, ptr %21, i64 %84
   %86 = load i16, ptr %85, align 2
   %87 = and i16 %86, 2048
   %.not149 = icmp eq i16 %87, 0
@@ -358,7 +358,7 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   %.9 = phi ptr [ %149, %143 ], [ %.7199, %.preheader188 ]
   %144 = load i8, ptr %.9, align 1
   %145 = zext i8 %144 to i64
-  %146 = getelementptr inbounds nuw i16, ptr %31, i64 %145
+  %146 = getelementptr inbounds nuw i16, ptr %21, i64 %145
   %147 = load i16, ptr %146, align 2
   %148 = and i16 %147, 2048
   %.not151 = icmp eq i16 %148, 0
@@ -374,7 +374,7 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   %.1124217 = phi i64 [ %.2125, %173 ], [ %.0123, %.preheader ]
   %.10216 = phi ptr [ %174, %173 ], [ %.9, %.preheader ]
   %151 = zext i8 %150 to i64
-  %152 = getelementptr inbounds nuw i16, ptr %31, i64 %151
+  %152 = getelementptr inbounds nuw i16, ptr %21, i64 %151
   %153 = load i16, ptr %152, align 2
   %154 = and i16 %153, 8192
   %.not153 = icmp ne i16 %154, 0
@@ -389,14 +389,14 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   br i1 %159, label %173, label %160
 
 160:                                              ; preds = %156
-  %161 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #14
-  %162 = tail call i32 @strncmp(ptr noundef nonnull %.10216, ptr noundef nonnull %52, i64 noundef %161) #14
+  %161 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #14
+  %162 = tail call i32 @strncmp(ptr noundef nonnull %.10216, ptr noundef nonnull %49, i64 noundef %161) #14
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %173, label %164
 
 164:                                              ; preds = %160
-  %165 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #14
-  %166 = tail call i32 @strncmp(ptr noundef nonnull %.10216, ptr noundef nonnull %40, i64 noundef %165) #14
+  %165 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #14
+  %166 = tail call i32 @strncmp(ptr noundef nonnull %.10216, ptr noundef nonnull %33, i64 noundef %165) #14
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %173, label %168
 

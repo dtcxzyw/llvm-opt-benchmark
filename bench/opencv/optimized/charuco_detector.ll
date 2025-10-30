@@ -7896,25 +7896,25 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt6ve
 
 .noexc188:                                        ; preds = %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EEC2EmRKS3_.exit.i
   store ptr %336, ptr %23, align 8, !tbaa !40
-  %337 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %338 = getelementptr inbounds nuw %"class.cv::Point_", ptr %336, i64 %331
-  %339 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %338, ptr %339, align 8, !tbaa !102
+  %337 = getelementptr inbounds nuw %"class.cv::Point_", ptr %336, i64 %331
+  %338 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store ptr %337, ptr %338, align 8, !tbaa !102
   br label %.lr.ph.i.i.i.i.i.i185
 
 .lr.ph.i.i.i.i.i.i185:                            ; preds = %.lr.ph.i.i.i.i.i.i185, %.noexc188
-  %.09.i.i.i.i.i.i = phi ptr [ %341, %.lr.ph.i.i.i.i.i.i185 ], [ %336, %.noexc188 ]
-  %.068.i.i.i.i.i.i = phi i64 [ %340, %.lr.ph.i.i.i.i.i.i185 ], [ %331, %.noexc188 ]
+  %.09.i.i.i.i.i.i = phi ptr [ %340, %.lr.ph.i.i.i.i.i.i185 ], [ %336, %.noexc188 ]
+  %.068.i.i.i.i.i.i = phi i64 [ %339, %.lr.ph.i.i.i.i.i.i185 ], [ %331, %.noexc188 ]
   store i32 -1082130432, ptr %.09.i.i.i.i.i.i, align 4
   %.09.i.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 4
   store i32 -1082130432, ptr %.09.i.i.i.i.i.i.sroa_idx, align 4
-  %340 = add i64 %.068.i.i.i.i.i.i, -1
-  %341 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i186 = icmp eq i64 %340, 0
+  %339 = add i64 %.068.i.i.i.i.i.i, -1
+  %340 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i186 = icmp eq i64 %339, 0
   br i1 %.not.i.i.i.i.i.i186, label %.lr.ph484, label %.lr.ph.i.i.i.i.i.i185, !llvm.loop !213
 
 .lr.ph484:                                        ; preds = %.lr.ph.i.i.i.i.i.i185
-  store ptr %341, ptr %337, align 8, !tbaa !101
+  %341 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr %340, ptr %341, align 8, !tbaa !101
   %342 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %343 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %344 = getelementptr inbounds nuw i8, ptr %2, i64 8

@@ -67,237 +67,236 @@ define dso_local zeroext i16 @_bt_findsplitloc(ptr noundef %0, ptr noundef %1, i
   %44 = load i16, ptr %43, align 4
   %45 = trunc i16 %44 to i8
   %46 = load i32, ptr %21, align 4
-  %47 = icmp eq i32 %46, 0
-  %48 = zext nneg i16 %.0.i to i64
-  %49 = mul nuw nsw i64 %48, 10
-  %50 = tail call ptr @palloc(i64 noundef %49) #7
-  %51 = load i32, ptr %21, align 4
-  %52 = icmp eq i32 %51, 0
-  %53 = select i1 %52, i16 1, i16 2
-  %.not87495 = icmp ugt i16 %53, %.0.i
+  %47 = zext nneg i16 %.0.i to i64
+  %48 = mul nuw nsw i64 %47, 10
+  %49 = tail call ptr @palloc(i64 noundef %48) #7
+  %50 = load i32, ptr %21, align 4
+  %51 = icmp eq i32 %50, 0
+  %52 = select i1 %51, i16 1, i16 2
+  %.not87495 = icmp ugt i16 %52, %.0.i
   br i1 %.not87495, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40
-  %54 = getelementptr i8, ptr %1, i64 20
-  %55 = trunc i16 %44 to i1
-  %.neg76.i126 = select i1 %55, i64 4294967288, i64 0
+  %53 = getelementptr i8, ptr %1, i64 20
+  %54 = trunc i16 %44 to i1
+  %.neg76.i126 = select i1 %54, i64 4294967288, i64 0
   %.pn.in.neg.i127 = sub i64 %.neg76.i126, %42
   %.pn.neg77.i128 = trunc i64 %.pn.in.neg.i127 to i32
-  %56 = trunc i64 %42 to i32
-  %57 = add i32 %33, %56
+  %55 = trunc i64 %42 to i32
+  %56 = add i32 %33, %55
   %invariant.op502 = add i32 %20, %.pn.neg77.i128
-  %58 = add i32 %56, 65524
-  %59 = select i1 %55, i32 0, i32 %58
-  %invariant.op503 = sub i32 %59, %57
-  %.reass = sub i32 %32, %56
-  br label %60
+  %57 = add i32 %55, 65524
+  %58 = select i1 %54, i32 0, i32 %57
+  %invariant.op503 = sub i32 %58, %56
+  %.reass = sub i32 %32, %55
+  br label %59
 
-60:                                               ; preds = %.lr.ph, %_bt_recsplitloc.exit
+59:                                               ; preds = %.lr.ph, %_bt_recsplitloc.exit
   %.080.neg500 = phi i32 [ 0, %.lr.ph ], [ %.080.neg, %_bt_recsplitloc.exit ]
-  %.080499 = phi i32 [ 0, %.lr.ph ], [ %164, %_bt_recsplitloc.exit ]
-  %.081498 = phi i16 [ %53, %.lr.ph ], [ %165, %_bt_recsplitloc.exit ]
+  %.080499 = phi i32 [ 0, %.lr.ph ], [ %163, %_bt_recsplitloc.exit ]
+  %.081498 = phi i16 [ %52, %.lr.ph ], [ %164, %_bt_recsplitloc.exit ]
   %.sroa.117.0497 = phi i32 [ 0, %.lr.ph ], [ %.sroa.117.1, %_bt_recsplitloc.exit ]
   %.sroa.103.0496 = phi i64 [ -1, %.lr.ph ], [ %.sroa.103.1, %_bt_recsplitloc.exit ]
-  %61 = zext i16 %.081498 to i64
-  %62 = getelementptr %struct.ItemIdData, ptr %54, i64 %61
-  %63 = load i32, ptr %62, align 4
-  %64 = lshr i32 %63, 17
-  %narrow89 = add nuw nsw i32 %64, 7
-  %65 = and i32 %narrow89, 65528
-  %66 = or disjoint i32 %65, 4
-  %67 = zext nneg i32 %66 to i64
-  %68 = icmp ult i16 %.081498, %2
-  br i1 %68, label %69, label %93
+  %60 = zext i16 %.081498 to i64
+  %61 = getelementptr %struct.ItemIdData, ptr %53, i64 %60
+  %62 = load i32, ptr %61, align 4
+  %63 = lshr i32 %62, 17
+  %narrow89 = add nuw nsw i32 %63, 7
+  %64 = and i32 %narrow89, 65528
+  %65 = or disjoint i32 %64, 4
+  %66 = zext nneg i32 %65 to i64
+  %67 = icmp ult i16 %.081498, %2
+  br i1 %67, label %68, label %92
 
-69:                                               ; preds = %60
-  %70 = icmp ugt i32 %63, 7471103
-  %or.cond.i = select i1 %55, i1 %70, i1 false
-  br i1 %or.cond.i, label %71, label %BTreeTupleIsPosting.exit.thread.i
+68:                                               ; preds = %59
+  %69 = icmp ugt i32 %62, 7471103
+  %or.cond.i = select i1 %54, i1 %69, i1 false
+  br i1 %or.cond.i, label %70, label %BTreeTupleIsPosting.exit.thread.i
 
-71:                                               ; preds = %69
-  %72 = and i32 %63, 32767
-  %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 %73
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 6
-  %76 = load i16, ptr %75, align 2
-  %77 = and i16 %76, 8192
-  %78 = icmp eq i16 %77, 0
-  br i1 %78, label %BTreeTupleIsPosting.exit.thread.i, label %BTreeTupleIsPosting.exit.i
+70:                                               ; preds = %68
+  %71 = and i32 %62, 32767
+  %72 = zext nneg i32 %71 to i64
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 6
+  %75 = load i16, ptr %74, align 2
+  %76 = and i16 %75, 8192
+  %77 = icmp eq i16 %76, 0
+  br i1 %77, label %BTreeTupleIsPosting.exit.thread.i, label %BTreeTupleIsPosting.exit.i
 
-BTreeTupleIsPosting.exit.i:                       ; preds = %71
-  %79 = getelementptr i8, ptr %74, i64 4
-  %.val.i.i = load i16, ptr %79, align 2
-  %80 = and i16 %.val.i.i, 8192
-  %.not.i = icmp eq i16 %80, 0
-  br i1 %.not.i, label %BTreeTupleIsPosting.exit.thread.i, label %81
+BTreeTupleIsPosting.exit.i:                       ; preds = %70
+  %78 = getelementptr i8, ptr %73, i64 4
+  %.val.i.i = load i16, ptr %78, align 2
+  %79 = and i16 %.val.i.i, 8192
+  %.not.i = icmp eq i16 %79, 0
+  br i1 %.not.i, label %BTreeTupleIsPosting.exit.thread.i, label %80
 
-81:                                               ; preds = %BTreeTupleIsPosting.exit.i
-  %82 = and i16 %76, 8191
-  %83 = zext nneg i16 %82 to i32
-  %84 = getelementptr i8, ptr %74, i64 2
-  %.val71.i = load i16, ptr %84, align 2
-  %85 = zext i16 %.val71.i to i32
-  %.neg67.neg.i = add nsw i32 %83, -8
-  %.neg75.i = sub nsw i32 %.neg67.neg.i, %85
+80:                                               ; preds = %BTreeTupleIsPosting.exit.i
+  %81 = and i16 %75, 8191
+  %82 = zext nneg i16 %81 to i32
+  %83 = getelementptr i8, ptr %73, i64 2
+  %.val71.i = load i16, ptr %83, align 2
+  %84 = zext i16 %.val71.i to i32
+  %.neg67.neg.i = add nsw i32 %82, -8
+  %.neg75.i = sub nsw i32 %.neg67.neg.i, %84
   br label %BTreeTupleIsPosting.exit.thread.i
 
-BTreeTupleIsPosting.exit.thread.i:                ; preds = %81, %BTreeTupleIsPosting.exit.i, %71, %69
-  %86 = phi i8 [ %45, %69 ], [ 1, %81 ], [ 1, %BTreeTupleIsPosting.exit.i ], [ 1, %71 ]
-  %.062.neg.neg.i = phi i32 [ -8, %69 ], [ %.neg75.i, %81 ], [ -8, %BTreeTupleIsPosting.exit.i ], [ -8, %71 ]
-  %87 = trunc i8 %86 to i1
-  %.neg76.i = select i1 %87, i32 %.062.neg.neg.i, i32 0
+BTreeTupleIsPosting.exit.thread.i:                ; preds = %80, %BTreeTupleIsPosting.exit.i, %70, %68
+  %85 = phi i8 [ %45, %68 ], [ 1, %80 ], [ 1, %BTreeTupleIsPosting.exit.i ], [ 1, %70 ]
+  %.062.neg.neg.i = phi i32 [ -8, %68 ], [ %.neg75.i, %80 ], [ -8, %BTreeTupleIsPosting.exit.i ], [ -8, %70 ]
+  %86 = trunc i8 %85 to i1
+  %.neg76.i = select i1 %86, i32 %.062.neg.neg.i, i32 0
   %.neg488 = add i32 %.080.neg500, %20
-  %88 = sub i32 %.neg488, %66
-  %.1.in.i = add i32 %88, %.neg76.i
-  %89 = add nuw nsw i32 %65, 65528
-  %90 = select i1 %87, i32 0, i32 %89
+  %87 = sub i32 %.neg488, %65
+  %.1.in.i = add i32 %87, %.neg76.i
+  %88 = add nuw nsw i32 %64, 65528
+  %89 = select i1 %86, i32 0, i32 %88
   %.059.in.i = add i32 %.reass, %.080499
-  %.160.in.i = add i32 %.059.in.i, %90
+  %.160.in.i = add i32 %.059.in.i, %89
   %sext.mask.i = and i32 %.1.in.i, 32768
-  %91 = icmp eq i32 %sext.mask.i, 0
+  %90 = icmp eq i32 %sext.mask.i, 0
   %sext.mask68.i = and i32 %.160.in.i, 32768
-  %92 = icmp eq i32 %sext.mask68.i, 0
-  %or.cond4.i = select i1 %91, i1 %92, i1 false
+  %91 = icmp eq i32 %sext.mask68.i, 0
+  %or.cond4.i = select i1 %90, i1 %91, i1 false
   br i1 %or.cond4.i, label %_bt_recsplitloc.exit.sink.split, label %_bt_recsplitloc.exit
 
-93:                                               ; preds = %60
-  %94 = icmp ugt i16 %.081498, %2
-  br i1 %94, label %95, label %BTreeTupleIsPosting.exit.thread.i123
+92:                                               ; preds = %59
+  %93 = icmp ugt i16 %.081498, %2
+  br i1 %93, label %94, label %BTreeTupleIsPosting.exit.thread.i123
 
-95:                                               ; preds = %93
-  %96 = icmp ugt i32 %63, 7471103
-  %or.cond.i112 = select i1 %55, i1 %96, i1 false
-  br i1 %or.cond.i112, label %97, label %BTreeTupleIsPosting.exit.thread.i97
+94:                                               ; preds = %92
+  %95 = icmp ugt i32 %62, 7471103
+  %or.cond.i112 = select i1 %54, i1 %95, i1 false
+  br i1 %or.cond.i112, label %96, label %BTreeTupleIsPosting.exit.thread.i97
 
-97:                                               ; preds = %95
-  %98 = and i32 %63, 32767
-  %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 %99
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 6
-  %102 = load i16, ptr %101, align 2
-  %103 = and i16 %102, 8192
-  %104 = icmp eq i16 %103, 0
-  br i1 %104, label %BTreeTupleIsPosting.exit.thread.i97, label %BTreeTupleIsPosting.exit.i114
+96:                                               ; preds = %94
+  %97 = and i32 %62, 32767
+  %98 = zext nneg i32 %97 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 %98
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 6
+  %101 = load i16, ptr %100, align 2
+  %102 = and i16 %101, 8192
+  %103 = icmp eq i16 %102, 0
+  br i1 %103, label %BTreeTupleIsPosting.exit.thread.i97, label %BTreeTupleIsPosting.exit.i114
 
-BTreeTupleIsPosting.exit.i114:                    ; preds = %97
-  %105 = getelementptr i8, ptr %100, i64 4
-  %.val.i.i115 = load i16, ptr %105, align 2
-  %106 = and i16 %.val.i.i115, 8192
-  %.not.i116 = icmp eq i16 %106, 0
-  br i1 %.not.i116, label %BTreeTupleIsPosting.exit.thread.i97, label %107
+BTreeTupleIsPosting.exit.i114:                    ; preds = %96
+  %104 = getelementptr i8, ptr %99, i64 4
+  %.val.i.i115 = load i16, ptr %104, align 2
+  %105 = and i16 %.val.i.i115, 8192
+  %.not.i116 = icmp eq i16 %105, 0
+  br i1 %.not.i116, label %BTreeTupleIsPosting.exit.thread.i97, label %106
 
-107:                                              ; preds = %BTreeTupleIsPosting.exit.i114
-  %108 = and i16 %102, 8191
-  %109 = zext nneg i16 %108 to i32
-  %110 = getelementptr i8, ptr %100, i64 2
-  %.val71.i117 = load i16, ptr %110, align 2
-  %111 = zext i16 %.val71.i117 to i32
-  %.neg67.neg.i118 = add nsw i32 %109, -8
-  %.neg75.i119 = sub nsw i32 %.neg67.neg.i118, %111
+106:                                              ; preds = %BTreeTupleIsPosting.exit.i114
+  %107 = and i16 %101, 8191
+  %108 = zext nneg i16 %107 to i32
+  %109 = getelementptr i8, ptr %99, i64 2
+  %.val71.i117 = load i16, ptr %109, align 2
+  %110 = zext i16 %.val71.i117 to i32
+  %.neg67.neg.i118 = add nsw i32 %108, -8
+  %.neg75.i119 = sub nsw i32 %.neg67.neg.i118, %110
   br label %BTreeTupleIsPosting.exit.thread.i97
 
-BTreeTupleIsPosting.exit.thread.i97:              ; preds = %107, %BTreeTupleIsPosting.exit.i114, %97, %95
-  %112 = phi i8 [ %45, %95 ], [ 1, %107 ], [ 1, %BTreeTupleIsPosting.exit.i114 ], [ 1, %97 ]
-  %.062.neg.neg.i98 = phi i32 [ -8, %95 ], [ %.neg75.i119, %107 ], [ -8, %BTreeTupleIsPosting.exit.i114 ], [ -8, %97 ]
-  %113 = trunc i8 %112 to i1
-  %.neg76.i100 = select i1 %113, i32 %.062.neg.neg.i98, i32 0
-  %114 = add i32 %20, %.080.neg500
-  %115 = add i32 %66, %56
-  %116 = sub i32 %114, %115
-  %.1.in.i104 = add i32 %116, %.neg76.i100
-  %117 = add nuw nsw i32 %65, 65528
-  %118 = select i1 %113, i32 0, i32 %117
+BTreeTupleIsPosting.exit.thread.i97:              ; preds = %106, %BTreeTupleIsPosting.exit.i114, %96, %94
+  %111 = phi i8 [ %45, %94 ], [ 1, %106 ], [ 1, %BTreeTupleIsPosting.exit.i114 ], [ 1, %96 ]
+  %.062.neg.neg.i98 = phi i32 [ -8, %94 ], [ %.neg75.i119, %106 ], [ -8, %BTreeTupleIsPosting.exit.i114 ], [ -8, %96 ]
+  %112 = trunc i8 %111 to i1
+  %.neg76.i100 = select i1 %112, i32 %.062.neg.neg.i98, i32 0
+  %113 = add i32 %20, %.080.neg500
+  %114 = add i32 %65, %55
+  %115 = sub i32 %113, %114
+  %.1.in.i104 = add i32 %115, %.neg76.i100
+  %116 = add nuw nsw i32 %64, 65528
+  %117 = select i1 %112, i32 0, i32 %116
   %.059.in.i103 = add i32 %.080499, %32
-  %.160.in.i105 = add i32 %.059.in.i103, %118
+  %.160.in.i105 = add i32 %.059.in.i103, %117
   %sext.mask.i106 = and i32 %.1.in.i104, 32768
-  %119 = icmp eq i32 %sext.mask.i106, 0
+  %118 = icmp eq i32 %sext.mask.i106, 0
   %sext.mask68.i107 = and i32 %.160.in.i105, 32768
-  %120 = icmp eq i32 %sext.mask68.i107, 0
-  %or.cond4.i108 = select i1 %119, i1 %120, i1 false
+  %119 = icmp eq i32 %sext.mask68.i107, 0
+  %or.cond4.i108 = select i1 %118, i1 %119, i1 false
   br i1 %or.cond4.i108, label %_bt_recsplitloc.exit.sink.split, label %_bt_recsplitloc.exit
 
-BTreeTupleIsPosting.exit.thread.i123:             ; preds = %93
-  %121 = add i32 %.080499, %.079
+BTreeTupleIsPosting.exit.thread.i123:             ; preds = %92
+  %120 = add i32 %.080499, %.079
   %.1.in.i130.reass = add i32 %.080.neg500, %invariant.op502
-  %.160.in.i131.reass = add i32 %121, %invariant.op503
+  %.160.in.i131.reass = add i32 %120, %invariant.op503
   %sext.mask.i132 = and i32 %.1.in.i130.reass, 32768
-  %122 = icmp eq i32 %sext.mask.i132, 0
+  %121 = icmp eq i32 %sext.mask.i132, 0
   %sext.mask68.i133 = and i32 %.160.in.i131.reass, 32768
-  %123 = icmp eq i32 %sext.mask68.i133, 0
-  %or.cond4.i134 = select i1 %122, i1 %123, i1 false
-  br i1 %or.cond4.i134, label %124, label %_bt_recsplitloc.exit146
+  %122 = icmp eq i32 %sext.mask68.i133, 0
+  %or.cond4.i134 = select i1 %121, i1 %122, i1 false
+  br i1 %or.cond4.i134, label %123, label %_bt_recsplitloc.exit146
 
-124:                                              ; preds = %BTreeTupleIsPosting.exit.thread.i123
+123:                                              ; preds = %BTreeTupleIsPosting.exit.thread.i123
   %.160.i135 = trunc i32 %.160.in.i131.reass to i16
   %.1.i136 = trunc i32 %.1.in.i130.reass to i16
   %..061.i137 = tail call i64 @llvm.umin.i64(i64 %.sroa.103.0496, i64 %42)
-  %125 = sext i32 %.sroa.117.0497 to i64
-  %126 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %125
-  store i16 0, ptr %126, align 2
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 2
-  store i16 %.1.i136, ptr %127, align 2
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 4
-  store i16 %.160.i135, ptr %128, align 2
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 6
-  store i16 %.081498, ptr %129, align 2
-  %130 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  store i8 0, ptr %130, align 2
-  %131 = add i32 %.sroa.117.0497, 1
+  %124 = sext i32 %.sroa.117.0497 to i64
+  %125 = getelementptr inbounds %struct.SplitPoint, ptr %49, i64 %124
+  store i16 0, ptr %125, align 2
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 2
+  store i16 %.1.i136, ptr %126, align 2
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  store i16 %.160.i135, ptr %127, align 2
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 6
+  store i16 %.081498, ptr %128, align 2
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  store i8 0, ptr %129, align 2
+  %130 = add i32 %.sroa.117.0497, 1
   br label %_bt_recsplitloc.exit146
 
-_bt_recsplitloc.exit146:                          ; preds = %BTreeTupleIsPosting.exit.thread.i123, %124
-  %.sroa.103.5 = phi i64 [ %..061.i137, %124 ], [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i123 ]
-  %.sroa.117.5 = phi i32 [ %131, %124 ], [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i123 ]
-  %132 = icmp ugt i32 %63, 7471103
-  %or.cond.i164 = select i1 %55, i1 %132, i1 false
-  br i1 %or.cond.i164, label %133, label %BTreeTupleIsPosting.exit.thread.i149
+_bt_recsplitloc.exit146:                          ; preds = %BTreeTupleIsPosting.exit.thread.i123, %123
+  %.sroa.103.5 = phi i64 [ %..061.i137, %123 ], [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i123 ]
+  %.sroa.117.5 = phi i32 [ %130, %123 ], [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i123 ]
+  %131 = icmp ugt i32 %62, 7471103
+  %or.cond.i164 = select i1 %54, i1 %131, i1 false
+  br i1 %or.cond.i164, label %132, label %BTreeTupleIsPosting.exit.thread.i149
 
-133:                                              ; preds = %_bt_recsplitloc.exit146
-  %.val.i165 = load i32, ptr %62, align 4
-  %134 = and i32 %.val.i165, 32767
-  %135 = zext nneg i32 %134 to i64
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 %135
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 6
-  %138 = load i16, ptr %137, align 2
-  %139 = and i16 %138, 8192
-  %140 = icmp eq i16 %139, 0
-  br i1 %140, label %BTreeTupleIsPosting.exit.thread.i149, label %BTreeTupleIsPosting.exit.i166
+132:                                              ; preds = %_bt_recsplitloc.exit146
+  %.val.i165 = load i32, ptr %61, align 4
+  %133 = and i32 %.val.i165, 32767
+  %134 = zext nneg i32 %133 to i64
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 %134
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 6
+  %137 = load i16, ptr %136, align 2
+  %138 = and i16 %137, 8192
+  %139 = icmp eq i16 %138, 0
+  br i1 %139, label %BTreeTupleIsPosting.exit.thread.i149, label %BTreeTupleIsPosting.exit.i166
 
-BTreeTupleIsPosting.exit.i166:                    ; preds = %133
-  %141 = getelementptr i8, ptr %136, i64 4
-  %.val.i.i167 = load i16, ptr %141, align 2
-  %142 = and i16 %.val.i.i167, 8192
-  %.not.i168 = icmp eq i16 %142, 0
-  br i1 %.not.i168, label %BTreeTupleIsPosting.exit.thread.i149, label %143
+BTreeTupleIsPosting.exit.i166:                    ; preds = %132
+  %140 = getelementptr i8, ptr %135, i64 4
+  %.val.i.i167 = load i16, ptr %140, align 2
+  %141 = and i16 %.val.i.i167, 8192
+  %.not.i168 = icmp eq i16 %141, 0
+  br i1 %.not.i168, label %BTreeTupleIsPosting.exit.thread.i149, label %142
 
-143:                                              ; preds = %BTreeTupleIsPosting.exit.i166
-  %144 = and i16 %138, 8191
-  %145 = zext nneg i16 %144 to i32
-  %146 = getelementptr i8, ptr %136, i64 2
-  %.val71.i169 = load i16, ptr %146, align 2
-  %147 = zext i16 %.val71.i169 to i32
-  %.neg67.neg.i170 = add nsw i32 %145, -8
-  %.neg75.i171 = sub nsw i32 %.neg67.neg.i170, %147
+142:                                              ; preds = %BTreeTupleIsPosting.exit.i166
+  %143 = and i16 %137, 8191
+  %144 = zext nneg i16 %143 to i32
+  %145 = getelementptr i8, ptr %135, i64 2
+  %.val71.i169 = load i16, ptr %145, align 2
+  %146 = zext i16 %.val71.i169 to i32
+  %.neg67.neg.i170 = add nsw i32 %144, -8
+  %.neg75.i171 = sub nsw i32 %.neg67.neg.i170, %146
   br label %BTreeTupleIsPosting.exit.thread.i149
 
-BTreeTupleIsPosting.exit.thread.i149:             ; preds = %143, %BTreeTupleIsPosting.exit.i166, %133, %_bt_recsplitloc.exit146
-  %148 = phi i8 [ %45, %_bt_recsplitloc.exit146 ], [ 1, %143 ], [ 1, %BTreeTupleIsPosting.exit.i166 ], [ 1, %133 ]
-  %.062.neg.neg.i150 = phi i32 [ -8, %_bt_recsplitloc.exit146 ], [ %.neg75.i171, %143 ], [ -8, %BTreeTupleIsPosting.exit.i166 ], [ -8, %133 ]
-  %149 = trunc i8 %148 to i1
-  %.neg76.i152 = select i1 %149, i32 %.062.neg.neg.i150, i32 0
-  %.059.in.i155 = sub i32 %121, %33
-  %150 = add i32 %20, %.080.neg500
-  %151 = add i32 %66, %56
-  %152 = sub i32 %150, %151
-  %.1.in.i156 = add i32 %152, %.neg76.i152
-  %153 = add nuw nsw i32 %65, 65528
-  %154 = select i1 %149, i32 0, i32 %153
-  %.160.in.i157 = add i32 %154, %.059.in.i155
+BTreeTupleIsPosting.exit.thread.i149:             ; preds = %142, %BTreeTupleIsPosting.exit.i166, %132, %_bt_recsplitloc.exit146
+  %147 = phi i8 [ %45, %_bt_recsplitloc.exit146 ], [ 1, %142 ], [ 1, %BTreeTupleIsPosting.exit.i166 ], [ 1, %132 ]
+  %.062.neg.neg.i150 = phi i32 [ -8, %_bt_recsplitloc.exit146 ], [ %.neg75.i171, %142 ], [ -8, %BTreeTupleIsPosting.exit.i166 ], [ -8, %132 ]
+  %148 = trunc i8 %147 to i1
+  %.neg76.i152 = select i1 %148, i32 %.062.neg.neg.i150, i32 0
+  %.059.in.i155 = sub i32 %120, %33
+  %149 = add i32 %20, %.080.neg500
+  %150 = add i32 %65, %55
+  %151 = sub i32 %149, %150
+  %.1.in.i156 = add i32 %151, %.neg76.i152
+  %152 = add nuw nsw i32 %64, 65528
+  %153 = select i1 %148, i32 0, i32 %152
+  %.160.in.i157 = add i32 %153, %.059.in.i155
   %sext.mask.i158 = and i32 %.1.in.i156, 32768
-  %155 = icmp eq i32 %sext.mask.i158, 0
+  %154 = icmp eq i32 %sext.mask.i158, 0
   %sext.mask68.i159 = and i32 %.160.in.i157, 32768
-  %156 = icmp eq i32 %sext.mask68.i159, 0
-  %or.cond4.i160 = select i1 %155, i1 %156, i1 false
+  %155 = icmp eq i32 %sext.mask68.i159, 0
+  %or.cond4.i160 = select i1 %154, i1 %155, i1 false
   br i1 %or.cond4.i160, label %_bt_recsplitloc.exit.sink.split, label %_bt_recsplitloc.exit
 
 _bt_recsplitloc.exit.sink.split:                  ; preds = %BTreeTupleIsPosting.exit.thread.i149, %BTreeTupleIsPosting.exit.thread.i97, %BTreeTupleIsPosting.exit.thread.i
@@ -308,33 +307,34 @@ _bt_recsplitloc.exit.sink.split:                  ; preds = %BTreeTupleIsPosting
   %.sink = phi i8 [ 0, %BTreeTupleIsPosting.exit.thread.i ], [ 1, %BTreeTupleIsPosting.exit.thread.i97 ], [ 1, %BTreeTupleIsPosting.exit.thread.i149 ]
   %.160.i161 = trunc i32 %.160.in.i157.sink to i16
   %.1.i162 = trunc i32 %.1.in.i156.sink to i16
-  %..061.i163 = tail call i64 @llvm.umin.i64(i64 %.sroa.103.5.sink, i64 %67)
-  %157 = sext i32 %.sroa.117.5.sink555 to i64
-  %158 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %157
-  store i16 0, ptr %158, align 2
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 2
-  store i16 %.1.i162, ptr %159, align 2
-  %160 = getelementptr inbounds nuw i8, ptr %158, i64 4
-  store i16 %.160.i161, ptr %160, align 2
-  %161 = getelementptr inbounds nuw i8, ptr %158, i64 6
-  store i16 %.081498, ptr %161, align 2
-  %162 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  store i8 %.sink, ptr %162, align 2
-  %163 = add i32 %.sroa.117.5.sink555, 1
+  %..061.i163 = tail call i64 @llvm.umin.i64(i64 %.sroa.103.5.sink, i64 %66)
+  %156 = sext i32 %.sroa.117.5.sink555 to i64
+  %157 = getelementptr inbounds %struct.SplitPoint, ptr %49, i64 %156
+  store i16 0, ptr %157, align 2
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 2
+  store i16 %.1.i162, ptr %158, align 2
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 4
+  store i16 %.160.i161, ptr %159, align 2
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 6
+  store i16 %.081498, ptr %160, align 2
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  store i8 %.sink, ptr %161, align 2
+  %162 = add i32 %.sroa.117.5.sink555, 1
   br label %_bt_recsplitloc.exit
 
 _bt_recsplitloc.exit:                             ; preds = %_bt_recsplitloc.exit.sink.split, %BTreeTupleIsPosting.exit.thread.i149, %BTreeTupleIsPosting.exit.thread.i97, %BTreeTupleIsPosting.exit.thread.i
   %.sroa.103.1 = phi i64 [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.103.0496, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.103.5, %BTreeTupleIsPosting.exit.thread.i149 ], [ %..061.i163, %_bt_recsplitloc.exit.sink.split ]
-  %.sroa.117.1 = phi i32 [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.117.5, %BTreeTupleIsPosting.exit.thread.i149 ], [ %163, %_bt_recsplitloc.exit.sink.split ]
-  %164 = add i32 %66, %.080499
-  %165 = add i16 %.081498, 1
-  %.080.neg = sub i32 0, %164
-  %.not87 = icmp ugt i16 %165, %.0.i
-  br i1 %.not87, label %._crit_edge, label %60, !llvm.loop !4
+  %.sroa.117.1 = phi i32 [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i ], [ %.sroa.117.0497, %BTreeTupleIsPosting.exit.thread.i97 ], [ %.sroa.117.5, %BTreeTupleIsPosting.exit.thread.i149 ], [ %162, %_bt_recsplitloc.exit.sink.split ]
+  %163 = add i32 %65, %.080499
+  %164 = add i16 %.081498, 1
+  %.080.neg = sub i32 0, %163
+  %.not87 = icmp ugt i16 %164, %.0.i
+  br i1 %.not87, label %._crit_edge, label %59, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %_bt_recsplitloc.exit, %40
   %.sroa.103.0.lcssa = phi i64 [ -1, %40 ], [ %.sroa.103.1, %_bt_recsplitloc.exit ]
   %.sroa.117.0.lcssa = phi i32 [ 0, %40 ], [ %.sroa.117.1, %_bt_recsplitloc.exit ]
+  %165 = icmp eq i32 %46, 0
   %166 = icmp ugt i16 %2, %.0.i
   br i1 %166, label %BTreeTupleIsPosting.exit.thread.i175, label %_bt_recsplitloc.exit198
 
@@ -362,7 +362,7 @@ BTreeTupleIsPosting.exit.thread.i175:             ; preds = %._crit_edge
   %.1.i188 = trunc i32 %.1.in.i182 to i16
   %..061.i189 = tail call i64 @llvm.umin.i64(i64 %.sroa.103.0.lcssa, i64 %42)
   %175 = sext i32 %.sroa.117.0.lcssa to i64
-  %176 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %175
+  %176 = getelementptr inbounds %struct.SplitPoint, ptr %49, i64 %175
   store i16 0, ptr %176, align 2
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 2
   store i16 %.1.i188, ptr %177, align 2
@@ -395,7 +395,7 @@ _bt_recsplitloc.exit198:                          ; preds = %174, %BTreeTupleIsP
   br i1 %190, label %191, label %.loopexit
 
 191:                                              ; preds = %189
-  br i1 %47, label %192, label %194
+  br i1 %165, label %192, label %194
 
 192:                                              ; preds = %191
   %193 = fdiv double %41, 1.000000e+02
@@ -415,7 +415,7 @@ _bt_recsplitloc.exit198:                          ; preds = %174, %BTreeTupleIsP
   br i1 %or.cond455, label %202, label %.loopexit
 
 202:                                              ; preds = %194
-  %203 = add nsw i64 %48, -1
+  %203 = add nsw i64 %47, -1
   %204 = mul i64 %203, %42
   %205 = sext i32 %33 to i64
   %.not46.i = icmp ne i64 %204, %205
@@ -428,7 +428,7 @@ _bt_recsplitloc.exit198:                          ; preds = %174, %BTreeTupleIsP
 
 208:                                              ; preds = %207
   %209 = getelementptr i8, ptr %1, i64 20
-  %210 = getelementptr %struct.ItemIdData, ptr %209, i64 %48
+  %210 = getelementptr %struct.ItemIdData, ptr %209, i64 %47
   %.val.i204 = load i32, ptr %210, align 4
   %211 = and i32 %.val.i204, 32767
   %212 = zext nneg i32 %211 to i64
@@ -520,7 +520,7 @@ _bt_afternewitemoff.exit:                         ; preds = %247
 
 .lr.ph506:                                        ; preds = %.lr.ph506.preheader, %264
   %indvars.iv = phi i64 [ 0, %.lr.ph506.preheader ], [ %indvars.iv.next, %264 ]
-  %256 = getelementptr inbounds nuw %struct.SplitPoint, ptr %50, i64 %indvars.iv
+  %256 = getelementptr inbounds nuw %struct.SplitPoint, ptr %49, i64 %indvars.iv
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %258 = load i8, ptr %257, align 2, !range !6, !noundef !7
   %259 = trunc nuw i8 %258 to i1
@@ -533,7 +533,7 @@ _bt_afternewitemoff.exit:                         ; preds = %247
   br i1 %263, label %.thread425, label %264
 
 .thread425:                                       ; preds = %260
-  tail call void @pfree(ptr noundef nonnull %50) #7
+  tail call void @pfree(ptr noundef nonnull %49) #7
   store i8 1, ptr %5, align 1
   br label %486
 
@@ -543,15 +543,15 @@ _bt_afternewitemoff.exit:                         ; preds = %247
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph506, !llvm.loop !8
 
 .loopexit:                                        ; preds = %264, %_bt_afternewitemoff.exit, %._bt_afternewitemoff.exit.thread419_crit_edge, %.preheader, %244, %241, %247, %BTreeTupleIsPosting.exit.i201, %208, %202, %194, %189, %192
-  %.0415.shrunk = phi i1 [ true, %192 ], [ %47, %189 ], [ false, %194 ], [ false, %202 ], [ false, %208 ], [ false, %BTreeTupleIsPosting.exit.i201 ], [ false, %247 ], [ false, %241 ], [ false, %244 ], [ false, %.preheader ], [ true, %._bt_afternewitemoff.exit.thread419_crit_edge ], [ true, %_bt_afternewitemoff.exit ], [ false, %264 ]
+  %.0415.shrunk = phi i1 [ true, %192 ], [ %165, %189 ], [ false, %194 ], [ false, %202 ], [ false, %208 ], [ false, %BTreeTupleIsPosting.exit.i201 ], [ false, %247 ], [ false, %241 ], [ false, %244 ], [ false, %.preheader ], [ true, %._bt_afternewitemoff.exit.thread419_crit_edge ], [ true, %_bt_afternewitemoff.exit ], [ false, %264 ]
   %.078 = phi double [ %193, %192 ], [ 0x3FE6666666666666, %189 ], [ 5.000000e-01, %194 ], [ 5.000000e-01, %202 ], [ 5.000000e-01, %208 ], [ 5.000000e-01, %BTreeTupleIsPosting.exit.i201 ], [ 5.000000e-01, %247 ], [ 5.000000e-01, %241 ], [ 5.000000e-01, %244 ], [ 5.000000e-01, %.preheader ], [ %.pre, %._bt_afternewitemoff.exit.thread419_crit_edge ], [ %254, %_bt_afternewitemoff.exit ], [ 5.000000e-01, %264 ]
-  %.sroa.3242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 6
+  %.sroa.3242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 6
   %.sroa.3242.0.copyload = load i16, ptr %.sroa.3242.0..sroa_idx, align 2
-  %.sroa.4243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %.sroa.4243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.4243.0.copyload = load i8, ptr %.sroa.4243.0..sroa_idx, align 2
   %265 = add i32 %.sroa.117.2, -1
   %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %266
+  %267 = getelementptr inbounds %struct.SplitPoint, ptr %49, i64 %266
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %267, i64 6
   %.sroa.3.0.copyload = load i16, ptr %.sroa.3.0..sroa_idx, align 2
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %267, i64 8
@@ -570,7 +570,7 @@ _bt_afternewitemoff.exit:                         ; preds = %247
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
-  %271 = getelementptr inbounds nuw %struct.SplitPoint, ptr %50, i64 %indvars.iv25.i
+  %271 = getelementptr inbounds nuw %struct.SplitPoint, ptr %49, i64 %indvars.iv25.i
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 2
   %273 = load i16, ptr %272, align 2
   %274 = sitofp i16 %273 to double
@@ -589,7 +589,7 @@ _bt_afternewitemoff.exit:                         ; preds = %247
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %282 = getelementptr inbounds nuw %struct.SplitPoint, ptr %50, i64 %indvars.iv.i
+  %282 = getelementptr inbounds nuw %struct.SplitPoint, ptr %49, i64 %indvars.iv.i
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 2
   %284 = load i16, ptr %283, align 2
   %285 = getelementptr inbounds nuw i8, ptr %282, i64 4
@@ -603,15 +603,15 @@ _bt_afternewitemoff.exit:                         ; preds = %247
 
 _bt_deltasortsplits.exit:                         ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i206, %.._crit_edge_crit_edge.i ], [ %270, %.lr.ph.split.us.i ], [ %270, %.lr.ph.split.i ]
-  tail call void @pg_qsort(ptr noundef nonnull %50, i64 noundef %.pre-phi.i, i64 noundef 10, ptr noundef nonnull @_bt_splitcmp) #7
+  tail call void @pg_qsort(ptr noundef nonnull %49, i64 noundef %.pre-phi.i, i64 noundef 10, ptr noundef nonnull @_bt_splitcmp) #7
   %288 = sitofp i32 %33 to double
   %..i = select i1 %190, double 5.000000e-02, double 0x3FB3333333333333
   %289 = fmul double %..i, %288
   %.033.i = fptosi double %289 to i16
-  %290 = getelementptr inbounds nuw i8, ptr %50, i64 2
+  %290 = getelementptr inbounds nuw i8, ptr %49, i64 2
   %291 = load i16, ptr %290, align 2
   %292 = sub i16 %291, %.033.i
-  %293 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %293 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %294 = load i16, ptr %293, align 2
   %295 = sub i16 %294, %.033.i
   %296 = add i16 %291, %.033.i
@@ -625,7 +625,7 @@ _bt_deltasortsplits.exit:                         ; preds = %.lr.ph.split.i, %.l
 
 .lr.ph.i208:                                      ; preds = %308, %.lr.ph.preheader.i
   %indvars.iv.i209 = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i210, %308 ]
-  %298 = getelementptr inbounds nuw %struct.SplitPoint, ptr %50, i64 %indvars.iv.i209
+  %298 = getelementptr inbounds nuw %struct.SplitPoint, ptr %49, i64 %indvars.iv.i209
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 2
   %300 = load i16, ptr %299, align 2
   %301 = icmp slt i16 %300, %292
@@ -677,7 +677,7 @@ _bt_defaultinterval.exit:                         ; preds = %308, %_bt_deltasort
   %.051.i.in.i = phi i32 [ %..i.i, %.lr.ph.i.i ], [ %.051.i.i, %.backedge.i.i.backedge ]
   %.051.i.i = add i32 %.051.i.in.i, -1
   %320 = zext nneg i32 %.051.i.i to i64
-  %321 = getelementptr inbounds nuw %struct.SplitPoint, ptr %50, i64 %320
+  %321 = getelementptr inbounds nuw %struct.SplitPoint, ptr %49, i64 %320
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 6
   %323 = load i16, ptr %322, align 2
   %324 = icmp ult i16 %323, %316
@@ -850,7 +850,7 @@ _bt_split_firstright.exit56.i:                    ; preds = %_bt_split_lastleft.
   br i1 %.not40.i, label %393, label %_bt_strategy.exit
 
 393:                                              ; preds = %_bt_split_firstright.exit56.i
-  br i1 %47, label %400, label %394
+  br i1 %165, label %400, label %394
 
 394:                                              ; preds = %393
   %395 = getelementptr i8, ptr %1, i64 24
@@ -876,7 +876,7 @@ _bt_split_firstright.exit56.i:                    ; preds = %_bt_split_lastleft.
 
 .lr.ph.split.us.i222:                             ; preds = %.lr.ph.split.us.i222.preheader, %.lr.ph.split.us.i222
   %indvars.iv25.i223 = phi i64 [ %indvars.iv.next26.i225, %.lr.ph.split.us.i222 ], [ 0, %.lr.ph.split.us.i222.preheader ]
-  %402 = getelementptr inbounds nuw %struct.SplitPoint, ptr %50, i64 %indvars.iv25.i223
+  %402 = getelementptr inbounds nuw %struct.SplitPoint, ptr %49, i64 %indvars.iv25.i223
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 2
   %404 = load i16, ptr %403, align 2
   %405 = sitofp i16 %404 to double
@@ -894,12 +894,12 @@ _bt_split_firstright.exit56.i:                    ; preds = %_bt_split_lastleft.
 
 _bt_deltasortsplits.exit226:                      ; preds = %.lr.ph.split.us.i222, %.._crit_edge_crit_edge.i218
   %.pre-phi.i220 = phi i64 [ %.pre.i219, %.._crit_edge_crit_edge.i218 ], [ %401, %.lr.ph.split.us.i222 ]
-  tail call void @pg_qsort(ptr noundef nonnull %50, i64 noundef %.pre-phi.i220, i64 noundef 10, ptr noundef nonnull @_bt_splitcmp) #7
+  tail call void @pg_qsort(ptr noundef nonnull %49, i64 noundef %.pre-phi.i220, i64 noundef 10, ptr noundef nonnull @_bt_splitcmp) #7
   br label %_bt_strategy.exit
 
 _bt_strategy.exit:                                ; preds = %_bt_split_firstright.exit.i, %394, %_bt_split_firstright.exit56.i, %_bt_deltasortsplits.exit226
   %.0.i211430 = phi i32 [ %.0.i211.ph432, %_bt_deltasortsplits.exit226 ], [ %315, %_bt_split_firstright.exit56.i ], [ %399, %394 ], [ %373, %_bt_split_firstright.exit.i ]
-  %brmerge = phi i1 [ true, %_bt_deltasortsplits.exit226 ], [ %47, %_bt_split_firstright.exit56.i ], [ true, %394 ], [ true, %_bt_split_firstright.exit.i ]
+  %brmerge = phi i1 [ true, %_bt_deltasortsplits.exit226 ], [ %165, %_bt_split_firstright.exit56.i ], [ true, %394 ], [ true, %_bt_split_firstright.exit.i ]
   %.sroa.204.0 = phi i32 [ 1, %_bt_deltasortsplits.exit226 ], [ %.sroa.117.2, %_bt_split_firstright.exit56.i ], [ %.3.i, %394 ], [ %.3.i, %_bt_split_firstright.exit.i ]
   %..i227 = tail call i32 @llvm.smin.i32(i32 %.sroa.204.0, i32 %.sroa.117.2)
   %412 = icmp sgt i32 %..i227, 0
@@ -926,7 +926,7 @@ _bt_strategy.exit.thread438:                      ; preds = %_bt_defaultinterval
   %indvars.iv.i233 = phi i64 [ %indvars.iv.next.i235, %434 ], [ 0, %.lr.ph.split.us.i231 ]
   %.048.us.i = phi i32 [ %spec.select41.us.i, %434 ], [ 2147483647, %.lr.ph.split.us.i231 ]
   %.03346.us.i = phi i32 [ %spec.select.us.i234, %434 ], [ 0, %.lr.ph.split.us.i231 ]
-  %419 = getelementptr inbounds nuw %struct.SplitPoint, ptr %50, i64 %indvars.iv.i233
+  %419 = getelementptr inbounds nuw %struct.SplitPoint, ptr %49, i64 %indvars.iv.i233
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
   %421 = load i8, ptr %420, align 2, !range !6, !noundef !7
   %422 = trunc nuw i8 %421 to i1
@@ -964,7 +964,7 @@ _bt_split_penalty.exit.us.i:                      ; preds = %418, %._crit_edge.i
   %indvars.iv53.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next54.i, %466 ]
   %.048.i = phi i32 [ 2147483647, %.lr.ph.split.preheader.i ], [ %spec.select41.i, %466 ]
   %.03346.i = phi i32 [ 0, %.lr.ph.split.preheader.i ], [ %spec.select.i239, %466 ]
-  %436 = getelementptr inbounds nuw %struct.SplitPoint, ptr %50, i64 %indvars.iv53.i
+  %436 = getelementptr inbounds nuw %struct.SplitPoint, ptr %49, i64 %indvars.iv53.i
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 8
   %438 = load i8, ptr %437, align 2, !range !6, !noundef !7
   %439 = trunc nuw i8 %438 to i1
@@ -1025,7 +1025,7 @@ _bt_split_penalty.exit.i:                         ; preds = %._crit_edge.i15.i.i
 
 ._crit_edge.i.thread:                             ; preds = %_bt_split_penalty.exit.us.i, %434
   %467 = sext i32 %spec.select.us.i234 to i64
-  %468 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %467
+  %468 = getelementptr inbounds %struct.SplitPoint, ptr %49, i64 %467
   br label %_bt_bestsplitloc.exit
 
 ._crit_edge.i.loopexit:                           ; preds = %_bt_split_penalty.exit.i, %466
@@ -1034,7 +1034,7 @@ _bt_split_penalty.exit.i:                         ; preds = %._crit_edge.i15.i.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %_bt_strategy.exit
   %.134.i = phi i64 [ 0, %_bt_strategy.exit ], [ %469, %._crit_edge.i.loopexit ]
-  %470 = getelementptr inbounds %struct.SplitPoint, ptr %50, i64 %.134.i
+  %470 = getelementptr inbounds %struct.SplitPoint, ptr %49, i64 %.134.i
   br i1 %brmerge, label %_bt_bestsplitloc.exit, label %471
 
 471:                                              ; preds = %._crit_edge.i
@@ -1052,17 +1052,17 @@ _bt_split_penalty.exit.i:                         ; preds = %._crit_edge.i15.i.i
   %480 = add nuw nsw i32 %478, 9
   %481 = icmp samesign ugt i32 %480, %479
   %or.cond.i229 = select i1 %.not40.i228, i1 %481, i1 false
-  %spec.select45.i = select i1 %or.cond.i229, ptr %50, ptr %470
+  %spec.select45.i = select i1 %or.cond.i229, ptr %49, ptr %470
   br label %_bt_bestsplitloc.exit
 
 _bt_bestsplitloc.exit:                            ; preds = %._crit_edge.i.thread, %._crit_edge.i, %_bt_strategy.exit.thread438, %471, %475
-  %.032.i = phi ptr [ %470, %471 ], [ %470, %._crit_edge.i ], [ %spec.select45.i, %475 ], [ %50, %_bt_strategy.exit.thread438 ], [ %468, %._crit_edge.i.thread ]
+  %.032.i = phi ptr [ %470, %471 ], [ %470, %._crit_edge.i ], [ %spec.select45.i, %475 ], [ %49, %_bt_strategy.exit.thread438 ], [ %468, %._crit_edge.i.thread ]
   %482 = getelementptr inbounds nuw i8, ptr %.032.i, i64 8
   %483 = load i8, ptr %482, align 2, !range !6, !noundef !7
   store i8 %483, ptr %5, align 1
   %484 = getelementptr inbounds nuw i8, ptr %.032.i, i64 6
   %485 = load i16, ptr %484, align 2
-  tail call void @pfree(ptr noundef nonnull %50) #7
+  tail call void @pfree(ptr noundef nonnull %49) #7
   br label %486
 
 486:                                              ; preds = %.thread425, %_bt_bestsplitloc.exit

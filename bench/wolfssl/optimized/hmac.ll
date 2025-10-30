@@ -443,12 +443,12 @@ define void @wc_HmacFree(ptr noundef %0) local_unnamed_addr #1 {
   %18 = trunc i64 %17 to i32
   %19 = sub i32 0, %18
   %20 = and i32 %19, 7
-  %21 = sub nuw nsw i32 784, %20
   %.not24.i = icmp eq i32 %20, 0
-  br i1 %.not24.i, label %.lr.ph29.i.preheader, label %.lr.ph.i
+  br i1 %.not24.i, label %.lr.ph29.preheader.i, label %.lr.ph.i
 
-.lr.ph29.i.preheader:                             ; preds = %.lr.ph.i, %16
-  %.01528.i.ph = phi ptr [ %0, %16 ], [ %23, %.lr.ph.i ]
+.lr.ph29.preheader.i:                             ; preds = %.lr.ph.i, %16
+  %.016.lcssa.i = phi ptr [ %0, %16 ], [ %23, %.lr.ph.i ]
+  %21 = sub nuw nsw i32 784, %20
   br label %.lr.ph29.i
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
@@ -458,15 +458,15 @@ define void @wc_HmacFree(ptr noundef %0) local_unnamed_addr #1 {
   %23 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
   store volatile i8 0, ptr %.01625.i, align 1, !tbaa !10
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %.lr.ph29.preheader.i, label %.lr.ph.i, !llvm.loop !13
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
   %.not2232.i = icmp eq i32 %25, 0
   br i1 %.not2232.i, label %ForceZero.exit, label %.lr.ph35.i
 
-.lr.ph29.i:                                       ; preds = %.lr.ph29.i.preheader, %.lr.ph29.i
-  %.01528.i = phi ptr [ %24, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
-  %.01827.i = phi i32 [ %25, %.lr.ph29.i ], [ %21, %.lr.ph29.i.preheader ]
+.lr.ph29.i:                                       ; preds = %.lr.ph29.i, %.lr.ph29.preheader.i
+  %.01528.i = phi ptr [ %24, %.lr.ph29.i ], [ %.016.lcssa.i, %.lr.ph29.preheader.i ]
+  %.01827.i = phi i32 [ %25, %.lr.ph29.i ], [ %21, %.lr.ph29.preheader.i ]
   %24 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !14
   %25 = add nsw i32 %.01827.i, -8

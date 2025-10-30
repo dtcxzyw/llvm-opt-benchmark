@@ -410,79 +410,76 @@ define dso_local range(i32 0, 4) i32 @onas_ht_get(ptr noundef readonly captures(
   %or.cond.not30 = or i1 %7, %8
   %9 = icmp eq i64 %2, 0
   %or.cond3 = or i1 %or.cond.not30, %9
-  br i1 %or.cond3, label %.critedge34, label %10
+  br i1 %or.cond3, label %.critedge34, label %.lr.ph.i
 
-10:                                               ; preds = %6
-  %11 = load ptr, ptr %0, align 8, !tbaa !11
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i32, ptr %12, align 8, !tbaa !15
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %10, %.lr.ph.i
-  %14 = phi i64 [ %30, %.lr.ph.i ], [ 0, %10 ]
-  %.011.i = phi i32 [ %29, %.lr.ph.i ], [ 0, %10 ]
-  %.0810.i = phi i32 [ %28, %.lr.ph.i ], [ 1, %10 ]
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
-  %16 = load i8, ptr %15, align 1, !tbaa !40
-  %17 = sext i8 %16 to i32
-  %18 = add i32 %.0810.i, %17
-  %19 = xor i32 %18, -1
-  %20 = mul i32 %19, 32769
-  %21 = lshr i32 %20, 12
-  %22 = xor i32 %21, %20
-  %23 = mul i32 %22, 5
-  %24 = lshr i32 %23, 4
-  %25 = xor i32 %24, %23
-  %26 = mul i32 %25, 18441
-  %27 = lshr i32 %26, 16
-  %28 = xor i32 %27, %26
-  %29 = add i32 %.011.i, 1
-  %30 = zext i32 %29 to i64
-  %31 = icmp ugt i64 %2, %30
-  br i1 %31, label %.lr.ph.i, label %onas_hash.exit
+.lr.ph.i:                                         ; preds = %6, %.lr.ph.i
+  %10 = phi i64 [ %26, %.lr.ph.i ], [ 0, %6 ]
+  %.011.i = phi i32 [ %25, %.lr.ph.i ], [ 0, %6 ]
+  %.0810.i = phi i32 [ %24, %.lr.ph.i ], [ 1, %6 ]
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
+  %12 = load i8, ptr %11, align 1, !tbaa !40
+  %13 = sext i8 %12 to i32
+  %14 = add i32 %.0810.i, %13
+  %15 = xor i32 %14, -1
+  %16 = mul i32 %15, 32769
+  %17 = lshr i32 %16, 12
+  %18 = xor i32 %17, %16
+  %19 = mul i32 %18, 5
+  %20 = lshr i32 %19, 4
+  %21 = xor i32 %20, %19
+  %22 = mul i32 %21, 18441
+  %23 = lshr i32 %22, 16
+  %24 = xor i32 %23, %22
+  %25 = add i32 %.011.i, 1
+  %26 = zext i32 %25 to i64
+  %27 = icmp ugt i64 %2, %26
+  br i1 %27, label %.lr.ph.i, label %onas_hash.exit
 
 onas_hash.exit:                                   ; preds = %.lr.ph.i
-  %32 = add i32 %13, -1
-  %33 = and i32 %28, %32
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %11, i64 %34
-  %36 = load ptr, ptr %35, align 8, !tbaa !16
-  %.not31 = icmp eq ptr %36, null
-  br i1 %.not31, label %.critedge34, label %37
+  %28 = load ptr, ptr %0, align 8, !tbaa !11
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %30 = load i32, ptr %29, align 8, !tbaa !15
+  %31 = add i32 %30, -1
+  %32 = and i32 %24, %31
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds ptr, ptr %28, i64 %33
+  %35 = load ptr, ptr %34, align 8, !tbaa !16
+  %.not31 = icmp eq ptr %35, null
+  br i1 %.not31, label %.critedge34, label %36
 
-37:                                               ; preds = %onas_hash.exit
-  %38 = load i32, ptr %36, align 8, !tbaa !17
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.critedge34, label %40
+36:                                               ; preds = %onas_hash.exit
+  %37 = load i32, ptr %35, align 8, !tbaa !17
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %.critedge34, label %39
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %.036 = load ptr, ptr %41, align 8, !tbaa !48
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %.036 = load ptr, ptr %40, align 8, !tbaa !48
   %.not3237 = icmp eq ptr %.036, null
   br i1 %.not3237, label %.critedge34, label %.lr.ph
 
-.lr.ph:                                           ; preds = %40, %44
-  %.038 = phi ptr [ %.0, %44 ], [ %.036, %40 ]
-  %42 = load ptr, ptr %.038, align 8, !tbaa !38
-  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %1) #21
-  %.not33 = icmp eq i32 %43, 0
-  br i1 %.not33, label %.critedge, label %44
+.lr.ph:                                           ; preds = %39, %43
+  %.038 = phi ptr [ %.0, %43 ], [ %.036, %39 ]
+  %41 = load ptr, ptr %.038, align 8, !tbaa !38
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %1) #21
+  %.not33 = icmp eq i32 %42, 0
+  br i1 %.not33, label %.critedge, label %43
 
-44:                                               ; preds = %.lr.ph
-  %45 = getelementptr inbounds nuw i8, ptr %.038, i64 24
-  %.0 = load ptr, ptr %45, align 8, !tbaa !48
+43:                                               ; preds = %.lr.ph
+  %44 = getelementptr inbounds nuw i8, ptr %.038, i64 24
+  %.0 = load ptr, ptr %44, align 8, !tbaa !48
   %.not32 = icmp eq ptr %.0, null
   br i1 %.not32, label %.critedge34, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph
-  br i1 %.not, label %.critedge34, label %46
+  br i1 %.not, label %.critedge34, label %45
 
-46:                                               ; preds = %.critedge
+45:                                               ; preds = %.critedge
   store ptr %.038, ptr %3, align 8, !tbaa !48
   br label %.critedge34
 
-.critedge34:                                      ; preds = %44, %40, %.critedge, %37, %onas_hash.exit, %46, %6
-  %.023 = phi i32 [ 2, %6 ], [ 3, %37 ], [ 3, %onas_hash.exit ], [ 0, %.critedge ], [ 0, %46 ], [ 3, %40 ], [ 3, %44 ]
+.critedge34:                                      ; preds = %43, %39, %.critedge, %36, %onas_hash.exit, %45, %6
+  %.023 = phi i32 [ 2, %6 ], [ 3, %36 ], [ 3, %onas_hash.exit ], [ 0, %.critedge ], [ 0, %45 ], [ 3, %39 ], [ 3, %43 ]
   ret i32 %.023
 }
 
@@ -496,195 +493,192 @@ define dso_local range(i32 0, 4) i32 @onas_ht_remove(ptr noundef readonly captur
   %or.cond.not23 = or i1 %5, %6
   %7 = icmp eq i64 %2, 0
   %or.cond3 = or i1 %or.cond.not23, %7
-  br i1 %or.cond3, label %onas_ht_get.exit.thread, label %8
+  br i1 %or.cond3, label %onas_ht_get.exit.thread, label %.lr.ph.i
 
-8:                                                ; preds = %4
-  %9 = load ptr, ptr %0, align 8, !tbaa !11
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !15
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %8, %.lr.ph.i
-  %12 = phi i64 [ %28, %.lr.ph.i ], [ 0, %8 ]
-  %.011.i = phi i32 [ %27, %.lr.ph.i ], [ 0, %8 ]
-  %.0810.i = phi i32 [ %26, %.lr.ph.i ], [ 1, %8 ]
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !40
-  %15 = sext i8 %14 to i32
-  %16 = add i32 %.0810.i, %15
-  %17 = xor i32 %16, -1
-  %18 = mul i32 %17, 32769
-  %19 = lshr i32 %18, 12
-  %20 = xor i32 %19, %18
-  %21 = mul i32 %20, 5
-  %22 = lshr i32 %21, 4
-  %23 = xor i32 %22, %21
-  %24 = mul i32 %23, 18441
-  %25 = lshr i32 %24, 16
-  %26 = xor i32 %25, %24
-  %27 = add i32 %.011.i, 1
-  %28 = zext i32 %27 to i64
-  %29 = icmp ugt i64 %2, %28
-  br i1 %29, label %.lr.ph.i, label %onas_hash.exit
+.lr.ph.i:                                         ; preds = %4, %.lr.ph.i
+  %8 = phi i64 [ %24, %.lr.ph.i ], [ 0, %4 ]
+  %.011.i = phi i32 [ %23, %.lr.ph.i ], [ 0, %4 ]
+  %.0810.i = phi i32 [ %22, %.lr.ph.i ], [ 1, %4 ]
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8
+  %10 = load i8, ptr %9, align 1, !tbaa !40
+  %11 = sext i8 %10 to i32
+  %12 = add i32 %.0810.i, %11
+  %13 = xor i32 %12, -1
+  %14 = mul i32 %13, 32769
+  %15 = lshr i32 %14, 12
+  %16 = xor i32 %15, %14
+  %17 = mul i32 %16, 5
+  %18 = lshr i32 %17, 4
+  %19 = xor i32 %18, %17
+  %20 = mul i32 %19, 18441
+  %21 = lshr i32 %20, 16
+  %22 = xor i32 %21, %20
+  %23 = add i32 %.011.i, 1
+  %24 = zext i32 %23 to i64
+  %25 = icmp ugt i64 %2, %24
+  br i1 %25, label %.lr.ph.i, label %onas_hash.exit
 
 onas_hash.exit:                                   ; preds = %.lr.ph.i
-  %30 = add i32 %11, -1
-  %31 = and i32 %26, %30
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %9, i64 %32
-  %34 = load ptr, ptr %33, align 8, !tbaa !16
-  %.not = icmp eq ptr %34, null
+  %26 = load ptr, ptr %0, align 8, !tbaa !11
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %28 = load i32, ptr %27, align 8, !tbaa !15
+  %29 = add i32 %28, -1
+  %30 = and i32 %22, %29
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds ptr, ptr %26, i64 %31
+  %33 = load ptr, ptr %32, align 8, !tbaa !16
+  %.not = icmp eq ptr %33, null
   br i1 %.not, label %onas_ht_get.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %onas_hash.exit, %.lr.ph.i.i
-  %35 = phi i64 [ %51, %.lr.ph.i.i ], [ 0, %onas_hash.exit ]
-  %.011.i.i = phi i32 [ %50, %.lr.ph.i.i ], [ 0, %onas_hash.exit ]
-  %.0810.i.i = phi i32 [ %49, %.lr.ph.i.i ], [ 1, %onas_hash.exit ]
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !40
-  %38 = sext i8 %37 to i32
-  %39 = add i32 %.0810.i.i, %38
-  %40 = xor i32 %39, -1
-  %41 = mul i32 %40, 32769
-  %42 = lshr i32 %41, 12
-  %43 = xor i32 %42, %41
-  %44 = mul i32 %43, 5
-  %45 = lshr i32 %44, 4
-  %46 = xor i32 %45, %44
-  %47 = mul i32 %46, 18441
-  %48 = lshr i32 %47, 16
-  %49 = xor i32 %48, %47
-  %50 = add i32 %.011.i.i, 1
-  %51 = zext i32 %50 to i64
-  %52 = icmp samesign ugt i64 %2, %51
-  br i1 %52, label %.lr.ph.i.i, label %onas_hash.exit.i
+  %34 = phi i64 [ %50, %.lr.ph.i.i ], [ 0, %onas_hash.exit ]
+  %.011.i.i = phi i32 [ %49, %.lr.ph.i.i ], [ 0, %onas_hash.exit ]
+  %.0810.i.i = phi i32 [ %48, %.lr.ph.i.i ], [ 1, %onas_hash.exit ]
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !40
+  %37 = sext i8 %36 to i32
+  %38 = add i32 %.0810.i.i, %37
+  %39 = xor i32 %38, -1
+  %40 = mul i32 %39, 32769
+  %41 = lshr i32 %40, 12
+  %42 = xor i32 %41, %40
+  %43 = mul i32 %42, 5
+  %44 = lshr i32 %43, 4
+  %45 = xor i32 %44, %43
+  %46 = mul i32 %45, 18441
+  %47 = lshr i32 %46, 16
+  %48 = xor i32 %47, %46
+  %49 = add i32 %.011.i.i, 1
+  %50 = zext i32 %49 to i64
+  %51 = icmp samesign ugt i64 %2, %50
+  br i1 %51, label %.lr.ph.i.i, label %onas_hash.exit.i
 
 onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
-  %53 = and i32 %49, %30
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %9, i64 %54
-  %56 = load ptr, ptr %55, align 8, !tbaa !16
-  %.not31.i = icmp eq ptr %56, null
-  br i1 %.not31.i, label %onas_ht_get.exit.thread, label %57
+  %52 = and i32 %48, %29
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds ptr, ptr %26, i64 %53
+  %55 = load ptr, ptr %54, align 8, !tbaa !16
+  %.not31.i = icmp eq ptr %55, null
+  br i1 %.not31.i, label %onas_ht_get.exit.thread, label %56
 
-57:                                               ; preds = %onas_hash.exit.i
-  %58 = load i32, ptr %56, align 8, !tbaa !17
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %onas_ht_get.exit.thread, label %60
+56:                                               ; preds = %onas_hash.exit.i
+  %57 = load i32, ptr %55, align 8, !tbaa !17
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %onas_ht_get.exit.thread, label %59
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %.036.i = load ptr, ptr %61, align 8, !tbaa !48
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %.036.i = load ptr, ptr %60, align 8, !tbaa !48
   %.not3237.i = icmp eq ptr %.036.i, null
   br i1 %.not3237.i, label %onas_ht_get.exit.thread, label %.lr.ph.i27
 
-.lr.ph.i27:                                       ; preds = %60, %64
-  %.038.i = phi ptr [ %.0.i, %64 ], [ %.036.i, %60 ]
-  %62 = load ptr, ptr %.038.i, align 8, !tbaa !38
-  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull readonly dereferenceable(1) %1) #21
-  %.not33.i = icmp eq i32 %63, 0
-  br i1 %.not33.i, label %onas_ht_get.exit, label %64
+.lr.ph.i27:                                       ; preds = %59, %63
+  %.038.i = phi ptr [ %.0.i, %63 ], [ %.036.i, %59 ]
+  %61 = load ptr, ptr %.038.i, align 8, !tbaa !38
+  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull readonly dereferenceable(1) %1) #21
+  %.not33.i = icmp eq i32 %62, 0
+  br i1 %.not33.i, label %onas_ht_get.exit, label %63
 
-64:                                               ; preds = %.lr.ph.i27
-  %65 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
-  %.0.i = load ptr, ptr %65, align 8, !tbaa !48
+63:                                               ; preds = %.lr.ph.i27
+  %64 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
+  %.0.i = load ptr, ptr %64, align 8, !tbaa !48
   %.not32.i = icmp eq ptr %.0.i, null
   br i1 %.not32.i, label %onas_ht_get.exit.thread, label %.lr.ph.i27
 
 onas_ht_get.exit:                                 ; preds = %.lr.ph.i27
-  %66 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  br label %67
+  %65 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  br label %66
 
-67:                                               ; preds = %67, %onas_ht_get.exit
-  %.0.in.i = phi ptr [ %66, %onas_ht_get.exit ], [ %71, %67 ]
+66:                                               ; preds = %66, %onas_ht_get.exit
+  %.0.in.i = phi ptr [ %65, %onas_ht_get.exit ], [ %70, %66 ]
   %.0.i28 = load ptr, ptr %.0.in.i, align 8, !tbaa !48
-  %68 = icmp ne ptr %.0.i28, null
-  %69 = icmp ne ptr %.0.i28, %.038.i
-  %70 = and i1 %68, %69
-  %71 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 24
-  br i1 %70, label %67, label %72
+  %67 = icmp ne ptr %.0.i28, null
+  %68 = icmp ne ptr %.0.i28, %.038.i
+  %69 = and i1 %67, %68
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 24
+  br i1 %69, label %66, label %71
 
-72:                                               ; preds = %67
-  br i1 %68, label %73, label %onas_bucket_remove.exit
+71:                                               ; preds = %66
+  br i1 %67, label %72, label %onas_bucket_remove.exit
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %66, align 8, !tbaa !20
-  %75 = icmp eq ptr %74, %.038.i
-  br i1 %75, label %76, label %82
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %65, align 8, !tbaa !20
+  %74 = icmp eq ptr %73, %.038.i
+  br i1 %74, label %75, label %81
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
-  %78 = load ptr, ptr %77, align 8, !tbaa !21
-  store ptr %78, ptr %66, align 8, !tbaa !20
-  %.not40.i = icmp eq ptr %78, null
-  br i1 %.not40.i, label %81, label %79
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
+  %77 = load ptr, ptr %76, align 8, !tbaa !21
+  store ptr %77, ptr %65, align 8, !tbaa !20
+  %.not40.i = icmp eq ptr %77, null
+  br i1 %.not40.i, label %80, label %78
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 32
-  store ptr null, ptr %80, align 8, !tbaa !47
-  br label %81
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  store ptr null, ptr %79, align 8, !tbaa !47
+  br label %80
 
-81:                                               ; preds = %79, %76
-  store ptr null, ptr %77, align 8, !tbaa !21
-  br label %100
+80:                                               ; preds = %78, %75
+  store ptr null, ptr %76, align 8, !tbaa !21
+  br label %99
 
-82:                                               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !46
-  %85 = icmp eq ptr %84, %.038.i
-  %86 = getelementptr inbounds nuw i8, ptr %.038.i, i64 32
-  %87 = load ptr, ptr %86, align 8, !tbaa !47
-  br i1 %85, label %88, label %92
+81:                                               ; preds = %72
+  %82 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !46
+  %84 = icmp eq ptr %83, %.038.i
+  %85 = getelementptr inbounds nuw i8, ptr %.038.i, i64 32
+  %86 = load ptr, ptr %85, align 8, !tbaa !47
+  br i1 %84, label %87, label %91
 
-88:                                               ; preds = %82
-  store ptr %87, ptr %83, align 8, !tbaa !46
-  %.not39.i = icmp eq ptr %87, null
-  br i1 %.not39.i, label %91, label %89
+87:                                               ; preds = %81
+  store ptr %86, ptr %82, align 8, !tbaa !46
+  %.not39.i = icmp eq ptr %86, null
+  br i1 %.not39.i, label %90, label %88
 
-89:                                               ; preds = %88
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  store ptr null, ptr %90, align 8, !tbaa !21
-  br label %91
+88:                                               ; preds = %87
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  store ptr null, ptr %89, align 8, !tbaa !21
+  br label %90
 
-91:                                               ; preds = %89, %88
-  store ptr null, ptr %86, align 8, !tbaa !47
-  br label %100
+90:                                               ; preds = %88, %87
+  store ptr null, ptr %85, align 8, !tbaa !47
+  br label %99
 
-92:                                               ; preds = %82
-  %.not.i29 = icmp eq ptr %87, null
-  br i1 %.not.i29, label %98, label %93
+91:                                               ; preds = %81
+  %.not.i29 = icmp eq ptr %86, null
+  br i1 %.not.i29, label %97, label %92
 
-93:                                               ; preds = %92
-  %94 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !21
-  %96 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  store ptr %95, ptr %96, align 8, !tbaa !21
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  store ptr %87, ptr %97, align 8, !tbaa !47
-  br label %98
+92:                                               ; preds = %91
+  %93 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
+  %94 = load ptr, ptr %93, align 8, !tbaa !21
+  %95 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  store ptr %94, ptr %95, align 8, !tbaa !21
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  store ptr %86, ptr %96, align 8, !tbaa !47
+  br label %97
 
-98:                                               ; preds = %93, %92
-  %99 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false)
-  br label %100
+97:                                               ; preds = %92, %91
+  %98 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, i8 0, i64 16, i1 false)
+  br label %99
 
-100:                                              ; preds = %98, %91, %81
-  %101 = load i32, ptr %34, align 8, !tbaa !17
-  %102 = add i32 %101, -1
-  store i32 %102, ptr %34, align 8, !tbaa !17
+99:                                               ; preds = %97, %90, %80
+  %100 = load i32, ptr %33, align 8, !tbaa !17
+  %101 = add i32 %100, -1
+  store i32 %101, ptr %33, align 8, !tbaa !17
   br label %onas_bucket_remove.exit
 
-onas_bucket_remove.exit:                          ; preds = %72, %100
-  %.1.i = phi i32 [ 0, %100 ], [ 3, %72 ]
+onas_bucket_remove.exit:                          ; preds = %71, %99
+  %.1.i = phi i32 [ 0, %99 ], [ 3, %71 ]
   %.not25 = icmp eq ptr %3, null
-  br i1 %.not25, label %onas_ht_get.exit.thread, label %103
+  br i1 %.not25, label %onas_ht_get.exit.thread, label %102
 
-103:                                              ; preds = %onas_bucket_remove.exit
+102:                                              ; preds = %onas_bucket_remove.exit
   store ptr %.038.i, ptr %3, align 8, !tbaa !48
   br label %onas_ht_get.exit.thread
 
-onas_ht_get.exit.thread:                          ; preds = %64, %60, %57, %onas_hash.exit.i, %103, %onas_bucket_remove.exit, %onas_hash.exit, %4
-  %.0 = phi i32 [ 2, %4 ], [ 3, %onas_hash.exit ], [ %.1.i, %103 ], [ %.1.i, %onas_bucket_remove.exit ], [ 3, %onas_hash.exit.i ], [ 3, %57 ], [ 3, %60 ], [ 3, %64 ]
+onas_ht_get.exit.thread:                          ; preds = %63, %59, %56, %onas_hash.exit.i, %102, %onas_bucket_remove.exit, %onas_hash.exit, %4
+  %.0 = phi i32 [ 2, %4 ], [ 3, %onas_hash.exit ], [ %.1.i, %102 ], [ %.1.i, %onas_bucket_remove.exit ], [ 3, %onas_hash.exit.i ], [ 3, %56 ], [ 3, %59 ], [ 3, %63 ]
   ret i32 %.0
 }
 
@@ -863,135 +857,132 @@ onas_get_dirname_idx.exit:                        ; preds = %.lr.ph.i, %18, %11
   %25 = zext i1 %24 to i32
   %.1.i = add nsw i32 %.0.lcssa.i, %25
   %26 = icmp slt i32 %.1.i, 1
-  br i1 %26, label %onas_ht_get.exit.thread, label %27
+  br i1 %26, label %onas_ht_get.exit.thread, label %.lr.ph.i.i
 
-27:                                               ; preds = %onas_get_dirname_idx.exit
-  %28 = load ptr, ptr %0, align 8, !tbaa !11
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %30 = load i32, ptr %29, align 8, !tbaa !15
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %27
-  %31 = phi i64 [ %47, %.lr.ph.i.i ], [ 0, %27 ]
-  %.011.i.i = phi i32 [ %46, %.lr.ph.i.i ], [ 0, %27 ]
-  %.0810.i.i = phi i32 [ %45, %.lr.ph.i.i ], [ 1, %27 ]
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !40
-  %34 = sext i8 %33 to i32
-  %35 = add i32 %.0810.i.i, %34
-  %36 = xor i32 %35, -1
-  %37 = mul i32 %36, 32769
-  %38 = lshr i32 %37, 12
-  %39 = xor i32 %38, %37
-  %40 = mul i32 %39, 5
-  %41 = lshr i32 %40, 4
-  %42 = xor i32 %41, %40
-  %43 = mul i32 %42, 18441
-  %44 = lshr i32 %43, 16
-  %45 = xor i32 %44, %43
-  %46 = add i32 %.011.i.i, 1
-  %47 = zext i32 %46 to i64
-  %48 = icmp ugt i64 %2, %47
-  br i1 %48, label %.lr.ph.i.i, label %onas_hash.exit.i
+.lr.ph.i.i:                                       ; preds = %onas_get_dirname_idx.exit, %.lr.ph.i.i
+  %27 = phi i64 [ %43, %.lr.ph.i.i ], [ 0, %onas_get_dirname_idx.exit ]
+  %.011.i.i = phi i32 [ %42, %.lr.ph.i.i ], [ 0, %onas_get_dirname_idx.exit ]
+  %.0810.i.i = phi i32 [ %41, %.lr.ph.i.i ], [ 1, %onas_get_dirname_idx.exit ]
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !40
+  %30 = sext i8 %29 to i32
+  %31 = add i32 %.0810.i.i, %30
+  %32 = xor i32 %31, -1
+  %33 = mul i32 %32, 32769
+  %34 = lshr i32 %33, 12
+  %35 = xor i32 %34, %33
+  %36 = mul i32 %35, 5
+  %37 = lshr i32 %36, 4
+  %38 = xor i32 %37, %36
+  %39 = mul i32 %38, 18441
+  %40 = lshr i32 %39, 16
+  %41 = xor i32 %40, %39
+  %42 = add i32 %.011.i.i, 1
+  %43 = zext i32 %42 to i64
+  %44 = icmp ugt i64 %2, %43
+  br i1 %44, label %.lr.ph.i.i, label %onas_hash.exit.i
 
 onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
-  %49 = add i32 %30, -1
-  %50 = and i32 %45, %49
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %28, i64 %51
-  %53 = load ptr, ptr %52, align 8, !tbaa !16
-  %.not31.i = icmp eq ptr %53, null
-  br i1 %.not31.i, label %onas_ht_get.exit.thread, label %54
+  %45 = load ptr, ptr %0, align 8, !tbaa !11
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = load i32, ptr %46, align 8, !tbaa !15
+  %48 = add i32 %47, -1
+  %49 = and i32 %48, %41
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds ptr, ptr %45, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !16
+  %.not31.i = icmp eq ptr %52, null
+  br i1 %.not31.i, label %onas_ht_get.exit.thread, label %53
 
-54:                                               ; preds = %onas_hash.exit.i
-  %55 = load i32, ptr %53, align 8, !tbaa !17
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %onas_ht_get.exit.thread, label %57
+53:                                               ; preds = %onas_hash.exit.i
+  %54 = load i32, ptr %52, align 8, !tbaa !17
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %onas_ht_get.exit.thread, label %56
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %.036.i = load ptr, ptr %58, align 8, !tbaa !48
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %.036.i = load ptr, ptr %57, align 8, !tbaa !48
   %.not3237.i = icmp eq ptr %.036.i, null
   br i1 %.not3237.i, label %onas_ht_get.exit.thread, label %.lr.ph.i37
 
-.lr.ph.i37:                                       ; preds = %57, %61
-  %.038.i = phi ptr [ %.0.i, %61 ], [ %.036.i, %57 ]
-  %59 = load ptr, ptr %.038.i, align 8, !tbaa !38
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(1) %1) #21
-  %.not33.i = icmp eq i32 %60, 0
-  br i1 %.not33.i, label %onas_ht_get.exit, label %61
+.lr.ph.i37:                                       ; preds = %56, %60
+  %.038.i = phi ptr [ %.0.i, %60 ], [ %.036.i, %56 ]
+  %58 = load ptr, ptr %.038.i, align 8, !tbaa !38
+  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull readonly dereferenceable(1) %1) #21
+  %.not33.i = icmp eq i32 %59, 0
+  br i1 %.not33.i, label %onas_ht_get.exit, label %60
 
-61:                                               ; preds = %.lr.ph.i37
-  %62 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
-  %.0.i = load ptr, ptr %62, align 8, !tbaa !48
+60:                                               ; preds = %.lr.ph.i37
+  %61 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
+  %.0.i = load ptr, ptr %61, align 8, !tbaa !48
   %.not32.i = icmp eq ptr %.0.i, null
   br i1 %.not32.i, label %onas_ht_get.exit.thread, label %.lr.ph.i37
 
 onas_ht_get.exit:                                 ; preds = %.lr.ph.i37
-  %63 = getelementptr inbounds nuw i8, ptr %.038.i, i64 16
-  %64 = load ptr, ptr %63, align 8, !tbaa !26
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %66 = load ptr, ptr %65, align 8, !tbaa !27
-  %67 = zext nneg i32 %.1.i to i64
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 %67
-  %.not = icmp eq ptr %66, null
-  br i1 %.not, label %onas_ht_get.exit.thread, label %69
+  %62 = getelementptr inbounds nuw i8, ptr %.038.i, i64 16
+  %63 = load ptr, ptr %62, align 8, !tbaa !26
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %65 = load ptr, ptr %64, align 8, !tbaa !27
+  %66 = zext nneg i32 %.1.i to i64
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 %66
+  %.not = icmp eq ptr %65, null
+  br i1 %.not, label %onas_ht_get.exit.thread, label %68
 
-69:                                               ; preds = %onas_ht_get.exit
-  %70 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %68) #21
-  br label %71
+68:                                               ; preds = %onas_ht_get.exit
+  %69 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %67) #21
+  br label %70
 
-71:                                               ; preds = %79, %69
-  %.017.i = phi ptr [ %66, %69 ], [ %73, %79 ]
-  %72 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !30
-  %.not.i40 = icmp eq ptr %73, null
-  br i1 %.not.i40, label %onas_ht_get.exit.thread, label %74
+70:                                               ; preds = %78, %68
+  %.017.i = phi ptr [ %65, %68 ], [ %72, %78 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
+  %72 = load ptr, ptr %71, align 8, !tbaa !30
+  %.not.i40 = icmp eq ptr %72, null
+  br i1 %.not.i40, label %onas_ht_get.exit.thread, label %73
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %73, align 8, !tbaa !32
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %79
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %72, align 8, !tbaa !32
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %76, label %78
 
-77:                                               ; preds = %74
-  %78 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str) #20
+76:                                               ; preds = %73
+  %77 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str) #20
   br label %onas_ht_get.exit.thread
 
-79:                                               ; preds = %74
-  %80 = tail call i32 @strncmp(ptr noundef nonnull %75, ptr noundef nonnull readonly %68, i64 noundef %70) #21
-  %.not24.i = icmp eq i32 %80, 0
-  br i1 %.not24.i, label %81, label %71
+78:                                               ; preds = %73
+  %79 = tail call i32 @strncmp(ptr noundef nonnull %74, ptr noundef nonnull readonly %67, i64 noundef %69) #21
+  %.not24.i = icmp eq i32 %79, 0
+  br i1 %.not24.i, label %80, label %70
 
-81:                                               ; preds = %79
-  %82 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !30
-  %.not25.i = icmp eq ptr %83, null
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %73, i64 16
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %82 = load ptr, ptr %81, align 8, !tbaa !30
+  %.not25.i = icmp eq ptr %82, null
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %72, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !49
-  br i1 %.not25.i, label %._crit_edge.i, label %84
+  br i1 %.not25.i, label %._crit_edge.i, label %83
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store ptr %.pre.i, ptr %85, align 8, !tbaa !49
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  store ptr %.pre.i, ptr %84, align 8, !tbaa !49
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %84, %81
+._crit_edge.i:                                    ; preds = %83, %80
   %.not26.i = icmp eq ptr %.pre.i, null
-  br i1 %.not26.i, label %88, label %86
+  br i1 %.not26.i, label %87, label %85
 
-86:                                               ; preds = %._crit_edge.i
-  %87 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
-  store ptr %83, ptr %87, align 8, !tbaa !30
-  br label %88
+85:                                               ; preds = %._crit_edge.i
+  %86 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
+  store ptr %82, ptr %86, align 8, !tbaa !30
+  br label %87
 
-88:                                               ; preds = %86, %._crit_edge.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
-  tail call void @free(ptr noundef nonnull %75) #20
-  tail call void @free(ptr noundef nonnull %73) #20
+87:                                               ; preds = %85, %._crit_edge.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false)
+  tail call void @free(ptr noundef nonnull %74) #20
+  tail call void @free(ptr noundef nonnull %72) #20
   br label %onas_ht_get.exit.thread
 
-onas_ht_get.exit.thread:                          ; preds = %61, %71, %77, %onas_ht_get.exit, %57, %onas_hash.exit.i, %54, %onas_get_dirname_idx.exit, %88, %5
-  %.0 = phi i32 [ 2, %5 ], [ 0, %onas_get_dirname_idx.exit ], [ 0, %88 ], [ 3, %54 ], [ 3, %onas_hash.exit.i ], [ 3, %57 ], [ 3, %onas_ht_get.exit ], [ 3, %77 ], [ 3, %71 ], [ 3, %61 ]
+onas_ht_get.exit.thread:                          ; preds = %60, %70, %76, %onas_ht_get.exit, %56, %onas_hash.exit.i, %53, %onas_get_dirname_idx.exit, %87, %5
+  %.0 = phi i32 [ 2, %5 ], [ 0, %onas_get_dirname_idx.exit ], [ 0, %87 ], [ 3, %53 ], [ 3, %onas_hash.exit.i ], [ 3, %56 ], [ 3, %onas_ht_get.exit ], [ 3, %76 ], [ 3, %70 ], [ 3, %60 ]
   ret i32 %.0
 }
 
@@ -1036,106 +1027,103 @@ onas_get_dirname_idx.exit:                        ; preds = %.lr.ph.i, %18, %11
   %25 = zext i1 %24 to i32
   %.1.i = add nsw i32 %.0.lcssa.i, %25
   %26 = icmp slt i32 %.1.i, 1
-  br i1 %26, label %onas_add_hashnode_child.exit, label %27
+  br i1 %26, label %onas_add_hashnode_child.exit, label %.lr.ph.i.i
 
-27:                                               ; preds = %onas_get_dirname_idx.exit
-  %28 = load ptr, ptr %0, align 8, !tbaa !11
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %30 = load i32, ptr %29, align 8, !tbaa !15
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %27
-  %31 = phi i64 [ %47, %.lr.ph.i.i ], [ 0, %27 ]
-  %.011.i.i = phi i32 [ %46, %.lr.ph.i.i ], [ 0, %27 ]
-  %.0810.i.i = phi i32 [ %45, %.lr.ph.i.i ], [ 1, %27 ]
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !40
-  %34 = sext i8 %33 to i32
-  %35 = add i32 %.0810.i.i, %34
-  %36 = xor i32 %35, -1
-  %37 = mul i32 %36, 32769
-  %38 = lshr i32 %37, 12
-  %39 = xor i32 %38, %37
-  %40 = mul i32 %39, 5
-  %41 = lshr i32 %40, 4
-  %42 = xor i32 %41, %40
-  %43 = mul i32 %42, 18441
-  %44 = lshr i32 %43, 16
-  %45 = xor i32 %44, %43
-  %46 = add i32 %.011.i.i, 1
-  %47 = zext i32 %46 to i64
-  %48 = icmp ugt i64 %2, %47
-  br i1 %48, label %.lr.ph.i.i, label %onas_hash.exit.i
+.lr.ph.i.i:                                       ; preds = %onas_get_dirname_idx.exit, %.lr.ph.i.i
+  %27 = phi i64 [ %43, %.lr.ph.i.i ], [ 0, %onas_get_dirname_idx.exit ]
+  %.011.i.i = phi i32 [ %42, %.lr.ph.i.i ], [ 0, %onas_get_dirname_idx.exit ]
+  %.0810.i.i = phi i32 [ %41, %.lr.ph.i.i ], [ 1, %onas_get_dirname_idx.exit ]
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !40
+  %30 = sext i8 %29 to i32
+  %31 = add i32 %.0810.i.i, %30
+  %32 = xor i32 %31, -1
+  %33 = mul i32 %32, 32769
+  %34 = lshr i32 %33, 12
+  %35 = xor i32 %34, %33
+  %36 = mul i32 %35, 5
+  %37 = lshr i32 %36, 4
+  %38 = xor i32 %37, %36
+  %39 = mul i32 %38, 18441
+  %40 = lshr i32 %39, 16
+  %41 = xor i32 %40, %39
+  %42 = add i32 %.011.i.i, 1
+  %43 = zext i32 %42 to i64
+  %44 = icmp ugt i64 %2, %43
+  br i1 %44, label %.lr.ph.i.i, label %onas_hash.exit.i
 
 onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
-  %49 = add i32 %30, -1
-  %50 = and i32 %45, %49
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %28, i64 %51
-  %53 = load ptr, ptr %52, align 8, !tbaa !16
-  %.not31.i = icmp eq ptr %53, null
-  br i1 %.not31.i, label %onas_add_hashnode_child.exit, label %54
+  %45 = load ptr, ptr %0, align 8, !tbaa !11
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = load i32, ptr %46, align 8, !tbaa !15
+  %48 = add i32 %47, -1
+  %49 = and i32 %48, %41
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds ptr, ptr %45, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !16
+  %.not31.i = icmp eq ptr %52, null
+  br i1 %.not31.i, label %onas_add_hashnode_child.exit, label %53
 
-54:                                               ; preds = %onas_hash.exit.i
-  %55 = load i32, ptr %53, align 8, !tbaa !17
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %onas_add_hashnode_child.exit, label %57
+53:                                               ; preds = %onas_hash.exit.i
+  %54 = load i32, ptr %52, align 8, !tbaa !17
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %onas_add_hashnode_child.exit, label %56
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %.036.i = load ptr, ptr %58, align 8, !tbaa !48
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %.036.i = load ptr, ptr %57, align 8, !tbaa !48
   %.not3237.i = icmp eq ptr %.036.i, null
   br i1 %.not3237.i, label %onas_add_hashnode_child.exit, label %.lr.ph.i36
 
-.lr.ph.i36:                                       ; preds = %57, %61
-  %.038.i = phi ptr [ %.0.i, %61 ], [ %.036.i, %57 ]
-  %59 = load ptr, ptr %.038.i, align 8, !tbaa !38
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(1) %1) #21
-  %.not33.i = icmp eq i32 %60, 0
-  br i1 %.not33.i, label %onas_ht_get.exit, label %61
+.lr.ph.i36:                                       ; preds = %56, %60
+  %.038.i = phi ptr [ %.0.i, %60 ], [ %.036.i, %56 ]
+  %58 = load ptr, ptr %.038.i, align 8, !tbaa !38
+  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull readonly dereferenceable(1) %1) #21
+  %.not33.i = icmp eq i32 %59, 0
+  br i1 %.not33.i, label %onas_ht_get.exit, label %60
 
-61:                                               ; preds = %.lr.ph.i36
-  %62 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
-  %.0.i = load ptr, ptr %62, align 8, !tbaa !48
+60:                                               ; preds = %.lr.ph.i36
+  %61 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
+  %.0.i = load ptr, ptr %61, align 8, !tbaa !48
   %.not32.i = icmp eq ptr %.0.i, null
   br i1 %.not32.i, label %onas_add_hashnode_child.exit, label %.lr.ph.i36
 
 onas_ht_get.exit:                                 ; preds = %.lr.ph.i36
-  %63 = getelementptr inbounds nuw i8, ptr %.038.i, i64 16
-  %64 = load ptr, ptr %63, align 8, !tbaa !26
-  %65 = zext nneg i32 %.1.i to i64
-  %66 = getelementptr inbounds nuw i8, ptr %3, i64 %65
-  %.not = icmp eq ptr %64, null
-  br i1 %.not, label %onas_add_hashnode_child.exit, label %67
+  %62 = getelementptr inbounds nuw i8, ptr %.038.i, i64 16
+  %63 = load ptr, ptr %62, align 8, !tbaa !26
+  %64 = zext nneg i32 %.1.i to i64
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 %64
+  %.not = icmp eq ptr %63, null
+  br i1 %.not, label %onas_add_hashnode_child.exit, label %66
 
-67:                                               ; preds = %onas_ht_get.exit
+66:                                               ; preds = %onas_ht_get.exit
   %calloc.i.i = tail call noalias noundef dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %.not.i39 = icmp eq ptr %calloc.i.i, null
-  br i1 %.not.i39, label %onas_add_hashnode_child.exit, label %68
+  br i1 %.not.i39, label %onas_add_hashnode_child.exit, label %67
 
-68:                                               ; preds = %67
-  %69 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %66) #21
-  %70 = tail call noalias ptr @strndup(ptr noundef nonnull readonly %66, i64 noundef %69) #20
-  store ptr %70, ptr %calloc.i.i, align 8, !tbaa !32
-  %71 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  %72 = load ptr, ptr %71, align 8, !tbaa !50
-  %.not13.i = icmp eq ptr %72, null
-  br i1 %.not13.i, label %onas_add_hashnode_child.exit, label %73
+67:                                               ; preds = %66
+  %68 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %65) #21
+  %69 = tail call noalias ptr @strndup(ptr noundef nonnull readonly %65, i64 noundef %68) #20
+  store ptr %69, ptr %calloc.i.i, align 8, !tbaa !32
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  %71 = load ptr, ptr %70, align 8, !tbaa !50
+  %.not13.i = icmp eq ptr %71, null
+  br i1 %.not13.i, label %onas_add_hashnode_child.exit, label %72
 
-73:                                               ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !49
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store ptr %calloc.i.i, ptr %76, align 8, !tbaa !30
-  %77 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 16
-  store ptr %75, ptr %77, align 8, !tbaa !49
-  %78 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 8
-  store ptr %72, ptr %78, align 8, !tbaa !30
-  store ptr %calloc.i.i, ptr %74, align 8, !tbaa !49
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %74 = load ptr, ptr %73, align 8, !tbaa !49
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store ptr %calloc.i.i, ptr %75, align 8, !tbaa !30
+  %76 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 16
+  store ptr %74, ptr %76, align 8, !tbaa !49
+  %77 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 8
+  store ptr %71, ptr %77, align 8, !tbaa !30
+  store ptr %calloc.i.i, ptr %73, align 8, !tbaa !49
   br label %onas_add_hashnode_child.exit
 
-onas_add_hashnode_child.exit:                     ; preds = %61, %57, %onas_hash.exit.i, %54, %onas_get_dirname_idx.exit, %onas_ht_get.exit, %67, %68, %73, %5
-  %.0 = phi i32 [ 2, %5 ], [ 0, %onas_get_dirname_idx.exit ], [ 2, %onas_ht_get.exit ], [ 20, %67 ], [ 0, %68 ], [ 0, %73 ], [ 3, %54 ], [ 3, %onas_hash.exit.i ], [ 3, %57 ], [ 3, %61 ]
+onas_add_hashnode_child.exit:                     ; preds = %60, %56, %onas_hash.exit.i, %53, %onas_get_dirname_idx.exit, %onas_ht_get.exit, %66, %67, %72, %5
+  %.0 = phi i32 [ 2, %5 ], [ 0, %onas_get_dirname_idx.exit ], [ 2, %onas_ht_get.exit ], [ 20, %66 ], [ 0, %67 ], [ 0, %72 ], [ 3, %53 ], [ 3, %onas_hash.exit.i ], [ 3, %56 ], [ 3, %60 ]
   ret i32 %.0
 }
 
@@ -1237,25 +1225,22 @@ onas_free_hashnode.exit.i:                        ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40
   store ptr %calloc.i15.i, ptr %36, align 8, !tbaa !50
   %.not14.i = icmp eq ptr %calloc.i15.i, null
-  br i1 %.not14.i, label %onas_free_listnode.exit.i.i18.i.preheader, label %45
+  br i1 %.not14.i, label %onas_free_listnode.exit.i.i18.i, label %45
 
-onas_free_listnode.exit.i.i18.i.preheader:        ; preds = %35
-  %37 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 32
-  br label %onas_free_listnode.exit.i.i18.i
-
-onas_free_listnode.exit.i.i18.i:                  ; preds = %onas_free_listnode.exit.i.i18.i.preheader, %onas_free_listnode.exit.i.i18.i
-  %.09.i.i19.i = phi ptr [ %39, %onas_free_listnode.exit.i.i18.i ], [ %calloc.i.i, %onas_free_listnode.exit.i.i18.i.preheader ]
-  %38 = getelementptr inbounds nuw i8, ptr %.09.i.i19.i, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  %40 = load ptr, ptr %.09.i.i19.i, align 8, !tbaa !32
-  call void @free(ptr noundef %40) #20
+onas_free_listnode.exit.i.i18.i:                  ; preds = %35, %onas_free_listnode.exit.i.i18.i
+  %.09.i.i19.i = phi ptr [ %38, %onas_free_listnode.exit.i.i18.i ], [ %calloc.i.i, %35 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.09.i.i19.i, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
+  %39 = load ptr, ptr %.09.i.i19.i, align 8, !tbaa !32
+  call void @free(ptr noundef %39) #20
   call void @free(ptr noundef nonnull %.09.i.i19.i) #20
-  %.not8.i.i20.i = icmp eq ptr %39, null
+  %.not8.i.i20.i = icmp eq ptr %38, null
   br i1 %.not8.i.i20.i, label %onas_free_hashnode.exit22.i, label %onas_free_listnode.exit.i.i18.i
 
 onas_free_hashnode.exit22.i:                      ; preds = %onas_free_listnode.exit.i.i18.i
-  store ptr null, ptr %37, align 8, !tbaa !27
+  %40 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 32
+  store ptr null, ptr %40, align 8, !tbaa !27
   %41 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !33
   call void @free(ptr noundef %42) #20
@@ -1488,167 +1473,164 @@ define dso_local noundef range(i32 0, 21) i32 @onas_ht_rm_hierarchy(ptr noundef 
   %or.cond.not54 = or i1 %5, %6
   %7 = icmp eq i64 %2, 0
   %or.cond3 = or i1 %or.cond.not54, %7
-  br i1 %or.cond3, label %.critedge, label %8
+  br i1 %or.cond3, label %.critedge, label %.lr.ph.i.i
 
-8:                                                ; preds = %4
-  %9 = load ptr, ptr %0, align 8, !tbaa !11
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !15
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %8
-  %12 = phi i64 [ %28, %.lr.ph.i.i ], [ 0, %8 ]
-  %.011.i.i = phi i32 [ %27, %.lr.ph.i.i ], [ 0, %8 ]
-  %.0810.i.i = phi i32 [ %26, %.lr.ph.i.i ], [ 1, %8 ]
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !40
-  %15 = sext i8 %14 to i32
-  %16 = add i32 %.0810.i.i, %15
-  %17 = xor i32 %16, -1
-  %18 = mul i32 %17, 32769
-  %19 = lshr i32 %18, 12
-  %20 = xor i32 %19, %18
-  %21 = mul i32 %20, 5
-  %22 = lshr i32 %21, 4
-  %23 = xor i32 %22, %21
-  %24 = mul i32 %23, 18441
-  %25 = lshr i32 %24, 16
-  %26 = xor i32 %25, %24
-  %27 = add i32 %.011.i.i, 1
-  %28 = zext i32 %27 to i64
-  %29 = icmp ugt i64 %2, %28
-  br i1 %29, label %.lr.ph.i.i, label %onas_hash.exit.i
+.lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
+  %8 = phi i64 [ %24, %.lr.ph.i.i ], [ 0, %4 ]
+  %.011.i.i = phi i32 [ %23, %.lr.ph.i.i ], [ 0, %4 ]
+  %.0810.i.i = phi i32 [ %22, %.lr.ph.i.i ], [ 1, %4 ]
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %8
+  %10 = load i8, ptr %9, align 1, !tbaa !40
+  %11 = sext i8 %10 to i32
+  %12 = add i32 %.0810.i.i, %11
+  %13 = xor i32 %12, -1
+  %14 = mul i32 %13, 32769
+  %15 = lshr i32 %14, 12
+  %16 = xor i32 %15, %14
+  %17 = mul i32 %16, 5
+  %18 = lshr i32 %17, 4
+  %19 = xor i32 %18, %17
+  %20 = mul i32 %19, 18441
+  %21 = lshr i32 %20, 16
+  %22 = xor i32 %21, %20
+  %23 = add i32 %.011.i.i, 1
+  %24 = zext i32 %23 to i64
+  %25 = icmp ugt i64 %2, %24
+  br i1 %25, label %.lr.ph.i.i, label %onas_hash.exit.i
 
 onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
-  %30 = add i32 %11, -1
-  %31 = and i32 %26, %30
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %9, i64 %32
-  %34 = load ptr, ptr %33, align 8, !tbaa !16
-  %.not31.i = icmp eq ptr %34, null
-  br i1 %.not31.i, label %.critedge, label %35
+  %26 = load ptr, ptr %0, align 8, !tbaa !11
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %28 = load i32, ptr %27, align 8, !tbaa !15
+  %29 = add i32 %28, -1
+  %30 = and i32 %29, %22
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds ptr, ptr %26, i64 %31
+  %33 = load ptr, ptr %32, align 8, !tbaa !16
+  %.not31.i = icmp eq ptr %33, null
+  br i1 %.not31.i, label %.critedge, label %34
 
-35:                                               ; preds = %onas_hash.exit.i
-  %36 = load i32, ptr %34, align 8, !tbaa !17
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.critedge, label %38
+34:                                               ; preds = %onas_hash.exit.i
+  %35 = load i32, ptr %33, align 8, !tbaa !17
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %.critedge, label %37
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %.036.i = load ptr, ptr %39, align 8, !tbaa !48
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %.036.i = load ptr, ptr %38, align 8, !tbaa !48
   %.not3237.i = icmp eq ptr %.036.i, null
   br i1 %.not3237.i, label %.critedge, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %38, %42
-  %.038.i = phi ptr [ %.0.i, %42 ], [ %.036.i, %38 ]
-  %40 = load ptr, ptr %.038.i, align 8, !tbaa !38
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %1) #21
-  %.not33.i = icmp eq i32 %41, 0
-  br i1 %.not33.i, label %onas_ht_get.exit, label %42
+.lr.ph.i:                                         ; preds = %37, %41
+  %.038.i = phi ptr [ %.0.i, %41 ], [ %.036.i, %37 ]
+  %39 = load ptr, ptr %.038.i, align 8, !tbaa !38
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull readonly dereferenceable(1) %1) #21
+  %.not33.i = icmp eq i32 %40, 0
+  br i1 %.not33.i, label %onas_ht_get.exit, label %41
 
-42:                                               ; preds = %.lr.ph.i
-  %43 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
-  %.0.i = load ptr, ptr %43, align 8, !tbaa !48
+41:                                               ; preds = %.lr.ph.i
+  %42 = getelementptr inbounds nuw i8, ptr %.038.i, i64 24
+  %.0.i = load ptr, ptr %42, align 8, !tbaa !48
   %.not32.i = icmp eq ptr %.0.i, null
   br i1 %.not32.i, label %.critedge, label %.lr.ph.i
 
 onas_ht_get.exit:                                 ; preds = %.lr.ph.i
-  %44 = getelementptr inbounds nuw i8, ptr %.038.i, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !26
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %47 = load ptr, ptr %46, align 8, !tbaa !27
-  %48 = icmp eq i32 %3, 0
-  br i1 %48, label %49, label %67
+  %43 = getelementptr inbounds nuw i8, ptr %.038.i, i64 16
+  %44 = load ptr, ptr %43, align 8, !tbaa !26
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %46 = load ptr, ptr %45, align 8, !tbaa !27
+  %47 = icmp eq i32 %3, 0
+  br i1 %47, label %48, label %66
 
-49:                                               ; preds = %onas_ht_get.exit
-  %50 = icmp ult i64 %2, 2
-  br i1 %50, label %.critedge, label %51
+48:                                               ; preds = %onas_ht_get.exit
+  %49 = icmp ult i64 %2, 2
+  br i1 %49, label %.critedge, label %50
 
-51:                                               ; preds = %49
-  %52 = trunc nuw i64 %2 to i32
-  %53 = add i32 %52, -2
-  %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %.lr.ph.i60, label %.critedge.i59
+50:                                               ; preds = %48
+  %51 = trunc nuw i64 %2 to i32
+  %52 = add i32 %51, -2
+  %53 = icmp sgt i32 %52, -1
+  br i1 %53, label %.lr.ph.i60, label %.critedge.i59
 
-.lr.ph.i60:                                       ; preds = %51, %58
-  %.020.i = phi i32 [ %59, %58 ], [ %53, %51 ]
-  %55 = zext nneg i32 %.020.i to i64
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 %55
-  %57 = load i8, ptr %56, align 1, !tbaa !40
-  %.not.i = icmp eq i8 %57, 47
-  br i1 %.not.i, label %.critedge.i59, label %58
+.lr.ph.i60:                                       ; preds = %50, %57
+  %.020.i = phi i32 [ %58, %57 ], [ %52, %50 ]
+  %54 = zext nneg i32 %.020.i to i64
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %54
+  %56 = load i8, ptr %55, align 1, !tbaa !40
+  %.not.i = icmp eq i8 %56, 47
+  br i1 %.not.i, label %.critedge.i59, label %57
 
-58:                                               ; preds = %.lr.ph.i60
-  %59 = add nsw i32 %.020.i, -1
-  %60 = icmp sgt i32 %.020.i, 0
-  br i1 %60, label %.lr.ph.i60, label %.critedge.i59
+57:                                               ; preds = %.lr.ph.i60
+  %58 = add nsw i32 %.020.i, -1
+  %59 = icmp sgt i32 %.020.i, 0
+  br i1 %59, label %.lr.ph.i60, label %.critedge.i59
 
-.critedge.i59:                                    ; preds = %58, %.lr.ph.i60, %51
-  %.0.lcssa.i = phi i32 [ %53, %51 ], [ %.020.i, %.lr.ph.i60 ], [ -1, %58 ]
+.critedge.i59:                                    ; preds = %57, %.lr.ph.i60, %50
+  %.0.lcssa.i = phi i32 [ %52, %50 ], [ %.020.i, %.lr.ph.i60 ], [ -1, %57 ]
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %.0.lcssa.i, i32 1)
-  %61 = sext i32 %spec.select.i to i64
-  %62 = tail call noalias ptr @strndup(ptr noundef nonnull readonly %1, i64 noundef %61) #20
-  %.not19.i = icmp eq ptr %62, null
-  br i1 %.not19.i, label %63, label %onas_get_parent.exit
+  %60 = sext i32 %spec.select.i to i64
+  %61 = tail call noalias ptr @strndup(ptr noundef nonnull readonly %1, i64 noundef %60) #20
+  %.not19.i = icmp eq ptr %61, null
+  br i1 %.not19.i, label %62, label %onas_get_parent.exit
 
-63:                                               ; preds = %.critedge.i59
-  %64 = tail call ptr @__errno_location() #22
-  store i32 12, ptr %64, align 4, !tbaa !9
+62:                                               ; preds = %.critedge.i59
+  %63 = tail call ptr @__errno_location() #22
+  store i32 12, ptr %63, align 4, !tbaa !9
   br label %.critedge
 
 onas_get_parent.exit:                             ; preds = %.critedge.i59
-  %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #21
-  %66 = tail call i32 @onas_ht_rm_child(ptr noundef nonnull %0, ptr noundef nonnull %62, i64 noundef %65, ptr noundef nonnull %1, i64 noundef %2)
-  %.not56 = icmp eq i32 %66, 0
-  tail call void @free(ptr noundef nonnull %62) #20
-  br i1 %.not56, label %67, label %.critedge
+  %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #21
+  %65 = tail call i32 @onas_ht_rm_child(ptr noundef nonnull %0, ptr noundef nonnull %61, i64 noundef %64, ptr noundef nonnull %1, i64 noundef %2)
+  %.not56 = icmp eq i32 %65, 0
+  tail call void @free(ptr noundef nonnull %61) #20
+  br i1 %.not56, label %66, label %.critedge
 
-67:                                               ; preds = %onas_get_parent.exit, %onas_ht_get.exit
-  %68 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %69 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !30
-  %71 = load ptr, ptr %68, align 8, !tbaa !50
-  %.not5770 = icmp eq ptr %70, %71
+66:                                               ; preds = %onas_get_parent.exit, %onas_ht_get.exit
+  %67 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !30
+  %70 = load ptr, ptr %67, align 8, !tbaa !50
+  %.not5770 = icmp eq ptr %69, %70
   br i1 %.not5770, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %67
-  %72 = add nuw nsw i64 %2, 2
-  %73 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %74 = add nsw i32 %3, 1
-  br label %75
+.lr.ph:                                           ; preds = %66
+  %71 = add nuw nsw i64 %2, 2
+  %72 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %73 = add nsw i32 %3, 1
+  br label %74
 
-75:                                               ; preds = %.lr.ph, %81
-  %76 = phi ptr [ %70, %.lr.ph ], [ %90, %81 ]
-  %77 = load ptr, ptr %76, align 8, !tbaa !32
-  %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #21
-  %79 = add i64 %72, %78
-  %80 = tail call noalias ptr @malloc(i64 noundef %79) #18
-  %.not58 = icmp eq ptr %80, null
-  br i1 %.not58, label %.critedge, label %81
+74:                                               ; preds = %.lr.ph, %80
+  %75 = phi ptr [ %69, %.lr.ph ], [ %89, %80 ]
+  %76 = load ptr, ptr %75, align 8, !tbaa !32
+  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #21
+  %78 = add i64 %71, %77
+  %79 = tail call noalias ptr @malloc(i64 noundef %78) #18
+  %.not58 = icmp eq ptr %79, null
+  br i1 %.not58, label %.critedge, label %80
 
-81:                                               ; preds = %75
-  %82 = load ptr, ptr %73, align 8, !tbaa !33
-  %83 = getelementptr i8, ptr %82, i64 %2
-  %84 = getelementptr i8, ptr %83, i64 -1
-  %85 = load i8, ptr %84, align 1, !tbaa !40
-  %86 = icmp eq i8 %85, 47
-  %.str.2..str.3 = select i1 %86, ptr @.str.2, ptr @.str.3
-  %87 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %80, i64 noundef %79, ptr noundef nonnull %.str.2..str.3, ptr noundef nonnull %82, ptr noundef nonnull %77) #20
-  %88 = tail call i32 @onas_ht_rm_hierarchy(ptr noundef nonnull %0, ptr noundef nonnull %80, i64 noundef %79, i32 noundef %74)
-  tail call void @free(ptr noundef nonnull %80) #20
-  %89 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %90 = load ptr, ptr %89, align 8, !tbaa !30
-  %91 = load ptr, ptr %68, align 8, !tbaa !50
-  %.not57 = icmp eq ptr %90, %91
-  br i1 %.not57, label %._crit_edge, label %75
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %72, align 8, !tbaa !33
+  %82 = getelementptr i8, ptr %81, i64 %2
+  %83 = getelementptr i8, ptr %82, i64 -1
+  %84 = load i8, ptr %83, align 1, !tbaa !40
+  %85 = icmp eq i8 %84, 47
+  %.str.2..str.3 = select i1 %85, ptr @.str.2, ptr @.str.3
+  %86 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %79, i64 noundef %78, ptr noundef nonnull %.str.2..str.3, ptr noundef nonnull %81, ptr noundef nonnull %76) #20
+  %87 = tail call i32 @onas_ht_rm_hierarchy(ptr noundef nonnull %0, ptr noundef nonnull %79, i64 noundef %78, i32 noundef %73)
+  tail call void @free(ptr noundef nonnull %79) #20
+  %88 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !30
+  %90 = load ptr, ptr %67, align 8, !tbaa !50
+  %.not57 = icmp eq ptr %89, %90
+  br i1 %.not57, label %._crit_edge, label %74
 
-._crit_edge:                                      ; preds = %81, %67
-  %92 = tail call i32 @onas_ht_remove(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef null)
+._crit_edge:                                      ; preds = %80, %66
+  %91 = tail call i32 @onas_ht_remove(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef null)
   tail call void @onas_free_element(ptr noundef nonnull %.038.i)
   br label %.critedge
 
-.critedge:                                        ; preds = %42, %75, %onas_get_parent.exit, %63, %49, %38, %onas_hash.exit.i, %35, %._crit_edge, %4
-  %.0 = phi i32 [ 2, %4 ], [ 0, %._crit_edge ], [ 3, %35 ], [ 3, %onas_hash.exit.i ], [ 3, %38 ], [ 3, %49 ], [ 3, %63 ], [ 3, %onas_get_parent.exit ], [ 20, %75 ], [ 3, %42 ]
+.critedge:                                        ; preds = %41, %74, %onas_get_parent.exit, %62, %48, %37, %onas_hash.exit.i, %34, %._crit_edge, %4
+  %.0 = phi i32 [ 2, %4 ], [ 0, %._crit_edge ], [ 3, %34 ], [ 3, %onas_hash.exit.i ], [ 3, %37 ], [ 3, %48 ], [ 3, %62 ], [ 3, %onas_get_parent.exit ], [ 20, %74 ], [ 3, %41 ]
   ret i32 %.0
 }
 

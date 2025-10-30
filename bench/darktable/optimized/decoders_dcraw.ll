@@ -5648,19 +5648,19 @@ define void @_ZN6LibRaw16nikon_read_curveEv(ptr noundef nonnull align 8 derefere
 49:                                               ; preds = %45, %48
   %50 = icmp eq i32 %23, 64
   %51 = lshr i32 %.048, 2
-  %52 = lshr i32 %35, 2
   %.1 = select i1 %50, i32 %51, i32 %.048
-  %.0 = select i1 %50, i32 %52, i32 %35
   %.not = icmp eq i16 %36, 0
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 5504
-  %54 = zext nneg i32 %.1 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 5504
+  %53 = zext nneg i32 %.1 to i64
   %wide.trip.count = zext i16 %36 to i64
   br label %56
 
 .preheader:                                       ; preds = %56, %49
+  %54 = lshr i32 %35, 2
+  %.0 = select i1 %50, i32 %54, i32 %35
   %.not57 = icmp eq i32 %.0, 0
   br i1 %.not57, label %.loopexit, label %.lr.ph56
 
@@ -5672,8 +5672,8 @@ define void @_ZN6LibRaw16nikon_read_curveEv(ptr noundef nonnull align 8 derefere
 56:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %57 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %58 = mul nuw nsw i64 %indvars.iv, %54
-  %59 = getelementptr inbounds nuw i16, ptr %53, i64 %58
+  %58 = mul nuw nsw i64 %indvars.iv, %53
+  %59 = getelementptr inbounds nuw i16, ptr %52, i64 %58
   store i16 %57, ptr %59, align 2, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

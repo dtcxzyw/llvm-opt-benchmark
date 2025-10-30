@@ -205,16 +205,16 @@ define internal i32 @crc32c_hw(i32 noundef %0, ptr noundef %1, i64 noundef %2) #
   %.367.lcssa = phi ptr [ %.165.lcssa, %.preheader77 ], [ %125, %81 ]
   %.361.lcssa = phi i64 [ %.159.lcssa, %.preheader77 ], [ %124, %81 ]
   %.2.lcssa = phi i64 [ %.1.lcssa, %.preheader77 ], [ %126, %81 ]
-  %128 = and i64 %.2.lcssa, 7
-  %129 = and i64 %.2.lcssa, 1016
-  %130 = getelementptr inbounds nuw i8, ptr %.367.lcssa, i64 %129
-  %.not115 = icmp eq i64 %129, 0
+  %128 = and i64 %.2.lcssa, 1016
+  %129 = getelementptr inbounds nuw i8, ptr %.367.lcssa, i64 %128
+  %.not115 = icmp eq i64 %128, 0
   br i1 %.not115, label %.preheader, label %.lr.ph105
 
 .preheader:                                       ; preds = %.lr.ph105, %._crit_edge
   %.569.lcssa = phi ptr [ %.367.lcssa, %._crit_edge ], [ %132, %.lr.ph105 ]
   %.5.lcssa = phi i64 [ %.361.lcssa, %._crit_edge ], [ %131, %.lr.ph105 ]
-  %.not108 = icmp eq i64 %128, 0
+  %130 = and i64 %.2.lcssa, 7
+  %.not108 = icmp eq i64 %130, 0
   br i1 %.not108, label %._crit_edge113, label %.lr.ph112
 
 .lr.ph105:                                        ; preds = %._crit_edge, %.lr.ph105
@@ -222,11 +222,11 @@ define internal i32 @crc32c_hw(i32 noundef %0, ptr noundef %1, i64 noundef %2) #
   %.569102 = phi ptr [ %132, %.lr.ph105 ], [ %.367.lcssa, %._crit_edge ]
   %131 = tail call i64 asm "crc32q\09($1), $0", "=r,r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr %.569102, ptr elementtype(i8) %.569102, i64 %.5103) #11, !srcloc !20
   %132 = getelementptr inbounds nuw i8, ptr %.569102, i64 8
-  %133 = icmp ult ptr %132, %130
+  %133 = icmp ult ptr %132, %129
   br i1 %133, label %.lr.ph105, label %.preheader, !llvm.loop !21
 
 .lr.ph112:                                        ; preds = %.preheader, %.lr.ph112
-  %.3111 = phi i64 [ %136, %.lr.ph112 ], [ %128, %.preheader ]
+  %.3111 = phi i64 [ %136, %.lr.ph112 ], [ %130, %.preheader ]
   %.6110 = phi i64 [ %134, %.lr.ph112 ], [ %.5.lcssa, %.preheader ]
   %.670109 = phi ptr [ %135, %.lr.ph112 ], [ %.569.lcssa, %.preheader ]
   %134 = tail call i64 asm "crc32b\09($1), $0", "=r,r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr %.670109, ptr elementtype(i8) %.670109, i64 %.6110) #11, !srcloc !22
@@ -807,19 +807,19 @@ gf2_matrix_times.exit.i45.i:                      ; preds = %35, %28
 
 gf2_matrix_square.exit49.i:                       ; preds = %gf2_matrix_times.exit.i45.i
   %39 = icmp samesign ult i64 %.019.i, 2
-  br i1 %39, label %crc32c_zeros_op.exit, label %.preheader
+  br i1 %39, label %crc32c_zeros_op.exit, label %.preheader69.i
 
-.preheader:                                       ; preds = %gf2_matrix_square.exit49.i, %gf2_matrix_times.exit.i59.i
+.preheader69.i:                                   ; preds = %gf2_matrix_square.exit49.i, %gf2_matrix_times.exit.i59.i
   %indvars.iv.i50.i = phi i64 [ %indvars.iv.next.i61.i, %gf2_matrix_times.exit.i59.i ], [ 0, %gf2_matrix_square.exit49.i ]
   %40 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i50.i
   %41 = load i32, ptr %40, align 4, !tbaa !14
   %.not9.i.i51.i = icmp eq i32 %41, 0
   br i1 %.not9.i.i51.i, label %gf2_matrix_times.exit.i59.i, label %.lr.ph.i.i52.i
 
-.lr.ph.i.i52.i:                                   ; preds = %.preheader, %46
-  %.012.i.i53.i = phi i32 [ %.1.i.i57.i, %46 ], [ 0, %.preheader ]
-  %.0611.i.i54.i = phi i32 [ %47, %46 ], [ %41, %.preheader ]
-  %.0710.i.i55.i = phi ptr [ %48, %46 ], [ %4, %.preheader ]
+.lr.ph.i.i52.i:                                   ; preds = %.preheader69.i, %46
+  %.012.i.i53.i = phi i32 [ %.1.i.i57.i, %46 ], [ 0, %.preheader69.i ]
+  %.0611.i.i54.i = phi i32 [ %47, %46 ], [ %41, %.preheader69.i ]
+  %.0710.i.i55.i = phi ptr [ %48, %46 ], [ %4, %.preheader69.i ]
   %42 = and i32 %.0611.i.i54.i, 1
   %.not8.i.i56.i = icmp eq i32 %42, 0
   br i1 %.not8.i.i56.i, label %46, label %43
@@ -836,13 +836,13 @@ gf2_matrix_square.exit49.i:                       ; preds = %gf2_matrix_times.ex
   %.not.i.i58.i = icmp ult i32 %.0611.i.i54.i, 2
   br i1 %.not.i.i58.i, label %gf2_matrix_times.exit.i59.i, label %.lr.ph.i.i52.i, !llvm.loop !39
 
-gf2_matrix_times.exit.i59.i:                      ; preds = %46, %.preheader
-  %.0.lcssa.i.i60.i = phi i32 [ 0, %.preheader ], [ %.1.i.i57.i, %46 ]
+gf2_matrix_times.exit.i59.i:                      ; preds = %46, %.preheader69.i
+  %.0.lcssa.i.i60.i = phi i32 [ 0, %.preheader69.i ], [ %.1.i.i57.i, %46 ]
   %49 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i50.i
   store i32 %.0.lcssa.i.i60.i, ptr %49, align 4, !tbaa !14
   %indvars.iv.next.i61.i = add nuw nsw i64 %indvars.iv.i50.i, 1
   %exitcond.not.i62.i = icmp eq i64 %indvars.iv.next.i61.i, 32
-  br i1 %exitcond.not.i62.i, label %gf2_matrix_square.exit63.i, label %.preheader, !llvm.loop !40
+  br i1 %exitcond.not.i62.i, label %gf2_matrix_square.exit63.i, label %.preheader69.i, !llvm.loop !40
 
 gf2_matrix_square.exit63.i:                       ; preds = %gf2_matrix_times.exit.i59.i
   %50 = lshr i64 %.019.i, 2

@@ -919,16 +919,16 @@ define dso_local ptr @scanNSItemForColumn(ptr noundef %0, ptr noundef readonly c
   %85 = load i32, ptr %84, align 4
   %86 = getelementptr inbounds nuw i8, ptr %.068, i64 36
   store i32 %85, ptr %86, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %.068, i64 4
-  %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %.068, i64 32
-  %90 = load i32, ptr %89, align 8
-  %.not22.i = icmp eq i32 %90, 0
+  %87 = getelementptr inbounds nuw i8, ptr %.068, i64 32
+  %88 = load i32, ptr %87, align 8
+  %.not22.i = icmp eq i32 %88, 0
   br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %82
   %.014.lcssa.i = phi ptr [ %0, %82 ], [ %92, %.lr.ph.i ]
-  %91 = icmp sgt i32 %88, 0
+  %89 = getelementptr inbounds nuw i8, ptr %.068, i64 4
+  %90 = load i32, ptr %89, align 4
+  %91 = icmp sgt i32 %90, 0
   br i1 %91, label %94, label %markNullableIfNeeded.exit
 
 .lr.ph.i:                                         ; preds = %82, %.lr.ph.i
@@ -936,7 +936,7 @@ define dso_local ptr @scanNSItemForColumn(ptr noundef %0, ptr noundef readonly c
   %.01420.i = phi ptr [ %92, %.lr.ph.i ], [ %0, %82 ]
   %92 = load ptr, ptr %.01420.i, align 8
   %93 = add nuw i32 %.021.i, 1
-  %exitcond.not.i = icmp eq i32 %93, %90
+  %exitcond.not.i = icmp eq i32 %93, %88
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 94:                                               ; preds = %._crit_edge.i
@@ -948,13 +948,13 @@ define dso_local ptr @scanNSItemForColumn(ptr noundef %0, ptr noundef readonly c
 list_length.exit.i:                               ; preds = %94
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4
-  %.not.i = icmp sgt i32 %88, %98
+  %.not.i = icmp sgt i32 %90, %98
   br i1 %.not.i, label %markNullableIfNeeded.exit, label %99
 
 99:                                               ; preds = %list_length.exit.i
   %100 = getelementptr i8, ptr %96, i64 16
   %.val.i = load ptr, ptr %100, align 8
-  %101 = zext nneg i32 %88 to i64
+  %101 = zext nneg i32 %90 to i64
   %102 = getelementptr %union.ListCell, ptr %.val.i, i64 %101
   %103 = getelementptr i8, ptr %102, i64 -8
   %104 = load ptr, ptr %103, align 8
@@ -966,11 +966,11 @@ list_length.exit.i:                               ; preds = %94
   %107 = load ptr, ptr %106, align 8
   %108 = tail call ptr @bms_union(ptr noundef %107, ptr noundef nonnull %104) #10
   store ptr %108, ptr %106, align 8
-  %.pre = load i32, ptr %89, align 8
+  %.pre = load i32, ptr %87, align 8
   br label %markNullableIfNeeded.exit
 
 markNullableIfNeeded.exit:                        ; preds = %._crit_edge.i, %94, %list_length.exit.i, %99, %105
-  %109 = phi i32 [ %90, %._crit_edge.i ], [ %90, %94 ], [ %90, %list_length.exit.i ], [ %90, %99 ], [ %.pre, %105 ]
+  %109 = phi i32 [ %88, %._crit_edge.i ], [ %88, %94 ], [ %88, %list_length.exit.i ], [ %88, %99 ], [ %.pre, %105 ]
   %.not.i71 = icmp eq i32 %109, 0
   br i1 %.not.i71, label %markVarForSelectPriv.exit, label %.lr.ph.i72
 
@@ -984,7 +984,7 @@ markNullableIfNeeded.exit:                        ; preds = %._crit_edge.i, %94,
 
 markVarForSelectPriv.exit:                        ; preds = %.lr.ph.i72, %markNullableIfNeeded.exit
   %.06.lcssa.i = phi ptr [ %0, %markNullableIfNeeded.exit ], [ %110, %.lr.ph.i72 ]
-  %112 = load i32, ptr %87, align 4
+  %112 = load i32, ptr %89, align 4
   %113 = getelementptr inbounds nuw i8, ptr %.068, i64 8
   %114 = load i16, ptr %113, align 8
   tail call fastcc void @markRTEForSelectPriv(ptr noundef %.06.lcssa.i, i32 noundef %112, i16 noundef signext %114)
@@ -1190,16 +1190,16 @@ declare ptr @SystemAttributeDefinition(i16 noundef signext) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @markNullableIfNeeded(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = load i32, ptr %5, align 8
-  %.not22 = icmp eq i32 %6, 0
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = load i32, ptr %3, align 8
+  %.not22 = icmp eq i32 %4, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.014.lcssa = phi ptr [ %0, %2 ], [ %8, %.lr.ph ]
-  %7 = icmp sgt i32 %4, 0
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %6 = load i32, ptr %5, align 4
+  %7 = icmp sgt i32 %6, 0
   br i1 %7, label %10, label %.thread
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -1207,7 +1207,7 @@ define dso_local void @markNullableIfNeeded(ptr noundef readonly captures(none) 
   %.01420 = phi ptr [ %8, %.lr.ph ], [ %0, %2 ]
   %8 = load ptr, ptr %.01420, align 8
   %9 = add nuw i32 %.021, 1
-  %exitcond.not = icmp eq i32 %9, %6
+  %exitcond.not = icmp eq i32 %9, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 10:                                               ; preds = %._crit_edge
@@ -1219,13 +1219,13 @@ define dso_local void @markNullableIfNeeded(ptr noundef readonly captures(none) 
 list_length.exit:                                 ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
-  %.not = icmp sgt i32 %4, %14
+  %.not = icmp sgt i32 %6, %14
   br i1 %.not, label %.thread, label %15
 
 15:                                               ; preds = %list_length.exit
   %16 = getelementptr i8, ptr %12, i64 16
   %.val = load ptr, ptr %16, align 8
-  %17 = zext nneg i32 %4 to i64
+  %17 = zext nneg i32 %6 to i64
   %18 = getelementptr %union.ListCell, ptr %.val, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = load ptr, ptr %19, align 8
@@ -5281,16 +5281,16 @@ define dso_local ptr @expandNSItemVars(ptr noundef readonly captures(none) %0, p
   store i16 %46, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 48
   store i32 %3, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %52 = load i32, ptr %51, align 8
-  %.not22.i = icmp eq i32 %52, 0
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %50 = load i32, ptr %49, align 8
+  %.not22.i = icmp eq i32 %50, 0
   br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %28
   %.014.lcssa.i = phi ptr [ %0, %28 ], [ %54, %.lr.ph.i ]
-  %53 = icmp sgt i32 %50, 0
+  %51 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp sgt i32 %52, 0
   br i1 %53, label %56, label %markNullableIfNeeded.exit
 
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.i
@@ -5298,7 +5298,7 @@ define dso_local ptr @expandNSItemVars(ptr noundef readonly captures(none) %0, p
   %.01420.i = phi ptr [ %54, %.lr.ph.i ], [ %0, %28 ]
   %54 = load ptr, ptr %.01420.i, align 8
   %55 = add nuw i32 %.021.i, 1
-  %exitcond.not.i = icmp eq i32 %55, %52
+  %exitcond.not.i = icmp eq i32 %55, %50
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 56:                                               ; preds = %._crit_edge.i
@@ -5310,13 +5310,13 @@ define dso_local ptr @expandNSItemVars(ptr noundef readonly captures(none) %0, p
 list_length.exit.i:                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4
-  %.not.i = icmp sgt i32 %50, %60
+  %.not.i = icmp sgt i32 %52, %60
   br i1 %.not.i, label %markNullableIfNeeded.exit, label %61
 
 61:                                               ; preds = %list_length.exit.i
   %62 = getelementptr i8, ptr %58, i64 16
   %.val.i = load ptr, ptr %62, align 8
-  %63 = zext nneg i32 %50 to i64
+  %63 = zext nneg i32 %52 to i64
   %64 = getelementptr %union.ListCell, ptr %.val.i, i64 %63
   %65 = getelementptr i8, ptr %64, i64 -8
   %66 = load ptr, ptr %65, align 8

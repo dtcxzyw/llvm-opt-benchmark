@@ -3310,9 +3310,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit905: ; preds = %96
 
 970:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit905
   %971 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #24
-          to label %.noexc937 unwind label %1003
+          to label %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader unwind label %1003
 
-.noexc937:                                        ; preds = %970
+.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %970
   store float %.011.i899, ptr %971, align 4, !tbaa !67
   %972 = getelementptr inbounds nuw i8, ptr %971, i64 4
   %973 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -3322,7 +3322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit905: ; preds = %96
   %.not.i.i.i.i936 = icmp eq ptr %967, null
   br i1 %.not.i.i.i.i936, label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit, label %974
 
-974:                                              ; preds = %.noexc937
+974:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader
   call void @_ZdlPv(ptr noundef nonnull %968) #26
   br label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit
 
@@ -3330,31 +3330,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit905: ; preds = %96
   %976 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %977 = load ptr, ptr %976, align 8, !tbaa !64
   %978 = icmp eq ptr %977, %968
-  br i1 %978, label %.lr.ph.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i12.i
+  br i1 %978, label %.lr.ph.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i12.i.preheader
+
+.lr.ph.i.i.i.i12.i.preheader:                     ; preds = %975
+  store float %.011.i899, ptr %968, align 4, !tbaa !67
+  %979 = getelementptr inbounds nuw i8, ptr %968, i64 4
+  %.not.i.i935 = icmp eq ptr %977, %979
+  br i1 %.not.i.i935, label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit, label %982
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %975, %.lr.ph.i.i.i.i.i.i.i.i
-  %.07.i.i.i.i.i.i.i.i = phi ptr [ %979, %.lr.ph.i.i.i.i.i.i.i.i ], [ %977, %975 ]
+  %.07.i.i.i.i.i.i.i.i = phi ptr [ %980, %.lr.ph.i.i.i.i.i.i.i.i ], [ %977, %975 ]
   store float %.011.i899, ptr %.07.i.i.i.i.i.i.i.i, align 4, !tbaa !67
-  %979 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i.i, i64 4
+  %980 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.07.i.i.i.i.i.i.i.i, %968
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !77
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %980 = getelementptr i8, ptr %977, i64 4
-  store ptr %980, ptr %976, align 8, !tbaa !64
-  br label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit
-
-.lr.ph.i.i.i.i12.i:                               ; preds = %975
-  store float %.011.i899, ptr %968, align 4, !tbaa !67
-  %981 = getelementptr inbounds nuw i8, ptr %968, i64 4
-  %.not.i.i935 = icmp eq ptr %977, %981
-  br i1 %.not.i.i935, label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit, label %982
-
-982:                                              ; preds = %.lr.ph.i.i.i.i12.i
+  %981 = getelementptr i8, ptr %977, i64 4
   store ptr %981, ptr %976, align 8, !tbaa !64
   br label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit
 
-_ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %.noexc937, %974, %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit.i, %.lr.ph.i.i.i.i12.i, %982
+982:                                              ; preds = %.lr.ph.i.i.i.i12.i.preheader
+  store ptr %979, ptr %976, align 8, !tbaa !64
+  br label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit
+
+_ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader, %974, %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit.i, %.lr.ph.i.i.i.i12.i.preheader, %982
   %983 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %984 = load ptr, ptr %983, align 8, !tbaa !70
   %985 = load ptr, ptr %79, align 8, !tbaa !65
@@ -3363,9 +3363,9 @@ _ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %.noexc937, %974, %_
 
 987:                                              ; preds = %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit
   %988 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #24
-          to label %.noexc960 unwind label %1003
+          to label %.lr.ph.i.i.i.i.i.i.i.i.i.i955.preheader unwind label %1003
 
-.noexc960:                                        ; preds = %987
+.lr.ph.i.i.i.i.i.i.i.i.i.i955.preheader:          ; preds = %987
   store float %.011.i899, ptr %988, align 4, !tbaa !67
   %989 = getelementptr inbounds nuw i8, ptr %988, i64 4
   %990 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -3375,7 +3375,7 @@ _ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %.noexc937, %974, %_
   %.not.i.i.i.i959 = icmp eq ptr %984, null
   br i1 %.not.i.i.i.i959, label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit908, label %991
 
-991:                                              ; preds = %.noexc960
+991:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i955.preheader
   call void @_ZdlPv(ptr noundef nonnull %985) #26
   br label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit908
 
@@ -3383,28 +3383,28 @@ _ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %.noexc937, %974, %_
   %993 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %994 = load ptr, ptr %993, align 8, !tbaa !64
   %995 = icmp eq ptr %994, %985
-  br i1 %995, label %.lr.ph.i.i.i.i.i.i.i.i951, label %.lr.ph.i.i.i.i12.i938
+  br i1 %995, label %.lr.ph.i.i.i.i.i.i.i.i951, label %.lr.ph.i.i.i.i12.i938.preheader
+
+.lr.ph.i.i.i.i12.i938.preheader:                  ; preds = %992
+  store float %.011.i899, ptr %985, align 4, !tbaa !67
+  %996 = getelementptr inbounds nuw i8, ptr %985, i64 4
+  %.not.i.i942 = icmp eq ptr %994, %996
+  br i1 %.not.i.i942, label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit908, label %999
 
 .lr.ph.i.i.i.i.i.i.i.i951:                        ; preds = %992, %.lr.ph.i.i.i.i.i.i.i.i951
-  %.07.i.i.i.i.i.i.i.i952 = phi ptr [ %996, %.lr.ph.i.i.i.i.i.i.i.i951 ], [ %994, %992 ]
+  %.07.i.i.i.i.i.i.i.i952 = phi ptr [ %997, %.lr.ph.i.i.i.i.i.i.i.i951 ], [ %994, %992 ]
   store float %.011.i899, ptr %.07.i.i.i.i.i.i.i.i952, align 4, !tbaa !67
-  %996 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i.i952, i64 4
+  %997 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i.i952, i64 4
   %.not.i.i.i.i.i.i.i.i953 = icmp eq ptr %.07.i.i.i.i.i.i.i.i952, %985
   br i1 %.not.i.i.i.i.i.i.i.i953, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit.i954, label %.lr.ph.i.i.i.i.i.i.i.i951, !llvm.loop !77
 
 _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit.i954: ; preds = %.lr.ph.i.i.i.i.i.i.i.i951
-  %997 = getelementptr i8, ptr %994, i64 4
-  store ptr %997, ptr %993, align 8, !tbaa !64
+  %998 = getelementptr i8, ptr %994, i64 4
+  store ptr %998, ptr %993, align 8, !tbaa !64
   br label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit908
 
-.lr.ph.i.i.i.i12.i938:                            ; preds = %992
-  store float %.011.i899, ptr %985, align 4, !tbaa !67
-  %998 = getelementptr inbounds nuw i8, ptr %985, i64 4
-  %.not.i.i942 = icmp eq ptr %994, %998
-  br i1 %.not.i.i942, label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit908, label %999
-
-999:                                              ; preds = %.lr.ph.i.i.i.i12.i938
-  store ptr %998, ptr %993, align 8, !tbaa !64
+999:                                              ; preds = %.lr.ph.i.i.i.i12.i938.preheader
+  store ptr %996, ptr %993, align 8, !tbaa !64
   br label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit908
 
 .body901.thread:                                  ; preds = %._crit_edge.i.i895
@@ -3435,7 +3435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit911: ; preds = %.b
           cleanup
   br label %1009
 
-_ZNSt6vectorIfSaIfEE6assignEmRKf.exit908:         ; preds = %999, %.lr.ph.i.i.i.i12.i938, %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit.i954, %991, %.noexc960, %946
+_ZNSt6vectorIfSaIfEE6assignEmRKf.exit908:         ; preds = %999, %.lr.ph.i.i.i.i12.i938.preheader, %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit.i954, %991, %.lr.ph.i.i.i.i.i.i.i.i.i.i955.preheader, %946
   %1005 = load ptr, ptr %18, align 8, !tbaa !65
   %.not.i.i.i912 = icmp eq ptr %1005, null
   br i1 %.not.i.i.i912, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %1006
@@ -6885,8 +6885,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !67
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !67
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i

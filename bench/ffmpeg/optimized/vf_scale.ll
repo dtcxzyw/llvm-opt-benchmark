@@ -666,30 +666,30 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
   br i1 %.not72, label %52, label %69
 
 52:                                               ; preds = %.lr.ph94
-  %53 = add nsw i32 %.04792, -1
-  %54 = add nuw nsw i32 %.04792, 1
-  %55 = icmp ult i32 %54, %.pre118
-  br i1 %55, label %.lr.ph89, label %._crit_edge90
+  %53 = add nuw nsw i32 %.04792, 1
+  %54 = icmp ult i32 %53, %.pre118
+  br i1 %54, label %.lr.ph89, label %._crit_edge90
 
 .lr.ph89:                                         ; preds = %52
-  %56 = getelementptr inbounds nuw i8, ptr %.pre117, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !72
-  %58 = sext i32 %54 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %.pre117, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !72
+  %57 = sext i32 %53 to i64
   br label %60
 
 ._crit_edge90:                                    ; preds = %60, %52
   %.lcssa77 = phi i32 [ %.pre118, %52 ], [ %65, %60 ]
+  %58 = add nsw i32 %.04792, -1
   %59 = add i32 %.lcssa77, -1
   store i32 %59, ptr %.pre117, align 8, !tbaa !67
   br label %69
 
 60:                                               ; preds = %.lr.ph89, %60
-  %indvars.iv = phi i64 [ %58, %.lr.ph89 ], [ %indvars.iv.next, %60 ]
+  %indvars.iv = phi i64 [ %57, %.lr.ph89 ], [ %indvars.iv.next, %60 ]
   %.04687 = phi i32 [ %.04792, %.lr.ph89 ], [ %68, %60 ]
-  %61 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv
+  %61 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !73
   %63 = sext i32 %.04687 to i64
-  %64 = getelementptr inbounds i32, ptr %57, i64 %63
+  %64 = getelementptr inbounds i32, ptr %56, i64 %63
   store i32 %62, ptr %64, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = load i32, ptr %.pre117, align 8, !tbaa !67
@@ -700,7 +700,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
 
 69:                                               ; preds = %.lr.ph94, %._crit_edge90
   %70 = phi i32 [ %.pre118, %.lr.ph94 ], [ %59, %._crit_edge90 ]
-  %.148 = phi i32 [ %.04792, %.lr.ph94 ], [ %53, %._crit_edge90 ]
+  %.148 = phi i32 [ %.04792, %.lr.ph94 ], [ %58, %._crit_edge90 ]
   %71 = add nsw i32 %.148, 1
   %72 = icmp ult i32 %71, %70
   br i1 %72, label %.lr.ph94, label %._crit_edge95, !llvm.loop !75
@@ -746,30 +746,30 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
   br i1 %.not70, label %94, label %111
 
 94:                                               ; preds = %.lr.ph104
-  %95 = add nsw i32 %.045102, -1
-  %96 = add nuw nsw i32 %.045102, 1
-  %97 = icmp ult i32 %96, %.pre120
-  br i1 %97, label %.lr.ph98, label %._crit_edge99
+  %95 = add nuw nsw i32 %.045102, 1
+  %96 = icmp ult i32 %95, %.pre120
+  br i1 %96, label %.lr.ph98, label %._crit_edge99
 
 .lr.ph98:                                         ; preds = %94
-  %98 = getelementptr inbounds nuw i8, ptr %.pre119, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !72
-  %100 = sext i32 %96 to i64
+  %97 = getelementptr inbounds nuw i8, ptr %.pre119, i64 8
+  %98 = load ptr, ptr %97, align 8, !tbaa !72
+  %99 = sext i32 %95 to i64
   br label %102
 
 ._crit_edge99:                                    ; preds = %102, %94
   %.lcssa = phi i32 [ %.pre120, %94 ], [ %107, %102 ]
+  %100 = add nsw i32 %.045102, -1
   %101 = add i32 %.lcssa, -1
   store i32 %101, ptr %.pre119, align 8, !tbaa !67
   br label %111
 
 102:                                              ; preds = %.lr.ph98, %102
-  %indvars.iv114 = phi i64 [ %100, %.lr.ph98 ], [ %indvars.iv.next115, %102 ]
+  %indvars.iv114 = phi i64 [ %99, %.lr.ph98 ], [ %indvars.iv.next115, %102 ]
   %.096 = phi i32 [ %.045102, %.lr.ph98 ], [ %110, %102 ]
-  %103 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv114
+  %103 = getelementptr inbounds i32, ptr %98, i64 %indvars.iv114
   %104 = load i32, ptr %103, align 4, !tbaa !73
   %105 = sext i32 %.096 to i64
-  %106 = getelementptr inbounds i32, ptr %99, i64 %105
+  %106 = getelementptr inbounds i32, ptr %98, i64 %105
   store i32 %104, ptr %106, align 4, !tbaa !73
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %107 = load i32, ptr %.pre119, align 8, !tbaa !67
@@ -780,7 +780,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
 
 111:                                              ; preds = %.lr.ph104, %._crit_edge99
   %112 = phi i32 [ %.pre120, %.lr.ph104 ], [ %101, %._crit_edge99 ]
-  %.1 = phi i32 [ %.045102, %.lr.ph104 ], [ %95, %._crit_edge99 ]
+  %.1 = phi i32 [ %.045102, %.lr.ph104 ], [ %100, %._crit_edge99 ]
   %113 = add nsw i32 %.1, 1
   %114 = icmp ult i32 %113, %112
   br i1 %114, label %.lr.ph104, label %.loopexit, !llvm.loop !77

@@ -411,21 +411,21 @@ define void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(76
   store i16 -1, ptr %54, align 8, !tbaa !139
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i16 -1, ptr %55, align 8, !tbaa !139
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 5000
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 192732
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 192732
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4942) %46, i8 0, i64 4942, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(375896) %29, i8 0, i64 375896, i1 false)
-  br label %58
+  br label %57
 
-58:                                               ; preds = %58, %50
-  %indvars.iv.i = phi i64 [ 0, %50 ], [ %indvars.iv.next.i, %58 ]
-  %59 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %59, align 4, !tbaa !15
+57:                                               ; preds = %57, %50
+  %indvars.iv.i = phi i64 [ 0, %50 ], [ %indvars.iv.next.i, %57 ]
+  %58 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i
+  store float 0.000000e+00, ptr %58, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZL8cleargpsP17libraw_gps_info_t.exit, label %58, !llvm.loop !17
+  br i1 %exitcond.not.i, label %_ZL8cleargpsP17libraw_gps_info_t.exit, label %57, !llvm.loop !17
 
-_ZL8cleargpsP17libraw_gps_info_t.exit:            ; preds = %58
+_ZL8cleargpsP17libraw_gps_info_t.exit:            ; preds = %57
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 5000
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 192744
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %60, i8 0, i64 9, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2752) %16, i8 0, i64 2752, i1 false)
@@ -434,7 +434,7 @@ _ZL8cleargpsP17libraw_gps_info_t.exit:            ; preds = %58
   store i16 1, ptr %62, align 8, !tbaa !140
   store i64 -1, ptr %61, align 8, !tbaa !141
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 187084
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %56, i8 -1, i64 14, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %59, i8 -1, i64 14, i1 false)
   store float -9.990000e+02, ptr %63, align 4, !tbaa !105
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 187088
   store float 1.000000e+00, ptr %64, align 8, !tbaa !106

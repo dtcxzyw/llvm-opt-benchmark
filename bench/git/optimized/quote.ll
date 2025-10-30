@@ -1361,48 +1361,48 @@ strbuf_addch.exit177:                             ; preds = %strbuf_avail.exit.i
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @quote_two_c_style(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = and i32 %3, 1
-  %.not = icmp eq i32 %5, 0
-  %6 = load i32, ptr @quote_path_fully, align 4
+  %5 = load i32, ptr @quote_path_fully, align 4
   br label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %4, %next_quote_pos.exit.i
-  %.089.i = phi i64 [ 0, %4 ], [ %23, %next_quote_pos.exit.i ]
-  %.088.i = phi ptr [ %1, %4 ], [ %21, %next_quote_pos.exit.i ]
+  %.089.i = phi i64 [ 0, %4 ], [ %22, %next_quote_pos.exit.i ]
+  %.088.i = phi ptr [ %1, %4 ], [ %20, %next_quote_pos.exit.i ]
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
-  %.0.i.i = phi i64 [ %15, %.preheader.i.i ], [ 0, %.preheader.i.i.preheader ]
-  %7 = getelementptr inbounds nuw i8, ptr %.088.i, i64 %.0.i.i
-  %8 = load i8, ptr %7, align 1, !tbaa !13
-  %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw i8, ptr @cq_lookup, i64 %9
-  %11 = load i8, ptr %10, align 1, !tbaa !13
-  %12 = sext i8 %11 to i32
-  %13 = add nsw i32 %6, %12
-  %14 = icmp slt i32 %13, 1
-  %15 = add i64 %.0.i.i, 1
-  br i1 %14, label %.preheader.i.i, label %next_quote_pos.exit.thread185.i, !llvm.loop !26
+  %.0.i.i = phi i64 [ %14, %.preheader.i.i ], [ 0, %.preheader.i.i.preheader ]
+  %6 = getelementptr inbounds nuw i8, ptr %.088.i, i64 %.0.i.i
+  %7 = load i8, ptr %6, align 1, !tbaa !13
+  %8 = zext i8 %7 to i64
+  %9 = getelementptr inbounds nuw i8, ptr @cq_lookup, i64 %8
+  %10 = load i8, ptr %9, align 1, !tbaa !13
+  %11 = sext i8 %10 to i32
+  %12 = add nsw i32 %5, %11
+  %13 = icmp slt i32 %12, 1
+  %14 = add i64 %.0.i.i, 1
+  br i1 %13, label %.preheader.i.i, label %next_quote_pos.exit.thread185.i, !llvm.loop !26
 
 next_quote_pos.exit.thread185.i:                  ; preds = %.preheader.i.i
-  %16 = icmp eq i64 %.0.i.i, -1
-  %.not110.i = icmp eq i8 %8, 0
-  %or.cond93 = or i1 %16, %.not110.i
+  %15 = icmp eq i64 %.0.i.i, -1
+  %.not110.i = icmp eq i8 %7, 0
+  %or.cond93 = or i1 %15, %.not110.i
   br i1 %or.cond93, label %next_quote_pos.exit.thread.i, label %next_quote_pos.exit.i
 
 next_quote_pos.exit.i:                            ; preds = %next_quote_pos.exit.thread185.i
-  %17 = icmp eq ptr %.088.i, %1
-  %18 = zext i1 %17 to i64
-  %spec.select = add i64 %.089.i, %18
-  %19 = add i64 %spec.select, %.0.i.i
-  %20 = getelementptr inbounds nuw i8, ptr %.088.i, i64 %.0.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  %22 = icmp sgt i8 %11, 31
-  %.sink.i = select i1 %22, i64 2, i64 4
-  %23 = add i64 %19, %.sink.i
+  %16 = icmp eq ptr %.088.i, %1
+  %17 = zext i1 %16 to i64
+  %spec.select = add i64 %.089.i, %17
+  %18 = add i64 %spec.select, %.0.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %.088.i, i64 %.0.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  %21 = icmp sgt i8 %10, 31
+  %.sink.i = select i1 %21, i64 2, i64 4
+  %22 = add i64 %18, %.sink.i
   br label %.preheader.i.i.preheader
 
 next_quote_pos.exit.thread.i:                     ; preds = %next_quote_pos.exit.thread185.i
+  %23 = and i32 %3, 1
+  %.not = icmp eq i32 %23, 0
   %24 = add i64 %.0.i.i, %.089.i
   %.not53 = icmp eq ptr %.088.i, %1
   %.not1454 = icmp eq i64 %24, -1
@@ -1422,7 +1422,7 @@ next_quote_pos.exit.thread.i:                     ; preds = %next_quote_pos.exit
   %28 = getelementptr inbounds nuw i8, ptr @cq_lookup, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !13
   %30 = sext i8 %29 to i32
-  %31 = add nsw i32 %6, %30
+  %31 = add nsw i32 %5, %30
   %32 = icmp slt i32 %31, 1
   %33 = add i64 %.0.i.i47, 1
   br i1 %32, label %.preheader.i.i46, label %next_quote_pos.exit.thread185.i48, !llvm.loop !26

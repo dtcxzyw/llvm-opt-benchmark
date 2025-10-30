@@ -4415,32 +4415,32 @@ translateKey.exit.i:                              ; preds = %165, %164
   br i1 %228, label %.lr.ph332.i, label %.loopexit.i
 
 .lr.ph332.i:                                      ; preds = %224, %decodeUTF8.exit.i
-  %.0321330.i = phi ptr [ %236, %decodeUTF8.exit.i ], [ %.0218.i, %224 ]
-  %229 = load ptr, ptr %6, align 8, !tbaa !382
+  %.0321330.i = phi ptr [ %235, %decodeUTF8.exit.i ], [ %.0218.i, %224 ]
   %.pre.i.i = load i8, ptr %.0321330.i, align 1, !tbaa !106
-  br label %230
+  br label %229
 
-230:                                              ; preds = %230, %.lr.ph332.i
-  %231 = phi i8 [ %.pre.i.i, %.lr.ph332.i ], [ %238, %230 ]
-  %232 = phi ptr [ %.0321330.i, %.lr.ph332.i ], [ %236, %230 ]
-  %.06.i.i = phi i32 [ 0, %.lr.ph332.i ], [ %235, %230 ]
-  %.0.i305.i = phi i32 [ 0, %.lr.ph332.i ], [ %237, %230 ]
-  %233 = shl i32 %.06.i.i, 6
-  %234 = zext i8 %231 to i32
-  %235 = add i32 %233, %234
-  %236 = getelementptr inbounds nuw i8, ptr %232, i64 1
-  %237 = add i32 %.0.i305.i, 1
-  %238 = load i8, ptr %236, align 1, !tbaa !106
-  %239 = icmp slt i8 %238, -64
-  br i1 %239, label %230, label %decodeUTF8.exit.i
+229:                                              ; preds = %229, %.lr.ph332.i
+  %230 = phi i8 [ %.pre.i.i, %.lr.ph332.i ], [ %237, %229 ]
+  %231 = phi ptr [ %.0321330.i, %.lr.ph332.i ], [ %235, %229 ]
+  %.06.i.i = phi i32 [ 0, %.lr.ph332.i ], [ %234, %229 ]
+  %.0.i305.i = phi i32 [ 0, %.lr.ph332.i ], [ %236, %229 ]
+  %232 = shl i32 %.06.i.i, 6
+  %233 = zext i8 %230 to i32
+  %234 = add i32 %232, %233
+  %235 = getelementptr inbounds nuw i8, ptr %231, i64 1
+  %236 = add i32 %.0.i305.i, 1
+  %237 = load i8, ptr %235, align 1, !tbaa !106
+  %238 = icmp slt i8 %237, -64
+  br i1 %238, label %229, label %decodeUTF8.exit.i
 
-decodeUTF8.exit.i:                                ; preds = %230
+decodeUTF8.exit.i:                                ; preds = %229
+  %239 = load ptr, ptr %6, align 8, !tbaa !382
   %240 = zext i32 %.0.i305.i to i64
   %241 = getelementptr inbounds nuw i32, ptr @decodeUTF8.offsets, i64 %240
   %242 = load i32, ptr %241, align 4, !tbaa !183
-  %243 = sub i32 %235, %242
-  call void @_glfwInputChar(ptr noundef %229, i32 noundef %243, i32 noundef %.5.i.i, i32 noundef %182) #17
-  %244 = ptrtoint ptr %236 to i64
+  %243 = sub i32 %234, %242
+  call void @_glfwInputChar(ptr noundef %239, i32 noundef %243, i32 noundef %.5.i.i, i32 noundef %182) #17
+  %244 = ptrtoint ptr %235 to i64
   %245 = sub i64 %244, %227
   %246 = icmp slt i64 %245, %225
   br i1 %246, label %.lr.ph332.i, label %.loopexit.i

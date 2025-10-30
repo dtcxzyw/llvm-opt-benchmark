@@ -18164,7 +18164,6 @@ _ZNK8uint_set8containsEj.exit:                    ; preds = %_ZNK6vectorIjLb0EjE
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %4
   %.ph = phi ptr [ null, %4 ], [ %15, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.i.ph = phi i32 [ 0, %4 ], [ %18, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
-  %.ph528 = add nuw nsw i32 %14, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -18184,6 +18183,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !432
 
 30:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
+  %.ph528 = add nuw nsw i32 %14, 1
   %31 = getelementptr inbounds i8, ptr %26, i64 -4
   store i32 %.ph528, ptr %31, align 4, !tbaa !261
   %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph528
@@ -62050,9 +62050,9 @@ define linkonce_odr hidden ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__norma
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %5
 
-5:                                                ; preds = %19, %3
-  %.sroa.011.0 = phi ptr [ %0, %3 ], [ %11, %19 ]
-  %.sroa.0.0 = phi ptr [ %1, %3 ], [ %.sroa.0.1, %19 ]
+5:                                                ; preds = %17, %3
+  %.sroa.011.0 = phi ptr [ %0, %3 ], [ %11, %17 ]
+  %.sroa.0.0 = phi ptr [ %1, %3 ], [ %.sroa.0.1, %17 ]
   %6 = load i32, ptr %4, align 8, !tbaa !345
   br label %7
 
@@ -62064,99 +62064,96 @@ define linkonce_odr hidden ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__norma
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 40
   br i1 %10, label %7, label %.preheader, !llvm.loop !900
 
-.preheader:                                       ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 32
-  br label %13
-
-13:                                               ; preds = %.preheader, %13
-  %.sroa.0.0.pn = phi ptr [ %.sroa.0.1, %13 ], [ %.sroa.0.0, %.preheader ]
+.preheader:                                       ; preds = %7, %.preheader
+  %.sroa.0.0.pn = phi ptr [ %.sroa.0.1, %.preheader ], [ %.sroa.0.0, %7 ]
   %.sroa.0.1 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -40
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -8
-  %15 = load i32, ptr %14, align 8, !tbaa !345
-  %16 = icmp ult i32 %6, %15
-  br i1 %16, label %13, label %17, !llvm.loop !901
+  %12 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -8
+  %13 = load i32, ptr %12, align 8, !tbaa !345
+  %14 = icmp ult i32 %6, %13
+  br i1 %14, label %.preheader, label %15, !llvm.loop !901
 
-17:                                               ; preds = %13
+15:                                               ; preds = %.preheader
   %.not = icmp ult ptr %.sroa.011.1, %.sroa.0.1
-  br i1 %.not, label %19, label %18
+  br i1 %.not, label %17, label %16
 
-18:                                               ; preds = %17
+16:                                               ; preds = %15
   ret ptr %.sroa.011.1
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -8
-  %21 = load i32, ptr %.sroa.011.1, align 4, !tbaa !261
-  %22 = load i32, ptr %.sroa.0.1, align 4, !tbaa !261
-  store i32 %22, ptr %.sroa.011.1, align 4, !tbaa !261
-  store i32 %21, ptr %.sroa.0.1, align 4, !tbaa !261
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 8
-  %24 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -32
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -8
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 32
+  %20 = load i32, ptr %.sroa.011.1, align 4, !tbaa !261
+  %21 = load i32, ptr %.sroa.0.1, align 4, !tbaa !261
+  store i32 %21, ptr %.sroa.011.1, align 4, !tbaa !261
+  store i32 %20, ptr %.sroa.0.1, align 4, !tbaa !261
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 8
+  %23 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -32
+  %24 = load ptr, ptr %22, align 8, !tbaa !334
   %25 = load ptr, ptr %23, align 8, !tbaa !334
-  %26 = load ptr, ptr %24, align 8, !tbaa !334
-  store ptr %26, ptr %23, align 8, !tbaa !334
-  store ptr %25, ptr %24, align 8, !tbaa !334
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 4
-  %28 = load i8, ptr %27, align 4
-  %29 = and i8 %28, 2
-  %30 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -36
-  %31 = load i8, ptr %30, align 4
-  %32 = and i8 %31, 2
-  %33 = and i8 %28, -3
-  %34 = or disjoint i8 %32, %33
-  store i8 %34, ptr %27, align 4
-  %35 = load i8, ptr %30, align 4
-  %36 = and i8 %35, -3
-  %37 = or disjoint i8 %36, %29
-  store i8 %37, ptr %30, align 4
-  %38 = load i8, ptr %27, align 4
-  %39 = and i8 %38, 1
-  %40 = and i8 %35, 1
-  %41 = and i8 %38, -2
-  %42 = or disjoint i8 %41, %40
-  store i8 %42, ptr %27, align 4
-  %43 = load i8, ptr %30, align 4
-  %44 = and i8 %43, -2
-  %45 = or disjoint i8 %44, %39
-  store i8 %45, ptr %30, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 16
-  %47 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -24
+  store ptr %25, ptr %22, align 8, !tbaa !334
+  store ptr %24, ptr %23, align 8, !tbaa !334
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 4
+  %27 = load i8, ptr %26, align 4
+  %28 = and i8 %27, 2
+  %29 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -36
+  %30 = load i8, ptr %29, align 4
+  %31 = and i8 %30, 2
+  %32 = and i8 %27, -3
+  %33 = or disjoint i8 %31, %32
+  store i8 %33, ptr %26, align 4
+  %34 = load i8, ptr %29, align 4
+  %35 = and i8 %34, -3
+  %36 = or disjoint i8 %35, %28
+  store i8 %36, ptr %29, align 4
+  %37 = load i8, ptr %26, align 4
+  %38 = and i8 %37, 1
+  %39 = and i8 %34, 1
+  %40 = and i8 %37, -2
+  %41 = or disjoint i8 %40, %39
+  store i8 %41, ptr %26, align 4
+  %42 = load i8, ptr %29, align 4
+  %43 = and i8 %42, -2
+  %44 = or disjoint i8 %43, %38
+  store i8 %44, ptr %29, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 16
+  %46 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -24
+  %47 = load i32, ptr %45, align 8, !tbaa !261
   %48 = load i32, ptr %46, align 8, !tbaa !261
-  %49 = load i32, ptr %47, align 8, !tbaa !261
-  store i32 %49, ptr %46, align 8, !tbaa !261
-  store i32 %48, ptr %47, align 8, !tbaa !261
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 24
-  %51 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -16
+  store i32 %48, ptr %45, align 8, !tbaa !261
+  store i32 %47, ptr %46, align 8, !tbaa !261
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 24
+  %50 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -16
+  %51 = load ptr, ptr %49, align 8, !tbaa !334
   %52 = load ptr, ptr %50, align 8, !tbaa !334
-  %53 = load ptr, ptr %51, align 8, !tbaa !334
-  store ptr %53, ptr %50, align 8, !tbaa !334
-  store ptr %52, ptr %51, align 8, !tbaa !334
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 20
-  %55 = load i8, ptr %54, align 4
-  %56 = and i8 %55, 2
-  %57 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -20
-  %58 = load i8, ptr %57, align 4
-  %59 = and i8 %58, 2
-  %60 = and i8 %55, -3
-  %61 = or disjoint i8 %59, %60
-  store i8 %61, ptr %54, align 4
-  %62 = load i8, ptr %57, align 4
-  %63 = and i8 %62, -3
-  %64 = or disjoint i8 %63, %56
-  store i8 %64, ptr %57, align 4
-  %65 = load i8, ptr %54, align 4
-  %66 = and i8 %65, 1
-  %67 = and i8 %62, 1
-  %68 = and i8 %65, -2
-  %69 = or disjoint i8 %68, %67
-  store i8 %69, ptr %54, align 4
-  %70 = load i8, ptr %57, align 4
-  %71 = and i8 %70, -2
-  %72 = or disjoint i8 %71, %66
-  store i8 %72, ptr %57, align 4
-  %73 = load i32, ptr %12, align 8, !tbaa !261
-  %74 = load i32, ptr %20, align 8, !tbaa !261
-  store i32 %74, ptr %12, align 8, !tbaa !261
-  store i32 %73, ptr %20, align 8, !tbaa !261
+  store ptr %52, ptr %49, align 8, !tbaa !334
+  store ptr %51, ptr %50, align 8, !tbaa !334
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.011.1, i64 20
+  %54 = load i8, ptr %53, align 4
+  %55 = and i8 %54, 2
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.0.pn, i64 -20
+  %57 = load i8, ptr %56, align 4
+  %58 = and i8 %57, 2
+  %59 = and i8 %54, -3
+  %60 = or disjoint i8 %58, %59
+  store i8 %60, ptr %53, align 4
+  %61 = load i8, ptr %56, align 4
+  %62 = and i8 %61, -3
+  %63 = or disjoint i8 %62, %55
+  store i8 %63, ptr %56, align 4
+  %64 = load i8, ptr %53, align 4
+  %65 = and i8 %64, 1
+  %66 = and i8 %61, 1
+  %67 = and i8 %64, -2
+  %68 = or disjoint i8 %67, %66
+  store i8 %68, ptr %53, align 4
+  %69 = load i8, ptr %56, align 4
+  %70 = and i8 %69, -2
+  %71 = or disjoint i8 %70, %65
+  store i8 %71, ptr %56, align 4
+  %72 = load i32, ptr %19, align 8, !tbaa !261
+  %73 = load i32, ptr %18, align 8, !tbaa !261
+  store i32 %73, ptr %19, align 8, !tbaa !261
+  store i32 %72, ptr %18, align 8, !tbaa !261
   br label %5, !llvm.loop !902
 }
 

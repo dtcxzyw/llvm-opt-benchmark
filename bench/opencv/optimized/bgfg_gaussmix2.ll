@@ -3837,13 +3837,13 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
   %indvars.iv146.i = phi i64 [ 0, %.lr.ph87.i ], [ %indvars.iv.next147.i, %291 ]
   %.05383.us.i = phi ptr [ %.0219285, %.lr.ph87.i ], [ %294, %291 ]
   %.05782.us.i = phi float [ 0.000000e+00, %.lr.ph87.i ], [ %292, %291 ]
+  br label %.lr.ph.us.i
+
+._crit_edge.us.i:                                 ; preds = %.lr.ph.us.i
   %276 = getelementptr inbounds nuw %"struct.cv::GMM", ptr %.0218286, i64 %indvars.iv146.i
   %.sroa.0.0.copyload.us.i = load float, ptr %276, align 4, !tbaa !94
   %.sroa.4.0..sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %276, i64 4
   %.sroa.4.0.copyload.us.i = load float, ptr %.sroa.4.0..sroa_idx.us.i, align 4, !tbaa !94
-  br label %.lr.ph.us.i
-
-._crit_edge.us.i:                                 ; preds = %.lr.ph.us.i
   %277 = fcmp oeq float %300, 0.000000e+00
   br i1 %277, label %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit.thread, label %278
 
@@ -3897,7 +3897,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit235:          ; preds = %88, %85
 
 ._crit_edge78.us.i:                               ; preds = %283
   %301 = fmul float %273, %.sroa.4.0.copyload.us.i
-  %302 = fmul float %301, %282
+  %302 = fmul float %282, %301
   %303 = fmul float %282, %302
   %304 = fcmp uge float %290, %303
   br i1 %304, label %291, label %_ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit

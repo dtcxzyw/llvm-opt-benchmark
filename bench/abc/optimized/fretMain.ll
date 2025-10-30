@@ -1811,48 +1811,51 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %.not63, label %.critedge6, label %84
 
 84:                                               ; preds = %82
-  %85 = add nsw i32 %.4103, 1
-  %86 = load ptr, ptr %68, align 8, !tbaa !56
-  %87 = getelementptr i8, ptr %86, i64 4
-  %.val99 = load i32, ptr %87, align 4, !tbaa !25
-  %88 = icmp sgt i32 %.val99, 0
-  br i1 %88, label %.lr.ph101, label %.critedge6
+  %85 = load ptr, ptr %68, align 8, !tbaa !56
+  %86 = getelementptr i8, ptr %85, i64 4
+  %.val99 = load i32, ptr %86, align 4, !tbaa !25
+  %87 = icmp sgt i32 %.val99, 0
+  br i1 %87, label %.lr.ph101, label %.critedge6.loopexit
 
-.lr.ph101:                                        ; preds = %84, %103
-  %89 = phi ptr [ %104, %103 ], [ %86, %84 ]
-  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %103 ], [ 0, %84 ]
-  %90 = getelementptr i8, ptr %89, i64 8
-  %.val77.val = load ptr, ptr %90, align 8, !tbaa !28
-  %91 = getelementptr inbounds nuw ptr, ptr %.val77.val, i64 %indvars.iv113
-  %92 = load ptr, ptr %91, align 8, !tbaa !51
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %103, label %94
+.lr.ph101:                                        ; preds = %84, %102
+  %88 = phi ptr [ %103, %102 ], [ %85, %84 ]
+  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %102 ], [ 0, %84 ]
+  %89 = getelementptr i8, ptr %88, i64 8
+  %.val77.val = load ptr, ptr %89, align 8, !tbaa !28
+  %90 = getelementptr inbounds nuw ptr, ptr %.val77.val, i64 %indvars.iv113
+  %91 = load ptr, ptr %90, align 8, !tbaa !51
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %102, label %93
 
-94:                                               ; preds = %.lr.ph101
-  %95 = load ptr, ptr @pManMR, align 8, !tbaa !3
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 112
-  %97 = load ptr, ptr %96, align 8, !tbaa !71
-  %98 = getelementptr i8, ptr %92, i64 16
-  %.val82 = load i32, ptr %98, align 8, !tbaa !80
-  %99 = zext i32 %.val82 to i64
-  %100 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %97, i64 %99
-  %101 = load i16, ptr %100, align 8
-  %102 = and i16 %101, -4
-  store i16 %102, ptr %100, align 8
+93:                                               ; preds = %.lr.ph101
+  %94 = load ptr, ptr @pManMR, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 112
+  %96 = load ptr, ptr %95, align 8, !tbaa !71
+  %97 = getelementptr i8, ptr %91, i64 16
+  %.val82 = load i32, ptr %97, align 8, !tbaa !80
+  %98 = zext i32 %.val82 to i64
+  %99 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %96, i64 %98
+  %100 = load i16, ptr %99, align 8
+  %101 = and i16 %100, -4
+  store i16 %101, ptr %99, align 8
   %.pre121 = load ptr, ptr %68, align 8, !tbaa !56
-  br label %103
+  br label %102
 
-103:                                              ; preds = %94, %.lr.ph101
-  %104 = phi ptr [ %.pre121, %94 ], [ %89, %.lr.ph101 ]
+102:                                              ; preds = %93, %.lr.ph101
+  %103 = phi ptr [ %.pre121, %93 ], [ %88, %.lr.ph101 ]
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %105 = getelementptr i8, ptr %104, i64 4
-  %.val = load i32, ptr %105, align 4, !tbaa !25
-  %106 = sext i32 %.val to i64
-  %107 = icmp slt i64 %indvars.iv.next114, %106
-  br i1 %107, label %.lr.ph101, label %.critedge6, !llvm.loop !99
+  %104 = getelementptr i8, ptr %103, i64 4
+  %.val = load i32, ptr %104, align 4, !tbaa !25
+  %105 = sext i32 %.val to i64
+  %106 = icmp slt i64 %indvars.iv.next114, %105
+  br i1 %106, label %.lr.ph101, label %.critedge6.loopexit, !llvm.loop !99
 
-.critedge6:                                       ; preds = %103, %84, %.lr.ph105, %82
-  %.5 = phi i32 [ %.4103, %82 ], [ %.4103, %.lr.ph105 ], [ %85, %84 ], [ %85, %103 ]
+.critedge6.loopexit:                              ; preds = %102, %84
+  %107 = add nsw i32 %.4103, 1
+  br label %.critedge6
+
+.critedge6:                                       ; preds = %.critedge6.loopexit, %.lr.ph105, %82
+  %.5 = phi i32 [ %.4103, %82 ], [ %.4103, %.lr.ph105 ], [ %107, %.critedge6.loopexit ]
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %108 = load ptr, ptr %67, align 8, !tbaa !34
   %109 = getelementptr i8, ptr %108, i64 4

@@ -29,41 +29,41 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   store i32 %1, ptr %10, align 4, !tbaa !10
   store i32 %0, ptr %4, align 16, !tbaa !11
   store i32 %1, ptr %5, align 16, !tbaa !11
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br label %12
+  br label %11
 
-12:                                               ; preds = %12, %9
-  %13 = phi i32 [ %1, %9 ], [ %23, %12 ]
-  %14 = phi i32 [ %0, %9 ], [ %18, %12 ]
-  %15 = phi i32 [ 0, %9 ], [ %25, %12 ]
-  %.059 = phi i32 [ 0, %9 ], [ %19, %12 ]
-  %16 = mul nsw i32 %13, %14
-  %17 = add nsw i32 %14, 1
-  %18 = sdiv i32 %17, 2
-  %19 = add i32 %.059, 1
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %4, i64 %20
-  store i32 %18, ptr %21, align 4, !tbaa !11
-  %22 = add nsw i32 %13, 1
-  %23 = sdiv i32 %22, 2
-  %24 = getelementptr inbounds nuw i32, ptr %5, i64 %20
-  store i32 %23, ptr %24, align 4, !tbaa !11
-  %25 = add i32 %15, %16
-  %26 = icmp ugt i32 %16, 1
-  br i1 %26, label %12, label %27, !llvm.loop !12
+11:                                               ; preds = %11, %9
+  %12 = phi i32 [ %1, %9 ], [ %22, %11 ]
+  %13 = phi i32 [ %0, %9 ], [ %17, %11 ]
+  %14 = phi i32 [ 0, %9 ], [ %24, %11 ]
+  %.059 = phi i32 [ 0, %9 ], [ %18, %11 ]
+  %15 = mul nsw i32 %12, %13
+  %16 = add nsw i32 %13, 1
+  %17 = sdiv i32 %16, 2
+  %18 = add i32 %.059, 1
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds nuw i32, ptr %4, i64 %19
+  store i32 %17, ptr %20, align 4, !tbaa !11
+  %21 = add nsw i32 %12, 1
+  %22 = sdiv i32 %21, 2
+  %23 = getelementptr inbounds nuw i32, ptr %5, i64 %19
+  store i32 %22, ptr %23, align 4, !tbaa !11
+  %24 = add i32 %14, %15
+  %25 = icmp ugt i32 %15, 1
+  br i1 %25, label %11, label %26, !llvm.loop !12
 
-27:                                               ; preds = %12
+26:                                               ; preds = %11
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %28 = zext i32 %.059 to i64
-  store i32 %25, ptr %11, align 8, !tbaa !14
-  %29 = icmp eq i32 %25, 0
+  store i32 %24, ptr %27, align 8, !tbaa !14
+  %29 = icmp eq i32 %24, 0
   br i1 %29, label %30, label %31
 
-30:                                               ; preds = %27
+30:                                               ; preds = %26
   tail call void @opj_free(ptr noundef nonnull %6) #6
   br label %opj_tgt_reset.exit
 
-31:                                               ; preds = %27
-  %32 = zext i32 %25 to i64
+31:                                               ; preds = %26
+  %32 = zext i32 %24 to i64
   %33 = tail call ptr @opj_calloc(i64 noundef %32, i64 noundef 24) #6
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %33, ptr %34, align 8, !tbaa !15
@@ -76,7 +76,7 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   br label %opj_tgt_reset.exit
 
 37:                                               ; preds = %31
-  %38 = load i32, ptr %11, align 8, !tbaa !14
+  %38 = load i32, ptr %27, align 8, !tbaa !14
   %39 = mul i32 %38, 24
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %39, ptr %40, align 8, !tbaa !16
@@ -267,36 +267,36 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %2, ptr %13, align 4, !tbaa !10
   store i32 %1, ptr %5, align 16, !tbaa !11
   store i32 %2, ptr %6, align 16, !tbaa !11
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %15
+  br label %14
 
-15:                                               ; preds = %15, %12
-  %16 = phi i32 [ %2, %12 ], [ %26, %15 ]
-  %17 = phi i32 [ %1, %12 ], [ %21, %15 ]
-  %18 = phi i32 [ 0, %12 ], [ %28, %15 ]
-  %.079 = phi i32 [ 0, %12 ], [ %22, %15 ]
-  %19 = mul nsw i32 %16, %17
-  %20 = add nsw i32 %17, 1
-  %21 = sdiv i32 %20, 2
-  %22 = add i32 %.079, 1
-  %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %5, i64 %23
-  store i32 %21, ptr %24, align 4, !tbaa !11
-  %25 = add nsw i32 %16, 1
-  %26 = sdiv i32 %25, 2
-  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %23
-  store i32 %26, ptr %27, align 4, !tbaa !11
-  %28 = add i32 %18, %19
-  %29 = icmp ugt i32 %19, 1
-  br i1 %29, label %15, label %30, !llvm.loop !26
+14:                                               ; preds = %14, %12
+  %15 = phi i32 [ %2, %12 ], [ %25, %14 ]
+  %16 = phi i32 [ %1, %12 ], [ %20, %14 ]
+  %17 = phi i32 [ 0, %12 ], [ %27, %14 ]
+  %.079 = phi i32 [ 0, %12 ], [ %21, %14 ]
+  %18 = mul nsw i32 %15, %16
+  %19 = add nsw i32 %16, 1
+  %20 = sdiv i32 %19, 2
+  %21 = add i32 %.079, 1
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw i32, ptr %5, i64 %22
+  store i32 %20, ptr %23, align 4, !tbaa !11
+  %24 = add nsw i32 %15, 1
+  %25 = sdiv i32 %24, 2
+  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %22
+  store i32 %25, ptr %26, align 4, !tbaa !11
+  %27 = add i32 %17, %18
+  %28 = icmp ugt i32 %18, 1
+  br i1 %28, label %14, label %29, !llvm.loop !26
 
-30:                                               ; preds = %15
+29:                                               ; preds = %14
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = zext i32 %.079 to i64
-  store i32 %28, ptr %14, align 8, !tbaa !14
-  %32 = icmp eq i32 %28, 0
+  store i32 %27, ptr %30, align 8, !tbaa !14
+  %32 = icmp eq i32 %27, 0
   br i1 %32, label %33, label %37
 
-33:                                               ; preds = %30
+33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !15
   %.not6.i = icmp eq ptr %35, null
@@ -307,8 +307,8 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   store ptr null, ptr %34, align 8, !tbaa !15
   br label %opj_tgt_reset.exit.sink.split
 
-37:                                               ; preds = %30
-  %38 = mul i32 %28, 24
+37:                                               ; preds = %29
+  %38 = mul i32 %27, 24
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i32, ptr %39, align 8, !tbaa !16
   %41 = icmp ugt i32 %38, %40

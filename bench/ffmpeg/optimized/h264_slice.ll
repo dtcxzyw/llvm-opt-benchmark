@@ -4362,13 +4362,13 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
   br label %1906
 
 1906:                                             ; preds = %1905, %1896
-  %1907 = getelementptr inbounds nuw i8, ptr %0, i64 737704
-  %1908 = getelementptr inbounds nuw i8, ptr %.0110, i64 22656
-  %1909 = getelementptr inbounds nuw i8, ptr %.0110, i64 22648
-  %1910 = getelementptr inbounds nuw i8, ptr %0, i64 736524
-  %1911 = getelementptr inbounds nuw i8, ptr %0, i64 734968
-  %1912 = getelementptr inbounds nuw i8, ptr %0, i64 736520
-  %1913 = getelementptr inbounds nuw i8, ptr %0, i64 735224
+  %1907 = getelementptr inbounds nuw i8, ptr %.0110, i64 22656
+  %1908 = getelementptr inbounds nuw i8, ptr %.0110, i64 22648
+  %1909 = getelementptr inbounds nuw i8, ptr %0, i64 736524
+  %1910 = getelementptr inbounds nuw i8, ptr %0, i64 734968
+  %1911 = getelementptr inbounds nuw i8, ptr %0, i64 736520
+  %1912 = getelementptr inbounds nuw i8, ptr %0, i64 735224
+  %1913 = getelementptr inbounds nuw i8, ptr %0, i64 737704
   br label %1914
 
 1914:                                             ; preds = %1997, %1906
@@ -4376,122 +4376,122 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
   %indvars.iv279.i = phi i64 [ 0, %1906 ], [ 1, %1997 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1916 = load i32, ptr %1889, align 16, !tbaa !331
-  %1917 = and i32 %1916, 31
-  %1918 = zext nneg i32 %1917 to i64
-  %1919 = getelementptr inbounds nuw [2 x [64 x i32]], ptr %1907, i64 %1918
-  %1920 = getelementptr inbounds nuw [64 x i32], ptr %1919, i64 %indvars.iv279.i
-  %1921 = load i32, ptr %1908, align 16, !tbaa !332
-  %1922 = zext i32 %1921 to i64
-  %1923 = icmp samesign ult i64 %indvars.iv279.i, %1922
-  %1924 = getelementptr inbounds nuw [48 x %struct.H264Ref], ptr %.0110, i64 %indvars.iv279.i
-  br i1 %1923, label %.split.us.i, label %.split.i
+  %1917 = load i32, ptr %1907, align 16, !tbaa !332
+  %1918 = zext i32 %1917 to i64
+  %1919 = icmp samesign ult i64 %indvars.iv279.i, %1918
+  %1920 = getelementptr inbounds nuw [48 x %struct.H264Ref], ptr %.0110, i64 %indvars.iv279.i
+  br i1 %1919, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %1914
-  %1925 = getelementptr inbounds nuw i32, ptr %1909, i64 %indvars.iv279.i
-  %1926 = load i32, ptr %1925, align 4, !tbaa !164
-  %1927 = zext i32 %1926 to i64
-  br label %1928
+  %1921 = getelementptr inbounds nuw i32, ptr %1908, i64 %indvars.iv279.i
+  %1922 = load i32, ptr %1921, align 4, !tbaa !164
+  %1923 = zext i32 %1922 to i64
+  br label %1924
 
-1928:                                             ; preds = %.loopexit.us.i, %.split.us.i
+1924:                                             ; preds = %.loopexit.us.i, %.split.us.i
   %indvars.iv267.i = phi i64 [ %indvars.iv.next268.i, %.loopexit.us.i ], [ 0, %.split.us.i ]
-  %1929 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv267.i
-  store i32 60, ptr %1929, align 4, !tbaa !164
-  %1930 = icmp samesign ult i64 %indvars.iv267.i, %1927
-  br i1 %1930, label %1931, label %.loopexit.us.i
+  %1925 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv267.i
+  store i32 60, ptr %1925, align 4, !tbaa !164
+  %1926 = icmp samesign ult i64 %indvars.iv267.i, %1923
+  br i1 %1926, label %1927, label %.loopexit.us.i
 
-1931:                                             ; preds = %1928
-  %1932 = getelementptr inbounds nuw %struct.H264Ref, ptr %1924, i64 %indvars.iv267.i
-  %1933 = getelementptr inbounds nuw i8, ptr %1932, i64 22712
-  %1934 = load ptr, ptr %1933, align 8, !tbaa !333
-  %1935 = load ptr, ptr %1934, align 8, !tbaa !256
-  %1936 = getelementptr inbounds nuw i8, ptr %1935, i64 184
-  %1937 = load ptr, ptr %1936, align 8, !tbaa !257
-  %.not224.us.i = icmp eq ptr %1937, null
-  br i1 %.not224.us.i, label %.loopexit.us.i, label %1938
+1927:                                             ; preds = %1924
+  %1928 = getelementptr inbounds nuw %struct.H264Ref, ptr %1920, i64 %indvars.iv267.i
+  %1929 = getelementptr inbounds nuw i8, ptr %1928, i64 22712
+  %1930 = load ptr, ptr %1929, align 8, !tbaa !333
+  %1931 = load ptr, ptr %1930, align 8, !tbaa !256
+  %1932 = getelementptr inbounds nuw i8, ptr %1931, i64 184
+  %1933 = load ptr, ptr %1932, align 8, !tbaa !257
+  %.not224.us.i = icmp eq ptr %1933, null
+  br i1 %.not224.us.i, label %.loopexit.us.i, label %1934
 
-1938:                                             ; preds = %1931
-  %1939 = load ptr, ptr %1937, align 8, !tbaa !335
-  %1940 = load i32, ptr %1910, align 4, !tbaa !116
-  %1941 = icmp sgt i32 %1940, 0
-  br i1 %1941, label %.lr.ph.us.preheader.i, label %.loopexit233.us.i
+1934:                                             ; preds = %1927
+  %1935 = load ptr, ptr %1933, align 8, !tbaa !335
+  %1936 = load i32, ptr %1909, align 4, !tbaa !116
+  %1937 = icmp sgt i32 %1936, 0
+  br i1 %1937, label %.lr.ph.us.preheader.i, label %.loopexit233.us.i
 
-.lr.ph.us.preheader.i:                            ; preds = %1938
-  %wide.trip.count.i = zext nneg i32 %1940 to i64
+.lr.ph.us.preheader.i:                            ; preds = %1934
+  %wide.trip.count.i = zext nneg i32 %1936 to i64
   br label %.lr.ph.us.i
 
-.lr.ph.us.i:                                      ; preds = %1949, %.lr.ph.us.preheader.i
-  %indvars.iv258.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next259.i, %1949 ]
-  %1942 = getelementptr inbounds nuw ptr, ptr %1911, i64 %indvars.iv258.i
-  %1943 = load ptr, ptr %1942, align 8, !tbaa !117
-  %1944 = load ptr, ptr %1943, align 8, !tbaa !256
-  %1945 = getelementptr inbounds nuw i8, ptr %1944, i64 184
-  %1946 = load ptr, ptr %1945, align 8, !tbaa !257
-  %1947 = load ptr, ptr %1946, align 8, !tbaa !335
-  %1948 = icmp eq ptr %1947, %1939
-  br i1 %1948, label %1950, label %1949
+.lr.ph.us.i:                                      ; preds = %1945, %.lr.ph.us.preheader.i
+  %indvars.iv258.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next259.i, %1945 ]
+  %1938 = getelementptr inbounds nuw ptr, ptr %1910, i64 %indvars.iv258.i
+  %1939 = load ptr, ptr %1938, align 8, !tbaa !117
+  %1940 = load ptr, ptr %1939, align 8, !tbaa !256
+  %1941 = getelementptr inbounds nuw i8, ptr %1940, i64 184
+  %1942 = load ptr, ptr %1941, align 8, !tbaa !257
+  %1943 = load ptr, ptr %1942, align 8, !tbaa !335
+  %1944 = icmp eq ptr %1943, %1935
+  br i1 %1944, label %1946, label %1945
 
-1949:                                             ; preds = %.lr.ph.us.i
+1945:                                             ; preds = %.lr.ph.us.i
   %indvars.iv.next259.i = add nuw nsw i64 %indvars.iv258.i, 1
   %exitcond261.not.i = icmp eq i64 %indvars.iv.next259.i, %wide.trip.count.i
   br i1 %exitcond261.not.i, label %.loopexit233.us.i, label %.lr.ph.us.i, !llvm.loop !338
 
-1950:                                             ; preds = %.lr.ph.us.i
-  %1951 = trunc nuw nsw i64 %indvars.iv258.i to i32
-  store i32 %1951, ptr %1929, align 4, !tbaa !164
+1946:                                             ; preds = %.lr.ph.us.i
+  %1947 = trunc nuw nsw i64 %indvars.iv258.i to i32
+  store i32 %1947, ptr %1925, align 4, !tbaa !164
   br label %.loopexit233.us.i
 
-.loopexit233.us.i:                                ; preds = %1949, %1950, %1938
-  %1952 = load i32, ptr %1912, align 8, !tbaa !115
-  %1953 = icmp sgt i32 %1952, 0
-  br i1 %1953, label %.lr.ph239.us.preheader.i, label %.loopexit.us.i
+.loopexit233.us.i:                                ; preds = %1945, %1946, %1934
+  %1948 = load i32, ptr %1911, align 8, !tbaa !115
+  %1949 = icmp sgt i32 %1948, 0
+  br i1 %1949, label %.lr.ph239.us.preheader.i, label %.loopexit.us.i
 
 .lr.ph239.us.preheader.i:                         ; preds = %.loopexit233.us.i
-  %wide.trip.count265.i = zext nneg i32 %1952 to i64
+  %wide.trip.count265.i = zext nneg i32 %1948 to i64
   br label %.lr.ph239.us.i
 
-.lr.ph239.us.i:                                   ; preds = %1965, %.lr.ph239.us.preheader.i
-  %indvars.iv262.i = phi i64 [ 0, %.lr.ph239.us.preheader.i ], [ %indvars.iv.next263.i, %1965 ]
-  %1954 = getelementptr inbounds nuw ptr, ptr %1913, i64 %indvars.iv262.i
-  %1955 = load ptr, ptr %1954, align 8, !tbaa !117
-  %.not225.us.i = icmp eq ptr %1955, null
-  br i1 %.not225.us.i, label %1965, label %1956
+.lr.ph239.us.i:                                   ; preds = %1961, %.lr.ph239.us.preheader.i
+  %indvars.iv262.i = phi i64 [ 0, %.lr.ph239.us.preheader.i ], [ %indvars.iv.next263.i, %1961 ]
+  %1950 = getelementptr inbounds nuw ptr, ptr %1912, i64 %indvars.iv262.i
+  %1951 = load ptr, ptr %1950, align 8, !tbaa !117
+  %.not225.us.i = icmp eq ptr %1951, null
+  br i1 %.not225.us.i, label %1961, label %1952
 
-1956:                                             ; preds = %.lr.ph239.us.i
-  %1957 = load ptr, ptr %1955, align 8, !tbaa !256
-  %1958 = getelementptr inbounds nuw i8, ptr %1957, i64 184
-  %1959 = load ptr, ptr %1958, align 8, !tbaa !257
-  %1960 = load ptr, ptr %1959, align 8, !tbaa !335
-  %1961 = icmp eq ptr %1960, %1939
-  br i1 %1961, label %1962, label %1965
+1952:                                             ; preds = %.lr.ph239.us.i
+  %1953 = load ptr, ptr %1951, align 8, !tbaa !256
+  %1954 = getelementptr inbounds nuw i8, ptr %1953, i64 184
+  %1955 = load ptr, ptr %1954, align 8, !tbaa !257
+  %1956 = load ptr, ptr %1955, align 8, !tbaa !335
+  %1957 = icmp eq ptr %1956, %1935
+  br i1 %1957, label %1958, label %1961
 
-1962:                                             ; preds = %1956
-  %1963 = trunc nuw nsw i64 %indvars.iv262.i to i32
-  %1964 = add nsw i32 %1940, %1963
-  store i32 %1964, ptr %1929, align 4, !tbaa !164
+1958:                                             ; preds = %1952
+  %1959 = trunc nuw nsw i64 %indvars.iv262.i to i32
+  %1960 = add nsw i32 %1936, %1959
+  store i32 %1960, ptr %1925, align 4, !tbaa !164
   br label %.loopexit.us.i
 
-1965:                                             ; preds = %1956, %.lr.ph239.us.i
+1961:                                             ; preds = %1952, %.lr.ph239.us.i
   %indvars.iv.next263.i = add nuw nsw i64 %indvars.iv262.i, 1
   %exitcond266.not.i = icmp eq i64 %indvars.iv.next263.i, %wide.trip.count265.i
   br i1 %exitcond266.not.i, label %.loopexit.us.i, label %.lr.ph239.us.i, !llvm.loop !339
 
-.loopexit.us.i:                                   ; preds = %1965, %1962, %.loopexit233.us.i, %1931, %1928
+.loopexit.us.i:                                   ; preds = %1961, %1958, %.loopexit233.us.i, %1927, %1924
   %indvars.iv.next268.i = add nuw nsw i64 %indvars.iv267.i, 1
   %exitcond270.not.i = icmp eq i64 %indvars.iv.next268.i, 16
-  br i1 %exitcond270.not.i, label %.split242.us.i, label %1928, !llvm.loop !340
+  br i1 %exitcond270.not.i, label %.split242.us.i, label %1924, !llvm.loop !340
 
 .split.i:                                         ; preds = %1914, %.split.i
   %indvars.iv.i158 = phi i64 [ %indvars.iv.next.i159, %.split.i ], [ 0, %1914 ]
-  %1966 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i158
-  store i32 60, ptr %1966, align 4, !tbaa !164
+  %1962 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i158
+  store i32 60, ptr %1962, align 4, !tbaa !164
   %indvars.iv.next.i159 = add nuw nsw i64 %indvars.iv.i158, 1
   %exitcond.not.i160 = icmp eq i64 %indvars.iv.next.i159, 16
   br i1 %exitcond.not.i160, label %.split242.us.i, label %.split.i, !llvm.loop !340
 
 .split242.us.i:                                   ; preds = %.split.i, %.loopexit.us.i
-  %1967 = getelementptr inbounds nuw i8, ptr %1920, i64 4
+  %1963 = and i32 %1916, 31
+  %1964 = zext nneg i32 %1963 to i64
+  %1965 = getelementptr inbounds nuw [2 x [64 x i32]], ptr %1913, i64 %1964
+  %1966 = getelementptr inbounds nuw [64 x i32], ptr %1965, i64 %indvars.iv279.i
+  %1967 = getelementptr inbounds nuw i8, ptr %1966, i64 4
   store i32 -1, ptr %1967, align 4, !tbaa !164
-  store i32 -1, ptr %1920, align 4, !tbaa !164
+  store i32 -1, ptr %1966, align 4, !tbaa !164
   br label %1968
 
 1968:                                             ; preds = %1968, %.split242.us.i
@@ -4499,12 +4499,12 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
   %1969 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv271.i
   %1970 = load i32, ptr %1969, align 4, !tbaa !164
   %1971 = shl nsw i32 %1970, 2
-  %1972 = getelementptr inbounds nuw %struct.H264Ref, ptr %1924, i64 %indvars.iv271.i
+  %1972 = getelementptr inbounds nuw %struct.H264Ref, ptr %1920, i64 %indvars.iv271.i
   %1973 = getelementptr inbounds nuw i8, ptr %1972, i64 22700
   %1974 = load i32, ptr %1973, align 4, !tbaa !341
   %1975 = and i32 %1974, 3
   %1976 = or disjoint i32 %1975, %1971
-  %1977 = getelementptr inbounds nuw i32, ptr %1920, i64 %indvars.iv271.i
+  %1977 = getelementptr inbounds nuw i32, ptr %1966, i64 %indvars.iv271.i
   %1978 = getelementptr inbounds nuw i8, ptr %1977, i64 8
   store i32 %1976, ptr %1978, align 4, !tbaa !164
   %indvars.iv.next272.i = add nuw nsw i64 %indvars.iv271.i, 1
@@ -4512,9 +4512,9 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
   br i1 %exitcond274.not.i, label %1979, label %1968, !llvm.loop !342
 
 1979:                                             ; preds = %1968
-  %1980 = getelementptr inbounds nuw i8, ptr %1920, i64 76
+  %1980 = getelementptr inbounds nuw i8, ptr %1966, i64 76
   store i32 -1, ptr %1980, align 4, !tbaa !164
-  %1981 = getelementptr inbounds nuw i8, ptr %1920, i64 72
+  %1981 = getelementptr inbounds nuw i8, ptr %1966, i64 72
   store i32 -1, ptr %1981, align 4, !tbaa !164
   br label %1982
 
@@ -4527,12 +4527,12 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
   %1987 = getelementptr inbounds i32, ptr %3, i64 %1986
   %1988 = load i32, ptr %1987, align 4, !tbaa !164
   %1989 = shl nsw i32 %1988, 2
-  %1990 = getelementptr inbounds nuw %struct.H264Ref, ptr %1924, i64 %indvars.iv275.i
+  %1990 = getelementptr inbounds nuw %struct.H264Ref, ptr %1920, i64 %indvars.iv275.i
   %1991 = getelementptr inbounds nuw i8, ptr %1990, i64 22700
   %1992 = load i32, ptr %1991, align 4, !tbaa !341
   %1993 = and i32 %1992, 3
   %1994 = or disjoint i32 %1993, %1989
-  %1995 = getelementptr inbounds nuw i32, ptr %1920, i64 %indvars.iv275.i
+  %1995 = getelementptr inbounds nuw i32, ptr %1966, i64 %indvars.iv275.i
   %1996 = getelementptr inbounds nuw i8, ptr %1995, i64 16
   store i32 %1994, ptr %1996, align 4, !tbaa !164
   %indvars.iv.next276.i = add nuw nsw i64 %indvars.iv275.i, 1
@@ -4549,7 +4549,7 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
   br i1 %2000, label %2002, label %.preheader232.i
 
 .preheader232.i:                                  ; preds = %1998
-  %2001 = load i32, ptr %1908, align 16, !tbaa !332
+  %2001 = load i32, ptr %1907, align 16, !tbaa !332
   %.not252.i = icmp eq i32 %2001, 0
   br i1 %.not252.i, label %._crit_edge250.i, label %.preheader.lr.ph.i
 
@@ -4569,7 +4569,7 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
 .preheader.i161:                                  ; preds = %._crit_edge.i163, %.preheader.lr.ph.i
   %indvars.iv287.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next288.i, %._crit_edge.i163 ]
   %.0249.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %.1.lcssa.i, %._crit_edge.i163 ]
-  %2007 = getelementptr inbounds nuw i32, ptr %1909, i64 %indvars.iv287.i
+  %2007 = getelementptr inbounds nuw i32, ptr %1908, i64 %indvars.iv287.i
   %2008 = load i32, ptr %2007, align 4, !tbaa !164
   %.not253.i = icmp eq i32 %2008, 0
   br i1 %.not253.i, label %._crit_edge.i163, label %.lr.ph.i162
@@ -4645,7 +4645,7 @@ h264_field_start.exit:                            ; preds = %.thread.i.i, %1739,
   %2052 = load i32, ptr %2051, align 8, !tbaa !164
   %2053 = getelementptr inbounds nuw i8, ptr %2050, i64 140
   %2054 = load i32, ptr %2053, align 4, !tbaa !164
-  %2055 = load i32, ptr %1909, align 8, !tbaa !164
+  %2055 = load i32, ptr %1908, align 8, !tbaa !164
   %2056 = getelementptr inbounds nuw i8, ptr %.0110, i64 22652
   %2057 = load i32, ptr %2056, align 4, !tbaa !164
   %2058 = getelementptr inbounds nuw i8, ptr %.0110, i64 64

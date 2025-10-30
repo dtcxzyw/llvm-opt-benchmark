@@ -10566,26 +10566,29 @@ _ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25.thread: ; preds 
 _ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25: ; preds = %"_ZZN4llvm24PrintPassInstrumentation17registerCallbacksERNS_28PassInstrumentationCallbacksEEN3$_0D2Ev.exit"
   %64 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %36) #29
   store ptr %64, ptr %60, align 8, !tbaa !331
-  %65 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %36
-  %67 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %66, ptr %67, align 8, !tbaa !334
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %36
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %65, ptr %66, align 8, !tbaa !334
   br label %.lr.ph.i.i.i.i.i27
 
 .lr.ph.i.i.i.i.i27:                               ; preds = %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25, %.lr.ph.i.i.i.i.i27
-  %.09.i.i.i.i.i28 = phi ptr [ %69, %.lr.ph.i.i.i.i.i27 ], [ %64, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25 ]
-  %.sroa.04.08.i.i.i.i.i29 = phi ptr [ %68, %.lr.ph.i.i.i.i.i27 ], [ %.sroa.0.0119149, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25 ]
+  %.09.i.i.i.i.i28 = phi ptr [ %68, %.lr.ph.i.i.i.i.i27 ], [ %64, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25 ]
+  %.sroa.04.08.i.i.i.i.i29 = phi ptr [ %67, %.lr.ph.i.i.i.i.i27 ], [ %.sroa.0.0119149, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i29, i64 16, i1 false), !tbaa.struct !312
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i29, i64 16
-  %69 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i28, i64 16
-  %.not.i.i.i.i.i30 = icmp eq ptr %68, %.sroa.16.0120148
-  br i1 %.not.i.i.i.i.i30, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2ERKS3_.exit32, label %.lr.ph.i.i.i.i.i27, !llvm.loop !432
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i29, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i28, i64 16
+  %.not.i.i.i.i.i30 = icmp eq ptr %67, %.sroa.16.0120148
+  br i1 %.not.i.i.i.i.i30, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2ERKS3_.exit32.loopexit, label %.lr.ph.i.i.i.i.i27, !llvm.loop !432
 
-_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2ERKS3_.exit32: ; preds = %.lr.ph.i.i.i.i.i27, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25.thread
-  %70 = phi ptr [ %62, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25.thread ], [ %66, %.lr.ph.i.i.i.i.i27 ]
-  %71 = phi ptr [ %61, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25.thread ], [ %65, %.lr.ph.i.i.i.i.i27 ]
-  %72 = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25.thread ], [ %64, %.lr.ph.i.i.i.i.i27 ]
-  %73 = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25.thread ], [ %69, %.lr.ph.i.i.i.i.i27 ]
+_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2ERKS3_.exit32.loopexit: ; preds = %.lr.ph.i.i.i.i.i27
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2ERKS3_.exit32
+
+_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2ERKS3_.exit32: ; preds = %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2ERKS3_.exit32.loopexit, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25.thread
+  %70 = phi ptr [ %62, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25.thread ], [ %65, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2ERKS3_.exit32.loopexit ]
+  %71 = phi ptr [ %61, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25.thread ], [ %69, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2ERKS3_.exit32.loopexit ]
+  %72 = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25.thread ], [ %64, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2ERKS3_.exit32.loopexit ]
+  %73 = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EEC2EmRKS2_.exit.i25.thread ], [ %68, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EEC2ERKS3_.exit32.loopexit ]
   store ptr %73, ptr %71, align 8, !tbaa !335
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 296

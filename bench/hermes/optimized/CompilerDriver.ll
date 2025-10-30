@@ -8926,9 +8926,6 @@ entry:
   %0 = getelementptr i8, ptr %fileBufs, i64 24
   %fileBufs.val = load ptr, ptr %0, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %fileBufs, i64 8
-  %cond.sroa.gep = getelementptr inbounds nuw i8, ptr %sourceMapGen, i64 48
-  %cond.sroa.gep558 = getelementptr inbounds nuw i8, ptr %sourceMapGen, i64 56
-  %cond.sroa.gep560 = getelementptr inbounds nuw i8, ptr %sourceMapGen, i64 64
   %cmp.i51.not574 = icmp eq ptr %fileBufs.val, %add.ptr.i.i
   br i1 %cmp.i51.not574, label %for.end22, label %for.body
 
@@ -8963,6 +8960,9 @@ for.inc20:                                        ; preds = %for.body12, %for.bo
   br i1 %cmp.i51.not, label %for.end22, label %for.body
 
 for.end22:                                        ; preds = %for.inc20, %entry
+  %cond.sroa.gep = getelementptr inbounds nuw i8, ptr %sourceMapGen, i64 48
+  %cond.sroa.gep558 = getelementptr inbounds nuw i8, ptr %sourceMapGen, i64 56
+  %cond.sroa.gep560 = getelementptr inbounds nuw i8, ptr %sourceMapGen, i64 64
   %call23 = call { ptr, i64 } @_ZN4llvh4SHA15finalEv(ptr noundef nonnull align 4 dereferenceable(112) %hasher) #25
   %5 = extractvalue { ptr, i64 } %call23, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i8 0, i64 20, i1 false)

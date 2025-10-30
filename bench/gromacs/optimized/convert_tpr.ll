@@ -2680,8 +2680,8 @@ _ZN15InteractionListD2Ev.exit.i:                  ; preds = %241, %._crit_edge97
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %279
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %281, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %280, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !128
   %283 = getelementptr inbounds nuw i8, ptr %280, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %280, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !128
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
 
 284:                                              ; preds = %271

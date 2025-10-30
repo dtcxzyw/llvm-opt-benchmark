@@ -899,7 +899,7 @@ _ZNSt13random_deviceD2Ev.exit.i:                  ; preds = %85
   br label %91
 
 91:                                               ; preds = %.preheader, %._crit_edge21.i
-  %.014.i = phi i64 [ %111, %._crit_edge21.i ], [ 0, %.preheader ]
+  %.014.i = phi i64 [ %112, %._crit_edge21.i ], [ 0, %.preheader ]
   %92 = load atomic i32, ptr %16 monotonic, align 8
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %.lr.ph.i10, label %._crit_edge.i
@@ -947,18 +947,18 @@ _ZNSt13random_deviceD2Ev.exit.i:                  ; preds = %85
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit.i unwind label %.loopexit.i
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit.i: ; preds = %108
-  %111 = add i64 %.014.i, 1
   %.not.i9 = icmp eq i64 %110, 0
   br i1 %.not.i9, label %._crit_edge21.i, label %.lr.ph20.i
 
 .lr.ph20.i:                                       ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit.i, %.lr.ph20.i
-  %.0819.i = phi i64 [ %112, %.lr.ph20.i ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit.i ]
+  %.0819.i = phi i64 [ %111, %.lr.ph20.i ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit.i ]
   call void asm sideeffect "pause", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !101
-  %112 = add nuw i64 %.0819.i, 1
-  %exitcond.not.i = icmp eq i64 %112, %110
+  %111 = add nuw i64 %.0819.i, 1
+  %exitcond.not.i = icmp eq i64 %111, %110
   br i1 %exitcond.not.i, label %._crit_edge21.i, label %.lr.ph20.i, !llvm.loop !102
 
 ._crit_edge21.i:                                  ; preds = %.lr.ph20.i, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit.i
+  %112 = add i64 %.014.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %91
 
@@ -1903,7 +1903,7 @@ _ZNSt13random_deviceD2Ev.exit:                    ; preds = %9
   br label %18
 
 18:                                               ; preds = %._crit_edge21, %15
-  %.014 = phi i64 [ 0, %15 ], [ %38, %._crit_edge21 ]
+  %.014 = phi i64 [ 0, %15 ], [ %39, %._crit_edge21 ]
   %19 = load atomic i32, ptr %0 monotonic, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
@@ -1951,18 +1951,18 @@ _ZNSt13random_deviceD2Ev.exit:                    ; preds = %9
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit unwind label %.loopexit
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit: ; preds = %35
-  %38 = add i64 %.014, 1
   %.not = icmp eq i64 %37, 0
   br i1 %.not, label %._crit_edge21, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph20
-  %.0819 = phi i64 [ %39, %.lr.ph20 ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit ]
+  %.0819 = phi i64 [ %38, %.lr.ph20 ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit ]
   call void asm sideeffect "pause", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !101
-  %39 = add nuw i64 %.0819, 1
-  %exitcond.not = icmp eq i64 %39, %37
+  %38 = add nuw i64 %.0819, 1
+  %exitcond.not = icmp eq i64 %38, %37
   br i1 %exitcond.not, label %._crit_edge21, label %.lr.ph20, !llvm.loop !102
 
 ._crit_edge21:                                    ; preds = %.lr.ph20, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit
+  %39 = add i64 %.014, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 

@@ -4355,74 +4355,74 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i:        ; preds = %302
 .lr.ph34.i.i:                                     ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.i.i, %367
   %.02433.i.i = phi i64 [ %.125.lcssa.i.i, %367 ], [ %309, %_ZNK3ue29CharReach10find_firstEv.exit.i.i ]
   %310 = lshr i64 %.02433.i.i, 4
-  %311 = trunc i64 %310 to i32
-  %312 = icmp ult i64 %.02433.i.i, 4096
-  br i1 %312, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %311 = icmp ult i64 %.02433.i.i, 4096
+  br i1 %311, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph34.i.i, %_ZNK3ue29CharReach9find_nextEm.exit.i.i
-  %.12530.i.i = phi i64 [ %335, %_ZNK3ue29CharReach9find_nextEm.exit.i.i ], [ %.02433.i.i, %.lr.ph34.i.i ]
-  %.029.i.i = phi i16 [ %316, %_ZNK3ue29CharReach9find_nextEm.exit.i.i ], [ 0, %.lr.ph34.i.i ]
-  %313 = trunc i64 %.12530.i.i to i16
-  %314 = and i16 %313, 15
-  %315 = shl nuw i16 1, %314
-  %316 = or i16 %315, %.029.i.i
+  %.12530.i.i = phi i64 [ %334, %_ZNK3ue29CharReach9find_nextEm.exit.i.i ], [ %.02433.i.i, %.lr.ph34.i.i ]
+  %.029.i.i = phi i16 [ %315, %_ZNK3ue29CharReach9find_nextEm.exit.i.i ], [ 0, %.lr.ph34.i.i ]
+  %312 = trunc i64 %.12530.i.i to i16
+  %313 = and i16 %312, 15
+  %314 = shl nuw i16 1, %313
+  %315 = or i16 %314, %.029.i.i
   %.not.i.i30.i.i = icmp ult i64 %.12530.i.i, 256
-  br i1 %.not.i.i30.i.i, label %317, label %._crit_edge.i.i
+  br i1 %.not.i.i30.i.i, label %316, label %._crit_edge.i.i
 
-317:                                              ; preds = %.lr.ph.i.i
-  %318 = lshr i64 %.12530.i.i, 6
-  %319 = and i64 %.12530.i.i, 63
-  %.not20.i.i.i.i = icmp eq i64 %319, 63
-  br i1 %.not20.i.i.i.i, label %.preheader, label %320
+316:                                              ; preds = %.lr.ph.i.i
+  %317 = lshr i64 %.12530.i.i, 6
+  %318 = and i64 %.12530.i.i, 63
+  %.not20.i.i.i.i = icmp eq i64 %318, 63
+  br i1 %.not20.i.i.i.i, label %.preheader, label %319
 
-.preheader:                                       ; preds = %320, %317
-  br label %327
+.preheader:                                       ; preds = %319, %316
+  br label %326
 
-320:                                              ; preds = %317
-  %321 = getelementptr inbounds nuw i64, ptr %7, i64 %318
-  %322 = load i64, ptr %321, align 8
-  %323 = shl nsw i64 -2, %319
-  %324 = and i64 %322, %323
-  %.not21.i.i.i.i = icmp eq i64 %324, 0
-  br i1 %.not21.i.i.i.i, label %.preheader, label %325
+319:                                              ; preds = %316
+  %320 = getelementptr inbounds nuw i64, ptr %7, i64 %317
+  %321 = load i64, ptr %320, align 8
+  %322 = shl nsw i64 -2, %318
+  %323 = and i64 %321, %322
+  %.not21.i.i.i.i = icmp eq i64 %323, 0
+  br i1 %.not21.i.i.i.i, label %.preheader, label %324
 
-325:                                              ; preds = %320
-  %326 = and i64 %.12530.i.i, 192
+324:                                              ; preds = %319
+  %325 = and i64 %.12530.i.i, 192
   br label %_ZNK3ue29CharReach9find_nextEm.exit.i.i
 
-327:                                              ; preds = %.preheader, %329
-  %.0.in.i.i.i.i = phi i64 [ %.0.i.i.i.i, %329 ], [ %318, %.preheader ]
-  %328 = icmp samesign ult i64 %.0.in.i.i.i.i, 3
-  br i1 %328, label %329, label %._crit_edge.i.i
+326:                                              ; preds = %.preheader, %328
+  %.0.in.i.i.i.i = phi i64 [ %.0.i.i.i.i, %328 ], [ %317, %.preheader ]
+  %327 = icmp samesign ult i64 %.0.in.i.i.i.i, 3
+  br i1 %327, label %328, label %._crit_edge.i.i
 
-329:                                              ; preds = %327
+328:                                              ; preds = %326
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %330 = getelementptr inbounds nuw i64, ptr %7, i64 %.0.i.i.i.i
-  %331 = load i64, ptr %330, align 8
-  %.not22.i.i.i.i = icmp eq i64 %331, 0
-  br i1 %.not22.i.i.i.i, label %327, label %332, !llvm.loop !214
+  %329 = getelementptr inbounds nuw i64, ptr %7, i64 %.0.i.i.i.i
+  %330 = load i64, ptr %329, align 8
+  %.not22.i.i.i.i = icmp eq i64 %330, 0
+  br i1 %.not22.i.i.i.i, label %326, label %331, !llvm.loop !214
 
-332:                                              ; preds = %329
-  %333 = shl nuw nsw i64 %.0.i.i.i.i, 6
+331:                                              ; preds = %328
+  %332 = shl nuw nsw i64 %.0.i.i.i.i, 6
   br label %_ZNK3ue29CharReach9find_nextEm.exit.i.i
 
-_ZNK3ue29CharReach9find_nextEm.exit.i.i:          ; preds = %332, %325
-  %.sink94.i.i = phi i64 [ %324, %325 ], [ %331, %332 ]
-  %.sink93.i.i = phi i64 [ %326, %325 ], [ %333, %332 ]
-  %334 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink94.i.i, i1 true)
-  %335 = or disjoint i64 %334, %.sink93.i.i
-  %336 = lshr i64 %335, 4
-  %337 = icmp eq i64 %336, %310
-  br i1 %337, label %.lr.ph.i.i, label %._crit_edge.i.i
+_ZNK3ue29CharReach9find_nextEm.exit.i.i:          ; preds = %331, %324
+  %.sink94.i.i = phi i64 [ %323, %324 ], [ %330, %331 ]
+  %.sink93.i.i = phi i64 [ %325, %324 ], [ %332, %331 ]
+  %333 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink94.i.i, i1 true)
+  %334 = or disjoint i64 %333, %.sink93.i.i
+  %335 = lshr i64 %334, 4
+  %336 = icmp eq i64 %335, %310
+  br i1 %336, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-338:                                              ; preds = %.critedge.i.i.i
-  %339 = landingpad { ptr, i32 }
+337:                                              ; preds = %.critedge.i.i.i
+  %338 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
 
-._crit_edge.i.i:                                  ; preds = %_ZNK3ue29CharReach9find_nextEm.exit.i.i, %.lr.ph.i.i, %327, %.lr.ph34.i.i
-  %.0.lcssa.i.i = phi i16 [ 0, %.lr.ph34.i.i ], [ %316, %327 ], [ %316, %.lr.ph.i.i ], [ %316, %_ZNK3ue29CharReach9find_nextEm.exit.i.i ]
-  %.125.lcssa.i.i = phi i64 [ %.02433.i.i, %.lr.ph34.i.i ], [ 256, %327 ], [ %335, %_ZNK3ue29CharReach9find_nextEm.exit.i.i ], [ 256, %.lr.ph.i.i ]
+._crit_edge.i.i:                                  ; preds = %_ZNK3ue29CharReach9find_nextEm.exit.i.i, %.lr.ph.i.i, %326, %.lr.ph34.i.i
+  %.0.lcssa.i.i = phi i16 [ 0, %.lr.ph34.i.i ], [ %315, %326 ], [ %315, %.lr.ph.i.i ], [ %315, %_ZNK3ue29CharReach9find_nextEm.exit.i.i ]
+  %.125.lcssa.i.i = phi i64 [ %.02433.i.i, %.lr.ph34.i.i ], [ 256, %326 ], [ %334, %_ZNK3ue29CharReach9find_nextEm.exit.i.i ], [ 256, %.lr.ph.i.i ]
+  %339 = trunc i64 %310 to i32
   %340 = load ptr, ptr %273, align 8
   %.not10.i.i.i.i.i.i = icmp eq ptr %340, null
   br i1 %.not10.i.i.i.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -4454,7 +4454,7 @@ _ZNSt3mapIttSt4lessItESaISt4pairIKttEEE11lower_boundERS3_.exit.i.i.i: ; preds = 
 .critedge.i.i.i:                                  ; preds = %345, %_ZNSt3mapIttSt4lessItESaISt4pairIKttEEE11lower_boundERS3_.exit.i.i.i, %._crit_edge.i.i
   %.08.lcssa.i.i.i14.i.i.i = phi ptr [ %.19.i.i.i.i.i.i, %345 ], [ %.19.i.i.i.i.i.i, %_ZNSt3mapIttSt4lessItESaISt4pairIKttEEE11lower_boundERS3_.exit.i.i.i ], [ %272, %._crit_edge.i.i ]
   %348 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
-          to label %.noexc.i.i unwind label %338
+          to label %.noexc.i.i unwind label %337
 
 .noexc.i.i:                                       ; preds = %.critedge.i.i.i
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 32
@@ -4504,7 +4504,7 @@ _ZNSt8_Rb_treeItSt4pairIKttESt10_Select1stIS2_ESt4lessItESaIS2_EE10_Auto_nodeD2E
 367:                                              ; preds = %366, %.thread.i.i.i.i, %345
   %.sroa.09.0.i.i.i = phi ptr [ %.19.i.i.i.i.i.i, %345 ], [ %348, %.thread.i.i.i.i ], [ %353, %366 ]
   %368 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i.i, i64 34
-  %369 = and i32 %311, 255
+  %369 = and i32 %339, 255
   %370 = shl nuw i32 1, %369
   %371 = load i16, ptr %368, align 2
   %372 = trunc i32 %370 to i16
@@ -4613,8 +4613,8 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
           cleanup
   br label %.body.i.i
 
-.body.i.i:                                        ; preds = %409, %_ZNSt8_Rb_treeItSt4pairIKttESt10_Select1stIS2_ESt4lessItESaIS2_EE10_Auto_nodeD2Ev.exit.i.i.i.i, %338
-  %.pn.pn.i.i = phi { ptr, i32 } [ %410, %409 ], [ %339, %338 ], [ %365, %_ZNSt8_Rb_treeItSt4pairIKttESt10_Select1stIS2_ESt4lessItESaIS2_EE10_Auto_nodeD2Ev.exit.i.i.i.i ]
+.body.i.i:                                        ; preds = %409, %_ZNSt8_Rb_treeItSt4pairIKttESt10_Select1stIS2_ESt4lessItESaIS2_EE10_Auto_nodeD2Ev.exit.i.i.i.i, %337
+  %.pn.pn.i.i = phi { ptr, i32 } [ %410, %409 ], [ %338, %337 ], [ %365, %_ZNSt8_Rb_treeItSt4pairIKttESt10_Select1stIS2_ESt4lessItESaIS2_EE10_Auto_nodeD2Ev.exit.i.i.i.i ]
   %411 = load ptr, ptr %273, align 8
   invoke void @_ZNSt8_Rb_treeItSt4pairIKttESt10_Select1stIS2_ESt4lessItESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %411)
           to label %_ZNSt3mapIttSt4lessItESaISt4pairIKttEEED2Ev.exit33.i.i unwind label %412

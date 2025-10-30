@@ -5834,7 +5834,6 @@ if.end12:                                         ; preds = %entry
   store i8 0, ptr %IsRecalculated.i, align 8
   call void @_ZN4llvh3cfg15LegalizeUpdatesIPN6hermes10BasicBlockEEEvNS_8ArrayRefINS0_6UpdateIT_EEEERNS_15SmallVectorImplIS8_EEb(ptr %Updates.coerce0, i64 %Updates.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %BUI, i1 noundef zeroext false)
   %4 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %conv.i = zext i32 %4 to i64
   call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockENS_11SmallVectorINS_14PointerIntPairIS4_Lj1ENS_3cfg10UpdateKindENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ESA_EEEELj4EEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SE_EEEES4_SE_SG_SJ_E7reserveEj(ptr noundef nonnull align 1 dereferenceable(1) %FutureSuccessors.i, i32 noundef %4)
   call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockENS_11SmallVectorINS_14PointerIntPairIS4_Lj1ENS_3cfg10UpdateKindENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ESA_EEEELj4EEENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SE_EEEES4_SE_SG_SJ_E7reserveEj(ptr noundef nonnull align 1 dereferenceable(1) %FuturePredecessors.i, i32 noundef %4)
   %5 = load ptr, ptr %BUI, align 8
@@ -5851,6 +5850,7 @@ for.body.lr.ph:                                   ; preds = %if.end12
   br label %for.body
 
 for.cond43.preheader:                             ; preds = %_ZN4llvh23SmallVectorTemplateBaseINS_14PointerIntPairIPN6hermes10BasicBlockELj1ENS_3cfg10UpdateKindENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES8_EEEELb1EE9push_backERKSB_.exit90, %if.end12
+  %conv.i = zext i32 %4 to i64
   %cmp4498 = icmp eq i32 %4, 0
   %7 = load i8, ptr %IsRecalculated.i, align 8
   %tobool99 = trunc i8 %7 to i1
@@ -24514,15 +24514,15 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 128
-  br i1 %cmp, label %if.then, label %if.else
+  br i1 %cmp, label %for.body.i.preheader, label %if.else
 
-if.then:                                          ; preds = %entry
+for.body.i.preheader:                             ; preds = %entry
   %scevgep = getelementptr i8, ptr %__first, i64 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %if.then
-  %__i.015.i.idx = phi i64 [ 8, %if.then ], [ %__i.015.i.add, %for.inc.i ]
-  %__first.pn14.i = phi ptr [ %__first, %if.then ], [ %__i.015.i.ptr, %for.inc.i ]
+for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
+  %__i.015.i.idx = phi i64 [ %__i.015.i.add, %for.inc.i ], [ 8, %for.body.i.preheader ]
+  %__first.pn14.i = phi ptr [ %__i.015.i.ptr, %for.inc.i ], [ %__first, %for.body.i.preheader ]
   %__i.015.i.ptr = getelementptr inbounds nuw i8, ptr %__first, i64 %__i.015.i.idx
   %0 = load ptr, ptr %__i.015.i.ptr, align 8
   %1 = load ptr, ptr %__first, align 8

@@ -4265,46 +4265,46 @@ Abc_SclComputeParametersCell.exit.thread.us:      ; preds = %Scl_CellPinTime.exi
 
 225:                                              ; preds = %.lr.ph152.split.us._crit_edge
   %226 = getelementptr i8, ptr %70, i64 56
-  %227 = getelementptr inbounds nuw i8, ptr %70, i64 68
   %.val.us.us = load ptr, ptr %226, align 8, !tbaa !18
-  %228 = sext i32 %72 to i64
-  %229 = getelementptr inbounds ptr, ptr %.val.us.us, i64 %228
-  %230 = load ptr, ptr %229, align 8, !tbaa !19
-  %231 = trunc nuw nsw i64 %indvars.iv171 to i32
-  %232 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %231)
-  br label %233
+  %227 = sext i32 %72 to i64
+  %228 = getelementptr inbounds ptr, ptr %.val.us.us, i64 %227
+  %229 = load ptr, ptr %228, align 8, !tbaa !19
+  %230 = trunc nuw nsw i64 %indvars.iv171 to i32
+  %231 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %230)
+  br label %232
 
-233:                                              ; preds = %233, %225
-  %.012.i.us.us = phi i32 [ 0, %225 ], [ %spec.select.i.us.us, %233 ]
-  %.0910.i.us.us = phi ptr [ %70, %225 ], [ %238, %233 ]
-  %234 = getelementptr inbounds nuw i8, ptr %.0910.i.us.us, i64 12
-  %235 = load i32, ptr %234, align 4, !tbaa !28
-  %.not.i.us.us = icmp eq i32 %235, 0
-  %236 = zext i1 %.not.i.us.us to i32
-  %spec.select.i.us.us = add nuw nsw i32 %.012.i.us.us, %236
-  %237 = getelementptr inbounds nuw i8, ptr %.0910.i.us.us, i64 72
-  %238 = load ptr, ptr %237, align 8, !tbaa !29
-  %.not13.i.us.us = icmp eq ptr %238, %70
-  br i1 %.not13.i.us.us, label %239, label %233, !llvm.loop !30
+232:                                              ; preds = %232, %225
+  %.012.i.us.us = phi i32 [ 0, %225 ], [ %spec.select.i.us.us, %232 ]
+  %.0910.i.us.us = phi ptr [ %70, %225 ], [ %237, %232 ]
+  %233 = getelementptr inbounds nuw i8, ptr %.0910.i.us.us, i64 12
+  %234 = load i32, ptr %233, align 4, !tbaa !28
+  %.not.i.us.us = icmp eq i32 %234, 0
+  %235 = zext i1 %.not.i.us.us to i32
+  %spec.select.i.us.us = add nuw nsw i32 %.012.i.us.us, %235
+  %236 = getelementptr inbounds nuw i8, ptr %.0910.i.us.us, i64 72
+  %237 = load ptr, ptr %236, align 8, !tbaa !29
+  %.not13.i.us.us = icmp eq ptr %237, %70
+  br i1 %.not13.i.us.us, label %238, label %232, !llvm.loop !30
 
-239:                                              ; preds = %233
+238:                                              ; preds = %232
+  %239 = getelementptr inbounds nuw i8, ptr %70, i64 68
   %240 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %spec.select.i.us.us)
   %241 = load i32, ptr %73, align 8, !tbaa !33
   %242 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %241)
-  %243 = load i32, ptr %227, align 4, !tbaa !60
+  %243 = load i32, ptr %239, align 4, !tbaa !60
   %244 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %243)
-  %.phi.trans.insert178 = getelementptr inbounds nuw i8, ptr %230, i64 40
+  %.phi.trans.insert178 = getelementptr inbounds nuw i8, ptr %229, i64 40
   %.pre179 = load ptr, ptr %.phi.trans.insert178, align 8, !tbaa !53
   %.not84.us.us = icmp eq ptr %.pre179, null
   br i1 %.not84.us.us, label %.preheader.split.us.us, label %245
 
-245:                                              ; preds = %239
+245:                                              ; preds = %238
   %246 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef nonnull %.pre179)
   br label %.preheader.split.us.us
 
-.preheader.split.us.us:                           ; preds = %245, %239
+.preheader.split.us.us:                           ; preds = %245, %238
   %247 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23)
-  %248 = getelementptr i8, ptr %230, i64 56
+  %248 = getelementptr i8, ptr %229, i64 56
   %.val97.us.us = load ptr, ptr %248, align 8, !tbaa !62
   %249 = load i32, ptr %73, align 8, !tbaa !33
   tail call void @Kit_DsdPrintFromTruth(ptr noundef %.val97.us.us, i32 noundef %249) #31

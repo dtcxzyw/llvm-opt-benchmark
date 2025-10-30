@@ -39,21 +39,21 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:
   store i32 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui6WidgetE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  store i32 0, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 0, ptr %6, align 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %12, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -140,7 +140,7 @@ _ZN7nanogui6Widget9add_childEPS0_.exit:           ; preds = %25, %_ZNSt7__cxx111
   br label %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EED2Ev.exit: ; preds = %42, %44
-  %45 = load ptr, ptr %6, align 8
+  %45 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %_ZN7nanogui3refINS_6LayoutEED2Ev.exit, label %46
 
@@ -149,7 +149,7 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EED2Ev.exit: ; preds = %42, %44
   br label %_ZN7nanogui3refINS_6LayoutEED2Ev.exit
 
 _ZN7nanogui3refINS_6LayoutEED2Ev.exit:            ; preds = %46, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EED2Ev.exit
-  %47 = load ptr, ptr %5, align 8
+  %47 = load ptr, ptr %11, align 8
   %.not.i17 = icmp eq ptr %47, null
   br i1 %.not.i17, label %_ZN7nanogui3refINS_5ThemeEED2Ev.exit, label %48
 

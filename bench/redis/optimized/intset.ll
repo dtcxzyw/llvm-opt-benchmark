@@ -43,129 +43,129 @@ define dso_local ptr @intsetAdd(ptr noundef %0, i64 noundef %1, ptr noundef writ
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !5
-  %16 = icmp slt i64 %1, 0
   %.lobit.i = lshr i64 %1, 63
   store i32 %10, ptr %0, align 4, !tbaa !5
-  %17 = add i32 %15, 1
-  %18 = zext i32 %17 to i64
-  %19 = select i1 %or.cond3.i, i64 2, i64 1
-  %20 = select i1 %or.cond.i, i64 3, i64 %19
-  %21 = shl nuw nsw i64 %18, %20
-  %22 = add nuw nsw i64 %21, 8
-  %23 = tail call ptr @zrealloc(ptr noundef nonnull %0, i64 noundef %22) #14
+  %16 = add i32 %15, 1
+  %17 = zext i32 %16 to i64
+  %18 = select i1 %or.cond3.i, i64 2, i64 1
+  %19 = select i1 %or.cond.i, i64 3, i64 %18
+  %20 = shl nuw nsw i64 %17, %19
+  %21 = add nuw nsw i64 %20, 8
+  %22 = tail call ptr @zrealloc(ptr noundef nonnull %0, i64 noundef %21) #14
   %.not27.i = icmp eq i32 %15, 0
   br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = sext i32 %15 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = sext i32 %15 to i64
   %cond = icmp eq i32 %11, 4
   br i1 %cond, label %_intsetGetEncoded.exit.us31.i, label %_intsetGetEncoded.exit.i
 
 _intsetGetEncoded.exit.us31.i:                    ; preds = %.lr.ph.i, %_intsetSet.exit.us33.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_intsetSet.exit.us33.i ], [ %25, %.lr.ph.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_intsetSet.exit.us33.i ], [ %24, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %26 = add nsw i64 %indvars.iv.next.i, %.lobit.i
-  %27 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.next.i
-  %.0.copyload1.i.us.i = load i32, ptr %27, align 4
-  %28 = load i32, ptr %23, align 4, !tbaa !5
-  switch i32 %28, label %34 [
-    i32 8, label %31
-    i32 4, label %29
+  %25 = add nsw i64 %indvars.iv.next.i, %.lobit.i
+  %26 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv.next.i
+  %.0.copyload1.i.us.i = load i32, ptr %26, align 4
+  %27 = load i32, ptr %22, align 4, !tbaa !5
+  switch i32 %27, label %33 [
+    i32 8, label %30
+    i32 4, label %28
   ]
 
-29:                                               ; preds = %_intsetGetEncoded.exit.us31.i
-  %30 = getelementptr inbounds i32, ptr %24, i64 %26
-  store i32 %.0.copyload1.i.us.i, ptr %30, align 4, !tbaa !5
+28:                                               ; preds = %_intsetGetEncoded.exit.us31.i
+  %29 = getelementptr inbounds i32, ptr %23, i64 %25
+  store i32 %.0.copyload1.i.us.i, ptr %29, align 4, !tbaa !5
   br label %_intsetSet.exit.us33.i
 
-31:                                               ; preds = %_intsetGetEncoded.exit.us31.i
-  %32 = sext i32 %.0.copyload1.i.us.i to i64
-  %33 = getelementptr inbounds i64, ptr %24, i64 %26
-  store i64 %32, ptr %33, align 4, !tbaa !10
+30:                                               ; preds = %_intsetGetEncoded.exit.us31.i
+  %31 = sext i32 %.0.copyload1.i.us.i to i64
+  %32 = getelementptr inbounds i64, ptr %23, i64 %25
+  store i64 %31, ptr %32, align 4, !tbaa !10
   br label %_intsetSet.exit.us33.i
 
-34:                                               ; preds = %_intsetGetEncoded.exit.us31.i
-  %35 = trunc i32 %.0.copyload1.i.us.i to i16
-  %36 = getelementptr inbounds i16, ptr %24, i64 %26
-  store i16 %35, ptr %36, align 2, !tbaa !12
+33:                                               ; preds = %_intsetGetEncoded.exit.us31.i
+  %34 = trunc i32 %.0.copyload1.i.us.i to i16
+  %35 = getelementptr inbounds i16, ptr %23, i64 %25
+  store i16 %34, ptr %35, align 2, !tbaa !12
   br label %_intsetSet.exit.us33.i
 
-_intsetSet.exit.us33.i:                           ; preds = %34, %31, %29
+_intsetSet.exit.us33.i:                           ; preds = %33, %30, %28
   %.not.us34.i = icmp eq i64 %indvars.iv.next.i, 0
   br i1 %.not.us34.i, label %._crit_edge.i, label %_intsetGetEncoded.exit.us31.i, !llvm.loop !14
 
 _intsetGetEncoded.exit.i:                         ; preds = %.lr.ph.i, %_intsetSet.exit.i
-  %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %_intsetSet.exit.i ], [ %25, %.lr.ph.i ]
+  %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %_intsetSet.exit.i ], [ %24, %.lr.ph.i ]
   %indvars.iv.next42.i = add nsw i64 %indvars.iv41.i, -1
-  %37 = add nsw i64 %indvars.iv.next42.i, %.lobit.i
-  %38 = getelementptr inbounds i16, ptr %24, i64 %indvars.iv.next42.i
-  %.0.copyload.i.i = load i16, ptr %38, align 2
-  %39 = load i32, ptr %23, align 4, !tbaa !5
-  switch i32 %39, label %46 [
-    i32 8, label %40
-    i32 4, label %43
+  %36 = add nsw i64 %indvars.iv.next42.i, %.lobit.i
+  %37 = getelementptr inbounds i16, ptr %23, i64 %indvars.iv.next42.i
+  %.0.copyload.i.i = load i16, ptr %37, align 2
+  %38 = load i32, ptr %22, align 4, !tbaa !5
+  switch i32 %38, label %45 [
+    i32 8, label %39
+    i32 4, label %42
   ]
 
-40:                                               ; preds = %_intsetGetEncoded.exit.i
-  %41 = sext i16 %.0.copyload.i.i to i64
-  %42 = getelementptr inbounds i64, ptr %24, i64 %37
-  store i64 %41, ptr %42, align 4, !tbaa !10
+39:                                               ; preds = %_intsetGetEncoded.exit.i
+  %40 = sext i16 %.0.copyload.i.i to i64
+  %41 = getelementptr inbounds i64, ptr %23, i64 %36
+  store i64 %40, ptr %41, align 4, !tbaa !10
   br label %_intsetSet.exit.i
 
-43:                                               ; preds = %_intsetGetEncoded.exit.i
-  %44 = sext i16 %.0.copyload.i.i to i32
-  %45 = getelementptr inbounds i32, ptr %24, i64 %37
-  store i32 %44, ptr %45, align 4, !tbaa !5
+42:                                               ; preds = %_intsetGetEncoded.exit.i
+  %43 = sext i16 %.0.copyload.i.i to i32
+  %44 = getelementptr inbounds i32, ptr %23, i64 %36
+  store i32 %43, ptr %44, align 4, !tbaa !5
   br label %_intsetSet.exit.i
 
-46:                                               ; preds = %_intsetGetEncoded.exit.i
-  %47 = getelementptr inbounds i16, ptr %24, i64 %37
-  store i16 %.0.copyload.i.i, ptr %47, align 2, !tbaa !12
+45:                                               ; preds = %_intsetGetEncoded.exit.i
+  %46 = getelementptr inbounds i16, ptr %23, i64 %36
+  store i16 %.0.copyload.i.i, ptr %46, align 2, !tbaa !12
   br label %_intsetSet.exit.i
 
-_intsetSet.exit.i:                                ; preds = %46, %43, %40
+_intsetSet.exit.i:                                ; preds = %45, %42, %39
   %.not.i = icmp eq i64 %indvars.iv.next42.i, 0
   br i1 %.not.i, label %._crit_edge.i, label %_intsetGetEncoded.exit.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %_intsetSet.exit.i, %_intsetSet.exit.us33.i, %13
-  br i1 %16, label %48, label %58
+  %47 = icmp slt i64 %1, 0
+  br i1 %47, label %48, label %58
 
 48:                                               ; preds = %._crit_edge.i
-  %49 = load i32, ptr %23, align 4, !tbaa !5
+  %49 = load i32, ptr %22, align 4, !tbaa !5
   switch i32 %49, label %55 [
     i32 8, label %50
     i32 4, label %52
   ]
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %1, ptr %51, align 4, !tbaa !10
   br label %intsetUpgradeAndAdd.exit
 
 52:                                               ; preds = %48
   %53 = trunc i64 %1 to i32
-  %54 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %53, ptr %54, align 4, !tbaa !5
   br label %intsetUpgradeAndAdd.exit
 
 55:                                               ; preds = %48
   %56 = trunc i64 %1 to i16
-  %57 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i16 %56, ptr %57, align 2, !tbaa !12
   br label %intsetUpgradeAndAdd.exit
 
 58:                                               ; preds = %._crit_edge.i
-  %59 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %60 = load i32, ptr %59, align 4, !tbaa !5
-  %61 = load i32, ptr %23, align 4, !tbaa !5
+  %61 = load i32, ptr %22, align 4, !tbaa !5
   switch i32 %61, label %71 [
     i32 8, label %62
     i32 4, label %66
   ]
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %64 = sext i32 %60 to i64
   %65 = getelementptr inbounds i64, ptr %63, i64 %64
   store i64 %1, ptr %65, align 4, !tbaa !10
@@ -173,7 +173,7 @@ _intsetSet.exit.i:                                ; preds = %46, %43, %40
 
 66:                                               ; preds = %58
   %67 = trunc i64 %1 to i32
-  %68 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %69 = sext i32 %60 to i64
   %70 = getelementptr inbounds i32, ptr %68, i64 %69
   store i32 %67, ptr %70, align 4, !tbaa !5
@@ -181,14 +181,14 @@ _intsetSet.exit.i:                                ; preds = %46, %43, %40
 
 71:                                               ; preds = %58
   %72 = trunc i64 %1 to i16
-  %73 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %74 = sext i32 %60 to i64
   %75 = getelementptr inbounds i16, ptr %73, i64 %74
   store i16 %72, ptr %75, align 2, !tbaa !12
   br label %intsetUpgradeAndAdd.exit
 
 intsetUpgradeAndAdd.exit:                         ; preds = %50, %52, %55, %62, %66, %71
-  %76 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %77 = load i32, ptr %76, align 4, !tbaa !5
   %78 = add i32 %77, 1
   store i32 %78, ptr %76, align 4, !tbaa !5
@@ -294,7 +294,7 @@ _intsetSet.exit:                                  ; preds = %114, %118, %123
   br label %130
 
 130:                                              ; preds = %81, %82, %_intsetSet.exit, %intsetUpgradeAndAdd.exit
-  %.0 = phi ptr [ %23, %intsetUpgradeAndAdd.exit ], [ %91, %_intsetSet.exit ], [ %0, %82 ], [ %0, %81 ]
+  %.0 = phi ptr [ %22, %intsetUpgradeAndAdd.exit ], [ %91, %_intsetSet.exit ], [ %0, %82 ], [ %0, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

@@ -145121,35 +145121,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %194, !llvm.loop !2616
 
 _ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %198
-  %203 = load double, ptr %9, align 16, !tbaa !1478
-  %204 = fmul double %159, 2.000000e+00
-  br label %205
+  %203 = fmul double %159, 2.000000e+00
+  br label %204
 
-205:                                              ; preds = %209, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i67 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %213, %209 ]
-  %.016.i68 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %212, %209 ]
-  %.015.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i68, %209 ]
-  %.0.i70 = phi ptr [ %192, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i71, %209 ]
-  br i1 %.017.i67, label %206, label %209
+204:                                              ; preds = %208, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i67 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %212, %208 ]
+  %.016.i68 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %211, %208 ]
+  %.015.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i68, %208 ]
+  %.0.i70 = phi ptr [ %192, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i71, %208 ]
+  br i1 %.017.i67, label %205, label %208
 
-206:                                              ; preds = %205
-  %207 = getelementptr inbounds i8, ptr %.0.i70, i64 -8
-  %208 = load double, ptr %207, align 8, !tbaa !1478
-  br label %209
+205:                                              ; preds = %204
+  %206 = getelementptr inbounds i8, ptr %.0.i70, i64 -8
+  %207 = load double, ptr %206, align 8, !tbaa !1478
+  br label %208
 
-209:                                              ; preds = %206, %205
-  %.1.i71 = phi ptr [ %207, %206 ], [ %.0.i70, %205 ]
-  %210 = phi double [ %208, %206 ], [ 0.000000e+00, %205 ]
-  %211 = call double @llvm.fmuladd.f64(double %204, double %.016.i68, double %210)
-  %212 = fsub double %211, %.015.i69
-  %213 = xor i1 %.017.i67, true
+208:                                              ; preds = %205, %204
+  %.1.i71 = phi ptr [ %206, %205 ], [ %.0.i70, %204 ]
+  %209 = phi double [ %207, %205 ], [ 0.000000e+00, %204 ]
+  %210 = call double @llvm.fmuladd.f64(double %203, double %.016.i68, double %209)
+  %211 = fsub double %210, %.015.i69
+  %212 = xor i1 %.017.i67, true
   %.not.i72 = icmp eq ptr %.1.i71, %9
-  br i1 %.not.i72, label %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73, label %205, !llvm.loop !2616
+  br i1 %.not.i72, label %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73, label %204, !llvm.loop !2616
 
-_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73: ; preds = %209
-  %214 = call double @llvm.fmuladd.f64(double %201, double %191, double %203)
+_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73: ; preds = %208
+  %213 = load double, ptr %9, align 16, !tbaa !1478
+  %214 = call double @llvm.fmuladd.f64(double %201, double %191, double %213)
   %215 = fsub double %214, %.016.i66
-  %216 = call double @llvm.fmuladd.f64(double %212, double %159, double %203)
+  %216 = call double @llvm.fmuladd.f64(double %211, double %159, double %213)
   %217 = fsub double %216, %.016.i68
   %218 = fsub double %215, %217
   %219 = fmul double %70, %143
@@ -146777,35 +146777,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2645
 
 _ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2645
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2645
 
-_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -147586,35 +147586,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2656
 
 _ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2656
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2656
 
-_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -148285,35 +148285,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2660
 
 _ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2660
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2660
 
-_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -148984,35 +148984,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2664
 
 _ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2664
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2664
 
-_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -149623,35 +149623,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %194, !llvm.loop !2616
 
 _ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %198
-  %203 = load double, ptr %9, align 16, !tbaa !1478
-  %204 = fmul double %159, 2.000000e+00
-  br label %205
+  %203 = fmul double %159, 2.000000e+00
+  br label %204
 
-205:                                              ; preds = %209, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i67 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %213, %209 ]
-  %.016.i68 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %212, %209 ]
-  %.015.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i68, %209 ]
-  %.0.i70 = phi ptr [ %192, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i71, %209 ]
-  br i1 %.017.i67, label %206, label %209
+204:                                              ; preds = %208, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i67 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %212, %208 ]
+  %.016.i68 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %211, %208 ]
+  %.015.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i68, %208 ]
+  %.0.i70 = phi ptr [ %192, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i71, %208 ]
+  br i1 %.017.i67, label %205, label %208
 
-206:                                              ; preds = %205
-  %207 = getelementptr inbounds i8, ptr %.0.i70, i64 -8
-  %208 = load double, ptr %207, align 8, !tbaa !1478
-  br label %209
+205:                                              ; preds = %204
+  %206 = getelementptr inbounds i8, ptr %.0.i70, i64 -8
+  %207 = load double, ptr %206, align 8, !tbaa !1478
+  br label %208
 
-209:                                              ; preds = %206, %205
-  %.1.i71 = phi ptr [ %207, %206 ], [ %.0.i70, %205 ]
-  %210 = phi double [ %208, %206 ], [ 0.000000e+00, %205 ]
-  %211 = call double @llvm.fmuladd.f64(double %204, double %.016.i68, double %210)
-  %212 = fsub double %211, %.015.i69
-  %213 = xor i1 %.017.i67, true
+208:                                              ; preds = %205, %204
+  %.1.i71 = phi ptr [ %206, %205 ], [ %.0.i70, %204 ]
+  %209 = phi double [ %207, %205 ], [ 0.000000e+00, %204 ]
+  %210 = call double @llvm.fmuladd.f64(double %203, double %.016.i68, double %209)
+  %211 = fsub double %210, %.015.i69
+  %212 = xor i1 %.017.i67, true
   %.not.i72 = icmp eq ptr %.1.i71, %9
-  br i1 %.not.i72, label %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73, label %205, !llvm.loop !2616
+  br i1 %.not.i72, label %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73, label %204, !llvm.loop !2616
 
-_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73: ; preds = %209
-  %214 = call double @llvm.fmuladd.f64(double %201, double %191, double %203)
+_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73: ; preds = %208
+  %213 = load double, ptr %9, align 16, !tbaa !1478
+  %214 = call double @llvm.fmuladd.f64(double %201, double %191, double %213)
   %215 = fsub double %214, %.016.i66
-  %216 = call double @llvm.fmuladd.f64(double %212, double %159, double %203)
+  %216 = call double @llvm.fmuladd.f64(double %211, double %159, double %213)
   %217 = fsub double %216, %.016.i68
   %218 = fsub double %215, %217
   %219 = fmul double %70, %143
@@ -150596,35 +150596,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2645
 
 _ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2645
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2645
 
-_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -151273,35 +151273,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2656
 
 _ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2656
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2656
 
-_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -151840,35 +151840,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2660
 
 _ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2660
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2660
 
-_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -152407,35 +152407,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2664
 
 _ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2664
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2664
 
-_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -153046,35 +153046,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %194, !llvm.loop !2616
 
 _ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %198
-  %203 = load double, ptr %9, align 16, !tbaa !1478
-  %204 = fmul double %159, 2.000000e+00
-  br label %205
+  %203 = fmul double %159, 2.000000e+00
+  br label %204
 
-205:                                              ; preds = %209, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i67 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %213, %209 ]
-  %.016.i68 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %212, %209 ]
-  %.015.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i68, %209 ]
-  %.0.i70 = phi ptr [ %192, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i71, %209 ]
-  br i1 %.017.i67, label %206, label %209
+204:                                              ; preds = %208, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i67 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %212, %208 ]
+  %.016.i68 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %211, %208 ]
+  %.015.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i68, %208 ]
+  %.0.i70 = phi ptr [ %192, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i71, %208 ]
+  br i1 %.017.i67, label %205, label %208
 
-206:                                              ; preds = %205
-  %207 = getelementptr inbounds i8, ptr %.0.i70, i64 -8
-  %208 = load double, ptr %207, align 8, !tbaa !1478
-  br label %209
+205:                                              ; preds = %204
+  %206 = getelementptr inbounds i8, ptr %.0.i70, i64 -8
+  %207 = load double, ptr %206, align 8, !tbaa !1478
+  br label %208
 
-209:                                              ; preds = %206, %205
-  %.1.i71 = phi ptr [ %207, %206 ], [ %.0.i70, %205 ]
-  %210 = phi double [ %208, %206 ], [ 0.000000e+00, %205 ]
-  %211 = call double @llvm.fmuladd.f64(double %204, double %.016.i68, double %210)
-  %212 = fsub double %211, %.015.i69
-  %213 = xor i1 %.017.i67, true
+208:                                              ; preds = %205, %204
+  %.1.i71 = phi ptr [ %206, %205 ], [ %.0.i70, %204 ]
+  %209 = phi double [ %207, %205 ], [ 0.000000e+00, %204 ]
+  %210 = call double @llvm.fmuladd.f64(double %203, double %.016.i68, double %209)
+  %211 = fsub double %210, %.015.i69
+  %212 = xor i1 %.017.i67, true
   %.not.i72 = icmp eq ptr %.1.i71, %9
-  br i1 %.not.i72, label %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73, label %205, !llvm.loop !2616
+  br i1 %.not.i72, label %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73, label %204, !llvm.loop !2616
 
-_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73: ; preds = %209
-  %214 = call double @llvm.fmuladd.f64(double %201, double %191, double %203)
+_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73: ; preds = %208
+  %213 = load double, ptr %9, align 16, !tbaa !1478
+  %214 = call double @llvm.fmuladd.f64(double %201, double %191, double %213)
   %215 = fsub double %214, %.016.i66
-  %216 = call double @llvm.fmuladd.f64(double %212, double %159, double %203)
+  %216 = call double @llvm.fmuladd.f64(double %211, double %159, double %213)
   %217 = fsub double %216, %.016.i68
   %218 = fsub double %215, %217
   %219 = fmul double %70, %143
@@ -153918,35 +153918,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2645
 
 _ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2645
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2645
 
-_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -154595,35 +154595,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2656
 
 _ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2656
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2656
 
-_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -155162,35 +155162,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2660
 
 _ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2660
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2660
 
-_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -155729,35 +155729,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2664
 
 _ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2664
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2664
 
-_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -156368,35 +156368,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %194, !llvm.loop !2616
 
 _ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %198
-  %203 = load double, ptr %9, align 16, !tbaa !1478
-  %204 = fmul double %159, 2.000000e+00
-  br label %205
+  %203 = fmul double %159, 2.000000e+00
+  br label %204
 
-205:                                              ; preds = %209, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i67 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %213, %209 ]
-  %.016.i68 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %212, %209 ]
-  %.015.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i68, %209 ]
-  %.0.i70 = phi ptr [ %192, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i71, %209 ]
-  br i1 %.017.i67, label %206, label %209
+204:                                              ; preds = %208, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i67 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %212, %208 ]
+  %.016.i68 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %211, %208 ]
+  %.015.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i68, %208 ]
+  %.0.i70 = phi ptr [ %192, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i71, %208 ]
+  br i1 %.017.i67, label %205, label %208
 
-206:                                              ; preds = %205
-  %207 = getelementptr inbounds i8, ptr %.0.i70, i64 -8
-  %208 = load double, ptr %207, align 8, !tbaa !1478
-  br label %209
+205:                                              ; preds = %204
+  %206 = getelementptr inbounds i8, ptr %.0.i70, i64 -8
+  %207 = load double, ptr %206, align 8, !tbaa !1478
+  br label %208
 
-209:                                              ; preds = %206, %205
-  %.1.i71 = phi ptr [ %207, %206 ], [ %.0.i70, %205 ]
-  %210 = phi double [ %208, %206 ], [ 0.000000e+00, %205 ]
-  %211 = call double @llvm.fmuladd.f64(double %204, double %.016.i68, double %210)
-  %212 = fsub double %211, %.015.i69
-  %213 = xor i1 %.017.i67, true
+208:                                              ; preds = %205, %204
+  %.1.i71 = phi ptr [ %206, %205 ], [ %.0.i70, %204 ]
+  %209 = phi double [ %207, %205 ], [ 0.000000e+00, %204 ]
+  %210 = call double @llvm.fmuladd.f64(double %203, double %.016.i68, double %209)
+  %211 = fsub double %210, %.015.i69
+  %212 = xor i1 %.017.i67, true
   %.not.i72 = icmp eq ptr %.1.i71, %9
-  br i1 %.not.i72, label %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73, label %205, !llvm.loop !2616
+  br i1 %.not.i72, label %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73, label %204, !llvm.loop !2616
 
-_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73: ; preds = %209
-  %214 = call double @llvm.fmuladd.f64(double %201, double %191, double %203)
+_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit73: ; preds = %208
+  %213 = load double, ptr %9, align 16, !tbaa !1478
+  %214 = call double @llvm.fmuladd.f64(double %201, double %191, double %213)
   %215 = fsub double %214, %.016.i66
-  %216 = call double @llvm.fmuladd.f64(double %212, double %159, double %203)
+  %216 = call double @llvm.fmuladd.f64(double %211, double %159, double %213)
   %217 = fsub double %216, %.016.i68
   %218 = fsub double %215, %217
   %219 = fmul double %70, %143
@@ -159455,35 +159455,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2645
 
 _ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2645
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2645
 
-_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -160132,35 +160132,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2656
 
 _ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2656
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2656
 
-_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -160809,35 +160809,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2656
 
 _ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2656
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2656
 
-_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm3ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -163441,35 +163441,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2660
 
 _ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2660
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2660
 
-_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143
@@ -164008,35 +164008,35 @@ _ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE20evaluate_coeffs_var2IdEEvR
   br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit, label %201, !llvm.loop !2664
 
 _ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit: ; preds = %205
-  %210 = load double, ptr %9, align 16, !tbaa !1478
-  %211 = fmul double %159, 2.000000e+00
-  br label %212
+  %210 = fmul double %159, 2.000000e+00
+  br label %211
 
-212:                                              ; preds = %216, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
-  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %220, %216 ]
-  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %216 ]
-  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %216 ]
-  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %216 ]
-  br i1 %.017.i68, label %213, label %216
+211:                                              ; preds = %215, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit
+  %.017.i68 = phi i1 [ true, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %219, %215 ]
+  %.016.i69 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %218, %215 ]
+  %.015.i70 = phi double [ 0.000000e+00, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.016.i69, %215 ]
+  %.0.i71 = phi ptr [ %199, %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit ], [ %.1.i72, %215 ]
+  br i1 %.017.i68, label %212, label %215
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
-  %215 = load double, ptr %214, align 8, !tbaa !1478
-  br label %216
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds i8, ptr %.0.i71, i64 -8
+  %214 = load double, ptr %213, align 8, !tbaa !1478
+  br label %215
 
-216:                                              ; preds = %213, %212
-  %.1.i72 = phi ptr [ %214, %213 ], [ %.0.i71, %212 ]
-  %217 = phi double [ %215, %213 ], [ 0.000000e+00, %212 ]
-  %218 = call double @llvm.fmuladd.f64(double %211, double %.016.i69, double %217)
-  %219 = fsub double %218, %.015.i70
-  %220 = xor i1 %.017.i68, true
+215:                                              ; preds = %212, %211
+  %.1.i72 = phi ptr [ %213, %212 ], [ %.0.i71, %211 ]
+  %216 = phi double [ %214, %212 ], [ 0.000000e+00, %211 ]
+  %217 = call double @llvm.fmuladd.f64(double %210, double %.016.i69, double %216)
+  %218 = fsub double %217, %.015.i70
+  %219 = xor i1 %.017.i68, true
   %.not.i73 = icmp eq ptr %.1.i72, %9
-  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %212, !llvm.loop !2664
+  br i1 %.not.i73, label %_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74, label %211, !llvm.loop !2664
 
-_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %216
-  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %210)
+_ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE12clenshaw_sumIdPdEET_RKS6_T0_S9_.exit74: ; preds = %215
+  %220 = load double, ptr %9, align 16, !tbaa !1478
+  %221 = call double @llvm.fmuladd.f64(double %208, double %198, double %220)
   %222 = fsub double %221, %.016.i67
-  %223 = call double @llvm.fmuladd.f64(double %219, double %159, double %210)
+  %223 = call double @llvm.fmuladd.f64(double %218, double %159, double %220)
   %224 = fsub double %223, %.016.i69
   %225 = fsub double %222, %224
   %226 = fmul double %70, %143

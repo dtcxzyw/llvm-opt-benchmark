@@ -3250,11 +3250,11 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %347
   br i1 %exitcond759.not.i.i, label %.thread814.i.i, label %.preheader
 
 .thread814.i.i:                                   ; preds = %.preheader, %404
-  %.lcssa1265.sink = phi i64 [ 0, %404 ], [ %430, %.preheader ]
+  %.lcssa797.sink.i = phi i64 [ 0, %404 ], [ %430, %.preheader ]
   %431 = phi ptr [ %407, %404 ], [ %417, %.preheader ]
   %432 = phi i64 [ %405, %404 ], [ %416, %.preheader ]
   %433 = getelementptr inbounds nuw i8, ptr %401, i64 8
-  store i64 %.lcssa1265.sink, ptr %433, align 8, !tbaa !83
+  store i64 %.lcssa797.sink.i, ptr %433, align 8, !tbaa !83
   %434 = and i8 %408, 16
   %.not230.i.i = icmp eq i8 %434, 0
   br i1 %.not230.i.i, label %511, label %435

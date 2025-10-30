@@ -2043,43 +2043,43 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h2645_sei_to_side_data(ptr
   br i1 %.not110, label %.sink.split, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 84
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 80
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  br label %56
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  br label %55
 
-56:                                               ; preds = %52, %56
-  %indvars.iv169 = phi i64 [ 0, %52 ], [ %indvars.iv.next170, %56 ]
-  %57 = phi i32 [ 1, %52 ], [ %74, %56 ]
-  %58 = getelementptr inbounds nuw i32, ptr @__const.h2645_sei_to_side_data.mapping, i64 %indvars.iv169
-  %59 = load i32, ptr %58, align 4, !tbaa !64
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [2 x i16], ptr %55, i64 %60
-  %62 = load i16, ptr %61, align 4, !tbaa !67
-  %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %51, i64 %indvars.iv169
-  store i32 %63, ptr %64, align 4, !tbaa !165
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  store i32 50000, ptr %65, align 4, !tbaa !166
-  %66 = add i16 %62, -5
-  %narrow163 = icmp ult i16 %66, -28540
-  %67 = getelementptr inbounds nuw i8, ptr %61, i64 2
-  %68 = load i16, ptr %67, align 2, !tbaa !67
-  %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store i32 %69, ptr %70, align 4, !tbaa !165
-  %71 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  store i32 50000, ptr %71, align 4, !tbaa !166
-  %72 = add i16 %68, -5
-  %narrow164 = icmp ult i16 %72, -23540
-  %73 = select i1 %narrow164, i1 %narrow163, i1 false
-  %74 = select i1 %73, i32 %57, i32 0
-  store i32 %74, ptr %54, align 4, !tbaa !167
+55:                                               ; preds = %52, %55
+  %indvars.iv169 = phi i64 [ 0, %52 ], [ %indvars.iv.next170, %55 ]
+  %56 = phi i32 [ 1, %52 ], [ %73, %55 ]
+  %57 = getelementptr inbounds nuw i32, ptr @__const.h2645_sei_to_side_data.mapping, i64 %indvars.iv169
+  %58 = load i32, ptr %57, align 4, !tbaa !64
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds [2 x i16], ptr %54, i64 %59
+  %61 = load i16, ptr %60, align 4, !tbaa !67
+  %62 = zext i16 %61 to i32
+  %63 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %51, i64 %indvars.iv169
+  store i32 %62, ptr %63, align 4, !tbaa !165
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  store i32 50000, ptr %64, align 4, !tbaa !166
+  %65 = add i16 %61, -5
+  %narrow163 = icmp ult i16 %65, -28540
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 2
+  %67 = load i16, ptr %66, align 2, !tbaa !67
+  %68 = zext i16 %67 to i32
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store i32 %68, ptr %69, align 4, !tbaa !165
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 12
+  store i32 50000, ptr %70, align 4, !tbaa !166
+  %71 = add i16 %67, -5
+  %narrow164 = icmp ult i16 %71, -23540
+  %72 = select i1 %narrow164, i1 %narrow163, i1 false
+  %73 = select i1 %72, i32 %56, i32 0
+  store i32 %73, ptr %53, align 4, !tbaa !167
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next170, 3
-  br i1 %exitcond.not, label %75, label %56, !llvm.loop !169
+  br i1 %exitcond.not, label %74, label %55, !llvm.loop !169
 
-75:                                               ; preds = %56
+74:                                               ; preds = %55
+  %75 = getelementptr inbounds nuw i8, ptr %51, i64 84
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %77 = load i16, ptr %76, align 4, !tbaa !67
   %78 = zext i16 %77 to i32
@@ -2099,8 +2099,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h2645_sei_to_side_data(ptr
   %87 = add i16 %83, -5
   %narrow160 = icmp ult i16 %87, -23540
   %88 = select i1 %narrow160, i1 %narrow, i1 false
-  %89 = select i1 %88, i32 %74, i32 0
-  store i32 %89, ptr %54, align 4, !tbaa !167
+  %89 = select i1 %88, i32 %73, i32 0
+  store i32 %89, ptr %53, align 4, !tbaa !167
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %91 = load i32, ptr %90, align 4, !tbaa !170
   %92 = getelementptr inbounds nuw i8, ptr %51, i64 72
@@ -2120,20 +2120,20 @@ define internal fastcc range(i32 -2147483648, 1) i32 @h2645_sei_to_side_data(ptr
   %narrow162 = select i1 %99, i1 %100, i1 false
   %101 = and i1 %narrow161, %narrow162
   %102 = zext i1 %101 to i32
-  store i32 %102, ptr %53, align 4, !tbaa !176
+  store i32 %102, ptr %75, align 4, !tbaa !176
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %104 = load i32, ptr %103, align 4, !tbaa !177
   %105 = icmp sgt i32 %104, 0
   br i1 %105, label %106, label %108
 
-106:                                              ; preds = %75
+106:                                              ; preds = %74
   %.not111 = icmp eq i32 %96, 0
   %107 = select i1 %.not111, i32 0, i32 %102
-  store i32 %107, ptr %53, align 4, !tbaa !176
+  store i32 %107, ptr %75, align 4, !tbaa !176
   br label %108
 
-108:                                              ; preds = %106, %75
-  %109 = phi i32 [ %107, %106 ], [ %102, %75 ]
+108:                                              ; preds = %106, %74
+  %109 = phi i32 [ %107, %106 ], [ %102, %74 ]
   %.not112 = icmp eq i32 %109, 0
   %.not113 = icmp eq i32 %89, 0
   %or.cond = select i1 %.not112, i1 %.not113, i1 false

@@ -2361,35 +2361,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang11PPCallbacks12FileNotFo
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_127ModuleDependencyPPCallbacks18InclusionDirectiveEN5clang14SourceLocationERKNS1_5TokenEN4llvm9StringRefEbNS1_15CharSourceRangeENS1_20CustomizableOptionalINS1_12FileEntryRefEEES7_S7_PKNS1_6ModuleEbNS1_6SrcMgr18CharacteristicKindE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, ptr nonnull readnone align 8 captures(none) %2, ptr readnone captures(none) %3, i64 %4, i1 zeroext %5, ptr noundef readnone byval(%"class.clang::CharSourceRange") align 8 captures(none) %6, i64 %7, ptr noundef readnone byval(%"class.llvm::StringRef") align 8 captures(none) %8, ptr noundef readnone byval(%"class.llvm::StringRef") align 8 captures(none) %9, ptr readnone captures(none) %10, i1 zeroext %11, i32 %12) unnamed_addr #0 align 2 {
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %26, label %14
+  br i1 %.not, label %24, label %.preheader
 
-14:                                               ; preds = %13
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !839
-  br label %17
-
-17:                                               ; preds = %17, %14
-  %.05.i.i.in = phi i64 [ %7, %14 ], [ %20, %17 ]
+.preheader:                                       ; preds = %13, %.preheader
+  %.05.i.i.in = phi i64 [ %16, %.preheader ], [ %7, %13 ]
   %.05.i.i = inttoptr i64 %.05.i.i.in to ptr
-  %18 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %18, align 8
-  %19 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 4
-  %.not.i.i.i.i.i.i = icmp eq i64 %19, 0
-  %20 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -8
-  %.not7.i.i = icmp eq i64 %20, 0
+  %14 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %14, align 8
+  %15 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 4
+  %.not.i.i.i.i.i.i = icmp eq i64 %15, 0
+  %16 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -8
+  %.not7.i.i = icmp eq i64 %16, 0
   %.not.i.i = or i1 %.not.i.i.i.i.i.i, %.not7.i.i
-  br i1 %.not.i.i, label %_ZNK5clang12FileEntryRef7getNameEv.exit, label %17
+  br i1 %.not.i.i, label %_ZNK5clang12FileEntryRef7getNameEv.exit, label %.preheader
 
-_ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 32
-  %22 = load i64, ptr %.05.i.i, align 8, !tbaa !743
-  %23 = load ptr, ptr %16, align 8, !tbaa !450
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(208) %16, ptr nonnull %21, i64 %22, ptr null, i64 0) #17
-  br label %26
+_ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %.preheader
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !839
+  %19 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 32
+  %20 = load i64, ptr %.05.i.i, align 8, !tbaa !743
+  %21 = load ptr, ptr %18, align 8, !tbaa !450
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %23 = load ptr, ptr %22, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(208) %18, ptr nonnull %19, i64 %20, ptr null, i64 0) #17
+  br label %24
 
-26:                                               ; preds = %13, %_ZNK5clang12FileEntryRef7getNameEv.exit
+24:                                               ; preds = %13, %_ZNK5clang12FileEntryRef7getNameEv.exit
   ret void
 }
 

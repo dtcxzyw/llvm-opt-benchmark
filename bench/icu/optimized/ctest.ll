@@ -447,12 +447,11 @@ define internal fastcc void @iterateTestsWithLevel(ptr noundef %0, i32 noundef %
   br i1 %13, label %132, label %14
 
 14:                                               ; preds = %12
-  %15 = add nsw i32 %1, 1
-  %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds ptr, ptr %2, i64 %16
-  store ptr %0, ptr %17, align 8, !tbaa !10
-  %18 = icmp sgt i32 %1, 0
-  br i1 %18, label %.lr.ph.preheader, label %._crit_edge
+  %15 = sext i32 %1 to i64
+  %16 = getelementptr inbounds ptr, ptr %2, i64 %15
+  store ptr %0, ptr %16, align 8, !tbaa !10
+  %17 = icmp sgt i32 %1, 0
+  br i1 %17, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %14
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -460,10 +459,10 @@ define internal fastcc void @iterateTestsWithLevel(ptr noundef %0, i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8, !tbaa !10
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %21) #23
+  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %19 = load ptr, ptr %18, align 8, !tbaa !10
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %21 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %20) #23
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %6)
   %endptr = getelementptr inbounds i8, ptr %6, i64 %strlen
   store i16 47, ptr %endptr, align 1
@@ -472,11 +471,12 @@ define internal fastcc void @iterateTestsWithLevel(ptr noundef %0, i32 noundef %
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %23 = zext nneg i32 %1 to i64
+  %22 = zext nneg i32 %1 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit
-  %.0.lcssa = phi i64 [ %23, %._crit_edge.loopexit ], [ 0, %14 ]
+  %.0.lcssa = phi i64 [ %22, %._crit_edge.loopexit ], [ 0, %14 ]
+  %23 = add nsw i32 %1, 1
   %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %.0.lcssa
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -512,7 +512,7 @@ define internal fastcc void @iterateTestsWithLevel(ptr noundef %0, i32 noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %0, ptr @currentTest, align 8, !tbaa !10
-  store i32 %15, ptr @INDENT_LEVEL, align 4, !tbaa !18
+  store i32 %23, ptr @INDENT_LEVEL, align 4, !tbaa !18
   store i32 0, ptr @ONE_ERROR, align 4, !tbaa !18
   store i1 false, ptr @HANGING_OUTPUT, align 1
   %40 = call double @uprv_getRawUTCtime_77() #23
@@ -624,7 +624,7 @@ ctest_xml_testcase.exit:                          ; preds = %51, %60, %62
   br label %89
 
 89:                                               ; preds = %35, %88
-  store i32 %15, ptr @INDENT_LEVEL, align 4, !tbaa !18
+  store i32 %23, ptr @INDENT_LEVEL, align 4, !tbaa !18
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %91 = load ptr, ptr %90, align 8, !tbaa !3
   %.not90 = icmp eq ptr %91, null
@@ -637,7 +637,7 @@ ctest_xml_testcase.exit:                          ; preds = %51, %60, %62
   %.not89 = icmp eq ptr %93, null
   %94 = select i1 %.not89, i32 47, i32 32
   call void (ptr, ...) @log_testinfo(ptr noundef nonnull @.str.68, ptr noundef nonnull %6, i32 noundef %94)
-  store i32 %15, ptr @INDENT_LEVEL, align 4, !tbaa !18
+  store i32 %23, ptr @INDENT_LEVEL, align 4, !tbaa !18
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %96 = load ptr, ptr %95, align 8, !tbaa !3
   %.not9096 = icmp eq ptr %96, null
@@ -648,15 +648,15 @@ ctest_xml_testcase.exit:                          ; preds = %51, %60, %62
   %99 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4, !tbaa !18
   store i32 %1, ptr @INDENT_LEVEL, align 4, !tbaa !18
   call void (ptr, ...) @log_testinfo(ptr noundef nonnull @.str.69)
-  store i32 %15, ptr @INDENT_LEVEL, align 4, !tbaa !18
+  store i32 %23, ptr @INDENT_LEVEL, align 4, !tbaa !18
   %100 = load ptr, ptr %90, align 8, !tbaa !3
-  call fastcc void @iterateTestsWithLevel(ptr noundef %100, i32 noundef %15, ptr noundef %2, i32 noundef 0)
+  call fastcc void @iterateTestsWithLevel(ptr noundef %100, i32 noundef %23, ptr noundef %2, i32 noundef 0)
   store i32 %1, ptr @INDENT_LEVEL, align 4, !tbaa !18
   call void (ptr, ...) @log_testinfo_i(ptr noundef nonnull @.str.70)
-  br i1 %18, label %101, label %108
+  br i1 %17, label %101, label %108
 
 .thread97:                                        ; preds = %.thread95
-  call fastcc void @iterateTestsWithLevel(ptr noundef nonnull %96, i32 noundef %15, ptr noundef %2, i32 noundef 1)
+  call fastcc void @iterateTestsWithLevel(ptr noundef nonnull %96, i32 noundef %23, ptr noundef %2, i32 noundef 1)
   br label %119
 
 101:                                              ; preds = %97

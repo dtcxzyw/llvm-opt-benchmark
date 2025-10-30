@@ -4871,26 +4871,26 @@ _ZNSt12_Vector_baseIN2cv4UMatESaIS1_EEC2EmRKS2_.exit.i332: ; preds = %.lr.ph.pre
 
 .noexc340:                                        ; preds = %_ZNSt12_Vector_baseIN2cv4UMatESaIS1_EEC2EmRKS2_.exit.i332
   store ptr %291, ptr %19, align 8, !tbaa !207
-  %292 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %293 = getelementptr inbounds nuw i8, ptr %291, i64 %281
-  %294 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %293, ptr %294, align 8, !tbaa !216
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 %281
+  %293 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store ptr %292, ptr %293, align 8, !tbaa !216
   br label %.lr.ph.i.i.i.i.i333
 
 .lr.ph.i.i.i.i.i333:                              ; preds = %.lr.ph.i.i.i.i.i333, %.noexc340
-  %.08.i.i.i.i.i334 = phi ptr [ %296, %.lr.ph.i.i.i.i.i333 ], [ %291, %.noexc340 ]
-  %.057.i.i.i.i.i335 = phi i64 [ %295, %.lr.ph.i.i.i.i.i333 ], [ %282, %.noexc340 ]
+  %.08.i.i.i.i.i334 = phi ptr [ %295, %.lr.ph.i.i.i.i.i333 ], [ %291, %.noexc340 ]
+  %.057.i.i.i.i.i335 = phi i64 [ %294, %.lr.ph.i.i.i.i.i333 ], [ %282, %.noexc340 ]
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %.08.i.i.i.i.i334, i32 noundef 0) #26
-  %295 = add i64 %.057.i.i.i.i.i335, -1
-  %296 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i334, i64 80
-  %.not.i.i.i.i.i336 = icmp eq i64 %295, 0
+  %294 = add i64 %.057.i.i.i.i.i335, -1
+  %295 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i334, i64 80
+  %.not.i.i.i.i.i336 = icmp eq i64 %294, 0
   br i1 %.not.i.i.i.i.i336, label %.loopexit479, label %.lr.ph.i.i.i.i.i333, !llvm.loop !217
 
 .loopexit479:                                     ; preds = %.lr.ph.i.i.i.i.i333
+  %296 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.pre540 = load ptr, ptr %250, align 8, !tbaa !206
   %.pre541 = load ptr, ptr %249, align 8, !tbaa !207
   %297 = icmp eq ptr %.pre540, %.pre541
-  store ptr %296, ptr %292, align 8, !tbaa !206
+  store ptr %295, ptr %296, align 8, !tbaa !206
   br i1 %297, label %._crit_edge501, label %.lr.ph500
 
 .lr.ph500:                                        ; preds = %.loopexit479

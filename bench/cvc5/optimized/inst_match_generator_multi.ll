@@ -2962,35 +2962,35 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers4inst23InstMatchGenerat
   %9 = ashr exact i64 %8, 3
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %22, %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %12 = load ptr, ptr %11, align 8, !tbaa !15
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %.not15 = icmp eq ptr %12, %13
+._crit_edge:                                      ; preds = %21, %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %11 = load ptr, ptr %10, align 8, !tbaa !15
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %.not15 = icmp eq ptr %11, %12
   br i1 %.not15, label %._crit_edge19, label %.lr.ph18
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %22
-  %.014 = phi i64 [ %23, %22 ], [ 0, %.lr.ph.preheader ]
-  %14 = load ptr, ptr %2, align 8, !tbaa !163
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.014
-  %16 = load ptr, ptr %15, align 8, !tbaa !161
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %22, label %18
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
+  %.014 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.preheader ]
+  %13 = load ptr, ptr %2, align 8, !tbaa !163
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.014
+  %15 = load ptr, ptr %14, align 8, !tbaa !161
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %21, label %17
 
-18:                                               ; preds = %.lr.ph
-  %19 = load ptr, ptr %16, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(256) %16) #21
-  br label %22
+17:                                               ; preds = %.lr.ph
+  %18 = load ptr, ptr %15, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(256) %15) #21
+  br label %21
 
-22:                                               ; preds = %.lr.ph, %18
-  %23 = add nuw i64 %.014, 1
-  %exitcond.not = icmp eq i64 %23, %9
+21:                                               ; preds = %.lr.ph, %17
+  %22 = add nuw i64 %.014, 1
+  %exitcond.not = icmp eq i64 %22, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !204
 
 ._crit_edge19:                                    ; preds = %91, %._crit_edge
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %25 = load ptr, ptr %24, align 8, !tbaa !198
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -3039,7 +3039,7 @@ _ZSt8_DestroyIPN4cvc58internal6theory11quantifiers20InstMatchTrieOrderedES4_EvT_
 _ZNSt6vectorIN4cvc58internal6theory11quantifiers20InstMatchTrieOrderedESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal6theory11quantifiers20InstMatchTrieOrderedES4_EvT_S6_RSaIT0_E.exit.i, %36
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %43 = load ptr, ptr %42, align 8, !tbaa !14
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmPN4cvc58internal6theory11quantifiers13InstMatchTrie13ImtIndexOrderEESt10_Select1stIS9_ESt4lessImESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %43)
+  invoke void @_ZNSt8_Rb_treeImSt4pairIKmPN4cvc58internal6theory11quantifiers13InstMatchTrie13ImtIndexOrderEESt10_Select1stIS9_ESt4lessImESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef %43)
           to label %_ZNSt3mapImPN4cvc58internal6theory11quantifiers13InstMatchTrie13ImtIndexOrderESt4lessImESaISt4pairIKmS6_EEED2Ev.exit unwind label %44
 
 44:                                               ; preds = %_ZNSt6vectorIN4cvc58internal6theory11quantifiers20InstMatchTrieOrderedESaIS4_EED2Ev.exit
@@ -3123,7 +3123,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorImSaImEESt4lessIS3_ESaISt
   ret void
 
 .lr.ph18:                                         ; preds = %._crit_edge, %91
-  %.sroa.011.016 = phi ptr [ %92, %91 ], [ %12, %._crit_edge ]
+  %.sroa.011.016 = phi ptr [ %92, %91 ], [ %11, %._crit_edge ]
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !203
   %82 = icmp eq ptr %81, null
@@ -3149,7 +3149,7 @@ _ZN4cvc58internal6theory11quantifiers13InstMatchTrie13ImtIndexOrderD2Ev.exit: ; 
 
 91:                                               ; preds = %_ZN4cvc58internal6theory11quantifiers13InstMatchTrie13ImtIndexOrderD2Ev.exit, %.lr.ph18
   %92 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.011.016) #25
-  %.not = icmp eq ptr %92, %13
+  %.not = icmp eq ptr %92, %12
   br i1 %.not, label %._crit_edge19, label %.lr.ph18
 }
 

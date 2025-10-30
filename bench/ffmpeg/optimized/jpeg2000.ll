@@ -1501,43 +1501,43 @@ tag_tree_size.exit:                               ; preds = %12
 
 tag_tree_size.exit.thread:                        ; preds = %2
   %23 = tail call noalias ptr @av_calloc(i64 noundef 1, i64 noundef 16) #8
-  %.not56 = icmp eq ptr %23, null
-  br i1 %.not56, label %50, label %._crit_edge
+  %.not57 = icmp eq ptr %23, null
+  br i1 %.not57, label %50, label %._crit_edge
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph
-  %24 = icmp sgt i32 %28, 1
-  %25 = icmp sgt i32 %30, 1
-  %26 = select i1 %24, i1 true, i1 %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !109
+  %24 = add nsw i32 %.03642, 1
+  %25 = ashr i32 %24, 1
+  %26 = icmp sgt i32 %30, 1
+  %27 = icmp sgt i32 %25, 1
+  %28 = select i1 %26, i1 true, i1 %27
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !109
 
 .lr.ph:                                           ; preds = %tag_tree_size.exit, %.loopexit
-  %.03444 = phi i32 [ %28, %.loopexit ], [ %0, %tag_tree_size.exit ]
-  %.03543 = phi ptr [ %33, %.loopexit ], [ %22, %tag_tree_size.exit ]
-  %.03642 = phi i32 [ %30, %.loopexit ], [ %1, %tag_tree_size.exit ]
-  %27 = add nsw i32 %.03444, 1
-  %28 = ashr i32 %27, 1
-  %29 = add nsw i32 %.03642, 1
+  %.03445 = phi i32 [ %30, %.loopexit ], [ %0, %tag_tree_size.exit ]
+  %.03544 = phi ptr [ %33, %.loopexit ], [ %22, %tag_tree_size.exit ]
+  %.03642 = phi i32 [ %25, %.loopexit ], [ %1, %tag_tree_size.exit ]
+  %29 = add nsw i32 %.03445, 1
   %30 = ashr i32 %29, 1
-  %31 = mul nsw i32 %.03444, %.03642
+  %31 = mul nsw i32 %.03445, %.03642
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.Jpeg2000TgtNode, ptr %.03543, i64 %32
+  %33 = getelementptr inbounds %struct.Jpeg2000TgtNode, ptr %.03544, i64 %32
   %34 = icmp sgt i32 %.03642, 0
-  %35 = icmp sgt i32 %.03444, 0
+  %35 = icmp sgt i32 %.03445, 0
   %or.cond = select i1 %34, i1 %35, i1 false
   br i1 %or.cond, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.lr.ph
-  %36 = zext nneg i32 %.03444 to i64
-  %wide.trip.count52 = zext nneg i32 %.03642 to i64
+  %36 = zext nneg i32 %.03445 to i64
+  %wide.trip.count53 = zext nneg i32 %.03642 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv49 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next50, %._crit_edge.us ]
-  %37 = trunc nuw nsw i64 %indvars.iv49 to i32
+  %indvars.iv50 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next51, %._crit_edge.us ]
+  %37 = trunc nuw nsw i64 %indvars.iv50 to i32
   %38 = lshr i32 %37, 1
-  %39 = mul nuw nsw i32 %38, %28
-  %40 = mul nuw nsw i64 %indvars.iv49, %36
-  %invariant.gep = getelementptr inbounds nuw %struct.Jpeg2000TgtNode, ptr %.03543, i64 %40
+  %39 = mul nuw nsw i32 %38, %30
+  %40 = mul nuw nsw i64 %indvars.iv50, %36
+  %invariant.gep = getelementptr inbounds nuw %struct.Jpeg2000TgtNode, ptr %.03544, i64 %40
   br label %41
 
 41:                                               ; preds = %.preheader.us, %41
@@ -1555,9 +1555,9 @@ tag_tree_size.exit.thread:                        ; preds = %2
   br i1 %exitcond.not, label %._crit_edge.us, label %41, !llvm.loop !111
 
 ._crit_edge.us:                                   ; preds = %41
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
-  br i1 %exitcond53.not, label %.loopexit, label %.preheader.us, !llvm.loop !112
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
+  br i1 %exitcond54.not, label %.loopexit, label %.preheader.us, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %.loopexit, %tag_tree_size.exit.thread
   %48 = phi ptr [ %23, %tag_tree_size.exit.thread ], [ %22, %.loopexit ]

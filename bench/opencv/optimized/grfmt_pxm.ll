@@ -2544,23 +2544,23 @@ define hidden noundef zeroext i1 @_ZN2cv10PxMEncoder5writeERKNS_3MatERKSt6vector
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %3, %38
   %46 = phi i32 [ %45, %38 ], [ 0, %3 ]
-  %47 = mul nsw i32 %46, %21
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !122
-  %50 = load ptr, ptr %2, align 8, !tbaa !63
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !122
+  %49 = load ptr, ptr %2, align 8, !tbaa !63
+  %50 = ptrtoint ptr %48 to i64
   %51 = ptrtoint ptr %49 to i64
-  %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %51, %52
-  %54 = ashr exact i64 %53, 2
-  %.not420 = icmp eq ptr %49, %50
+  %52 = sub i64 %50, %51
+  %53 = ashr exact i64 %52, 2
+  %.not420 = icmp eq ptr %48, %49
   br i1 %.not420, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %66
-  %55 = trunc nuw i8 %.1237 to i1
+  %54 = trunc nuw i8 %.1237 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK2cv3Mat8elemSizeEv.exit
-  %.0236.lcssa = phi i1 [ true, %_ZNK2cv3Mat8elemSizeEv.exit ], [ %55, %._crit_edge.loopexit ]
+  %.0236.lcssa = phi i1 [ true, %_ZNK2cv3Mat8elemSizeEv.exit ], [ %54, %._crit_edge.loopexit ]
+  %55 = mul nsw i32 %46, %21
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %57 = load i32, ptr %56, align 8, !tbaa !112
   switch i32 %57, label %.thread355 [
@@ -2573,7 +2573,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %3, %38
 .lr.ph:                                           ; preds = %_ZNK2cv3Mat8elemSizeEv.exit, %66
   %.0236383 = phi i8 [ %.1237, %66 ], [ 1, %_ZNK2cv3Mat8elemSizeEv.exit ]
   %.0247382 = phi i64 [ %67, %66 ], [ 0, %_ZNK2cv3Mat8elemSizeEv.exit ]
-  %58 = getelementptr inbounds nuw i32, ptr %50, i64 %.0247382
+  %58 = getelementptr inbounds nuw i32, ptr %49, i64 %.0247382
   %59 = load i32, ptr %58, align 4, !tbaa !123
   %60 = icmp eq i32 %59, 32
   br i1 %60, label %61, label %66
@@ -2588,7 +2588,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %3, %38
 66:                                               ; preds = %.lr.ph, %61
   %.1237 = phi i8 [ %65, %61 ], [ %.0236383, %.lr.ph ]
   %67 = add nuw i64 %.0247382, 2
-  %68 = icmp ult i64 %67, %54
+  %68 = icmp ult i64 %67, %53
   br i1 %68, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !124
 
 69:                                               ; preds = %._crit_edge
@@ -2764,7 +2764,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319: ; preds = %98
   br label %128
 
 128:                                              ; preds = %112, %114
-  %.pn = phi i32 [ %127, %114 ], [ %47, %112 ]
+  %.pn = phi i32 [ %127, %114 ], [ %55, %112 ]
   %129 = mul nsw i32 %.pn, %23
   %130 = sext i32 %129 to i64
   %131 = add nsw i64 %130, 511
@@ -3015,7 +3015,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328: ; preds = %21
   %235 = icmp eq i32 %27, 3
   %236 = icmp eq i32 %31, 2
   %237 = icmp eq i32 %26, 0
-  %238 = sext i32 %47 to i64
+  %238 = sext i32 %55 to i64
   %.sroa.0.0.insert.ext = zext i32 %21 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.ext, 4294967296
   %239 = icmp ne i32 %31, 2
@@ -3160,7 +3160,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328: ; preds = %21
 
 .thread357:                                       ; preds = %.lr.ph405, %.thread358, %.thread359, %278, %280
   %288 = select i1 %or.cond, ptr %184, ptr %251
-  %289 = invoke noundef zeroext i1 @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef %288, i32 noundef %47)
+  %289 = invoke noundef zeroext i1 @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef %288, i32 noundef %55)
           to label %290 unwind label %257
 
 290:                                              ; preds = %.thread357

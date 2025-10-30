@@ -293,28 +293,28 @@ _ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit: ; preds = %.lr.ph.i, %9
   br label %.preheader264
 
 .preheader264:                                    ; preds = %.preheader264.preheader, %.preheader264
-  %indvars.iv284 = phi i64 [ 0, %.preheader264.preheader ], [ %indvars.iv.next285, %.preheader264 ]
-  %36 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv284
+  %indvars.iv286 = phi i64 [ 0, %.preheader264.preheader ], [ %indvars.iv.next287, %.preheader264 ]
+  %36 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv286
   store i32 1, ptr %36, align 4, !tbaa !3
-  %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
-  %exitcond287.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count
-  br i1 %exitcond287.not, label %.preheader263, label %.preheader264, !llvm.loop !19
+  %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
+  %exitcond289.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count
+  br i1 %exitcond289.not, label %.preheader263, label %.preheader264, !llvm.loop !19
 
 .preheader263:                                    ; preds = %.preheader264, %.preheader263
-  %indvars.iv288 = phi i64 [ %indvars.iv.next289, %.preheader263 ], [ 0, %.preheader264 ]
-  %37 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv288
+  %indvars.iv290 = phi i64 [ %indvars.iv.next291, %.preheader263 ], [ 0, %.preheader264 ]
+  %37 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv290
   store i32 1, ptr %37, align 4, !tbaa !3
-  %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
-  %exitcond291.not = icmp eq i64 %indvars.iv.next289, 53
-  br i1 %exitcond291.not, label %.preheader262, label %.preheader263, !llvm.loop !20
+  %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
+  %exitcond293.not = icmp eq i64 %indvars.iv.next291, 53
+  br i1 %exitcond293.not, label %.preheader262, label %.preheader263, !llvm.loop !20
 
 .preheader262:                                    ; preds = %.preheader263, %.preheader262
-  %indvars.iv292 = phi i64 [ %indvars.iv.next293, %.preheader262 ], [ 0, %.preheader263 ]
-  %38 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv292
+  %indvars.iv294 = phi i64 [ %indvars.iv.next295, %.preheader262 ], [ 0, %.preheader263 ]
+  %38 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv294
   store i32 1, ptr %38, align 4, !tbaa !3
-  %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
-  %exitcond295.not = icmp eq i64 %indvars.iv.next293, 36
-  br i1 %exitcond295.not, label %39, label %.preheader262, !llvm.loop !21
+  %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
+  %exitcond297.not = icmp eq i64 %indvars.iv.next295, 36
+  br i1 %exitcond297.not, label %39, label %.preheader262, !llvm.loop !21
 
 39:                                               ; preds = %.preheader262
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %18, i8 0, i64 4096, i1 false)
@@ -355,7 +355,7 @@ _ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit: ; preds = %.lr.ph.i, %9
   %spec.select.i = sext i32 %narrow.i to i64
   %.not63.i = icmp eq i32 %8, 0
   %51 = icmp ugt i32 %8, 2
-  %wide.trip.count299 = zext i32 %5 to i64
+  %wide.trip.count301 = zext i32 %5 to i64
   br label %58
 
 52:                                               ; preds = %39
@@ -370,9 +370,9 @@ _ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit: ; preds = %.lr.ph.i, %9
   br label %.thread
 
 58:                                               ; preds = %.lr.ph, %_ZN11duckdb_zstdL17ZDICT_countEStatsENS_13EStats_ress_tEPKNS_15ZSTD_parametersEPjS4_S4_S4_S4_PKvmj.exit
-  %indvars.iv296 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next297, %_ZN11duckdb_zstdL17ZDICT_countEStatsENS_13EStats_ress_tEPKNS_15ZSTD_parametersEPjS4_S4_S4_S4_PKvmj.exit ]
+  %indvars.iv298 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next299, %_ZN11duckdb_zstdL17ZDICT_countEStatsENS_13EStats_ress_tEPKNS_15ZSTD_parametersEPjS4_S4_S4_S4_PKvmj.exit ]
   %.0175271 = phi i64 [ 0, %.lr.ph ], [ %144, %_ZN11duckdb_zstdL17ZDICT_countEStatsENS_13EStats_ress_tEPKNS_15ZSTD_parametersEPjS4_S4_S4_S4_PKvmj.exit ]
-  %59 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv296
+  %59 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv298
   %60 = load i64, ptr %59, align 8, !tbaa !14
   %.0.i = call i64 @llvm.umin.i64(i64 %60, i64 %spec.select.i)
   %61 = call noundef i64 @_ZN11duckdb_zstd40ZSTD_compressBegin_usingCDict_deprecatedEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sE(ptr noundef %45, ptr noundef %44)
@@ -529,9 +529,9 @@ _ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit: ; preds = %.lr.ph.i, %9
 _ZN11duckdb_zstdL17ZDICT_countEStatsENS_13EStats_ress_tEPKNS_15ZSTD_parametersEPjS4_S4_S4_S4_PKvmj.exit: ; preds = %63, %64, %72, %73, %79, %._crit_edge.i, %._crit_edge13.i, %126
   %143 = load i64, ptr %59, align 8, !tbaa !14
   %144 = add i64 %143, %.0175271
-  %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
-  %exitcond300.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count299
-  br i1 %exitcond300.not, label %._crit_edge, label %58, !llvm.loop !45
+  %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
+  %exitcond302.not = icmp eq i64 %indvars.iv.next299, %wide.trip.count301
+  br i1 %exitcond302.not, label %._crit_edge, label %58, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %_ZN11duckdb_zstdL17ZDICT_countEStatsENS_13EStats_ress_tEPKNS_15ZSTD_parametersEPjS4_S4_S4_S4_PKvmj.exit, %.preheader261
   %145 = icmp ugt i32 %8, 3
@@ -545,17 +545,17 @@ _ZN11duckdb_zstdL17ZDICT_countEStatsENS_13EStats_ress_tEPKNS_15ZSTD_parametersEP
   br label %151
 
 151:                                              ; preds = %146, %151
-  %indvars.iv301 = phi i64 [ 0, %146 ], [ %indvars.iv.next302, %151 ]
+  %indvars.iv303 = phi i64 [ 0, %146 ], [ %indvars.iv.next304, %151 ]
   %152 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %153 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv301
+  %153 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv303
   %154 = load i32, ptr %153, align 4, !tbaa !3
-  %155 = trunc nuw nsw i64 %indvars.iv301 to i32
+  %155 = trunc nuw nsw i64 %indvars.iv303 to i32
   %156 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef nonnull @.str.5, i32 noundef %155, i32 noundef %154) #17
   %157 = load ptr, ptr @stderr, align 8, !tbaa !11
   %158 = call i32 @fflush(ptr noundef %157)
-  %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
-  %exitcond305.not = icmp eq i64 %indvars.iv.next302, %wide.trip.count
-  br i1 %exitcond305.not, label %.loopexit, label %151, !llvm.loop !46
+  %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
+  %exitcond307.not = icmp eq i64 %indvars.iv.next304, %wide.trip.count
+  br i1 %exitcond307.not, label %.loopexit, label %151, !llvm.loop !46
 
 .loopexit:                                        ; preds = %151, %._crit_edge
   %159 = call noundef i64 @_ZN11duckdb_zstd20HUF_buildCTable_wkspEPmPKjjjPvm(ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef 255, i32 noundef 11, ptr noundef nonnull %20, i64 noundef 4864)
@@ -615,56 +615,56 @@ _ZN11duckdb_zstdL13ZDICT_flatLitEPj.exit:         ; preds = %176
   br label %184
 
 184:                                              ; preds = %181, %_ZN11duckdb_zstdL21ZDICT_insertSortCountEPNS_13offsetCount_tEjj.exit
-  %indvars.iv309 = phi i64 [ 1, %181 ], [ %indvars.iv.next310, %_ZN11duckdb_zstdL21ZDICT_insertSortCountEPNS_13offsetCount_tEjj.exit ]
-  %185 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv309
+  %indvars.iv311 = phi i64 [ 1, %181 ], [ %indvars.iv.next312, %_ZN11duckdb_zstdL21ZDICT_insertSortCountEPNS_13offsetCount_tEjj.exit ]
+  %185 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv311
   %186 = load i32, ptr %185, align 4, !tbaa !3
-  %187 = trunc nuw nsw i64 %indvars.iv309 to i32
+  %187 = trunc nuw nsw i64 %indvars.iv311 to i32
   store i32 %187, ptr %182, align 8, !tbaa !48
   store i32 %186, ptr %183, align 4, !tbaa !50
   br label %188
 
 188:                                              ; preds = %193, %184
-  %indvars.iv306 = phi i64 [ %indvars.iv.next307, %193 ], [ 3, %184 ]
+  %indvars.iv308 = phi i64 [ %indvars.iv.next309, %193 ], [ 3, %184 ]
   %189 = phi i32 [ %198, %193 ], [ %186, %184 ]
-  %indvars.iv.next307 = add nsw i64 %indvars.iv306, -1
-  %190 = getelementptr inbounds nuw %"struct.duckdb_zstd::offsetCount_t", ptr %19, i64 %indvars.iv.next307
+  %indvars.iv.next309 = add nsw i64 %indvars.iv308, -1
+  %190 = getelementptr inbounds nuw %"struct.duckdb_zstd::offsetCount_t", ptr %19, i64 %indvars.iv.next309
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 4
   %192 = load i32, ptr %191, align 4, !tbaa !50
   %.not19.i = icmp ult i32 %192, %189
   br i1 %.not19.i, label %193, label %_ZN11duckdb_zstdL21ZDICT_insertSortCountEPNS_13offsetCount_tEjj.exit
 
 193:                                              ; preds = %188
-  %194 = getelementptr inbounds nuw %"struct.duckdb_zstd::offsetCount_t", ptr %19, i64 %indvars.iv306
+  %194 = getelementptr inbounds nuw %"struct.duckdb_zstd::offsetCount_t", ptr %19, i64 %indvars.iv308
   %195 = load i64, ptr %190, align 8
   %196 = load i64, ptr %194, align 8
   store i64 %196, ptr %190, align 8
   store i64 %195, ptr %194, align 8
-  %.not.i229 = icmp eq i64 %indvars.iv.next307, 0
+  %.not.i229 = icmp eq i64 %indvars.iv.next309, 0
   %197 = lshr i64 %196, 32
   %198 = trunc nuw i64 %197 to i32
   br i1 %.not.i229, label %_ZN11duckdb_zstdL21ZDICT_insertSortCountEPNS_13offsetCount_tEjj.exit, label %188, !llvm.loop !51
 
 _ZN11duckdb_zstdL21ZDICT_insertSortCountEPNS_13offsetCount_tEjj.exit: ; preds = %188, %193
-  %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
-  %exitcond312.not = icmp eq i64 %indvars.iv.next310, 1024
-  br i1 %exitcond312.not, label %.preheader, label %184, !llvm.loop !52
+  %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
+  %exitcond314.not = icmp eq i64 %indvars.iv.next312, 1024
+  br i1 %exitcond314.not, label %.preheader, label %184, !llvm.loop !52
 
 .preheader:                                       ; preds = %_ZN11duckdb_zstdL21ZDICT_insertSortCountEPNS_13offsetCount_tEjj.exit, %.preheader
-  %indvars.iv313 = phi i64 [ %indvars.iv.next314, %.preheader ], [ 0, %_ZN11duckdb_zstdL21ZDICT_insertSortCountEPNS_13offsetCount_tEjj.exit ]
+  %indvars.iv315 = phi i64 [ %indvars.iv.next316, %.preheader ], [ 0, %_ZN11duckdb_zstdL21ZDICT_insertSortCountEPNS_13offsetCount_tEjj.exit ]
   %.0176275 = phi i32 [ %201, %.preheader ], [ 0, %_ZN11duckdb_zstdL21ZDICT_insertSortCountEPNS_13offsetCount_tEjj.exit ]
-  %199 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv313
+  %199 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv315
   %200 = load i32, ptr %199, align 4, !tbaa !3
   %201 = add i32 %200, %.0176275
-  %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
-  %exitcond317.not = icmp eq i64 %indvars.iv.next314, %wide.trip.count
-  br i1 %exitcond317.not, label %202, label %.preheader, !llvm.loop !53
+  %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
+  %exitcond319.not = icmp eq i64 %indvars.iv.next316, %wide.trip.count
+  br i1 %exitcond319.not, label %202, label %.preheader, !llvm.loop !53
 
 202:                                              ; preds = %.preheader
   %203 = trunc i64 %.0165 to i32
   %204 = zext i32 %201 to i64
   %205 = call noundef i64 @_ZN11duckdb_zstd18FSE_normalizeCountEPsjPKjmjj(ptr noundef nonnull %13, i32 noundef 8, ptr noundef nonnull %12, i64 noundef %204, i32 noundef %26, i32 noundef 1)
   %206 = icmp ult i64 %205, -119
-  br i1 %206, label %.preheader352, label %207
+  br i1 %206, label %.preheader281, label %207
 
 207:                                              ; preds = %202
   %.not210 = icmp eq i32 %8, 0
@@ -677,22 +677,22 @@ _ZN11duckdb_zstdL21ZDICT_insertSortCountEPNS_13offsetCount_tEjj.exit: ; preds = 
   %212 = call i32 @fflush(ptr noundef %211)
   br label %.thread
 
-.preheader352:                                    ; preds = %202, %.preheader352
-  %indvars.iv318 = phi i64 [ %indvars.iv.next319, %.preheader352 ], [ 0, %202 ]
-  %.1177277 = phi i32 [ %215, %.preheader352 ], [ 0, %202 ]
-  %213 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv318
+.preheader281:                                    ; preds = %202, %.preheader281
+  %indvars.iv320 = phi i64 [ %indvars.iv.next321, %.preheader281 ], [ 0, %202 ]
+  %.1177277 = phi i32 [ %215, %.preheader281 ], [ 0, %202 ]
+  %213 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv320
   %214 = load i32, ptr %213, align 4, !tbaa !3
   %215 = add i32 %214, %.1177277
-  %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
-  %exitcond321.not = icmp eq i64 %indvars.iv.next319, 53
-  br i1 %exitcond321.not, label %216, label %.preheader352, !llvm.loop !54
+  %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
+  %exitcond323.not = icmp eq i64 %indvars.iv.next321, 53
+  br i1 %exitcond323.not, label %216, label %.preheader281, !llvm.loop !54
 
-216:                                              ; preds = %.preheader352
+216:                                              ; preds = %.preheader281
   %217 = trunc i64 %205 to i32
   %218 = zext i32 %215 to i64
   %219 = call noundef i64 @_ZN11duckdb_zstd18FSE_normalizeCountEPsjPKjmjj(ptr noundef nonnull %15, i32 noundef 9, ptr noundef nonnull %14, i64 noundef %218, i32 noundef 52, i32 noundef 1)
   %220 = icmp ult i64 %219, -119
-  br i1 %220, label %.preheader351, label %221
+  br i1 %220, label %.preheader280, label %221
 
 221:                                              ; preds = %216
   %.not209 = icmp eq i32 %8, 0
@@ -705,17 +705,17 @@ _ZN11duckdb_zstdL21ZDICT_insertSortCountEPNS_13offsetCount_tEjj.exit: ; preds = 
   %226 = call i32 @fflush(ptr noundef %225)
   br label %.thread
 
-.preheader351:                                    ; preds = %216, %.preheader351
-  %indvars.iv322 = phi i64 [ %indvars.iv.next323, %.preheader351 ], [ 0, %216 ]
-  %.2178279 = phi i32 [ %229, %.preheader351 ], [ 0, %216 ]
-  %227 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv322
+.preheader280:                                    ; preds = %216, %.preheader280
+  %indvars.iv324 = phi i64 [ %indvars.iv.next325, %.preheader280 ], [ 0, %216 ]
+  %.2178279 = phi i32 [ %229, %.preheader280 ], [ 0, %216 ]
+  %227 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv324
   %228 = load i32, ptr %227, align 4, !tbaa !3
   %229 = add i32 %228, %.2178279
-  %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
-  %exitcond325.not = icmp eq i64 %indvars.iv.next323, 36
-  br i1 %exitcond325.not, label %230, label %.preheader351, !llvm.loop !55
+  %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
+  %exitcond327.not = icmp eq i64 %indvars.iv.next325, 36
+  br i1 %exitcond327.not, label %230, label %.preheader280, !llvm.loop !55
 
-230:                                              ; preds = %.preheader351
+230:                                              ; preds = %.preheader280
   %231 = trunc i64 %219 to i32
   %232 = zext i32 %229 to i64
   %233 = call noundef i64 @_ZN11duckdb_zstd18FSE_normalizeCountEPsjPKjmjj(ptr noundef nonnull %17, i32 noundef 9, ptr noundef nonnull %16, i64 noundef %232, i32 noundef 35, i32 noundef 1)

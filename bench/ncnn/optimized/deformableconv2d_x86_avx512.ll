@@ -8811,19 +8811,19 @@ _ZN4ncnn3MatD2Ev.exit581.us:                      ; preds = %197
   %scevgep891 = getelementptr i8, ptr %scevgep890, i64 %169
   br label %._crit_edge.us
 
-._crit_edge.us.loopexit876:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us814.us
+._crit_edge.us.loopexit975:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us814.us
   %scevgep887 = getelementptr i8, ptr %.1832.us, i64 512
   %scevgep888 = getelementptr i8, ptr %scevgep887, i64 %169
   br label %._crit_edge.us
 
-._crit_edge.us.loopexit877:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us857
+._crit_edge.us.loopexit976:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us857
   %scevgep = getelementptr i8, ptr %.1832.us, i64 512
   %scevgep886 = getelementptr i8, ptr %scevgep, i64 %169
   br label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %.thread.us.thread, %._crit_edge.us.loopexit877, %._crit_edge.us.loopexit876, %._crit_edge.us.loopexit, %.thread.us
-  %.3.lcssa.us = phi <16 x float> [ %.2499831.us, %.thread.us ], [ %511, %._crit_edge.us.loopexit ], [ %535, %._crit_edge.us.loopexit876 ], [ %304, %._crit_edge.us.loopexit877 ], [ %.2499831.us, %.thread.us.thread ]
-  %.2.lcssa.us = phi ptr [ %.1832.us, %.thread.us ], [ %scevgep891, %._crit_edge.us.loopexit ], [ %scevgep888, %._crit_edge.us.loopexit876 ], [ %scevgep886, %._crit_edge.us.loopexit877 ], [ %.1832.us, %.thread.us.thread ]
+._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit976, %._crit_edge.us.loopexit975, %._crit_edge.us.loopexit, %.thread.us.thread, %.thread.us
+  %.3.lcssa.us = phi <16 x float> [ %.2499831.us, %.thread.us ], [ %.2499831.us, %.thread.us.thread ], [ %511, %._crit_edge.us.loopexit ], [ %535, %._crit_edge.us.loopexit975 ], [ %304, %._crit_edge.us.loopexit976 ]
+  %.2.lcssa.us = phi ptr [ %.1832.us, %.thread.us ], [ %.1832.us, %.thread.us.thread ], [ %scevgep891, %._crit_edge.us.loopexit ], [ %scevgep888, %._crit_edge.us.loopexit975 ], [ %scevgep886, %._crit_edge.us.loopexit976 ]
   %indvars.iv.next895 = add nuw nsw i64 %indvars.iv894, 1
   %exitcond898.not = icmp eq i64 %indvars.iv.next895, %wide.trip.count897
   br i1 %exitcond898.not, label %._crit_edge833.us, label %176, !llvm.loop !190
@@ -8858,7 +8858,7 @@ _ZN4ncnn3MatD2Ev.exit.us857:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %305 = getelementptr inbounds nuw i8, ptr %.2811.us858, i64 512
   %306 = add nuw nsw i32 %.0557809.us860, 1
   %exitcond.not = icmp eq i32 %306, %159
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit877, label %_ZN4ncnn3MatD2Ev.exit.us857, !llvm.loop !191
+  br i1 %exitcond.not, label %._crit_edge.us.loopexit976, label %_ZN4ncnn3MatD2Ev.exit.us857, !llvm.loop !191
 
 _ZN4ncnn3MatD2Ev.exit.us.us.preheader:            ; preds = %.thread.us
   %307 = load <16 x float>, ptr %164, align 1, !tbaa !101
@@ -9173,7 +9173,7 @@ _ZN4ncnn3MatD2Ev.exit.us814.us:                   ; preds = %_ZN4ncnn3MatD2Ev.ex
   %536 = getelementptr inbounds nuw i8, ptr %.2811.us815.us, i64 512
   %537 = add nuw nsw i32 %.0557809.us817.us, 1
   %exitcond889.not = icmp eq i32 %537, %159
-  br i1 %exitcond889.not, label %._crit_edge.us.loopexit876, label %_ZN4ncnn3MatD2Ev.exit.us814.us, !llvm.loop !191
+  br i1 %exitcond889.not, label %._crit_edge.us.loopexit975, label %_ZN4ncnn3MatD2Ev.exit.us814.us, !llvm.loop !191
 
 ._crit_edge833.us:                                ; preds = %._crit_edge.us
   %indvars.iv.next900 = add nuw nsw i64 %indvars.iv899, 1
@@ -10905,19 +10905,19 @@ _ZN4ncnn3MatD2Ev.exit433.us:                      ; preds = %197
   %scevgep739 = getelementptr i8, ptr %scevgep738, i64 %169
   br label %._crit_edge.us
 
-._crit_edge.us.loopexit724:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us666.us
+._crit_edge.us.loopexit823:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us666.us
   %scevgep735 = getelementptr i8, ptr %.1680.us, i64 256
   %scevgep736 = getelementptr i8, ptr %scevgep735, i64 %169
   br label %._crit_edge.us
 
-._crit_edge.us.loopexit725:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us705
+._crit_edge.us.loopexit824:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us705
   %scevgep = getelementptr i8, ptr %.1680.us, i64 256
   %scevgep734 = getelementptr i8, ptr %scevgep, i64 %169
   br label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %.thread.us.thread, %._crit_edge.us.loopexit725, %._crit_edge.us.loopexit724, %._crit_edge.us.loopexit, %.thread.us
-  %.3.lcssa.us = phi <16 x float> [ %.2375679.us, %.thread.us ], [ %403, %._crit_edge.us.loopexit ], [ %415, %._crit_edge.us.loopexit724 ], [ %292, %._crit_edge.us.loopexit725 ], [ %.2375679.us, %.thread.us.thread ]
-  %.2.lcssa.us = phi ptr [ %.1680.us, %.thread.us ], [ %scevgep739, %._crit_edge.us.loopexit ], [ %scevgep736, %._crit_edge.us.loopexit724 ], [ %scevgep734, %._crit_edge.us.loopexit725 ], [ %.1680.us, %.thread.us.thread ]
+._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit824, %._crit_edge.us.loopexit823, %._crit_edge.us.loopexit, %.thread.us.thread, %.thread.us
+  %.3.lcssa.us = phi <16 x float> [ %.2375679.us, %.thread.us ], [ %.2375679.us, %.thread.us.thread ], [ %403, %._crit_edge.us.loopexit ], [ %415, %._crit_edge.us.loopexit823 ], [ %292, %._crit_edge.us.loopexit824 ]
+  %.2.lcssa.us = phi ptr [ %.1680.us, %.thread.us ], [ %.1680.us, %.thread.us.thread ], [ %scevgep739, %._crit_edge.us.loopexit ], [ %scevgep736, %._crit_edge.us.loopexit823 ], [ %scevgep734, %._crit_edge.us.loopexit824 ]
   %indvars.iv.next743 = add nuw nsw i64 %indvars.iv742, 1
   %exitcond746.not = icmp eq i64 %indvars.iv.next743, %wide.trip.count745
   br i1 %exitcond746.not, label %._crit_edge681.us, label %176, !llvm.loop !226
@@ -10940,7 +10940,7 @@ _ZN4ncnn3MatD2Ev.exit.us705:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %293 = getelementptr inbounds nuw i8, ptr %.2663.us706, i64 256
   %294 = add nuw nsw i32 %.0404661.us708, 1
   %exitcond.not = icmp eq i32 %294, %159
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit725, label %_ZN4ncnn3MatD2Ev.exit.us705, !llvm.loop !227
+  br i1 %exitcond.not, label %._crit_edge.us.loopexit824, label %_ZN4ncnn3MatD2Ev.exit.us705, !llvm.loop !227
 
 _ZN4ncnn3MatD2Ev.exit.us.us.preheader:            ; preds = %.thread.us
   %295 = load <16 x float>, ptr %164, align 1, !tbaa !101
@@ -11127,7 +11127,7 @@ _ZN4ncnn3MatD2Ev.exit.us666.us:                   ; preds = %_ZN4ncnn3MatD2Ev.ex
   %416 = getelementptr inbounds nuw i8, ptr %.2663.us667.us, i64 256
   %417 = add nuw nsw i32 %.0404661.us669.us, 1
   %exitcond737.not = icmp eq i32 %417, %159
-  br i1 %exitcond737.not, label %._crit_edge.us.loopexit724, label %_ZN4ncnn3MatD2Ev.exit.us666.us, !llvm.loop !227
+  br i1 %exitcond737.not, label %._crit_edge.us.loopexit823, label %_ZN4ncnn3MatD2Ev.exit.us666.us, !llvm.loop !227
 
 ._crit_edge681.us:                                ; preds = %._crit_edge.us
   %indvars.iv.next748 = add nuw nsw i64 %indvars.iv747, 1
@@ -12857,14 +12857,14 @@ _ZN4ncnn3MatD2Ev.exit322.us:                      ; preds = %197
   %scevgep609 = getelementptr i8, ptr %scevgep608, i64 %169
   br label %._crit_edge.us
 
-._crit_edge.us.loopexit600:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us582
+._crit_edge.us.loopexit693:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us582
   %scevgep = getelementptr i8, ptr %.1557.us, i64 64
   %scevgep607 = getelementptr i8, ptr %scevgep, i64 %169
   br label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %.thread.us.thread, %._crit_edge.us.loopexit600, %._crit_edge.us.loopexit, %.thread.us
-  %.3.lcssa.us = phi <16 x float> [ %.2282556.us, %.thread.us ], [ %316, %._crit_edge.us.loopexit ], [ %279, %._crit_edge.us.loopexit600 ], [ %.2282556.us, %.thread.us.thread ]
-  %.2.lcssa.us = phi ptr [ %.1557.us, %.thread.us ], [ %scevgep609, %._crit_edge.us.loopexit ], [ %scevgep607, %._crit_edge.us.loopexit600 ], [ %.1557.us, %.thread.us.thread ]
+._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit693, %._crit_edge.us.loopexit, %.thread.us.thread, %.thread.us
+  %.3.lcssa.us = phi <16 x float> [ %.2282556.us, %.thread.us ], [ %.2282556.us, %.thread.us.thread ], [ %316, %._crit_edge.us.loopexit ], [ %279, %._crit_edge.us.loopexit693 ]
+  %.2.lcssa.us = phi ptr [ %.1557.us, %.thread.us ], [ %.1557.us, %.thread.us.thread ], [ %scevgep609, %._crit_edge.us.loopexit ], [ %scevgep607, %._crit_edge.us.loopexit693 ]
   %indvars.iv.next613 = add nuw nsw i64 %indvars.iv612, 1
   %exitcond616.not = icmp eq i64 %indvars.iv.next613, %wide.trip.count615
   br i1 %exitcond616.not, label %._crit_edge558.us, label %176, !llvm.loop !262
@@ -12878,7 +12878,7 @@ _ZN4ncnn3MatD2Ev.exit.us582:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %280 = getelementptr inbounds nuw i8, ptr %.2552.us583, i64 64
   %281 = add nuw nsw i32 %.0290550.us585, 1
   %exitcond.not = icmp eq i32 %281, %159
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit600, label %_ZN4ncnn3MatD2Ev.exit.us582, !llvm.loop !263
+  br i1 %exitcond.not, label %._crit_edge.us.loopexit693, label %_ZN4ncnn3MatD2Ev.exit.us582, !llvm.loop !263
 
 _ZN4ncnn3MatD2Ev.exit.us.us.preheader:            ; preds = %.thread.us
   %.sroa.0403.0.vec.insert.us = insertelement <16 x float> poison, float %.0294.us, i64 0
@@ -14449,19 +14449,19 @@ _ZN4ncnn3MatD2Ev.exit321.us:                      ; preds = %165
   %scevgep931 = getelementptr i8, ptr %scevgep930, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us.loopexit916:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us854.us
+._crit_edge.us.loopexit1015:                      ; preds = %_ZN4ncnn3MatD2Ev.exit.us854.us
   %scevgep927 = getelementptr i8, ptr %.1872.us, i64 256
   %scevgep928 = getelementptr i8, ptr %scevgep927, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us.loopexit917:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us897
+._crit_edge.us.loopexit1016:                      ; preds = %_ZN4ncnn3MatD2Ev.exit.us897
   %scevgep = getelementptr i8, ptr %.1872.us, i64 256
   %scevgep926 = getelementptr i8, ptr %scevgep, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %.thread.us.thread, %._crit_edge.us.loopexit917, %._crit_edge.us.loopexit916, %._crit_edge.us.loopexit, %.thread.us
-  %.3.lcssa.us = phi <8 x float> [ %.2845870.us, %.thread.us ], [ %479, %._crit_edge.us.loopexit ], [ %503, %._crit_edge.us.loopexit916 ], [ %272, %._crit_edge.us.loopexit917 ], [ %.2845870.us, %.thread.us.thread ]
-  %.2.lcssa.us = phi ptr [ %.1872.us, %.thread.us ], [ %scevgep931, %._crit_edge.us.loopexit ], [ %scevgep928, %._crit_edge.us.loopexit916 ], [ %scevgep926, %._crit_edge.us.loopexit917 ], [ %.1872.us, %.thread.us.thread ]
+._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit1016, %._crit_edge.us.loopexit1015, %._crit_edge.us.loopexit, %.thread.us.thread, %.thread.us
+  %.3.lcssa.us = phi <8 x float> [ %.2845870.us, %.thread.us ], [ %.2845870.us, %.thread.us.thread ], [ %479, %._crit_edge.us.loopexit ], [ %503, %._crit_edge.us.loopexit1015 ], [ %272, %._crit_edge.us.loopexit1016 ]
+  %.2.lcssa.us = phi ptr [ %.1872.us, %.thread.us ], [ %.1872.us, %.thread.us.thread ], [ %scevgep931, %._crit_edge.us.loopexit ], [ %scevgep928, %._crit_edge.us.loopexit1015 ], [ %scevgep926, %._crit_edge.us.loopexit1016 ]
   %indvars.iv.next935 = add nuw nsw i64 %indvars.iv934, 1
   %exitcond938.not = icmp eq i64 %indvars.iv.next935, %wide.trip.count937
   br i1 %exitcond938.not, label %._crit_edge873.us, label %144, !llvm.loop !291
@@ -14496,7 +14496,7 @@ _ZN4ncnn3MatD2Ev.exit.us897:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %273 = getelementptr inbounds nuw i8, ptr %.2850.us899, i64 256
   %274 = add nuw nsw i32 %.0286851.us898, 1
   %exitcond.not = icmp eq i32 %274, %127
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit917, label %_ZN4ncnn3MatD2Ev.exit.us897, !llvm.loop !292
+  br i1 %exitcond.not, label %._crit_edge.us.loopexit1016, label %_ZN4ncnn3MatD2Ev.exit.us897, !llvm.loop !292
 
 _ZN4ncnn3MatD2Ev.exit.us.us.preheader:            ; preds = %.thread.us
   %275 = load <8 x float>, ptr %132, align 1, !tbaa !101
@@ -14811,7 +14811,7 @@ _ZN4ncnn3MatD2Ev.exit.us854.us:                   ; preds = %_ZN4ncnn3MatD2Ev.ex
   %504 = getelementptr inbounds nuw i8, ptr %.2850.us856.us, i64 256
   %505 = add nuw nsw i32 %.0286851.us855.us, 1
   %exitcond929.not = icmp eq i32 %505, %127
-  br i1 %exitcond929.not, label %._crit_edge.us.loopexit916, label %_ZN4ncnn3MatD2Ev.exit.us854.us, !llvm.loop !292
+  br i1 %exitcond929.not, label %._crit_edge.us.loopexit1015, label %_ZN4ncnn3MatD2Ev.exit.us854.us, !llvm.loop !292
 
 ._crit_edge873.us:                                ; preds = %._crit_edge.us
   %indvars.iv.next940 = add nuw nsw i64 %indvars.iv939, 1
@@ -15378,14 +15378,14 @@ _ZN4ncnn3MatD2Ev.exit251.us:                      ; preds = %165
   %scevgep673 = getelementptr i8, ptr %scevgep672, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us.loopexit664:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us646
+._crit_edge.us.loopexit757:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us646
   %scevgep = getelementptr i8, ptr %.1621.us, i64 32
   %scevgep671 = getelementptr i8, ptr %scevgep, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %.thread.us.thread, %._crit_edge.us.loopexit664, %._crit_edge.us.loopexit, %.thread.us
-  %.3.lcssa.us = phi <8 x float> [ %.2610619.us, %.thread.us ], [ %284, %._crit_edge.us.loopexit ], [ %247, %._crit_edge.us.loopexit664 ], [ %.2610619.us, %.thread.us.thread ]
-  %.2.lcssa.us = phi ptr [ %.1621.us, %.thread.us ], [ %scevgep673, %._crit_edge.us.loopexit ], [ %scevgep671, %._crit_edge.us.loopexit664 ], [ %.1621.us, %.thread.us.thread ]
+._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit757, %._crit_edge.us.loopexit, %.thread.us.thread, %.thread.us
+  %.3.lcssa.us = phi <8 x float> [ %.2610619.us, %.thread.us ], [ %.2610619.us, %.thread.us.thread ], [ %284, %._crit_edge.us.loopexit ], [ %247, %._crit_edge.us.loopexit757 ]
+  %.2.lcssa.us = phi ptr [ %.1621.us, %.thread.us ], [ %.1621.us, %.thread.us.thread ], [ %scevgep673, %._crit_edge.us.loopexit ], [ %scevgep671, %._crit_edge.us.loopexit757 ]
   %indvars.iv.next677 = add nuw nsw i64 %indvars.iv676, 1
   %exitcond680.not = icmp eq i64 %indvars.iv.next677, %wide.trip.count679
   br i1 %exitcond680.not, label %._crit_edge622.us, label %144, !llvm.loop !309
@@ -15399,7 +15399,7 @@ _ZN4ncnn3MatD2Ev.exit.us646:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %248 = getelementptr inbounds nuw i8, ptr %.2615.us648, i64 32
   %249 = add nuw nsw i32 %.0216616.us647, 1
   %exitcond.not = icmp eq i32 %249, %127
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit664, label %_ZN4ncnn3MatD2Ev.exit.us646, !llvm.loop !310
+  br i1 %exitcond.not, label %._crit_edge.us.loopexit757, label %_ZN4ncnn3MatD2Ev.exit.us646, !llvm.loop !310
 
 _ZN4ncnn3MatD2Ev.exit.us.us.preheader:            ; preds = %.thread.us
   %.sroa.0355.0.vec.insert.us = insertelement <8 x float> poison, float %.0223.us, i64 0
@@ -16049,19 +16049,19 @@ _ZN4ncnn3MatD2Ev.exit281.us:                      ; preds = %165
   %scevgep792 = getelementptr i8, ptr %scevgep791, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us.loopexit777:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us719.us
+._crit_edge.us.loopexit876:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us719.us
   %scevgep788 = getelementptr i8, ptr %.1733.us, i64 128
   %scevgep789 = getelementptr i8, ptr %scevgep788, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us.loopexit778:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us758
+._crit_edge.us.loopexit877:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us758
   %scevgep = getelementptr i8, ptr %.1733.us, i64 128
   %scevgep787 = getelementptr i8, ptr %scevgep, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %.thread.us.thread, %._crit_edge.us.loopexit778, %._crit_edge.us.loopexit777, %._crit_edge.us.loopexit, %.thread.us
-  %.3.lcssa.us = phi <8 x float> [ %.2710731.us, %.thread.us ], [ %371, %._crit_edge.us.loopexit ], [ %383, %._crit_edge.us.loopexit777 ], [ %260, %._crit_edge.us.loopexit778 ], [ %.2710731.us, %.thread.us.thread ]
-  %.2.lcssa.us = phi ptr [ %.1733.us, %.thread.us ], [ %scevgep792, %._crit_edge.us.loopexit ], [ %scevgep789, %._crit_edge.us.loopexit777 ], [ %scevgep787, %._crit_edge.us.loopexit778 ], [ %.1733.us, %.thread.us.thread ]
+._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit877, %._crit_edge.us.loopexit876, %._crit_edge.us.loopexit, %.thread.us.thread, %.thread.us
+  %.3.lcssa.us = phi <8 x float> [ %.2710731.us, %.thread.us ], [ %.2710731.us, %.thread.us.thread ], [ %371, %._crit_edge.us.loopexit ], [ %383, %._crit_edge.us.loopexit876 ], [ %260, %._crit_edge.us.loopexit877 ]
+  %.2.lcssa.us = phi ptr [ %.1733.us, %.thread.us ], [ %.1733.us, %.thread.us.thread ], [ %scevgep792, %._crit_edge.us.loopexit ], [ %scevgep789, %._crit_edge.us.loopexit876 ], [ %scevgep787, %._crit_edge.us.loopexit877 ]
   %indvars.iv.next796 = add nuw nsw i64 %indvars.iv795, 1
   %exitcond799.not = icmp eq i64 %indvars.iv.next796, %wide.trip.count798
   br i1 %exitcond799.not, label %._crit_edge734.us, label %144, !llvm.loop !327
@@ -16084,7 +16084,7 @@ _ZN4ncnn3MatD2Ev.exit.us758:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %261 = getelementptr inbounds nuw i8, ptr %.2715.us760, i64 128
   %262 = add nuw nsw i32 %.0246716.us759, 1
   %exitcond.not = icmp eq i32 %262, %127
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit778, label %_ZN4ncnn3MatD2Ev.exit.us758, !llvm.loop !328
+  br i1 %exitcond.not, label %._crit_edge.us.loopexit877, label %_ZN4ncnn3MatD2Ev.exit.us758, !llvm.loop !328
 
 _ZN4ncnn3MatD2Ev.exit.us.us.preheader:            ; preds = %.thread.us
   %263 = load <8 x float>, ptr %132, align 1, !tbaa !101
@@ -16271,7 +16271,7 @@ _ZN4ncnn3MatD2Ev.exit.us719.us:                   ; preds = %_ZN4ncnn3MatD2Ev.ex
   %384 = getelementptr inbounds nuw i8, ptr %.2715.us721.us, i64 128
   %385 = add nuw nsw i32 %.0246716.us720.us, 1
   %exitcond790.not = icmp eq i32 %385, %127
-  br i1 %exitcond790.not, label %._crit_edge.us.loopexit777, label %_ZN4ncnn3MatD2Ev.exit.us719.us, !llvm.loop !328
+  br i1 %exitcond790.not, label %._crit_edge.us.loopexit876, label %_ZN4ncnn3MatD2Ev.exit.us719.us, !llvm.loop !328
 
 ._crit_edge734.us:                                ; preds = %._crit_edge.us
   %indvars.iv.next801 = add nuw nsw i64 %indvars.iv800, 1
@@ -16893,9 +16893,9 @@ _ZN4ncnn3MatD2Ev.exit456.us.us.us.us:             ; preds = %198
   %scevgep754 = getelementptr i8, ptr %scevgep753, i64 %167
   br label %._crit_edge.us.us.us.us
 
-._crit_edge.us.us.us.us:                          ; preds = %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us717.us.us.us, %.thread.us.us.us.us.thread, %._crit_edge.us.us.us.us.loopexit, %.thread.us.us.us.us
-  %.3.lcssa.us.us.us.us = phi float [ %.2374687.us.us.us.us, %.thread.us.us.us.us ], [ %452, %._crit_edge.us.us.us.us.loopexit ], [ %.2374687.us.us.us.us, %.thread.us.us.us.us.thread ], [ %.2374687.us.us.us.us, %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us717.us.us.us ]
-  %.2.lcssa.us.us.us.us = phi ptr [ %.1688.us.us.us.us, %.thread.us.us.us.us ], [ %scevgep754, %._crit_edge.us.us.us.us.loopexit ], [ %.1688.us.us.us.us, %.thread.us.us.us.us.thread ], [ %scevgep752, %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us717.us.us.us ]
+._crit_edge.us.us.us.us:                          ; preds = %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us717.us.us.us, %._crit_edge.us.us.us.us.loopexit, %.thread.us.us.us.us.thread, %.thread.us.us.us.us
+  %.3.lcssa.us.us.us.us = phi float [ %.2374687.us.us.us.us, %.thread.us.us.us.us ], [ %.2374687.us.us.us.us, %.thread.us.us.us.us.thread ], [ %452, %._crit_edge.us.us.us.us.loopexit ], [ %.2374687.us.us.us.us, %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us717.us.us.us ]
+  %.2.lcssa.us.us.us.us = phi ptr [ %.1688.us.us.us.us, %.thread.us.us.us.us ], [ %.1688.us.us.us.us, %.thread.us.us.us.us.thread ], [ %scevgep754, %._crit_edge.us.us.us.us.loopexit ], [ %scevgep752, %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us717.us.us.us ]
   %indvars.iv.next757 = add nuw nsw i64 %indvars.iv756, 1
   %exitcond760.not = icmp eq i64 %indvars.iv.next757, %wide.trip.count759
   br i1 %exitcond760.not, label %._crit_edge689.us.us.us.us, label %175, !llvm.loop !338
@@ -17541,19 +17541,19 @@ _ZN4ncnn3MatD2Ev.exit301.us:                      ; preds = %165
   %scevgep901 = getelementptr i8, ptr %scevgep900, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us.loopexit886:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us824.us
+._crit_edge.us.loopexit985:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us824.us
   %scevgep897 = getelementptr i8, ptr %.1842.us, i64 128
   %scevgep898 = getelementptr i8, ptr %scevgep897, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us.loopexit887:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us867
+._crit_edge.us.loopexit986:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us867
   %scevgep = getelementptr i8, ptr %.1842.us, i64 128
   %scevgep896 = getelementptr i8, ptr %scevgep, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %.thread.us.thread, %._crit_edge.us.loopexit887, %._crit_edge.us.loopexit886, %._crit_edge.us.loopexit, %.thread.us
-  %.3.lcssa.us = phi <4 x float> [ %.2815840.us, %.thread.us ], [ %479, %._crit_edge.us.loopexit ], [ %503, %._crit_edge.us.loopexit886 ], [ %272, %._crit_edge.us.loopexit887 ], [ %.2815840.us, %.thread.us.thread ]
-  %.2.lcssa.us = phi ptr [ %.1842.us, %.thread.us ], [ %scevgep901, %._crit_edge.us.loopexit ], [ %scevgep898, %._crit_edge.us.loopexit886 ], [ %scevgep896, %._crit_edge.us.loopexit887 ], [ %.1842.us, %.thread.us.thread ]
+._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit986, %._crit_edge.us.loopexit985, %._crit_edge.us.loopexit, %.thread.us.thread, %.thread.us
+  %.3.lcssa.us = phi <4 x float> [ %.2815840.us, %.thread.us ], [ %.2815840.us, %.thread.us.thread ], [ %479, %._crit_edge.us.loopexit ], [ %503, %._crit_edge.us.loopexit985 ], [ %272, %._crit_edge.us.loopexit986 ]
+  %.2.lcssa.us = phi ptr [ %.1842.us, %.thread.us ], [ %.1842.us, %.thread.us.thread ], [ %scevgep901, %._crit_edge.us.loopexit ], [ %scevgep898, %._crit_edge.us.loopexit985 ], [ %scevgep896, %._crit_edge.us.loopexit986 ]
   %indvars.iv.next905 = add nuw nsw i64 %indvars.iv904, 1
   %exitcond908.not = icmp eq i64 %indvars.iv.next905, %wide.trip.count907
   br i1 %exitcond908.not, label %._crit_edge843.us, label %144, !llvm.loop !356
@@ -17588,7 +17588,7 @@ _ZN4ncnn3MatD2Ev.exit.us867:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %273 = getelementptr inbounds nuw i8, ptr %.2820.us869, i64 128
   %274 = add nuw nsw i32 %.0266821.us868, 1
   %exitcond.not = icmp eq i32 %274, %127
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit887, label %_ZN4ncnn3MatD2Ev.exit.us867, !llvm.loop !357
+  br i1 %exitcond.not, label %._crit_edge.us.loopexit986, label %_ZN4ncnn3MatD2Ev.exit.us867, !llvm.loop !357
 
 _ZN4ncnn3MatD2Ev.exit.us.us.preheader:            ; preds = %.thread.us
   %275 = load <4 x float>, ptr %132, align 1, !tbaa !101
@@ -17903,7 +17903,7 @@ _ZN4ncnn3MatD2Ev.exit.us824.us:                   ; preds = %_ZN4ncnn3MatD2Ev.ex
   %504 = getelementptr inbounds nuw i8, ptr %.2820.us826.us, i64 128
   %505 = add nuw nsw i32 %.0266821.us825.us, 1
   %exitcond899.not = icmp eq i32 %505, %127
-  br i1 %exitcond899.not, label %._crit_edge.us.loopexit886, label %_ZN4ncnn3MatD2Ev.exit.us824.us, !llvm.loop !357
+  br i1 %exitcond899.not, label %._crit_edge.us.loopexit985, label %_ZN4ncnn3MatD2Ev.exit.us824.us, !llvm.loop !357
 
 ._crit_edge843.us:                                ; preds = %._crit_edge.us
   %indvars.iv.next910 = add nuw nsw i64 %indvars.iv909, 1
@@ -18483,19 +18483,19 @@ _ZN4ncnn3MatD2Ev.exit261.us:                      ; preds = %165
   %scevgep762 = getelementptr i8, ptr %scevgep761, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us.loopexit747:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us689.us
+._crit_edge.us.loopexit846:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us689.us
   %scevgep758 = getelementptr i8, ptr %.1703.us, i64 64
   %scevgep759 = getelementptr i8, ptr %scevgep758, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us.loopexit748:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us728
+._crit_edge.us.loopexit847:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us728
   %scevgep = getelementptr i8, ptr %.1703.us, i64 64
   %scevgep757 = getelementptr i8, ptr %scevgep, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %.thread.us.thread, %._crit_edge.us.loopexit748, %._crit_edge.us.loopexit747, %._crit_edge.us.loopexit, %.thread.us
-  %.3.lcssa.us = phi <4 x float> [ %.2680701.us, %.thread.us ], [ %371, %._crit_edge.us.loopexit ], [ %383, %._crit_edge.us.loopexit747 ], [ %260, %._crit_edge.us.loopexit748 ], [ %.2680701.us, %.thread.us.thread ]
-  %.2.lcssa.us = phi ptr [ %.1703.us, %.thread.us ], [ %scevgep762, %._crit_edge.us.loopexit ], [ %scevgep759, %._crit_edge.us.loopexit747 ], [ %scevgep757, %._crit_edge.us.loopexit748 ], [ %.1703.us, %.thread.us.thread ]
+._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit847, %._crit_edge.us.loopexit846, %._crit_edge.us.loopexit, %.thread.us.thread, %.thread.us
+  %.3.lcssa.us = phi <4 x float> [ %.2680701.us, %.thread.us ], [ %.2680701.us, %.thread.us.thread ], [ %371, %._crit_edge.us.loopexit ], [ %383, %._crit_edge.us.loopexit846 ], [ %260, %._crit_edge.us.loopexit847 ]
+  %.2.lcssa.us = phi ptr [ %.1703.us, %.thread.us ], [ %.1703.us, %.thread.us.thread ], [ %scevgep762, %._crit_edge.us.loopexit ], [ %scevgep759, %._crit_edge.us.loopexit846 ], [ %scevgep757, %._crit_edge.us.loopexit847 ]
   %indvars.iv.next766 = add nuw nsw i64 %indvars.iv765, 1
   %exitcond769.not = icmp eq i64 %indvars.iv.next766, %wide.trip.count768
   br i1 %exitcond769.not, label %._crit_edge704.us, label %144, !llvm.loop !374
@@ -18518,7 +18518,7 @@ _ZN4ncnn3MatD2Ev.exit.us728:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %261 = getelementptr inbounds nuw i8, ptr %.2685.us730, i64 64
   %262 = add nuw nsw i32 %.0226686.us729, 1
   %exitcond.not = icmp eq i32 %262, %127
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit748, label %_ZN4ncnn3MatD2Ev.exit.us728, !llvm.loop !375
+  br i1 %exitcond.not, label %._crit_edge.us.loopexit847, label %_ZN4ncnn3MatD2Ev.exit.us728, !llvm.loop !375
 
 _ZN4ncnn3MatD2Ev.exit.us.us.preheader:            ; preds = %.thread.us
   %263 = load <4 x float>, ptr %132, align 1, !tbaa !101
@@ -18705,7 +18705,7 @@ _ZN4ncnn3MatD2Ev.exit.us689.us:                   ; preds = %_ZN4ncnn3MatD2Ev.ex
   %384 = getelementptr inbounds nuw i8, ptr %.2685.us691.us, i64 64
   %385 = add nuw nsw i32 %.0226686.us690.us, 1
   %exitcond760.not = icmp eq i32 %385, %127
-  br i1 %exitcond760.not, label %._crit_edge.us.loopexit747, label %_ZN4ncnn3MatD2Ev.exit.us689.us, !llvm.loop !375
+  br i1 %exitcond760.not, label %._crit_edge.us.loopexit846, label %_ZN4ncnn3MatD2Ev.exit.us689.us, !llvm.loop !375
 
 ._crit_edge704.us:                                ; preds = %._crit_edge.us
   %indvars.iv.next771 = add nuw nsw i64 %indvars.iv770, 1
@@ -19279,14 +19279,14 @@ _ZN4ncnn3MatD2Ev.exit231.us:                      ; preds = %165
   %scevgep643 = getelementptr i8, ptr %scevgep642, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us.loopexit634:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us616
+._crit_edge.us.loopexit727:                       ; preds = %_ZN4ncnn3MatD2Ev.exit.us616
   %scevgep = getelementptr i8, ptr %.1591.us, i64 16
   %scevgep641 = getelementptr i8, ptr %scevgep, i64 %137
   br label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %.thread.us.thread, %._crit_edge.us.loopexit634, %._crit_edge.us.loopexit, %.thread.us
-  %.3.lcssa.us = phi <4 x float> [ %.2580589.us, %.thread.us ], [ %284, %._crit_edge.us.loopexit ], [ %247, %._crit_edge.us.loopexit634 ], [ %.2580589.us, %.thread.us.thread ]
-  %.2.lcssa.us = phi ptr [ %.1591.us, %.thread.us ], [ %scevgep643, %._crit_edge.us.loopexit ], [ %scevgep641, %._crit_edge.us.loopexit634 ], [ %.1591.us, %.thread.us.thread ]
+._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit727, %._crit_edge.us.loopexit, %.thread.us.thread, %.thread.us
+  %.3.lcssa.us = phi <4 x float> [ %.2580589.us, %.thread.us ], [ %.2580589.us, %.thread.us.thread ], [ %284, %._crit_edge.us.loopexit ], [ %247, %._crit_edge.us.loopexit727 ]
+  %.2.lcssa.us = phi ptr [ %.1591.us, %.thread.us ], [ %.1591.us, %.thread.us.thread ], [ %scevgep643, %._crit_edge.us.loopexit ], [ %scevgep641, %._crit_edge.us.loopexit727 ]
   %indvars.iv.next647 = add nuw nsw i64 %indvars.iv646, 1
   %exitcond650.not = icmp eq i64 %indvars.iv.next647, %wide.trip.count649
   br i1 %exitcond650.not, label %._crit_edge592.us, label %144, !llvm.loop !392
@@ -19300,7 +19300,7 @@ _ZN4ncnn3MatD2Ev.exit.us616:                      ; preds = %_ZN4ncnn3MatD2Ev.ex
   %248 = getelementptr inbounds nuw i8, ptr %.2585.us618, i64 16
   %249 = add nuw nsw i32 %.0196586.us617, 1
   %exitcond.not = icmp eq i32 %249, %127
-  br i1 %exitcond.not, label %._crit_edge.us.loopexit634, label %_ZN4ncnn3MatD2Ev.exit.us616, !llvm.loop !393
+  br i1 %exitcond.not, label %._crit_edge.us.loopexit727, label %_ZN4ncnn3MatD2Ev.exit.us616, !llvm.loop !393
 
 _ZN4ncnn3MatD2Ev.exit.us.us.preheader:            ; preds = %.thread.us
   %.sroa.0328.0.vec.insert.us = insertelement <4 x float> poison, float %.0203.us, i64 0
@@ -20006,9 +20006,9 @@ _ZN4ncnn3MatD2Ev.exit328.us.us.us.us:             ; preds = %198
   %scevgep626 = getelementptr i8, ptr %scevgep625, i64 %167
   br label %._crit_edge.us.us.us.us
 
-._crit_edge.us.us.us.us:                          ; preds = %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us589.us.us.us, %.thread.us.us.us.us.thread, %._crit_edge.us.us.us.us.loopexit, %.thread.us.us.us.us
-  %.3.lcssa.us.us.us.us = phi float [ %.2295559.us.us.us.us, %.thread.us.us.us.us ], [ %372, %._crit_edge.us.us.us.us.loopexit ], [ %.2295559.us.us.us.us, %.thread.us.us.us.us.thread ], [ %.2295559.us.us.us.us, %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us589.us.us.us ]
-  %.2.lcssa.us.us.us.us = phi ptr [ %.1291560.us.us.us.us, %.thread.us.us.us.us ], [ %scevgep626, %._crit_edge.us.us.us.us.loopexit ], [ %.1291560.us.us.us.us, %.thread.us.us.us.us.thread ], [ %scevgep624, %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us589.us.us.us ]
+._crit_edge.us.us.us.us:                          ; preds = %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us589.us.us.us, %._crit_edge.us.us.us.us.loopexit, %.thread.us.us.us.us.thread, %.thread.us.us.us.us
+  %.3.lcssa.us.us.us.us = phi float [ %.2295559.us.us.us.us, %.thread.us.us.us.us ], [ %.2295559.us.us.us.us, %.thread.us.us.us.us.thread ], [ %372, %._crit_edge.us.us.us.us.loopexit ], [ %.2295559.us.us.us.us, %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us589.us.us.us ]
+  %.2.lcssa.us.us.us.us = phi ptr [ %.1291560.us.us.us.us, %.thread.us.us.us.us ], [ %.1291560.us.us.us.us, %.thread.us.us.us.us.thread ], [ %scevgep626, %._crit_edge.us.us.us.us.loopexit ], [ %scevgep624, %_ZN4ncnn3MatD2Ev.exit.lr.ph.split.us589.us.us.us ]
   %indvars.iv.next629 = add nuw nsw i64 %indvars.iv628, 1
   %exitcond632.not = icmp eq i64 %indvars.iv.next629, %wide.trip.count631
   br i1 %exitcond632.not, label %._crit_edge561.us.us.us.us, label %175, !llvm.loop !403

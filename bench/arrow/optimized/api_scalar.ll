@@ -51500,52 +51500,52 @@ define linkonce_odr void @_ZN5arrow7compute8internal8CopyImplINS0_17MakeStructOp
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #29
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %15
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %_ZSt10_ConstructISt10shared_ptrIKN5arrow16KeyValueMetadataEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %34, %_ZSt10_ConstructISt10shared_ptrIKN5arrow16KeyValueMetadataEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %19, %.lr.ph.i.i.i.i.i.preheader ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %33, %_ZSt10_ConstructISt10shared_ptrIKN5arrow16KeyValueMetadataEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %12, %.lr.ph.i.i.i.i.i.preheader ]
-  %21 = load ptr, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !996
-  store ptr %21, ptr %.09.i.i.i.i.i, align 8, !tbaa !996
-  %22 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !86
-  store ptr %24, ptr %22, align 8, !tbaa !86
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIKN5arrow16KeyValueMetadataEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, label %25
+  %.09.i.i.i.i.i = phi ptr [ %33, %_ZSt10_ConstructISt10shared_ptrIKN5arrow16KeyValueMetadataEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %19, %.lr.ph.i.i.i.i.i.preheader ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %32, %_ZSt10_ConstructISt10shared_ptrIKN5arrow16KeyValueMetadataEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %12, %.lr.ph.i.i.i.i.i.preheader ]
+  %20 = load ptr, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !996
+  store ptr %20, ptr %.09.i.i.i.i.i, align 8, !tbaa !996
+  %21 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !86
+  store ptr %23, ptr %21, align 8, !tbaa !86
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIKN5arrow16KeyValueMetadataEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, label %24
 
-25:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !52
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %31, label %28
+24:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !52
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %26, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %30, label %27
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %26, align 4, !tbaa !92
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %26, align 4, !tbaa !92
+27:                                               ; preds = %24
+  %28 = load i32, ptr %25, align 4, !tbaa !92
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %25, align 4, !tbaa !92
   br label %_ZSt10_ConstructISt10shared_ptrIKN5arrow16KeyValueMetadataEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-31:                                               ; preds = %25
-  %32 = atomicrmw volatile add ptr %26, i32 1 acq_rel, align 4
+30:                                               ; preds = %24
+  %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructISt10shared_ptrIKN5arrow16KeyValueMetadataEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-_ZSt10_ConstructISt10shared_ptrIKN5arrow16KeyValueMetadataEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %31, %28, %.lr.ph.i.i.i.i.i
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %33, %11
+_ZSt10_ConstructISt10shared_ptrIKN5arrow16KeyValueMetadataEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %30, %27, %.lr.ph.i.i.i.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %32, %11
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIKN5arrow16KeyValueMetadataEESaIS4_EEC2ERKS6_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !1034
 
 _ZNSt6vectorISt10shared_ptrIKN5arrow16KeyValueMetadataEESaIS4_EEC2ERKS6_.exit.loopexit: ; preds = %_ZSt10_ConstructISt10shared_ptrIKN5arrow16KeyValueMetadataEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %19, i64 %15
   %.pre = load i64, ptr %7, align 8, !tbaa !986
   br label %_ZNSt6vectorISt10shared_ptrIKN5arrow16KeyValueMetadataEESaIS4_EEC2ERKS6_.exit
 
 _ZNSt6vectorISt10shared_ptrIKN5arrow16KeyValueMetadataEESaIS4_EEC2ERKS6_.exit: ; preds = %.thread, %_ZNSt6vectorISt10shared_ptrIKN5arrow16KeyValueMetadataEESaIS4_EEC2ERKS6_.exit.loopexit
-  %35 = phi ptr [ %20, %_ZNSt6vectorISt10shared_ptrIKN5arrow16KeyValueMetadataEESaIS4_EEC2ERKS6_.exit.loopexit ], [ %16, %.thread ]
+  %35 = phi ptr [ %34, %_ZNSt6vectorISt10shared_ptrIKN5arrow16KeyValueMetadataEESaIS4_EEC2ERKS6_.exit.loopexit ], [ %16, %.thread ]
   %36 = phi ptr [ %19, %_ZNSt6vectorISt10shared_ptrIKN5arrow16KeyValueMetadataEESaIS4_EEC2ERKS6_.exit.loopexit ], [ null, %.thread ]
   %37 = phi i64 [ %.pre, %_ZNSt6vectorISt10shared_ptrIKN5arrow16KeyValueMetadataEESaIS4_EEC2ERKS6_.exit.loopexit ], [ %8, %.thread ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %34, %_ZNSt6vectorISt10shared_ptrIKN5arrow16KeyValueMetadataEESaIS4_EEC2ERKS6_.exit.loopexit ], [ null, %.thread ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %33, %_ZNSt6vectorISt10shared_ptrIKN5arrow16KeyValueMetadataEESaIS4_EEC2ERKS6_.exit.loopexit ], [ null, %.thread ]
   %38 = getelementptr inbounds i8, ptr %4, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !72
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -57040,7 +57040,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_18TypedBu
   %82 = or i8 %79, %81
   %83 = getelementptr inbounds nuw i8, ptr %.14154, i64 1
   store i8 %82, ptr %.14154, align 1, !tbaa !52
-  %84 = icmp sgt i64 %.in, 1
+  %84 = icmp samesign ugt i64 %.in, 1
   br i1 %84, label %.preheader48, label %._crit_edge55, !llvm.loop !1263
 
 85:                                               ; preds = %.preheader48, %85

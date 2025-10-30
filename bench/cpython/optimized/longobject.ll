@@ -8461,27 +8461,27 @@ _Py_NewRef.exit278:                               ; preds = %216
 222:                                              ; preds = %_Py_NewRef.exit278, %219, %213
   %.2167 = phi ptr [ %.0165.ph406, %213 ], [ %.2372, %_Py_NewRef.exit278 ], [ %220, %219 ]
   %.1159 = phi i64 [ %.0158371, %213 ], [ %.0158371, %_Py_NewRef.exit278 ], [ %80, %219 ]
-  %223 = getelementptr i32, ptr %81, i64 %80
-  %224 = getelementptr inbounds nuw i8, ptr %.2372, i64 24
-  %225 = getelementptr i32, ptr %224, i64 %88
-  %226 = getelementptr inbounds nuw i8, ptr %.2164, i64 24
-  %227 = getelementptr inbounds nuw i8, ptr %.2167, i64 24
-  %228 = icmp ult ptr %224, %225
-  br i1 %228, label %.lr.ph391, label %.preheader
+  %223 = getelementptr inbounds nuw i8, ptr %.2372, i64 24
+  %224 = getelementptr i32, ptr %223, i64 %88
+  %225 = getelementptr inbounds nuw i8, ptr %.2164, i64 24
+  %226 = getelementptr inbounds nuw i8, ptr %.2167, i64 24
+  %227 = icmp ult ptr %223, %224
+  br i1 %227, label %.lr.ph391, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph391, %222
   %.0190.lcssa = phi i64 [ 0, %222 ], [ %251, %.lr.ph391 ]
   %.0180.lcssa = phi i64 [ 0, %222 ], [ %250, %.lr.ph391 ]
   %.0177.lcssa = phi ptr [ %81, %222 ], [ %240, %.lr.ph391 ]
-  %.0174.lcssa = phi ptr [ %226, %222 ], [ %246, %.lr.ph391 ]
-  %.0172.lcssa = phi ptr [ %227, %222 ], [ %249, %.lr.ph391 ]
-  %229 = icmp ult ptr %.0177.lcssa, %223
+  %.0174.lcssa = phi ptr [ %225, %222 ], [ %246, %.lr.ph391 ]
+  %.0172.lcssa = phi ptr [ %226, %222 ], [ %249, %.lr.ph391 ]
+  %228 = getelementptr i32, ptr %81, i64 %80
+  %229 = icmp ult ptr %.0177.lcssa, %228
   br i1 %229, label %.lr.ph402, label %._crit_edge403
 
 .lr.ph391:                                        ; preds = %222, %.lr.ph391
-  %.0172389 = phi ptr [ %249, %.lr.ph391 ], [ %227, %222 ]
-  %.0174388 = phi ptr [ %246, %.lr.ph391 ], [ %226, %222 ]
-  %.0176387 = phi ptr [ %238, %.lr.ph391 ], [ %224, %222 ]
+  %.0172389 = phi ptr [ %249, %.lr.ph391 ], [ %226, %222 ]
+  %.0174388 = phi ptr [ %246, %.lr.ph391 ], [ %225, %222 ]
+  %.0176387 = phi ptr [ %238, %.lr.ph391 ], [ %223, %222 ]
   %.0177386 = phi ptr [ %240, %.lr.ph391 ], [ %81, %222 ]
   %.0180385 = phi i64 [ %250, %.lr.ph391 ], [ 0, %222 ]
   %.0190384 = phi i64 [ %251, %.lr.ph391 ], [ 0, %222 ]
@@ -8509,7 +8509,7 @@ _Py_NewRef.exit278:                               ; preds = %216
   store i32 %248, ptr %.0172389, align 4, !tbaa !33
   %250 = ashr i64 %237, 30
   %251 = ashr i64 %243, 30
-  %252 = icmp ult ptr %238, %225
+  %252 = icmp ult ptr %238, %224
   br i1 %252, label %.lr.ph391, label %.preheader, !llvm.loop !198
 
 .lr.ph402:                                        ; preds = %.preheader, %.lr.ph402
@@ -8535,7 +8535,7 @@ _Py_NewRef.exit278:                               ; preds = %216
   store i32 %264, ptr %.1173401, align 4, !tbaa !33
   %266 = ashr i64 %256, 30
   %267 = ashr i64 %259, 30
-  %268 = icmp ult ptr %257, %223
+  %268 = icmp ult ptr %257, %228
   br i1 %268, label %.lr.ph402, label %._crit_edge403, !llvm.loop !199
 
 ._crit_edge403:                                   ; preds = %.lr.ph402, %.preheader
@@ -10075,32 +10075,32 @@ define internal range(i64 -4611686018427387900, 2305843009213693951) i64 @long_h
   br label %28
 
 .lr.ph:                                           ; preds = %1
-  %10 = and i64 %.val25, 3
-  %11 = sub nsw i64 1, %10
-  %12 = lshr i64 %.val25, 3
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %14
+  %10 = lshr i64 %.val25, 3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %12
 
-14:                                               ; preds = %.lr.ph, %14
-  %.02030 = phi i64 [ %12, %.lr.ph ], [ %15, %14 ]
-  %.02129 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %14 ]
-  %15 = add nsw i64 %.02030, -1
-  %16 = shl i64 %.02129, 30
-  %17 = and i64 %16, 2305843008139952128
-  %18 = lshr i64 %.02129, 31
-  %19 = or i64 %17, %18
-  %20 = getelementptr i32, ptr %13, i64 %15
-  %21 = load i32, ptr %20, align 4, !tbaa !33
-  %22 = zext i32 %21 to i64
-  %23 = add nuw nsw i64 %19, %22
-  %24 = icmp samesign ugt i64 %23, 2305843009213693950
-  %25 = add nsw i64 %23, -2305843009213693951
-  %spec.select = select i1 %24, i64 %25, i64 %23
-  %26 = icmp samesign ugt i64 %.02030, 1
-  br i1 %26, label %14, label %._crit_edge, !llvm.loop !204
+12:                                               ; preds = %.lr.ph, %12
+  %.02030 = phi i64 [ %10, %.lr.ph ], [ %13, %12 ]
+  %.02129 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %12 ]
+  %13 = add nsw i64 %.02030, -1
+  %14 = shl i64 %.02129, 30
+  %15 = and i64 %14, 2305843008139952128
+  %16 = lshr i64 %.02129, 31
+  %17 = or i64 %15, %16
+  %18 = getelementptr i32, ptr %11, i64 %13
+  %19 = load i32, ptr %18, align 4, !tbaa !33
+  %20 = zext i32 %19 to i64
+  %21 = add nuw nsw i64 %17, %20
+  %22 = icmp samesign ugt i64 %21, 2305843009213693950
+  %23 = add nsw i64 %21, -2305843009213693951
+  %spec.select = select i1 %22, i64 %23, i64 %21
+  %24 = icmp samesign ugt i64 %.02030, 1
+  br i1 %24, label %12, label %._crit_edge, !llvm.loop !204
 
-._crit_edge:                                      ; preds = %14
-  %27 = mul nsw i64 %spec.select, %11
+._crit_edge:                                      ; preds = %12
+  %25 = and i64 %.val25, 3
+  %26 = sub nsw i64 1, %25
+  %27 = mul nsw i64 %spec.select, %26
   br label %28
 
 28:                                               ; preds = %._crit_edge, %4

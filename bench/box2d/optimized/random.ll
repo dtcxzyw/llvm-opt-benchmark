@@ -25,15 +25,15 @@ define void @RandomPolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Po
   %.lhs.trunc = and i16 %12, 32767
   %13 = urem i16 %.lhs.trunc, 6
   %narrow = add nuw nsw i16 %13, 3
-  %14 = zext nneg i16 %narrow to i32
-  %15 = fadd float %1, %1
+  %14 = fadd float %1, %1
   %wide.trip.count = zext nneg i16 %narrow to i64
   br label %20
 
-16:                                               ; preds = %20
+15:                                               ; preds = %20
+  %16 = zext nneg i16 %narrow to i32
   store i32 %39, ptr @g_seed, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %4, ptr noundef nonnull %3, i32 noundef %14) #3
+  call void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %4, ptr noundef nonnull %3, i32 noundef %16) #3
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %18 = load i32, ptr %17, align 4, !tbaa !7
   %19 = icmp sgt i32 %18, 0
@@ -52,7 +52,7 @@ define void @RandomPolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Po
   %29 = and i32 %28, 32767
   %30 = uitofp nneg i32 %29 to float
   %31 = fdiv float %30, 3.276700e+04
-  %32 = fmul float %15, %31
+  %32 = fmul float %14, %31
   %33 = fsub float %32, %1
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %33, i64 0
   %34 = shl i32 %28, 13
@@ -64,19 +64,19 @@ define void @RandomPolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Po
   %40 = and i32 %39, 32767
   %41 = uitofp nneg i32 %40 to float
   %42 = fdiv float %41, 3.276700e+04
-  %43 = fmul float %15, %42
+  %43 = fmul float %14, %42
   %44 = fsub float %43, %1
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %44, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %22, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %16, label %20, !llvm.loop !9
+  br i1 %exitcond.not, label %15, label %20, !llvm.loop !9
 
-45:                                               ; preds = %16
+45:                                               ; preds = %15
   call void @b2MakePolygon(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4 %0, ptr noundef nonnull %4, float noundef 0.000000e+00) #3
   br label %47
 
-46:                                               ; preds = %16
+46:                                               ; preds = %15
   call void @b2MakeSquare(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4 %0, float noundef %1) #3
   br label %47
 

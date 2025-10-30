@@ -479,8 +479,8 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
 .lr.ph431:                                        ; preds = %.loopexit334
   %110 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %111 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  %.ptr26.i = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %.ptr31.i = getelementptr inbounds nuw i8, ptr %9, i64 144
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %scevgep39.i = getelementptr inbounds nuw i8, ptr %9, i64 144
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %113 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -563,7 +563,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i: ; preds = %_ZNK6aiMesh24H
 
 147:                                              ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i
   %148 = getelementptr inbounds nuw %class.aiVector3t, ptr %146, i64 %indvars.iv545
-  %149 = getelementptr inbounds nuw %class.aiVector3t, ptr %.ptr26.i, i64 %indvars.iv.i
+  %149 = getelementptr inbounds nuw %class.aiVector3t, ptr %scevgep.i, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %149, ptr noundef nonnull align 4 dereferenceable(12) %148, i64 12, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -573,19 +573,19 @@ _ZNK6aiMesh15HasVertexColorsEj.exit.i.preheader:  ; preds = %147, %_ZNK6aiMesh24
   br label %_ZNK6aiMesh15HasVertexColorsEj.exit.i
 
 _ZNK6aiMesh15HasVertexColorsEj.exit.i:            ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i.preheader, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i
-  %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i ], [ 0, %_ZNK6aiMesh15HasVertexColorsEj.exit.i.preheader ]
-  %150 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv40.i
+  %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i ], [ 0, %_ZNK6aiMesh15HasVertexColorsEj.exit.i.preheader ]
+  %150 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv41.i
   %151 = load ptr, ptr %150, align 8
   %.not.i34.i.not = icmp eq ptr %151, null
   br i1 %.not.i34.i.not, label %_ZN6Assimp6VertexC2EPK6aiMeshj.exit, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.i:           ; preds = %_ZNK6aiMesh15HasVertexColorsEj.exit.i
   %152 = getelementptr inbounds nuw %class.aiColor4t, ptr %151, i64 %indvars.iv545
-  %153 = getelementptr inbounds nuw %class.aiColor4t, ptr %.ptr31.i, i64 %indvars.iv40.i
+  %153 = getelementptr inbounds nuw %class.aiColor4t, ptr %scevgep39.i, i64 %indvars.iv41.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %153, ptr noundef nonnull align 4 dereferenceable(16) %152, i64 16, i1 false)
-  %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
-  %exitcond43.i = icmp eq i64 %indvars.iv.next41.i, 8
-  br i1 %exitcond43.i, label %_ZN6Assimp6VertexC2EPK6aiMeshj.exit, label %_ZNK6aiMesh15HasVertexColorsEj.exit.i, !llvm.loop !10
+  %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
+  %exitcond44.i = icmp eq i64 %indvars.iv.next42.i, 8
+  br i1 %exitcond44.i, label %_ZN6Assimp6VertexC2EPK6aiMeshj.exit, label %_ZNK6aiMesh15HasVertexColorsEj.exit.i, !llvm.loop !10
 
 _ZN6Assimp6VertexC2EPK6aiMeshj.exit:              ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.i, %_ZNK6aiMesh15HasVertexColorsEj.exit.i
   %154 = load ptr, ptr %106, align 8
@@ -685,7 +685,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit29.i:             ; preds = %_ZNK10aiVector3tIfE
 195:                                              ; preds = %193, %.preheader46.i
   %indvars.iv.i210 = phi i64 [ 0, %.preheader46.i ], [ %indvars.iv.next.i211, %193 ]
   %196 = getelementptr inbounds nuw %class.aiVector3t, ptr %192, i64 %indvars.iv.i210
-  %197 = getelementptr inbounds nuw %class.aiVector3t, ptr %.ptr26.i, i64 %indvars.iv.i210
+  %197 = getelementptr inbounds nuw %class.aiVector3t, ptr %scevgep.i, i64 %indvars.iv.i210
   %198 = load float, ptr %196, align 4
   %199 = load float, ptr %197, align 4
   %200 = fcmp une float %198, %199
@@ -725,7 +725,7 @@ _ZNK10aiVector3tIfEneERKS0_.exit31.i:             ; preds = %_ZNK10aiVector3tIfE
 217:                                              ; preds = %_ZNK9aiColor4tIfEneERKS0_.exit.i, %.preheader.i
   %indvars.iv66.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next67.i, %_ZNK9aiColor4tIfEneERKS0_.exit.i ]
   %218 = getelementptr inbounds nuw %class.aiColor4t, ptr %194, i64 %indvars.iv66.i
-  %219 = getelementptr inbounds nuw %class.aiColor4t, ptr %.ptr31.i, i64 %indvars.iv66.i
+  %219 = getelementptr inbounds nuw %class.aiColor4t, ptr %scevgep39.i, i64 %indvars.iv66.i
   %220 = load float, ptr %218, align 4
   %221 = load float, ptr %219, align 4
   %222 = fcmp olt float %220, %221

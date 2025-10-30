@@ -933,14 +933,14 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_20PointIndex_tag_type_EEES3_EC2Em.e
 
 .lr.ph272:                                        ; preds = %.lr.ph272.preheader, %_ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit
   %indvar = phi i64 [ 0, %.lr.ph272.preheader ], [ %indvar.next, %_ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit ]
-  %58 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr i8, ptr %14, i64 %58
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %59 = getelementptr inbounds nuw %"struct.std::array.21", ptr %14, i64 %indvar
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %59, i64 12, i1 false), !tbaa.struct !81
+  %58 = getelementptr inbounds nuw %"struct.std::array.21", ptr %14, i64 %indvar
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %58, i64 12, i1 false), !tbaa.struct !81
   br label %60
 
 _ZN5draco4Mesh7SetFaceENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEERKSt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EE.exit: ; preds = %60
+  %59 = mul nuw nsw i64 %indvar, 12
+  %scevgep = getelementptr i8, ptr %14, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false), !tbaa !68
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvar.next = add nuw nsw i64 %indvar, 1
@@ -1114,8 +1114,6 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEh
   %.sroa.12.1 = phi ptr [ %111, %.noexc142 ], [ %111, %112 ], [ %.sroa.12.0288, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i ], [ %122, %121 ], [ %spec.select, %_ZSt6fill_nIPhmhET_S1_T0_RKT1_.exit.i ]
   %.sroa.18.2 = phi ptr [ %111, %.noexc142 ], [ %111, %112 ], [ %.sroa.18.0289, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i ], [ %.sroa.18.0289, %121 ], [ %.sroa.18.0289, %_ZSt6fill_nIPhmhET_S1_T0_RKT1_.exit.i ]
   %.sroa.0190.2 = phi ptr [ %110, %.noexc142 ], [ %110, %112 ], [ %.sroa.0190.0293, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i ], [ %.sroa.0190.0293, %121 ], [ %.sroa.0190.0293, %_ZSt6fill_nIPhmhET_S1_T0_RKT1_.exit.i ]
-  %.not.i.i.i = icmp eq ptr %.sroa.11.0291, %.sroa.0181.0290
-  %spec.select244 = select i1 %.not.i.i.i, ptr %.sroa.11.0291, ptr %.sroa.0181.0290
   br i1 %.not.i.i.i.i.i, label %._crit_edge276, label %.lr.ph275
 
 .lr.ph275:                                        ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit
@@ -1125,6 +1123,8 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEh
 
 ._crit_edge276:                                   ; preds = %150, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit
   %.0237.lcssa = phi i32 [ 0, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhE6assignEmRKh.exit ], [ %.2239, %150 ]
+  %.not.i.i.i = icmp eq ptr %.sroa.11.0291, %.sroa.0181.0290
+  %spec.select244 = select i1 %.not.i.i.i, ptr %.sroa.11.0291, ptr %.sroa.0181.0290
   %129 = load i32, ptr %102, align 8, !tbaa !128
   %130 = zext i32 %129 to i64
   %131 = icmp ult i32 %.0237.lcssa, %129

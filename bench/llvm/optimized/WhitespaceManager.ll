@@ -4247,275 +4247,284 @@ define dso_local void @_ZN5clang6format17WhitespaceManager20alignEscapedNewlines
   %11 = select i1 %8, i32 0, i32 %.fr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !42
-  %14 = zext i32 %13 to i64
-  %15 = icmp ugt i32 %13, 1
-  br i1 %15, label %.lr.ph, label %._crit_edge
+  %14 = icmp ugt i32 %13, 1
+  br i1 %14, label %.lr.ph, label %.._crit_edge_crit_edge
+
+.._crit_edge_crit_edge:                           ; preds = %7
+  %.pre = zext nneg i32 %13 to i64
+  br label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
-  %16 = icmp eq i8 %.fr66, 2
-  %17 = load ptr, ptr %0, align 8, !tbaa !45
-  br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split
+  %15 = icmp eq i8 %.fr66, 2
+  %16 = load ptr, ptr %0, align 8, !tbaa !45
+  br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split.preheader
+
+.lr.ph.split.preheader:                           ; preds = %.lr.ph
+  %wide.trip.count = zext i32 %13 to i64
+  br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.not = icmp eq i32 %.fr, 0
+  %wide.trip.count78 = zext i32 %13 to i64
   br i1 %.not, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us ], [ 1, %.lr.ph.split.us ]
   %.059.us.us = phi i32 [ %.1.us.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us ], [ 0, %.lr.ph.split.us ]
   %.04456.us.us = phi i32 [ %.145.us.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us ], [ %11, %.lr.ph.split.us ]
-  %18 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %17, i64 %indvars.iv75
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %20 = load i32, ptr %19, align 8, !tbaa !24
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %29, label %22
+  %17 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %16, i64 %indvars.iv75
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %19 = load i32, ptr %18, align 8, !tbaa !24
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %28, label %21
 
-22:                                               ; preds = %.lr.ph.split.us.split.us
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 97
-  %24 = load i8, ptr %23, align 1, !tbaa !34, !range !40, !noundef !41
-  %25 = trunc nuw i8 %24 to i1
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  %27 = load i32, ptr %26, align 8, !tbaa !195
-  %28 = add i32 %27, 2
-  br i1 %25, label %.thread53.us.us, label %.thread47.us.us
+21:                                               ; preds = %.lr.ph.split.us.split.us
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 97
+  %23 = load i8, ptr %22, align 1, !tbaa !34, !range !40, !noundef !41
+  %24 = trunc nuw i8 %23 to i1
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 112
+  %26 = load i32, ptr %25, align 8, !tbaa !195
+  %27 = add i32 %26, 2
+  br i1 %24, label %.thread53.us.us, label %.thread47.us.us
 
-29:                                               ; preds = %.lr.ph.split.us.split.us
-  %30 = load ptr, ptr %18, align 8, !tbaa !11
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load i16, ptr %31, align 8, !tbaa !197
-  %.not55.us.us = icmp eq i16 %32, 1
+28:                                               ; preds = %.lr.ph.split.us.split.us
+  %29 = load ptr, ptr %17, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = load i16, ptr %30, align 8, !tbaa !197
+  %.not55.us.us = icmp eq i16 %31, 1
   br i1 %.not55.us.us, label %.thread.us.us, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us
 
-.thread.us.us:                                    ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %18, i64 97
-  %34 = load i8, ptr %33, align 1, !tbaa !34, !range !40, !noundef !41
-  %35 = trunc nuw i8 %34 to i1
-  %36 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  %37 = load i32, ptr %36, align 8, !tbaa !195
-  %38 = add i32 %37, 2
-  br i1 %35, label %.thread53.us.us, label %.thread47.us.us
+.thread.us.us:                                    ; preds = %28
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 97
+  %33 = load i8, ptr %32, align 1, !tbaa !34, !range !40, !noundef !41
+  %34 = trunc nuw i8 %33 to i1
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 112
+  %36 = load i32, ptr %35, align 8, !tbaa !195
+  %37 = add i32 %36, 2
+  br i1 %34, label %.thread53.us.us, label %.thread47.us.us
 
-.thread47.us.us:                                  ; preds = %22, %.thread.us.us
-  %39 = phi i32 [ %38, %.thread.us.us ], [ %28, %22 ]
-  %.sroa.speculated.us.us = tail call i32 @llvm.umax.i32(i32 %39, i32 %.04456.us.us)
-  %40 = add i32 %.059.us.us, 1
-  %41 = zext i32 %40 to i64
-  %42 = icmp samesign ugt i64 %indvars.iv75, %41
-  %43 = trunc nuw i64 %indvars.iv75 to i32
-  br i1 %42, label %.lr.ph.i30.us.us, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us
+.thread47.us.us:                                  ; preds = %21, %.thread.us.us
+  %38 = phi i32 [ %37, %.thread.us.us ], [ %27, %21 ]
+  %.sroa.speculated.us.us = tail call i32 @llvm.umax.i32(i32 %38, i32 %.04456.us.us)
+  %39 = add i32 %.059.us.us, 1
+  %40 = zext i32 %39 to i64
+  %41 = icmp samesign ugt i64 %indvars.iv75, %40
+  %42 = trunc nuw i64 %indvars.iv75 to i32
+  br i1 %41, label %.lr.ph.i30.us.us, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us
 
-.lr.ph.i30.us.us:                                 ; preds = %.thread47.us.us, %52
-  %indvars.iv.i32.us.us = phi i64 [ %indvars.iv.next.i36.us.us, %52 ], [ %41, %.thread47.us.us ]
-  %44 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %17, i64 %indvars.iv.i32.us.us
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %46 = load i32, ptr %45, align 8, !tbaa !24
-  %.not.i33.us.us = icmp eq i32 %46, 0
-  br i1 %.not.i33.us.us, label %52, label %.sink.split.i34.us.us
+.lr.ph.i30.us.us:                                 ; preds = %.thread47.us.us, %51
+  %indvars.iv.i32.us.us = phi i64 [ %indvars.iv.next.i36.us.us, %51 ], [ %40, %.thread47.us.us ]
+  %43 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %16, i64 %indvars.iv.i32.us.us
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %45 = load i32, ptr %44, align 8, !tbaa !24
+  %.not.i33.us.us = icmp eq i32 %45, 0
+  br i1 %.not.i33.us.us, label %51, label %.sink.split.i34.us.us
 
 .sink.split.i34.us.us:                            ; preds = %.lr.ph.i30.us.us
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 112
-  %48 = load i32, ptr %47, align 8, !tbaa !195
-  %49 = add i32 %48, 1
-  %50 = icmp ugt i32 %49, %.sroa.speculated.us.us
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 116
-  %..i35.us.us = select i1 %50, i32 0, i32 %.sroa.speculated.us.us
-  store i32 %..i35.us.us, ptr %51, align 4, !tbaa !338
-  br label %52
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 112
+  %47 = load i32, ptr %46, align 8, !tbaa !195
+  %48 = add i32 %47, 1
+  %49 = icmp ugt i32 %48, %.sroa.speculated.us.us
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 116
+  %..i35.us.us = select i1 %49, i32 0, i32 %.sroa.speculated.us.us
+  store i32 %..i35.us.us, ptr %50, align 4, !tbaa !338
+  br label %51
 
-52:                                               ; preds = %.sink.split.i34.us.us, %.lr.ph.i30.us.us
+51:                                               ; preds = %.sink.split.i34.us.us, %.lr.ph.i30.us.us
   %indvars.iv.next.i36.us.us = add nuw nsw i64 %indvars.iv.i32.us.us, 1
   %exitcond.not.i37.us.us = icmp eq i64 %indvars.iv.next.i36.us.us, %indvars.iv75
   br i1 %exitcond.not.i37.us.us, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us, label %.lr.ph.i30.us.us, !llvm.loop !339
 
-.thread53.us.us:                                  ; preds = %.thread.us.us, %22
-  %.ph.us.us = phi i32 [ %28, %22 ], [ %38, %.thread.us.us ]
+.thread53.us.us:                                  ; preds = %.thread.us.us, %21
+  %.ph.us.us = phi i32 [ %27, %21 ], [ %37, %.thread.us.us ]
   %.sroa.speculated54.us.us = tail call i32 @llvm.umax.i32(i32 %.ph.us.us, i32 %.04456.us.us)
   br label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us
 
-_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us: ; preds = %52, %.thread53.us.us, %.thread47.us.us, %29
-  %.145.us.us = phi i32 [ %.04456.us.us, %29 ], [ %.sroa.speculated54.us.us, %.thread53.us.us ], [ %11, %.thread47.us.us ], [ %11, %52 ]
-  %.1.us.us = phi i32 [ %.059.us.us, %29 ], [ %.059.us.us, %.thread53.us.us ], [ %43, %.thread47.us.us ], [ %43, %52 ]
+_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us: ; preds = %51, %.thread53.us.us, %.thread47.us.us, %28
+  %.145.us.us = phi i32 [ %.04456.us.us, %28 ], [ %.sroa.speculated54.us.us, %.thread53.us.us ], [ %11, %.thread47.us.us ], [ %11, %51 ]
+  %.1.us.us = phi i32 [ %.059.us.us, %28 ], [ %.059.us.us, %.thread53.us.us ], [ %42, %.thread47.us.us ], [ %42, %51 ]
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %14
+  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
   br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !340
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us ], [ 1, %.lr.ph.split.us ]
   %.059.us = phi i32 [ %.1.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us ], [ 0, %.lr.ph.split.us ]
   %.04456.us = phi i32 [ %.145.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us ], [ %11, %.lr.ph.split.us ]
-  %53 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %17, i64 %indvars.iv70
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %55 = load i32, ptr %54, align 8, !tbaa !24
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %64, label %57
+  %52 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %16, i64 %indvars.iv70
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %54 = load i32, ptr %53, align 8, !tbaa !24
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %63, label %56
 
-57:                                               ; preds = %.lr.ph.split.us.split
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 97
-  %59 = load i8, ptr %58, align 1, !tbaa !34, !range !40, !noundef !41
-  %60 = trunc nuw i8 %59 to i1
-  %61 = getelementptr inbounds nuw i8, ptr %53, i64 112
-  %62 = load i32, ptr %61, align 8, !tbaa !195
-  %63 = add i32 %62, 2
-  br i1 %60, label %.thread53.us, label %.thread47.us
+56:                                               ; preds = %.lr.ph.split.us.split
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 97
+  %58 = load i8, ptr %57, align 1, !tbaa !34, !range !40, !noundef !41
+  %59 = trunc nuw i8 %58 to i1
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 112
+  %61 = load i32, ptr %60, align 8, !tbaa !195
+  %62 = add i32 %61, 2
+  br i1 %59, label %.thread53.us, label %.thread47.us
 
-64:                                               ; preds = %.lr.ph.split.us.split
-  %65 = load ptr, ptr %53, align 8, !tbaa !11
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %67 = load i16, ptr %66, align 8, !tbaa !197
-  %.not55.us = icmp eq i16 %67, 1
+63:                                               ; preds = %.lr.ph.split.us.split
+  %64 = load ptr, ptr %52, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %66 = load i16, ptr %65, align 8, !tbaa !197
+  %.not55.us = icmp eq i16 %66, 1
   br i1 %.not55.us, label %.thread.us, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us
 
-.thread.us:                                       ; preds = %64
-  %68 = getelementptr inbounds nuw i8, ptr %53, i64 97
-  %69 = load i8, ptr %68, align 1, !tbaa !34, !range !40, !noundef !41
-  %70 = trunc nuw i8 %69 to i1
-  %71 = getelementptr inbounds nuw i8, ptr %53, i64 112
-  %72 = load i32, ptr %71, align 8, !tbaa !195
-  %73 = add i32 %72, 2
-  br i1 %70, label %.thread53.us, label %.thread47.us
+.thread.us:                                       ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %52, i64 97
+  %68 = load i8, ptr %67, align 1, !tbaa !34, !range !40, !noundef !41
+  %69 = trunc nuw i8 %68 to i1
+  %70 = getelementptr inbounds nuw i8, ptr %52, i64 112
+  %71 = load i32, ptr %70, align 8, !tbaa !195
+  %72 = add i32 %71, 2
+  br i1 %69, label %.thread53.us, label %.thread47.us
 
-.thread47.us:                                     ; preds = %57, %.thread.us
-  %74 = phi i32 [ %73, %.thread.us ], [ %63, %57 ]
-  %.not.us = icmp ugt i32 %74, %.fr
-  %.sroa.speculated.us = tail call i32 @llvm.umax.i32(i32 %74, i32 %.04456.us)
+.thread47.us:                                     ; preds = %56, %.thread.us
+  %73 = phi i32 [ %72, %.thread.us ], [ %62, %56 ]
+  %.not.us = icmp ugt i32 %73, %.fr
+  %.sroa.speculated.us = tail call i32 @llvm.umax.i32(i32 %73, i32 %.04456.us)
   %.24650.us = select i1 %.not.us, i32 %.04456.us, i32 %.sroa.speculated.us
-  %75 = add i32 %.059.us, 1
-  %76 = zext i32 %75 to i64
-  %77 = icmp samesign ugt i64 %indvars.iv70, %76
-  %78 = trunc nuw i64 %indvars.iv70 to i32
-  br i1 %77, label %.lr.ph.i30.us, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us
+  %74 = add i32 %.059.us, 1
+  %75 = zext i32 %74 to i64
+  %76 = icmp samesign ugt i64 %indvars.iv70, %75
+  %77 = trunc nuw i64 %indvars.iv70 to i32
+  br i1 %76, label %.lr.ph.i30.us, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us
 
-.lr.ph.i30.us:                                    ; preds = %.thread47.us, %87
-  %indvars.iv.i32.us = phi i64 [ %indvars.iv.next.i36.us, %87 ], [ %76, %.thread47.us ]
-  %79 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %17, i64 %indvars.iv.i32.us
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %81 = load i32, ptr %80, align 8, !tbaa !24
-  %.not.i33.us = icmp eq i32 %81, 0
-  br i1 %.not.i33.us, label %87, label %.sink.split.i34.us
+.lr.ph.i30.us:                                    ; preds = %.thread47.us, %86
+  %indvars.iv.i32.us = phi i64 [ %indvars.iv.next.i36.us, %86 ], [ %75, %.thread47.us ]
+  %78 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %16, i64 %indvars.iv.i32.us
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %80 = load i32, ptr %79, align 8, !tbaa !24
+  %.not.i33.us = icmp eq i32 %80, 0
+  br i1 %.not.i33.us, label %86, label %.sink.split.i34.us
 
 .sink.split.i34.us:                               ; preds = %.lr.ph.i30.us
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 112
-  %83 = load i32, ptr %82, align 8, !tbaa !195
-  %84 = add i32 %83, 1
-  %85 = icmp ugt i32 %84, %.24650.us
-  %86 = getelementptr inbounds nuw i8, ptr %79, i64 116
-  %..i35.us = select i1 %85, i32 0, i32 %.24650.us
-  store i32 %..i35.us, ptr %86, align 4, !tbaa !338
-  br label %87
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 112
+  %82 = load i32, ptr %81, align 8, !tbaa !195
+  %83 = add i32 %82, 1
+  %84 = icmp ugt i32 %83, %.24650.us
+  %85 = getelementptr inbounds nuw i8, ptr %78, i64 116
+  %..i35.us = select i1 %84, i32 0, i32 %.24650.us
+  store i32 %..i35.us, ptr %85, align 4, !tbaa !338
+  br label %86
 
-87:                                               ; preds = %.sink.split.i34.us, %.lr.ph.i30.us
+86:                                               ; preds = %.sink.split.i34.us, %.lr.ph.i30.us
   %indvars.iv.next.i36.us = add nuw nsw i64 %indvars.iv.i32.us, 1
   %exitcond.not.i37.us = icmp eq i64 %indvars.iv.next.i36.us, %indvars.iv70
   br i1 %exitcond.not.i37.us, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us, label %.lr.ph.i30.us, !llvm.loop !339
 
-.thread53.us:                                     ; preds = %.thread.us, %57
-  %.ph.us = phi i32 [ %63, %57 ], [ %73, %.thread.us ]
+.thread53.us:                                     ; preds = %.thread.us, %56
+  %.ph.us = phi i32 [ %62, %56 ], [ %72, %.thread.us ]
   %.sroa.speculated54.us = tail call i32 @llvm.umax.i32(i32 %.ph.us, i32 %.04456.us)
   br label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us
 
-_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us: ; preds = %87, %.thread53.us, %.thread47.us, %64
-  %.145.us = phi i32 [ %.04456.us, %64 ], [ %.sroa.speculated54.us, %.thread53.us ], [ %11, %.thread47.us ], [ %11, %87 ]
-  %.1.us = phi i32 [ %.059.us, %64 ], [ %.059.us, %.thread53.us ], [ %78, %.thread47.us ], [ %78, %87 ]
+_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us: ; preds = %86, %.thread53.us, %.thread47.us, %63
+  %.145.us = phi i32 [ %.04456.us, %63 ], [ %.sroa.speculated54.us, %.thread53.us ], [ %11, %.thread47.us ], [ %11, %86 ]
+  %.1.us = phi i32 [ %.059.us, %63 ], [ %.059.us, %.thread53.us ], [ %77, %.thread47.us ], [ %77, %86 ]
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %14
+  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count78
   br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !340
 
-._crit_edge:                                      ; preds = %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us, %7
-  %.044.lcssa = phi i32 [ %11, %7 ], [ %.145.us.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us ], [ %.145.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us ], [ %.145, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38 ]
-  %.0.lcssa = phi i32 [ 0, %7 ], [ %.1.us.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us ], [ %.1.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us ], [ %.1, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38 ]
-  %88 = add i32 %.0.lcssa, 1
-  %89 = icmp ult i32 %88, %13
-  br i1 %89, label %.lr.ph.i, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit
+._crit_edge:                                      ; preds = %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us, %.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %wide.trip.count78, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us ], [ %wide.trip.count78, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us ], [ %wide.trip.count, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38 ]
+  %.044.lcssa = phi i32 [ %11, %.._crit_edge_crit_edge ], [ %.145.us.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us ], [ %.145.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us ], [ %.145, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38 ]
+  %.0.lcssa = phi i32 [ 0, %.._crit_edge_crit_edge ], [ %.1.us.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us ], [ %.1.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us ], [ %.1, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38 ]
+  %87 = add i32 %.0.lcssa, 1
+  %88 = icmp ult i32 %87, %13
+  br i1 %88, label %.lr.ph.i, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit
 
 .lr.ph.i:                                         ; preds = %._crit_edge
-  %90 = load ptr, ptr %0, align 8, !tbaa !45
-  %91 = zext i32 %88 to i64
-  br label %92
+  %89 = load ptr, ptr %0, align 8, !tbaa !45
+  %90 = zext i32 %87 to i64
+  br label %91
 
-92:                                               ; preds = %101, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %91, %.lr.ph.i ], [ %indvars.iv.next.i, %101 ]
-  %93 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %90, i64 %indvars.iv.i
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  %95 = load i32, ptr %94, align 8, !tbaa !24
-  %.not.i = icmp eq i32 %95, 0
-  br i1 %.not.i, label %101, label %.sink.split.i
+91:                                               ; preds = %100, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %90, %.lr.ph.i ], [ %indvars.iv.next.i, %100 ]
+  %92 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %89, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  %94 = load i32, ptr %93, align 8, !tbaa !24
+  %.not.i = icmp eq i32 %94, 0
+  br i1 %.not.i, label %100, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %92
-  %96 = getelementptr inbounds nuw i8, ptr %93, i64 112
-  %97 = load i32, ptr %96, align 8, !tbaa !195
-  %98 = add i32 %97, 1
-  %99 = icmp ugt i32 %98, %.044.lcssa
-  %100 = getelementptr inbounds nuw i8, ptr %93, i64 116
-  %..i = select i1 %99, i32 0, i32 %.044.lcssa
-  store i32 %..i, ptr %100, align 4, !tbaa !338
-  br label %101
+.sink.split.i:                                    ; preds = %91
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 112
+  %96 = load i32, ptr %95, align 8, !tbaa !195
+  %97 = add i32 %96, 1
+  %98 = icmp ugt i32 %97, %.044.lcssa
+  %99 = getelementptr inbounds nuw i8, ptr %92, i64 116
+  %..i = select i1 %98, i32 0, i32 %.044.lcssa
+  store i32 %..i, ptr %99, align 4, !tbaa !338
+  br label %100
 
-101:                                              ; preds = %.sink.split.i, %92
+100:                                              ; preds = %.sink.split.i, %91
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
-  br i1 %exitcond.not.i, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit, label %92, !llvm.loop !339
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.pre-phi
+  br i1 %exitcond.not.i, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit, label %91, !llvm.loop !339
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38 ], [ 1, %.lr.ph ]
-  %.059 = phi i32 [ %.1, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38 ], [ 0, %.lr.ph ]
-  %.04456 = phi i32 [ %.145, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38 ], [ %11, %.lr.ph ]
-  %102 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %17, i64 %indvars.iv
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  %104 = load i32, ptr %103, align 8, !tbaa !24
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38, label %106
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38
+  %indvars.iv = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38 ]
+  %.059 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38 ]
+  %.04456 = phi i32 [ %11, %.lr.ph.split.preheader ], [ %.145, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38 ]
+  %101 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %16, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  %103 = load i32, ptr %102, align 8, !tbaa !24
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38, label %105
 
-106:                                              ; preds = %.lr.ph.split
-  %107 = getelementptr inbounds nuw i8, ptr %102, i64 97
-  %108 = load i8, ptr %107, align 1, !tbaa !34, !range !40, !noundef !41
-  %109 = trunc nuw i8 %108 to i1
-  br i1 %109, label %.thread53, label %.thread48
+105:                                              ; preds = %.lr.ph.split
+  %106 = getelementptr inbounds nuw i8, ptr %101, i64 97
+  %107 = load i8, ptr %106, align 1, !tbaa !34, !range !40, !noundef !41
+  %108 = trunc nuw i8 %107 to i1
+  br i1 %108, label %.thread53, label %.thread48
 
-.thread48:                                        ; preds = %106
-  %110 = add i32 %.059, 1
-  %111 = zext i32 %110 to i64
-  %112 = icmp samesign ugt i64 %indvars.iv, %111
-  %113 = trunc nuw i64 %indvars.iv to i32
-  br i1 %112, label %.lr.ph.i30, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38
+.thread48:                                        ; preds = %105
+  %109 = add i32 %.059, 1
+  %110 = zext i32 %109 to i64
+  %111 = icmp samesign ugt i64 %indvars.iv, %110
+  %112 = trunc nuw i64 %indvars.iv to i32
+  br i1 %111, label %.lr.ph.i30, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38
 
-.thread53:                                        ; preds = %106
-  %114 = getelementptr inbounds nuw i8, ptr %102, i64 112
-  %115 = load i32, ptr %114, align 8, !tbaa !195
-  %116 = add i32 %115, 2
-  %.sroa.speculated54 = tail call i32 @llvm.umax.i32(i32 %116, i32 %.04456)
+.thread53:                                        ; preds = %105
+  %113 = getelementptr inbounds nuw i8, ptr %101, i64 112
+  %114 = load i32, ptr %113, align 8, !tbaa !195
+  %115 = add i32 %114, 2
+  %.sroa.speculated54 = tail call i32 @llvm.umax.i32(i32 %115, i32 %.04456)
   br label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38
 
-.lr.ph.i30:                                       ; preds = %.thread48, %125
-  %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i36, %125 ], [ %111, %.thread48 ]
-  %117 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %17, i64 %indvars.iv.i32
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
-  %119 = load i32, ptr %118, align 8, !tbaa !24
-  %.not.i33 = icmp eq i32 %119, 0
-  br i1 %.not.i33, label %125, label %.sink.split.i34
+.lr.ph.i30:                                       ; preds = %.thread48, %124
+  %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i36, %124 ], [ %110, %.thread48 ]
+  %116 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %16, i64 %indvars.iv.i32
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
+  %118 = load i32, ptr %117, align 8, !tbaa !24
+  %.not.i33 = icmp eq i32 %118, 0
+  br i1 %.not.i33, label %124, label %.sink.split.i34
 
 .sink.split.i34:                                  ; preds = %.lr.ph.i30
-  %120 = getelementptr inbounds nuw i8, ptr %117, i64 112
-  %121 = load i32, ptr %120, align 8, !tbaa !195
-  %122 = add i32 %121, 1
-  %123 = icmp ugt i32 %122, %.04456
-  %124 = getelementptr inbounds nuw i8, ptr %117, i64 116
-  %..i35 = select i1 %123, i32 0, i32 %.04456
-  store i32 %..i35, ptr %124, align 4, !tbaa !338
-  br label %125
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 112
+  %120 = load i32, ptr %119, align 8, !tbaa !195
+  %121 = add i32 %120, 1
+  %122 = icmp ugt i32 %121, %.04456
+  %123 = getelementptr inbounds nuw i8, ptr %116, i64 116
+  %..i35 = select i1 %122, i32 0, i32 %.04456
+  store i32 %..i35, ptr %123, align 4, !tbaa !338
+  br label %124
 
-125:                                              ; preds = %.sink.split.i34, %.lr.ph.i30
+124:                                              ; preds = %.sink.split.i34, %.lr.ph.i30
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %indvars.iv
   br i1 %exitcond.not.i37, label %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38, label %.lr.ph.i30, !llvm.loop !339
 
-_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38: ; preds = %125, %.lr.ph.split, %.thread53, %.thread48
-  %.145 = phi i32 [ %.sroa.speculated54, %.thread53 ], [ %11, %.thread48 ], [ %.04456, %.lr.ph.split ], [ %11, %125 ]
-  %.1 = phi i32 [ %.059, %.thread53 ], [ %113, %.thread48 ], [ %.059, %.lr.ph.split ], [ %113, %125 ]
+_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38: ; preds = %124, %.lr.ph.split, %.thread53, %.thread48
+  %.145 = phi i32 [ %.sroa.speculated54, %.thread53 ], [ %11, %.thread48 ], [ %.04456, %.lr.ph.split ], [ %11, %124 ]
+  %.1 = phi i32 [ %.059, %.thread53 ], [ %112, %.thread48 ], [ %.059, %.lr.ph.split ], [ %112, %124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %14
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !340
 
-_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit: ; preds = %101, %._crit_edge, %1
+_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit: ; preds = %100, %._crit_edge, %1
   ret void
 }
 

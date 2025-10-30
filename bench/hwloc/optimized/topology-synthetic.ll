@@ -2389,70 +2389,70 @@ declare ptr @hwloc_backend_alloc(ptr noundef, ptr noundef, i64 noundef) local_un
 define internal noundef i32 @hwloc_look_synthetic(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !122
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = tail call noalias ptr @hwloc_bitmap_alloc() #24
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !64
-  %9 = load ptr, ptr %8, align 8, !tbaa !65
-  %10 = load ptr, ptr %9, align 8, !tbaa !47
-  tail call void @hwloc_alloc_root_sets(ptr noundef %10) #24
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 656
-  %12 = load ptr, ptr %11, align 8, !tbaa !123
-  store i8 1, ptr %12, align 1, !tbaa !124
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  store i8 1, ptr %13, align 1, !tbaa !126
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  store i8 1, ptr %14, align 1, !tbaa !127
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %16 = load i32, ptr %15, align 8, !tbaa !94
-  %.not32 = icmp eq i32 %16, 0
+  %5 = tail call noalias ptr @hwloc_bitmap_alloc() #24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !64
+  %8 = load ptr, ptr %7, align 8, !tbaa !65
+  %9 = load ptr, ptr %8, align 8, !tbaa !47
+  tail call void @hwloc_alloc_root_sets(ptr noundef %9) #24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 656
+  %11 = load ptr, ptr %10, align 8, !tbaa !123
+  store i8 1, ptr %11, align 1, !tbaa !124
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  store i8 1, ptr %12, align 1, !tbaa !126
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  store i8 1, ptr %13, align 1, !tbaa !127
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %15 = load i32, ptr %14, align 8, !tbaa !94
+  %.not32 = icmp eq i32 %15, 0
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %17 = phi ptr [ %21, %.lr.ph ], [ %15, %2 ]
-  %.033 = phi i32 [ %19, %.lr.ph ], [ 0, %2 ]
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  store i32 0, ptr %18, align 8, !tbaa !128
-  %19 = add i32 %.033, 1
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %15, i64 %20
-  %22 = load i32, ptr %21, align 8, !tbaa !94
-  %.not = icmp eq i32 %22, 0
+  %16 = phi ptr [ %20, %.lr.ph ], [ %14, %2 ]
+  %.033 = phi i32 [ %18, %.lr.ph ], [ 0, %2 ]
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store i32 0, ptr %17, align 8, !tbaa !128
+  %18 = add i32 %.033, 1
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %14, i64 %19
+  %21 = load i32, ptr %20, align 8, !tbaa !94
+  %.not = icmp eq i32 %21, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.lcssa = phi ptr [ %15, %2 ], [ %21, %.lr.ph ]
+  %.lcssa = phi ptr [ %14, %2 ], [ %20, %.lr.ph ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %23, align 8, !tbaa !130
   %24 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 72
   store i32 0, ptr %24, align 8, !tbaa !128
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %26 = load i32, ptr %25, align 8, !tbaa !90
-  %27 = load ptr, ptr %7, align 8, !tbaa !64
+  %27 = load ptr, ptr %6, align 8, !tbaa !64
   %28 = load ptr, ptr %27, align 8, !tbaa !65
   %29 = load ptr, ptr %28, align 8, !tbaa !47
   store i32 %26, ptr %29, align 8, !tbaa !50
   tail call fastcc void @hwloc_synthetic_set_attr(ptr noundef nonnull %25, ptr noundef nonnull %29)
-  %30 = load i32, ptr %15, align 8, !tbaa !94
+  %30 = load i32, ptr %14, align 8, !tbaa !94
   %.not39 = icmp eq i32 %30, 0
   br i1 %.not39, label %._crit_edge38, label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %._crit_edge, %.lr.ph37
   %.135 = phi i32 [ %31, %.lr.ph37 ], [ 0, %._crit_edge ]
-  tail call fastcc void @hwloc__look_synthetic(ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef %6)
+  tail call fastcc void @hwloc__look_synthetic(ptr noundef nonnull %4, ptr noundef nonnull %22, i32 noundef 1, ptr noundef %5)
   %31 = add nuw i32 %.135, 1
-  %32 = load i32, ptr %15, align 8, !tbaa !94
+  %32 = load i32, ptr %14, align 8, !tbaa !94
   %33 = icmp ult i32 %31, %32
   br i1 %33, label %.lr.ph37, label %._crit_edge38, !llvm.loop !131
 
 ._crit_edge38:                                    ; preds = %.lr.ph37, %._crit_edge
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %35 = load ptr, ptr %34, align 8, !tbaa !92
-  tail call fastcc void @hwloc_synthetic_insert_attached(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %35, ptr noundef %6)
-  tail call void @hwloc_bitmap_free(ptr noundef %6) #24
+  tail call fastcc void @hwloc_synthetic_insert_attached(ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef %35, ptr noundef %5)
+  tail call void @hwloc_bitmap_free(ptr noundef %5) #24
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 688
   %37 = tail call i32 @hwloc__add_info(ptr noundef nonnull %36, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61) #24
-  %38 = load ptr, ptr %5, align 8, !tbaa !115
+  %38 = load ptr, ptr %22, align 8, !tbaa !115
   %39 = tail call i32 @hwloc__add_info(ptr noundef nonnull %36, ptr noundef nonnull @.str.62, ptr noundef %38) #24
   ret i32 0
 }
@@ -2834,27 +2834,27 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   br label %240
 
 41:                                               ; preds = %19
-  %42 = trunc i64 %2 to i32
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 %12
-  %44 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 58) #23
-  %.not276383 = icmp ne ptr %44, null
-  %.not277384 = icmp ult ptr %44, %43
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 %12
+  %43 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 58) #23
+  %.not276383 = icmp ne ptr %43, null
+  %.not277384 = icmp ult ptr %43, %42
   %or.cond385 = select i1 %.not276383, i1 %.not277384, i1 false
   br i1 %or.cond385, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %41, %.lr.ph
-  %45 = phi ptr [ %48, %.lr.ph ], [ %44, %41 ]
-  %.0224386 = phi i32 [ %46, %.lr.ph ], [ 1, %41 ]
-  %46 = add i32 %.0224386, 1
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 1
-  %48 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %47, i32 noundef 58) #23
-  %.not276 = icmp ne ptr %48, null
-  %.not277 = icmp ult ptr %48, %43
+  %44 = phi ptr [ %47, %.lr.ph ], [ %43, %41 ]
+  %.0224386 = phi i32 [ %45, %.lr.ph ], [ 1, %41 ]
+  %45 = add i32 %.0224386, 1
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  %47 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %46, i32 noundef 58) #23
+  %.not276 = icmp ne ptr %47, null
+  %.not277 = icmp ult ptr %47, %42
   %or.cond = select i1 %.not276, i1 %.not277, i1 false
   br i1 %or.cond, label %.lr.ph, label %._crit_edge, !llvm.loop !138
 
 ._crit_edge:                                      ; preds = %.lr.ph, %41
-  %.0224.lcssa = phi i32 [ 1, %41 ], [ %46, %.lr.ph ]
+  %.0224.lcssa = phi i32 [ 1, %41 ], [ %45, %.lr.ph ]
+  %48 = trunc i64 %2 to i32
   %49 = add i32 %.0224.lcssa, 1
   %50 = zext i32 %49 to i64
   %51 = mul nuw nsw i64 %50, 12
@@ -2880,7 +2880,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   %59 = phi ptr [ %97, %93 ], [ %57, %.preheader355 ]
   %.in = phi i64 [ %96, %93 ], [ %56, %.preheader355 ]
   %.0226415 = phi i32 [ %94, %93 ], [ 0, %.preheader355 ]
-  %.0230414 = phi i32 [ %spec.select, %93 ], [ %42, %.preheader355 ]
+  %.0230414 = phi i32 [ %spec.select, %93 ], [ %48, %.preheader355 ]
   %.0236413 = phi i64 [ %92, %93 ], [ 1, %.preheader355 ]
   %.1247412 = phi ptr [ %95, %93 ], [ %10, %.preheader355 ]
   %60 = trunc i64 %.in to i32
@@ -3098,7 +3098,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
 144:                                              ; preds = %.loopexit
   %145 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.3249396, i32 noundef 58) #23
   %.not282 = icmp eq ptr %145, null
-  %146 = icmp ugt ptr %145, %43
+  %146 = icmp ugt ptr %145, %42
   %or.cond311 = select i1 %.not282, i1 true, i1 %146
   br i1 %or.cond311, label %.preheader356, label %148
 
@@ -3119,7 +3119,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
 
 153:                                              ; preds = %.lr.ph408, %171
   %.3229407 = phi i32 [ 0, %.lr.ph408 ], [ %187, %171 ]
-  %.7406 = phi i32 [ %42, %.lr.ph408 ], [ %spec.select314, %171 ]
+  %.7406 = phi i32 [ %48, %.lr.ph408 ], [ %spec.select314, %171 ]
   %.6242405 = phi i64 [ 1, %.lr.ph408 ], [ %186, %171 ]
   %154 = zext i32 %.3229407 to i64
   %155 = getelementptr inbounds nuw %struct.hwloc_synthetic_intlv_loop_s, ptr %52, i64 %154
@@ -3186,7 +3186,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
 
 ._crit_edge409:                                   ; preds = %171, %.preheader356
   %.6242.lcssa = phi i64 [ 1, %.preheader356 ], [ %186, %171 ]
-  %.7.lcssa = phi i32 [ %42, %.preheader356 ], [ %spec.select314, %171 ]
+  %.7.lcssa = phi i32 [ %48, %.preheader356 ], [ %spec.select314, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %188

@@ -1084,8 +1084,8 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !147
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !147
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -1207,8 +1207,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !145
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !145
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -1670,8 +1670,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !210
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !210
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -2374,18 +2374,18 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
 
 140:                                              ; preds = %137
   %141 = icmp eq i64 %indvars.iv.i, 1
-  %142 = load double, ptr %131, align 8, !tbaa !193
-  %143 = select i1 %141, double -1.000000e+00, double 1.000000e+00
+  %142 = select i1 %141, double -1.000000e+00, double 1.000000e+00
   %.not91.i.i = icmp eq i32 %139, 0
   br i1 %.not91.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %140
-  %144 = load ptr, ptr %79, align 8, !tbaa !191
+  %143 = load ptr, ptr %79, align 8, !tbaa !191
   %wide.trip.count.i.i = zext i32 %139 to i64
   br label %148
 
 .preheader.i.i:                                   ; preds = %148, %140
   %.071.lcssa.i.i = phi double [ 0x47EFFFFFE0000000, %140 ], [ %.172.i.i, %148 ]
+  %144 = load double, ptr %131, align 8, !tbaa !193
   %145 = load i32, ptr %132, align 8, !tbaa !194
   %.not92.i.i = icmp eq i32 %145, 0
   br i1 %.not92.i.i, label %._crit_edge.i.i, label %.lr.ph85.i.i
@@ -2398,10 +2398,10 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
 148:                                              ; preds = %148, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %148 ]
   %.07183.i.i = phi double [ 0x47EFFFFFE0000000, %.lr.ph.i.i ], [ %.172.i.i, %148 ]
-  %149 = getelementptr inbounds nuw float, ptr %144, i64 %indvars.iv.i.i
+  %149 = getelementptr inbounds nuw float, ptr %143, i64 %indvars.iv.i.i
   %150 = load float, ptr %149, align 4, !tbaa !210
   %151 = fpext float %150 to double
-  %152 = fmul double %143, %151
+  %152 = fmul double %142, %151
   %153 = fcmp olt double %152, %.07183.i.i
   %.172.i.i = select i1 %153, double %152, double %.07183.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2427,18 +2427,18 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   %160 = phi i32 [ %.pre.i.i, %._crit_edge.loopexit.i.i ], [ %139, %.preheader.i.i ]
   %161 = getelementptr inbounds nuw i32, ptr %134, i64 %indvars.iv.i
   store i32 0, ptr %161, align 4, !tbaa !145
-  %162 = fdiv double %.071.lcssa.i.i, %142
+  %162 = fdiv double %.071.lcssa.i.i, %144
   %163 = tail call double @llvm.floor.f64(double %162)
   %164 = fptosi double %163 to i64
   %165 = getelementptr inbounds nuw i64, ptr %135, i64 %indvars.iv.i
   store i64 %164, ptr %165, align 8, !tbaa !218
   %166 = sitofp i64 %164 to double
-  %167 = fmul double %142, %166
+  %167 = fmul double %144, %166
   %168 = zext i32 %159 to i64
   %169 = add i64 %164, 1
   %170 = add i64 %169, %168
   %171 = sitofp i64 %170 to double
-  %172 = fmul double %142, %171
+  %172 = fmul double %144, %171
   %.not93.i.i = icmp eq i32 %160, 0
   br i1 %.not93.i.i, label %._crit_edge90.i.i, label %.lr.ph89.i.i
 
@@ -2454,15 +2454,15 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   %178 = getelementptr inbounds nuw float, ptr %173, i64 %indvars.iv99.i.i
   %179 = load float, ptr %178, align 4, !tbaa !210
   %180 = fpext float %179 to double
-  %181 = fmul double %143, %180
+  %181 = fmul double %142, %180
   %182 = fcmp ult double %181, %167
   %183 = fcmp ugt double %181, %172
   %or.cond.i.i = select i1 %182, i1 true, i1 %183
   br i1 %or.cond.i.i, label %188, label %184
 
 184:                                              ; preds = %177
-  %185 = tail call double @llvm.fmuladd.f64(double %143, double %180, double %174)
-  %186 = fdiv double %185, %142
+  %185 = tail call double @llvm.fmuladd.f64(double %142, double %180, double %174)
+  %186 = fdiv double %185, %144
   %187 = fptoui double %186 to i32
   %.pre102.i.i = load i32, ptr %132, align 8, !tbaa !194
   %.pre105.i.i = add i32 %.pre102.i.i, -1

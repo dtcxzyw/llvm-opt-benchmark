@@ -2670,9 +2670,9 @@ define linkonce_odr noundef i32 @_ZN3acd21ac_decomposition_impl20column_multipli
   call void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef nonnull %3, ptr noundef nonnull %12, i64 noundef %17)
   %18 = icmp ugt i32 %.229, 16
   %scevgep.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
-  br i1 %18, label %.preheader.i, label %37
+  br i1 %18, label %.preheader.i.i.i, label %37
 
-.preheader.i:                                     ; preds = %13, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
+.preheader.i.i.i:                                 ; preds = %13, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %.019.i.idx.i.i.i = phi i64 [ %.019.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ 4, %13 ]
   %.pn18.i.i.i.i = phi ptr [ %.019.i.ptr.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %3, %13 ]
   %.019.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.019.i.idx.i.i.i
@@ -2681,11 +2681,11 @@ define linkonce_odr noundef i32 @_ZN3acd21ac_decomposition_impl20column_multipli
   %21 = icmp ult i32 %19, %20
   br i1 %21, label %22, label %23
 
-22:                                               ; preds = %.preheader.i
+22:                                               ; preds = %.preheader.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %3, i64 %.019.i.idx.i.i.i, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
-23:                                               ; preds = %.preheader.i
+23:                                               ; preds = %.preheader.i.i.i
   %24 = load i32, ptr %.pn18.i.i.i.i, align 4, !tbaa !41
   %25 = icmp ult i32 %19, %24
   br i1 %25, label %.lr.ph.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
@@ -2705,7 +2705,7 @@ _ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   store i32 %19, ptr %.sink.i.i.i.i, align 4, !tbaa !41
   %.019.i.add.i.i.i = add nuw nsw i64 %.019.i.idx.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %.019.i.add.i.i.i, 64
-  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i, !llvm.loop !156
+  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i.i.i, !llvm.loop !156
 
 _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i: ; preds = %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -3271,9 +3271,9 @@ define linkonce_odr noundef i32 @_ZN3acd21ac_decomposition_impl20column_multipli
   call void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef nonnull %3, ptr noundef nonnull %12, i64 noundef %17)
   %18 = icmp ugt i32 %.229, 16
   %scevgep.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
-  br i1 %18, label %.preheader.i, label %37
+  br i1 %18, label %.preheader.i.i.i, label %37
 
-.preheader.i:                                     ; preds = %13, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
+.preheader.i.i.i:                                 ; preds = %13, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %.019.i.idx.i.i.i = phi i64 [ %.019.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ 4, %13 ]
   %.pn18.i.i.i.i = phi ptr [ %.019.i.ptr.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %3, %13 ]
   %.019.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.019.i.idx.i.i.i
@@ -3282,11 +3282,11 @@ define linkonce_odr noundef i32 @_ZN3acd21ac_decomposition_impl20column_multipli
   %21 = icmp ult i32 %19, %20
   br i1 %21, label %22, label %23
 
-22:                                               ; preds = %.preheader.i
+22:                                               ; preds = %.preheader.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %3, i64 %.019.i.idx.i.i.i, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
-23:                                               ; preds = %.preheader.i
+23:                                               ; preds = %.preheader.i.i.i
   %24 = load i32, ptr %.pn18.i.i.i.i, align 4, !tbaa !41
   %25 = icmp ult i32 %19, %24
   br i1 %25, label %.lr.ph.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
@@ -3306,7 +3306,7 @@ _ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   store i32 %19, ptr %.sink.i.i.i.i, align 4, !tbaa !41
   %.019.i.add.i.i.i = add nuw nsw i64 %.019.i.idx.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %.019.i.add.i.i.i, 64
-  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i, !llvm.loop !156
+  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i.i.i, !llvm.loop !156
 
 _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i: ; preds = %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -5372,15 +5372,15 @@ _ZNSt6vectorIN5kitty18static_truth_tableILj11ELb0EEESaIS2_EE5clearEv.exit: ; pre
   br i1 %31, label %278, label %.preheader73
 
 .preheader73:                                     ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %34 = load i32, ptr %0, align 8, !tbaa !10
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %33 = load ptr, ptr %3, align 8
+  %.fr85 = freeze ptr %33
+  %34 = load i32, ptr %0, align 8
   %35 = add i32 %34, -1
   %36 = mul i32 %35, %34
   %37 = lshr i32 %36, 1
-  %38 = load ptr, ptr %3, align 8
-  %.fr85 = freeze ptr %38
-  %39 = load ptr, ptr %32, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %39 = load ptr, ptr %38, align 8
   %.fr = freeze ptr %39
   %40 = ptrtoint ptr %.fr to i64
   %41 = ptrtoint ptr %.fr85 to i64
@@ -5390,11 +5390,11 @@ _ZNSt6vectorIN5kitty18static_truth_tableILj11ELb0EEESaIS2_EE5clearEv.exit: ; pre
   br i1 %.not84.i, label %.preheader73.split.us, label %.preheader73.split
 
 .preheader73.split.us:                            ; preds = %.preheader73
-  %44 = load i32, ptr %33, align 4, !tbaa !41
+  %44 = load i32, ptr %32, align 4, !tbaa !41
   br label %_ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit.thread
 
 .preheader73.split:                               ; preds = %.preheader73, %_ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit
-  %45 = load i32, ptr %33, align 4, !tbaa !41
+  %45 = load i32, ptr %32, align 4, !tbaa !41
   %.not.i = icmp eq i32 %45, 0
   br i1 %.not.i, label %_ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit.thread, label %.lr.ph.i
 
@@ -5506,7 +5506,7 @@ _ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_colu
   br i1 %.2.us.i, label %.preheader73.split, label %_ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit._ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit.thread.loopexit88_crit_edge, !llvm.loop !259
 
 _ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit._ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit.thread.loopexit88_crit_edge: ; preds = %_ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit
-  %.pre.pre = load i32, ptr %33, align 4, !tbaa !41
+  %.pre.pre = load i32, ptr %32, align 4, !tbaa !41
   br label %_ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit.thread, !llvm.loop !259
 
 _ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit.thread: ; preds = %.preheader73.split, %.preheader73.split.us, %_ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit._ZN3acd21ac_decomposition_impl16covering_improveERKSt6vectorINS0_15encoding_columnESaIS2_EERSt5arrayIjLm6EE.exit.thread.loopexit88_crit_edge
@@ -5881,7 +5881,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit59:         ; preds = %229, %_ZNSt6vectorI
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %251 = load i32, ptr %33, align 4, !tbaa !41
+  %251 = load i32, ptr %32, align 4, !tbaa !41
   %252 = zext i32 %251 to i64
   %253 = icmp samesign ult i64 %indvars.iv.next98, %252
   br i1 %253, label %126, label %._crit_edge, !llvm.loop !268
@@ -7470,33 +7470,33 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl24covering_solve_heurist
   %4 = alloca %"struct.acd::ac_decomposition_impl::encoding_column", align 8
   %5 = alloca %"struct.acd::ac_decomposition_impl::encoding_column", align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) @__const._ZN3acd21ac_decomposition_impl24covering_solve_heuristicERSt6vectorINS0_15encoding_columnESaIS2_EE.res, i64 24, i1 false)
-  %6 = load i32, ptr %1, align 8, !tbaa !10
-  %7 = add i32 %6, -1
-  %8 = mul i32 %7, %6
-  %9 = lshr i32 %8, 1
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !233
-  %12 = load ptr, ptr %2, align 8, !tbaa !230
-  %13 = ptrtoint ptr %11 to i64
-  %14 = ptrtoint ptr %12 to i64
-  %15 = sub i64 %13, %14
-  %16 = ashr exact i64 %15, 5
-  %.not96 = icmp eq ptr %11, %12
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !233
+  %8 = load ptr, ptr %2, align 8, !tbaa !230
+  %9 = ptrtoint ptr %7 to i64
+  %10 = ptrtoint ptr %8 to i64
+  %11 = sub i64 %9, %10
+  %12 = ashr exact i64 %11, 5
+  %.not96 = icmp eq ptr %7, %8
   br i1 %.not96, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %17 = zext i32 %.160 to i64
+  %13 = zext i32 %.160 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.059.lcssa = phi i64 [ 0, %3 ], [ %17, %._crit_edge.loopexit ]
-  %18 = getelementptr inbounds nuw %"struct.acd::ac_decomposition_impl::encoding_column", ptr %12, i64 %.059.lcssa
+  %.059.lcssa = phi i64 [ 0, %3 ], [ %13, %._crit_edge.loopexit ]
+  %14 = load i32, ptr %1, align 8, !tbaa !10
+  %15 = add i32 %14, -1
+  %16 = mul i32 %15, %14
+  %17 = lshr i32 %16, 1
+  %18 = getelementptr inbounds nuw %"struct.acd::ac_decomposition_impl::encoding_column", ptr %8, i64 %.059.lcssa
   %19 = load i64, ptr %18, align 8, !tbaa !49
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !tbaa.struct !281
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !tbaa.struct !281
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !281
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !tbaa.struct !281
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !281
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 436
@@ -7512,7 +7512,7 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl24covering_solve_heurist
   %.05772 = phi i32 [ %33, %.lr.ph ], [ 0, %3 ]
   %.05871 = phi float [ %.1, %.lr.ph ], [ 0x47EFFFFFE0000000, %3 ]
   %.05970 = phi i32 [ %.160, %.lr.ph ], [ 0, %3 ]
-  %29 = getelementptr inbounds nuw %"struct.acd::ac_decomposition_impl::encoding_column", ptr %12, i64 %28
+  %29 = getelementptr inbounds nuw %"struct.acd::ac_decomposition_impl::encoding_column", ptr %8, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load float, ptr %30, align 8, !tbaa !280
   %32 = fcmp olt float %31, %.05871
@@ -7520,7 +7520,7 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl24covering_solve_heurist
   %.1 = select i1 %32, float %31, float %.05871
   %33 = add i32 %.05772, 1
   %34 = zext i32 %33 to i64
-  %35 = icmp ugt i64 %16, %34
+  %35 = icmp ugt i64 %12, %34
   br i1 %35, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !296
 
 .lr.ph85:                                         ; preds = %._crit_edge, %._crit_edge78
@@ -7532,12 +7532,12 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl24covering_solve_heurist
   %38 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.06381)
   %39 = trunc nuw nsw i64 %38 to i32
   %40 = add nuw nsw i32 %37, %39
-  %.not = icmp eq i32 %40, %9
+  %.not = icmp eq i32 %40, %17
   %41 = trunc nuw i64 %indvars.iv to i32
   br i1 %.not, label %.critedge, label %.preheader67
 
 .preheader67:                                     ; preds = %.lr.ph85
-  %42 = load ptr, ptr %10, align 8, !tbaa !233
+  %42 = load ptr, ptr %6, align 8, !tbaa !233
   %43 = load ptr, ptr %2, align 8, !tbaa !230
   %44 = ptrtoint ptr %42 to i64
   %45 = ptrtoint ptr %43 to i64
@@ -7616,7 +7616,7 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl24covering_solve_heurist
   %85 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.063.lcssa)
   %86 = trunc nuw nsw i64 %85 to i32
   %87 = add nuw nsw i32 %84, %86
-  %88 = icmp eq i32 %87, %9
+  %88 = icmp eq i32 %87, %17
   br i1 %88, label %.preheader, label %92
 
 .preheader:                                       ; preds = %.critedge
@@ -8344,8 +8344,8 @@ _ZNSt6vectorIN3acd23ac_decomposition_resultESaIS1_EE5clearEv.exit: ; preds = %1,
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i: ; preds = %._crit_edge
   %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %65, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %64, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !49, !noalias !312
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i.i.i.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %64, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !49, !noalias !312
   br label %_ZN5kitty6createINS_19dynamic_truth_tableEEET_j.exit.i
 
 _ZN5kitty6createINS_19dynamic_truth_tableEEET_j.exit.i: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i, %._crit_edge
@@ -9194,8 +9194,8 @@ define linkonce_odr void @_ZN3acd21ac_decomposition_impl29compute_top_lut_decomp
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %1
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %27, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %26, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !49
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %26, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !49
   br label %_ZN5kitty19dynamic_truth_tableC2Ej.exit
 
 _ZN5kitty19dynamic_truth_tableC2Ej.exit:          ; preds = %1, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
@@ -9367,8 +9367,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %57, %_ZNSt6vectorIj
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i: ; preds = %95
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %107, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %106, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !49
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %106, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !49
   br label %_ZNSt16allocator_traitsISaIN5kitty19dynamic_truth_tableEEE9constructIS1_JRjEEEvRS2_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaIN5kitty19dynamic_truth_tableEEE9constructIS1_JRjEEEvRS2_PT_DpOT0_.exit.i: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i, %95
@@ -9584,8 +9584,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit43:        ; preds = %182, %_ZNSt6vectorI
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i: ; preds = %209
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %223, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %222, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !49, !noalias !341
   %225 = getelementptr inbounds nuw i8, ptr %222, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %222, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !49, !noalias !341
   br label %_ZNK5kitty19dynamic_truth_table9constructEv.exit.i.i.i
 
 _ZNK5kitty19dynamic_truth_table9constructEv.exit.i.i.i: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i, %209
@@ -9825,8 +9825,8 @@ _ZN5kitty19dynamic_truth_tableD2Ev.exit50:        ; preds = %_ZNSt6vectorIN5kitt
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i: ; preds = %324
   %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %338, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %337, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !49, !noalias !354
   %340 = getelementptr inbounds nuw i8, ptr %337, i64 %.idx.i.i.i.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %337, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !49, !noalias !354
   br label %_ZN5kitty6createINS_19dynamic_truth_tableEEET_j.exit.i
 
 _ZN5kitty6createINS_19dynamic_truth_tableEEET_j.exit.i: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i, %324
@@ -9890,8 +9890,8 @@ _ZN5kitty9shrink_toINS_18static_truth_tableILj11ELb0EEEEENS_19dynamic_truth_tabl
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i51: ; preds = %._crit_edge136
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i52 = shl nuw nsw i64 %368, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %367, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i52, i1 false), !tbaa !49, !noalias !360
   %370 = getelementptr inbounds nuw i8, ptr %367, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i52
+  call void @llvm.memset.p0.i64(ptr align 8 %367, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i52, i1 false), !tbaa !49, !noalias !360
   br label %_ZNK5kitty19dynamic_truth_table9constructEv.exit.i.i.i53
 
 _ZNK5kitty19dynamic_truth_table9constructEv.exit.i.i.i53: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i51, %._crit_edge136
@@ -9983,8 +9983,8 @@ _ZN5kitty19dynamic_truth_tableD2Ev.exit59:        ; preds = %_ZN5kitty9binary_or
   br i1 %339, label %_ZNK5kitty19dynamic_truth_table9constructEv.exit.i.i.i62, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i60
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i60: ; preds = %410
-  call void @llvm.memset.p0.i64(ptr align 8 %414, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i61, i1 false), !tbaa !49, !noalias !370
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i61
+  call void @llvm.memset.p0.i64(ptr align 8 %414, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i61, i1 false), !tbaa !49, !noalias !370
   br label %_ZNK5kitty19dynamic_truth_table9constructEv.exit.i.i.i62
 
 _ZNK5kitty19dynamic_truth_table9constructEv.exit.i.i.i62: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i60, %410
@@ -10096,8 +10096,8 @@ _ZN5kittycoERKNS_19dynamic_truth_tableE.exit82:   ; preds = %_ZSt9transformIN9__
   br i1 %339, label %_ZNK5kitty19dynamic_truth_table9constructEv.exit.i.i.i85, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i83
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i83: ; preds = %_ZN5kittycoERKNS_19dynamic_truth_tableE.exit82
-  call void @llvm.memset.p0.i64(ptr align 8 %465, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i61, i1 false), !tbaa !49, !noalias !389
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i61
+  call void @llvm.memset.p0.i64(ptr align 8 %465, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i61, i1 false), !tbaa !49, !noalias !389
   br label %_ZNK5kitty19dynamic_truth_table9constructEv.exit.i.i.i85
 
 _ZNK5kitty19dynamic_truth_table9constructEv.exit.i.i.i85: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i83, %_ZN5kittycoERKNS_19dynamic_truth_tableE.exit82
@@ -10587,8 +10587,8 @@ _ZNSt12_Vector_baseIN5kitty19dynamic_truth_tableESaIS1_EE11_M_allocateEm.exit: ;
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN5kitty19dynamic_truth_tableESaIS1_EE11_M_allocateEm.exit
   %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %35, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %34, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !49
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i.i.i.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %34, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !49
   br label %_ZNSt16allocator_traitsISaIN5kitty19dynamic_truth_tableEEE9constructIS1_JRjEEEvRS2_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN5kitty19dynamic_truth_tableEEE9constructIS1_JRjEEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN5kitty19dynamic_truth_tableESaIS1_EE11_M_allocateEm.exit, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i
@@ -12417,9 +12417,9 @@ define linkonce_odr noundef i32 @_ZN3acd10acdXX_impl22check_shared_set_multiERKN
   call void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %3, ptr noundef nonnull %30, i64 noundef %29)
   %32 = icmp ugt i32 %.02547, 16
   %scevgep.i.i.i = getelementptr i8, ptr %3, i64 4
-  br i1 %32, label %.preheader.i, label %51
+  br i1 %32, label %.preheader.i.i.i, label %51
 
-.preheader.i:                                     ; preds = %24, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
+.preheader.i.i.i:                                 ; preds = %24, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %.019.i.idx.i.i.i = phi i64 [ %.019.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ 4, %24 ]
   %.pn18.i.i.i.i = phi ptr [ %.019.i.ptr.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %3, %24 ]
   %.019.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.019.i.idx.i.i.i
@@ -12428,11 +12428,11 @@ define linkonce_odr noundef i32 @_ZN3acd10acdXX_impl22check_shared_set_multiERKN
   %35 = icmp ult i32 %33, %34
   br i1 %35, label %36, label %37
 
-36:                                               ; preds = %.preheader.i
+36:                                               ; preds = %.preheader.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %3, i64 %.019.i.idx.i.i.i, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
-37:                                               ; preds = %.preheader.i
+37:                                               ; preds = %.preheader.i.i.i
   %38 = load i32, ptr %.pn18.i.i.i.i, align 4, !tbaa !41
   %39 = icmp ult i32 %33, %38
   br i1 %39, label %.lr.ph.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
@@ -12452,7 +12452,7 @@ _ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   store i32 %33, ptr %.sink.i.i.i.i, align 4, !tbaa !41
   %.019.i.add.i.i.i = add nuw nsw i64 %.019.i.idx.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %.019.i.add.i.i.i, 64
-  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i, !llvm.loop !156
+  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i.i.i, !llvm.loop !156
 
 _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i: ; preds = %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -13555,8 +13555,8 @@ define linkonce_odr void @_ZN3acd10acdXX_impl9report_ttERKN5kitty18static_truth_
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %2
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %14, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !49
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !49
   br label %_ZN5kitty19dynamic_truth_tableC2Ej.exit
 
 _ZN5kitty19dynamic_truth_tableC2Ej.exit:          ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %2
@@ -15142,9 +15142,9 @@ define linkonce_odr noundef i32 @_ZN3acd10acd66_impl22check_shared_set_multiERKN
   call void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %3, ptr noundef nonnull %23, i64 noundef %22)
   %25 = icmp ugt i32 %.02541, 16
   %scevgep.i.i.i = getelementptr i8, ptr %3, i64 4
-  br i1 %25, label %.preheader.i, label %44
+  br i1 %25, label %.preheader.i.i.i, label %44
 
-.preheader.i:                                     ; preds = %17, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
+.preheader.i.i.i:                                 ; preds = %17, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %.019.i.idx.i.i.i = phi i64 [ %.019.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ 4, %17 ]
   %.pn18.i.i.i.i = phi ptr [ %.019.i.ptr.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %3, %17 ]
   %.019.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.019.i.idx.i.i.i
@@ -15153,11 +15153,11 @@ define linkonce_odr noundef i32 @_ZN3acd10acd66_impl22check_shared_set_multiERKN
   %28 = icmp ult i32 %26, %27
   br i1 %28, label %29, label %30
 
-29:                                               ; preds = %.preheader.i
+29:                                               ; preds = %.preheader.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %3, i64 %.019.i.idx.i.i.i, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
-30:                                               ; preds = %.preheader.i
+30:                                               ; preds = %.preheader.i.i.i
   %31 = load i32, ptr %.pn18.i.i.i.i, align 4, !tbaa !41
   %32 = icmp ult i32 %26, %31
   br i1 %32, label %.lr.ph.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
@@ -15177,7 +15177,7 @@ _ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   store i32 %26, ptr %.sink.i.i.i.i, align 4, !tbaa !41
   %.019.i.add.i.i.i = add nuw nsw i64 %.019.i.idx.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %.019.i.add.i.i.i, 64
-  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i, !llvm.loop !156
+  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i.i.i, !llvm.loop !156
 
 _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i: ; preds = %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 64

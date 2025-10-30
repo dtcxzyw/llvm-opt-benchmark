@@ -248,13 +248,13 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   br i1 %67, label %.lr.ph204, label %.loopexit
 
 .lr.ph204:                                        ; preds = %.preheader
-  %68 = mul nsw i32 %43, %35
-  %69 = select i1 %44, i32 %68, i32 0
-  %70 = icmp sgt i32 %34, 1
-  %71 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
-  %72 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
-  %73 = sub nsw i32 %50, %64
-  %74 = sext i32 %69 to i64
+  %68 = icmp sgt i32 %34, 1
+  %69 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %71 = sub nsw i32 %50, %64
+  %72 = mul nsw i32 %43, %35
+  %73 = select i1 %44, i32 %72, i32 0
+  %74 = sext i32 %73 to i64
   %75 = shl nsw i32 %35, 1
   %76 = sub nsw i32 %46, %75
   %77 = sub nsw i32 %46, %35
@@ -285,40 +285,40 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
 
 91:                                               ; preds = %.lr.ph204, %._crit_edge201
   %.0187203 = phi ptr [ %62, %.lr.ph204 ], [ %.1, %._crit_edge201 ]
-  %.0188202 = phi i32 [ %48, %.lr.ph204 ], [ %129, %._crit_edge201 ]
+  %.0188202 = phi i32 [ %48, %.lr.ph204 ], [ %130, %._crit_edge201 ]
   %92 = sub nsw i32 %.0188202, %48
-  %.pn = select i1 %44, i32 %92, i32 %35
-  %93 = mul nsw i32 %.pn, %32
-  br i1 %70, label %.lr.ph, label %._crit_edge201.critedge
+  br i1 %68, label %.lr.ph, label %._crit_edge201.critedge
 
 .lr.ph:                                           ; preds = %91, %.lr.ph
-  %.0189197 = phi i32 [ %104, %.lr.ph ], [ 0, %91 ]
+  %.0189197 = phi i32 [ %103, %.lr.ph ], [ 0, %91 ]
   %.pn196 = select i1 %44, i32 %92, i32 %.0189197
-  %94 = mul nsw i32 %.pn196, %32
-  %95 = mul nsw i32 %.0189197, %43
-  %96 = select i1 %44, i32 %95, i32 0
-  %97 = load ptr, ptr %71, align 8, !tbaa !47
-  call void %97(i32 noundef %35, ptr noundef nonnull %5, ptr noundef %56, i32 noundef %41, i32 noundef %.0189197, i32 noundef %39, i32 noundef %.0188202, i32 noundef %37, i32 noundef %32) #12
-  %98 = load ptr, ptr %72, align 8, !tbaa !47
-  %99 = sext i32 %96 to i64
-  %100 = getelementptr inbounds i8, ptr %.0187203, i64 %99
-  %101 = sext i32 %94 to i64
-  %102 = getelementptr inbounds i8, ptr %100, i64 %101
-  %103 = load i32, ptr %28, align 8, !tbaa !48
-  call void %98(ptr noundef %102, i32 noundef 1, float noundef %52, float noundef %54, ptr noundef nonnull %63, ptr noundef nonnull %5, i32 noundef %103, i32 noundef %35, i32 noundef %43, i32 noundef %41, i32 noundef %73) #12
-  %104 = add nuw nsw i32 %.0189197, 1
-  %exitcond.not = icmp eq i32 %104, %35
+  %93 = mul nsw i32 %.pn196, %32
+  %94 = mul nsw i32 %.0189197, %43
+  %95 = select i1 %44, i32 %94, i32 0
+  %96 = load ptr, ptr %69, align 8, !tbaa !47
+  call void %96(i32 noundef %35, ptr noundef nonnull %5, ptr noundef %56, i32 noundef %41, i32 noundef %.0189197, i32 noundef %39, i32 noundef %.0188202, i32 noundef %37, i32 noundef %32) #12
+  %97 = load ptr, ptr %70, align 8, !tbaa !47
+  %98 = sext i32 %95 to i64
+  %99 = getelementptr inbounds i8, ptr %.0187203, i64 %98
+  %100 = sext i32 %93 to i64
+  %101 = getelementptr inbounds i8, ptr %99, i64 %100
+  %102 = load i32, ptr %28, align 8, !tbaa !48
+  call void %97(ptr noundef %101, i32 noundef 1, float noundef %52, float noundef %54, ptr noundef nonnull %63, ptr noundef nonnull %5, i32 noundef %102, i32 noundef %35, i32 noundef %43, i32 noundef %41, i32 noundef %71) #12
+  %103 = add nuw nsw i32 %.0189197, 1
+  %exitcond.not = icmp eq i32 %103, %35
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %105 = load ptr, ptr %71, align 8, !tbaa !47
+  %.pn = select i1 %44, i32 %92, i32 %35
+  %104 = mul nsw i32 %.pn, %32
+  %105 = load ptr, ptr %69, align 8, !tbaa !47
   call void %105(i32 noundef %35, ptr noundef nonnull %5, ptr noundef %56, i32 noundef %41, i32 noundef %35, i32 noundef %39, i32 noundef %.0188202, i32 noundef %37, i32 noundef %32) #12
-  %106 = load ptr, ptr %72, align 8, !tbaa !47
+  %106 = load ptr, ptr %70, align 8, !tbaa !47
   %107 = getelementptr inbounds i8, ptr %.0187203, i64 %74
-  %108 = sext i32 %93 to i64
+  %108 = sext i32 %104 to i64
   %109 = getelementptr inbounds i8, ptr %107, i64 %108
   %110 = load i32, ptr %28, align 8, !tbaa !48
-  call void %106(ptr noundef %109, i32 noundef %76, float noundef %52, float noundef %54, ptr noundef nonnull %63, ptr noundef nonnull %5, i32 noundef %110, i32 noundef %35, i32 noundef %43, i32 noundef %41, i32 noundef %73) #12
+  call void %106(ptr noundef %109, i32 noundef %76, float noundef %52, float noundef %54, ptr noundef nonnull %63, ptr noundef nonnull %5, i32 noundef %110, i32 noundef %35, i32 noundef %43, i32 noundef %41, i32 noundef %71) #12
   br label %.lr.ph200
 
 .lr.ph200:                                        ; preds = %._crit_edge, %.lr.ph200
@@ -327,43 +327,45 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   %111 = mul nsw i32 %.pn195, %32
   %112 = mul nsw i32 %.1190198, %43
   %113 = select i1 %44, i32 %112, i32 0
-  %114 = load ptr, ptr %71, align 8, !tbaa !47
+  %114 = load ptr, ptr %69, align 8, !tbaa !47
   call void %114(i32 noundef %35, ptr noundef nonnull %5, ptr noundef %56, i32 noundef %41, i32 noundef %.1190198, i32 noundef %39, i32 noundef %.0188202, i32 noundef %37, i32 noundef %32) #12
-  %115 = load ptr, ptr %72, align 8, !tbaa !47
+  %115 = load ptr, ptr %70, align 8, !tbaa !47
   %116 = sext i32 %113 to i64
   %117 = getelementptr inbounds i8, ptr %.0187203, i64 %116
   %118 = sext i32 %111 to i64
   %119 = getelementptr inbounds i8, ptr %117, i64 %118
   %120 = load i32, ptr %28, align 8, !tbaa !48
-  call void %115(ptr noundef %119, i32 noundef 1, float noundef %52, float noundef %54, ptr noundef nonnull %63, ptr noundef nonnull %5, i32 noundef %120, i32 noundef %35, i32 noundef %43, i32 noundef %41, i32 noundef %73) #12
+  call void %115(ptr noundef %119, i32 noundef 1, float noundef %52, float noundef %54, ptr noundef nonnull %63, ptr noundef nonnull %5, i32 noundef %120, i32 noundef %35, i32 noundef %43, i32 noundef %41, i32 noundef %71) #12
   %121 = add nsw i32 %.1190198, 1
   %122 = icmp slt i32 %121, %46
   br i1 %122, label %.lr.ph200, label %._crit_edge201, !llvm.loop !51
 
 ._crit_edge201.critedge:                          ; preds = %91
-  %123 = load ptr, ptr %71, align 8, !tbaa !47
-  call void %123(i32 noundef %35, ptr noundef nonnull %5, ptr noundef %56, i32 noundef %41, i32 noundef %35, i32 noundef %39, i32 noundef %.0188202, i32 noundef %37, i32 noundef %32) #12
-  %124 = load ptr, ptr %72, align 8, !tbaa !47
-  %125 = getelementptr inbounds i8, ptr %.0187203, i64 %74
-  %126 = sext i32 %93 to i64
-  %127 = getelementptr inbounds i8, ptr %125, i64 %126
-  %128 = load i32, ptr %28, align 8, !tbaa !48
-  call void %124(ptr noundef %127, i32 noundef %76, float noundef %52, float noundef %54, ptr noundef nonnull %63, ptr noundef nonnull %5, i32 noundef %128, i32 noundef %35, i32 noundef %43, i32 noundef %41, i32 noundef %73) #12
+  %.pn.c = select i1 %44, i32 %92, i32 %35
+  %123 = mul nsw i32 %.pn.c, %32
+  %124 = load ptr, ptr %69, align 8, !tbaa !47
+  call void %124(i32 noundef %35, ptr noundef nonnull %5, ptr noundef %56, i32 noundef %41, i32 noundef %35, i32 noundef %39, i32 noundef %.0188202, i32 noundef %37, i32 noundef %32) #12
+  %125 = load ptr, ptr %70, align 8, !tbaa !47
+  %126 = getelementptr inbounds i8, ptr %.0187203, i64 %74
+  %127 = sext i32 %123 to i64
+  %128 = getelementptr inbounds i8, ptr %126, i64 %127
+  %129 = load i32, ptr %28, align 8, !tbaa !48
+  call void %125(ptr noundef %128, i32 noundef %76, float noundef %52, float noundef %54, ptr noundef nonnull %63, ptr noundef nonnull %5, i32 noundef %129, i32 noundef %35, i32 noundef %43, i32 noundef %41, i32 noundef %71) #12
   br label %._crit_edge201
 
 ._crit_edge201:                                   ; preds = %.lr.ph200, %._crit_edge201.critedge
   %.1 = getelementptr inbounds i8, ptr %.0187203, i64 %.1.idx
-  %129 = add nsw i32 %.0188202, %64
-  %130 = icmp slt i32 %129, %50
-  br i1 %130, label %91, label %.loopexit, !llvm.loop !52
+  %130 = add nsw i32 %.0188202, %64
+  %131 = icmp slt i32 %130, %50
+  br i1 %131, label %91, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %._crit_edge201, %.preheader, %79, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %131 = load i32, ptr %11, align 8, !tbaa !43
-  %132 = sext i32 %131 to i64
-  %133 = icmp slt i64 %indvars.iv.next, %132
-  br i1 %133, label %29, label %._crit_edge208, !llvm.loop !53
+  %132 = load i32, ptr %11, align 8, !tbaa !43
+  %133 = sext i32 %132 to i64
+  %134 = icmp slt i64 %indvars.iv.next, %133
+  br i1 %134, label %29, label %._crit_edge208, !llvm.loop !53
 
 ._crit_edge208:                                   ; preds = %.loopexit, %4
   ret i32 0

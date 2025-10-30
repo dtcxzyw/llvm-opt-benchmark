@@ -28760,68 +28760,68 @@ _ZN5clang14TypeLocBuilderD2Ev.exit124:            ; preds = %173, %176
   %210 = add nuw nsw i32 %.zext.i.i, 8
   %211 = zext nneg i32 %210 to i64
   %212 = call { ptr, ptr } @_ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj(ptr noundef nonnull align 8 dereferenceable(61) %1, i64 %200, i64 noundef %211, i32 noundef 8) #20
-  %213 = extractvalue { ptr, ptr } %212, 0
-  %214 = extractvalue { ptr, ptr } %212, 1
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 16
-  store i8 1, ptr %215, align 4, !tbaa !1550
-  %216 = load ptr, ptr %13, align 8, !tbaa !1484
-  %.sroa.0.0.copyload.i133 = load i32, ptr %216, align 4, !tbaa !706
-  store i32 %.sroa.0.0.copyload.i133, ptr %214, align 4, !tbaa !706
-  %217 = load ptr, ptr %7, align 8, !tbaa !1486
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 16
-  %219 = load i32, ptr %218, align 16
-  %220 = lshr i32 %219, 19
-  %221 = and i32 %220, 127
-  %.not76197 = icmp eq i32 %221, 0
+  %213 = extractvalue { ptr, ptr } %212, 1
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
+  store i8 1, ptr %214, align 4, !tbaa !1550
+  %215 = load ptr, ptr %13, align 8, !tbaa !1484
+  %.sroa.0.0.copyload.i133 = load i32, ptr %215, align 4, !tbaa !706
+  store i32 %.sroa.0.0.copyload.i133, ptr %213, align 4, !tbaa !706
+  %216 = load ptr, ptr %7, align 8, !tbaa !1486
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 16
+  %218 = load i32, ptr %217, align 16
+  %219 = lshr i32 %218, 19
+  %220 = and i32 %219, 127
+  %.not76197 = icmp eq i32 %220, 0
   br i1 %.not76197, label %._crit_edge, label %.lr.ph199
 
 .lr.ph199:                                        ; preds = %201
-  %222 = load ptr, ptr %8, align 8, !tbaa !683
-  %223 = getelementptr inbounds nuw i8, ptr %214, i64 24
-  %224 = zext nneg i32 %221 to i64
+  %221 = load ptr, ptr %8, align 8, !tbaa !683
+  %222 = getelementptr inbounds nuw i8, ptr %213, i64 24
+  %223 = zext nneg i32 %220 to i64
   br label %235
 
 ._crit_edge:                                      ; preds = %235, %201
-  %225 = getelementptr inbounds nuw i8, ptr %216, i64 4
-  %.sroa.0.0.copyload.i134 = load i32, ptr %225, align 4, !tbaa !706
-  %226 = getelementptr inbounds nuw i8, ptr %214, i64 4
-  store i32 %.sroa.0.0.copyload.i134, ptr %226, align 4, !tbaa !706
-  %227 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %.sroa.0.0.copyload.i135 = load i32, ptr %227, align 4, !tbaa !706
-  %228 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  store i32 %.sroa.0.0.copyload.i135, ptr %228, align 4, !tbaa !706
-  %229 = load i32, ptr %218, align 16
-  %.not77200 = icmp ult i32 %229, 67108864
+  %224 = getelementptr inbounds nuw i8, ptr %215, i64 4
+  %.sroa.0.0.copyload.i134 = load i32, ptr %224, align 4, !tbaa !706
+  %225 = getelementptr inbounds nuw i8, ptr %213, i64 4
+  store i32 %.sroa.0.0.copyload.i134, ptr %225, align 4, !tbaa !706
+  %226 = getelementptr inbounds nuw i8, ptr %215, i64 8
+  %.sroa.0.0.copyload.i135 = load i32, ptr %226, align 4, !tbaa !706
+  %227 = getelementptr inbounds nuw i8, ptr %213, i64 8
+  store i32 %.sroa.0.0.copyload.i135, ptr %227, align 4, !tbaa !706
+  %228 = load i32, ptr %217, align 16
+  %.not77200 = icmp ult i32 %228, 67108864
   br i1 %.not77200, label %._crit_edge204, label %.lr.ph203
 
 .lr.ph203:                                        ; preds = %._crit_edge
-  %230 = lshr i32 %229, 26
-  %231 = getelementptr inbounds nuw i8, ptr %216, i64 24
-  %232 = getelementptr inbounds nuw i8, ptr %214, i64 24
-  %233 = getelementptr inbounds nuw i8, ptr %213, i64 16
-  %234 = zext nneg i32 %230 to i64
+  %229 = lshr i32 %228, 26
+  %230 = extractvalue { ptr, ptr } %212, 0
+  %231 = getelementptr inbounds nuw i8, ptr %215, i64 24
+  %232 = getelementptr inbounds nuw i8, ptr %213, i64 24
+  %233 = getelementptr inbounds nuw i8, ptr %230, i64 16
+  %234 = zext nneg i32 %229 to i64
   br label %241
 
 235:                                              ; preds = %.lr.ph199, %235
   %indvars.iv207 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next208, %235 ]
-  %236 = getelementptr inbounds nuw ptr, ptr %222, i64 %indvars.iv207
+  %236 = getelementptr inbounds nuw ptr, ptr %221, i64 %indvars.iv207
   %237 = load ptr, ptr %236, align 8, !tbaa !769
-  %238 = getelementptr inbounds nuw ptr, ptr %223, i64 %indvars.iv207
+  %238 = getelementptr inbounds nuw ptr, ptr %222, i64 %indvars.iv207
   store ptr %237, ptr %238, align 8, !tbaa !769
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
-  %.not76 = icmp eq i64 %indvars.iv.next208, %224
+  %.not76 = icmp eq i64 %indvars.iv.next208, %223
   br i1 %.not76, label %._crit_edge, label %235, !llvm.loop !1552
 
 ._crit_edge204:                                   ; preds = %241, %._crit_edge
-  %239 = getelementptr inbounds nuw i8, ptr %216, i64 12
+  %239 = getelementptr inbounds nuw i8, ptr %215, i64 12
   %.sroa.0.0.copyload.i136 = load i32, ptr %239, align 4, !tbaa !706
-  %240 = getelementptr inbounds nuw i8, ptr %214, i64 12
+  %240 = getelementptr inbounds nuw i8, ptr %213, i64 12
   store i32 %.sroa.0.0.copyload.i136, ptr %240, align 4, !tbaa !706
   br label %.loopexit
 
 241:                                              ; preds = %.lr.ph203, %241
   %indvars.iv210 = phi i64 [ 0, %.lr.ph203 ], [ %indvars.iv.next211, %241 ]
-  %242 = load i32, ptr %218, align 16
+  %242 = load i32, ptr %217, align 16
   %243 = lshr i32 %242, 19
   %244 = and i32 %243, 127
   %245 = zext nneg i32 %244 to i64
@@ -47246,25 +47246,25 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE
   %45 = load i32, ptr %44, align 8, !tbaa !685
   store i32 %45, ptr %40, align 8, !tbaa !2230
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %50 = load i32, ptr %49, align 8, !tbaa !2231
-  %51 = zext i32 %50 to i64
-  %52 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %48, i64 %51, ptr noundef null, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  %53 = load ptr, ptr %4, align 8, !tbaa !683
-  %54 = load i32, ptr %9, align 8, !tbaa !685
-  %55 = zext i32 %54 to i64
-  %.idx = shl nuw nsw i64 %55, 3
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
-  %.not115 = icmp eq i32 %54, 0
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %49 = load i32, ptr %48, align 8, !tbaa !2231
+  %50 = zext i32 %49 to i64
+  %51 = call fastcc noundef zeroext i1 @_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE27TransformFunctionTypeParamsENS_14SourceLocationEN4llvm8ArrayRefIPNS_11ParmVarDeclEEEPKNS_8QualTypeEPKNS_12FunctionType16ExtParameterInfoERNS5_15SmallVectorImplISA_EEPNSH_IS8_EERNS_4Sema23ExtParameterInfoBuilderEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nonnull %47, i64 %50, ptr noundef null, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(41) %6)
+  %52 = load ptr, ptr %4, align 8, !tbaa !683
+  %53 = load i32, ptr %9, align 8, !tbaa !685
+  %54 = zext i32 %53 to i64
+  %.idx = shl nuw nsw i64 %54, 3
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx
+  %.not115 = icmp eq i32 %53, 0
   br i1 %.not115, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %59, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE27TransformRequiresTypeParamsENS_14SourceLocationES4_PKNS_12RequiresExprEPNS_20RequiresExprBodyDeclEN4llvm8ArrayRefIPNS_11ParmVarDeclEEERNSA_15SmallVectorImplINS_8QualTypeEEERNSF_ISD_EERNS_4Sema23ExtParameterInfoBuilderE.exit
-  br i1 %52, label %204, label %61
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  br i1 %51, label %204, label %61
 
 .lr.ph:                                           ; preds = %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE27TransformRequiresTypeParamsENS_14SourceLocationES4_PKNS_12RequiresExprEPNS_20RequiresExprBodyDeclEN4llvm8ArrayRefIPNS_11ParmVarDeclEEERNSA_15SmallVectorImplINS_8QualTypeEEERNSF_ISD_EERNS_4Sema23ExtParameterInfoBuilderE.exit, %59
-  %.0116 = phi ptr [ %60, %59 ], [ %53, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE27TransformRequiresTypeParamsENS_14SourceLocationES4_PKNS_12RequiresExprEPNS_20RequiresExprBodyDeclEN4llvm8ArrayRefIPNS_11ParmVarDeclEEERNSA_15SmallVectorImplINS_8QualTypeEEERNSF_ISD_EERNS_4Sema23ExtParameterInfoBuilderE.exit ]
+  %.0116 = phi ptr [ %60, %59 ], [ %52, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE27TransformRequiresTypeParamsENS_14SourceLocationES4_PKNS_12RequiresExprEPNS_20RequiresExprBodyDeclEN4llvm8ArrayRefIPNS_11ParmVarDeclEEERNSA_15SmallVectorImplINS_8QualTypeEEERNSF_ISD_EERNS_4Sema23ExtParameterInfoBuilderE.exit ]
   %57 = load ptr, ptr %.0116, align 8, !tbaa !857
   %.not49 = icmp eq ptr %57, null
   br i1 %.not49, label %59, label %58
@@ -47275,7 +47275,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE
 
 59:                                               ; preds = %58, %.lr.ph
   %60 = getelementptr inbounds nuw i8, ptr %.0116, i64 8
-  %.not = icmp eq ptr %60, %56
+  %.not = icmp eq ptr %60, %55
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 61:                                               ; preds = %._crit_edge
@@ -47286,9 +47286,9 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE
   store i32 0, ptr %63, align 8, !tbaa !685
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 4, ptr %64, align 4, !tbaa !684
-  %65 = load i32, ptr %49, align 8, !tbaa !2231
+  %65 = load i32, ptr %48, align 8, !tbaa !2231
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %48, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %47, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %69 = load i32, ptr %68, align 4, !tbaa !2232
   %70 = zext i32 %69 to i64
@@ -47534,7 +47534,7 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE
   %181 = zext i32 %180 to i64
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %.sroa.0.0.copyload.i59 = load i32, ptr %182, align 4, !tbaa !706
-  %.sroa.0.0.copyload.i60 = load i32, ptr %47, align 8, !tbaa !706
+  %.sroa.0.0.copyload.i60 = load i32, ptr %56, align 8, !tbaa !706
   %.val52 = load ptr, ptr %0, align 8, !tbaa !869
   %183 = getelementptr i8, ptr %.val52, i64 248
   %.val52.val = load ptr, ptr %183, align 8, !tbaa !802

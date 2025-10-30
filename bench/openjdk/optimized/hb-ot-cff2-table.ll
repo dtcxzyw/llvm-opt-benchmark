@@ -181,25 +181,25 @@ define hidden noundef zeroext i1 @_ZNK2OT4cff213accelerator_t11get_extentsEP9hb_
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %20, ptr %.sroa.3.0..sroa_idx, align 8
   store i32 0, ptr %.sroa.gep, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 4128
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 4168
-  store i8 0, ptr %38, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 4168
+  store i8 0, ptr %37, align 8
   store i32 0, ptr %.sroa.gep35, align 4
-  %39 = trunc i64 %20 to i32
-  br label %40
+  br label %38
 
-40:                                               ; preds = %40, %12
-  %.idx.i.i.i = phi i64 [ 8, %12 ], [ %.add.i.i.i, %40 ]
-  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i
+38:                                               ; preds = %38, %12
+  %.idx.i.i.i = phi i64 [ 8, %12 ], [ %.add.i.i.i, %38 ]
+  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i, i8 0, i64 16, i1 false)
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 24
-  %41 = icmp eq i64 %.add.i.i.i, 248
-  br i1 %41, label %_ZN3CFF12call_stack_tC2Ev.exit.i, label %40
+  %39 = icmp eq i64 %.add.i.i.i, 248
+  br i1 %39, label %_ZN3CFF12call_stack_tC2Ev.exit.i, label %38
 
-_ZN3CFF12call_stack_tC2Ev.exit.i:                 ; preds = %40
+_ZN3CFF12call_stack_tC2Ev.exit.i:                 ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 4128
+  %41 = trunc i64 %20 to i32
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 4448
   %.sroa.2.12.insert.mask.i = and i64 %20, 4294967295
-  store ptr %19, ptr %37, align 8
+  store ptr %19, ptr %40, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4136
   store i64 %.sroa.2.12.insert.mask.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 4144
@@ -338,7 +338,7 @@ _ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEEC2ERK10hb
   br label %121
 
 121:                                              ; preds = %152, %109
-  %122 = phi i32 [ %39, %109 ], [ %145, %152 ]
+  %122 = phi i32 [ %41, %109 ], [ %145, %152 ]
   %123 = phi i32 [ 0, %109 ], [ %144, %152 ]
   %.0.i = phi i32 [ 10000, %109 ], [ %151, %152 ]
   %124 = add i32 %123, 1
@@ -381,7 +381,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit.i: ; preds = %140, 
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit.i
-  %142 = load i8, ptr %38, align 8
+  %142 = load i8, ptr %37, align 8
   %143 = trunc i8 %142 to i1
   br i1 %143, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit._ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.thread_crit_edge.i, label %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i
 
@@ -1215,25 +1215,25 @@ define hidden noundef zeroext i1 @_ZNK2OT4cff213accelerator_t8get_pathEP9hb_font
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %20, ptr %.sroa.3.0..sroa_idx, align 8
   store i32 0, ptr %.sroa.gep, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 4128
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 4168
-  store i8 0, ptr %38, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 4168
+  store i8 0, ptr %37, align 8
   store i32 0, ptr %.sroa.gep25, align 4
-  %39 = trunc i64 %20 to i32
-  br label %40
+  br label %38
 
-40:                                               ; preds = %40, %12
-  %.idx.i.i.i = phi i64 [ 8, %12 ], [ %.add.i.i.i, %40 ]
-  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i
+38:                                               ; preds = %38, %12
+  %.idx.i.i.i = phi i64 [ 8, %12 ], [ %.add.i.i.i, %38 ]
+  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i, i8 0, i64 16, i1 false)
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 24
-  %41 = icmp eq i64 %.add.i.i.i, 248
-  br i1 %41, label %_ZN3CFF12call_stack_tC2Ev.exit.i, label %40
+  %39 = icmp eq i64 %.add.i.i.i, 248
+  br i1 %39, label %_ZN3CFF12call_stack_tC2Ev.exit.i, label %38
 
-_ZN3CFF12call_stack_tC2Ev.exit.i:                 ; preds = %40
+_ZN3CFF12call_stack_tC2Ev.exit.i:                 ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 4128
+  %41 = trunc i64 %20 to i32
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 4448
   %.sroa.2.12.insert.mask.i = and i64 %20, 4294967295
-  store ptr %19, ptr %37, align 8
+  store ptr %19, ptr %40, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4136
   store i64 %.sroa.2.12.insert.mask.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 4144
@@ -1366,7 +1366,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEEC2IKN2OT4cff213accelerator_tEEERK10h
   br label %117
 
 117:                                              ; preds = %150, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEEC2IKN2OT4cff213accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit
-  %118 = phi i32 [ %39, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEEC2IKN2OT4cff213accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %141, %150 ]
+  %118 = phi i32 [ %41, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEEC2IKN2OT4cff213accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %141, %150 ]
   %119 = phi i32 [ 0, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEEC2IKN2OT4cff213accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %140, %150 ]
   %.0.i = phi i32 [ 10000, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEEC2IKN2OT4cff213accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %147, %150 ]
   %120 = add i32 %119, 1
@@ -1409,7 +1409,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit.i: ; preds = %136, 
           to label %.noexc unwind label %153
 
 .noexc:                                           ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit.i
-  %138 = load i8, ptr %38, align 8
+  %138 = load i8, ptr %37, align 8
   %139 = trunc i8 %138 to i1
   br i1 %139, label %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE8fetch_opEv.exit._ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.thread_crit_edge.i, label %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeIjLj4EEEEEE8in_errorEv.exit.i
 

@@ -1412,8 +1412,8 @@ thread-pre-split:                                 ; preds = %.preheader785, %thr
   br i1 %.not346, label %.outer, label %thread-pre-split, !llvm.loop !78
 
 .outer:                                           ; preds = %thread-pre-split
-  %566 = add nuw nsw i32 %.0.ph587, 1
   store ptr %565, ptr %4, align 8, !tbaa !11
+  %566 = add nuw nsw i32 %.0.ph587, 1
   %567 = icmp ult ptr %565, %551
   br i1 %567, label %.lr.ph580, label %.critedge19, !llvm.loop !79
 
@@ -1433,8 +1433,8 @@ thread-pre-split:                                 ; preds = %.preheader785, %thr
   br i1 %.not347, label %575, label %571, !llvm.loop !81
 
 575:                                              ; preds = %571
-  %576 = trunc i64 %570 to i32
   store ptr %573, ptr %4, align 8, !tbaa !11
+  %576 = trunc i64 %570 to i32
   %577 = getelementptr i8, ptr %.0279, i64 4
   %.0279.val370 = load i32, ptr %577, align 4, !tbaa !56
   %.not348 = icmp sgt i32 %.0279.val370, %576

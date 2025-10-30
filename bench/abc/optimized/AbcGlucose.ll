@@ -4753,77 +4753,77 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %_ZL16Vec_IntFillExt
   %58 = tail call noundef i32 @_Z24Gia_ManSatAndCollect_recP10Gia_Man_t_iP10Vec_Int_t_S2_(ptr noundef nonnull %1, i32 noundef %57, ptr noundef nonnull %9, ptr noundef null)
   %59 = ashr i32 %3, 1
   %60 = tail call noundef i32 @_Z24Gia_ManSatAndCollect_recP10Gia_Man_t_iP10Vec_Int_t_S2_(ptr noundef nonnull %1, i32 noundef %59, ptr noundef nonnull %9, ptr noundef null)
-  %61 = and i32 %2, 1
-  %62 = shl nsw i32 %58, 1
-  %63 = or disjoint i32 %62, %61
-  %64 = and i32 %3, 1
-  %65 = shl nsw i32 %60, 1
-  %66 = or disjoint i32 %65, %64
   call void @_Z19Gia_ManQuantLoadCnfP10Gia_Man_t_P10Vec_Int_t_PPv(ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %6)
   %.val4049 = load i32, ptr %10, align 4, !tbaa !136
-  %67 = icmp sgt i32 %.val4049, 0
+  %61 = icmp sgt i32 %.val4049, 0
   %.pre52 = load ptr, ptr %12, align 8, !tbaa !138
-  br i1 %67, label %.lr.ph, label %.critedge
+  br i1 %61, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
   %.val44 = load ptr, ptr %56, align 8, !tbaa !138
-  br label %68
+  br label %62
 
-68:                                               ; preds = %.lr.ph, %68
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %69 = getelementptr inbounds nuw i32, ptr %.pre52, i64 %indvars.iv
-  %70 = load i32, ptr %69, align 4, !tbaa !6
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %.val44, i64 %71
-  store i32 -1, ptr %72, align 4, !tbaa !6
+62:                                               ; preds = %.lr.ph, %62
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
+  %63 = getelementptr inbounds nuw i32, ptr %.pre52, i64 %indvars.iv
+  %64 = load i32, ptr %63, align 4, !tbaa !6
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i32, ptr %.val44, i64 %65
+  store i32 -1, ptr %66, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val40 = load i32, ptr %10, align 4, !tbaa !136
-  %73 = sext i32 %.val40 to i64
-  %74 = icmp slt i64 %indvars.iv.next, %73
-  br i1 %74, label %68, label %.critedge.thread, !llvm.loop !183
+  %67 = sext i32 %.val40 to i64
+  %68 = icmp slt i64 %indvars.iv.next, %67
+  br i1 %68, label %62, label %.critedge, !llvm.loop !183
 
-.critedge:                                        ; preds = %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
+.critedge:                                        ; preds = %62, %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
+  %69 = and i32 %2, 1
+  %70 = shl nsw i32 %58, 1
+  %71 = or disjoint i32 %70, %69
+  %72 = and i32 %3, 1
+  %73 = shl nsw i32 %60, 1
+  %74 = or disjoint i32 %73, %72
   %.not.i48 = icmp eq ptr %.pre52, null
-  br i1 %.not.i48, label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, label %.critedge.thread
+  br i1 %.not.i48, label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, label %75
 
-.critedge.thread:                                 ; preds = %68, %.critedge
+75:                                               ; preds = %.critedge
   tail call void @free(ptr noundef nonnull %.pre52) #28
   br label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
 
-_ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %.critedge, %.critedge.thread
+_ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %.critedge, %75
   tail call void @free(ptr noundef nonnull %9) #28
   %.not = icmp eq i32 %4, 0
-  store i32 %63, ptr %7, align 4, !tbaa !6
-  br i1 %.not, label %82, label %75
+  store i32 %71, ptr %7, align 4, !tbaa !6
+  br i1 %.not, label %83, label %76
 
-75:                                               ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
-  %76 = xor i32 %66, 1
-  %77 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %76, ptr %77, align 4, !tbaa !6
-  %78 = call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %7, i32 noundef 2)
-  %79 = icmp eq i32 %78, -1
-  br i1 %79, label %80, label %87
+76:                                               ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
+  %77 = xor i32 %74, 1
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %77, ptr %78, align 4, !tbaa !6
+  %79 = call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %7, i32 noundef 2)
+  %80 = icmp eq i32 %79, -1
+  br i1 %80, label %81, label %88
 
-80:                                               ; preds = %75
-  %81 = xor i32 %63, 1
-  store i32 %81, ptr %7, align 4, !tbaa !6
-  store i32 %66, ptr %77, align 4, !tbaa !6
+81:                                               ; preds = %76
+  %82 = xor i32 %71, 1
+  store i32 %82, ptr %7, align 4, !tbaa !6
+  store i32 %74, ptr %78, align 4, !tbaa !6
   br label %.sink.split
 
-82:                                               ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
-  %83 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %66, ptr %83, align 4, !tbaa !6
+83:                                               ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %74, ptr %84, align 4, !tbaa !6
   br label %.sink.split
 
-.sink.split:                                      ; preds = %82, %80
-  %.sink59 = phi i32 [ -1, %80 ], [ 1, %82 ]
-  %84 = call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %7, i32 noundef 2)
-  %85 = icmp eq i32 %84, %.sink59
-  %86 = zext i1 %85 to i32
-  br label %87
+.sink.split:                                      ; preds = %83, %81
+  %.sink58 = phi i32 [ -1, %81 ], [ 1, %83 ]
+  %85 = call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef nonnull readonly %7, i32 noundef 2)
+  %86 = icmp eq i32 %85, %.sink58
+  %87 = zext i1 %86 to i32
+  br label %88
 
-87:                                               ; preds = %.sink.split, %75
-  %.036.shrunk = phi i32 [ 0, %75 ], [ %86, %.sink.split ]
+88:                                               ; preds = %.sink.split, %76
+  %.036.shrunk = phi i32 [ 0, %76 ], [ %87, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.036.shrunk

@@ -4770,35 +4770,35 @@ define linkonce_odr hidden noundef i64 @_ZNK11LoadIndexed4hashEv(ptr noundef non
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 472
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(136) %0) #14
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %7 = load i8, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %9 = load ptr, ptr %8, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %7 = load ptr, ptr %6, align 8
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i, %1
-  %.tr.i = phi ptr [ %9, %1 ], [ %11, %tailrecurse.i ]
-  %10 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 40
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %_ZN11Instruction5substEv.exit, label %tailrecurse.i
+  %.tr.i = phi ptr [ %7, %1 ], [ %9, %tailrecurse.i ]
+  %8 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 40
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %_ZN11Instruction5substEv.exit, label %tailrecurse.i
 
 _ZN11Instruction5substEv.exit:                    ; preds = %tailrecurse.i
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %14 = load ptr, ptr %13, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %12 = load ptr, ptr %11, align 8
   br label %tailrecurse.i1
 
 tailrecurse.i1:                                   ; preds = %tailrecurse.i1, %_ZN11Instruction5substEv.exit
-  %.tr.i2 = phi ptr [ %14, %_ZN11Instruction5substEv.exit ], [ %16, %tailrecurse.i1 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.tr.i2, i64 40
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %_ZN11Instruction5substEv.exit3, label %tailrecurse.i1
+  %.tr.i2 = phi ptr [ %12, %_ZN11Instruction5substEv.exit ], [ %14, %tailrecurse.i1 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.tr.i2, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %_ZN11Instruction5substEv.exit3, label %tailrecurse.i1
 
 _ZN11Instruction5substEv.exit3:                   ; preds = %tailrecurse.i1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %17 = load i8, ptr %16, align 8
   %18 = ptrtoint ptr %5 to i64
   %19 = shl i64 %18, 14
-  %20 = zext i8 %7 to i64
+  %20 = zext i8 %17 to i64
   %21 = shl nuw nsw i64 %20, 7
   %22 = xor i64 %21, %19
   %23 = ptrtoint ptr %.tr.i to i64
@@ -4930,35 +4930,35 @@ define linkonce_odr hidden noundef i64 @_ZNK12ArithmeticOp4hashEv(ptr noundef no
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 472
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(120) %0) #14
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %9 = load ptr, ptr %8, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %7 = load ptr, ptr %6, align 8
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i, %1
-  %.tr.i = phi ptr [ %9, %1 ], [ %11, %tailrecurse.i ]
-  %10 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 40
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %_ZN11Instruction5substEv.exit, label %tailrecurse.i
+  %.tr.i = phi ptr [ %7, %1 ], [ %9, %tailrecurse.i ]
+  %8 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 40
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %_ZN11Instruction5substEv.exit, label %tailrecurse.i
 
 _ZN11Instruction5substEv.exit:                    ; preds = %tailrecurse.i
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %14 = load ptr, ptr %13, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %12 = load ptr, ptr %11, align 8
   br label %tailrecurse.i1
 
 tailrecurse.i1:                                   ; preds = %tailrecurse.i1, %_ZN11Instruction5substEv.exit
-  %.tr.i2 = phi ptr [ %14, %_ZN11Instruction5substEv.exit ], [ %16, %tailrecurse.i1 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.tr.i2, i64 40
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %_ZN11Instruction5substEv.exit3, label %tailrecurse.i1
+  %.tr.i2 = phi ptr [ %12, %_ZN11Instruction5substEv.exit ], [ %14, %tailrecurse.i1 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.tr.i2, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %_ZN11Instruction5substEv.exit3, label %tailrecurse.i1
 
 _ZN11Instruction5substEv.exit3:                   ; preds = %tailrecurse.i1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %17 = load i32, ptr %16, align 8
   %18 = ptrtoint ptr %5 to i64
   %19 = shl i64 %18, 14
-  %20 = sext i32 %7 to i64
+  %20 = sext i32 %17 to i64
   %21 = shl nsw i64 %20, 7
   %22 = xor i64 %21, %19
   %23 = ptrtoint ptr %.tr.i to i64
@@ -5072,35 +5072,35 @@ define linkonce_odr hidden noundef i64 @_ZNK7LogicOp4hashEv(ptr noundef nonnull 
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 472
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(120) %0) #14
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %9 = load ptr, ptr %8, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %7 = load ptr, ptr %6, align 8
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i, %1
-  %.tr.i = phi ptr [ %9, %1 ], [ %11, %tailrecurse.i ]
-  %10 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 40
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %_ZN11Instruction5substEv.exit, label %tailrecurse.i
+  %.tr.i = phi ptr [ %7, %1 ], [ %9, %tailrecurse.i ]
+  %8 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 40
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %_ZN11Instruction5substEv.exit, label %tailrecurse.i
 
 _ZN11Instruction5substEv.exit:                    ; preds = %tailrecurse.i
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %14 = load ptr, ptr %13, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %12 = load ptr, ptr %11, align 8
   br label %tailrecurse.i1
 
 tailrecurse.i1:                                   ; preds = %tailrecurse.i1, %_ZN11Instruction5substEv.exit
-  %.tr.i2 = phi ptr [ %14, %_ZN11Instruction5substEv.exit ], [ %16, %tailrecurse.i1 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.tr.i2, i64 40
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %_ZN11Instruction5substEv.exit3, label %tailrecurse.i1
+  %.tr.i2 = phi ptr [ %12, %_ZN11Instruction5substEv.exit ], [ %14, %tailrecurse.i1 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.tr.i2, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %_ZN11Instruction5substEv.exit3, label %tailrecurse.i1
 
 _ZN11Instruction5substEv.exit3:                   ; preds = %tailrecurse.i1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %17 = load i32, ptr %16, align 8
   %18 = ptrtoint ptr %5 to i64
   %19 = shl i64 %18, 14
-  %20 = sext i32 %7 to i64
+  %20 = sext i32 %17 to i64
   %21 = shl nsw i64 %20, 7
   %22 = xor i64 %21, %19
   %23 = ptrtoint ptr %.tr.i to i64

@@ -679,33 +679,33 @@ define hidden void @av1_filter_intra_predictor_c(ptr noundef writeonly captures(
 .lr.ph.preheader:
   %6 = alloca [33 x [33 x i8]], align 16
   %7 = zext i8 %2 to i64
-  %8 = getelementptr inbounds nuw i32, ptr @tx_size_wide, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @tx_size_high, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds nuw i32, ptr @tx_size_high, i64 %7
-  %11 = load i32, ptr %10, align 4
-  %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 1)
+  %smax = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %13 = load i8, ptr %12, align 1
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %11 = load i8, ptr %10, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw [33 x i8], ptr %6, i64 %indvars.iv.next
-  store i8 %13, ptr %14, align 1
+  %12 = getelementptr inbounds nuw [33 x i8], ptr %6, i64 %indvars.iv.next
+  store i8 %11, ptr %12, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader72.preheader, label %.lr.ph, !llvm.loop !21
 
 .preheader72.preheader:                           ; preds = %.lr.ph
+  %13 = getelementptr inbounds nuw i32, ptr @tx_size_wide, i64 %7
+  %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i8, ptr %3, i64 -1
-  %16 = add nsw i32 %9, 1
+  %16 = add nsw i32 %14, 1
   %17 = sext i32 %16 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %15, i64 %17, i1 false)
   %18 = sext i32 %5 to i64
   %19 = getelementptr inbounds [8 x [8 x i8]], ptr @av1_filter_intra_taps, i64 %18
-  %20 = sext i32 %9 to i64
-  %21 = sext i32 %11 to i64
+  %20 = sext i32 %14 to i64
+  %21 = sext i32 %9 to i64
   br label %.preheader72
 
 .preheader72:                                     ; preds = %.preheader72.preheader, %._crit_edge78
@@ -717,8 +717,8 @@ define hidden void @av1_filter_intra_predictor_c(ptr noundef writeonly captures(
   br label %26
 
 .lr.ph83:                                         ; preds = %._crit_edge78
-  %25 = sext i32 %9 to i64
-  %smax100 = tail call i32 @llvm.smax.i32(i32 %11, i32 1)
+  %25 = sext i32 %14 to i64
+  %smax100 = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
   %wide.trip.count101 = zext nneg i32 %smax100 to i64
   br label %96
 

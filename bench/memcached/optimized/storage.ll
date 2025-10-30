@@ -1231,34 +1231,34 @@ define dso_local void @storage_submit_cb(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted = load ptr, ptr %2, align 8, !tbaa !135
   %.not13 = icmp eq ptr %.promoted, null
-  br i1 %.not13, label %22, label %.lr.ph
+  br i1 %.not13, label %22, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %1
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds nuw i8, ptr %.promoted, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !118
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %._crit_edge, label %.lr.ph17
+.lr.ph.preheader:                                 ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %.promoted, i64 48
+  %4 = load ptr, ptr %3, align 8, !tbaa !118
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %._crit_edge, label %.lr.ph
 
-.lr.ph17:                                         ; preds = %.lr.ph, %.lr.ph17
-  %7 = phi ptr [ %15, %.lr.ph17 ], [ %5, %.lr.ph ]
-  %8 = phi ptr [ %7, %.lr.ph17 ], [ %.promoted, %.lr.ph ]
-  %.01416 = phi ptr [ %12, %.lr.ph17 ], [ null, %.lr.ph ]
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %10 = load i8, ptr %9, align 2, !tbaa !152
-  %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %.01416, ptr %13, align 8, !tbaa !153
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !118
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %._crit_edge, label %.lr.ph17, !llvm.loop !154
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %6 = phi ptr [ %14, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+  %7 = phi ptr [ %6, %.lr.ph ], [ %.promoted, %.lr.ph.preheader ]
+  %.01416 = phi ptr [ %11, %.lr.ph ], [ null, %.lr.ph.preheader ]
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %9 = load i8, ptr %8, align 2, !tbaa !152
+  %10 = zext i8 %9 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %.01416, ptr %12, align 8, !tbaa !153
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %14 = load ptr, ptr %13, align 8, !tbaa !118
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %._crit_edge, label %.lr.ph, !llvm.loop !154
 
-._crit_edge:                                      ; preds = %.lr.ph17, %.lr.ph
-  %.014.lcssa = phi ptr [ null, %.lr.ph ], [ %12, %.lr.ph17 ]
-  %.lcssa = phi ptr [ %.promoted, %.lr.ph ], [ %7, %.lr.ph17 ]
-  store ptr %2, ptr %3, align 8, !tbaa !121
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader
+  %.014.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %.lcssa = phi ptr [ %.promoted, %.lr.ph.preheader ], [ %6, %.lr.ph ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %2, ptr %16, align 8, !tbaa !121
   %17 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 2
   %18 = load i8, ptr %17, align 2, !tbaa !152
   %19 = zext i8 %18 to i64

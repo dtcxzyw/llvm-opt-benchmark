@@ -4197,7 +4197,7 @@ define dso_local noundef i32 @_ZN4llvm20ConstantHoistingPass24maximizeConstantsI
   br i1 %.not63, label %.loopexit, label %.lr.ph93, !llvm.loop !334
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN4llvm5APIntD2Ev.exit35
-  %.187 = phi i32 [ %47, %_ZN4llvm5APIntD2Ev.exit35 ], [ 0, %.lr.ph.split.preheader ]
+  %.187 = phi i32 [ %49, %_ZN4llvm5APIntD2Ev.exit35 ], [ 0, %.lr.ph.split.preheader ]
   %.sroa.5.086 = phi i32 [ %.sroa.5.1, %_ZN4llvm5APIntD2Ev.exit35 ], [ 0, %.lr.ph.split.preheader ]
   %.sroa.052.085 = phi i64 [ %.sroa.052.1, %_ZN4llvm5APIntD2Ev.exit35 ], [ -1, %.lr.ph.split.preheader ]
   %.sroa.045.084 = phi ptr [ %93, %_ZN4llvm5APIntD2Ev.exit35 ], [ %1, %.lr.ph.split.preheader ]
@@ -4228,16 +4228,16 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %38, %40
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.045.084, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !26
   %46 = zext i32 %45 to i64
-  %47 = add i32 %45, %.187
-  %48 = load ptr, ptr %.sroa.045.084, align 8, !tbaa !25
+  %47 = load ptr, ptr %.sroa.045.084, align 8, !tbaa !25
   %.idx = shl nuw nsw i64 %46, 4
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx
   %.not75 = icmp eq i32 %45, 0
   br i1 %.not75, label %._crit_edge79.split, label %_ZN4llvm15InstructionCostpLERKS0_.exit
 
 ._crit_edge79.split:                              ; preds = %._crit_edge, %_ZN4llvm5APIntC2ERKS0_.exit
   %.sroa.042.0.lcssa = phi i64 [ 0, %_ZN4llvm5APIntC2ERKS0_.exit ], [ %.0.i33, %._crit_edge ]
   %.sroa.9.0.lcssa = phi i32 [ 0, %_ZN4llvm5APIntC2ERKS0_.exit ], [ %spec.select60, %._crit_edge ]
+  %49 = add i32 %45, %.187
   %.not.i.i = icmp eq i32 %.sroa.5.086, %.sroa.9.0.lcssa
   %50 = icmp slt i32 %.sroa.5.086, %.sroa.9.0.lcssa
   %51 = icmp slt i64 %.sroa.052.085, %.sroa.042.0.lcssa
@@ -4245,7 +4245,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %38, %40
   br i1 %.0.i.i, label %84, label %86
 
 _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %_ZN4llvm5APIntC2ERKS0_.exit, %._crit_edge
-  %.03178 = phi ptr [ %58, %._crit_edge ], [ %48, %_ZN4llvm5APIntC2ERKS0_.exit ]
+  %.03178 = phi ptr [ %58, %._crit_edge ], [ %47, %_ZN4llvm5APIntC2ERKS0_.exit ]
   %.sroa.9.077 = phi i32 [ %spec.select60, %._crit_edge ], [ 0, %_ZN4llvm5APIntC2ERKS0_.exit ]
   %.sroa.042.076 = phi i64 [ %.0.i33, %._crit_edge ], [ 0, %_ZN4llvm5APIntC2ERKS0_.exit ]
   %.sroa.08.0.copyload = load ptr, ptr %.03178, align 8, !tbaa !335
@@ -4265,7 +4265,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %_ZN4llvm5APIntC2ERK
 
 ._crit_edge:                                      ; preds = %_ZN4llvm5APIntD2Ev.exit34
   %58 = getelementptr inbounds nuw i8, ptr %.03178, i64 16
-  %.not = icmp eq ptr %58, %49
+  %.not = icmp eq ptr %58, %48
   br i1 %.not, label %._crit_edge79.split, label %_ZN4llvm15InstructionCostpLERKS0_.exit
 
 59:                                               ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit, %_ZN4llvm5APIntD2Ev.exit34
@@ -4355,7 +4355,7 @@ _ZN4llvm5APIntD2Ev.exit35:                        ; preds = %86, %89, %92
   br i1 %.not61, label %.loopexit, label %.lr.ph.split, !llvm.loop !340
 
 .loopexit:                                        ; preds = %29, %_ZN4llvm5APIntD2Ev.exit35, %.preheader68, %.preheader
-  %.0 = phi i32 [ 0, %.preheader ], [ 0, %.preheader68 ], [ %47, %_ZN4llvm5APIntD2Ev.exit35 ], [ %21, %29 ]
+  %.0 = phi i32 [ 0, %.preheader ], [ 0, %.preheader68 ], [ %49, %_ZN4llvm5APIntD2Ev.exit35 ], [ %21, %29 ]
   ret i32 %.0
 }
 

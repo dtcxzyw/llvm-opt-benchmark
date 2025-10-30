@@ -3464,9 +3464,8 @@ define internal fastcc void @_ZN5clang13ASTDeclReader20VisitTypedefNameDeclEPNS_
   br i1 %.not.not.i, label %55, label %30
 
 30:                                               ; preds = %19
-  %31 = icmp eq i32 %29, 1
-  %32 = add i32 %29, -1
-  %.not2432.i = icmp eq i32 %32, 0
+  %31 = add i32 %29, -1
+  %.not2432.i = icmp eq i32 %31, 0
   br i1 %.not2432.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -3478,15 +3477,16 @@ define internal fastcc void @_ZN5clang13ASTDeclReader20VisitTypedefNameDeclEPNS_
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %30
-  %33 = phi ptr [ %26, %30 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
-  %34 = phi i32 [ %24, %30 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
-  %35 = phi ptr [ %20, %30 ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %32 = phi ptr [ %26, %30 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
+  %33 = phi i32 [ %24, %30 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
+  %34 = phi ptr [ %20, %30 ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %.1.lcssa.i = phi ptr [ null, %30 ], [ %53, %._crit_edge.loopexit.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = add i32 %34, 1
+  %35 = icmp eq i32 %29, 1
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %37 = add i32 %33, 1
   store i32 %37, ptr %36, align 8, !tbaa !104, !noalias !1137
-  %38 = zext i32 %34 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %33, i64 %38
+  %38 = zext i32 %33 to i64
+  %39 = getelementptr inbounds nuw i64, ptr %32, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !112, !noalias !1137
   %.not.i.i = icmp eq i64 %40, 0
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3507,7 +3507,7 @@ define internal fastcc void @_ZN5clang13ASTDeclReader20VisitTypedefNameDeclEPNS_
   %52 = tail call i64 @_ZN5clang9ASTReader10ReadDeclIDERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj(ptr noundef nonnull align 8 dereferenceable(16272) %47, ptr noundef nonnull align 8 dereferenceable(3464) %49, ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 4 dereferenceable(4) %51) #26, !noalias !1137
   %53 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %47, i64 %52) #26, !noalias !1137
   %54 = add nuw i32 %.02133.i, 1
-  %.not24.i = icmp eq i32 %54, %32
+  %.not24.i = icmp eq i32 %54, %31
   br i1 %.not24.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !1140
 
 55:                                               ; preds = %19
@@ -3523,7 +3523,7 @@ define internal fastcc void @_ZN5clang13ASTDeclReader20VisitTypedefNameDeclEPNS_
   %.031.i = phi i64 [ %44, %._crit_edge.i ], [ 0, %55 ], [ 0, %3 ]
   %.sroa.027.0.i = phi i64 [ %14, %._crit_edge.i ], [ %14, %55 ], [ %16, %3 ]
   %.019.i = phi i1 [ true, %._crit_edge.i ], [ false, %55 ], [ true, %3 ]
-  %.017.i = phi i1 [ %31, %._crit_edge.i ], [ %17, %55 ], [ true, %3 ]
+  %.017.i = phi i1 [ %35, %._crit_edge.i ], [ %17, %55 ], [ true, %3 ]
   %.0.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i ], [ null, %55 ], [ null, %3 ]
   %63 = load ptr, ptr %1, align 8, !tbaa !114, !noalias !1137
   %64 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %63, i64 %.sroa.027.0.i) #26, !noalias !1137
@@ -4345,9 +4345,8 @@ define internal fastcc void @_ZN5clang13ASTDeclReader12VisitTagDeclEPNS_7TagDecl
   br i1 %.not.not.i, label %55, label %30
 
 30:                                               ; preds = %19
-  %31 = icmp eq i32 %29, 1
-  %32 = add i32 %29, -1
-  %.not2432.i = icmp eq i32 %32, 0
+  %31 = add i32 %29, -1
+  %.not2432.i = icmp eq i32 %31, 0
   br i1 %.not2432.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -4359,15 +4358,16 @@ define internal fastcc void @_ZN5clang13ASTDeclReader12VisitTagDeclEPNS_7TagDecl
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %30
-  %33 = phi ptr [ %26, %30 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
-  %34 = phi i32 [ %24, %30 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
-  %35 = phi ptr [ %20, %30 ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %32 = phi ptr [ %26, %30 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
+  %33 = phi i32 [ %24, %30 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
+  %34 = phi ptr [ %20, %30 ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %.1.lcssa.i = phi ptr [ null, %30 ], [ %53, %._crit_edge.loopexit.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = add i32 %34, 1
+  %35 = icmp eq i32 %29, 1
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %37 = add i32 %33, 1
   store i32 %37, ptr %36, align 8, !tbaa !104, !noalias !1175
-  %38 = zext i32 %34 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %33, i64 %38
+  %38 = zext i32 %33 to i64
+  %39 = getelementptr inbounds nuw i64, ptr %32, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !112, !noalias !1175
   %.not.i.i = icmp eq i64 %40, 0
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4388,7 +4388,7 @@ define internal fastcc void @_ZN5clang13ASTDeclReader12VisitTagDeclEPNS_7TagDecl
   %52 = tail call i64 @_ZN5clang9ASTReader10ReadDeclIDERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj(ptr noundef nonnull align 8 dereferenceable(16272) %47, ptr noundef nonnull align 8 dereferenceable(3464) %49, ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 4 dereferenceable(4) %51) #26, !noalias !1175
   %53 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %47, i64 %52) #26, !noalias !1175
   %54 = add nuw i32 %.02133.i, 1
-  %.not24.i = icmp eq i32 %54, %32
+  %.not24.i = icmp eq i32 %54, %31
   br i1 %.not24.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !1178
 
 55:                                               ; preds = %19
@@ -4404,7 +4404,7 @@ define internal fastcc void @_ZN5clang13ASTDeclReader12VisitTagDeclEPNS_7TagDecl
   %.031.i = phi i64 [ %44, %._crit_edge.i ], [ 0, %55 ], [ 0, %3 ]
   %.sroa.027.0.i = phi i64 [ %14, %._crit_edge.i ], [ %14, %55 ], [ %16, %3 ]
   %.019.i = phi i1 [ true, %._crit_edge.i ], [ false, %55 ], [ true, %3 ]
-  %.017.i = phi i1 [ %31, %._crit_edge.i ], [ %17, %55 ], [ true, %3 ]
+  %.017.i = phi i1 [ %35, %._crit_edge.i ], [ %17, %55 ], [ true, %3 ]
   %.0.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i ], [ null, %55 ], [ null, %3 ]
   %63 = load ptr, ptr %1, align 8, !tbaa !114, !noalias !1175
   %64 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %63, i64 %.sroa.027.0.i) #26, !noalias !1175
@@ -5818,9 +5818,8 @@ define dso_local void @_ZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12Functio
   br i1 %.not.not.i, label %70, label %45
 
 45:                                               ; preds = %34
-  %46 = icmp eq i32 %44, 1
-  %47 = add i32 %44, -1
-  %.not2432.i = icmp eq i32 %47, 0
+  %46 = add i32 %44, -1
+  %.not2432.i = icmp eq i32 %46, 0
   br i1 %.not2432.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -5832,15 +5831,16 @@ define dso_local void @_ZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12Functio
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %45
-  %48 = phi ptr [ %41, %45 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
-  %49 = phi i32 [ %39, %45 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
-  %50 = phi ptr [ %35, %45 ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %47 = phi ptr [ %41, %45 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
+  %48 = phi i32 [ %39, %45 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
+  %49 = phi ptr [ %35, %45 ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %.1.lcssa.i = phi ptr [ null, %45 ], [ %68, %._crit_edge.loopexit.i ]
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %52 = add i32 %49, 1
+  %50 = icmp eq i32 %44, 1
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %52 = add i32 %48, 1
   store i32 %52, ptr %51, align 8, !tbaa !104, !noalias !1219
-  %53 = zext i32 %49 to i64
-  %54 = getelementptr inbounds nuw i64, ptr %48, i64 %53
+  %53 = zext i32 %48 to i64
+  %54 = getelementptr inbounds nuw i64, ptr %47, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !112, !noalias !1219
   %.not.i.i = icmp eq i64 %55, 0
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5861,7 +5861,7 @@ define dso_local void @_ZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12Functio
   %67 = tail call i64 @_ZN5clang9ASTReader10ReadDeclIDERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj(ptr noundef nonnull align 8 dereferenceable(16272) %62, ptr noundef nonnull align 8 dereferenceable(3464) %64, ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(4) %66) #26, !noalias !1219
   %68 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %62, i64 %67) #26, !noalias !1219
   %69 = add nuw i32 %.02133.i, 1
-  %.not24.i = icmp eq i32 %69, %47
+  %.not24.i = icmp eq i32 %69, %46
   br i1 %.not24.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !1222
 
 70:                                               ; preds = %34
@@ -5877,7 +5877,7 @@ define dso_local void @_ZN5clang13ASTDeclReader17VisitFunctionDeclEPNS_12Functio
   %.031.i = phi i64 [ %59, %._crit_edge.i ], [ 0, %70 ], [ 0, %2 ]
   %.sroa.027.0.i = phi i64 [ %29, %._crit_edge.i ], [ %29, %70 ], [ %31, %2 ]
   %.019.i = phi i1 [ true, %._crit_edge.i ], [ false, %70 ], [ true, %2 ]
-  %.017.i = phi i1 [ %46, %._crit_edge.i ], [ %32, %70 ], [ true, %2 ]
+  %.017.i = phi i1 [ %50, %._crit_edge.i ], [ %32, %70 ], [ true, %2 ]
   %.0.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i ], [ null, %70 ], [ null, %2 ]
   %78 = load ptr, ptr %0, align 8, !tbaa !114, !noalias !1219
   %79 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %78, i64 %.sroa.027.0.i) #26, !noalias !1219
@@ -9404,9 +9404,8 @@ define dso_local void @_ZN5clang13ASTDeclReader22VisitObjCInterfaceDeclEPNS_17Ob
   br i1 %.not.not.i, label %57, label %32
 
 32:                                               ; preds = %21
-  %33 = icmp eq i32 %31, 1
-  %34 = add i32 %31, -1
-  %.not2432.i = icmp eq i32 %34, 0
+  %33 = add i32 %31, -1
+  %.not2432.i = icmp eq i32 %33, 0
   br i1 %.not2432.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -9418,15 +9417,16 @@ define dso_local void @_ZN5clang13ASTDeclReader22VisitObjCInterfaceDeclEPNS_17Ob
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %32
-  %35 = phi ptr [ %28, %32 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
-  %36 = phi i32 [ %26, %32 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
-  %37 = phi ptr [ %22, %32 ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %34 = phi ptr [ %28, %32 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
+  %35 = phi i32 [ %26, %32 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
+  %36 = phi ptr [ %22, %32 ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %.1.lcssa.i = phi ptr [ null, %32 ], [ %55, %._crit_edge.loopexit.i ]
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = add i32 %36, 1
+  %37 = icmp eq i32 %31, 1
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %39 = add i32 %35, 1
   store i32 %39, ptr %38, align 8, !tbaa !104, !noalias !1299
-  %40 = zext i32 %36 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %35, i64 %40
+  %40 = zext i32 %35 to i64
+  %41 = getelementptr inbounds nuw i64, ptr %34, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !112, !noalias !1299
   %.not.i.i = icmp eq i64 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9447,7 +9447,7 @@ define dso_local void @_ZN5clang13ASTDeclReader22VisitObjCInterfaceDeclEPNS_17Ob
   %54 = tail call i64 @_ZN5clang9ASTReader10ReadDeclIDERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj(ptr noundef nonnull align 8 dereferenceable(16272) %49, ptr noundef nonnull align 8 dereferenceable(3464) %51, ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 4 dereferenceable(4) %53) #26, !noalias !1299
   %55 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %49, i64 %54) #26, !noalias !1299
   %56 = add nuw i32 %.02133.i, 1
-  %.not24.i = icmp eq i32 %56, %34
+  %.not24.i = icmp eq i32 %56, %33
   br i1 %.not24.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !1302
 
 57:                                               ; preds = %21
@@ -9463,7 +9463,7 @@ define dso_local void @_ZN5clang13ASTDeclReader22VisitObjCInterfaceDeclEPNS_17Ob
   %.031.i = phi i64 [ %46, %._crit_edge.i ], [ 0, %57 ], [ 0, %2 ]
   %.sroa.027.0.i = phi i64 [ %16, %._crit_edge.i ], [ %16, %57 ], [ %18, %2 ]
   %.019.i = phi i1 [ true, %._crit_edge.i ], [ false, %57 ], [ true, %2 ]
-  %.017.i = phi i1 [ %33, %._crit_edge.i ], [ %19, %57 ], [ true, %2 ]
+  %.017.i = phi i1 [ %37, %._crit_edge.i ], [ %19, %57 ], [ true, %2 ]
   %.0.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i ], [ null, %57 ], [ null, %2 ]
   %65 = load ptr, ptr %0, align 8, !tbaa !114, !noalias !1299
   %66 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %65, i64 %.sroa.027.0.i) #26, !noalias !1299
@@ -11101,9 +11101,8 @@ define dso_local void @_ZN5clang13ASTDeclReader21VisitObjCProtocolDeclEPNS_16Obj
   br i1 %.not.not.i, label %57, label %32
 
 32:                                               ; preds = %21
-  %33 = icmp eq i32 %31, 1
-  %34 = add i32 %31, -1
-  %.not2432.i = icmp eq i32 %34, 0
+  %33 = add i32 %31, -1
+  %.not2432.i = icmp eq i32 %33, 0
   br i1 %.not2432.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -11115,15 +11114,16 @@ define dso_local void @_ZN5clang13ASTDeclReader21VisitObjCProtocolDeclEPNS_16Obj
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %32
-  %35 = phi ptr [ %28, %32 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
-  %36 = phi i32 [ %26, %32 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
-  %37 = phi ptr [ %22, %32 ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %34 = phi ptr [ %28, %32 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
+  %35 = phi i32 [ %26, %32 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
+  %36 = phi ptr [ %22, %32 ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %.1.lcssa.i = phi ptr [ null, %32 ], [ %55, %._crit_edge.loopexit.i ]
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = add i32 %36, 1
+  %37 = icmp eq i32 %31, 1
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %39 = add i32 %35, 1
   store i32 %39, ptr %38, align 8, !tbaa !104, !noalias !1360
-  %40 = zext i32 %36 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %35, i64 %40
+  %40 = zext i32 %35 to i64
+  %41 = getelementptr inbounds nuw i64, ptr %34, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !112, !noalias !1360
   %.not.i.i = icmp eq i64 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -11144,7 +11144,7 @@ define dso_local void @_ZN5clang13ASTDeclReader21VisitObjCProtocolDeclEPNS_16Obj
   %54 = tail call i64 @_ZN5clang9ASTReader10ReadDeclIDERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj(ptr noundef nonnull align 8 dereferenceable(16272) %49, ptr noundef nonnull align 8 dereferenceable(3464) %51, ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 4 dereferenceable(4) %53) #26, !noalias !1360
   %55 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %49, i64 %54) #26, !noalias !1360
   %56 = add nuw i32 %.02133.i, 1
-  %.not24.i = icmp eq i32 %56, %34
+  %.not24.i = icmp eq i32 %56, %33
   br i1 %.not24.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !1363
 
 57:                                               ; preds = %21
@@ -11160,7 +11160,7 @@ define dso_local void @_ZN5clang13ASTDeclReader21VisitObjCProtocolDeclEPNS_16Obj
   %.031.i = phi i64 [ %46, %._crit_edge.i ], [ 0, %57 ], [ 0, %2 ]
   %.sroa.027.0.i = phi i64 [ %16, %._crit_edge.i ], [ %16, %57 ], [ %18, %2 ]
   %.019.i = phi i1 [ true, %._crit_edge.i ], [ false, %57 ], [ true, %2 ]
-  %.017.i = phi i1 [ %33, %._crit_edge.i ], [ %19, %57 ], [ true, %2 ]
+  %.017.i = phi i1 [ %37, %._crit_edge.i ], [ %19, %57 ], [ true, %2 ]
   %.0.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i ], [ null, %57 ], [ null, %2 ]
   %65 = load ptr, ptr %0, align 8, !tbaa !114, !noalias !1360
   %66 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %65, i64 %.sroa.027.0.i) #26, !noalias !1360
@@ -13794,23 +13794,23 @@ _ZN4llvm11SmallVectorIN5clang7APValueELj8EED2Ev.exit192: ; preds = %_ZN4llvm23Sm
   %357 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 8, ptr %357, align 4, !tbaa !897
   %358 = call { ptr, i64 } @_ZN5clang13serialization21DataStreamBasicReaderINS_15ASTRecordReaderEE9readArrayINS_7APValueEEEN4llvm8ArrayRefIT_EERNS6_15SmallVectorImplIS8_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %24)
-  %359 = extractvalue { ptr, i64 } %358, 0
-  %360 = extractvalue { ptr, i64 } %358, 1
+  %359 = extractvalue { ptr, i64 } %358, 1
   store i32 0, ptr %0, align 8, !tbaa !952
-  %361 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %362 = load i8, ptr %361, align 4
-  %363 = and i8 %362, -2
-  store i8 %363, ptr %361, align 4
-  %364 = trunc i64 %354 to i32
-  %365 = trunc i64 %360 to i32
-  %366 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @_ZN5clang7APValue10StructDataC1Ejj(ptr noundef nonnull align 8 dereferenceable(16) %366, i32 noundef %364, i32 noundef %365) #26
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %361 = load i8, ptr %360, align 4
+  %362 = and i8 %361, -2
+  store i8 %362, ptr %360, align 4
+  %363 = trunc i64 %354 to i32
+  %364 = trunc i64 %359 to i32
+  %365 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @_ZN5clang7APValue10StructDataC1Ejj(ptr noundef nonnull align 8 dereferenceable(16) %365, i32 noundef %363, i32 noundef %364) #26
   store i32 10, ptr %0, align 8, !tbaa !952
   %.not311 = icmp eq i64 %354, 0
   br i1 %.not311, label %.preheader, label %.lr.ph299
 
 .preheader:                                       ; preds = %.lr.ph299, %348
-  %.not312 = icmp eq i64 %360, 0
+  %366 = extractvalue { ptr, i64 } %358, 0
+  %.not312 = icmp eq i64 %359, 0
   br i1 %.not312, label %._crit_edge302, label %.lr.ph301
 
 .lr.ph301:                                        ; preds = %.preheader
@@ -13821,7 +13821,7 @@ _ZN4llvm11SmallVectorIN5clang7APValueELj8EED2Ev.exit192: ; preds = %_ZN4llvm23Sm
   %368 = phi i64 [ %374, %.lr.ph299 ], [ 0, %348 ]
   %.0148297 = phi i32 [ %373, %.lr.ph299 ], [ 0, %348 ]
   %369 = getelementptr inbounds nuw %"class.clang::APValue", ptr %353, i64 %368
-  %370 = load ptr, ptr %366, align 8, !tbaa !1439
+  %370 = load ptr, ptr %365, align 8, !tbaa !1439
   %371 = getelementptr inbounds nuw %"class.clang::APValue", ptr %370, i64 %368
   %372 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN5clang7APValueaSERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %371, ptr noundef nonnull align 8 dereferenceable(56) %369) #26
   %373 = add i32 %.0148297, 1
@@ -13832,8 +13832,8 @@ _ZN4llvm11SmallVectorIN5clang7APValueELj8EED2Ev.exit192: ; preds = %_ZN4llvm23Sm
 376:                                              ; preds = %.lr.ph301, %376
   %377 = phi i64 [ 0, %.lr.ph301 ], [ %386, %376 ]
   %.0149300 = phi i32 [ 0, %.lr.ph301 ], [ %385, %376 ]
-  %378 = getelementptr inbounds nuw %"class.clang::APValue", ptr %359, i64 %377
-  %379 = load ptr, ptr %366, align 8, !tbaa !1439
+  %378 = getelementptr inbounds nuw %"class.clang::APValue", ptr %366, i64 %377
+  %379 = load ptr, ptr %365, align 8, !tbaa !1439
   %380 = load i32, ptr %367, align 8, !tbaa !1442
   %381 = add i32 %380, %.0149300
   %382 = zext i32 %381 to i64
@@ -13841,7 +13841,7 @@ _ZN4llvm11SmallVectorIN5clang7APValueELj8EED2Ev.exit192: ; preds = %_ZN4llvm23Sm
   %384 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN5clang7APValueaSERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %383, ptr noundef nonnull align 8 dereferenceable(56) %378) #26
   %385 = add i32 %.0149300, 1
   %386 = zext i32 %385 to i64
-  %387 = icmp ugt i64 %360, %386
+  %387 = icmp ugt i64 %359, %386
   br i1 %387, label %376, label %._crit_edge302, !llvm.loop !1443
 
 ._crit_edge302:                                   ; preds = %376, %.preheader
@@ -15578,9 +15578,8 @@ define dso_local void @_ZN5clang13ASTDeclReader18VisitNamespaceDeclEPNS_13Namesp
   br i1 %.not.not.i, label %57, label %32
 
 32:                                               ; preds = %21
-  %33 = icmp eq i32 %31, 1
-  %34 = add i32 %31, -1
-  %.not2432.i = icmp eq i32 %34, 0
+  %33 = add i32 %31, -1
+  %.not2432.i = icmp eq i32 %33, 0
   br i1 %.not2432.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -15592,15 +15591,16 @@ define dso_local void @_ZN5clang13ASTDeclReader18VisitNamespaceDeclEPNS_13Namesp
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %32
-  %35 = phi ptr [ %28, %32 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
-  %36 = phi i32 [ %26, %32 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
-  %37 = phi ptr [ %22, %32 ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %34 = phi ptr [ %28, %32 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
+  %35 = phi i32 [ %26, %32 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
+  %36 = phi ptr [ %22, %32 ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %.1.lcssa.i = phi ptr [ null, %32 ], [ %55, %._crit_edge.loopexit.i ]
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = add i32 %36, 1
+  %37 = icmp eq i32 %31, 1
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %39 = add i32 %35, 1
   store i32 %39, ptr %38, align 8, !tbaa !104, !noalias !1497
-  %40 = zext i32 %36 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %35, i64 %40
+  %40 = zext i32 %35 to i64
+  %41 = getelementptr inbounds nuw i64, ptr %34, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !112, !noalias !1497
   %.not.i.i = icmp eq i64 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -15621,7 +15621,7 @@ define dso_local void @_ZN5clang13ASTDeclReader18VisitNamespaceDeclEPNS_13Namesp
   %54 = tail call i64 @_ZN5clang9ASTReader10ReadDeclIDERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj(ptr noundef nonnull align 8 dereferenceable(16272) %49, ptr noundef nonnull align 8 dereferenceable(3464) %51, ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 4 dereferenceable(4) %53) #26, !noalias !1497
   %55 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %49, i64 %54) #26, !noalias !1497
   %56 = add nuw i32 %.02133.i, 1
-  %.not24.i = icmp eq i32 %56, %34
+  %.not24.i = icmp eq i32 %56, %33
   br i1 %.not24.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !1500
 
 57:                                               ; preds = %21
@@ -15637,7 +15637,7 @@ define dso_local void @_ZN5clang13ASTDeclReader18VisitNamespaceDeclEPNS_13Namesp
   %.031.i = phi i64 [ %46, %._crit_edge.i ], [ 0, %57 ], [ 0, %2 ]
   %.sroa.027.0.i = phi i64 [ %16, %._crit_edge.i ], [ %16, %57 ], [ %18, %2 ]
   %.019.i = phi i1 [ true, %._crit_edge.i ], [ false, %57 ], [ true, %2 ]
-  %.017.i = phi i1 [ %33, %._crit_edge.i ], [ %19, %57 ], [ true, %2 ]
+  %.017.i = phi i1 [ %37, %._crit_edge.i ], [ %19, %57 ], [ true, %2 ]
   %.0.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i ], [ null, %57 ], [ null, %2 ]
   %65 = load ptr, ptr %0, align 8, !tbaa !114, !noalias !1497
   %66 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %65, i64 %.sroa.027.0.i) #26, !noalias !1497
@@ -16307,9 +16307,8 @@ define dso_local void @_ZN5clang13ASTDeclReader23VisitNamespaceAliasDeclEPNS_18N
   br i1 %.not.not.i, label %57, label %32
 
 32:                                               ; preds = %21
-  %33 = icmp eq i32 %31, 1
-  %34 = add i32 %31, -1
-  %.not2432.i = icmp eq i32 %34, 0
+  %33 = add i32 %31, -1
+  %.not2432.i = icmp eq i32 %33, 0
   br i1 %.not2432.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -16321,15 +16320,16 @@ define dso_local void @_ZN5clang13ASTDeclReader23VisitNamespaceAliasDeclEPNS_18N
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %32
-  %35 = phi ptr [ %28, %32 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
-  %36 = phi i32 [ %26, %32 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
-  %37 = phi ptr [ %22, %32 ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %34 = phi ptr [ %28, %32 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
+  %35 = phi i32 [ %26, %32 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
+  %36 = phi ptr [ %22, %32 ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %.1.lcssa.i = phi ptr [ null, %32 ], [ %55, %._crit_edge.loopexit.i ]
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = add i32 %36, 1
+  %37 = icmp eq i32 %31, 1
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %39 = add i32 %35, 1
   store i32 %39, ptr %38, align 8, !tbaa !104, !noalias !1508
-  %40 = zext i32 %36 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %35, i64 %40
+  %40 = zext i32 %35 to i64
+  %41 = getelementptr inbounds nuw i64, ptr %34, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !112, !noalias !1508
   %.not.i.i = icmp eq i64 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -16350,7 +16350,7 @@ define dso_local void @_ZN5clang13ASTDeclReader23VisitNamespaceAliasDeclEPNS_18N
   %54 = tail call i64 @_ZN5clang9ASTReader10ReadDeclIDERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj(ptr noundef nonnull align 8 dereferenceable(16272) %49, ptr noundef nonnull align 8 dereferenceable(3464) %51, ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 4 dereferenceable(4) %53) #26, !noalias !1508
   %55 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %49, i64 %54) #26, !noalias !1508
   %56 = add nuw i32 %.02133.i, 1
-  %.not24.i = icmp eq i32 %56, %34
+  %.not24.i = icmp eq i32 %56, %33
   br i1 %.not24.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !1511
 
 57:                                               ; preds = %21
@@ -16366,7 +16366,7 @@ define dso_local void @_ZN5clang13ASTDeclReader23VisitNamespaceAliasDeclEPNS_18N
   %.031.i = phi i64 [ %46, %._crit_edge.i ], [ 0, %57 ], [ 0, %2 ]
   %.sroa.027.0.i = phi i64 [ %16, %._crit_edge.i ], [ %16, %57 ], [ %18, %2 ]
   %.019.i = phi i1 [ true, %._crit_edge.i ], [ false, %57 ], [ true, %2 ]
-  %.017.i = phi i1 [ %33, %._crit_edge.i ], [ %19, %57 ], [ true, %2 ]
+  %.017.i = phi i1 [ %37, %._crit_edge.i ], [ %19, %57 ], [ true, %2 ]
   %.0.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i ], [ null, %57 ], [ null, %2 ]
   %65 = load ptr, ptr %0, align 8, !tbaa !114, !noalias !1508
   %66 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %65, i64 %.sroa.027.0.i) #26, !noalias !1508
@@ -17348,9 +17348,8 @@ define dso_local void @_ZN5clang13ASTDeclReader20VisitUsingShadowDeclEPNS_15Usin
   br i1 %.not.not.i, label %57, label %32
 
 32:                                               ; preds = %21
-  %33 = icmp eq i32 %31, 1
-  %34 = add i32 %31, -1
-  %.not2432.i = icmp eq i32 %34, 0
+  %33 = add i32 %31, -1
+  %.not2432.i = icmp eq i32 %33, 0
   br i1 %.not2432.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -17362,15 +17361,16 @@ define dso_local void @_ZN5clang13ASTDeclReader20VisitUsingShadowDeclEPNS_15Usin
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %32
-  %35 = phi ptr [ %28, %32 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
-  %36 = phi i32 [ %26, %32 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
-  %37 = phi ptr [ %22, %32 ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %34 = phi ptr [ %28, %32 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
+  %35 = phi i32 [ %26, %32 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
+  %36 = phi ptr [ %22, %32 ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %.1.lcssa.i = phi ptr [ null, %32 ], [ %55, %._crit_edge.loopexit.i ]
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = add i32 %36, 1
+  %37 = icmp eq i32 %31, 1
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %39 = add i32 %35, 1
   store i32 %39, ptr %38, align 8, !tbaa !104, !noalias !1528
-  %40 = zext i32 %36 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %35, i64 %40
+  %40 = zext i32 %35 to i64
+  %41 = getelementptr inbounds nuw i64, ptr %34, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !112, !noalias !1528
   %.not.i.i = icmp eq i64 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -17391,7 +17391,7 @@ define dso_local void @_ZN5clang13ASTDeclReader20VisitUsingShadowDeclEPNS_15Usin
   %54 = tail call i64 @_ZN5clang9ASTReader10ReadDeclIDERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj(ptr noundef nonnull align 8 dereferenceable(16272) %49, ptr noundef nonnull align 8 dereferenceable(3464) %51, ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 4 dereferenceable(4) %53) #26, !noalias !1528
   %55 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %49, i64 %54) #26, !noalias !1528
   %56 = add nuw i32 %.02133.i, 1
-  %.not24.i = icmp eq i32 %56, %34
+  %.not24.i = icmp eq i32 %56, %33
   br i1 %.not24.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !1531
 
 57:                                               ; preds = %21
@@ -17407,7 +17407,7 @@ define dso_local void @_ZN5clang13ASTDeclReader20VisitUsingShadowDeclEPNS_15Usin
   %.031.i = phi i64 [ %46, %._crit_edge.i ], [ 0, %57 ], [ 0, %2 ]
   %.sroa.027.0.i = phi i64 [ %16, %._crit_edge.i ], [ %16, %57 ], [ %18, %2 ]
   %.019.i = phi i1 [ true, %._crit_edge.i ], [ false, %57 ], [ true, %2 ]
-  %.017.i = phi i1 [ %33, %._crit_edge.i ], [ %19, %57 ], [ true, %2 ]
+  %.017.i = phi i1 [ %37, %._crit_edge.i ], [ %19, %57 ], [ true, %2 ]
   %.0.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i ], [ null, %57 ], [ null, %2 ]
   %65 = load ptr, ptr %0, align 8, !tbaa !114, !noalias !1528
   %66 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %65, i64 %.sroa.027.0.i) #26, !noalias !1528
@@ -21797,9 +21797,8 @@ define internal fastcc void @_ZN5clang13ASTDeclReader29VisitRedeclarableTemplate
   br i1 %.not.not.i, label %55, label %30
 
 30:                                               ; preds = %19
-  %31 = icmp eq i32 %29, 1
-  %32 = add i32 %29, -1
-  %.not2432.i = icmp eq i32 %32, 0
+  %31 = add i32 %29, -1
+  %.not2432.i = icmp eq i32 %31, 0
   br i1 %.not2432.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -21811,15 +21810,16 @@ define internal fastcc void @_ZN5clang13ASTDeclReader29VisitRedeclarableTemplate
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %30
-  %33 = phi ptr [ %26, %30 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
-  %34 = phi i32 [ %24, %30 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
-  %35 = phi ptr [ %20, %30 ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %32 = phi ptr [ %26, %30 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
+  %33 = phi i32 [ %24, %30 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
+  %34 = phi ptr [ %20, %30 ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %.1.lcssa.i = phi ptr [ null, %30 ], [ %53, %._crit_edge.loopexit.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = add i32 %34, 1
+  %35 = icmp eq i32 %29, 1
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %37 = add i32 %33, 1
   store i32 %37, ptr %36, align 8, !tbaa !104, !noalias !1626
-  %38 = zext i32 %34 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %33, i64 %38
+  %38 = zext i32 %33 to i64
+  %39 = getelementptr inbounds nuw i64, ptr %32, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !112, !noalias !1626
   %.not.i.i = icmp eq i64 %40, 0
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -21840,7 +21840,7 @@ define internal fastcc void @_ZN5clang13ASTDeclReader29VisitRedeclarableTemplate
   %52 = tail call i64 @_ZN5clang9ASTReader10ReadDeclIDERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj(ptr noundef nonnull align 8 dereferenceable(16272) %47, ptr noundef nonnull align 8 dereferenceable(3464) %49, ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 4 dereferenceable(4) %51) #26, !noalias !1626
   %53 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %47, i64 %52) #26, !noalias !1626
   %54 = add nuw i32 %.02133.i, 1
-  %.not24.i = icmp eq i32 %54, %32
+  %.not24.i = icmp eq i32 %54, %31
   br i1 %.not24.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !1629
 
 55:                                               ; preds = %19
@@ -21856,7 +21856,7 @@ define internal fastcc void @_ZN5clang13ASTDeclReader29VisitRedeclarableTemplate
   %.031.i = phi i64 [ %44, %._crit_edge.i ], [ 0, %55 ], [ 0, %3 ]
   %.sroa.027.0.i = phi i64 [ %14, %._crit_edge.i ], [ %14, %55 ], [ %16, %3 ]
   %.019.i = phi i1 [ true, %._crit_edge.i ], [ false, %55 ], [ true, %3 ]
-  %.017.i = phi i1 [ %31, %._crit_edge.i ], [ %17, %55 ], [ true, %3 ]
+  %.017.i = phi i1 [ %35, %._crit_edge.i ], [ %17, %55 ], [ true, %3 ]
   %.0.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i ], [ null, %55 ], [ null, %3 ]
   %63 = load ptr, ptr %1, align 8, !tbaa !114, !noalias !1626
   %64 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %63, i64 %.sroa.027.0.i) #26, !noalias !1626
@@ -61053,9 +61053,8 @@ define internal fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7Var
   br i1 %.not.not.i, label %56, label %31
 
 31:                                               ; preds = %20
-  %32 = icmp eq i32 %30, 1
-  %33 = add i32 %30, -1
-  %.not2432.i = icmp eq i32 %33, 0
+  %32 = add i32 %30, -1
+  %.not2432.i = icmp eq i32 %32, 0
   br i1 %.not2432.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -61067,15 +61066,16 @@ define internal fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7Var
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %31
-  %34 = phi ptr [ %27, %31 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
-  %35 = phi i32 [ %25, %31 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
-  %36 = phi ptr [ %21, %31 ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %33 = phi ptr [ %27, %31 ], [ %.pre36.i, %._crit_edge.loopexit.i ]
+  %34 = phi i32 [ %25, %31 ], [ %.pre34.i, %._crit_edge.loopexit.i ]
+  %35 = phi ptr [ %21, %31 ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %.1.lcssa.i = phi ptr [ null, %31 ], [ %54, %._crit_edge.loopexit.i ]
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = add i32 %35, 1
+  %36 = icmp eq i32 %30, 1
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %38 = add i32 %34, 1
   store i32 %38, ptr %37, align 8, !tbaa !104, !noalias !2166
-  %39 = zext i32 %35 to i64
-  %40 = getelementptr inbounds nuw i64, ptr %34, i64 %39
+  %39 = zext i32 %34 to i64
+  %40 = getelementptr inbounds nuw i64, ptr %33, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !112, !noalias !2166
   %.not.i.i = icmp eq i64 %41, 0
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -61096,7 +61096,7 @@ define internal fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7Var
   %53 = tail call i64 @_ZN5clang9ASTReader10ReadDeclIDERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj(ptr noundef nonnull align 8 dereferenceable(16272) %48, ptr noundef nonnull align 8 dereferenceable(3464) %50, ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 4 dereferenceable(4) %52) #26, !noalias !2166
   %54 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %48, i64 %53) #26, !noalias !2166
   %55 = add nuw i32 %.02133.i, 1
-  %.not24.i = icmp eq i32 %55, %33
+  %.not24.i = icmp eq i32 %55, %32
   br i1 %.not24.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !2169
 
 56:                                               ; preds = %20
@@ -61112,7 +61112,7 @@ define internal fastcc void @_ZN5clang13ASTDeclReader16VisitVarDeclImplEPNS_7Var
   %.031.i = phi i64 [ %45, %._crit_edge.i ], [ 0, %56 ], [ 0, %3 ]
   %.sroa.027.0.i = phi i64 [ %15, %._crit_edge.i ], [ %15, %56 ], [ %17, %3 ]
   %.019.i = phi i1 [ true, %._crit_edge.i ], [ false, %56 ], [ true, %3 ]
-  %.017.i = phi i1 [ %32, %._crit_edge.i ], [ %18, %56 ], [ true, %3 ]
+  %.017.i = phi i1 [ %36, %._crit_edge.i ], [ %18, %56 ], [ true, %3 ]
   %.0.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i ], [ null, %56 ], [ null, %3 ]
   %64 = load ptr, ptr %1, align 8, !tbaa !114, !noalias !2166
   %65 = tail call noundef ptr @_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE(ptr noundef nonnull align 8 dereferenceable(16272) %64, i64 %.sroa.027.0.i) #26, !noalias !2166
@@ -69800,19 +69800,18 @@ define linkonce_odr hidden void @_ZN5clang13serialization21DataStreamBasicReader
   %9 = load ptr, ptr %4, align 8, !tbaa !111
   %10 = getelementptr inbounds nuw i64, ptr %9, i64 %8
   %11 = load i64, ptr %10, align 8, !tbaa !112
-  %12 = trunc i64 %11 to i32
-  %13 = and i64 %11, 4294967295
-  %14 = add nuw nsw i64 %13, 63
-  %15 = lshr i64 %14, 6
-  %16 = trunc nuw nsw i64 %15 to i32
+  %12 = and i64 %11, 4294967295
+  %13 = add nuw nsw i64 %12, 63
+  %14 = lshr i64 %13, 6
+  %15 = trunc nuw nsw i64 %14 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %17, ptr %3, align 8, !tbaa !111
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %18, align 8, !tbaa !896
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 4, ptr %19, align 4, !tbaa !897
-  %.not7 = icmp eq i64 %13, 0
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %16, ptr %3, align 8, !tbaa !111
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %17, align 8, !tbaa !896
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 4, ptr %18, align 4, !tbaa !897
+  %.not7 = icmp eq i64 %12, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit
@@ -69820,10 +69819,11 @@ define linkonce_odr hidden void @_ZN5clang13serialization21DataStreamBasicReader
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %20 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %17, %2 ]
-  call void @_ZN4llvm5APIntC1EjjPKm(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %12, i32 noundef %16, ptr noundef nonnull %20) #26
+  %19 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %16, %2 ]
+  %20 = trunc i64 %11 to i32
+  call void @_ZN4llvm5APIntC1EjjPKm(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %20, i32 noundef %15, ptr noundef nonnull %19) #26
   %21 = load ptr, ptr %3, align 8, !tbaa !111
-  %22 = icmp eq ptr %21, %17
+  %22 = icmp eq ptr %21, %16
   br i1 %22, label %_ZN4llvm11SmallVectorImLj4EED2Ev.exit, label %23
 
 23:                                               ; preds = %._crit_edge
@@ -69844,15 +69844,15 @@ _ZN4llvm11SmallVectorImLj4EED2Ev.exit:            ; preds = %._crit_edge, %23
   %28 = load ptr, ptr %4, align 8, !tbaa !111
   %29 = getelementptr inbounds nuw i64, ptr %28, i64 %27
   %30 = load i64, ptr %29, align 8, !tbaa !112
-  %31 = load i32, ptr %19, align 4, !tbaa !897
+  %31 = load i32, ptr %18, align 4, !tbaa !897
   %.not.i.i.not.i = icmp ult i32 %24, %31
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit, label %32, !prof !898
 
 32:                                               ; preds = %.lr.ph
   %33 = zext i32 %24 to i64
   %34 = add nuw nsw i64 %33, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %17, i64 noundef %34, i64 noundef 8) #26
-  %.pre.i = load i32, ptr %18, align 8, !tbaa !896
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %16, i64 noundef %34, i64 noundef 8) #26
+  %.pre.i = load i32, ptr %17, align 8, !tbaa !896
   br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit
 
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %.lr.ph, %32
@@ -69861,11 +69861,11 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %.lr.ph, %3
   %37 = zext i32 %35 to i64
   %38 = getelementptr inbounds nuw i64, ptr %36, i64 %37
   store i64 %30, ptr %38, align 1
-  %39 = load i32, ptr %18, align 8, !tbaa !896
+  %39 = load i32, ptr %17, align 8, !tbaa !896
   %40 = add i32 %39, 1
-  store i32 %40, ptr %18, align 8, !tbaa !896
+  store i32 %40, ptr %17, align 8, !tbaa !896
   %41 = add nuw nsw i32 %.08, 1
-  %.not = icmp eq i32 %41, %16
+  %.not = icmp eq i32 %41, %15
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !2323
 }
 

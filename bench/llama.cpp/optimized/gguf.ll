@@ -9260,31 +9260,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %89,
 
 104:                                              ; preds = %97
   invoke void @_ZNSt6vectorI7gguf_kvSaIS0_EE17_M_realloc_insertIJRPKcRS_IaSaIaEEEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr %98, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %._ZNSt6vectorI7gguf_kvSaIS0_EE12emplace_backIJRPKcRS_IaSaIaEEEEERS0_DpOT_.exit_crit_edge unwind label %135
+          to label %_ZNSt6vectorI7gguf_kvSaIS0_EE12emplace_backIJRPKcRS_IaSaIaEEEEERS0_DpOT_.exit unwind label %135
 
-._ZNSt6vectorI7gguf_kvSaIS0_EE12emplace_backIJRPKcRS_IaSaIaEEEEERS0_DpOT_.exit_crit_edge: ; preds = %104
-  %.pre = load ptr, ptr %35, align 8, !tbaa !183
-  br label %_ZNSt6vectorI7gguf_kvSaIS0_EE12emplace_backIJRPKcRS_IaSaIaEEEEERS0_DpOT_.exit
-
-_ZNSt6vectorI7gguf_kvSaIS0_EE12emplace_backIJRPKcRS_IaSaIaEEEEERS0_DpOT_.exit: ; preds = %._ZNSt6vectorI7gguf_kvSaIS0_EE12emplace_backIJRPKcRS_IaSaIaEEEEERS0_DpOT_.exit_crit_edge, %.noexc26
-  %105 = phi ptr [ %.pre, %._ZNSt6vectorI7gguf_kvSaIS0_EE12emplace_backIJRPKcRS_IaSaIaEEEEERS0_DpOT_.exit_crit_edge ], [ %103, %.noexc26 ]
-  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
+_ZNSt6vectorI7gguf_kvSaIS0_EE12emplace_backIJRPKcRS_IaSaIaEEEEERS0_DpOT_.exit: ; preds = %104, %.noexc26
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt6vectorI7gguf_kvSaIS0_EE12emplace_backIJRPKcRS_IaSaIaEEEEERS0_DpOT_.exit
-  %.012.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %106, %_ZNSt6vectorI7gguf_kvSaIS0_EE12emplace_backIJRPKcRS_IaSaIaEEEEERS0_DpOT_.exit ]
+  %.012.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %105, %_ZNSt6vectorI7gguf_kvSaIS0_EE12emplace_backIJRPKcRS_IaSaIaEEEEERS0_DpOT_.exit ]
   %.0811.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8), %_ZNSt6vectorI7gguf_kvSaIS0_EE12emplace_backIJRPKcRS_IaSaIaEEEEERS0_DpOT_.exit ]
-  %107 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 32
-  %108 = load i32, ptr %107, align 4, !tbaa !17
-  %109 = icmp slt i32 %108, %2
-  %.19.i.i.i.i.i = select i1 %109, ptr %.0811.i.i.i.i.i, ptr %.012.i.i.i.i.i
-  %.1.in.v.i.i.i.i.i = select i1 %109, i64 24, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 32
+  %107 = load i32, ptr %106, align 4, !tbaa !17
+  %108 = icmp slt i32 %107, %2
+  %.19.i.i.i.i.i = select i1 %108, ptr %.0811.i.i.i.i.i, ptr %.012.i.i.i.i.i
+  %.1.in.v.i.i.i.i.i = select i1 %108, i64 24, i64 16
   %.1.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i
   %.1.i.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i.i, align 8, !tbaa !16
   %.not.i.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i, label %_ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !24
 
 _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
+  %109 = load ptr, ptr %35, align 8, !tbaa !183
   %110 = icmp ne ptr %.19.i.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8)
   call void @llvm.assume(i1 %110)
   %111 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i, i64 32
@@ -9293,8 +9289,8 @@ _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE1
   call void @llvm.assume(i1 %113)
   %114 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i, i64 40
   %115 = load i64, ptr %114, align 8, !tbaa !25
-  %116 = getelementptr inbounds i8, ptr %105, i64 -48
-  %117 = getelementptr inbounds i8, ptr %105, i64 -40
+  %116 = getelementptr inbounds i8, ptr %109, i64 -48
+  %117 = getelementptr inbounds i8, ptr %109, i64 -40
   %118 = load ptr, ptr %117, align 8, !tbaa !100
   %119 = load ptr, ptr %116, align 8, !tbaa !98
   %120 = ptrtoint ptr %118 to i64
@@ -9312,7 +9308,7 @@ _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE1
   unreachable
 
 126:                                              ; preds = %_ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i
-  %127 = getelementptr inbounds i8, ptr %105, i64 -52
+  %127 = getelementptr inbounds i8, ptr %109, i64 -52
   store i32 %2, ptr %127, align 4, !tbaa !166
   %128 = load ptr, ptr %9, align 8, !tbaa !98
   %.not.i.i.i29 = icmp eq ptr %128, null
@@ -9790,24 +9786,24 @@ define void @gguf_set_kv(ptr noundef %0, ptr noundef readonly captures(none) %1)
   ]
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %13, align 8, !tbaa !60
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %20
-  %.012.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %22, %20 ]
+  %.012.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %21, %20 ]
   %.0811.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8), %20 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 32
-  %24 = load i32, ptr %23, align 4, !tbaa !17
-  %25 = icmp slt i32 %24, 0
-  %.19.i.i.i.i.i = select i1 %25, ptr %.0811.i.i.i.i.i, ptr %.012.i.i.i.i.i
-  %.1.in.v.i.i.i.i.i = select i1 %25, i64 24, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 32
+  %23 = load i32, ptr %22, align 4, !tbaa !17
+  %24 = icmp slt i32 %23, 0
+  %.19.i.i.i.i.i = select i1 %24, ptr %.0811.i.i.i.i.i, ptr %.012.i.i.i.i.i
+  %.1.in.v.i.i.i.i.i = select i1 %24, i64 24, i64 16
   %.1.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i
   %.1.i.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i.i, align 8, !tbaa !16
   %.not.i.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i, label %_ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !24
 
 _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
+  %25 = load ptr, ptr %13, align 8, !tbaa !60
   %26 = icmp ne ptr %.19.i.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8)
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i, i64 40
@@ -9837,28 +9833,28 @@ _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE1
 
 _ZNK7gguf_kv7get_valIhEERKT_m.exit:               ; preds = %39
   %41 = load i8, ptr %32, align 1, !tbaa !52
-  tail call void @gguf_set_val_u8(ptr noundef %0, ptr noundef %21, i8 noundef zeroext %41)
+  tail call void @gguf_set_val_u8(ptr noundef %0, ptr noundef %25, i8 noundef zeroext %41)
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
 
 42:                                               ; preds = %17
-  %43 = load ptr, ptr %13, align 8, !tbaa !60
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
   br label %.lr.ph.i.i.i.i.i67
 
 .lr.ph.i.i.i.i.i67:                               ; preds = %.lr.ph.i.i.i.i.i67, %42
-  %.012.i.i.i.i.i68 = phi ptr [ %.1.i.i.i.i.i73, %.lr.ph.i.i.i.i.i67 ], [ %44, %42 ]
+  %.012.i.i.i.i.i68 = phi ptr [ %.1.i.i.i.i.i73, %.lr.ph.i.i.i.i.i67 ], [ %43, %42 ]
   %.0811.i.i.i.i.i69 = phi ptr [ %.19.i.i.i.i.i70, %.lr.ph.i.i.i.i.i67 ], [ getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8), %42 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i68, i64 32
-  %46 = load i32, ptr %45, align 4, !tbaa !17
-  %47 = icmp slt i32 %46, 1
-  %.19.i.i.i.i.i70 = select i1 %47, ptr %.0811.i.i.i.i.i69, ptr %.012.i.i.i.i.i68
-  %.1.in.v.i.i.i.i.i71 = select i1 %47, i64 24, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i68, i64 32
+  %45 = load i32, ptr %44, align 4, !tbaa !17
+  %46 = icmp slt i32 %45, 1
+  %.19.i.i.i.i.i70 = select i1 %46, ptr %.0811.i.i.i.i.i69, ptr %.012.i.i.i.i.i68
+  %.1.in.v.i.i.i.i.i71 = select i1 %46, i64 24, i64 16
   %.1.in.i.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i68, i64 %.1.in.v.i.i.i.i.i71
   %.1.i.i.i.i.i73 = load ptr, ptr %.1.in.i.i.i.i.i72, align 8, !tbaa !16
   %.not.i.i.i.i.i74 = icmp eq ptr %.1.i.i.i.i.i73, null
   br i1 %.not.i.i.i.i.i74, label %_ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i75, label %.lr.ph.i.i.i.i.i67, !llvm.loop !24
 
 _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i75: ; preds = %.lr.ph.i.i.i.i.i67
+  %47 = load ptr, ptr %13, align 8, !tbaa !60
   %48 = icmp ne ptr %.19.i.i.i.i.i70, getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8)
   tail call void @llvm.assume(i1 %48)
   %49 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i70, i64 40
@@ -9888,28 +9884,28 @@ _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE1
 
 _ZNK7gguf_kv7get_valIaEERKT_m.exit:               ; preds = %61
   %63 = load i8, ptr %54, align 1, !tbaa !52
-  tail call void @gguf_set_val_i8(ptr noundef %0, ptr noundef %43, i8 noundef signext %63)
+  tail call void @gguf_set_val_i8(ptr noundef %0, ptr noundef %47, i8 noundef signext %63)
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
 
 64:                                               ; preds = %17
-  %65 = load ptr, ptr %13, align 8, !tbaa !60
-  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
   br label %.lr.ph.i.i.i.i.i77
 
 .lr.ph.i.i.i.i.i77:                               ; preds = %.lr.ph.i.i.i.i.i77, %64
-  %.012.i.i.i.i.i78 = phi ptr [ %.1.i.i.i.i.i83, %.lr.ph.i.i.i.i.i77 ], [ %66, %64 ]
+  %.012.i.i.i.i.i78 = phi ptr [ %.1.i.i.i.i.i83, %.lr.ph.i.i.i.i.i77 ], [ %65, %64 ]
   %.0811.i.i.i.i.i79 = phi ptr [ %.19.i.i.i.i.i80, %.lr.ph.i.i.i.i.i77 ], [ getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8), %64 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i78, i64 32
-  %68 = load i32, ptr %67, align 4, !tbaa !17
-  %69 = icmp slt i32 %68, 2
-  %.19.i.i.i.i.i80 = select i1 %69, ptr %.0811.i.i.i.i.i79, ptr %.012.i.i.i.i.i78
-  %.1.in.v.i.i.i.i.i81 = select i1 %69, i64 24, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i78, i64 32
+  %67 = load i32, ptr %66, align 4, !tbaa !17
+  %68 = icmp slt i32 %67, 2
+  %.19.i.i.i.i.i80 = select i1 %68, ptr %.0811.i.i.i.i.i79, ptr %.012.i.i.i.i.i78
+  %.1.in.v.i.i.i.i.i81 = select i1 %68, i64 24, i64 16
   %.1.in.i.i.i.i.i82 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i78, i64 %.1.in.v.i.i.i.i.i81
   %.1.i.i.i.i.i83 = load ptr, ptr %.1.in.i.i.i.i.i82, align 8, !tbaa !16
   %.not.i.i.i.i.i84 = icmp eq ptr %.1.i.i.i.i.i83, null
   br i1 %.not.i.i.i.i.i84, label %_ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i85, label %.lr.ph.i.i.i.i.i77, !llvm.loop !24
 
 _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i85: ; preds = %.lr.ph.i.i.i.i.i77
+  %69 = load ptr, ptr %13, align 8, !tbaa !60
   %70 = icmp ne ptr %.19.i.i.i.i.i80, getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8)
   tail call void @llvm.assume(i1 %70)
   %71 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i80, i64 40
@@ -9939,28 +9935,28 @@ _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE1
 
 _ZNK7gguf_kv7get_valItEERKT_m.exit:               ; preds = %83
   %85 = load i16, ptr %76, align 2, !tbaa !103
-  tail call void @gguf_set_val_u16(ptr noundef %0, ptr noundef %65, i16 noundef zeroext %85)
+  tail call void @gguf_set_val_u16(ptr noundef %0, ptr noundef %69, i16 noundef zeroext %85)
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
 
 86:                                               ; preds = %17
-  %87 = load ptr, ptr %13, align 8, !tbaa !60
-  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
   br label %.lr.ph.i.i.i.i.i87
 
 .lr.ph.i.i.i.i.i87:                               ; preds = %.lr.ph.i.i.i.i.i87, %86
-  %.012.i.i.i.i.i88 = phi ptr [ %.1.i.i.i.i.i93, %.lr.ph.i.i.i.i.i87 ], [ %88, %86 ]
+  %.012.i.i.i.i.i88 = phi ptr [ %.1.i.i.i.i.i93, %.lr.ph.i.i.i.i.i87 ], [ %87, %86 ]
   %.0811.i.i.i.i.i89 = phi ptr [ %.19.i.i.i.i.i90, %.lr.ph.i.i.i.i.i87 ], [ getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8), %86 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i88, i64 32
-  %90 = load i32, ptr %89, align 4, !tbaa !17
-  %91 = icmp slt i32 %90, 3
-  %.19.i.i.i.i.i90 = select i1 %91, ptr %.0811.i.i.i.i.i89, ptr %.012.i.i.i.i.i88
-  %.1.in.v.i.i.i.i.i91 = select i1 %91, i64 24, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i88, i64 32
+  %89 = load i32, ptr %88, align 4, !tbaa !17
+  %90 = icmp slt i32 %89, 3
+  %.19.i.i.i.i.i90 = select i1 %90, ptr %.0811.i.i.i.i.i89, ptr %.012.i.i.i.i.i88
+  %.1.in.v.i.i.i.i.i91 = select i1 %90, i64 24, i64 16
   %.1.in.i.i.i.i.i92 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i88, i64 %.1.in.v.i.i.i.i.i91
   %.1.i.i.i.i.i93 = load ptr, ptr %.1.in.i.i.i.i.i92, align 8, !tbaa !16
   %.not.i.i.i.i.i94 = icmp eq ptr %.1.i.i.i.i.i93, null
   br i1 %.not.i.i.i.i.i94, label %_ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i95, label %.lr.ph.i.i.i.i.i87, !llvm.loop !24
 
 _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i95: ; preds = %.lr.ph.i.i.i.i.i87
+  %91 = load ptr, ptr %13, align 8, !tbaa !60
   %92 = icmp ne ptr %.19.i.i.i.i.i90, getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8)
   tail call void @llvm.assume(i1 %92)
   %93 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i90, i64 40
@@ -9990,28 +9986,28 @@ _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE1
 
 _ZNK7gguf_kv7get_valIsEERKT_m.exit:               ; preds = %105
   %107 = load i16, ptr %98, align 2, !tbaa !103
-  tail call void @gguf_set_val_i16(ptr noundef %0, ptr noundef %87, i16 noundef signext %107)
+  tail call void @gguf_set_val_i16(ptr noundef %0, ptr noundef %91, i16 noundef signext %107)
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
 
 108:                                              ; preds = %17
-  %109 = load ptr, ptr %13, align 8, !tbaa !60
-  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
   br label %.lr.ph.i.i.i.i.i97
 
 .lr.ph.i.i.i.i.i97:                               ; preds = %.lr.ph.i.i.i.i.i97, %108
-  %.012.i.i.i.i.i98 = phi ptr [ %.1.i.i.i.i.i103, %.lr.ph.i.i.i.i.i97 ], [ %110, %108 ]
+  %.012.i.i.i.i.i98 = phi ptr [ %.1.i.i.i.i.i103, %.lr.ph.i.i.i.i.i97 ], [ %109, %108 ]
   %.0811.i.i.i.i.i99 = phi ptr [ %.19.i.i.i.i.i100, %.lr.ph.i.i.i.i.i97 ], [ getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8), %108 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i98, i64 32
-  %112 = load i32, ptr %111, align 4, !tbaa !17
-  %113 = icmp slt i32 %112, 4
-  %.19.i.i.i.i.i100 = select i1 %113, ptr %.0811.i.i.i.i.i99, ptr %.012.i.i.i.i.i98
-  %.1.in.v.i.i.i.i.i101 = select i1 %113, i64 24, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i98, i64 32
+  %111 = load i32, ptr %110, align 4, !tbaa !17
+  %112 = icmp slt i32 %111, 4
+  %.19.i.i.i.i.i100 = select i1 %112, ptr %.0811.i.i.i.i.i99, ptr %.012.i.i.i.i.i98
+  %.1.in.v.i.i.i.i.i101 = select i1 %112, i64 24, i64 16
   %.1.in.i.i.i.i.i102 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i98, i64 %.1.in.v.i.i.i.i.i101
   %.1.i.i.i.i.i103 = load ptr, ptr %.1.in.i.i.i.i.i102, align 8, !tbaa !16
   %.not.i.i.i.i.i104 = icmp eq ptr %.1.i.i.i.i.i103, null
   br i1 %.not.i.i.i.i.i104, label %_ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i105, label %.lr.ph.i.i.i.i.i97, !llvm.loop !24
 
 _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i105: ; preds = %.lr.ph.i.i.i.i.i97
+  %113 = load ptr, ptr %13, align 8, !tbaa !60
   %114 = icmp ne ptr %.19.i.i.i.i.i100, getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8)
   tail call void @llvm.assume(i1 %114)
   %115 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i100, i64 40
@@ -10041,28 +10037,28 @@ _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE1
 
 _ZNK7gguf_kv7get_valIjEERKT_m.exit:               ; preds = %127
   %129 = load i32, ptr %120, align 4, !tbaa !62
-  tail call void @gguf_set_val_u32(ptr noundef %0, ptr noundef %109, i32 noundef %129)
+  tail call void @gguf_set_val_u32(ptr noundef %0, ptr noundef %113, i32 noundef %129)
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
 
 130:                                              ; preds = %17
-  %131 = load ptr, ptr %13, align 8, !tbaa !60
-  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
   br label %.lr.ph.i.i.i.i.i107
 
 .lr.ph.i.i.i.i.i107:                              ; preds = %.lr.ph.i.i.i.i.i107, %130
-  %.012.i.i.i.i.i108 = phi ptr [ %.1.i.i.i.i.i113, %.lr.ph.i.i.i.i.i107 ], [ %132, %130 ]
+  %.012.i.i.i.i.i108 = phi ptr [ %.1.i.i.i.i.i113, %.lr.ph.i.i.i.i.i107 ], [ %131, %130 ]
   %.0811.i.i.i.i.i109 = phi ptr [ %.19.i.i.i.i.i110, %.lr.ph.i.i.i.i.i107 ], [ getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8), %130 ]
-  %133 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i108, i64 32
-  %134 = load i32, ptr %133, align 4, !tbaa !17
-  %135 = icmp slt i32 %134, 5
-  %.19.i.i.i.i.i110 = select i1 %135, ptr %.0811.i.i.i.i.i109, ptr %.012.i.i.i.i.i108
-  %.1.in.v.i.i.i.i.i111 = select i1 %135, i64 24, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i108, i64 32
+  %133 = load i32, ptr %132, align 4, !tbaa !17
+  %134 = icmp slt i32 %133, 5
+  %.19.i.i.i.i.i110 = select i1 %134, ptr %.0811.i.i.i.i.i109, ptr %.012.i.i.i.i.i108
+  %.1.in.v.i.i.i.i.i111 = select i1 %134, i64 24, i64 16
   %.1.in.i.i.i.i.i112 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i108, i64 %.1.in.v.i.i.i.i.i111
   %.1.i.i.i.i.i113 = load ptr, ptr %.1.in.i.i.i.i.i112, align 8, !tbaa !16
   %.not.i.i.i.i.i114 = icmp eq ptr %.1.i.i.i.i.i113, null
   br i1 %.not.i.i.i.i.i114, label %_ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i115, label %.lr.ph.i.i.i.i.i107, !llvm.loop !24
 
 _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i115: ; preds = %.lr.ph.i.i.i.i.i107
+  %135 = load ptr, ptr %13, align 8, !tbaa !60
   %136 = icmp ne ptr %.19.i.i.i.i.i110, getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8)
   tail call void @llvm.assume(i1 %136)
   %137 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i110, i64 40
@@ -10092,28 +10088,28 @@ _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE1
 
 _ZNK7gguf_kv7get_valIiEERKT_m.exit:               ; preds = %149
   %151 = load i32, ptr %142, align 4, !tbaa !62
-  tail call void @gguf_set_val_i32(ptr noundef %0, ptr noundef %131, i32 noundef %151)
+  tail call void @gguf_set_val_i32(ptr noundef %0, ptr noundef %135, i32 noundef %151)
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
 
 152:                                              ; preds = %17
-  %153 = load ptr, ptr %13, align 8, !tbaa !60
-  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
+  %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
   br label %.lr.ph.i.i.i.i.i117
 
 .lr.ph.i.i.i.i.i117:                              ; preds = %.lr.ph.i.i.i.i.i117, %152
-  %.012.i.i.i.i.i118 = phi ptr [ %.1.i.i.i.i.i123, %.lr.ph.i.i.i.i.i117 ], [ %154, %152 ]
+  %.012.i.i.i.i.i118 = phi ptr [ %.1.i.i.i.i.i123, %.lr.ph.i.i.i.i.i117 ], [ %153, %152 ]
   %.0811.i.i.i.i.i119 = phi ptr [ %.19.i.i.i.i.i120, %.lr.ph.i.i.i.i.i117 ], [ getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8), %152 ]
-  %155 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i118, i64 32
-  %156 = load i32, ptr %155, align 4, !tbaa !17
-  %157 = icmp slt i32 %156, 6
-  %.19.i.i.i.i.i120 = select i1 %157, ptr %.0811.i.i.i.i.i119, ptr %.012.i.i.i.i.i118
-  %.1.in.v.i.i.i.i.i121 = select i1 %157, i64 24, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i118, i64 32
+  %155 = load i32, ptr %154, align 4, !tbaa !17
+  %156 = icmp slt i32 %155, 6
+  %.19.i.i.i.i.i120 = select i1 %156, ptr %.0811.i.i.i.i.i119, ptr %.012.i.i.i.i.i118
+  %.1.in.v.i.i.i.i.i121 = select i1 %156, i64 24, i64 16
   %.1.in.i.i.i.i.i122 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i118, i64 %.1.in.v.i.i.i.i.i121
   %.1.i.i.i.i.i123 = load ptr, ptr %.1.in.i.i.i.i.i122, align 8, !tbaa !16
   %.not.i.i.i.i.i124 = icmp eq ptr %.1.i.i.i.i.i123, null
   br i1 %.not.i.i.i.i.i124, label %_ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i125, label %.lr.ph.i.i.i.i.i117, !llvm.loop !24
 
 _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i125: ; preds = %.lr.ph.i.i.i.i.i117
+  %157 = load ptr, ptr %13, align 8, !tbaa !60
   %158 = icmp ne ptr %.19.i.i.i.i.i120, getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8)
   tail call void @llvm.assume(i1 %158)
   %159 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i120, i64 40
@@ -10143,28 +10139,28 @@ _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE1
 
 _ZNK7gguf_kv7get_valIfEERKT_m.exit:               ; preds = %171
   %173 = load float, ptr %164, align 4, !tbaa !127
-  tail call void @gguf_set_val_f32(ptr noundef %0, ptr noundef %153, float noundef %173)
+  tail call void @gguf_set_val_f32(ptr noundef %0, ptr noundef %157, float noundef %173)
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
 
 174:                                              ; preds = %17
-  %175 = load ptr, ptr %13, align 8, !tbaa !60
-  %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
+  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
   br label %.lr.ph.i.i.i.i.i127
 
 .lr.ph.i.i.i.i.i127:                              ; preds = %.lr.ph.i.i.i.i.i127, %174
-  %.012.i.i.i.i.i128 = phi ptr [ %.1.i.i.i.i.i133, %.lr.ph.i.i.i.i.i127 ], [ %176, %174 ]
+  %.012.i.i.i.i.i128 = phi ptr [ %.1.i.i.i.i.i133, %.lr.ph.i.i.i.i.i127 ], [ %175, %174 ]
   %.0811.i.i.i.i.i129 = phi ptr [ %.19.i.i.i.i.i130, %.lr.ph.i.i.i.i.i127 ], [ getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8), %174 ]
-  %177 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i128, i64 32
-  %178 = load i32, ptr %177, align 4, !tbaa !17
-  %179 = icmp slt i32 %178, 10
-  %.19.i.i.i.i.i130 = select i1 %179, ptr %.0811.i.i.i.i.i129, ptr %.012.i.i.i.i.i128
-  %.1.in.v.i.i.i.i.i131 = select i1 %179, i64 24, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i128, i64 32
+  %177 = load i32, ptr %176, align 4, !tbaa !17
+  %178 = icmp slt i32 %177, 10
+  %.19.i.i.i.i.i130 = select i1 %178, ptr %.0811.i.i.i.i.i129, ptr %.012.i.i.i.i.i128
+  %.1.in.v.i.i.i.i.i131 = select i1 %178, i64 24, i64 16
   %.1.in.i.i.i.i.i132 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i128, i64 %.1.in.v.i.i.i.i.i131
   %.1.i.i.i.i.i133 = load ptr, ptr %.1.in.i.i.i.i.i132, align 8, !tbaa !16
   %.not.i.i.i.i.i134 = icmp eq ptr %.1.i.i.i.i.i133, null
   br i1 %.not.i.i.i.i.i134, label %_ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i135, label %.lr.ph.i.i.i.i.i127, !llvm.loop !24
 
 _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i135: ; preds = %.lr.ph.i.i.i.i.i127
+  %179 = load ptr, ptr %13, align 8, !tbaa !60
   %180 = icmp ne ptr %.19.i.i.i.i.i130, getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8)
   tail call void @llvm.assume(i1 %180)
   %181 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i130, i64 40
@@ -10194,28 +10190,28 @@ _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE1
 
 _ZNK7gguf_kv7get_valImEERKT_m.exit:               ; preds = %193
   %195 = load i64, ptr %186, align 8, !tbaa !53
-  tail call void @gguf_set_val_u64(ptr noundef %0, ptr noundef %175, i64 noundef %195)
+  tail call void @gguf_set_val_u64(ptr noundef %0, ptr noundef %179, i64 noundef %195)
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
 
 196:                                              ; preds = %17
-  %197 = load ptr, ptr %13, align 8, !tbaa !60
-  %198 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
+  %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
   br label %.lr.ph.i.i.i.i.i137
 
 .lr.ph.i.i.i.i.i137:                              ; preds = %.lr.ph.i.i.i.i.i137, %196
-  %.012.i.i.i.i.i138 = phi ptr [ %.1.i.i.i.i.i143, %.lr.ph.i.i.i.i.i137 ], [ %198, %196 ]
+  %.012.i.i.i.i.i138 = phi ptr [ %.1.i.i.i.i.i143, %.lr.ph.i.i.i.i.i137 ], [ %197, %196 ]
   %.0811.i.i.i.i.i139 = phi ptr [ %.19.i.i.i.i.i140, %.lr.ph.i.i.i.i.i137 ], [ getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8), %196 ]
-  %199 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i138, i64 32
-  %200 = load i32, ptr %199, align 4, !tbaa !17
-  %201 = icmp slt i32 %200, 11
-  %.19.i.i.i.i.i140 = select i1 %201, ptr %.0811.i.i.i.i.i139, ptr %.012.i.i.i.i.i138
-  %.1.in.v.i.i.i.i.i141 = select i1 %201, i64 24, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i138, i64 32
+  %199 = load i32, ptr %198, align 4, !tbaa !17
+  %200 = icmp slt i32 %199, 11
+  %.19.i.i.i.i.i140 = select i1 %200, ptr %.0811.i.i.i.i.i139, ptr %.012.i.i.i.i.i138
+  %.1.in.v.i.i.i.i.i141 = select i1 %200, i64 24, i64 16
   %.1.in.i.i.i.i.i142 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i138, i64 %.1.in.v.i.i.i.i.i141
   %.1.i.i.i.i.i143 = load ptr, ptr %.1.in.i.i.i.i.i142, align 8, !tbaa !16
   %.not.i.i.i.i.i144 = icmp eq ptr %.1.i.i.i.i.i143, null
   br i1 %.not.i.i.i.i.i144, label %_ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i145, label %.lr.ph.i.i.i.i.i137, !llvm.loop !24
 
 _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i145: ; preds = %.lr.ph.i.i.i.i.i137
+  %201 = load ptr, ptr %13, align 8, !tbaa !60
   %202 = icmp ne ptr %.19.i.i.i.i.i140, getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8)
   tail call void @llvm.assume(i1 %202)
   %203 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i140, i64 40
@@ -10245,28 +10241,28 @@ _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE1
 
 _ZNK7gguf_kv7get_valIlEERKT_m.exit:               ; preds = %215
   %217 = load i64, ptr %208, align 8, !tbaa !53
-  tail call void @gguf_set_val_i64(ptr noundef %0, ptr noundef %197, i64 noundef %217)
+  tail call void @gguf_set_val_i64(ptr noundef %0, ptr noundef %201, i64 noundef %217)
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
 
 218:                                              ; preds = %17
-  %219 = load ptr, ptr %13, align 8, !tbaa !60
-  %220 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
+  %219 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
   br label %.lr.ph.i.i.i.i.i147
 
 .lr.ph.i.i.i.i.i147:                              ; preds = %.lr.ph.i.i.i.i.i147, %218
-  %.012.i.i.i.i.i148 = phi ptr [ %.1.i.i.i.i.i153, %.lr.ph.i.i.i.i.i147 ], [ %220, %218 ]
+  %.012.i.i.i.i.i148 = phi ptr [ %.1.i.i.i.i.i153, %.lr.ph.i.i.i.i.i147 ], [ %219, %218 ]
   %.0811.i.i.i.i.i149 = phi ptr [ %.19.i.i.i.i.i150, %.lr.ph.i.i.i.i.i147 ], [ getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8), %218 ]
-  %221 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i148, i64 32
-  %222 = load i32, ptr %221, align 4, !tbaa !17
-  %223 = icmp slt i32 %222, 12
-  %.19.i.i.i.i.i150 = select i1 %223, ptr %.0811.i.i.i.i.i149, ptr %.012.i.i.i.i.i148
-  %.1.in.v.i.i.i.i.i151 = select i1 %223, i64 24, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i148, i64 32
+  %221 = load i32, ptr %220, align 4, !tbaa !17
+  %222 = icmp slt i32 %221, 12
+  %.19.i.i.i.i.i150 = select i1 %222, ptr %.0811.i.i.i.i.i149, ptr %.012.i.i.i.i.i148
+  %.1.in.v.i.i.i.i.i151 = select i1 %222, i64 24, i64 16
   %.1.in.i.i.i.i.i152 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i148, i64 %.1.in.v.i.i.i.i.i151
   %.1.i.i.i.i.i153 = load ptr, ptr %.1.in.i.i.i.i.i152, align 8, !tbaa !16
   %.not.i.i.i.i.i154 = icmp eq ptr %.1.i.i.i.i.i153, null
   br i1 %.not.i.i.i.i.i154, label %_ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i155, label %.lr.ph.i.i.i.i.i147, !llvm.loop !24
 
 _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i155: ; preds = %.lr.ph.i.i.i.i.i147
+  %223 = load ptr, ptr %13, align 8, !tbaa !60
   %224 = icmp ne ptr %.19.i.i.i.i.i150, getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8)
   tail call void @llvm.assume(i1 %224)
   %225 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i150, i64 40
@@ -10296,28 +10292,28 @@ _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE1
 
 _ZNK7gguf_kv7get_valIdEERKT_m.exit:               ; preds = %237
   %239 = load double, ptr %230, align 8, !tbaa !158
-  tail call void @gguf_set_val_f64(ptr noundef %0, ptr noundef %219, double noundef %239)
+  tail call void @gguf_set_val_f64(ptr noundef %0, ptr noundef %223, double noundef %239)
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
 
 240:                                              ; preds = %17
-  %241 = load ptr, ptr %13, align 8, !tbaa !60
-  %242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
+  %241 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 16), align 8, !tbaa !12, !nonnull !174, !noundef !174
   br label %.lr.ph.i.i.i.i.i157
 
 .lr.ph.i.i.i.i.i157:                              ; preds = %.lr.ph.i.i.i.i.i157, %240
-  %.012.i.i.i.i.i158 = phi ptr [ %.1.i.i.i.i.i163, %.lr.ph.i.i.i.i.i157 ], [ %242, %240 ]
+  %.012.i.i.i.i.i158 = phi ptr [ %.1.i.i.i.i.i163, %.lr.ph.i.i.i.i.i157 ], [ %241, %240 ]
   %.0811.i.i.i.i.i159 = phi ptr [ %.19.i.i.i.i.i160, %.lr.ph.i.i.i.i.i157 ], [ getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8), %240 ]
-  %243 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i158, i64 32
-  %244 = load i32, ptr %243, align 4, !tbaa !17
-  %245 = icmp slt i32 %244, 7
-  %.19.i.i.i.i.i160 = select i1 %245, ptr %.0811.i.i.i.i.i159, ptr %.012.i.i.i.i.i158
-  %.1.in.v.i.i.i.i.i161 = select i1 %245, i64 24, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i158, i64 32
+  %243 = load i32, ptr %242, align 4, !tbaa !17
+  %244 = icmp slt i32 %243, 7
+  %.19.i.i.i.i.i160 = select i1 %244, ptr %.0811.i.i.i.i.i159, ptr %.012.i.i.i.i.i158
+  %.1.in.v.i.i.i.i.i161 = select i1 %244, i64 24, i64 16
   %.1.in.i.i.i.i.i162 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i158, i64 %.1.in.v.i.i.i.i.i161
   %.1.i.i.i.i.i163 = load ptr, ptr %.1.in.i.i.i.i.i162, align 8, !tbaa !16
   %.not.i.i.i.i.i164 = icmp eq ptr %.1.i.i.i.i.i163, null
   br i1 %.not.i.i.i.i.i164, label %_ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i165, label %.lr.ph.i.i.i.i.i157, !llvm.loop !24
 
 _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i.i165: ; preds = %.lr.ph.i.i.i.i.i157
+  %245 = load ptr, ptr %13, align 8, !tbaa !60
   %246 = icmp ne ptr %.19.i.i.i.i.i160, getelementptr inbounds nuw (i8, ptr @_ZL14GGUF_TYPE_SIZE, i64 8)
   tail call void @llvm.assume(i1 %246)
   %247 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i160, i64 40
@@ -10348,7 +10344,7 @@ _ZNKSt8_Rb_treeI9gguf_typeSt4pairIKS0_mESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE1
 _ZNK7gguf_kv7get_valIbEERKT_m.exit:               ; preds = %259
   %261 = load i8, ptr %252, align 1, !tbaa !86, !range !179, !noundef !174
   %262 = trunc nuw i8 %261 to i1
-  tail call void @gguf_set_val_bool(ptr noundef %0, ptr noundef %241, i1 noundef zeroext %262)
+  tail call void @gguf_set_val_bool(ptr noundef %0, ptr noundef %245, i1 noundef zeroext %262)
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit
 
 263:                                              ; preds = %17

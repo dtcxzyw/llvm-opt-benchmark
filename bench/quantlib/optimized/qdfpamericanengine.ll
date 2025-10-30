@@ -11189,8 +11189,8 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false), !tbaa !30
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false), !tbaa !30
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -16457,9 +16457,6 @@ while.end20:                                      ; preds = %land.rhs12, %while.
   %fneg = fneg double %32
   %call35 = call noundef double @_ZZNK5boost4math10quadrature9tanh_sinhIdNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEE9integrateIZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddEUldE_EEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIdEDTcl9__declvalISH_ELi0EEEvEEEESH_dddPdSL_PmENKUlddE_clEdd(ptr noundef nonnull align 8 dereferenceable(72) %f, double noundef %add, double noundef %fneg)
   store double %call35, ptr %ym, align 8, !tbaa !55
-  %mul38 = fmul double %tolerance, %tolerance
-  %cmp.i = fcmp ogt double %mul38, 0x3CB0000000000000
-  %.sroa.speculated = select i1 %cmp.i, double %mul38, double 0x3CB0000000000000
   %tobool.not465 = icmp eq i64 %max_left_position.0.lcssa567, 0
   %33 = call double @llvm.fabs.f64(double %call28)
   %34 = fcmp one double %33, 0x7FF0000000000000
@@ -16469,6 +16466,9 @@ while.end20:                                      ; preds = %land.rhs12, %while.
 while.cond53.preheader:                           ; preds = %if.end, %while.end20
   %yp.0.lcssa = phi double [ %call28, %while.end20 ], [ %call51, %if.end ]
   %max_left_position.1.lcssa = phi i64 [ %max_left_position.0.lcssa567, %while.end20 ], [ %dec43, %if.end ]
+  %mul38 = fmul double %tolerance, %tolerance
+  %cmp.i = fcmp ogt double %mul38, 0x3CB0000000000000
+  %.sroa.speculated = select i1 %cmp.i, double %mul38, double 0x3CB0000000000000
   %m_weights = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp54470 = icmp ugt i64 %max_left_position.1.lcssa, 1
   br i1 %cmp54470, label %while.body55.lr.ph, label %while.end74

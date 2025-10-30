@@ -1078,30 +1078,33 @@ define internal fastcc void @gxf_read_index(ptr noundef %0, i32 noundef %1) unna
   br label %.sink.split
 
 24:                                               ; preds = %20
-  %25 = sub nuw nsw i32 %9, %21
-  %26 = tail call i32 @av_add_index_entry(ptr noundef %17, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
+  %25 = tail call i32 @av_add_index_entry(ptr noundef %17, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
   %.not39 = icmp eq i32 %.030, 0
-  br i1 %.not39, label %.sink.split, label %.lr.ph
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
-  %27 = zext i32 %7 to i64
+  %26 = zext i32 %7 to i64
   %wide.trip.count = zext nneg i32 %.030 to i64
-  br label %28
+  br label %27
 
-28:                                               ; preds = %.lr.ph, %28
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = tail call i32 @avio_rl32(ptr noundef %4) #7
-  %30 = zext i32 %29 to i64
-  %31 = shl nuw nsw i64 %30, 10
-  %32 = mul nuw nsw i64 %indvars.iv, %27
-  %33 = add nuw nsw i64 %32, 1
-  %34 = tail call i32 @av_add_index_entry(ptr noundef %17, i64 noundef %31, i64 noundef %33, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
+27:                                               ; preds = %.lr.ph, %27
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
+  %28 = tail call i32 @avio_rl32(ptr noundef %4) #7
+  %29 = zext i32 %28 to i64
+  %30 = shl nuw nsw i64 %29, 10
+  %31 = mul nuw nsw i64 %indvars.iv, %26
+  %32 = add nuw nsw i64 %31, 1
+  %33 = tail call i32 @av_add_index_entry(ptr noundef %17, i64 noundef %30, i64 noundef %32, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.sink.split, label %28, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !86
 
-.sink.split:                                      ; preds = %28, %24, %6, %13, %23
-  %.sink46 = phi i32 [ %9, %23 ], [ %9, %13 ], [ %9, %6 ], [ %25, %24 ], [ %25, %28 ]
+._crit_edge:                                      ; preds = %27, %24
+  %34 = sub nuw nsw i32 %9, %21
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %6, %13, %23, %._crit_edge
+  %.sink46 = phi i32 [ %34, %._crit_edge ], [ %9, %23 ], [ %9, %13 ], [ %9, %6 ]
   %35 = zext nneg i32 %.sink46 to i64
   %36 = tail call i64 @avio_skip(ptr noundef %4, i64 noundef %35) #7
   br label %37

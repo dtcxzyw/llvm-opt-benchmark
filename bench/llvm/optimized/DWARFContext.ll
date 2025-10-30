@@ -21767,34 +21767,31 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %171 = icmp ult i64 %.val.i.i15.i, %.val2.i.i13.i
   %spec.select.i.i.i18.i = select i1 %or.cond.i.i.i17.i, i1 %171, i1 %167
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.016.1.i.i, i64 32
-  br i1 %spec.select.i.i.i18.i, label %168, label %.preheader.i.i.preheader, !llvm.loop !966
+  br i1 %spec.select.i.i.i18.i, label %168, label %.preheader.i.i, !llvm.loop !966
 
-.preheader.i.i.preheader:                         ; preds = %168
-  %173 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 24
-  br label %.preheader.i.i
-
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %.preheader.i.i.preheader ]
+.preheader.i.i:                                   ; preds = %168, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %168 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -32
   %.val2.i10.i.i = load i64, ptr %.sroa.0.1.i.i, align 8
-  %174 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %.val3.i11.i.i = load i8, ptr %174, align 8
-  %175 = trunc nuw i8 %.val3.i11.i.i to i1
-  %or.cond.i.i12.i.i = select i1 %167, i1 %175, i1 false
-  %176 = icmp ult i64 %.val2.i.i13.i, %.val2.i10.i.i
-  %spec.select.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 %176, i1 %175
-  br i1 %spec.select.i.i13.i.i, label %.preheader.i.i, label %177, !llvm.loop !967
+  %173 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -8
+  %.val3.i11.i.i = load i8, ptr %173, align 8
+  %174 = trunc nuw i8 %.val3.i11.i.i to i1
+  %or.cond.i.i12.i.i = select i1 %167, i1 %174, i1 false
+  %175 = icmp ult i64 %.val2.i.i13.i, %.val2.i10.i.i
+  %spec.select.i.i13.i.i = select i1 %or.cond.i.i12.i.i, i1 %175, i1 %174
+  br i1 %spec.select.i.i13.i.i, label %.preheader.i.i, label %176, !llvm.loop !967
 
-177:                                              ; preds = %.preheader.i.i
+176:                                              ; preds = %.preheader.i.i
+  %177 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 24
   %178 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   %179 = icmp ult ptr %.sroa.016.1.i.i, %.sroa.0.1.i.i
   br i1 %179, label %180, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt8optionalIN4llvm32StrOffsetsContributionDescriptorEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL23collectContributionDataNS3_14iterator_rangeIPSt10unique_ptrINS3_9DWARFUnitESt14default_deleteISF_EEEEE3$_1EEET_SN_SN_T0_.exit"
 
-180:                                              ; preds = %177
+180:                                              ; preds = %176
   br i1 %170, label %181, label %184
 
 181:                                              ; preds = %180
-  br i1 %175, label %182, label %183
+  br i1 %174, label %182, label %183
 
 182:                                              ; preds = %181
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -21807,22 +21804,22 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 183:                                              ; preds = %181
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.016.1.i.i, i64 24, i1 false), !tbaa.struct !964
   store i8 1, ptr %178, align 8, !tbaa !439
-  store i8 0, ptr %173, align 8, !tbaa !439
+  store i8 0, ptr %177, align 8, !tbaa !439
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt8optionalIN4llvm32StrOffsetsContributionDescriptorEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL23collectContributionDataNS3_14iterator_rangeIPSt10unique_ptrINS3_9DWARFUnitESt14default_deleteISF_EEEEE3$_1EEEvT_SN_SN_SN_T0_.exit.i.backedge"
 
 184:                                              ; preds = %180
-  br i1 %175, label %185, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt8optionalIN4llvm32StrOffsetsContributionDescriptorEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL23collectContributionDataNS3_14iterator_rangeIPSt10unique_ptrINS3_9DWARFUnitESt14default_deleteISF_EEEEE3$_1EEEvT_SN_SN_SN_T0_.exit.i.backedge"
+  br i1 %174, label %185, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt8optionalIN4llvm32StrOffsetsContributionDescriptorEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL23collectContributionDataNS3_14iterator_rangeIPSt10unique_ptrINS3_9DWARFUnitESt14default_deleteISF_EEEEE3$_1EEEvT_SN_SN_SN_T0_.exit.i.backedge"
 
 185:                                              ; preds = %184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.016.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.1.i.i, i64 24, i1 false), !tbaa.struct !964
-  store i8 1, ptr %173, align 8, !tbaa !439
+  store i8 1, ptr %177, align 8, !tbaa !439
   store i8 0, ptr %178, align 8, !tbaa !439
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt8optionalIN4llvm32StrOffsetsContributionDescriptorEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL23collectContributionDataNS3_14iterator_rangeIPSt10unique_ptrINS3_9DWARFUnitESt14default_deleteISF_EEEEE3$_1EEEvT_SN_SN_SN_T0_.exit.i.backedge"
 
 "_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt8optionalIN4llvm32StrOffsetsContributionDescriptorEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL23collectContributionDataNS3_14iterator_rangeIPSt10unique_ptrINS3_9DWARFUnitESt14default_deleteISF_EEEEE3$_1EEEvT_SN_SN_SN_T0_.exit.i.backedge": ; preds = %185, %184, %183, %182
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt8optionalIN4llvm32StrOffsetsContributionDescriptorEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL23collectContributionDataNS3_14iterator_rangeIPSt10unique_ptrINS3_9DWARFUnitESt14default_deleteISF_EEEEE3$_1EEEvT_SN_SN_SN_T0_.exit.i", !llvm.loop !968
 
-"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt8optionalIN4llvm32StrOffsetsContributionDescriptorEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL23collectContributionDataNS3_14iterator_rangeIPSt10unique_ptrINS3_9DWARFUnitESt14default_deleteISF_EEEEE3$_1EEET_SN_SN_T0_.exit": ; preds = %177
+"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt8optionalIN4llvm32StrOffsetsContributionDescriptorEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZL23collectContributionDataNS3_14iterator_rangeIPSt10unique_ptrINS3_9DWARFUnitESt14default_deleteISF_EEEEE3$_1EEET_SN_SN_T0_.exit": ; preds = %176
   tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt8optionalIN4llvm32StrOffsetsContributionDescriptorEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZL23collectContributionDataNS3_14iterator_rangeIPSt10unique_ptrINS3_9DWARFUnitESt14default_deleteISF_EEEEE3$_1EEEvT_SN_T0_T1_"(ptr nonnull %.sroa.016.1.i.i, ptr %storemerge3163, i64 noundef %105)
   %186 = ptrtoint ptr %.sroa.016.1.i.i to i64
   %187 = sub i64 %186, %11

@@ -6389,37 +6389,34 @@ _ZN6vectorIP14pdatatype_declLb0EjE9push_backERKS1_.exit.i.i: ; preds = %.noexc, 
   store i32 %25, ptr %21, align 4, !tbaa !85
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.lr.ph.preheader.i, label %.lr.ph.i.i, !llvm.loop !256
+  br i1 %exitcond.not.i.i, label %.lr.ph.i, label %.lr.ph.i.i, !llvm.loop !256
 
-.lr.ph.preheader.i:                               ; preds = %_ZN6vectorIP14pdatatype_declLb0EjE9push_backERKS1_.exit.i.i
-  %26 = getelementptr inbounds i8, ptr %.pr, i64 -4
-  br label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %_ZN6vectorIP14pdatatype_declLb0EjE9push_backERKS1_.exit.i.i, %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i ], [ 0, %_ZN6vectorIP14pdatatype_declLb0EjE9push_backERKS1_.exit.i.i ]
+  %26 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %27 = load ptr, ptr %26, align 8, !tbaa !134
+  %.not.i.i21 = icmp eq ptr %27, null
+  br i1 %.not.i.i21, label %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i, label %28
 
-.lr.ph.i:                                         ; preds = %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i ]
-  %27 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
-  %28 = load ptr, ptr %27, align 8, !tbaa !134
-  %.not.i.i21 = icmp eq ptr %28, null
-  br i1 %.not.i.i21, label %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i, label %29
-
-29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %31 = load i32, ptr %30, align 8, !tbaa !73
-  %32 = add i32 %31, 1
-  store i32 %32, ptr %30, align 8, !tbaa !73
+28:                                               ; preds = %.lr.ph.i
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %30 = load i32, ptr %29, align 8, !tbaa !73
+  %31 = add i32 %30, 1
+  store i32 %31, ptr %29, align 8, !tbaa !73
   br label %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i
 
-_ZN13pdecl_manager7inc_refEP5pdecl.exit.i:        ; preds = %29, %.lr.ph.i
+_ZN13pdecl_manager7inc_refEP5pdecl.exit.i:        ; preds = %28, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i, label %_ZN13pdecl_manager7inc_refI14pdatatype_declEEvjPKPT_.exit, label %.lr.ph.i, !llvm.loop !257
 
 _ZN13pdecl_manager7inc_refI14pdatatype_declEEvjPKPT_.exit: ; preds = %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i
-  %33 = icmp eq ptr %.pr, null
-  br i1 %33, label %._crit_edge, label %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit
+  %32 = icmp eq ptr %.pr, null
+  br i1 %32, label %._crit_edge, label %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit
 
 _ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit:    ; preds = %_ZN13pdecl_manager7inc_refI14pdatatype_declEEvjPKPT_.exit
-  %34 = load i32, ptr %26, align 4, !tbaa !85
+  %33 = getelementptr inbounds i8, ptr %.pr, i64 -4
+  %34 = load i32, ptr %33, align 4, !tbaa !85
   %35 = zext i32 %34 to i64
   %36 = shl nuw nsw i64 %35, 3
   %37 = getelementptr inbounds nuw i8, ptr %.pr, i64 %36
@@ -10165,37 +10162,34 @@ _ZN6vectorIP14pdatatype_declLb0EjE9push_backERKS1_.exit.i.i.i: ; preds = %.noexc
   store i32 %39, ptr %35, align 4, !tbaa !85
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.lr.ph.i.i.preheader, label %.lr.ph.i.i.i, !llvm.loop !256
+  br i1 %exitcond.not.i.i.i, label %.lr.ph.i.i, label %.lr.ph.i.i.i, !llvm.loop !256
 
-.lr.ph.i.i.preheader:                             ; preds = %_ZN6vectorIP14pdatatype_declLb0EjE9push_backERKS1_.exit.i.i.i
-  %40 = getelementptr inbounds i8, ptr %.pr.i, i64 -4
-  br label %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %_ZN6vectorIP14pdatatype_declLb0EjE9push_backERKS1_.exit.i.i.i, %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i.i ], [ 0, %_ZN6vectorIP14pdatatype_declLb0EjE9push_backERKS1_.exit.i.i.i ]
+  %40 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i
+  %41 = load ptr, ptr %40, align 8, !tbaa !134
+  %.not.i.i21.i = icmp eq ptr %41, null
+  br i1 %.not.i.i21.i, label %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i.i, label %42
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %41 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i
-  %42 = load ptr, ptr %41, align 8, !tbaa !134
-  %.not.i.i21.i = icmp eq ptr %42, null
-  br i1 %.not.i.i21.i, label %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i.i, label %43
-
-43:                                               ; preds = %.lr.ph.i.i
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %45 = load i32, ptr %44, align 8, !tbaa !73
-  %46 = add i32 %45, 1
-  store i32 %46, ptr %44, align 8, !tbaa !73
+42:                                               ; preds = %.lr.ph.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %44 = load i32, ptr %43, align 8, !tbaa !73
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %43, align 8, !tbaa !73
   br label %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i.i
 
-_ZN13pdecl_manager7inc_refEP5pdecl.exit.i.i:      ; preds = %43, %.lr.ph.i.i
+_ZN13pdecl_manager7inc_refEP5pdecl.exit.i.i:      ; preds = %42, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i, label %_ZN13pdecl_manager7inc_refI14pdatatype_declEEvjPKPT_.exit.i, label %.lr.ph.i.i, !llvm.loop !257
 
 _ZN13pdecl_manager7inc_refI14pdatatype_declEEvjPKPT_.exit.i: ; preds = %_ZN13pdecl_manager7inc_refEP5pdecl.exit.i.i
-  %47 = icmp eq ptr %.pr.i, null
-  br i1 %47, label %_ZN15pdatatypes_declC2EjjR13pdecl_managerjPKP14pdatatype_decl.exit, label %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit.i
+  %46 = icmp eq ptr %.pr.i, null
+  br i1 %46, label %_ZN15pdatatypes_declC2EjjR13pdecl_managerjPKP14pdatatype_decl.exit, label %_ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit.i
 
 _ZN6vectorIP14pdatatype_declLb0EjE3endEv.exit.i:  ; preds = %_ZN13pdecl_manager7inc_refI14pdatatype_declEEvjPKPT_.exit.i
-  %48 = load i32, ptr %40, align 4, !tbaa !85
+  %47 = getelementptr inbounds i8, ptr %.pr.i, i64 -4
+  %48 = load i32, ptr %47, align 4, !tbaa !85
   %49 = zext i32 %48 to i64
   %50 = shl nuw nsw i64 %49, 3
   %51 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 %50

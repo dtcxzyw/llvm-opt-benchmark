@@ -97,65 +97,65 @@ module asm ".previous\09\09\09\09\09"
 define dso_local ptr @pciserial_init_ports(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.uart_8250_port, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %7 = load i16, ptr %6, align 4
-  %8 = zext i16 %7 to i32
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  br label %12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %5 = load i16, ptr %4, align 4
+  %6 = zext i16 %5 to i32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 62
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 66
+  br label %10
 
-12:                                               ; preds = %42, %2
-  %13 = phi ptr [ @pci_serial_quirks, %2 ], [ %43, %42 ]
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp ne i32 %14, -1
-  %16 = icmp ne i32 %14, %8
-  %17 = and i1 %15, %16
-  br i1 %17, label %42, label %18
+10:                                               ; preds = %40, %2
+  %11 = phi ptr [ @pci_serial_quirks, %2 ], [ %41, %40 ]
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp ne i32 %12, -1
+  %14 = icmp ne i32 %12, %6
+  %15 = and i1 %13, %14
+  br i1 %15, label %40, label %16
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %20 = load i32, ptr %19, align 4
-  %21 = load i16, ptr %9, align 2
-  %22 = zext i16 %21 to i32
-  %23 = icmp ne i32 %20, -1
-  %24 = icmp ne i32 %20, %22
-  %25 = and i1 %23, %24
-  br i1 %25, label %42, label %26
+16:                                               ; preds = %10
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = load i16, ptr %7, align 2
+  %20 = zext i16 %19 to i32
+  %21 = icmp ne i32 %18, -1
+  %22 = icmp ne i32 %18, %20
+  %23 = and i1 %21, %22
+  br i1 %23, label %40, label %24
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = load i16, ptr %10, align 8
-  %30 = zext i16 %29 to i32
-  %31 = icmp ne i32 %28, -1
-  %32 = icmp ne i32 %28, %30
-  %33 = and i1 %31, %32
-  br i1 %33, label %42, label %34
+24:                                               ; preds = %16
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %26 = load i32, ptr %25, align 8
+  %27 = load i16, ptr %8, align 8
+  %28 = zext i16 %27 to i32
+  %29 = icmp ne i32 %26, -1
+  %30 = icmp ne i32 %26, %28
+  %31 = and i1 %29, %30
+  br i1 %31, label %40, label %32
 
-34:                                               ; preds = %26
-  %35 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %36 = load i32, ptr %35, align 4
-  %37 = load i16, ptr %11, align 2
-  %38 = zext i16 %37 to i32
-  %39 = icmp ne i32 %36, -1
-  %40 = icmp ne i32 %36, %38
-  %41 = and i1 %39, %40
-  br i1 %41, label %42, label %44
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %34 = load i32, ptr %33, align 4
+  %35 = load i16, ptr %9, align 2
+  %36 = zext i16 %35 to i32
+  %37 = icmp ne i32 %34, -1
+  %38 = icmp ne i32 %34, %36
+  %39 = and i1 %37, %38
+  br i1 %39, label %40, label %42
 
-42:                                               ; preds = %34, %26, %18, %12
-  %43 = getelementptr i8, ptr %13, i64 48
-  br label %12, !llvm.loop !5
+40:                                               ; preds = %32, %24, %16, %10
+  %41 = getelementptr i8, ptr %11, i64 48
+  br label %10, !llvm.loop !5
 
-44:                                               ; preds = %34
-  %45 = getelementptr inbounds nuw i8, ptr %13, i64 24
+42:                                               ; preds = %32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %44 = load i32, ptr %43, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %57, label %48
 
-48:                                               ; preds = %44
+48:                                               ; preds = %42
   %49 = tail call i32 %46(ptr noundef %0) #15
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %51, label %54
@@ -167,11 +167,11 @@ define dso_local ptr @pciserial_init_ports(ptr noundef %0, ptr noundef %1) #0 al
 
 54:                                               ; preds = %48
   %55 = icmp eq i32 %49, 0
-  %56 = select i1 %55, i32 %5, i32 %49
+  %56 = select i1 %55, i32 %44, i32 %49
   br label %57
 
-57:                                               ; preds = %54, %44
-  %58 = phi i32 [ %5, %44 ], [ %56, %54 ]
+57:                                               ; preds = %54, %42
+  %58 = phi i32 [ %44, %42 ], [ %56, %54 ]
   %59 = icmp slt i32 %58, 0
   %60 = sext i32 %58 to i64
   %61 = shl nsw i64 %60, 2
@@ -184,7 +184,7 @@ define dso_local ptr @pciserial_init_ports(ptr noundef %0, ptr noundef %1) #0 al
 66:                                               ; preds = %57
   store ptr %0, ptr %64, align 8
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store ptr %13, ptr %67, align 8
+  store ptr %11, ptr %67, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(784) %3, i8 0, i64 784, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 272
   store i64 285212736, ptr %68, align 8
@@ -235,7 +235,7 @@ define dso_local ptr @pciserial_init_ports(ptr noundef %0, ptr noundef %1) #0 al
   br i1 %94, label %95, label %.loopexit
 
 95:                                               ; preds = %89
-  %96 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %97 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %98 = zext nneg i32 %58 to i64
   br label %99
@@ -280,7 +280,7 @@ define dso_local ptr @pciserial_init_ports(ptr noundef %0, ptr noundef %1) #0 al
 
 122:                                              ; preds = %84, %57
   %123 = phi ptr [ %86, %84 ], [ inttoptr (i64 -12 to ptr), %57 ]
-  %124 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %124 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, null
   br i1 %126, label %128, label %127

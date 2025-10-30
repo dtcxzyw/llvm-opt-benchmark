@@ -2560,40 +2560,40 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
   %52 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull %11, ptr noundef nonnull %51, i64 noundef %34) #14
   %53 = sext i32 %52 to i64
   %54 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %53) #14, !srcloc !28
-  %55 = or i64 %54, %50
-  %56 = getelementptr inbounds nuw i8, ptr %51, i64 %34
-  %57 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 -1) #14, !srcloc !29
-  %58 = zext nneg i32 %26 to i64
-  %59 = add nsw i64 %16, -2
-  %.not82 = icmp eq i64 %59, %58
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 %34
+  %56 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 -1) #14, !srcloc !29
+  %57 = zext nneg i32 %26 to i64
+  %58 = add nsw i64 %16, -2
+  %.not82 = icmp eq i64 %58, %57
   br i1 %.not82, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %47
-  %60 = sub nsw i64 %59, %58
+  %59 = sub nsw i64 %58, %57
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.06181 = phi i64 [ %69, %.lr.ph ], [ %57, %.lr.ph.preheader ]
-  %.06280 = phi i64 [ %71, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.06379 = phi i64 [ %72, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 %.06379
-  %62 = load i8, ptr %61, align 1, !tbaa !23
-  %63 = zext i8 %62 to i64
-  %64 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %63) #14, !srcloc !29
-  %65 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #14, !srcloc !29
-  %66 = xor i64 %65, %64
-  %67 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %66) #14, !srcloc !28
-  %68 = xor i64 %67, -1
-  %69 = and i64 %.06181, %68
-  %70 = and i64 %69, 1
-  %71 = add i64 %70, %.06280
-  %72 = add nuw i64 %.06379, 1
-  %exitcond.not = icmp eq i64 %72, %60
+  %.06181 = phi i64 [ %68, %.lr.ph ], [ %56, %.lr.ph.preheader ]
+  %.06280 = phi i64 [ %70, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.06379 = phi i64 [ %71, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 %.06379
+  %61 = load i8, ptr %60, align 1, !tbaa !23
+  %62 = zext i8 %61 to i64
+  %63 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 256) %62) #14, !srcloc !29
+  %64 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 0) #14, !srcloc !29
+  %65 = xor i64 %64, %63
+  %66 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %65) #14, !srcloc !28
+  %67 = xor i64 %66, -1
+  %68 = and i64 %.06181, %67
+  %69 = and i64 %68, 1
+  %70 = add i64 %69, %.06280
+  %71 = add nuw i64 %.06379, 1
+  %exitcond.not = icmp eq i64 %71, %59
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %47
-  %.062.lcssa = phi i64 [ 0, %47 ], [ %71, %.lr.ph ]
-  %73 = getelementptr inbounds nuw i8, ptr %56, i64 %.062.lcssa
+  %.062.lcssa = phi i64 [ 0, %47 ], [ %70, %.lr.ph ]
+  %72 = or i64 %54, %50
+  %73 = getelementptr inbounds nuw i8, ptr %55, i64 %.062.lcssa
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 1
   %75 = load i8, ptr %73, align 1, !tbaa !23
   %76 = zext i8 %75 to i64
@@ -2601,7 +2601,7 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
   %78 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 256) 1) #14, !srcloc !29
   %79 = xor i64 %78, %77
   %80 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %79) #14, !srcloc !28
-  %81 = or i64 %55, %80
+  %81 = or i64 %72, %80
   %82 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #14, !srcloc !29
   %.not76 = icmp eq i64 %81, %82
   br i1 %.not76, label %83, label %90

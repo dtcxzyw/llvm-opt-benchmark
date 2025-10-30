@@ -560,28 +560,30 @@ asn1_write_micalg.exit:                           ; preds = %54, %68, %29, %.loo
   %92 = call i32 @SMIME_crlf_copy(ptr noundef nonnull %2, ptr noundef %91, i32 noundef %3)
   %93 = load ptr, ptr %83, align 8, !tbaa !32
   %94 = call i32 %93(i32 noundef 13, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %12) #6
-  %.inv.i = icmp sgt i32 %94, 0
-  %.1.i98 = select i1 %.inv.i, i32 %92, i32 0
   %95 = load ptr, ptr %87, align 8, !tbaa !38
   %.not2526.i = icmp eq ptr %95, %0
-  br i1 %.not2526.i, label %asn1_output_data.exit, label %.lr.ph.i99
+  br i1 %.not2526.i, label %.loopexit.i, label %.lr.ph.i98
 
-.lr.ph.i99:                                       ; preds = %90, %.lr.ph.i99
-  %96 = phi ptr [ %97, %.lr.ph.i99 ], [ %95, %90 ]
+.lr.ph.i98:                                       ; preds = %90, %.lr.ph.i98
+  %96 = phi ptr [ %97, %.lr.ph.i98 ], [ %95, %90 ]
   %97 = call ptr @BIO_pop(ptr noundef %96) #6
   %98 = load ptr, ptr %87, align 8, !tbaa !38
   %99 = call i32 @BIO_free(ptr noundef %98) #6
   store ptr %97, ptr %87, align 8, !tbaa !38
   %.not25.i = icmp eq ptr %97, %0
-  br i1 %.not25.i, label %asn1_output_data.exit, label %.lr.ph.i99, !llvm.loop !39
+  br i1 %.not25.i, label %.loopexit.i, label %.lr.ph.i98, !llvm.loop !39
 
-asn1_output_data.exit.thread:                     ; preds = %85, %86
+.loopexit.i:                                      ; preds = %.lr.ph.i98, %90
+  %.inv.i = icmp sgt i32 %94, 0
+  br i1 %.inv.i, label %asn1_output_data.exit, label %asn1_output_data.exit.thread
+
+asn1_output_data.exit.thread:                     ; preds = %85, %86, %.loopexit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %130
 
-asn1_output_data.exit:                            ; preds = %.lr.ph.i99, %79, %90
-  %.018.i = phi i32 [ %80, %79 ], [ %.1.i98, %90 ], [ %.1.i98, %.lr.ph.i99 ]
+asn1_output_data.exit:                            ; preds = %.loopexit.i, %79
+  %.018.i = phi i32 [ %80, %79 ], [ %92, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not97 = icmp eq i32 %.018.i, 0

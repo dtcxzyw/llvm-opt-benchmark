@@ -2892,8 +2892,8 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %266
 
 _ZSt6fill_nIPPN2cv3MatEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc143
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %282, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %281, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !30
   %284 = getelementptr inbounds nuw i8, ptr %281, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %281, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !30
   br label %.lr.ph
 
 285:                                              ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i

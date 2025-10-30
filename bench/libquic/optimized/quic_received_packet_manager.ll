@@ -500,27 +500,27 @@ _ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit: ; preds = %24, %26
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 %2, ptr %37, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !45, !noalias !48
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %44 = load ptr, ptr %43, align 8, !tbaa !29, !noalias !53
-  %.not15 = icmp eq ptr %36, %44
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %40 = load ptr, ptr %39, align 8, !tbaa !45, !noalias !48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %43 = load ptr, ptr %42, align 8, !tbaa !29, !noalias !53
+  %.not15 = icmp eq ptr %36, %43
   br i1 %.not15, label %_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv.exit, label %.lr.ph20.preheader
 
 .lr.ph20.preheader:                               ; preds = %._crit_edge
-  %45 = load ptr, ptr %42, align 8, !tbaa !24, !noalias !48
+  %44 = load ptr, ptr %41, align 8, !tbaa !24, !noalias !48
   br label %.lr.ph20
 
-46:                                               ; preds = %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit
+45:                                               ; preds = %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit
   store i8 %70, ptr %37, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %46, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
-  %47 = phi ptr [ %65, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %41, %46 ]
-  %48 = phi ptr [ %66, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %44, %46 ]
-  %49 = phi ptr [ %storemerge.i.i, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %36, %46 ]
+.lr.ph.i:                                         ; preds = %45, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
+  %47 = phi ptr [ %65, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %40, %45 ]
+  %48 = phi ptr [ %66, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %43, %45 ]
+  %49 = phi ptr [ %storemerge.i.i, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %36, %45 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %51 = load i8, ptr %50, align 1, !tbaa !36, !range !41, !noundef !42
   %52 = trunc nuw i8 %51 to i1
@@ -539,16 +539,16 @@ _ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit: ; preds = %24, %26
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
 
 59:                                               ; preds = %53
-  %60 = load ptr, ptr %39, align 8, !tbaa !44
+  %60 = load ptr, ptr %46, align 8, !tbaa !44
   tail call void @_ZdlPv(ptr noundef %60) #17
-  %61 = load ptr, ptr %42, align 8, !tbaa !19
+  %61 = load ptr, ptr %41, align 8, !tbaa !19
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %62, ptr %42, align 8, !tbaa !24
+  store ptr %62, ptr %41, align 8, !tbaa !24
   %63 = load ptr, ptr %62, align 8, !tbaa !21
-  store ptr %63, ptr %39, align 8, !tbaa !28
+  store ptr %63, ptr %46, align 8, !tbaa !28
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 512
-  store ptr %64, ptr %40, align 8, !tbaa !45
-  %.pre.i = load ptr, ptr %43, align 8, !tbaa !29
+  store ptr %64, ptr %39, align 8, !tbaa !45
+  %.pre.i = load ptr, ptr %42, align 8, !tbaa !29
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
 
 _ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i: ; preds = %59, %57
@@ -560,8 +560,8 @@ _ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i: ; preds = %59, %57
   br i1 %67, label %_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv.exit, label %.lr.ph.i, !llvm.loop !47
 
 .lr.ph20:                                         ; preds = %.lr.ph20.preheader, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit
-  %.sroa.13.018 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %45, %.lr.ph20.preheader ]
-  %.sroa.10.017 = phi ptr [ %.sroa.10.1, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %41, %.lr.ph20.preheader ]
+  %.sroa.13.018 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %44, %.lr.ph20.preheader ]
+  %.sroa.10.017 = phi ptr [ %.sroa.10.1, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %40, %.lr.ph20.preheader ]
   %.sroa.07.016 = phi ptr [ %.sroa.07.1, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %36, %.lr.ph20.preheader ]
   %68 = phi i8 [ %70, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %2, %.lr.ph20.preheader ]
   %69 = load i8, ptr %.sroa.07.016, align 1, !tbaa !30
@@ -580,8 +580,8 @@ _ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit: ; preds = %.lr.ph20, %73
   %.sroa.07.1 = phi ptr [ %75, %73 ], [ %71, %.lr.ph20 ]
   %.sroa.10.1 = phi ptr [ %76, %73 ], [ %.sroa.10.017, %.lr.ph20 ]
   %.sroa.13.1 = phi ptr [ %74, %73 ], [ %.sroa.13.018, %.lr.ph20 ]
-  %.not = icmp eq ptr %.sroa.07.1, %44
-  br i1 %.not, label %46, label %.lr.ph20, !llvm.loop !56
+  %.not = icmp eq ptr %.sroa.07.1, %43
+  br i1 %.not, label %45, label %.lr.ph20, !llvm.loop !56
 
 _ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv.exit: ; preds = %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i, %.lr.ph.i, %._crit_edge, %3
   ret void

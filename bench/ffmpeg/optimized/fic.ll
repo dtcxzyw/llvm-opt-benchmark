@@ -1215,12 +1215,11 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
   %109 = load i32, ptr %83, align 8, !tbaa !32
   %110 = sub nsw i32 %109, %1
   %spec.select83 = tail call i32 @llvm.smin.i32(i32 %110, i32 32)
-  %111 = sdiv i32 %spec.select83, 2
-  %112 = shl i64 %indvars.iv157, 5
-  %113 = getelementptr inbounds nuw i8, ptr %5, i64 %112
-  %114 = getelementptr inbounds nuw i8, ptr %12, i64 %112
-  %115 = icmp sgt i32 %110, 0
-  br i1 %115, label %.lr.ph.preheader, label %fic_alpha_blend.exit89
+  %111 = shl i64 %indvars.iv157, 5
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 %111
+  %113 = getelementptr inbounds nuw i8, ptr %12, i64 %111
+  %114 = icmp sgt i32 %110, 0
+  br i1 %114, label %.lr.ph.preheader, label %fic_alpha_blend.exit89
 
 .lr.ph.preheader:                                 ; preds = %105
   %smax = tail call i32 @llvm.smax.i32(i32 %spec.select83, i32 1)
@@ -1229,60 +1228,61 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv135 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next136, %.lr.ph ]
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 %indvars.iv135
-  %117 = load i8, ptr %116, align 1, !tbaa !43
-  %118 = zext i8 %117 to i16
-  %119 = getelementptr inbounds nuw i8, ptr %108, i64 %indvars.iv135
-  %120 = load i8, ptr %119, align 1, !tbaa !43
-  %121 = zext i8 %120 to i16
-  %122 = sub nsw i16 %118, %121
-  %123 = getelementptr inbounds nuw i8, ptr %114, i64 %indvars.iv135
-  %124 = load i8, ptr %123, align 1, !tbaa !43
-  %125 = zext i8 %124 to i16
-  %126 = mul i16 %122, %125
-  %127 = lshr i16 %126, 8
-  %128 = trunc nuw i16 %127 to i8
-  %129 = add i8 %120, %128
-  store i8 %129, ptr %119, align 1, !tbaa !43
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 %indvars.iv135
+  %116 = load i8, ptr %115, align 1, !tbaa !43
+  %117 = zext i8 %116 to i16
+  %118 = getelementptr inbounds nuw i8, ptr %108, i64 %indvars.iv135
+  %119 = load i8, ptr %118, align 1, !tbaa !43
+  %120 = zext i8 %119 to i16
+  %121 = sub nsw i16 %117, %120
+  %122 = getelementptr inbounds nuw i8, ptr %113, i64 %indvars.iv135
+  %123 = load i8, ptr %122, align 1, !tbaa !43
+  %124 = zext i8 %123 to i16
+  %125 = mul i16 %121, %124
+  %126 = lshr i16 %125, 8
+  %127 = trunc nuw i16 %126 to i8
+  %128 = add i8 %119, %127
+  store i8 %128, ptr %118, align 1, !tbaa !43
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count
   br i1 %exitcond138.not, label %.lr.ph105.preheader, label %.lr.ph, !llvm.loop !82
 
 .lr.ph105.preheader:                              ; preds = %.lr.ph
   %.pre = load ptr, ptr %54, align 8, !tbaa !44
-  %130 = getelementptr inbounds nuw i8, ptr %.pre, i64 64
-  %131 = load i32, ptr %130, align 8, !tbaa !65
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds i8, ptr %108, i64 %132
-  %134 = or disjoint i64 %112, 32
-  %135 = getelementptr inbounds i8, ptr %5, i64 %134
-  %136 = getelementptr inbounds i8, ptr %12, i64 %134
+  %129 = getelementptr inbounds nuw i8, ptr %.pre, i64 64
+  %130 = load i32, ptr %129, align 8, !tbaa !65
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds i8, ptr %108, i64 %131
+  %133 = or disjoint i64 %111, 32
+  %134 = getelementptr inbounds i8, ptr %5, i64 %133
+  %135 = getelementptr inbounds i8, ptr %12, i64 %133
   %smax142 = tail call i32 @llvm.smax.i32(i32 %spec.select83, i32 1)
   %wide.trip.count143 = zext nneg i32 %smax142 to i64
   br label %.lr.ph105
 
 .lr.ph105:                                        ; preds = %.lr.ph105.preheader, %.lr.ph105
   %indvars.iv139 = phi i64 [ 0, %.lr.ph105.preheader ], [ %indvars.iv.next140, %.lr.ph105 ]
-  %137 = getelementptr inbounds nuw i8, ptr %135, i64 %indvars.iv139
-  %138 = load i8, ptr %137, align 1, !tbaa !43
-  %139 = zext i8 %138 to i16
-  %140 = getelementptr inbounds nuw i8, ptr %133, i64 %indvars.iv139
-  %141 = load i8, ptr %140, align 1, !tbaa !43
-  %142 = zext i8 %141 to i16
-  %143 = sub nsw i16 %139, %142
-  %144 = getelementptr inbounds nuw i8, ptr %136, i64 %indvars.iv139
-  %145 = load i8, ptr %144, align 1, !tbaa !43
-  %146 = zext i8 %145 to i16
-  %147 = mul i16 %143, %146
-  %148 = lshr i16 %147, 8
-  %149 = trunc nuw i16 %148 to i8
-  %150 = add i8 %141, %149
-  store i8 %150, ptr %140, align 1, !tbaa !43
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 %indvars.iv139
+  %137 = load i8, ptr %136, align 1, !tbaa !43
+  %138 = zext i8 %137 to i16
+  %139 = getelementptr inbounds nuw i8, ptr %132, i64 %indvars.iv139
+  %140 = load i8, ptr %139, align 1, !tbaa !43
+  %141 = zext i8 %140 to i16
+  %142 = sub nsw i16 %138, %141
+  %143 = getelementptr inbounds nuw i8, ptr %135, i64 %indvars.iv139
+  %144 = load i8, ptr %143, align 1, !tbaa !43
+  %145 = zext i8 %144 to i16
+  %146 = mul i16 %142, %145
+  %147 = lshr i16 %146, 8
+  %148 = trunc nuw i16 %147 to i8
+  %149 = add i8 %140, %148
+  store i8 %149, ptr %139, align 1, !tbaa !43
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count143
   br i1 %exitcond144.not, label %fic_alpha_blend.exit85, label %.lr.ph105, !llvm.loop !82
 
 fic_alpha_blend.exit85:                           ; preds = %.lr.ph105
+  %150 = lshr i32 %spec.select83, 1
   %151 = shl nuw nsw i64 %indvars.iv157, 3
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %85, i64 %151
@@ -1290,7 +1290,7 @@ fic_alpha_blend.exit85:                           ; preds = %.lr.ph105
   br i1 %.not, label %fic_alpha_blend.exit89, label %.lr.ph107.preheader
 
 .lr.ph107.preheader:                              ; preds = %fic_alpha_blend.exit85
-  %smax148 = tail call i32 @llvm.smax.i32(i32 %111, i32 1)
+  %smax148 = tail call i32 @llvm.smax.i32(i32 %150, i32 1)
   %wide.trip.count149 = zext nneg i32 %smax148 to i64
   br label %.lr.ph107
 
@@ -1317,7 +1317,7 @@ fic_alpha_blend.exit85:                           ; preds = %.lr.ph105
 
 .lr.ph109.preheader:                              ; preds = %.lr.ph107
   %168 = getelementptr inbounds nuw i8, ptr %87, i64 %151
-  %smax154 = tail call i32 @llvm.smax.i32(i32 %111, i32 1)
+  %smax154 = tail call i32 @llvm.smax.i32(i32 %150, i32 1)
   %wide.trip.count155 = zext nneg i32 %smax154 to i64
   br label %.lr.ph109
 

@@ -1132,37 +1132,37 @@ define void @_Z14FullNodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noali
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
   %6 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-          to label %7 unwind label %16
+          to label %7 unwind label %15
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  br label %10
+  br label %9
 
-10:                                               ; preds = %7, %10
-  %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
-  %12 = load i8, ptr %11, align 1
-  %13 = sext i8 %12 to i32
-  %14 = sub nsw i32 15, %13
-  %15 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
-  store i32 %14, ptr %15, align 4
+9:                                                ; preds = %7, %9
+  %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %9 ]
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
+  %11 = load i8, ptr %10, align 1
+  %12 = sext i8 %11 to i32
+  %13 = sub nsw i32 15, %12
+  %14 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  store i32 %13, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %18, label %10, !llvm.loop !14
+  br i1 %exitcond.not, label %17, label %9, !llvm.loop !14
 
-16:                                               ; preds = %2
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %2
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %92
 
-18:                                               ; preds = %10
+17:                                               ; preds = %9
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 16)
           to label %21 unwind label %85
 
-21:                                               ; preds = %18
+21:                                               ; preds = %17
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @_ZSt4leftRSt8ios_base)
           to label %23 unwind label %85
 
@@ -1193,7 +1193,7 @@ define void @_Z14FullNodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noali
           to label %39 unwind label %85
 
 39:                                               ; preds = %36
-  %40 = load i32, ptr %8, align 4
+  %40 = load i32, ptr %18, align 4
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr @cardRank, i64 %41
   %43 = load i8, ptr %42, align 1
@@ -1278,7 +1278,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %81, %83
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #12
   ret void
 
-85:                                               ; preds = %71, %69, %62, %59, %57, %50, %47, %45, %39, %36, %34, %28, %25, %23, %21, %18
+85:                                               ; preds = %71, %69, %62, %59, %57, %50, %47, %45, %39, %36, %34, %28, %25, %23, %21, %17
   %86 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit16
@@ -1304,8 +1304,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit16:                  ; preds = %91, %85
   call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 16) #14
   br label %92
 
-92:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit16, %16
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit16 ], [ %17, %16 ]
+92:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit16, %15
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit16 ], [ %16, %15 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #12
   resume { ptr, i32 } %.pn.pn.pn
 }

@@ -361,24 +361,24 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN
 
 .noexc64:                                         ; preds = %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i
   store ptr %137, ptr %12, align 8, !tbaa !40
-  %138 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %139 = getelementptr inbounds nuw %"class.cv::Mat", ptr %137, i64 %133
-  %140 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %139, ptr %140, align 8, !tbaa !43
+  %138 = getelementptr inbounds nuw %"class.cv::Mat", ptr %137, i64 %133
+  %139 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %138, ptr %139, align 8, !tbaa !43
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.noexc64
-  %.08.i.i.i.i.i = phi ptr [ %142, %.lr.ph.i.i.i.i.i ], [ %137, %.noexc64 ]
-  %.057.i.i.i.i.i = phi i64 [ %141, %.lr.ph.i.i.i.i.i ], [ %133, %.noexc64 ]
+  %.08.i.i.i.i.i = phi ptr [ %141, %.lr.ph.i.i.i.i.i ], [ %137, %.noexc64 ]
+  %.057.i.i.i.i.i = phi i64 [ %140, %.lr.ph.i.i.i.i.i ], [ %133, %.noexc64 ]
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.08.i.i.i.i.i) #13
-  %141 = add nsw i64 %.057.i.i.i.i.i, -1
-  %142 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i62 = icmp eq i64 %141, 0
+  %140 = add nsw i64 %.057.i.i.i.i.i, -1
+  %141 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
+  %.not.i.i.i.i.i62 = icmp eq i64 %140, 0
   br i1 %.not.i.i.i.i.i62, label %.loopexit126, label %.lr.ph.i.i.i.i.i, !llvm.loop !44
 
 .loopexit126:                                     ; preds = %.lr.ph.i.i.i.i.i
+  %142 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.pre = load i32, ptr %131, align 8, !tbaa !6
-  store ptr %142, ptr %138, align 8, !tbaa !46
+  store ptr %141, ptr %142, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %143 = zext nneg i32 %.pre to i64
   %144 = icmp slt i32 %.pre, 0

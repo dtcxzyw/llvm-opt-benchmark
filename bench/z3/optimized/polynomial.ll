@@ -37075,9 +37075,9 @@ _ZN10polynomial16monomial_manager11mk_monomialEj.exit: ; preds = %7, %.thread.i.
   tail call void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %2, ptr noundef nonnull %27, i64 noundef %31)
   %32 = icmp ugt i32 %1, 16
   %scevgep.i.i.i = getelementptr i8, ptr %2, i64 4
-  br i1 %32, label %.preheader.i, label %.lr.ph.i15.i.i.i
+  br i1 %32, label %.preheader.i.i.i, label %.lr.ph.i15.i.i.i
 
-.preheader.i:                                     ; preds = %25, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
+.preheader.i.i.i:                                 ; preds = %25, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %.019.i.idx.i.i.i = phi i64 [ %.019.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ 4, %25 ]
   %.pn18.i.i.i.i = phi ptr [ %.019.i.ptr.i.i.i, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %2, %25 ]
   %.019.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.019.i.idx.i.i.i
@@ -37086,11 +37086,11 @@ _ZN10polynomial16monomial_manager11mk_monomialEj.exit: ; preds = %7, %.thread.i.
   %35 = icmp ult i32 %33, %34
   br i1 %35, label %36, label %37
 
-36:                                               ; preds = %.preheader.i
+36:                                               ; preds = %.preheader.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %2, i64 %.019.i.idx.i.i.i, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
-37:                                               ; preds = %.preheader.i
+37:                                               ; preds = %.preheader.i.i.i
   %38 = load i32, ptr %.pn18.i.i.i.i, align 4, !tbaa !14
   %39 = icmp ult i32 %33, %38
   br i1 %39, label %.lr.ph.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
@@ -37110,7 +37110,7 @@ _ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   store i32 %33, ptr %.sink.i.i.i.i, align 4, !tbaa !14
   %.019.i.add.i.i.i = add nuw nsw i64 %.019.i.idx.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %.019.i.add.i.i.i, 64
-  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i, !llvm.loop !404
+  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i, label %.preheader.i.i.i, !llvm.loop !404
 
 _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_.exit.i.i.i: ; preds = %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -54740,9 +54740,9 @@ _ZSt10__pop_heapIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt
 _ZSt22__move_median_to_firstIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_S8_S8_T0_.exit.i.preheader: ; preds = %103, %100, %94, %90, %87, %81
   br label %_ZSt22__move_median_to_firstIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_S8_S8_T0_.exit.i
 
-_ZSt22__move_median_to_firstIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_S8_S8_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_S8_S8_T0_.exit.i.preheader, %117
-  %.013.i.i = phi ptr [ %.114.i.i, %117 ], [ %.026, %_ZSt22__move_median_to_firstIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
-  %.0.i.i = phi ptr [ %110, %117 ], [ %9, %_ZSt22__move_median_to_firstIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
+_ZSt22__move_median_to_firstIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_S8_S8_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_S8_S8_T0_.exit.i.preheader, %116
+  %.013.i.i = phi ptr [ %.114.i.i, %116 ], [ %.026, %_ZSt22__move_median_to_firstIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
+  %.0.i.i = phi ptr [ %110, %116 ], [ %9, %_ZSt22__move_median_to_firstIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
   %105 = load i32, ptr %11, align 4, !tbaa !19
   br label %106
 
@@ -54752,35 +54752,32 @@ _ZSt22__move_median_to_firstIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_
   %108 = load i32, ptr %107, align 4, !tbaa !19
   %109 = icmp ult i32 %108, %105
   %110 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %109, label %106, label %.preheader.i.i.preheader, !llvm.loop !489
+  br i1 %109, label %106, label %.preheader.i.i, !llvm.loop !489
 
-.preheader.i.i.preheader:                         ; preds = %106
-  %111 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
-  br label %.preheader.i.i
-
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %.preheader.i.i.preheader ]
+.preheader.i.i:                                   ; preds = %106, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %106 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
-  %112 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
-  %113 = load i32, ptr %112, align 4, !tbaa !19
-  %114 = icmp ult i32 %105, %113
-  br i1 %114, label %.preheader.i.i, label %115, !llvm.loop !490
+  %111 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
+  %112 = load i32, ptr %111, align 4, !tbaa !19
+  %113 = icmp ult i32 %105, %112
+  br i1 %113, label %.preheader.i.i, label %114, !llvm.loop !490
 
-115:                                              ; preds = %.preheader.i.i
-  %116 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %116, label %117, label %_ZSt27__unguarded_partition_pivotIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEET_S8_S8_T0_.exit
+114:                                              ; preds = %.preheader.i.i
+  %115 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %115, label %116, label %_ZSt27__unguarded_partition_pivotIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEET_S8_S8_T0_.exit
 
-117:                                              ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
+116:                                              ; preds = %114
+  %117 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
+  %118 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
   %119 = load i64, ptr %.1.i.i, align 4
   %120 = load i32, ptr %.114.i.i, align 4, !tbaa !14
   store i32 %120, ptr %.1.i.i, align 4, !tbaa !17
-  %121 = load i32, ptr %118, align 4, !tbaa !14
-  store i32 %121, ptr %111, align 4, !tbaa !19
+  %121 = load i32, ptr %117, align 4, !tbaa !14
+  store i32 %121, ptr %118, align 4, !tbaa !19
   store i64 %119, ptr %.114.i.i, align 4
   br label %_ZSt22__move_median_to_firstIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_S8_S8_T0_.exit.i, !llvm.loop !491
 
-_ZSt27__unguarded_partition_pivotIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEET_S8_S8_T0_.exit: ; preds = %115
+_ZSt27__unguarded_partition_pivotIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEET_S8_S8_T0_.exit: ; preds = %114
   tail call void @_ZSt16__introsort_loopIPN10polynomial5powerElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.026, i64 noundef %69)
   %122 = ptrtoint ptr %.1.i.i to i64
   %123 = sub i64 %122, %5

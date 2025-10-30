@@ -3827,13 +3827,13 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
   store i64 %162, ptr %143, align 8, !alias.scope !1023, !noalias !1030
   %167 = urem i64 %.sroa.3.0.i24.i.i, 255
   %168 = sub nuw i64 %.sroa.3.0.i24.i.i, %167
-  %169 = getelementptr inbounds i8, ptr %.sroa.037.0.i.i.i, i64 %168
-  %170 = icmp ult i64 %168, 255
-  br i1 %170, label %._crit_edge.i25.i.i, label %.lr.ph.i.i.i
+  %169 = icmp ult i64 %168, 255
+  br i1 %169, label %._crit_edge.i25.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i25.i.i:                              ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.llvm.1563996087720595280.exit79.i.i.i", %166
   %.pre19.i.i61.i.i.i = phi i64 [ %.pre19.i.i4933.i.i.i, %166 ], [ %.pre19.i.i4934.i.i.i, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.llvm.1563996087720595280.exit79.i.i.i" ]
   %.promoted.i.i60.i.i.i = phi i64 [ %162, %166 ], [ %273, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.llvm.1563996087720595280.exit79.i.i.i" ]
+  %170 = getelementptr inbounds i8, ptr %.sroa.037.0.i.i.i, i64 %168
   %171 = icmp eq i64 %167, 0
   br i1 %171, label %194, label %215
 
@@ -4030,7 +4030,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 250:                                              ; preds = %.lr.ph.preheader.i.i.i.i.us.i.i69.i.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0ce58aa4c4950ee8E.exit.i.i.i.us.i.i68.i.i.i"
   %251 = load ptr, ptr %145, align 8, !alias.scope !1180, !noalias !1181, !nonnull !7, !noundef !7
   %252 = getelementptr inbounds i8, ptr %251, i64 %233
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %252, ptr noundef nonnull readonly align 1 dereferenceable(1) %169, i64 range(i64 1, 0) %167, i1 false), !noalias !1182
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %252, ptr noundef nonnull readonly align 1 dereferenceable(1) %170, i64 range(i64 1, 0) %167, i1 false), !noalias !1182
   %253 = add i64 %233, %167
   %254 = load i64, ptr %144, align 8, !alias.scope !1180, !noalias !1181, !noundef !7
   %255 = icmp ugt i64 %253, %254

@@ -334,11 +334,7 @@ define range(i32 -1, 2) i32 @SidesParBin(ptr noundef readonly captures(none) %0,
   store i32 0, ptr %.sroa.0, align 8
   store i32 0, ptr %.sroa.2, align 4
   %12 = icmp ne i32 %2, 1
-  %indvars.iv773.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 20
-  %indvars.iv773.sroa.gep877 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %indvars.iv727.sroa.gep893 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %indvars.iv752.sroa.gep894 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %indvars.iv752.sroa.gep897 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.preheader614
 
 .preheader614:                                    ; preds = %3, %181
@@ -767,6 +763,10 @@ _Z8rawscoreiii.exit496:                           ; preds = %144, %141, %136, %1
   br i1 %13, label %.preheader614, label %182, !llvm.loop !13
 
 182:                                              ; preds = %181
+  %indvars.iv773.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %indvars.iv773.sroa.gep877 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %indvars.iv752.sroa.gep894 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %indvars.iv752.sroa.gep897 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.0912.0..sroa.0912.0. = load i32, ptr %.sroa.0912, align 4
   store i32 %.sroa.0912.0..sroa.0912.0., ptr %1, align 4
   %.sroa.3.0..sroa.3.4. = load i32, ptr %.sroa.3, align 4

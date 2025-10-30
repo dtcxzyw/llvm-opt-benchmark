@@ -2387,8 +2387,6 @@ Vec_IntFill.exit:                                 ; preds = %54, %Vec_IntGrow.ex
   br label %469
 
 58:                                               ; preds = %29
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %24, i32 %27)
-  %spec.select113 = tail call i32 @llvm.smax.i32(i32 %24, i32 %27)
   %59 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %60 = load ptr, ptr %59, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
@@ -2506,6 +2504,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %122, label %67, label %.critedge, !llvm.loop !102
 
 .critedge:                                        ; preds = %Vec_IntPush.exit, %58
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %24, i32 %27)
+  %spec.select113 = tail call i32 @llvm.smax.i32(i32 %24, i32 %27)
   %123 = ashr i32 %spec.select113, 1
   tail call fastcc void @Gia_ManCnfNodeAddToSolver(ptr noundef nonnull %14, i32 noundef %123)
   %124 = ashr i32 %spec.select, 1

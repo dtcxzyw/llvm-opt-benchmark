@@ -1204,8 +1204,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %.loopexit1672
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i: ; preds = %253
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %254, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %246, i8 -1, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !69
   %259 = getelementptr inbounds nuw i8, ptr %246, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %246, i8 -1, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !69
   store ptr %259, ptr %88, align 8, !tbaa !72
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
 

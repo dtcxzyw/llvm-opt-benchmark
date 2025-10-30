@@ -4585,8 +4585,6 @@ while.body.lr.ph:                                 ; preds = %_ZN5eastl4copyINS_2
   %10 = load ptr, ptr %this, align 8
   %mpEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %mpEnd.i.i, align 8
-  %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %mSize.i.promoted = load i64, ptr %mSize.i, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -4600,6 +4598,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %while.cond.while.end_crit_edge, label %while.body, !llvm.loop !104
 
 while.cond.while.end_crit_edge:                   ; preds = %while.body
+  %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %mSize.i.promoted = load i64, ptr %mSize.i, align 8
   %14 = sub i64 %mSize.i.promoted, %d.0.lcssa.i.i.i
   store ptr %incdec.ptr.i, ptr %mEnd.i, align 8
   store i64 %14, ptr %mSize.i, align 8
@@ -4849,8 +4849,6 @@ while.body.lr.ph.i:                               ; preds = %_ZN5eastl4copyINS_2
   %20 = load ptr, ptr %this, align 8, !noalias !120
   %mpEnd.i.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %21 = load ptr, ptr %mpEnd.i.i.i13, align 8, !noalias !120
-  %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %mSize.i.promoted.i = load i64, ptr %mSize.i.i, align 8, !noalias !120
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -4864,6 +4862,8 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %tobool.not.i, label %while.cond.while.end_crit_edge.i, label %while.body.i, !llvm.loop !104
 
 while.cond.while.end_crit_edge.i:                 ; preds = %while.body.i
+  %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %mSize.i.promoted.i = load i64, ptr %mSize.i.i, align 8, !noalias !120
   %24 = sub i64 %mSize.i.promoted.i, %d.0.lcssa.i.i.i.i
   store ptr %incdec.ptr.i.i15, ptr %mEnd.i.i, align 8, !noalias !120
   store i64 %24, ptr %mSize.i.i, align 8, !noalias !120
@@ -7329,8 +7329,6 @@ while.body.lr.ph:                                 ; preds = %_ZN5eastl4copyINS_2
   %10 = load ptr, ptr %this, align 8
   %mpEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %mpEnd.i.i, align 8
-  %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %mSize.i.promoted = load i64, ptr %mSize.i, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -7344,6 +7342,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %while.cond.while.end_crit_edge, label %while.body, !llvm.loop !236
 
 while.cond.while.end_crit_edge:                   ; preds = %while.body
+  %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %mSize.i.promoted = load i64, ptr %mSize.i, align 8
   %14 = sub i64 %mSize.i.promoted, %d.0.lcssa.i.i.i
   store ptr %incdec.ptr.i, ptr %mEnd.i, align 8
   store i64 %14, ptr %mSize.i, align 8
@@ -7593,8 +7593,6 @@ while.body.lr.ph.i:                               ; preds = %_ZN5eastl4copyINS_2
   %20 = load ptr, ptr %this, align 8, !noalias !252
   %mpEnd.i.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %21 = load ptr, ptr %mpEnd.i.i.i13, align 8, !noalias !252
-  %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %mSize.i.promoted.i = load i64, ptr %mSize.i.i, align 8, !noalias !252
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -7608,6 +7606,8 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %tobool.not.i, label %while.cond.while.end_crit_edge.i, label %while.body.i, !llvm.loop !236
 
 while.cond.while.end_crit_edge.i:                 ; preds = %while.body.i
+  %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %mSize.i.promoted.i = load i64, ptr %mSize.i.i, align 8, !noalias !252
   %24 = sub i64 %mSize.i.promoted.i, %d.0.lcssa.i.i.i.i
   store ptr %incdec.ptr.i.i15, ptr %mEnd.i.i, align 8, !noalias !252
   store i64 %24, ptr %mSize.i.i, align 8, !noalias !252
@@ -10300,8 +10300,6 @@ while.body.lr.ph:                                 ; preds = %_ZN5eastl4copyINS_2
   %15 = load ptr, ptr %this, align 8
   %mpEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %16 = load ptr, ptr %mpEnd.i.i, align 8
-  %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %mSize.i.promoted = load i64, ptr %mSize.i, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -10315,6 +10313,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %while.cond.while.end_crit_edge, label %while.body, !llvm.loop !339
 
 while.cond.while.end_crit_edge:                   ; preds = %while.body
+  %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %mSize.i.promoted = load i64, ptr %mSize.i, align 8
   %19 = sub i64 %mSize.i.promoted, %d.0.lcssa.i.i.i
   store ptr %incdec.ptr.i, ptr %mEnd.i, align 8
   store i64 %19, ptr %mSize.i, align 8
@@ -10615,8 +10615,6 @@ while.body.lr.ph.i:                               ; preds = %_ZN5eastl4copyINS_2
   %25 = load ptr, ptr %this, align 8, !noalias !355
   %mpEnd.i.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %26 = load ptr, ptr %mpEnd.i.i.i13, align 8, !noalias !355
-  %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %mSize.i.promoted.i = load i64, ptr %mSize.i.i, align 8, !noalias !355
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -10630,6 +10628,8 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %tobool.not.i, label %while.cond.while.end_crit_edge.i, label %while.body.i, !llvm.loop !339
 
 while.cond.while.end_crit_edge.i:                 ; preds = %while.body.i
+  %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %mSize.i.promoted.i = load i64, ptr %mSize.i.i, align 8, !noalias !355
   %29 = sub i64 %mSize.i.promoted.i, %d.0.lcssa.i.i.i.i
   store ptr %incdec.ptr.i.i15, ptr %mEnd.i.i, align 8, !noalias !355
   store i64 %29, ptr %mSize.i.i, align 8, !noalias !355
@@ -27312,7 +27312,6 @@ entry:
   %mpPrev.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   %mBegin = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mBegin, i8 0, i64 16, i1 false)
   br label %while.cond.i.i
 
@@ -27326,6 +27325,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %en
   br i1 %1, label %while.cond.i.i, label %while.end.i.i, !llvm.loop !1592
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
+  %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   br i1 %cmp5.i.i, label %if.then.i.i, label %for.body.i.i.i.i.preheader
 
 for.body.i.i.i.i.preheader:                       ; preds = %while.end.i.i
@@ -27613,7 +27613,6 @@ entry:
   %mpPrev.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   %mBegin = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mBegin, i8 0, i64 16, i1 false)
   br label %while.cond.i.i
 
@@ -27627,6 +27626,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %en
   br i1 %1, label %while.cond.i.i, label %while.end.i.i, !llvm.loop !1592
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
+  %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   br i1 %cmp5.i.i, label %if.then.i.i, label %for.body.i.i.i.i.preheader
 
 for.body.i.i.i.i.preheader:                       ; preds = %while.end.i.i
@@ -27792,7 +27792,6 @@ entry:
   %mpPrev.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   %mBegin = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   %add = add i64 %ilist.coerce1, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mBegin, i8 0, i64 16, i1 false)
   br label %while.cond.i.i
@@ -27808,6 +27807,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %en
   br i1 %1, label %while.cond.i.i, label %while.end.i.i, !llvm.loop !1592
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
+  %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   %cmp5.i.i = icmp eq i64 %i.0.i.i, %add
   br i1 %cmp5.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -31058,7 +31058,6 @@ entry:
   %mpPrev.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   %mBegin = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mBegin, i8 0, i64 16, i1 false)
   br label %while.cond.i.i
 
@@ -31072,6 +31071,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %en
   br i1 %1, label %while.cond.i.i, label %while.end.i.i, !llvm.loop !2103
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
+  %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   br i1 %cmp5.i.i, label %if.then.i.i, label %for.body.i.i.i.i.preheader
 
 for.body.i.i.i.i.preheader:                       ; preds = %while.end.i.i
@@ -31359,7 +31359,6 @@ entry:
   %mpPrev.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   %mBegin = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mBegin, i8 0, i64 16, i1 false)
   br label %while.cond.i.i
 
@@ -31373,6 +31372,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %en
   br i1 %1, label %while.cond.i.i, label %while.end.i.i, !llvm.loop !2103
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
+  %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   br i1 %cmp5.i.i, label %if.then.i.i, label %for.body.i.i.i.i.preheader
 
 for.body.i.i.i.i.preheader:                       ; preds = %while.end.i.i
@@ -31538,7 +31538,6 @@ entry:
   %mpPrev.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i.i, align 8
   %mBegin = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   %add = add i64 %ilist.coerce1, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mBegin, i8 0, i64 16, i1 false)
   br label %while.cond.i.i
@@ -31554,6 +31553,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %en
   br i1 %1, label %while.cond.i.i, label %while.end.i.i, !llvm.loop !2103
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
+  %mEnd = getelementptr inbounds nuw i8, ptr %this, i64 32
   %cmp5.i.i = icmp eq i64 %i.0.i.i, %add
   br i1 %cmp5.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -39683,8 +39683,6 @@ while.body.lr.ph:                                 ; preds = %_ZN5eastl8distanceI
   %3 = load ptr, ptr %this, align 8
   %mpEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %mpEnd.i.i, align 8
-  %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 28040
-  %mSize.i.promoted = load i64, ptr %mSize.i, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -39698,6 +39696,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %while.cond.while.end_crit_edge, label %while.body, !llvm.loop !3020
 
 while.cond.while.end_crit_edge:                   ; preds = %while.body
+  %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 28040
+  %mSize.i.promoted = load i64, ptr %mSize.i, align 8
   %7 = sub i64 %mSize.i.promoted, %d.0.lcssa.i.i.i
   store ptr %incdec.ptr.i, ptr %mEnd.i, align 8
   store i64 %7, ptr %mSize.i, align 8
@@ -39872,8 +39872,6 @@ while.body.lr.ph.i:                               ; preds = %_ZN5eastl8distanceI
   %13 = load ptr, ptr %this, align 8, !noalias !3035
   %mpEnd.i.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %14 = load ptr, ptr %mpEnd.i.i.i13, align 8, !noalias !3035
-  %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28040
-  %mSize.i.promoted.i = load i64, ptr %mSize.i.i, align 8, !noalias !3035
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -39887,6 +39885,8 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %tobool.not.i, label %while.cond.while.end_crit_edge.i, label %while.body.i, !llvm.loop !3020
 
 while.cond.while.end_crit_edge.i:                 ; preds = %while.body.i
+  %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28040
+  %mSize.i.promoted.i = load i64, ptr %mSize.i.i, align 8, !noalias !3035
   %17 = sub i64 %mSize.i.promoted.i, %d.0.lcssa.i.i.i.i
   store ptr %incdec.ptr.i.i15, ptr %mEnd.i.i, align 8, !noalias !3035
   store i64 %17, ptr %mSize.i.i, align 8, !noalias !3035
@@ -42318,8 +42318,6 @@ while.body.lr.ph:                                 ; preds = %_ZN5eastl4copyINS_2
   %10 = load ptr, ptr %this, align 8
   %mpEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %mpEnd.i.i, align 8
-  %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 440
-  %mSize.i.promoted = load i64, ptr %mSize.i, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -42333,6 +42331,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %while.cond.while.end_crit_edge, label %while.body, !llvm.loop !3150
 
 while.cond.while.end_crit_edge:                   ; preds = %while.body
+  %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 440
+  %mSize.i.promoted = load i64, ptr %mSize.i, align 8
   %14 = sub i64 %mSize.i.promoted, %d.0.lcssa.i.i.i
   store ptr %incdec.ptr.i, ptr %mEnd.i, align 8
   store i64 %14, ptr %mSize.i, align 8
@@ -42582,8 +42582,6 @@ while.body.lr.ph.i:                               ; preds = %_ZN5eastl4copyINS_2
   %20 = load ptr, ptr %this, align 8, !noalias !3166
   %mpEnd.i.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %21 = load ptr, ptr %mpEnd.i.i.i13, align 8, !noalias !3166
-  %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 440
-  %mSize.i.promoted.i = load i64, ptr %mSize.i.i, align 8, !noalias !3166
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -42597,6 +42595,8 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %tobool.not.i, label %while.cond.while.end_crit_edge.i, label %while.body.i, !llvm.loop !3150
 
 while.cond.while.end_crit_edge.i:                 ; preds = %while.body.i
+  %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 440
+  %mSize.i.promoted.i = load i64, ptr %mSize.i.i, align 8, !noalias !3166
   %24 = sub i64 %mSize.i.promoted.i, %d.0.lcssa.i.i.i.i
   store ptr %incdec.ptr.i.i15, ptr %mEnd.i.i, align 8, !noalias !3166
   store i64 %24, ptr %mSize.i.i, align 8, !noalias !3166
@@ -45489,8 +45489,6 @@ while.body.lr.ph:                                 ; preds = %_ZN5eastl4copyINS_2
   %10 = load ptr, ptr %this, align 8
   %mpEnd.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %mpEnd.i.i, align 8
-  %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 456
-  %mSize.i.promoted = load i64, ptr %mSize.i, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -45504,6 +45502,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %while.cond.while.end_crit_edge, label %while.body, !llvm.loop !3281
 
 while.cond.while.end_crit_edge:                   ; preds = %while.body
+  %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 456
+  %mSize.i.promoted = load i64, ptr %mSize.i, align 8
   %14 = sub i64 %mSize.i.promoted, %d.0.lcssa.i.i.i
   store ptr %incdec.ptr.i, ptr %mEnd.i, align 8
   store i64 %14, ptr %mSize.i, align 8
@@ -45753,8 +45753,6 @@ while.body.lr.ph.i:                               ; preds = %_ZN5eastl4copyINS_2
   %20 = load ptr, ptr %this, align 8, !noalias !3297
   %mpEnd.i.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %21 = load ptr, ptr %mpEnd.i.i.i13, align 8, !noalias !3297
-  %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 456
-  %mSize.i.promoted.i = load i64, ptr %mSize.i.i, align 8, !noalias !3297
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -45768,6 +45766,8 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %tobool.not.i, label %while.cond.while.end_crit_edge.i, label %while.body.i, !llvm.loop !3281
 
 while.cond.while.end_crit_edge.i:                 ; preds = %while.body.i
+  %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 456
+  %mSize.i.promoted.i = load i64, ptr %mSize.i.i, align 8, !noalias !3297
   %24 = sub i64 %mSize.i.promoted.i, %d.0.lcssa.i.i.i.i
   store ptr %incdec.ptr.i.i15, ptr %mEnd.i.i, align 8, !noalias !3297
   store i64 %24, ptr %mSize.i.i, align 8, !noalias !3297
@@ -48841,33 +48841,37 @@ call3.i.i.i.i.i.noexc1827:                        ; preds = %for.body.i.i.i.i.i1
 
 _ZN5eastl4copyINS_20ring_buffer_iteratorINS_12basic_stringIcNS_9allocatorEEEPS4_RS4_NS_6vectorIS4_S3_EEEES9_EET0_T_SB_SA_.exit.i: ; preds = %call3.i.i.i.i.i.noexc1827, %_ZN5eastl8distanceINS_20ring_buffer_iteratorINS_12basic_stringIcNS_9allocatorEEEPS4_RS4_NS_6vectorIS4_S3_EEEEEENS_15iterator_traitsIT_E15difference_typeESB_SB_.exit.i
   %tobool.not14.i = icmp eq i64 %d.0.lcssa.i.i.i.i, 0
+  br i1 %tobool.not14.i, label %_ZN5eastl4copyINS_20ring_buffer_iteratorINS_12basic_stringIcNS_9allocatorEEEPS4_RS4_NS_6vectorIS4_S3_EEEES9_EET0_T_SB_SA_.exit.i.invoke.cont676_crit_edge, label %while.body.lr.ph.i
+
+_ZN5eastl4copyINS_20ring_buffer_iteratorINS_12basic_stringIcNS_9allocatorEEEPS4_RS4_NS_6vectorIS4_S3_EEEES9_EET0_T_SB_SA_.exit.i.invoke.cont676_crit_edge: ; preds = %_ZN5eastl4copyINS_20ring_buffer_iteratorINS_12basic_stringIcNS_9allocatorEEEPS4_RS4_NS_6vectorIS4_S3_EEEES9_EET0_T_SB_SA_.exit.i
   %.pre8522 = load i64, ptr %mSize.i276, align 8
-  br i1 %tobool.not14.i, label %invoke.cont676, label %while.body.lr.ph.i
+  br label %invoke.cont676
 
 while.body.lr.ph.i:                               ; preds = %_ZN5eastl4copyINS_20ring_buffer_iteratorINS_12basic_stringIcNS_9allocatorEEEPS4_RS4_NS_6vectorIS4_S3_EEEES9_EET0_T_SB_SA_.exit.i
   %mEnd.i.promoted.i = load ptr, ptr %mEnd.i, align 8, !noalias !3429
   %449 = load ptr, ptr %rbVectorString, align 8, !noalias !3429
   %450 = load ptr, ptr %mpEnd.i.i277, align 8, !noalias !3429
-  br label %while.body.i1819
+  br label %while.body.i1818
 
-while.body.i1819:                                 ; preds = %while.body.i1819, %while.body.lr.ph.i
-  %d.015.i = phi i64 [ %d.0.lcssa.i.i.i.i, %while.body.lr.ph.i ], [ %dec.i1820, %while.body.i1819 ]
-  %451 = phi ptr [ %mEnd.i.promoted.i, %while.body.lr.ph.i ], [ %incdec.ptr.i.i1822, %while.body.i1819 ]
-  %dec.i1820 = add nsw i64 %d.015.i, -1
-  %cmp.i.i1821 = icmp eq ptr %451, %449
-  %452 = select i1 %cmp.i.i1821, ptr %450, ptr %451
-  %incdec.ptr.i.i1822 = getelementptr inbounds i8, ptr %452, i64 -24
-  %tobool.not.i1823 = icmp eq i64 %dec.i1820, 0
-  br i1 %tobool.not.i1823, label %while.cond.while.end_crit_edge.i, label %while.body.i1819, !llvm.loop !3444
+while.body.i1818:                                 ; preds = %while.body.i1818, %while.body.lr.ph.i
+  %d.015.i = phi i64 [ %d.0.lcssa.i.i.i.i, %while.body.lr.ph.i ], [ %dec.i1819, %while.body.i1818 ]
+  %451 = phi ptr [ %mEnd.i.promoted.i, %while.body.lr.ph.i ], [ %incdec.ptr.i.i1821, %while.body.i1818 ]
+  %dec.i1819 = add nsw i64 %d.015.i, -1
+  %cmp.i.i1820 = icmp eq ptr %451, %449
+  %452 = select i1 %cmp.i.i1820, ptr %450, ptr %451
+  %incdec.ptr.i.i1821 = getelementptr inbounds i8, ptr %452, i64 -24
+  %tobool.not.i1822 = icmp eq i64 %dec.i1819, 0
+  br i1 %tobool.not.i1822, label %while.cond.while.end_crit_edge.i, label %while.body.i1818, !llvm.loop !3444
 
-while.cond.while.end_crit_edge.i:                 ; preds = %while.body.i1819
-  %453 = sub i64 %.pre8522, %d.0.lcssa.i.i.i.i
-  store ptr %incdec.ptr.i.i1822, ptr %mEnd.i, align 8, !noalias !3429
+while.cond.while.end_crit_edge.i:                 ; preds = %while.body.i1818
+  %mSize.i.promoted.i = load i64, ptr %mSize.i276, align 8, !noalias !3429
+  %453 = sub i64 %mSize.i.promoted.i, %d.0.lcssa.i.i.i.i
+  store ptr %incdec.ptr.i.i1821, ptr %mEnd.i, align 8, !noalias !3429
   store i64 %453, ptr %mSize.i276, align 8, !noalias !3429
   br label %invoke.cont676
 
-invoke.cont676:                                   ; preds = %while.cond.while.end_crit_edge.i, %_ZN5eastl4copyINS_20ring_buffer_iteratorINS_12basic_stringIcNS_9allocatorEEEPS4_RS4_NS_6vectorIS4_S3_EEEES9_EET0_T_SB_SA_.exit.i
-  %454 = phi i64 [ %453, %while.cond.while.end_crit_edge.i ], [ %.pre8522, %_ZN5eastl4copyINS_20ring_buffer_iteratorINS_12basic_stringIcNS_9allocatorEEEPS4_RS4_NS_6vectorIS4_S3_EEEES9_EET0_T_SB_SA_.exit.i ]
+invoke.cont676:                                   ; preds = %_ZN5eastl4copyINS_20ring_buffer_iteratorINS_12basic_stringIcNS_9allocatorEEEPS4_RS4_NS_6vectorIS4_S3_EEEES9_EET0_T_SB_SA_.exit.i.invoke.cont676_crit_edge, %while.cond.while.end_crit_edge.i
+  %454 = phi i64 [ %.pre8522, %_ZN5eastl4copyINS_20ring_buffer_iteratorINS_12basic_stringIcNS_9allocatorEEEPS4_RS4_NS_6vectorIS4_S3_EEEES9_EET0_T_SB_SA_.exit.i.invoke.cont676_crit_edge ], [ %453, %while.cond.while.end_crit_edge.i ]
   %sub678 = sub i64 %231, %shr.i1746
   %cmp679 = icmp eq i64 %454, %sub678
   %call681 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp679, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 361, ptr noundef nonnull @.str.39)
@@ -50455,14 +50459,14 @@ invoke.cont950:                                   ; preds = %invoke.cont940, %in
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i2830, align 1
   %arrayctor.cur948.add = add nuw nsw i64 %arrayctor.cur948.idx, 24
   %arrayctor.done959 = icmp eq i64 %arrayctor.cur948.add, 240
-  br i1 %arrayctor.done959, label %for.body963.preheader, label %invoke.cont950
+  br i1 %arrayctor.done959, label %for.cond961.preheader, label %invoke.cont950
 
-for.body963.preheader:                            ; preds = %invoke.cont950
+for.cond961.preheader:                            ; preds = %invoke.cont950
   %arrayctor.end946 = getelementptr inbounds nuw i8, ptr %stringArray944, i64 240
   br label %for.body963
 
-for.body963:                                      ; preds = %for.body963.preheader, %for.inc971
-  %indvars.iv = phi i64 [ 0, %for.body963.preheader ], [ %indvars.iv.next, %for.inc971 ]
+for.body963:                                      ; preds = %for.cond961.preheader, %for.inc971
+  %indvars.iv = phi i64 [ 0, %for.cond961.preheader ], [ %indvars.iv.next, %for.inc971 ]
   %696 = trunc i64 %indvars.iv to i8
   %conv967 = or disjoint i8 %696, 48
   %arrayidx = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %stringArray944, i64 %indvars.iv
@@ -54156,10 +54160,6 @@ if.else.i4663:                                    ; preds = %if.end.i4660
 _ZN5eastl11ring_bufferINS_12basic_stringIcNS_9allocatorEEENS_4listIS3_S2_EES2_E9push_backEv.exit: ; preds = %if.then8.i4671, %if.then14.i4673, %if.else.i4663
   %1312 = phi ptr [ %1309, %if.then8.i4671 ], [ %.pre3.i, %if.then14.i4673 ], [ %1308, %if.else.i4663 ]
   %1313 = phi ptr [ %.pre3.i, %if.then8.i4671 ], [ %.pre3.i, %if.then14.i4673 ], [ %.pre.i4666, %if.else.i4663 ]
-  %cmp.i.i.i.i4668 = icmp eq ptr %1307, %1313
-  %.sroa.gep8094 = getelementptr inbounds nuw i8, ptr %1307, i64 8
-  %spec.select.i.i4669.sroa.sel = select i1 %cmp.i.i.i.i4668, ptr %mpPrev.i.i.i.i, ptr %.sroa.gep8094
-  %1314 = load ptr, ptr %spec.select.i.i4669.sroa.sel, align 8
   br label %for.cond.i.i4675
 
 for.cond.i.i4675:                                 ; preds = %for.cond.i.i4675, %_ZN5eastl11ring_bufferINS_12basic_stringIcNS_9allocatorEEENS_4listIS3_S2_EES2_E9push_backEv.exit
@@ -54171,6 +54171,10 @@ for.cond.i.i4675:                                 ; preds = %for.cond.i.i4675, %
   br i1 %cmp.i.not.i.i4679, label %_ZNK5eastl4listINS_12basic_stringIcNS_9allocatorEEES2_E8validateEv.exit.i4681, label %for.cond.i.i4675, !llvm.loop !3589
 
 _ZNK5eastl4listINS_12basic_stringIcNS_9allocatorEEES2_E8validateEv.exit.i4681: ; preds = %for.cond.i.i4675
+  %cmp.i.i.i.i4668 = icmp eq ptr %1307, %1313
+  %.sroa.gep8094 = getelementptr inbounds nuw i8, ptr %1307, i64 8
+  %spec.select.i.i4669.sroa.sel = select i1 %cmp.i.i.i.i4668, ptr %mpPrev.i.i.i.i, ptr %.sroa.gep8094
+  %1314 = load ptr, ptr %spec.select.i.i4669.sroa.sel, align 8
   %1315 = load i64, ptr %1216, align 8
   %cmp.not.i.i4683 = icmp ne i64 %n.0.i.i4677, %1315
   %cmp.i.i4684 = icmp eq i64 %1315, 0
@@ -58022,14 +58026,14 @@ invoke.cont2312:                                  ; preds = %invoke.cont2302, %i
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i6877, align 1
   %arrayctor.cur2310.add = add nuw nsw i64 %arrayctor.cur2310.idx, 24
   %arrayctor.done2321 = icmp eq i64 %arrayctor.cur2310.add, 240
-  br i1 %arrayctor.done2321, label %for.body2326.preheader, label %invoke.cont2312
+  br i1 %arrayctor.done2321, label %for.cond2324.preheader, label %invoke.cont2312
 
-for.body2326.preheader:                           ; preds = %invoke.cont2312
+for.cond2324.preheader:                           ; preds = %invoke.cont2312
   %arrayctor.end2308 = getelementptr inbounds nuw i8, ptr %stringArray2306, i64 240
   br label %for.body2326
 
-for.body2326:                                     ; preds = %for.body2326.preheader, %for.inc2336
-  %indvars.iv8502 = phi i64 [ 0, %for.body2326.preheader ], [ %indvars.iv.next8503, %for.inc2336 ]
+for.body2326:                                     ; preds = %for.cond2324.preheader, %for.inc2336
+  %indvars.iv8502 = phi i64 [ 0, %for.cond2324.preheader ], [ %indvars.iv.next8503, %for.inc2336 ]
   %1924 = trunc i64 %indvars.iv8502 to i8
   %conv2330 = or disjoint i8 %1924, 48
   %arrayidx2332 = getelementptr inbounds nuw %"class.eastl::basic_string.128", ptr %stringArray2306, i64 %indvars.iv8502

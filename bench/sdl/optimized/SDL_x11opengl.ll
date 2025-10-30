@@ -2023,9 +2023,9 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
   br i1 %.not150, label %69, label %68
 
 68:                                               ; preds = %._crit_edge
-  %.ptr149 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %scevgep = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 37158, ptr %67, align 16
-  store i32 %61, ptr %.ptr149, align 4
+  store i32 %61, ptr %scevgep, align 4
   br label %69
 
 69:                                               ; preds = %68, %._crit_edge

@@ -2888,15 +2888,15 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
   %211 = zext i1 %210 to i32
   %212 = sext i32 %207 to i64
   %213 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %206, i64 noundef %212, ptr noundef nonnull @.str.149, i32 noundef %211) #26
-  %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds i8, ptr %206, i64 %214
-  %216 = sub nsw i32 %207, %213
   %.0504736 = load ptr, ptr %180, align 8, !tbaa !116
   %.not565737 = icmp eq ptr %.0504736, null
   br i1 %.not565737, label %._crit_edge742, label %.lr.ph741
 
 ._crit_edge742:                                   ; preds = %.lr.ph741, %178
   %.0503.lcssa = phi i64 [ 0, %178 ], [ %221, %.lr.ph741 ]
+  %214 = sext i32 %213 to i64
+  %215 = getelementptr inbounds i8, ptr %206, i64 %214
+  %216 = sub nsw i32 %207, %213
   %217 = sext i32 %216 to i64
   %218 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %215, i64 noundef %217, ptr noundef nonnull @.str.150, i64 noundef %.0503.lcssa) #26
   br label %223

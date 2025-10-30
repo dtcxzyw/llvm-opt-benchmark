@@ -8201,7 +8201,7 @@ zend_hash_find_ex_ind.exit.i:                     ; preds = %820, %816, %808
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit225.loopexit252.i, label %808
+  br i1 %exitcond.not.i, label %.loopexit225.loopexit306.i, label %808
 
 .lr.ph237.i:                                      ; preds = %.preheader.i, %900
   %.3236.i = phi i32 [ %903, %900 ], [ 0, %.preheader.i ]
@@ -8297,14 +8297,14 @@ zend_hash_find_ex_ind.exit.i:                     ; preds = %820, %816, %808
   %904 = add i32 %..i, %796
   br label %.loopexit225.i
 
-.loopexit225.loopexit252.i:                       ; preds = %862
+.loopexit225.loopexit306.i:                       ; preds = %862
   %905 = add i32 %..i, %796
   br label %.loopexit225.i
 
-.loopexit225.i:                                   ; preds = %.loopexit225.loopexit252.i, %.loopexit225.loopexit.i, %.preheader.i, %.preheader226.i
-  %.2198.i = phi i32 [ %796, %.preheader.i ], [ %796, %.preheader226.i ], [ %904, %.loopexit225.loopexit.i ], [ %905, %.loopexit225.loopexit252.i ]
-  %.2192.i = phi ptr [ %798, %.preheader.i ], [ %798, %.preheader226.i ], [ %901, %.loopexit225.loopexit.i ], [ %863, %.loopexit225.loopexit252.i ]
-  %.2.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader226.i ], [ %..i, %.loopexit225.loopexit.i ], [ %..i, %.loopexit225.loopexit252.i ]
+.loopexit225.i:                                   ; preds = %.loopexit225.loopexit306.i, %.loopexit225.loopexit.i, %.preheader.i, %.preheader226.i
+  %.2198.i = phi i32 [ %796, %.preheader.i ], [ %796, %.preheader226.i ], [ %904, %.loopexit225.loopexit.i ], [ %905, %.loopexit225.loopexit306.i ]
+  %.2192.i = phi ptr [ %798, %.preheader.i ], [ %798, %.preheader226.i ], [ %901, %.loopexit225.loopexit.i ], [ %863, %.loopexit225.loopexit306.i ]
+  %.2.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader226.i ], [ %..i, %.loopexit225.loopexit.i ], [ %..i, %.loopexit225.loopexit306.i ]
   %906 = load ptr, ptr %175, align 8, !tbaa !89
   %907 = getelementptr inbounds nuw i8, ptr %906, i64 92
   %908 = load i32, ptr %907, align 4, !tbaa !28

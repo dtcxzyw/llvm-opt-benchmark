@@ -735,10 +735,6 @@ _ZN4llvm13SmallDenseMapIPKNS_17MachineBasicBlockESt10unique_ptrINS_19CoalescingB
   br i1 %.not.i.i.i129, label %_ZN4llvm13SmallDenseMapIPKNS_17MachineBasicBlockESt10unique_ptrINS_19CoalescingBitVectorImEESt14default_deleteIS6_EELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEC2Ej.exit130, label %.lr.ph.i.i.i127, !llvm.loop !229
 
 _ZN4llvm13SmallDenseMapIPKNS_17MachineBasicBlockESt10unique_ptrINS_19CoalescingBitVectorImEESt14default_deleteIS6_EELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEC2Ej.exit130: ; preds = %.lr.ph.i.i.i127
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %.phi.trans.insert.i.i123.ptr = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %.phi.trans.insert3.i.i125 = getelementptr inbounds nuw i8, ptr %65, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %147 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store ptr %147, ptr %66, align 8, !tbaa !6
@@ -2209,6 +2205,10 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit161: ; pred
   br i1 %.not1794, label %._crit_edge1960, label %.lr.ph1959
 
 ._crit_edge1972:                                  ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_.exit, %.preheader1802
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %.phi.trans.insert.i.i123.ptr = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %.phi.trans.insert3.i.i125 = getelementptr inbounds nuw i8, ptr %65, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   store ptr %1, ptr %75, align 8, !tbaa !410
@@ -19797,27 +19797,27 @@ define internal fastcc void @_ZN12_GLOBAL__N_114VarLocBasedLDV13OpenRangesSet6in
   %6 = alloca %"struct.std::pair.289", align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.val12 = load i32, ptr %7, align 8, !tbaa !342
-  %8 = and i32 %.val12, -2
-  %spec.select.i = icmp eq i32 %8, 2
   %.val = load ptr, ptr %1, align 8, !tbaa !6
-  %9 = getelementptr i8, ptr %1, i64 8
-  %.val11 = load i32, ptr %9, align 8, !tbaa !11
-  %10 = zext i32 %.val11 to i64
-  %.idx = shl nuw nsw i64 %10, 3
-  %11 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
+  %8 = getelementptr i8, ptr %1, i64 8
+  %.val11 = load i32, ptr %8, align 8, !tbaa !11
+  %9 = zext i32 %.val11 to i64
+  %.idx = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
   %.not18 = icmp eq i32 %.val11, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %72
 
 ._crit_edge.loopexit:                             ; preds = %72
-  %.pre = load i32, ptr %9, align 8, !tbaa !11
+  %.pre = load i32, ptr %8, align 8, !tbaa !11
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %13 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ 0, %3 ]
+  %12 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ 0, %3 ]
+  %13 = and i32 %.val12, -2
+  %spec.select.i = icmp eq i32 %13, 2
   %.v = select i1 %spec.select.i, i64 808, i64 224
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -19829,19 +19829,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_114VarLocBasedLDV13OpenRangesSet6in
   store i32 0, ptr %17, align 8, !tbaa !11
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store i32 2, ptr %18, align 4, !tbaa !12
-  %.not.i.i.i = icmp eq i32 %13, 0
+  %.not.i.i.i = icmp eq i32 %12, 0
   %19 = icmp eq ptr %15, %1
   %or.cond.i.i = or i1 %19, %.not.i.i.i
   br i1 %or.cond.i.i, label %_ZNSt4pairIN4llvm13DebugVariableENS0_11SmallVectorIN12_GLOBAL__N_18LocIndexELj2EEEEC2IRKS1_RS5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit, label %20
 
 20:                                               ; preds = %._crit_edge
-  %21 = icmp ugt i32 %13, 2
+  %21 = icmp ugt i32 %12, 2
   br i1 %21, label %_ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.i.i, label %_ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.thread.i.i
 
 _ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.i.i: ; preds = %20
-  %22 = zext i32 %13 to i64
+  %22 = zext i32 %12 to i64
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %16, i64 noundef %22, i64 noundef 8) #22
-  %.val41.i.pre.i.i = load i32, ptr %9, align 8, !tbaa !11
+  %.val41.i.pre.i.i = load i32, ptr %8, align 8, !tbaa !11
   %.not.i.i.i.i = icmp eq i32 %.val41.i.pre.i.i, 0
   br i1 %.not.i.i.i.i, label %.sink.split.i.i.i, label %_ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.i._ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.thread.i_crit_edge.i
 
@@ -19851,7 +19851,7 @@ _ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.i._ZSt4copyIPKN12
 
 _ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.thread.i.i: ; preds = %_ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.i._ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.thread.i_crit_edge.i, %20
   %.val34.i.i.i = phi ptr [ %.val34.i.i.pre.i, %_ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.i._ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.thread.i_crit_edge.i ], [ %16, %20 ]
-  %.val41.i9.i.i = phi i32 [ %.val41.i.pre.i.i, %_ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.i._ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.thread.i_crit_edge.i ], [ %13, %20 ]
+  %.val41.i9.i.i = phi i32 [ %.val41.i.pre.i.i, %_ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.i._ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.thread.i_crit_edge.i ], [ %12, %20 ]
   %23 = zext i32 %.val41.i9.i.i to i64
   %.val33.i.i.i = load ptr, ptr %1, align 8, !tbaa !6
   %gepdiff.i.i.i = shl nuw nsw i64 %23, 3
@@ -19859,7 +19859,7 @@ _ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.thread.i.i: ; pre
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %_ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.thread.i.i, %_ZSt4copyIPKN12_GLOBAL__N_18LocIndexEPS1_ET0_T_S6_S5_.exit43.i.i.i
-  store i32 %13, ptr %17, align 8, !tbaa !11
+  store i32 %12, ptr %17, align 8, !tbaa !11
   br label %_ZNSt4pairIN4llvm13DebugVariableENS0_11SmallVectorIN12_GLOBAL__N_18LocIndexELj2EEEEC2IRKS1_RS5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit
 
 _ZNSt4pairIN4llvm13DebugVariableENS0_11SmallVectorIN12_GLOBAL__N_18LocIndexELj2EEEEC2IRKS1_RS5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit: ; preds = %._crit_edge, %.sink.split.i.i.i
@@ -20019,9 +20019,9 @@ _ZNSt4pairIN4llvm13DebugVariableENS0_11SmallVectorIN12_GLOBAL__N_18LocIndexELj2E
   %.019 = phi ptr [ %.val, %.lr.ph ], [ %75, %72 ]
   %73 = load i64, ptr %.019, align 4
   %74 = tail call i64 @llvm.fshl.i64(i64 %73, i64 %73, i64 32)
-  tail call void @_ZN4llvm11IntervalMapImcLj11ENS_15IntervalMapInfoImEEE6insertEmmc(ptr noundef nonnull align 8 dereferenceable(208) %12, i64 noundef %74, i64 noundef %74, i8 noundef signext 0)
+  tail call void @_ZN4llvm11IntervalMapImcLj11ENS_15IntervalMapInfoImEEE6insertEmmc(ptr noundef nonnull align 8 dereferenceable(208) %11, i64 noundef %74, i64 noundef %74, i8 noundef signext 0)
   %75 = getelementptr inbounds nuw i8, ptr %.019, i64 8
-  %.not = icmp eq ptr %75, %11
+  %.not = icmp eq ptr %75, %10
   br i1 %.not, label %._crit_edge.loopexit, label %72
 }
 

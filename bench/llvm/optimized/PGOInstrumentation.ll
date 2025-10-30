@@ -4837,8 +4837,8 @@ _ZNK4llvm5Value11hasMetadataEj.exit.thread:       ; preds = %242, %_ZNK4llvm5Val
   %294 = getelementptr inbounds nuw i8, ptr %85, i64 200
   %295 = getelementptr inbounds nuw i8, ptr %56, i64 56
   %296 = getelementptr inbounds nuw i8, ptr %85, i64 424
-  %297 = getelementptr inbounds nuw i8, ptr %85, i64 484
-  %298 = getelementptr inbounds nuw i8, ptr %85, i64 432
+  %297 = getelementptr inbounds nuw i8, ptr %85, i64 432
+  %298 = getelementptr inbounds nuw i8, ptr %85, i64 484
   %299 = getelementptr inbounds nuw i8, ptr %85, i64 272
   %300 = getelementptr inbounds nuw i8, ptr %85, i64 288
   %301 = getelementptr inbounds nuw i8, ptr %85, i64 336
@@ -5153,7 +5153,7 @@ _ZN4llvm5ErrorD2Ev.exit24.i:                      ; preds = %_ZN4llvm8ExpectedIN
   br i1 %.not.i113, label %524, label %_ZN4llvm5ErrorD2Ev.exit23.i
 
 524:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit24.i
-  %525 = load ptr, ptr %298, align 8, !tbaa !377
+  %525 = load ptr, ptr %297, align 8, !tbaa !377
   %526 = ptrtoint ptr %525 to i64
   %527 = ptrtoint ptr %522 to i64
   %528 = sub i64 %526, %527
@@ -5801,7 +5801,7 @@ _ZL16setupBBInfoEdgesRKN12_GLOBAL__N_122FuncPGOInstrumentationINS_10PGOUseEdgeEN
   %800 = trunc i64 %799 to i32
   %801 = add i32 %.val.i.i, %800
   %802 = zext i32 %801 to i64
-  %803 = load ptr, ptr %298, align 8, !tbaa !377
+  %803 = load ptr, ptr %297, align 8, !tbaa !377
   %804 = load ptr, ptr %296, align 8, !tbaa !376
   %805 = ptrtoint ptr %803 to i64
   %806 = ptrtoint ptr %804 to i64
@@ -5819,7 +5819,7 @@ _ZL16setupBBInfoEdgesRKN12_GLOBAL__N_122FuncPGOInstrumentationINS_10PGOUseEdgeEN
   br i1 %.not163175.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i118
 
 ._crit_edge.loopexit.i.i:                         ; preds = %_ZNK12_GLOBAL__N_110PGOUseFunc9getBBInfoEPKN4llvm10BasicBlockE.exit.i.i
-  %.pre.i.i = load ptr, ptr %298, align 8, !tbaa !377
+  %.pre.i.i = load ptr, ptr %297, align 8, !tbaa !377
   %.pre193.i.i = load ptr, ptr %296, align 8, !tbaa !376
   %.pre194.i.i = ptrtoint ptr %.pre.i.i to i64
   %.pre195.i.i = ptrtoint ptr %.pre193.i.i to i64
@@ -6504,7 +6504,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %_ZN4llvm5ErrorD2Ev.exit23.i
 
 1140:                                             ; preds = %_ZN12_GLOBAL__N_110PGOUseFunc21setInstrumentedCountsERKSt6vectorImSaImEE.exit.i
-  %1141 = load i8, ptr %297, align 4, !tbaa !439, !range !51, !noundef !52
+  %1141 = load i8, ptr %298, align 4, !tbaa !439, !range !51, !noundef !52
   %1142 = trunc nuw i8 %1141 to i1
   %.pn.in.v.i.i = select i1 %1142, i64 152, i64 144
   %.pn.in.i.i = getelementptr inbounds nuw i8, ptr %125, i64 %.pn.in.v.i.i

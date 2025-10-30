@@ -8944,8 +8944,8 @@ _ZN4llvm9is_sortedIRNS_11SmallVectorISt4pairIPKNS_3UseEjELj64EEENS_11less_second
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm9is_sortedIRNS_11SmallVectorISt4pairIPKNS_3UseEjELj64EEENS_11less_secondEEEbOT_T0_.exit.i.i.i
   %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %411, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %410, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !120, !noalias !444
   %413 = getelementptr inbounds nuw i8, ptr %410, i64 %.idx.i.i.i.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %410, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !120, !noalias !444
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i.i
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit.i.i.i:         ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i, %_ZN4llvm9is_sortedIRNS_11SmallVectorISt4pairIPKNS_3UseEjELj64EEENS_11less_secondEEEbOT_T0_.exit.i.i.i
@@ -9662,8 +9662,8 @@ _ZN12_GLOBAL__N_112TypePrinting16incorporateTypesEv.exit.i.i.i: ; preds = %._cri
 
 _ZSt6fill_nIPPN4llvm10StructTypeEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %772
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %774, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %773, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !469
   %776 = getelementptr inbounds nuw i8, ptr %773, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %773, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !469
   br label %_ZSt27__uninitialized_default_n_aIPPN4llvm10StructTypeEmS2_ET_S4_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPPN4llvm10StructTypeEmS2_ET_S4_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPPN4llvm10StructTypeEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i, %772

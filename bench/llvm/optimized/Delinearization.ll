@@ -1004,9 +1004,9 @@ _ZN4llvm15SmallVectorImplIPKNS_4SCEVEE5eraseEPKS3_S6_.exit: ; preds = %.preheade
   call fastcc void @"_ZSt16__introsort_loopIPPKN4llvm4SCEVElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_SF_T0_T1_"(ptr noundef %101, ptr noundef nonnull %126, i64 noundef %130)
   %131 = icmp ugt i32 %124, 16
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %101, i64 8
-  br i1 %131, label %.preheader.i.i.i, label %199
+  br i1 %131, label %.preheader.i.i.i.i.i, label %199
 
-.preheader.i.i.i:                                 ; preds = %127, %"_ZSt25__unguarded_linear_insertIPPKN4llvm4SCEVEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
+.preheader.i.i.i.i.i:                             ; preds = %127, %"_ZSt25__unguarded_linear_insertIPPKN4llvm4SCEVEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
   %.029.i.idx.i.i.i.i.i = phi i64 [ %.029.i.add.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPKN4llvm4SCEVEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ], [ 8, %127 ]
   %.029.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %101, i64 %.029.i.idx.i.i.i.i.i
   %.0.val.i.i.i.i.i.i = load ptr, ptr %.029.i.ptr.i.i.i.i.i, align 8, !tbaa !38
@@ -1018,14 +1018,14 @@ _ZN4llvm15SmallVectorImplIPKNS_4SCEVEE5eraseEPKS3_S6_.exit: ; preds = %.preheade
   %.not.not.i.i.i.i.i.i.i.i.i = or i1 %.not6.i.i.i.i.i.i.i.i.i, %134
   br i1 %.not.not.i.i.i.i.i.i.i.i.i, label %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i.i.i.i.i.i, label %135
 
-135:                                              ; preds = %.preheader.i.i.i
+135:                                              ; preds = %.preheader.i.i.i.i.i
   %136 = getelementptr inbounds nuw i8, ptr %.0.val.i.i.i.i.i.i, i64 40
   %137 = load i64, ptr %136, align 8, !tbaa !57
   %138 = trunc i64 %137 to i32
   br label %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i.i.i.i.i.i
 
-_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i.i.i.i.i.i: ; preds = %135, %.preheader.i.i.i
-  %spec.select.i.i.i.i.i.i.i.i.i = phi i32 [ %138, %135 ], [ 1, %.preheader.i.i.i ]
+_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i.i.i.i.i.i: ; preds = %135, %.preheader.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i.i.i.i = phi i32 [ %138, %135 ], [ 1, %.preheader.i.i.i.i.i ]
   %139 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i, i64 24
   %140 = load i16, ptr %139, align 8, !tbaa !28
   %141 = icmp ne i16 %140, 6
@@ -1119,7 +1119,7 @@ _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i.i.i.i.i.i.i: ; preds = %170, %.split
   store ptr %.0.val.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i, align 8, !tbaa !38
   %.029.i.add.i.i.i.i.i = add nuw nsw i64 %.029.i.idx.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i49 = icmp eq i64 %.029.i.add.i.i.i.i.i, 128
-  br i1 %.not.i.i.i.i.i.i49, label %"_ZSt16__insertion_sortIPPKN4llvm4SCEVEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_SF_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i, !llvm.loop !87
+  br i1 %.not.i.i.i.i.i.i49, label %"_ZSt16__insertion_sortIPPKN4llvm4SCEVEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_SF_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i.i.i, !llvm.loop !87
 
 "_ZSt16__insertion_sortIPPKN4llvm4SCEVEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_SF_T0_.exit.i.i.i.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPPKN4llvm4SCEVEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
   %171 = getelementptr inbounds nuw i8, ptr %101, i64 128

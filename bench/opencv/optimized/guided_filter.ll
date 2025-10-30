@@ -2620,8 +2620,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZNSt6vector
   store i32 0, ptr %132, align 4, !tbaa !28
   %135 = getelementptr i8, ptr %132, i64 4
   %.idx.i.i.i.i.i.i.i.i = add nsw i64 %131, -4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %135, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !28
   %136 = getelementptr i8, ptr %132, i64 %131
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %135, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !28
   %137 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %136, ptr %137, align 8, !tbaa !164
   %smax.i = call i32 @llvm.smax.i32(i32 %.sroa.speculated.i, i32 1)
@@ -5253,8 +5253,8 @@ define linkonce_odr void @_ZNSt6vectorIPN2cv3MatESaIS2_EE17_M_default_appendEm(p
 
 _ZSt6fill_nIPPN2cv3MatEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !132
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !132
   br label %_ZSt27__uninitialized_default_n_aIPPN2cv3MatEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN2cv3MatEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN2cv3MatEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i

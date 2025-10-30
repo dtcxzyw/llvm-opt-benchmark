@@ -3785,25 +3785,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18, %
   %.sroa.speculated166 = tail call i32 @llvm.smin.i32(i32 %28, i32 %24)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %30 = load i32, ptr %29, align 4, !tbaa !123
-  %31 = add nsw i32 %30, 1
-  %32 = sdiv i32 %31, 2
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %32, i32 %24)
-  %33 = icmp sgt i32 %.sroa.speculated166, 0
-  br i1 %33, label %.lr.ph193, label %.preheader182
+  %31 = icmp sgt i32 %.sroa.speculated166, 0
+  br i1 %31, label %.lr.ph193, label %.preheader182
 
 .lr.ph193:                                        ; preds = %23
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %42 = add nuw nsw i32 %9, 1
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %40 = add nuw nsw i32 %9, 1
   %wide.trip.count230 = zext nneg i32 %.sroa.speculated166 to i64
-  %wide.trip.count = zext nneg i32 %42 to i64
-  %wide.trip.count217 = zext nneg i32 %42 to i64
+  %wide.trip.count = zext nneg i32 %40 to i64
+  %wide.trip.count217 = zext nneg i32 %40 to i64
   br label %56
 
 .preheader182.loopexit:                           ; preds = %._crit_edge
@@ -3811,11 +3808,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18, %
   br label %.preheader182
 
 .preheader182:                                    ; preds = %.preheader182.loopexit, %23
-  %43 = phi i32 [ %.pre, %.preheader182.loopexit ], [ %26, %23 ]
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.preheader181.lr.ph, label %._crit_edge204
+  %41 = phi i32 [ %.pre, %.preheader182.loopexit ], [ %26, %23 ]
+  %42 = icmp sgt i32 %41, 0
+  br i1 %42, label %.preheader181.lr.ph, label %._crit_edge204
 
 .preheader181.lr.ph:                              ; preds = %.preheader182
+  %43 = add nsw i32 %30, 1
+  %44 = sdiv i32 %43, 2
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %44, i32 %24)
   %45 = icmp sgt i32 %.sroa.speculated, 0
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3854,8 +3854,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18, %
 
 .lr.ph:                                           ; preds = %56, %107
   %indvars.iv211 = phi i64 [ %indvars.iv.next212, %107 ], [ 0, %56 ]
-  %67 = load ptr, ptr %34, align 8, !tbaa !124
-  %68 = load ptr, ptr %35, align 8, !tbaa !125
+  %67 = load ptr, ptr %32, align 8, !tbaa !124
+  %68 = load ptr, ptr %33, align 8, !tbaa !125
   %69 = load i64, ptr %68, align 8, !tbaa !37
   %70 = mul i64 %69, %indvars.iv227
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 %70
@@ -3879,28 +3879,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18, %
 81:                                               ; preds = %76
   %82 = load double, ptr %6, align 8, !tbaa !129, !noalias !131
   %83 = fmul double %61, %82
-  %84 = load double, ptr %36, align 8, !tbaa !129, !noalias !131
+  %84 = load double, ptr %34, align 8, !tbaa !129, !noalias !131
   %85 = fmul double %61, %84
-  %86 = load double, ptr %37, align 8, !tbaa !129, !noalias !131
+  %86 = load double, ptr %35, align 8, !tbaa !129, !noalias !131
   %87 = fmul double %61, %86
-  %88 = load double, ptr %38, align 8, !tbaa !129, !noalias !131
+  %88 = load double, ptr %36, align 8, !tbaa !129, !noalias !131
   %89 = fmul double %61, %88
   %90 = load double, ptr %1, align 8, !tbaa !129, !noalias !134
   %91 = fmul double %62, %90
-  %92 = load double, ptr %39, align 8, !tbaa !129, !noalias !134
+  %92 = load double, ptr %37, align 8, !tbaa !129, !noalias !134
   %93 = fmul double %62, %92
-  %94 = load double, ptr %40, align 8, !tbaa !129, !noalias !134
+  %94 = load double, ptr %38, align 8, !tbaa !129, !noalias !134
   %95 = fmul double %62, %94
-  %96 = load double, ptr %41, align 8, !tbaa !129, !noalias !134
+  %96 = load double, ptr %39, align 8, !tbaa !129, !noalias !134
   %97 = fmul double %62, %96
   %98 = fadd double %83, %91
   %99 = fadd double %85, %93
   %100 = fadd double %87, %95
   %101 = fadd double %89, %97
   store double %98, ptr %6, align 8, !tbaa !129
-  store double %99, ptr %36, align 8, !tbaa !129
-  store double %100, ptr %37, align 8, !tbaa !129
-  store double %101, ptr %38, align 8, !tbaa !129
+  store double %99, ptr %34, align 8, !tbaa !129
+  store double %100, ptr %35, align 8, !tbaa !129
+  store double %101, ptr %36, align 8, !tbaa !129
   br label %102
 
 102:                                              ; preds = %81, %102
@@ -3925,9 +3925,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18, %
   %indvars.iv224 = phi i64 [ 0, %.lr.ph190 ], [ %indvars.iv.next225, %155 ]
   %112 = load i32, ptr %25, align 8, !tbaa !122
   %113 = add i32 %112, %66
-  %114 = load ptr, ptr %34, align 8, !tbaa !124
+  %114 = load ptr, ptr %32, align 8, !tbaa !124
   %115 = sext i32 %113 to i64
-  %116 = load ptr, ptr %35, align 8, !tbaa !125
+  %116 = load ptr, ptr %33, align 8, !tbaa !125
   %117 = load i64, ptr %116, align 8, !tbaa !37
   %118 = mul i64 %117, %115
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 %118
@@ -3951,28 +3951,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18, %
 129:                                              ; preds = %124
   %130 = load double, ptr %6, align 8, !tbaa !129, !noalias !140
   %131 = fmul double %61, %130
-  %132 = load double, ptr %36, align 8, !tbaa !129, !noalias !140
+  %132 = load double, ptr %34, align 8, !tbaa !129, !noalias !140
   %133 = fmul double %61, %132
-  %134 = load double, ptr %37, align 8, !tbaa !129, !noalias !140
+  %134 = load double, ptr %35, align 8, !tbaa !129, !noalias !140
   %135 = fmul double %61, %134
-  %136 = load double, ptr %38, align 8, !tbaa !129, !noalias !140
+  %136 = load double, ptr %36, align 8, !tbaa !129, !noalias !140
   %137 = fmul double %61, %136
   %138 = load double, ptr %1, align 8, !tbaa !129, !noalias !143
   %139 = fmul double %62, %138
-  %140 = load double, ptr %39, align 8, !tbaa !129, !noalias !143
+  %140 = load double, ptr %37, align 8, !tbaa !129, !noalias !143
   %141 = fmul double %62, %140
-  %142 = load double, ptr %40, align 8, !tbaa !129, !noalias !143
+  %142 = load double, ptr %38, align 8, !tbaa !129, !noalias !143
   %143 = fmul double %62, %142
-  %144 = load double, ptr %41, align 8, !tbaa !129, !noalias !143
+  %144 = load double, ptr %39, align 8, !tbaa !129, !noalias !143
   %145 = fmul double %62, %144
   %146 = fadd double %131, %139
   %147 = fadd double %133, %141
   %148 = fadd double %135, %143
   %149 = fadd double %137, %145
   store double %146, ptr %6, align 8, !tbaa !129
-  store double %147, ptr %36, align 8, !tbaa !129
-  store double %148, ptr %37, align 8, !tbaa !129
-  store double %149, ptr %38, align 8, !tbaa !129
+  store double %147, ptr %34, align 8, !tbaa !129
+  store double %148, ptr %35, align 8, !tbaa !129
+  store double %149, ptr %36, align 8, !tbaa !129
   br label %150
 
 150:                                              ; preds = %129, %150

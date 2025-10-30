@@ -2047,63 +2047,63 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %122, %._crit_edge29
   %.188279 = phi ptr [ %.087291, %.lr.ph ], [ %252, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
   %.190278 = phi ptr [ %.089290, %.lr.ph ], [ %253, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
   %.192277 = phi ptr [ %.091289, %.lr.ph ], [ %254, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
-  %145 = trunc nuw nsw i64 %indvars.iv304 to i32
-  %146 = uitofp nneg i32 %145 to float
-  %147 = load float, ptr %.184281, align 4, !tbaa !82
-  %148 = fneg fast float %147
-  %149 = call fast float @llvm.exp.f32(float %148)
-  %150 = fadd fast float %149, 1.000000e+00
-  %151 = fdiv fast float 1.000000e+00, %150
-  %152 = fadd fast float %151, %146
-  %153 = sitofp i32 %144 to float
-  %154 = fdiv fast float %152, %153
-  %155 = load float, ptr %.186280, align 4, !tbaa !82
-  %156 = fneg fast float %155
-  %157 = call fast float @llvm.exp.f32(float %156)
-  %158 = fadd fast float %157, 1.000000e+00
-  %159 = fdiv fast float 1.000000e+00, %158
-  %160 = fadd fast float %159, %120
-  %161 = load i32, ptr %7, align 4, !tbaa !51
-  %162 = sitofp i32 %161 to float
-  %163 = fdiv fast float %160, %162
-  %164 = load float, ptr %.188279, align 4, !tbaa !82
-  %165 = call fast float @llvm.exp.f32(float %164)
-  %166 = load float, ptr %.190278, align 4, !tbaa !82
-  %167 = call fast float @llvm.exp.f32(float %166)
-  %168 = fmul fast float %91, %165
-  %169 = fdiv fast float %168, %153
-  %170 = fsub fast float %154, %169
-  %171 = fmul fast float %92, %167
-  %172 = fdiv fast float %171, %162
-  %173 = fsub fast float %163, %172
-  %174 = fadd fast float %169, %154
-  %175 = fadd fast float %172, %163
-  %176 = load float, ptr %.192277, align 4, !tbaa !82
-  %177 = fneg fast float %176
-  %178 = call fast float @llvm.exp.f32(float %177)
-  %179 = fadd fast float %178, 1.000000e+00
-  %180 = load i32, ptr %35, align 8, !tbaa !18
-  %181 = icmp sgt i32 %180, 0
-  br i1 %181, label %.noexc148.lr.ph, label %._crit_edge
+  %145 = load i32, ptr %35, align 8, !tbaa !18
+  %146 = icmp sgt i32 %145, 0
+  br i1 %146, label %.noexc148.lr.ph, label %._crit_edge
 
 .noexc148.lr.ph:                                  ; preds = %143
-  %182 = load i32, ptr %41, align 4, !tbaa !42, !noalias !107
-  %183 = load ptr, ptr %16, align 8, !tbaa !16, !noalias !107
-  %184 = load i64, ptr %45, align 8, !tbaa !17, !noalias !107
-  %185 = load i64, ptr %37, align 8, !tbaa !39, !noalias !107
-  %factor.op.mul = mul i64 %184, %185
-  %186 = sext i32 %182 to i64
-  %187 = mul nsw i64 %indvars.iv307, %186
-  %188 = mul i64 %187, %185
-  %invariant.gep = getelementptr i8, ptr %183, i64 %188
+  %147 = load i32, ptr %41, align 4, !tbaa !42, !noalias !107
+  %148 = load ptr, ptr %16, align 8, !tbaa !16, !noalias !107
+  %149 = load i64, ptr %45, align 8, !tbaa !17, !noalias !107
+  %150 = load i64, ptr %37, align 8, !tbaa !39, !noalias !107
+  %factor.op.mul = mul i64 %149, %150
+  %151 = sext i32 %147 to i64
+  %152 = mul nsw i64 %indvars.iv307, %151
+  %153 = mul i64 %152, %150
+  %invariant.gep = getelementptr i8, ptr %148, i64 %153
   %invariant.gep274 = getelementptr float, ptr %invariant.gep, i64 %indvars.iv304
-  %wide.trip.count = zext nneg i32 %180 to i64
+  %wide.trip.count = zext nneg i32 %145 to i64
   br label %.noexc148
 
 ._crit_edge:                                      ; preds = %.noexc148, %143
   %.081.lcssa = phi i32 [ 0, %143 ], [ %.182, %.noexc148 ]
   %.080.lcssa = phi float [ 0.000000e+00, %143 ], [ %.1, %.noexc148 ]
-  %189 = fdiv fast float %.080.lcssa, %179
+  %154 = trunc nuw nsw i64 %indvars.iv304 to i32
+  %155 = uitofp nneg i32 %154 to float
+  %156 = load float, ptr %.184281, align 4, !tbaa !82
+  %157 = fneg fast float %156
+  %158 = call fast float @llvm.exp.f32(float %157)
+  %159 = fadd fast float %158, 1.000000e+00
+  %160 = fdiv fast float 1.000000e+00, %159
+  %161 = fadd fast float %160, %155
+  %162 = sitofp i32 %144 to float
+  %163 = fdiv fast float %161, %162
+  %164 = load float, ptr %.186280, align 4, !tbaa !82
+  %165 = fneg fast float %164
+  %166 = call fast float @llvm.exp.f32(float %165)
+  %167 = fadd fast float %166, 1.000000e+00
+  %168 = fdiv fast float 1.000000e+00, %167
+  %169 = fadd fast float %168, %120
+  %170 = load i32, ptr %7, align 4, !tbaa !51
+  %171 = sitofp i32 %170 to float
+  %172 = fdiv fast float %169, %171
+  %173 = load float, ptr %.188279, align 4, !tbaa !82
+  %174 = call fast float @llvm.exp.f32(float %173)
+  %175 = load float, ptr %.190278, align 4, !tbaa !82
+  %176 = call fast float @llvm.exp.f32(float %175)
+  %177 = fmul fast float %91, %174
+  %178 = fdiv fast float %177, %162
+  %179 = fsub fast float %163, %178
+  %180 = fmul fast float %92, %176
+  %181 = fdiv fast float %180, %171
+  %182 = fsub fast float %172, %181
+  %183 = fadd fast float %178, %163
+  %184 = fadd fast float %181, %172
+  %185 = load float, ptr %.192277, align 4, !tbaa !82
+  %186 = fneg fast float %185
+  %187 = call fast float @llvm.exp.f32(float %186)
+  %188 = fadd fast float %187, 1.000000e+00
+  %189 = fdiv fast float %.080.lcssa, %188
   %190 = load float, ptr %47, align 8, !tbaa !37
   %191 = fcmp fast ult float %189, %190
   br i1 %191, label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit, label %195
@@ -2134,13 +2134,13 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %122, %._crit_edge29
   br i1 %.not.i150, label %204, label %202
 
 202:                                              ; preds = %195
-  store float %170, ptr %199, align 4, !tbaa !82
+  store float %179, ptr %199, align 4, !tbaa !82
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %199, i64 4
-  store float %173, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !82
+  store float %182, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !82
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %199, i64 8
-  store float %174, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !82
+  store float %183, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !82
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %199, i64 12
-  store float %175, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !82
+  store float %184, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !82
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %199, i64 16
   store i32 %.081.lcssa, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !51
   %203 = getelementptr inbounds nuw i8, ptr %199, i64 20
@@ -2170,13 +2170,13 @@ _ZNKSt6vectorIN4ncnn8BBoxRectESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %2
 
 .noexc152:                                        ; preds = %_ZNKSt6vectorIN4ncnn8BBoxRectESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %217 = getelementptr inbounds i8, ptr %216, i64 %208
-  store float %170, ptr %217, align 4, !tbaa !82
+  store float %179, ptr %217, align 4, !tbaa !82
   %.sroa.5.0..sroa_idx160 = getelementptr inbounds nuw i8, ptr %217, i64 4
-  store float %173, ptr %.sroa.5.0..sroa_idx160, align 4, !tbaa !82
+  store float %182, ptr %.sroa.5.0..sroa_idx160, align 4, !tbaa !82
   %.sroa.6.0..sroa_idx162 = getelementptr inbounds nuw i8, ptr %217, i64 8
-  store float %174, ptr %.sroa.6.0..sroa_idx162, align 4, !tbaa !82
+  store float %183, ptr %.sroa.6.0..sroa_idx162, align 4, !tbaa !82
   %.sroa.7.0..sroa_idx164 = getelementptr inbounds nuw i8, ptr %217, i64 12
-  store float %175, ptr %.sroa.7.0..sroa_idx164, align 4, !tbaa !82
+  store float %184, ptr %.sroa.7.0..sroa_idx164, align 4, !tbaa !82
   %.sroa.8.0..sroa_idx166 = getelementptr inbounds nuw i8, ptr %217, i64 16
   store i32 %.081.lcssa, ptr %.sroa.8.0..sroa_idx166, align 4, !tbaa !51
   %218 = icmp sgt i64 %208, 0

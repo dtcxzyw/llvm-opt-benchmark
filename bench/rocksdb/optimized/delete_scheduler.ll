@@ -746,7 +746,7 @@ _ZN7rocksdb21InstrumentedMutexLockD2Ev.exit:      ; preds = %_ZN7rocksdb19Instru
   invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %._crit_edge unwind label %51
 
-._crit_edge:                                      ; preds = %10, %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit
+._crit_edge:                                      ; preds = %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit, %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %13 = load ptr, ptr %12, align 8, !tbaa !107

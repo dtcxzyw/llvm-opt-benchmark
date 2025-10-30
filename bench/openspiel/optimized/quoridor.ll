@@ -6004,8 +6004,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   %10 = getelementptr inbounds nuw double, ptr %8, i64 %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %7, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %7
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %7, i1 false)
   store ptr %12, ptr %9, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %14 = load i8, ptr %13, align 8
@@ -6528,8 +6528,8 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
   br i1 %.not39, label %._crit_edge38, label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.pre47 = load i32, ptr %24, align 4
   br label %55
 
@@ -6585,41 +6585,41 @@ _ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit: ; preds = %_ZNK10ope
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit24
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit24 ]
   %75 = phi i32 [ %72, %.lr.ph.preheader ], [ %97, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit24 ]
-  %76 = load ptr, ptr %54, align 8
+  %76 = load ptr, ptr %53, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 %indvars.iv
   %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i64
-  %80 = load ptr, ptr %53, align 8
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %79
-  %82 = load i32, ptr %81, align 4
-  %83 = add nsw i32 %75, 1
-  %84 = zext i8 %78 to i32
-  %85 = add nsw i32 %83, %84
-  br label %86
+  %79 = add nsw i32 %75, 1
+  %80 = zext i8 %78 to i32
+  %81 = add nsw i32 %79, %80
+  br label %82
 
-86:                                               ; preds = %86, %.lr.ph
-  %87 = phi i1 [ true, %.lr.ph ], [ false, %86 ]
-  %indvars.iv.i.i21.sroa.phi.sroa.speculated = phi i32 [ %85, %.lr.ph ], [ %74, %86 ]
-  %indvars.iv.i.i21 = phi i64 [ 0, %.lr.ph ], [ 1, %86 ]
-  %.078.i.i22 = phi i32 [ 0, %.lr.ph ], [ %91, %86 ]
-  %88 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv.i.i21
-  %89 = load i32, ptr %88, align 4
-  %90 = mul nsw i32 %89, %.078.i.i22
-  %91 = add nsw i32 %90, %indvars.iv.i.i21.sroa.phi.sroa.speculated
-  br i1 %87, label %86, label %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i23, !llvm.loop !48
+82:                                               ; preds = %82, %.lr.ph
+  %83 = phi i1 [ true, %.lr.ph ], [ false, %82 ]
+  %indvars.iv.i.i21.sroa.phi.sroa.speculated = phi i32 [ %81, %.lr.ph ], [ %74, %82 ]
+  %indvars.iv.i.i21 = phi i64 [ 0, %.lr.ph ], [ 1, %82 ]
+  %.078.i.i22 = phi i32 [ 0, %.lr.ph ], [ %87, %82 ]
+  %84 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv.i.i21
+  %85 = load i32, ptr %84, align 4
+  %86 = mul nsw i32 %85, %.078.i.i22
+  %87 = add nsw i32 %86, %indvars.iv.i.i21.sroa.phi.sroa.speculated
+  br i1 %83, label %82, label %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i23, !llvm.loop !48
 
-_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i23: ; preds = %86
-  %92 = sext i32 %91 to i64
-  %93 = icmp ugt i64 %3, %92
-  br i1 %93, label %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit24, label %94
+_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i23: ; preds = %82
+  %88 = sext i32 %87 to i64
+  %89 = icmp ugt i64 %3, %88
+  br i1 %89, label %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit24, label %90
 
-94:                                               ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i23
+90:                                               ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i23
   tail call void @llvm.trap()
   unreachable
 
 _ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit24: ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i23
-  %95 = sitofp i32 %82 to float
-  %96 = getelementptr inbounds float, ptr %2, i64 %92
+  %91 = load ptr, ptr %54, align 8
+  %92 = zext i8 %78 to i64
+  %93 = getelementptr inbounds nuw i32, ptr %91, i64 %92
+  %94 = load i32, ptr %93, align 4
+  %95 = sitofp i32 %94 to float
+  %96 = getelementptr inbounds float, ptr %2, i64 %88
   store float %95, ptr %96, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %97 = load i32, ptr %24, align 4
@@ -9459,8 +9459,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %30 = getelementptr inbounds nuw double, ptr %28, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc4, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
@@ -13966,8 +13966,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i

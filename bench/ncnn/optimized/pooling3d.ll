@@ -1184,11 +1184,11 @@ define internal void @_ZNK4ncnn9Pooling3D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
   %81 = trunc i64 %indvars.iv184 to i32
   %82 = mul i32 %58, %81
   %83 = sdiv i32 %82, %45
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %84 = add i32 %reass.mul.us.us.us.us.us.us, %83
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds float, ptr %46, i64 %85
   %87 = load float, ptr %86, align 4, !tbaa !78
-  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %88 = getelementptr inbounds nuw float, ptr %.1132.us.us.us.us.us.us, i64 %indvars.iv184
   store float %87, ptr %88, align 4, !tbaa !78
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
@@ -1427,18 +1427,18 @@ define internal void @_ZNK4ncnn9Pooling3D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
   %86 = mul i32 %68, %85
   %87 = add i32 %54, %86
   %88 = sdiv i32 %87, %52
-  %89 = sub nsw i32 %88, %84
-  %90 = icmp slt i32 %84, %88
-  br i1 %90, label %.preheader108.us.us.us.us.us.us.us.us.us.us.preheader, label %._crit_edge.split.us.us.us.us.us.us.us.us.us
+  %89 = icmp slt i32 %84, %88
+  br i1 %89, label %.preheader108.us.us.us.us.us.us.us.us.us.us.preheader, label %._crit_edge.split.us.us.us.us.us.us.us.us.us
 
 .preheader108.us.us.us.us.us.us.us.us.us.us.preheader: ; preds = %.preheader108.lr.ph.us.us.us.us.us.us.us.us
-  %91 = sext i32 %84 to i64
+  %90 = sext i32 %84 to i64
   %wide.trip.count = sext i32 %88 to i64
   br label %.preheader108.us.us.us.us.us.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us.us.us.us.us:     ; preds = %._crit_edge113.split.us.us.us.us.us.us.us.us.us.us.us, %.preheader108.lr.ph.us.us.us.us.us.us.us.us
   %.us-phi.us.us.us.us.us.us.us.us = phi float [ 0.000000e+00, %.preheader108.lr.ph.us.us.us.us.us.us.us.us ], [ %103, %._crit_edge113.split.us.us.us.us.us.us.us.us.us.us.us ]
-  %92 = sitofp i32 %89 to float
+  %91 = sub nsw i32 %88, %84
+  %92 = sitofp i32 %91 to float
   %93 = fmul fast float %80, %92
   %94 = fdiv fast float %.us-phi.us.us.us.us.us.us.us.us, %93
   %95 = getelementptr inbounds nuw float, ptr %.169136.us.us.us.us.us.us, i64 %indvars.iv190
@@ -1460,7 +1460,7 @@ define internal void @_ZNK4ncnn9Pooling3D7forwardERKNS_3MatERS1_RKNS_6OptionE.om
   br label %97
 
 97:                                               ; preds = %97, %.preheader.us.us.us.us.us.us.us.us.us.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %97 ], [ %91, %.preheader.us.us.us.us.us.us.us.us.us.us.us ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %97 ], [ %90, %.preheader.us.us.us.us.us.us.us.us.us.us.us ]
   %.2109.us.us.us.us.us.us.us.us.us.us.us = phi float [ %103, %97 ], [ %.1111.us.us.us.us.us.us.us.us.us.us.us, %.preheader.us.us.us.us.us.us.us.us.us.us.us ]
   %98 = trunc nsw i64 %indvars.iv to i32
   %99 = add i32 %reass.mul.us.us.us.us.us.us.us.us.us.us.us, %98

@@ -257,26 +257,26 @@ define hidden void @_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE
   %6 = zext i32 %2 to i64
   %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %6
-  %10 = load i64, ptr %9, align 8
-  %11 = load i32, ptr %0, align 8
-  %12 = zext i32 %11 to i64
-  %.not = icmp eq i32 %11, 0
+  %9 = load i32, ptr %0, align 8
+  %10 = zext i32 %9 to i64
+  %.not = icmp eq i32 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.013 = phi i64 [ %16, %.lr.ph ], [ 0, %3 ]
-  %.01112 = phi i64 [ %15, %.lr.ph ], [ 0, %3 ]
-  %13 = getelementptr inbounds nuw i64, ptr %8, i64 %.013
-  %14 = load i64, ptr %13, align 8
-  %15 = add i64 %14, %.01112
-  %16 = add nuw nsw i64 %.013, 1
-  %exitcond.not = icmp eq i64 %16, %12
+  %.013 = phi i64 [ %14, %.lr.ph ], [ 0, %3 ]
+  %.01112 = phi i64 [ %13, %.lr.ph ], [ 0, %3 ]
+  %11 = getelementptr inbounds nuw i64, ptr %8, i64 %.013
+  %12 = load i64, ptr %11, align 8
+  %13 = add i64 %12, %.01112
+  %14 = add nuw nsw i64 %.013, 1
+  %exitcond.not = icmp eq i64 %14, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.011.lcssa = phi i64 [ 0, %3 ], [ %15, %.lr.ph ]
-  store i64 %10, ptr %1, align 8
+  %.011.lcssa = phi i64 [ 0, %3 ], [ %13, %.lr.ph ]
+  %15 = getelementptr inbounds nuw i64, ptr %8, i64 %6
+  %16 = load i64, ptr %15, align 8
+  store i64 %16, ptr %1, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.011.lcssa, ptr %17, align 8
   ret void
@@ -587,8 +587,8 @@ _ZN11G1NUMAStats13NodeDataArray4copyEjPm.exit:    ; preds = %12, %4
 define hidden void @_ZN11G1NUMAStats10print_infoENS_13NodeDataItemsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.LogStream, align 8
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_97ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not41 = icmp eq ptr %4, null
-  br i1 %.not41, label %76, label %5
+  %.not37 = icmp eq ptr %4, null
+  br i1 %.not37, label %69, label %5
 
 5:                                                ; preds = %2
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #11
@@ -675,8 +675,8 @@ _ZNK11G1NUMAStats4Stat4rateEv.exit:               ; preds = %_ZNK11G1NUMAStats13
   %.018.lcssa.i34 = phi i64 [ %26, %32 ], [ 0, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE.exit ], [ 0, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE.exit.thread ]
   %37 = phi double [ %36, %32 ], [ 0.000000e+00, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE.exit ], [ 0.000000e+00, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE.exit.thread ]
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str, ptr noundef %switch.select2.i36, double noundef %37, i64 noundef %.017.lcssa.i35, i64 noundef %.018.lcssa.i34) #11
-  %.not46 = icmp eq i32 %9, 0
-  br i1 %.not46, label %._crit_edge, label %.lr.ph.preheader
+  %.not41 = icmp eq i32 %9, 0
+  br i1 %.not41, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK11G1NUMAStats4Stat4rateEv.exit
   %wide.trip.count = zext i32 %9 to i64
@@ -692,75 +692,62 @@ _ZNK11G1NUMAStats4Stat4rateEv.exit:               ; preds = %_ZNK11G1NUMAStats13
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %40, align 8
-  %42 = load i64, ptr %41, align 8
-  %43 = load i32, ptr %38, align 8
-  %44 = zext i32 %43 to i64
-  %.not.i12 = icmp eq i32 %43, 0
-  br i1 %.not.i12, label %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit.thread, label %.lr.ph.i
+  %42 = load i32, ptr %38, align 8
+  %43 = zext i32 %42 to i64
+  %.not.i12 = icmp eq i32 %42, 0
+  br i1 %.not.i12, label %_ZNK11G1NUMAStats4Stat4rateEv.exit21, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
-  %.013.i = phi i64 [ %48, %.lr.ph.i ], [ 0, %.split ]
-  %.01112.i = phi i64 [ %47, %.lr.ph.i ], [ 0, %.split ]
-  %45 = getelementptr inbounds nuw i64, ptr %41, i64 %.013.i
-  %46 = load i64, ptr %45, align 8
-  %47 = add i64 %46, %.01112.i
-  %48 = add nuw nsw i64 %.013.i, 1
-  %exitcond.not.i13 = icmp eq i64 %48, %44
-  br i1 %exitcond.not.i13, label %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit, label %.lr.ph.i, !llvm.loop !12
+  %.013.i = phi i64 [ %47, %.lr.ph.i ], [ 0, %.split ]
+  %.01112.i = phi i64 [ %46, %.lr.ph.i ], [ 0, %.split ]
+  %44 = getelementptr inbounds nuw i64, ptr %41, i64 %.013.i
+  %45 = load i64, ptr %44, align 8
+  %46 = add i64 %45, %.01112.i
+  %47 = add nuw nsw i64 %.013.i, 1
+  %exitcond.not.i13 = icmp eq i64 %47, %43
+  br i1 %exitcond.not.i13, label %_ZNK11G1NUMAStats4Stat4rateEv.exit21, label %.lr.ph.i, !llvm.loop !12
 
 .split10:                                         ; preds = %.lr.ph
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.4) #11
-  %49 = load ptr, ptr %12, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i64, ptr %53, i64 %indvars.iv
-  %55 = load i64, ptr %54, align 8
-  %56 = load i32, ptr %49, align 8
-  %57 = zext i32 %56 to i64
-  %.not.i14 = icmp eq i32 %56, 0
-  br i1 %.not.i14, label %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit.thread, label %.lr.ph.i15
+  %48 = load ptr, ptr %12, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
+  %52 = load ptr, ptr %51, align 8
+  %53 = load i32, ptr %48, align 8
+  %54 = zext i32 %53 to i64
+  %.not.i14 = icmp eq i32 %53, 0
+  br i1 %.not.i14, label %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit20, label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %.split10, %.lr.ph.i15
-  %.013.i16 = phi i64 [ %61, %.lr.ph.i15 ], [ 0, %.split10 ]
-  %.01112.i17 = phi i64 [ %60, %.lr.ph.i15 ], [ 0, %.split10 ]
-  %58 = getelementptr inbounds nuw i64, ptr %53, i64 %.013.i16
-  %59 = load i64, ptr %58, align 8
-  %60 = add i64 %59, %.01112.i17
-  %61 = add nuw nsw i64 %.013.i16, 1
-  %exitcond.not.i18 = icmp eq i64 %61, %57
-  br i1 %exitcond.not.i18, label %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit, label %.lr.ph.i15, !llvm.loop !12
+  %.013.i16 = phi i64 [ %58, %.lr.ph.i15 ], [ 0, %.split10 ]
+  %.01112.i17 = phi i64 [ %57, %.lr.ph.i15 ], [ 0, %.split10 ]
+  %55 = getelementptr inbounds nuw i64, ptr %52, i64 %.013.i16
+  %56 = load i64, ptr %55, align 8
+  %57 = add i64 %56, %.01112.i17
+  %58 = add nuw nsw i64 %.013.i16, 1
+  %exitcond.not.i18 = icmp eq i64 %58, %54
+  br i1 %exitcond.not.i18, label %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit20, label %.lr.ph.i15, !llvm.loop !12
 
-_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit.thread: ; preds = %.split, %.split10
-  %.sroa.0.0.ph = phi i64 [ %55, %.split10 ], [ %42, %.split ]
-  %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
-  %64 = load i32, ptr %63, align 4
+_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit20: ; preds = %.lr.ph.i15, %.split10
+  %.011.lcssa.i19 = phi i64 [ 0, %.split10 ], [ %57, %.lr.ph.i15 ]
+  %59 = getelementptr inbounds nuw i64, ptr %52, i64 %indvars.iv
   br label %_ZNK11G1NUMAStats4Stat4rateEv.exit21
 
-_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit: ; preds = %.lr.ph.i15, %.lr.ph.i
-  %.sroa.7.0 = phi i64 [ %47, %.lr.ph.i ], [ %60, %.lr.ph.i15 ]
-  %.sroa.0.0 = phi i64 [ %42, %.lr.ph.i ], [ %55, %.lr.ph.i15 ]
-  %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv
-  %67 = load i32, ptr %66, align 4
-  %68 = icmp eq i64 %.sroa.7.0, 0
-  br i1 %68, label %_ZNK11G1NUMAStats4Stat4rateEv.exit21, label %69
-
-69:                                               ; preds = %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit
-  %70 = uitofp i64 %.sroa.0.0 to double
-  %71 = uitofp i64 %.sroa.7.0 to double
-  %72 = fdiv double %70, %71
-  %73 = fmul double %72, 1.000000e+02
-  br label %_ZNK11G1NUMAStats4Stat4rateEv.exit21
-
-_ZNK11G1NUMAStats4Stat4rateEv.exit21:             ; preds = %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit.thread, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit, %69
-  %74 = phi i32 [ %67, %69 ], [ %67, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit ], [ %64, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit.thread ]
-  %.sroa.0.040 = phi i64 [ %.sroa.0.0, %69 ], [ %.sroa.0.0, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit ], [ %.sroa.0.0.ph, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit.thread ]
-  %.sroa.7.039 = phi i64 [ %.sroa.7.0, %69 ], [ 0, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit ], [ 0, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit.thread ]
-  %75 = phi double [ %73, %69 ], [ 0.000000e+00, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit ], [ 0.000000e+00, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit.thread ]
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.5, i32 noundef %74, double noundef %75, i64 noundef %.sroa.0.040, i64 noundef %.sroa.7.039) #11
+_ZNK11G1NUMAStats4Stat4rateEv.exit21:             ; preds = %.lr.ph.i, %.split, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit20
+  %.sroa.7.0 = phi i64 [ %.011.lcssa.i19, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit20 ], [ 0, %.split ], [ %46, %.lr.ph.i ]
+  %.sroa.0.0.in = phi ptr [ %59, %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit20 ], [ %41, %.split ], [ %41, %.lr.ph.i ]
+  %.sroa.0.0 = load i64, ptr %.sroa.0.0.in, align 8
+  %60 = load ptr, ptr %0, align 8
+  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp eq i64 %.sroa.7.0, 0
+  %64 = uitofp i64 %.sroa.0.0 to double
+  %65 = uitofp i64 %.sroa.7.0 to double
+  %66 = fdiv double %64, %65
+  %67 = fmul double %66, 1.000000e+02
+  %68 = select i1 %63, double 0.000000e+00, double %67
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.5, i32 noundef %62, double noundef %68, i64 noundef %.sroa.0.0, i64 noundef %.sroa.7.0) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
@@ -768,9 +755,9 @@ _ZNK11G1NUMAStats4Stat4rateEv.exit21:             ; preds = %_ZNK11G1NUMAStats13
 ._crit_edge:                                      ; preds = %_ZNK11G1NUMAStats4Stat4rateEv.exit21, %_ZNK11G1NUMAStats4Stat4rateEv.exit
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.6) #11
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #11
-  br label %76
+  br label %69
 
-76:                                               ; preds = %._crit_edge, %2
+69:                                               ; preds = %._crit_edge, %2
   ret void
 }
 

@@ -4630,30 +4630,30 @@ define void @_ZN10open_spiel9dou_dizhu16AirplaneCombHandEi(ptr dead_on_unwind no
   %30 = extractvalue { i64, i64 } %29, 0
   %.sroa.3.0.extract.shift = lshr i64 %30, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
-  %31 = extractvalue { i64, i64 } %29, 1
-  %.sroa.5.8.extract.trunc = trunc i64 %31 to i32
-  %.sroa.7.8.extract.shift = lshr i64 %31, 32
-  %.sroa.7.8.extract.trunc = trunc nuw i64 %.sroa.7.8.extract.shift to i32
-  %32 = icmp sgt i32 %.sroa.3.0.extract.trunc, 0
-  br i1 %32, label %.lr.ph.preheader, label %._crit_edge
+  %31 = icmp sgt i32 %.sroa.3.0.extract.trunc, 0
+  br i1 %31, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %28
   %sext = shl i64 %30, 32
-  %33 = ashr exact i64 %sext, 32
+  %32 = ashr exact i64 %sext, 32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %34 = add nsw i64 %indvars.iv, %33
-  %35 = getelementptr inbounds i32, ptr %3, i64 %34
+  %33 = add nsw i64 %indvars.iv, %32
+  %34 = getelementptr inbounds i32, ptr %3, i64 %33
+  store i32 3, ptr %34, align 4
+  %35 = getelementptr inbounds i32, ptr %0, i64 %33
   store i32 3, ptr %35, align 4
-  %36 = getelementptr inbounds i32, ptr %0, i64 %34
-  store i32 3, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.sroa.3.0.extract.shift
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
+  %36 = extractvalue { i64, i64 } %29, 1
+  %.sroa.5.8.extract.trunc = trunc i64 %36 to i32
+  %.sroa.7.8.extract.shift = lshr i64 %36, 32
+  %.sroa.7.8.extract.trunc = trunc nuw i64 %.sroa.7.8.extract.shift to i32
   store i32 0, ptr %12, align 4
   store ptr %3, ptr %13, align 8
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 8

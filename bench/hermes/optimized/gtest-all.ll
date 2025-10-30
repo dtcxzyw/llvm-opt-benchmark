@@ -7320,8 +7320,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %sub.ptr.sub.i68, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.ptr.sub.i68
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %sub.ptr.sub.i68, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
@@ -7424,8 +7424,8 @@ call5.i.i.i.i2.i.i.noexc106:                      ; preds = %if.then.i.i.i.i.i94
 
 if.end.i.i.i.i.i.i.i100:                          ; preds = %call5.i.i.i.i2.i.i.noexc106
   %add.ptr.idx.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i90, 1
-  call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i98, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i101 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i98, i64 %add.ptr.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i98, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %_ZNSt6vectorIN7testing8internal13edit_distance8EditTypeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, %if.end.i.i.i.i.i.i.i100, %call5.i.i.i.i2.i.i.noexc106
@@ -19783,7 +19783,6 @@ _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit: ; preds = %_ZN
   %16 = load i64, ptr %now.i, align 8
   %tv_usec.i = getelementptr inbounds nuw i8, ptr %now.i, i64 8
   %17 = load i64, ptr %tv_usec.i, align 8
-  %div.i.neg = sdiv i64 %17, -1000
   call void @llvm.lifetime.end.p0(ptr nonnull %now.i)
   %test_info_list_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -19834,6 +19833,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !252
 
 for.end:                                          ; preds = %for.body, %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit
+  %div.i.neg = sdiv i64 %17, -1000
   call void @llvm.lifetime.start.p0(ptr nonnull %now.i12)
   %call.i13 = call i32 @gettimeofday(ptr noundef nonnull %now.i12, ptr noundef null) #52
   %29 = load i64, ptr %now.i12, align 8

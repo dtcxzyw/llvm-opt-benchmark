@@ -13924,8 +13924,8 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h0914984aa3b8ae
   br label %.lr.ph.us.i.us
 
 .lr.ph.us.i.us:                                   ; preds = %..loopexit_crit_edge.us.i.us, %.lr.ph.us.preheader.i.us
-  %.sroa.03.062.us.i.us = phi i32 [ %215, %..loopexit_crit_edge.us.i.us ], [ %.0.in.sroa.speculate.load.3.sroa.speculated.i.us, %.lr.ph.us.preheader.i.us ]
-  %.sroa.12.061.us.i.us = phi i32 [ %216, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
+  %.sroa.03.062.us.i.us = phi i32 [ %216, %..loopexit_crit_edge.us.i.us ], [ %.0.in.sroa.speculate.load.3.sroa.speculated.i.us, %.lr.ph.us.preheader.i.us ]
+  %.sroa.12.061.us.i.us = phi i32 [ %215, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
   %.sroa.6.059.us.i.us = phi i32 [ %214, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
   %.sroa.0.058.us.i.us = phi i32 [ %213, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
   br label %208
@@ -13950,15 +13950,15 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h0914984aa3b8ae
   br i1 %exitcond.not.i.us, label %..loopexit_crit_edge.us.i.us, label %208
 
 ..loopexit_crit_edge.us.i.us:                     ; preds = %.noexc.us
-  %215 = add i32 %.sroa.03.062.us.i.us, 1
-  %216 = add i32 %reass.mul167.us, %.sroa.12.061.us.i.us
-  %exitcond75.not.i.us = icmp eq i32 %215, %.0.in.sroa.speculated.i.us
+  %215 = add i32 %reass.mul167.us, %.sroa.12.061.us.i.us
+  %216 = add i32 %.sroa.03.062.us.i.us, 1
+  %exitcond75.not.i.us = icmp eq i32 %216, %.0.in.sroa.speculated.i.us
   br i1 %exitcond75.not.i.us, label %"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.exit.i.us", label %.lr.ph.us.i.us
 
 "_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.exit.i.us": ; preds = %..loopexit_crit_edge.us.i.us, %206
   %.sroa.0.0.lcssa.i.us = phi i32 [ 0, %206 ], [ %213, %..loopexit_crit_edge.us.i.us ]
   %.sroa.6.0.lcssa.i.us = phi i32 [ 0, %206 ], [ %214, %..loopexit_crit_edge.us.i.us ]
-  %.sroa.9.0.lcssa.i.us = phi i32 [ 0, %206 ], [ %216, %..loopexit_crit_edge.us.i.us ]
+  %.sroa.9.0.lcssa.i.us = phi i32 [ 0, %206 ], [ %215, %..loopexit_crit_edge.us.i.us ]
   %217 = mul i32 %reass.add166.us, %reass.add163.us
   %218 = icmp eq i32 %217, 0
   br i1 %218, label %.split253.us, label %_ZN5image8imageops6sample22thumbnail_sample_block17hef81cf2301d290c4E.exit.us, !prof !1519
@@ -14617,8 +14617,8 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h48851b5eb41a44
   br label %.lr.ph.us.i.us
 
 .lr.ph.us.i.us:                                   ; preds = %..loopexit_crit_edge.us.i.us, %.lr.ph.us.preheader.i.us
-  %.sroa.03.063.us.i.us = phi i32 [ %252, %..loopexit_crit_edge.us.i.us ], [ %.0.in.sroa.speculate.load.3.sroa.speculated.i.us, %.lr.ph.us.preheader.i.us ]
-  %.sroa.12.062.us.i.us = phi i32 [ %253, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
+  %.sroa.03.063.us.i.us = phi i32 [ %253, %..loopexit_crit_edge.us.i.us ], [ %.0.in.sroa.speculate.load.3.sroa.speculated.i.us, %.lr.ph.us.preheader.i.us ]
+  %.sroa.12.062.us.i.us = phi i32 [ %252, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
   %.sroa.9.061.us.i.us = phi i32 [ %251, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
   %.sroa.6.060.us.i.us = phi i32 [ %250, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
   %.sroa.0.059.us.i.us = phi i32 [ %248, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
@@ -14648,16 +14648,16 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h48851b5eb41a44
   br i1 %exitcond.not.i.us, label %..loopexit_crit_edge.us.i.us, label %243
 
 ..loopexit_crit_edge.us.i.us:                     ; preds = %.noexc.us
-  %252 = add i32 %.sroa.03.063.us.i.us, 1
-  %253 = add i32 %reass.mul180.us, %.sroa.12.062.us.i.us
-  %exitcond76.not.i.us = icmp eq i32 %252, %.0.in.sroa.speculated.i.us
+  %252 = add i32 %reass.mul180.us, %.sroa.12.062.us.i.us
+  %253 = add i32 %.sroa.03.063.us.i.us, 1
+  %exitcond76.not.i.us = icmp eq i32 %253, %.0.in.sroa.speculated.i.us
   br i1 %exitcond76.not.i.us, label %"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.exit.i.us", label %.lr.ph.us.i.us
 
 "_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.exit.i.us": ; preds = %..loopexit_crit_edge.us.i.us, %241
   %.sroa.0.0.lcssa.i.us = phi i32 [ 0, %241 ], [ %248, %..loopexit_crit_edge.us.i.us ]
   %.sroa.6.0.lcssa.i.us = phi i32 [ 0, %241 ], [ %250, %..loopexit_crit_edge.us.i.us ]
   %.sroa.9.0.lcssa.i.us = phi i32 [ 0, %241 ], [ %251, %..loopexit_crit_edge.us.i.us ]
-  %.sroa.12.0.lcssa.i.us = phi i32 [ 0, %241 ], [ %253, %..loopexit_crit_edge.us.i.us ]
+  %.sroa.12.0.lcssa.i.us = phi i32 [ 0, %241 ], [ %252, %..loopexit_crit_edge.us.i.us ]
   %254 = mul i32 %reass.add179.us, %reass.add176.us
   %255 = icmp eq i32 %254, 0
   br i1 %255, label %.split285.us, label %_ZN5image8imageops6sample22thumbnail_sample_block17h00df2d7097e8919bE.exit.us, !prof !1519
@@ -18250,8 +18250,8 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17he5e58336e84bbb
   br label %.lr.ph.us.i.us
 
 .lr.ph.us.i.us:                                   ; preds = %..loopexit_crit_edge.us.i.us, %.lr.ph.us.preheader.i.us
-  %.sroa.03.063.us.i.us = phi i32 [ %247, %..loopexit_crit_edge.us.i.us ], [ %.0.in.sroa.speculate.load.3.sroa.speculated.i.us, %.lr.ph.us.preheader.i.us ]
-  %.sroa.12.062.us.i.us = phi i32 [ %248, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
+  %.sroa.03.063.us.i.us = phi i32 [ %248, %..loopexit_crit_edge.us.i.us ], [ %.0.in.sroa.speculate.load.3.sroa.speculated.i.us, %.lr.ph.us.preheader.i.us ]
+  %.sroa.12.062.us.i.us = phi i32 [ %247, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
   %.sroa.9.061.us.i.us = phi i32 [ %246, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
   %.sroa.6.060.us.i.us = phi i32 [ %245, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
   %.sroa.0.059.us.i.us = phi i32 [ %244, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
@@ -18281,16 +18281,16 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17he5e58336e84bbb
   br i1 %exitcond.not.i.us, label %..loopexit_crit_edge.us.i.us, label %239
 
 ..loopexit_crit_edge.us.i.us:                     ; preds = %.noexc.us
-  %247 = add i32 %.sroa.03.063.us.i.us, 1
-  %248 = add i32 %reass.mul182.us, %.sroa.12.062.us.i.us
-  %exitcond76.not.i.us = icmp eq i32 %247, %.0.in.sroa.speculated.i.us
+  %247 = add i32 %reass.mul182.us, %.sroa.12.062.us.i.us
+  %248 = add i32 %.sroa.03.063.us.i.us, 1
+  %exitcond76.not.i.us = icmp eq i32 %248, %.0.in.sroa.speculated.i.us
   br i1 %exitcond76.not.i.us, label %"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.exit.i.us", label %.lr.ph.us.i.us
 
 "_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.exit.i.us": ; preds = %..loopexit_crit_edge.us.i.us, %237
   %.sroa.0.0.lcssa.i.us = phi i32 [ 0, %237 ], [ %244, %..loopexit_crit_edge.us.i.us ]
   %.sroa.6.0.lcssa.i.us = phi i32 [ 0, %237 ], [ %245, %..loopexit_crit_edge.us.i.us ]
   %.sroa.9.0.lcssa.i.us = phi i32 [ 0, %237 ], [ %246, %..loopexit_crit_edge.us.i.us ]
-  %.sroa.12.0.lcssa.i.us = phi i32 [ 0, %237 ], [ %248, %..loopexit_crit_edge.us.i.us ]
+  %.sroa.12.0.lcssa.i.us = phi i32 [ 0, %237 ], [ %247, %..loopexit_crit_edge.us.i.us ]
   %249 = mul i32 %reass.add181.us, %reass.add178.us
   %250 = icmp eq i32 %249, 0
   br i1 %250, label %.split287.us, label %_ZN5image8imageops6sample22thumbnail_sample_block17h6468548f9781f37cE.exit.us, !prof !1519
@@ -19870,8 +19870,8 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h37be9c1f52b908
   br label %.lr.ph.us.i.us
 
 .lr.ph.us.i.us:                                   ; preds = %..loopexit_crit_edge.us.i.us, %.lr.ph.us.preheader.i.us
-  %.sroa.03.062.us.i.us = phi i32 [ %175, %..loopexit_crit_edge.us.i.us ], [ %.0.in.sroa.speculate.load.3.sroa.speculated.i.us, %.lr.ph.us.preheader.i.us ]
-  %.sroa.12.061.us.i.us = phi i32 [ %176, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
+  %.sroa.03.062.us.i.us = phi i32 [ %176, %..loopexit_crit_edge.us.i.us ], [ %.0.in.sroa.speculate.load.3.sroa.speculated.i.us, %.lr.ph.us.preheader.i.us ]
+  %.sroa.12.061.us.i.us = phi i32 [ %175, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
   %.sroa.0.058.us.i.us = phi i32 [ %174, %..loopexit_crit_edge.us.i.us ], [ 0, %.lr.ph.us.preheader.i.us ]
   br label %170
 
@@ -19890,14 +19890,14 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h37be9c1f52b908
   br i1 %exitcond.not.i.us, label %..loopexit_crit_edge.us.i.us, label %170
 
 ..loopexit_crit_edge.us.i.us:                     ; preds = %.noexc.us
-  %175 = add i32 %.sroa.03.062.us.i.us, 1
-  %176 = add i32 %reass.mul150.us, %.sroa.12.061.us.i.us
-  %exitcond75.not.i.us = icmp eq i32 %175, %.0.in.sroa.speculated.i.us
+  %175 = add i32 %reass.mul150.us, %.sroa.12.061.us.i.us
+  %176 = add i32 %.sroa.03.062.us.i.us, 1
+  %exitcond75.not.i.us = icmp eq i32 %176, %.0.in.sroa.speculated.i.us
   br i1 %exitcond75.not.i.us, label %"_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.exit.i.us", label %.lr.ph.us.i.us
 
 "_ZN45_$LT$u32$u20$as$u20$core..ops..arith..Div$GT$3div17h21b6cd17db30a008E.exit.i.us": ; preds = %..loopexit_crit_edge.us.i.us, %168
   %.sroa.0.0.lcssa.i.us = phi i32 [ 0, %168 ], [ %174, %..loopexit_crit_edge.us.i.us ]
-  %.sroa.6.0.lcssa.i.us = phi i32 [ 0, %168 ], [ %176, %..loopexit_crit_edge.us.i.us ]
+  %.sroa.6.0.lcssa.i.us = phi i32 [ 0, %168 ], [ %175, %..loopexit_crit_edge.us.i.us ]
   %177 = mul i32 %reass.add149.us, %reass.add146.us
   %178 = icmp eq i32 %177, 0
   br i1 %178, label %.split213.us, label %_ZN5image8imageops6sample22thumbnail_sample_block17h9b58128ff1da5636E.exit.us, !prof !1519

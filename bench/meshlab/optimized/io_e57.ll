@@ -3362,30 +3362,30 @@ _ZNK3vcg3tri2io15E57Data3DPoints18areColorsAvailableEv.exit.thread: ; preds = %1
 
 _ZNK3vcg9HistogramIfE10PercentileEf.exit:         ; preds = %.lr.ph23.i, %194
   %.1.lcssa.i = phi i64 [ %.121.i, %.lr.ph23.i ], [ %177, %194 ]
-  %196 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr float, ptr %197, i64 %.1.lcssa.i
-  %199 = getelementptr i8, ptr %198, i64 4
-  %200 = load float, ptr %199, align 4
   br label %.lr.ph.i110
 
 _ZNK3vcg9HistogramIfE10PercentileEf.exit.thread:  ; preds = %179
-  %201 = getelementptr i8, ptr %183, i64 4
-  %202 = load float, ptr %201, align 4
+  %196 = getelementptr i8, ptr %183, i64 4
+  %197 = load float, ptr %196, align 4
   br label %_ZNK3vcg9HistogramIfE10PercentileEf.exit122
 
 .lr.ph.i110:                                      ; preds = %_ZNK3vcg9HistogramIfE10PercentileEf.exit, %.lr.ph.i110
-  %.019.i111 = phi i64 [ %206, %.lr.ph.i110 ], [ 0, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ]
-  %.01518.i112 = phi float [ %205, %.lr.ph.i110 ], [ 0.000000e+00, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ]
-  %203 = getelementptr inbounds float, ptr %173, i64 %.019.i111
-  %204 = load float, ptr %203, align 4
-  %205 = fadd float %.01518.i112, %204
-  %206 = add nuw i64 %.019.i111, 1
-  %exitcond.not.i113 = icmp eq i64 %206, %177
+  %.019.i111 = phi i64 [ %201, %.lr.ph.i110 ], [ 0, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ]
+  %.01518.i112 = phi float [ %200, %.lr.ph.i110 ], [ 0.000000e+00, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ]
+  %198 = getelementptr inbounds float, ptr %173, i64 %.019.i111
+  %199 = load float, ptr %198, align 4
+  %200 = fadd float %.01518.i112, %199
+  %201 = add nuw i64 %.019.i111, 1
+  %exitcond.not.i113 = icmp eq i64 %201, %177
   br i1 %exitcond.not.i113, label %.lr.ph23.preheader.i114, label %.lr.ph.i110, !llvm.loop !62
 
 .lr.ph23.preheader.i114:                          ; preds = %.lr.ph.i110
-  %207 = fmul float %205, 0x3FEE666660000000
+  %202 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %203 = load ptr, ptr %202, align 8
+  %204 = getelementptr float, ptr %203, i64 %.1.lcssa.i
+  %205 = getelementptr i8, ptr %204, i64 4
+  %206 = load float, ptr %205, align 4
+  %207 = fmul float %200, 0x3FEE666660000000
   br label %.lr.ph23.i115
 
 .lr.ph23.i115:                                    ; preds = %212, %.lr.ph23.preheader.i114
@@ -3403,8 +3403,8 @@ _ZNK3vcg9HistogramIfE10PercentileEf.exit.thread:  ; preds = %179
   br i1 %exitcond30.not.i121, label %_ZNK3vcg9HistogramIfE10PercentileEf.exit122, label %.lr.ph23.i115, !llvm.loop !63
 
 _ZNK3vcg9HistogramIfE10PercentileEf.exit122:      ; preds = %.lr.ph23.i115, %212, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread
-  %214 = phi ptr [ %183, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %197, %212 ], [ %197, %.lr.ph23.i115 ]
-  %.016.i137 = phi float [ %202, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %200, %212 ], [ %200, %.lr.ph23.i115 ]
+  %214 = phi ptr [ %183, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %203, %212 ], [ %203, %.lr.ph23.i115 ]
+  %.016.i137 = phi float [ %197, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %206, %212 ], [ %206, %.lr.ph23.i115 ]
   %.1.lcssa.i119 = phi i64 [ 0, %_ZNK3vcg9HistogramIfE10PercentileEf.exit.thread ], [ %.121.i116, %.lr.ph23.i115 ], [ %177, %212 ]
   %215 = getelementptr float, ptr %214, i64 %.1.lcssa.i119
   %216 = getelementptr i8, ptr %215, i64 4
@@ -8623,8 +8623,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -8940,8 +8940,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i

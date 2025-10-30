@@ -39131,8 +39131,8 @@ entry:
   %0 = load atomic i64, ptr %tailIndex monotonic, align 8
   %headIndex = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load atomic i64, ptr %headIndex monotonic, align 8
-  %cmp.not = icmp eq i64 %1, %0
-  br i1 %cmp.not, label %while.end, label %while.body.lr.ph
+  %cmp3.not34 = icmp eq i64 %1, %0
+  br i1 %cmp3.not34, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %parent = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -39253,7 +39253,7 @@ while.end:                                        ; preds = %_ZN7easylog8record_
 land.lhs.true:                                    ; preds = %while.end
   %and15 = and i64 %0, 31
   %cmp16.not = icmp eq i64 %and15, 0
-  %or.cond18 = and i1 %cmp.not, %cmp16.not
+  %or.cond18 = and i1 %cmp3.not34, %cmp16.not
   br i1 %or.cond18, label %if.end21, label %if.then17
 
 if.then17:                                        ; preds = %land.lhs.true

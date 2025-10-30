@@ -5771,22 +5771,22 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.75) #36
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !230
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !220
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !335
-  %11 = icmp ne i64 %.sroa.2.0.copyload.i, 0
-  br label %12
+  %8 = icmp ne i64 %.sroa.2.0.copyload.i, 0
+  br label %9
 
-12:                                               ; preds = %12, %2
-  %.not.not.i = phi i1 [ false, %2 ], [ true, %12 ]
-  %.014.idx5.i.sroa.phi.sroa.speculated = phi i1 [ %11, %2 ], [ true, %12 ]
+9:                                                ; preds = %9, %2
+  %.not.not.i = phi i1 [ false, %2 ], [ true, %9 ]
+  %.014.idx5.i.sroa.phi.sroa.speculated = phi i1 [ %8, %2 ], [ true, %9 ]
   %brmerge.i = or i1 %.not.not.i, %.014.idx5.i.sroa.phi.sroa.speculated
-  br i1 %brmerge.i, label %_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNS_16itanium_demangle9NodeArrayEPNS2_4NodeEEEEbDpT_.exit, label %12
+  br i1 %brmerge.i, label %_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNS_16itanium_demangle9NodeArrayEPNS2_4NodeEEEEbDpT_.exit, label %9
 
-_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNS_16itanium_demangle9NodeArrayEPNS2_4NodeEEEEbDpT_.exit: ; preds = %12
+_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNS_16itanium_demangle9NodeArrayEPNS2_4NodeEEEEbDpT_.exit: ; preds = %9
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.0.0.copyload.i = load ptr, ptr %10, align 8, !tbaa !230
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %12 = load ptr, ptr %11, align 8, !tbaa !335
   br i1 %.014.idx5.i.sroa.phi.sroa.speculated, label %13, label %_ZNK12_GLOBAL__N_116itanium_demangle12TemplateArgs5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
 
 13:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNS_16itanium_demangle9NodeArrayEPNS2_4NodeEEEEbDpT_.exit
@@ -5812,7 +5812,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %13
 
 _ZNK12_GLOBAL__N_116itanium_demangle12TemplateArgs5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit: ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNS_16itanium_demangle9NodeArrayEPNS2_4NodeEEEEbDpT_.exit, %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   tail call fastcc void @_ZN12_GLOBAL__N_111DumpVisitor5printENS_16itanium_demangle9NodeArrayE(ptr noundef nonnull align 4 dereferenceable(5) %0, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
-  br i1 %11, label %20, label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle9NodeArrayEEEvT_.exit
+  br i1 %8, label %20, label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle9NodeArrayEEEvT_.exit
 
 20:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle12TemplateArgs5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -5840,11 +5840,11 @@ _ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle9No
 
 _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i:  ; preds = %.lr.ph.i.i, %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle9NodeArrayEEEvT_.exit
   store i8 0, ptr %22, align 4, !tbaa !10
-  %.not.i3.i = icmp eq ptr %10, null
+  %.not.i3.i = icmp eq ptr %12, null
   br i1 %.not.i3.i, label %30, label %29
 
 29:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
-  tail call fastcc void @_ZNK12_GLOBAL__N_116itanium_demangle4Node5visitINSt3__117reference_wrapperINS_11DumpVisitorEEEEEvT_(ptr noundef nonnull align 8 dereferenceable(11) %10, ptr nonnull align 4 dereferenceable(5) %0)
+  tail call fastcc void @_ZNK12_GLOBAL__N_116itanium_demangle4Node5visitINSt3__117reference_wrapperINS_11DumpVisitorEEEEEvT_(ptr noundef nonnull align 8 dereferenceable(11) %12, ptr nonnull align 4 dereferenceable(5) %0)
   br label %_ZN12_GLOBAL__N_111DumpVisitor14printWithCommaIPNS_16itanium_demangle4NodeEEEvT_.exit
 
 30:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit.i
@@ -8766,12 +8766,12 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.129) #36
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !220
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !401
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.0.0.copyload.i = load ptr, ptr %10, align 8, !tbaa !230
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !220
   %11 = load ptr, ptr @stderr, align 8, !tbaa !11
   %fputc.i2 = tail call i32 @fputc(i32 10, ptr %11)
   %12 = load i32, ptr %0, align 4, !tbaa !4
@@ -9668,25 +9668,25 @@ define internal fastcc void @_ZNSt3__18__invokeB8ne210000IRN12_GLOBAL__N_111Dump
   store i32 %5, ptr %0, align 4, !tbaa !4
   %6 = load ptr, ptr @stderr, align 8, !tbaa !11
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.142) #36
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.01.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !230
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !220
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sroa.0.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !230
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !220
-  %10 = icmp ne i64 %.sroa.22.0.copyload.i, 0
-  %11 = icmp ne i64 %.sroa.2.0.copyload.i, 0
-  br label %12
+  %8 = icmp ne i64 %.sroa.22.0.copyload.i, 0
+  %9 = icmp ne i64 %.sroa.2.0.copyload.i, 0
+  br label %10
 
-12:                                               ; preds = %12, %2
-  %.not.not.i = phi i1 [ false, %2 ], [ true, %12 ]
-  %.017.idx5.i.sroa.phi.sroa.speculated.in = phi i1 [ %10, %2 ], [ %11, %12 ]
+10:                                               ; preds = %10, %2
+  %.not.not.i = phi i1 [ false, %2 ], [ true, %10 ]
+  %.017.idx5.i.sroa.phi.sroa.speculated.in = phi i1 [ %8, %2 ], [ %9, %10 ]
   %brmerge.i = or i1 %.not.not.i, %.017.idx5.i.sroa.phi.sroa.speculated.in
-  br i1 %brmerge.i, label %_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNS_16itanium_demangle9NodeArrayES3_EEEbDpT_.exit, label %12
+  br i1 %brmerge.i, label %_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNS_16itanium_demangle9NodeArrayES3_EEEbDpT_.exit, label %10
 
-_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNS_16itanium_demangle9NodeArrayES3_EEEbDpT_.exit: ; preds = %12
+_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNS_16itanium_demangle9NodeArrayES3_EEEbDpT_.exit: ; preds = %10
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.01.0.copyload.i = load ptr, ptr %11, align 8, !tbaa !230
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sroa.0.0.copyload.i = load ptr, ptr %12, align 8, !tbaa !230
   br i1 %.017.idx5.i.sroa.phi.sroa.speculated.in, label %13, label %_ZNK12_GLOBAL__N_116itanium_demangle12RequiresExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
 
 13:                                               ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNS_16itanium_demangle9NodeArrayES3_EEEbDpT_.exit
@@ -9712,7 +9712,7 @@ _ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit:    ; preds = %.lr.ph.i, %13
 
 _ZNK12_GLOBAL__N_116itanium_demangle12RequiresExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit: ; preds = %_ZN12_GLOBAL__N_111DumpVisitor14anyWantNewlineIJNS_16itanium_demangle9NodeArrayES3_EEEbDpT_.exit, %_ZN12_GLOBAL__N_111DumpVisitor7newLineEv.exit
   tail call fastcc void @_ZN12_GLOBAL__N_111DumpVisitor5printENS_16itanium_demangle9NodeArrayE(ptr noundef nonnull align 4 dereferenceable(5) %0, ptr %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i)
-  br i1 %10, label %20, label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle9NodeArrayEEEvT_.exit
+  br i1 %8, label %20, label %_ZN12_GLOBAL__N_111DumpVisitor23printWithPendingNewlineINS_16itanium_demangle9NodeArrayEEEvT_.exit
 
 20:                                               ; preds = %_ZNK12_GLOBAL__N_116itanium_demangle12RequiresExpr5matchINS_11DumpVisitor14CtorArgPrinterEEEvT_.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4

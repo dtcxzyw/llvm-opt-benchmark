@@ -8311,18 +8311,18 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %106, %117, %119, %_
   store i32 0, ptr %.sroa.gep, align 4, !tbaa !428
   store i8 0, ptr %14, align 8, !tbaa !430
   store i32 0, ptr %15, align 4, !tbaa !432
-  %170 = trunc i64 %112 to i32
-  br label %171
+  br label %170
 
-171:                                              ; preds = %171, %158
-  %.idx.i.i.i.i = phi i64 [ 8, %158 ], [ %.add.i.i.i.i, %171 ]
+170:                                              ; preds = %170, %158
+  %.idx.i.i.i.i = phi i64 [ 8, %158 ], [ %.add.i.i.i.i, %170 ]
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i.i, i8 0, i64 16, i1 false)
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 24
-  %172 = icmp eq i64 %.add.i.i.i.i, 248
-  br i1 %172, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %171
+  %171 = icmp eq i64 %.add.i.i.i.i, 248
+  br i1 %171, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %170
 
-_ZN3CFF12call_stack_tC2Ev.exit.i.i:               ; preds = %171
+_ZN3CFF12call_stack_tC2Ev.exit.i.i:               ; preds = %170
+  %172 = trunc i64 %112 to i32
   %.sroa.2.12.insert.mask.i.i = and i64 %112, 4294967295
   store ptr %111, ptr %13, align 8
   store i64 %.sroa.2.12.insert.mask.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -8389,7 +8389,7 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_
   br label %189
 
 189:                                              ; preds = %254, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_tIKhERT_jPKij.exit
-  %190 = phi i32 [ %170, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %.fr9.i, %254 ]
+  %190 = phi i32 [ %172, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %.fr9.i, %254 ]
   %191 = phi i32 [ 0, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %.fr.i, %254 ]
   %.0.i30 = phi i32 [ 200000, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %253, %254 ]
   %192 = add i32 %191, 1

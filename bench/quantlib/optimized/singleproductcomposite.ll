@@ -348,7 +348,6 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %33 = load ptr, ptr %numberOfCashflows, align 8, !tbaa !64
   %add.ptr.i33 = getelementptr inbounds nuw i64, ptr %33, i64 %j.077
   %34 = load i64, ptr %add.ptr.i33, align 8, !tbaa !65
-  %add = add i64 %34, %totalCashflows.176
   %cmp5970.not = icmp eq i64 %34, 0
   br i1 %cmp5970.not, label %for.cond.cleanup60, label %for.body61.lr.ph
 
@@ -364,6 +363,7 @@ for.body61.lr.ph:                                 ; preds = %for.body51
   br label %for.body61
 
 for.cond.cleanup60:                               ; preds = %for.body61, %for.body51
+  %add = add i64 %34, %totalCashflows.176
   %41 = load ptr, ptr %numberCashFlowsThisStep, align 8, !tbaa !64
   store i64 %add, ptr %41, align 8, !tbaa !65
   %inc76 = add nuw i64 %j.077, 1

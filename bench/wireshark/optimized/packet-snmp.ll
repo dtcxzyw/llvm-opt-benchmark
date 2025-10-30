@@ -5098,8 +5098,6 @@ define internal fastcc void @snmp_usm_password_to_key(i32 noundef %0, ptr nounde
   br i1 %.not, label %13, label %42
 
 13:                                               ; preds = %6
-  %14 = getelementptr i32, ptr @auth_hash_len, i64 %9
-  %15 = load i32, ptr %14, align 4
   %.not27 = icmp eq i32 %2, 0
   br i1 %.not27, label %.split.us, label %.preheader.preheader
 
@@ -5108,43 +5106,45 @@ define internal fastcc void @snmp_usm_password_to_key(i32 noundef %0, ptr nounde
   br label %.preheader
 
 .split.us:                                        ; preds = %13, %.split.us
-  %.02332.us = phi i32 [ %17, %.split.us ], [ 0, %13 ]
+  %.02332.us = phi i32 [ %15, %.split.us ], [ 0, %13 ]
   store i8 0, ptr %8, align 16
-  %16 = load ptr, ptr %7, align 8
-  call void @gcry_md_write(ptr noundef %16, ptr noundef nonnull %8, i64 noundef 64)
-  %17 = add nuw nsw i32 %.02332.us, 64
-  %18 = icmp samesign ult i32 %.02332.us, 1048512
-  br i1 %18, label %.split.us, label %.split34.us, !llvm.loop !27
+  %14 = load ptr, ptr %7, align 8
+  call void @gcry_md_write(ptr noundef %14, ptr noundef nonnull %8, i64 noundef 64)
+  %15 = add nuw nsw i32 %.02332.us, 64
+  %16 = icmp samesign ult i32 %.02332.us, 1048512
+  br i1 %16, label %.split.us, label %.split34.us, !llvm.loop !27
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
-  %.02332 = phi i32 [ %27, %.loopexit ], [ 0, %.preheader.preheader ]
-  %.02431 = phi i32 [ %20, %.loopexit ], [ 0, %.preheader.preheader ]
-  br label %19
+  %.02332 = phi i32 [ %25, %.loopexit ], [ 0, %.preheader.preheader ]
+  %.02431 = phi i32 [ %18, %.loopexit ], [ 0, %.preheader.preheader ]
+  br label %17
 
-19:                                               ; preds = %.preheader, %19
-  %.030 = phi ptr [ %8, %.preheader ], [ %25, %19 ]
-  %.128 = phi i32 [ %.02431, %.preheader ], [ %20, %19 ]
-  %20 = add i32 %.128, 1
-  %21 = urem i32 %.128, %2
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr i8, ptr %1, i64 %22
-  %24 = load i8, ptr %23, align 1
-  %25 = getelementptr i8, ptr %.030, i64 1
-  store i8 %24, ptr %.030, align 1
+17:                                               ; preds = %.preheader, %17
+  %.030 = phi ptr [ %8, %.preheader ], [ %23, %17 ]
+  %.128 = phi i32 [ %.02431, %.preheader ], [ %18, %17 ]
+  %18 = add i32 %.128, 1
+  %19 = urem i32 %.128, %2
+  %20 = zext i32 %19 to i64
+  %21 = getelementptr i8, ptr %1, i64 %20
+  %22 = load i8, ptr %21, align 1
+  %23 = getelementptr i8, ptr %.030, i64 1
+  store i8 %22, ptr %.030, align 1
   %exitcond.not = icmp eq ptr %.030, %scevgep
-  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !28
 
-.loopexit:                                        ; preds = %19
-  %26 = load ptr, ptr %7, align 8
-  call void @gcry_md_write(ptr noundef %26, ptr noundef nonnull %8, i64 noundef 64)
-  %27 = add nuw nsw i32 %.02332, 64
-  %28 = icmp samesign ult i32 %.02332, 1048512
-  br i1 %28, label %.preheader, label %.split34.us, !llvm.loop !27
+.loopexit:                                        ; preds = %17
+  %24 = load ptr, ptr %7, align 8
+  call void @gcry_md_write(ptr noundef %24, ptr noundef nonnull %8, i64 noundef 64)
+  %25 = add nuw nsw i32 %.02332, 64
+  %26 = icmp samesign ult i32 %.02332, 1048512
+  br i1 %26, label %.preheader, label %.split34.us, !llvm.loop !27
 
 .split34.us:                                      ; preds = %.loopexit, %.split.us
+  %27 = getelementptr i32, ptr @auth_hash_len, i64 %9
+  %28 = load i32, ptr %27, align 4
   %29 = load ptr, ptr %7, align 8
   %30 = call ptr @gcry_md_read(ptr noundef %29, i32 noundef 0)
-  %31 = zext i32 %15 to i64
+  %31 = zext i32 %28 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %5, ptr noundef align 1 %30, i64 noundef range(i64 0, 4294967296) %31, i1 noundef false) #15
   %32 = load ptr, ptr %7, align 8
   call void @gcry_md_close(ptr noundef %32)

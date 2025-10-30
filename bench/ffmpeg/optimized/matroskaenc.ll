@@ -3440,18 +3440,18 @@ start_ebml_master.exit.i.i.i:                     ; preds = %.lr.ph.i.i34.i.i.i
   %1505 = and i32 %1504, 229
   call void @avio_w8(ptr noundef %495, i32 noundef %1505) #14
   %.not.i.i.i.i.i.i = icmp eq i32 %1502, 0
-  br i1 %.not.i.i.i.i.i.i, label %put_ebml_string.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !51
+  br i1 %.not.i.i.i.i.i.i, label %.lr.ph.i.i627.preheader.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !51
 
-put_ebml_string.exit.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i
+.lr.ph.i.i627.preheader.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i
   call void @avio_w8(ptr noundef %495, i32 noundef 154) #14
   %1506 = icmp samesign ugt i8 %1495, 7
   %..i.i.i = select i1 %1506, i64 1685485123, i64 1685480259
   call void @avio_write(ptr noundef %495, ptr noundef nonnull @.str.82, i32 noundef 26) #14
   br label %.lr.ph.i.i538.i.i
 
-.lr.ph.i.i538.i.i:                                ; preds = %.lr.ph.i.i538.i.i, %put_ebml_string.exit.i.i.i
-  %.017.i.i.i.i = phi i64 [ %1507, %.lr.ph.i.i538.i.i ], [ %..i.i.i, %put_ebml_string.exit.i.i.i ]
-  %.01216.i.i.i.i = phi i32 [ %1508, %.lr.ph.i.i538.i.i ], [ 1, %put_ebml_string.exit.i.i.i ]
+.lr.ph.i.i538.i.i:                                ; preds = %.lr.ph.i.i538.i.i, %.lr.ph.i.i627.preheader.i.i
+  %.017.i.i.i.i = phi i64 [ %1507, %.lr.ph.i.i538.i.i ], [ %..i.i.i, %.lr.ph.i.i627.preheader.i.i ]
+  %.01216.i.i.i.i = phi i32 [ %1508, %.lr.ph.i.i538.i.i ], [ 1, %.lr.ph.i.i627.preheader.i.i ]
   %1507 = lshr i64 %.017.i.i.i.i, 8
   %1508 = add nuw nsw i32 %.01216.i.i.i.i, 1
   %.not.i.i539.i.i = icmp samesign ult i64 %.017.i.i.i.i, 65536
@@ -6853,15 +6853,15 @@ start_ebml_master_crc32.exit:                     ; preds = %16, %put_ebml_void.
   br i1 %30, label %.lr.ph.preheader.i.i.lr.ph, label %._crit_edge
 
 .lr.ph.preheader.i.i.lr.ph:                       ; preds = %start_ebml_master_crc32.exit
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ff_log2_tab, i64 77), align 1, !tbaa !50
-  %33 = zext i8 %32 to i32
-  %34 = add nuw nsw i32 %33, 15
-  %35 = lshr i32 %34, 3
-  %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ff_log2_tab, i64 83), align 1
-  %37 = zext i8 %36 to i32
-  %38 = add nuw nsw i32 %37, 15
-  %39 = lshr i32 %38, 3
+  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ff_log2_tab, i64 77), align 1, !tbaa !50
+  %32 = zext i8 %31 to i32
+  %33 = add nuw nsw i32 %32, 15
+  %34 = lshr i32 %33, 3
+  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ff_log2_tab, i64 83), align 1
+  %36 = zext i8 %35 to i32
+  %37 = add nuw nsw i32 %36, 15
+  %38 = lshr i32 %37, 3
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 136
   br label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph.preheader.i.i.lr.ph, %end_ebml_master.exit
@@ -6870,7 +6870,7 @@ start_ebml_master_crc32.exit:                     ; preds = %16, %put_ebml_void.
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.05.i.i = phi i32 [ %41, %.lr.ph.i.i ], [ %35, %.lr.ph.preheader.i.i ]
+  %.05.i.i = phi i32 [ %41, %.lr.ph.i.i ], [ %34, %.lr.ph.preheader.i.i ]
   %41 = add nsw i32 %.05.i.i, -1
   %42 = shl nsw i32 %41, 3
   %43 = lshr i32 19899, %42
@@ -6886,7 +6886,7 @@ start_ebml_master.exit:                           ; preds = %.lr.ph.i.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %start_ebml_master.exit
-  %.05.i = phi i32 [ %47, %.lr.ph.i ], [ %39, %start_ebml_master.exit ]
+  %.05.i = phi i32 [ %47, %.lr.ph.i ], [ %38, %start_ebml_master.exit ]
   %47 = add nsw i32 %.05.i, -1
   %48 = shl nsw i32 %47, 3
   %49 = lshr i32 21419, %48
@@ -6896,7 +6896,7 @@ start_ebml_master.exit:                           ; preds = %.lr.ph.i.i
   br i1 %.not.i33, label %put_ebml_id.exit, label %.lr.ph.i, !llvm.loop !51
 
 put_ebml_id.exit:                                 ; preds = %.lr.ph.i
-  %51 = getelementptr inbounds nuw %struct.mkv_seekhead_entry, ptr %31, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %struct.mkv_seekhead_entry, ptr %39, i64 %indvars.iv
   %52 = load ptr, ptr %5, align 8, !tbaa !57
   %53 = load i32, ptr %51, align 8, !tbaa !265
   %.not.i.i34 = icmp ult i32 %53, 65536
@@ -6979,7 +6979,7 @@ put_ebml_id.exit41:                               ; preds = %put_ebml_id.exit41.
   br label %.lr.ph.i.i46
 
 .lr.ph.i.i46:                                     ; preds = %.lr.ph.i.i46, %.lr.ph.preheader.i.i45
-  %.05.i.i47 = phi i32 [ %87, %.lr.ph.i.i46 ], [ %39, %.lr.ph.preheader.i.i45 ]
+  %.05.i.i47 = phi i32 [ %87, %.lr.ph.i.i46 ], [ %38, %.lr.ph.preheader.i.i45 ]
   %87 = add nsw i32 %.05.i.i47, -1
   %88 = shl nsw i32 %87, 3
   %89 = lshr i32 21420, %88

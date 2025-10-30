@@ -2153,14 +2153,14 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   %558 = tail call ptr @proto_tree_add_item(ptr noundef %552, i32 noundef %557, ptr noundef %0, i32 noundef %549, i32 noundef 1, i32 noundef 0)
   %559 = add nuw nsw i32 %.03435.i, 1
   %exitcond.not.i335 = icmp eq i32 %.03435.i, %547
-  br i1 %exitcond.not.i335, label %._crit_edge.i.loopexit, label %.lr.ph.i334, !llvm.loop !17
+  br i1 %exitcond.not.i335, label %._crit_edge.loopexit.i, label %.lr.ph.i334, !llvm.loop !17
 
-._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i334
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i334
   %560 = add nuw nsw i32 %547, 1
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %543
-  %.034.lcssa.i = phi i32 [ 1, %543 ], [ %560, %._crit_edge.i.loopexit ]
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %543
+  %.034.lcssa.i = phi i32 [ 1, %543 ], [ %560, %._crit_edge.loopexit.i ]
   %561 = load i32, ptr @dvb_s2_rcs_version, align 4
   %562 = icmp eq i32 %561, 0
   br i1 %562, label %563, label %dissect_dvb_s2_table_sct.exit
@@ -2383,43 +2383,43 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   %733 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %732, ptr noundef %0, i32 noundef %729, i32 noundef 1, i32 noundef 0)
   %734 = add i32 %666, %.0372397.i
   %735 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %734)
-  %736 = and i8 %735, 31
-  %737 = load i32, ptr @hf_dvb_s2_table_tx_type_w_period, align 4
-  %738 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %737, ptr noundef %0, i32 noundef %734, i32 noundef 1, i32 noundef 0)
-  %739 = add i32 %.0372397.i, 20
-  %740 = load i32, ptr @hf_dvb_s2_table_tx_type_y_pattern, align 4
-  %741 = add i32 %739, %.2
-  %742 = zext nneg i8 %731 to i32
-  %743 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %740, ptr noundef %0, i32 noundef %741, i32 noundef %742, i32 noundef 0)
-  %744 = load i32, ptr @ett_dvb_s2_hdr_table_txtype_ypattern, align 4
-  %745 = tail call ptr @proto_item_add_subtree(ptr noundef %743, i32 noundef %744)
+  %736 = load i32, ptr @hf_dvb_s2_table_tx_type_w_period, align 4
+  %737 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %736, ptr noundef %0, i32 noundef %734, i32 noundef 1, i32 noundef 0)
+  %738 = add i32 %.0372397.i, 20
+  %739 = load i32, ptr @hf_dvb_s2_table_tx_type_y_pattern, align 4
+  %740 = add i32 %738, %.2
+  %741 = zext nneg i8 %731 to i32
+  %742 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %739, ptr noundef %0, i32 noundef %740, i32 noundef %741, i32 noundef 0)
+  %743 = load i32, ptr @ett_dvb_s2_hdr_table_txtype_ypattern, align 4
+  %744 = tail call ptr @proto_item_add_subtree(ptr noundef %742, i32 noundef %743)
   %.not405.i = icmp eq i8 %731, 0
   br i1 %.not405.i, label %._crit_edge384.i, label %.lr.ph383.i
 
 .lr.ph383.i:                                      ; preds = %707, %.lr.ph383.i
-  %.0371381.i = phi i32 [ %750, %.lr.ph383.i ], [ 0, %707 ]
-  %.1373380.i = phi i32 [ %749, %.lr.ph383.i ], [ %739, %707 ]
-  %746 = load i32, ptr @hf_dvb_s2_table_tx_type_y_pattern_bit, align 4
-  %747 = add i32 %.1373380.i, %.2
-  %748 = tail call ptr @proto_tree_add_item(ptr noundef %745, i32 noundef %746, ptr noundef %0, i32 noundef %747, i32 noundef 1, i32 noundef 0)
-  %749 = add i32 %.1373380.i, 1
-  %750 = add nuw nsw i32 %.0371381.i, 1
-  %exitcond411.not.i = icmp eq i32 %750, %742
+  %.0371381.i = phi i32 [ %749, %.lr.ph383.i ], [ 0, %707 ]
+  %.1373380.i = phi i32 [ %748, %.lr.ph383.i ], [ %738, %707 ]
+  %745 = load i32, ptr @hf_dvb_s2_table_tx_type_y_pattern_bit, align 4
+  %746 = add i32 %.1373380.i, %.2
+  %747 = tail call ptr @proto_tree_add_item(ptr noundef %744, i32 noundef %745, ptr noundef %0, i32 noundef %746, i32 noundef 1, i32 noundef 0)
+  %748 = add i32 %.1373380.i, 1
+  %749 = add nuw nsw i32 %.0371381.i, 1
+  %exitcond411.not.i = icmp eq i32 %749, %741
   br i1 %exitcond411.not.i, label %._crit_edge384.loopexit.i, label %.lr.ph383.i, !llvm.loop !21
 
 ._crit_edge384.loopexit.i:                        ; preds = %.lr.ph383.i
-  %.pre.i = add i32 %749, %.2
+  %.pre.i = add i32 %748, %.2
   br label %._crit_edge384.i
 
 ._crit_edge384.i:                                 ; preds = %._crit_edge384.loopexit.i, %707
-  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge384.loopexit.i ], [ %741, %707 ]
-  %.1373.lcssa.i = phi i32 [ %749, %._crit_edge384.loopexit.i ], [ %739, %707 ]
+  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge384.loopexit.i ], [ %740, %707 ]
+  %.1373.lcssa.i = phi i32 [ %748, %._crit_edge384.loopexit.i ], [ %738, %707 ]
+  %750 = and i8 %735, 31
   %751 = load i32, ptr @hf_dvb_s2_table_tx_type_w_pattern, align 4
-  %752 = zext nneg i8 %736 to i32
+  %752 = zext nneg i8 %750 to i32
   %753 = tail call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %751, ptr noundef %0, i32 noundef %.pre-phi.i, i32 noundef %752, i32 noundef 0)
   %754 = load i32, ptr @ett_dvb_s2_hdr_table_txtype_wpattern, align 4
   %755 = tail call ptr @proto_item_add_subtree(ptr noundef %753, i32 noundef %754)
-  %.not406.i = icmp eq i8 %736, 0
+  %.not406.i = icmp eq i8 %750, 0
   br i1 %.not406.i, label %._crit_edge390.i, label %.lr.ph389.i
 
 .lr.ph389.i:                                      ; preds = %._crit_edge384.i, %.lr.ph389.i

@@ -1066,18 +1066,18 @@ define weak_odr dso_local { <2 x float>, <2 x float> } @_ZN4pbrtmlILi2EEENS_12Sq
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.fca.1.load, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
 
-7:                                                ; preds = %11
+7:                                                ; preds = %10
   br i1 %4, label %.preheader, label %6, !llvm.loop !48
 
-8:                                                ; preds = %.preheader, %11
-  %9 = phi i1 [ true, %.preheader ], [ false, %11 ]
-  %indvars.iv39 = phi i64 [ 0, %.preheader ], [ 1, %11 ]
-  %10 = getelementptr inbounds nuw float, ptr %indvars.iv42.sroa.phi, i64 %indvars.iv39
+8:                                                ; preds = %.preheader, %10
+  %9 = phi i1 [ true, %.preheader ], [ false, %10 ]
+  %indvars.iv39 = phi i64 [ 0, %.preheader ], [ 1, %10 ]
   %invariant.gep = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv39
   br label %12
 
-11:                                               ; preds = %12
-  store float %18, ptr %10, align 4, !tbaa !4
+10:                                               ; preds = %12
+  %11 = getelementptr inbounds nuw float, ptr %indvars.iv42.sroa.phi, i64 %indvars.iv39
+  store float %18, ptr %11, align 4, !tbaa !4
   br i1 %9, label %8, label %7, !llvm.loop !49
 
 12:                                               ; preds = %8, %12
@@ -1089,7 +1089,7 @@ define weak_odr dso_local { <2 x float>, <2 x float> } @_ZN4pbrtmlILi2EEENS_12Sq
   %gep = getelementptr inbounds nuw [2 x float], ptr %invariant.gep, i64 %indvars.iv
   %17 = load float, ptr %gep, align 4, !tbaa !4
   %18 = call noundef float @llvm.fma.f32(float %16, float %17, float %14)
-  br i1 %13, label %12, label %11, !llvm.loop !50
+  br i1 %13, label %12, label %10, !llvm.loop !50
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -2378,20 +2378,20 @@ _ZNSt10unique_ptrIN4llvm8LoopInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %
   %220 = call noundef ptr @_ZN4llvm9Intrinsic22getOrInsertDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %219, i32 noundef 775, ptr null, i64 0) #21
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %220, ptr %221, align 8, !tbaa !250
-  %222 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %223 = load ptr, ptr %222, align 8, !tbaa !249
-  %224 = load ptr, ptr %104, align 8, !tbaa !25
-  %225 = load i32, ptr %106, align 8, !tbaa !26
-  %226 = zext i32 %225 to i64
-  %.idx.i = mul nuw nsw i64 %226, 144
-  %227 = getelementptr inbounds nuw i8, ptr %224, i64 %.idx.i
-  %.not13.i = icmp ne i32 %225, 0
+  %222 = load ptr, ptr %104, align 8, !tbaa !25
+  %223 = load i32, ptr %106, align 8, !tbaa !26
+  %224 = zext i32 %223 to i64
+  %.idx.i = mul nuw nsw i64 %224, 144
+  %225 = getelementptr inbounds nuw i8, ptr %222, i64 %.idx.i
+  %.not13.i = icmp ne i32 %223, 0
   call void @llvm.assume(i1 %.not13.i)
-  %228 = getelementptr inbounds nuw i8, ptr %.1126, i64 32
-  %229 = getelementptr inbounds nuw i8, ptr %.1126, i64 24
+  %226 = getelementptr inbounds nuw i8, ptr %.1126, i64 32
+  %227 = getelementptr inbounds nuw i8, ptr %.1126, i64 24
   br label %249
 
 ._crit_edge.i:                                    ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPS1_S3_.exit.i
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %229 = load ptr, ptr %228, align 8, !tbaa !249
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %230 = getelementptr inbounds nuw i8, ptr %.1.i, i64 56
   %231 = load ptr, ptr %230, align 8, !tbaa !176
@@ -2419,7 +2419,7 @@ _ZNSt10unique_ptrIN4llvm8LoopInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %241 = getelementptr inbounds nuw i8, ptr %223, i64 232
+  %241 = getelementptr inbounds nuw i8, ptr %229, i64 232
   %242 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i8 4, ptr %242, align 8, !tbaa !123
   %243 = getelementptr inbounds nuw i8, ptr %16, i64 33
@@ -2437,7 +2437,7 @@ _ZNSt10unique_ptrIN4llvm8LoopInfoESt14default_deleteIS1_EED2Ev.exit: ; preds = %
 
 249:                                              ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPS1_S3_.exit.i, %216
   %.015.i = phi ptr [ null, %216 ], [ %.1.i, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPS1_S3_.exit.i ]
-  %.03414.i = phi ptr [ %224, %216 ], [ %291, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPS1_S3_.exit.i ]
+  %.03414.i = phi ptr [ %222, %216 ], [ %291, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPS1_S3_.exit.i ]
   %250 = getelementptr inbounds nuw i8, ptr %.03414.i, i64 8
   %251 = load ptr, ptr %250, align 8, !tbaa !272
   %.not36.i = icmp eq ptr %.015.i, null
@@ -2460,13 +2460,13 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thre
   %262 = getelementptr inbounds nuw i8, ptr %.015.i, i64 44
   %263 = load i32, ptr %262, align 4, !tbaa !302
   %264 = add i32 %263, 1
-  %265 = load i32, ptr %228, align 8, !tbaa !26
+  %265 = load i32, ptr %226, align 8, !tbaa !26
   %266 = icmp ugt i32 %265, %264
   br i1 %266, label %267, label %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit.i.i
 
 267:                                              ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i
   %268 = zext i32 %264 to i64
-  %269 = load ptr, ptr %229, align 8, !tbaa !25
+  %269 = load ptr, ptr %227, align 8, !tbaa !25
   %270 = getelementptr inbounds nuw %"class.std::unique_ptr.347", ptr %269, i64 %268
   %271 = load ptr, ptr %270, align 8, !tbaa !303
   br label %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit.i.i
@@ -2489,7 +2489,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thre
 
 277:                                              ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i16.i.i
   %278 = zext i32 %.sroa.0.0.extract.trunc10.i17.i.i to i64
-  %279 = load ptr, ptr %229, align 8, !tbaa !25
+  %279 = load ptr, ptr %227, align 8, !tbaa !25
   %280 = getelementptr inbounds nuw %"class.std::unique_ptr.347", ptr %279, i64 %278
   %281 = load ptr, ptr %280, align 8, !tbaa !303
   br label %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit18.i.i
@@ -2522,7 +2522,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit18.i.i: ; p
 _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEPS1_S3_.exit.i: ; preds = %._crit_edge.i.i, %254, %249
   %.1.i = phi ptr [ %290, %._crit_edge.i.i ], [ %259, %254 ], [ %253, %249 ]
   %291 = getelementptr inbounds nuw i8, ptr %.03414.i, i64 144
-  %.not.i171 = icmp eq ptr %291, %227
+  %.not.i171 = icmp eq ptr %291, %225
   br i1 %.not.i171, label %._crit_edge.i, label %249
 
 292:                                              ; preds = %._crit_edge.i
@@ -2546,7 +2546,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE26findNearestCommonDominatorEP
   br i1 %or.cond12.i, label %376, label %303
 
 303:                                              ; preds = %295
-  %304 = getelementptr inbounds nuw i8, ptr %223, i64 288
+  %304 = getelementptr inbounds nuw i8, ptr %229, i64 288
   %305 = load ptr, ptr %233, align 8, !tbaa !251
   %306 = call noundef ptr @_ZNK4llvm10DataLayout13getIntPtrTypeERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(496) %304, ptr noundef nonnull align 8 dereferenceable(8) %305, i32 noundef 0) #21
   %307 = call noundef ptr @_ZN4llvm6memtag17getAndroidSlotPtrERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEi(ptr noundef nonnull align 8 dereferenceable(144) %11, i32 noundef -3) #21

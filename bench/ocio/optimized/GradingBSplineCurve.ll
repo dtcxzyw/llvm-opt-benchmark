@@ -544,8 +544,8 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIN19O
   %13 = getelementptr inbounds nuw float, ptr %12, i64 %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %13, ptr %14, align 8, !tbaa !40
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %12, i8 0, i64 %11, i1 false), !tbaa !41
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %11
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %12, i8 0, i64 %11, i1 false), !tbaa !41
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc9, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i
@@ -645,13 +645,13 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.loopexit10
   %33 = getelementptr inbounds nuw float, ptr %32, i64 %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %33, ptr %34, align 8, !tbaa !40
-  %35 = and i64 %31, -4
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %32, i8 0, i64 %35, i1 false), !tbaa !41
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %31
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %31
+  %36 = and i64 %31, -4
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %32, i8 0, i64 %36, i1 false), !tbaa !41
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, %.noexc9
-  %.0.i.i.i.i.i.i.i = phi ptr [ %36, %.noexc9 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ %35, %.noexc9 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.0.i.i.i.i.i.i.i, ptr %37, align 8, !tbaa !43
   ret void
@@ -6097,8 +6097,8 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vec
   %19 = getelementptr inbounds nuw float, ptr %18, i64 %8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %19, ptr %20, align 8, !tbaa !40
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %18, i8 0, i64 %17, i1 false), !tbaa !41
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %17
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %18, i8 0, i64 %17, i1 false), !tbaa !41
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 _ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EED2Ev.exit.i.i.i.i: ; preds = %.noexc9
@@ -6245,8 +6245,8 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vec
   %19 = getelementptr inbounds nuw float, ptr %18, i64 %8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %19, ptr %20, align 8, !tbaa !40
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %18, i8 0, i64 %17, i1 false), !tbaa !41
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %17
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %18, i8 0, i64 %17, i1 false), !tbaa !41
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 _ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EED2Ev.exit.i.i.i.i: ; preds = %.noexc9
@@ -6335,8 +6335,8 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vec
   %20 = getelementptr inbounds nuw float, ptr %19, i64 %9
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %20, ptr %21, align 8, !tbaa !40
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %19, i8 0, i64 %18, i1 false), !tbaa !41
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 %18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %19, i8 0, i64 %18, i1 false), !tbaa !41
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 _ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EED2Ev.exit.i.i.i.i: ; preds = %.noexc9

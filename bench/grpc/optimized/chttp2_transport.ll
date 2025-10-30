@@ -19925,7 +19925,6 @@ define internal fastcc void @_ZL13removal_errorN4absl12lts_202407226StatusEP18gr
   %9 = alloca %"class.absl::lts_20240722::Status", align 8
   %10 = alloca %"class.grpc_core::DebugLocation", align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.0813.i46.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %11
 
 11:                                               ; preds = %4, %11
@@ -19937,6 +19936,7 @@ define internal fastcc void @_ZL13removal_errorN4absl12lts_202407226StatusEP18gr
   br i1 %12, label %13, label %11
 
 13:                                               ; preds = %11
+  %.0813.i46.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %16 = load i64, ptr %15, align 8, !tbaa !19

@@ -760,8 +760,8 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaI
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc7
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %11, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %10, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %10, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
   br label %14
 
 14:                                               ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc7, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i

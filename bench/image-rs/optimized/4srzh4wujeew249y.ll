@@ -35295,73 +35295,73 @@ default.unreachable1250:                          ; preds = %4
   br i1 %131, label %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit406.us, label %.split778.us, !prof !29
 
 _ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit406.us: ; preds = %130
-  %132 = getelementptr inbounds nuw i32, ptr %.val276, i64 %125
-  %133 = load i32, ptr %132, align 4, !noundef !14
-  %134 = add nsw i64 %.sroa.023.0769.us, -1
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %134
-  %135 = load i32, ptr %gep, align 4, !alias.scope !4345, !noundef !14
+  %132 = add nsw i64 %.sroa.023.0769.us, -1
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %132
+  %133 = load i32, ptr %gep, align 4, !alias.scope !4345, !noundef !14
   %gep1335 = getelementptr i32, ptr %invariant.gep1334, i64 %.sroa.023.0769.us
-  %136 = load i32, ptr %gep1335, align 4, !alias.scope !4348, !noundef !14
-  br label %137
+  %134 = load i32, ptr %gep1335, align 4, !alias.scope !4348, !noundef !14
+  br label %135
 
-137:                                              ; preds = %137, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit406.us
-  %.011.i407.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit406.us ], [ %147, %137 ]
-  %.sroa.0.010.i408.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit406.us ], [ %138, %137 ]
-  %138 = add nuw nsw i32 %.sroa.0.010.i408.us, 1
-  %139 = shl nuw nsw i32 %.sroa.0.010.i408.us, 3
-  %140 = lshr i32 %135, %139
-  %141 = lshr i32 %136, %139
-  %142 = and i32 %140, 255
-  %143 = and i32 %141, 255
-  %144 = add nuw nsw i32 %143, %142
-  %145 = lshr i32 %144, 1
-  %146 = shl nuw i32 %145, %139
-  %147 = or i32 %146, %.011.i407.us
-  %exitcond.not.i409.us = icmp eq i32 %138, 4
-  br i1 %exitcond.not.i409.us, label %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit411.us, label %137
+135:                                              ; preds = %135, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit406.us
+  %.011.i407.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit406.us ], [ %145, %135 ]
+  %.sroa.0.010.i408.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit406.us ], [ %136, %135 ]
+  %136 = add nuw nsw i32 %.sroa.0.010.i408.us, 1
+  %137 = shl nuw nsw i32 %.sroa.0.010.i408.us, 3
+  %138 = lshr i32 %133, %137
+  %139 = lshr i32 %134, %137
+  %140 = and i32 %138, 255
+  %141 = and i32 %139, 255
+  %142 = add nuw nsw i32 %141, %140
+  %143 = lshr i32 %142, 1
+  %144 = shl nuw i32 %143, %137
+  %145 = or i32 %144, %.011.i407.us
+  %exitcond.not.i409.us = icmp eq i32 %136, 4
+  br i1 %exitcond.not.i409.us, label %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit411.us, label %135
 
-_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit411.us: ; preds = %137
-  %gep1337 = getelementptr i32, ptr %invariant.gep1336, i64 %134
-  %148 = load i32, ptr %gep1337, align 4, !alias.scope !4351, !noundef !14
+_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit411.us: ; preds = %135
+  %gep1337 = getelementptr i32, ptr %invariant.gep1336, i64 %132
+  %146 = load i32, ptr %gep1337, align 4, !alias.scope !4351, !noundef !14
   br label %.split11.i.us
 
 .split11.i.us:                                    ; preds = %.split11.i.us, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit411.us
   %indvars.iv.i412.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit411.us ], [ %indvars.iv.next.i413.us, %.split11.i.us ]
-  %.026.i.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit411.us ], [ %159, %.split11.i.us ]
+  %.026.i.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit411.us ], [ %157, %.split11.i.us ]
   %indvars.iv.next.i413.us = add nuw nsw i32 %indvars.iv.i412.us, 1
-  %149 = shl nuw nsw i32 %indvars.iv.i412.us, 3
-  %150 = lshr i32 %147, %149
+  %147 = shl nuw nsw i32 %indvars.iv.i412.us, 3
+  %148 = lshr i32 %145, %147
+  %149 = and i32 %148, 255
+  %150 = lshr i32 %146, %147
   %151 = and i32 %150, 255
-  %152 = lshr i32 %148, %149
-  %153 = and i32 %152, 255
-  %154 = sub nsw i32 %151, %153
-  %.lhs.trunc.i.i.us = trunc nsw i32 %154 to i16
-  %155 = sdiv i16 %.lhs.trunc.i.i.us, 2
-  %.sext.i.i.us = sext i16 %155 to i32
-  %156 = add nsw i32 %151, %.sext.i.i.us
-  %157 = tail call i32 @llvm.smax.i32(i32 range(i32 -255, 511) %156, i32 0)
-  %.0.i.i.i414.us = tail call noundef range(i32 0, 256) i32 @llvm.umin.i32(i32 %157, i32 255)
-  %158 = shl nuw i32 %.0.i.i.i414.us, %149
-  %159 = or i32 %158, %.026.i.us
+  %152 = sub nsw i32 %149, %151
+  %.lhs.trunc.i.i.us = trunc nsw i32 %152 to i16
+  %153 = sdiv i16 %.lhs.trunc.i.i.us, 2
+  %.sext.i.i.us = sext i16 %153 to i32
+  %154 = add nsw i32 %149, %.sext.i.i.us
+  %155 = tail call i32 @llvm.smax.i32(i32 range(i32 -255, 511) %154, i32 0)
+  %.0.i.i.i414.us = tail call noundef range(i32 0, 256) i32 @llvm.umin.i32(i32 %155, i32 255)
+  %156 = shl nuw i32 %.0.i.i.i414.us, %147
+  %157 = or i32 %156, %.026.i.us
   %exitcond.not.i415.us = icmp eq i32 %indvars.iv.next.i413.us, 4
   br i1 %exitcond.not.i415.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit416.us", label %.split11.i.us
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit416.us": ; preds = %.split11.i.us
-  %160 = and i32 %133, -16777216
-  %161 = and i32 %133, 16711680
-  %162 = and i32 %133, 65280
-  %163 = add i32 %159, %133
+  %158 = getelementptr inbounds nuw i32, ptr %.val276, i64 %125
+  %159 = load i32, ptr %158, align 4, !noundef !14
+  %160 = and i32 %159, -16777216
+  %161 = and i32 %159, 16711680
+  %162 = and i32 %159, 65280
+  %163 = add i32 %157, %159
   %164 = and i32 %163, 255
-  %165 = add i32 %159, %160
+  %165 = add i32 %157, %160
   %166 = and i32 %165, -16777216
-  %167 = add i32 %159, %161
+  %167 = add i32 %157, %161
   %168 = and i32 %167, 16711680
   %169 = or disjoint i32 %166, %168
-  %170 = add i32 %159, %162
+  %170 = add i32 %157, %162
   %171 = and i32 %170, 65280
   %172 = or disjoint i32 %169, %171
   %173 = or disjoint i32 %172, %164
-  store i32 %173, ptr %132, align 4
+  store i32 %173, ptr %158, align 4
   br label %595
 
 174:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h7e4a9f246ea21130E.exit320.us"
@@ -35370,53 +35370,53 @@ _ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit
   br i1 %175, label %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit401.us, label %.split794.us, !prof !29
 
 _ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit401.us: ; preds = %174
-  %176 = getelementptr inbounds nuw i32, ptr %.val276, i64 %125
-  %177 = load i32, ptr %176, align 4, !noundef !14
-  %178 = add nsw i64 %.sroa.023.0769.us, -1
-  %gep1339 = getelementptr i32, ptr %invariant.gep1338, i64 %178
-  %179 = load i32, ptr %gep1339, align 4, !alias.scope !4354, !noundef !14
+  %176 = add nsw i64 %.sroa.023.0769.us, -1
+  %gep1339 = getelementptr i32, ptr %invariant.gep1338, i64 %176
+  %177 = load i32, ptr %gep1339, align 4, !alias.scope !4354, !noundef !14
   %gep1341 = getelementptr i32, ptr %invariant.gep1340, i64 %.sroa.023.0769.us
-  %180 = load i32, ptr %gep1341, align 4, !alias.scope !4357, !noundef !14
-  %gep1343 = getelementptr i32, ptr %invariant.gep1342, i64 %178
-  %181 = load i32, ptr %gep1343, align 4, !alias.scope !4360, !noundef !14
+  %178 = load i32, ptr %gep1341, align 4, !alias.scope !4357, !noundef !14
+  %gep1343 = getelementptr i32, ptr %invariant.gep1342, i64 %176
+  %179 = load i32, ptr %gep1343, align 4, !alias.scope !4360, !noundef !14
   br label %.split13.i.us
 
 .split13.i.us:                                    ; preds = %.split13.i.us, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit401.us
   %indvars.iv.i.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit401.us ], [ %indvars.iv.next.i.us, %.split13.i.us ]
-  %.033.i.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit401.us ], [ %193, %.split13.i.us ]
+  %.033.i.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit401.us ], [ %191, %.split13.i.us ]
   %indvars.iv.next.i.us = add nuw nsw i32 %indvars.iv.i.us, 1
-  %182 = shl nuw nsw i32 %indvars.iv.i.us, 3
-  %183 = lshr i32 %179, %182
+  %180 = shl nuw nsw i32 %indvars.iv.i.us, 3
+  %181 = lshr i32 %177, %180
+  %182 = and i32 %181, 255
+  %183 = lshr i32 %178, %180
   %184 = and i32 %183, 255
-  %185 = lshr i32 %180, %182
+  %185 = lshr i32 %179, %180
   %186 = and i32 %185, 255
-  %187 = lshr i32 %181, %182
-  %188 = and i32 %187, 255
-  %189 = add nuw nsw i32 %186, %184
-  %190 = sub nsw i32 %189, %188
-  %191 = tail call i32 @llvm.smax.i32(i32 range(i32 -255, 511) %190, i32 0)
-  %.0.i.i.i.us = tail call noundef range(i32 0, 256) i32 @llvm.umin.i32(i32 %191, i32 255)
-  %192 = shl nuw i32 %.0.i.i.i.us, %182
-  %193 = or i32 %192, %.033.i.us
+  %187 = add nuw nsw i32 %184, %182
+  %188 = sub nsw i32 %187, %186
+  %189 = tail call i32 @llvm.smax.i32(i32 range(i32 -255, 511) %188, i32 0)
+  %.0.i.i.i.us = tail call noundef range(i32 0, 256) i32 @llvm.umin.i32(i32 %189, i32 255)
+  %190 = shl nuw i32 %.0.i.i.i.us, %180
+  %191 = or i32 %190, %.033.i.us
   %exitcond.not.i402.us = icmp eq i32 %indvars.iv.next.i.us, 4
   br i1 %exitcond.not.i402.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit403.us", label %.split13.i.us
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit403.us": ; preds = %.split13.i.us
-  %194 = and i32 %177, -16777216
-  %195 = and i32 %177, 16711680
-  %196 = and i32 %177, 65280
-  %197 = add i32 %193, %177
+  %192 = getelementptr inbounds nuw i32, ptr %.val276, i64 %125
+  %193 = load i32, ptr %192, align 4, !noundef !14
+  %194 = and i32 %193, -16777216
+  %195 = and i32 %193, 16711680
+  %196 = and i32 %193, 65280
+  %197 = add i32 %191, %193
   %198 = and i32 %197, 255
-  %199 = add i32 %193, %194
+  %199 = add i32 %191, %194
   %200 = and i32 %199, -16777216
-  %201 = add i32 %193, %195
+  %201 = add i32 %191, %195
   %202 = and i32 %201, 16711680
   %203 = or disjoint i32 %200, %202
-  %204 = add i32 %193, %196
+  %204 = add i32 %191, %196
   %205 = and i32 %204, 65280
   %206 = or disjoint i32 %203, %205
   %207 = or disjoint i32 %206, %198
-  store i32 %207, ptr %176, align 4
+  store i32 %207, ptr %192, align 4
   br label %595
 
 208:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h7e4a9f246ea21130E.exit320.us"
@@ -35507,32 +35507,32 @@ _ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit
   br i1 %272, label %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit376.us, label %.split826.us, !prof !29
 
 _ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit376.us: ; preds = %271
-  %273 = getelementptr inbounds nuw i32, ptr %.val276, i64 %125
-  %274 = load i32, ptr %273, align 4, !noundef !14
-  %275 = add nsw i64 %.sroa.023.0769.us, -1
-  %gep1351 = getelementptr i32, ptr %invariant.gep1350, i64 %275
-  %276 = load i32, ptr %gep1351, align 4, !alias.scope !4372, !noundef !14
-  %gep1353 = getelementptr i32, ptr %invariant.gep1352, i64 %275
-  %277 = load i32, ptr %gep1353, align 4, !alias.scope !4375, !noundef !14
-  br label %278
+  %273 = add nsw i64 %.sroa.023.0769.us, -1
+  %gep1351 = getelementptr i32, ptr %invariant.gep1350, i64 %273
+  %274 = load i32, ptr %gep1351, align 4, !alias.scope !4372, !noundef !14
+  %gep1353 = getelementptr i32, ptr %invariant.gep1352, i64 %273
+  %275 = load i32, ptr %gep1353, align 4, !alias.scope !4375, !noundef !14
+  br label %276
 
-278:                                              ; preds = %278, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit376.us
-  %.011.i377.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit376.us ], [ %288, %278 ]
-  %.sroa.0.010.i378.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit376.us ], [ %279, %278 ]
-  %279 = add nuw nsw i32 %.sroa.0.010.i378.us, 1
-  %280 = shl nuw nsw i32 %.sroa.0.010.i378.us, 3
-  %281 = lshr i32 %276, %280
-  %282 = lshr i32 %277, %280
-  %283 = and i32 %281, 255
-  %284 = and i32 %282, 255
-  %285 = add nuw nsw i32 %284, %283
-  %286 = lshr i32 %285, 1
-  %287 = shl nuw i32 %286, %280
-  %288 = or i32 %287, %.011.i377.us
-  %exitcond.not.i379.us = icmp eq i32 %279, 4
-  br i1 %exitcond.not.i379.us, label %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit381.us, label %278
+276:                                              ; preds = %276, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit376.us
+  %.011.i377.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit376.us ], [ %286, %276 ]
+  %.sroa.0.010.i378.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit376.us ], [ %277, %276 ]
+  %277 = add nuw nsw i32 %.sroa.0.010.i378.us, 1
+  %278 = shl nuw nsw i32 %.sroa.0.010.i378.us, 3
+  %279 = lshr i32 %274, %278
+  %280 = lshr i32 %275, %278
+  %281 = and i32 %279, 255
+  %282 = and i32 %280, 255
+  %283 = add nuw nsw i32 %282, %281
+  %284 = lshr i32 %283, 1
+  %285 = shl nuw i32 %284, %278
+  %286 = or i32 %285, %.011.i377.us
+  %exitcond.not.i379.us = icmp eq i32 %277, 4
+  br i1 %exitcond.not.i379.us, label %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit381.us, label %276
 
-_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit381.us: ; preds = %278
+_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit381.us: ; preds = %276
+  %287 = getelementptr inbounds nuw i32, ptr %.val276, i64 %125
+  %288 = load i32, ptr %287, align 4, !noundef !14
   %gep1355 = getelementptr i32, ptr %invariant.gep1354, i64 %.sroa.023.0769.us
   %289 = load i32, ptr %gep1355, align 4, !alias.scope !4378, !noundef !14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4381)
@@ -35566,7 +35566,7 @@ _ZN5image6codecs4webp18lossless_transform8average217h83003dfaae9fc723E.exit386.u
   %.sroa.0.010.i388.us = phi i32 [ %305, %_ZN5image6codecs4webp18lossless_transform8average217h83003dfaae9fc723E.exit386.us ], [ 0, %294 ]
   %305 = add nuw nsw i32 %.sroa.0.010.i388.us, 1
   %306 = shl nuw nsw i32 %.sroa.0.010.i388.us, 3
-  %307 = lshr i32 %288, %306
+  %307 = lshr i32 %286, %306
   %308 = lshr i32 %304, %306
   %309 = and i32 %307, 255
   %310 = and i32 %308, 255
@@ -35578,10 +35578,10 @@ _ZN5image6codecs4webp18lossless_transform8average217h83003dfaae9fc723E.exit386.u
   br i1 %exitcond.not.i389.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit391.us", label %_ZN5image6codecs4webp18lossless_transform8average217h83003dfaae9fc723E.exit386.us
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit391.us": ; preds = %_ZN5image6codecs4webp18lossless_transform8average217h83003dfaae9fc723E.exit386.us
-  %315 = and i32 %274, -16777216
-  %316 = and i32 %274, 16711680
-  %317 = and i32 %274, 65280
-  %318 = add i32 %314, %274
+  %315 = and i32 %288, -16777216
+  %316 = and i32 %288, 16711680
+  %317 = and i32 %288, 65280
+  %318 = add i32 %314, %288
   %319 = and i32 %318, 255
   %320 = add i32 %314, %315
   %321 = and i32 %320, -16777216
@@ -35592,7 +35592,7 @@ _ZN5image6codecs4webp18lossless_transform8average217h83003dfaae9fc723E.exit386.u
   %326 = and i32 %325, 65280
   %327 = or disjoint i32 %324, %326
   %328 = or disjoint i32 %327, %319
-  store i32 %328, ptr %273, align 4
+  store i32 %328, ptr %287, align 4
   br label %595
 
 329:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h7e4a9f246ea21130E.exit320.us"
@@ -35655,46 +35655,46 @@ _ZN5image6codecs4webp18lossless_transform13get_top_right17h5e5dd340f1d5b451E.exi
   br i1 %364, label %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit360.us, label %.split858.us, !prof !29
 
 _ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit360.us: ; preds = %363
-  %365 = getelementptr inbounds nuw i32, ptr %.val276, i64 %125
-  %366 = load i32, ptr %365, align 4, !noundef !14
-  %367 = getelementptr i32, ptr %116, i64 %.sroa.023.0769.us
-  %368 = load i32, ptr %367, align 4, !alias.scope !4390, !noundef !14
+  %365 = getelementptr i32, ptr %116, i64 %.sroa.023.0769.us
+  %366 = load i32, ptr %365, align 4, !alias.scope !4390, !noundef !14
   %gep1359 = getelementptr i32, ptr %invariant.gep1358, i64 %.sroa.023.0769.us
-  %369 = load i32, ptr %gep1359, align 4, !alias.scope !4393, !noundef !14
-  br label %370
+  %367 = load i32, ptr %gep1359, align 4, !alias.scope !4393, !noundef !14
+  br label %368
 
-370:                                              ; preds = %370, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit360.us
-  %.011.i361.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit360.us ], [ %380, %370 ]
-  %.sroa.0.010.i362.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit360.us ], [ %371, %370 ]
-  %371 = add nuw nsw i32 %.sroa.0.010.i362.us, 1
-  %372 = shl nuw nsw i32 %.sroa.0.010.i362.us, 3
-  %373 = lshr i32 %368, %372
-  %374 = lshr i32 %369, %372
-  %375 = and i32 %373, 255
-  %376 = and i32 %374, 255
-  %377 = add nuw nsw i32 %376, %375
-  %378 = lshr i32 %377, 1
-  %379 = shl nuw i32 %378, %372
-  %380 = or i32 %379, %.011.i361.us
-  %exitcond.not.i363.us = icmp eq i32 %371, 4
-  br i1 %exitcond.not.i363.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit365.us", label %370
+368:                                              ; preds = %368, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit360.us
+  %.011.i361.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit360.us ], [ %378, %368 ]
+  %.sroa.0.010.i362.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit360.us ], [ %369, %368 ]
+  %369 = add nuw nsw i32 %.sroa.0.010.i362.us, 1
+  %370 = shl nuw nsw i32 %.sroa.0.010.i362.us, 3
+  %371 = lshr i32 %366, %370
+  %372 = lshr i32 %367, %370
+  %373 = and i32 %371, 255
+  %374 = and i32 %372, 255
+  %375 = add nuw nsw i32 %374, %373
+  %376 = lshr i32 %375, 1
+  %377 = shl nuw i32 %376, %370
+  %378 = or i32 %377, %.011.i361.us
+  %exitcond.not.i363.us = icmp eq i32 %369, 4
+  br i1 %exitcond.not.i363.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit365.us", label %368
 
-"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit365.us": ; preds = %370
-  %381 = and i32 %366, -16777216
-  %382 = and i32 %366, 16711680
-  %383 = and i32 %366, 65280
-  %384 = add i32 %380, %366
+"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit365.us": ; preds = %368
+  %379 = getelementptr inbounds nuw i32, ptr %.val276, i64 %125
+  %380 = load i32, ptr %379, align 4, !noundef !14
+  %381 = and i32 %380, -16777216
+  %382 = and i32 %380, 16711680
+  %383 = and i32 %380, 65280
+  %384 = add i32 %378, %380
   %385 = and i32 %384, 255
-  %386 = add i32 %380, %381
+  %386 = add i32 %378, %381
   %387 = and i32 %386, -16777216
-  %388 = add i32 %380, %382
+  %388 = add i32 %378, %382
   %389 = and i32 %388, 16711680
   %390 = or disjoint i32 %387, %389
-  %391 = add i32 %380, %383
+  %391 = add i32 %378, %383
   %392 = and i32 %391, 65280
   %393 = or disjoint i32 %390, %392
   %394 = or disjoint i32 %393, %385
-  store i32 %394, ptr %365, align 4
+  store i32 %394, ptr %379, align 4
   br label %595
 
 395:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h7e4a9f246ea21130E.exit320.us"
@@ -35703,46 +35703,46 @@ _ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit360.us
   br i1 %396, label %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit352.us, label %.split870.us, !prof !29
 
 _ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit352.us: ; preds = %395
-  %397 = getelementptr inbounds nuw i32, ptr %.val276, i64 %125
-  %398 = load i32, ptr %397, align 4, !noundef !14
-  %399 = getelementptr i32, ptr %117, i64 %.sroa.023.0769.us
-  %400 = load i32, ptr %399, align 4, !alias.scope !4396, !noundef !14
+  %397 = getelementptr i32, ptr %117, i64 %.sroa.023.0769.us
+  %398 = load i32, ptr %397, align 4, !alias.scope !4396, !noundef !14
   %gep1361 = getelementptr i32, ptr %invariant.gep1360, i64 %.sroa.023.0769.us
-  %401 = load i32, ptr %gep1361, align 4, !alias.scope !4399, !noundef !14
-  br label %402
+  %399 = load i32, ptr %gep1361, align 4, !alias.scope !4399, !noundef !14
+  br label %400
 
-402:                                              ; preds = %402, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit352.us
-  %.011.i353.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit352.us ], [ %412, %402 ]
-  %.sroa.0.010.i354.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit352.us ], [ %403, %402 ]
-  %403 = add nuw nsw i32 %.sroa.0.010.i354.us, 1
-  %404 = shl nuw nsw i32 %.sroa.0.010.i354.us, 3
-  %405 = lshr i32 %400, %404
-  %406 = lshr i32 %401, %404
-  %407 = and i32 %405, 255
-  %408 = and i32 %406, 255
-  %409 = add nuw nsw i32 %408, %407
-  %410 = lshr i32 %409, 1
-  %411 = shl nuw i32 %410, %404
-  %412 = or i32 %411, %.011.i353.us
-  %exitcond.not.i355.us = icmp eq i32 %403, 4
-  br i1 %exitcond.not.i355.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit357.us", label %402
+400:                                              ; preds = %400, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit352.us
+  %.011.i353.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit352.us ], [ %410, %400 ]
+  %.sroa.0.010.i354.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit352.us ], [ %401, %400 ]
+  %401 = add nuw nsw i32 %.sroa.0.010.i354.us, 1
+  %402 = shl nuw nsw i32 %.sroa.0.010.i354.us, 3
+  %403 = lshr i32 %398, %402
+  %404 = lshr i32 %399, %402
+  %405 = and i32 %403, 255
+  %406 = and i32 %404, 255
+  %407 = add nuw nsw i32 %406, %405
+  %408 = lshr i32 %407, 1
+  %409 = shl nuw i32 %408, %402
+  %410 = or i32 %409, %.011.i353.us
+  %exitcond.not.i355.us = icmp eq i32 %401, 4
+  br i1 %exitcond.not.i355.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit357.us", label %400
 
-"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit357.us": ; preds = %402
-  %413 = and i32 %398, -16777216
-  %414 = and i32 %398, 16711680
-  %415 = and i32 %398, 65280
-  %416 = add i32 %412, %398
+"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit357.us": ; preds = %400
+  %411 = getelementptr inbounds nuw i32, ptr %.val276, i64 %125
+  %412 = load i32, ptr %411, align 4, !noundef !14
+  %413 = and i32 %412, -16777216
+  %414 = and i32 %412, 16711680
+  %415 = and i32 %412, 65280
+  %416 = add i32 %410, %412
   %417 = and i32 %416, 255
-  %418 = add i32 %412, %413
+  %418 = add i32 %410, %413
   %419 = and i32 %418, -16777216
-  %420 = add i32 %412, %414
+  %420 = add i32 %410, %414
   %421 = and i32 %420, 16711680
   %422 = or disjoint i32 %419, %421
-  %423 = add i32 %412, %415
+  %423 = add i32 %410, %415
   %424 = and i32 %423, 65280
   %425 = or disjoint i32 %422, %424
   %426 = or disjoint i32 %425, %417
-  store i32 %426, ptr %397, align 4
+  store i32 %426, ptr %411, align 4
   br label %595
 
 427:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h7e4a9f246ea21130E.exit320.us"
@@ -35751,47 +35751,47 @@ _ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit352.us
   br i1 %428, label %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit344.us, label %.split882.us, !prof !29
 
 _ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit344.us: ; preds = %427
-  %429 = getelementptr inbounds nuw i32, ptr %.val276, i64 %125
-  %430 = load i32, ptr %429, align 4, !noundef !14
-  %431 = add nsw i64 %.sroa.023.0769.us, -1
-  %gep1363 = getelementptr i32, ptr %invariant.gep1362, i64 %431
-  %432 = load i32, ptr %gep1363, align 4, !alias.scope !4402, !noundef !14
-  %gep1365 = getelementptr i32, ptr %invariant.gep1364, i64 %431
-  %433 = load i32, ptr %gep1365, align 4, !alias.scope !4405, !noundef !14
-  br label %434
+  %429 = add nsw i64 %.sroa.023.0769.us, -1
+  %gep1363 = getelementptr i32, ptr %invariant.gep1362, i64 %429
+  %430 = load i32, ptr %gep1363, align 4, !alias.scope !4402, !noundef !14
+  %gep1365 = getelementptr i32, ptr %invariant.gep1364, i64 %429
+  %431 = load i32, ptr %gep1365, align 4, !alias.scope !4405, !noundef !14
+  br label %432
 
-434:                                              ; preds = %434, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit344.us
-  %.011.i345.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit344.us ], [ %444, %434 ]
-  %.sroa.0.010.i346.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit344.us ], [ %435, %434 ]
-  %435 = add nuw nsw i32 %.sroa.0.010.i346.us, 1
-  %436 = shl nuw nsw i32 %.sroa.0.010.i346.us, 3
-  %437 = lshr i32 %432, %436
-  %438 = lshr i32 %433, %436
-  %439 = and i32 %437, 255
-  %440 = and i32 %438, 255
-  %441 = add nuw nsw i32 %440, %439
-  %442 = lshr i32 %441, 1
-  %443 = shl nuw i32 %442, %436
-  %444 = or i32 %443, %.011.i345.us
-  %exitcond.not.i347.us = icmp eq i32 %435, 4
-  br i1 %exitcond.not.i347.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit349.us", label %434
+432:                                              ; preds = %432, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit344.us
+  %.011.i345.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit344.us ], [ %442, %432 ]
+  %.sroa.0.010.i346.us = phi i32 [ 0, %_ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit344.us ], [ %433, %432 ]
+  %433 = add nuw nsw i32 %.sroa.0.010.i346.us, 1
+  %434 = shl nuw nsw i32 %.sroa.0.010.i346.us, 3
+  %435 = lshr i32 %430, %434
+  %436 = lshr i32 %431, %434
+  %437 = and i32 %435, 255
+  %438 = and i32 %436, 255
+  %439 = add nuw nsw i32 %438, %437
+  %440 = lshr i32 %439, 1
+  %441 = shl nuw i32 %440, %434
+  %442 = or i32 %441, %.011.i345.us
+  %exitcond.not.i347.us = icmp eq i32 %433, 4
+  br i1 %exitcond.not.i347.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit349.us", label %432
 
-"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit349.us": ; preds = %434
-  %445 = and i32 %430, -16777216
-  %446 = and i32 %430, 16711680
-  %447 = and i32 %430, 65280
-  %448 = add i32 %444, %430
+"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit349.us": ; preds = %432
+  %443 = getelementptr inbounds nuw i32, ptr %.val276, i64 %125
+  %444 = load i32, ptr %443, align 4, !noundef !14
+  %445 = and i32 %444, -16777216
+  %446 = and i32 %444, 16711680
+  %447 = and i32 %444, 65280
+  %448 = add i32 %442, %444
   %449 = and i32 %448, 255
-  %450 = add i32 %444, %445
+  %450 = add i32 %442, %445
   %451 = and i32 %450, -16777216
-  %452 = add i32 %444, %446
+  %452 = add i32 %442, %446
   %453 = and i32 %452, 16711680
   %454 = or disjoint i32 %451, %453
-  %455 = add i32 %444, %447
+  %455 = add i32 %442, %447
   %456 = and i32 %455, 65280
   %457 = or disjoint i32 %454, %456
   %458 = or disjoint i32 %457, %449
-  store i32 %458, ptr %429, align 4
+  store i32 %458, ptr %443, align 4
   br label %595
 
 459:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h7e4a9f246ea21130E.exit320.us"

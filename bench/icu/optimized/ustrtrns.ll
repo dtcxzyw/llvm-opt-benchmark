@@ -1442,7 +1442,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   %25 = icmp ne i8 %24, 0
   %26 = icmp ult ptr %0, %23
   %27 = select i1 %25, i1 %26, i1 false
-  br i1 %27, label %.lr.ph233, label %.loopexit219
+  br i1 %27, label %.lr.ph233, label %.loopexit220
 
 .lr.ph233:                                        ; preds = %20, %.backedge221
   %28 = phi i8 [ %35, %.backedge221 ], [ %24, %20 ]
@@ -1466,7 +1466,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   %36 = icmp ne i8 %35, 0
   %37 = icmp ult ptr %.0164.be, %23
   %38 = select i1 %36, i1 %37, i1 false
-  br i1 %38, label %.lr.ph233, label %.loopexit219, !llvm.loop !24
+  br i1 %38, label %.lr.ph233, label %.loopexit220, !llvm.loop !24
 
 39:                                               ; preds = %.lr.ph233
   %40 = icmp samesign ult i8 %28, -32
@@ -1476,7 +1476,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   %42 = getelementptr inbounds nuw i8, ptr %.0167231, i64 1
   %43 = load i8, ptr %42, align 1, !tbaa !18
   %.not208 = icmp eq i8 %43, 0
-  br i1 %.not208, label %.loopexit219.loopexit, label %44
+  br i1 %.not208, label %.loopexit219, label %44
 
 44:                                               ; preds = %41
   %45 = zext i8 %43 to i32
@@ -1498,13 +1498,13 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %53, label %57, label %71
 
 57:                                               ; preds = %52
-  br i1 %.not206, label %.loopexit219.loopexit, label %58
+  br i1 %.not206, label %.loopexit219, label %58
 
 58:                                               ; preds = %57
   %59 = getelementptr inbounds nuw i8, ptr %.0167231, i64 2
   %60 = load i8, ptr %59, align 1, !tbaa !18
   %.not207 = icmp eq i8 %60, 0
-  br i1 %.not207, label %.loopexit219.loopexit, label %61
+  br i1 %.not207, label %.loopexit219, label %61
 
 61:                                               ; preds = %58
   %62 = zext i8 %60 to i32
@@ -1520,20 +1520,20 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   br label %.backedge221
 
 71:                                               ; preds = %52
-  br i1 %.not206, label %.loopexit219.loopexit, label %72
+  br i1 %.not206, label %.loopexit219, label %72
 
 72:                                               ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %.0167231, i64 2
   %74 = load i8, ptr %73, align 1, !tbaa !18
   %75 = zext i8 %74 to i32
   %.not204 = icmp eq i8 %74, 0
-  br i1 %.not204, label %.loopexit219.loopexit, label %76
+  br i1 %.not204, label %.loopexit219, label %76
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %.0167231, i64 3
   %78 = load i8, ptr %77, align 1, !tbaa !18
   %.not205 = icmp eq i8 %78, 0
-  br i1 %.not205, label %.loopexit219.loopexit, label %79
+  br i1 %.not205, label %.loopexit219, label %79
 
 79:                                               ; preds = %76
   %80 = zext i8 %78 to i32
@@ -1551,7 +1551,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   %92 = getelementptr inbounds nuw i8, ptr %.0164232, i64 2
   store i16 %91, ptr %.0164232, align 2, !tbaa !9
   %93 = icmp ult ptr %92, %23
-  br i1 %93, label %94, label %.loopexit219thread-pre-split
+  br i1 %93, label %94, label %.loopexit220thread-pre-split
 
 94:                                               ; preds = %79
   %95 = trunc i32 %88 to i16
@@ -1561,41 +1561,41 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   store i16 %97, ptr %92, align 2, !tbaa !9
   br label %.backedge221
 
-.loopexit219.loopexit:                            ; preds = %41, %71, %72, %76, %57, %58
+.loopexit219:                                     ; preds = %41, %71, %72, %76, %57, %58
   store i16 -3, ptr %.0164232, align 2, !tbaa !9
   %scevgep = getelementptr i8, ptr %.0167231, i64 1
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %scevgep)
-  %99 = getelementptr inbounds nuw i8, ptr %.0164232, i64 2
-  %100 = getelementptr i8, ptr %.0167231, i64 %strlen
-  %scevgep254 = getelementptr i8, ptr %100, i64 1
-  br label %.loopexit219thread-pre-split
+  %99 = getelementptr i8, ptr %.0167231, i64 %strlen
+  %scevgep253 = getelementptr i8, ptr %99, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.0164232, i64 2
+  br label %.loopexit220thread-pre-split
 
-.loopexit219thread-pre-split:                     ; preds = %79, %.loopexit219.loopexit
-  %.0175.ph = phi i32 [ 0, %.loopexit219.loopexit ], [ 1, %79 ]
-  %.1168.ph = phi ptr [ %scevgep254, %.loopexit219.loopexit ], [ %81, %79 ]
-  %.1165.ph = phi ptr [ %99, %.loopexit219.loopexit ], [ %92, %79 ]
+.loopexit220thread-pre-split:                     ; preds = %79, %.loopexit219
+  %.0175.ph = phi i32 [ 0, %.loopexit219 ], [ 1, %79 ]
+  %.1168.ph = phi ptr [ %scevgep253, %.loopexit219 ], [ %81, %79 ]
+  %.1165.ph = phi ptr [ %100, %.loopexit219 ], [ %92, %79 ]
   %.pr = load i8, ptr %.1168.ph, align 1, !tbaa !18
-  br label %.loopexit219
+  br label %.loopexit220
 
-.loopexit219:                                     ; preds = %.backedge221, %.loopexit219thread-pre-split, %20
-  %101 = phi i8 [ %.pr, %.loopexit219thread-pre-split ], [ %24, %20 ], [ %35, %.backedge221 ]
-  %.0175 = phi i32 [ %.0175.ph, %.loopexit219thread-pre-split ], [ 0, %20 ], [ 0, %.backedge221 ]
-  %.1168 = phi ptr [ %.1168.ph, %.loopexit219thread-pre-split ], [ %3, %20 ], [ %.0167.be, %.backedge221 ]
-  %.1165 = phi ptr [ %.1165.ph, %.loopexit219thread-pre-split ], [ %0, %20 ], [ %.0164.be, %.backedge221 ]
+.loopexit220:                                     ; preds = %.backedge221, %.loopexit220thread-pre-split, %20
+  %101 = phi i8 [ %.pr, %.loopexit220thread-pre-split ], [ %24, %20 ], [ %35, %.backedge221 ]
+  %.0175 = phi i32 [ %.0175.ph, %.loopexit220thread-pre-split ], [ 0, %20 ], [ 0, %.backedge221 ]
+  %.1168 = phi ptr [ %.1168.ph, %.loopexit220thread-pre-split ], [ %3, %20 ], [ %.0167.be, %.backedge221 ]
+  %.1165 = phi ptr [ %.1165.ph, %.loopexit220thread-pre-split ], [ %0, %20 ], [ %.0164.be, %.backedge221 ]
   %.not210241 = icmp eq i8 %101, 0
   br i1 %.not210241, label %.loopexit, label %.lr.ph244
 
-.lr.ph244:                                        ; preds = %.loopexit219, %.backedge
-  %102 = phi i8 [ %106, %.backedge ], [ %101, %.loopexit219 ]
-  %.3170243 = phi ptr [ %105, %.backedge ], [ %.1168, %.loopexit219 ]
-  %.1176242 = phi i32 [ %104, %.backedge ], [ %.0175, %.loopexit219 ]
+.lr.ph244:                                        ; preds = %.loopexit220, %.backedge
+  %102 = phi i8 [ %106, %.backedge ], [ %101, %.loopexit220 ]
+  %.3170243 = phi ptr [ %105, %.backedge ], [ %.1168, %.loopexit220 ]
+  %.1176242 = phi i32 [ %104, %.backedge ], [ %.0175, %.loopexit220 ]
   %103 = icmp ult i8 %102, -64
   br i1 %103, label %.backedge, label %107
 
 .backedge:                                        ; preds = %.lr.ph244, %124, %117, %109
-  %.sink287 = phi i32 [ 1, %109 ], [ 1, %117 ], [ 2, %124 ], [ 1, %.lr.ph244 ]
+  %.sink285 = phi i32 [ 1, %109 ], [ 1, %117 ], [ 2, %124 ], [ 1, %.lr.ph244 ]
   %.sink = phi i64 [ 2, %109 ], [ 3, %117 ], [ 4, %124 ], [ 1, %.lr.ph244 ]
-  %104 = add nsw i32 %.1176242, %.sink287
+  %104 = add nsw i32 %.1176242, %.sink285
   %105 = getelementptr inbounds nuw i8, ptr %.3170243, i64 %.sink
   %106 = load i8, ptr %105, align 1, !tbaa !18
   %.not210 = icmp eq i8 %106, 0
@@ -1869,9 +1869,9 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
   store i16 -3, ptr %.7230, align 2, !tbaa !9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.backedge223, %.backedge, %.loopexit224, %.loopexit219, %267, %127
-  %.3178 = phi i32 [ %128, %127 ], [ 0, %267 ], [ %.0175, %.loopexit219 ], [ 0, %.loopexit224 ], [ %104, %.backedge ], [ 0, %.backedge223 ]
-  %.2 = phi ptr [ %.1165, %127 ], [ %268, %267 ], [ %.1165, %.loopexit219 ], [ %.4, %.loopexit224 ], [ %.1165, %.backedge ], [ %.7.be, %.backedge223 ]
+.loopexit:                                        ; preds = %.backedge223, %.backedge, %.loopexit224, %.loopexit220, %267, %127
+  %.3178 = phi i32 [ %128, %127 ], [ 0, %267 ], [ %.0175, %.loopexit220 ], [ 0, %.loopexit224 ], [ %104, %.backedge ], [ 0, %.backedge223 ]
+  %.2 = phi ptr [ %.1165, %127 ], [ %268, %267 ], [ %.1165, %.loopexit220 ], [ %.4, %.loopexit224 ], [ %.1165, %.backedge ], [ %.7.be, %.backedge223 ]
   %269 = ptrtoint ptr %.2 to i64
   %270 = ptrtoint ptr %0 to i64
   %271 = sub i64 %269, %270

@@ -581,8 +581,8 @@ _ZNSt6vectorIN5boost14dynamic_bitsetImSaImEEESaIS3_EE6resizeEm.exit74.i.i: ; pre
 
 _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit69.thread.i.i.i: ; preds = %189
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %190, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %178, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false)
   %196 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx.i.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %178, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false)
   store ptr %196, ptr %177, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i.i
 
@@ -685,8 +685,8 @@ _ZN5boost14dynamic_bitsetImSaImEE6resizeEmb.exit.i.i: ; preds = %213, %_ZNSt6vec
 
 _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit69.thread.i97.i.i: ; preds = %236
   %.idx.i.i.i.i.i.i87.i.i = shl nuw nsw i64 %237, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %225, i8 0, i64 %.idx.i.i.i.i.i.i87.i.i, i1 false)
   %243 = getelementptr inbounds nuw i8, ptr %225, i64 %.idx.i.i.i.i.i.i87.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %225, i8 0, i64 %.idx.i.i.i.i.i.i87.i.i, i1 false)
   store ptr %243, ptr %224, align 8
   br label %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i77.i.i
 

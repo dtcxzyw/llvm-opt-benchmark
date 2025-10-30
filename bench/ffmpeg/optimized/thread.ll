@@ -380,19 +380,19 @@ ff_vvc_frame_thread_free.exit:                    ; preds = %29, %30
   store i32 1, ptr %91, align 8, !tbaa !66
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %0, ptr %92, align 8, !tbaa !13
-  %93 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %94 = getelementptr inbounds nuw i8, ptr %2, i64 2420
-  br label %95
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 2420
+  br label %94
 
-95:                                               ; preds = %95, %._crit_edge
-  %indvars.iv.i.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i.i, %95 ]
-  %96 = getelementptr inbounds nuw i8, ptr %94, i64 %indvars.iv.i.i
-  store atomic i8 0, ptr %96 seq_cst, align 1
+94:                                               ; preds = %94, %._crit_edge
+  %indvars.iv.i.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i.i, %94 ]
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 %indvars.iv.i.i
+  store atomic i8 0, ptr %95 seq_cst, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 10
-  br i1 %exitcond.not.i.i, label %task_init.exit.i, label %95, !llvm.loop !107
+  br i1 %exitcond.not.i.i, label %task_init.exit.i, label %94, !llvm.loop !107
 
-task_init.exit.i:                                 ; preds = %95
+task_init.exit.i:                                 ; preds = %94
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %98 = getelementptr inbounds nuw i8, ptr %90, i64 28
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 2430
@@ -409,17 +409,17 @@ task_init.exit.i:                                 ; preds = %95
   br i1 %.not9.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %101
-  store i32 0, ptr %93, align 8, !tbaa !83
+  store i32 0, ptr %96, align 8, !tbaa !83
   %103 = load i32, ptr %100, align 8, !tbaa !95
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.lr.ph12.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %101, %.lr.ph.i
   %storemerge10.i = phi i32 [ %106, %.lr.ph.i ], [ -1, %101 ]
-  store i32 -1, ptr %93, align 8, !tbaa !83
+  store i32 -1, ptr %96, align 8, !tbaa !83
   call fastcc void @task_stage_done(ptr noundef nonnull %2, ptr noundef null)
   %105 = load i32, ptr %100, align 8, !tbaa !95
-  store i32 %105, ptr %93, align 8, !tbaa !83
+  store i32 %105, ptr %96, align 8, !tbaa !83
   call fastcc void @task_stage_done(ptr noundef nonnull %2, ptr noundef null)
   %106 = add nsw i32 %storemerge10.i, 1
   store i32 %106, ptr %97, align 4, !tbaa !82
@@ -435,7 +435,7 @@ task_init.exit.i:                                 ; preds = %95
   store i32 %108, ptr %97, align 4, !tbaa !82
   call fastcc void @task_stage_done(ptr noundef nonnull %2, ptr noundef null)
   %109 = add nuw nsw i32 %storemerge811.i, 1
-  store i32 %109, ptr %93, align 8, !tbaa !83
+  store i32 %109, ptr %96, align 8, !tbaa !83
   %110 = load i32, ptr %100, align 8, !tbaa !95
   %111 = icmp slt i32 %109, %110
   br i1 %111, label %.lr.ph12.i, label %._crit_edge.i, !llvm.loop !109

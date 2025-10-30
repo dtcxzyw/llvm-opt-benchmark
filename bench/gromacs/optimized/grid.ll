@@ -689,8 +689,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !11
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -1111,8 +1111,8 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !11
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -3194,7 +3194,6 @@ declare float @llvm.fmuladd.f32(float, float, float) #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx4Grid17calcColumnIndicesERKNS_14GridDimensionsEPKNS_15UpdateGroupsCogENS_5RangeIiEENS_8ArrayRefIKNS_11BasicVectorIfEEEEiPKiiiNS9_IiEESG_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(68) %0, ptr noundef readonly captures(address_is_null) %1, i64 %2, ptr readonly captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly byval(%"class.gmx::ArrayRef.29") align 8 captures(none) %9, ptr noundef readonly byval(%"class.gmx::ArrayRef.29") align 8 captures(none) %10) local_unnamed_addr #19 align 2 {
-  %.sroa.0110.0.extract.trunc = trunc i64 %2 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %13 = load i32, ptr %12, align 4, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3213,6 +3212,7 @@ define void @_ZN3gmx4Grid17calcColumnIndicesERKNS_14GridDimensionsEPKNS_15Update
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
+  %.sroa.0110.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.4113.0.extract.shift114 = mul i64 %2, -4294967295
   %22 = ashr i64 %.sroa.4113.0.extract.shift114, 32
   %23 = sext i32 %7 to i64
@@ -3431,9 +3431,6 @@ define void @_ZN3gmx4Grid14setCellIndicesEiiPNS_11GridSetDataENS_8ArrayRefINS_8G
   store ptr %4, ptr %12, align 8
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %5, ptr %19, align 8
-  %.sroa.0109.0.extract.trunc = trunc i64 %6 to i32
-  %.sroa.4.0.extract.shift = lshr i64 %6, 32
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   store i32 %1, ptr %13, align 4, !tbaa !11
   store ptr %3, ptr %14, align 8, !tbaa !212
   store ptr %9, ptr %15, align 8, !tbaa !214
@@ -3479,6 +3476,9 @@ define void @_ZN3gmx4Grid14setCellIndicesEiiPNS_11GridSetDataENS_8ArrayRefINS_8G
   %37 = phi i32 [ %1, %.._crit_edge135_crit_edge ], [ %.pre186, %._crit_edge135.loopexit ]
   %38 = phi i32 [ 0, %.._crit_edge135_crit_edge ], [ %.pre, %._crit_edge135.loopexit ]
   %.062.lcssa = phi i32 [ 0, %.._crit_edge135_crit_edge ], [ %spec.select, %._crit_edge135.loopexit ]
+  %.sroa.0109.0.extract.trunc = trunc i64 %6 to i32
+  %.sroa.4.0.extract.shift = lshr i64 %6, 32
+  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %39 = getelementptr i32, ptr %26, i64 %.pre-phi
   %40 = load i32, ptr %39, align 4, !tbaa !11
   %41 = sub nsw i32 %40, %38
@@ -3493,7 +3493,6 @@ define void @_ZN3gmx4Grid14setCellIndicesEiiPNS_11GridSetDataENS_8ArrayRefINS_8G
   %indvars.iv169 = phi i64 [ 0, %.lr.ph134 ], [ %indvars.iv.next170, %._crit_edge ]
   %.062132 = phi i32 [ 0, %.lr.ph134 ], [ %spec.select, %._crit_edge ]
   %.063131 = phi i32 [ 0, %.lr.ph134 ], [ %.164, %._crit_edge ]
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.063131, i32 %.062132)
   %46 = load i64, ptr %12, align 8
   %47 = inttoptr i64 %46 to ptr
   %48 = load ptr, ptr %47, align 8, !tbaa !74
@@ -3509,6 +3508,7 @@ define void @_ZN3gmx4Grid14setCellIndicesEiiPNS_11GridSetDataENS_8ArrayRefINS_8G
 
 ._crit_edge:                                      ; preds = %.lr.ph, %45
   %.066.lcssa = phi i32 [ %50, %45 ], [ %72, %.lr.ph ]
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.063131, i32 %.062132)
   %53 = add i32 %32, %.066.lcssa
   %54 = sdiv i32 %53, %24
   %55 = load i32, ptr %33, align 8, !tbaa !81

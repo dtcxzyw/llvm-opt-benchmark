@@ -1432,27 +1432,27 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
 242:                                              ; preds = %240, %236
   %.3314.i = phi i32 [ %239, %236 ], [ %241, %240 ]
   %.4304.i = phi i64 [ %.3303.i, %236 ], [ %.0300473.i, %240 ]
-  %243 = add i64 %229, %.0321466.i
-  %244 = icmp ule i64 %243, %158
   br i1 %.not492.i, label %._crit_edge448.i, label %.lr.ph447.i
 
 .lr.ph447.i:                                      ; preds = %242, %.lr.ph447.i
   %indvars.iv548.i = phi i64 [ %indvars.iv.next549.i, %.lr.ph447.i ], [ 0, %242 ]
-  %.3334444.i = phi i64 [ %248, %.lr.ph447.i ], [ 0, %242 ]
-  %245 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv548.i
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 32
-  %247 = load i64, ptr %246, align 8, !tbaa !43
-  %248 = add i64 %247, %.3334444.i
+  %.3334444.i = phi i64 [ %246, %.lr.ph447.i ], [ 0, %242 ]
+  %243 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv548.i
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 32
+  %245 = load i64, ptr %244, align 8, !tbaa !43
+  %246 = add i64 %245, %.3334444.i
   %indvars.iv.next549.i = add nuw nsw i64 %indvars.iv548.i, 1
   %exitcond553.not.i = icmp eq i64 %indvars.iv.next549.i, %wide.trip.count538.i
   br i1 %exitcond553.not.i, label %._crit_edge448.loopexit.i, label %.lr.ph447.i, !llvm.loop !50
 
 ._crit_edge448.loopexit.i:                        ; preds = %.lr.ph447.i
-  %249 = call i64 @llvm.umax.i64(i64 %248, i64 1)
+  %247 = call i64 @llvm.umax.i64(i64 %246, i64 1)
   br label %._crit_edge448.i
 
 ._crit_edge448.i:                                 ; preds = %._crit_edge448.loopexit.i, %242
-  %.3334.lcssa.i = phi i64 [ 1, %242 ], [ %249, %._crit_edge448.loopexit.i ]
+  %.3334.lcssa.i = phi i64 [ 1, %242 ], [ %247, %._crit_edge448.loopexit.i ]
+  %248 = add i64 %229, %.0321466.i
+  %249 = icmp ule i64 %248, %158
   %250 = add nuw nsw i32 %.0335462.i, 1
   %251 = and i32 %250, 3
   %252 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
@@ -1489,10 +1489,10 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   br label %271
 
 271:                                              ; preds = %.critedge.i, %268
-  %.1340.i = phi i1 [ %244, %268 ], [ false, %.critedge.i ]
+  %.1340.i = phi i1 [ %249, %268 ], [ false, %.critedge.i ]
   %.1336.i = phi i32 [ %251, %268 ], [ %.0335462.i, %.critedge.i ]
   %.2333.i = phi i64 [ %.3334.lcssa.i, %268 ], [ %.0331463.i, %.critedge.i ]
-  %.1322.i = phi i64 [ %243, %268 ], [ %.0321466.i, %.critedge.i ]
+  %.1322.i = phi i64 [ %248, %268 ], [ %.0321466.i, %.critedge.i ]
   %.2313.i = phi i32 [ %.3314.i, %268 ], [ %.1312469.i, %.critedge.i ]
   %.2302.i = phi i64 [ %.4304.i, %268 ], [ %.0300473.i, %.critedge.i ]
   %.2.i = phi i32 [ %.3.lcssa.i, %268 ], [ %.0280474.i, %.critedge.i ]

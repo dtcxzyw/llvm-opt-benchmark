@@ -4354,12 +4354,12 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %31
 .noexc49:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %45 = ashr exact i64 %42, 2
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #29
-  %47 = and i64 %45, -4
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %46, i8 0, i64 %47, i1 false)
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %43
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %45
-  %50 = ptrtoint ptr %49 to i64
-  %51 = ptrtoint ptr %48 to i64
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %45
+  %48 = and i64 %45, -4
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %46, i8 0, i64 %48, i1 false)
+  %49 = getelementptr inbounds nuw i32, ptr %46, i64 %43
+  %50 = ptrtoint ptr %47 to i64
+  %51 = ptrtoint ptr %49 to i64
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc49, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -5184,14 +5184,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZSt4fillIPfiE
 .noexc86:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %84 = ashr exact i64 %81, 2
   %85 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #29
-  %86 = and i64 %84, -4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %85, i8 0, i64 %86, i1 false)
-  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %82
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 %84
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %84
+  %87 = and i64 %84, -4
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %85, i8 0, i64 %87, i1 false)
+  %88 = getelementptr inbounds nuw i32, ptr %85, i64 %82
+  %89 = ptrtoint ptr %86 to i64
+  %90 = ptrtoint ptr %88 to i64
   %.pre = load i32, ptr %69, align 8
   %.pre277 = load i32, ptr %72, align 4
-  %89 = ptrtoint ptr %88 to i64
-  %90 = ptrtoint ptr %87 to i64
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc86, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -15284,8 +15284,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %30 = getelementptr inbounds nuw double, ptr %28, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc4, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i

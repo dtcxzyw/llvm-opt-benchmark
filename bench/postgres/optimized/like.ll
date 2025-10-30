@@ -1294,36 +1294,36 @@ select.unfold.i:                                  ; preds = %45, %55, %52
   %66 = icmp sgt i32 %37, 0
   br i1 %66, label %.lr.ph140.i, label %.loopexit116.i
 
-.loopexit.i:                                      ; preds = %.lr.ph134.i, %72
-  %.292.lcssa.i = phi ptr [ %.191.i, %72 ], [ %79, %.lr.ph134.i ]
-  %.1.lcssa.i = phi ptr [ %.083139.i, %72 ], [ %77, %.lr.ph134.i ]
-  %67 = icmp sgt i32 %74, 0
-  br i1 %67, label %.lr.ph140.i, label %.loopexit116.i, !llvm.loop !14
+.loopexit.i:                                      ; preds = %.lr.ph134.i, %73
+  %.292.lcssa.i = phi ptr [ %.191.i, %73 ], [ %79, %.lr.ph134.i ]
+  %.1.lcssa.i = phi ptr [ %.083139.i, %73 ], [ %77, %.lr.ph134.i ]
+  %67 = sub i32 %.087138.i, %74
+  %68 = icmp sgt i32 %67, 0
+  br i1 %68, label %.lr.ph140.i, label %.loopexit116.i, !llvm.loop !14
 
 .lr.ph140.i:                                      ; preds = %.preheader.i, %.loopexit.i
   %.083139.i = phi ptr [ %.1.lcssa.i, %.loopexit.i ], [ %20, %.preheader.i ]
-  %.087138.i = phi i32 [ %74, %.loopexit.i ], [ %37, %.preheader.i ]
+  %.087138.i = phi i32 [ %67, %.loopexit.i ], [ %37, %.preheader.i ]
   %.090137.i = phi ptr [ %.292.lcssa.i, %.loopexit.i ], [ %64, %.preheader.i ]
-  %68 = load i8, ptr %.083139.i, align 1
-  %69 = icmp eq i8 %68, 92
-  br i1 %69, label %70, label %72
+  %69 = load i8, ptr %.083139.i, align 1
+  %70 = icmp eq i8 %69, 92
+  br i1 %70, label %71, label %73
 
-70:                                               ; preds = %.lr.ph140.i
-  %71 = getelementptr inbounds nuw i8, ptr %.090137.i, i64 1
+71:                                               ; preds = %.lr.ph140.i
+  %72 = getelementptr inbounds nuw i8, ptr %.090137.i, i64 1
   store i8 92, ptr %.090137.i, align 1
-  br label %72
+  br label %73
 
-72:                                               ; preds = %70, %.lr.ph140.i
-  %.191.i = phi ptr [ %71, %70 ], [ %.090137.i, %.lr.ph140.i ]
-  %73 = tail call i32 @pg_mblen(ptr noundef nonnull %.083139.i) #6
-  %74 = sub i32 %.087138.i, %73
-  %75 = icmp sgt i32 %73, 0
+73:                                               ; preds = %71, %.lr.ph140.i
+  %.191.i = phi ptr [ %72, %71 ], [ %.090137.i, %.lr.ph140.i ]
+  %74 = tail call i32 @pg_mblen(ptr noundef nonnull %.083139.i) #6
+  %75 = icmp sgt i32 %74, 0
   br i1 %75, label %.lr.ph134.i, label %.loopexit.i
 
-.lr.ph134.i:                                      ; preds = %72, %.lr.ph134.i
-  %.1133.i = phi ptr [ %77, %.lr.ph134.i ], [ %.083139.i, %72 ]
-  %.084132.i = phi i32 [ %76, %.lr.ph134.i ], [ %73, %72 ]
-  %.292131.i = phi ptr [ %79, %.lr.ph134.i ], [ %.191.i, %72 ]
+.lr.ph134.i:                                      ; preds = %73, %.lr.ph134.i
+  %.1133.i = phi ptr [ %77, %.lr.ph134.i ], [ %.083139.i, %73 ]
+  %.084132.i = phi i32 [ %76, %.lr.ph134.i ], [ %74, %73 ]
+  %.292131.i = phi ptr [ %79, %.lr.ph134.i ], [ %.191.i, %73 ]
   %76 = add nsw i32 %.084132.i, -1
   %77 = getelementptr inbounds nuw i8, ptr %.1133.i, i64 1
   %78 = load i8, ptr %.1133.i, align 1

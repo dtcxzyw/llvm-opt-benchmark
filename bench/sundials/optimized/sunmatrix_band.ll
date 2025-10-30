@@ -881,19 +881,19 @@ define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i64, ptr %7, align 8, !tbaa !28
   %9 = sub i64 %.042, %8
-  %spec.select = tail call i64 @llvm.smax.i64(i64 %9, i64 0)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !27
-  %14 = add nsw i64 %13, %.042
-  %15 = add nsw i64 %11, -1
-  %16 = tail call i64 @llvm.smin.i64(i64 %14, i64 %15)
-  %17 = icmp sgt i64 %9, 0
-  br i1 %17, label %.lr.ph, label %.preheader
+  %14 = icmp sgt i64 %9, 0
+  br i1 %14, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %.lr.ph44
-  %.not3639 = icmp sgt i64 %spec.select, %16
+  %spec.select = tail call i64 @llvm.smax.i64(i64 %9, i64 0)
+  %15 = add nsw i64 %13, %.042
+  %16 = add nsw i64 %11, -1
+  %17 = tail call i64 @llvm.smin.i64(i64 %15, i64 %16)
+  %.not3639 = icmp sgt i64 %spec.select, %17
   br i1 %.not3639, label %._crit_edge, label %.lr.ph41
 
 .lr.ph:                                           ; preds = %.lr.ph44, %.lr.ph
@@ -918,7 +918,7 @@ define void @SUNBandMatrix_Print(ptr noundef readonly captures(none) %0, ptr nou
   %30 = load double, ptr %29, align 8, !tbaa !36
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, double noundef %30) #18
   %32 = add nuw nsw i64 %.140, 1
-  %.not36.not = icmp slt i64 %.140, %16
+  %.not36.not = icmp slt i64 %.140, %17
   br i1 %.not36.not, label %.lr.ph41, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph41, %.preheader

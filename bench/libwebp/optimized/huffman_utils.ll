@@ -425,7 +425,7 @@ GetNextKey.exit:                                  ; preds = %ReplicateValue.exit
   %.2126250.us = phi i32 [ %.3127187.us, %GetNextKey.exit179.us ], [ %.1125276, %.lr.ph252 ]
   %.6249.us = phi i32 [ %.7.us, %GetNextKey.exit179.us ], [ %.5274, %.lr.ph252 ]
   %.1138248.us = phi i32 [ %.2139186.us, %GetNextKey.exit179.us ], [ %.0137273, %.lr.ph252 ]
-  %.4148247.us = phi i32 [ %156, %GetNextKey.exit179.us ], [ %.3147271, %.lr.ph252 ]
+  %.4148247.us = phi i32 [ %155, %GetNextKey.exit179.us ], [ %.3147271, %.lr.ph252 ]
   %.1152246.us = phi i32 [ %.2153185.us, %GetNextKey.exit179.us ], [ %.0151268, %.lr.ph252 ]
   %125 = and i32 %.4148247.us, %66
   %.not166.us = icmp eq i32 %125, %.1152246.us
@@ -476,36 +476,36 @@ NextTableBitSize.exit.us:                         ; preds = %.lr.ph252.split.us
   %148 = getelementptr inbounds %struct.HuffmanCode, ptr %144, i64 %147
   store i32 %.sroa.0.0.insert.insert.us, ptr %148, align 2
   %149 = icmp sgt i32 %146, 0
-  br i1 %149, label %145, label %ReplicateValue.exit176.us.loopexit, !llvm.loop !22
+  br i1 %149, label %145, label %ReplicateValue.exit176.loopexit.us, !llvm.loop !22
 
-ReplicateValue.exit176.us.loopexit:               ; preds = %145
-  %150 = add nsw i32 %.6249.us, 1
+ReplicateValue.exit176.us:                        ; preds = %ReplicateValue.exit176.loopexit.us, %137, %NextTableBitSize.exit.us
+  %.2122188.us = phi ptr [ %.1121251.us, %137 ], [ %.1121251.us, %NextTableBitSize.exit.us ], [ %.2122198.us, %ReplicateValue.exit176.loopexit.us ]
+  %.3127187.us = phi i32 [ %.2126250.us, %137 ], [ %126, %NextTableBitSize.exit.us ], [ %.3127197.us, %ReplicateValue.exit176.loopexit.us ]
+  %.2139186.us = phi i32 [ %.1138248.us, %137 ], [ %122, %NextTableBitSize.exit.us ], [ %.2139196.us, %ReplicateValue.exit176.loopexit.us ]
+  %.2153185.us = phi i32 [ %.1152246.us, %137 ], [ %125, %NextTableBitSize.exit.us ], [ %.2153195.us, %ReplicateValue.exit176.loopexit.us ]
+  %.7.us = phi i32 [ %.6249.us, %137 ], [ %.6249.us, %NextTableBitSize.exit.us ], [ %159, %ReplicateValue.exit176.loopexit.us ]
+  br label %150
+
+150:                                              ; preds = %150, %ReplicateValue.exit176.us
+  %.0.i177.us = phi i32 [ %124, %ReplicateValue.exit176.us ], [ %152, %150 ]
+  %151 = and i32 %.0.i177.us, %.4148247.us
+  %.not.i178.us = icmp eq i32 %151, 0
+  %152 = lshr i32 %.0.i177.us, 1
+  br i1 %.not.i178.us, label %GetNextKey.exit179.us, label %150, !llvm.loop !24
+
+GetNextKey.exit179.us:                            ; preds = %150
+  %153 = add nsw i32 %.0.i177.us, -1
+  %154 = and i32 %153, %.4148247.us
+  %155 = add i32 %154, %.0.i177.us
+  %156 = load i32, ptr %114, align 4, !tbaa !15
+  %157 = add nsw i32 %156, -1
+  store i32 %157, ptr %114, align 4, !tbaa !15
+  %158 = icmp sgt i32 %156, 1
+  br i1 %158, label %.lr.ph252.split.us, label %._crit_edge253, !llvm.loop !29
+
+ReplicateValue.exit176.loopexit.us:               ; preds = %145
+  %159 = add nsw i32 %.6249.us, 1
   br label %ReplicateValue.exit176.us
-
-ReplicateValue.exit176.us:                        ; preds = %ReplicateValue.exit176.us.loopexit, %137, %NextTableBitSize.exit.us
-  %.2122188.us = phi ptr [ %.1121251.us, %137 ], [ %.1121251.us, %NextTableBitSize.exit.us ], [ %.2122198.us, %ReplicateValue.exit176.us.loopexit ]
-  %.3127187.us = phi i32 [ %.2126250.us, %137 ], [ %126, %NextTableBitSize.exit.us ], [ %.3127197.us, %ReplicateValue.exit176.us.loopexit ]
-  %.2139186.us = phi i32 [ %.1138248.us, %137 ], [ %122, %NextTableBitSize.exit.us ], [ %.2139196.us, %ReplicateValue.exit176.us.loopexit ]
-  %.2153185.us = phi i32 [ %.1152246.us, %137 ], [ %125, %NextTableBitSize.exit.us ], [ %.2153195.us, %ReplicateValue.exit176.us.loopexit ]
-  %.7.us = phi i32 [ %.6249.us, %137 ], [ %.6249.us, %NextTableBitSize.exit.us ], [ %150, %ReplicateValue.exit176.us.loopexit ]
-  br label %151
-
-151:                                              ; preds = %151, %ReplicateValue.exit176.us
-  %.0.i177.us = phi i32 [ %124, %ReplicateValue.exit176.us ], [ %153, %151 ]
-  %152 = and i32 %.0.i177.us, %.4148247.us
-  %.not.i178.us = icmp eq i32 %152, 0
-  %153 = lshr i32 %.0.i177.us, 1
-  br i1 %.not.i178.us, label %GetNextKey.exit179.us, label %151, !llvm.loop !24
-
-GetNextKey.exit179.us:                            ; preds = %151
-  %154 = add nsw i32 %.0.i177.us, -1
-  %155 = and i32 %154, %.4148247.us
-  %156 = add i32 %155, %.0.i177.us
-  %157 = load i32, ptr %114, align 4, !tbaa !15
-  %158 = add nsw i32 %157, -1
-  store i32 %158, ptr %114, align 4, !tbaa !15
-  %159 = icmp sgt i32 %157, 1
-  br i1 %159, label %.lr.ph252.split.us, label %._crit_edge253, !llvm.loop !29
 
 .lr.ph252.split:                                  ; preds = %.lr.ph252, %GetNextKey.exit179
   %.1121251 = phi ptr [ %.2122188, %GetNextKey.exit179 ], [ %.0120277, %.lr.ph252 ]
@@ -623,7 +623,7 @@ GetNextKey.exit179:                               ; preds = %196
 
 ._crit_edge253:                                   ; preds = %GetNextKey.exit179, %GetNextKey.exit179.us, %.preheader
   %.1152.lcssa = phi i32 [ %.0151268, %.preheader ], [ %.2153185.us, %GetNextKey.exit179.us ], [ %.2153185, %GetNextKey.exit179 ]
-  %.4148.lcssa = phi i32 [ %.3147271, %.preheader ], [ %156, %GetNextKey.exit179.us ], [ %201, %GetNextKey.exit179 ]
+  %.4148.lcssa = phi i32 [ %.3147271, %.preheader ], [ %155, %GetNextKey.exit179.us ], [ %201, %GetNextKey.exit179 ]
   %.1138.lcssa = phi i32 [ %.0137273, %.preheader ], [ %.2139186.us, %GetNextKey.exit179.us ], [ %.2139186, %GetNextKey.exit179 ]
   %.6.lcssa = phi i32 [ %.5274, %.preheader ], [ %.7.us, %GetNextKey.exit179.us ], [ %.7, %GetNextKey.exit179 ]
   %.2126.lcssa = phi i32 [ %.1125276, %.preheader ], [ %.3127187.us, %GetNextKey.exit179.us ], [ %.3127187, %GetNextKey.exit179 ]

@@ -14090,8 +14090,8 @@ entry:
   %0 = load atomic i64, ptr %tailIndex monotonic, align 8
   %headIndex = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load atomic i64, ptr %headIndex monotonic, align 8
-  %cmp.not = icmp eq i64 %1, %0
-  br i1 %cmp.not, label %while.end, label %while.body.lr.ph
+  %cmp3.not34 = icmp eq i64 %1, %0
+  br i1 %cmp3.not34, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %parent = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -14212,7 +14212,7 @@ while.end:                                        ; preds = %_ZN7easylog8record_
 land.lhs.true:                                    ; preds = %while.end
   %and15 = and i64 %0, 31
   %cmp16.not = icmp eq i64 %and15, 0
-  %or.cond18 = and i1 %cmp.not, %cmp16.not
+  %or.cond18 = and i1 %cmp3.not34, %cmp16.not
   br i1 %or.cond18, label %if.end21, label %if.then17
 
 if.then17:                                        ; preds = %land.lhs.true
@@ -52595,8 +52595,8 @@ entry:
   %0 = load atomic i64, ptr %tailIndex monotonic, align 8
   %headIndex = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load atomic i64, ptr %headIndex monotonic, align 8
-  %cmp.not = icmp eq i64 %1, %0
-  br i1 %cmp.not, label %while.end, label %while.body.lr.ph
+  %cmp3.not34 = icmp eq i64 %1, %0
+  br i1 %cmp3.not34, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %parent = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -52692,7 +52692,7 @@ while.end:                                        ; preds = %if.end11, %entry
 land.lhs.true:                                    ; preds = %while.end
   %and15 = and i64 %0, 31
   %cmp16.not = icmp eq i64 %and15, 0
-  %or.cond18 = and i1 %cmp.not, %cmp16.not
+  %or.cond18 = and i1 %cmp3.not34, %cmp16.not
   br i1 %or.cond18, label %if.end21, label %if.then17
 
 if.then17:                                        ; preds = %land.lhs.true
@@ -60733,7 +60733,6 @@ if.then3.i.i.i.i.i.i.i.i:                         ; preds = %cond.true.i.i.i.i.i
 invoke.cont.i.i.i:                                ; preds = %cond.true.i.i.i.i.i.i
   %call5.i.i.i.i2.i6.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i) #42
   store ptr %call5.i.i.i.i2.i6.i.i.i, ptr %buffers_.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
@@ -60749,6 +60748,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i, 
   br i1 %cmp.i.i.i.i.i8.i.i.i, label %_ZNSt6vectorIN4asio12const_bufferESaIS1_EEC2ERKS3_.exit.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !623
 
 _ZNSt6vectorIN4asio12const_bufferESaIS1_EEC2ERKS3_.exit.i.i: ; preds = %for.body.i.i.i.i.i.i.i
+  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
   %total_consumed_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %total_consumed_.i.i, i8 0, i64 24, i1 false)
@@ -71185,8 +71185,8 @@ entry:
   %0 = load atomic i64, ptr %tailIndex monotonic, align 8
   %headIndex = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load atomic i64, ptr %headIndex monotonic, align 8
-  %cmp.not = icmp eq i64 %1, %0
-  br i1 %cmp.not, label %while.end, label %while.body.lr.ph
+  %cmp3.not34 = icmp eq i64 %1, %0
+  br i1 %cmp3.not34, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %parent = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -71294,7 +71294,7 @@ while.end:                                        ; preds = %_ZNSt10unique_ptrIN
 land.lhs.true:                                    ; preds = %while.end
   %and15 = and i64 %0, 31
   %cmp16.not = icmp eq i64 %and15, 0
-  %or.cond18 = and i1 %cmp.not, %cmp16.not
+  %or.cond18 = and i1 %cmp3.not34, %cmp16.not
   br i1 %or.cond18, label %if.end21, label %if.then17
 
 if.then17:                                        ; preds = %land.lhs.true
@@ -73818,38 +73818,38 @@ _ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN7cinatra16coro_http_clientESt14
   %initialBlockPoolIndex.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 1912
   store i64 0, ptr %initialBlockPoolIndex.i3.i, align 8
   %freeList.i4.i = getelementptr inbounds nuw i8, ptr %this, i64 1936
-  %implicitProducerHashCount.i6.i = getelementptr inbounds nuw i8, ptr %this, i64 1952
-  %initialImplicitProducerHashEntries.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 1984
-  %implicitProducerHashResizeInProgress.i8.i = getelementptr inbounds nuw i8, ptr %this, i64 2496
-  %nextExplicitConsumerId.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 2500
-  store i32 0, ptr %nextExplicitConsumerId.i9.i, align 4
-  %globalExplicitConsumerOffset.i10.i = getelementptr inbounds nuw i8, ptr %this, i64 2504
-  store i32 0, ptr %globalExplicitConsumerOffset.i10.i, align 8
+  %implicitProducerHashCount.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 1952
+  %initialImplicitProducerHashEntries.i6.i = getelementptr inbounds nuw i8, ptr %this, i64 1984
+  %implicitProducerHashResizeInProgress.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 2496
+  %nextExplicitConsumerId.i8.i = getelementptr inbounds nuw i8, ptr %this, i64 2500
+  store i32 0, ptr %nextExplicitConsumerId.i8.i, align 4
+  %globalExplicitConsumerOffset.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 2504
+  store i32 0, ptr %globalExplicitConsumerOffset.i9.i, align 8
   store i64 0, ptr %freeList.i4.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %initialImplicitProducerHashEntries.i7.i, i8 0, i64 512, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %initialImplicitProducerHashEntries.i6.i, i8 0, i64 512, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %initialBlockPool.i.i.i, i8 0, i64 16, i1 false)
-  store atomic i8 0, ptr %implicitProducerHashResizeInProgress.i8.i monotonic, align 8
-  store atomic i64 0, ptr %implicitProducerHashCount.i6.i monotonic, align 8
-  %initialImplicitProducerHash.i.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 1960
-  store i64 32, ptr %initialImplicitProducerHash.i.i11.i, align 8
-  %entries.i.i12.i = getelementptr inbounds nuw i8, ptr %this, i64 1968
-  store ptr %initialImplicitProducerHashEntries.i7.i, ptr %entries.i.i12.i, align 8
-  br label %for.body.i.i13.i
+  store atomic i8 0, ptr %implicitProducerHashResizeInProgress.i7.i monotonic, align 8
+  store atomic i64 0, ptr %implicitProducerHashCount.i5.i monotonic, align 8
+  %initialImplicitProducerHash.i.i10.i = getelementptr inbounds nuw i8, ptr %this, i64 1960
+  store i64 32, ptr %initialImplicitProducerHash.i.i10.i, align 8
+  %entries.i.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 1968
+  store ptr %initialImplicitProducerHashEntries.i6.i, ptr %entries.i.i11.i, align 8
+  br label %for.body.i.i12.i
 
-for.body.i.i13.i:                                 ; preds = %for.body.i.i13.i, %_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE39populate_initial_implicit_producer_hashEv.exit.i.i
-  %i.012.i.i14.i = phi i64 [ 0, %_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE39populate_initial_implicit_producer_hashEv.exit.i.i ], [ %inc.i.i16.i, %for.body.i.i13.i ]
-  %arrayidx.i.i.i.i15.i = getelementptr inbounds nuw %"struct.moodycamel::ConcurrentQueue<std::unique_ptr<cinatra::coro_http_client>>::ImplicitProducerKVP", ptr %initialImplicitProducerHashEntries.i7.i, i64 %i.012.i.i14.i
-  store atomic i64 0, ptr %arrayidx.i.i.i.i15.i monotonic, align 8
-  %inc.i.i16.i = add nuw nsw i64 %i.012.i.i14.i, 1
-  %cmp.not.i.i17.i = icmp eq i64 %inc.i.i16.i, 32
-  br i1 %cmp.not.i.i17.i, label %invoke.cont3, label %for.body.i.i13.i, !llvm.loop !764
+for.body.i.i12.i:                                 ; preds = %for.body.i.i12.i, %_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE39populate_initial_implicit_producer_hashEv.exit.i.i
+  %i.012.i.i13.i = phi i64 [ 0, %_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE39populate_initial_implicit_producer_hashEv.exit.i.i ], [ %inc.i.i15.i, %for.body.i.i12.i ]
+  %arrayidx.i.i.i.i14.i = getelementptr inbounds nuw %"struct.moodycamel::ConcurrentQueue<std::unique_ptr<cinatra::coro_http_client>>::ImplicitProducerKVP", ptr %initialImplicitProducerHashEntries.i6.i, i64 %i.012.i.i13.i
+  store atomic i64 0, ptr %arrayidx.i.i.i.i14.i monotonic, align 8
+  %inc.i.i15.i = add nuw nsw i64 %i.012.i.i13.i, 1
+  %cmp.not.i.i16.i = icmp eq i64 %inc.i.i15.i, 32
+  br i1 %cmp.not.i.i16.i, label %invoke.cont3, label %for.body.i.i12.i, !llvm.loop !764
 
-invoke.cont3:                                     ; preds = %for.body.i.i13.i
-  %implicitProducerHash.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 1944
+invoke.cont3:                                     ; preds = %for.body.i.i12.i
+  %implicitProducerHash.i18.i = getelementptr inbounds nuw i8, ptr %this, i64 1944
   %prev.i.i19.i = getelementptr inbounds nuw i8, ptr %this, i64 1976
   store ptr null, ptr %prev.i.i19.i, align 8
-  %2 = ptrtoint ptr %initialImplicitProducerHash.i.i11.i to i64
-  store atomic i64 %2, ptr %implicitProducerHash.i5.i monotonic, align 8
+  %2 = ptrtoint ptr %initialImplicitProducerHash.i.i10.i to i64
+  store atomic i64 %2, ptr %implicitProducerHash.i18.i monotonic, align 8
   %initialBlockPool.i.i50.i = getelementptr inbounds nuw i8, ptr %this, i64 1920
   %selected_index_.i.ptr = getelementptr inbounds nuw i8, ptr %this, i64 2512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %selected_index_.i.ptr, i8 0, i64 32, i1 false)
@@ -74131,47 +74131,47 @@ invoke.cont:                                      ; preds = %for.body.i4.i, %if.
   %initialBlockPoolIndex.i3 = getelementptr inbounds nuw i8, ptr %this, i64 632
   store i64 0, ptr %initialBlockPoolIndex.i3, align 8
   %freeList.i4 = getelementptr inbounds nuw i8, ptr %this, i64 656
-  %implicitProducerHashCount.i6 = getelementptr inbounds nuw i8, ptr %this, i64 672
-  %initialImplicitProducerHashEntries.i7 = getelementptr inbounds nuw i8, ptr %this, i64 704
-  %implicitProducerHashResizeInProgress.i8 = getelementptr inbounds nuw i8, ptr %this, i64 1216
-  %nextExplicitConsumerId.i9 = getelementptr inbounds nuw i8, ptr %this, i64 1220
-  store i32 0, ptr %nextExplicitConsumerId.i9, align 4
-  %globalExplicitConsumerOffset.i10 = getelementptr inbounds nuw i8, ptr %this, i64 1224
-  store i32 0, ptr %globalExplicitConsumerOffset.i10, align 8
+  %implicitProducerHashCount.i5 = getelementptr inbounds nuw i8, ptr %this, i64 672
+  %initialImplicitProducerHashEntries.i6 = getelementptr inbounds nuw i8, ptr %this, i64 704
+  %implicitProducerHashResizeInProgress.i7 = getelementptr inbounds nuw i8, ptr %this, i64 1216
+  %nextExplicitConsumerId.i8 = getelementptr inbounds nuw i8, ptr %this, i64 1220
+  store i32 0, ptr %nextExplicitConsumerId.i8, align 4
+  %globalExplicitConsumerOffset.i9 = getelementptr inbounds nuw i8, ptr %this, i64 1224
+  store i32 0, ptr %globalExplicitConsumerOffset.i9, align 8
   store i64 0, ptr %freeList.i4, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %initialImplicitProducerHashEntries.i7, i8 0, i64 512, i1 false)
-  store atomic i8 0, ptr %implicitProducerHashResizeInProgress.i8 monotonic, align 8
-  store atomic i64 0, ptr %implicitProducerHashCount.i6 monotonic, align 8
-  %initialImplicitProducerHash.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 680
-  store i64 32, ptr %initialImplicitProducerHash.i.i11, align 8
-  %entries.i.i12 = getelementptr inbounds nuw i8, ptr %this, i64 688
-  store ptr %initialImplicitProducerHashEntries.i7, ptr %entries.i.i12, align 8
-  br label %for.body.i.i13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %initialImplicitProducerHashEntries.i6, i8 0, i64 512, i1 false)
+  store atomic i8 0, ptr %implicitProducerHashResizeInProgress.i7 monotonic, align 8
+  store atomic i64 0, ptr %implicitProducerHashCount.i5 monotonic, align 8
+  %initialImplicitProducerHash.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 680
+  store i64 32, ptr %initialImplicitProducerHash.i.i10, align 8
+  %entries.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 688
+  store ptr %initialImplicitProducerHashEntries.i6, ptr %entries.i.i11, align 8
+  br label %for.body.i.i12
 
-for.body.i.i13:                                   ; preds = %for.body.i.i13, %invoke.cont
-  %i.012.i.i14 = phi i64 [ 0, %invoke.cont ], [ %inc.i.i16, %for.body.i.i13 ]
-  %arrayidx.i.i.i.i15 = getelementptr inbounds nuw %"struct.moodycamel::ConcurrentQueue<std::unique_ptr<cinatra::coro_http_client>>::ImplicitProducerKVP", ptr %initialImplicitProducerHashEntries.i7, i64 %i.012.i.i14
-  store atomic i64 0, ptr %arrayidx.i.i.i.i15 monotonic, align 8
-  %inc.i.i16 = add nuw nsw i64 %i.012.i.i14, 1
-  %cmp.not.i.i17 = icmp eq i64 %inc.i.i16, 32
-  br i1 %cmp.not.i.i17, label %_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE39populate_initial_implicit_producer_hashEv.exit.i18, label %for.body.i.i13, !llvm.loop !764
+for.body.i.i12:                                   ; preds = %for.body.i.i12, %invoke.cont
+  %i.012.i.i13 = phi i64 [ 0, %invoke.cont ], [ %inc.i.i15, %for.body.i.i12 ]
+  %arrayidx.i.i.i.i14 = getelementptr inbounds nuw %"struct.moodycamel::ConcurrentQueue<std::unique_ptr<cinatra::coro_http_client>>::ImplicitProducerKVP", ptr %initialImplicitProducerHashEntries.i6, i64 %i.012.i.i13
+  store atomic i64 0, ptr %arrayidx.i.i.i.i14 monotonic, align 8
+  %inc.i.i15 = add nuw nsw i64 %i.012.i.i13, 1
+  %cmp.not.i.i16 = icmp eq i64 %inc.i.i15, 32
+  br i1 %cmp.not.i.i16, label %_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE39populate_initial_implicit_producer_hashEv.exit.i17, label %for.body.i.i12, !llvm.loop !764
 
-_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE39populate_initial_implicit_producer_hashEv.exit.i18: ; preds = %for.body.i.i13
-  %implicitProducerHash.i5 = getelementptr inbounds nuw i8, ptr %this, i64 664
+_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE39populate_initial_implicit_producer_hashEv.exit.i17: ; preds = %for.body.i.i12
+  %implicitProducerHash.i18 = getelementptr inbounds nuw i8, ptr %this, i64 664
   %prev.i.i19 = getelementptr inbounds nuw i8, ptr %this, i64 696
   store ptr null, ptr %prev.i.i19, align 8
-  %3 = ptrtoint ptr %initialImplicitProducerHash.i.i11 to i64
-  store atomic i64 %3, ptr %implicitProducerHash.i5 monotonic, align 8
+  %3 = ptrtoint ptr %initialImplicitProducerHash.i.i10 to i64
+  store atomic i64 %3, ptr %implicitProducerHash.i18 monotonic, align 8
   %initialBlockPoolSize.i.i25 = getelementptr inbounds nuw i8, ptr %this, i64 648
   store i64 %add.i, ptr %initialBlockPoolSize.i.i25, align 8
   br i1 %cmp.i.i, label %if.then.i.i49, label %if.end.i.i27
 
-if.then.i.i49:                                    ; preds = %_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE39populate_initial_implicit_producer_hashEv.exit.i18
+if.then.i.i49:                                    ; preds = %_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE39populate_initial_implicit_producer_hashEv.exit.i17
   %initialBlockPool.i.i50 = getelementptr inbounds nuw i8, ptr %this, i64 640
   store ptr null, ptr %initialBlockPool.i.i50, align 8
   br label %invoke.cont2
 
-if.end.i.i27:                                     ; preds = %_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE39populate_initial_implicit_producer_hashEv.exit.i18
+if.end.i.i27:                                     ; preds = %_ZN10moodycamel15ConcurrentQueueISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS3_EENS_28ConcurrentQueueDefaultTraitsEE39populate_initial_implicit_producer_hashEv.exit.i17
   %mul.i.i.i28 = mul i64 %add.i, 328
   %call.i.i.i.i.i29 = tail call noalias noundef ptr @malloc(i64 noundef %mul.i.i.i28) #46
   %cmp.i.i.i30 = icmp eq ptr %call.i.i.i.i.i29, null

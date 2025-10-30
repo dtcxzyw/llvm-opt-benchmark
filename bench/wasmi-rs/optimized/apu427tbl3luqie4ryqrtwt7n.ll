@@ -4410,37 +4410,37 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %52 = getelementptr ptr, ptr %51, i64 %.val3
   %53 = shl nuw nsw i64 %40, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %39, ptr noundef nonnull readonly align 8 dereferenceable(1) %52, i64 %53, i1 false), !alias.scope !830
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = load i64, ptr %54, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !834)
-  br label %56
+  br label %54
 
-56:                                               ; preds = %56, %50
-  %.sroa.0.013.i.i = phi i64 [ 0, %50 ], [ %spec.select10.i.i, %56 ]
-  %57 = icmp samesign uge i64 %.sroa.0.013.i.i, %38
-  %not..i.i = xor i1 %57, true
-  %58 = zext i1 %not..i.i to i64
-  %spec.select10.i.i = add nuw nsw i64 %.sroa.0.013.i.i, %58
-  %59 = getelementptr inbounds nuw ptr, ptr %39, i64 %.sroa.0.013.i.i
-  %60 = load ptr, ptr %59, align 8, !alias.scope !834, !noalias !837, !nonnull !3, !noundef !3
-  store ptr %8, ptr %60, align 8, !noalias !844
-  %61 = trunc nuw nsw i64 %.sroa.0.013.i.i to i16
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 316
-  store i16 %61, ptr %62, align 4, !noalias !845
+54:                                               ; preds = %54, %50
+  %.sroa.0.013.i.i = phi i64 [ 0, %50 ], [ %spec.select10.i.i, %54 ]
+  %55 = icmp samesign uge i64 %.sroa.0.013.i.i, %38
+  %not..i.i = xor i1 %55, true
+  %56 = zext i1 %not..i.i to i64
+  %spec.select10.i.i = add nuw nsw i64 %.sroa.0.013.i.i, %56
+  %57 = getelementptr inbounds nuw ptr, ptr %39, i64 %.sroa.0.013.i.i
+  %58 = load ptr, ptr %57, align 8, !alias.scope !834, !noalias !837, !nonnull !3, !noundef !3
+  store ptr %8, ptr %58, align 8, !noalias !844
+  %59 = trunc nuw nsw i64 %.sroa.0.013.i.i to i16
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 316
+  store i16 %59, ptr %60, align 4, !noalias !845
   %.not.i.i.i.i = icmp samesign ugt i64 %spec.select10.i.i, %38
-  %or.cond.i.i = select i1 %57, i1 true, i1 %.not.i.i.i.i
-  br i1 %or.cond.i.i, label %63, label %56
+  %or.cond.i.i = select i1 %55, i1 true, i1 %.not.i.i.i.i
+  br i1 %or.cond.i.i, label %61, label %54
 
-63:                                               ; preds = %56
+61:                                               ; preds = %54
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i64, ptr %62, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %5, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %55, ptr %65, align 8
+  store i64 %63, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %8, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %55, ptr %67, align 8
+  store i64 %63, ptr %67, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
@@ -4544,31 +4544,31 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %48 = getelementptr ptr, ptr %47, i64 %.val3
   %49 = shl nuw nsw i64 %36, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %35, ptr noundef nonnull readonly align 8 dereferenceable(1) %48, i64 %49, i1 false), !alias.scope !857
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %51 = load i64, ptr %50, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !861)
-  br label %52
+  br label %50
 
-52:                                               ; preds = %52, %46
-  %.sroa.0.013.i.i = phi i64 [ 0, %46 ], [ %spec.select10.i.i, %52 ]
-  %53 = icmp samesign uge i64 %.sroa.0.013.i.i, %34
-  %not..i.i = xor i1 %53, true
-  %54 = zext i1 %not..i.i to i64
-  %spec.select10.i.i = add nuw nsw i64 %.sroa.0.013.i.i, %54
-  %55 = getelementptr inbounds nuw ptr, ptr %35, i64 %.sroa.0.013.i.i
-  %56 = load ptr, ptr %55, align 8, !alias.scope !861, !noalias !864, !nonnull !3, !noundef !3
-  store ptr %6, ptr %56, align 8, !noalias !871
-  %57 = trunc nuw nsw i64 %.sroa.0.013.i.i to i16
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 96
-  store i16 %57, ptr %58, align 8, !noalias !872
+50:                                               ; preds = %50, %46
+  %.sroa.0.013.i.i = phi i64 [ 0, %46 ], [ %spec.select10.i.i, %50 ]
+  %51 = icmp samesign uge i64 %.sroa.0.013.i.i, %34
+  %not..i.i = xor i1 %51, true
+  %52 = zext i1 %not..i.i to i64
+  %spec.select10.i.i = add nuw nsw i64 %.sroa.0.013.i.i, %52
+  %53 = getelementptr inbounds nuw ptr, ptr %35, i64 %.sroa.0.013.i.i
+  %54 = load ptr, ptr %53, align 8, !alias.scope !861, !noalias !864, !nonnull !3, !noundef !3
+  store ptr %6, ptr %54, align 8, !noalias !871
+  %55 = trunc nuw nsw i64 %.sroa.0.013.i.i to i16
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 96
+  store i16 %55, ptr %56, align 8, !noalias !872
   %.not.i.i.i.i = icmp samesign ugt i64 %spec.select10.i.i, %34
-  %or.cond.i.i = select i1 %53, i1 true, i1 %.not.i.i.i.i
-  br i1 %or.cond.i.i, label %59, label %52
+  %or.cond.i.i = select i1 %51, i1 true, i1 %.not.i.i.i.i
+  br i1 %or.cond.i.i, label %57, label %50
 
-59:                                               ; preds = %52
+57:                                               ; preds = %50
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %59 = load i64, ptr %58, align 8, !noundef !3
   store ptr %3, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %51, ptr %60, align 8
+  store i64 %59, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 %24, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4576,7 +4576,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %51, ptr %64, align 8
+  store i64 %59, ptr %64, align 8
   ret void
 
 65:                                               ; preds = %39, %16
@@ -4674,32 +4674,32 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %49 = getelementptr ptr, ptr %48, i64 %.val3
   %50 = shl nuw nsw i64 %37, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %36, ptr noundef nonnull readonly align 8 dereferenceable(1) %49, i64 %50, i1 false), !alias.scope !887
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %52 = load i64, ptr %51, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !891)
-  br label %53
+  br label %51
 
-53:                                               ; preds = %53, %47
-  %.sroa.0.013.i.i = phi i64 [ 0, %47 ], [ %spec.select10.i.i, %53 ]
-  %54 = icmp samesign uge i64 %.sroa.0.013.i.i, %35
-  %not..i.i = xor i1 %54, true
-  %55 = zext i1 %not..i.i to i64
-  %spec.select10.i.i = add nuw nsw i64 %.sroa.0.013.i.i, %55
-  %56 = getelementptr inbounds nuw ptr, ptr %36, i64 %.sroa.0.013.i.i
-  %57 = load ptr, ptr %56, align 8, !alias.scope !891, !noalias !894, !nonnull !3, !noundef !3
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 176
-  store ptr %6, ptr %58, align 8, !noalias !901
-  %59 = trunc nuw nsw i64 %.sroa.0.013.i.i to i16
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 184
-  store i16 %59, ptr %60, align 8, !noalias !902
+51:                                               ; preds = %51, %47
+  %.sroa.0.013.i.i = phi i64 [ 0, %47 ], [ %spec.select10.i.i, %51 ]
+  %52 = icmp samesign uge i64 %.sroa.0.013.i.i, %35
+  %not..i.i = xor i1 %52, true
+  %53 = zext i1 %not..i.i to i64
+  %spec.select10.i.i = add nuw nsw i64 %.sroa.0.013.i.i, %53
+  %54 = getelementptr inbounds nuw ptr, ptr %36, i64 %.sroa.0.013.i.i
+  %55 = load ptr, ptr %54, align 8, !alias.scope !891, !noalias !894, !nonnull !3, !noundef !3
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 176
+  store ptr %6, ptr %56, align 8, !noalias !901
+  %57 = trunc nuw nsw i64 %.sroa.0.013.i.i to i16
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 184
+  store i16 %57, ptr %58, align 8, !noalias !902
   %.not.i.i.i.i = icmp samesign ugt i64 %spec.select10.i.i, %35
-  %or.cond.i.i = select i1 %54, i1 true, i1 %.not.i.i.i.i
-  br i1 %or.cond.i.i, label %61, label %53
+  %or.cond.i.i = select i1 %52, i1 true, i1 %.not.i.i.i.i
+  br i1 %or.cond.i.i, label %59, label %51
 
-61:                                               ; preds = %53
+59:                                               ; preds = %51
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %61 = load i64, ptr %60, align 8, !noundef !3
   store ptr %3, ptr %0, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %52, ptr %62, align 8
+  store i64 %61, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %26, ptr %63, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4709,7 +4709,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %52, ptr %65, align 8
+  store i64 %61, ptr %65, align 8
   ret void
 
 66:                                               ; preds = %40, %17
@@ -4815,34 +4815,34 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %51 = getelementptr ptr, ptr %50, i64 %.val3
   %52 = shl nuw nsw i64 %38, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %37, ptr noundef nonnull readonly align 8 dereferenceable(1) %51, i64 %52, i1 false), !alias.scope !917
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %54 = load i64, ptr %53, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !921)
-  br label %55
+  br label %53
 
-55:                                               ; preds = %55, %49
-  %.sroa.0.013.i.i = phi i64 [ 0, %49 ], [ %spec.select10.i.i, %55 ]
-  %56 = icmp samesign uge i64 %.sroa.0.013.i.i, %36
-  %not..i.i = xor i1 %56, true
-  %57 = zext i1 %not..i.i to i64
-  %spec.select10.i.i = add nuw nsw i64 %.sroa.0.013.i.i, %57
-  %58 = getelementptr inbounds nuw ptr, ptr %37, i64 %.sroa.0.013.i.i
-  %59 = load ptr, ptr %58, align 8, !alias.scope !921, !noalias !924, !nonnull !3, !noundef !3
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 176
-  store ptr %7, ptr %60, align 8, !noalias !931
-  %61 = trunc nuw nsw i64 %.sroa.0.013.i.i to i16
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 316
-  store i16 %61, ptr %62, align 4, !noalias !932
+53:                                               ; preds = %53, %49
+  %.sroa.0.013.i.i = phi i64 [ 0, %49 ], [ %spec.select10.i.i, %53 ]
+  %54 = icmp samesign uge i64 %.sroa.0.013.i.i, %36
+  %not..i.i = xor i1 %54, true
+  %55 = zext i1 %not..i.i to i64
+  %spec.select10.i.i = add nuw nsw i64 %.sroa.0.013.i.i, %55
+  %56 = getelementptr inbounds nuw ptr, ptr %37, i64 %.sroa.0.013.i.i
+  %57 = load ptr, ptr %56, align 8, !alias.scope !921, !noalias !924, !nonnull !3, !noundef !3
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 176
+  store ptr %7, ptr %58, align 8, !noalias !931
+  %59 = trunc nuw nsw i64 %.sroa.0.013.i.i to i16
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 316
+  store i16 %59, ptr %60, align 4, !noalias !932
   %.not.i.i.i.i = icmp samesign ugt i64 %spec.select10.i.i, %36
-  %or.cond.i.i = select i1 %56, i1 true, i1 %.not.i.i.i.i
-  br i1 %or.cond.i.i, label %63, label %55
+  %or.cond.i.i = select i1 %54, i1 true, i1 %.not.i.i.i.i
+  br i1 %or.cond.i.i, label %61, label %53
 
-63:                                               ; preds = %55
+61:                                               ; preds = %53
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i64, ptr %62, align 8, !noundef !3
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.7, i64 12, i1 false)
   store ptr %4, ptr %0, align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %54, ptr %64, align 8
+  store i64 %63, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %17, ptr %65, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4850,7 +4850,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %54, ptr %67, align 8
+  store i64 %63, ptr %67, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   ret void
 
@@ -4945,37 +4945,37 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %41 = getelementptr ptr, ptr %40, i64 %.val3
   %42 = shl nuw nsw i64 %29, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %28, ptr noundef nonnull readonly align 8 dereferenceable(1) %41, i64 %42, i1 false), !alias.scope !940
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %44 = load i64, ptr %43, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !944)
-  br label %45
+  br label %43
 
-45:                                               ; preds = %45, %39
-  %.sroa.0.013.i.i = phi i64 [ 0, %39 ], [ %spec.select10.i.i, %45 ]
-  %46 = icmp samesign uge i64 %.sroa.0.013.i.i, %27
-  %not..i.i = xor i1 %46, true
-  %47 = zext i1 %not..i.i to i64
-  %spec.select10.i.i = add nuw nsw i64 %.sroa.0.013.i.i, %47
-  %48 = getelementptr inbounds nuw ptr, ptr %28, i64 %.sroa.0.013.i.i
-  %49 = load ptr, ptr %48, align 8, !alias.scope !944, !noalias !947, !nonnull !3, !noundef !3
-  store ptr %6, ptr %49, align 8, !noalias !954
-  %50 = trunc nuw nsw i64 %.sroa.0.013.i.i to i16
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 96
-  store i16 %50, ptr %51, align 8, !noalias !955
+43:                                               ; preds = %43, %39
+  %.sroa.0.013.i.i = phi i64 [ 0, %39 ], [ %spec.select10.i.i, %43 ]
+  %44 = icmp samesign uge i64 %.sroa.0.013.i.i, %27
+  %not..i.i = xor i1 %44, true
+  %45 = zext i1 %not..i.i to i64
+  %spec.select10.i.i = add nuw nsw i64 %.sroa.0.013.i.i, %45
+  %46 = getelementptr inbounds nuw ptr, ptr %28, i64 %.sroa.0.013.i.i
+  %47 = load ptr, ptr %46, align 8, !alias.scope !944, !noalias !947, !nonnull !3, !noundef !3
+  store ptr %6, ptr %47, align 8, !noalias !954
+  %48 = trunc nuw nsw i64 %.sroa.0.013.i.i to i16
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 96
+  store i16 %48, ptr %49, align 8, !noalias !955
   %.not.i.i.i.i = icmp samesign ugt i64 %spec.select10.i.i, %27
-  %or.cond.i.i = select i1 %46, i1 true, i1 %.not.i.i.i.i
-  br i1 %or.cond.i.i, label %52, label %45
+  %or.cond.i.i = select i1 %44, i1 true, i1 %.not.i.i.i.i
+  br i1 %or.cond.i.i, label %50, label %43
 
-52:                                               ; preds = %45
+50:                                               ; preds = %43
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %52 = load i64, ptr %51, align 8, !noundef !3
   store ptr %3, ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %44, ptr %53, align 8
+  store i64 %52, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %21, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %44, ptr %56, align 8
+  store i64 %52, ptr %56, align 8
   ret void
 
 57:                                               ; preds = %32, %16

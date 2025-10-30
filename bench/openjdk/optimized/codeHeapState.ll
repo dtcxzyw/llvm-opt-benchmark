@@ -3288,7 +3288,6 @@ define hidden void @_ZN13CodeHeapState8printBoxEP12outputStreamcPKcS3_(ptr nound
   %15 = sext i8 %1 to i32
   %16 = icmp eq i8 %1, 45
   %.038 = select i1 %16, i32 43, i32 %15
-  %.037 = select i1 %16, i32 124, i32 %15
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.127, i32 noundef %.038) #12
   %17 = add i32 %.1, -2
   %.not51 = icmp eq i32 %17, 0
@@ -3302,6 +3301,7 @@ define hidden void @_ZN13CodeHeapState8printBoxEP12outputStreamcPKcS3_(ptr nound
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
+  %.037 = select i1 %16, i32 124, i32 %15
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.127, i32 noundef %.038) #12
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.196, i32 noundef %.037) #12
   br i1 %.not, label %20, label %19

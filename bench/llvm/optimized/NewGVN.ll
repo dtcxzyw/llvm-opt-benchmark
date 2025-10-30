@@ -5487,30 +5487,30 @@ _ZN4llvm6detail12DenseSetImplINS_14BasicBlockEdgeENS_8DenseMapIS2_NS0_13DenseSet
   br i1 %1588, label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.i, label %1589
 
 1589:                                             ; preds = %1585
-  %1590 = getelementptr inbounds nuw i8, ptr %1587, i64 16
-  %1591 = load i32, ptr %1590, align 8, !tbaa !517, !noalias !514
-  %1592 = getelementptr inbounds nuw i8, ptr %1587, i64 24
-  br label %1593
+  %1590 = getelementptr inbounds nuw i8, ptr %1587, i64 24
+  br label %1591
 
-1593:                                             ; preds = %1593, %1589
-  %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %1593 ], [ 0, %1589 ]
-  %1594 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i, 2
-  call void @llvm.assume(i1 %1594)
-  %1595 = getelementptr inbounds nuw i64, ptr %1592, i64 %indvars.iv.i.i.i.i.i
-  %1596 = load i64, ptr %1595, align 8, !tbaa !9, !noalias !514
-  %.not.i.i.i.i.i101 = icmp eq i64 %1596, 0
+1591:                                             ; preds = %1591, %1589
+  %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %1591 ], [ 0, %1589 ]
+  %1592 = icmp samesign ult i64 %indvars.iv.i.i.i.i.i, 2
+  call void @llvm.assume(i1 %1592)
+  %1593 = getelementptr inbounds nuw i64, ptr %1590, i64 %indvars.iv.i.i.i.i.i
+  %1594 = load i64, ptr %1593, align 8, !tbaa !9, !noalias !514
+  %.not.i.i.i.i.i101 = icmp eq i64 %1594, 0
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  br i1 %.not.i.i.i.i.i101, label %1593, label %.lr.ph203.preheader.i, !llvm.loop !519
+  br i1 %.not.i.i.i.i.i101, label %1591, label %.lr.ph203.preheader.i, !llvm.loop !517
 
-.lr.ph203.preheader.i:                            ; preds = %1593
-  %1597 = shl i32 %1591, 7
+.lr.ph203.preheader.i:                            ; preds = %1591
+  %1595 = getelementptr inbounds nuw i8, ptr %1587, i64 16
+  %1596 = load i32, ptr %1595, align 8, !tbaa !518, !noalias !514
+  %1597 = shl i32 %1596, 7
   %1598 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i to i32
   %1599 = shl nuw nsw i32 %1598, 6
-  %1600 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1596, i1 true)
+  %1600 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1594, i1 true)
   %1601 = trunc nuw nsw i64 %1600 to i32
   %1602 = or disjoint i32 %1599, %1601
-  %1603 = or disjoint i32 %1602, %1597
-  %1604 = lshr exact i64 %1596, %1600
+  %1603 = or disjoint i32 %1597, %1602
+  %1604 = lshr exact i64 %1594, %1600
   br label %.lr.ph203.i.outer
 
 _ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.i: ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i.i, %1585
@@ -5879,35 +5879,35 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i.i: ; preds = %1799,
   br i1 %1802, label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit.i, label %1803
 
 1803:                                             ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i.i
-  %1804 = getelementptr inbounds nuw i8, ptr %1801, i64 16
-  %1805 = load i32, ptr %1804, align 8, !tbaa !517
-  %1806 = getelementptr inbounds nuw i8, ptr %1801, i64 24
-  br label %1807
+  %1804 = getelementptr inbounds nuw i8, ptr %1801, i64 24
+  br label %1805
 
-1807:                                             ; preds = %1807, %1803
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %1807 ], [ 0, %1803 ]
-  %1808 = icmp samesign ult i64 %indvars.iv.i.i.i, 2
-  call void @llvm.assume(i1 %1808)
-  %1809 = getelementptr inbounds nuw i64, ptr %1806, i64 %indvars.iv.i.i.i
-  %1810 = load i64, ptr %1809, align 8, !tbaa !9
-  %.not.i9.i.i = icmp eq i64 %1810, 0
+1805:                                             ; preds = %1805, %1803
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %1805 ], [ 0, %1803 ]
+  %1806 = icmp samesign ult i64 %indvars.iv.i.i.i, 2
+  call void @llvm.assume(i1 %1806)
+  %1807 = getelementptr inbounds nuw i64, ptr %1804, i64 %indvars.iv.i.i.i
+  %1808 = load i64, ptr %1807, align 8, !tbaa !9
+  %.not.i9.i.i = icmp eq i64 %1808, 0
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  br i1 %.not.i9.i.i, label %1807, label %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i.i, !llvm.loop !519
+  br i1 %.not.i9.i.i, label %1805, label %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i.i, !llvm.loop !517
 
-_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i.i: ; preds = %1807
-  %1811 = shl i32 %1805, 7
+_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i.i: ; preds = %1805
+  %1809 = getelementptr inbounds nuw i8, ptr %1801, i64 16
+  %1810 = load i32, ptr %1809, align 8, !tbaa !518
+  %1811 = shl i32 %1810, 7
   %1812 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %1813 = shl nuw nsw i32 %1812, 6
-  %1814 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1810, i1 true)
+  %1814 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1808, i1 true)
   %.fr.i.i112 = freeze i64 %1814
   %1815 = trunc i64 %.fr.i.i112 to i32
   %1816 = or i32 %1813, %1815
-  %1817 = add nuw nsw i32 %1816, %1811
+  %1817 = add nuw nsw i32 %1811, %1816
   %.urem.i.i = add i32 %1816, -64
   %.cmp.i.i = icmp ult i32 %1816, 64
   %1818 = select i1 %.cmp.i.i, i32 %1816, i32 %.urem.i.i
   %1819 = zext nneg i32 %1818 to i64
-  %1820 = lshr i64 %1810, %1819
+  %1820 = lshr i64 %1808, %1819
   br label %.lr.ph203.i.outer
 
 .lr.ph203.i.outer:                                ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i.i, %.lr.ph203.preheader.i
@@ -5930,7 +5930,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i.i: ; preds = %180
   %1829 = select i1 %.cmp13.i.i, i32 %.018.i.ph.frozen.i.i, i32 %.urem12.i.i
   %1830 = zext nneg i32 %1829 to i64
   %1831 = lshr i64 %1828, %1830
-  %1832 = load i32, ptr %1821, align 8, !tbaa !517
+  %1832 = load i32, ptr %1821, align 8, !tbaa !518
   %1833 = shl i32 %1832, 7
   %1834 = add nuw i32 %1833, %.018.i.ph.frozen.i.i
   br label %.lr.ph203.i.backedge
@@ -9388,7 +9388,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_15SparseBitVectorILj128E
 3323:                                             ; preds = %3320, %3316
   %.in.i.i.i = phi ptr [ %3322, %3320 ], [ %3318, %3316 ]
   %3324 = getelementptr inbounds nuw i8, ptr %.in.i.i.i, i64 16
-  %3325 = load i32, ptr %3324, align 8, !tbaa !517
+  %3325 = load i32, ptr %3324, align 8, !tbaa !518
   %3326 = icmp eq i32 %3325, %3313
   br i1 %3326, label %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i, label %3327
 
@@ -9407,7 +9407,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_15SparseBitVectorILj128E
 .lr.ph24.i.i.i:                                   ; preds = %.preheader.i.i.i, %3332
   %.sroa.08.123.i.i.i = phi ptr [ %3334, %3332 ], [ %.in.i.i.i, %.preheader.i.i.i ]
   %3329 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i.i, i64 16
-  %3330 = load i32, ptr %3329, align 8, !tbaa !517
+  %3330 = load i32, ptr %3329, align 8, !tbaa !518
   %3331 = icmp ugt i32 %3330, %3313
   br i1 %3331, label %3332, label %.sink.split.i.i.i328
 
@@ -9420,7 +9420,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_15SparseBitVectorILj128E
 .lr.ph.i.i.i327:                                  ; preds = %.preheader16.i.i.i, %3338
   %.sroa.08.219.i.i.i = phi ptr [ %3339, %3338 ], [ %.in.i.i.i, %.preheader16.i.i.i ]
   %3335 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i.i, i64 16
-  %3336 = load i32, ptr %3335, align 8, !tbaa !517
+  %3336 = load i32, ptr %3335, align 8, !tbaa !518
   %3337 = icmp ult i32 %3336, %3313
   br i1 %3337, label %3338, label %.sink.split.i.i.i328
 
@@ -9443,7 +9443,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i: ; preds = %.sink.spl
 
 3342:                                             ; preds = %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i
   %3343 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i, i64 16
-  %3344 = load i32, ptr %3343, align 8, !tbaa !517
+  %3344 = load i32, ptr %3343, align 8, !tbaa !518
   %.not.i329 = icmp eq i32 %3344, %3313
   br i1 %.not.i329, label %_ZN4llvm15SparseBitVectorILj128EE3setEj.exit, label %.critedge.i330
 
@@ -9459,7 +9459,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i: ; preds = %.sink.spl
   %.sroa.010.1.sink.i = phi ptr [ %.0.i343, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_15SparseBitVectorILj128EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_.exit ], [ %3347, %3346 ], [ %.sroa.08.0.i.i.i, %.critedge.i330 ], [ %.sroa.08.0.i.i.i, %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit.i ]
   %3348 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
   %3349 = getelementptr inbounds nuw i8, ptr %3348, i64 16
-  store i32 %3313, ptr %3349, align 8, !tbaa !517
+  store i32 %3313, ptr %3349, align 8, !tbaa !518
   %3350 = getelementptr inbounds nuw i8, ptr %3348, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3350, i8 0, i64 16, i1 false)
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %3348, ptr noundef %.sroa.010.1.sink.i) #31
@@ -23793,7 +23793,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE3setEj(ptr nou
 13:                                               ; preds = %10, %6
   %.in.i.i = phi ptr [ %12, %10 ], [ %8, %6 ]
   %14 = getelementptr inbounds nuw i8, ptr %.in.i.i, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !517
+  %15 = load i32, ptr %14, align 8, !tbaa !518
   %16 = icmp eq i32 %15, %3
   br i1 %16, label %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit, label %17
 
@@ -23812,7 +23812,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE3setEj(ptr nou
 .lr.ph24.i.i:                                     ; preds = %.preheader.i.i, %22
   %.sroa.08.123.i.i = phi ptr [ %24, %22 ], [ %.in.i.i, %.preheader.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !517
+  %20 = load i32, ptr %19, align 8, !tbaa !518
   %21 = icmp ugt i32 %20, %3
   br i1 %21, label %22, label %.sink.split.i.i
 
@@ -23825,7 +23825,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE3setEj(ptr nou
 .lr.ph.i.i:                                       ; preds = %.preheader16.i.i, %28
   %.sroa.08.219.i.i = phi ptr [ %29, %28 ], [ %.in.i.i, %.preheader16.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !517
+  %26 = load i32, ptr %25, align 8, !tbaa !518
   %27 = icmp ult i32 %26, %3
   br i1 %27, label %28, label %.sink.split.i.i
 
@@ -23848,13 +23848,13 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
 
 32:                                               ; preds = %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i, i64 16
-  %34 = load i32, ptr %33, align 8, !tbaa !517
+  %34 = load i32, ptr %33, align 8, !tbaa !518
   %.not = icmp eq i32 %34, %3
   br i1 %.not, label %46, label %.critedge
 
 .critedge:                                        ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !517
+  %36 = load i32, ptr %35, align 8, !tbaa !518
   %37 = icmp ult i32 %36, %3
   br i1 %37, label %38, label %.sink.split
 
@@ -23866,7 +23866,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
   %.sroa.010.1.sink = phi ptr [ %0, %2 ], [ %39, %38 ], [ %.sroa.08.0.i.i, %.critedge ], [ %.sroa.08.0.i.i, %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit ]
   %40 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #34
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i32 %3, ptr %41, align 8, !tbaa !517
+  store i32 %3, ptr %41, align 8, !tbaa !518
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %.sroa.010.1.sink) #31
@@ -42932,7 +42932,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE5resetEj(ptr n
 13:                                               ; preds = %10, %5
   %.in.i.i = phi ptr [ %12, %10 ], [ %8, %5 ]
   %14 = getelementptr inbounds nuw i8, ptr %.in.i.i, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !517
+  %15 = load i32, ptr %14, align 8, !tbaa !518
   %16 = icmp eq i32 %15, %6
   br i1 %16, label %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit, label %17
 
@@ -42951,7 +42951,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE5resetEj(ptr n
 .lr.ph24.i.i:                                     ; preds = %.preheader.i.i, %22
   %.sroa.08.123.i.i = phi ptr [ %24, %22 ], [ %.in.i.i, %.preheader.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !517
+  %20 = load i32, ptr %19, align 8, !tbaa !518
   %21 = icmp ugt i32 %20, %6
   br i1 %21, label %22, label %.sink.split.i.i
 
@@ -42964,7 +42964,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE5resetEj(ptr n
 .lr.ph.i.i:                                       ; preds = %.preheader16.i.i, %28
   %.sroa.08.219.i.i = phi ptr [ %29, %28 ], [ %.in.i.i, %.preheader16.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !517
+  %26 = load i32, ptr %25, align 8, !tbaa !518
   %27 = icmp ult i32 %26, %6
   br i1 %27, label %28, label %.sink.split.i.i
 
@@ -42987,7 +42987,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
 
 32:                                               ; preds = %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i, i64 16
-  %34 = load i32, ptr %33, align 8, !tbaa !517
+  %34 = load i32, ptr %33, align 8, !tbaa !518
   %.not = icmp eq i32 %34, %6
   br i1 %.not, label %35, label %.critedge
 
@@ -46886,32 +46886,32 @@ _ZNK12_GLOBAL__N_16NewGVN15getMemoryAccessEPKN4llvm10BasicBlockE.exit.thread: ; 
   br i1 %212, label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit, label %213
 
 213:                                              ; preds = %_ZNK12_GLOBAL__N_16NewGVN15getMemoryAccessEPKN4llvm10BasicBlockE.exit.thread
-  %214 = getelementptr inbounds nuw i8, ptr %208, i64 16
-  %215 = load i32, ptr %214, align 8, !tbaa !517, !noalias !1423
-  %216 = getelementptr inbounds nuw i8, ptr %208, i64 24
-  br label %217
+  %214 = getelementptr inbounds nuw i8, ptr %208, i64 24
+  br label %215
 
-217:                                              ; preds = %217, %213
-  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %217 ], [ 0, %213 ]
-  %218 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
-  call void @llvm.assume(i1 %218)
-  %219 = getelementptr inbounds nuw i64, ptr %216, i64 %indvars.iv.i.i.i.i
-  %220 = load i64, ptr %219, align 8, !tbaa !9, !noalias !1423
-  %.not.i.i.i.i = icmp eq i64 %220, 0
+215:                                              ; preds = %215, %213
+  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %215 ], [ 0, %213 ]
+  %216 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
+  call void @llvm.assume(i1 %216)
+  %217 = getelementptr inbounds nuw i64, ptr %214, i64 %indvars.iv.i.i.i.i
+  %218 = load i64, ptr %217, align 8, !tbaa !9, !noalias !1423
+  %.not.i.i.i.i = icmp eq i64 %218, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  br i1 %.not.i.i.i.i, label %217, label %.lr.ph, !llvm.loop !519
+  br i1 %.not.i.i.i.i, label %215, label %.lr.ph, !llvm.loop !517
 
-.lr.ph:                                           ; preds = %217
-  %221 = shl i32 %215, 7
+.lr.ph:                                           ; preds = %215
+  %219 = getelementptr inbounds nuw i8, ptr %208, i64 16
+  %220 = load i32, ptr %219, align 8, !tbaa !518, !noalias !1423
+  %221 = shl i32 %220, 7
   %222 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %223 = shl nuw nsw i32 %222, 6
-  %224 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %220, i1 true)
+  %224 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %218, i1 true)
   %225 = trunc nuw nsw i64 %224 to i32
   %226 = or disjoint i32 %223, %225
-  %227 = or disjoint i32 %226, %221
+  %227 = or disjoint i32 %221, %226
   store i32 %227, ptr %209, align 8, !tbaa !1431, !alias.scope !1423
   store i32 %222, ptr %211, align 4, !tbaa !1432, !alias.scope !1423
-  %228 = lshr exact i64 %220, %224
+  %228 = lshr exact i64 %218, %224
   store i64 %228, ptr %210, align 8, !tbaa !1433, !alias.scope !1423
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 2016
   br label %230
@@ -47509,37 +47509,37 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit: ; preds = %34, %42
   br label %80
 
 50:                                               ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %52 = load i32, ptr %51, align 8, !tbaa !517
-  %53 = shl i32 %52, 7
-  %54 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  br label %55
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  br label %52
 
-55:                                               ; preds = %55, %50
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %50 ]
-  %56 = icmp samesign ult i64 %indvars.iv.i, 2
-  tail call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i
-  %58 = load i64, ptr %57, align 8, !tbaa !9
-  %.not.i9 = icmp eq i64 %58, 0
+52:                                               ; preds = %52, %50
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %50 ]
+  %53 = icmp samesign ult i64 %indvars.iv.i, 2
+  tail call void @llvm.assume(i1 %53)
+  %54 = getelementptr inbounds nuw i64, ptr %51, i64 %indvars.iv.i
+  %55 = load i64, ptr %54, align 8, !tbaa !9
+  %.not.i9 = icmp eq i64 %55, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i9, label %55, label %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit, !llvm.loop !519
+  br i1 %.not.i9, label %52, label %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit, !llvm.loop !517
 
-_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %55
+_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %57 = load i32, ptr %56, align 8, !tbaa !518
+  %58 = shl i32 %57, 7
   %59 = trunc nuw nsw i64 %indvars.iv.i to i32
   %60 = shl nuw nsw i32 %59, 6
-  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %58, i1 true)
+  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %55, i1 true)
   %.fr = freeze i64 %61
   %62 = trunc i64 %.fr to i32
   %63 = or i32 %60, %62
-  %64 = or disjoint i32 %63, %53
+  %64 = or disjoint i32 %63, %58
   store i32 %64, ptr %17, align 8, !tbaa !1431
   store i32 %59, ptr %45, align 4, !tbaa !1432
   %.urem = add i32 %63, -64
   %.cmp = icmp ult i32 %63, 64
   %65 = select i1 %.cmp, i32 %63, i32 %.urem
   %66 = zext nneg i32 %65 to i64
-  %67 = lshr i64 %58, %66
+  %67 = lshr i64 %55, %66
   store i64 %67, ptr %4, align 8, !tbaa !1433
   br label %80
 
@@ -47557,7 +47557,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %55
   %75 = zext nneg i32 %74 to i64
   %76 = lshr i64 %73, %75
   store i64 %76, ptr %4, align 8, !tbaa !1433
-  %77 = load i32, ptr %16, align 8, !tbaa !517
+  %77 = load i32, ptr %16, align 8, !tbaa !518
   %78 = shl i32 %77, 7
   %79 = add nuw i32 %78, %.018.i.ph.frozen
   store i32 %79, ptr %17, align 8, !tbaa !1431
@@ -51268,9 +51268,9 @@ attributes #36 = { nounwind willreturn memory(none) }
 !514 = !{!515}
 !515 = distinct !{!515, !516, !"_ZNK4llvm15SparseBitVectorILj128EE5beginEv: argument 0"}
 !516 = distinct !{!516, !"_ZNK4llvm15SparseBitVectorILj128EE5beginEv"}
-!517 = !{!518, !26, i64 0}
-!518 = !{!"_ZTSN4llvm22SparseBitVectorElementILj128EEE", !26, i64 0, !7, i64 8}
-!519 = distinct !{!519, !244}
+!517 = distinct !{!517, !244}
+!518 = !{!519, !26, i64 0}
+!519 = !{!"_ZTSN4llvm22SparseBitVectorElementILj128EEE", !26, i64 0, !7, i64 8}
 !520 = distinct !{!520, !244}
 !521 = !{!522, !522, i64 0}
 !522 = !{!"p1 _ZTSN4llvm7PHINodeE", !6, i64 0}

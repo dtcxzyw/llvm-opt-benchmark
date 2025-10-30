@@ -2361,351 +2361,351 @@ default.unreachable246:                           ; preds = %40
   br i1 %.not218231, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge236
-  %.in247 = phi i32 [ %160, %._crit_edge236 ], [ %9, %.preheader.lr.ph ]
+  %.in247 = phi i32 [ %445, %._crit_edge236 ], [ %9, %.preheader.lr.ph ]
   %.5240 = phi ptr [ %446, %._crit_edge236 ], [ %11, %.preheader.lr.ph ]
   %.5199239 = phi ptr [ %447, %._crit_edge236 ], [ %15, %.preheader.lr.ph ]
-  %160 = add nsw i32 %.in247, -1
-  br label %161
+  br label %160
 
-161:                                              ; preds = %.preheader, %442
-  %.6234 = phi ptr [ %.5240, %.preheader ], [ %444, %442 ]
-  %.6200233 = phi ptr [ %.5199239, %.preheader ], [ %443, %442 ]
-  %.0209232 = phi i32 [ %7, %.preheader ], [ %445, %442 ]
-  switch i8 %21, label %330 [
-    i8 1, label %162
-    i8 2, label %213
-    i8 3, label %264
-    i8 4, label %280
+160:                                              ; preds = %.preheader, %441
+  %.6234 = phi ptr [ %.5240, %.preheader ], [ %443, %441 ]
+  %.6200233 = phi ptr [ %.5199239, %.preheader ], [ %442, %441 ]
+  %.0209232 = phi i32 [ %7, %.preheader ], [ %444, %441 ]
+  switch i8 %21, label %329 [
+    i8 1, label %161
+    i8 2, label %212
+    i8 3, label %263
+    i8 4, label %279
   ]
 
-162:                                              ; preds = %161
-  %163 = load i8, ptr %.6234, align 1
-  %164 = zext i8 %163 to i32
-  %165 = load i8, ptr %136, align 4
-  %166 = zext i8 %165 to i64
-  %167 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %166
-  %168 = load ptr, ptr %167, align 8
-  %169 = load i32, ptr %137, align 4
-  %170 = and i32 %169, %164
-  %171 = load i8, ptr %138, align 4
-  %172 = zext nneg i8 %171 to i32
-  %173 = lshr i32 %170, %172
-  %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw i8, ptr %168, i64 %174
-  %176 = load i8, ptr %175, align 1
-  %177 = load i8, ptr %139, align 1
-  %178 = zext i8 %177 to i64
-  %179 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %178
-  %180 = load ptr, ptr %179, align 8
-  %181 = load i32, ptr %140, align 4
-  %182 = and i32 %181, %164
-  %183 = load i8, ptr %141, align 1
-  %184 = zext nneg i8 %183 to i32
-  %185 = lshr i32 %182, %184
-  %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr inbounds nuw i8, ptr %180, i64 %186
-  %188 = load i8, ptr %187, align 1
-  %189 = load i8, ptr %142, align 2
-  %190 = zext i8 %189 to i64
-  %191 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %190
-  %192 = load ptr, ptr %191, align 8
-  %193 = load i32, ptr %143, align 4
-  %194 = and i32 %193, %164
-  %195 = load i8, ptr %144, align 2
-  %196 = zext nneg i8 %195 to i32
-  %197 = lshr i32 %194, %196
-  %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds nuw i8, ptr %192, i64 %198
-  %200 = load i8, ptr %199, align 1
-  %201 = load i8, ptr %145, align 1
-  %202 = zext i8 %201 to i64
-  %203 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %202
-  %204 = load ptr, ptr %203, align 8
-  %205 = load i32, ptr %146, align 4
-  %206 = and i32 %205, %164
-  %207 = load i8, ptr %147, align 1
-  %208 = zext nneg i8 %207 to i32
-  %209 = lshr i32 %206, %208
-  %210 = zext nneg i32 %209 to i64
-  %211 = getelementptr inbounds nuw i8, ptr %204, i64 %210
-  %212 = load i8, ptr %211, align 1
-  br label %330
+161:                                              ; preds = %160
+  %162 = load i8, ptr %.6234, align 1
+  %163 = zext i8 %162 to i32
+  %164 = load i8, ptr %136, align 4
+  %165 = zext i8 %164 to i64
+  %166 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %165
+  %167 = load ptr, ptr %166, align 8
+  %168 = load i32, ptr %137, align 4
+  %169 = and i32 %168, %163
+  %170 = load i8, ptr %138, align 4
+  %171 = zext nneg i8 %170 to i32
+  %172 = lshr i32 %169, %171
+  %173 = zext nneg i32 %172 to i64
+  %174 = getelementptr inbounds nuw i8, ptr %167, i64 %173
+  %175 = load i8, ptr %174, align 1
+  %176 = load i8, ptr %139, align 1
+  %177 = zext i8 %176 to i64
+  %178 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %177
+  %179 = load ptr, ptr %178, align 8
+  %180 = load i32, ptr %140, align 4
+  %181 = and i32 %180, %163
+  %182 = load i8, ptr %141, align 1
+  %183 = zext nneg i8 %182 to i32
+  %184 = lshr i32 %181, %183
+  %185 = zext nneg i32 %184 to i64
+  %186 = getelementptr inbounds nuw i8, ptr %179, i64 %185
+  %187 = load i8, ptr %186, align 1
+  %188 = load i8, ptr %142, align 2
+  %189 = zext i8 %188 to i64
+  %190 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %189
+  %191 = load ptr, ptr %190, align 8
+  %192 = load i32, ptr %143, align 4
+  %193 = and i32 %192, %163
+  %194 = load i8, ptr %144, align 2
+  %195 = zext nneg i8 %194 to i32
+  %196 = lshr i32 %193, %195
+  %197 = zext nneg i32 %196 to i64
+  %198 = getelementptr inbounds nuw i8, ptr %191, i64 %197
+  %199 = load i8, ptr %198, align 1
+  %200 = load i8, ptr %145, align 1
+  %201 = zext i8 %200 to i64
+  %202 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %201
+  %203 = load ptr, ptr %202, align 8
+  %204 = load i32, ptr %146, align 4
+  %205 = and i32 %204, %163
+  %206 = load i8, ptr %147, align 1
+  %207 = zext nneg i8 %206 to i32
+  %208 = lshr i32 %205, %207
+  %209 = zext nneg i32 %208 to i64
+  %210 = getelementptr inbounds nuw i8, ptr %203, i64 %209
+  %211 = load i8, ptr %210, align 1
+  br label %329
 
-213:                                              ; preds = %161
-  %214 = load i16, ptr %.6234, align 2
-  %215 = zext i16 %214 to i32
-  %216 = load i8, ptr %136, align 4
-  %217 = zext i8 %216 to i64
-  %218 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %217
-  %219 = load ptr, ptr %218, align 8
-  %220 = load i32, ptr %137, align 4
-  %221 = and i32 %220, %215
-  %222 = load i8, ptr %138, align 4
-  %223 = zext nneg i8 %222 to i32
-  %224 = lshr i32 %221, %223
-  %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr inbounds nuw i8, ptr %219, i64 %225
-  %227 = load i8, ptr %226, align 1
-  %228 = load i8, ptr %139, align 1
-  %229 = zext i8 %228 to i64
-  %230 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %229
-  %231 = load ptr, ptr %230, align 8
-  %232 = load i32, ptr %140, align 4
-  %233 = and i32 %232, %215
-  %234 = load i8, ptr %141, align 1
-  %235 = zext nneg i8 %234 to i32
-  %236 = lshr i32 %233, %235
-  %237 = zext nneg i32 %236 to i64
-  %238 = getelementptr inbounds nuw i8, ptr %231, i64 %237
-  %239 = load i8, ptr %238, align 1
-  %240 = load i8, ptr %142, align 2
-  %241 = zext i8 %240 to i64
-  %242 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %241
-  %243 = load ptr, ptr %242, align 8
-  %244 = load i32, ptr %143, align 4
-  %245 = and i32 %244, %215
-  %246 = load i8, ptr %144, align 2
-  %247 = zext nneg i8 %246 to i32
-  %248 = lshr i32 %245, %247
-  %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds nuw i8, ptr %243, i64 %249
-  %251 = load i8, ptr %250, align 1
-  %252 = load i8, ptr %145, align 1
-  %253 = zext i8 %252 to i64
-  %254 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %253
-  %255 = load ptr, ptr %254, align 8
-  %256 = load i32, ptr %146, align 4
-  %257 = and i32 %256, %215
-  %258 = load i8, ptr %147, align 1
-  %259 = zext nneg i8 %258 to i32
-  %260 = lshr i32 %257, %259
-  %261 = zext nneg i32 %260 to i64
-  %262 = getelementptr inbounds nuw i8, ptr %255, i64 %261
-  %263 = load i8, ptr %262, align 1
-  br label %330
+212:                                              ; preds = %160
+  %213 = load i16, ptr %.6234, align 2
+  %214 = zext i16 %213 to i32
+  %215 = load i8, ptr %136, align 4
+  %216 = zext i8 %215 to i64
+  %217 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %216
+  %218 = load ptr, ptr %217, align 8
+  %219 = load i32, ptr %137, align 4
+  %220 = and i32 %219, %214
+  %221 = load i8, ptr %138, align 4
+  %222 = zext nneg i8 %221 to i32
+  %223 = lshr i32 %220, %222
+  %224 = zext nneg i32 %223 to i64
+  %225 = getelementptr inbounds nuw i8, ptr %218, i64 %224
+  %226 = load i8, ptr %225, align 1
+  %227 = load i8, ptr %139, align 1
+  %228 = zext i8 %227 to i64
+  %229 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %228
+  %230 = load ptr, ptr %229, align 8
+  %231 = load i32, ptr %140, align 4
+  %232 = and i32 %231, %214
+  %233 = load i8, ptr %141, align 1
+  %234 = zext nneg i8 %233 to i32
+  %235 = lshr i32 %232, %234
+  %236 = zext nneg i32 %235 to i64
+  %237 = getelementptr inbounds nuw i8, ptr %230, i64 %236
+  %238 = load i8, ptr %237, align 1
+  %239 = load i8, ptr %142, align 2
+  %240 = zext i8 %239 to i64
+  %241 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %240
+  %242 = load ptr, ptr %241, align 8
+  %243 = load i32, ptr %143, align 4
+  %244 = and i32 %243, %214
+  %245 = load i8, ptr %144, align 2
+  %246 = zext nneg i8 %245 to i32
+  %247 = lshr i32 %244, %246
+  %248 = zext nneg i32 %247 to i64
+  %249 = getelementptr inbounds nuw i8, ptr %242, i64 %248
+  %250 = load i8, ptr %249, align 1
+  %251 = load i8, ptr %145, align 1
+  %252 = zext i8 %251 to i64
+  %253 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %252
+  %254 = load ptr, ptr %253, align 8
+  %255 = load i32, ptr %146, align 4
+  %256 = and i32 %255, %214
+  %257 = load i8, ptr %147, align 1
+  %258 = zext nneg i8 %257 to i32
+  %259 = lshr i32 %256, %258
+  %260 = zext nneg i32 %259 to i64
+  %261 = getelementptr inbounds nuw i8, ptr %254, i64 %260
+  %262 = load i8, ptr %261, align 1
+  br label %329
 
-264:                                              ; preds = %161
-  %265 = load i8, ptr %138, align 4
-  %266 = lshr i8 %265, 3
-  %267 = zext nneg i8 %266 to i64
-  %268 = getelementptr inbounds nuw i8, ptr %.6234, i64 %267
-  %269 = load i8, ptr %268, align 1
-  %270 = load i8, ptr %141, align 1
-  %271 = lshr i8 %270, 3
-  %272 = zext nneg i8 %271 to i64
-  %273 = getelementptr inbounds nuw i8, ptr %.6234, i64 %272
-  %274 = load i8, ptr %273, align 1
-  %275 = load i8, ptr %144, align 2
-  %276 = lshr i8 %275, 3
-  %277 = zext nneg i8 %276 to i64
-  %278 = getelementptr inbounds nuw i8, ptr %.6234, i64 %277
-  %279 = load i8, ptr %278, align 1
-  br label %330
+263:                                              ; preds = %160
+  %264 = load i8, ptr %138, align 4
+  %265 = lshr i8 %264, 3
+  %266 = zext nneg i8 %265 to i64
+  %267 = getelementptr inbounds nuw i8, ptr %.6234, i64 %266
+  %268 = load i8, ptr %267, align 1
+  %269 = load i8, ptr %141, align 1
+  %270 = lshr i8 %269, 3
+  %271 = zext nneg i8 %270 to i64
+  %272 = getelementptr inbounds nuw i8, ptr %.6234, i64 %271
+  %273 = load i8, ptr %272, align 1
+  %274 = load i8, ptr %144, align 2
+  %275 = lshr i8 %274, 3
+  %276 = zext nneg i8 %275 to i64
+  %277 = getelementptr inbounds nuw i8, ptr %.6234, i64 %276
+  %278 = load i8, ptr %277, align 1
+  br label %329
 
-280:                                              ; preds = %161
-  %281 = load i32, ptr %.6234, align 4
-  %282 = load i8, ptr %136, align 4
-  %283 = zext i8 %282 to i64
-  %284 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %283
-  %285 = load ptr, ptr %284, align 8
-  %286 = load i32, ptr %137, align 4
-  %287 = and i32 %286, %281
-  %288 = load i8, ptr %138, align 4
-  %289 = zext nneg i8 %288 to i32
-  %290 = lshr i32 %287, %289
-  %291 = zext i32 %290 to i64
-  %292 = getelementptr inbounds nuw i8, ptr %285, i64 %291
-  %293 = load i8, ptr %292, align 1
-  %294 = load i8, ptr %139, align 1
-  %295 = zext i8 %294 to i64
-  %296 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %295
-  %297 = load ptr, ptr %296, align 8
-  %298 = load i32, ptr %140, align 4
-  %299 = and i32 %298, %281
-  %300 = load i8, ptr %141, align 1
-  %301 = zext nneg i8 %300 to i32
-  %302 = lshr i32 %299, %301
-  %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds nuw i8, ptr %297, i64 %303
-  %305 = load i8, ptr %304, align 1
-  %306 = load i8, ptr %142, align 2
-  %307 = zext i8 %306 to i64
-  %308 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %307
-  %309 = load ptr, ptr %308, align 8
-  %310 = load i32, ptr %143, align 4
-  %311 = and i32 %310, %281
-  %312 = load i8, ptr %144, align 2
-  %313 = zext nneg i8 %312 to i32
-  %314 = lshr i32 %311, %313
-  %315 = zext i32 %314 to i64
-  %316 = getelementptr inbounds nuw i8, ptr %309, i64 %315
-  %317 = load i8, ptr %316, align 1
-  %318 = load i8, ptr %145, align 1
-  %319 = zext i8 %318 to i64
-  %320 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %319
-  %321 = load ptr, ptr %320, align 8
-  %322 = load i32, ptr %146, align 4
-  %323 = and i32 %322, %281
-  %324 = load i8, ptr %147, align 1
-  %325 = zext nneg i8 %324 to i32
-  %326 = lshr i32 %323, %325
-  %327 = zext i32 %326 to i64
-  %328 = getelementptr inbounds nuw i8, ptr %321, i64 %327
-  %329 = load i8, ptr %328, align 1
-  br label %330
+279:                                              ; preds = %160
+  %280 = load i32, ptr %.6234, align 4
+  %281 = load i8, ptr %136, align 4
+  %282 = zext i8 %281 to i64
+  %283 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %282
+  %284 = load ptr, ptr %283, align 8
+  %285 = load i32, ptr %137, align 4
+  %286 = and i32 %285, %280
+  %287 = load i8, ptr %138, align 4
+  %288 = zext nneg i8 %287 to i32
+  %289 = lshr i32 %286, %288
+  %290 = zext i32 %289 to i64
+  %291 = getelementptr inbounds nuw i8, ptr %284, i64 %290
+  %292 = load i8, ptr %291, align 1
+  %293 = load i8, ptr %139, align 1
+  %294 = zext i8 %293 to i64
+  %295 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %294
+  %296 = load ptr, ptr %295, align 8
+  %297 = load i32, ptr %140, align 4
+  %298 = and i32 %297, %280
+  %299 = load i8, ptr %141, align 1
+  %300 = zext nneg i8 %299 to i32
+  %301 = lshr i32 %298, %300
+  %302 = zext i32 %301 to i64
+  %303 = getelementptr inbounds nuw i8, ptr %296, i64 %302
+  %304 = load i8, ptr %303, align 1
+  %305 = load i8, ptr %142, align 2
+  %306 = zext i8 %305 to i64
+  %307 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %306
+  %308 = load ptr, ptr %307, align 8
+  %309 = load i32, ptr %143, align 4
+  %310 = and i32 %309, %280
+  %311 = load i8, ptr %144, align 2
+  %312 = zext nneg i8 %311 to i32
+  %313 = lshr i32 %310, %312
+  %314 = zext i32 %313 to i64
+  %315 = getelementptr inbounds nuw i8, ptr %308, i64 %314
+  %316 = load i8, ptr %315, align 1
+  %317 = load i8, ptr %145, align 1
+  %318 = zext i8 %317 to i64
+  %319 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %318
+  %320 = load ptr, ptr %319, align 8
+  %321 = load i32, ptr %146, align 4
+  %322 = and i32 %321, %280
+  %323 = load i8, ptr %147, align 1
+  %324 = zext nneg i8 %323 to i32
+  %325 = lshr i32 %322, %324
+  %326 = zext i32 %325 to i64
+  %327 = getelementptr inbounds nuw i8, ptr %320, i64 %326
+  %328 = load i8, ptr %327, align 1
+  br label %329
 
-330:                                              ; preds = %161, %280, %264, %213, %162
-  %.0204.shrunk = phi i8 [ %176, %162 ], [ %227, %213 ], [ %269, %264 ], [ %293, %280 ], [ 0, %161 ]
-  %.0203.shrunk = phi i8 [ %188, %162 ], [ %239, %213 ], [ %274, %264 ], [ %305, %280 ], [ 0, %161 ]
-  %.0202.shrunk = phi i8 [ %200, %162 ], [ %251, %213 ], [ %279, %264 ], [ %317, %280 ], [ 0, %161 ]
-  %.0201.shrunk = phi i8 [ %212, %162 ], [ %263, %213 ], [ -1, %264 ], [ %329, %280 ], [ 0, %161 ]
+329:                                              ; preds = %160, %279, %263, %212, %161
+  %.0204.shrunk = phi i8 [ %175, %161 ], [ %226, %212 ], [ %268, %263 ], [ %292, %279 ], [ 0, %160 ]
+  %.0203.shrunk = phi i8 [ %187, %161 ], [ %238, %212 ], [ %273, %263 ], [ %304, %279 ], [ 0, %160 ]
+  %.0202.shrunk = phi i8 [ %199, %161 ], [ %250, %212 ], [ %278, %263 ], [ %316, %279 ], [ 0, %160 ]
+  %.0201.shrunk = phi i8 [ %211, %161 ], [ %262, %212 ], [ -1, %263 ], [ %328, %279 ], [ 0, %160 ]
   %.0201 = zext i8 %.0201.shrunk to i32
   %.0202 = zext i8 %.0202.shrunk to i32
   %.0203 = zext i8 %.0203.shrunk to i32
   %.0204 = zext i8 %.0204.shrunk to i32
-  switch i8 %25, label %442 [
-    i8 1, label %331
-    i8 2, label %364
-    i8 3, label %397
-    i8 4, label %410
+  switch i8 %25, label %441 [
+    i8 1, label %330
+    i8 2, label %363
+    i8 3, label %396
+    i8 4, label %409
   ]
 
-331:                                              ; preds = %330
-  %332 = load i8, ptr %148, align 4
-  %333 = zext i8 %332 to i32
-  %334 = sub nsw i32 8, %333
-  %335 = lshr i32 %.0204, %334
-  %336 = load i8, ptr %149, align 4
-  %337 = zext nneg i8 %336 to i32
-  %338 = shl i32 %335, %337
-  %339 = load i8, ptr %150, align 1
-  %340 = zext i8 %339 to i32
-  %341 = sub nsw i32 8, %340
-  %342 = lshr i32 %.0203, %341
-  %343 = load i8, ptr %151, align 1
-  %344 = zext nneg i8 %343 to i32
-  %345 = shl i32 %342, %344
-  %346 = or i32 %345, %338
-  %347 = load i8, ptr %152, align 2
-  %348 = zext i8 %347 to i32
-  %349 = sub nsw i32 8, %348
-  %350 = lshr i32 %.0202, %349
-  %351 = load i8, ptr %153, align 2
-  %352 = zext nneg i8 %351 to i32
-  %353 = shl i32 %350, %352
-  %354 = or i32 %346, %353
-  %355 = load i8, ptr %154, align 1
-  %356 = zext i8 %355 to i32
-  %357 = sub nsw i32 8, %356
-  %358 = lshr i32 %.0201, %357
-  %359 = load i8, ptr %155, align 1
-  %360 = zext nneg i8 %359 to i32
-  %361 = shl i32 %358, %360
-  %362 = or i32 %354, %361
-  %363 = trunc i32 %362 to i8
-  store i8 %363, ptr %.6200233, align 1
-  br label %442
+330:                                              ; preds = %329
+  %331 = load i8, ptr %148, align 4
+  %332 = zext i8 %331 to i32
+  %333 = sub nsw i32 8, %332
+  %334 = lshr i32 %.0204, %333
+  %335 = load i8, ptr %149, align 4
+  %336 = zext nneg i8 %335 to i32
+  %337 = shl i32 %334, %336
+  %338 = load i8, ptr %150, align 1
+  %339 = zext i8 %338 to i32
+  %340 = sub nsw i32 8, %339
+  %341 = lshr i32 %.0203, %340
+  %342 = load i8, ptr %151, align 1
+  %343 = zext nneg i8 %342 to i32
+  %344 = shl i32 %341, %343
+  %345 = or i32 %344, %337
+  %346 = load i8, ptr %152, align 2
+  %347 = zext i8 %346 to i32
+  %348 = sub nsw i32 8, %347
+  %349 = lshr i32 %.0202, %348
+  %350 = load i8, ptr %153, align 2
+  %351 = zext nneg i8 %350 to i32
+  %352 = shl i32 %349, %351
+  %353 = or i32 %345, %352
+  %354 = load i8, ptr %154, align 1
+  %355 = zext i8 %354 to i32
+  %356 = sub nsw i32 8, %355
+  %357 = lshr i32 %.0201, %356
+  %358 = load i8, ptr %155, align 1
+  %359 = zext nneg i8 %358 to i32
+  %360 = shl i32 %357, %359
+  %361 = or i32 %353, %360
+  %362 = trunc i32 %361 to i8
+  store i8 %362, ptr %.6200233, align 1
+  br label %441
 
-364:                                              ; preds = %330
-  %365 = load i8, ptr %148, align 4
-  %366 = zext i8 %365 to i32
-  %367 = sub nsw i32 8, %366
-  %368 = lshr i32 %.0204, %367
-  %369 = load i8, ptr %149, align 4
-  %370 = zext nneg i8 %369 to i32
-  %371 = shl i32 %368, %370
-  %372 = load i8, ptr %150, align 1
-  %373 = zext i8 %372 to i32
-  %374 = sub nsw i32 8, %373
-  %375 = lshr i32 %.0203, %374
-  %376 = load i8, ptr %151, align 1
-  %377 = zext nneg i8 %376 to i32
-  %378 = shl i32 %375, %377
-  %379 = or i32 %378, %371
-  %380 = load i8, ptr %152, align 2
-  %381 = zext i8 %380 to i32
-  %382 = sub nsw i32 8, %381
-  %383 = lshr i32 %.0202, %382
-  %384 = load i8, ptr %153, align 2
-  %385 = zext nneg i8 %384 to i32
-  %386 = shl i32 %383, %385
-  %387 = or i32 %379, %386
-  %388 = load i8, ptr %154, align 1
-  %389 = zext i8 %388 to i32
-  %390 = sub nsw i32 8, %389
-  %391 = lshr i32 %.0201, %390
-  %392 = load i8, ptr %155, align 1
-  %393 = zext nneg i8 %392 to i32
-  %394 = shl i32 %391, %393
-  %395 = or i32 %387, %394
-  %396 = trunc i32 %395 to i16
-  store i16 %396, ptr %.6200233, align 2
-  br label %442
+363:                                              ; preds = %329
+  %364 = load i8, ptr %148, align 4
+  %365 = zext i8 %364 to i32
+  %366 = sub nsw i32 8, %365
+  %367 = lshr i32 %.0204, %366
+  %368 = load i8, ptr %149, align 4
+  %369 = zext nneg i8 %368 to i32
+  %370 = shl i32 %367, %369
+  %371 = load i8, ptr %150, align 1
+  %372 = zext i8 %371 to i32
+  %373 = sub nsw i32 8, %372
+  %374 = lshr i32 %.0203, %373
+  %375 = load i8, ptr %151, align 1
+  %376 = zext nneg i8 %375 to i32
+  %377 = shl i32 %374, %376
+  %378 = or i32 %377, %370
+  %379 = load i8, ptr %152, align 2
+  %380 = zext i8 %379 to i32
+  %381 = sub nsw i32 8, %380
+  %382 = lshr i32 %.0202, %381
+  %383 = load i8, ptr %153, align 2
+  %384 = zext nneg i8 %383 to i32
+  %385 = shl i32 %382, %384
+  %386 = or i32 %378, %385
+  %387 = load i8, ptr %154, align 1
+  %388 = zext i8 %387 to i32
+  %389 = sub nsw i32 8, %388
+  %390 = lshr i32 %.0201, %389
+  %391 = load i8, ptr %155, align 1
+  %392 = zext nneg i8 %391 to i32
+  %393 = shl i32 %390, %392
+  %394 = or i32 %386, %393
+  %395 = trunc i32 %394 to i16
+  store i16 %395, ptr %.6200233, align 2
+  br label %441
 
-397:                                              ; preds = %330
-  %398 = load i8, ptr %149, align 4
-  %399 = lshr i8 %398, 3
-  %400 = zext nneg i8 %399 to i64
-  %401 = getelementptr inbounds nuw i8, ptr %.6200233, i64 %400
-  store i8 %.0204.shrunk, ptr %401, align 1
-  %402 = load i8, ptr %151, align 1
-  %403 = lshr i8 %402, 3
-  %404 = zext nneg i8 %403 to i64
-  %405 = getelementptr inbounds nuw i8, ptr %.6200233, i64 %404
-  store i8 %.0203.shrunk, ptr %405, align 1
-  %406 = load i8, ptr %153, align 2
-  %407 = lshr i8 %406, 3
-  %408 = zext nneg i8 %407 to i64
-  %409 = getelementptr inbounds nuw i8, ptr %.6200233, i64 %408
-  store i8 %.0202.shrunk, ptr %409, align 1
-  br label %442
+396:                                              ; preds = %329
+  %397 = load i8, ptr %149, align 4
+  %398 = lshr i8 %397, 3
+  %399 = zext nneg i8 %398 to i64
+  %400 = getelementptr inbounds nuw i8, ptr %.6200233, i64 %399
+  store i8 %.0204.shrunk, ptr %400, align 1
+  %401 = load i8, ptr %151, align 1
+  %402 = lshr i8 %401, 3
+  %403 = zext nneg i8 %402 to i64
+  %404 = getelementptr inbounds nuw i8, ptr %.6200233, i64 %403
+  store i8 %.0203.shrunk, ptr %404, align 1
+  %405 = load i8, ptr %153, align 2
+  %406 = lshr i8 %405, 3
+  %407 = zext nneg i8 %406 to i64
+  %408 = getelementptr inbounds nuw i8, ptr %.6200233, i64 %407
+  store i8 %.0202.shrunk, ptr %408, align 1
+  br label %441
 
-410:                                              ; preds = %330
-  %411 = load i8, ptr %148, align 4
-  %412 = zext i8 %411 to i32
-  %413 = sub nsw i32 8, %412
-  %414 = lshr i32 %.0204, %413
-  %415 = load i8, ptr %149, align 4
-  %416 = zext nneg i8 %415 to i32
-  %417 = shl i32 %414, %416
-  %418 = load i8, ptr %150, align 1
-  %419 = zext i8 %418 to i32
-  %420 = sub nsw i32 8, %419
-  %421 = lshr i32 %.0203, %420
-  %422 = load i8, ptr %151, align 1
-  %423 = zext nneg i8 %422 to i32
-  %424 = shl i32 %421, %423
-  %425 = or i32 %424, %417
-  %426 = load i8, ptr %152, align 2
-  %427 = zext i8 %426 to i32
-  %428 = sub nsw i32 8, %427
-  %429 = lshr i32 %.0202, %428
-  %430 = load i8, ptr %153, align 2
-  %431 = zext nneg i8 %430 to i32
-  %432 = shl i32 %429, %431
-  %433 = or i32 %425, %432
-  %434 = load i8, ptr %154, align 1
-  %435 = zext i8 %434 to i32
-  %436 = sub nsw i32 8, %435
-  %437 = lshr i32 %.0201, %436
-  %438 = load i8, ptr %155, align 1
-  %439 = zext nneg i8 %438 to i32
-  %440 = shl i32 %437, %439
-  %441 = or i32 %433, %440
-  store i32 %441, ptr %.6200233, align 4
-  br label %442
+409:                                              ; preds = %329
+  %410 = load i8, ptr %148, align 4
+  %411 = zext i8 %410 to i32
+  %412 = sub nsw i32 8, %411
+  %413 = lshr i32 %.0204, %412
+  %414 = load i8, ptr %149, align 4
+  %415 = zext nneg i8 %414 to i32
+  %416 = shl i32 %413, %415
+  %417 = load i8, ptr %150, align 1
+  %418 = zext i8 %417 to i32
+  %419 = sub nsw i32 8, %418
+  %420 = lshr i32 %.0203, %419
+  %421 = load i8, ptr %151, align 1
+  %422 = zext nneg i8 %421 to i32
+  %423 = shl i32 %420, %422
+  %424 = or i32 %423, %416
+  %425 = load i8, ptr %152, align 2
+  %426 = zext i8 %425 to i32
+  %427 = sub nsw i32 8, %426
+  %428 = lshr i32 %.0202, %427
+  %429 = load i8, ptr %153, align 2
+  %430 = zext nneg i8 %429 to i32
+  %431 = shl i32 %428, %430
+  %432 = or i32 %424, %431
+  %433 = load i8, ptr %154, align 1
+  %434 = zext i8 %433 to i32
+  %435 = sub nsw i32 8, %434
+  %436 = lshr i32 %.0201, %435
+  %437 = load i8, ptr %155, align 1
+  %438 = zext nneg i8 %437 to i32
+  %439 = shl i32 %436, %438
+  %440 = or i32 %432, %439
+  store i32 %440, ptr %.6200233, align 4
+  br label %441
 
-442:                                              ; preds = %410, %397, %364, %331, %330
-  %443 = getelementptr inbounds nuw i8, ptr %.6200233, i64 %156
-  %444 = getelementptr inbounds nuw i8, ptr %.6234, i64 %157
-  %445 = add nsw i32 %.0209232, -1
-  %.not218 = icmp eq i32 %445, 0
-  br i1 %.not218, label %._crit_edge236, label %161, !llvm.loop !15
+441:                                              ; preds = %409, %396, %363, %330, %329
+  %442 = getelementptr inbounds nuw i8, ptr %.6200233, i64 %156
+  %443 = getelementptr inbounds nuw i8, ptr %.6234, i64 %157
+  %444 = add nsw i32 %.0209232, -1
+  %.not218 = icmp eq i32 %444, 0
+  br i1 %.not218, label %._crit_edge236, label %160, !llvm.loop !15
 
-._crit_edge236:                                   ; preds = %442
-  %446 = getelementptr inbounds i8, ptr %444, i64 %158
-  %447 = getelementptr inbounds i8, ptr %443, i64 %159
-  %.not217 = icmp eq i32 %160, 0
+._crit_edge236:                                   ; preds = %441
+  %445 = add nsw i32 %.in247, -1
+  %446 = getelementptr inbounds i8, ptr %443, i64 %158
+  %447 = getelementptr inbounds i8, ptr %442, i64 %159
+  %.not217 = icmp eq i32 %445, 0
   br i1 %.not217, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %._crit_edge236, %.preheader.lr.ph, %135, %._crit_edge

@@ -169,8 +169,6 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
   %116 = getelementptr inbounds nuw i8, ptr %8, i64 378
   %117 = load i8, ptr %116, align 2, !tbaa !72
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 51
-  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 54
-  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 92
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.47.0..sroa_idx, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %.sroa.43.0..sroa_idx, i8 0, i64 44, i1 false)
@@ -266,6 +264,8 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
   br i1 %exitcond212.not, label %142, label %134, !llvm.loop !78
 
 142:                                              ; preds = %134
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 54
+  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 92
   %143 = load i8, ptr %42, align 8, !tbaa !40
   %.not151 = icmp eq i8 %143, 0
   br i1 %.not151, label %.preheader190, label %145

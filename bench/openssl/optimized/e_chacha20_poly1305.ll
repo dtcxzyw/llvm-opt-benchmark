@@ -138,61 +138,61 @@ define internal noundef i32 @chacha_cipher(ptr noundef readonly captures(none) %
   %.072 = phi ptr [ %.173.lcssa, %34 ], [ %.173.lcssa, %29 ], [ %.173.lcssa, %27 ], [ %2, %4 ]
   %.069 = phi i64 [ %.170.lcssa, %34 ], [ %.170.lcssa, %29 ], [ %.170.lcssa, %27 ], [ %3, %4 ]
   %.067 = phi ptr [ %.168.lcssa, %34 ], [ %.168.lcssa, %29 ], [ %.168.lcssa, %27 ], [ %1, %4 ]
-  %39 = trunc i64 %.069 to i32
-  %40 = and i32 %39, 63
-  %41 = and i64 %.069, -64
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.not7888 = icmp eq i64 %41, 0
+  %39 = and i64 %.069, -64
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.not7888 = icmp eq i64 %39, 0
   br i1 %.not7888, label %._crit_edge95, label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %38
-  %43 = load i32, ptr %42, align 8, !tbaa !15
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  br label %45
+  %41 = load i32, ptr %40, align 8, !tbaa !15
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  br label %43
 
-45:                                               ; preds = %.lr.ph94, %60
-  %.06392 = phi i32 [ %43, %.lr.ph94 ], [ %spec.select, %60 ]
-  %.291 = phi ptr [ %.067, %.lr.ph94 ], [ %55, %60 ]
-  %.27190 = phi i64 [ %41, %.lr.ph94 ], [ %53, %60 ]
-  %.27489 = phi ptr [ %.072, %.lr.ph94 ], [ %54, %60 ]
-  %46 = lshr exact i64 %.27190, 6
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %46, i64 268435456)
-  %47 = trunc nuw nsw i64 %spec.store.select to i32
-  %48 = add i32 %.06392, %47
-  %49 = zext i32 %48 to i64
-  %50 = icmp samesign ugt i64 %spec.store.select, %49
-  %spec.select = select i1 %50, i32 0, i32 %48
-  %51 = select i1 %50, i64 %49, i64 0
-  %spec.select80 = sub nuw nsw i64 %spec.store.select, %51
-  %52 = shl nuw nsw i64 %spec.select80, 6
-  tail call void @ChaCha20_ctr32(ptr noundef %.291, ptr noundef %.27489, i64 noundef %52, ptr noundef nonnull %6, ptr noundef nonnull %42) #9
-  %53 = sub i64 %.27190, %52
-  %54 = getelementptr inbounds nuw i8, ptr %.27489, i64 %52
-  %55 = getelementptr inbounds nuw i8, ptr %.291, i64 %52
-  store i32 %spec.select, ptr %42, align 8, !tbaa !15
-  %56 = icmp eq i32 %spec.select, 0
-  br i1 %56, label %57, label %60
+43:                                               ; preds = %.lr.ph94, %58
+  %.06392 = phi i32 [ %41, %.lr.ph94 ], [ %spec.select, %58 ]
+  %.291 = phi ptr [ %.067, %.lr.ph94 ], [ %53, %58 ]
+  %.27190 = phi i64 [ %39, %.lr.ph94 ], [ %51, %58 ]
+  %.27489 = phi ptr [ %.072, %.lr.ph94 ], [ %52, %58 ]
+  %44 = lshr exact i64 %.27190, 6
+  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %44, i64 268435456)
+  %45 = trunc nuw nsw i64 %spec.store.select to i32
+  %46 = add i32 %.06392, %45
+  %47 = zext i32 %46 to i64
+  %48 = icmp samesign ugt i64 %spec.store.select, %47
+  %spec.select = select i1 %48, i32 0, i32 %46
+  %49 = select i1 %48, i64 %47, i64 0
+  %spec.select80 = sub nuw nsw i64 %spec.store.select, %49
+  %50 = shl nuw nsw i64 %spec.select80, 6
+  tail call void @ChaCha20_ctr32(ptr noundef %.291, ptr noundef %.27489, i64 noundef %50, ptr noundef nonnull %6, ptr noundef nonnull %40) #9
+  %51 = sub i64 %.27190, %50
+  %52 = getelementptr inbounds nuw i8, ptr %.27489, i64 %50
+  %53 = getelementptr inbounds nuw i8, ptr %.291, i64 %50
+  store i32 %spec.select, ptr %40, align 8, !tbaa !15
+  %54 = icmp eq i32 %spec.select, 0
+  br i1 %54, label %55, label %58
 
-57:                                               ; preds = %45
-  %58 = load i32, ptr %44, align 4, !tbaa !15
-  %59 = add i32 %58, 1
-  store i32 %59, ptr %44, align 4, !tbaa !15
-  br label %60
+55:                                               ; preds = %43
+  %56 = load i32, ptr %42, align 4, !tbaa !15
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %42, align 4, !tbaa !15
+  br label %58
 
-60:                                               ; preds = %57, %45
-  %.not78 = icmp eq i64 %53, 0
-  br i1 %.not78, label %._crit_edge95, label %45, !llvm.loop !20
+58:                                               ; preds = %55, %43
+  %.not78 = icmp eq i64 %51, 0
+  br i1 %.not78, label %._crit_edge95, label %43, !llvm.loop !20
 
-._crit_edge95:                                    ; preds = %60, %38
-  %.274.lcssa = phi ptr [ %.072, %38 ], [ %54, %60 ]
-  %.2.lcssa = phi ptr [ %.067, %38 ], [ %55, %60 ]
-  %.not79 = icmp eq i32 %40, 0
+._crit_edge95:                                    ; preds = %58, %38
+  %.274.lcssa = phi ptr [ %.072, %38 ], [ %52, %58 ]
+  %.2.lcssa = phi ptr [ %.067, %38 ], [ %53, %58 ]
+  %59 = trunc i64 %.069 to i32
+  %60 = and i32 %59, 63
+  %.not79 = icmp eq i32 %60, 0
   br i1 %.not79, label %71, label %61
 
 61:                                               ; preds = %._crit_edge95
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %62, i8 0, i64 64, i1 false)
-  tail call void @ChaCha20_ctr32(ptr noundef nonnull %62, ptr noundef nonnull %62, i64 noundef 64, ptr noundef nonnull %6, ptr noundef nonnull %42) #9
+  tail call void @ChaCha20_ctr32(ptr noundef nonnull %62, ptr noundef nonnull %62, i64 noundef 64, ptr noundef nonnull %6, ptr noundef nonnull %40) #9
   %wide.trip.count = and i64 %.069, 63
   br label %63
 
@@ -210,7 +210,7 @@ define internal noundef i32 @chacha_cipher(ptr noundef readonly captures(none) %
   br i1 %exitcond.not, label %70, label %63, !llvm.loop !21
 
 70:                                               ; preds = %63
-  store i32 %40, ptr %7, align 8, !tbaa !17
+  store i32 %60, ptr %7, align 8, !tbaa !17
   br label %71
 
 71:                                               ; preds = %._crit_edge95, %70, %._crit_edge

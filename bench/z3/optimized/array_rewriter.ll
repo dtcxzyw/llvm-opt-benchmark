@@ -4971,9 +4971,9 @@ _ZN6bufferIP4exprLb0ELj16EE6shrinkEj.exit562:     ; preds = %._crit_edge857
   call fastcc void @"_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_0EEEvT_SH_T0_T1_"(ptr noundef %.pre9321104, ptr noundef nonnull %917, i64 noundef %923)
   %924 = icmp ugt i32 %915, 16
   %scevgep.i.i.i = getelementptr i8, ptr %.pre9321104, i64 8
-  br i1 %924, label %.preheader.i, label %935
+  br i1 %924, label %.preheader.i.i.i, label %935
 
-.preheader.i:                                     ; preds = %919, %"_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_0EEEvT_T0_.exit.i.i.i.i"
+.preheader.i.i.i:                                 ; preds = %919, %"_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_0EEEvT_T0_.exit.i.i.i.i"
   %.020.i.idx.i.i.i = phi i64 [ %.020.i.add.i.i.i, %"_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_0EEEvT_T0_.exit.i.i.i.i" ], [ 8, %919 ]
   %.pn19.i.i.i.i = phi ptr [ %.020.i.ptr.i.i.i, %"_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %.pre9321104, %919 ]
   %.020.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.pre9321104, i64 %.020.i.idx.i.i.i
@@ -4984,11 +4984,11 @@ _ZN6bufferIP4exprLb0ELj16EE6shrinkEj.exit562:     ; preds = %._crit_edge857
   %925 = icmp ult i32 %.0.val.val.i.i.i.i, %.val.val.i.i.i.i
   br i1 %925, label %926, label %927
 
-926:                                              ; preds = %.preheader.i
+926:                                              ; preds = %.preheader.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %.pre9321104, i64 %.020.i.idx.i.i.i, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_0EEEvT_T0_.exit.i.i.i.i"
 
-927:                                              ; preds = %.preheader.i
+927:                                              ; preds = %.preheader.i.i.i
   %.0.val11.i.i.i.i.i = load ptr, ptr %.pn19.i.i.i.i, align 8, !tbaa !24
   %.0.val.val12.i.i.i.i.i = load i32, ptr %.0.val11.i.i.i.i.i, align 4, !tbaa !158
   %928 = icmp ult i32 %.0.val.val.i.i.i.i, %.0.val.val12.i.i.i.i.i
@@ -5010,7 +5010,7 @@ _ZN6bufferIP4exprLb0ELj16EE6shrinkEj.exit562:     ; preds = %._crit_edge857
   store ptr %.0.val.i.i.i.i, ptr %.sink.i.i.i.i, align 8, !tbaa !24
   %.020.i.add.i.i.i = add nuw nsw i64 %.020.i.idx.i.i.i, 8
   %.not.i.i.i.i599 = icmp eq i64 %.020.i.add.i.i.i, 128
-  br i1 %.not.i.i.i.i599, label %"_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_0EEEvT_SH_T0_.exit.i.i.i", label %.preheader.i, !llvm.loop !160
+  br i1 %.not.i.i.i.i599, label %"_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_0EEEvT_SH_T0_.exit.i.i.i", label %.preheader.i.i.i, !llvm.loop !160
 
 "_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_0EEEvT_SH_T0_.exit.i.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_0EEEvT_T0_.exit.i.i.i.i"
   %930 = getelementptr inbounds nuw i8, ptr %.pre9321104, i64 128
@@ -8429,9 +8429,9 @@ define internal fastcc void @"_ZSt4sortIPP4exprZN14array_rewriter11mk_map_coreEP
   tail call fastcc void @"_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_1EEEvT_SH_T0_T1_"(ptr noundef %0, ptr noundef %1, i64 noundef %10)
   %11 = icmp sgt i64 %6, 128
   %scevgep.i.i = getelementptr i8, ptr %0, i64 8
-  br i1 %11, label %.preheader, label %22
+  br i1 %11, label %.preheader.i.i, label %22
 
-.preheader:                                       ; preds = %3, %"_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_1EEEvT_T0_.exit.i.i.i"
+.preheader.i.i:                                   ; preds = %3, %"_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_1EEEvT_T0_.exit.i.i.i"
   %.020.i.idx.i.i = phi i64 [ %.020.i.add.i.i, %"_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_1EEEvT_T0_.exit.i.i.i" ], [ 8, %3 ]
   %.pn19.i.i.i = phi ptr [ %.020.i.ptr.i.i, %"_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_1EEEvT_T0_.exit.i.i.i" ], [ %0, %3 ]
   %.020.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.020.i.idx.i.i
@@ -8442,11 +8442,11 @@ define internal fastcc void @"_ZSt4sortIPP4exprZN14array_rewriter11mk_map_coreEP
   %12 = icmp ult i32 %.0.val.val.i.i.i, %.val.val.i.i.i
   br i1 %12, label %13, label %14
 
-13:                                               ; preds = %.preheader
+13:                                               ; preds = %.preheader.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %.020.i.idx.i.i, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_1EEEvT_T0_.exit.i.i.i"
 
-14:                                               ; preds = %.preheader
+14:                                               ; preds = %.preheader.i.i
   %.0.val11.i.i.i.i = load ptr, ptr %.pn19.i.i.i, align 8, !tbaa !24
   %.0.val.val12.i.i.i.i = load i32, ptr %.0.val11.i.i.i.i, align 4, !tbaa !158
   %15 = icmp ult i32 %.0.val.val.i.i.i, %.0.val.val12.i.i.i.i
@@ -8468,7 +8468,7 @@ define internal fastcc void @"_ZSt4sortIPP4exprZN14array_rewriter11mk_map_coreEP
   store ptr %.0.val.i.i.i, ptr %.sink.i.i.i, align 8, !tbaa !24
   %.020.i.add.i.i = add nuw nsw i64 %.020.i.idx.i.i, 8
   %.not.i.i.i = icmp eq i64 %.020.i.add.i.i, 128
-  br i1 %.not.i.i.i, label %"_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_1EEEvT_SH_T0_.exit.i.i", label %.preheader, !llvm.loop !222
+  br i1 %.not.i.i.i, label %"_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_1EEEvT_SH_T0_.exit.i.i", label %.preheader.i.i, !llvm.loop !222
 
 "_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_1EEEvT_SH_T0_.exit.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPP4exprN9__gnu_cxx5__ops14_Val_comp_iterIZN14array_rewriter11mk_map_coreEP9func_decljPKS1_R7obj_refIS0_11ast_managerEE3$_1EEEvT_T0_.exit.i.i.i"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 128

@@ -709,8 +709,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %1
   %18 = getelementptr inbounds nuw i32, ptr %17, i64 %14
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %18, ptr %19, align 8, !tbaa !59
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %17, i8 0, i64 %16, i1 false), !tbaa !60
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 %16
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %17, i8 0, i64 %16, i1 false), !tbaa !60
   br label %21
 
 21:                                               ; preds = %.noexc30, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
@@ -1455,8 +1455,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %2
   %17 = getelementptr inbounds nuw i32, ptr %16, i64 %13
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %17, ptr %18, align 8, !tbaa !59
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %16, i8 0, i64 %15, i1 false), !tbaa !60
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %15
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %16, i8 0, i64 %15, i1 false), !tbaa !60
   br label %_ZN5zxing8ArrayRefIiEC2Ei.exit
 
 20:                                               ; preds = %.noexc3.i.i, %.noexc.i.i

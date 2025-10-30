@@ -3071,8 +3071,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %208
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc80
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %215, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %214, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !16
   %217 = getelementptr inbounds nuw i8, ptr %214, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %214, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !16
   br label %218
 
 218:                                              ; preds = %.noexc80, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -3088,8 +3088,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc80
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i83: ; preds = %.noexc88
   %.idx.i.i.i.i.i.i.i84 = shl nsw i64 %215, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %221, i8 0, i64 %.idx.i.i.i.i.i.i.i84, i1 false), !tbaa !16
   %222 = getelementptr i8, ptr %221, i64 %.idx.i.i.i.i.i.i.i84
+  tail call void @llvm.memset.p0.i64(ptr align 4 %221, i8 0, i64 %.idx.i.i.i.i.i.i.i84, i1 false), !tbaa !16
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit89
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit89:             ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i83, %.noexc88, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
@@ -4679,8 +4679,8 @@ _ZNSt12_Vector_baseIPN5faiss24RangeSearchPartialResultESaIS2_EEC2EmRKS3_.exit.th
 
 _ZSt6fill_nIPPN5faiss24RangeSearchPartialResultEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc58
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %109, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %108, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !131
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %108, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !131
   br label %112
 
 112:                                              ; preds = %_ZSt6fill_nIPPN5faiss24RangeSearchPartialResultEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc58, %_ZNSt12_Vector_baseIPN5faiss24RangeSearchPartialResultESaIS2_EEC2EmRKS3_.exit.thread.i

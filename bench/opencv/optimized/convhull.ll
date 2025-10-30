@@ -4238,227 +4238,227 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPPN2cv6Point_IiEEN
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
   %6 = icmp sgt i64 %5, 128
-  br i1 %6, label %7, label %57
+  br i1 %6, label %.preheader, label %56
 
-7:                                                ; preds = %2
+.preheader:                                       ; preds = %2
   %scevgep = getelementptr i8, ptr %0, i64 8
-  br label %8
+  br label %7
 
-8:                                                ; preds = %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i, %7
-  %.020.i.idx = phi i64 [ 8, %7 ], [ %.020.i.add, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i ]
+7:                                                ; preds = %.preheader, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i
+  %.020.i.idx = phi i64 [ %.020.i.add, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i ], [ 8, %.preheader ]
   %.020.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.020.i.idx
-  %9 = load ptr, ptr %.020.i.ptr, align 8, !tbaa !35
-  %10 = load ptr, ptr %0, align 8, !tbaa !35
+  %8 = load ptr, ptr %.020.i.ptr, align 8, !tbaa !35
+  %9 = load ptr, ptr %0, align 8, !tbaa !35
+  %10 = load i32, ptr %8, align 4, !tbaa !48
   %11 = load i32, ptr %9, align 4, !tbaa !48
-  %12 = load i32, ptr %10, align 4, !tbaa !48
-  %.not.i.i.i = icmp eq i32 %11, %12
-  br i1 %.not.i.i.i, label %15, label %13
+  %.not.i.i.i = icmp eq i32 %10, %11
+  br i1 %.not.i.i.i, label %14, label %12
 
-13:                                               ; preds = %8
-  %14 = icmp slt i32 %11, %12
-  br i1 %14, label %23, label %24
+12:                                               ; preds = %7
+  %13 = icmp slt i32 %10, %11
+  br i1 %13, label %22, label %23
 
-15:                                               ; preds = %8
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !39
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %19 = load i32, ptr %18, align 4, !tbaa !39
-  %.not15.i.i.i = icmp eq i32 %17, %19
-  br i1 %.not15.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i, label %20
+14:                                               ; preds = %7
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %16 = load i32, ptr %15, align 4, !tbaa !39
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %18 = load i32, ptr %17, align 4, !tbaa !39
+  %.not15.i.i.i = icmp eq i32 %16, %18
+  br i1 %.not15.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i, label %19
 
-20:                                               ; preds = %15
-  %21 = icmp slt i32 %17, %19
-  br i1 %21, label %23, label %24
+19:                                               ; preds = %14
+  %20 = icmp slt i32 %16, %18
+  br i1 %20, label %22, label %23
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i: ; preds = %15
-  %22 = icmp ult ptr %9, %10
-  br i1 %22, label %23, label %24
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i: ; preds = %14
+  %21 = icmp ult ptr %8, %9
+  br i1 %21, label %22, label %23
 
-23:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i, %20, %13
+22:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i, %19, %12
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %.020.i.idx, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i
 
-24:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i, %20, %13
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  br label %26
+23:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i, %19, %12
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  br label %25
 
-26:                                               ; preds = %38, %24
-  %.09.i.i = phi ptr [ %.020.i.ptr, %24 ], [ %.0.i.i, %38 ]
+25:                                               ; preds = %37, %23
+  %.09.i.i = phi ptr [ %.020.i.ptr, %23 ], [ %.0.i.i, %37 ]
   %.0.i.i = getelementptr inbounds i8, ptr %.09.i.i, i64 -8
-  %27 = load ptr, ptr %.0.i.i, align 8, !tbaa !35
-  %28 = load i32, ptr %27, align 4, !tbaa !48
-  %.not.i.i.i.i = icmp eq i32 %11, %28
-  br i1 %.not.i.i.i.i, label %31, label %29
+  %26 = load ptr, ptr %.0.i.i, align 8, !tbaa !35
+  %27 = load i32, ptr %26, align 4, !tbaa !48
+  %.not.i.i.i.i = icmp eq i32 %10, %27
+  br i1 %.not.i.i.i.i, label %30, label %28
 
-29:                                               ; preds = %26
-  %30 = icmp slt i32 %11, %28
-  br i1 %30, label %38, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i
+28:                                               ; preds = %25
+  %29 = icmp slt i32 %10, %27
+  br i1 %29, label %37, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i
 
-31:                                               ; preds = %26
-  %32 = load i32, ptr %25, align 4, !tbaa !39
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !39
-  %.not15.i.i.i.i = icmp eq i32 %32, %34
-  br i1 %.not15.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i, label %35
+30:                                               ; preds = %25
+  %31 = load i32, ptr %24, align 4, !tbaa !39
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %33 = load i32, ptr %32, align 4, !tbaa !39
+  %.not15.i.i.i.i = icmp eq i32 %31, %33
+  br i1 %.not15.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i, label %34
 
-35:                                               ; preds = %31
-  %36 = icmp slt i32 %32, %34
-  br i1 %36, label %38, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i
+34:                                               ; preds = %30
+  %35 = icmp slt i32 %31, %33
+  br i1 %35, label %37, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i: ; preds = %31
-  %37 = icmp ult ptr %9, %27
-  br i1 %37, label %38, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i: ; preds = %30
+  %36 = icmp ult ptr %8, %26
+  br i1 %36, label %37, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i
 
-38:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i, %35, %29
-  store ptr %27, ptr %.09.i.i, align 8, !tbaa !35
-  br label %26, !llvm.loop !135
+37:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i, %34, %28
+  store ptr %26, ptr %.09.i.i, align 8, !tbaa !35
+  br label %25, !llvm.loop !135
 
-_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i, %35, %29, %23
-  %.sink.i = phi ptr [ %0, %23 ], [ %.09.i.i, %29 ], [ %.09.i.i, %35 ], [ %.09.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i ]
-  store ptr %9, ptr %.sink.i, align 8, !tbaa !35
+_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i, %34, %28, %22
+  %.sink.i = phi ptr [ %0, %22 ], [ %.09.i.i, %28 ], [ %.09.i.i, %34 ], [ %.09.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i ]
+  store ptr %8, ptr %.sink.i, align 8, !tbaa !35
   %.020.i.add = add nuw nsw i64 %.020.i.idx, 8
   %.not.i = icmp eq i64 %.020.i.add, 128
-  br i1 %.not.i, label %_ZSt16__insertion_sortIPPN2cv6Point_IiEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_SB_T0_.exit, label %8, !llvm.loop !136
+  br i1 %.not.i, label %_ZSt16__insertion_sortIPPN2cv6Point_IiEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_SB_T0_.exit, label %7, !llvm.loop !136
 
 _ZSt16__insertion_sortIPPN2cv6Point_IiEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_SB_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.not6.i = icmp eq ptr %39, %1
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.not6.i = icmp eq ptr %38, %1
   br i1 %.not6.i, label %_ZSt26__unguarded_insertion_sortIPPN2cv6Point_IiEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_SB_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPPN2cv6Point_IiEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_SB_T0_.exit, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i16
-  %.07.i = phi ptr [ %56, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i16 ], [ %39, %_ZSt16__insertion_sortIPPN2cv6Point_IiEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_SB_T0_.exit ]
-  %40 = load ptr, ptr %.07.i, align 8, !tbaa !35
-  %41 = load i32, ptr %40, align 4, !tbaa !48
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  br label %43
+  %.07.i = phi ptr [ %55, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i16 ], [ %38, %_ZSt16__insertion_sortIPPN2cv6Point_IiEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_SB_T0_.exit ]
+  %39 = load ptr, ptr %.07.i, align 8, !tbaa !35
+  %40 = load i32, ptr %39, align 4, !tbaa !48
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  br label %42
 
-43:                                               ; preds = %55, %.lr.ph.i
-  %.09.i.i13 = phi ptr [ %.07.i, %.lr.ph.i ], [ %.0.i.i14, %55 ]
+42:                                               ; preds = %54, %.lr.ph.i
+  %.09.i.i13 = phi ptr [ %.07.i, %.lr.ph.i ], [ %.0.i.i14, %54 ]
   %.0.i.i14 = getelementptr inbounds i8, ptr %.09.i.i13, i64 -8
-  %44 = load ptr, ptr %.0.i.i14, align 8, !tbaa !35
-  %45 = load i32, ptr %44, align 4, !tbaa !48
-  %.not.i.i.i.i15 = icmp eq i32 %41, %45
-  br i1 %.not.i.i.i.i15, label %48, label %46
+  %43 = load ptr, ptr %.0.i.i14, align 8, !tbaa !35
+  %44 = load i32, ptr %43, align 4, !tbaa !48
+  %.not.i.i.i.i15 = icmp eq i32 %40, %44
+  br i1 %.not.i.i.i.i15, label %47, label %45
 
-46:                                               ; preds = %43
-  %47 = icmp slt i32 %41, %45
-  br i1 %47, label %55, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i16
+45:                                               ; preds = %42
+  %46 = icmp slt i32 %40, %44
+  br i1 %46, label %54, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i16
 
-48:                                               ; preds = %43
-  %49 = load i32, ptr %42, align 4, !tbaa !39
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !39
-  %.not15.i.i.i.i18 = icmp eq i32 %49, %51
-  br i1 %.not15.i.i.i.i18, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i19, label %52
+47:                                               ; preds = %42
+  %48 = load i32, ptr %41, align 4, !tbaa !39
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %50 = load i32, ptr %49, align 4, !tbaa !39
+  %.not15.i.i.i.i18 = icmp eq i32 %48, %50
+  br i1 %.not15.i.i.i.i18, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i19, label %51
 
-52:                                               ; preds = %48
-  %53 = icmp slt i32 %49, %51
-  br i1 %53, label %55, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i16
+51:                                               ; preds = %47
+  %52 = icmp slt i32 %48, %50
+  br i1 %52, label %54, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i16
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i19: ; preds = %48
-  %54 = icmp ult ptr %40, %44
-  br i1 %54, label %55, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i16
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i19: ; preds = %47
+  %53 = icmp ult ptr %39, %43
+  br i1 %53, label %54, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i16
 
-55:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i19, %52, %46
-  store ptr %44, ptr %.09.i.i13, align 8, !tbaa !35
-  br label %43, !llvm.loop !135
+54:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i19, %51, %45
+  store ptr %43, ptr %.09.i.i13, align 8, !tbaa !35
+  br label %42, !llvm.loop !135
 
-_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i16: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i19, %52, %46
-  store ptr %40, ptr %.09.i.i13, align 8, !tbaa !35
-  %56 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
-  %.not.i17 = icmp eq ptr %56, %1
+_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i16: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i19, %51, %45
+  store ptr %39, ptr %.09.i.i13, align 8, !tbaa !35
+  %55 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
+  %.not.i17 = icmp eq ptr %55, %1
   br i1 %.not.i17, label %_ZSt26__unguarded_insertion_sortIPPN2cv6Point_IiEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_SB_T0_.exit, label %.lr.ph.i, !llvm.loop !137
 
-57:                                               ; preds = %2
-  %58 = icmp eq ptr %0, %1
+56:                                               ; preds = %2
+  %57 = icmp eq ptr %0, %1
   %.017.i20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not18.i = icmp eq ptr %.017.i20, %1
-  %or.cond = select i1 %58, i1 true, i1 %.not18.i
+  %or.cond = select i1 %57, i1 true, i1 %.not18.i
   br i1 %or.cond, label %_ZSt26__unguarded_insertion_sortIPPN2cv6Point_IiEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_SB_T0_.exit, label %.lr.ph.i21
 
-.lr.ph.i21:                                       ; preds = %57, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28
-  %.020.i22 = phi ptr [ %.0.i30, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28 ], [ %.017.i20, %57 ]
-  %.pn19.i23 = phi ptr [ %.020.i22, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28 ], [ %0, %57 ]
-  %59 = load ptr, ptr %.020.i22, align 8, !tbaa !35
-  %60 = load ptr, ptr %0, align 8, !tbaa !35
+.lr.ph.i21:                                       ; preds = %56, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28
+  %.020.i22 = phi ptr [ %.0.i30, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28 ], [ %.017.i20, %56 ]
+  %.pn19.i23 = phi ptr [ %.020.i22, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28 ], [ %0, %56 ]
+  %58 = load ptr, ptr %.020.i22, align 8, !tbaa !35
+  %59 = load ptr, ptr %0, align 8, !tbaa !35
+  %60 = load i32, ptr %58, align 4, !tbaa !48
   %61 = load i32, ptr %59, align 4, !tbaa !48
-  %62 = load i32, ptr %60, align 4, !tbaa !48
-  %.not.i.i.i24 = icmp eq i32 %61, %62
-  br i1 %.not.i.i.i24, label %65, label %63
+  %.not.i.i.i24 = icmp eq i32 %60, %61
+  br i1 %.not.i.i.i24, label %64, label %62
 
-63:                                               ; preds = %.lr.ph.i21
-  %64 = icmp slt i32 %61, %62
-  br i1 %64, label %73, label %80
+62:                                               ; preds = %.lr.ph.i21
+  %63 = icmp slt i32 %60, %61
+  br i1 %63, label %72, label %79
 
-65:                                               ; preds = %.lr.ph.i21
-  %66 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !39
-  %68 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %69 = load i32, ptr %68, align 4, !tbaa !39
-  %.not15.i.i.i34 = icmp eq i32 %67, %69
-  br i1 %.not15.i.i.i34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i35, label %70
+64:                                               ; preds = %.lr.ph.i21
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %66 = load i32, ptr %65, align 4, !tbaa !39
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  %68 = load i32, ptr %67, align 4, !tbaa !39
+  %.not15.i.i.i34 = icmp eq i32 %66, %68
+  br i1 %.not15.i.i.i34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i35, label %69
 
-70:                                               ; preds = %65
-  %71 = icmp slt i32 %67, %69
-  br i1 %71, label %73, label %80
+69:                                               ; preds = %64
+  %70 = icmp slt i32 %66, %68
+  br i1 %70, label %72, label %79
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i35: ; preds = %65
-  %72 = icmp ult ptr %59, %60
-  br i1 %72, label %73, label %80
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i35: ; preds = %64
+  %71 = icmp ult ptr %58, %59
+  br i1 %71, label %72, label %79
 
-73:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i35, %70, %63
-  %74 = getelementptr inbounds nuw i8, ptr %.pn19.i23, i64 16
-  %75 = ptrtoint ptr %.020.i22 to i64
-  %76 = sub i64 %75, %4
-  %77 = ashr exact i64 %76, 3
-  %78 = sub nsw i64 0, %77
-  %79 = getelementptr inbounds ptr, ptr %74, i64 %78
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %79, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %76, i1 false)
+72:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i35, %69, %62
+  %73 = getelementptr inbounds nuw i8, ptr %.pn19.i23, i64 16
+  %74 = ptrtoint ptr %.020.i22 to i64
+  %75 = sub i64 %74, %4
+  %76 = ashr exact i64 %75, 3
+  %77 = sub nsw i64 0, %76
+  %78 = getelementptr inbounds ptr, ptr %73, i64 %77
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %78, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %75, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28
 
-80:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i35, %70, %63
-  %81 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  br label %82
+79:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIiEEEclIPPNS2_6Point_IiEESA_EEbT_T0_.exit.i35, %69, %62
+  %80 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  br label %81
 
-82:                                               ; preds = %94, %80
-  %.09.i.i25 = phi ptr [ %.020.i22, %80 ], [ %.0.i.i26, %94 ]
+81:                                               ; preds = %93, %79
+  %.09.i.i25 = phi ptr [ %.020.i22, %79 ], [ %.0.i.i26, %93 ]
   %.0.i.i26 = getelementptr inbounds i8, ptr %.09.i.i25, i64 -8
-  %83 = load ptr, ptr %.0.i.i26, align 8, !tbaa !35
-  %84 = load i32, ptr %83, align 4, !tbaa !48
-  %.not.i.i.i.i27 = icmp eq i32 %61, %84
-  br i1 %.not.i.i.i.i27, label %87, label %85
+  %82 = load ptr, ptr %.0.i.i26, align 8, !tbaa !35
+  %83 = load i32, ptr %82, align 4, !tbaa !48
+  %.not.i.i.i.i27 = icmp eq i32 %60, %83
+  br i1 %.not.i.i.i.i27, label %86, label %84
 
-85:                                               ; preds = %82
-  %86 = icmp slt i32 %61, %84
-  br i1 %86, label %94, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28
+84:                                               ; preds = %81
+  %85 = icmp slt i32 %60, %83
+  br i1 %85, label %93, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28
 
-87:                                               ; preds = %82
-  %88 = load i32, ptr %81, align 4, !tbaa !39
-  %89 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  %90 = load i32, ptr %89, align 4, !tbaa !39
-  %.not15.i.i.i.i32 = icmp eq i32 %88, %90
-  br i1 %.not15.i.i.i.i32, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i33, label %91
+86:                                               ; preds = %81
+  %87 = load i32, ptr %80, align 4, !tbaa !39
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 4
+  %89 = load i32, ptr %88, align 4, !tbaa !39
+  %.not15.i.i.i.i32 = icmp eq i32 %87, %89
+  br i1 %.not15.i.i.i.i32, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i33, label %90
 
-91:                                               ; preds = %87
-  %92 = icmp slt i32 %88, %90
-  br i1 %92, label %94, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28
+90:                                               ; preds = %86
+  %91 = icmp slt i32 %87, %89
+  br i1 %91, label %93, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i33: ; preds = %87
-  %93 = icmp ult ptr %59, %83
-  br i1 %93, label %94, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i33: ; preds = %86
+  %92 = icmp ult ptr %58, %82
+  br i1 %92, label %93, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28
 
-94:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i33, %91, %85
-  store ptr %83, ptr %.09.i.i25, align 8, !tbaa !35
-  br label %82, !llvm.loop !135
+93:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i33, %90, %84
+  store ptr %82, ptr %.09.i.i25, align 8, !tbaa !35
+  br label %81, !llvm.loop !135
 
-_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i33, %91, %85, %73
-  %.sink.i29 = phi ptr [ %0, %73 ], [ %.09.i.i25, %85 ], [ %.09.i.i25, %91 ], [ %.09.i.i25, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i33 ]
-  store ptr %59, ptr %.sink.i29, align 8, !tbaa !35
+_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i33, %90, %84, %72
+  %.sink.i29 = phi ptr [ %0, %72 ], [ %.09.i.i25, %84 ], [ %.09.i.i25, %90 ], [ %.09.i.i25, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIiEEEclIPNS2_6Point_IiEEPS9_EEbRT_T0_.exit.i.i33 ]
+  store ptr %58, ptr %.sink.i29, align 8, !tbaa !35
   %.0.i30 = getelementptr inbounds nuw i8, ptr %.020.i22, i64 8
   %.not.i31 = icmp eq ptr %.0.i30, %1
   br i1 %.not.i31, label %_ZSt26__unguarded_insertion_sortIPPN2cv6Point_IiEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_SB_T0_.exit, label %.lr.ph.i21, !llvm.loop !136
 
-_ZSt26__unguarded_insertion_sortIPPN2cv6Point_IiEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_SB_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i16, %57, %_ZSt16__insertion_sortIPPN2cv6Point_IiEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_SB_T0_.exit
+_ZSt26__unguarded_insertion_sortIPPN2cv6Point_IiEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_SB_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i28, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IiEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_.exit.i16, %56, %_ZSt16__insertion_sortIPPN2cv6Point_IiEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_SB_T0_.exit
   ret void
 }
 
@@ -5034,227 +5034,227 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPPN2cv6Point_IfEEN
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
   %6 = icmp sgt i64 %5, 128
-  br i1 %6, label %7, label %63
+  br i1 %6, label %.preheader, label %62
 
-7:                                                ; preds = %2
+.preheader:                                       ; preds = %2
   %scevgep = getelementptr i8, ptr %0, i64 8
-  br label %8
+  br label %7
 
-8:                                                ; preds = %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i, %7
-  %.020.i.idx = phi i64 [ 8, %7 ], [ %.020.i.add, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i ]
+7:                                                ; preds = %.preheader, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i
+  %.020.i.idx = phi i64 [ %.020.i.add, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i ], [ 8, %.preheader ]
   %.020.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.020.i.idx
-  %9 = load ptr, ptr %.020.i.ptr, align 8, !tbaa !42
-  %10 = load ptr, ptr %0, align 8, !tbaa !42
+  %8 = load ptr, ptr %.020.i.ptr, align 8, !tbaa !42
+  %9 = load ptr, ptr %0, align 8, !tbaa !42
+  %10 = load float, ptr %8, align 4, !tbaa !66
   %11 = load float, ptr %9, align 4, !tbaa !66
-  %12 = load float, ptr %10, align 4, !tbaa !66
-  %13 = fcmp une float %11, %12
-  br i1 %13, label %14, label %16
+  %12 = fcmp une float %10, %11
+  br i1 %12, label %13, label %15
 
-14:                                               ; preds = %8
-  %15 = fcmp olt float %11, %12
-  br i1 %15, label %25, label %26
+13:                                               ; preds = %7
+  %14 = fcmp olt float %10, %11
+  br i1 %14, label %24, label %25
 
-16:                                               ; preds = %8
-  %17 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %18 = load float, ptr %17, align 4, !tbaa !44
-  %19 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %20 = load float, ptr %19, align 4, !tbaa !44
-  %21 = fcmp une float %18, %20
-  br i1 %21, label %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i
+15:                                               ; preds = %7
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %17 = load float, ptr %16, align 4, !tbaa !44
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %19 = load float, ptr %18, align 4, !tbaa !44
+  %20 = fcmp une float %17, %19
+  br i1 %20, label %21, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i
 
-22:                                               ; preds = %16
-  %23 = fcmp olt float %18, %20
-  br i1 %23, label %25, label %26
+21:                                               ; preds = %15
+  %22 = fcmp olt float %17, %19
+  br i1 %22, label %24, label %25
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i: ; preds = %16
-  %24 = icmp ult ptr %9, %10
-  br i1 %24, label %25, label %26
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i: ; preds = %15
+  %23 = icmp ult ptr %8, %9
+  br i1 %23, label %24, label %25
 
-25:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i, %22, %14
+24:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i, %21, %13
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %.020.i.idx, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i
 
-26:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i, %22, %14
-  %27 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  br label %28
+25:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i, %21, %13
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  br label %27
 
-28:                                               ; preds = %42, %26
-  %.09.i.i = phi ptr [ %.020.i.ptr, %26 ], [ %.0.i.i, %42 ]
+27:                                               ; preds = %41, %25
+  %.09.i.i = phi ptr [ %.020.i.ptr, %25 ], [ %.0.i.i, %41 ]
   %.0.i.i = getelementptr inbounds i8, ptr %.09.i.i, i64 -8
-  %29 = load ptr, ptr %.0.i.i, align 8, !tbaa !42
-  %30 = load float, ptr %29, align 4, !tbaa !66
-  %31 = fcmp une float %11, %30
-  br i1 %31, label %32, label %34
+  %28 = load ptr, ptr %.0.i.i, align 8, !tbaa !42
+  %29 = load float, ptr %28, align 4, !tbaa !66
+  %30 = fcmp une float %10, %29
+  br i1 %30, label %31, label %33
 
-32:                                               ; preds = %28
-  %33 = fcmp olt float %11, %30
-  br i1 %33, label %42, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i
+31:                                               ; preds = %27
+  %32 = fcmp olt float %10, %29
+  br i1 %32, label %41, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i
 
-34:                                               ; preds = %28
-  %35 = load float, ptr %27, align 4, !tbaa !44
-  %36 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %37 = load float, ptr %36, align 4, !tbaa !44
-  %38 = fcmp une float %35, %37
-  br i1 %38, label %39, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i
+33:                                               ; preds = %27
+  %34 = load float, ptr %26, align 4, !tbaa !44
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %36 = load float, ptr %35, align 4, !tbaa !44
+  %37 = fcmp une float %34, %36
+  br i1 %37, label %38, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i
 
-39:                                               ; preds = %34
-  %40 = fcmp olt float %35, %37
-  br i1 %40, label %42, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i
+38:                                               ; preds = %33
+  %39 = fcmp olt float %34, %36
+  br i1 %39, label %41, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i: ; preds = %34
-  %41 = icmp ult ptr %9, %29
-  br i1 %41, label %42, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i: ; preds = %33
+  %40 = icmp ult ptr %8, %28
+  br i1 %40, label %41, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i
 
-42:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i, %39, %32
-  store ptr %29, ptr %.09.i.i, align 8, !tbaa !42
-  br label %28, !llvm.loop !146
+41:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i, %38, %31
+  store ptr %28, ptr %.09.i.i, align 8, !tbaa !42
+  br label %27, !llvm.loop !146
 
-_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i, %39, %32, %25
-  %.sink.i = phi ptr [ %0, %25 ], [ %.09.i.i, %32 ], [ %.09.i.i, %39 ], [ %.09.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i ]
-  store ptr %9, ptr %.sink.i, align 8, !tbaa !42
+_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i, %38, %31, %24
+  %.sink.i = phi ptr [ %0, %24 ], [ %.09.i.i, %31 ], [ %.09.i.i, %38 ], [ %.09.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i ]
+  store ptr %8, ptr %.sink.i, align 8, !tbaa !42
   %.020.i.add = add nuw nsw i64 %.020.i.idx, 8
   %.not.i = icmp eq i64 %.020.i.add, 128
-  br i1 %.not.i, label %_ZSt16__insertion_sortIPPN2cv6Point_IfEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_SB_T0_.exit, label %8, !llvm.loop !147
+  br i1 %.not.i, label %_ZSt16__insertion_sortIPPN2cv6Point_IfEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_SB_T0_.exit, label %7, !llvm.loop !147
 
 _ZSt16__insertion_sortIPPN2cv6Point_IfEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_SB_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.not6.i = icmp eq ptr %43, %1
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.not6.i = icmp eq ptr %42, %1
   br i1 %.not6.i, label %_ZSt26__unguarded_insertion_sortIPPN2cv6Point_IfEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_SB_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPPN2cv6Point_IfEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_SB_T0_.exit, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i16
-  %.07.i = phi ptr [ %62, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i16 ], [ %43, %_ZSt16__insertion_sortIPPN2cv6Point_IfEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_SB_T0_.exit ]
-  %44 = load ptr, ptr %.07.i, align 8, !tbaa !42
-  %45 = load float, ptr %44, align 4, !tbaa !66
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  br label %47
+  %.07.i = phi ptr [ %61, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i16 ], [ %42, %_ZSt16__insertion_sortIPPN2cv6Point_IfEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_SB_T0_.exit ]
+  %43 = load ptr, ptr %.07.i, align 8, !tbaa !42
+  %44 = load float, ptr %43, align 4, !tbaa !66
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  br label %46
 
-47:                                               ; preds = %61, %.lr.ph.i
-  %.09.i.i13 = phi ptr [ %.07.i, %.lr.ph.i ], [ %.0.i.i14, %61 ]
+46:                                               ; preds = %60, %.lr.ph.i
+  %.09.i.i13 = phi ptr [ %.07.i, %.lr.ph.i ], [ %.0.i.i14, %60 ]
   %.0.i.i14 = getelementptr inbounds i8, ptr %.09.i.i13, i64 -8
-  %48 = load ptr, ptr %.0.i.i14, align 8, !tbaa !42
-  %49 = load float, ptr %48, align 4, !tbaa !66
-  %50 = fcmp une float %45, %49
-  br i1 %50, label %51, label %53
+  %47 = load ptr, ptr %.0.i.i14, align 8, !tbaa !42
+  %48 = load float, ptr %47, align 4, !tbaa !66
+  %49 = fcmp une float %44, %48
+  br i1 %49, label %50, label %52
 
-51:                                               ; preds = %47
-  %52 = fcmp olt float %45, %49
-  br i1 %52, label %61, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i16
+50:                                               ; preds = %46
+  %51 = fcmp olt float %44, %48
+  br i1 %51, label %60, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i16
 
-53:                                               ; preds = %47
-  %54 = load float, ptr %46, align 4, !tbaa !44
-  %55 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %56 = load float, ptr %55, align 4, !tbaa !44
-  %57 = fcmp une float %54, %56
-  br i1 %57, label %58, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i15
+52:                                               ; preds = %46
+  %53 = load float, ptr %45, align 4, !tbaa !44
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %55 = load float, ptr %54, align 4, !tbaa !44
+  %56 = fcmp une float %53, %55
+  br i1 %56, label %57, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i15
 
-58:                                               ; preds = %53
-  %59 = fcmp olt float %54, %56
-  br i1 %59, label %61, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i16
+57:                                               ; preds = %52
+  %58 = fcmp olt float %53, %55
+  br i1 %58, label %60, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i16
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i15: ; preds = %53
-  %60 = icmp ult ptr %44, %48
-  br i1 %60, label %61, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i16
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i15: ; preds = %52
+  %59 = icmp ult ptr %43, %47
+  br i1 %59, label %60, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i16
 
-61:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i15, %58, %51
-  store ptr %48, ptr %.09.i.i13, align 8, !tbaa !42
-  br label %47, !llvm.loop !146
+60:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i15, %57, %50
+  store ptr %47, ptr %.09.i.i13, align 8, !tbaa !42
+  br label %46, !llvm.loop !146
 
-_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i16: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i15, %58, %51
-  store ptr %44, ptr %.09.i.i13, align 8, !tbaa !42
-  %62 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
-  %.not.i17 = icmp eq ptr %62, %1
+_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i16: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i15, %57, %50
+  store ptr %43, ptr %.09.i.i13, align 8, !tbaa !42
+  %61 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
+  %.not.i17 = icmp eq ptr %61, %1
   br i1 %.not.i17, label %_ZSt26__unguarded_insertion_sortIPPN2cv6Point_IfEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_SB_T0_.exit, label %.lr.ph.i, !llvm.loop !148
 
-63:                                               ; preds = %2
-  %64 = icmp eq ptr %0, %1
+62:                                               ; preds = %2
+  %63 = icmp eq ptr %0, %1
   %.017.i18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not18.i = icmp eq ptr %.017.i18, %1
-  %or.cond = select i1 %64, i1 true, i1 %.not18.i
+  %or.cond = select i1 %63, i1 true, i1 %.not18.i
   br i1 %or.cond, label %_ZSt26__unguarded_insertion_sortIPPN2cv6Point_IfEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_SB_T0_.exit, label %.lr.ph.i19
 
-.lr.ph.i19:                                       ; preds = %63, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26
-  %.020.i20 = phi ptr [ %.0.i28, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26 ], [ %.017.i18, %63 ]
-  %.pn19.i21 = phi ptr [ %.020.i20, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26 ], [ %0, %63 ]
-  %65 = load ptr, ptr %.020.i20, align 8, !tbaa !42
-  %66 = load ptr, ptr %0, align 8, !tbaa !42
+.lr.ph.i19:                                       ; preds = %62, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26
+  %.020.i20 = phi ptr [ %.0.i28, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26 ], [ %.017.i18, %62 ]
+  %.pn19.i21 = phi ptr [ %.020.i20, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26 ], [ %0, %62 ]
+  %64 = load ptr, ptr %.020.i20, align 8, !tbaa !42
+  %65 = load ptr, ptr %0, align 8, !tbaa !42
+  %66 = load float, ptr %64, align 4, !tbaa !66
   %67 = load float, ptr %65, align 4, !tbaa !66
-  %68 = load float, ptr %66, align 4, !tbaa !66
-  %69 = fcmp une float %67, %68
-  br i1 %69, label %70, label %72
+  %68 = fcmp une float %66, %67
+  br i1 %68, label %69, label %71
 
-70:                                               ; preds = %.lr.ph.i19
-  %71 = fcmp olt float %67, %68
-  br i1 %71, label %81, label %88
+69:                                               ; preds = %.lr.ph.i19
+  %70 = fcmp olt float %66, %67
+  br i1 %70, label %80, label %87
 
-72:                                               ; preds = %.lr.ph.i19
-  %73 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %74 = load float, ptr %73, align 4, !tbaa !44
-  %75 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  %76 = load float, ptr %75, align 4, !tbaa !44
-  %77 = fcmp une float %74, %76
-  br i1 %77, label %78, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i22
+71:                                               ; preds = %.lr.ph.i19
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %73 = load float, ptr %72, align 4, !tbaa !44
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  %75 = load float, ptr %74, align 4, !tbaa !44
+  %76 = fcmp une float %73, %75
+  br i1 %76, label %77, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i22
 
-78:                                               ; preds = %72
-  %79 = fcmp olt float %74, %76
-  br i1 %79, label %81, label %88
+77:                                               ; preds = %71
+  %78 = fcmp olt float %73, %75
+  br i1 %78, label %80, label %87
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i22: ; preds = %72
-  %80 = icmp ult ptr %65, %66
-  br i1 %80, label %81, label %88
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i22: ; preds = %71
+  %79 = icmp ult ptr %64, %65
+  br i1 %79, label %80, label %87
 
-81:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i22, %78, %70
-  %82 = getelementptr inbounds nuw i8, ptr %.pn19.i21, i64 16
-  %83 = ptrtoint ptr %.020.i20 to i64
-  %84 = sub i64 %83, %4
-  %85 = ashr exact i64 %84, 3
-  %86 = sub nsw i64 0, %85
-  %87 = getelementptr inbounds ptr, ptr %82, i64 %86
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %87, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %84, i1 false)
+80:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i22, %77, %69
+  %81 = getelementptr inbounds nuw i8, ptr %.pn19.i21, i64 16
+  %82 = ptrtoint ptr %.020.i20 to i64
+  %83 = sub i64 %82, %4
+  %84 = ashr exact i64 %83, 3
+  %85 = sub nsw i64 0, %84
+  %86 = getelementptr inbounds ptr, ptr %81, i64 %85
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %86, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %83, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26
 
-88:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i22, %78, %70
-  %89 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  br label %90
+87:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv14CHullCmpPointsIfEEEclIPPNS2_6Point_IfEESA_EEbT_T0_.exit.i22, %77, %69
+  %88 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  br label %89
 
-90:                                               ; preds = %104, %88
-  %.09.i.i23 = phi ptr [ %.020.i20, %88 ], [ %.0.i.i24, %104 ]
+89:                                               ; preds = %103, %87
+  %.09.i.i23 = phi ptr [ %.020.i20, %87 ], [ %.0.i.i24, %103 ]
   %.0.i.i24 = getelementptr inbounds i8, ptr %.09.i.i23, i64 -8
-  %91 = load ptr, ptr %.0.i.i24, align 8, !tbaa !42
-  %92 = load float, ptr %91, align 4, !tbaa !66
-  %93 = fcmp une float %67, %92
-  br i1 %93, label %94, label %96
+  %90 = load ptr, ptr %.0.i.i24, align 8, !tbaa !42
+  %91 = load float, ptr %90, align 4, !tbaa !66
+  %92 = fcmp une float %66, %91
+  br i1 %92, label %93, label %95
 
-94:                                               ; preds = %90
-  %95 = fcmp olt float %67, %92
-  br i1 %95, label %104, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26
+93:                                               ; preds = %89
+  %94 = fcmp olt float %66, %91
+  br i1 %94, label %103, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26
 
-96:                                               ; preds = %90
-  %97 = load float, ptr %89, align 4, !tbaa !44
-  %98 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %99 = load float, ptr %98, align 4, !tbaa !44
-  %100 = fcmp une float %97, %99
-  br i1 %100, label %101, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i25
+95:                                               ; preds = %89
+  %96 = load float, ptr %88, align 4, !tbaa !44
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 4
+  %98 = load float, ptr %97, align 4, !tbaa !44
+  %99 = fcmp une float %96, %98
+  br i1 %99, label %100, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i25
 
-101:                                              ; preds = %96
-  %102 = fcmp olt float %97, %99
-  br i1 %102, label %104, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26
+100:                                              ; preds = %95
+  %101 = fcmp olt float %96, %98
+  br i1 %101, label %103, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i25: ; preds = %96
-  %103 = icmp ult ptr %65, %91
-  br i1 %103, label %104, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i25: ; preds = %95
+  %102 = icmp ult ptr %64, %90
+  br i1 %102, label %103, label %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26
 
-104:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i25, %101, %94
-  store ptr %91, ptr %.09.i.i23, align 8, !tbaa !42
-  br label %90, !llvm.loop !146
+103:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i25, %100, %93
+  store ptr %90, ptr %.09.i.i23, align 8, !tbaa !42
+  br label %89, !llvm.loop !146
 
-_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i25, %101, %94, %81
-  %.sink.i27 = phi ptr [ %0, %81 ], [ %.09.i.i23, %94 ], [ %.09.i.i23, %101 ], [ %.09.i.i23, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i25 ]
-  store ptr %65, ptr %.sink.i27, align 8, !tbaa !42
+_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i25, %100, %93, %80
+  %.sink.i27 = phi ptr [ %0, %80 ], [ %.09.i.i23, %93 ], [ %.09.i.i23, %100 ], [ %.09.i.i23, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2cv14CHullCmpPointsIfEEEclIPNS2_6Point_IfEEPS9_EEbRT_T0_.exit.i.i25 ]
+  store ptr %64, ptr %.sink.i27, align 8, !tbaa !42
   %.0.i28 = getelementptr inbounds nuw i8, ptr %.020.i20, i64 8
   %.not.i29 = icmp eq ptr %.0.i28, %1
   br i1 %.not.i29, label %_ZSt26__unguarded_insertion_sortIPPN2cv6Point_IfEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_SB_T0_.exit, label %.lr.ph.i19, !llvm.loop !147
 
-_ZSt26__unguarded_insertion_sortIPPN2cv6Point_IfEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_SB_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i16, %63, %_ZSt16__insertion_sortIPPN2cv6Point_IfEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_SB_T0_.exit
+_ZSt26__unguarded_insertion_sortIPPN2cv6Point_IfEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_SB_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i26, %_ZSt25__unguarded_linear_insertIPPN2cv6Point_IfEEN9__gnu_cxx5__ops14_Val_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_.exit.i16, %62, %_ZSt16__insertion_sortIPPN2cv6Point_IfEEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_SB_T0_.exit
   ret void
 }
 

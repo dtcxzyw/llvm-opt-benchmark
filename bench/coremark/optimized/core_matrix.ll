@@ -531,38 +531,38 @@ define dso_local void @matrix_mul_vect(i32 noundef %0, ptr noundef writeonly cap
   %wide.trip.count23 = zext i32 %0 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %indvars.iv20 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next21, %21 ]
-  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv20
-  %6 = trunc nuw i64 %indvars.iv20 to i32
-  %7 = mul i32 %0, %6
-  br label %8
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
+  %indvars.iv20 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next21, %20 ]
+  %5 = trunc nuw i64 %indvars.iv20 to i32
+  %6 = mul i32 %0, %5
+  br label %7
 
-8:                                                ; preds = %.lr.ph, %8
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = phi i32 [ 0, %.lr.ph ], [ %20, %8 ]
-  %10 = trunc nuw i64 %indvars.iv to i32
-  %11 = add i32 %7, %10
-  %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %2, i64 %12
-  %14 = load i16, ptr %13, align 2, !tbaa !15
-  %15 = sext i16 %14 to i32
-  %16 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
-  %17 = load i16, ptr %16, align 2, !tbaa !15
-  %18 = sext i16 %17 to i32
-  %19 = mul nsw i32 %18, %15
-  %20 = add nsw i32 %19, %9
+7:                                                ; preds = %.lr.ph, %7
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
+  %8 = phi i32 [ 0, %.lr.ph ], [ %19, %7 ]
+  %9 = trunc nuw i64 %indvars.iv to i32
+  %10 = add i32 %6, %9
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %11
+  %13 = load i16, ptr %12, align 2, !tbaa !15
+  %14 = sext i16 %13 to i32
+  %15 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %16 = load i16, ptr %15, align 2, !tbaa !15
+  %17 = sext i16 %16 to i32
+  %18 = mul nsw i32 %17, %14
+  %19 = add nsw i32 %18, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count23
-  br i1 %exitcond.not, label %21, label %8, !llvm.loop !25
+  br i1 %exitcond.not, label %20, label %7, !llvm.loop !25
 
-21:                                               ; preds = %8
-  store i32 %20, ptr %5, align 4, !tbaa !20
+20:                                               ; preds = %7
+  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv20
+  store i32 %19, ptr %21, align 4, !tbaa !20
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
   br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %21, %4
+._crit_edge:                                      ; preds = %20, %4
   ret void
 }
 
@@ -580,42 +580,42 @@ define dso_local void @matrix_mul_matrix(i32 noundef %0, ptr noundef writeonly c
   %5 = mul i32 %.02529, %0
   br label %6
 
-6:                                                ; preds = %.preheader, %27
-  %indvars.iv31 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next32, %27 ]
+6:                                                ; preds = %.preheader, %24
+  %indvars.iv31 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next32, %24 ]
   %7 = trunc nuw i64 %indvars.iv31 to i32
-  %8 = add i32 %5, %7
-  %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %9
-  br label %11
+  br label %8
 
-11:                                               ; preds = %6, %11
-  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %11 ]
-  %12 = phi i32 [ 0, %6 ], [ %26, %11 ]
-  %13 = trunc nuw i64 %indvars.iv to i32
-  %14 = add i32 %5, %13
-  %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %2, i64 %15
-  %17 = load i16, ptr %16, align 2, !tbaa !15
-  %18 = sext i16 %17 to i32
-  %19 = mul i32 %0, %13
-  %20 = add i32 %19, %7
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %3, i64 %21
-  %23 = load i16, ptr %22, align 2, !tbaa !15
-  %24 = sext i16 %23 to i32
-  %25 = mul nsw i32 %24, %18
-  %26 = add nsw i32 %25, %12
+8:                                                ; preds = %6, %8
+  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %8 ]
+  %9 = phi i32 [ 0, %6 ], [ %23, %8 ]
+  %10 = trunc nuw i64 %indvars.iv to i32
+  %11 = add i32 %5, %10
+  %12 = zext i32 %11 to i64
+  %13 = getelementptr inbounds nuw i16, ptr %2, i64 %12
+  %14 = load i16, ptr %13, align 2, !tbaa !15
+  %15 = sext i16 %14 to i32
+  %16 = mul i32 %0, %10
+  %17 = add i32 %16, %7
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw i16, ptr %3, i64 %18
+  %20 = load i16, ptr %19, align 2, !tbaa !15
+  %21 = sext i16 %20 to i32
+  %22 = mul nsw i32 %21, %15
+  %23 = add nsw i32 %22, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count34
-  br i1 %exitcond.not, label %27, label %11, !llvm.loop !27
+  br i1 %exitcond.not, label %24, label %8, !llvm.loop !27
 
-27:                                               ; preds = %11
-  store i32 %26, ptr %10, align 4, !tbaa !20
+24:                                               ; preds = %8
+  %25 = add i32 %5, %7
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %26
+  store i32 %23, ptr %27, align 4, !tbaa !20
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
   br i1 %exitcond35.not, label %28, label %6, !llvm.loop !28
 
-28:                                               ; preds = %27
+28:                                               ; preds = %24
   %29 = add nuw i32 %.02529, 1
   %exitcond36.not = icmp eq i32 %29, %0
   br i1 %exitcond36.not, label %._crit_edge, label %.preheader, !llvm.loop !29
@@ -638,47 +638,47 @@ define dso_local void @matrix_mul_matrix_bitextract(i32 noundef %0, ptr noundef 
   %5 = mul i32 %.031, %0
   br label %6
 
-6:                                                ; preds = %.preheader, %32
-  %indvars.iv33 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next34, %32 ]
+6:                                                ; preds = %.preheader, %29
+  %indvars.iv33 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next34, %29 ]
   %7 = trunc nuw i64 %indvars.iv33 to i32
-  %8 = add i32 %5, %7
-  %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %9
-  br label %11
+  br label %8
 
-11:                                               ; preds = %6, %11
-  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %11 ]
-  %12 = phi i32 [ 0, %6 ], [ %31, %11 ]
-  %13 = trunc nuw i64 %indvars.iv to i32
-  %14 = add i32 %5, %13
-  %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %2, i64 %15
-  %17 = load i16, ptr %16, align 2, !tbaa !15
-  %18 = zext i16 %17 to i32
-  %19 = mul i32 %0, %13
-  %20 = add i32 %19, %7
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %3, i64 %21
-  %23 = load i16, ptr %22, align 2, !tbaa !15
-  %24 = zext i16 %23 to i32
-  %25 = mul nuw i32 %24, %18
-  %26 = lshr i32 %25, 2
-  %27 = and i32 %26, 15
-  %28 = lshr i32 %25, 5
-  %29 = and i32 %28, 127
-  %30 = mul nuw nsw i32 %27, %29
-  %31 = add i32 %30, %12
+8:                                                ; preds = %6, %8
+  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %8 ]
+  %9 = phi i32 [ 0, %6 ], [ %28, %8 ]
+  %10 = trunc nuw i64 %indvars.iv to i32
+  %11 = add i32 %5, %10
+  %12 = zext i32 %11 to i64
+  %13 = getelementptr inbounds nuw i16, ptr %2, i64 %12
+  %14 = load i16, ptr %13, align 2, !tbaa !15
+  %15 = zext i16 %14 to i32
+  %16 = mul i32 %0, %10
+  %17 = add i32 %16, %7
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw i16, ptr %3, i64 %18
+  %20 = load i16, ptr %19, align 2, !tbaa !15
+  %21 = zext i16 %20 to i32
+  %22 = mul nuw i32 %21, %15
+  %23 = lshr i32 %22, 2
+  %24 = and i32 %23, 15
+  %25 = lshr i32 %22, 5
+  %26 = and i32 %25, 127
+  %27 = mul nuw nsw i32 %24, %26
+  %28 = add i32 %27, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count36
-  br i1 %exitcond.not, label %32, label %11, !llvm.loop !30
+  br i1 %exitcond.not, label %29, label %8, !llvm.loop !30
 
-32:                                               ; preds = %11
-  store i32 %31, ptr %10, align 4, !tbaa !20
+29:                                               ; preds = %8
+  %30 = add i32 %5, %7
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw i32, ptr %1, i64 %31
+  store i32 %28, ptr %32, align 4, !tbaa !20
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count36
   br i1 %exitcond37.not, label %33, label %6, !llvm.loop !31
 
-33:                                               ; preds = %32
+33:                                               ; preds = %29
   %34 = add nuw i32 %.031, 1
   %exitcond38.not = icmp eq i32 %34, %0
   br i1 %exitcond38.not, label %._crit_edge, label %.preheader, !llvm.loop !32
@@ -689,7 +689,6 @@ define dso_local void @matrix_mul_matrix_bitextract(i32 noundef %0, ptr noundef 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
 define dso_local i32 @core_init_matrix(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
@@ -725,6 +724,7 @@ define dso_local i32 @core_init_matrix(i32 noundef %0, ptr noundef %1, i32 nound
   %22 = phi i64 [ 1, %._crit_edge.thread ], [ %19, %._crit_edge ]
   %23 = phi ptr [ %8, %._crit_edge.thread ], [ %17, %._crit_edge ]
   %.046.lcssa68 = phi i32 [ -1, %._crit_edge.thread ], [ %.04653, %._crit_edge ]
+  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
   %wide.trip.count = zext i32 %.046.lcssa68 to i64
   br label %.preheader
 

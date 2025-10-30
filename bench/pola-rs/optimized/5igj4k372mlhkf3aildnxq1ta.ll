@@ -107810,7 +107810,6 @@ thread-pre-split:                                 ; preds = %454, %423, %_ZN4cor
   store i64 %316, ptr %.sroa.09.013.i175.sroa.gep236, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
-  %.val131 = load ptr, ptr %192, align 8
   %.val132 = load i64, ptr %193, align 8, !noundef !7
   call void @llvm.experimental.noalias.scope.decl(metadata !11972)
   %319 = icmp ult i64 %.val132, 48038396025285291
@@ -107838,6 +107837,7 @@ thread-pre-split:                                 ; preds = %454, %423, %_ZN4cor
   br i1 %326, label %.loopexit.i, label %.lr.ph.i161
 
 327:                                              ; preds = %.loopexit.i
+  %.val131 = load ptr, ptr %192, align 8
   br i1 %.sroa.04.1.in.lcssa.i, label %.critedge, label %328, !prof !58
 
 328:                                              ; preds = %327
@@ -107965,7 +107965,6 @@ thread-pre-split:                                 ; preds = %454, %423, %_ZN4cor
   br i1 %362, label %455, label %.invoke
 
 ._crit_edge498:                                   ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4128eefeac8f4febE.exit", %357
-  %.val129 = load ptr, ptr %192, align 8
   %.val130 = load i64, ptr %193, align 8, !noundef !7
   call void @llvm.experimental.noalias.scope.decl(metadata !11978)
   %363 = icmp ult i64 %.val130, 48038396025285291
@@ -107993,6 +107992,7 @@ thread-pre-split:                                 ; preds = %454, %423, %_ZN4cor
   br i1 %370, label %.loopexit.i173, label %.lr.ph.i170
 
 371:                                              ; preds = %.loopexit.i173
+  %.val129 = load ptr, ptr %192, align 8
   br i1 %.sroa.04.1.in.lcssa.i174, label %.critedge703, label %372, !prof !58
 
 372:                                              ; preds = %371

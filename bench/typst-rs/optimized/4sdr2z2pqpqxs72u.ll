@@ -5445,14 +5445,14 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1020)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1020
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1023)
-  %35 = icmp sgt i32 %5, -1
   %.0.i.i = tail call i32 @llvm.abs.i32(i32 %5, i1 false)
-  %36 = icmp ugt i32 %.0.i.i, 9999
-  br i1 %36, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %35 = icmp ugt i32 %.0.i.i, 9999
+  br i1 %35, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %34
   %.026.lcssa.i.i = phi i64 [ 11, %34 ], [ %47, %.lr.ph.i.i ]
   %.1.lcssa.i.i = phi i32 [ %.0.i.i, %34 ], [ %40, %.lr.ph.i.i ]
+  %36 = icmp sgt i32 %5, -1
   %37 = zext nneg i32 %.1.lcssa.i.i to i64
   %38 = icmp samesign ugt i32 %.1.lcssa.i.i, 99
   br i1 %38, label %56, label %65
@@ -5521,7 +5521,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
 
 78:                                               ; preds = %73, %67
   %.2.i.i = phi i64 [ %74, %73 ], [ %69, %67 ]
-  br i1 %35, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i", label %79
+  br i1 %36, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i", label %79
 
 79:                                               ; preds = %78
   %80 = add i64 %.2.i.i, -1
@@ -6442,14 +6442,14 @@ define hidden void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..
   %3 = alloca { [40 x i8] }, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1145)
-  %4 = icmp sgt i32 %1, -1
   %.0.i = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %5 = icmp ugt i32 %.0.i, 9999
-  br i1 %5, label %.lr.ph.i, label %._crit_edge.i
+  %4 = icmp ugt i32 %.0.i, 9999
+  br i1 %4, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
   %.026.lcssa.i = phi i64 [ 11, %2 ], [ %16, %.lr.ph.i ]
   %.1.lcssa.i = phi i32 [ %.0.i, %2 ], [ %9, %.lr.ph.i ]
+  %5 = icmp sgt i32 %1, -1
   %6 = zext nneg i32 %.1.lcssa.i to i64
   %7 = icmp samesign ugt i32 %.1.lcssa.i, 99
   br i1 %7, label %25, label %34
@@ -6518,7 +6518,7 @@ define hidden void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..
 
 47:                                               ; preds = %42, %36
   %.2.i = phi i64 [ %43, %42 ], [ %38, %36 ]
-  br i1 %4, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit", label %48
+  br i1 %5, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit", label %48
 
 48:                                               ; preds = %47
   %49 = add i64 %.2.i, -1
@@ -6652,14 +6652,14 @@ define hidden void @"_ZN73_$LT$pdf_writer..object..Ref$u20$as$u20$pdf_writer..ob
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1154)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1154
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1157)
-  %5 = icmp sgt i32 %0, -1
   %.0.i.i = tail call i32 @llvm.abs.i32(i32 %0, i1 false)
-  %6 = icmp ugt i32 %.0.i.i, 9999
-  br i1 %6, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %5 = icmp ugt i32 %.0.i.i, 9999
+  br i1 %5, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %2
   %.026.lcssa.i.i = phi i64 [ 11, %2 ], [ %17, %.lr.ph.i.i ]
   %.1.lcssa.i.i = phi i32 [ %.0.i.i, %2 ], [ %10, %.lr.ph.i.i ]
+  %6 = icmp sgt i32 %0, -1
   %7 = zext nneg i32 %.1.lcssa.i.i to i64
   %8 = icmp samesign ugt i32 %.1.lcssa.i.i, 99
   br i1 %8, label %26, label %35
@@ -6728,7 +6728,7 @@ define hidden void @"_ZN73_$LT$pdf_writer..object..Ref$u20$as$u20$pdf_writer..ob
 
 48:                                               ; preds = %43, %37
   %.2.i.i = phi i64 [ %44, %43 ], [ %39, %37 ]
-  br i1 %5, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i", label %49
+  br i1 %6, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i", label %49
 
 49:                                               ; preds = %48
   %50 = add i64 %.2.i.i, -1

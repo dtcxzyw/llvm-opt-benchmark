@@ -1015,8 +1015,8 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_5MachO13InterfaceFileESt14default_deleteIS3_
 
 _ZSt6fill_nIPPKN4llvm5MachO13InterfaceFileEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %102
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %104, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %103, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !50
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %103, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !50
   br label %_ZN4llvm4yaml18DocumentListTraitsISt6vectorIPKNS_5MachO13InterfaceFileESaIS6_EEE7elementERNS0_2IOERS8_m.exit.i
 
 107:                                              ; preds = %93
@@ -1958,8 +1958,8 @@ _ZNSt6vectorIPKN4llvm5MachO13InterfaceFileESaIS4_EE12emplace_backIJS4_EEERS4_DpO
 
 _ZSt6fill_nIPPKN4llvm5MachO13InterfaceFileEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %94
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %96, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %95, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !50
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %95, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !50
   br label %_ZN4llvm4yaml18DocumentListTraitsISt6vectorIPKNS_5MachO13InterfaceFileESaIS6_EEE7elementERNS0_2IOERS8_m.exit.i
 
 99:                                               ; preds = %85

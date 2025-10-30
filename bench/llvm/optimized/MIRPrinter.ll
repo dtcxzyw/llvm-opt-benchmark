@@ -8379,23 +8379,23 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9MIPrinter20canPredictSuccessorsER
   call void @_ZN4llvm15guessSuccessorsERKNS_17MachineBasicBlockERNS_15SmallVectorImplIPS0_EERb(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
   %8 = load i8, ptr %4, align 1, !tbaa !53, !range !48, !noundef !49
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %.preheader.i.i.i, label %._crit_edge
+  br i1 %9, label %.preheader.i.i.i.preheader, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
   %.pre27 = load i32, ptr %6, align 8, !tbaa !26
   br label %63
 
-.preheader.i.i.i:                                 ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !738
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !322
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 320
-  %.not13 = icmp eq ptr %13, %14
+.preheader.i.i.i.preheader:                       ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !322
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %13 = load ptr, ptr %12, align 8, !tbaa !738
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 320
+  %.not13 = icmp eq ptr %11, %14
   %.pre28 = load i32, ptr %6, align 8, !tbaa !26
   br i1 %.not13, label %63, label %15
 
-15:                                               ; preds = %.preheader.i.i.i
+15:                                               ; preds = %.preheader.i.i.i.preheader
   %16 = load ptr, ptr %3, align 8, !tbaa !25
   %17 = zext i32 %.pre28 to i64
   %.idx4.i = shl nuw nsw i64 %17, 3
@@ -8413,25 +8413,25 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9MIPrinter20canPredictSuccessorsER
   %.047.i.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i.i ], [ %38, %36 ]
   %.02946.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i ], [ %37, %36 ]
   %22 = load ptr, ptr %.02946.i.i.i.i, align 8, !tbaa !714
-  %23 = icmp eq ptr %22, %13
+  %23 = icmp eq ptr %22, %11
   br i1 %23, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17MachineBasicBlockELj8EEES3_EEbOT_RKT0_.exit, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !714
-  %27 = icmp eq ptr %26, %13
+  %27 = icmp eq ptr %26, %11
   br i1 %27, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17MachineBasicBlockELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !714
-  %31 = icmp eq ptr %30, %13
+  %31 = icmp eq ptr %30, %11
   br i1 %31, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17MachineBasicBlockELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit35, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !714
-  %35 = icmp eq ptr %34, %13
+  %35 = icmp eq ptr %34, %11
   br i1 %35, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17MachineBasicBlockELj8EEES3_EEbOT_RKT0_.exit.loopexit.split.loop.exit37, label %36
 
 36:                                               ; preds = %32
@@ -8456,7 +8456,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9MIPrinter20canPredictSuccessorsER
 
 41:                                               ; preds = %._crit_edge.i.i.i.i
   %42 = load ptr, ptr %.029.lcssa.i.i.i.i, align 8, !tbaa !714
-  %43 = icmp eq ptr %42, %13
+  %43 = icmp eq ptr %42, %11
   br i1 %43, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17MachineBasicBlockELj8EEES3_EEbOT_RKT0_.exit, label %44
 
 44:                                               ; preds = %41
@@ -8466,7 +8466,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9MIPrinter20canPredictSuccessorsER
 ._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i, %44
   %.1.i.i.i.i = phi ptr [ %45, %44 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %46 = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !714
-  %47 = icmp eq ptr %46, %13
+  %47 = icmp eq ptr %46, %11
   br i1 %47, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17MachineBasicBlockELj8EEES3_EEbOT_RKT0_.exit, label %48
 
 48:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i
@@ -8476,7 +8476,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9MIPrinter20canPredictSuccessorsER
 ._crit_edge._crit_edge52.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i, %48
   %.2.i.i.i.i = phi ptr [ %49, %48 ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %50 = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !714
-  %51 = icmp eq ptr %50, %13
+  %51 = icmp eq ptr %50, %11
   br i1 %51, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17MachineBasicBlockELj8EEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17MachineBasicBlockELj8EEES3_EEbOT_RKT0_.exit.thread
 
 default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
@@ -8516,15 +8516,15 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
   %.pre-phi = phi i64 [ %17, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17MachineBasicBlockELj8EEES3_EEbOT_RKT0_.exit.thread ], [ %.pre31, %56 ]
   %58 = phi ptr [ %16, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17MachineBasicBlockELj8EEES3_EEbOT_RKT0_.exit.thread ], [ %.pre, %56 ]
   %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.pre-phi
-  %60 = ptrtoint ptr %13 to i64
+  %60 = ptrtoint ptr %11 to i64
   store i64 %60, ptr %59, align 1
   %61 = load i32, ptr %6, align 8, !tbaa !26
   %62 = add i32 %61, 1
   store i32 %62, ptr %6, align 8, !tbaa !26
   br label %63
 
-63:                                               ; preds = %._crit_edge, %.preheader.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17MachineBasicBlockELj8EEES3_EEbOT_RKT0_.exit
-  %64 = phi i32 [ %.pre27, %._crit_edge ], [ %.pre28, %.preheader.i.i.i ], [ %62, %_ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.exit ], [ %.pre28, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17MachineBasicBlockELj8EEES3_EEbOT_RKT0_.exit ]
+63:                                               ; preds = %._crit_edge, %.preheader.i.i.i.preheader, %_ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.exit, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17MachineBasicBlockELj8EEES3_EEbOT_RKT0_.exit
+  %64 = phi i32 [ %.pre27, %._crit_edge ], [ %.pre28, %.preheader.i.i.i.preheader ], [ %62, %_ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.exit ], [ %.pre28, %_ZN4llvm12is_containedIRNS_11SmallVectorIPNS_17MachineBasicBlockELj8EEES3_EEbOT_RKT0_.exit ]
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %66 = load i32, ptr %65, align 8, !tbaa !26
   %.not = icmp eq i32 %64, %66

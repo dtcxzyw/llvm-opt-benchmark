@@ -233,43 +233,43 @@ define internal void @mlp_filter_channel(ptr noundef captures(none) %0, ptr noun
   %.03950.us.us = phi ptr [ %35, %._crit_edge.us.us ], [ %0, %.lr.ph.us.us.preheader ]
   %.04049.us.us = phi i32 [ %39, %._crit_edge.us.us ], [ 0, %.lr.ph.us.us.preheader ]
   %.04148.us.us = phi ptr [ %37, %._crit_edge.us.us ], [ %9, %.lr.ph.us.us.preheader ]
-  %13 = load i32, ptr %.051.us.us, align 4, !tbaa !4
-  br label %22
+  br label %21
 
-..preheader_crit_edge.us.us:                      ; preds = %22, %..preheader_crit_edge.us.us
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %..preheader_crit_edge.us.us ], [ 0, %22 ]
-  %.145.us.us = phi i64 [ %21, %..preheader_crit_edge.us.us ], [ %30, %22 ]
-  %14 = getelementptr inbounds nuw i32, ptr %.04148.us.us, i64 %indvars.iv74
-  %15 = load i32, ptr %14, align 4, !tbaa !4
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv74
-  %18 = load i32, ptr %17, align 4, !tbaa !4
-  %19 = sext i32 %18 to i64
-  %20 = mul nsw i64 %19, %16
-  %21 = add nsw i64 %20, %.145.us.us
+..preheader_crit_edge.us.us:                      ; preds = %21, %..preheader_crit_edge.us.us
+  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %..preheader_crit_edge.us.us ], [ 0, %21 ]
+  %.145.us.us = phi i64 [ %20, %..preheader_crit_edge.us.us ], [ %29, %21 ]
+  %13 = getelementptr inbounds nuw i32, ptr %.04148.us.us, i64 %indvars.iv74
+  %14 = load i32, ptr %13, align 4, !tbaa !4
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv74
+  %17 = load i32, ptr %16, align 4, !tbaa !4
+  %18 = sext i32 %17 to i64
+  %19 = mul nsw i64 %18, %15
+  %20 = add nsw i64 %19, %.145.us.us
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
   br i1 %exitcond78.not, label %._crit_edge.us.us, label %..preheader_crit_edge.us.us, !llvm.loop !21
 
-22:                                               ; preds = %22, %.lr.ph.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.lr.ph.us.us ]
-  %.03643.us.us = phi i64 [ %30, %22 ], [ 0, %.lr.ph.us.us ]
-  %23 = getelementptr inbounds nuw i32, ptr %.03950.us.us, i64 %indvars.iv
-  %24 = load i32, ptr %23, align 4, !tbaa !4
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %27 = load i32, ptr %26, align 4, !tbaa !4
-  %28 = sext i32 %27 to i64
-  %29 = mul nsw i64 %28, %25
-  %30 = add nsw i64 %29, %.03643.us.us
+21:                                               ; preds = %21, %.lr.ph.us.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.lr.ph.us.us ]
+  %.03643.us.us = phi i64 [ %29, %21 ], [ 0, %.lr.ph.us.us ]
+  %22 = getelementptr inbounds nuw i32, ptr %.03950.us.us, i64 %indvars.iv
+  %23 = load i32, ptr %22, align 4, !tbaa !4
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %26 = load i32, ptr %25, align 4, !tbaa !4
+  %27 = sext i32 %26 to i64
+  %28 = mul nsw i64 %27, %24
+  %29 = add nsw i64 %28, %.03643.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count83
-  br i1 %exitcond.not, label %..preheader_crit_edge.us.us, label %22, !llvm.loop !22
+  br i1 %exitcond.not, label %..preheader_crit_edge.us.us, label %21, !llvm.loop !22
 
 ._crit_edge.us.us:                                ; preds = %..preheader_crit_edge.us.us
-  %31 = ashr i64 %21, %12
+  %30 = load i32, ptr %.051.us.us, align 4, !tbaa !4
+  %31 = ashr i64 %20, %12
   %32 = trunc i64 %31 to i32
-  %33 = add i32 %13, %32
+  %33 = add i32 %30, %32
   %34 = and i32 %33, %5
   %35 = getelementptr inbounds i8, ptr %.03950.us.us, i64 -4
   store i32 %34, ptr %35, align 4, !tbaa !4
@@ -287,28 +287,28 @@ define internal void @mlp_filter_channel(ptr noundef captures(none) %0, ptr noun
   %.03950.us = phi ptr [ %54, %..preheader_crit_edge.us ], [ %0, %.lr.ph53.split.us ]
   %.04049.us = phi i32 [ %58, %..preheader_crit_edge.us ], [ 0, %.lr.ph53.split.us ]
   %.04148.us = phi ptr [ %56, %..preheader_crit_edge.us ], [ %9, %.lr.ph53.split.us ]
-  %40 = load i32, ptr %.051.us, align 4, !tbaa !4
-  br label %41
+  br label %40
 
-41:                                               ; preds = %.lr.ph.us, %41
-  %indvars.iv80 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next81, %41 ]
-  %.03643.us = phi i64 [ 0, %.lr.ph.us ], [ %49, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %.03950.us, i64 %indvars.iv80
-  %43 = load i32, ptr %42, align 4, !tbaa !4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv80
-  %46 = load i32, ptr %45, align 4, !tbaa !4
-  %47 = sext i32 %46 to i64
-  %48 = mul nsw i64 %47, %44
-  %49 = add nsw i64 %48, %.03643.us
+40:                                               ; preds = %.lr.ph.us, %40
+  %indvars.iv80 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next81, %40 ]
+  %.03643.us = phi i64 [ 0, %.lr.ph.us ], [ %48, %40 ]
+  %41 = getelementptr inbounds nuw i32, ptr %.03950.us, i64 %indvars.iv80
+  %42 = load i32, ptr %41, align 4, !tbaa !4
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv80
+  %45 = load i32, ptr %44, align 4, !tbaa !4
+  %46 = sext i32 %45 to i64
+  %47 = mul nsw i64 %46, %43
+  %48 = add nsw i64 %47, %.03643.us
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %..preheader_crit_edge.us, label %41, !llvm.loop !22
+  br i1 %exitcond84.not, label %..preheader_crit_edge.us, label %40, !llvm.loop !22
 
-..preheader_crit_edge.us:                         ; preds = %41
-  %50 = ashr i64 %49, %12
+..preheader_crit_edge.us:                         ; preds = %40
+  %49 = load i32, ptr %.051.us, align 4, !tbaa !4
+  %50 = ashr i64 %48, %12
   %51 = trunc i64 %50 to i32
-  %52 = add i32 %40, %51
+  %52 = add i32 %49, %51
   %53 = and i32 %52, %5
   %54 = getelementptr inbounds i8, ptr %.03950.us, i64 -4
   store i32 %53, ptr %54, align 4, !tbaa !4
@@ -333,28 +333,28 @@ define internal void @mlp_filter_channel(ptr noundef captures(none) %0, ptr noun
   %.03950.us57 = phi ptr [ %73, %._crit_edge.us64 ], [ %0, %.preheader.us55.preheader ]
   %.04049.us58 = phi i32 [ %77, %._crit_edge.us64 ], [ 0, %.preheader.us55.preheader ]
   %.04148.us59 = phi ptr [ %75, %._crit_edge.us64 ], [ %9, %.preheader.us55.preheader ]
-  %59 = load i32, ptr %.051.us56, align 4, !tbaa !4
-  br label %60
+  br label %59
 
-60:                                               ; preds = %.preheader.us55, %60
-  %indvars.iv86 = phi i64 [ 0, %.preheader.us55 ], [ %indvars.iv.next87, %60 ]
-  %.145.us61 = phi i64 [ 0, %.preheader.us55 ], [ %68, %60 ]
-  %61 = getelementptr inbounds nuw i32, ptr %.04148.us59, i64 %indvars.iv86
-  %62 = load i32, ptr %61, align 4, !tbaa !4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv86
-  %65 = load i32, ptr %64, align 4, !tbaa !4
-  %66 = sext i32 %65 to i64
-  %67 = mul nsw i64 %66, %63
-  %68 = add nsw i64 %67, %.145.us61
+59:                                               ; preds = %.preheader.us55, %59
+  %indvars.iv86 = phi i64 [ 0, %.preheader.us55 ], [ %indvars.iv.next87, %59 ]
+  %.145.us61 = phi i64 [ 0, %.preheader.us55 ], [ %67, %59 ]
+  %60 = getelementptr inbounds nuw i32, ptr %.04148.us59, i64 %indvars.iv86
+  %61 = load i32, ptr %60, align 4, !tbaa !4
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv86
+  %64 = load i32, ptr %63, align 4, !tbaa !4
+  %65 = sext i32 %64 to i64
+  %66 = mul nsw i64 %65, %62
+  %67 = add nsw i64 %66, %.145.us61
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %._crit_edge.us64, label %60, !llvm.loop !21
+  br i1 %exitcond90.not, label %._crit_edge.us64, label %59, !llvm.loop !21
 
-._crit_edge.us64:                                 ; preds = %60
-  %69 = ashr i64 %68, %12
+._crit_edge.us64:                                 ; preds = %59
+  %68 = load i32, ptr %.051.us56, align 4, !tbaa !4
+  %69 = ashr i64 %67, %12
   %70 = trunc i64 %69 to i32
-  %71 = add i32 %59, %70
+  %71 = add i32 %68, %70
   %72 = and i32 %71, %5
   %73 = getelementptr inbounds i8, ptr %.03950.us57, i64 -4
   store i32 %72, ptr %73, align 4, !tbaa !4

@@ -10,64 +10,64 @@ define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0
   %7 = load i64, ptr %6, align 1
   %8 = and i64 %2, -8
   %9 = getelementptr i8, ptr %1, i64 %8
-  %10 = trunc i64 %2 to i32
-  %11 = and i32 %10, 7
-  %12 = shl i64 %2, 56
-  %13 = xor i64 %7, 8387220255154660723
-  %14 = xor i64 %5, 7816392313619706465
-  %15 = xor i64 %7, 7237128888997146499
-  %16 = xor i64 %5, 8317987319222330741
+  %10 = xor i64 %7, 8387220255154660723
+  %11 = xor i64 %5, 7816392313619706465
+  %12 = xor i64 %7, 7237128888997146499
+  %13 = xor i64 %5, 8317987319222330741
   %.not324 = icmp eq i64 %8, 0
   br i1 %.not324, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.0329 = phi ptr [ %48, %.lr.ph ], [ %1, %4 ]
-  %.0319328 = phi i64 [ %47, %.lr.ph ], [ %16, %4 ]
-  %.0320327 = phi i64 [ %45, %.lr.ph ], [ %15, %4 ]
-  %.0321326 = phi i64 [ %46, %.lr.ph ], [ %14, %4 ]
-  %.0322325 = phi i64 [ %42, %.lr.ph ], [ %13, %4 ]
-  %17 = load i64, ptr %.0329, align 1
-  %18 = xor i64 %17, %.0322325
-  %19 = add i64 %.0319328, %.0320327
-  %20 = tail call i64 @llvm.fshl.i64(i64 %.0320327, i64 %.0320327, i64 13)
-  %21 = xor i64 %19, %20
-  %22 = tail call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 32)
-  %23 = add i64 %18, %.0321326
-  %24 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 16)
+  %.0329 = phi ptr [ %45, %.lr.ph ], [ %1, %4 ]
+  %.0319328 = phi i64 [ %44, %.lr.ph ], [ %13, %4 ]
+  %.0320327 = phi i64 [ %42, %.lr.ph ], [ %12, %4 ]
+  %.0321326 = phi i64 [ %43, %.lr.ph ], [ %11, %4 ]
+  %.0322325 = phi i64 [ %39, %.lr.ph ], [ %10, %4 ]
+  %14 = load i64, ptr %.0329, align 1
+  %15 = xor i64 %14, %.0322325
+  %16 = add i64 %.0319328, %.0320327
+  %17 = tail call i64 @llvm.fshl.i64(i64 %.0320327, i64 %.0320327, i64 13)
+  %18 = xor i64 %16, %17
+  %19 = tail call i64 @llvm.fshl.i64(i64 %16, i64 %16, i64 32)
+  %20 = add i64 %15, %.0321326
+  %21 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 16)
+  %22 = xor i64 %21, %20
+  %23 = add i64 %22, %19
+  %24 = tail call i64 @llvm.fshl.i64(i64 %22, i64 %22, i64 21)
   %25 = xor i64 %24, %23
-  %26 = add i64 %25, %22
-  %27 = tail call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 21)
-  %28 = xor i64 %27, %26
-  %29 = add i64 %23, %21
-  %30 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 17)
-  %31 = xor i64 %29, %30
-  %32 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 32)
-  %33 = add i64 %26, %31
-  %34 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 13)
-  %35 = xor i64 %34, %33
-  %36 = tail call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 32)
-  %37 = add i64 %28, %32
-  %38 = tail call i64 @llvm.fshl.i64(i64 %28, i64 %28, i64 16)
+  %26 = add i64 %20, %18
+  %27 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 17)
+  %28 = xor i64 %26, %27
+  %29 = tail call i64 @llvm.fshl.i64(i64 %26, i64 %26, i64 32)
+  %30 = add i64 %23, %28
+  %31 = tail call i64 @llvm.fshl.i64(i64 %28, i64 %28, i64 13)
+  %32 = xor i64 %31, %30
+  %33 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 32)
+  %34 = add i64 %25, %29
+  %35 = tail call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 16)
+  %36 = xor i64 %35, %34
+  %37 = add i64 %36, %33
+  %38 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 21)
   %39 = xor i64 %38, %37
-  %40 = add i64 %39, %36
-  %41 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 21)
+  %40 = add i64 %34, %32
+  %41 = tail call i64 @llvm.fshl.i64(i64 %32, i64 %32, i64 17)
   %42 = xor i64 %41, %40
-  %43 = add i64 %37, %35
-  %44 = tail call i64 @llvm.fshl.i64(i64 %35, i64 %35, i64 17)
-  %45 = xor i64 %44, %43
-  %46 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 32)
-  %47 = xor i64 %40, %17
-  %48 = getelementptr i8, ptr %.0329, i64 8
-  %.not = icmp eq ptr %48, %9
+  %43 = tail call i64 @llvm.fshl.i64(i64 %40, i64 %40, i64 32)
+  %44 = xor i64 %37, %14
+  %45 = getelementptr i8, ptr %.0329, i64 8
+  %.not = icmp eq ptr %45, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %.0322.lcssa = phi i64 [ %13, %4 ], [ %42, %.lr.ph ]
-  %.0321.lcssa = phi i64 [ %14, %4 ], [ %46, %.lr.ph ]
-  %.0320.lcssa = phi i64 [ %15, %4 ], [ %45, %.lr.ph ]
-  %.0319.lcssa = phi i64 [ %16, %4 ], [ %47, %.lr.ph ]
+  %.0322.lcssa = phi i64 [ %10, %4 ], [ %39, %.lr.ph ]
+  %.0321.lcssa = phi i64 [ %11, %4 ], [ %43, %.lr.ph ]
+  %.0320.lcssa = phi i64 [ %12, %4 ], [ %42, %.lr.ph ]
+  %.0319.lcssa = phi i64 [ %13, %4 ], [ %44, %.lr.ph ]
   %.0.lcssa = phi ptr [ %1, %4 ], [ %9, %.lr.ph ]
-  switch i32 %11, label %default.unreachable [
+  %46 = trunc i64 %2 to i32
+  %47 = and i32 %46, 7
+  %48 = shl i64 %2, 56
+  switch i32 %47, label %default.unreachable [
     i32 7, label %49
     i32 6, label %55
     i32 5, label %61
@@ -83,11 +83,11 @@ define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
   %53 = shl nuw nsw i64 %52, 48
-  %54 = or disjoint i64 %53, %12
+  %54 = or disjoint i64 %53, %48
   br label %55
 
 55:                                               ; preds = %49, %._crit_edge
-  %.1 = phi i64 [ %54, %49 ], [ %12, %._crit_edge ]
+  %.1 = phi i64 [ %54, %49 ], [ %48, %._crit_edge ]
   %56 = getelementptr i8, ptr %.0.lcssa, i64 5
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i64
@@ -96,7 +96,7 @@ define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0
   br label %61
 
 61:                                               ; preds = %55, %._crit_edge
-  %.2 = phi i64 [ %60, %55 ], [ %12, %._crit_edge ]
+  %.2 = phi i64 [ %60, %55 ], [ %48, %._crit_edge ]
   %62 = getelementptr i8, ptr %.0.lcssa, i64 4
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
@@ -105,7 +105,7 @@ define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0
   br label %67
 
 67:                                               ; preds = %61, %._crit_edge
-  %.3 = phi i64 [ %66, %61 ], [ %12, %._crit_edge ]
+  %.3 = phi i64 [ %66, %61 ], [ %48, %._crit_edge ]
   %68 = getelementptr i8, ptr %.0.lcssa, i64 3
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i64
@@ -114,7 +114,7 @@ define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0
   br label %73
 
 73:                                               ; preds = %67, %._crit_edge
-  %.4 = phi i64 [ %72, %67 ], [ %12, %._crit_edge ]
+  %.4 = phi i64 [ %72, %67 ], [ %48, %._crit_edge ]
   %74 = getelementptr i8, ptr %.0.lcssa, i64 2
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i64
@@ -123,7 +123,7 @@ define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0
   br label %79
 
 79:                                               ; preds = %73, %._crit_edge
-  %.5 = phi i64 [ %78, %73 ], [ %12, %._crit_edge ]
+  %.5 = phi i64 [ %78, %73 ], [ %48, %._crit_edge ]
   %80 = getelementptr i8, ptr %.0.lcssa, i64 1
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i64
@@ -132,7 +132,7 @@ define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0
   br label %85
 
 85:                                               ; preds = %79, %._crit_edge
-  %.6 = phi i64 [ %84, %79 ], [ %12, %._crit_edge ]
+  %.6 = phi i64 [ %84, %79 ], [ %48, %._crit_edge ]
   %86 = load i8, ptr %.0.lcssa, align 1
   %87 = zext i8 %86 to i64
   %88 = or i64 %.6, %87
@@ -142,7 +142,7 @@ default.unreachable:                              ; preds = %._crit_edge
   unreachable
 
 89:                                               ; preds = %._crit_edge, %85
-  %.0323 = phi i64 [ %12, %._crit_edge ], [ %88, %85 ]
+  %.0323 = phi i64 [ %48, %._crit_edge ], [ %88, %85 ]
   %90 = xor i64 %.0323, %.0322.lcssa
   %91 = add i64 %.0319.lcssa, %.0320.lcssa
   %92 = tail call i64 @llvm.fshl.i64(i64 %.0320.lcssa, i64 %.0320.lcssa, i64 13)

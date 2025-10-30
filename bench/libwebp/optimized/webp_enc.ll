@@ -544,12 +544,12 @@ MapConfigToTools.exit:                            ; preds = %141, %146, %148
   %163 = sext i32 %162 to i64
   %164 = sub nsw i64 0, %163
   %165 = getelementptr inbounds i8, ptr %161, i64 %164
-  %166 = getelementptr inbounds i8, ptr %161, i64 -1
-  %167 = load i32, ptr %67, align 8, !tbaa !49
-  %168 = icmp sgt i32 %167, -1
-  br i1 %168, label %.lr.ph.i, label %.preheader.i
+  %166 = load i32, ptr %67, align 8, !tbaa !49
+  %167 = icmp sgt i32 %166, -1
+  br i1 %167, label %.lr.ph.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %MapConfigToTools.exit
+  %168 = getelementptr inbounds i8, ptr %161, i64 -1
   %169 = load i32, ptr %68, align 4, !tbaa !50
   %170 = icmp sgt i32 %169, 0
   br i1 %170, label %.lr.ph16.i, label %ResetBoundaryPredictions.exit
@@ -570,7 +570,7 @@ MapConfigToTools.exit:                            ; preds = %141, %146, %148
   %176 = load i32, ptr %69, align 8, !tbaa !51
   %177 = mul nsw i32 %176, %.115.i
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds i8, ptr %166, i64 %178
+  %179 = getelementptr inbounds i8, ptr %168, i64 %178
   store i8 0, ptr %179, align 1, !tbaa !83
   %180 = add nuw nsw i32 %.115.i, 1
   %181 = load i32, ptr %68, align 4, !tbaa !50

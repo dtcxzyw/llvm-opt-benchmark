@@ -39893,8 +39893,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_a
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !153
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !153
   br label %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
@@ -64572,36 +64572,36 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15SimulateVisitor14ConstAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !915, !noalias !920
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load ptr, ptr %6, align 8, !tbaa !915, !noalias !923
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.not7 = icmp eq ptr %4, %7
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = load ptr, ptr %2, align 8, !tbaa !915, !noalias !920
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %6 = load ptr, ptr %5, align 8, !tbaa !915, !noalias !923
+  %.not7 = icmp eq ptr %3, %6
   br i1 %.not7, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %9 = load ptr, ptr %5, align 8, !tbaa !926, !noalias !920
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !927, !noalias !920
+  %7 = load ptr, ptr %4, align 8, !tbaa !926, !noalias !920
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = load ptr, ptr %8, align 8, !tbaa !927, !noalias !920
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt15_Deque_iteratorIP8AstConstRS1_PS1_EppEv.exit, %1
-  %12 = load ptr, ptr %2, align 8, !tbaa !928
-  %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %_ZNSt5dequeIP8AstConstSaIS1_EED2Ev.exit, label %13
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !928
+  %.not.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i, label %_ZNSt5dequeIP8AstConstSaIS1_EED2Ev.exit, label %12
 
-13:                                               ; preds = %._crit_edge
-  %14 = load ptr, ptr %5, align 8, !tbaa !930
-  %15 = load ptr, ptr %8, align 8, !tbaa !931
+12:                                               ; preds = %._crit_edge
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %14 = load ptr, ptr %4, align 8, !tbaa !930
+  %15 = load ptr, ptr %13, align 8, !tbaa !931
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = icmp ult ptr %14, %16
   br i1 %17, label %.lr.ph.i.i.i, label %_ZNSt11_Deque_baseIP8AstConstSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %13, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i ], [ %14, %13 ]
+.lr.ph.i.i.i:                                     ; preds = %12, %.lr.ph.i.i.i
+  %.06.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i ], [ %14, %12 ]
   %18 = load ptr, ptr %.06.i.i.i, align 8, !tbaa !932
   tail call void @_ZdlPvm(ptr noundef %18, i64 noundef 512) #28
   %19 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
@@ -64609,11 +64609,11 @@ define linkonce_odr dso_local void @_ZN15SimulateVisitor14ConstAllocatorD2Ev(ptr
   br i1 %20, label %.lr.ph.i.i.i, label %_ZNSt11_Deque_baseIP8AstConstSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i, !llvm.loop !933
 
 _ZNSt11_Deque_baseIP8AstConstSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i
-  %.pre.i.i = load ptr, ptr %2, align 8, !tbaa !928
+  %.pre.i.i = load ptr, ptr %10, align 8, !tbaa !928
   br label %_ZNSt11_Deque_baseIP8AstConstSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i
 
-_ZNSt11_Deque_baseIP8AstConstSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i: ; preds = %_ZNSt11_Deque_baseIP8AstConstSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i, %13
-  %21 = phi ptr [ %.pre.i.i, %_ZNSt11_Deque_baseIP8AstConstSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i ], [ %12, %13 ]
+_ZNSt11_Deque_baseIP8AstConstSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i: ; preds = %_ZNSt11_Deque_baseIP8AstConstSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i, %12
+  %21 = phi ptr [ %.pre.i.i, %_ZNSt11_Deque_baseIP8AstConstSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i ], [ %11, %12 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8, !tbaa !934
   %24 = shl i64 %23, 3
@@ -64624,9 +64624,9 @@ _ZNSt5dequeIP8AstConstSaIS1_EED2Ev.exit:          ; preds = %._crit_edge, %_ZNSt
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt15_Deque_iteratorIP8AstConstRS1_PS1_EppEv.exit
-  %.sroa.13.010 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIP8AstConstRS1_PS1_EppEv.exit ], [ %9, %.lr.ph.preheader ]
-  %.sroa.10.09 = phi ptr [ %.sroa.10.1, %_ZNSt15_Deque_iteratorIP8AstConstRS1_PS1_EppEv.exit ], [ %11, %.lr.ph.preheader ]
-  %.sroa.04.08 = phi ptr [ %.sroa.04.1, %_ZNSt15_Deque_iteratorIP8AstConstRS1_PS1_EppEv.exit ], [ %4, %.lr.ph.preheader ]
+  %.sroa.13.010 = phi ptr [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIP8AstConstRS1_PS1_EppEv.exit ], [ %7, %.lr.ph.preheader ]
+  %.sroa.10.09 = phi ptr [ %.sroa.10.1, %_ZNSt15_Deque_iteratorIP8AstConstRS1_PS1_EppEv.exit ], [ %9, %.lr.ph.preheader ]
+  %.sroa.04.08 = phi ptr [ %.sroa.04.1, %_ZNSt15_Deque_iteratorIP8AstConstRS1_PS1_EppEv.exit ], [ %3, %.lr.ph.preheader ]
   %25 = load ptr, ptr %.sroa.04.08, align 8, !tbaa !477
   %26 = icmp eq ptr %25, null
   br i1 %26, label %52, label %27
@@ -64691,7 +64691,7 @@ _ZNSt15_Deque_iteratorIP8AstConstRS1_PS1_EppEv.exit: ; preds = %52, %55
   %.sroa.04.1 = phi ptr [ %57, %55 ], [ %53, %52 ]
   %.sroa.10.1 = phi ptr [ %58, %55 ], [ %.sroa.10.09, %52 ]
   %.sroa.13.1 = phi ptr [ %56, %55 ], [ %.sroa.13.010, %52 ]
-  %.not = icmp eq ptr %.sroa.04.1, %7
+  %.not = icmp eq ptr %.sroa.04.1, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

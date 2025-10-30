@@ -7561,20 +7561,20 @@ _ZN11quinn_proto8endpoint8Endpoint14cids_exhausted17hc771a0d18a2ee089E.exit.thre
   %.sroa.5.0.i = phi i64 [ %106, %98 ], [ %117, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h970d4ccf472c87deE.exit.i" ]
   %.sroa.0.03.i = phi ptr [ %102, %98 ], [ %116, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h970d4ccf472c87deE.exit.i" ]
   %110 = icmp eq i64 %.sroa.5.0.i, 0
-  br i1 %110, label %118, label %.preheader
+  br i1 %110, label %118, label %.preheader.i
 
-.preheader:                                       ; preds = %109, %.preheader
-  %.sroa.07.0.i.i = phi i1 [ %113, %.preheader ], [ false, %109 ]
-  %.sroa.09.0.i.i131 = phi i64 [ %114, %.preheader ], [ 0, %109 ]
+.preheader.i:                                     ; preds = %109, %.preheader.i
+  %.sroa.07.0.i.i = phi i1 [ %113, %.preheader.i ], [ false, %109 ]
+  %.sroa.09.0.i.i131 = phi i64 [ %114, %.preheader.i ], [ 0, %109 ]
   %111 = getelementptr inbounds nuw i32, ptr %.sroa.0.03.i, i64 %.sroa.09.0.i.i131
   %.val19.i.i = load i32, ptr %111, align 4, !alias.scope !388, !noalias !391, !noundef !3
   %112 = icmp eq i32 %.val19.i.i, %.val
   %113 = or i1 %.sroa.07.0.i.i, %112
   %114 = add nuw nsw i64 %.sroa.09.0.i.i131, 1
   %115 = icmp eq i64 %114, 16
-  br i1 %115, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h970d4ccf472c87deE.exit.i", label %.preheader
+  br i1 %115, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h970d4ccf472c87deE.exit.i", label %.preheader.i
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h970d4ccf472c87deE.exit.i": ; preds = %.preheader
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h970d4ccf472c87deE.exit.i": ; preds = %.preheader.i
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i, i64 64
   %117 = add i64 %.sroa.5.0.i, -16
   br i1 %113, label %.loopexit, label %109

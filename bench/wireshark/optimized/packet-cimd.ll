@@ -438,26 +438,26 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr noundef readonly captures(
   %33 = load ptr, ptr %9, align 8
   %34 = tail call ptr @tvb_get_string_enc(ptr noundef %33, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0)
   %35 = tail call i64 @strtoul(ptr noundef captures(none) %34, ptr noundef null, i32 noundef 16) #4
-  %36 = trunc i64 %35 to i16
-  %37 = icmp sgt i32 %20, 0
-  br i1 %37, label %.lr.ph, label %._crit_edge
+  %36 = icmp sgt i32 %20, 0
+  br i1 %36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %32, %.lr.ph
   %.04862 = phi i8 [ %.narrow, %.lr.ph ], [ 0, %32 ]
-  %.05061 = phi i32 [ %39, %.lr.ph ], [ 0, %32 ]
-  %38 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.05061)
-  %.narrow = add i8 %38, %.04862
-  %39 = add nuw nsw i32 %.05061, 1
-  %exitcond.not = icmp eq i32 %39, %20
+  %.05061 = phi i32 [ %38, %.lr.ph ], [ 0, %32 ]
+  %37 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.05061)
+  %.narrow = add i8 %37, %.04862
+  %38 = add nuw nsw i32 %.05061, 1
+  %exitcond.not = icmp eq i32 %38, %20
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %40 = zext i8 %.narrow to i16
+  %39 = zext i8 %.narrow to i16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %32
-  %.048.lcssa = phi i16 [ 0, %32 ], [ %40, %._crit_edge.loopexit ]
-  %41 = icmp eq i16 %.048.lcssa, %36
+  %.048.lcssa = phi i16 [ 0, %32 ], [ %39, %._crit_edge.loopexit ]
+  %40 = trunc i64 %35 to i16
+  %41 = icmp eq i16 %.048.lcssa, %40
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
   tail call void @col_set_str(ptr noundef %43, i32 noundef 35, ptr noundef nonnull @.str.97)
@@ -465,7 +465,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr noundef readonly captures(
 
 44:                                               ; preds = %.thread, %._crit_edge
   %45 = phi ptr [ %25, %.thread ], [ %42, %._crit_edge ]
-  %.04755 = phi i16 [ 0, %.thread ], [ %36, %._crit_edge ]
+  %.04755 = phi i16 [ 0, %.thread ], [ %.048.lcssa, %._crit_edge ]
   %46 = load ptr, ptr %45, align 8
   %47 = and i32 %13, 255
   %48 = tail call ptr @val_to_str(i32 noundef %47, ptr noundef nonnull @vals_hdr_OC, ptr noundef nonnull @.str.278)
@@ -474,7 +474,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr noundef readonly captures(
 
 49:                                               ; preds = %.thread56, %._crit_edge
   %50 = phi ptr [ %30, %.thread56 ], [ %42, %._crit_edge ]
-  %.04759 = phi i16 [ 0, %.thread56 ], [ %36, %._crit_edge ]
+  %.04759 = phi i16 [ 0, %.thread56 ], [ %40, %._crit_edge ]
   %51 = load ptr, ptr %50, align 8
   %52 = and i32 %13, 255
   %53 = tail call ptr @val_to_str(i32 noundef %52, ptr noundef nonnull @vals_hdr_OC, ptr noundef nonnull @.str.278)

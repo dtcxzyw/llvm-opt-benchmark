@@ -439,21 +439,21 @@ define dso_local noundef double @_Z3sqrd(double noundef %0) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_Z7cie_labPd(ptr noundef captures(none) %0) local_unnamed_addr #6 {
-  %2 = load double, ptr @xyz_whitepoint, align 16, !tbaa !4
-  %3 = load double, ptr getelementptr inbounds nuw (i8, ptr @xyz_whitepoint, i64 8), align 8, !tbaa !4
-  %4 = load double, ptr getelementptr inbounds nuw (i8, ptr @xyz_whitepoint, i64 16), align 16, !tbaa !4
   br label %38
 
-5:                                                ; preds = %38
-  %6 = fdiv double %48, %3
+2:                                                ; preds = %38
+  %3 = load double, ptr @xyz_whitepoint, align 16, !tbaa !4
+  %4 = load double, ptr getelementptr inbounds nuw (i8, ptr @xyz_whitepoint, i64 8), align 8, !tbaa !4
+  %5 = load double, ptr getelementptr inbounds nuw (i8, ptr @xyz_whitepoint, i64 16), align 16, !tbaa !4
+  %6 = fdiv double %48, %4
   %7 = fcmp ogt double %6, 0x3F822354D28F7CD6
   br i1 %7, label %8, label %10
 
-8:                                                ; preds = %5
+8:                                                ; preds = %2
   %9 = tail call double @cbrt(double noundef %6) #34
   br label %"_ZZ7cie_labPdENK3$_0clEd.exit"
 
-10:                                               ; preds = %5
+10:                                               ; preds = %2
   %11 = fdiv double %6, 0x3FC07004DED20922
   %12 = fadd double %11, 0x3FC1A7B9611A7B96
   br label %"_ZZ7cie_labPdENK3$_0clEd.exit"
@@ -463,7 +463,7 @@ define dso_local void @_Z7cie_labPd(ptr noundef captures(none) %0) local_unnamed
   %13 = fmul double %.0.i, 1.160000e+02
   %14 = fadd double %13, -1.600000e+01
   store double %14, ptr %0, align 8, !tbaa !4
-  %15 = fdiv double %44, %2
+  %15 = fdiv double %44, %3
   %16 = fcmp ogt double %15, 0x3F822354D28F7CD6
   br i1 %16, label %17, label %19
 
@@ -495,7 +495,7 @@ define dso_local void @_Z7cie_labPd(ptr noundef captures(none) %0) local_unnamed
   %.sink = fmul double %.sink.in, 5.000000e+02
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sink, ptr %27, align 8, !tbaa !4
-  %28 = fdiv double %52, %4
+  %28 = fdiv double %52, %5
   %29 = fcmp ogt double %28, 0x3F822354D28F7CD6
   br i1 %29, label %30, label %32
 
@@ -537,7 +537,7 @@ define dso_local void @_Z7cie_labPd(ptr noundef captures(none) %0) local_unnamed
   %52 = fadd double %.02838, %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %5, label %38, !llvm.loop !23
+  br i1 %exitcond.not, label %2, label %38, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress uwtable

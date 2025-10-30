@@ -5138,19 +5138,19 @@ define range(i32 0, 2) i32 @dt_colorspaces_conversion_matrices_rgb(ptr noundef r
   %50 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %49
   br label %.preheader93.us
 
-51:                                               ; preds = %54
+51:                                               ; preds = %53
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, 4
   br i1 %exitcond129.not, label %.preheader95, label %.preheader96
 
-52:                                               ; preds = %.preheader96, %54
-  %indvars.iv122 = phi i64 [ 0, %.preheader96 ], [ %indvars.iv.next123, %54 ]
-  %53 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv122
+52:                                               ; preds = %.preheader96, %53
+  %indvars.iv122 = phi i64 [ 0, %.preheader96 ], [ %indvars.iv.next123, %53 ]
   %invariant.gep = getelementptr inbounds nuw double, ptr @dt_colorspaces_conversion_matrices_rgb.RGB_to_XYZ, i64 %indvars.iv122
   br label %55
 
-54:                                               ; preds = %55
-  store double %62, ptr %53, align 8, !tbaa !163
+53:                                               ; preds = %55
+  %54 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv122
+  store double %62, ptr %54, align 8, !tbaa !163
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 3
   br i1 %exitcond125.not, label %51, label %52
@@ -5167,7 +5167,7 @@ define range(i32 0, 2) i32 @dt_colorspaces_conversion_matrices_rgb(ptr noundef r
   %62 = fadd reassoc nsz arcp contract afn double %56, %61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %54, label %55
+  br i1 %exitcond.not, label %53, label %55
 
 .preheader94:                                     ; preds = %.preheader95, %69
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %69 ], [ 0, %.preheader95 ]
@@ -5305,19 +5305,19 @@ define void @dt_colorspaces_cygm_apply_coeffs_to_rgb(ptr noundef captures(none) 
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-24:                                               ; preds = %27
+24:                                               ; preds = %26
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next78, 3
   br i1 %exitcond80.not, label %.preheader52, label %.preheader53
 
-25:                                               ; preds = %.preheader53, %27
-  %indvars.iv73 = phi i64 [ 0, %.preheader53 ], [ %indvars.iv.next74, %27 ]
-  %26 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv73
+25:                                               ; preds = %.preheader53, %26
+  %indvars.iv73 = phi i64 [ 0, %.preheader53 ], [ %indvars.iv.next74, %26 ]
   %invariant.gep = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv73
   br label %28
 
-27:                                               ; preds = %28
-  store double %34, ptr %26, align 8, !tbaa !163
+26:                                               ; preds = %28
+  %27 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv73
+  store double %34, ptr %27, align 8, !tbaa !163
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 3
   br i1 %exitcond76.not, label %24, label %25
@@ -5333,7 +5333,7 @@ define void @dt_colorspaces_cygm_apply_coeffs_to_rgb(ptr noundef captures(none) 
   %34 = fadd reassoc nsz arcp contract afn double %29, %33
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, 4
-  br i1 %exitcond72.not, label %27, label %28
+  br i1 %exitcond72.not, label %26, label %28
 
 ._crit_edge:                                      ; preds = %42, %.preheader52
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -5402,28 +5402,28 @@ define void @dt_colorspaces_cygm_to_rgb(ptr noundef captures(none) %0, i32 nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.preheader22.preheader
   %indvar = phi i64 [ 0, %.lr.ph.preheader ], [ %indvar.next, %.preheader22.preheader ]
-  %6 = shl nuw nsw i64 %indvar, 4
-  %scevgep = getelementptr nuw i8, ptr %0, i64 %6
   %.idx = shl nsw i64 %indvar, 4
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %10
-  %indvars.iv28 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next29, %10 ]
-  %8 = getelementptr inbounds nuw [4 x double], ptr %2, i64 %indvars.iv28
-  %9 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv28
-  %.promoted = load float, ptr %9, align 4, !tbaa !11
+.preheader:                                       ; preds = %.lr.ph, %9
+  %indvars.iv28 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next29, %9 ]
+  %7 = getelementptr inbounds nuw [4 x double], ptr %2, i64 %indvars.iv28
+  %8 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv28
+  %.promoted = load float, ptr %8, align 4, !tbaa !11
   br label %11
 
-10:                                               ; preds = %11
-  store float %21, ptr %9, align 4, !tbaa !11
+9:                                                ; preds = %11
+  store float %21, ptr %8, align 4, !tbaa !11
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next29, 3
   br i1 %exitcond31.not, label %.preheader22.preheader, label %.preheader
 
-.preheader22.preheader:                           ; preds = %10
+.preheader22.preheader:                           ; preds = %9
+  %10 = shl nuw nsw i64 %indvar, 4
+  %scevgep = getelementptr nuw i8, ptr %0, i64 %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 16 dereferenceable(12) %4, i64 12, i1 false), !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvar.next = add nuw nsw i64 %indvar, 1
@@ -5433,9 +5433,9 @@ define void @dt_colorspaces_cygm_to_rgb(ptr noundef captures(none) %0, i32 nound
 11:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %12 = phi float [ %.promoted, %.preheader ], [ %21, %11 ]
-  %13 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
   %14 = load double, ptr %13, align 8, !tbaa !163
-  %15 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   %16 = load float, ptr %15, align 4, !tbaa !11
   %17 = fpext reassoc nsz arcp contract afn float %16 to double
   %18 = fmul reassoc nsz arcp contract afn double %14, %17
@@ -5444,7 +5444,7 @@ define void @dt_colorspaces_cygm_to_rgb(ptr noundef captures(none) %0, i32 nound
   %21 = fptrunc reassoc nsz arcp contract afn double %20 to float
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %10, label %11
+  br i1 %exitcond.not, label %9, label %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -5462,28 +5462,28 @@ define void @dt_colorspaces_rgb_to_cygm(ptr noundef captures(none) %0, i32 nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.preheader22.preheader
   %indvar = phi i64 [ 0, %.lr.ph.preheader ], [ %indvar.next, %.preheader22.preheader ]
-  %6 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr nuw i8, ptr %0, i64 %6
   %.idx = mul nuw nsw i64 %indvar, 12
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %10
-  %indvars.iv28 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next29, %10 ]
-  %8 = getelementptr inbounds nuw [3 x double], ptr %2, i64 %indvars.iv28
-  %9 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv28
-  %.promoted = load float, ptr %9, align 4, !tbaa !11
+.preheader:                                       ; preds = %.lr.ph, %9
+  %indvars.iv28 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next29, %9 ]
+  %7 = getelementptr inbounds nuw [3 x double], ptr %2, i64 %indvars.iv28
+  %8 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv28
+  %.promoted = load float, ptr %8, align 4, !tbaa !11
   br label %11
 
-10:                                               ; preds = %11
-  store float %21, ptr %9, align 4, !tbaa !11
+9:                                                ; preds = %11
+  store float %21, ptr %8, align 4, !tbaa !11
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next29, 4
   br i1 %exitcond31.not, label %.preheader22.preheader, label %.preheader
 
-.preheader22.preheader:                           ; preds = %10
+.preheader22.preheader:                           ; preds = %9
+  %10 = mul nuw nsw i64 %indvar, 12
+  %scevgep = getelementptr nuw i8, ptr %0, i64 %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %scevgep, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false), !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvar.next = add nuw nsw i64 %indvar, 1
@@ -5493,9 +5493,9 @@ define void @dt_colorspaces_rgb_to_cygm(ptr noundef captures(none) %0, i32 nound
 11:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %12 = phi float [ %.promoted, %.preheader ], [ %21, %11 ]
-  %13 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
   %14 = load double, ptr %13, align 8, !tbaa !163
-  %15 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   %16 = load float, ptr %15, align 4, !tbaa !11
   %17 = fpext reassoc nsz arcp contract afn float %16 to double
   %18 = fmul reassoc nsz arcp contract afn double %14, %17
@@ -5504,7 +5504,7 @@ define void @dt_colorspaces_rgb_to_cygm(ptr noundef captures(none) %0, i32 nound
   %21 = fptrunc reassoc nsz arcp contract afn double %20 to float
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %10, label %11
+  br i1 %exitcond.not, label %9, label %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

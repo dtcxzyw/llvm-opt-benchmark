@@ -300,53 +300,55 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl16strings_internal12AppendPiecesEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt17basic_string_viewIcS4_EE(ptr noundef %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !10
   %.idx = shl nuw nsw i64 %2, 4
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not36 = icmp eq i64 %2, 0
   br i1 %.not36, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %3
-  %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %5, i64 noundef 0, i64 noundef 0, i8 noundef signext 0)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8, !tbaa !10
+  %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %6, i64 noundef 0, i64 noundef 0, i8 noundef signext 0)
   br label %._crit_edge44
 
 .lr.ph43.preheader:                               ; preds = %.lr.ph
-  %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %5, i64 noundef 0, i64 noundef %11, i8 noundef signext 0)
-  %9 = load ptr, ptr %0, align 8, !tbaa !16
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8, !tbaa !10
+  %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %9, i64 noundef 0, i64 noundef %13, i8 noundef signext 0)
+  %11 = load ptr, ptr %0, align 8, !tbaa !16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %9
   br label %.lr.ph43
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.038 = phi i64 [ %11, %.lr.ph ], [ 0, %3 ]
-  %.02337 = phi ptr [ %12, %.lr.ph ], [ %1, %3 ]
+  %.038 = phi i64 [ %13, %.lr.ph ], [ 0, %3 ]
+  %.02337 = phi ptr [ %14, %.lr.ph ], [ %1, %3 ]
   %.sroa.029.0.copyload = load i64, ptr %.02337, align 8, !tbaa !17
-  %11 = add i64 %.sroa.029.0.copyload, %.038
-  %12 = getelementptr inbounds nuw i8, ptr %.02337, i64 16
-  %.not = icmp eq ptr %12, %6
+  %13 = add i64 %.sroa.029.0.copyload, %.038
+  %14 = getelementptr inbounds nuw i8, ptr %.02337, i64 16
+  %.not = icmp eq ptr %14, %4
   br i1 %.not, label %.lr.ph43.preheader, label %.lr.ph
 
-._crit_edge44:                                    ; preds = %15, %._crit_edge.thread
+._crit_edge44:                                    ; preds = %17, %._crit_edge.thread
   ret void
 
-.lr.ph43:                                         ; preds = %.lr.ph43.preheader, %15
-  %.02441 = phi ptr [ %16, %15 ], [ %1, %.lr.ph43.preheader ]
-  %.02540 = phi ptr [ %.1, %15 ], [ %10, %.lr.ph43.preheader ]
+.lr.ph43:                                         ; preds = %.lr.ph43.preheader, %17
+  %.02441 = phi ptr [ %18, %17 ], [ %1, %.lr.ph43.preheader ]
+  %.02540 = phi ptr [ %.1, %17 ], [ %12, %.lr.ph43.preheader ]
   %.sroa.0.0.copyload = load i64, ptr %.02441, align 8, !tbaa !17
   %.not28 = icmp eq i64 %.sroa.0.0.copyload, 0
-  br i1 %.not28, label %15, label %13
+  br i1 %.not28, label %17, label %15
 
-13:                                               ; preds = %.lr.ph43
+15:                                               ; preds = %.lr.ph43
   %.sroa.4.0..024.sroa_idx = getelementptr inbounds nuw i8, ptr %.02441, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..024.sroa_idx, align 8, !tbaa !18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02540, ptr align 1 %.sroa.4.0.copyload, i64 %.sroa.0.0.copyload, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %.02540, i64 %.sroa.0.0.copyload
-  br label %15
+  %16 = getelementptr inbounds nuw i8, ptr %.02540, i64 %.sroa.0.0.copyload
+  br label %17
 
-15:                                               ; preds = %13, %.lr.ph43
-  %.1 = phi ptr [ %14, %13 ], [ %.02540, %.lr.ph43 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.02441, i64 16
-  %.not27 = icmp eq ptr %16, %6
+17:                                               ; preds = %15, %.lr.ph43
+  %.1 = phi ptr [ %16, %15 ], [ %.02540, %.lr.ph43 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.02441, i64 16
+  %.not27 = icmp eq ptr %18, %4
   br i1 %.not27, label %._crit_edge44, label %.lr.ph43
 }
 

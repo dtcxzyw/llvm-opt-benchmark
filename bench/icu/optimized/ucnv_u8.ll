@@ -2007,35 +2007,35 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %167, %171, %179
   %.us-phi319 = phi i32 [ %.2215308.us, %.lr.ph310.split.us ], [ %.2215308, %.lr.ph310.split ]
   %.us-phi320 = phi ptr [ %.2309.us, %.lr.ph310.split.us ], [ %.2309, %.lr.ph310.split ]
   %195 = zext nneg i8 %.us-phi to i64
-  %196 = zext nneg i8 %.1218.fr to i32
-  %197 = zext nneg i8 %.1209 to i64
-  %.neg = sub nsw i64 %197, %195
-  %198 = getelementptr inbounds i8, ptr %.us-phi320, i64 %.neg
-  %199 = icmp slt i8 %.1209, %.us-phi
-  br i1 %199, label %.lr.ph330, label %._crit_edge331
+  %196 = zext nneg i8 %.1209 to i64
+  %.neg = sub nsw i64 %196, %195
+  %197 = getelementptr inbounds i8, ptr %.us-phi320, i64 %.neg
+  %198 = icmp slt i8 %.1209, %.us-phi
+  br i1 %198, label %.lr.ph330, label %._crit_edge331
 
 .lr.ph330:                                        ; preds = %.split.us
-  %200 = getelementptr inbounds nuw i8, ptr %5, i64 65
-  br label %201
+  %199 = getelementptr inbounds nuw i8, ptr %5, i64 65
+  br label %200
 
-201:                                              ; preds = %.lr.ph330, %201
-  %indvars.iv = phi i64 [ %197, %.lr.ph330 ], [ %indvars.iv.next, %201 ]
-  %.3328 = phi ptr [ %198, %.lr.ph330 ], [ %202, %201 ]
-  %202 = getelementptr inbounds nuw i8, ptr %.3328, i64 1
-  %203 = load i8, ptr %.3328, align 1, !tbaa !25
+200:                                              ; preds = %.lr.ph330, %200
+  %indvars.iv = phi i64 [ %196, %.lr.ph330 ], [ %indvars.iv.next, %200 ]
+  %.3328 = phi ptr [ %197, %.lr.ph330 ], [ %201, %200 ]
+  %201 = getelementptr inbounds nuw i8, ptr %.3328, i64 1
+  %202 = load i8, ptr %.3328, align 1, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %204 = getelementptr inbounds nuw i8, ptr %200, i64 %indvars.iv
-  store i8 %203, ptr %204, align 1, !tbaa !25
-  %205 = icmp samesign ult i64 %indvars.iv.next, %195
-  br i1 %205, label %201, label %._crit_edge331, !llvm.loop !54
+  %203 = getelementptr inbounds nuw i8, ptr %199, i64 %indvars.iv
+  store i8 %202, ptr %203, align 1, !tbaa !25
+  %204 = icmp samesign ult i64 %indvars.iv.next, %195
+  br i1 %204, label %200, label %._crit_edge331, !llvm.loop !54
 
-._crit_edge331:                                   ; preds = %201, %.split.us
-  %.3.lcssa = phi ptr [ %198, %.split.us ], [ %202, %201 ]
+._crit_edge331:                                   ; preds = %200, %.split.us
+  %.3.lcssa = phi ptr [ %197, %.split.us ], [ %201, %200 ]
+  %205 = zext nneg i8 %.1218.fr to i32
   %206 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 %.us-phi319, ptr %206, align 8, !tbaa !44
   store i8 %.us-phi, ptr %18, align 8, !tbaa !42
   %207 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  store i32 %196, ptr %207, align 4, !tbaa !43
+  store i32 %205, ptr %207, align 4, !tbaa !43
   store ptr %.3.lcssa, ptr %6, align 8, !tbaa !38
   store ptr %.0196, ptr %10, align 8, !tbaa !15
   br label %312

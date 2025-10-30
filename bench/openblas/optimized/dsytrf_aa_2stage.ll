@@ -166,41 +166,41 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 83:                                               ; preds = %81, %76
   %84 = phi i32 [ %82, %81 ], [ %77, %76 ]
-  %85 = add i32 %67, -1
-  %86 = add i32 %85, %84
-  %87 = sdiv i32 %86, %84
-  %88 = shl i32 %84, 1
   %. = tail call i32 @llvm.smin.i32(i32 %84, i32 %67)
   store i32 %., ptr %18, align 4, !tbaa !3
   %.not650699 = icmp slt i32 %., 1
   br i1 %.not650699, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %83
-  %89 = add nuw i32 %., 1
-  %wide.trip.count = zext i32 %89 to i64
+  %85 = add nuw i32 %., 1
+  %wide.trip.count = zext i32 %85 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %90 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
-  %91 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %91, ptr %90, align 4, !tbaa !3
+  %86 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %87 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %87, ptr %86, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %83
+  %88 = add i32 %67, -1
+  %89 = add i32 %88, %84
+  %90 = sdiv i32 %89, %84
+  %91 = shl i32 %84, 1
   %92 = sitofp i32 %84 to double
   store double %92, ptr %4, align 8, !tbaa !7
-  %93 = add nsw i32 %87, -1
-  %.not651792 = icmp slt i32 %87, 1
+  %93 = add nsw i32 %90, -1
+  %.not651792 = icmp slt i32 %90, 1
   br i1 %.not, label %487, label %94
 
 94:                                               ; preds = %._crit_edge
   br i1 %.not651792, label %.loopexit695, label %.lr.ph752
 
 .lr.ph752:                                        ; preds = %94
-  %95 = or disjoint i32 %88, 1
+  %95 = or disjoint i32 %91, 1
   %96 = add i32 %20, 1
   %97 = add nsw i32 %71, -1
   %98 = add nsw i32 %71, -1
@@ -423,7 +423,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 .lr.ph709:                                        ; preds = %237
   %239 = zext i32 %indvars.iv802 to i64
-  %.neg676 = add i32 %238, %88
+  %.neg676 = add i32 %238, %91
   %.reass718 = add i32 %.1626713, %invariant.op
   %240 = mul nsw i32 %.reass718, %71
   %241 = sub i32 %95, %.1626713
@@ -836,7 +836,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %.not651792, label %.loopexit695, label %.lr.ph797
 
 .lr.ph797:                                        ; preds = %487
-  %488 = or disjoint i32 %88, 1
+  %488 = or disjoint i32 %91, 1
   %489 = add i32 %20, 1
   %490 = add nsw i32 %71, -1
   %491 = add nsw i32 %71, -1
@@ -1059,7 +1059,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %629 = mul nsw i32 %.reass772, %71
   %630 = sub i32 %488, %.4629767
   %invariant.op762 = add i32 %630, %629
-  %.neg = add i32 %627, %88
+  %.neg = add i32 %627, %91
   br label %631
 
 631:                                              ; preds = %.lr.ph761, %631

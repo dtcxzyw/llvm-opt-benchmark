@@ -1132,7 +1132,6 @@ define internal noundef range(i32 -9, 10559488) i32 @_ZL20_UTF16BEGetNextUCharP2
   %48 = trunc i64 %47 to i8
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 %48, ptr %49, align 8, !tbaa !29
-  %scevgep = getelementptr i8, ptr %10, i64 %47
   br label %50
 
 50:                                               ; preds = %50, %45
@@ -1146,6 +1145,7 @@ define internal noundef range(i32 -9, 10559488) i32 @_ZL20_UTF16BEGetNextUCharP2
   br i1 %exitcond.not, label %.thread62, label %50, !llvm.loop !50
 
 .thread62:                                        ; preds = %50
+  %scevgep = getelementptr i8, ptr %10, i64 %47
   store i32 11, ptr %1, align 4, !tbaa !14
   br label %68
 
@@ -2482,7 +2482,6 @@ define internal noundef range(i32 -9, 10559488) i32 @_ZL20_UTF16LEGetNextUCharP2
   %48 = trunc i64 %47 to i8
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 %48, ptr %49, align 8, !tbaa !29
-  %scevgep = getelementptr i8, ptr %10, i64 %47
   br label %50
 
 50:                                               ; preds = %50, %45
@@ -2496,6 +2495,7 @@ define internal noundef range(i32 -9, 10559488) i32 @_ZL20_UTF16LEGetNextUCharP2
   br i1 %exitcond.not, label %.thread62, label %50, !llvm.loop !60
 
 .thread62:                                        ; preds = %50
+  %scevgep = getelementptr i8, ptr %10, i64 %47
   store i32 11, ptr %1, align 4, !tbaa !14
   br label %67
 
@@ -2795,17 +2795,17 @@ define internal noundef range(i32 -9, 10559488) i32 @_ZL18_UTF16GetNextUCharP23U
   br label %110
 
 110:                                              ; preds = %110, %105
-  %.2.i12 = phi ptr [ %70, %105 ], [ %111, %110 ]
-  %.048.i13 = phi ptr [ %106, %105 ], [ %113, %110 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.2.i12, i64 1
-  %112 = load i8, ptr %.2.i12, align 1, !tbaa !28
-  %113 = getelementptr inbounds nuw i8, ptr %.048.i13, i64 1
-  store i8 %112, ptr %.048.i13, align 1, !tbaa !28
-  %exitcond.not.i14 = icmp eq ptr %111, %73
-  br i1 %exitcond.not.i14, label %.thread62.i15, label %110, !llvm.loop !60
+  %.2.i11 = phi ptr [ %70, %105 ], [ %111, %110 ]
+  %.048.i12 = phi ptr [ %106, %105 ], [ %113, %110 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.2.i11, i64 1
+  %112 = load i8, ptr %.2.i11, align 1, !tbaa !28
+  %113 = getelementptr inbounds nuw i8, ptr %.048.i12, i64 1
+  store i8 %112, ptr %.048.i12, align 1, !tbaa !28
+  %exitcond.not.i13 = icmp eq ptr %111, %73
+  br i1 %exitcond.not.i13, label %.thread62.i14, label %110, !llvm.loop !60
 
-.thread62.i15:                                    ; preds = %110
-  %scevgep.i11 = getelementptr i8, ptr %70, i64 %107
+.thread62.i14:                                    ; preds = %110
+  %scevgep.i15 = getelementptr i8, ptr %70, i64 %107
   store i32 11, ptr %1, align 4, !tbaa !14
   br label %127
 
@@ -2831,9 +2831,9 @@ define internal noundef range(i32 -9, 10559488) i32 @_ZL18_UTF16GetNextUCharP23U
   store i32 12, ptr %1, align 4, !tbaa !14
   br label %127
 
-127:                                              ; preds = %.thread.i9, %114, %.thread62.i15, %85
-  %.050.i7 = phi i32 [ 65535, %.thread.i9 ], [ %121, %114 ], [ %91, %85 ], [ 65535, %.thread62.i15 ]
-  %.049.i8 = phi ptr [ %77, %.thread.i9 ], [ %98, %114 ], [ %77, %85 ], [ %scevgep.i11, %.thread62.i15 ]
+127:                                              ; preds = %.thread.i9, %114, %.thread62.i14, %85
+  %.050.i7 = phi i32 [ 65535, %.thread.i9 ], [ %121, %114 ], [ %91, %85 ], [ 65535, %.thread62.i14 ]
+  %.049.i8 = phi ptr [ %77, %.thread.i9 ], [ %98, %114 ], [ %77, %85 ], [ %scevgep.i15, %.thread62.i14 ]
   store ptr %.049.i8, ptr %69, align 8, !tbaa !22
   br label %_ZL20_UTF16BEGetNextUCharP23UConverterToUnicodeArgsP10UErrorCode.exit
 

@@ -9946,8 +9946,8 @@ _ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit: ; preds = %28, %32, %37, %4
 _ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit: ; preds = %62, %58, %57, %48, %43, %42, %_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit, %26, %5
   %.071 = phi i32 [ %25, %5 ], [ %2, %26 ], [ %2, %_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit ], [ %2, %42 ], [ %2, %43 ], [ %2, %48 ], [ %2, %57 ], [ %2, %58 ], [ %2, %62 ]
   %.069 = phi i1 [ false, %5 ], [ false, %26 ], [ false, %_ZN4llvmL29lostFractionThroughTruncationEPKmjj.exit ], [ %41, %42 ], [ true, %43 ], [ %56, %48 ], [ false, %57 ], [ %.not.i84, %58 ], [ %66, %62 ]
-  %.ptr81 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %68 = add i32 %12, 66
+  %.066.ptr91 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %69 = icmp ne i32 %.071, 0
   %70 = icmp ugt i32 %68, 63
   %71 = and i1 %69, %70
@@ -10027,7 +10027,7 @@ _ZN4llvmL9partAsHexEPcmjPKc.exit:                 ; preds = %97
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit
   %.172.lcssa = phi i32 [ %.071, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit ], [ %104, %._crit_edge.loopexit ]
   %.066.idx.lcssa = phi i64 [ 3, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit ], [ %.066.add78, %._crit_edge.loopexit ]
-  %.066.ptr.lcssa = phi ptr [ %.ptr81, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit ], [ %.066.ptr, %._crit_edge.loopexit ]
+  %.066.ptr.lcssa = phi ptr [ %.066.ptr91, %_ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractionEj.exit ], [ %.066.ptr, %._crit_edge.loopexit ]
   br i1 %.069, label %.preheader, label %119
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader
@@ -10054,14 +10054,14 @@ _ZN4llvmL9partAsHexEPcmjPKc.exit:                 ; preds = %97
 
 .loopexit:                                        ; preds = %.preheader, %119
   %.167.idx = phi i64 [ %.066.add, %119 ], [ %.066.idx.lcssa, %.preheader ]
-  %121 = load i8, ptr %.ptr81, align 1, !tbaa !24
+  %121 = load i8, ptr %.066.ptr91, align 1, !tbaa !24
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %121, ptr %122, align 1, !tbaa !24
   %123 = icmp eq i64 %.167.idx, 4
   br i1 %123, label %125, label %124
 
 124:                                              ; preds = %.loopexit
-  store i8 46, ptr %.ptr81, align 1, !tbaa !24
+  store i8 46, ptr %.066.ptr91, align 1, !tbaa !24
   br label %125
 
 125:                                              ; preds = %.loopexit, %124
@@ -10683,20 +10683,20 @@ define dso_local void @_ZNK4llvm6detail9IEEEFloat30convertQuadrupleAPFloatToAPIn
 
 30:                                               ; preds = %2
   switch i8 %11, label %35 [
-    i8 3, label %_ZNSt5arrayImLm2EE4fillERKm.exit.loopexit.i
-    i8 0, label %_ZNSt5arrayImLm2EE4fillERKm.exit.loopexit23.i
+    i8 3, label %.lr.ph.i.i.i.i.i.preheader.i
+    i8 0, label %.lr.ph.i.i.i.i.i13.preheader.i
   ]
 
-_ZNSt5arrayImLm2EE4fillERKm.exit.loopexit.i:      ; preds = %30
+.lr.ph.i.i.i.i.i13.preheader.i:                   ; preds = %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, i8 0, i64 16, i1 false), !tbaa !36, !noalias !333
-  %31 = add nsw i32 %6, -16383
-  %32 = zext i32 %31 to i64
+  %31 = or disjoint i32 %6, 16384
+  %32 = zext nneg i32 %31 to i64
   br label %_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L11semIEEEquadEEEENS_5APIntEv.exit
 
-_ZNSt5arrayImLm2EE4fillERKm.exit.loopexit23.i:    ; preds = %30
+.lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, i8 0, i64 16, i1 false), !tbaa !36, !noalias !333
-  %33 = or disjoint i32 %6, 16384
-  %34 = zext nneg i32 %33 to i64
+  %33 = add nsw i32 %6, -16383
+  %34 = zext i32 %33 to i64
   br label %_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L11semIEEEquadEEEENS_5APIntEv.exit
 
 35:                                               ; preds = %30
@@ -10712,8 +10712,8 @@ _ZNSt5arrayImLm2EE4fillERKm.exit.loopexit23.i:    ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i19.i, i64 16, i1 false), !noalias !333
   br label %_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L11semIEEEquadEEEENS_5APIntEv.exit
 
-_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L11semIEEEquadEEEENS_5APIntEv.exit: ; preds = %14, %26, %_ZNSt5arrayImLm2EE4fillERKm.exit.loopexit.i, %_ZNSt5arrayImLm2EE4fillERKm.exit.loopexit23.i, %35
-  %.0.i = phi i64 [ %18, %14 ], [ %37, %35 ], [ %.lobit.i, %26 ], [ %32, %_ZNSt5arrayImLm2EE4fillERKm.exit.loopexit.i ], [ %34, %_ZNSt5arrayImLm2EE4fillERKm.exit.loopexit23.i ]
+_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L11semIEEEquadEEEENS_5APIntEv.exit: ; preds = %14, %26, %.lr.ph.i.i.i.i.i13.preheader.i, %.lr.ph.i.i.i.i.i.preheader.i, %35
+  %.0.i = phi i64 [ %18, %14 ], [ %37, %35 ], [ %.lobit.i, %26 ], [ %34, %.lr.ph.i.i.i.i.i.preheader.i ], [ %32, %.lr.ph.i.i.i.i.i13.preheader.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !333
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, i64 16, i1 false), !noalias !333
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8

@@ -846,26 +846,26 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN
 
 .noexc50:                                         ; preds = %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i
   store ptr %58, ptr %23, align 8, !tbaa !69
-  %59 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %60 = getelementptr inbounds nuw %"class.cv::Mat", ptr %58, i64 %54
-  %61 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %60, ptr %61, align 8, !tbaa !72
+  %59 = getelementptr inbounds nuw %"class.cv::Mat", ptr %58, i64 %54
+  %60 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store ptr %59, ptr %60, align 8, !tbaa !72
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.noexc50
-  %.08.i.i.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i.i.i ], [ %58, %.noexc50 ]
-  %.057.i.i.i.i.i = phi i64 [ %62, %.lr.ph.i.i.i.i.i ], [ %54, %.noexc50 ]
+  %.08.i.i.i.i.i = phi ptr [ %62, %.lr.ph.i.i.i.i.i ], [ %58, %.noexc50 ]
+  %.057.i.i.i.i.i = phi i64 [ %61, %.lr.ph.i.i.i.i.i ], [ %54, %.noexc50 ]
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.08.i.i.i.i.i) #23
-  %62 = add i64 %.057.i.i.i.i.i, -1
-  %63 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
-  %.not.i.i.i.i.i = icmp eq i64 %62, 0
+  %61 = add i64 %.057.i.i.i.i.i, -1
+  %62 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 96
+  %.not.i.i.i.i.i = icmp eq i64 %61, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit62, label %.lr.ph.i.i.i.i.i, !llvm.loop !73
 
 .loopexit62:                                      ; preds = %.lr.ph.i.i.i.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.val4873.pre = load ptr, ptr %49, align 8, !tbaa !29
   %.val4974.pre = load ptr, ptr %50, align 8, !tbaa !27
   %64 = icmp eq ptr %.val4974.pre, %.val4873.pre
-  store ptr %63, ptr %59, align 8, !tbaa !74
+  store ptr %62, ptr %63, align 8, !tbaa !74
   br i1 %64, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit62

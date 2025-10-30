@@ -10057,14 +10057,14 @@ _ZN2cv9TickMeter5startEv.exit.preheader:          ; preds = %3451
   %3473 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %3474 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %3475 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %3476 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %3477 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %3478 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %3479 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %3480 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %3481 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %3482 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %3483 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %3476 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %3477 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %3478 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %3479 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %3480 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %3481 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %3482 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %3483 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %3484 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %3485 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %3486 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -10827,11 +10827,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit922: ; preds = %_Z
   %3723 = fmul double %3695, %3703
   store double %3723, ptr %12, align 8, !tbaa !367
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3475, i8 0, i64 16, i1 false)
-  store double %3698, ptr %3477, align 8, !tbaa !367
+  store double %3698, ptr %3476, align 8, !tbaa !367
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  store i64 0, ptr %3479, align 8
+  store i64 0, ptr %3478, align 8
   store i32 50397184, ptr %13, align 8, !tbaa !363
-  store ptr %178, ptr %3478, align 8, !tbaa !366
+  store ptr %178, ptr %3477, align 8, !tbaa !366
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i.i)
   br label %.preheader19.i.i.i.i
@@ -10880,8 +10880,8 @@ _ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_Mat
   %.sroa.0.0.insert.insert.i75.i = or disjoint i64 %.sroa.2.0.insert.shift.i73.i, %.sroa.0.0.insert.ext.i74.i
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store double 2.550000e+02, ptr %3480, align 8, !tbaa !367
-  store double 0.000000e+00, ptr %3481, align 8, !tbaa !367
+  store double 2.550000e+02, ptr %3479, align 8, !tbaa !367
+  store double 0.000000e+00, ptr %3480, align 8, !tbaa !367
   invoke void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 %.sroa.015.0.insert.insert21.i, i64 %.sroa.0.0.insert.insert.i75.i, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 2, i32 noundef 8, i32 noundef 0)
           to label %.noexc929 unwind label %3893
 
@@ -10889,9 +10889,9 @@ _ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_Mat
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store i64 0, ptr %3483, align 8
+  store i64 0, ptr %3482, align 8
   store i32 50397184, ptr %15, align 8, !tbaa !363
-  store ptr %178, ptr %3482, align 8, !tbaa !366
+  store ptr %178, ptr %3481, align 8, !tbaa !366
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i76.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i77.i)
   br label %.preheader19.i.i.i80.i
@@ -10951,7 +10951,7 @@ _ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_Mat
 .preheader19.i.i.i108.i:                          ; preds = %3751, %.noexc930
   %3750 = phi i1 [ true, %.noexc930 ], [ false, %3751 ]
   %indvars.iv24.i.sroa.phi.i.i109.i = phi ptr [ %.sroa.0.i.i104.i, %.noexc930 ], [ %.sroa.4.i.i105.i, %3751 ]
-  %indvars.iv24.i.i.i110.sroa.phi.i = phi ptr [ %12, %.noexc930 ], [ %3476, %3751 ]
+  %indvars.iv24.i.i.i110.sroa.phi.i = phi ptr [ %12, %.noexc930 ], [ %3483, %3751 ]
   br label %3752
 
 3751:                                             ; preds = %3752

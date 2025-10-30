@@ -172263,24 +172263,24 @@ _ZN4llvm4sortIRNS_11SmallVectorINS_9StringRefELj8EEEEEvOT_.exit: ; preds = %190,
 251:                                              ; preds = %250
   %252 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %242) #30
   %253 = load ptr, ptr %252, align 8, !tbaa !711
-  %254 = getelementptr inbounds nuw i8, ptr %252, i64 8
-  %255 = load i32, ptr %254, align 8, !tbaa !712
-  %256 = zext i32 %255 to i64
-  %.idx.i.i295 = shl nuw nsw i64 %256, 3
-  %257 = getelementptr inbounds nuw i8, ptr %253, i64 %.idx.i.i295
   br label %.lr.ph.i.i.i.i.i297
 
 .lr.ph.i.i.i.i.i297:                              ; preds = %.lr.ph.i.i.i.i.i297, %251
-  %.sroa.07.1.i.i.i.i298 = phi ptr [ %262, %.lr.ph.i.i.i.i.i297 ], [ %253, %251 ]
-  %258 = load ptr, ptr %.sroa.07.1.i.i.i.i298, align 8, !tbaa !1477
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 32
-  %260 = load i16, ptr %259, align 8
-  %261 = icmp eq i16 %260, 367
-  %262 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i298, i64 8
-  br i1 %261, label %_ZN5clangneENS_22specific_attr_iteratorINS_10TargetAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i300, label %.lr.ph.i.i.i.i.i297
+  %.sroa.07.1.i.i.i.i298 = phi ptr [ %258, %.lr.ph.i.i.i.i.i297 ], [ %253, %251 ]
+  %254 = load ptr, ptr %.sroa.07.1.i.i.i.i298, align 8, !tbaa !1477
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 32
+  %256 = load i16, ptr %255, align 8
+  %257 = icmp eq i16 %256, 367
+  %258 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i298, i64 8
+  br i1 %257, label %_ZN5clangneENS_22specific_attr_iteratorINS_10TargetAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i300, label %.lr.ph.i.i.i.i.i297
 
 _ZN5clangneENS_22specific_attr_iteratorINS_10TargetAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i300: ; preds = %.lr.ph.i.i.i.i.i297
-  %.not5.i.i301 = icmp ne ptr %.sroa.07.1.i.i.i.i298, %257
+  %259 = getelementptr inbounds nuw i8, ptr %252, i64 8
+  %260 = load i32, ptr %259, align 8, !tbaa !712
+  %261 = zext i32 %260 to i64
+  %.idx.i.i295 = shl nuw nsw i64 %261, 3
+  %262 = getelementptr inbounds nuw i8, ptr %253, i64 %.idx.i.i295
+  %.not5.i.i301 = icmp ne ptr %.sroa.07.1.i.i.i.i298, %262
   call void @llvm.assume(i1 %.not5.i.i301)
   %263 = load ptr, ptr %253, align 8, !tbaa !1477
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 32

@@ -3251,17 +3251,17 @@ Abc_Clock.exit81:                                 ; preds = %.critedge4._crit_ed
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Ssw_SmlUnnormalize(ptr noundef captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !66
-  %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph.preheader, label %.preheader
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load i32, ptr %3, align 8, !tbaa !66
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %wide.trip.count = zext nneg i32 %5 to i64
+  %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load ptr, ptr %0, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !110
@@ -3287,7 +3287,7 @@ define void @Ssw_SmlUnnormalize(ptr noundef captures(none) %0) local_unnamed_add
 
 16:                                               ; preds = %.lr.ph34, %.loopexit
   %.val42 = phi i32 [ %.val32, %.lr.ph34 ], [ %.val, %.loopexit ]
-  %17 = phi i32 [ %5, %.lr.ph34 ], [ %42, %.loopexit ]
+  %17 = phi i32 [ %4, %.lr.ph34 ], [ %42, %.loopexit ]
   %indvars.iv39 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next40, %.loopexit ]
   %18 = getelementptr inbounds nuw ptr, ptr %.val26, i64 %indvars.iv39
   %19 = load ptr, ptr %18, align 8, !tbaa !32
@@ -3309,7 +3309,7 @@ define void @Ssw_SmlUnnormalize(ptr noundef captures(none) %0) local_unnamed_add
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 36
   %30 = load i32, ptr %29, align 4, !tbaa !3
-  %31 = load i32, ptr %3, align 4, !tbaa !10
+  %31 = load i32, ptr %6, align 4, !tbaa !10
   %32 = mul nsw i32 %31, %30
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i32, ptr %2, i64 %33
@@ -3323,7 +3323,7 @@ define void @Ssw_SmlUnnormalize(ptr noundef captures(none) %0) local_unnamed_add
   %38 = xor i32 %37, -1
   store i32 %38, ptr %36, align 4, !tbaa !15
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %39 = load i32, ptr %4, align 8, !tbaa !66
+  %39 = load i32, ptr %3, align 8, !tbaa !66
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next37, %40
   br i1 %41, label %.lr.ph31, label %.loopexit.loopexit, !llvm.loop !119

@@ -281,7 +281,7 @@ comp_autocorr.exit.i:                             ; preds = %comp_autocorr.exit.
 
 .preheader.i14.i:                                 ; preds = %._crit_edge53.i.i, %comp_autocorr.exit.i
   %indvars.iv64.i.i = phi i64 [ 0, %comp_autocorr.exit.i ], [ %indvars.iv.next65.i.i, %._crit_edge53.i.i ]
-  %.04454.i.i = phi i16 [ %125, %comp_autocorr.exit.i ], [ %170, %._crit_edge53.i.i ]
+  %.04454.i.i = phi i16 [ %125, %comp_autocorr.exit.i ], [ %193, %._crit_edge53.i.i ]
   %.not56.i.i = icmp eq i64 %indvars.iv64.i.i, 0
   br i1 %.not56.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
 
@@ -332,63 +332,63 @@ comp_autocorr.exit.i:                             ; preds = %comp_autocorr.exit.
   %152 = trunc i32 %151 to i16
   %153 = getelementptr inbounds nuw i16, ptr %.01222.i, i64 %indvars.iv64.i.i
   store i16 %152, ptr %153, align 2, !tbaa !40
-  %154 = ashr i32 %142, 15
-  %155 = and i32 %154, -2
-  %156 = mul i32 %149, %155
-  %157 = and i32 %.0.lcssa.i.i, 65528
-  %158 = mul nsw i32 %149, %157
-  %159 = ashr i32 %158, 15
-  %160 = add nsw i32 %159, %156
-  %161 = zext nneg i32 %145 to i64
-  %162 = sext i32 %160 to i64
-  %163 = sub nsw i64 %161, %162
-  %164 = add nsw i64 %163, 2147516416
-  %.not.i46.i.i = icmp samesign ult i64 %164, 4294967296
-  %165 = icmp sgt i64 %163, -32769
-  %166 = select i1 %165, i32 2147418112, i32 -2147483648
-  %167 = trunc i64 %163 to i32
-  %168 = add i32 %167, 32768
-  %.0.i47.i.i = select i1 %.not.i46.i.i, i32 %168, i32 %166
-  %169 = lshr i32 %.0.i47.i.i, 16
-  %170 = trunc nuw i32 %169 to i16
-  %171 = shl nuw nsw i64 %indvars.iv64.i.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %21, ptr nonnull align 2 %.01222.i, i64 %171, i1 false)
+  %154 = shl nuw nsw i64 %indvars.iv64.i.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %21, ptr nonnull align 2 %.01222.i, i64 %154, i1 false)
   br i1 %.not56.i.i, label %._crit_edge53.i.i, label %.lr.ph52.i.i
 
 .lr.ph52.i.i:                                     ; preds = %146
-  %172 = ashr exact i32 %sext.i.i, 15
-  %173 = getelementptr i16, ptr %21, i64 %indvars.iv64.i.i
-  br label %174
+  %155 = ashr exact i32 %sext.i.i, 15
+  %156 = getelementptr i16, ptr %21, i64 %indvars.iv64.i.i
+  br label %157
 
-174:                                              ; preds = %174, %.lr.ph52.i.i
-  %indvars.iv59.i.i = phi i64 [ 0, %.lr.ph52.i.i ], [ %indvars.iv.next60.i.i, %174 ]
-  %175 = xor i64 %indvars.iv59.i.i, -1
-  %176 = getelementptr i16, ptr %173, i64 %175
-  %177 = load i16, ptr %176, align 2, !tbaa !40
-  %178 = sext i16 %177 to i32
-  %179 = mul i32 %172, %178
-  %180 = getelementptr inbounds nuw i16, ptr %.01222.i, i64 %indvars.iv59.i.i
-  %181 = load i16, ptr %180, align 2, !tbaa !40
-  %182 = sext i16 %181 to i32
-  %183 = shl nsw i32 %182, 16
-  %184 = sext i32 %183 to i64
-  %185 = sext i32 %179 to i64
+157:                                              ; preds = %157, %.lr.ph52.i.i
+  %indvars.iv59.i.i = phi i64 [ 0, %.lr.ph52.i.i ], [ %indvars.iv.next60.i.i, %157 ]
+  %158 = xor i64 %indvars.iv59.i.i, -1
+  %159 = getelementptr i16, ptr %156, i64 %158
+  %160 = load i16, ptr %159, align 2, !tbaa !40
+  %161 = sext i16 %160 to i32
+  %162 = mul i32 %155, %161
+  %163 = getelementptr inbounds nuw i16, ptr %.01222.i, i64 %indvars.iv59.i.i
+  %164 = load i16, ptr %163, align 2, !tbaa !40
+  %165 = sext i16 %164 to i32
+  %166 = shl nsw i32 %165, 16
+  %167 = sext i32 %166 to i64
+  %168 = sext i32 %162 to i64
+  %169 = sub nsw i64 %167, %168
+  %170 = add nsw i64 %169, 2147516416
+  %.not.i.i19.i = icmp ult i64 %170, 4294967296
+  %171 = icmp sgt i64 %169, -32769
+  %172 = select i1 %171, i32 2147418112, i32 -2147483648
+  %173 = trunc i64 %169 to i32
+  %174 = add i32 %173, 32768
+  %.0.i.i20.i = select i1 %.not.i.i19.i, i32 %174, i32 %172
+  %175 = lshr i32 %.0.i.i20.i, 16
+  %176 = trunc nuw i32 %175 to i16
+  store i16 %176, ptr %163, align 2, !tbaa !40
+  %indvars.iv.next60.i.i = add nuw nsw i64 %indvars.iv59.i.i, 1
+  %exitcond63.not.i.i = icmp eq i64 %indvars.iv.next60.i.i, %indvars.iv64.i.i
+  br i1 %exitcond63.not.i.i, label %._crit_edge53.i.i, label %157, !llvm.loop !46
+
+._crit_edge53.i.i:                                ; preds = %157, %146
+  %177 = ashr i32 %142, 15
+  %178 = and i32 %177, -2
+  %179 = mul i32 %149, %178
+  %180 = and i32 %.0.lcssa.i.i, 65528
+  %181 = mul nsw i32 %149, %180
+  %182 = ashr i32 %181, 15
+  %183 = add nsw i32 %182, %179
+  %184 = zext nneg i32 %145 to i64
+  %185 = sext i32 %183 to i64
   %186 = sub nsw i64 %184, %185
   %187 = add nsw i64 %186, 2147516416
-  %.not.i.i19.i = icmp ult i64 %187, 4294967296
+  %.not.i46.i.i = icmp samesign ult i64 %187, 4294967296
   %188 = icmp sgt i64 %186, -32769
   %189 = select i1 %188, i32 2147418112, i32 -2147483648
   %190 = trunc i64 %186 to i32
   %191 = add i32 %190, 32768
-  %.0.i.i20.i = select i1 %.not.i.i19.i, i32 %191, i32 %189
-  %192 = lshr i32 %.0.i.i20.i, 16
+  %.0.i47.i.i = select i1 %.not.i46.i.i, i32 %191, i32 %189
+  %192 = lshr i32 %.0.i47.i.i, 16
   %193 = trunc nuw i32 %192 to i16
-  store i16 %193, ptr %180, align 2, !tbaa !40
-  %indvars.iv.next60.i.i = add nuw nsw i64 %indvars.iv59.i.i, 1
-  %exitcond63.not.i.i = icmp eq i64 %indvars.iv.next60.i.i, %indvars.iv64.i.i
-  br i1 %exitcond63.not.i.i, label %._crit_edge53.i.i, label %174, !llvm.loop !46
-
-._crit_edge53.i.i:                                ; preds = %174, %146
   %indvars.iv.next65.i.i = add nuw nsw i64 %indvars.iv64.i.i, 1
   %exitcond66.not.i.i = icmp eq i64 %indvars.iv.next65.i.i, 10
   br i1 %exitcond66.not.i.i, label %levinson_durbin.exit.i, label %.preheader.i14.i, !llvm.loop !47
@@ -3146,7 +3146,6 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   %indvars.iv266 = phi i64 [ 0, %.preheader207 ], [ 1, %208 ]
   %86 = phi i32 [ undef, %.preheader207 ], [ %spec.select, %208 ]
   %.promoted236244246 = phi i32 [ %.promoted, %.preheader207 ], [ %.promoted236242, %208 ]
-  %indvars316 = trunc nuw nsw i64 %indvars.iv266 to i32
   br label %88
 
 .preheader205:                                    ; preds = %88
@@ -3192,6 +3191,7 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   br i1 %106, label %94, label %107, !llvm.loop !131
 
 107:                                              ; preds = %94
+  %indvars316 = trunc nuw nsw i64 %indvars.iv266 to i32
   %108 = add i32 %.1158, -3
   %109 = sext i32 %spec.select to i64
   %110 = getelementptr inbounds i32, ptr %11, i64 %109

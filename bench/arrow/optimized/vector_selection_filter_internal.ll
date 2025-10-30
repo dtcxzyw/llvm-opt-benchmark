@@ -17887,25 +17887,25 @@ define linkonce_odr i32 @_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_
 
 15:                                               ; preds = %4
   %.sroa.speculated32 = tail call i64 @llvm.smin.i64(i64 %3, i64 64)
-  %16 = trunc i64 %.sroa.speculated32 to i16
   %sext = shl i64 %.sroa.speculated32, 48
-  %17 = ashr exact i64 %sext, 48
-  %18 = icmp sgt i64 %17, 0
+  %16 = ashr exact i64 %sext, 48
+  %17 = icmp sgt i64 %16, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !66
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !69
-  br i1 %18, label %.lr.ph, label %._crit_edge
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !69
+  br i1 %17, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %.016.lcssa = phi i16 [ 0, %15 ], [ %spec.select20, %.lr.ph ]
-  %21 = sdiv i16 %16, 8
+  %20 = trunc i64 %.sroa.speculated32 to i16
+  %21 = sdiv i16 %20, 8
   %22 = sext i16 %21 to i64
   %23 = getelementptr inbounds i8, ptr %.pre, i64 %22
   store ptr %23, ptr %0, align 8, !tbaa !66
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = getelementptr inbounds i8, ptr %20, i64 %22
+  %25 = getelementptr inbounds i8, ptr %19, i64 %22
   store ptr %25, ptr %24, align 8, !tbaa !69
-  %26 = sub nsw i64 %3, %17
+  %26 = sub nsw i64 %3, %16
   store i64 %26, ptr %2, align 8, !tbaa !71
   %27 = trunc i64 %.sroa.speculated32 to i32
   %28 = and i32 %27, 65535
@@ -17926,7 +17926,7 @@ define linkonce_odr i32 @_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_
   %38 = icmp ne i32 %37, 0
   %39 = add nsw i64 %.01537, %10
   %40 = lshr i64 %39, 3
-  %41 = getelementptr inbounds nuw i8, ptr %20, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !170
   %43 = zext i8 %42 to i32
   %44 = trunc i64 %39 to i32
@@ -17938,7 +17938,7 @@ define linkonce_odr i32 @_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_
   %49 = zext i1 %48 to i16
   %spec.select20 = add i16 %.01636, %49
   %50 = add nuw nsw i64 %.01537, 1
-  %exitcond.not = icmp eq i64 %50, %17
+  %exitcond.not = icmp eq i64 %50, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !699
 
 51:                                               ; preds = %4
@@ -18026,25 +18026,25 @@ define linkonce_odr i32 @_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_
 
 15:                                               ; preds = %4
   %.sroa.speculated32 = tail call i64 @llvm.smin.i64(i64 %3, i64 64)
-  %16 = trunc i64 %.sroa.speculated32 to i16
   %sext = shl i64 %.sroa.speculated32, 48
-  %17 = ashr exact i64 %sext, 48
-  %18 = icmp sgt i64 %17, 0
+  %16 = ashr exact i64 %sext, 48
+  %17 = icmp sgt i64 %16, 0
   %.pre = load ptr, ptr %0, align 8, !tbaa !66
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !69
-  br i1 %18, label %.lr.ph, label %._crit_edge
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !69
+  br i1 %17, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %.016.lcssa = phi i16 [ 0, %15 ], [ %spec.select20, %.lr.ph ]
-  %21 = sdiv i16 %16, 8
+  %20 = trunc i64 %.sroa.speculated32 to i16
+  %21 = sdiv i16 %20, 8
   %22 = sext i16 %21 to i64
   %23 = getelementptr inbounds i8, ptr %.pre, i64 %22
   store ptr %23, ptr %0, align 8, !tbaa !66
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = getelementptr inbounds i8, ptr %20, i64 %22
+  %25 = getelementptr inbounds i8, ptr %19, i64 %22
   store ptr %25, ptr %24, align 8, !tbaa !69
-  %26 = sub nsw i64 %3, %17
+  %26 = sub nsw i64 %3, %16
   store i64 %26, ptr %2, align 8, !tbaa !71
   %27 = trunc i64 %.sroa.speculated32 to i32
   %28 = and i32 %27, 65535
@@ -18065,7 +18065,7 @@ define linkonce_odr i32 @_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_
   %38 = icmp ne i32 %37, 0
   %39 = add nsw i64 %.01536, %10
   %40 = lshr i64 %39, 3
-  %41 = getelementptr inbounds nuw i8, ptr %20, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !170
   %43 = zext i8 %42 to i32
   %44 = trunc i64 %39 to i32
@@ -18077,7 +18077,7 @@ define linkonce_odr i32 @_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_
   %50 = zext i1 %49 to i16
   %spec.select20 = add i16 %.01635, %50
   %51 = add nuw nsw i64 %.01536, 1
-  %exitcond.not = icmp eq i64 %51, %17
+  %exitcond.not = icmp eq i64 %51, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !700
 
 52:                                               ; preds = %4

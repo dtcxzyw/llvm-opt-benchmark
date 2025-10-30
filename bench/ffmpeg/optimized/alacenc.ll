@@ -1706,36 +1706,36 @@ alac_linear_predictor.exit:                       ; preds = %.critedge.us.i, %.a
   br i1 %637, label %638, label %656
 
 638:                                              ; preds = %636
-  %639 = zext nneg i32 %spec.select.i to i64
-  %640 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %639
-  %641 = load i8, ptr %640, align 1, !tbaa !48
-  %642 = zext i8 %641 to i32
-  %643 = add nuw nsw i32 %spec.select.i, 16
-  %644 = lshr i32 %643, 6
-  %reass.sub.i184 = add nuw nsw i32 %644, 7
-  %645 = sub nsw i32 %reass.sub.i184, %642
-  %646 = load i32, ptr %624, align 4, !tbaa !63
-  %647 = icmp eq i32 %646, 0
-  br i1 %647, label %.lr.ph.i186, label %.critedge.i
+  %639 = load i32, ptr %624, align 4, !tbaa !63
+  %640 = icmp eq i32 %639, 0
+  br i1 %640, label %.lr.ph.i186, label %.critedge.i
 
 .lr.ph.i186:                                      ; preds = %638, %.lr.ph.i186
-  %.054.i = phi i32 [ %650, %.lr.ph.i186 ], [ 0, %638 ]
-  %.23953.i = phi ptr [ %648, %.lr.ph.i186 ], [ %624, %638 ]
-  %.24252.i = phi i32 [ %649, %.lr.ph.i186 ], [ %625, %638 ]
-  %648 = getelementptr inbounds nuw i8, ptr %.23953.i, i64 4
-  %649 = add nsw i32 %.24252.i, 1
-  %650 = add i32 %.054.i, 1
-  %651 = load i32, ptr %648, align 4, !tbaa !63
-  %652 = icmp eq i32 %651, 0
-  %653 = icmp slt i32 %649, %.pre64.i
-  %or.cond.i = select i1 %652, i1 %653, i1 false
+  %.054.i = phi i32 [ %643, %.lr.ph.i186 ], [ 0, %638 ]
+  %.23953.i = phi ptr [ %641, %.lr.ph.i186 ], [ %624, %638 ]
+  %.24252.i = phi i32 [ %642, %.lr.ph.i186 ], [ %625, %638 ]
+  %641 = getelementptr inbounds nuw i8, ptr %.23953.i, i64 4
+  %642 = add nsw i32 %.24252.i, 1
+  %643 = add i32 %.054.i, 1
+  %644 = load i32, ptr %641, align 4, !tbaa !63
+  %645 = icmp eq i32 %644, 0
+  %646 = icmp slt i32 %642, %.pre64.i
+  %or.cond.i = select i1 %645, i1 %646, i1 false
   br i1 %or.cond.i, label %.lr.ph.i186, label %.critedge.i, !llvm.loop !109
 
 .critedge.i:                                      ; preds = %.lr.ph.i186, %638
-  %.242.lcssa.i = phi i32 [ %625, %638 ], [ %649, %.lr.ph.i186 ]
-  %.239.lcssa.i = phi ptr [ %624, %638 ], [ %648, %.lr.ph.i186 ]
-  %.0.lcssa.i = phi i32 [ 0, %638 ], [ %650, %.lr.ph.i186 ]
-  call fastcc void @encode_scalar(ptr noundef nonnull %0, i32 noundef %.0.lcssa.i, i32 noundef %645, i32 noundef 16)
+  %.242.lcssa.i = phi i32 [ %625, %638 ], [ %642, %.lr.ph.i186 ]
+  %.239.lcssa.i = phi ptr [ %624, %638 ], [ %641, %.lr.ph.i186 ]
+  %.0.lcssa.i = phi i32 [ 0, %638 ], [ %643, %.lr.ph.i186 ]
+  %647 = zext nneg i32 %spec.select.i to i64
+  %648 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %647
+  %649 = load i8, ptr %648, align 1, !tbaa !48
+  %650 = zext i8 %649 to i32
+  %651 = add nuw nsw i32 %spec.select.i, 16
+  %652 = lshr i32 %651, 6
+  %reass.sub.i184 = add nuw nsw i32 %652, 7
+  %653 = sub nsw i32 %reass.sub.i184, %650
+  call fastcc void @encode_scalar(ptr noundef nonnull %0, i32 noundef %.0.lcssa.i, i32 noundef %653, i32 noundef 16)
   %654 = icmp ult i32 %.0.lcssa.i, 65536
   %655 = zext i1 %654 to i32
   %.pre.i185 = load i32, ptr %146, align 16, !tbaa !27

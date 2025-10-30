@@ -378,47 +378,47 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   %.070102 = phi ptr [ %24, %33 ], [ %.171.lcssa, %91 ]
   %.072.idx101 = phi i64 [ 4108, %33 ], [ %.072.add, %91 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4096 dereferenceable(24) %7, ptr noundef nonnull align 4096 dereferenceable(24) %6, i64 24, i1 false)
-  %37 = icmp samesign eq i64 %.072.idx101, 8192
-  %38 = select i1 %35, i1 %37, i1 false
-  %39 = icmp ult ptr %.070102, %.072.ptr104
-  br i1 %39, label %.lr.ph, label %._crit_edge
+  %37 = icmp ult ptr %.070102, %.072.ptr104
+  br i1 %37, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %36, %50
-  %.06698 = phi i1 [ %.268, %50 ], [ true, %36 ]
-  %.06997 = phi ptr [ %52, %50 ], [ %25, %36 ]
-  %.17196 = phi ptr [ %51, %50 ], [ %.070102, %36 ]
-  %40 = load i8, ptr %.17196, align 1
-  %41 = zext i8 %40 to i32
-  br label %42
+.lr.ph:                                           ; preds = %36, %48
+  %.06698 = phi i1 [ %.268, %48 ], [ true, %36 ]
+  %.06997 = phi ptr [ %50, %48 ], [ %25, %36 ]
+  %.17196 = phi ptr [ %49, %48 ], [ %.070102, %36 ]
+  %38 = load i8, ptr %.17196, align 1
+  %39 = zext i8 %38 to i32
+  br label %40
 
-42:                                               ; preds = %.lr.ph, %42
-  %.06195 = phi i32 [ 0, %.lr.ph ], [ %49, %42 ]
-  %.06294 = phi i16 [ 0, %.lr.ph ], [ %.1, %42 ]
-  %.16793 = phi i1 [ %.06698, %.lr.ph ], [ %.268, %42 ]
-  %43 = shl nuw nsw i32 1, %.06195
-  %44 = and i32 %43, %41
-  %.not85 = icmp eq i32 %44, 0
-  %45 = shl nuw nsw i32 %.06195, 1
-  %46 = shl nuw nsw i32 1, %45
-  %47 = trunc nuw nsw i32 %46 to i16
+40:                                               ; preds = %.lr.ph, %40
+  %.06195 = phi i32 [ 0, %.lr.ph ], [ %47, %40 ]
+  %.06294 = phi i16 [ 0, %.lr.ph ], [ %.1, %40 ]
+  %.16793 = phi i1 [ %.06698, %.lr.ph ], [ %.268, %40 ]
+  %41 = shl nuw nsw i32 1, %.06195
+  %42 = and i32 %41, %39
+  %.not85 = icmp eq i32 %42, 0
+  %43 = shl nuw nsw i32 %.06195, 1
+  %44 = shl nuw nsw i32 1, %43
+  %45 = trunc nuw nsw i32 %44 to i16
   %.268 = select i1 %.not85, i1 %.16793, i1 false
-  %48 = select i1 %.not85, i16 0, i16 %47
-  %.1 = or i16 %48, %.06294
-  %49 = add nuw nsw i32 %.06195, 1
-  %exitcond.not = icmp eq i32 %49, 8
-  br i1 %exitcond.not, label %50, label %42, !llvm.loop !11
+  %46 = select i1 %.not85, i16 0, i16 %45
+  %.1 = or i16 %46, %.06294
+  %47 = add nuw nsw i32 %.06195, 1
+  %exitcond.not = icmp eq i32 %47, 8
+  br i1 %exitcond.not, label %48, label %40, !llvm.loop !11
 
-50:                                               ; preds = %42
+48:                                               ; preds = %40
   store i16 %.1, ptr %.06997, align 1
-  %51 = getelementptr inbounds nuw i8, ptr %.17196, i64 1
-  %52 = getelementptr inbounds nuw i8, ptr %.06997, i64 2
-  %53 = icmp ult ptr %51, %.072.ptr104
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  %49 = getelementptr inbounds nuw i8, ptr %.17196, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.06997, i64 2
+  %51 = icmp ult ptr %49, %.072.ptr104
+  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %50, %36
-  %.171.lcssa = phi ptr [ %.070102, %36 ], [ %51, %50 ]
-  %.066.lcssa = phi i1 [ true, %36 ], [ %.268, %50 ]
-  %or.cond = select i1 %38, i1 %.066.lcssa, i1 false
+._crit_edge:                                      ; preds = %48, %36
+  %.171.lcssa = phi ptr [ %.070102, %36 ], [ %49, %48 ]
+  %.066.lcssa = phi i1 [ true, %36 ], [ %.268, %48 ]
+  %52 = icmp samesign eq i64 %.072.idx101, 8192
+  %53 = select i1 %35, i1 %52, i1 false
+  %or.cond = select i1 %53, i1 %.066.lcssa, i1 false
   br i1 %or.cond, label %.thread, label %54
 
 54:                                               ; preds = %._crit_edge

@@ -1642,39 +1642,39 @@ define internal fastcc void @_ZL21set_writing_intervalsP18gmx_tng_trajectorybPK1
   %19 = lshr exact i32 %10, %18
   %20 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %12, i1 true)
   %21 = lshr exact i32 %12, %20
-  %22 = tail call i32 @llvm.umin.i32(i32 %18, i32 %20)
   %spec.select3334.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %19, i32 %21)
-  %23 = icmp eq i32 %19, %21
-  br i1 %23, label %_ZL35greatest_common_divisor_if_positiveii.exit.i, label %.lr.ph.i.i.i.i
+  %22 = icmp eq i32 %19, %21
+  br i1 %22, label %_ZL35greatest_common_divisor_if_positiveii.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %17, %.lr.ph.i.i.i.i
   %spec.select3337.i.i.i.i = phi i32 [ %spec.select33.i.i.i.i, %.lr.ph.i.i.i.i ], [ %spec.select3334.i.i.i.i, %17 ]
   %.02736.i.i.i.i = phi i32 [ %spec.select3337.i.i.i.i, %.lr.ph.i.i.i.i ], [ %19, %17 ]
-  %.02835.i.i.i.i = phi i32 [ %26, %.lr.ph.i.i.i.i ], [ %21, %17 ]
+  %.02835.i.i.i.i = phi i32 [ %25, %.lr.ph.i.i.i.i ], [ %21, %17 ]
   %spec.select.i.i.i.i = tail call i32 @llvm.umax.i32(i32 %.02736.i.i.i.i, i32 %.02835.i.i.i.i)
-  %24 = sub i32 %spec.select.i.i.i.i, %spec.select3337.i.i.i.i
-  %25 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %24, i1 true)
-  %26 = lshr exact i32 %24, %25
-  %spec.select33.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i.i, i32 %26)
-  %27 = icmp eq i32 %spec.select3337.i.i.i.i, %26
-  br i1 %27, label %_ZL35greatest_common_divisor_if_positiveii.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !242
+  %23 = sub i32 %spec.select.i.i.i.i, %spec.select3337.i.i.i.i
+  %24 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %23, i1 true)
+  %25 = lshr exact i32 %23, %24
+  %spec.select33.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i.i, i32 %25)
+  %26 = icmp eq i32 %spec.select3337.i.i.i.i, %25
+  br i1 %26, label %_ZL35greatest_common_divisor_if_positiveii.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !242
 
 _ZL35greatest_common_divisor_if_positiveii.exit.thread3.i: ; preds = %15
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %29 = load i32, ptr %28, align 8, !tbaa !243
-  %30 = icmp slt i32 %29, 1
-  br i1 %30, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread, label %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %28 = load i32, ptr %27, align 8, !tbaa !243
+  %29 = icmp slt i32 %28, 1
+  br i1 %29, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread, label %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i
 
 _ZL35greatest_common_divisor_if_positiveii.exit.thread.i: ; preds = %16, %15
   %.0.i.ph.i = phi i32 [ %10, %16 ], [ %12, %15 ]
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %32 = load i32, ptr %31, align 8, !tbaa !243
-  %33 = icmp slt i32 %32, 1
-  br i1 %33, label %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i, label %41
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %31 = load i32, ptr %30, align 8, !tbaa !243
+  %32 = icmp slt i32 %31, 1
+  br i1 %32, label %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i, label %41
 
 _ZL35greatest_common_divisor_if_positiveii.exit.i: ; preds = %.lr.ph.i.i.i.i, %17
   %spec.select33.lcssa.i.i.i.i = phi i32 [ %spec.select3334.i.i.i.i, %17 ], [ %spec.select33.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %34 = shl i32 %spec.select33.lcssa.i.i.i.i, %22
+  %33 = tail call i32 @llvm.umin.i32(i32 %18, i32 %20)
+  %34 = shl i32 %spec.select33.lcssa.i.i.i.i, %33
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %36 = load i32, ptr %35, align 8, !tbaa !243
   %37 = icmp slt i32 %34, 1
@@ -1689,31 +1689,31 @@ _ZL35greatest_common_divisor_if_positiveii.exit.i: ; preds = %.lr.ph.i.i.i.i, %1
 
 41:                                               ; preds = %40, %_ZL35greatest_common_divisor_if_positiveii.exit.thread.i
   %.0.i25.i = phi i32 [ %.0.i.ph.i, %_ZL35greatest_common_divisor_if_positiveii.exit.thread.i ], [ %34, %40 ]
-  %42 = phi i32 [ %32, %_ZL35greatest_common_divisor_if_positiveii.exit.thread.i ], [ %36, %40 ]
+  %42 = phi i32 [ %31, %_ZL35greatest_common_divisor_if_positiveii.exit.thread.i ], [ %36, %40 ]
   %43 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.0.i25.i, i1 true)
   %44 = lshr exact i32 %.0.i25.i, %43
   %45 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %42, i1 true)
   %46 = lshr exact i32 %42, %45
-  %47 = tail call i32 @llvm.umin.i32(i32 %43, i32 %45)
   %spec.select3334.i.i.i9.i = tail call i32 @llvm.umin.i32(i32 %44, i32 %46)
-  %48 = icmp eq i32 %44, %46
-  br i1 %48, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i16.i, label %.lr.ph.i.i.i10.i
+  %47 = icmp eq i32 %44, %46
+  br i1 %47, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i16.i, label %.lr.ph.i.i.i10.i
 
 .lr.ph.i.i.i10.i:                                 ; preds = %41, %.lr.ph.i.i.i10.i
   %spec.select3337.i.i.i11.i = phi i32 [ %spec.select33.i.i.i15.i, %.lr.ph.i.i.i10.i ], [ %spec.select3334.i.i.i9.i, %41 ]
   %.02736.i.i.i12.i = phi i32 [ %spec.select3337.i.i.i11.i, %.lr.ph.i.i.i10.i ], [ %44, %41 ]
-  %.02835.i.i.i13.i = phi i32 [ %51, %.lr.ph.i.i.i10.i ], [ %46, %41 ]
+  %.02835.i.i.i13.i = phi i32 [ %50, %.lr.ph.i.i.i10.i ], [ %46, %41 ]
   %spec.select.i.i.i14.i = tail call i32 @llvm.umax.i32(i32 %.02736.i.i.i12.i, i32 %.02835.i.i.i13.i)
-  %49 = sub i32 %spec.select.i.i.i14.i, %spec.select3337.i.i.i11.i
-  %50 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %49, i1 true)
-  %51 = lshr exact i32 %49, %50
-  %spec.select33.i.i.i15.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i11.i, i32 %51)
-  %52 = icmp eq i32 %spec.select3337.i.i.i11.i, %51
-  br i1 %52, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i16.i, label %.lr.ph.i.i.i10.i, !llvm.loop !242
+  %48 = sub i32 %spec.select.i.i.i14.i, %spec.select3337.i.i.i11.i
+  %49 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %48, i1 true)
+  %50 = lshr exact i32 %48, %49
+  %spec.select33.i.i.i15.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i11.i, i32 %50)
+  %51 = icmp eq i32 %spec.select3337.i.i.i11.i, %50
+  br i1 %51, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i16.i, label %.lr.ph.i.i.i10.i, !llvm.loop !242
 
 _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i16.i: ; preds = %.lr.ph.i.i.i10.i, %41
   %spec.select33.lcssa.i.i.i17.i = phi i32 [ %spec.select3334.i.i.i9.i, %41 ], [ %spec.select33.i.i.i15.i, %.lr.ph.i.i.i10.i ]
-  %53 = shl i32 %spec.select33.lcssa.i.i.i17.i, %47
+  %52 = tail call i32 @llvm.umin.i32(i32 %43, i32 %45)
+  %53 = shl i32 %spec.select33.lcssa.i.i.i17.i, %52
   br label %_ZL35greatest_common_divisor_if_positiveii.exit19.i
 
 _ZL35greatest_common_divisor_if_positiveii.exit19.i: ; preds = %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i16.i, %5
@@ -1722,7 +1722,7 @@ _ZL35greatest_common_divisor_if_positiveii.exit19.i: ; preds = %_ZSt3gcdIiiENSt1
   br i1 %54, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit, label %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i
 
 _ZL35greatest_common_divisor_if_positiveii.exit19.thread.i: ; preds = %_ZL35greatest_common_divisor_if_positiveii.exit19.i, %40, %39, %_ZL35greatest_common_divisor_if_positiveii.exit.thread.i, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i
-  %.08.i = phi i32 [ %.0.i, %_ZL35greatest_common_divisor_if_positiveii.exit19.i ], [ %.0.i.ph.i, %_ZL35greatest_common_divisor_if_positiveii.exit.thread.i ], [ %34, %40 ], [ %29, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %36, %39 ]
+  %.08.i = phi i32 [ %.0.i, %_ZL35greatest_common_divisor_if_positiveii.exit19.i ], [ %.0.i.ph.i, %_ZL35greatest_common_divisor_if_positiveii.exit.thread.i ], [ %34, %40 ], [ %28, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %36, %39 ]
   %55 = mul nuw nsw i32 %.08.i, 100
   %56 = zext nneg i32 %55 to i64
   %57 = tail call i32 @tng_num_frames_per_frame_set_set(ptr noundef %4, i64 noundef %56)
@@ -1756,7 +1756,7 @@ _ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.threa
 _ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread: ; preds = %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i, %58
   %.066 = phi i32 [ %60, %58 ], [ %10, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %.066.ph, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split ]
   %.165 = phi i32 [ 0, %58 ], [ %12, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %.pre86, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split ]
-  %.163 = phi i32 [ 0, %58 ], [ %29, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %.pre88, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split ]
+  %.163 = phi i32 [ 0, %58 ], [ %28, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %.pre88, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split ]
   %.0 = phi i8 [ 2, %58 ], [ 3, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %.0.ph, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split ]
   %.not67 = icmp eq i32 %.066, 0
   br i1 %.not67, label %67, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread
@@ -1800,26 +1800,26 @@ _ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.threa
   %78 = lshr exact i32 %.059, %77
   %79 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.165116, i1 true)
   %80 = lshr exact i32 %.165116, %79
-  %81 = tail call i32 @llvm.umin.i32(i32 %77, i32 %79)
   %spec.select3334.i.i.i = tail call i32 @llvm.umin.i32(i32 %78, i32 %80)
-  %82 = icmp eq i32 %78, %80
-  br i1 %82, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i, label %.lr.ph.i.i.i
+  %81 = icmp eq i32 %78, %80
+  br i1 %81, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %76, %.lr.ph.i.i.i
   %spec.select3337.i.i.i = phi i32 [ %spec.select33.i.i.i, %.lr.ph.i.i.i ], [ %spec.select3334.i.i.i, %76 ]
   %.02736.i.i.i = phi i32 [ %spec.select3337.i.i.i, %.lr.ph.i.i.i ], [ %78, %76 ]
-  %.02835.i.i.i = phi i32 [ %85, %.lr.ph.i.i.i ], [ %80, %76 ]
+  %.02835.i.i.i = phi i32 [ %84, %.lr.ph.i.i.i ], [ %80, %76 ]
   %spec.select.i.i.i = tail call i32 @llvm.umax.i32(i32 %.02736.i.i.i, i32 %.02835.i.i.i)
-  %83 = sub i32 %spec.select.i.i.i, %spec.select3337.i.i.i
-  %84 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %83, i1 true)
-  %85 = lshr exact i32 %83, %84
-  %spec.select33.i.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i, i32 %85)
-  %86 = icmp eq i32 %spec.select3337.i.i.i, %85
-  br i1 %86, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !242
+  %82 = sub i32 %spec.select.i.i.i, %spec.select3337.i.i.i
+  %83 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %82, i1 true)
+  %84 = lshr exact i32 %82, %83
+  %spec.select33.i.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i, i32 %84)
+  %85 = icmp eq i32 %spec.select3337.i.i.i, %84
+  br i1 %85, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !242
 
 _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i: ; preds = %.lr.ph.i.i.i, %76
   %spec.select33.lcssa.i.i.i = phi i32 [ %spec.select3334.i.i.i, %76 ], [ %spec.select33.i.i.i, %.lr.ph.i.i.i ]
-  %87 = shl i32 %spec.select33.lcssa.i.i.i, %81
+  %86 = tail call i32 @llvm.umin.i32(i32 %77, i32 %79)
+  %87 = shl i32 %spec.select33.lcssa.i.i.i, %86
   br label %_ZL35greatest_common_divisor_if_positiveii.exit
 
 _ZL35greatest_common_divisor_if_positiveii.exit:  ; preds = %73, %75, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i
@@ -1854,26 +1854,26 @@ _ZL35greatest_common_divisor_if_positiveii.exit:  ; preds = %73, %75, %_ZSt3gcdI
   %101 = lshr exact i32 %.160, %100
   %102 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.163118, i1 true)
   %103 = lshr exact i32 %.163118, %102
-  %104 = tail call i32 @llvm.umin.i32(i32 %100, i32 %102)
   %spec.select3334.i.i.i74 = tail call i32 @llvm.umin.i32(i32 %101, i32 %103)
-  %105 = icmp eq i32 %101, %103
-  br i1 %105, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81, label %.lr.ph.i.i.i75
+  %104 = icmp eq i32 %101, %103
+  br i1 %104, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81, label %.lr.ph.i.i.i75
 
 .lr.ph.i.i.i75:                                   ; preds = %99, %.lr.ph.i.i.i75
   %spec.select3337.i.i.i76 = phi i32 [ %spec.select33.i.i.i80, %.lr.ph.i.i.i75 ], [ %spec.select3334.i.i.i74, %99 ]
   %.02736.i.i.i77 = phi i32 [ %spec.select3337.i.i.i76, %.lr.ph.i.i.i75 ], [ %101, %99 ]
-  %.02835.i.i.i78 = phi i32 [ %108, %.lr.ph.i.i.i75 ], [ %103, %99 ]
+  %.02835.i.i.i78 = phi i32 [ %107, %.lr.ph.i.i.i75 ], [ %103, %99 ]
   %spec.select.i.i.i79 = tail call i32 @llvm.umax.i32(i32 %.02736.i.i.i77, i32 %.02835.i.i.i78)
-  %106 = sub i32 %spec.select.i.i.i79, %spec.select3337.i.i.i76
-  %107 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %106, i1 true)
-  %108 = lshr exact i32 %106, %107
-  %spec.select33.i.i.i80 = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i76, i32 %108)
-  %109 = icmp eq i32 %spec.select3337.i.i.i76, %108
-  br i1 %109, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81, label %.lr.ph.i.i.i75, !llvm.loop !242
+  %105 = sub i32 %spec.select.i.i.i79, %spec.select3337.i.i.i76
+  %106 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %105, i1 true)
+  %107 = lshr exact i32 %105, %106
+  %spec.select33.i.i.i80 = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i76, i32 %107)
+  %108 = icmp eq i32 %spec.select3337.i.i.i76, %107
+  br i1 %108, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81, label %.lr.ph.i.i.i75, !llvm.loop !242
 
 _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81: ; preds = %.lr.ph.i.i.i75, %99
   %spec.select33.lcssa.i.i.i82 = phi i32 [ %spec.select3334.i.i.i74, %99 ], [ %spec.select33.i.i.i80, %.lr.ph.i.i.i75 ]
-  %110 = shl i32 %spec.select33.lcssa.i.i.i82, %104
+  %109 = tail call i32 @llvm.umin.i32(i32 %100, i32 %102)
+  %110 = shl i32 %spec.select33.lcssa.i.i.i82, %109
   br label %_ZL35greatest_common_divisor_if_positiveii.exit84
 
 _ZL35greatest_common_divisor_if_positiveii.exit84: ; preds = %96, %98, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81

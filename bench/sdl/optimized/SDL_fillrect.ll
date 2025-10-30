@@ -494,27 +494,27 @@ define internal void @SDL_FillSurfaceRect3(ptr noundef writeonly captures(none) 
   br i1 %.not1718, label %._crit_edge23, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %.in = phi i32 [ %12, %._crit_edge ], [ %4, %.preheader.lr.ph ]
+  %.in = phi i32 [ %17, %._crit_edge ], [ %4, %.preheader.lr.ph ]
   %.01522 = phi ptr [ %18, %._crit_edge ], [ %0, %.preheader.lr.ph ]
-  %12 = add nsw i32 %.in, -1
-  br label %13
+  br label %12
 
-13:                                               ; preds = %.preheader, %13
-  %.020 = phi ptr [ %.01522, %.preheader ], [ %17, %13 ]
-  %.01419 = phi i32 [ %3, %.preheader ], [ %14, %13 ]
-  %14 = add nsw i32 %.01419, -1
-  %15 = getelementptr inbounds nuw i8, ptr %.020, i64 1
+12:                                               ; preds = %.preheader, %12
+  %.020 = phi ptr [ %.01522, %.preheader ], [ %16, %12 ]
+  %.01419 = phi i32 [ %3, %.preheader ], [ %13, %12 ]
+  %13 = add nsw i32 %.01419, -1
+  %14 = getelementptr inbounds nuw i8, ptr %.020, i64 1
   store i8 %6, ptr %.020, align 1
-  %16 = getelementptr inbounds nuw i8, ptr %.020, i64 2
-  store i8 %8, ptr %15, align 1
-  %17 = getelementptr inbounds nuw i8, ptr %.020, i64 3
-  store i8 %10, ptr %16, align 1
-  %.not17 = icmp eq i32 %14, 0
-  br i1 %.not17, label %._crit_edge, label %13, !llvm.loop !8
+  %15 = getelementptr inbounds nuw i8, ptr %.020, i64 2
+  store i8 %8, ptr %14, align 1
+  %16 = getelementptr inbounds nuw i8, ptr %.020, i64 3
+  store i8 %10, ptr %15, align 1
+  %.not17 = icmp eq i32 %13, 0
+  br i1 %.not17, label %._crit_edge, label %12, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %13
+._crit_edge:                                      ; preds = %12
+  %17 = add nsw i32 %.in, -1
   %18 = getelementptr inbounds i8, ptr %.01522, i64 %11
-  %.not = icmp eq i32 %12, 0
+  %.not = icmp eq i32 %17, 0
   br i1 %.not, label %._crit_edge23, label %.preheader, !llvm.loop !9
 
 ._crit_edge23:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %5

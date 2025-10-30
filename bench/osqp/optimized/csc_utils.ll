@@ -1479,33 +1479,33 @@ define noalias noundef ptr @csc_to_dns(ptr noundef readonly captures(none) %0) l
   %15 = load ptr, ptr %14, align 8, !tbaa !17
   br label %16
 
-16:                                               ; preds = %.lr.ph, %23
-  %.02025 = phi i64 [ 0, %.lr.ph ], [ %29, %23 ]
-  %.02124 = phi i64 [ 0, %.lr.ph ], [ %.1, %23 ]
-  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %.02025
-  %18 = load i64, ptr %17, align 8, !tbaa !14
-  br label %19
+16:                                               ; preds = %.lr.ph, %21
+  %.02025 = phi i64 [ 0, %.lr.ph ], [ %29, %21 ]
+  %.02124 = phi i64 [ 0, %.lr.ph ], [ %.1, %21 ]
+  br label %17
 
-19:                                               ; preds = %19, %16
-  %.1 = phi i64 [ %.02124, %16 ], [ %20, %19 ]
-  %20 = add nsw i64 %.1, 1
-  %21 = getelementptr inbounds i64, ptr %8, i64 %20
-  %22 = load i64, ptr %21, align 8, !tbaa !14
-  %.not23 = icmp sgt i64 %22, %.02025
-  br i1 %.not23, label %23, label %19, !llvm.loop !41
+17:                                               ; preds = %17, %16
+  %.1 = phi i64 [ %.02124, %16 ], [ %18, %17 ]
+  %18 = add nsw i64 %.1, 1
+  %19 = getelementptr inbounds i64, ptr %8, i64 %18
+  %20 = load i64, ptr %19, align 8, !tbaa !14
+  %.not23 = icmp sgt i64 %20, %.02025
+  br i1 %.not23, label %21, label %17, !llvm.loop !41
 
-23:                                               ; preds = %19
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i64, ptr %13, i64 %.02025
+  %23 = load i64, ptr %22, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw double, ptr %15, i64 %.02025
   %25 = load double, ptr %24, align 8, !tbaa !18
   %26 = mul nsw i64 %.1, %2
   %27 = getelementptr double, ptr %6, i64 %26
-  %28 = getelementptr double, ptr %27, i64 %18
+  %28 = getelementptr double, ptr %27, i64 %23
   store double %25, ptr %28, align 8, !tbaa !18
   %29 = add nuw nsw i64 %.02025, 1
   %exitcond.not = icmp eq i64 %29, %10
   br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !42
 
-.loopexit:                                        ; preds = %23, %.preheader, %1
+.loopexit:                                        ; preds = %21, %.preheader, %1
   ret ptr %6
 }
 

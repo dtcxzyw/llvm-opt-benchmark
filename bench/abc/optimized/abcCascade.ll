@@ -1696,7 +1696,6 @@ Abc_ResMigrate.exit.thread:                       ; preds = %66
   br i1 %exitcond90.not.i, label %Abc_ResMigrate.exit, label %.lr.ph84.split.us.i, !llvm.loop !71
 
 Abc_ResMigrate.exit:                              ; preds = %..loopexit_crit_edge.us.i
-  %129 = icmp eq i32 %.4.us.i, 0
   store i32 %.sroa.0.4.us.i, ptr %14, align 16, !tbaa !39
   store i32 %.sroa.5.4.us.i, ptr %38, align 4, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -1705,72 +1704,73 @@ Abc_ResMigrate.exit:                              ; preds = %..loopexit_crit_edg
 .lr.ph.us.i:                                      ; preds = %Abc_ResMigrate.exit, %._crit_edge.us.i
   %exitcond33.not.i = phi i1 [ true, %._crit_edge.us.i ], [ false, %Abc_ResMigrate.exit ]
   %indvars.iv29.i.sroa.phi = phi ptr [ %indvars.iv29.i.sroa.gep, %._crit_edge.us.i ], [ %14, %Abc_ResMigrate.exit ]
-  %.021.us.i = phi i32 [ %148, %._crit_edge.us.i ], [ 0, %Abc_ResMigrate.exit ]
-  %130 = load i32, ptr %indvars.iv29.i.sroa.phi, align 4, !tbaa !39
-  %131 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %130, ptr noundef nonnull %13)
-  br label %132
+  %.021.us.i = phi i32 [ %147, %._crit_edge.us.i ], [ 0, %Abc_ResMigrate.exit ]
+  %129 = load i32, ptr %indvars.iv29.i.sroa.phi, align 4, !tbaa !39
+  %130 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %129, ptr noundef nonnull %13)
+  br label %131
 
-132:                                              ; preds = %132, %.lr.ph.us.i
-  %.01819.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %138, %132 ]
-  %133 = load i32, ptr %indvars.iv29.i.sroa.phi, align 4, !tbaa !39
-  %134 = shl nuw i32 1, %.01819.us.i
-  %135 = and i32 %133, %134
-  %.not.us.i150 = icmp eq i32 %135, 0
-  %136 = add nuw nsw i32 %.01819.us.i, 97
-  %137 = select i1 %.not.us.i150, i32 45, i32 %136
-  %putchar.us.i = call i32 @putchar(i32 %137)
-  %138 = add nuw nsw i32 %.01819.us.i, 1
-  %exitcond28.not.i = icmp eq i32 %138, %2
-  br i1 %exitcond28.not.i, label %._crit_edge.us.i, label %132, !llvm.loop !72
+131:                                              ; preds = %131, %.lr.ph.us.i
+  %.01819.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %137, %131 ]
+  %132 = load i32, ptr %indvars.iv29.i.sroa.phi, align 4, !tbaa !39
+  %133 = shl nuw i32 1, %.01819.us.i
+  %134 = and i32 %132, %133
+  %.not.us.i150 = icmp eq i32 %134, 0
+  %135 = add nuw nsw i32 %.01819.us.i, 97
+  %136 = select i1 %.not.us.i150, i32 45, i32 %135
+  %putchar.us.i = call i32 @putchar(i32 %136)
+  %137 = add nuw nsw i32 %.01819.us.i, 1
+  %exitcond28.not.i = icmp eq i32 %137, %2
+  br i1 %exitcond28.not.i, label %._crit_edge.us.i, label %131, !llvm.loop !72
 
-._crit_edge.us.i:                                 ; preds = %132
-  %139 = icmp ult i32 %131, 2
-  %140 = add i32 %131, -1
-  %141 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %140, i1 true)
-  %142 = sub nuw nsw i32 32, %141
-  %.09.i.i.us.i = select i1 %139, i32 %131, i32 %142
-  %143 = mul nsw i32 %.09.i.i.us.i, 10000
-  %144 = add nsw i32 %.09.i.i.us.i, -1
-  %.neg.i.us.i = shl nsw i32 -1, %144
-  %145 = add i32 %.neg.i.us.i, %131
-  %146 = mul nsw i32 %145, %145
-  %147 = add nsw i32 %146, %143
-  %148 = add nsw i32 %147, %.021.us.i
-  %149 = load i32, ptr %13, align 4, !tbaa !39
-  %150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %131, i32 noundef %.09.i.i.us.i, i32 noundef %149, i32 noundef %147)
+._crit_edge.us.i:                                 ; preds = %131
+  %138 = icmp ult i32 %130, 2
+  %139 = add i32 %130, -1
+  %140 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %139, i1 true)
+  %141 = sub nuw nsw i32 32, %140
+  %.09.i.i.us.i = select i1 %138, i32 %130, i32 %141
+  %142 = mul nsw i32 %.09.i.i.us.i, 10000
+  %143 = add nsw i32 %.09.i.i.us.i, -1
+  %.neg.i.us.i = shl nsw i32 -1, %143
+  %144 = add i32 %.neg.i.us.i, %130
+  %145 = mul nsw i32 %144, %144
+  %146 = add nsw i32 %145, %142
+  %147 = add nsw i32 %146, %.021.us.i
+  %148 = load i32, ptr %13, align 4, !tbaa !39
+  %149 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %130, i32 noundef %.09.i.i.us.i, i32 noundef %148, i32 noundef %146)
   br i1 %exitcond33.not.i, label %Abc_ResPrint.exit, label %.lr.ph.us.i, !llvm.loop !73
 
 .lr.ph23.split.i:                                 ; preds = %Abc_ResMigrate.exit.thread, %.lr.ph23.split.i
   %indvars.iv.i144 = phi i64 [ %indvars.iv.next.i147, %.lr.ph23.split.i ], [ 0, %Abc_ResMigrate.exit.thread ]
-  %.021.i = phi i32 [ %163, %.lr.ph23.split.i ], [ 0, %Abc_ResMigrate.exit.thread ]
-  %151 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i144
-  %152 = load i32, ptr %151, align 4, !tbaa !39
-  %153 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %152, ptr noundef nonnull %13)
-  %154 = icmp ult i32 %153, 2
-  %155 = add i32 %153, -1
-  %156 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %155, i1 true)
-  %157 = sub nuw nsw i32 32, %156
-  %.09.i.i.i145 = select i1 %154, i32 %153, i32 %157
-  %158 = mul nuw nsw i32 %.09.i.i.i145, 10000
-  %159 = add nsw i32 %.09.i.i.i145, -1
-  %.neg.i.i146 = shl nsw i32 -1, %159
-  %160 = add i32 %.neg.i.i146, %153
-  %161 = mul nsw i32 %160, %160
-  %162 = add nuw nsw i32 %161, %158
-  %163 = add nuw nsw i32 %162, %.021.i
-  %164 = load i32, ptr %13, align 4, !tbaa !39
-  %165 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %153, i32 noundef %.09.i.i.i145, i32 noundef %164, i32 noundef %162)
+  %.021.i = phi i32 [ %162, %.lr.ph23.split.i ], [ 0, %Abc_ResMigrate.exit.thread ]
+  %150 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i144
+  %151 = load i32, ptr %150, align 4, !tbaa !39
+  %152 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %151, ptr noundef nonnull %13)
+  %153 = icmp ult i32 %152, 2
+  %154 = add i32 %152, -1
+  %155 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %154, i1 true)
+  %156 = sub nuw nsw i32 32, %155
+  %.09.i.i.i145 = select i1 %153, i32 %152, i32 %156
+  %157 = mul nuw nsw i32 %.09.i.i.i145, 10000
+  %158 = add nsw i32 %.09.i.i.i145, -1
+  %.neg.i.i146 = shl nsw i32 -1, %158
+  %159 = add i32 %.neg.i.i146, %152
+  %160 = mul nsw i32 %159, %159
+  %161 = add nuw nsw i32 %160, %157
+  %162 = add nuw nsw i32 %161, %.021.i
+  %163 = load i32, ptr %13, align 4, !tbaa !39
+  %164 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %152, i32 noundef %.09.i.i.i145, i32 noundef %163, i32 noundef %161)
   %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i144, 1
   %exitcond.not.i148 = icmp eq i64 %indvars.iv.next.i147, 2
   br i1 %exitcond.not.i148, label %.critedge, label %.lr.ph23.split.i, !llvm.loop !73
 
 Abc_ResPrint.exit:                                ; preds = %._crit_edge.us.i
-  %166 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %148)
+  %165 = icmp eq i32 %.4.us.i, 0
+  %166 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %147)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %129, label %.loopexit1023, label %66, !llvm.loop !81
+  br i1 %165, label %.loopexit1023, label %66, !llvm.loop !81
 
 .critedge:                                        ; preds = %.lr.ph23.split.i
-  %167 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %163)
+  %167 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %162)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit1023
 

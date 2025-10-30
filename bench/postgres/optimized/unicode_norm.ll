@@ -27,27 +27,27 @@ define dso_local ptr @unicode_normalize(i32 noundef %0, ptr noundef readonly cap
   %8 = alloca i32, align 4
   %9 = and i32 %0, -2
   %10 = icmp eq i32 %9, 2
-  %11 = and i32 %0, -3
-  %12 = icmp eq i32 %11, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %13 = load i32, ptr %1, align 4
-  %.not138 = icmp eq i32 %13, 0
+  %11 = load i32, ptr %1, align 4
+  %.not138 = icmp eq i32 %11, 0
   br i1 %.not138, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %14 = phi i32 [ %18, %.lr.ph ], [ %13, %2 ]
-  %.066140 = phi i32 [ %16, %.lr.ph ], [ 0, %2 ]
-  %.068139 = phi ptr [ %17, %.lr.ph ], [ %1, %2 ]
-  %15 = tail call fastcc i32 @get_decomposed_size(i32 noundef %14, i1 noundef zeroext %10)
-  %16 = add i32 %15, %.066140
-  %17 = getelementptr inbounds nuw i8, ptr %.068139, i64 4
-  %18 = load i32, ptr %17, align 4
-  %.not = icmp eq i32 %18, 0
+  %12 = phi i32 [ %16, %.lr.ph ], [ %11, %2 ]
+  %.066140 = phi i32 [ %14, %.lr.ph ], [ 0, %2 ]
+  %.068139 = phi ptr [ %15, %.lr.ph ], [ %1, %2 ]
+  %13 = tail call fastcc i32 @get_decomposed_size(i32 noundef %12, i1 noundef zeroext %10)
+  %14 = add i32 %13, %.066140
+  %15 = getelementptr inbounds nuw i8, ptr %.068139, i64 4
+  %16 = load i32, ptr %15, align 4
+  %.not = icmp eq i32 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.066.lcssa = phi i32 [ 0, %2 ], [ %16, %.lr.ph ]
+  %.066.lcssa = phi i32 [ 0, %2 ], [ %14, %.lr.ph ]
+  %17 = and i32 %0, -3
+  %18 = icmp eq i32 %17, 0
   %19 = add i32 %.066.lcssa, 1
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 2
@@ -219,7 +219,7 @@ get_canonical_class.exit98:                       ; preds = %89
   br i1 %102, label %.lr.ph147, label %._crit_edge148, !llvm.loop !8
 
 ._crit_edge148:                                   ; preds = %100, %.preheader
-  br i1 %12, label %103, label %207
+  br i1 %18, label %103, label %207
 
 103:                                              ; preds = %._crit_edge148
   %104 = tail call ptr @palloc(i64 noundef %21) #7

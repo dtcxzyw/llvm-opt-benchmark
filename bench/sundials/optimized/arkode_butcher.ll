@@ -3487,48 +3487,48 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5g(ptr noundef r
 
 .preheader.us.preheader.i:                        ; preds = %6
   %14 = zext nneg i32 %5 to i64
-  %15 = shl nuw nsw i64 %14, 3
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
-  %17 = load ptr, ptr %16, align 8, !tbaa !12
-  %18 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i
-  %.promoted.us.i = load double, ptr %18, align 8, !tbaa !18
-  br label %19
+  %15 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
+  %16 = load ptr, ptr %15, align 8, !tbaa !12
+  %17 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i
+  %.promoted.us.i = load double, ptr %17, align 8, !tbaa !18
+  br label %18
 
-19:                                               ; preds = %19, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %19 ]
-  %20 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %25, %19 ]
-  %21 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i
-  %22 = load double, ptr %21, align 8, !tbaa !18
-  %23 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
-  %24 = load double, ptr %23, align 8, !tbaa !18
-  %25 = tail call double @llvm.fmuladd.f64(double %22, double %24, double %20)
+18:                                               ; preds = %18, %.preheader.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
+  %19 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %24, %18 ]
+  %20 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv.i
+  %21 = load double, ptr %20, align 8, !tbaa !18
+  %22 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
+  %23 = load double, ptr %22, align 8, !tbaa !18
+  %24 = tail call double @llvm.fmuladd.f64(double %21, double %23, double %19)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %19
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %18
 
-._crit_edge.us.i:                                 ; preds = %19
-  store double %25, ptr %18, align 8, !tbaa !18
+._crit_edge.us.i:                                 ; preds = %18
+  store double %24, ptr %17, align 8, !tbaa !18
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %14
-  br i1 %exitcond44.not.i, label %26, label %.preheader.us.i
+  br i1 %exitcond44.not.i, label %25, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %6
   tail call void @free(ptr noundef %8) #17
   tail call void @free(ptr noundef %9) #17
   br label %arkode_butcher_dot.exit
 
-26:                                               ; preds = %._crit_edge.us.i
+25:                                               ; preds = %._crit_edge.us.i
+  %26 = shl nuw nsw i64 %14, 3
   %27 = icmp eq ptr %2, null
   %28 = icmp eq ptr %9, null
   %or.cond3.i29 = or i1 %27, %28
   br i1 %or.cond3.i29, label %arkode_butcher_vv.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %26, %.preheader.i
-  %indvars.iv.i31 = phi i64 [ %indvars.iv.next.i32, %.preheader.i ], [ 0, %26 ]
+.preheader.i:                                     ; preds = %25, %.preheader.i
+  %indvars.iv.i31 = phi i64 [ %indvars.iv.next.i32, %.preheader.i ], [ 0, %25 ]
   %29 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i31
   %30 = load double, ptr %29, align 8, !tbaa !18
   %31 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i31
@@ -3540,7 +3540,7 @@ arkode_butcher_mv.exit:                           ; preds = %6
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %14
   br i1 %exitcond.not.i33, label %35, label %.preheader.i
 
-arkode_butcher_vv.exit:                           ; preds = %26
+arkode_butcher_vv.exit:                           ; preds = %25
   tail call void @free(ptr noundef nonnull %8) #17
   tail call void @free(ptr noundef %9) #17
   br label %arkode_butcher_dot.exit
@@ -3550,7 +3550,7 @@ arkode_butcher_vv.exit:                           ; preds = %26
   br i1 %36, label %arkode_butcher_mv.exit48, label %.preheader.us.preheader.i37
 
 .preheader.us.preheader.i37:                      ; preds = %35
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %15, i1 false), !tbaa !18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %26, i1 false), !tbaa !18
   br label %.preheader.us.i38
 
 .preheader.us.i38:                                ; preds = %._crit_edge.us.i44, %.preheader.us.preheader.i37
@@ -3654,49 +3654,46 @@ arkode_butcher_vv.exit:                           ; preds = %6
   %21 = icmp eq ptr %2, null
   %22 = icmp eq ptr %9, null
   %or.cond3.i29 = or i1 %21, %22
-  br i1 %or.cond3.i29, label %arkode_butcher_mv.exit, label %.preheader.us.preheader.i
+  br i1 %or.cond3.i29, label %arkode_butcher_mv.exit, label %.preheader.us.i
 
-.preheader.us.preheader.i:                        ; preds = %20
-  %23 = shl nuw nsw i64 %wide.trip.count.i, 3
-  br label %.preheader.us.i
+.preheader.us.i:                                  ; preds = %20, %._crit_edge.us.i
+  %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %._crit_edge.us.i ], [ 0, %20 ]
+  %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i
+  %24 = load ptr, ptr %23, align 8, !tbaa !12
+  %25 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %.promoted.us.i = load double, ptr %25, align 8, !tbaa !18
+  br label %26
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i
-  %25 = load ptr, ptr %24, align 8, !tbaa !12
-  %26 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
-  %.promoted.us.i = load double, ptr %26, align 8, !tbaa !18
-  br label %27
-
-27:                                               ; preds = %27, %.preheader.us.i
-  %indvars.iv.i31 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i32, %27 ]
-  %28 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %33, %27 ]
-  %29 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv.i31
-  %30 = load double, ptr %29, align 8, !tbaa !18
-  %31 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i31
-  %32 = load double, ptr %31, align 8, !tbaa !18
-  %33 = tail call double @llvm.fmuladd.f64(double %30, double %32, double %28)
+26:                                               ; preds = %26, %.preheader.us.i
+  %indvars.iv.i31 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i32, %26 ]
+  %27 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %32, %26 ]
+  %28 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv.i31
+  %29 = load double, ptr %28, align 8, !tbaa !18
+  %30 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i31
+  %31 = load double, ptr %30, align 8, !tbaa !18
+  %32 = tail call double @llvm.fmuladd.f64(double %29, double %31, double %27)
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %wide.trip.count.i
-  br i1 %exitcond.not.i33, label %._crit_edge.us.i, label %27
+  br i1 %exitcond.not.i33, label %._crit_edge.us.i, label %26
 
-._crit_edge.us.i:                                 ; preds = %27
-  store double %33, ptr %26, align 8, !tbaa !18
+._crit_edge.us.i:                                 ; preds = %26
+  store double %32, ptr %25, align 8, !tbaa !18
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count.i
-  br i1 %exitcond44.not.i, label %34, label %.preheader.us.i
+  br i1 %exitcond44.not.i, label %33, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %20
   tail call void @free(ptr noundef nonnull %8) #17
   tail call void @free(ptr noundef %9) #17
   br label %arkode_butcher_dot.exit
 
-34:                                               ; preds = %._crit_edge.us.i
-  %35 = icmp eq ptr %1, null
-  br i1 %35, label %arkode_butcher_mv.exit48, label %.preheader.us.preheader.i37
+33:                                               ; preds = %._crit_edge.us.i
+  %34 = icmp eq ptr %1, null
+  br i1 %34, label %arkode_butcher_mv.exit48, label %.preheader.us.preheader.i37
 
-.preheader.us.preheader.i37:                      ; preds = %34
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %23, i1 false), !tbaa !18
+.preheader.us.preheader.i37:                      ; preds = %33
+  %35 = shl nuw nsw i64 %wide.trip.count.i, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %35, i1 false), !tbaa !18
   br label %.preheader.us.i38
 
 .preheader.us.i38:                                ; preds = %._crit_edge.us.i44, %.preheader.us.preheader.i37
@@ -3725,7 +3722,7 @@ arkode_butcher_mv.exit:                           ; preds = %20
   %exitcond44.not.i46 = icmp eq i64 %indvars.iv.next41.i45, %wide.trip.count.i
   br i1 %exitcond44.not.i46, label %46, label %.preheader.us.i38
 
-arkode_butcher_mv.exit48:                         ; preds = %34
+arkode_butcher_mv.exit48:                         ; preds = %33
   tail call void @free(ptr noundef nonnull %8) #17
   tail call void @free(ptr noundef nonnull %9) #17
   br label %arkode_butcher_dot.exit
@@ -3776,48 +3773,48 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5i(ptr noundef r
 
 .preheader.us.preheader.i:                        ; preds = %6
   %14 = zext nneg i32 %5 to i64
-  %15 = shl nuw nsw i64 %14, 3
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
-  %17 = load ptr, ptr %16, align 8, !tbaa !12
-  %18 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i
-  %.promoted.us.i = load double, ptr %18, align 8, !tbaa !18
-  br label %19
+  %15 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
+  %16 = load ptr, ptr %15, align 8, !tbaa !12
+  %17 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv40.i
+  %.promoted.us.i = load double, ptr %17, align 8, !tbaa !18
+  br label %18
 
-19:                                               ; preds = %19, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %19 ]
-  %20 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %25, %19 ]
-  %21 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i
-  %22 = load double, ptr %21, align 8, !tbaa !18
-  %23 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
-  %24 = load double, ptr %23, align 8, !tbaa !18
-  %25 = tail call double @llvm.fmuladd.f64(double %22, double %24, double %20)
+18:                                               ; preds = %18, %.preheader.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %18 ]
+  %19 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %24, %18 ]
+  %20 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv.i
+  %21 = load double, ptr %20, align 8, !tbaa !18
+  %22 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
+  %23 = load double, ptr %22, align 8, !tbaa !18
+  %24 = tail call double @llvm.fmuladd.f64(double %21, double %23, double %19)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %19
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %18
 
-._crit_edge.us.i:                                 ; preds = %19
-  store double %25, ptr %18, align 8, !tbaa !18
+._crit_edge.us.i:                                 ; preds = %18
+  store double %24, ptr %17, align 8, !tbaa !18
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %14
-  br i1 %exitcond44.not.i, label %26, label %.preheader.us.i
+  br i1 %exitcond44.not.i, label %25, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %6
   tail call void @free(ptr noundef %8) #17
   tail call void @free(ptr noundef %9) #17
   br label %arkode_butcher_dot.exit
 
-26:                                               ; preds = %._crit_edge.us.i
+25:                                               ; preds = %._crit_edge.us.i
+  %26 = shl nuw nsw i64 %14, 3
   %27 = icmp eq ptr %2, null
   %28 = icmp eq ptr %9, null
   %or.cond3.i29 = or i1 %27, %28
   br i1 %or.cond3.i29, label %arkode_butcher_mv.exit42, label %.preheader.us.i32
 
-.preheader.us.i32:                                ; preds = %26, %._crit_edge.us.i38
-  %indvars.iv40.i33 = phi i64 [ %indvars.iv.next41.i39, %._crit_edge.us.i38 ], [ 0, %26 ]
+.preheader.us.i32:                                ; preds = %25, %._crit_edge.us.i38
+  %indvars.iv40.i33 = phi i64 [ %indvars.iv.next41.i39, %._crit_edge.us.i38 ], [ 0, %25 ]
   %29 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i33
   %30 = load ptr, ptr %29, align 8, !tbaa !12
   %31 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i33
@@ -3842,7 +3839,7 @@ arkode_butcher_mv.exit:                           ; preds = %6
   %exitcond44.not.i40 = icmp eq i64 %indvars.iv.next41.i39, %14
   br i1 %exitcond44.not.i40, label %39, label %.preheader.us.i32
 
-arkode_butcher_mv.exit42:                         ; preds = %26
+arkode_butcher_mv.exit42:                         ; preds = %25
   tail call void @free(ptr noundef nonnull %8) #17
   tail call void @free(ptr noundef %9) #17
   br label %arkode_butcher_dot.exit
@@ -3852,7 +3849,7 @@ arkode_butcher_mv.exit42:                         ; preds = %26
   br i1 %40, label %arkode_butcher_mv.exit57, label %.preheader.us.preheader.i46
 
 .preheader.us.preheader.i46:                      ; preds = %39
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %15, i1 false), !tbaa !18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %26, i1 false), !tbaa !18
   br label %.preheader.us.i47
 
 .preheader.us.i47:                                ; preds = %._crit_edge.us.i53, %.preheader.us.preheader.i46
@@ -4708,34 +4705,33 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6f(ptr noundef r
 
 .preheader.us.preheader.i:                        ; preds = %7
   %16 = zext nneg i32 %6 to i64
-  %17 = shl nuw nsw i64 %16, 3
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i
-  %19 = load ptr, ptr %18, align 8, !tbaa !12
-  %20 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
-  %.promoted.us.i = load double, ptr %20, align 8, !tbaa !18
-  br label %21
+  %17 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i
+  %18 = load ptr, ptr %17, align 8, !tbaa !12
+  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %.promoted.us.i = load double, ptr %19, align 8, !tbaa !18
+  br label %20
 
-21:                                               ; preds = %21, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %21 ]
-  %22 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %27, %21 ]
-  %23 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i
-  %24 = load double, ptr %23, align 8, !tbaa !18
-  %25 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
-  %26 = load double, ptr %25, align 8, !tbaa !18
-  %27 = tail call double @llvm.fmuladd.f64(double %24, double %26, double %22)
+20:                                               ; preds = %20, %.preheader.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
+  %21 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %26, %20 ]
+  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
+  %23 = load double, ptr %22, align 8, !tbaa !18
+  %24 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %25 = load double, ptr %24, align 8, !tbaa !18
+  %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %21)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %21
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %20
 
-._crit_edge.us.i:                                 ; preds = %21
-  store double %27, ptr %20, align 8, !tbaa !18
+._crit_edge.us.i:                                 ; preds = %20
+  store double %26, ptr %19, align 8, !tbaa !18
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %16
-  br i1 %exitcond44.not.i, label %28, label %.preheader.us.i
+  br i1 %exitcond44.not.i, label %27, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
   tail call void @free(ptr noundef %9) #17
@@ -4743,14 +4739,15 @@ arkode_butcher_mv.exit:                           ; preds = %7
   tail call void @free(ptr noundef %11) #17
   br label %arkode_butcher_dot.exit
 
-28:                                               ; preds = %._crit_edge.us.i
+27:                                               ; preds = %._crit_edge.us.i
+  %28 = shl nuw nsw i64 %16, 3
   %29 = icmp eq ptr %1, null
   %30 = icmp eq ptr %10, null
   %or.cond3.i42 = or i1 %29, %30
   br i1 %or.cond3.i42, label %arkode_butcher_mv.exit55, label %.preheader.us.i45
 
-.preheader.us.i45:                                ; preds = %28, %._crit_edge.us.i51
-  %indvars.iv40.i46 = phi i64 [ %indvars.iv.next41.i52, %._crit_edge.us.i51 ], [ 0, %28 ]
+.preheader.us.i45:                                ; preds = %27, %._crit_edge.us.i51
+  %indvars.iv40.i46 = phi i64 [ %indvars.iv.next41.i52, %._crit_edge.us.i51 ], [ 0, %27 ]
   %31 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40.i46
   %32 = load ptr, ptr %31, align 8, !tbaa !12
   %33 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i46
@@ -4775,7 +4772,7 @@ arkode_butcher_mv.exit:                           ; preds = %7
   %exitcond44.not.i53 = icmp eq i64 %indvars.iv.next41.i52, %16
   br i1 %exitcond44.not.i53, label %41, label %.preheader.us.i45
 
-arkode_butcher_mv.exit55:                         ; preds = %28
+arkode_butcher_mv.exit55:                         ; preds = %27
   tail call void @free(ptr noundef nonnull %9) #17
   tail call void @free(ptr noundef %10) #17
   tail call void @free(ptr noundef %11) #17
@@ -4788,7 +4785,7 @@ arkode_butcher_mv.exit55:                         ; preds = %28
   br i1 %or.cond.i56, label %arkode_butcher_mv.exit70, label %.preheader.us.preheader.i59
 
 .preheader.us.preheader.i59:                      ; preds = %41
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %17, i1 false), !tbaa !18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %28, i1 false), !tbaa !18
   br label %.preheader.us.i60
 
 .preheader.us.i60:                                ; preds = %._crit_edge.us.i66, %.preheader.us.preheader.i59
@@ -5044,48 +5041,48 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6h(ptr noundef r
 
 .preheader.us.preheader.i:                        ; preds = %7
   %15 = zext nneg i32 %6 to i64
-  %16 = shl nuw nsw i64 %15, 3
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
-  %18 = load ptr, ptr %17, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
-  %.promoted.us.i = load double, ptr %19, align 8, !tbaa !18
-  br label %20
+  %16 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %17 = load ptr, ptr %16, align 8, !tbaa !12
+  %18 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %.promoted.us.i = load double, ptr %18, align 8, !tbaa !18
+  br label %19
 
-20:                                               ; preds = %20, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
-  %21 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %26, %20 ]
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
-  %23 = load double, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
-  %25 = load double, ptr %24, align 8, !tbaa !18
-  %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %21)
+19:                                               ; preds = %19, %.preheader.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %19 ]
+  %20 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %25, %19 ]
+  %21 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i
+  %22 = load double, ptr %21, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %24 = load double, ptr %23, align 8, !tbaa !18
+  %25 = tail call double @llvm.fmuladd.f64(double %22, double %24, double %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %15
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %20
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %19
 
-._crit_edge.us.i:                                 ; preds = %20
-  store double %26, ptr %19, align 8, !tbaa !18
+._crit_edge.us.i:                                 ; preds = %19
+  store double %25, ptr %18, align 8, !tbaa !18
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %15
-  br i1 %exitcond44.not.i, label %27, label %.preheader.us.i
+  br i1 %exitcond44.not.i, label %26, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
   tail call void @free(ptr noundef %9) #17
   tail call void @free(ptr noundef %10) #17
   br label %arkode_butcher_dot.exit
 
-27:                                               ; preds = %._crit_edge.us.i
+26:                                               ; preds = %._crit_edge.us.i
+  %27 = shl nuw nsw i64 %15, 3
   %28 = icmp eq ptr %3, null
   %29 = icmp eq ptr %10, null
   %or.cond3.i36 = or i1 %28, %29
   br i1 %or.cond3.i36, label %arkode_butcher_vv.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %27, %.preheader.i
-  %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i39, %.preheader.i ], [ 0, %27 ]
+.preheader.i:                                     ; preds = %26, %.preheader.i
+  %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i39, %.preheader.i ], [ 0, %26 ]
   %30 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i38
   %31 = load double, ptr %30, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i38
@@ -5097,7 +5094,7 @@ arkode_butcher_mv.exit:                           ; preds = %7
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %15
   br i1 %exitcond.not.i40, label %36, label %.preheader.i
 
-arkode_butcher_vv.exit:                           ; preds = %27
+arkode_butcher_vv.exit:                           ; preds = %26
   tail call void @free(ptr noundef nonnull %9) #17
   tail call void @free(ptr noundef %10) #17
   br label %arkode_butcher_dot.exit
@@ -5107,7 +5104,7 @@ arkode_butcher_vv.exit:                           ; preds = %27
   br i1 %37, label %arkode_butcher_mv.exit55, label %.preheader.us.preheader.i44
 
 .preheader.us.preheader.i44:                      ; preds = %36
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %16, i1 false), !tbaa !18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %27, i1 false), !tbaa !18
   br label %.preheader.us.i45
 
 .preheader.us.i45:                                ; preds = %._crit_edge.us.i51, %.preheader.us.preheader.i44
@@ -5233,49 +5230,46 @@ arkode_butcher_vv.exit:                           ; preds = %7
   %22 = icmp eq ptr %3, null
   %23 = icmp eq ptr %10, null
   %or.cond3.i36 = or i1 %22, %23
-  br i1 %or.cond3.i36, label %arkode_butcher_mv.exit, label %.preheader.us.preheader.i
+  br i1 %or.cond3.i36, label %arkode_butcher_mv.exit, label %.preheader.us.i
 
-.preheader.us.preheader.i:                        ; preds = %21
-  %24 = shl nuw nsw i64 %wide.trip.count.i, 3
-  br label %.preheader.us.i
+.preheader.us.i:                                  ; preds = %21, %._crit_edge.us.i
+  %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %._crit_edge.us.i ], [ 0, %21 ]
+  %24 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
+  %25 = load ptr, ptr %24, align 8, !tbaa !12
+  %26 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i
+  %.promoted.us.i = load double, ptr %26, align 8, !tbaa !18
+  br label %27
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %25 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
-  %26 = load ptr, ptr %25, align 8, !tbaa !12
-  %27 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i
-  %.promoted.us.i = load double, ptr %27, align 8, !tbaa !18
-  br label %28
-
-28:                                               ; preds = %28, %.preheader.us.i
-  %indvars.iv.i38 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i39, %28 ]
-  %29 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %34, %28 ]
-  %30 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.i38
-  %31 = load double, ptr %30, align 8, !tbaa !18
-  %32 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i38
-  %33 = load double, ptr %32, align 8, !tbaa !18
-  %34 = tail call double @llvm.fmuladd.f64(double %31, double %33, double %29)
+27:                                               ; preds = %27, %.preheader.us.i
+  %indvars.iv.i38 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i39, %27 ]
+  %28 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %33, %27 ]
+  %29 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv.i38
+  %30 = load double, ptr %29, align 8, !tbaa !18
+  %31 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i38
+  %32 = load double, ptr %31, align 8, !tbaa !18
+  %33 = tail call double @llvm.fmuladd.f64(double %30, double %32, double %28)
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i
-  br i1 %exitcond.not.i40, label %._crit_edge.us.i, label %28
+  br i1 %exitcond.not.i40, label %._crit_edge.us.i, label %27
 
-._crit_edge.us.i:                                 ; preds = %28
-  store double %34, ptr %27, align 8, !tbaa !18
+._crit_edge.us.i:                                 ; preds = %27
+  store double %33, ptr %26, align 8, !tbaa !18
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count.i
-  br i1 %exitcond44.not.i, label %35, label %.preheader.us.i
+  br i1 %exitcond44.not.i, label %34, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %21
   tail call void @free(ptr noundef nonnull %9) #17
   tail call void @free(ptr noundef %10) #17
   br label %arkode_butcher_dot.exit
 
-35:                                               ; preds = %._crit_edge.us.i
-  %36 = icmp eq ptr %2, null
-  br i1 %36, label %arkode_butcher_mv.exit55, label %.preheader.us.preheader.i44
+34:                                               ; preds = %._crit_edge.us.i
+  %35 = icmp eq ptr %2, null
+  br i1 %35, label %arkode_butcher_mv.exit55, label %.preheader.us.preheader.i44
 
-.preheader.us.preheader.i44:                      ; preds = %35
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %24, i1 false), !tbaa !18
+.preheader.us.preheader.i44:                      ; preds = %34
+  %36 = shl nuw nsw i64 %wide.trip.count.i, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %36, i1 false), !tbaa !18
   br label %.preheader.us.i45
 
 .preheader.us.i45:                                ; preds = %._crit_edge.us.i51, %.preheader.us.preheader.i44
@@ -5304,7 +5298,7 @@ arkode_butcher_mv.exit:                           ; preds = %21
   %exitcond44.not.i53 = icmp eq i64 %indvars.iv.next41.i52, %wide.trip.count.i
   br i1 %exitcond44.not.i53, label %47, label %.preheader.us.i45
 
-arkode_butcher_mv.exit55:                         ; preds = %35
+arkode_butcher_mv.exit55:                         ; preds = %34
   tail call void @free(ptr noundef nonnull %9) #17
   tail call void @free(ptr noundef nonnull %10) #17
   br label %arkode_butcher_dot.exit
@@ -5377,48 +5371,48 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6j(ptr noundef r
 
 .preheader.us.preheader.i:                        ; preds = %7
   %15 = zext nneg i32 %6 to i64
-  %16 = shl nuw nsw i64 %15, 3
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
-  %18 = load ptr, ptr %17, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
-  %.promoted.us.i = load double, ptr %19, align 8, !tbaa !18
-  br label %20
+  %16 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %17 = load ptr, ptr %16, align 8, !tbaa !12
+  %18 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %.promoted.us.i = load double, ptr %18, align 8, !tbaa !18
+  br label %19
 
-20:                                               ; preds = %20, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
-  %21 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %26, %20 ]
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
-  %23 = load double, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
-  %25 = load double, ptr %24, align 8, !tbaa !18
-  %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %21)
+19:                                               ; preds = %19, %.preheader.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %19 ]
+  %20 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %25, %19 ]
+  %21 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i
+  %22 = load double, ptr %21, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %24 = load double, ptr %23, align 8, !tbaa !18
+  %25 = tail call double @llvm.fmuladd.f64(double %22, double %24, double %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %15
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %20
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %19
 
-._crit_edge.us.i:                                 ; preds = %20
-  store double %26, ptr %19, align 8, !tbaa !18
+._crit_edge.us.i:                                 ; preds = %19
+  store double %25, ptr %18, align 8, !tbaa !18
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %15
-  br i1 %exitcond44.not.i, label %27, label %.preheader.us.i
+  br i1 %exitcond44.not.i, label %26, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
   tail call void @free(ptr noundef %9) #17
   tail call void @free(ptr noundef %10) #17
   br label %arkode_butcher_dot.exit
 
-27:                                               ; preds = %._crit_edge.us.i
+26:                                               ; preds = %._crit_edge.us.i
+  %27 = shl nuw nsw i64 %15, 3
   %28 = icmp eq ptr %3, null
   %29 = icmp eq ptr %10, null
   %or.cond3.i36 = or i1 %28, %29
   br i1 %or.cond3.i36, label %arkode_butcher_mv.exit49, label %.preheader.us.i39
 
-.preheader.us.i39:                                ; preds = %27, %._crit_edge.us.i45
-  %indvars.iv40.i40 = phi i64 [ %indvars.iv.next41.i46, %._crit_edge.us.i45 ], [ 0, %27 ]
+.preheader.us.i39:                                ; preds = %26, %._crit_edge.us.i45
+  %indvars.iv40.i40 = phi i64 [ %indvars.iv.next41.i46, %._crit_edge.us.i45 ], [ 0, %26 ]
   %30 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i40
   %31 = load ptr, ptr %30, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i40
@@ -5443,7 +5437,7 @@ arkode_butcher_mv.exit:                           ; preds = %7
   %exitcond44.not.i47 = icmp eq i64 %indvars.iv.next41.i46, %15
   br i1 %exitcond44.not.i47, label %40, label %.preheader.us.i39
 
-arkode_butcher_mv.exit49:                         ; preds = %27
+arkode_butcher_mv.exit49:                         ; preds = %26
   tail call void @free(ptr noundef nonnull %9) #17
   tail call void @free(ptr noundef %10) #17
   br label %arkode_butcher_dot.exit
@@ -5453,7 +5447,7 @@ arkode_butcher_mv.exit49:                         ; preds = %27
   br i1 %41, label %arkode_butcher_mv.exit64, label %.preheader.us.preheader.i53
 
 .preheader.us.preheader.i53:                      ; preds = %40
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %16, i1 false), !tbaa !18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %27, i1 false), !tbaa !18
   br label %.preheader.us.i54
 
 .preheader.us.i54:                                ; preds = %._crit_edge.us.i60, %.preheader.us.preheader.i53
@@ -5707,48 +5701,48 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6l(ptr noundef r
 
 .preheader.us.preheader.i:                        ; preds = %7
   %15 = zext nneg i32 %6 to i64
-  %16 = shl nuw nsw i64 %15, 3
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
-  %18 = load ptr, ptr %17, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
-  %.promoted.us.i = load double, ptr %19, align 8, !tbaa !18
-  br label %20
+  %16 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %17 = load ptr, ptr %16, align 8, !tbaa !12
+  %18 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %.promoted.us.i = load double, ptr %18, align 8, !tbaa !18
+  br label %19
 
-20:                                               ; preds = %20, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
-  %21 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %26, %20 ]
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
-  %23 = load double, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
-  %25 = load double, ptr %24, align 8, !tbaa !18
-  %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %21)
+19:                                               ; preds = %19, %.preheader.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %19 ]
+  %20 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %25, %19 ]
+  %21 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i
+  %22 = load double, ptr %21, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %24 = load double, ptr %23, align 8, !tbaa !18
+  %25 = tail call double @llvm.fmuladd.f64(double %22, double %24, double %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %15
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %20
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %19
 
-._crit_edge.us.i:                                 ; preds = %20
-  store double %26, ptr %19, align 8, !tbaa !18
+._crit_edge.us.i:                                 ; preds = %19
+  store double %25, ptr %18, align 8, !tbaa !18
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %15
-  br i1 %exitcond44.not.i, label %27, label %.preheader.us.i
+  br i1 %exitcond44.not.i, label %26, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
   tail call void @free(ptr noundef %9) #17
   tail call void @free(ptr noundef %10) #17
   br label %arkode_butcher_dot.exit
 
-27:                                               ; preds = %._crit_edge.us.i
+26:                                               ; preds = %._crit_edge.us.i
+  %27 = shl nuw nsw i64 %15, 3
   %28 = icmp eq ptr %3, null
   %29 = icmp eq ptr %10, null
   %or.cond3.i36 = or i1 %28, %29
   br i1 %or.cond3.i36, label %arkode_butcher_vv.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %27, %.preheader.i
-  %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i39, %.preheader.i ], [ 0, %27 ]
+.preheader.i:                                     ; preds = %26, %.preheader.i
+  %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i39, %.preheader.i ], [ 0, %26 ]
   %30 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i38
   %31 = load double, ptr %30, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i38
@@ -5760,7 +5754,7 @@ arkode_butcher_mv.exit:                           ; preds = %7
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %15
   br i1 %exitcond.not.i40, label %36, label %.preheader.i
 
-arkode_butcher_vv.exit:                           ; preds = %27
+arkode_butcher_vv.exit:                           ; preds = %26
   tail call void @free(ptr noundef nonnull %9) #17
   tail call void @free(ptr noundef %10) #17
   br label %arkode_butcher_dot.exit
@@ -5792,7 +5786,7 @@ arkode_butcher_vv.exit51:                         ; preds = %36
   br i1 %45, label %arkode_butcher_mv.exit66, label %.preheader.us.preheader.i55
 
 .preheader.us.preheader.i55:                      ; preds = %44
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %16, i1 false), !tbaa !18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %27, i1 false), !tbaa !18
   br label %.preheader.us.i56
 
 .preheader.us.i56:                                ; preds = %._crit_edge.us.i62, %.preheader.us.preheader.i55
@@ -5873,34 +5867,33 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6m(ptr noundef r
 
 .preheader.us.preheader.i:                        ; preds = %7
   %16 = zext nneg i32 %6 to i64
-  %17 = shl nuw nsw i64 %16, 3
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %18 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
-  %19 = load ptr, ptr %18, align 8, !tbaa !12
-  %20 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
-  %.promoted.us.i = load double, ptr %20, align 8, !tbaa !18
-  br label %21
+  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %18 = load ptr, ptr %17, align 8, !tbaa !12
+  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %.promoted.us.i = load double, ptr %19, align 8, !tbaa !18
+  br label %20
 
-21:                                               ; preds = %21, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %21 ]
-  %22 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %27, %21 ]
-  %23 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i
-  %24 = load double, ptr %23, align 8, !tbaa !18
-  %25 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
-  %26 = load double, ptr %25, align 8, !tbaa !18
-  %27 = tail call double @llvm.fmuladd.f64(double %24, double %26, double %22)
+20:                                               ; preds = %20, %.preheader.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
+  %21 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %26, %20 ]
+  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
+  %23 = load double, ptr %22, align 8, !tbaa !18
+  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %25 = load double, ptr %24, align 8, !tbaa !18
+  %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %21)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %21
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %20
 
-._crit_edge.us.i:                                 ; preds = %21
-  store double %27, ptr %20, align 8, !tbaa !18
+._crit_edge.us.i:                                 ; preds = %20
+  store double %26, ptr %19, align 8, !tbaa !18
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %16
-  br i1 %exitcond44.not.i, label %28, label %.preheader.us.i
+  br i1 %exitcond44.not.i, label %27, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
   tail call void @free(ptr noundef %9) #17
@@ -5908,7 +5901,8 @@ arkode_butcher_mv.exit:                           ; preds = %7
   tail call void @free(ptr noundef %11) #17
   br label %arkode_butcher_dot.exit
 
-28:                                               ; preds = %._crit_edge.us.i
+27:                                               ; preds = %._crit_edge.us.i
+  %28 = shl nuw nsw i64 %16, 3
   %29 = icmp eq ptr %2, null
   %30 = icmp eq ptr %3, null
   %or.cond.i40 = or i1 %29, %30
@@ -5916,8 +5910,8 @@ arkode_butcher_mv.exit:                           ; preds = %7
   %or.cond3.i41 = or i1 %or.cond.i40, %31
   br i1 %or.cond3.i41, label %arkode_butcher_mv.exit54, label %.preheader.us.i44
 
-.preheader.us.i44:                                ; preds = %28, %._crit_edge.us.i50
-  %indvars.iv40.i45 = phi i64 [ %indvars.iv.next41.i51, %._crit_edge.us.i50 ], [ 0, %28 ]
+.preheader.us.i44:                                ; preds = %27, %._crit_edge.us.i50
+  %indvars.iv40.i45 = phi i64 [ %indvars.iv.next41.i51, %._crit_edge.us.i50 ], [ 0, %27 ]
   %32 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40.i45
   %33 = load ptr, ptr %32, align 8, !tbaa !12
   %34 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i45
@@ -5942,7 +5936,7 @@ arkode_butcher_mv.exit:                           ; preds = %7
   %exitcond44.not.i52 = icmp eq i64 %indvars.iv.next41.i51, %16
   br i1 %exitcond44.not.i52, label %42, label %.preheader.us.i44
 
-arkode_butcher_mv.exit54:                         ; preds = %28
+arkode_butcher_mv.exit54:                         ; preds = %27
   tail call void @free(ptr noundef nonnull %9) #17
   tail call void @free(ptr noundef %10) #17
   tail call void @free(ptr noundef %11) #17
@@ -5975,7 +5969,7 @@ arkode_butcher_vv.exit:                           ; preds = %42
   br i1 %51, label %arkode_butcher_mv.exit75, label %.preheader.us.preheader.i64
 
 .preheader.us.preheader.i64:                      ; preds = %50
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %17, i1 false), !tbaa !18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %28, i1 false), !tbaa !18
   br label %.preheader.us.i65
 
 .preheader.us.i65:                                ; preds = %._crit_edge.us.i71, %.preheader.us.preheader.i64
@@ -6081,49 +6075,46 @@ arkode_butcher_vv.exit:                           ; preds = %7
   %22 = icmp eq ptr %3, null
   %23 = icmp eq ptr %10, null
   %or.cond3.i36 = or i1 %22, %23
-  br i1 %or.cond3.i36, label %arkode_butcher_mv.exit, label %.preheader.us.preheader.i
+  br i1 %or.cond3.i36, label %arkode_butcher_mv.exit, label %.preheader.us.i
 
-.preheader.us.preheader.i:                        ; preds = %21
-  %24 = shl nuw nsw i64 %wide.trip.count.i, 3
-  br label %.preheader.us.i
+.preheader.us.i:                                  ; preds = %21, %._crit_edge.us.i
+  %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %._crit_edge.us.i ], [ 0, %21 ]
+  %24 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
+  %25 = load ptr, ptr %24, align 8, !tbaa !12
+  %26 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i
+  %.promoted.us.i = load double, ptr %26, align 8, !tbaa !18
+  br label %27
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %25 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
-  %26 = load ptr, ptr %25, align 8, !tbaa !12
-  %27 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i
-  %.promoted.us.i = load double, ptr %27, align 8, !tbaa !18
-  br label %28
-
-28:                                               ; preds = %28, %.preheader.us.i
-  %indvars.iv.i38 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i39, %28 ]
-  %29 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %34, %28 ]
-  %30 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.i38
-  %31 = load double, ptr %30, align 8, !tbaa !18
-  %32 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i38
-  %33 = load double, ptr %32, align 8, !tbaa !18
-  %34 = tail call double @llvm.fmuladd.f64(double %31, double %33, double %29)
+27:                                               ; preds = %27, %.preheader.us.i
+  %indvars.iv.i38 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i39, %27 ]
+  %28 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %33, %27 ]
+  %29 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv.i38
+  %30 = load double, ptr %29, align 8, !tbaa !18
+  %31 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i38
+  %32 = load double, ptr %31, align 8, !tbaa !18
+  %33 = tail call double @llvm.fmuladd.f64(double %30, double %32, double %28)
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i
-  br i1 %exitcond.not.i40, label %._crit_edge.us.i, label %28
+  br i1 %exitcond.not.i40, label %._crit_edge.us.i, label %27
 
-._crit_edge.us.i:                                 ; preds = %28
-  store double %34, ptr %27, align 8, !tbaa !18
+._crit_edge.us.i:                                 ; preds = %27
+  store double %33, ptr %26, align 8, !tbaa !18
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count.i
-  br i1 %exitcond44.not.i, label %35, label %.preheader.us.i
+  br i1 %exitcond44.not.i, label %34, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %21
   tail call void @free(ptr noundef nonnull %9) #17
   tail call void @free(ptr noundef %10) #17
   br label %arkode_butcher_dot.exit
 
-35:                                               ; preds = %._crit_edge.us.i
+34:                                               ; preds = %._crit_edge.us.i
+  %35 = shl nuw nsw i64 %wide.trip.count.i, 3
   %36 = icmp eq ptr %2, null
   br i1 %36, label %arkode_butcher_vv.exit51, label %.preheader.i46
 
-.preheader.i46:                                   ; preds = %35, %.preheader.i46
-  %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i48, %.preheader.i46 ], [ 0, %35 ]
+.preheader.i46:                                   ; preds = %34, %.preheader.i46
+  %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i48, %.preheader.i46 ], [ 0, %34 ]
   %37 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i47
   %38 = load double, ptr %37, align 8, !tbaa !18
   %39 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i47
@@ -6135,7 +6126,7 @@ arkode_butcher_mv.exit:                           ; preds = %21
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i
   br i1 %exitcond.not.i49, label %43, label %.preheader.i46
 
-arkode_butcher_vv.exit51:                         ; preds = %35
+arkode_butcher_vv.exit51:                         ; preds = %34
   tail call void @free(ptr noundef nonnull %9) #17
   tail call void @free(ptr noundef nonnull %10) #17
   br label %arkode_butcher_dot.exit
@@ -6145,7 +6136,7 @@ arkode_butcher_vv.exit51:                         ; preds = %35
   br i1 %44, label %arkode_butcher_mv.exit66, label %.preheader.us.preheader.i55
 
 .preheader.us.preheader.i55:                      ; preds = %43
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %24, i1 false), !tbaa !18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %35, i1 false), !tbaa !18
   br label %.preheader.us.i56
 
 .preheader.us.i56:                                ; preds = %._crit_edge.us.i62, %.preheader.us.preheader.i55
@@ -6225,48 +6216,48 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6o(ptr noundef r
 
 .preheader.us.preheader.i:                        ; preds = %7
   %15 = zext nneg i32 %6 to i64
-  %16 = shl nuw nsw i64 %15, 3
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
-  %18 = load ptr, ptr %17, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
-  %.promoted.us.i = load double, ptr %19, align 8, !tbaa !18
-  br label %20
+  %16 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %17 = load ptr, ptr %16, align 8, !tbaa !12
+  %18 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %.promoted.us.i = load double, ptr %18, align 8, !tbaa !18
+  br label %19
 
-20:                                               ; preds = %20, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
-  %21 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %26, %20 ]
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
-  %23 = load double, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
-  %25 = load double, ptr %24, align 8, !tbaa !18
-  %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %21)
+19:                                               ; preds = %19, %.preheader.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %19 ]
+  %20 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %25, %19 ]
+  %21 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i
+  %22 = load double, ptr %21, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %24 = load double, ptr %23, align 8, !tbaa !18
+  %25 = tail call double @llvm.fmuladd.f64(double %22, double %24, double %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %15
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %20
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %19
 
-._crit_edge.us.i:                                 ; preds = %20
-  store double %26, ptr %19, align 8, !tbaa !18
+._crit_edge.us.i:                                 ; preds = %19
+  store double %25, ptr %18, align 8, !tbaa !18
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %15
-  br i1 %exitcond44.not.i, label %27, label %.preheader.us.i
+  br i1 %exitcond44.not.i, label %26, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
   tail call void @free(ptr noundef %9) #17
   tail call void @free(ptr noundef %10) #17
   br label %arkode_butcher_dot.exit
 
-27:                                               ; preds = %._crit_edge.us.i
+26:                                               ; preds = %._crit_edge.us.i
+  %27 = shl nuw nsw i64 %15, 3
   %28 = icmp eq ptr %3, null
   %29 = icmp eq ptr %10, null
   %or.cond3.i36 = or i1 %28, %29
   br i1 %or.cond3.i36, label %arkode_butcher_mv.exit49, label %.preheader.us.i39
 
-.preheader.us.i39:                                ; preds = %27, %._crit_edge.us.i45
-  %indvars.iv40.i40 = phi i64 [ %indvars.iv.next41.i46, %._crit_edge.us.i45 ], [ 0, %27 ]
+.preheader.us.i39:                                ; preds = %26, %._crit_edge.us.i45
+  %indvars.iv40.i40 = phi i64 [ %indvars.iv.next41.i46, %._crit_edge.us.i45 ], [ 0, %26 ]
   %30 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i40
   %31 = load ptr, ptr %30, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i40
@@ -6291,7 +6282,7 @@ arkode_butcher_mv.exit:                           ; preds = %7
   %exitcond44.not.i47 = icmp eq i64 %indvars.iv.next41.i46, %15
   br i1 %exitcond44.not.i47, label %40, label %.preheader.us.i39
 
-arkode_butcher_mv.exit49:                         ; preds = %27
+arkode_butcher_mv.exit49:                         ; preds = %26
   tail call void @free(ptr noundef nonnull %9) #17
   tail call void @free(ptr noundef %10) #17
   br label %arkode_butcher_dot.exit
@@ -6323,7 +6314,7 @@ arkode_butcher_vv.exit:                           ; preds = %40
   br i1 %49, label %arkode_butcher_mv.exit70, label %.preheader.us.preheader.i59
 
 .preheader.us.preheader.i59:                      ; preds = %48
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %16, i1 false), !tbaa !18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %27, i1 false), !tbaa !18
   br label %.preheader.us.i60
 
 .preheader.us.i60:                                ; preds = %._crit_edge.us.i66, %.preheader.us.preheader.i59
@@ -6572,48 +6563,48 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6q(ptr noundef r
 
 .preheader.us.preheader.i:                        ; preds = %7
   %15 = zext nneg i32 %6 to i64
-  %16 = shl nuw nsw i64 %15, 3
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
-  %18 = load ptr, ptr %17, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
-  %.promoted.us.i = load double, ptr %19, align 8, !tbaa !18
-  br label %20
+  %16 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %17 = load ptr, ptr %16, align 8, !tbaa !12
+  %18 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %.promoted.us.i = load double, ptr %18, align 8, !tbaa !18
+  br label %19
 
-20:                                               ; preds = %20, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
-  %21 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %26, %20 ]
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
-  %23 = load double, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
-  %25 = load double, ptr %24, align 8, !tbaa !18
-  %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %21)
+19:                                               ; preds = %19, %.preheader.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %19 ]
+  %20 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %25, %19 ]
+  %21 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i
+  %22 = load double, ptr %21, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %24 = load double, ptr %23, align 8, !tbaa !18
+  %25 = tail call double @llvm.fmuladd.f64(double %22, double %24, double %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %15
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %20
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %19
 
-._crit_edge.us.i:                                 ; preds = %20
-  store double %26, ptr %19, align 8, !tbaa !18
+._crit_edge.us.i:                                 ; preds = %19
+  store double %25, ptr %18, align 8, !tbaa !18
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %15
-  br i1 %exitcond44.not.i, label %27, label %.preheader.us.i
+  br i1 %exitcond44.not.i, label %26, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
   tail call void @free(ptr noundef %9) #17
   tail call void @free(ptr noundef %10) #17
   br label %arkode_butcher_dot.exit
 
-27:                                               ; preds = %._crit_edge.us.i
+26:                                               ; preds = %._crit_edge.us.i
+  %27 = shl nuw nsw i64 %15, 3
   %28 = icmp eq ptr %3, null
   %29 = icmp eq ptr %10, null
   %or.cond3.i36 = or i1 %28, %29
   br i1 %or.cond3.i36, label %arkode_butcher_vv.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %27, %.preheader.i
-  %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i39, %.preheader.i ], [ 0, %27 ]
+.preheader.i:                                     ; preds = %26, %.preheader.i
+  %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i39, %.preheader.i ], [ 0, %26 ]
   %30 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i38
   %31 = load double, ptr %30, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i38
@@ -6625,7 +6616,7 @@ arkode_butcher_mv.exit:                           ; preds = %7
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %15
   br i1 %exitcond.not.i40, label %36, label %.preheader.i
 
-arkode_butcher_vv.exit:                           ; preds = %27
+arkode_butcher_vv.exit:                           ; preds = %26
   tail call void @free(ptr noundef nonnull %9) #17
   tail call void @free(ptr noundef %10) #17
   br label %arkode_butcher_dot.exit
@@ -6635,7 +6626,7 @@ arkode_butcher_vv.exit:                           ; preds = %27
   br i1 %37, label %arkode_butcher_mv.exit55, label %.preheader.us.preheader.i44
 
 .preheader.us.preheader.i44:                      ; preds = %36
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %16, i1 false), !tbaa !18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %27, i1 false), !tbaa !18
   br label %.preheader.us.i45
 
 .preheader.us.i45:                                ; preds = %._crit_edge.us.i51, %.preheader.us.preheader.i44
@@ -6674,7 +6665,7 @@ arkode_butcher_mv.exit55:                         ; preds = %36
   br i1 %49, label %arkode_butcher_mv.exit70, label %.preheader.us.preheader.i59
 
 .preheader.us.preheader.i59:                      ; preds = %48
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %16, i1 false), !tbaa !18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %27, i1 false), !tbaa !18
   br label %.preheader.us.i60
 
 .preheader.us.i60:                                ; preds = %._crit_edge.us.i66, %.preheader.us.preheader.i59
@@ -6778,49 +6769,46 @@ arkode_butcher_vv.exit:                           ; preds = %7
   %22 = icmp eq ptr %3, null
   %23 = icmp eq ptr %10, null
   %or.cond3.i36 = or i1 %22, %23
-  br i1 %or.cond3.i36, label %arkode_butcher_mv.exit, label %.preheader.us.preheader.i
+  br i1 %or.cond3.i36, label %arkode_butcher_mv.exit, label %.preheader.us.i
 
-.preheader.us.preheader.i:                        ; preds = %21
-  %24 = shl nuw nsw i64 %wide.trip.count.i, 3
-  br label %.preheader.us.i
+.preheader.us.i:                                  ; preds = %21, %._crit_edge.us.i
+  %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %._crit_edge.us.i ], [ 0, %21 ]
+  %24 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
+  %25 = load ptr, ptr %24, align 8, !tbaa !12
+  %26 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i
+  %.promoted.us.i = load double, ptr %26, align 8, !tbaa !18
+  br label %27
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %25 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i
-  %26 = load ptr, ptr %25, align 8, !tbaa !12
-  %27 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i
-  %.promoted.us.i = load double, ptr %27, align 8, !tbaa !18
-  br label %28
-
-28:                                               ; preds = %28, %.preheader.us.i
-  %indvars.iv.i38 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i39, %28 ]
-  %29 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %34, %28 ]
-  %30 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.i38
-  %31 = load double, ptr %30, align 8, !tbaa !18
-  %32 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i38
-  %33 = load double, ptr %32, align 8, !tbaa !18
-  %34 = tail call double @llvm.fmuladd.f64(double %31, double %33, double %29)
+27:                                               ; preds = %27, %.preheader.us.i
+  %indvars.iv.i38 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i39, %27 ]
+  %28 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %33, %27 ]
+  %29 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv.i38
+  %30 = load double, ptr %29, align 8, !tbaa !18
+  %31 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i38
+  %32 = load double, ptr %31, align 8, !tbaa !18
+  %33 = tail call double @llvm.fmuladd.f64(double %30, double %32, double %28)
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i
-  br i1 %exitcond.not.i40, label %._crit_edge.us.i, label %28
+  br i1 %exitcond.not.i40, label %._crit_edge.us.i, label %27
 
-._crit_edge.us.i:                                 ; preds = %28
-  store double %34, ptr %27, align 8, !tbaa !18
+._crit_edge.us.i:                                 ; preds = %27
+  store double %33, ptr %26, align 8, !tbaa !18
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count.i
-  br i1 %exitcond44.not.i, label %35, label %.preheader.us.i
+  br i1 %exitcond44.not.i, label %34, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %21
   tail call void @free(ptr noundef nonnull %9) #17
   tail call void @free(ptr noundef %10) #17
   br label %arkode_butcher_dot.exit
 
-35:                                               ; preds = %._crit_edge.us.i
+34:                                               ; preds = %._crit_edge.us.i
+  %35 = shl nuw nsw i64 %wide.trip.count.i, 3
   %36 = icmp eq ptr %2, null
   br i1 %36, label %arkode_butcher_mv.exit55, label %.preheader.us.preheader.i44
 
-.preheader.us.preheader.i44:                      ; preds = %35
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %24, i1 false), !tbaa !18
+.preheader.us.preheader.i44:                      ; preds = %34
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %35, i1 false), !tbaa !18
   br label %.preheader.us.i45
 
 .preheader.us.i45:                                ; preds = %._crit_edge.us.i51, %.preheader.us.preheader.i44
@@ -6849,7 +6837,7 @@ arkode_butcher_mv.exit:                           ; preds = %21
   %exitcond44.not.i53 = icmp eq i64 %indvars.iv.next41.i52, %wide.trip.count.i
   br i1 %exitcond44.not.i53, label %47, label %.preheader.us.i45
 
-arkode_butcher_mv.exit55:                         ; preds = %35
+arkode_butcher_mv.exit55:                         ; preds = %34
   tail call void @free(ptr noundef nonnull %9) #17
   tail call void @free(ptr noundef nonnull %10) #17
   br label %arkode_butcher_dot.exit
@@ -6859,7 +6847,7 @@ arkode_butcher_mv.exit55:                         ; preds = %35
   br i1 %48, label %arkode_butcher_mv.exit70, label %.preheader.us.preheader.i59
 
 .preheader.us.preheader.i59:                      ; preds = %47
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %24, i1 false), !tbaa !18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %35, i1 false), !tbaa !18
   br label %.preheader.us.i60
 
 .preheader.us.i60:                                ; preds = %._crit_edge.us.i66, %.preheader.us.preheader.i59
@@ -6939,48 +6927,48 @@ define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6s(ptr noundef r
 
 .preheader.us.preheader.i:                        ; preds = %7
   %15 = zext nneg i32 %6 to i64
-  %16 = shl nuw nsw i64 %15, 3
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next41.i, %._crit_edge.us.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
-  %18 = load ptr, ptr %17, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
-  %.promoted.us.i = load double, ptr %19, align 8, !tbaa !18
-  br label %20
+  %16 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv40.i
+  %17 = load ptr, ptr %16, align 8, !tbaa !12
+  %18 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv40.i
+  %.promoted.us.i = load double, ptr %18, align 8, !tbaa !18
+  br label %19
 
-20:                                               ; preds = %20, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %20 ]
-  %21 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %26, %20 ]
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i
-  %23 = load double, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
-  %25 = load double, ptr %24, align 8, !tbaa !18
-  %26 = tail call double @llvm.fmuladd.f64(double %23, double %25, double %21)
+19:                                               ; preds = %19, %.preheader.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %19 ]
+  %20 = phi double [ %.promoted.us.i, %.preheader.us.i ], [ %25, %19 ]
+  %21 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i
+  %22 = load double, ptr %21, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %24 = load double, ptr %23, align 8, !tbaa !18
+  %25 = tail call double @llvm.fmuladd.f64(double %22, double %24, double %20)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %15
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %20
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %19
 
-._crit_edge.us.i:                                 ; preds = %20
-  store double %26, ptr %19, align 8, !tbaa !18
+._crit_edge.us.i:                                 ; preds = %19
+  store double %25, ptr %18, align 8, !tbaa !18
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %15
-  br i1 %exitcond44.not.i, label %27, label %.preheader.us.i
+  br i1 %exitcond44.not.i, label %26, label %.preheader.us.i
 
 arkode_butcher_mv.exit:                           ; preds = %7
   tail call void @free(ptr noundef %9) #17
   tail call void @free(ptr noundef %10) #17
   br label %arkode_butcher_dot.exit
 
-27:                                               ; preds = %._crit_edge.us.i
+26:                                               ; preds = %._crit_edge.us.i
+  %27 = shl nuw nsw i64 %15, 3
   %28 = icmp eq ptr %3, null
   %29 = icmp eq ptr %10, null
   %or.cond3.i36 = or i1 %28, %29
   br i1 %or.cond3.i36, label %arkode_butcher_mv.exit49, label %.preheader.us.i39
 
-.preheader.us.i39:                                ; preds = %27, %._crit_edge.us.i45
-  %indvars.iv40.i40 = phi i64 [ %indvars.iv.next41.i46, %._crit_edge.us.i45 ], [ 0, %27 ]
+.preheader.us.i39:                                ; preds = %26, %._crit_edge.us.i45
+  %indvars.iv40.i40 = phi i64 [ %indvars.iv.next41.i46, %._crit_edge.us.i45 ], [ 0, %26 ]
   %30 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40.i40
   %31 = load ptr, ptr %30, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv40.i40
@@ -7005,7 +6993,7 @@ arkode_butcher_mv.exit:                           ; preds = %7
   %exitcond44.not.i47 = icmp eq i64 %indvars.iv.next41.i46, %15
   br i1 %exitcond44.not.i47, label %40, label %.preheader.us.i39
 
-arkode_butcher_mv.exit49:                         ; preds = %27
+arkode_butcher_mv.exit49:                         ; preds = %26
   tail call void @free(ptr noundef nonnull %9) #17
   tail call void @free(ptr noundef %10) #17
   br label %arkode_butcher_dot.exit
@@ -7015,7 +7003,7 @@ arkode_butcher_mv.exit49:                         ; preds = %27
   br i1 %41, label %arkode_butcher_mv.exit64, label %.preheader.us.preheader.i53
 
 .preheader.us.preheader.i53:                      ; preds = %40
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %16, i1 false), !tbaa !18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %27, i1 false), !tbaa !18
   br label %.preheader.us.i54
 
 .preheader.us.i54:                                ; preds = %._crit_edge.us.i60, %.preheader.us.preheader.i53
@@ -7054,7 +7042,7 @@ arkode_butcher_mv.exit64:                         ; preds = %40
   br i1 %53, label %arkode_butcher_mv.exit79, label %.preheader.us.preheader.i68
 
 .preheader.us.preheader.i68:                      ; preds = %52
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %16, i1 false), !tbaa !18
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %27, i1 false), !tbaa !18
   br label %.preheader.us.i69
 
 .preheader.us.i69:                                ; preds = %._crit_edge.us.i75, %.preheader.us.preheader.i68

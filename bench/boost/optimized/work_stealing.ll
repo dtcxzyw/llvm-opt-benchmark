@@ -329,8 +329,8 @@ _ZNSt12_Vector_baseIN5boost13intrusive_ptrINS0_6fibers4numa4algo13work_stealingE
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, i8 0, i64 %8, i1 false), !tbaa !9
-  %10 = getelementptr inbounds nuw %"class.boost::intrusive_ptr", ptr %9, i64 %7
   %scevgep = getelementptr i8, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw %"class.boost::intrusive_ptr", ptr %9, i64 %7
   br label %_ZNSt6vectorIN5boost13intrusive_ptrINS0_6fibers4numa4algo13work_stealingEEESaIS6_EEC2EmRKS6_RKS7_.exit
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -1679,7 +1679,7 @@ _ZNSt13random_deviceD2Ev.exit:                    ; preds = %9
   br label %18
 
 18:                                               ; preds = %._crit_edge21, %15
-  %.014 = phi i64 [ 0, %15 ], [ %38, %._crit_edge21 ]
+  %.014 = phi i64 [ 0, %15 ], [ %39, %._crit_edge21 ]
   %19 = load atomic i32, ptr %0 monotonic, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
@@ -1727,18 +1727,18 @@ _ZNSt13random_deviceD2Ev.exit:                    ; preds = %9
           to label %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit unwind label %.loopexit
 
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit: ; preds = %35
-  %38 = add i64 %.014, 1
   %.not = icmp eq i64 %37, 0
   br i1 %.not, label %._crit_edge21, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph20
-  %.0819 = phi i64 [ %39, %.lr.ph20 ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit ]
+  %.0819 = phi i64 [ %38, %.lr.ph20 ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit ]
   call void asm sideeffect "pause", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !139
-  %39 = add nuw i64 %.0819, 1
-  %exitcond.not = icmp eq i64 %39, %37
+  %38 = add nuw i64 %.0819, 1
+  %exitcond.not = icmp eq i64 %38, %37
   br i1 %exitcond.not, label %._crit_edge21, label %.lr.ph20, !llvm.loop !140
 
 ._crit_edge21:                                    ; preds = %.lr.ph20, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit
+  %39 = add i64 %.014, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 

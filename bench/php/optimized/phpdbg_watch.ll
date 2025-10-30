@@ -2043,37 +2043,37 @@ define hidden void @phpdbg_remove_watch_element_recursively(ptr noundef %0) loca
   br i1 %.not21, label %25, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load ptr, ptr %12, align 8, !tbaa !20
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %15 = load i32, ptr %14, align 8, !tbaa !102
-  %16 = zext i32 %15 to i64
-  %.idx = shl nuw nsw i64 %16, 5
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
-  %.not2324 = icmp eq i32 %15, 0
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %12 = load ptr, ptr %11, align 8, !tbaa !20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %14 = load i32, ptr %13, align 8, !tbaa !102
+  %15 = zext i32 %14 to i64
+  %.idx = shl nuw nsw i64 %15, 5
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
+  %.not2324 = icmp eq i32 %14, 0
   br i1 %.not2324, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %10, %23
-  %.025 = phi ptr [ %24, %23 ], [ %13, %10 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.025, i64 8
-  %19 = load i8, ptr %18, align 8, !tbaa !20
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %23, label %21, !prof !106
+.lr.ph:                                           ; preds = %10, %22
+  %.025 = phi ptr [ %23, %22 ], [ %12, %10 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.025, i64 8
+  %18 = load i8, ptr %17, align 8, !tbaa !20
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %22, label %20, !prof !106
 
-21:                                               ; preds = %.lr.ph
-  %22 = load ptr, ptr %.025, align 8, !tbaa !20
-  tail call void @phpdbg_remove_watch_element_recursively(ptr noundef %22)
-  tail call void @phpdbg_free_watch_element(ptr noundef %22)
-  br label %23
+20:                                               ; preds = %.lr.ph
+  %21 = load ptr, ptr %.025, align 8, !tbaa !20
+  tail call void @phpdbg_remove_watch_element_recursively(ptr noundef %21)
+  tail call void @phpdbg_free_watch_element(ptr noundef %21)
+  br label %22
 
-23:                                               ; preds = %.lr.ph, %21
-  %24 = getelementptr inbounds nuw i8, ptr %.025, i64 32
-  %.not23 = icmp eq ptr %24, %17
+22:                                               ; preds = %.lr.ph, %20
+  %23 = getelementptr inbounds nuw i8, ptr %.025, i64 32
+  %.not23 = icmp eq ptr %23, %16
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %23, %10
-  tail call void @zend_hash_destroy(ptr noundef nonnull %11) #17
+._crit_edge:                                      ; preds = %22, %10
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @zend_hash_destroy(ptr noundef nonnull %24) #17
   br label %25
 
 25:                                               ; preds = %6, %._crit_edge, %4
@@ -3538,40 +3538,40 @@ phpdbg_deactivate_watchpoint.exit.i69:            ; preds = %164, %162
   br label %phpdbg_clean_watch_element.exit.i52
 
 170:                                              ; preds = %phpdbg_deactivate_watchpoint.exit.i69
-  %171 = getelementptr inbounds nuw i8, ptr %148, i64 32
-  %172 = getelementptr inbounds nuw i8, ptr %148, i64 60
-  %173 = load i32, ptr %172, align 4, !tbaa !114
-  %174 = add i32 %173, 1
-  store i32 %174, ptr %172, align 4, !tbaa !114
-  %175 = getelementptr inbounds nuw i8, ptr %148, i64 48
-  %176 = load ptr, ptr %175, align 8, !tbaa !20
-  %177 = getelementptr inbounds nuw i8, ptr %148, i64 56
-  %178 = load i32, ptr %177, align 8, !tbaa !102
-  %179 = zext i32 %178 to i64
-  %.idx121 = shl nuw nsw i64 %179, 5
-  %180 = getelementptr inbounds nuw i8, ptr %176, i64 %.idx121
-  %.not21.i73100 = icmp eq i32 %178, 0
+  %171 = getelementptr inbounds nuw i8, ptr %148, i64 60
+  %172 = load i32, ptr %171, align 4, !tbaa !114
+  %173 = add i32 %172, 1
+  store i32 %173, ptr %171, align 4, !tbaa !114
+  %174 = getelementptr inbounds nuw i8, ptr %148, i64 48
+  %175 = load ptr, ptr %174, align 8, !tbaa !20
+  %176 = getelementptr inbounds nuw i8, ptr %148, i64 56
+  %177 = load i32, ptr %176, align 8, !tbaa !102
+  %178 = zext i32 %177 to i64
+  %.idx121 = shl nuw nsw i64 %178, 5
+  %179 = getelementptr inbounds nuw i8, ptr %175, i64 %.idx121
+  %.not21.i73100 = icmp eq i32 %177, 0
   br i1 %.not21.i73100, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %170, %186
-  %.0.i72101 = phi ptr [ %187, %186 ], [ %176, %170 ]
-  %181 = getelementptr inbounds nuw i8, ptr %.0.i72101, i64 8
-  %182 = load i8, ptr %181, align 8, !tbaa !20
-  %183 = icmp eq i8 %182, 0
-  br i1 %183, label %186, label %184, !prof !106
+.lr.ph:                                           ; preds = %170, %185
+  %.0.i72101 = phi ptr [ %186, %185 ], [ %175, %170 ]
+  %180 = getelementptr inbounds nuw i8, ptr %.0.i72101, i64 8
+  %181 = load i8, ptr %180, align 8, !tbaa !20
+  %182 = icmp eq i8 %181, 0
+  br i1 %182, label %185, label %183, !prof !106
 
-184:                                              ; preds = %.lr.ph
-  %185 = load ptr, ptr %.0.i72101, align 8, !tbaa !20
-  call void @phpdbg_update_watch_element_watch(ptr noundef %185) #19
-  br label %186
+183:                                              ; preds = %.lr.ph
+  %184 = load ptr, ptr %.0.i72101, align 8, !tbaa !20
+  call void @phpdbg_update_watch_element_watch(ptr noundef %184) #19
+  br label %185
 
-186:                                              ; preds = %184, %.lr.ph
-  %187 = getelementptr inbounds nuw i8, ptr %.0.i72101, i64 32
-  %.not21.i73 = icmp eq ptr %187, %180
+185:                                              ; preds = %183, %.lr.ph
+  %186 = getelementptr inbounds nuw i8, ptr %.0.i72101, i64 32
+  %.not21.i73 = icmp eq ptr %186, %179
   br i1 %.not21.i73, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %186, %170
-  call void @zend_hash_destroy(ptr noundef nonnull %171) #17
+._crit_edge:                                      ; preds = %185, %170
+  %187 = getelementptr inbounds nuw i8, ptr %148, i64 32
+  call void @zend_hash_destroy(ptr noundef nonnull %187) #17
   call void @_efree(ptr noundef nonnull %148) #17
   br label %phpdbg_clean_watch_element.exit.i52
 
@@ -3864,40 +3864,40 @@ phpdbg_deactivate_watchpoint.exit.i:              ; preds = %326, %324
   br label %phpdbg_clean_watch_element.exit.i
 
 332:                                              ; preds = %phpdbg_deactivate_watchpoint.exit.i
-  %333 = getelementptr inbounds nuw i8, ptr %310, i64 32
-  %334 = getelementptr inbounds nuw i8, ptr %310, i64 60
-  %335 = load i32, ptr %334, align 4, !tbaa !114
-  %336 = add i32 %335, 1
-  store i32 %336, ptr %334, align 4, !tbaa !114
-  %337 = getelementptr inbounds nuw i8, ptr %310, i64 48
-  %338 = load ptr, ptr %337, align 8, !tbaa !20
-  %339 = getelementptr inbounds nuw i8, ptr %310, i64 56
-  %340 = load i32, ptr %339, align 8, !tbaa !102
-  %341 = zext i32 %340 to i64
-  %.idx122 = shl nuw nsw i64 %341, 5
-  %342 = getelementptr inbounds nuw i8, ptr %338, i64 %.idx122
-  %.not21.i57104 = icmp eq i32 %340, 0
+  %333 = getelementptr inbounds nuw i8, ptr %310, i64 60
+  %334 = load i32, ptr %333, align 4, !tbaa !114
+  %335 = add i32 %334, 1
+  store i32 %335, ptr %333, align 4, !tbaa !114
+  %336 = getelementptr inbounds nuw i8, ptr %310, i64 48
+  %337 = load ptr, ptr %336, align 8, !tbaa !20
+  %338 = getelementptr inbounds nuw i8, ptr %310, i64 56
+  %339 = load i32, ptr %338, align 8, !tbaa !102
+  %340 = zext i32 %339 to i64
+  %.idx122 = shl nuw nsw i64 %340, 5
+  %341 = getelementptr inbounds nuw i8, ptr %337, i64 %.idx122
+  %.not21.i57104 = icmp eq i32 %339, 0
   br i1 %.not21.i57104, label %._crit_edge108, label %.lr.ph107
 
-.lr.ph107:                                        ; preds = %332, %348
-  %.0.i56105 = phi ptr [ %349, %348 ], [ %338, %332 ]
-  %343 = getelementptr inbounds nuw i8, ptr %.0.i56105, i64 8
-  %344 = load i8, ptr %343, align 8, !tbaa !20
-  %345 = icmp eq i8 %344, 0
-  br i1 %345, label %348, label %346, !prof !106
+.lr.ph107:                                        ; preds = %332, %347
+  %.0.i56105 = phi ptr [ %348, %347 ], [ %337, %332 ]
+  %342 = getelementptr inbounds nuw i8, ptr %.0.i56105, i64 8
+  %343 = load i8, ptr %342, align 8, !tbaa !20
+  %344 = icmp eq i8 %343, 0
+  br i1 %344, label %347, label %345, !prof !106
 
-346:                                              ; preds = %.lr.ph107
-  %347 = load ptr, ptr %.0.i56105, align 8, !tbaa !20
-  call void @phpdbg_update_watch_element_watch(ptr noundef %347) #19
-  br label %348
+345:                                              ; preds = %.lr.ph107
+  %346 = load ptr, ptr %.0.i56105, align 8, !tbaa !20
+  call void @phpdbg_update_watch_element_watch(ptr noundef %346) #19
+  br label %347
 
-348:                                              ; preds = %346, %.lr.ph107
-  %349 = getelementptr inbounds nuw i8, ptr %.0.i56105, i64 32
-  %.not21.i57 = icmp eq ptr %349, %342
+347:                                              ; preds = %345, %.lr.ph107
+  %348 = getelementptr inbounds nuw i8, ptr %.0.i56105, i64 32
+  %.not21.i57 = icmp eq ptr %348, %341
   br i1 %.not21.i57, label %._crit_edge108, label %.lr.ph107
 
-._crit_edge108:                                   ; preds = %348, %332
-  call void @zend_hash_destroy(ptr noundef nonnull %333) #17
+._crit_edge108:                                   ; preds = %347, %332
+  %349 = getelementptr inbounds nuw i8, ptr %310, i64 32
+  call void @zend_hash_destroy(ptr noundef nonnull %349) #17
   call void @_efree(ptr noundef nonnull %310) #17
   br label %phpdbg_clean_watch_element.exit.i
 
@@ -4054,40 +4054,40 @@ phpdbg_deactivate_watchpoint.exit:                ; preds = %16, %20
   br label %44
 
 26:                                               ; preds = %phpdbg_deactivate_watchpoint.exit
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %29 = load i32, ptr %28, align 4, !tbaa !114
-  %30 = add i32 %29, 1
-  store i32 %30, ptr %28, align 4, !tbaa !114
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %32 = load ptr, ptr %31, align 8, !tbaa !20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = load i32, ptr %33, align 8, !tbaa !102
-  %35 = zext i32 %34 to i64
-  %.idx = shl nuw nsw i64 %35, 5
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx
-  %.not2124 = icmp eq i32 %34, 0
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %28 = load i32, ptr %27, align 4, !tbaa !114
+  %29 = add i32 %28, 1
+  store i32 %29, ptr %27, align 4, !tbaa !114
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %31 = load ptr, ptr %30, align 8, !tbaa !20
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %33 = load i32, ptr %32, align 8, !tbaa !102
+  %34 = zext i32 %33 to i64
+  %.idx = shl nuw nsw i64 %34, 5
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx
+  %.not2124 = icmp eq i32 %33, 0
   br i1 %.not2124, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %26, %42
-  %.025 = phi ptr [ %43, %42 ], [ %32, %26 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.025, i64 8
-  %38 = load i8, ptr %37, align 8, !tbaa !20
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %42, label %40, !prof !106
+.lr.ph:                                           ; preds = %26, %41
+  %.025 = phi ptr [ %42, %41 ], [ %31, %26 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.025, i64 8
+  %37 = load i8, ptr %36, align 8, !tbaa !20
+  %38 = icmp eq i8 %37, 0
+  br i1 %38, label %41, label %39, !prof !106
 
-40:                                               ; preds = %.lr.ph
-  %41 = load ptr, ptr %.025, align 8, !tbaa !20
-  call void @phpdbg_update_watch_element_watch(ptr noundef %41)
-  br label %42
+39:                                               ; preds = %.lr.ph
+  %40 = load ptr, ptr %.025, align 8, !tbaa !20
+  call void @phpdbg_update_watch_element_watch(ptr noundef %40)
+  br label %41
 
-42:                                               ; preds = %.lr.ph, %40
-  %43 = getelementptr inbounds nuw i8, ptr %.025, i64 32
-  %.not21 = icmp eq ptr %43, %36
+41:                                               ; preds = %.lr.ph, %39
+  %42 = getelementptr inbounds nuw i8, ptr %.025, i64 32
+  %.not21 = icmp eq ptr %42, %35
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %42, %26
-  call void @zend_hash_destroy(ptr noundef nonnull %27) #17
+._crit_edge:                                      ; preds = %41, %26
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @zend_hash_destroy(ptr noundef nonnull %43) #17
   call void @_efree(ptr noundef nonnull %0) #17
   br label %44
 

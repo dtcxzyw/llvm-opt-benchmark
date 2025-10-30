@@ -1852,16 +1852,16 @@ attr_list.exit:                                   ; preds = %unicode_to_bytes.ex
   %794 = add i32 %.11, 2
   %795 = load i32, ptr %5, align 4
   %.not833 = icmp eq i32 %795, 0
-  br i1 %.not833, label %.loopexit.loopexit926, label %796
+  br i1 %.not833, label %.loopexit888, label %796
 
 796:                                              ; preds = %789
   %797 = load i32, ptr @hf_srvloc_srvreg_attrlist, align 4
   call fastcc void @attr_list2(ptr noundef %1, ptr noundef %18, i32 noundef %797, ptr noundef %0, i32 noundef %794, i32 noundef %795)
   %798 = load i32, ptr %5, align 4
   %799 = add i32 %798, %794
-  br label %.loopexit.loopexit926
+  br label %.loopexit888
 
-.loopexit.loopexit926:                            ; preds = %796, %789
+.loopexit888:                                     ; preds = %796, %789
   %.12 = phi i32 [ %799, %796 ], [ %794, %789 ]
   %800 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.12)
   %801 = zext i8 %800 to i32
@@ -2042,16 +2042,16 @@ attr_list.exit:                                   ; preds = %unicode_to_bytes.ex
   %914 = add nuw nsw i32 %682, 18
   %915 = load i32, ptr %5, align 4
   %.not821 = icmp eq i32 %915, 0
-  br i1 %.not821, label %.loopexit.loopexit927, label %916
+  br i1 %.not821, label %.loopexit889, label %916
 
 916:                                              ; preds = %908
   %917 = load i32, ptr @hf_srvloc_attrrply_attrlist, align 4
   call fastcc void @attr_list2(ptr noundef %1, ptr noundef %18, i32 noundef %917, ptr noundef %0, i32 noundef %914, i32 noundef %915)
   %918 = load i32, ptr %5, align 4
   %919 = add i32 %918, %914
-  br label %.loopexit.loopexit927
+  br label %.loopexit889
 
-.loopexit.loopexit927:                            ; preds = %916, %908
+.loopexit889:                                     ; preds = %916, %908
   %.19 = phi i32 [ %919, %916 ], [ %914, %908 ]
   %920 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.19)
   %921 = zext i8 %920 to i32
@@ -2381,8 +2381,8 @@ attr_list.exit:                                   ; preds = %unicode_to_bytes.ex
   %1133 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_srvloc_function_unknown, ptr noundef %0, i32 noundef %686, i32 noundef -1, ptr noundef nonnull @.str.276, i32 noundef %13)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph900, %.lr.ph905, %655, %.lr.ph919, %.loopexit.loopexit927, %.loopexit.loopexit926, %1107, %985, %755, %650, %71, %154, %158, %838, %1132, %742, %735, %825, %817, %895, %888, %1045, %1038, %1066, %1058, %47, %162, %596, %633, %665, %89, %78, %139, %129, %attr_list.exit, %586, %202
-  %.4 = phi i32 [ 12, %665 ], [ %62, %47 ], [ %103, %89 ], [ %87, %78 ], [ %153, %139 ], [ %137, %129 ], [ %193, %162 ], [ %587, %586 ], [ %584, %attr_list.exit ], [ 14, %202 ], [ %611, %596 ], [ %641, %633 ], [ %686, %1132 ], [ %746, %742 ], [ %740, %735 ], [ %829, %825 ], [ %823, %817 ], [ %839, %838 ], [ %899, %895 ], [ %893, %888 ], [ %1049, %1045 ], [ %1043, %1038 ], [ %1070, %1066 ], [ %1064, %1058 ], [ 14, %158 ], [ 14, %154 ], [ 16, %71 ], [ 16, %650 ], [ %761, %755 ], [ %990, %985 ], [ %1112, %1107 ], [ %804, %.loopexit.loopexit926 ], [ %924, %.loopexit.loopexit927 ], [ %76, %.lr.ph919 ], [ %663, %655 ], [ %762, %.lr.ph905 ], [ %1007, %.lr.ph900 ], [ %1130, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph900, %.lr.ph905, %655, %.lr.ph919, %1107, %985, %755, %650, %71, %.loopexit889, %.loopexit888, %154, %158, %838, %1132, %742, %735, %825, %817, %895, %888, %1045, %1038, %1066, %1058, %47, %162, %596, %633, %665, %89, %78, %139, %129, %attr_list.exit, %586, %202
+  %.4 = phi i32 [ 12, %665 ], [ %62, %47 ], [ %103, %89 ], [ %87, %78 ], [ %153, %139 ], [ %137, %129 ], [ %193, %162 ], [ %587, %586 ], [ %584, %attr_list.exit ], [ 14, %202 ], [ %611, %596 ], [ %641, %633 ], [ %686, %1132 ], [ %746, %742 ], [ %740, %735 ], [ %829, %825 ], [ %823, %817 ], [ %839, %838 ], [ %899, %895 ], [ %893, %888 ], [ %1049, %1045 ], [ %1043, %1038 ], [ %1070, %1066 ], [ %1064, %1058 ], [ 14, %158 ], [ 14, %154 ], [ %804, %.loopexit888 ], [ %924, %.loopexit889 ], [ 16, %71 ], [ 16, %650 ], [ %761, %755 ], [ %990, %985 ], [ %1112, %1107 ], [ %76, %.lr.ph919 ], [ %663, %655 ], [ %762, %.lr.ph905 ], [ %1007, %.lr.ph900 ], [ %1130, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.4

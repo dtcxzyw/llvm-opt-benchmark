@@ -4862,7 +4862,6 @@ define internal fastcc void @dissect_hsdsch_type_2_channel_info(ptr noundef %0, 
 71:                                               ; preds = %62, %53
   %.0200 = phi i1 [ %70, %62 ], [ false, %53 ]
   %72 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
-  %.not217 = icmp sgt i8 %72, -1
   %73 = load i32, ptr @hf_fp_fach_indicator, align 4
   %74 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %73, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %75 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
@@ -4938,6 +4937,7 @@ define internal fastcc void @dissect_hsdsch_type_2_channel_info(ptr noundef %0, 
 
 ._crit_edge:                                      ; preds = %83, %71
   %.0.lcssa = phi i32 [ 6, %71 ], [ %.3, %83 ]
+  %.not217 = icmp sgt i8 %72, -1
   br i1 %.0200, label %123, label %127
 
 123:                                              ; preds = %._crit_edge

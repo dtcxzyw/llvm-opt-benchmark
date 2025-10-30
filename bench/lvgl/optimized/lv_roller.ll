@@ -298,51 +298,51 @@ get_selected_label_width.exit:                    ; preds = %13, %17
 108:                                              ; preds = %84
   %109 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %12, i32 noundef 0, i8 noundef zeroext 90) #6
   %110 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %12, i32 noundef 0, i8 noundef zeroext 92) #6
-  %111 = ptrtoint ptr %110 to i64
-  %.sroa.0.0.extract.trunc.i.i123 = trunc i64 %111 to i32
-  %112 = tail call i32 @lv_font_get_line_height(ptr noundef %109) #6
-  %113 = add nsw i32 %112, %.sroa.0.0.extract.trunc.i.i123
-  %114 = getelementptr inbounds nuw i8, ptr %12, i64 44
-  %115 = load i32, ptr %114, align 4, !tbaa !24
-  %116 = getelementptr inbounds nuw i8, ptr %12, i64 52
-  %117 = load i32, ptr %116, align 4, !tbaa !29
-  %118 = sub nsw i32 %117, %115
-  %119 = sdiv i32 %118, 2
+  %111 = tail call i32 @lv_font_get_line_height(ptr noundef %109) #6
+  %112 = getelementptr inbounds nuw i8, ptr %12, i64 44
+  %113 = load i32, ptr %112, align 4, !tbaa !24
+  %114 = getelementptr inbounds nuw i8, ptr %12, i64 52
+  %115 = load i32, ptr %114, align 4, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %120 = getelementptr inbounds nuw i8, ptr %67, i64 136
-  %121 = load i64, ptr %120, align 8
-  store i64 %121, ptr %5, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %67, i64 136
+  %117 = load i64, ptr %116, align 8
+  store i64 %117, ptr %5, align 8
   call fastcc void @transform_vect_recursive(ptr noundef nonnull %12, ptr noundef %5)
-  %122 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %123 = load i32, ptr %122, align 4, !tbaa !23
-  %.not76.i = icmp eq i32 %123, 0
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %119 = load i32, ptr %118, align 4, !tbaa !23
+  %.not76.i = icmp eq i32 %119, 0
   br i1 %.not76.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %108
-  %124 = getelementptr inbounds nuw i8, ptr %67, i64 73
-  %125 = load i8, ptr %124, align 1, !tbaa !30
-  %126 = zext i8 %125 to i32
-  %127 = sub nsw i32 100, %126
-  br label %128
+  %120 = getelementptr inbounds nuw i8, ptr %67, i64 73
+  %121 = load i8, ptr %120, align 1, !tbaa !30
+  %122 = zext i8 %121 to i32
+  %123 = sub nsw i32 100, %122
+  br label %124
 
-128:                                              ; preds = %128, %.lr.ph.i
-  %.06278.i = phi i32 [ %123, %.lr.ph.i ], [ %131, %128 ]
-  %.06377.i = phi i32 [ 0, %.lr.ph.i ], [ %129, %128 ]
-  %129 = add nsw i32 %.06377.i, %.06278.i
-  %130 = mul nsw i32 %.06278.i, %127
-  %131 = sdiv i32 %130, 100
-  %.off.i = add i32 %130, 99
+124:                                              ; preds = %124, %.lr.ph.i
+  %.06278.i = phi i32 [ %119, %.lr.ph.i ], [ %127, %124 ]
+  %.06377.i = phi i32 [ 0, %.lr.ph.i ], [ %125, %124 ]
+  %125 = add nsw i32 %.06377.i, %.06278.i
+  %126 = mul nsw i32 %.06278.i, %123
+  %127 = sdiv i32 %126, 100
+  %.off.i = add i32 %126, 99
   %.not.i = icmp ult i32 %.off.i, 199
-  br i1 %.not.i, label %._crit_edge.i, label %128, !llvm.loop !41
+  br i1 %.not.i, label %._crit_edge.i, label %124, !llvm.loop !41
 
-._crit_edge.i:                                    ; preds = %128, %108
-  %.063.lcssa.i = phi i32 [ 0, %108 ], [ %129, %128 ]
+._crit_edge.i:                                    ; preds = %124, %108
+  %.063.lcssa.i = phi i32 [ 0, %108 ], [ %125, %124 ]
+  %128 = ptrtoint ptr %110 to i64
+  %.sroa.0.0.extract.trunc.i.i123 = trunc i64 %128 to i32
+  %129 = add nsw i32 %111, %.sroa.0.0.extract.trunc.i.i123
+  %130 = sub nsw i32 %115, %113
+  %131 = sdiv i32 %130, 2
   %132 = getelementptr inbounds nuw i8, ptr %64, i64 44
   %133 = load i32, ptr %132, align 4, !tbaa !24
-  %.neg124 = add i32 %119, %115
+  %.neg124 = add i32 %131, %113
   %134 = add i32 %.063.lcssa.i, %133
   %135 = sub i32 %.neg124, %134
-  %136 = sdiv i32 %135, %113
+  %136 = sdiv i32 %135, %129
   %spec.store.select.i = call i32 @llvm.smax.i32(i32 %136, i32 0)
   %137 = load i32, ptr %60, align 8, !tbaa !3
   %.not71.i = icmp slt i32 %spec.store.select.i, %137

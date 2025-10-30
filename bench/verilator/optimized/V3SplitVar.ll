@@ -29411,9 +29411,9 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEEEvT_SE_SE_SE_T0_(ptr %0, ptr nonnull %11, ptr %19, ptr nonnull %20)
   br label %21
 
-21:                                               ; preds = %41, %17
-  %.sroa.011.0.i.i = phi ptr [ %11, %17 ], [ %31, %41 ]
-  %.sroa.0.0.i.i = phi ptr [ %storemerge25, %17 ], [ %.sroa.0.1.i.i, %41 ]
+21:                                               ; preds = %40, %17
+  %.sroa.011.0.i.i = phi ptr [ %11, %17 ], [ %31, %40 ]
+  %.sroa.0.0.i.i = phi ptr [ %storemerge25, %17 ], [ %.sroa.0.1.i.i, %40 ]
   %22 = load i32, ptr %0, align 4, !tbaa !537
   %23 = load i8, ptr %12, align 4, !range !85
   br label %24
@@ -29428,37 +29428,34 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   %30 = icmp slt i32 %25, %22
   %.0.i.i.i.i = select i1 %26, i1 %29, i1 %30
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.011.1.i.i, i64 8
-  br i1 %.0.i.i.i.i, label %24, label %.preheader.i.i.preheader, !llvm.loop !639
+  br i1 %.0.i.i.i.i, label %24, label %.preheader.i.i, !llvm.loop !639
 
-.preheader.i.i.preheader:                         ; preds = %24
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.011.1.i.i, i64 4
-  br label %.preheader.i.i
-
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %.preheader.i.i.preheader ]
+.preheader.i.i:                                   ; preds = %24, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %24 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %33 = load i32, ptr %.sroa.0.1.i.i, align 4, !tbaa !537
-  %34 = icmp eq i32 %22, %33
-  %35 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -4
-  %36 = load i8, ptr %35, align 4, !range !85
-  %37 = icmp samesign ult i8 %23, %36
-  %38 = icmp slt i32 %22, %33
-  %.0.i.i8.i.i = select i1 %34, i1 %37, i1 %38
-  br i1 %.0.i.i8.i.i, label %.preheader.i.i, label %39, !llvm.loop !640
+  %32 = load i32, ptr %.sroa.0.1.i.i, align 4, !tbaa !537
+  %33 = icmp eq i32 %22, %32
+  %34 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -4
+  %35 = load i8, ptr %34, align 4, !range !85
+  %36 = icmp samesign ult i8 %23, %35
+  %37 = icmp slt i32 %22, %32
+  %.0.i.i8.i.i = select i1 %33, i1 %36, i1 %37
+  br i1 %.0.i.i8.i.i, label %.preheader.i.i, label %38, !llvm.loop !640
 
-39:                                               ; preds = %.preheader.i.i
-  %40 = icmp ult ptr %.sroa.011.1.i.i, %.sroa.0.1.i.i
-  br i1 %40, label %41, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEEET_SE_SE_T0_.exit
+38:                                               ; preds = %.preheader.i.i
+  %39 = icmp ult ptr %.sroa.011.1.i.i, %.sroa.0.1.i.i
+  br i1 %39, label %40, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEEET_SE_SE_T0_.exit
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -4
-  store i32 %33, ptr %.sroa.011.1.i.i, align 4, !tbaa !52
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -4
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.011.1.i.i, i64 4
+  store i32 %32, ptr %.sroa.011.1.i.i, align 4, !tbaa !52
   store i32 %25, ptr %.sroa.0.1.i.i, align 4, !tbaa !52
-  store i8 %36, ptr %32, align 4, !tbaa !228
-  store i8 %28, ptr %42, align 1, !tbaa !228
+  store i8 %35, ptr %42, align 4, !tbaa !228
+  store i8 %28, ptr %41, align 1, !tbaa !228
   br label %21, !llvm.loop !641
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEEET_SE_SE_T0_.exit: ; preds = %39
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEEET_SE_SE_T0_.exit: ; preds = %38
   %43 = add nsw i64 %.026, -1
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIibESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN12PackedVarRef11SortByFirstEEEEvT_SE_T0_T1_(ptr nonnull %.sroa.011.1.i.i, ptr %storemerge25, i64 noundef %43)
   %44 = ptrtoint ptr %.sroa.011.1.i.i to i64

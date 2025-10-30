@@ -908,16 +908,16 @@ _ZNSt12_Vector_baseIN4llvm8codeview9TypeIndexESaIS2_EEC2EmRKS3_.exit.i.i: ; pred
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 4
   %28 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i = icmp eq ptr %27, %12
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EEC2ERKS4_.exit.i.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !94
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EEC2ERKS4_.exit.loopexit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !94
 
-_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EEC2ERKS4_.exit.i.loopexit: ; preds = %.lr.ph.i.i.i.i.i.i
+_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EEC2ERKS4_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EEC2ERKS4_.exit.i
 
-_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EEC2ERKS4_.exit.i: ; preds = %_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EEC2ERKS4_.exit.i.loopexit, %_ZNSt12_Vector_baseIN4llvm8codeview9TypeIndexESaIS2_EEC2EmRKS3_.exit.i.thread.i
-  %30 = phi ptr [ %19, %_ZNSt12_Vector_baseIN4llvm8codeview9TypeIndexESaIS2_EEC2EmRKS3_.exit.i.thread.i ], [ %25, %_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EEC2ERKS4_.exit.i.loopexit ]
-  %31 = phi ptr [ %17, %_ZNSt12_Vector_baseIN4llvm8codeview9TypeIndexESaIS2_EEC2EmRKS3_.exit.i.thread.i ], [ %29, %_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EEC2ERKS4_.exit.i.loopexit ]
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm8codeview9TypeIndexESaIS2_EEC2EmRKS3_.exit.i.thread.i ], [ %28, %_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EEC2ERKS4_.exit.i.loopexit ]
+_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EEC2ERKS4_.exit.i: ; preds = %_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EEC2ERKS4_.exit.loopexit.i, %_ZNSt12_Vector_baseIN4llvm8codeview9TypeIndexESaIS2_EEC2EmRKS3_.exit.i.thread.i
+  %30 = phi ptr [ %19, %_ZNSt12_Vector_baseIN4llvm8codeview9TypeIndexESaIS2_EEC2EmRKS3_.exit.i.thread.i ], [ %25, %_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EEC2ERKS4_.exit.loopexit.i ]
+  %31 = phi ptr [ %17, %_ZNSt12_Vector_baseIN4llvm8codeview9TypeIndexESaIS2_EEC2EmRKS3_.exit.i.thread.i ], [ %29, %_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EEC2ERKS4_.exit.loopexit.i ]
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm8codeview9TypeIndexESaIS2_EEC2EmRKS3_.exit.i.thread.i ], [ %28, %_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EEC2ERKS4_.exit.loopexit.i ]
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %31, align 8, !tbaa !93, !noalias !90
   call void @_ZN4llvm3pdb15NativeEnumTypesC1ERNS0_13NativeSessionESt6vectorINS_8codeview9TypeIndexESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(584) %8, ptr noundef nonnull %4) #15, !noalias !90
   %32 = load ptr, ptr %4, align 8, !tbaa !39, !noalias !90

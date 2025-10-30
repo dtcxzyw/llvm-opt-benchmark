@@ -533,54 +533,54 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
 
 .preheader2:                                      ; preds = %24, %40
   %41 = phi ptr [ %.pre6, %40 ], [ %20, %24 ]
-  %42 = phi i64 [ %68, %40 ], [ 0, %24 ]
-  %43 = getelementptr ptr, ptr %3, i64 %42
-  br label %44
+  %42 = phi i64 [ %67, %40 ], [ 0, %24 ]
+  br label %43
 
-44:                                               ; preds = %64, %.preheader2
-  %45 = phi i32 [ 2, %.preheader2 ], [ %65, %64 ]
-  %46 = zext nneg i32 %45 to i64
-  %47 = sext i32 %45 to i64
-  %48 = getelementptr %struct.be128, ptr %41, i64 %46
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  br label %50
+43:                                               ; preds = %63, %.preheader2
+  %44 = phi i32 [ 2, %.preheader2 ], [ %64, %63 ]
+  %45 = zext nneg i32 %44 to i64
+  %46 = sext i32 %44 to i64
+  %47 = getelementptr %struct.be128, ptr %41, i64 %45
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %49
 
-50:                                               ; preds = %50, %44
-  %51 = phi i64 [ 1, %44 ], [ %62, %50 ]
-  %52 = getelementptr %struct.be128, ptr %41, i64 %51
-  %53 = getelementptr %struct.be128, ptr %52, i64 %47
-  %54 = load i64, ptr %48, align 8
-  %55 = load i64, ptr %52, align 8
-  %56 = xor i64 %55, %54
-  store i64 %56, ptr %53, align 8
-  %57 = load i64, ptr %49, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %59 = load i64, ptr %58, align 8
-  %60 = xor i64 %59, %57
-  %61 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i64 %60, ptr %61, align 8
-  %62 = add nuw nsw i64 %51, 1
-  %63 = icmp eq i64 %62, %46
-  br i1 %63, label %64, label %50, !llvm.loop !13
+49:                                               ; preds = %49, %43
+  %50 = phi i64 [ 1, %43 ], [ %61, %49 ]
+  %51 = getelementptr %struct.be128, ptr %41, i64 %50
+  %52 = getelementptr %struct.be128, ptr %51, i64 %46
+  %53 = load i64, ptr %47, align 8
+  %54 = load i64, ptr %51, align 8
+  %55 = xor i64 %54, %53
+  store i64 %55, ptr %52, align 8
+  %56 = load i64, ptr %48, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %58 = load i64, ptr %57, align 8
+  %59 = xor i64 %58, %56
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store i64 %59, ptr %60, align 8
+  %61 = add nuw nsw i64 %50, 1
+  %62 = icmp eq i64 %61, %45
+  br i1 %62, label %63, label %49, !llvm.loop !13
 
-64:                                               ; preds = %50
-  %65 = shl i32 %45, 1
-  %66 = icmp slt i32 %65, 256
-  br i1 %66, label %44, label %67, !llvm.loop !14
+63:                                               ; preds = %49
+  %64 = shl i32 %44, 1
+  %65 = icmp slt i32 %64, 256
+  br i1 %65, label %43, label %66, !llvm.loop !14
 
-67:                                               ; preds = %64
-  %68 = add nuw nsw i64 %42, 1
-  %69 = icmp eq i64 %42, 15
-  br i1 %69, label %.loopexit, label %70
+66:                                               ; preds = %63
+  %67 = add nuw nsw i64 %42, 1
+  %68 = icmp eq i64 %42, 15
+  br i1 %68, label %.loopexit, label %69
 
-70:                                               ; preds = %67
-  %71 = getelementptr ptr, ptr %3, i64 %68
+69:                                               ; preds = %66
+  %70 = getelementptr ptr, ptr %3, i64 %42
+  %71 = getelementptr ptr, ptr %3, i64 %67
   %.pre6 = load ptr, ptr %71, align 8
-  %.pre7 = load ptr, ptr %43, align 8
+  %.pre7 = load ptr, ptr %70, align 8
   br label %72
 
-72:                                               ; preds = %72, %70
-  %73 = phi i32 [ 128, %70 ], [ %91, %72 ]
+72:                                               ; preds = %72, %69
+  %73 = phi i32 [ 128, %69 ], [ %91, %72 ]
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr %struct.be128, ptr %.pre6, i64 %74
   %76 = getelementptr %struct.be128, ptr %.pre7, i64 %74
@@ -605,8 +605,8 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
   %92 = icmp samesign ult i32 %73, 2
   br i1 %92, label %40, label %72, !llvm.loop !15
 
-.loopexit:                                        ; preds = %67, %18, %1
-  %93 = phi ptr [ null, %18 ], [ null, %1 ], [ %3, %67 ]
+.loopexit:                                        ; preds = %66, %18, %1
+  %93 = phi ptr [ null, %18 ], [ null, %1 ], [ %3, %66 ]
   ret ptr %93
 }
 

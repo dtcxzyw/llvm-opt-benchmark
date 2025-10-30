@@ -154,22 +154,22 @@ define noundef i32 @dtrsm_olnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %71 = add nsw i64 %.07288, 2
   %72 = add nsw i64 %.07387, -1
   %73 = icmp sgt i64 %.07387, 1
-  br i1 %73, label %.lr.ph92.split.split, label %._crit_edge93.loopexit115, !llvm.loop !7
+  br i1 %73, label %.lr.ph92.split.split, label %._crit_edge93.loopexit129, !llvm.loop !7
 
 ._crit_edge93.loopexit:                           ; preds = %25
   %74 = and i64 %1, -2
   %75 = add i64 %4, %74
   br label %._crit_edge93
 
-._crit_edge93.loopexit115:                        ; preds = %68
+._crit_edge93.loopexit129:                        ; preds = %68
   %76 = and i64 %1, -2
   %77 = add i64 %4, %76
   br label %._crit_edge93
 
-._crit_edge93:                                    ; preds = %._crit_edge93.loopexit115, %.lr.ph92.split.split.us.preheader, %._crit_edge93.loopexit, %6
-  %.072.lcssa = phi i64 [ %4, %6 ], [ %75, %._crit_edge93.loopexit ], [ %59, %.lr.ph92.split.split.us.preheader ], [ %77, %._crit_edge93.loopexit115 ]
-  %.070.lcssa = phi ptr [ %5, %6 ], [ %.2.us, %._crit_edge93.loopexit ], [ %5, %.lr.ph92.split.split.us.preheader ], [ %69, %._crit_edge93.loopexit115 ]
-  %.069.lcssa = phi ptr [ %2, %6 ], [ %26, %._crit_edge93.loopexit ], [ %scevgep, %.lr.ph92.split.split.us.preheader ], [ %70, %._crit_edge93.loopexit115 ]
+._crit_edge93:                                    ; preds = %._crit_edge93.loopexit129, %._crit_edge93.loopexit, %.lr.ph92.split.split.us.preheader, %6
+  %.072.lcssa = phi i64 [ %4, %6 ], [ %59, %.lr.ph92.split.split.us.preheader ], [ %75, %._crit_edge93.loopexit ], [ %77, %._crit_edge93.loopexit129 ]
+  %.070.lcssa = phi ptr [ %5, %6 ], [ %5, %.lr.ph92.split.split.us.preheader ], [ %.2.us, %._crit_edge93.loopexit ], [ %69, %._crit_edge93.loopexit129 ]
+  %.069.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %.lr.ph92.split.split.us.preheader ], [ %26, %._crit_edge93.loopexit ], [ %70, %._crit_edge93.loopexit129 ]
   %78 = and i64 %1, 1
   %.not = icmp ne i64 %78, 0
   %79 = icmp sgt i64 %0, 0

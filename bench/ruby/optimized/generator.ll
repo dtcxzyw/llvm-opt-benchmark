@@ -3929,23 +3929,23 @@ define internal fastcc void @fbuffer_do_inc_capa(ptr noundef captures(none) %0, 
 23:                                               ; preds = %._crit_edge, %17
   %24 = phi ptr [ %16, %._crit_edge ], [ %20, %17 ]
   %25 = phi i64 [ %.pre, %._crit_edge ], [ %21, %17 ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !56
-  br label %29
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load i64, ptr %26, align 8, !tbaa !56
+  br label %28
 
-29:                                               ; preds = %29, %23
-  %.0 = phi i64 [ %25, %23 ], [ %32, %29 ]
-  %30 = sub i64 %.0, %28
-  %31 = icmp ugt i64 %1, %30
-  %32 = shl i64 %.0, 1
-  br i1 %31, label %29, label %33
+28:                                               ; preds = %28, %23
+  %.0 = phi i64 [ %25, %23 ], [ %31, %28 ]
+  %29 = sub i64 %.0, %27
+  %30 = icmp ugt i64 %1, %29
+  %31 = shl i64 %.0, 1
+  br i1 %30, label %28, label %32
 
-33:                                               ; preds = %29
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = icmp ugt i64 %.0, %25
   br i1 %34, label %35, label %fbuffer_realloc.exit
 
-35:                                               ; preds = %33
+35:                                               ; preds = %32
   %36 = load i32, ptr %0, align 8, !tbaa !45
   %37 = icmp eq i32 %36, 1
   br i1 %37, label %38, label %42
@@ -3954,7 +3954,7 @@ define internal fastcc void @fbuffer_do_inc_capa(ptr noundef captures(none) %0, 
   %39 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %.0, i64 noundef 1) #29
   store ptr %39, ptr %15, align 8, !tbaa !46
   store i32 0, ptr %0, align 8, !tbaa !45
-  %40 = load i64, ptr %27, align 8, !tbaa !56
+  %40 = load i64, ptr %26, align 8, !tbaa !56
   %.not.i.i = icmp eq i64 %40, 0
   br i1 %.not.i.i, label %ruby_nonempty_memcpy.exit.i, label %41
 
@@ -3968,10 +3968,10 @@ define internal fastcc void @fbuffer_do_inc_capa(ptr noundef captures(none) %0, 
   br label %ruby_nonempty_memcpy.exit.i
 
 ruby_nonempty_memcpy.exit.i:                      ; preds = %42, %41, %38
-  store i64 %.0, ptr %26, align 8, !tbaa !47
+  store i64 %.0, ptr %33, align 8, !tbaa !47
   br label %fbuffer_realloc.exit
 
-fbuffer_realloc.exit:                             ; preds = %ruby_nonempty_memcpy.exit.i, %33, %11
+fbuffer_realloc.exit:                             ; preds = %ruby_nonempty_memcpy.exit.i, %32, %11
   ret void
 }
 

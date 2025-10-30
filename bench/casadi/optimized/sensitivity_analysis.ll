@@ -9768,8 +9768,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSolsEPFRSoS
   store ptr %1886, ptr %87, align 8, !tbaa !71
   %1887 = getelementptr inbounds nuw double, ptr %1886, i64 %1882
   store ptr %1887, ptr %556, align 8, !tbaa !70
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %1886, i8 0, i64 %1885, i1 false), !tbaa !92
   %1888 = getelementptr inbounds nuw i8, ptr %1886, i64 %1885
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %1886, i8 0, i64 %1885, i1 false), !tbaa !92
   store ptr %1888, ptr %557, align 8, !tbaa !72
   %1889 = getelementptr inbounds i8, ptr %1888, i64 -8
   store double 1.000000e+00, ptr %1889, align 8, !tbaa !92

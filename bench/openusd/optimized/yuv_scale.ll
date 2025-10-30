@@ -82,7 +82,7 @@ define hidden range(i32 0, 2) i32 @ScalePlane(ptr noundef %0, i32 noundef %1, i3
   %49 = shl nsw i32 %7, 1
   %50 = icmp slt i32 %49, %.0122
   %or.cond138 = select i1 %48, i1 %50, i1 false
-  br i1 %or.cond138, label %51, label %89
+  br i1 %or.cond138, label %51, label %90
 
 51:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -123,9 +123,9 @@ define hidden range(i32 0, 2) i32 @ScalePlane(ptr noundef %0, i32 noundef %1, i3
   %70 = sext i32 %5 to i64
   br label %71
 
-71:                                               ; preds = %84, %.lr.ph.i
-  %.03950.i = phi ptr [ %4, %.lr.ph.i ], [ %87, %84 ]
-  %.04049.i = phi i32 [ 0, %.lr.ph.i ], [ %88, %84 ]
+71:                                               ; preds = %85, %.lr.ph.i
+  %.03950.i = phi ptr [ %4, %.lr.ph.i ], [ %88, %85 ]
+  %.04049.i = phi i32 [ 0, %.lr.ph.i ], [ %89, %85 ]
   %72 = load i32, ptr %11, align 4
   %73 = ashr i32 %72, 16
   %74 = sext i32 %73 to i64
@@ -137,29 +137,29 @@ define hidden range(i32 0, 2) i32 @ScalePlane(ptr noundef %0, i32 noundef %1, i3
   store i32 %spec.select.i, ptr %11, align 4
   %79 = ashr i32 %spec.select.i, 16
   %80 = sub nsw i32 %79, %73
+  %81 = call i32 @llvm.smax.i32(i32 %80, i32 1)
   call void @llvm.memset.p0.i64(ptr nonnull align 64 %61, i8 0, i64 %69, i1 false)
-  %smax.i = call i32 @llvm.smax.i32(i32 %80, i32 1)
-  br label %81
+  br label %82
 
-81:                                               ; preds = %81, %71
-  %.048.i = phi ptr [ %76, %71 ], [ %82, %81 ]
-  %.04147.i = phi i32 [ 0, %71 ], [ %83, %81 ]
+82:                                               ; preds = %82, %71
+  %.048.i = phi ptr [ %76, %71 ], [ %83, %82 ]
+  %.04147.i = phi i32 [ 0, %71 ], [ %84, %82 ]
   call void @ScaleAddRow_C(ptr noundef %.048.i, ptr noundef nonnull %61, i32 noundef %53) #8
-  %82 = getelementptr inbounds i8, ptr %.048.i, i64 %68
-  %83 = add nuw nsw i32 %.04147.i, 1
-  %exitcond.not.i = icmp eq i32 %83, %smax.i
-  br i1 %exitcond.not.i, label %84, label %81, !llvm.loop !4
+  %83 = getelementptr inbounds i8, ptr %.048.i, i64 %68
+  %84 = add nuw nsw i32 %.04147.i, 1
+  %exitcond.not.i = icmp eq i32 %84, %81
+  br i1 %exitcond.not.i, label %85, label %82, !llvm.loop !4
 
-84:                                               ; preds = %81
-  %85 = load i32, ptr %10, align 4
-  %86 = load i32, ptr %12, align 4
-  call void %66(i32 noundef %6, i32 noundef %smax.i, i32 noundef %85, i32 noundef %86, ptr noundef nonnull %61, ptr noundef %.03950.i) #8, !callees !6
-  %87 = getelementptr inbounds i8, ptr %.03950.i, i64 %70
-  %88 = add nuw nsw i32 %.04049.i, 1
-  %exitcond51.not.i = icmp eq i32 %88, %7
+85:                                               ; preds = %82
+  %86 = load i32, ptr %10, align 4
+  %87 = load i32, ptr %12, align 4
+  call void %66(i32 noundef %6, i32 noundef %81, i32 noundef %86, i32 noundef %87, ptr noundef nonnull %61, ptr noundef %.03950.i) #8, !callees !6
+  %88 = getelementptr inbounds i8, ptr %.03950.i, i64 %70
+  %89 = add nuw nsw i32 %.04049.i, 1
+  %exitcond51.not.i = icmp eq i32 %89, %7
   br i1 %exitcond51.not.i, label %._crit_edge.i, label %71, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %84, %62
+._crit_edge.i:                                    ; preds = %85, %62
   call void @free(ptr noundef %57) #8
   br label %ScalePlaneBox.exit
 
@@ -171,123 +171,123 @@ ScalePlaneBox.exit:                               ; preds = %51, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %ScalePlaneUp2_Linear.exit
 
-89:                                               ; preds = %47
-  %90 = add nsw i32 %6, 1
-  %91 = sdiv i32 %90, 2
-  %92 = icmp eq i32 %91, %2
-  %93 = icmp eq i32 %14, 1
-  %or.cond5 = select i1 %92, i1 %93, i1 false
-  br i1 %or.cond5, label %94, label %117
+90:                                               ; preds = %47
+  %91 = add nsw i32 %6, 1
+  %92 = sdiv i32 %91, 2
+  %93 = icmp eq i32 %92, %2
+  %94 = icmp eq i32 %14, 1
+  %or.cond5 = select i1 %93, i1 %94, i1 false
+  br i1 %or.cond5, label %95, label %118
 
-94:                                               ; preds = %89
-  %95 = icmp eq i32 %7, 1
-  %96 = add nsw i32 %.0122, -1
-  br i1 %95, label %97, label %103
+95:                                               ; preds = %90
+  %96 = icmp eq i32 %7, 1
+  %97 = add nsw i32 %.0122, -1
+  br i1 %96, label %98, label %104
 
-97:                                               ; preds = %94
-  %98 = sdiv i32 %96, 2
-  %99 = zext nneg i32 %98 to i64
-  %100 = sext i32 %.0121 to i64
-  %101 = mul nsw i64 %99, %100
-  %102 = getelementptr inbounds i8, ptr %.0120, i64 %101
-  tail call void @ScaleRowUp2_Linear_Any_C(ptr noundef %102, ptr noundef %4, i32 noundef %6) #8
+98:                                               ; preds = %95
+  %99 = sdiv i32 %97, 2
+  %100 = zext nneg i32 %99 to i64
+  %101 = sext i32 %.0121 to i64
+  %102 = mul nsw i64 %100, %101
+  %103 = getelementptr inbounds i8, ptr %.0120, i64 %102
+  tail call void @ScaleRowUp2_Linear_Any_C(ptr noundef %103, ptr noundef %4, i32 noundef %6) #8
   br label %ScalePlaneUp2_Linear.exit
 
-103:                                              ; preds = %94
-  %104 = add nsw i32 %7, -1
-  %105 = tail call i32 @FixedDiv_C(i32 noundef %96, i32 noundef %104) #8
-  %106 = icmp sgt i32 %7, 0
-  br i1 %106, label %.lr.ph.i143, label %ScalePlaneUp2_Linear.exit
+104:                                              ; preds = %95
+  %105 = add nsw i32 %7, -1
+  %106 = tail call i32 @FixedDiv_C(i32 noundef %97, i32 noundef %105) #8
+  %107 = icmp sgt i32 %7, 0
+  br i1 %107, label %.lr.ph.i143, label %ScalePlaneUp2_Linear.exit
 
-.lr.ph.i143:                                      ; preds = %103
-  %107 = sext i32 %.0121 to i64
-  %108 = sext i32 %5 to i64
-  br label %109
+.lr.ph.i143:                                      ; preds = %104
+  %108 = sext i32 %.0121 to i64
+  %109 = sext i32 %5 to i64
+  br label %110
 
-109:                                              ; preds = %109, %.lr.ph.i143
-  %.026.i = phi ptr [ %4, %.lr.ph.i143 ], [ %114, %109 ]
-  %.02125.i = phi i32 [ 32767, %.lr.ph.i143 ], [ %115, %109 ]
-  %.02224.i = phi i32 [ 0, %.lr.ph.i143 ], [ %116, %109 ]
-  %110 = ashr i32 %.02125.i, 16
-  %111 = sext i32 %110 to i64
-  %112 = mul nsw i64 %111, %107
-  %113 = getelementptr inbounds i8, ptr %.0120, i64 %112
-  tail call void @ScaleRowUp2_Linear_Any_C(ptr noundef %113, ptr noundef %.026.i, i32 noundef %6) #8
-  %114 = getelementptr inbounds i8, ptr %.026.i, i64 %108
-  %115 = add nsw i32 %.02125.i, %105
-  %116 = add nuw nsw i32 %.02224.i, 1
-  %exitcond.not.i144 = icmp eq i32 %116, %7
-  br i1 %exitcond.not.i144, label %ScalePlaneUp2_Linear.exit, label %109, !llvm.loop !8
+110:                                              ; preds = %110, %.lr.ph.i143
+  %.026.i = phi ptr [ %4, %.lr.ph.i143 ], [ %115, %110 ]
+  %.02125.i = phi i32 [ 32767, %.lr.ph.i143 ], [ %116, %110 ]
+  %.02224.i = phi i32 [ 0, %.lr.ph.i143 ], [ %117, %110 ]
+  %111 = ashr i32 %.02125.i, 16
+  %112 = sext i32 %111 to i64
+  %113 = mul nsw i64 %112, %108
+  %114 = getelementptr inbounds i8, ptr %.0120, i64 %113
+  tail call void @ScaleRowUp2_Linear_Any_C(ptr noundef %114, ptr noundef %.026.i, i32 noundef %6) #8
+  %115 = getelementptr inbounds i8, ptr %.026.i, i64 %109
+  %116 = add nsw i32 %.02125.i, %106
+  %117 = add nuw nsw i32 %.02224.i, 1
+  %exitcond.not.i144 = icmp eq i32 %117, %7
+  br i1 %exitcond.not.i144, label %ScalePlaneUp2_Linear.exit, label %110, !llvm.loop !8
 
-117:                                              ; preds = %89
-  %118 = add nsw i32 %7, 1
-  %119 = sdiv i32 %118, 2
-  %120 = icmp eq i32 %119, %.0122
-  %brmerge.not150 = and i1 %92, %120
-  %121 = and i32 %14, -2
-  %or.cond7 = icmp eq i32 %121, 2
+118:                                              ; preds = %90
+  %119 = add nsw i32 %7, 1
+  %120 = sdiv i32 %119, 2
+  %121 = icmp eq i32 %120, %.0122
+  %brmerge.not150 = and i1 %93, %121
+  %122 = and i32 %14, -2
+  %or.cond7 = icmp eq i32 %122, 2
   %or.cond141 = select i1 %brmerge.not150, i1 %or.cond7, i1 false
-  br i1 %or.cond141, label %122, label %136
+  br i1 %or.cond141, label %123, label %137
 
-122:                                              ; preds = %117
+123:                                              ; preds = %118
   tail call void @ScaleRowUp2_Bilinear_Any_C(ptr noundef %.0120, i64 noundef 0, ptr noundef %4, i64 noundef 0, i32 noundef %6) #8
-  %123 = sext i32 %5 to i64
-  %124 = getelementptr inbounds i8, ptr %4, i64 %123
-  %125 = icmp samesign ugt i32 %.0122, 1
-  br i1 %125, label %.lr.ph.i147, label %._crit_edge.i145
+  %124 = sext i32 %5 to i64
+  %125 = getelementptr inbounds i8, ptr %4, i64 %124
+  %126 = icmp samesign ugt i32 %.0122, 1
+  br i1 %126, label %.lr.ph.i147, label %._crit_edge.i145
 
-.lr.ph.i147:                                      ; preds = %122
-  %126 = sext i32 %.0121 to i64
-  %127 = shl nsw i32 %5, 1
-  %128 = sext i32 %127 to i64
-  %129 = add nsw i32 %.0122, -2
-  br label %130
+.lr.ph.i147:                                      ; preds = %123
+  %127 = sext i32 %.0121 to i64
+  %128 = shl nsw i32 %5, 1
+  %129 = sext i32 %128 to i64
+  %130 = add nsw i32 %.0122, -2
+  br label %131
 
-130:                                              ; preds = %130, %.lr.ph.i147
-  %.027.i = phi i32 [ 0, %.lr.ph.i147 ], [ %133, %130 ]
-  %.02326.i = phi ptr [ %.0120, %.lr.ph.i147 ], [ %131, %130 ]
-  %.02425.i = phi ptr [ %124, %.lr.ph.i147 ], [ %132, %130 ]
-  tail call void @ScaleRowUp2_Bilinear_Any_C(ptr noundef %.02326.i, i64 noundef %126, ptr noundef %.02425.i, i64 noundef %123, i32 noundef %6) #8
-  %131 = getelementptr inbounds i8, ptr %.02326.i, i64 %126
-  %132 = getelementptr inbounds i8, ptr %.02425.i, i64 %128
-  %133 = add nuw nsw i32 %.027.i, 1
-  %exitcond.not.i148 = icmp eq i32 %.027.i, %129
-  br i1 %exitcond.not.i148, label %._crit_edge.i145, label %130, !llvm.loop !9
+131:                                              ; preds = %131, %.lr.ph.i147
+  %.027.i = phi i32 [ 0, %.lr.ph.i147 ], [ %134, %131 ]
+  %.02326.i = phi ptr [ %.0120, %.lr.ph.i147 ], [ %132, %131 ]
+  %.02425.i = phi ptr [ %125, %.lr.ph.i147 ], [ %133, %131 ]
+  tail call void @ScaleRowUp2_Bilinear_Any_C(ptr noundef %.02326.i, i64 noundef %127, ptr noundef %.02425.i, i64 noundef %124, i32 noundef %6) #8
+  %132 = getelementptr inbounds i8, ptr %.02326.i, i64 %127
+  %133 = getelementptr inbounds i8, ptr %.02425.i, i64 %129
+  %134 = add nuw nsw i32 %.027.i, 1
+  %exitcond.not.i148 = icmp eq i32 %.027.i, %130
+  br i1 %exitcond.not.i148, label %._crit_edge.i145, label %131, !llvm.loop !9
 
-._crit_edge.i145:                                 ; preds = %130, %122
-  %.024.lcssa.i = phi ptr [ %124, %122 ], [ %132, %130 ]
-  %.023.lcssa.i = phi ptr [ %.0120, %122 ], [ %131, %130 ]
-  %134 = and i32 %7, 1
-  %.not.i146 = icmp eq i32 %134, 0
-  br i1 %.not.i146, label %135, label %ScalePlaneUp2_Linear.exit
+._crit_edge.i145:                                 ; preds = %131, %123
+  %.024.lcssa.i = phi ptr [ %125, %123 ], [ %133, %131 ]
+  %.023.lcssa.i = phi ptr [ %.0120, %123 ], [ %132, %131 ]
+  %135 = and i32 %7, 1
+  %.not.i146 = icmp eq i32 %135, 0
+  br i1 %.not.i146, label %136, label %ScalePlaneUp2_Linear.exit
 
-135:                                              ; preds = %._crit_edge.i145
+136:                                              ; preds = %._crit_edge.i145
   tail call void @ScaleRowUp2_Bilinear_Any_C(ptr noundef %.023.lcssa.i, i64 noundef 0, ptr noundef %.024.lcssa.i, i64 noundef 0, i32 noundef %6) #8
   br label %ScalePlaneUp2_Linear.exit
 
-136:                                              ; preds = %117
+137:                                              ; preds = %118
   %.not = icmp ne i32 %14, 0
-  %137 = icmp sgt i32 %7, %.0122
-  %or.cond142 = select i1 %.not, i1 %137, i1 false
-  br i1 %or.cond142, label %138, label %140
+  %138 = icmp sgt i32 %7, %.0122
+  %or.cond142 = select i1 %.not, i1 %138, i1 false
+  br i1 %or.cond142, label %139, label %141
 
-138:                                              ; preds = %136
-  %139 = tail call fastcc i32 @ScalePlaneBilinearUp(i32 noundef %2, i32 noundef %.0122, i32 noundef %6, i32 noundef %7, i32 noundef %.0121, i32 noundef %5, ptr noundef %.0120, ptr noundef %4, i32 noundef %14)
+139:                                              ; preds = %137
+  %140 = tail call fastcc i32 @ScalePlaneBilinearUp(i32 noundef %2, i32 noundef %.0122, i32 noundef %6, i32 noundef %7, i32 noundef %.0121, i32 noundef %5, ptr noundef %.0120, ptr noundef %4, i32 noundef %14)
   br label %ScalePlaneUp2_Linear.exit
 
-140:                                              ; preds = %136
-  br i1 %.not, label %141, label %143
+141:                                              ; preds = %137
+  br i1 %.not, label %142, label %144
 
-141:                                              ; preds = %140
-  %142 = tail call fastcc i32 @ScalePlaneBilinearDown(i32 noundef %2, i32 noundef %.0122, i32 noundef %6, i32 noundef %7, i32 noundef %.0121, i32 noundef %5, ptr noundef %.0120, ptr noundef %4, i32 noundef %14)
+142:                                              ; preds = %141
+  %143 = tail call fastcc i32 @ScalePlaneBilinearDown(i32 noundef %2, i32 noundef %.0122, i32 noundef %6, i32 noundef %7, i32 noundef %.0121, i32 noundef %5, ptr noundef %.0120, ptr noundef %4, i32 noundef %14)
   br label %ScalePlaneUp2_Linear.exit
 
-143:                                              ; preds = %140
+144:                                              ; preds = %141
   tail call fastcc void @ScalePlaneSimple(i32 noundef %2, i32 noundef %.0122, i32 noundef %6, i32 noundef %7, i32 noundef %.0121, i32 noundef %5, ptr noundef %.0120, ptr noundef %4)
   br label %ScalePlaneUp2_Linear.exit
 
-ScalePlaneUp2_Linear.exit:                        ; preds = %109, %135, %._crit_edge.i145, %103, %97, %143, %141, %138, %ScalePlaneBox.exit, %46, %27
-  %.0119 = phi i32 [ 0, %27 ], [ 0, %46 ], [ %.038.i, %ScalePlaneBox.exit ], [ %139, %138 ], [ %142, %141 ], [ 0, %143 ], [ 0, %97 ], [ 0, %103 ], [ 0, %._crit_edge.i145 ], [ 0, %135 ], [ 0, %109 ]
+ScalePlaneUp2_Linear.exit:                        ; preds = %110, %136, %._crit_edge.i145, %104, %98, %144, %142, %139, %ScalePlaneBox.exit, %46, %27
+  %.0119 = phi i32 [ 0, %27 ], [ 0, %46 ], [ %.038.i, %ScalePlaneBox.exit ], [ %140, %139 ], [ %143, %142 ], [ 0, %144 ], [ 0, %98 ], [ 0, %104 ], [ 0, %._crit_edge.i145 ], [ 0, %136 ], [ 0, %110 ]
   ret i32 %.0119
 }
 
@@ -723,7 +723,7 @@ define hidden range(i32 0, 2) i32 @ScalePlane_16(ptr noundef %0, i32 noundef %1,
   %49 = shl nsw i32 %7, 1
   %50 = icmp slt i32 %49, %.0122
   %or.cond138 = select i1 %48, i1 %50, i1 false
-  br i1 %or.cond138, label %51, label %88
+  br i1 %or.cond138, label %51, label %89
 
 51:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -762,9 +762,9 @@ define hidden range(i32 0, 2) i32 @ScalePlane_16(ptr noundef %0, i32 noundef %1,
   %69 = sext i32 %5 to i64
   br label %70
 
-70:                                               ; preds = %83, %.lr.ph.i
-  %.03949.i = phi ptr [ %4, %.lr.ph.i ], [ %86, %83 ]
-  %.04048.i = phi i32 [ 0, %.lr.ph.i ], [ %87, %83 ]
+70:                                               ; preds = %84, %.lr.ph.i
+  %.03949.i = phi ptr [ %4, %.lr.ph.i ], [ %87, %84 ]
+  %.04048.i = phi i32 [ 0, %.lr.ph.i ], [ %88, %84 ]
   %71 = load i32, ptr %11, align 4
   %72 = ashr i32 %71, 16
   %73 = sext i32 %72 to i64
@@ -776,29 +776,29 @@ define hidden range(i32 0, 2) i32 @ScalePlane_16(ptr noundef %0, i32 noundef %1,
   store i32 %spec.select.i, ptr %11, align 4
   %78 = ashr i32 %spec.select.i, 16
   %79 = sub nsw i32 %78, %72
+  %80 = call i32 @llvm.smax.i32(i32 %79, i32 1)
   call void @llvm.memset.p0.i64(ptr nonnull align 64 %61, i8 0, i64 %68, i1 false)
-  %smax.i = call i32 @llvm.smax.i32(i32 %79, i32 1)
-  br label %80
+  br label %81
 
-80:                                               ; preds = %80, %70
-  %.047.i = phi ptr [ %75, %70 ], [ %81, %80 ]
-  %.04146.i = phi i32 [ 0, %70 ], [ %82, %80 ]
+81:                                               ; preds = %81, %70
+  %.047.i = phi ptr [ %75, %70 ], [ %82, %81 ]
+  %.04146.i = phi i32 [ 0, %70 ], [ %83, %81 ]
   call void @ScaleAddRow_16_C(ptr noundef %.047.i, ptr noundef nonnull %61, i32 noundef %53) #8
-  %81 = getelementptr inbounds i16, ptr %.047.i, i64 %67
-  %82 = add nuw nsw i32 %.04146.i, 1
-  %exitcond.not.i = icmp eq i32 %82, %smax.i
-  br i1 %exitcond.not.i, label %83, label %80, !llvm.loop !15
+  %82 = getelementptr inbounds i16, ptr %.047.i, i64 %67
+  %83 = add nuw nsw i32 %.04146.i, 1
+  %exitcond.not.i = icmp eq i32 %83, %80
+  br i1 %exitcond.not.i, label %84, label %81, !llvm.loop !15
 
-83:                                               ; preds = %80
-  %84 = load i32, ptr %10, align 4
-  %85 = load i32, ptr %12, align 4
-  call void %65(i32 noundef %6, i32 noundef %smax.i, i32 noundef %84, i32 noundef %85, ptr noundef nonnull %61, ptr noundef %.03949.i) #8, !callees !16
-  %86 = getelementptr inbounds i16, ptr %.03949.i, i64 %69
-  %87 = add nuw nsw i32 %.04048.i, 1
-  %exitcond50.not.i = icmp eq i32 %87, %7
+84:                                               ; preds = %81
+  %85 = load i32, ptr %10, align 4
+  %86 = load i32, ptr %12, align 4
+  call void %65(i32 noundef %6, i32 noundef %80, i32 noundef %85, i32 noundef %86, ptr noundef nonnull %61, ptr noundef %.03949.i) #8, !callees !16
+  %87 = getelementptr inbounds i16, ptr %.03949.i, i64 %69
+  %88 = add nuw nsw i32 %.04048.i, 1
+  %exitcond50.not.i = icmp eq i32 %88, %7
   br i1 %exitcond50.not.i, label %._crit_edge.i, label %70, !llvm.loop !17
 
-._crit_edge.i:                                    ; preds = %83, %62
+._crit_edge.i:                                    ; preds = %84, %62
   call void @free(ptr noundef %57) #8
   br label %ScalePlaneBox_16.exit
 
@@ -810,123 +810,123 @@ ScalePlaneBox_16.exit:                            ; preds = %51, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %ScalePlaneUp2_16_Linear.exit
 
-88:                                               ; preds = %47
-  %89 = add nsw i32 %6, 1
-  %90 = sdiv i32 %89, 2
-  %91 = icmp eq i32 %90, %2
-  %92 = icmp eq i32 %14, 1
-  %or.cond5 = select i1 %91, i1 %92, i1 false
-  br i1 %or.cond5, label %93, label %116
+89:                                               ; preds = %47
+  %90 = add nsw i32 %6, 1
+  %91 = sdiv i32 %90, 2
+  %92 = icmp eq i32 %91, %2
+  %93 = icmp eq i32 %14, 1
+  %or.cond5 = select i1 %92, i1 %93, i1 false
+  br i1 %or.cond5, label %94, label %117
 
-93:                                               ; preds = %88
-  %94 = icmp eq i32 %7, 1
-  %95 = add nsw i32 %.0122, -1
-  br i1 %94, label %96, label %102
+94:                                               ; preds = %89
+  %95 = icmp eq i32 %7, 1
+  %96 = add nsw i32 %.0122, -1
+  br i1 %95, label %97, label %103
 
-96:                                               ; preds = %93
-  %97 = sdiv i32 %95, 2
-  %98 = zext nneg i32 %97 to i64
-  %99 = sext i32 %.0121 to i64
-  %100 = mul nsw i64 %98, %99
-  %101 = getelementptr inbounds i16, ptr %.0120, i64 %100
-  tail call void @ScaleRowUp2_Linear_16_Any_C(ptr noundef %101, ptr noundef %4, i32 noundef %6) #8
+97:                                               ; preds = %94
+  %98 = sdiv i32 %96, 2
+  %99 = zext nneg i32 %98 to i64
+  %100 = sext i32 %.0121 to i64
+  %101 = mul nsw i64 %99, %100
+  %102 = getelementptr inbounds i16, ptr %.0120, i64 %101
+  tail call void @ScaleRowUp2_Linear_16_Any_C(ptr noundef %102, ptr noundef %4, i32 noundef %6) #8
   br label %ScalePlaneUp2_16_Linear.exit
 
-102:                                              ; preds = %93
-  %103 = add nsw i32 %7, -1
-  %104 = tail call i32 @FixedDiv_C(i32 noundef %95, i32 noundef %103) #8
-  %105 = icmp sgt i32 %7, 0
-  br i1 %105, label %.lr.ph.i143, label %ScalePlaneUp2_16_Linear.exit
+103:                                              ; preds = %94
+  %104 = add nsw i32 %7, -1
+  %105 = tail call i32 @FixedDiv_C(i32 noundef %96, i32 noundef %104) #8
+  %106 = icmp sgt i32 %7, 0
+  br i1 %106, label %.lr.ph.i143, label %ScalePlaneUp2_16_Linear.exit
 
-.lr.ph.i143:                                      ; preds = %102
-  %106 = sext i32 %.0121 to i64
-  %107 = sext i32 %5 to i64
-  br label %108
+.lr.ph.i143:                                      ; preds = %103
+  %107 = sext i32 %.0121 to i64
+  %108 = sext i32 %5 to i64
+  br label %109
 
-108:                                              ; preds = %108, %.lr.ph.i143
-  %.026.i = phi ptr [ %4, %.lr.ph.i143 ], [ %113, %108 ]
-  %.02125.i = phi i32 [ 32767, %.lr.ph.i143 ], [ %114, %108 ]
-  %.02224.i = phi i32 [ 0, %.lr.ph.i143 ], [ %115, %108 ]
-  %109 = ashr i32 %.02125.i, 16
-  %110 = sext i32 %109 to i64
-  %111 = mul nsw i64 %110, %106
-  %112 = getelementptr inbounds i16, ptr %.0120, i64 %111
-  tail call void @ScaleRowUp2_Linear_16_Any_C(ptr noundef %112, ptr noundef %.026.i, i32 noundef %6) #8
-  %113 = getelementptr inbounds i16, ptr %.026.i, i64 %107
-  %114 = add nsw i32 %.02125.i, %104
-  %115 = add nuw nsw i32 %.02224.i, 1
-  %exitcond.not.i144 = icmp eq i32 %115, %7
-  br i1 %exitcond.not.i144, label %ScalePlaneUp2_16_Linear.exit, label %108, !llvm.loop !18
+109:                                              ; preds = %109, %.lr.ph.i143
+  %.026.i = phi ptr [ %4, %.lr.ph.i143 ], [ %114, %109 ]
+  %.02125.i = phi i32 [ 32767, %.lr.ph.i143 ], [ %115, %109 ]
+  %.02224.i = phi i32 [ 0, %.lr.ph.i143 ], [ %116, %109 ]
+  %110 = ashr i32 %.02125.i, 16
+  %111 = sext i32 %110 to i64
+  %112 = mul nsw i64 %111, %107
+  %113 = getelementptr inbounds i16, ptr %.0120, i64 %112
+  tail call void @ScaleRowUp2_Linear_16_Any_C(ptr noundef %113, ptr noundef %.026.i, i32 noundef %6) #8
+  %114 = getelementptr inbounds i16, ptr %.026.i, i64 %108
+  %115 = add nsw i32 %.02125.i, %105
+  %116 = add nuw nsw i32 %.02224.i, 1
+  %exitcond.not.i144 = icmp eq i32 %116, %7
+  br i1 %exitcond.not.i144, label %ScalePlaneUp2_16_Linear.exit, label %109, !llvm.loop !18
 
-116:                                              ; preds = %88
-  %117 = add nsw i32 %7, 1
-  %118 = sdiv i32 %117, 2
-  %119 = icmp eq i32 %118, %.0122
-  %brmerge.not150 = and i1 %91, %119
-  %120 = and i32 %14, -2
-  %or.cond7 = icmp eq i32 %120, 2
+117:                                              ; preds = %89
+  %118 = add nsw i32 %7, 1
+  %119 = sdiv i32 %118, 2
+  %120 = icmp eq i32 %119, %.0122
+  %brmerge.not150 = and i1 %92, %120
+  %121 = and i32 %14, -2
+  %or.cond7 = icmp eq i32 %121, 2
   %or.cond141 = select i1 %brmerge.not150, i1 %or.cond7, i1 false
-  br i1 %or.cond141, label %121, label %135
+  br i1 %or.cond141, label %122, label %136
 
-121:                                              ; preds = %116
+122:                                              ; preds = %117
   tail call void @ScaleRowUp2_Bilinear_16_Any_C(ptr noundef %.0120, i64 noundef 0, ptr noundef %4, i64 noundef 0, i32 noundef %6) #8
-  %122 = sext i32 %5 to i64
-  %123 = getelementptr inbounds i16, ptr %4, i64 %122
-  %124 = icmp samesign ugt i32 %.0122, 1
-  br i1 %124, label %.lr.ph.i147, label %._crit_edge.i145
+  %123 = sext i32 %5 to i64
+  %124 = getelementptr inbounds i16, ptr %4, i64 %123
+  %125 = icmp samesign ugt i32 %.0122, 1
+  br i1 %125, label %.lr.ph.i147, label %._crit_edge.i145
 
-.lr.ph.i147:                                      ; preds = %121
-  %125 = sext i32 %.0121 to i64
-  %126 = shl nsw i32 %5, 1
-  %127 = sext i32 %126 to i64
-  %128 = add nsw i32 %.0122, -2
-  br label %129
+.lr.ph.i147:                                      ; preds = %122
+  %126 = sext i32 %.0121 to i64
+  %127 = shl nsw i32 %5, 1
+  %128 = sext i32 %127 to i64
+  %129 = add nsw i32 %.0122, -2
+  br label %130
 
-129:                                              ; preds = %129, %.lr.ph.i147
-  %.027.i = phi i32 [ 0, %.lr.ph.i147 ], [ %132, %129 ]
-  %.02326.i = phi ptr [ %.0120, %.lr.ph.i147 ], [ %130, %129 ]
-  %.02425.i = phi ptr [ %123, %.lr.ph.i147 ], [ %131, %129 ]
-  tail call void @ScaleRowUp2_Bilinear_16_Any_C(ptr noundef %.02326.i, i64 noundef %125, ptr noundef %.02425.i, i64 noundef %122, i32 noundef %6) #8
-  %130 = getelementptr inbounds i16, ptr %.02326.i, i64 %125
-  %131 = getelementptr inbounds i16, ptr %.02425.i, i64 %127
-  %132 = add nuw nsw i32 %.027.i, 1
-  %exitcond.not.i148 = icmp eq i32 %.027.i, %128
-  br i1 %exitcond.not.i148, label %._crit_edge.i145, label %129, !llvm.loop !19
+130:                                              ; preds = %130, %.lr.ph.i147
+  %.027.i = phi i32 [ 0, %.lr.ph.i147 ], [ %133, %130 ]
+  %.02326.i = phi ptr [ %.0120, %.lr.ph.i147 ], [ %131, %130 ]
+  %.02425.i = phi ptr [ %124, %.lr.ph.i147 ], [ %132, %130 ]
+  tail call void @ScaleRowUp2_Bilinear_16_Any_C(ptr noundef %.02326.i, i64 noundef %126, ptr noundef %.02425.i, i64 noundef %123, i32 noundef %6) #8
+  %131 = getelementptr inbounds i16, ptr %.02326.i, i64 %126
+  %132 = getelementptr inbounds i16, ptr %.02425.i, i64 %128
+  %133 = add nuw nsw i32 %.027.i, 1
+  %exitcond.not.i148 = icmp eq i32 %.027.i, %129
+  br i1 %exitcond.not.i148, label %._crit_edge.i145, label %130, !llvm.loop !19
 
-._crit_edge.i145:                                 ; preds = %129, %121
-  %.024.lcssa.i = phi ptr [ %123, %121 ], [ %131, %129 ]
-  %.023.lcssa.i = phi ptr [ %.0120, %121 ], [ %130, %129 ]
-  %133 = and i32 %7, 1
-  %.not.i146 = icmp eq i32 %133, 0
-  br i1 %.not.i146, label %134, label %ScalePlaneUp2_16_Linear.exit
+._crit_edge.i145:                                 ; preds = %130, %122
+  %.024.lcssa.i = phi ptr [ %124, %122 ], [ %132, %130 ]
+  %.023.lcssa.i = phi ptr [ %.0120, %122 ], [ %131, %130 ]
+  %134 = and i32 %7, 1
+  %.not.i146 = icmp eq i32 %134, 0
+  br i1 %.not.i146, label %135, label %ScalePlaneUp2_16_Linear.exit
 
-134:                                              ; preds = %._crit_edge.i145
+135:                                              ; preds = %._crit_edge.i145
   tail call void @ScaleRowUp2_Bilinear_16_Any_C(ptr noundef %.023.lcssa.i, i64 noundef 0, ptr noundef %.024.lcssa.i, i64 noundef 0, i32 noundef %6) #8
   br label %ScalePlaneUp2_16_Linear.exit
 
-135:                                              ; preds = %116
+136:                                              ; preds = %117
   %.not = icmp ne i32 %14, 0
-  %136 = icmp sgt i32 %7, %.0122
-  %or.cond142 = select i1 %.not, i1 %136, i1 false
-  br i1 %or.cond142, label %137, label %139
+  %137 = icmp sgt i32 %7, %.0122
+  %or.cond142 = select i1 %.not, i1 %137, i1 false
+  br i1 %or.cond142, label %138, label %140
 
-137:                                              ; preds = %135
-  %138 = tail call fastcc i32 @ScalePlaneBilinearUp_16(i32 noundef %2, i32 noundef %.0122, i32 noundef %6, i32 noundef %7, i32 noundef %.0121, i32 noundef %5, ptr noundef %.0120, ptr noundef %4, i32 noundef %14)
+138:                                              ; preds = %136
+  %139 = tail call fastcc i32 @ScalePlaneBilinearUp_16(i32 noundef %2, i32 noundef %.0122, i32 noundef %6, i32 noundef %7, i32 noundef %.0121, i32 noundef %5, ptr noundef %.0120, ptr noundef %4, i32 noundef %14)
   br label %ScalePlaneUp2_16_Linear.exit
 
-139:                                              ; preds = %135
-  br i1 %.not, label %140, label %142
+140:                                              ; preds = %136
+  br i1 %.not, label %141, label %143
 
-140:                                              ; preds = %139
-  %141 = tail call fastcc i32 @ScalePlaneBilinearDown_16(i32 noundef %2, i32 noundef %.0122, i32 noundef %6, i32 noundef %7, i32 noundef %.0121, i32 noundef %5, ptr noundef %.0120, ptr noundef %4, i32 noundef %14)
+141:                                              ; preds = %140
+  %142 = tail call fastcc i32 @ScalePlaneBilinearDown_16(i32 noundef %2, i32 noundef %.0122, i32 noundef %6, i32 noundef %7, i32 noundef %.0121, i32 noundef %5, ptr noundef %.0120, ptr noundef %4, i32 noundef %14)
   br label %ScalePlaneUp2_16_Linear.exit
 
-142:                                              ; preds = %139
+143:                                              ; preds = %140
   tail call fastcc void @ScalePlaneSimple_16(i32 noundef %2, i32 noundef %.0122, i32 noundef %6, i32 noundef %7, i32 noundef %.0121, i32 noundef %5, ptr noundef %.0120, ptr noundef %4)
   br label %ScalePlaneUp2_16_Linear.exit
 
-ScalePlaneUp2_16_Linear.exit:                     ; preds = %108, %134, %._crit_edge.i145, %102, %96, %142, %140, %137, %ScalePlaneBox_16.exit, %46, %27
-  %.0119 = phi i32 [ 0, %27 ], [ 0, %46 ], [ %.038.i, %ScalePlaneBox_16.exit ], [ %138, %137 ], [ %141, %140 ], [ 0, %142 ], [ 0, %96 ], [ 0, %102 ], [ 0, %._crit_edge.i145 ], [ 0, %134 ], [ 0, %108 ]
+ScalePlaneUp2_16_Linear.exit:                     ; preds = %109, %135, %._crit_edge.i145, %103, %97, %143, %141, %138, %ScalePlaneBox_16.exit, %46, %27
+  %.0119 = phi i32 [ 0, %27 ], [ 0, %46 ], [ %.038.i, %ScalePlaneBox_16.exit ], [ %139, %138 ], [ %142, %141 ], [ 0, %143 ], [ 0, %97 ], [ 0, %103 ], [ 0, %._crit_edge.i145 ], [ 0, %135 ], [ 0, %109 ]
   ret i32 %.0119
 }
 

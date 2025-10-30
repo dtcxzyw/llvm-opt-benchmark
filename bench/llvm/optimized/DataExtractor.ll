@@ -312,12 +312,12 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i:          ; preds = %4
   %.not24.i = icmp eq i32 %3, 0
   br i1 %.not24.i, label %._crit_edge.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.i.i
 
-._crit_edge.loopexit27.i:                         ; preds = %_ZNK4llvm13DataExtractor4getUIhEET_PmPNS_5ErrorE.exit.i
+._crit_edge.loopexit32.i:                         ; preds = %_ZNK4llvm13DataExtractor4getUIhEET_PmPNS_5ErrorE.exit.i
   %12 = add i64 %7, %8
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit27.i, %10
-  %.021.lcssa.i = phi i64 [ %7, %10 ], [ %12, %._crit_edge.loopexit27.i ]
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit32.i, %10
+  %.021.lcssa.i = phi i64 [ %7, %10 ], [ %12, %._crit_edge.loopexit32.i ]
   store i64 %.021.lcssa.i, ptr %1, align 8, !tbaa !62
   br label %_ZNK4llvm13DataExtractor5getUsIhEEPT_PmS3_jPNS_5ErrorE.exit
 
@@ -346,7 +346,7 @@ _ZNK4llvm13DataExtractor4getUIhEET_PmPNS_5ErrorE.exit.i: ; preds = %16, %_ZL7isE
   store i8 %.0.i.i, ptr %.02026.i, align 1, !tbaa !15
   %22 = getelementptr inbounds nuw i8, ptr %.02026.i, i64 1
   %.not.i = icmp eq ptr %22, %11
-  br i1 %.not.i, label %._crit_edge.loopexit27.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.i.i, !llvm.loop !65
+  br i1 %.not.i, label %._crit_edge.loopexit32.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.i.i, !llvm.loop !65
 
 _ZNK4llvm13DataExtractor5getUsIhEEPT_PmS3_jPNS_5ErrorE.exit: ; preds = %4, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i, %._crit_edge.i
   %.0.i = phi ptr [ null, %4 ], [ %2, %._crit_edge.i ], [ null, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i ]

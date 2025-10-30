@@ -727,15 +727,15 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectItEEPT_m.exit: ; pr
   %59 = mul i64 %58, -4132994306676758123
   %60 = lshr i64 %59, 47
   %61 = xor i64 %60, %59
-  %62 = mul nuw nsw i64 %indvars.iv39, %.sroa.0.0.insert.ext.i
-  %63 = trunc i64 %61 to i32
-  %64 = lshr i32 %63, 16
-  %65 = lshr i32 %63, 8
-  %66 = lshr i32 %63, 23
-  %67 = lshr i32 %63, 27
-  %68 = or i32 %67, 1
-  %69 = mul i32 %68, 1765145193
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %.0.i.i.i, i64 %62
+  %62 = trunc i64 %61 to i32
+  %63 = lshr i32 %62, 16
+  %64 = lshr i32 %62, 8
+  %65 = lshr i32 %62, 23
+  %66 = lshr i32 %62, 27
+  %67 = or i32 %66, 1
+  %68 = mul i32 %67, 1765145193
+  %69 = mul nuw nsw i64 %indvars.iv39, %.sroa.0.0.insert.ext.i
+  %invariant.gep = getelementptr inbounds nuw i16, ptr %.0.i.i.i, i64 %69
   br label %70
 
 70:                                               ; preds = %.lr.ph31.us, %_ZN4pbrt18PermutationElementEjjj.exit.us
@@ -745,19 +745,19 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectItEEPT_m.exit: ; pr
 
 72:                                               ; preds = %72, %70
   %.0.i.us = phi i32 [ %71, %70 ], [ %100, %72 ]
-  %73 = xor i32 %.0.i.us, %63
+  %73 = xor i32 %.0.i.us, %62
   %74 = mul i32 %73, -512718531
-  %75 = xor i32 %74, %64
+  %75 = xor i32 %74, %63
   %76 = and i32 %75, %48
   %77 = lshr i32 %76, 4
-  %78 = xor i32 %65, %77
+  %78 = xor i32 %64, %77
   %79 = xor i32 %78, %75
   %80 = mul i32 %79, 153742143
-  %81 = xor i32 %80, %66
+  %81 = xor i32 %80, %65
   %82 = and i32 %81, %48
   %83 = lshr i32 %82, 1
   %84 = xor i32 %83, %81
-  %85 = mul i32 %69, %84
+  %85 = mul i32 %68, %84
   %86 = and i32 %85, %48
   %87 = lshr i32 %86, 11
   %88 = xor i32 %87, %85
@@ -777,7 +777,7 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectItEEPT_m.exit: ; pr
   br i1 %.not.i.us, label %_ZN4pbrt18PermutationElementEjjj.exit.us, label %72, !llvm.loop !55
 
 _ZN4pbrt18PermutationElementEjjj.exit.us:         ; preds = %72
-  %101 = add i32 %100, %63
+  %101 = add i32 %100, %62
   %102 = urem i32 %101, %1
   %103 = trunc nuw i32 %102 to i16
   %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv

@@ -1125,11 +1125,11 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -106, 1) i32 @mbedtls_oid_from_numeric_string(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = alloca ptr, align 8
-  %5 = getelementptr i8, ptr %1, i64 %2
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
+  %5 = getelementptr i8, ptr %1, i64 %2
   %6 = add i64 %spec.select, -128
   %or.cond = icmp ult i64 %6, -127
   br i1 %or.cond, label %._crit_edge.thread, label %12

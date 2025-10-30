@@ -1807,8 +1807,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i1850:          ; preds = %738
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i: ; preds = %786
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %787, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %779, i8 -1, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !18
   %792 = getelementptr inbounds nuw i8, ptr %779, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %779, i8 -1, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !18
   store ptr %792, ptr %558, align 8, !tbaa !77
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
 
@@ -7406,32 +7406,32 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1585: ; preds = %_
   %indvars.iv.next8814 = add nsw i64 %indvars.iv8813, -1
   %2760 = load ptr, ptr %275, align 8, !tbaa !150
   %2761 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::hashlib::dict<int, Yosys::RTLIL::SigBit>>::entry_t", ptr %2760, i64 %indvars.iv.next8814
-  %2762 = getelementptr inbounds nuw i8, ptr %2761, i64 8
-  %2763 = getelementptr inbounds nuw i8, ptr %2761, i64 32
-  %2764 = getelementptr inbounds nuw i8, ptr %2761, i64 40
-  %2765 = load ptr, ptr %2764, align 8, !tbaa !151
-  %2766 = load ptr, ptr %2763, align 8, !tbaa !154
+  %2762 = getelementptr inbounds nuw i8, ptr %2761, i64 32
+  %2763 = getelementptr inbounds nuw i8, ptr %2761, i64 40
+  %2764 = load ptr, ptr %2763, align 8, !tbaa !151
+  %2765 = load ptr, ptr %2762, align 8, !tbaa !154
+  %2766 = ptrtoint ptr %2764 to i64
   %2767 = ptrtoint ptr %2765 to i64
-  %2768 = ptrtoint ptr %2766 to i64
-  %2769 = sub i64 %2767, %2768
-  %2770 = and i64 %2769, 137438953440
-  %.not20695565 = icmp eq i64 %2770, 0
+  %2768 = sub i64 %2766, %2767
+  %2769 = and i64 %2768, 137438953440
+  %.not20695565 = icmp eq i64 %2769, 0
   br i1 %.not20695565, label %._crit_edge5570, label %.lr.ph5569.preheader
 
 .lr.ph5569.preheader:                             ; preds = %2759
-  %sext9383 = shl i64 %2769, 27
-  %2771 = ashr i64 %sext9383, 32
+  %sext9383 = shl i64 %2768, 27
+  %2770 = ashr i64 %sext9383, 32
   br label %.lr.ph5569
 
 ._crit_edge5570:                                  ; preds = %.lr.ph5569, %2759
   %.01989.lcssa = phi i32 [ 0, %2759 ], [ %.sroa.speculated, %.lr.ph5569 ]
+  %2771 = getelementptr inbounds nuw i8, ptr %2761, i64 8
   br i1 %.not879, label %2796, label %2775
 
 .lr.ph5569:                                       ; preds = %.lr.ph5569.preheader, %.lr.ph5569
-  %indvars.iv8810 = phi i64 [ %2771, %.lr.ph5569.preheader ], [ %indvars.iv.next8811, %.lr.ph5569 ]
+  %indvars.iv8810 = phi i64 [ %2770, %.lr.ph5569.preheader ], [ %indvars.iv.next8811, %.lr.ph5569 ]
   %.019895567 = phi i32 [ 0, %.lr.ph5569.preheader ], [ %.sroa.speculated, %.lr.ph5569 ]
   %indvars.iv.next8811 = add nsw i64 %indvars.iv8810, -1
-  %2772 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, Yosys::RTLIL::SigBit>::entry_t", ptr %2766, i64 %indvars.iv.next8811
+  %2772 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, Yosys::RTLIL::SigBit>::entry_t", ptr %2765, i64 %indvars.iv.next8811
   %2773 = load i32, ptr %2772, align 8, !tbaa !155
   %2774 = add nsw i32 %2773, 1
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.019895567, i32 %2774)
@@ -7494,7 +7494,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1585: ; preds = %_
   %2800 = select i1 %.0597, i32 %2799, i32 %.05855571
   %2801 = add nsw i32 %2800, %.0599
   store i32 %2801, ptr %194, align 4, !tbaa !18
-  %2802 = invoke noundef i32 @_ZNK5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEE5countERKi(ptr noundef nonnull align 8 dereferenceable(49) %2762, ptr noundef nonnull align 4 dereferenceable(4) %194)
+  %2802 = invoke noundef i32 @_ZNK5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEE5countERKi(ptr noundef nonnull align 8 dereferenceable(49) %2771, ptr noundef nonnull align 4 dereferenceable(4) %194)
           to label %2803 unwind label %2807
 
 2803:                                             ; preds = %.lr.ph5573
@@ -7502,7 +7502,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1585: ; preds = %_
   br i1 %.not881, label %.noexc.i1595, label %2804
 
 2804:                                             ; preds = %2803
-  %2805 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEE2atERKi(ptr noundef nonnull align 8 dereferenceable(49) %2762, ptr noundef nonnull align 4 dereferenceable(4) %194)
+  %2805 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZN5Yosys7hashlib4dictIiNS_5RTLIL6SigBitENS0_8hash_opsIiEEE2atERKi(ptr noundef nonnull align 8 dereferenceable(49) %2771, ptr noundef nonnull align 4 dereferenceable(4) %194)
           to label %2806 unwind label %2807
 
 2806:                                             ; preds = %2804

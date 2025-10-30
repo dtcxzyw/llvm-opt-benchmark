@@ -4521,21 +4521,21 @@ define linkonce_odr void @_ZN4absl12lts_2024072216strings_internal13JoinAlgorith
   br i1 %.not41, label %.loopexit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %11 = load i64, ptr %10, align 8, !tbaa !40
-  %12 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %1) #33
-  %.not4244 = icmp eq ptr %12, %2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %10 = load i64, ptr %9, align 8, !tbaa !40
+  %11 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %1) #33
+  %.not4244 = icmp eq ptr %11, %2
   br i1 %.not4244, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
-  %.025.lcssa = phi i64 [ %11, %8 ], [ %17, %.lr.ph ]
+  %.025.lcssa = phi i64 [ %10, %8 ], [ %17, %.lr.ph ]
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.not = icmp eq i64 %.025.lcssa, 0
   br i1 %.not, label %.loopexit, label %19
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
-  %13 = phi ptr [ %18, %.lr.ph ], [ %12, %8 ]
-  %.02545 = phi i64 [ %17, %.lr.ph ], [ %11, %8 ]
+  %13 = phi ptr [ %18, %.lr.ph ], [ %11, %8 ]
+  %.02545 = phi i64 [ %17, %.lr.ph ], [ %10, %8 ]
   %14 = add i64 %.02545, %3
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %16 = load i64, ptr %15, align 8, !tbaa !40
@@ -4550,15 +4550,15 @@ define linkonce_odr void @_ZN4absl12lts_2024072216strings_internal13JoinAlgorith
 
 _ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit: ; preds = %19
   %20 = load ptr, ptr %0, align 8, !tbaa !38
-  %21 = load ptr, ptr %9, align 8, !tbaa !38
-  %22 = load i64, ptr %10, align 8, !tbaa !40
+  %21 = load ptr, ptr %12, align 8, !tbaa !38
+  %22 = load i64, ptr %9, align 8, !tbaa !40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %21, i64 %22, i1 false)
   %23 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %1) #33
   %.not4346 = icmp eq ptr %23, %2
   br i1 %.not4346, label %.loopexit, label %.lr.ph48.preheader
 
 .lr.ph48.preheader:                               ; preds = %_ZN4absl12lts_2024072216strings_internal28STLStringResizeUninitializedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEvPT_m.exit
-  %24 = load i64, ptr %10, align 8, !tbaa !40
+  %24 = load i64, ptr %9, align 8, !tbaa !40
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %24
   br label %.lr.ph48
 

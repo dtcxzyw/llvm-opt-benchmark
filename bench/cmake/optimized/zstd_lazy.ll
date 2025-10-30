@@ -17,52 +17,52 @@ define dso_local void @ZSTD_dedicatedDictSearch_lazy_loadDictionary(ptr noundef 
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %14 = load i32, ptr %13, align 4, !tbaa !19
-  %15 = shl nuw i32 1, %14
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %17 = load i32, ptr %16, align 4, !tbaa !20
-  %18 = sub i32 %8, %17
-  %19 = icmp ult i32 %15, %18
-  %20 = sub i32 %8, %15
-  %21 = select i1 %19, i32 %20, i32 %17
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %23 = load i32, ptr %22, align 4, !tbaa !21
-  %24 = shl nuw i32 1, %23
-  %25 = add i32 %24, -3
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %27 = load i32, ptr %26, align 8, !tbaa !22
-  %28 = add i32 %27, -2
-  %29 = zext nneg i32 %28 to i64
-  %30 = shl nuw i64 1, %29
-  %31 = getelementptr inbounds nuw i32, ptr %10, i64 %30
-  %32 = shl i32 3, %28
-  %33 = icmp ult i32 %32, %8
-  %34 = sub i32 %8, %32
-  %35 = select i1 %33, i32 %34, i32 %17
-  %36 = icmp ult i32 %17, %8
-  br i1 %36, label %.lr.ph, label %.preheader164
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %16 = load i32, ptr %15, align 4, !tbaa !20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %18 = load i32, ptr %17, align 4, !tbaa !21
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %20 = load i32, ptr %19, align 8, !tbaa !22
+  %21 = add i32 %20, -2
+  %22 = zext nneg i32 %21 to i64
+  %23 = shl nuw i64 1, %22
+  %24 = getelementptr inbounds nuw i32, ptr %10, i64 %23
+  %25 = shl i32 3, %21
+  %26 = icmp ult i32 %25, %8
+  %27 = sub i32 %8, %25
+  %28 = select i1 %26, i32 %27, i32 %16
+  %29 = icmp ult i32 %16, %8
+  br i1 %29, label %.lr.ph, label %.preheader164
 
 .lr.ph:                                           ; preds = %2
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %38 = sub i32 66, %27
-  %39 = zext nneg i32 %38 to i64
-  %40 = sub i32 34, %27
-  %41 = zext i32 %17 to i64
-  %42 = zext i32 %35 to i64
-  %43 = and i64 %7, 4294967295
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %31 = sub i32 66, %20
+  %32 = zext nneg i32 %31 to i64
+  %33 = sub i32 34, %20
+  %34 = zext i32 %16 to i64
+  %35 = zext i32 %28 to i64
+  %36 = and i64 %7, 4294967295
   br label %46
 
 .preheader164:                                    ; preds = %ZSTD_hashPtr.exit._crit_edge, %2
-  %44 = shl nuw i32 1, %28
-  %.not197 = icmp eq i32 %25, 0
-  %45 = tail call i32 @llvm.umax.i32(i32 %25, i32 1)
+  %37 = shl nuw i32 1, %14
+  %38 = sub i32 %8, %16
+  %39 = icmp ult i32 %37, %38
+  %40 = sub i32 %8, %37
+  %41 = select i1 %39, i32 %40, i32 %16
+  %42 = shl nuw i32 1, %18
+  %43 = add i32 %42, -3
+  %44 = shl nuw i32 1, %21
+  %.not197 = icmp eq i32 %43, 0
+  %45 = tail call i32 @llvm.umax.i32(i32 %43, i32 1)
   %umax = tail call i32 @llvm.umin.i32(i32 %45, i32 255)
   %wide.trip.count = zext i32 %44 to i64
   br label %73
 
 46:                                               ; preds = %.lr.ph, %ZSTD_hashPtr.exit._crit_edge
-  %indvars.iv = phi i64 [ %41, %.lr.ph ], [ %indvars.iv.next, %ZSTD_hashPtr.exit._crit_edge ]
+  %indvars.iv = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next, %ZSTD_hashPtr.exit._crit_edge ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %48 = load i32, ptr %37, align 8, !tbaa !23
+  %48 = load i32, ptr %30, align 8, !tbaa !23
   switch i32 %48, label %49 [
     i32 8, label %62
     i32 5, label %53
@@ -73,45 +73,45 @@ define dso_local void @ZSTD_dedicatedDictSearch_lazy_loadDictionary(ptr noundef 
 49:                                               ; preds = %46
   %.val142 = load i32, ptr %47, align 1, !tbaa !24
   %50 = mul i32 %.val142, -1640531535
-  %51 = lshr i32 %50, %40
+  %51 = lshr i32 %50, %33
   %52 = zext i32 %51 to i64
   br label %ZSTD_hashPtr.exit
 
 53:                                               ; preds = %46
   %.val144 = load i64, ptr %47, align 1, !tbaa !25
   %54 = mul i64 %.val144, -3523014627271114752
-  %55 = lshr i64 %54, %39
+  %55 = lshr i64 %54, %32
   br label %ZSTD_hashPtr.exit
 
 56:                                               ; preds = %46
   %.val146 = load i64, ptr %47, align 1, !tbaa !25
   %57 = mul i64 %.val146, -3523014627193847808
-  %58 = lshr i64 %57, %39
+  %58 = lshr i64 %57, %32
   br label %ZSTD_hashPtr.exit
 
 59:                                               ; preds = %46
   %.val148 = load i64, ptr %47, align 1, !tbaa !25
   %60 = mul i64 %.val148, -3523014627193167104
-  %61 = lshr i64 %60, %39
+  %61 = lshr i64 %60, %32
   br label %ZSTD_hashPtr.exit
 
 62:                                               ; preds = %46
   %.val150 = load i64, ptr %47, align 1, !tbaa !25
   %63 = mul i64 %.val150, -3523014627327384477
-  %64 = lshr i64 %63, %39
+  %64 = lshr i64 %63, %32
   br label %ZSTD_hashPtr.exit
 
 ZSTD_hashPtr.exit:                                ; preds = %49, %53, %56, %59, %62
   %.0.i = phi i64 [ %52, %49 ], [ %64, %62 ], [ %55, %53 ], [ %58, %56 ], [ %61, %59 ]
-  %.not138 = icmp samesign ult i64 %indvars.iv, %42
+  %.not138 = icmp samesign ult i64 %indvars.iv, %35
   %.pre = and i64 %.0.i, 4294967295
   br i1 %.not138, label %ZSTD_hashPtr.exit._crit_edge, label %65
 
 65:                                               ; preds = %ZSTD_hashPtr.exit
   %66 = getelementptr inbounds nuw i32, ptr %10, i64 %.pre
   %67 = load i32, ptr %66, align 4, !tbaa !24
-  %68 = sub nuw nsw i64 %indvars.iv, %42
-  %69 = getelementptr inbounds nuw i32, ptr %31, i64 %68
+  %68 = sub nuw nsw i64 %indvars.iv, %35
+  %69 = getelementptr inbounds nuw i32, ptr %24, i64 %68
   store i32 %67, ptr %69, align 4, !tbaa !24
   br label %ZSTD_hashPtr.exit._crit_edge
 
@@ -120,7 +120,7 @@ ZSTD_hashPtr.exit._crit_edge:                     ; preds = %ZSTD_hashPtr.exit, 
   %71 = trunc nuw i64 %indvars.iv to i32
   store i32 %71, ptr %70, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %72 = icmp samesign ult i64 %indvars.iv.next, %43
+  %72 = icmp samesign ult i64 %indvars.iv.next, %36
   br i1 %72, label %46, label %.preheader164, !llvm.loop !26
 
 73:                                               ; preds = %.preheader164, %.thread
@@ -128,22 +128,22 @@ ZSTD_hashPtr.exit._crit_edge:                     ; preds = %ZSTD_hashPtr.exit, 
   %.0119188 = phi i32 [ 0, %.preheader164 ], [ %.2155, %.thread ]
   %74 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv205
   %.0121170 = load i32, ptr %74, align 4, !tbaa !24
-  %.not198 = icmp ult i32 %.0121170, %35
+  %.not198 = icmp ult i32 %.0121170, %28
   br i1 %.not198, label %.thread, label %.lr.ph174
 
 .lr.ph174:                                        ; preds = %73, %.lr.ph174
   %.0121173 = phi i32 [ %.0121, %.lr.ph174 ], [ %.0121170, %73 ]
   %.0123172 = phi i32 [ %spec.select, %.lr.ph174 ], [ 0, %73 ]
   %.0126171 = phi i32 [ %80, %.lr.ph174 ], [ 0, %73 ]
-  %75 = icmp ult i32 %.0121173, %21
+  %75 = icmp ult i32 %.0121173, %41
   %76 = zext i1 %75 to i32
   %spec.select = add i32 %.0123172, %76
-  %77 = sub nuw i32 %.0121173, %35
+  %77 = sub nuw i32 %.0121173, %28
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %31, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr %24, i64 %78
   %80 = add nuw nsw i32 %.0126171, 1
   %.0121 = load i32, ptr %79, align 4, !tbaa !24
-  %81 = icmp uge i32 %.0121, %35
+  %81 = icmp uge i32 %.0121, %28
   %82 = icmp samesign ult i32 %.0126171, 2
   %83 = select i1 %81, i1 %82, i1 false
   br i1 %83, label %.lr.ph174, label %._crit_edge, !llvm.loop !28
@@ -158,7 +158,7 @@ ZSTD_hashPtr.exit._crit_edge:                     ; preds = %ZSTD_hashPtr.exit, 
   %.1122179 = phi i32 [ %102, %98 ], [ %.0121, %._crit_edge ]
   %.2125178 = phi i32 [ %.3, %98 ], [ %spec.select, %._crit_edge ]
   %.1127177 = phi i32 [ %93, %98 ], [ 0, %._crit_edge ]
-  %85 = icmp ult i32 %.1122179, %21
+  %85 = icmp ult i32 %.1122179, %41
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %.lr.ph181
@@ -175,7 +175,7 @@ ZSTD_hashPtr.exit._crit_edge:                     ; preds = %ZSTD_hashPtr.exit, 
   %92 = getelementptr inbounds nuw i32, ptr %12, i64 %91
   store i32 %.1122179, ptr %92, align 4, !tbaa !24
   %93 = add i32 %.1127177, 1
-  %94 = icmp ult i32 %.1122179, %35
+  %94 = icmp ult i32 %.1122179, %28
   br i1 %94, label %.thread157, label %98
 
 .thread157:                                       ; preds = %89
@@ -185,9 +185,9 @@ ZSTD_hashPtr.exit._crit_edge:                     ; preds = %ZSTD_hashPtr.exit, 
   br label %.thread
 
 98:                                               ; preds = %89
-  %99 = sub nuw i32 %.1122179, %35
+  %99 = sub nuw i32 %.1122179, %28
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %31, i64 %100
+  %101 = getelementptr inbounds nuw i32, ptr %24, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !24
   %exitcond.not = icmp eq i32 %93, %umax
   br i1 %exitcond.not, label %._crit_edge182.thread241, label %.lr.ph181, !llvm.loop !29
@@ -215,7 +215,7 @@ ZSTD_hashPtr.exit._crit_edge:                     ; preds = %ZSTD_hashPtr.exit, 
   br i1 %exitcond209.not, label %.preheader.preheader, label %73, !llvm.loop !30
 
 .preheader.preheader:                             ; preds = %.thread
-  %110 = shl i32 4, %28
+  %110 = shl i32 4, %21
   %111 = add i32 %110, -4
   br label %.preheader
 
@@ -229,29 +229,29 @@ ZSTD_hashPtr.exit._crit_edge:                     ; preds = %ZSTD_hashPtr.exit, 
   %116 = shl nuw nsw i64 %115, 2
   %scevgep = getelementptr nuw i8, ptr %10, i64 %116
   %117 = add i32 %.1118191, -1
-  %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw i32, ptr %10, i64 %118
-  %120 = load i32, ptr %119, align 4, !tbaa !24
+  %118 = shl i32 %117, 2
+  %119 = zext i32 %117 to i64
+  %120 = getelementptr inbounds nuw i32, ptr %10, i64 %119
+  %121 = load i32, ptr %120, align 4, !tbaa !24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, i8 0, i64 12, i1 false), !tbaa !24
-  %121 = shl i32 %117, 2
-  %122 = or disjoint i32 %121, 3
+  %122 = or disjoint i32 %118, 3
   %123 = zext i32 %122 to i64
   %124 = getelementptr inbounds nuw i32, ptr %10, i64 %123
-  store i32 %120, ptr %124, align 4, !tbaa !24
+  store i32 %121, ptr %124, align 4, !tbaa !24
   %.not = icmp eq i32 %117, 0
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   br i1 %.not, label %125, label %.preheader, !llvm.loop !31
 
 125:                                              ; preds = %.preheader
-  %126 = load i32, ptr %16, align 4, !tbaa !20
+  %126 = load i32, ptr %15, align 4, !tbaa !20
   %127 = icmp ult i32 %126, %8
   br i1 %127, label %.lr.ph195, label %._crit_edge196
 
 .lr.ph195:                                        ; preds = %125
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %129 = sub i32 66, %27
+  %129 = sub i32 66, %20
   %130 = zext nneg i32 %129 to i64
-  %131 = sub i32 34, %27
+  %131 = sub i32 34, %20
   %132 = zext i32 %126 to i64
   %133 = and i64 %7, 4294967295
   br label %134
@@ -325,7 +325,7 @@ ZSTD_hashPtr.exit141:                             ; preds = %137, %141, %144, %1
   br i1 %164, label %134, label %._crit_edge196, !llvm.loop !33
 
 ._crit_edge196:                                   ; preds = %161, %125
-  store i32 %8, ptr %16, align 4, !tbaa !20
+  store i32 %8, ptr %15, align 4, !tbaa !20
   ret void
 }
 
@@ -30494,23 +30494,23 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %177, %ZSTD_row_upda
   %187 = lshr i32 %.0244.i, 4
   %188 = and i32 %187, 268435440
   %189 = zext nneg i32 %188 to i64
-  %190 = getelementptr inbounds nuw i32, ptr %7, i64 %189
-  %191 = getelementptr inbounds nuw i8, ptr %9, i64 %189
-  %192 = load i8, ptr %191, align 1, !tbaa !39
-  %193 = zext i8 %192 to i32
+  %190 = getelementptr inbounds nuw i8, ptr %9, i64 %189
+  %191 = load i8, ptr %190, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %194 = trunc i32 %.0244.i to i8
-  %195 = insertelement <16 x i8> poison, i8 %194, i64 0
-  %196 = shufflevector <16 x i8> %195, <16 x i8> poison, <16 x i32> zeroinitializer
-  %197 = load <16 x i8>, ptr %191, align 1, !tbaa !39
-  %198 = icmp eq <16 x i8> %197, %196
-  %199 = bitcast <16 x i1> %198 to i16
-  %.not = icmp eq i16 %199, 0
+  %192 = trunc i32 %.0244.i to i8
+  %193 = insertelement <16 x i8> poison, i8 %192, i64 0
+  %194 = shufflevector <16 x i8> %193, <16 x i8> poison, <16 x i32> zeroinitializer
+  %195 = load <16 x i8>, ptr %190, align 1, !tbaa !39
+  %196 = icmp eq <16 x i8> %195, %194
+  %197 = bitcast <16 x i1> %196 to i16
+  %198 = getelementptr inbounds nuw i32, ptr %7, i64 %189
+  %199 = zext i8 %191 to i32
+  %.not = icmp eq i16 %197, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph36.preheader
 
 .lr.ph36.preheader:                               ; preds = %ZSTD_row_getSSEMask.exit
-  %200 = zext i8 %192 to i16
-  %201 = tail call i16 @llvm.fshr.i16(i16 %199, i16 %199, i16 %200)
+  %200 = zext i8 %191 to i16
+  %201 = tail call i16 @llvm.fshr.i16(i16 %197, i16 %197, i16 %200)
   %202 = zext i16 %201 to i64
   br label %.lr.ph36
 
@@ -30520,10 +30520,10 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %177, %ZSTD_row_upda
   %.0259.i33 = phi i64 [ %221, %219 ], [ %202, %.lr.ph36.preheader ]
   %203 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0259.i33, i1 true)
   %204 = trunc nuw nsw i64 %203 to i32
-  %205 = add nuw nsw i32 %204, %193
+  %205 = add nuw nsw i32 %204, %199
   %206 = and i32 %205, 15
   %207 = zext nneg i32 %206 to i64
-  %208 = getelementptr inbounds nuw i32, ptr %190, i64 %207
+  %208 = getelementptr inbounds nuw i32, ptr %198, i64 %207
   %209 = load i32, ptr %208, align 4, !tbaa !24
   %210 = icmp eq i32 %206, 0
   br i1 %210, label %219, label %211
@@ -30554,22 +30554,22 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %177, %ZSTD_row_upda
 
 ._crit_edge:                                      ; preds = %219, %211, %ZSTD_row_getSSEMask.exit
   %.0255.i.lcssa = phi i64 [ 0, %ZSTD_row_getSSEMask.exit ], [ %.0255.i34, %211 ], [ %.2257.i.ph, %219 ]
-  %225 = add nuw nsw i32 %193, 15
+  %225 = add nuw nsw i32 %199, 15
   %226 = and i32 %225, 15
-  %227 = and i32 %193, 15
+  %227 = and i32 %199, 15
   %228 = icmp eq i32 %227, 1
   %229 = select i1 %228, i32 15, i32 0
   %230 = add nuw nsw i32 %229, %226
   %231 = trunc nuw nsw i32 %230 to i8
-  store i8 %231, ptr %191, align 1, !tbaa !39
+  store i8 %231, ptr %190, align 1, !tbaa !39
   %232 = zext nneg i32 %230 to i64
-  %233 = getelementptr inbounds nuw i8, ptr %191, i64 %232
-  store i8 %194, ptr %233, align 1, !tbaa !39
+  %233 = getelementptr inbounds nuw i8, ptr %190, i64 %232
+  store i8 %192, ptr %233, align 1, !tbaa !39
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %235 = load i32, ptr %234, align 4, !tbaa !20
   %236 = add i32 %235, 1
   store i32 %236, ptr %234, align 4, !tbaa !20
-  %237 = getelementptr inbounds nuw i32, ptr %190, i64 %232
+  %237 = getelementptr inbounds nuw i32, ptr %198, i64 %232
   store i32 %235, ptr %237, align 4, !tbaa !24
   %.not46 = icmp eq i64 %.0255.i.lcssa, 0
   br i1 %.not46, label %ZSTD_RowFindBestMatch.exit, label %.lr.ph42
@@ -32036,23 +32036,23 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %177, %ZSTD_row_upda
   %188 = lshr i32 %.0244.i, 4
   %189 = and i32 %188, 268435440
   %190 = zext nneg i32 %189 to i64
-  %191 = getelementptr inbounds nuw i32, ptr %7, i64 %190
-  %192 = getelementptr inbounds nuw i8, ptr %9, i64 %190
-  %193 = load i8, ptr %192, align 1, !tbaa !39
-  %194 = zext i8 %193 to i32
+  %191 = getelementptr inbounds nuw i8, ptr %9, i64 %190
+  %192 = load i8, ptr %191, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %195 = trunc i32 %.0244.i to i8
-  %196 = insertelement <16 x i8> poison, i8 %195, i64 0
-  %197 = shufflevector <16 x i8> %196, <16 x i8> poison, <16 x i32> zeroinitializer
-  %198 = load <16 x i8>, ptr %192, align 1, !tbaa !39
-  %199 = icmp eq <16 x i8> %198, %197
-  %200 = bitcast <16 x i1> %199 to i16
-  %.not = icmp eq i16 %200, 0
+  %193 = trunc i32 %.0244.i to i8
+  %194 = insertelement <16 x i8> poison, i8 %193, i64 0
+  %195 = shufflevector <16 x i8> %194, <16 x i8> poison, <16 x i32> zeroinitializer
+  %196 = load <16 x i8>, ptr %191, align 1, !tbaa !39
+  %197 = icmp eq <16 x i8> %196, %195
+  %198 = bitcast <16 x i1> %197 to i16
+  %199 = getelementptr inbounds nuw i32, ptr %7, i64 %190
+  %200 = zext i8 %192 to i32
+  %.not = icmp eq i16 %198, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph36.preheader
 
 .lr.ph36.preheader:                               ; preds = %ZSTD_row_getSSEMask.exit
-  %201 = zext i8 %193 to i16
-  %202 = tail call i16 @llvm.fshr.i16(i16 %200, i16 %200, i16 %201)
+  %201 = zext i8 %192 to i16
+  %202 = tail call i16 @llvm.fshr.i16(i16 %198, i16 %198, i16 %201)
   %203 = zext i16 %202 to i64
   br label %.lr.ph36
 
@@ -32062,10 +32062,10 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %177, %ZSTD_row_upda
   %.0259.i33 = phi i64 [ %222, %220 ], [ %203, %.lr.ph36.preheader ]
   %204 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0259.i33, i1 true)
   %205 = trunc nuw nsw i64 %204 to i32
-  %206 = add nuw nsw i32 %205, %194
+  %206 = add nuw nsw i32 %205, %200
   %207 = and i32 %206, 15
   %208 = zext nneg i32 %207 to i64
-  %209 = getelementptr inbounds nuw i32, ptr %191, i64 %208
+  %209 = getelementptr inbounds nuw i32, ptr %199, i64 %208
   %210 = load i32, ptr %209, align 4, !tbaa !24
   %211 = icmp eq i32 %207, 0
   br i1 %211, label %220, label %212
@@ -32096,22 +32096,22 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %177, %ZSTD_row_upda
 
 ._crit_edge:                                      ; preds = %220, %212, %ZSTD_row_getSSEMask.exit
   %.0255.i.lcssa = phi i64 [ 0, %ZSTD_row_getSSEMask.exit ], [ %.0255.i34, %212 ], [ %.2257.i.ph, %220 ]
-  %226 = add nuw nsw i32 %194, 15
+  %226 = add nuw nsw i32 %200, 15
   %227 = and i32 %226, 15
-  %228 = and i32 %194, 15
+  %228 = and i32 %200, 15
   %229 = icmp eq i32 %228, 1
   %230 = select i1 %229, i32 15, i32 0
   %231 = add nuw nsw i32 %230, %227
   %232 = trunc nuw nsw i32 %231 to i8
-  store i8 %232, ptr %192, align 1, !tbaa !39
+  store i8 %232, ptr %191, align 1, !tbaa !39
   %233 = zext nneg i32 %231 to i64
-  %234 = getelementptr inbounds nuw i8, ptr %192, i64 %233
-  store i8 %195, ptr %234, align 1, !tbaa !39
+  %234 = getelementptr inbounds nuw i8, ptr %191, i64 %233
+  store i8 %193, ptr %234, align 1, !tbaa !39
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %236 = load i32, ptr %235, align 4, !tbaa !20
   %237 = add i32 %236, 1
   store i32 %237, ptr %235, align 4, !tbaa !20
-  %238 = getelementptr inbounds nuw i32, ptr %191, i64 %233
+  %238 = getelementptr inbounds nuw i32, ptr %199, i64 %233
   store i32 %236, ptr %238, align 4, !tbaa !24
   %.not46 = icmp eq i64 %.0255.i.lcssa, 0
   br i1 %.not46, label %ZSTD_RowFindBestMatch.exit, label %.lr.ph42
@@ -33580,23 +33580,23 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %177, %ZSTD_row_upda
   %188 = lshr i32 %.0244.i, 4
   %189 = and i32 %188, 268435440
   %190 = zext nneg i32 %189 to i64
-  %191 = getelementptr inbounds nuw i32, ptr %7, i64 %190
-  %192 = getelementptr inbounds nuw i8, ptr %9, i64 %190
-  %193 = load i8, ptr %192, align 1, !tbaa !39
-  %194 = zext i8 %193 to i32
+  %191 = getelementptr inbounds nuw i8, ptr %9, i64 %190
+  %192 = load i8, ptr %191, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %195 = trunc i32 %.0244.i to i8
-  %196 = insertelement <16 x i8> poison, i8 %195, i64 0
-  %197 = shufflevector <16 x i8> %196, <16 x i8> poison, <16 x i32> zeroinitializer
-  %198 = load <16 x i8>, ptr %192, align 1, !tbaa !39
-  %199 = icmp eq <16 x i8> %198, %197
-  %200 = bitcast <16 x i1> %199 to i16
-  %.not = icmp eq i16 %200, 0
+  %193 = trunc i32 %.0244.i to i8
+  %194 = insertelement <16 x i8> poison, i8 %193, i64 0
+  %195 = shufflevector <16 x i8> %194, <16 x i8> poison, <16 x i32> zeroinitializer
+  %196 = load <16 x i8>, ptr %191, align 1, !tbaa !39
+  %197 = icmp eq <16 x i8> %196, %195
+  %198 = bitcast <16 x i1> %197 to i16
+  %199 = getelementptr inbounds nuw i32, ptr %7, i64 %190
+  %200 = zext i8 %192 to i32
+  %.not = icmp eq i16 %198, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph36.preheader
 
 .lr.ph36.preheader:                               ; preds = %ZSTD_row_getSSEMask.exit
-  %201 = zext i8 %193 to i16
-  %202 = tail call i16 @llvm.fshr.i16(i16 %200, i16 %200, i16 %201)
+  %201 = zext i8 %192 to i16
+  %202 = tail call i16 @llvm.fshr.i16(i16 %198, i16 %198, i16 %201)
   %203 = zext i16 %202 to i64
   br label %.lr.ph36
 
@@ -33606,10 +33606,10 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %177, %ZSTD_row_upda
   %.0259.i33 = phi i64 [ %222, %220 ], [ %203, %.lr.ph36.preheader ]
   %204 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0259.i33, i1 true)
   %205 = trunc nuw nsw i64 %204 to i32
-  %206 = add nuw nsw i32 %205, %194
+  %206 = add nuw nsw i32 %205, %200
   %207 = and i32 %206, 15
   %208 = zext nneg i32 %207 to i64
-  %209 = getelementptr inbounds nuw i32, ptr %191, i64 %208
+  %209 = getelementptr inbounds nuw i32, ptr %199, i64 %208
   %210 = load i32, ptr %209, align 4, !tbaa !24
   %211 = icmp eq i32 %207, 0
   br i1 %211, label %220, label %212
@@ -33640,22 +33640,22 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %177, %ZSTD_row_upda
 
 ._crit_edge:                                      ; preds = %220, %212, %ZSTD_row_getSSEMask.exit
   %.0255.i.lcssa = phi i64 [ 0, %ZSTD_row_getSSEMask.exit ], [ %.0255.i34, %212 ], [ %.2257.i.ph, %220 ]
-  %226 = add nuw nsw i32 %194, 15
+  %226 = add nuw nsw i32 %200, 15
   %227 = and i32 %226, 15
-  %228 = and i32 %194, 15
+  %228 = and i32 %200, 15
   %229 = icmp eq i32 %228, 1
   %230 = select i1 %229, i32 15, i32 0
   %231 = add nuw nsw i32 %230, %227
   %232 = trunc nuw nsw i32 %231 to i8
-  store i8 %232, ptr %192, align 1, !tbaa !39
+  store i8 %232, ptr %191, align 1, !tbaa !39
   %233 = zext nneg i32 %231 to i64
-  %234 = getelementptr inbounds nuw i8, ptr %192, i64 %233
-  store i8 %195, ptr %234, align 1, !tbaa !39
+  %234 = getelementptr inbounds nuw i8, ptr %191, i64 %233
+  store i8 %193, ptr %234, align 1, !tbaa !39
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %236 = load i32, ptr %235, align 4, !tbaa !20
   %237 = add i32 %236, 1
   store i32 %237, ptr %235, align 4, !tbaa !20
-  %238 = getelementptr inbounds nuw i32, ptr %191, i64 %233
+  %238 = getelementptr inbounds nuw i32, ptr %199, i64 %233
   store i32 %236, ptr %238, align 4, !tbaa !24
   %.not46 = icmp eq i64 %.0255.i.lcssa, 0
   br i1 %.not46, label %ZSTD_RowFindBestMatch.exit, label %.lr.ph42
@@ -36160,23 +36160,23 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %184, %ZSTD_row_upda
   %194 = lshr i32 %.0244.i, 4
   %195 = and i32 %194, 268435440
   %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr inbounds nuw i32, ptr %7, i64 %196
-  %198 = getelementptr inbounds nuw i8, ptr %9, i64 %196
-  %199 = load i8, ptr %198, align 1, !tbaa !39
-  %200 = zext i8 %199 to i32
+  %197 = getelementptr inbounds nuw i8, ptr %9, i64 %196
+  %198 = load i8, ptr %197, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %201 = trunc i32 %.0244.i to i8
-  %202 = insertelement <16 x i8> poison, i8 %201, i64 0
-  %203 = shufflevector <16 x i8> %202, <16 x i8> poison, <16 x i32> zeroinitializer
-  %204 = load <16 x i8>, ptr %198, align 1, !tbaa !39
-  %205 = icmp eq <16 x i8> %204, %203
-  %206 = bitcast <16 x i1> %205 to i16
-  %.not = icmp eq i16 %206, 0
+  %199 = trunc i32 %.0244.i to i8
+  %200 = insertelement <16 x i8> poison, i8 %199, i64 0
+  %201 = shufflevector <16 x i8> %200, <16 x i8> poison, <16 x i32> zeroinitializer
+  %202 = load <16 x i8>, ptr %197, align 1, !tbaa !39
+  %203 = icmp eq <16 x i8> %202, %201
+  %204 = bitcast <16 x i1> %203 to i16
+  %205 = getelementptr inbounds nuw i32, ptr %7, i64 %196
+  %206 = zext i8 %198 to i32
+  %.not = icmp eq i16 %204, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph38.preheader
 
 .lr.ph38.preheader:                               ; preds = %ZSTD_row_getSSEMask.exit
-  %207 = zext i8 %199 to i16
-  %208 = tail call i16 @llvm.fshr.i16(i16 %206, i16 %206, i16 %207)
+  %207 = zext i8 %198 to i16
+  %208 = tail call i16 @llvm.fshr.i16(i16 %204, i16 %204, i16 %207)
   %209 = zext i16 %208 to i64
   br label %.lr.ph38
 
@@ -36186,10 +36186,10 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %184, %ZSTD_row_upda
   %.0259.i35 = phi i64 [ %228, %226 ], [ %209, %.lr.ph38.preheader ]
   %210 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0259.i35, i1 true)
   %211 = trunc nuw nsw i64 %210 to i32
-  %212 = add nuw nsw i32 %211, %200
+  %212 = add nuw nsw i32 %211, %206
   %213 = and i32 %212, 15
   %214 = zext nneg i32 %213 to i64
-  %215 = getelementptr inbounds nuw i32, ptr %197, i64 %214
+  %215 = getelementptr inbounds nuw i32, ptr %205, i64 %214
   %216 = load i32, ptr %215, align 4, !tbaa !24
   %217 = icmp eq i32 %213, 0
   br i1 %217, label %226, label %218
@@ -36222,22 +36222,22 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %184, %ZSTD_row_upda
 
 ._crit_edge:                                      ; preds = %226, %218, %ZSTD_row_getSSEMask.exit
   %.0255.i.lcssa = phi i64 [ 0, %ZSTD_row_getSSEMask.exit ], [ %.0255.i36, %218 ], [ %.2257.i.ph, %226 ]
-  %232 = add nuw nsw i32 %200, 15
+  %232 = add nuw nsw i32 %206, 15
   %233 = and i32 %232, 15
-  %234 = and i32 %200, 15
+  %234 = and i32 %206, 15
   %235 = icmp eq i32 %234, 1
   %236 = select i1 %235, i32 15, i32 0
   %237 = add nuw nsw i32 %236, %233
   %238 = trunc nuw nsw i32 %237 to i8
-  store i8 %238, ptr %198, align 1, !tbaa !39
+  store i8 %238, ptr %197, align 1, !tbaa !39
   %239 = zext nneg i32 %237 to i64
-  %240 = getelementptr inbounds nuw i8, ptr %198, i64 %239
-  store i8 %201, ptr %240, align 1, !tbaa !39
+  %240 = getelementptr inbounds nuw i8, ptr %197, i64 %239
+  store i8 %199, ptr %240, align 1, !tbaa !39
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %242 = load i32, ptr %241, align 4, !tbaa !20
   %243 = add i32 %242, 1
   store i32 %243, ptr %241, align 4, !tbaa !20
-  %244 = getelementptr inbounds nuw i32, ptr %197, i64 %239
+  %244 = getelementptr inbounds nuw i32, ptr %205, i64 %239
   store i32 %242, ptr %244, align 4, !tbaa !24
   %.not48 = icmp eq i64 %.0255.i.lcssa, 0
   br i1 %.not48, label %ZSTD_RowFindBestMatch.exit, label %.lr.ph44
@@ -37783,23 +37783,23 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %184, %ZSTD_row_upda
   %195 = lshr i32 %.0244.i, 4
   %196 = and i32 %195, 268435440
   %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr inbounds nuw i32, ptr %7, i64 %197
-  %199 = getelementptr inbounds nuw i8, ptr %9, i64 %197
-  %200 = load i8, ptr %199, align 1, !tbaa !39
-  %201 = zext i8 %200 to i32
+  %198 = getelementptr inbounds nuw i8, ptr %9, i64 %197
+  %199 = load i8, ptr %198, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %202 = trunc i32 %.0244.i to i8
-  %203 = insertelement <16 x i8> poison, i8 %202, i64 0
-  %204 = shufflevector <16 x i8> %203, <16 x i8> poison, <16 x i32> zeroinitializer
-  %205 = load <16 x i8>, ptr %199, align 1, !tbaa !39
-  %206 = icmp eq <16 x i8> %205, %204
-  %207 = bitcast <16 x i1> %206 to i16
-  %.not = icmp eq i16 %207, 0
+  %200 = trunc i32 %.0244.i to i8
+  %201 = insertelement <16 x i8> poison, i8 %200, i64 0
+  %202 = shufflevector <16 x i8> %201, <16 x i8> poison, <16 x i32> zeroinitializer
+  %203 = load <16 x i8>, ptr %198, align 1, !tbaa !39
+  %204 = icmp eq <16 x i8> %203, %202
+  %205 = bitcast <16 x i1> %204 to i16
+  %206 = getelementptr inbounds nuw i32, ptr %7, i64 %197
+  %207 = zext i8 %199 to i32
+  %.not = icmp eq i16 %205, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph38.preheader
 
 .lr.ph38.preheader:                               ; preds = %ZSTD_row_getSSEMask.exit
-  %208 = zext i8 %200 to i16
-  %209 = tail call i16 @llvm.fshr.i16(i16 %207, i16 %207, i16 %208)
+  %208 = zext i8 %199 to i16
+  %209 = tail call i16 @llvm.fshr.i16(i16 %205, i16 %205, i16 %208)
   %210 = zext i16 %209 to i64
   br label %.lr.ph38
 
@@ -37809,10 +37809,10 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %184, %ZSTD_row_upda
   %.0259.i35 = phi i64 [ %229, %227 ], [ %210, %.lr.ph38.preheader ]
   %211 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0259.i35, i1 true)
   %212 = trunc nuw nsw i64 %211 to i32
-  %213 = add nuw nsw i32 %212, %201
+  %213 = add nuw nsw i32 %212, %207
   %214 = and i32 %213, 15
   %215 = zext nneg i32 %214 to i64
-  %216 = getelementptr inbounds nuw i32, ptr %198, i64 %215
+  %216 = getelementptr inbounds nuw i32, ptr %206, i64 %215
   %217 = load i32, ptr %216, align 4, !tbaa !24
   %218 = icmp eq i32 %214, 0
   br i1 %218, label %227, label %219
@@ -37845,22 +37845,22 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %184, %ZSTD_row_upda
 
 ._crit_edge:                                      ; preds = %227, %219, %ZSTD_row_getSSEMask.exit
   %.0255.i.lcssa = phi i64 [ 0, %ZSTD_row_getSSEMask.exit ], [ %.0255.i36, %219 ], [ %.2257.i.ph, %227 ]
-  %233 = add nuw nsw i32 %201, 15
+  %233 = add nuw nsw i32 %207, 15
   %234 = and i32 %233, 15
-  %235 = and i32 %201, 15
+  %235 = and i32 %207, 15
   %236 = icmp eq i32 %235, 1
   %237 = select i1 %236, i32 15, i32 0
   %238 = add nuw nsw i32 %237, %234
   %239 = trunc nuw nsw i32 %238 to i8
-  store i8 %239, ptr %199, align 1, !tbaa !39
+  store i8 %239, ptr %198, align 1, !tbaa !39
   %240 = zext nneg i32 %238 to i64
-  %241 = getelementptr inbounds nuw i8, ptr %199, i64 %240
-  store i8 %202, ptr %241, align 1, !tbaa !39
+  %241 = getelementptr inbounds nuw i8, ptr %198, i64 %240
+  store i8 %200, ptr %241, align 1, !tbaa !39
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %243 = load i32, ptr %242, align 4, !tbaa !20
   %244 = add i32 %243, 1
   store i32 %244, ptr %242, align 4, !tbaa !20
-  %245 = getelementptr inbounds nuw i32, ptr %198, i64 %240
+  %245 = getelementptr inbounds nuw i32, ptr %206, i64 %240
   store i32 %243, ptr %245, align 4, !tbaa !24
   %.not48 = icmp eq i64 %.0255.i.lcssa, 0
   br i1 %.not48, label %ZSTD_RowFindBestMatch.exit, label %.lr.ph44
@@ -39408,23 +39408,23 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %184, %ZSTD_row_upda
   %195 = lshr i32 %.0244.i, 4
   %196 = and i32 %195, 268435440
   %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr inbounds nuw i32, ptr %7, i64 %197
-  %199 = getelementptr inbounds nuw i8, ptr %9, i64 %197
-  %200 = load i8, ptr %199, align 1, !tbaa !39
-  %201 = zext i8 %200 to i32
+  %198 = getelementptr inbounds nuw i8, ptr %9, i64 %197
+  %199 = load i8, ptr %198, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %202 = trunc i32 %.0244.i to i8
-  %203 = insertelement <16 x i8> poison, i8 %202, i64 0
-  %204 = shufflevector <16 x i8> %203, <16 x i8> poison, <16 x i32> zeroinitializer
-  %205 = load <16 x i8>, ptr %199, align 1, !tbaa !39
-  %206 = icmp eq <16 x i8> %205, %204
-  %207 = bitcast <16 x i1> %206 to i16
-  %.not = icmp eq i16 %207, 0
+  %200 = trunc i32 %.0244.i to i8
+  %201 = insertelement <16 x i8> poison, i8 %200, i64 0
+  %202 = shufflevector <16 x i8> %201, <16 x i8> poison, <16 x i32> zeroinitializer
+  %203 = load <16 x i8>, ptr %198, align 1, !tbaa !39
+  %204 = icmp eq <16 x i8> %203, %202
+  %205 = bitcast <16 x i1> %204 to i16
+  %206 = getelementptr inbounds nuw i32, ptr %7, i64 %197
+  %207 = zext i8 %199 to i32
+  %.not = icmp eq i16 %205, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph38.preheader
 
 .lr.ph38.preheader:                               ; preds = %ZSTD_row_getSSEMask.exit
-  %208 = zext i8 %200 to i16
-  %209 = tail call i16 @llvm.fshr.i16(i16 %207, i16 %207, i16 %208)
+  %208 = zext i8 %199 to i16
+  %209 = tail call i16 @llvm.fshr.i16(i16 %205, i16 %205, i16 %208)
   %210 = zext i16 %209 to i64
   br label %.lr.ph38
 
@@ -39434,10 +39434,10 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %184, %ZSTD_row_upda
   %.0259.i35 = phi i64 [ %229, %227 ], [ %210, %.lr.ph38.preheader ]
   %211 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0259.i35, i1 true)
   %212 = trunc nuw nsw i64 %211 to i32
-  %213 = add nuw nsw i32 %212, %201
+  %213 = add nuw nsw i32 %212, %207
   %214 = and i32 %213, 15
   %215 = zext nneg i32 %214 to i64
-  %216 = getelementptr inbounds nuw i32, ptr %198, i64 %215
+  %216 = getelementptr inbounds nuw i32, ptr %206, i64 %215
   %217 = load i32, ptr %216, align 4, !tbaa !24
   %218 = icmp eq i32 %214, 0
   br i1 %218, label %227, label %219
@@ -39470,22 +39470,22 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %184, %ZSTD_row_upda
 
 ._crit_edge:                                      ; preds = %227, %219, %ZSTD_row_getSSEMask.exit
   %.0255.i.lcssa = phi i64 [ 0, %ZSTD_row_getSSEMask.exit ], [ %.0255.i36, %219 ], [ %.2257.i.ph, %227 ]
-  %233 = add nuw nsw i32 %201, 15
+  %233 = add nuw nsw i32 %207, 15
   %234 = and i32 %233, 15
-  %235 = and i32 %201, 15
+  %235 = and i32 %207, 15
   %236 = icmp eq i32 %235, 1
   %237 = select i1 %236, i32 15, i32 0
   %238 = add nuw nsw i32 %237, %234
   %239 = trunc nuw nsw i32 %238 to i8
-  store i8 %239, ptr %199, align 1, !tbaa !39
+  store i8 %239, ptr %198, align 1, !tbaa !39
   %240 = zext nneg i32 %238 to i64
-  %241 = getelementptr inbounds nuw i8, ptr %199, i64 %240
-  store i8 %202, ptr %241, align 1, !tbaa !39
+  %241 = getelementptr inbounds nuw i8, ptr %198, i64 %240
+  store i8 %200, ptr %241, align 1, !tbaa !39
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %243 = load i32, ptr %242, align 4, !tbaa !20
   %244 = add i32 %243, 1
   store i32 %244, ptr %242, align 4, !tbaa !20
-  %245 = getelementptr inbounds nuw i32, ptr %198, i64 %240
+  %245 = getelementptr inbounds nuw i32, ptr %206, i64 %240
   store i32 %243, ptr %245, align 4, !tbaa !24
   %.not48 = icmp eq i64 %.0255.i.lcssa, 0
   br i1 %.not48, label %ZSTD_RowFindBestMatch.exit, label %.lr.ph44
@@ -42531,23 +42531,23 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %199, %ZSTD_row_upda
   %208 = lshr i32 %.0244.i, 4
   %209 = and i32 %208, 268435440
   %210 = zext nneg i32 %209 to i64
-  %211 = getelementptr inbounds nuw i32, ptr %8, i64 %210
-  %212 = getelementptr inbounds nuw i8, ptr %10, i64 %210
-  %213 = load i8, ptr %212, align 1, !tbaa !39
-  %214 = zext i8 %213 to i32
+  %211 = getelementptr inbounds nuw i8, ptr %10, i64 %210
+  %212 = load i8, ptr %211, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %215 = trunc i32 %.0244.i to i8
-  %216 = insertelement <16 x i8> poison, i8 %215, i64 0
-  %217 = shufflevector <16 x i8> %216, <16 x i8> poison, <16 x i32> zeroinitializer
-  %218 = load <16 x i8>, ptr %212, align 1, !tbaa !39
-  %219 = icmp eq <16 x i8> %218, %217
-  %220 = bitcast <16 x i1> %219 to i16
-  %.not = icmp eq i16 %220, 0
+  %213 = trunc i32 %.0244.i to i8
+  %214 = insertelement <16 x i8> poison, i8 %213, i64 0
+  %215 = shufflevector <16 x i8> %214, <16 x i8> poison, <16 x i32> zeroinitializer
+  %216 = load <16 x i8>, ptr %211, align 1, !tbaa !39
+  %217 = icmp eq <16 x i8> %216, %215
+  %218 = bitcast <16 x i1> %217 to i16
+  %219 = getelementptr inbounds nuw i32, ptr %8, i64 %210
+  %220 = zext i8 %212 to i32
+  %.not = icmp eq i16 %218, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph63.preheader
 
 .lr.ph63.preheader:                               ; preds = %ZSTD_row_getSSEMask.exit
-  %221 = zext i8 %213 to i16
-  %222 = tail call i16 @llvm.fshr.i16(i16 %220, i16 %220, i16 %221)
+  %221 = zext i8 %212 to i16
+  %222 = tail call i16 @llvm.fshr.i16(i16 %218, i16 %218, i16 %221)
   %223 = zext i16 %222 to i64
   br label %.lr.ph63
 
@@ -42557,10 +42557,10 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %199, %ZSTD_row_upda
   %.0259.i60 = phi i64 [ %242, %240 ], [ %223, %.lr.ph63.preheader ]
   %224 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0259.i60, i1 true)
   %225 = trunc nuw nsw i64 %224 to i32
-  %226 = add nuw nsw i32 %225, %214
+  %226 = add nuw nsw i32 %225, %220
   %227 = and i32 %226, 15
   %228 = zext nneg i32 %227 to i64
-  %229 = getelementptr inbounds nuw i32, ptr %211, i64 %228
+  %229 = getelementptr inbounds nuw i32, ptr %219, i64 %228
   %230 = load i32, ptr %229, align 4, !tbaa !24
   %231 = icmp eq i32 %227, 0
   br i1 %231, label %240, label %232
@@ -42592,22 +42592,22 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %199, %ZSTD_row_upda
 ._crit_edge:                                      ; preds = %240, %232, %ZSTD_row_getSSEMask.exit
   %.0255.i.lcssa = phi i64 [ 0, %ZSTD_row_getSSEMask.exit ], [ %.0255.i61, %232 ], [ %.2257.i.ph, %240 ]
   %.0.i.lcssa = phi i32 [ %40, %ZSTD_row_getSSEMask.exit ], [ %.0.i62, %232 ], [ %.2.i.ph, %240 ]
-  %246 = add nuw nsw i32 %214, 15
+  %246 = add nuw nsw i32 %220, 15
   %247 = and i32 %246, 15
-  %248 = and i32 %214, 15
+  %248 = and i32 %220, 15
   %249 = icmp eq i32 %248, 1
   %250 = select i1 %249, i32 15, i32 0
   %251 = add nuw nsw i32 %250, %247
   %252 = trunc nuw nsw i32 %251 to i8
-  store i8 %252, ptr %212, align 1, !tbaa !39
+  store i8 %252, ptr %211, align 1, !tbaa !39
   %253 = zext nneg i32 %251 to i64
-  %254 = getelementptr inbounds nuw i8, ptr %212, i64 %253
-  store i8 %215, ptr %254, align 1, !tbaa !39
+  %254 = getelementptr inbounds nuw i8, ptr %211, i64 %253
+  store i8 %213, ptr %254, align 1, !tbaa !39
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %256 = load i32, ptr %255, align 4, !tbaa !20
   %257 = add i32 %256, 1
   store i32 %257, ptr %255, align 4, !tbaa !20
-  %258 = getelementptr inbounds nuw i32, ptr %211, i64 %253
+  %258 = getelementptr inbounds nuw i32, ptr %219, i64 %253
   store i32 %256, ptr %258, align 4, !tbaa !24
   %.not92 = icmp eq i64 %.0255.i.lcssa, 0
   br i1 %.not92, label %._crit_edge72, label %.lr.ph71
@@ -42755,26 +42755,26 @@ ZSTD_count.exit.thread:                           ; preds = %264, %ZSTD_count.ex
   %319 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %320 = load ptr, ptr %319, align 8, !tbaa !4
   %321 = load ptr, ptr %42, align 8, !tbaa !64
-  %322 = ptrtoint ptr %321 to i64
-  %323 = ptrtoint ptr %320 to i64
-  %.neg.i.neg = sub i64 %322, %323
-  %.neg279.i.neg93 = trunc i64 %.neg.i.neg to i32
-  %324 = load i8, ptr %55, align 1, !tbaa !39
-  %325 = zext i8 %324 to i32
+  %322 = load i8, ptr %55, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %326 = insertelement <16 x i8> poison, i8 %57, i64 0
-  %327 = shufflevector <16 x i8> %326, <16 x i8> poison, <16 x i32> zeroinitializer
-  %328 = load <16 x i8>, ptr %55, align 1, !tbaa !39
-  %329 = icmp eq <16 x i8> %328, %327
-  %330 = bitcast <16 x i1> %329 to i16
-  %331 = icmp ne i16 %330, 0
+  %323 = insertelement <16 x i8> poison, i8 %57, i64 0
+  %324 = shufflevector <16 x i8> %323, <16 x i8> poison, <16 x i32> zeroinitializer
+  %325 = load <16 x i8>, ptr %55, align 1, !tbaa !39
+  %326 = icmp eq <16 x i8> %325, %324
+  %327 = bitcast <16 x i1> %326 to i16
+  %328 = ptrtoint ptr %321 to i64
+  %329 = ptrtoint ptr %320 to i64
+  %.neg.i.neg = sub i64 %328, %329
+  %.neg279.i.neg93 = trunc i64 %.neg.i.neg to i32
+  %330 = zext i8 %322 to i32
+  %331 = icmp ne i16 %327, 0
   %332 = icmp ne i32 %.0.i.lcssa, 0
   %333 = select i1 %331, i1 %332, i1 false
   br i1 %333, label %.lr.ph80.preheader, label %ZSTD_RowFindBestMatch.exit
 
 .lr.ph80.preheader:                               ; preds = %._crit_edge72
-  %334 = zext i8 %324 to i16
-  %335 = tail call i16 @llvm.fshr.i16(i16 %330, i16 %330, i16 %334)
+  %334 = zext i8 %322 to i16
+  %335 = tail call i16 @llvm.fshr.i16(i16 %327, i16 %327, i16 %334)
   %336 = zext i16 %335 to i64
   br label %.lr.ph80
 
@@ -42784,7 +42784,7 @@ ZSTD_count.exit.thread:                           ; preds = %264, %ZSTD_count.ex
   %.0248.i77 = phi i64 [ %.2250.i.ph, %353 ], [ 0, %.lr.ph80.preheader ]
   %337 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0246.i78, i1 true)
   %338 = trunc nuw nsw i64 %337 to i32
-  %339 = add nuw nsw i32 %338, %325
+  %339 = add nuw nsw i32 %338, %330
   %340 = and i32 %339, 15
   %341 = zext nneg i32 %340 to i64
   %342 = getelementptr inbounds nuw i32, ptr %56, i64 %341
@@ -44537,23 +44537,23 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %199, %ZSTD_row_upda
   %209 = lshr i32 %.0244.i, 4
   %210 = and i32 %209, 268435440
   %211 = zext nneg i32 %210 to i64
-  %212 = getelementptr inbounds nuw i32, ptr %8, i64 %211
-  %213 = getelementptr inbounds nuw i8, ptr %10, i64 %211
-  %214 = load i8, ptr %213, align 1, !tbaa !39
-  %215 = zext i8 %214 to i32
+  %212 = getelementptr inbounds nuw i8, ptr %10, i64 %211
+  %213 = load i8, ptr %212, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %216 = trunc i32 %.0244.i to i8
-  %217 = insertelement <16 x i8> poison, i8 %216, i64 0
-  %218 = shufflevector <16 x i8> %217, <16 x i8> poison, <16 x i32> zeroinitializer
-  %219 = load <16 x i8>, ptr %213, align 1, !tbaa !39
-  %220 = icmp eq <16 x i8> %219, %218
-  %221 = bitcast <16 x i1> %220 to i16
-  %.not = icmp eq i16 %221, 0
+  %214 = trunc i32 %.0244.i to i8
+  %215 = insertelement <16 x i8> poison, i8 %214, i64 0
+  %216 = shufflevector <16 x i8> %215, <16 x i8> poison, <16 x i32> zeroinitializer
+  %217 = load <16 x i8>, ptr %212, align 1, !tbaa !39
+  %218 = icmp eq <16 x i8> %217, %216
+  %219 = bitcast <16 x i1> %218 to i16
+  %220 = getelementptr inbounds nuw i32, ptr %8, i64 %211
+  %221 = zext i8 %213 to i32
+  %.not = icmp eq i16 %219, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph63.preheader
 
 .lr.ph63.preheader:                               ; preds = %ZSTD_row_getSSEMask.exit
-  %222 = zext i8 %214 to i16
-  %223 = tail call i16 @llvm.fshr.i16(i16 %221, i16 %221, i16 %222)
+  %222 = zext i8 %213 to i16
+  %223 = tail call i16 @llvm.fshr.i16(i16 %219, i16 %219, i16 %222)
   %224 = zext i16 %223 to i64
   br label %.lr.ph63
 
@@ -44563,10 +44563,10 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %199, %ZSTD_row_upda
   %.0259.i60 = phi i64 [ %243, %241 ], [ %224, %.lr.ph63.preheader ]
   %225 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0259.i60, i1 true)
   %226 = trunc nuw nsw i64 %225 to i32
-  %227 = add nuw nsw i32 %226, %215
+  %227 = add nuw nsw i32 %226, %221
   %228 = and i32 %227, 15
   %229 = zext nneg i32 %228 to i64
-  %230 = getelementptr inbounds nuw i32, ptr %212, i64 %229
+  %230 = getelementptr inbounds nuw i32, ptr %220, i64 %229
   %231 = load i32, ptr %230, align 4, !tbaa !24
   %232 = icmp eq i32 %228, 0
   br i1 %232, label %241, label %233
@@ -44598,22 +44598,22 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %199, %ZSTD_row_upda
 ._crit_edge:                                      ; preds = %241, %233, %ZSTD_row_getSSEMask.exit
   %.0255.i.lcssa = phi i64 [ 0, %ZSTD_row_getSSEMask.exit ], [ %.0255.i61, %233 ], [ %.2257.i.ph, %241 ]
   %.0.i.lcssa = phi i32 [ %40, %ZSTD_row_getSSEMask.exit ], [ %.0.i62, %233 ], [ %.2.i.ph, %241 ]
-  %247 = add nuw nsw i32 %215, 15
+  %247 = add nuw nsw i32 %221, 15
   %248 = and i32 %247, 15
-  %249 = and i32 %215, 15
+  %249 = and i32 %221, 15
   %250 = icmp eq i32 %249, 1
   %251 = select i1 %250, i32 15, i32 0
   %252 = add nuw nsw i32 %251, %248
   %253 = trunc nuw nsw i32 %252 to i8
-  store i8 %253, ptr %213, align 1, !tbaa !39
+  store i8 %253, ptr %212, align 1, !tbaa !39
   %254 = zext nneg i32 %252 to i64
-  %255 = getelementptr inbounds nuw i8, ptr %213, i64 %254
-  store i8 %216, ptr %255, align 1, !tbaa !39
+  %255 = getelementptr inbounds nuw i8, ptr %212, i64 %254
+  store i8 %214, ptr %255, align 1, !tbaa !39
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %257 = load i32, ptr %256, align 4, !tbaa !20
   %258 = add i32 %257, 1
   store i32 %258, ptr %256, align 4, !tbaa !20
-  %259 = getelementptr inbounds nuw i32, ptr %212, i64 %254
+  %259 = getelementptr inbounds nuw i32, ptr %220, i64 %254
   store i32 %257, ptr %259, align 4, !tbaa !24
   %.not92 = icmp eq i64 %.0255.i.lcssa, 0
   br i1 %.not92, label %._crit_edge72, label %.lr.ph71
@@ -44761,26 +44761,26 @@ ZSTD_count.exit.thread:                           ; preds = %265, %ZSTD_count.ex
   %320 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %321 = load ptr, ptr %320, align 8, !tbaa !4
   %322 = load ptr, ptr %42, align 8, !tbaa !64
-  %323 = ptrtoint ptr %322 to i64
-  %324 = ptrtoint ptr %321 to i64
-  %.neg.i.neg = sub i64 %323, %324
-  %.neg279.i.neg93 = trunc i64 %.neg.i.neg to i32
-  %325 = load i8, ptr %55, align 1, !tbaa !39
-  %326 = zext i8 %325 to i32
+  %323 = load i8, ptr %55, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %327 = insertelement <16 x i8> poison, i8 %57, i64 0
-  %328 = shufflevector <16 x i8> %327, <16 x i8> poison, <16 x i32> zeroinitializer
-  %329 = load <16 x i8>, ptr %55, align 1, !tbaa !39
-  %330 = icmp eq <16 x i8> %329, %328
-  %331 = bitcast <16 x i1> %330 to i16
-  %332 = icmp ne i16 %331, 0
+  %324 = insertelement <16 x i8> poison, i8 %57, i64 0
+  %325 = shufflevector <16 x i8> %324, <16 x i8> poison, <16 x i32> zeroinitializer
+  %326 = load <16 x i8>, ptr %55, align 1, !tbaa !39
+  %327 = icmp eq <16 x i8> %326, %325
+  %328 = bitcast <16 x i1> %327 to i16
+  %329 = ptrtoint ptr %322 to i64
+  %330 = ptrtoint ptr %321 to i64
+  %.neg.i.neg = sub i64 %329, %330
+  %.neg279.i.neg93 = trunc i64 %.neg.i.neg to i32
+  %331 = zext i8 %323 to i32
+  %332 = icmp ne i16 %328, 0
   %333 = icmp ne i32 %.0.i.lcssa, 0
   %334 = select i1 %332, i1 %333, i1 false
   br i1 %334, label %.lr.ph80.preheader, label %ZSTD_RowFindBestMatch.exit
 
 .lr.ph80.preheader:                               ; preds = %._crit_edge72
-  %335 = zext i8 %325 to i16
-  %336 = tail call i16 @llvm.fshr.i16(i16 %331, i16 %331, i16 %335)
+  %335 = zext i8 %323 to i16
+  %336 = tail call i16 @llvm.fshr.i16(i16 %328, i16 %328, i16 %335)
   %337 = zext i16 %336 to i64
   br label %.lr.ph80
 
@@ -44790,7 +44790,7 @@ ZSTD_count.exit.thread:                           ; preds = %265, %ZSTD_count.ex
   %.0248.i77 = phi i64 [ %.2250.i.ph, %354 ], [ 0, %.lr.ph80.preheader ]
   %338 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0246.i78, i1 true)
   %339 = trunc nuw nsw i64 %338 to i32
-  %340 = add nuw nsw i32 %339, %326
+  %340 = add nuw nsw i32 %339, %331
   %341 = and i32 %340, 15
   %342 = zext nneg i32 %341 to i64
   %343 = getelementptr inbounds nuw i32, ptr %56, i64 %342
@@ -46545,23 +46545,23 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %199, %ZSTD_row_upda
   %209 = lshr i32 %.0244.i, 4
   %210 = and i32 %209, 268435440
   %211 = zext nneg i32 %210 to i64
-  %212 = getelementptr inbounds nuw i32, ptr %8, i64 %211
-  %213 = getelementptr inbounds nuw i8, ptr %10, i64 %211
-  %214 = load i8, ptr %213, align 1, !tbaa !39
-  %215 = zext i8 %214 to i32
+  %212 = getelementptr inbounds nuw i8, ptr %10, i64 %211
+  %213 = load i8, ptr %212, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %216 = trunc i32 %.0244.i to i8
-  %217 = insertelement <16 x i8> poison, i8 %216, i64 0
-  %218 = shufflevector <16 x i8> %217, <16 x i8> poison, <16 x i32> zeroinitializer
-  %219 = load <16 x i8>, ptr %213, align 1, !tbaa !39
-  %220 = icmp eq <16 x i8> %219, %218
-  %221 = bitcast <16 x i1> %220 to i16
-  %.not = icmp eq i16 %221, 0
+  %214 = trunc i32 %.0244.i to i8
+  %215 = insertelement <16 x i8> poison, i8 %214, i64 0
+  %216 = shufflevector <16 x i8> %215, <16 x i8> poison, <16 x i32> zeroinitializer
+  %217 = load <16 x i8>, ptr %212, align 1, !tbaa !39
+  %218 = icmp eq <16 x i8> %217, %216
+  %219 = bitcast <16 x i1> %218 to i16
+  %220 = getelementptr inbounds nuw i32, ptr %8, i64 %211
+  %221 = zext i8 %213 to i32
+  %.not = icmp eq i16 %219, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph63.preheader
 
 .lr.ph63.preheader:                               ; preds = %ZSTD_row_getSSEMask.exit
-  %222 = zext i8 %214 to i16
-  %223 = tail call i16 @llvm.fshr.i16(i16 %221, i16 %221, i16 %222)
+  %222 = zext i8 %213 to i16
+  %223 = tail call i16 @llvm.fshr.i16(i16 %219, i16 %219, i16 %222)
   %224 = zext i16 %223 to i64
   br label %.lr.ph63
 
@@ -46571,10 +46571,10 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %199, %ZSTD_row_upda
   %.0259.i60 = phi i64 [ %243, %241 ], [ %224, %.lr.ph63.preheader ]
   %225 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0259.i60, i1 true)
   %226 = trunc nuw nsw i64 %225 to i32
-  %227 = add nuw nsw i32 %226, %215
+  %227 = add nuw nsw i32 %226, %221
   %228 = and i32 %227, 15
   %229 = zext nneg i32 %228 to i64
-  %230 = getelementptr inbounds nuw i32, ptr %212, i64 %229
+  %230 = getelementptr inbounds nuw i32, ptr %220, i64 %229
   %231 = load i32, ptr %230, align 4, !tbaa !24
   %232 = icmp eq i32 %228, 0
   br i1 %232, label %241, label %233
@@ -46606,22 +46606,22 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %199, %ZSTD_row_upda
 ._crit_edge:                                      ; preds = %241, %233, %ZSTD_row_getSSEMask.exit
   %.0255.i.lcssa = phi i64 [ 0, %ZSTD_row_getSSEMask.exit ], [ %.0255.i61, %233 ], [ %.2257.i.ph, %241 ]
   %.0.i.lcssa = phi i32 [ %40, %ZSTD_row_getSSEMask.exit ], [ %.0.i62, %233 ], [ %.2.i.ph, %241 ]
-  %247 = add nuw nsw i32 %215, 15
+  %247 = add nuw nsw i32 %221, 15
   %248 = and i32 %247, 15
-  %249 = and i32 %215, 15
+  %249 = and i32 %221, 15
   %250 = icmp eq i32 %249, 1
   %251 = select i1 %250, i32 15, i32 0
   %252 = add nuw nsw i32 %251, %248
   %253 = trunc nuw nsw i32 %252 to i8
-  store i8 %253, ptr %213, align 1, !tbaa !39
+  store i8 %253, ptr %212, align 1, !tbaa !39
   %254 = zext nneg i32 %252 to i64
-  %255 = getelementptr inbounds nuw i8, ptr %213, i64 %254
-  store i8 %216, ptr %255, align 1, !tbaa !39
+  %255 = getelementptr inbounds nuw i8, ptr %212, i64 %254
+  store i8 %214, ptr %255, align 1, !tbaa !39
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %257 = load i32, ptr %256, align 4, !tbaa !20
   %258 = add i32 %257, 1
   store i32 %258, ptr %256, align 4, !tbaa !20
-  %259 = getelementptr inbounds nuw i32, ptr %212, i64 %254
+  %259 = getelementptr inbounds nuw i32, ptr %220, i64 %254
   store i32 %257, ptr %259, align 4, !tbaa !24
   %.not92 = icmp eq i64 %.0255.i.lcssa, 0
   br i1 %.not92, label %._crit_edge72, label %.lr.ph71
@@ -46769,26 +46769,26 @@ ZSTD_count.exit.thread:                           ; preds = %265, %ZSTD_count.ex
   %320 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %321 = load ptr, ptr %320, align 8, !tbaa !4
   %322 = load ptr, ptr %42, align 8, !tbaa !64
-  %323 = ptrtoint ptr %322 to i64
-  %324 = ptrtoint ptr %321 to i64
-  %.neg.i.neg = sub i64 %323, %324
-  %.neg279.i.neg93 = trunc i64 %.neg.i.neg to i32
-  %325 = load i8, ptr %55, align 1, !tbaa !39
-  %326 = zext i8 %325 to i32
+  %323 = load i8, ptr %55, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %327 = insertelement <16 x i8> poison, i8 %57, i64 0
-  %328 = shufflevector <16 x i8> %327, <16 x i8> poison, <16 x i32> zeroinitializer
-  %329 = load <16 x i8>, ptr %55, align 1, !tbaa !39
-  %330 = icmp eq <16 x i8> %329, %328
-  %331 = bitcast <16 x i1> %330 to i16
-  %332 = icmp ne i16 %331, 0
+  %324 = insertelement <16 x i8> poison, i8 %57, i64 0
+  %325 = shufflevector <16 x i8> %324, <16 x i8> poison, <16 x i32> zeroinitializer
+  %326 = load <16 x i8>, ptr %55, align 1, !tbaa !39
+  %327 = icmp eq <16 x i8> %326, %325
+  %328 = bitcast <16 x i1> %327 to i16
+  %329 = ptrtoint ptr %322 to i64
+  %330 = ptrtoint ptr %321 to i64
+  %.neg.i.neg = sub i64 %329, %330
+  %.neg279.i.neg93 = trunc i64 %.neg.i.neg to i32
+  %331 = zext i8 %323 to i32
+  %332 = icmp ne i16 %328, 0
   %333 = icmp ne i32 %.0.i.lcssa, 0
   %334 = select i1 %332, i1 %333, i1 false
   br i1 %334, label %.lr.ph80.preheader, label %ZSTD_RowFindBestMatch.exit
 
 .lr.ph80.preheader:                               ; preds = %._crit_edge72
-  %335 = zext i8 %325 to i16
-  %336 = tail call i16 @llvm.fshr.i16(i16 %331, i16 %331, i16 %335)
+  %335 = zext i8 %323 to i16
+  %336 = tail call i16 @llvm.fshr.i16(i16 %328, i16 %328, i16 %335)
   %337 = zext i16 %336 to i64
   br label %.lr.ph80
 
@@ -46798,7 +46798,7 @@ ZSTD_count.exit.thread:                           ; preds = %265, %ZSTD_count.ex
   %.0248.i77 = phi i64 [ %.2250.i.ph, %354 ], [ 0, %.lr.ph80.preheader ]
   %338 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0246.i78, i1 true)
   %339 = trunc nuw nsw i64 %338 to i32
-  %340 = add nuw nsw i32 %339, %326
+  %340 = add nuw nsw i32 %339, %331
   %341 = and i32 %340, 15
   %342 = zext nneg i32 %341 to i64
   %343 = getelementptr inbounds nuw i32, ptr %56, i64 %342
@@ -49799,23 +49799,23 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %197, %ZSTD_row_upda
   %206 = lshr i32 %.0244.i, 4
   %207 = and i32 %206, 268435440
   %208 = zext nneg i32 %207 to i64
-  %209 = getelementptr inbounds nuw i32, ptr %7, i64 %208
-  %210 = getelementptr inbounds nuw i8, ptr %9, i64 %208
-  %211 = load i8, ptr %210, align 1, !tbaa !39
-  %212 = zext i8 %211 to i32
+  %209 = getelementptr inbounds nuw i8, ptr %9, i64 %208
+  %210 = load i8, ptr %209, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %213 = trunc i32 %.0244.i to i8
-  %214 = insertelement <16 x i8> poison, i8 %213, i64 0
-  %215 = shufflevector <16 x i8> %214, <16 x i8> poison, <16 x i32> zeroinitializer
-  %216 = load <16 x i8>, ptr %210, align 1, !tbaa !39
-  %217 = icmp eq <16 x i8> %216, %215
-  %218 = bitcast <16 x i1> %217 to i16
-  %.not103 = icmp eq i16 %218, 0
+  %211 = trunc i32 %.0244.i to i8
+  %212 = insertelement <16 x i8> poison, i8 %211, i64 0
+  %213 = shufflevector <16 x i8> %212, <16 x i8> poison, <16 x i32> zeroinitializer
+  %214 = load <16 x i8>, ptr %209, align 1, !tbaa !39
+  %215 = icmp eq <16 x i8> %214, %213
+  %216 = bitcast <16 x i1> %215 to i16
+  %217 = getelementptr inbounds nuw i32, ptr %7, i64 %208
+  %218 = zext i8 %210 to i32
+  %.not103 = icmp eq i16 %216, 0
   br i1 %.not103, label %._crit_edge, label %.lr.ph71.preheader
 
 .lr.ph71.preheader:                               ; preds = %ZSTD_row_getSSEMask.exit
-  %219 = zext i8 %211 to i16
-  %220 = tail call i16 @llvm.fshr.i16(i16 %218, i16 %218, i16 %219)
+  %219 = zext i8 %210 to i16
+  %220 = tail call i16 @llvm.fshr.i16(i16 %216, i16 %216, i16 %219)
   %221 = zext i16 %220 to i64
   br label %.lr.ph71
 
@@ -49825,10 +49825,10 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %197, %ZSTD_row_upda
   %.0259.i68 = phi i64 [ %240, %238 ], [ %221, %.lr.ph71.preheader ]
   %222 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0259.i68, i1 true)
   %223 = trunc nuw nsw i64 %222 to i32
-  %224 = add nuw nsw i32 %223, %212
+  %224 = add nuw nsw i32 %223, %218
   %225 = and i32 %224, 15
   %226 = zext nneg i32 %225 to i64
-  %227 = getelementptr inbounds nuw i32, ptr %209, i64 %226
+  %227 = getelementptr inbounds nuw i32, ptr %217, i64 %226
   %228 = load i32, ptr %227, align 4, !tbaa !24
   %229 = icmp eq i32 %225, 0
   br i1 %229, label %238, label %230
@@ -49860,22 +49860,22 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %197, %ZSTD_row_upda
 ._crit_edge:                                      ; preds = %238, %230, %ZSTD_row_getSSEMask.exit
   %.0255.i.lcssa = phi i64 [ 0, %ZSTD_row_getSSEMask.exit ], [ %.0255.i69, %230 ], [ %.2257.i.ph, %238 ]
   %.0.i.lcssa = phi i32 [ %39, %ZSTD_row_getSSEMask.exit ], [ %.0.i70, %230 ], [ %.2.i.ph, %238 ]
-  %244 = add nuw nsw i32 %212, 15
+  %244 = add nuw nsw i32 %218, 15
   %245 = and i32 %244, 15
-  %246 = and i32 %212, 15
+  %246 = and i32 %218, 15
   %247 = icmp eq i32 %246, 1
   %248 = select i1 %247, i32 15, i32 0
   %249 = add nuw nsw i32 %248, %245
   %250 = trunc nuw nsw i32 %249 to i8
-  store i8 %250, ptr %210, align 1, !tbaa !39
+  store i8 %250, ptr %209, align 1, !tbaa !39
   %251 = zext nneg i32 %249 to i64
-  %252 = getelementptr inbounds nuw i8, ptr %210, i64 %251
-  store i8 %213, ptr %252, align 1, !tbaa !39
+  %252 = getelementptr inbounds nuw i8, ptr %209, i64 %251
+  store i8 %211, ptr %252, align 1, !tbaa !39
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %254 = load i32, ptr %253, align 4, !tbaa !20
   %255 = add i32 %254, 1
   store i32 %255, ptr %253, align 4, !tbaa !20
-  %256 = getelementptr inbounds nuw i32, ptr %209, i64 %251
+  %256 = getelementptr inbounds nuw i32, ptr %217, i64 %251
   store i32 %254, ptr %256, align 4, !tbaa !24
   %.not104 = icmp eq i64 %.0255.i.lcssa, 0
   br i1 %.not104, label %._crit_edge80, label %.lr.ph79
@@ -51857,23 +51857,23 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %197, %ZSTD_row_upda
   %207 = lshr i32 %.0244.i, 4
   %208 = and i32 %207, 268435440
   %209 = zext nneg i32 %208 to i64
-  %210 = getelementptr inbounds nuw i32, ptr %7, i64 %209
-  %211 = getelementptr inbounds nuw i8, ptr %9, i64 %209
-  %212 = load i8, ptr %211, align 1, !tbaa !39
-  %213 = zext i8 %212 to i32
+  %210 = getelementptr inbounds nuw i8, ptr %9, i64 %209
+  %211 = load i8, ptr %210, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %214 = trunc i32 %.0244.i to i8
-  %215 = insertelement <16 x i8> poison, i8 %214, i64 0
-  %216 = shufflevector <16 x i8> %215, <16 x i8> poison, <16 x i32> zeroinitializer
-  %217 = load <16 x i8>, ptr %211, align 1, !tbaa !39
-  %218 = icmp eq <16 x i8> %217, %216
-  %219 = bitcast <16 x i1> %218 to i16
-  %.not103 = icmp eq i16 %219, 0
+  %212 = trunc i32 %.0244.i to i8
+  %213 = insertelement <16 x i8> poison, i8 %212, i64 0
+  %214 = shufflevector <16 x i8> %213, <16 x i8> poison, <16 x i32> zeroinitializer
+  %215 = load <16 x i8>, ptr %210, align 1, !tbaa !39
+  %216 = icmp eq <16 x i8> %215, %214
+  %217 = bitcast <16 x i1> %216 to i16
+  %218 = getelementptr inbounds nuw i32, ptr %7, i64 %209
+  %219 = zext i8 %211 to i32
+  %.not103 = icmp eq i16 %217, 0
   br i1 %.not103, label %._crit_edge, label %.lr.ph71.preheader
 
 .lr.ph71.preheader:                               ; preds = %ZSTD_row_getSSEMask.exit
-  %220 = zext i8 %212 to i16
-  %221 = tail call i16 @llvm.fshr.i16(i16 %219, i16 %219, i16 %220)
+  %220 = zext i8 %211 to i16
+  %221 = tail call i16 @llvm.fshr.i16(i16 %217, i16 %217, i16 %220)
   %222 = zext i16 %221 to i64
   br label %.lr.ph71
 
@@ -51883,10 +51883,10 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %197, %ZSTD_row_upda
   %.0259.i68 = phi i64 [ %241, %239 ], [ %222, %.lr.ph71.preheader ]
   %223 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0259.i68, i1 true)
   %224 = trunc nuw nsw i64 %223 to i32
-  %225 = add nuw nsw i32 %224, %213
+  %225 = add nuw nsw i32 %224, %219
   %226 = and i32 %225, 15
   %227 = zext nneg i32 %226 to i64
-  %228 = getelementptr inbounds nuw i32, ptr %210, i64 %227
+  %228 = getelementptr inbounds nuw i32, ptr %218, i64 %227
   %229 = load i32, ptr %228, align 4, !tbaa !24
   %230 = icmp eq i32 %226, 0
   br i1 %230, label %239, label %231
@@ -51918,22 +51918,22 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %197, %ZSTD_row_upda
 ._crit_edge:                                      ; preds = %239, %231, %ZSTD_row_getSSEMask.exit
   %.0255.i.lcssa = phi i64 [ 0, %ZSTD_row_getSSEMask.exit ], [ %.0255.i69, %231 ], [ %.2257.i.ph, %239 ]
   %.0.i.lcssa = phi i32 [ %39, %ZSTD_row_getSSEMask.exit ], [ %.0.i70, %231 ], [ %.2.i.ph, %239 ]
-  %245 = add nuw nsw i32 %213, 15
+  %245 = add nuw nsw i32 %219, 15
   %246 = and i32 %245, 15
-  %247 = and i32 %213, 15
+  %247 = and i32 %219, 15
   %248 = icmp eq i32 %247, 1
   %249 = select i1 %248, i32 15, i32 0
   %250 = add nuw nsw i32 %249, %246
   %251 = trunc nuw nsw i32 %250 to i8
-  store i8 %251, ptr %211, align 1, !tbaa !39
+  store i8 %251, ptr %210, align 1, !tbaa !39
   %252 = zext nneg i32 %250 to i64
-  %253 = getelementptr inbounds nuw i8, ptr %211, i64 %252
-  store i8 %214, ptr %253, align 1, !tbaa !39
+  %253 = getelementptr inbounds nuw i8, ptr %210, i64 %252
+  store i8 %212, ptr %253, align 1, !tbaa !39
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %255 = load i32, ptr %254, align 4, !tbaa !20
   %256 = add i32 %255, 1
   store i32 %256, ptr %254, align 4, !tbaa !20
-  %257 = getelementptr inbounds nuw i32, ptr %210, i64 %252
+  %257 = getelementptr inbounds nuw i32, ptr %218, i64 %252
   store i32 %255, ptr %257, align 4, !tbaa !24
   %.not104 = icmp eq i64 %.0255.i.lcssa, 0
   br i1 %.not104, label %._crit_edge80, label %.lr.ph79
@@ -53917,23 +53917,23 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %197, %ZSTD_row_upda
   %207 = lshr i32 %.0244.i, 4
   %208 = and i32 %207, 268435440
   %209 = zext nneg i32 %208 to i64
-  %210 = getelementptr inbounds nuw i32, ptr %7, i64 %209
-  %211 = getelementptr inbounds nuw i8, ptr %9, i64 %209
-  %212 = load i8, ptr %211, align 1, !tbaa !39
-  %213 = zext i8 %212 to i32
+  %210 = getelementptr inbounds nuw i8, ptr %9, i64 %209
+  %211 = load i8, ptr %210, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %214 = trunc i32 %.0244.i to i8
-  %215 = insertelement <16 x i8> poison, i8 %214, i64 0
-  %216 = shufflevector <16 x i8> %215, <16 x i8> poison, <16 x i32> zeroinitializer
-  %217 = load <16 x i8>, ptr %211, align 1, !tbaa !39
-  %218 = icmp eq <16 x i8> %217, %216
-  %219 = bitcast <16 x i1> %218 to i16
-  %.not103 = icmp eq i16 %219, 0
+  %212 = trunc i32 %.0244.i to i8
+  %213 = insertelement <16 x i8> poison, i8 %212, i64 0
+  %214 = shufflevector <16 x i8> %213, <16 x i8> poison, <16 x i32> zeroinitializer
+  %215 = load <16 x i8>, ptr %210, align 1, !tbaa !39
+  %216 = icmp eq <16 x i8> %215, %214
+  %217 = bitcast <16 x i1> %216 to i16
+  %218 = getelementptr inbounds nuw i32, ptr %7, i64 %209
+  %219 = zext i8 %211 to i32
+  %.not103 = icmp eq i16 %217, 0
   br i1 %.not103, label %._crit_edge, label %.lr.ph71.preheader
 
 .lr.ph71.preheader:                               ; preds = %ZSTD_row_getSSEMask.exit
-  %220 = zext i8 %212 to i16
-  %221 = tail call i16 @llvm.fshr.i16(i16 %219, i16 %219, i16 %220)
+  %220 = zext i8 %211 to i16
+  %221 = tail call i16 @llvm.fshr.i16(i16 %217, i16 %217, i16 %220)
   %222 = zext i16 %221 to i64
   br label %.lr.ph71
 
@@ -53943,10 +53943,10 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %197, %ZSTD_row_upda
   %.0259.i68 = phi i64 [ %241, %239 ], [ %222, %.lr.ph71.preheader ]
   %223 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0259.i68, i1 true)
   %224 = trunc nuw nsw i64 %223 to i32
-  %225 = add nuw nsw i32 %224, %213
+  %225 = add nuw nsw i32 %224, %219
   %226 = and i32 %225, 15
   %227 = zext nneg i32 %226 to i64
-  %228 = getelementptr inbounds nuw i32, ptr %210, i64 %227
+  %228 = getelementptr inbounds nuw i32, ptr %218, i64 %227
   %229 = load i32, ptr %228, align 4, !tbaa !24
   %230 = icmp eq i32 %226, 0
   br i1 %230, label %239, label %231
@@ -53978,22 +53978,22 @@ ZSTD_row_getSSEMask.exit:                         ; preds = %197, %ZSTD_row_upda
 ._crit_edge:                                      ; preds = %239, %231, %ZSTD_row_getSSEMask.exit
   %.0255.i.lcssa = phi i64 [ 0, %ZSTD_row_getSSEMask.exit ], [ %.0255.i69, %231 ], [ %.2257.i.ph, %239 ]
   %.0.i.lcssa = phi i32 [ %39, %ZSTD_row_getSSEMask.exit ], [ %.0.i70, %231 ], [ %.2.i.ph, %239 ]
-  %245 = add nuw nsw i32 %213, 15
+  %245 = add nuw nsw i32 %219, 15
   %246 = and i32 %245, 15
-  %247 = and i32 %213, 15
+  %247 = and i32 %219, 15
   %248 = icmp eq i32 %247, 1
   %249 = select i1 %248, i32 15, i32 0
   %250 = add nuw nsw i32 %249, %246
   %251 = trunc nuw nsw i32 %250 to i8
-  store i8 %251, ptr %211, align 1, !tbaa !39
+  store i8 %251, ptr %210, align 1, !tbaa !39
   %252 = zext nneg i32 %250 to i64
-  %253 = getelementptr inbounds nuw i8, ptr %211, i64 %252
-  store i8 %214, ptr %253, align 1, !tbaa !39
+  %253 = getelementptr inbounds nuw i8, ptr %210, i64 %252
+  store i8 %212, ptr %253, align 1, !tbaa !39
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %255 = load i32, ptr %254, align 4, !tbaa !20
   %256 = add i32 %255, 1
   store i32 %256, ptr %254, align 4, !tbaa !20
-  %257 = getelementptr inbounds nuw i32, ptr %210, i64 %252
+  %257 = getelementptr inbounds nuw i32, ptr %218, i64 %252
   store i32 %255, ptr %257, align 4, !tbaa !24
   %.not104 = icmp eq i64 %.0255.i.lcssa, 0
   br i1 %.not104, label %._crit_edge80, label %.lr.ph79

@@ -628,23 +628,23 @@ _ZN4llvm16MCSubRegIteratorppEv.exit.i:            ; preds = %_ZN4llvm16MCSubRegI
   br i1 %.not.i, label %_ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVectorERNS1_15MachineFunctionE.exit, label %91, !llvm.loop !234
 
 _ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVectorERNS1_15MachineFunctionE.exit: ; preds = %.loopexit.i, %._crit_edge.i.i.i.i.i.i.i.i.i, %77, %_ZNK4llvm9BitVector4noneEv.exit.i, %82
-  %130 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %.val41.val = load ptr, ptr %2, align 8, !tbaa !235
-  %131 = load i32, ptr %.val41.val, align 4, !tbaa !214
-  %132 = and i32 %131, -2
-  store i32 %132, ptr %.val41.val, align 4, !tbaa !214
-  %133 = load ptr, ptr %12, align 8, !tbaa !26
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 88
-  %135 = load ptr, ptr %134, align 8
-  %136 = call { ptr, i64 } %135(ptr noundef nonnull align 8 dereferenceable(308) %12, ptr noundef nonnull %0) #15
-  %137 = extractvalue { ptr, i64 } %136, 0
-  %138 = extractvalue { ptr, i64 } %136, 1
-  %.idx = shl nuw nsw i64 %138, 1
-  %139 = getelementptr inbounds nuw i8, ptr %137, i64 %.idx
-  %.not36 = icmp eq i64 %138, 0
+  %130 = load i32, ptr %.val41.val, align 4, !tbaa !214
+  %131 = and i32 %130, -2
+  store i32 %131, ptr %.val41.val, align 4, !tbaa !214
+  %132 = load ptr, ptr %12, align 8, !tbaa !26
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 88
+  %134 = load ptr, ptr %133, align 8
+  %135 = call { ptr, i64 } %134(ptr noundef nonnull align 8 dereferenceable(308) %12, ptr noundef nonnull %0) #15
+  %136 = extractvalue { ptr, i64 } %135, 0
+  %137 = extractvalue { ptr, i64 } %135, 1
+  %.idx = shl nuw nsw i64 %137, 1
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx
+  %.not36 = icmp eq i64 %137, 0
   br i1 %.not36, label %._crit_edge39, label %.lr.ph38
 
 ._crit_edge39:                                    ; preds = %._crit_edge, %_ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVectorERNS1_15MachineFunctionE.exit
+  %139 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %140 = load i32, ptr %23, align 8, !tbaa !199
   %141 = icmp ugt i32 %140, 1
   br i1 %141, label %.lr.ph45, label %._crit_edge46
@@ -656,7 +656,7 @@ _ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVect
   br label %164
 
 .lr.ph38:                                         ; preds = %_ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVectorERNS1_15MachineFunctionE.exit, %._crit_edge
-  %.04037 = phi ptr [ %150, %._crit_edge ], [ %137, %_ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVectorERNS1_15MachineFunctionE.exit ]
+  %.04037 = phi ptr [ %150, %._crit_edge ], [ %136, %_ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVectorERNS1_15MachineFunctionE.exit ]
   %144 = load i16, ptr %.04037, align 2, !tbaa !226
   %145 = zext i16 %144 to i32
   %146 = call { ptr, i64 } @_ZNK4llvm14MCRegisterInfo18getCachedAliasesOfENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(232) %12, i32 %145) #15
@@ -673,7 +673,7 @@ _ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVect
 
 ._crit_edge:                                      ; preds = %151, %.lr.ph38
   %150 = getelementptr inbounds nuw i8, ptr %.04037, i64 2
-  %.not = icmp eq ptr %150, %139
+  %.not = icmp eq ptr %150, %138
   br i1 %.not, label %._crit_edge39, label %.lr.ph38
 
 151:                                              ; preds = %.lr.ph, %151
@@ -789,7 +789,7 @@ _ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread19: ; preds = 
   br i1 %.not23, label %.loopexit, label %195, !llvm.loop !240
 
 _ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread: ; preds = %185, %174, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit
-  %217 = load ptr, ptr %130, align 8, !tbaa !215
+  %217 = load ptr, ptr %139, align 8, !tbaa !215
   %218 = getelementptr inbounds nuw i64, ptr %217, i64 %169
   %219 = load i64, ptr %218, align 8, !tbaa !11
   %220 = and i64 %219, %167

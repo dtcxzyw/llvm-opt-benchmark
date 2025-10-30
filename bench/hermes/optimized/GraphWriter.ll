@@ -676,7 +676,6 @@ for.body.i.i.i.i.i.i447.preheader:                ; preds = %_ZN4llvh9StringRefC
   %call.i397 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %GeneratorPath) #16
   %call2.i399 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %GeneratorPath) #16
   %_M_finish.i.i390 = getelementptr inbounds nuw i8, ptr %args59, i64 8
-  %_M_end_of_storage.i.i391 = getelementptr inbounds nuw i8, ptr %args59, i64 16
   %call5.i.i.i.i.i.i408 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
   store ptr %call.i397, ptr %call5.i.i.i.i.i.i408, align 8
   %ref.tmp60.sroa.3.0.add.ptr.i.i.i409.sroa_idx = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i408, i64 8
@@ -689,6 +688,7 @@ for.body.i.i.i.i.i.i447.preheader:                ; preds = %_ZN4llvh9StringRefC
   %ref.tmp64.sroa.3.0.add.ptr.i.i.i445.sroa_idx = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i444, i64 24
   store i64 4, ptr %ref.tmp64.sroa.3.0.add.ptr.i.i.i445.sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i444, ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i408, i64 16, i1 false), !alias.scope !37
+  %_M_end_of_storage.i.i391 = getelementptr inbounds nuw i8, ptr %args59, i64 16
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i408) #19
   store ptr %call5.i.i.i.i.i.i444, ptr %args59, align 8
   %add.ptr19.i.i.i459 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i444, i64 32

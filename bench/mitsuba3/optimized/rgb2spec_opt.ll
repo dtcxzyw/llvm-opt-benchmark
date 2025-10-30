@@ -365,44 +365,44 @@ define hidden noundef double @_Z3sqrd(double noundef %0) local_unnamed_addr #4 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_Z7cie_labPd(ptr noundef captures(none) %0) local_unnamed_addr #3 {
-  %2 = load double, ptr @xyz_whitepoint, align 16
-  %3 = load double, ptr getelementptr inbounds nuw (i8, ptr @xyz_whitepoint, i64 8), align 8
-  %4 = load double, ptr getelementptr inbounds nuw (i8, ptr @xyz_whitepoint, i64 16), align 16
-  br label %5
+  br label %2
 
-5:                                                ; preds = %1, %5
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %.02640 = phi double [ 0.000000e+00, %1 ], [ %11, %5 ]
-  %.02739 = phi double [ 0.000000e+00, %1 ], [ %15, %5 ]
-  %.02838 = phi double [ 0.000000e+00, %1 ], [ %19, %5 ]
-  %6 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
-  %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds nuw double, ptr @rgb_to_xyz, i64 %indvars.iv
-  %9 = load double, ptr %8, align 8
-  %10 = fmul contract double %7, %9
-  %11 = fadd contract double %.02640, %10
-  %12 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 24), i64 %indvars.iv
-  %13 = load double, ptr %12, align 8
-  %14 = fmul contract double %7, %13
-  %15 = fadd contract double %.02739, %14
-  %16 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 48), i64 %indvars.iv
-  %17 = load double, ptr %16, align 8
-  %18 = fmul contract double %7, %17
-  %19 = fadd contract double %.02838, %18
+2:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %.02640 = phi double [ 0.000000e+00, %1 ], [ %8, %2 ]
+  %.02739 = phi double [ 0.000000e+00, %1 ], [ %12, %2 ]
+  %.02838 = phi double [ 0.000000e+00, %1 ], [ %16, %2 ]
+  %3 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %4 = load double, ptr %3, align 8
+  %5 = getelementptr inbounds nuw double, ptr @rgb_to_xyz, i64 %indvars.iv
+  %6 = load double, ptr %5, align 8
+  %7 = fmul contract double %4, %6
+  %8 = fadd contract double %.02640, %7
+  %9 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 24), i64 %indvars.iv
+  %10 = load double, ptr %9, align 8
+  %11 = fmul contract double %4, %10
+  %12 = fadd contract double %.02739, %11
+  %13 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @rgb_to_xyz, i64 48), i64 %indvars.iv
+  %14 = load double, ptr %13, align 8
+  %15 = fmul contract double %4, %14
+  %16 = fadd contract double %.02838, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %20, label %5, !llvm.loop !16
+  br i1 %exitcond.not, label %17, label %2, !llvm.loop !16
 
-20:                                               ; preds = %5
-  %21 = fdiv contract double %15, %3
+17:                                               ; preds = %2
+  %18 = load double, ptr @xyz_whitepoint, align 16
+  %19 = load double, ptr getelementptr inbounds nuw (i8, ptr @xyz_whitepoint, i64 8), align 8
+  %20 = load double, ptr getelementptr inbounds nuw (i8, ptr @xyz_whitepoint, i64 16), align 16
+  %21 = fdiv contract double %12, %19
   %22 = fcmp contract ogt double %21, 0x3F822354D28F7CD6
   br i1 %22, label %23, label %25
 
-23:                                               ; preds = %20
+23:                                               ; preds = %17
   %24 = tail call contract double @cbrt(double noundef %21) #25
   br label %"_ZZ7cie_labPdENK3$_0clEd.exit"
 
-25:                                               ; preds = %20
+25:                                               ; preds = %17
   %26 = fdiv contract double %21, 0x3FC07004DED20922
   %27 = fadd contract double %26, 0x3FC1A7B9611A7B96
   br label %"_ZZ7cie_labPdENK3$_0clEd.exit"
@@ -412,7 +412,7 @@ define hidden void @_Z7cie_labPd(ptr noundef captures(none) %0) local_unnamed_ad
   %28 = fmul contract double %.0.i, 1.160000e+02
   %29 = fadd contract double %28, -1.600000e+01
   store double %29, ptr %0, align 8
-  %30 = fdiv contract double %11, %2
+  %30 = fdiv contract double %8, %18
   %31 = fcmp contract ogt double %30, 0x3F822354D28F7CD6
   br i1 %31, label %32, label %34
 
@@ -444,7 +444,7 @@ define hidden void @_Z7cie_labPd(ptr noundef captures(none) %0) local_unnamed_ad
   %.sink = fmul contract double %.sink.in, 5.000000e+02
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sink, ptr %42, align 8
-  %43 = fdiv contract double %19, %4
+  %43 = fdiv contract double %16, %20
   %44 = fcmp contract ogt double %43, 0x3F822354D28F7CD6
   br i1 %44, label %45, label %47
 

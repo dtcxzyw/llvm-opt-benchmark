@@ -1778,8 +1778,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   store float 0.000000e+00, ptr %37, align 4, !tbaa !21
   %39 = getelementptr i8, ptr %37, i64 4
   %.idx.i.i.i.i.i.i.i = add i64 %36, -4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %39, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !21
   %40 = getelementptr i8, ptr %37, i64 %36
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %39, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !21
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %38 to i64
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
@@ -1852,8 +1852,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i21: ; preds = %52
   store float 0.000000e+00, ptr %60, align 4, !tbaa !21
   %62 = getelementptr i8, ptr %60, i64 4
   %.idx.i.i.i.i.i.i.i23 = add i64 %59, -4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %62, i8 0, i64 %.idx.i.i.i.i.i.i.i23, i1 false), !tbaa !21
   %63 = getelementptr i8, ptr %60, i64 %59
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %62, i8 0, i64 %.idx.i.i.i.i.i.i.i23, i1 false), !tbaa !21
   %64 = ptrtoint ptr %63 to i64
   %65 = ptrtoint ptr %61 to i64
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit28
@@ -1960,8 +1960,8 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i36: ; preds = %_ZNSt6vectorIfS
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc38
   %.idx.i.i.i.i.i.i.i34 = shl nuw nsw i64 %91, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %90, i8 0, i64 %.idx.i.i.i.i.i.i.i34, i1 false), !tbaa !21
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx.i.i.i.i.i.i.i34
+  call void @llvm.memset.p0.i64(ptr align 4 %90, i8 0, i64 %.idx.i.i.i.i.i.i.i34, i1 false), !tbaa !21
   br label %94
 
 94:                                               ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc38, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i36

@@ -168,37 +168,37 @@ norm.exit:                                        ; preds = %.lr.ph.i.i
   br i1 %exitcond.not.i183, label %.lr.ph.i186.preheader, label %.lr.ph.i180, !llvm.loop !19
 
 .lr.ph.i186.preheader:                            ; preds = %.lr.ph.i180, %vectors_inner_product.exit241
-  %.1154 = phi i32 [ %61, %vectors_inner_product.exit241 ], [ 0, %.lr.ph.i180 ]
-  %61 = add nuw nsw i32 %.1154, 1
+  %.1154 = phi i32 [ %70, %vectors_inner_product.exit241 ], [ 0, %.lr.ph.i180 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr nonnull align 8 %33, i64 %30, i1 false), !tbaa !10
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.lr.ph.i186.preheader, %._crit_edge.us.i
   %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %._crit_edge.us.i ], [ 0, %.lr.ph.i186.preheader ]
-  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv23.i
-  %63 = load ptr, ptr %62, align 8, !tbaa !8
-  br label %64
+  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv23.i
+  %62 = load ptr, ptr %61, align 8, !tbaa !8
+  br label %63
 
-64:                                               ; preds = %64, %.preheader.us.i
-  %indvars.iv.i191 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i192, %64 ]
-  %.017.us.i = phi double [ 0.000000e+00, %.preheader.us.i ], [ %69, %64 ]
-  %65 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv.i191
-  %66 = load double, ptr %65, align 8, !tbaa !10
-  %67 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv.i191
-  %68 = load double, ptr %67, align 8, !tbaa !10
-  %69 = tail call double @llvm.fmuladd.f64(double %66, double %68, double %.017.us.i)
+63:                                               ; preds = %63, %.preheader.us.i
+  %indvars.iv.i191 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i192, %63 ]
+  %.017.us.i = phi double [ 0.000000e+00, %.preheader.us.i ], [ %68, %63 ]
+  %64 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv.i191
+  %65 = load double, ptr %64, align 8, !tbaa !10
+  %66 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv.i191
+  %67 = load double, ptr %66, align 8, !tbaa !10
+  %68 = tail call double @llvm.fmuladd.f64(double %65, double %67, double %.017.us.i)
   %indvars.iv.next.i192 = add nuw nsw i64 %indvars.iv.i191, 1
   %exitcond.not.i193 = icmp eq i64 %indvars.iv.next.i192, %wide.trip.count.i
-  br i1 %exitcond.not.i193, label %._crit_edge.us.i, label %64, !llvm.loop !20
+  br i1 %exitcond.not.i193, label %._crit_edge.us.i, label %63, !llvm.loop !20
 
-._crit_edge.us.i:                                 ; preds = %64
-  %70 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv23.i
-  store double %69, ptr %70, align 8, !tbaa !10
+._crit_edge.us.i:                                 ; preds = %63
+  %69 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv23.i
+  store double %68, ptr %69, align 8, !tbaa !10
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next24.i, %wide.trip.count.i
   br i1 %exitcond27.not.i, label %copy_vector.exit200, label %.preheader.us.i, !llvm.loop !21
 
 copy_vector.exit200:                              ; preds = %._crit_edge.us.i
+  %70 = add nuw nsw i32 %.1154, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 8 %26, i64 %30, i1 false), !tbaa !10
   br i1 %.not, label %.lr.ph.i.i220.preheader, label %.lr.ph.i204.preheader
 
@@ -308,7 +308,7 @@ vectors_inner_product.exit241:                    ; preds = %.lr.ph.i236
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %gv_calloc.exit174
   %.0148314 = phi i32 [ 0, %gv_calloc.exit174 ], [ %104, %.loopexit.loopexit ]
-  %.2155 = phi i32 [ 0, %gv_calloc.exit174 ], [ %61, %.loopexit.loopexit ]
+  %.2155 = phi i32 [ 0, %gv_calloc.exit174 ], [ %70, %.loopexit.loopexit ]
   %105 = icmp slt i32 %.0148314, %spec.select
   br i1 %105, label %.lr.ph333, label %.preheader
 
@@ -320,7 +320,7 @@ vectors_inner_product.exit241:                    ; preds = %.lr.ph.i236
   br label %132
 
 .preheader:                                       ; preds = %101, %vectors_scalar_mult.exit273, %.loopexit
-  %.2155425 = phi i32 [ %.2155, %.loopexit ], [ %.2155, %vectors_scalar_mult.exit273 ], [ %61, %101 ]
+  %.2155425 = phi i32 [ %.2155, %.loopexit ], [ %.2155, %vectors_scalar_mult.exit273 ], [ %70, %101 ]
   %108 = add i32 %spec.select, -1
   %109 = icmp sgt i32 %spec.select, 1
   br i1 %109, label %.lr.ph343, label %._crit_edge344
@@ -345,12 +345,12 @@ vectors_inner_product.exit241:                    ; preds = %.lr.ph.i236
   %indvars.iv414 = phi i64 [ 0, %.lr.ph343.split.us.preheader ], [ %indvars.iv.next415, %127 ]
   %indvars.iv407 = phi i64 [ 1, %.lr.ph343.split.us.preheader ], [ %indvars.iv.next408, %127 ]
   %113 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv414
-  %indvars.iv.next415 = add nuw nsw i64 %indvars.iv414, 1
   %114 = trunc nuw nsw i64 %indvars.iv414 to i32
   %115 = load double, ptr %113, align 8, !tbaa !10
   br label %.lr.ph338.us
 
 ._crit_edge339.us:                                ; preds = %.lr.ph338.us
+  %indvars.iv.next415 = add nuw nsw i64 %indvars.iv414, 1
   %116 = zext i32 %.1152.us to i64
   %.not169.us = icmp eq i64 %indvars.iv414, %116
   br i1 %.not169.us, label %127, label %.lr.ph.preheader.i274.us

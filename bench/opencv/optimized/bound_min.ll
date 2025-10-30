@@ -334,11 +334,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit314.thread:          ; preds = %_ZNKSt6vectorIN2cv7
   %exitcond596.not = icmp eq i64 %114, %15
   br i1 %exitcond596.not, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i, label %.lr.ph563, !llvm.loop !30
 
-_ZNKSt6vectorIN2cv7Point3_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i198: ; preds = %._crit_edge568
+._crit_edge572:                                   ; preds = %._crit_edge568
   %115 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #21
           to label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i328 unwind label %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit310.thread
 
-_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit310.thread: ; preds = %_ZNKSt6vectorIN2cv7Point3_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i198
+_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit310.thread: ; preds = %._crit_edge572
   %116 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit312
@@ -363,7 +363,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit312.thread:          ; preds = %_ZNKSt6vectorIiSaIi
   store i32 %135, ptr %124, align 4, !tbaa !28
   %125 = add nuw i64 %.0139570, 1
   %exitcond600.not = icmp eq i64 %125, %17
-  br i1 %exitcond600.not, label %_ZNKSt6vectorIN2cv7Point3_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i198, label %.lr.ph567.preheader, !llvm.loop !35
+  br i1 %exitcond600.not, label %._crit_edge572, label %.lr.ph567.preheader, !llvm.loop !35
 
 .lr.ph567:                                        ; preds = %.lr.ph567.preheader, %.lr.ph567
   %.0145565 = phi i64 [ %136, %.lr.ph567 ], [ 0, %.lr.ph567.preheader ]
@@ -382,7 +382,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit312.thread:          ; preds = %_ZNKSt6vectorIiSaIi
   %exitcond598.not = icmp eq i64 %136, %15
   br i1 %exitcond598.not, label %._crit_edge568, label %.lr.ph567, !llvm.loop !36
 
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i328: ; preds = %_ZNKSt6vectorIN2cv7Point3_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i198
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i328: ; preds = %._crit_edge572
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %115, i8 0, i64 %57, i1 false), !tbaa !16
   %137 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %66) #21
           to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i335 unwind label %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit310.thread641

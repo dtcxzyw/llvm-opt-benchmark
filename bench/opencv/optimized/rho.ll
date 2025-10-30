@@ -858,34 +858,34 @@ define linkonce_odr hidden noundef i32 @_ZN2cv13RHO_HEST_REFC7initRunEv(ptr noun
   store i32 4, ptr %51, align 4, !tbaa !69
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 1, ptr %52, align 8, !tbaa !68
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %54 = load i32, ptr %53, align 4, !tbaa !62
-  %55 = load i32, ptr %7, align 8, !tbaa !59
-  br label %56
+  %53 = load i32, ptr %7, align 8, !tbaa !59
+  br label %54
 
-56:                                               ; preds = %56, %.thread
-  %.016.i = phi i32 [ 0, %.thread ], [ %63, %56 ]
-  %.01115.i = phi double [ 1.000000e+00, %.thread ], [ %62, %56 ]
-  %.01214.i = phi double [ 1.000000e+00, %.thread ], [ %59, %56 ]
-  %57 = sub nuw nsw i32 4, %.016.i
-  %58 = uitofp nneg i32 %57 to double
-  %59 = fmul double %.01214.i, %58
-  %60 = sub i32 %55, %.016.i
-  %61 = uitofp i32 %60 to double
-  %62 = fmul double %.01115.i, %61
-  %63 = add nuw nsw i32 %.016.i, 1
-  %exitcond.not.i = icmp eq i32 %63, 4
-  br i1 %exitcond.not.i, label %_ZN2cvL14sacInitPEndFpIEjjj.exit, label %56, !llvm.loop !79
+54:                                               ; preds = %54, %.thread
+  %.016.i = phi i32 [ 0, %.thread ], [ %61, %54 ]
+  %.01115.i = phi double [ 1.000000e+00, %.thread ], [ %60, %54 ]
+  %.01214.i = phi double [ 1.000000e+00, %.thread ], [ %57, %54 ]
+  %55 = sub nuw nsw i32 4, %.016.i
+  %56 = uitofp nneg i32 %55 to double
+  %57 = fmul double %.01214.i, %56
+  %58 = sub i32 %53, %.016.i
+  %59 = uitofp i32 %58 to double
+  %60 = fmul double %.01115.i, %59
+  %61 = add nuw nsw i32 %.016.i, 1
+  %exitcond.not.i = icmp eq i32 %61, 4
+  br i1 %exitcond.not.i, label %_ZN2cvL14sacInitPEndFpIEjjj.exit, label %54, !llvm.loop !79
 
-_ZN2cvL14sacInitPEndFpIEjjj.exit:                 ; preds = %56
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %65 = uitofp i32 %54 to double
-  %66 = fmul double %59, %65
-  %67 = fdiv double %66, %62
+_ZN2cvL14sacInitPEndFpIEjjj.exit:                 ; preds = %54
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %64 = load i32, ptr %63, align 4, !tbaa !62
+  %65 = uitofp i32 %64 to double
+  %66 = fmul double %57, %65
+  %67 = fdiv double %66, %60
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double %67, ptr %68, align 8, !tbaa !70
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %55, ptr %69, align 8, !tbaa !80
+  store i32 %53, ptr %69, align 8, !tbaa !80
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 0, ptr %70, align 4, !tbaa !81
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -908,7 +908,7 @@ _ZN2cvL14sacInitPEndFpIEjjj.exit:                 ; preds = %56
 78:                                               ; preds = %77, %76
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 0, ptr %79, align 8, !tbaa !83
-  %80 = load ptr, ptr %64, align 8, !tbaa !76
+  %80 = load ptr, ptr %62, align 8, !tbaa !76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %80, i8 0, i64 36, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 0, ptr %81, align 8, !tbaa !75
@@ -1789,38 +1789,38 @@ _ZN2cvL16sacChol8x8DampedEPA8_KffPA8_f.exit:      ; preds = %59
 
 _ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPfS6_.exit: ; preds = %428, %_ZN2cvL16sacChol8x8DampedEPA8_KffPA8_f.exit
   %.0189.lcssa.i = phi float [ 0.000000e+00, %_ZN2cvL16sacChol8x8DampedEPA8_KffPA8_f.exit ], [ %.1.i, %428 ]
-  %429 = load float, ptr %2, align 4, !tbaa !72
-  br label %430
+  br label %429
 
-430:                                              ; preds = %430, %_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPfS6_.exit
-  %indvars.iv.i20 = phi i64 [ 0, %_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPfS6_.exit ], [ %indvars.iv.next.i21, %430 ]
-  %.02224.i = phi float [ 0.000000e+00, %_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPfS6_.exit ], [ %433, %430 ]
-  %431 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i20
-  %432 = load float, ptr %431, align 4, !tbaa !72
-  %433 = tail call float @llvm.fmuladd.f32(float %432, float %432, float %.02224.i)
+429:                                              ; preds = %429, %_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPfS6_.exit
+  %indvars.iv.i20 = phi i64 [ 0, %_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPfS6_.exit ], [ %indvars.iv.next.i21, %429 ]
+  %.02224.i = phi float [ 0.000000e+00, %_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPfS6_.exit ], [ %432, %429 ]
+  %430 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i20
+  %431 = load float, ptr %430, align 4, !tbaa !72
+  %432 = tail call float @llvm.fmuladd.f32(float %431, float %431, float %.02224.i)
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 8
-  br i1 %exitcond.not.i22, label %434, label %430, !llvm.loop !107
+  br i1 %exitcond.not.i22, label %433, label %429, !llvm.loop !107
 
-434:                                              ; preds = %430
-  %435 = fmul float %.1, %433
-  br label %436
+433:                                              ; preds = %429
+  %434 = fmul float %.1, %432
+  br label %435
 
-436:                                              ; preds = %436, %434
-  %indvars.iv30.i = phi i64 [ 0, %434 ], [ %indvars.iv.next31.i, %436 ]
-  %.12326.i = phi float [ %435, %434 ], [ %441, %436 ]
-  %437 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv30.i
-  %438 = load float, ptr %437, align 4, !tbaa !72
-  %439 = getelementptr inbounds nuw float, ptr %276, i64 %indvars.iv30.i
-  %440 = load float, ptr %439, align 4, !tbaa !72
-  %441 = tail call float @llvm.fmuladd.f32(float %438, float %440, float %.12326.i)
+435:                                              ; preds = %435, %433
+  %indvars.iv30.i = phi i64 [ 0, %433 ], [ %indvars.iv.next31.i, %435 ]
+  %.12326.i = phi float [ %434, %433 ], [ %440, %435 ]
+  %436 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv30.i
+  %437 = load float, ptr %436, align 4, !tbaa !72
+  %438 = getelementptr inbounds nuw float, ptr %276, i64 %indvars.iv30.i
+  %439 = load float, ptr %438, align 4, !tbaa !72
+  %440 = tail call float @llvm.fmuladd.f32(float %437, float %439, float %.12326.i)
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next31.i, 8
-  br i1 %exitcond33.not.i, label %_ZN2cvL9sacLMGainEPKfS1_fff.exit, label %436, !llvm.loop !108
+  br i1 %exitcond33.not.i, label %_ZN2cvL9sacLMGainEPKfS1_fff.exit, label %435, !llvm.loop !108
 
-_ZN2cvL9sacLMGainEPKfS1_fff.exit:                 ; preds = %436
-  %442 = fsub float %429, %.0189.lcssa.i
-  %443 = fmul float %441, 5.000000e-01
+_ZN2cvL9sacLMGainEPKfS1_fff.exit:                 ; preds = %435
+  %441 = load float, ptr %2, align 4, !tbaa !72
+  %442 = fsub float %441, %.0189.lcssa.i
+  %443 = fmul float %440, 5.000000e-01
   %444 = tail call noundef float @llvm.fabs.f32(float %443)
   %445 = fcmp olt float %444, 0x3E80000000000000
   %446 = fdiv float %442, %443
@@ -4090,8 +4090,8 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !54
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !54
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i

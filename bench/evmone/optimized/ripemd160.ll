@@ -21,17 +21,17 @@ define hidden void @_ZN6evmone6crypto9ripemd160EPSt4bytePKS1_m(ptr noundef write
   %5 = alloca %"struct.std::array.0", align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) @__const._ZN6evmone6crypto9ripemd160EPSt4bytePKS1_m.h, i64 20, i1 false)
-  %6 = and i64 %2, 63
-  %7 = and i64 %2, -64
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %7
-  %.not29 = icmp samesign eq i64 %7, 0
+  %6 = and i64 %2, -64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
+  %.not29 = icmp samesign eq i64 %6, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.023.lcssa = phi ptr [ %1, %3 ], [ %8, %.lr.ph ]
+  %.023.lcssa = phi ptr [ %1, %3 ], [ %7, %.lr.ph ]
+  %8 = and i64 %2, 63
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  %9 = icmp eq i64 %6, 0
+  %9 = icmp eq i64 %8, 0
   br i1 %9, label %_ZSt6copy_nIPKSt4bytemPS0_ET1_T_T0_S4_.exit.thread, label %_ZSt6copy_nIPKSt4bytemPS0_ET1_T_T0_S4_.exit
 
 _ZSt6copy_nIPKSt4bytemPS0_ET1_T_T0_S4_.exit.thread: ; preds = %._crit_edge
@@ -43,15 +43,15 @@ _ZSt6copy_nIPKSt4bytemPS0_ET1_T_T0_S4_.exit.thread: ; preds = %._crit_edge
   %.02330 = phi ptr [ %11, %.lr.ph ], [ %1, %3 ]
   call fastcc void @_ZN6evmone6crypto12_GLOBAL__N_18compressERSt5arrayIjLm5EEPKSt4byte(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef %.02330) #6
   %11 = getelementptr inbounds nuw i8, ptr %.02330, i64 64
-  %.not = icmp eq ptr %11, %8
+  %.not = icmp eq ptr %11, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 _ZSt6copy_nIPKSt4bytemPS0_ET1_T_T0_S4_.exit:      ; preds = %._crit_edge
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %.023.lcssa, i64 %6, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 %6
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %.023.lcssa, i64 %8, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 %8
   store i8 -128, ptr %12, align 1, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %.not25 = icmp samesign ult i64 %6, 56
+  %.not25 = icmp samesign ult i64 %8, 56
   br i1 %.not25, label %15, label %14
 
 14:                                               ; preds = %_ZSt6copy_nIPKSt4bytemPS0_ET1_T_T0_S4_.exit

@@ -736,35 +736,35 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %29, %31
   ret void
 
 33:                                               ; preds = %.lr.ph30, %._crit_edge
-  %.028 = phi i32 [ 0, %.lr.ph30 ], [ %34, %._crit_edge ]
+  %.028 = phi i32 [ 0, %.lr.ph30 ], [ %42, %._crit_edge ]
   %.02027 = phi ptr [ %16, %.lr.ph30 ], [ %43, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %34 = add nuw i32 %.028, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !130)
   store ptr @.str.10, ptr %20, align 8, !tbaa !12, !alias.scope !130
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjEEE, i64 16), ptr %4, align 8, !tbaa !15, !alias.scope !130
-  %35 = load i32, ptr %.02027, align 4, !tbaa !20, !noalias !130
-  store i32 %35, ptr %21, align 8, !tbaa !86, !alias.scope !130
+  %34 = load i32, ptr %.02027, align 4, !tbaa !20, !noalias !130
+  store i32 %34, ptr %21, align 8, !tbaa !86, !alias.scope !130
   store i32 %.028, ptr %22, align 4, !tbaa !21, !alias.scope !130
-  %36 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %4) #15
+  %35 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %37 = getelementptr inbounds nuw i8, ptr %.02027, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !30
-  %39 = getelementptr inbounds nuw i8, ptr %.02027, i64 16
-  %40 = load i32, ptr %39, align 8, !tbaa !3
-  %41 = zext i32 %40 to i64
-  %.idx32 = shl nuw nsw i64 %41, 2
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx32
-  %.not2124 = icmp eq i32 %40, 0
+  %36 = getelementptr inbounds nuw i8, ptr %.02027, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !30
+  %38 = getelementptr inbounds nuw i8, ptr %.02027, i64 16
+  %39 = load i32, ptr %38, align 8, !tbaa !3
+  %40 = zext i32 %39 to i64
+  %.idx32 = shl nuw nsw i64 %40, 2
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx32
+  %.not2124 = icmp eq i32 %39, 0
   br i1 %.not2124, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33
+  %42 = add nuw i32 %.028, 1
   %43 = getelementptr inbounds nuw i8, ptr %.02027, i64 24
   %.not = icmp eq ptr %43, %19
   br i1 %.not, label %._crit_edge31, label %33
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
-  %.01925 = phi ptr [ %46, %.lr.ph ], [ %38, %33 ]
+  %.01925 = phi ptr [ %46, %.lr.ph ], [ %37, %33 ]
   %44 = load i32, ptr %.01925, align 4, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @.str.11, ptr %23, align 8, !tbaa !12, !alias.scope !133
@@ -773,7 +773,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %29, %31
   %45 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %46 = getelementptr inbounds nuw i8, ptr %.01925, i64 4
-  %.not21 = icmp eq ptr %46, %42
+  %.not21 = icmp eq ptr %46, %41
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 }
 

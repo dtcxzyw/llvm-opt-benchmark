@@ -8445,11 +8445,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt5tupleIJP3appS2_mbEElN9_
   %.114.i.i.lcssa.sink44.ph = phi ptr [ %60, %68 ], [ %61, %77 ], [ %10, %84 ], [ %10, %91 ], [ %61, %100 ], [ %60, %107 ]
   br label %"_ZSt22__move_median_to_firstIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_SE_SE_SE_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_SE_SE_SE_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader", %125
-  %.1.i.i.lcssa.sink45 = phi ptr [ %.1.i.i, %125 ], [ %0, %"_ZSt22__move_median_to_firstIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
-  %.114.i.i.lcssa.sink44 = phi ptr [ %.114.i.i, %125 ], [ %.114.i.i.lcssa.sink44.ph, %"_ZSt22__move_median_to_firstIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
-  %.013.i.i = phi ptr [ %.114.i.i, %125 ], [ %.029, %"_ZSt22__move_median_to_firstIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
-  %.0.i.i = phi ptr [ %119, %125 ], [ %10, %"_ZSt22__move_median_to_firstIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_SE_SE_SE_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader", %124
+  %.1.i.i.lcssa.sink45 = phi ptr [ %.1.i.i, %124 ], [ %0, %"_ZSt22__move_median_to_firstIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
+  %.114.i.i.lcssa.sink44 = phi ptr [ %.114.i.i, %124 ], [ %.114.i.i.lcssa.sink44.ph, %"_ZSt22__move_median_to_firstIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
+  %.013.i.i = phi ptr [ %.114.i.i, %124 ], [ %.029, %"_ZSt22__move_median_to_firstIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
+  %.0.i.i = phi ptr [ %119, %124 ], [ %10, %"_ZSt22__move_median_to_firstIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
   %114 = load i8, ptr %.1.i.i.lcssa.sink45, align 1, !tbaa !469, !range !384, !noundef !385
   %115 = load i8, ptr %.114.i.i.lcssa.sink44, align 1, !tbaa !469, !range !384, !noundef !385
   store i8 %115, ptr %.1.i.i.lcssa.sink45, align 1, !tbaa !469
@@ -8463,26 +8463,23 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt5tupleIJP3appS2_mbEElN9_
   %.1.val.i.i = load i64, ptr %117, align 8, !tbaa !470
   %118 = icmp ult i64 %.1.val.i.i, %.val15.i.i
   %119 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
-  br i1 %118, label %116, label %.preheader.i.i.preheader, !llvm.loop !653
+  br i1 %118, label %116, label %.preheader.i.i, !llvm.loop !653
 
-.preheader.i.i.preheader:                         ; preds = %116
-  %120 = getelementptr i8, ptr %.1.i.i, i64 8
-  br label %.preheader.i.i
-
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %.preheader.i.i.preheader ]
+.preheader.i.i:                                   ; preds = %116, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %116 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -32
-  %121 = getelementptr i8, ptr %.013.pn.i.i, i64 -24
-  %.114.val.i.i = load i64, ptr %121, align 8, !tbaa !470
-  %122 = icmp ult i64 %.val15.i.i, %.114.val.i.i
-  br i1 %122, label %.preheader.i.i, label %123, !llvm.loop !654
+  %120 = getelementptr i8, ptr %.013.pn.i.i, i64 -24
+  %.114.val.i.i = load i64, ptr %120, align 8, !tbaa !470
+  %121 = icmp ult i64 %.val15.i.i, %.114.val.i.i
+  br i1 %121, label %.preheader.i.i, label %122, !llvm.loop !654
 
-123:                                              ; preds = %.preheader.i.i
-  %124 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %124, label %125, label %"_ZSt27__unguarded_partition_pivotIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEET_SE_SE_T0_.exit"
+122:                                              ; preds = %.preheader.i.i
+  %123 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %123, label %124, label %"_ZSt27__unguarded_partition_pivotIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEET_SE_SE_T0_.exit"
 
-125:                                              ; preds = %123
-  %126 = getelementptr i8, ptr %.013.pn.i.i, i64 -24
+124:                                              ; preds = %122
+  %125 = getelementptr i8, ptr %.013.pn.i.i, i64 -24
+  %126 = getelementptr i8, ptr %.1.i.i, i64 8
   %127 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %128 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
   %129 = load ptr, ptr %127, align 8, !tbaa !471
@@ -8495,11 +8492,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt5tupleIJP3appS2_mbEElN9_
   %134 = load ptr, ptr %132, align 8, !tbaa !471
   store ptr %134, ptr %131, align 8, !tbaa !471
   store ptr %133, ptr %132, align 8, !tbaa !471
-  store i64 %.114.val.i.i, ptr %120, align 8, !tbaa !470
-  store i64 %.1.val.i.i, ptr %126, align 8, !tbaa !470
+  store i64 %.114.val.i.i, ptr %126, align 8, !tbaa !470
+  store i64 %.1.val.i.i, ptr %125, align 8, !tbaa !470
   br label %"_ZSt22__move_median_to_firstIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_SE_SE_SE_T0_.exit.i", !llvm.loop !655
 
-"_ZSt27__unguarded_partition_pivotIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEET_SE_SE_T0_.exit": ; preds = %123
+"_ZSt27__unguarded_partition_pivotIPSt5tupleIJP3appS2_mbEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEET_SE_SE_T0_.exit": ; preds = %122
   tail call fastcc void @"_ZSt16__introsort_loopIPSt5tupleIJP3appS2_mbEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNK3euf13eq_proof_hint8get_hintERNS8_6solverEE3$_0EEEvT_SE_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.029, i64 noundef %58)
   %135 = ptrtoint ptr %.1.i.i to i64
   %136 = sub i64 %135, %6

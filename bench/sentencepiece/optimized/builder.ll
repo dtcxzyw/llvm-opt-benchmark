@@ -1318,8 +1318,8 @@ _ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %_ZSt4sortI
 
 _ZSt6fill_nIPPKcmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc217
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %346, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %345, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !58
   %348 = getelementptr inbounds nuw i8, ptr %345, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %345, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !58
   br label %349
 
 349:                                              ; preds = %.noexc217, %_ZSt6fill_nIPPKcmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i

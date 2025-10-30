@@ -1485,24 +1485,24 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_revoke_lease_ioctl(ptr 
   store ptr %22, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 464
   tail call void @mutex_lock(ptr noundef nonnull %23) #9
-  %24 = load i32, ptr %1, align 4
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %21
-  %26 = phi ptr [ %22, %21 ], [ %28, %25 ]
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %25, !llvm.loop !6
+24:                                               ; preds = %24, %21
+  %25 = phi ptr [ %22, %21 ], [ %27, %24 ]
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %24, !llvm.loop !6
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 136
-  %32 = sext i32 %24 to i64
+29:                                               ; preds = %24
+  %30 = load i32, ptr %1, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 136
+  %32 = sext i32 %30 to i64
   %33 = tail call ptr @idr_find(ptr noundef nonnull %31, i64 noundef %32) #9
   %34 = icmp eq ptr %33, null
   br i1 %34, label %40, label %35
 
-35:                                               ; preds = %30
+35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, %22
@@ -1512,8 +1512,8 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_revoke_lease_ioctl(ptr 
   tail call fastcc void @_drm_lease_revoke(ptr noundef nonnull %33)
   br label %40
 
-40:                                               ; preds = %39, %35, %30
-  %41 = phi i32 [ 0, %39 ], [ -2, %30 ], [ -13, %35 ]
+40:                                               ; preds = %39, %35, %29
+  %41 = phi i32 [ 0, %39 ], [ -2, %29 ], [ -13, %35 ]
   tail call void @mutex_unlock(ptr noundef nonnull %23) #9
   call void @drm_master_put(ptr noundef nonnull %4) #9
   br label %42

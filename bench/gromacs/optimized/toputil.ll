@@ -1336,49 +1336,49 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
 
 73:                                               ; preds = %72, %71, %70, %69, %68, %67, %67, %67, %67, %67, %67, %67
   %.073.i = phi i32 [ 0, %72 ], [ 2, %68 ], [ 3, %69 ], [ 4, %70 ], [ 5, %71 ], [ 1, %67 ], [ 1, %67 ], [ 1, %67 ], [ 1, %67 ], [ 1, %67 ], [ 1, %67 ], [ 1, %67 ]
-  %.not.i = icmp eq i32 %4, 0
-  %74 = add nsw i32 %4, -1
-  %spec.select.i = select i1 %.not.i, i32 %.073.i, i32 %74
-  %75 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %61
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load i32, ptr %76, align 16, !tbaa !104
-  %.fr26.i = freeze i32 %77
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 20
-  %79 = load i32, ptr %78, align 4, !tbaa !106
-  %80 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %81 = load i32, ptr %80, align 8, !tbaa !107
-  %82 = add i32 %81, %79
-  %83 = invoke noundef ptr @_Z17enumValueToString9Directive(i32 noundef %2)
+  %74 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %61
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %76 = load i32, ptr %75, align 16, !tbaa !104
+  %.fr26.i = freeze i32 %76
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 20
+  %78 = load i32, ptr %77, align 4, !tbaa !106
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  %80 = load i32, ptr %79, align 8, !tbaa !107
+  %81 = invoke noundef ptr @_Z17enumValueToString9Directive(i32 noundef %2)
           to label %.noexc29 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc29:                                         ; preds = %73
-  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %83) #24
-  %85 = call i64 @fwrite(ptr nonnull @.str.33, i64 2, i64 1, ptr %0)
-  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36) #24
-  %87 = icmp sgt i32 %.fr26.i, 2
-  br i1 %87, label %.lr.ph.i, label %._crit_edge.i
+  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %81) #24
+  %83 = call i64 @fwrite(ptr nonnull @.str.33, i64 2, i64 1, ptr %0)
+  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36) #24
+  %85 = icmp sgt i32 %.fr26.i, 2
+  br i1 %85, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.noexc29, %.lr.ph.i
-  %.0728.i = phi i32 [ %90, %.lr.ph.i ], [ 2, %.noexc29 ]
-  %88 = add nuw nsw i32 %.0728.i, 105
-  %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.37, i32 noundef 97, i32 noundef %88) #24
-  %90 = add nuw nsw i32 %.0728.i, 1
-  %exitcond.not.i = icmp eq i32 %90, %.fr26.i
+  %.0728.i = phi i32 [ %88, %.lr.ph.i ], [ 2, %.noexc29 ]
+  %86 = add nuw nsw i32 %.0728.i, 105
+  %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.37, i32 noundef 97, i32 noundef %86) #24
+  %88 = add nuw nsw i32 %.0728.i, 1
+  %exitcond.not.i = icmp eq i32 %88, %.fr26.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !108
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.noexc29
-  %91 = call i64 @fwrite(ptr nonnull @.str.39, i64 6, i64 1, ptr %0)
-  %92 = icmp sgt i32 %82, 0
-  br i1 %92, label %.lr.ph11.i, label %._crit_edge12.i
+  %89 = add i32 %80, %78
+  %90 = call i64 @fwrite(ptr nonnull @.str.39, i64 6, i64 1, ptr %0)
+  %91 = icmp sgt i32 %89, 0
+  br i1 %91, label %.lr.ph11.i, label %._crit_edge12.i
 
 ._crit_edge12.i:                                  ; preds = %.lr.ph11.i, %._crit_edge.i
   %fputc.i = call i32 @fputc(i32 10, ptr %0)
-  %93 = load ptr, ptr %62, align 8, !tbaa !109
-  %94 = load ptr, ptr %63, align 8, !tbaa !109
-  %.not721.i = icmp eq ptr %93, %94
+  %92 = load ptr, ptr %62, align 8, !tbaa !109
+  %93 = load ptr, ptr %63, align 8, !tbaa !109
+  %.not721.i = icmp eq ptr %92, %93
   br i1 %.not721.i, label %._crit_edge25.i, label %.lr.ph24.i
 
 .lr.ph24.i:                                       ; preds = %._crit_edge12.i
+  %.not.i = icmp eq i32 %4, 0
+  %94 = add nsw i32 %4, -1
+  %spec.select.i = select i1 %.not.i, i32 %.073.i, i32 %94
   %95 = icmp eq i32 %3, 27
   %96 = icmp sgt i32 %.fr26.i, 0
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1388,16 +1388,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
   br i1 %96, label %.lr.ph24.split.us.preheader.i, label %.lr.ph24.split.preheader.i
 
 .lr.ph24.split.preheader.i:                       ; preds = %.lr.ph24.i
-  %wide.trip.count.i = zext nneg i32 %82 to i64
+  %wide.trip.count.i = zext nneg i32 %89 to i64
   br label %.lr.ph24.split.i
 
 .lr.ph24.split.us.preheader.i:                    ; preds = %.lr.ph24.i
   %wide.trip.count34.i = zext nneg i32 %.fr26.i to i64
-  %wide.trip.count39.i = zext nneg i32 %82 to i64
+  %wide.trip.count39.i = zext nneg i32 %89 to i64
   br label %.lr.ph24.split.us.i
 
 .lr.ph24.split.us.i:                              ; preds = %.critedge.us.i, %.lr.ph24.split.us.preheader.i
-  %.sroa.04.022.us.i = phi ptr [ %120, %.critedge.us.i ], [ %93, %.lr.ph24.split.us.preheader.i ]
+  %.sroa.04.022.us.i = phi ptr [ %120, %.critedge.us.i ], [ %92, %.lr.ph24.split.us.preheader.i ]
   br i1 %95, label %.lr.ph15.us.i, label %101
 
 101:                                              ; preds = %.lr.ph24.split.us.i
@@ -1435,7 +1435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
 
 115:                                              ; preds = %.noexc34
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.04.022.us.i, i64 24
-  br i1 %92, label %.lr.ph19.us.i, label %.critedge.us.i
+  br i1 %91, label %.lr.ph19.us.i, label %.critedge.us.i
 
 .lr.ph19.us.i:                                    ; preds = %115, %121
   %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %121 ], [ 0, %115 ]
@@ -1447,7 +1447,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
 .critedge.us.i:                                   ; preds = %121, %.lr.ph19.us.i, %115, %.noexc32
   %fputc78.us.i = call i32 @fputc(i32 10, ptr %0)
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.04.022.us.i, i64 112
-  %.not7.us.i = icmp eq ptr %120, %94
+  %.not7.us.i = icmp eq ptr %120, %93
   br i1 %.not7.us.i, label %._crit_edge25.i, label %.lr.ph24.split.us.i
 
 121:                                              ; preds = %.lr.ph19.us.i
@@ -1505,7 +1505,7 @@ _ZNSt14_Optional_baseIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EL
   %.0709.i = phi i32 [ %142, %.lr.ph11.i ], [ 0, %._crit_edge.i ]
   %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef 99, i32 noundef %.0709.i) #24
   %142 = add nuw nsw i32 %.0709.i, 1
-  %exitcond28.not.i = icmp eq i32 %142, %82
+  %exitcond28.not.i = icmp eq i32 %142, %89
   br i1 %exitcond28.not.i, label %._crit_edge12.i, label %.lr.ph11.i, !llvm.loop !113
 
 ._crit_edge25.i:                                  ; preds = %.critedge.i, %.critedge.us.i, %._crit_edge12.i
@@ -1514,7 +1514,7 @@ _ZNSt14_Optional_baseIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EL
   br label %_ZNSt10unique_ptrI6t_atomSt14default_deleteIS0_EED2Ev.exit
 
 .lr.ph24.split.i:                                 ; preds = %.critedge.i, %.lr.ph24.split.preheader.i
-  %.sroa.04.022.i = phi ptr [ %171, %.critedge.i ], [ %93, %.lr.ph24.split.preheader.i ]
+  %.sroa.04.022.i = phi ptr [ %171, %.critedge.i ], [ %92, %.lr.ph24.split.preheader.i ]
   br i1 %95, label %153, label %144
 
 144:                                              ; preds = %.lr.ph24.split.i
@@ -1559,7 +1559,7 @@ _ZNSt14_Optional_baseIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EL
 
 163:                                              ; preds = %.noexc37
   %164 = getelementptr inbounds nuw i8, ptr %.sroa.04.022.i, i64 24
-  br i1 %92, label %.lr.ph19.i, label %.critedge.i
+  br i1 %91, label %.lr.ph19.i, label %.critedge.i
 
 .lr.ph19.i:                                       ; preds = %163, %168
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %168 ], [ 0, %163 ]
@@ -1578,7 +1578,7 @@ _ZNSt14_Optional_baseIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EL
 .critedge.i:                                      ; preds = %168, %.lr.ph19.i, %163, %.noexc38
   %fputc78.i = call i32 @fputc(i32 10, ptr %0)
   %171 = getelementptr inbounds nuw i8, ptr %.sroa.04.022.i, i64 112
-  %.not7.i = icmp eq ptr %171, %94
+  %.not7.i = icmp eq ptr %171, %93
   br i1 %.not7.i, label %._crit_edge25.i, label %.lr.ph24.split.i
 
 _ZNSt10unique_ptrI6t_atomSt14default_deleteIS0_EED2Ev.exit: ; preds = %._crit_edge25.i, %._crit_edge

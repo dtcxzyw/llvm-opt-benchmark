@@ -1074,12 +1074,12 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
   %15 = or disjoint i64 %11, %14
   %16 = add nuw nsw i64 %15, 13
   %17 = icmp eq ptr %7, null
-  br i1 %17, label %.loopexit, label %18
+  br i1 %17, label %.loopexit108, label %18
 
 18:                                               ; preds = %5
   %19 = sext i32 %2 to i64
   %20 = icmp ugt i64 %16, %19
-  br i1 %20, label %.loopexit, label %21
+  br i1 %20, label %.loopexit108, label %21
 
 21:                                               ; preds = %18
   %22 = icmp eq i64 %16, %19
@@ -1091,7 +1091,7 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
   %26 = icmp sgt i32 %25, 0
   %27 = icmp ne i32 %3, -1
   %or.cond = and i1 %27, %26
-  br i1 %or.cond, label %.loopexit, label %.thread
+  br i1 %or.cond, label %.loopexit108, label %.thread
 
 .thread:                                          ; preds = %21, %23
   %.088107 = phi i1 [ %26, %23 ], [ false, %21 ]
@@ -1102,7 +1102,7 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
 30:                                               ; preds = %.thread
   %31 = load i32, ptr %29, align 4, !tbaa !37
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %32, label %.loopexit
+  br i1 %.not, label %32, label %.loopexit108
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -1189,8 +1189,8 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
   br i1 %67, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %72
-  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %72 ], [ 0, %.preheader ]
-  %68 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv138
+  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %72 ], [ 0, %.preheader ]
+  %68 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv137
   %69 = load ptr, ptr %68, align 8, !tbaa !38
   %70 = load ptr, ptr %7, align 8, !tbaa !15
   %71 = tail call i32 @OPENSSL_sk_push(ptr noundef %70, ptr noundef %69) #14
@@ -1201,9 +1201,9 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
   %73 = load i32, ptr %39, align 4, !tbaa !40
   %74 = add i32 %73, 1
   store i32 %74, ptr %39, align 4, !tbaa !40
-  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
-  %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count
-  br i1 %exitcond142.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !42
+  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
+  %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count
+  br i1 %exitcond141.not, label %.loopexit108, label %.preheader.split.us, !llvm.loop !42
 
 75:                                               ; preds = %.lr.ph, %108
   %.1119 = phi i32 [ 0, %.lr.ph ], [ %109, %108 ]
@@ -1227,7 +1227,7 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
   br i1 %87, label %.loopexit110, label %88
 
 88:                                               ; preds = %84
-  br i1 %28, label %.loopexit, label %89
+  br i1 %28, label %.loopexit108, label %89
 
 89:                                               ; preds = %88
   %90 = load i32, ptr %39, align 4, !tbaa !40
@@ -1242,14 +1242,14 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
   %93 = load ptr, ptr %7, align 8, !tbaa !15
   %94 = tail call ptr @OPENSSL_sk_value(ptr noundef %93, i32 noundef %92) #14
   %.not102 = icmp eq ptr %94, null
-  br i1 %.not102, label %.loopexit, label %95
+  br i1 %.not102, label %.loopexit108, label %95
 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 12
   %97 = load i32, ptr %96, align 4, !tbaa !20
   %98 = load i32, ptr %39, align 4, !tbaa !40
   %99 = icmp eq i32 %97, %98
-  br i1 %99, label %91, label %.loopexit
+  br i1 %99, label %91, label %.loopexit108
 
 100:                                              ; preds = %79
   %101 = icmp eq i32 %81, %82
@@ -1276,8 +1276,8 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
   br i1 %112, label %75, label %.preheader, !llvm.loop !43
 
 .preheader.split:                                 ; preds = %.preheader, %117
-  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %117 ], [ 0, %.preheader ]
-  %113 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv133
+  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %117 ], [ 0, %.preheader ]
+  %113 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv132
   %114 = load ptr, ptr %113, align 8, !tbaa !38
   %115 = load ptr, ptr %7, align 8, !tbaa !15
   %116 = tail call i32 @OPENSSL_sk_push(ptr noundef %115, ptr noundef %114) #14
@@ -1285,17 +1285,17 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
   br i1 %.not99, label %.loopexit110, label %117
 
 117:                                              ; preds = %.preheader.split
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count
-  br i1 %exitcond137.not, label %.loopexit, label %.preheader.split, !llvm.loop !42
+  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
+  %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count
+  br i1 %exitcond136.not, label %.loopexit108, label %.preheader.split, !llvm.loop !42
 
 .loopexit110:                                     ; preds = %49, %45, %102, %75, %.preheader.split, %.preheader.split.us, %84
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 40
   br label %119
 
 119:                                              ; preds = %.loopexit110, %mempacket_free.exit
-  %indvars.iv143 = phi i64 [ 0, %.loopexit110 ], [ %indvars.iv.next144, %mempacket_free.exit ]
-  %120 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv143
+  %indvars.iv142 = phi i64 [ 0, %.loopexit110 ], [ %indvars.iv.next143, %mempacket_free.exit ]
+  %120 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv142
   %121 = load ptr, ptr %120, align 8, !tbaa !38
   %122 = load ptr, ptr %121, align 8, !tbaa !28
   %.not.i = icmp eq ptr %122, null
@@ -1307,14 +1307,14 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
 
 mempacket_free.exit:                              ; preds = %119, %123
   tail call void @CRYPTO_free(ptr noundef nonnull %121, ptr noundef nonnull @.str.1, i32 noundef 268) #14
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %124 = load i32, ptr %118, align 8, !tbaa !34
   %.inv = icmp sgt i32 %124, 0
-  %125 = icmp samesign ult i64 %indvars.iv143, 2
+  %125 = icmp samesign ult i64 %indvars.iv142, 2
   %126 = select i1 %.inv, i1 %125, i1 false
-  br i1 %126, label %119, label %.loopexit, !llvm.loop !44
+  br i1 %126, label %119, label %.loopexit108, !llvm.loop !44
 
-.loopexit:                                        ; preds = %117, %72, %91, %95, %mempacket_free.exit, %88, %30, %23, %18, %5
+.loopexit108:                                     ; preds = %117, %72, %91, %95, %mempacket_free.exit, %88, %30, %23, %18, %5
   %.0 = phi i32 [ -1, %5 ], [ -1, %18 ], [ -1, %23 ], [ -1, %30 ], [ %2, %88 ], [ -1, %mempacket_free.exit ], [ %2, %95 ], [ %2, %91 ], [ %2, %72 ], [ %2, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

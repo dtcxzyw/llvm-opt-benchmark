@@ -1264,8 +1264,8 @@ _ZNSt6vectorIN6Assimp11Q3DImporter4FaceESaIS2_EE7reserveEm.exit: ; preds = %320,
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i: ; preds = %.noexc602
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %391, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %390, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   %393 = getelementptr inbounds nuw i8, ptr %390, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %390, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %394
 
 _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i10.i.i.i.i: ; preds = %383
@@ -1292,8 +1292,8 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i10.i.i.i.i: ; preds = %383
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i7.i.i.i.i: ; preds = %.noexc11.i.i.i.i
   %.idx.i.i.i.i.i.i.i8.i.i.i.i = shl nuw nsw i64 %391, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %400, i8 0, i64 %.idx.i.i.i.i.i.i.i8.i.i.i.i, i1 false)
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 %.idx.i.i.i.i.i.i.i8.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %400, i8 0, i64 %.idx.i.i.i.i.i.i.i8.i.i.i.i, i1 false)
   br label %_ZNSt16allocator_traitsISaIN6Assimp11Q3DImporter4FaceEEE9constructIS2_JsEEEvRS3_PT_DpOT0_.exit.i
 
 _ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i.i:            ; preds = %394
@@ -6799,8 +6799,8 @@ _ZNKSt6vectorIN6Assimp11Q3DImporter4FaceESaIS2_EE12_M_check_lenEmPKc.exit: ; pre
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i: ; preds = %.noexc
   %.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %30, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %29, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %29, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %33
 
 _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i10.i.i.i: ; preds = %_ZNKSt6vectorIN6Assimp11Q3DImporter4FaceESaIS2_EE12_M_check_lenEmPKc.exit
@@ -6827,8 +6827,8 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i10.i.i.i: ; preds = %_ZNKSt6ve
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i7.i.i.i: ; preds = %.noexc11.i.i.i
   %.idx.i.i.i.i.i.i.i8.i.i.i = shl nuw nsw i64 %30, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %39, i8 0, i64 %.idx.i.i.i.i.i.i.i8.i.i.i, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i.i.i.i.i.i8.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %39, i8 0, i64 %.idx.i.i.i.i.i.i.i8.i.i.i, i1 false)
   br label %42
 
 _ZNSt6vectorIjSaIjEED2Ev.exit.i.i.i:              ; preds = %33

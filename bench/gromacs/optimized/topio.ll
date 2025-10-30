@@ -6620,8 +6620,8 @@ _ZL11IS_CHEMBONDi.exit.i:                         ; preds = %399
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %423
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %425, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %424, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !63
   %427 = getelementptr inbounds nuw i8, ptr %424, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %424, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !63
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %423
@@ -6834,8 +6834,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %503
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %505, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %504, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !63
   %507 = getelementptr inbounds nuw i8, ptr %504, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %504, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !63
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i.i
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %503
@@ -7155,8 +7155,8 @@ _ZSt8_DestroyIPN3gmx14ExclusionBlockES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZS
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i218.i: ; preds = %637
   %.idx.i.i.i.i.i.i219.i = shl nuw nsw i64 %639, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %638, i8 0, i64 %.idx.i.i.i.i.i.i219.i, i1 false), !tbaa !63
   %641 = getelementptr inbounds nuw i8, ptr %638, i64 %.idx.i.i.i.i.i.i219.i
+  call void @llvm.memset.p0.i64(ptr align 4 %638, i8 0, i64 %.idx.i.i.i.i.i.i219.i, i1 false), !tbaa !63
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i220.i
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i220.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i218.i, %637

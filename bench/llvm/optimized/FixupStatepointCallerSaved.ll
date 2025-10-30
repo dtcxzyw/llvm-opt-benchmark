@@ -3595,9 +3595,9 @@ _ZN4llvm16DenseMapIteratorINS_8RegisterEiNS_12DenseMapInfoIS1_vEENS_6detail12Den
 _ZN12_GLOBAL__N_115StatepointState17rewriteStatepointEv.exit.i: ; preds = %1247, %._crit_edge116.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %1331 = getelementptr inbounds nuw i8, ptr %1005, i64 24
-  %1332 = load ptr, ptr %1331, align 8, !tbaa !293
-  %1333 = load ptr, ptr %1237, align 8, !tbaa !196
+  %1331 = load ptr, ptr %1237, align 8, !tbaa !196
+  %1332 = getelementptr inbounds nuw i8, ptr %1005, i64 24
+  %1333 = load ptr, ptr %1332, align 8, !tbaa !293
   %1334 = load ptr, ptr %123, align 8, !tbaa !25
   %1335 = load i32, ptr %125, align 8, !tbaa !26
   %1336 = zext i32 %1335 to i64
@@ -3611,7 +3611,7 @@ _ZN12_GLOBAL__N_115StatepointState17rewriteStatepointEv.exit.i: ; preds = %1247,
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %1338 = load i32, ptr %.026.i.i, align 4, !tbaa !248
   store i32 %1338, ptr %6, align 4, !tbaa !248
-  call fastcc void @_ZN12_GLOBAL__N_115StatepointState18insertReloadBeforeEjN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEPNS1_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(240) %30, i32 noundef %1338, ptr %1333, ptr noundef %1332)
+  call fastcc void @_ZN12_GLOBAL__N_115StatepointState18insertReloadBeforeEjN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEPNS1_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(240) %30, i32 noundef %1338, ptr %1331, ptr noundef %1333)
   %1339 = load ptr, ptr %128, align 8, !tbaa !292
   %.not20.i.i = icmp eq ptr %1339, null
   br i1 %.not20.i.i, label %_ZN12_GLOBAL__N_114RegReloadCache9hasReloadEN4llvm8RegisterEiPKNS1_17MachineBasicBlockE.exit.thread22.i.i, label %1340

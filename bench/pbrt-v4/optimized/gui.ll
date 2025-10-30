@@ -2018,7 +2018,6 @@ define dso_local void @_ZN4pbrt3GUI17cursorPosCallbackEP10GLFWwindowdd(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt3GUIC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7Vector2IiEENS_7Bounds3IfEE(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 5), (16, 20), (24, 32)) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef readonly byval(%"class.pbrt::Bounds3") align 8 captures(none) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %.fr13 = freeze i64 %2
   store float 1.000000e+00, ptr %0, align 8, !tbaa !176
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %5, align 4, !tbaa !175
@@ -2082,6 +2081,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %14
   br i1 %exitcond.not.i5.i, label %21, label %22, !llvm.loop !174
 
 26:                                               ; preds = %21
+  %.fr13 = freeze i64 %2
   %.sroa.06.0.extract.trunc = trunc i64 %.fr13 to i32
   %.sroa.5.0.extract.shift = lshr i64 %.fr13, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32

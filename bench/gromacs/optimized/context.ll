@@ -3991,16 +3991,16 @@ _ZNSt6vectorIPcSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %_ZNSt6vecto
           to label %.noexc173 unwind label %340
 
 .noexc173:                                        ; preds = %328
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 %329
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %330, i8 0, i64 %329, i1 false), !tbaa !146
-  %331 = getelementptr inbounds nuw ptr, ptr %330, i64 %325
-  %332 = getelementptr inbounds nuw i8, ptr %330, i64 %329
-  %333 = ptrtoint ptr %331 to i64
+  %332 = getelementptr inbounds nuw ptr, ptr %330, i64 %325
+  %333 = ptrtoint ptr %332 to i64
   br label %_ZNSt6vectorIPcSaIS0_EEC2EmRKS0_RKS1_.exit
 
 _ZNSt6vectorIPcSaIS0_EEC2EmRKS0_RKS1_.exit:       ; preds = %.noexc173, %_ZNSt6vectorIPcSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %.sroa.16.0 = phi i64 [ 0, %_ZNSt6vectorIPcSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %333, %.noexc173 ]
   %.sroa.0227.0 = phi ptr [ null, %_ZNSt6vectorIPcSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %330, %.noexc173 ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIPcSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %332, %.noexc173 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIPcSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ], [ %331, %.noexc173 ]
   %334 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #23
           to label %335 unwind label %342
 

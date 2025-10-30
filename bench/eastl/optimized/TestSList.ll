@@ -4158,7 +4158,7 @@ call.i.i.i.i.i.i.noexc.i2275:                     ; preds = %for.body.i.i.i2270
   store ptr %call.i.i.i.i.i.i1.i2273, ptr %pNode.addr.06.i.i.i2271, align 8
   %first.addr.05.i.i.i2272.add = add nuw nsw i64 %first.addr.05.i.i.i2272.idx, 4
   %cmp.not.i.i.i2279 = icmp eq i64 %first.addr.05.i.i.i2272.add, 28
-  br i1 %cmp.not.i.i.i2279, label %invoke.cont1158, label %for.body.i.i.i2270, !llvm.loop !13
+  br i1 %cmp.not.i.i.i2279, label %while.body.i.i.i2283, label %for.body.i.i.i2270, !llvm.loop !13
 
 lpad.i2274:                                       ; preds = %for.body.i.i.i2270
   %343 = landingpad { ptr, i32 }
@@ -4174,19 +4174,16 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6450
   %cmp.not.i.i6453 = icmp eq ptr %344, null
   br i1 %cmp.not.i.i6453, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i5873.preheader, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6450, !llvm.loop !9
 
-invoke.cont1158:                                  ; preds = %call.i.i.i.i.i.i.noexc.i2275
-  %ref.tmp1149.sroa.0.0.ref.tmp1149.sroa.0.0.ref.tmp1149.sroa.0.0.ref.tmp1149.sroa.0.0. = load ptr, ptr %ref.tmp1149.sroa.0, align 8
-  br label %while.body.i.i.i2283
-
-while.body.i.i.i2283:                             ; preds = %invoke.cont1158, %while.body.i.i.i2283
-  %n.05.i.i.i2284 = phi i32 [ %inc.i.i.i2286, %while.body.i.i.i2283 ], [ 0, %invoke.cont1158 ]
-  %pNode.addr.04.i.i.i2285 = phi ptr [ %345, %while.body.i.i.i2283 ], [ %list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0., %invoke.cont1158 ]
+while.body.i.i.i2283:                             ; preds = %call.i.i.i.i.i.i.noexc.i2275, %while.body.i.i.i2283
+  %n.05.i.i.i2284 = phi i32 [ %inc.i.i.i2286, %while.body.i.i.i2283 ], [ 0, %call.i.i.i.i.i.i.noexc.i2275 ]
+  %pNode.addr.04.i.i.i2285 = phi ptr [ %345, %while.body.i.i.i2283 ], [ %list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0., %call.i.i.i.i.i.i.noexc.i2275 ]
   %inc.i.i.i2286 = add i32 %n.05.i.i.i2284, 1
   %345 = load ptr, ptr %pNode.addr.04.i.i.i2285, align 8
   %tobool.not.i.i.i2287 = icmp eq ptr %345, null
   br i1 %tobool.not.i.i.i2287, label %_ZNK5eastl5slistIiNS_9allocatorEE4sizeEv.exit.i2289, label %while.body.i.i.i2283, !llvm.loop !10
 
 _ZNK5eastl5slistIiNS_9allocatorEE4sizeEv.exit.i2289: ; preds = %while.body.i.i.i2283
+  %ref.tmp1149.sroa.0.0.ref.tmp1149.sroa.0.0.ref.tmp1149.sroa.0.0.ref.tmp1149.sroa.0.0. = load ptr, ptr %ref.tmp1149.sroa.0, align 8
   %346 = zext i32 %inc.i.i.i2286 to i64
   %tobool.not3.i.i4.i2291 = icmp eq ptr %ref.tmp1149.sroa.0.0.ref.tmp1149.sroa.0.0.ref.tmp1149.sroa.0.0.ref.tmp1149.sroa.0.0., null
   br i1 %tobool.not3.i.i4.i2291, label %_ZNK5eastl5slistIiNS_9allocatorEE4sizeEv.exit12.i2298, label %while.body.i.i5.i2292
@@ -4280,7 +4277,7 @@ call.i.i.i.i.i.i.noexc.i2341:                     ; preds = %for.body.i.i.i2336
   store ptr %call.i.i.i.i.i.i1.i2339, ptr %pNode.addr.06.i.i.i2337, align 8
   %first.addr.05.i.i.i2338.add = add nuw nsw i64 %first.addr.05.i.i.i2338.idx, 4
   %cmp.not.i.i.i2345 = icmp eq i64 %first.addr.05.i.i.i2338.add, 24
-  br i1 %cmp.not.i.i.i2345, label %invoke.cont1183, label %for.body.i.i.i2336, !llvm.loop !13
+  br i1 %cmp.not.i.i.i2345, label %while.body.i.i.i2350, label %for.body.i.i.i2336, !llvm.loop !13
 
 lpad.i2340:                                       ; preds = %for.body.i.i.i2336
   %358 = landingpad { ptr, i32 }
@@ -4296,19 +4293,16 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6458
   %cmp.not.i.i6461 = icmp eq ptr %359, null
   br i1 %cmp.not.i.i6461, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i5873.preheader, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6458, !llvm.loop !9
 
-invoke.cont1183:                                  ; preds = %call.i.i.i.i.i.i.noexc.i2341
-  %ref.tmp1174.sroa.0.0.ref.tmp1174.sroa.0.0.ref.tmp1174.sroa.0.0.ref.tmp1174.sroa.0.0. = load ptr, ptr %ref.tmp1174.sroa.0, align 8
-  br label %while.body.i.i.i2350
-
-while.body.i.i.i2350:                             ; preds = %invoke.cont1183, %while.body.i.i.i2350
-  %n.05.i.i.i2351 = phi i32 [ %inc.i.i.i2353, %while.body.i.i.i2350 ], [ 0, %invoke.cont1183 ]
-  %pNode.addr.04.i.i.i2352 = phi ptr [ %360, %while.body.i.i.i2350 ], [ %list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0., %invoke.cont1183 ]
+while.body.i.i.i2350:                             ; preds = %call.i.i.i.i.i.i.noexc.i2341, %while.body.i.i.i2350
+  %n.05.i.i.i2351 = phi i32 [ %inc.i.i.i2353, %while.body.i.i.i2350 ], [ 0, %call.i.i.i.i.i.i.noexc.i2341 ]
+  %pNode.addr.04.i.i.i2352 = phi ptr [ %360, %while.body.i.i.i2350 ], [ %list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0., %call.i.i.i.i.i.i.noexc.i2341 ]
   %inc.i.i.i2353 = add i32 %n.05.i.i.i2351, 1
   %360 = load ptr, ptr %pNode.addr.04.i.i.i2352, align 8
   %tobool.not.i.i.i2354 = icmp eq ptr %360, null
   br i1 %tobool.not.i.i.i2354, label %_ZNK5eastl5slistIiNS_9allocatorEE4sizeEv.exit.i2356, label %while.body.i.i.i2350, !llvm.loop !10
 
 _ZNK5eastl5slistIiNS_9allocatorEE4sizeEv.exit.i2356: ; preds = %while.body.i.i.i2350
+  %ref.tmp1174.sroa.0.0.ref.tmp1174.sroa.0.0.ref.tmp1174.sroa.0.0.ref.tmp1174.sroa.0.0. = load ptr, ptr %ref.tmp1174.sroa.0, align 8
   %361 = zext i32 %inc.i.i.i2353 to i64
   %tobool.not3.i.i4.i2358 = icmp eq ptr %ref.tmp1174.sroa.0.0.ref.tmp1174.sroa.0.0.ref.tmp1174.sroa.0.0.ref.tmp1174.sroa.0.0., null
   br i1 %tobool.not3.i.i4.i2358, label %_ZNK5eastl5slistIiNS_9allocatorEE4sizeEv.exit12.i2365, label %while.body.i.i5.i2359
@@ -4402,7 +4396,7 @@ call.i.i.i.i.i.i.noexc.i2408:                     ; preds = %for.body.i.i.i2403
   store ptr %call.i.i.i.i.i.i1.i2406, ptr %pNode.addr.06.i.i.i2404, align 8
   %first.addr.05.i.i.i2405.add = add nuw nsw i64 %first.addr.05.i.i.i2405.idx, 4
   %cmp.not.i.i.i2412 = icmp eq i64 %first.addr.05.i.i.i2405.add, 20
-  br i1 %cmp.not.i.i.i2412, label %invoke.cont1208, label %for.body.i.i.i2403, !llvm.loop !13
+  br i1 %cmp.not.i.i.i2412, label %while.body.i.i.i2417, label %for.body.i.i.i2403, !llvm.loop !13
 
 lpad.i2407:                                       ; preds = %for.body.i.i.i2403
   %373 = landingpad { ptr, i32 }
@@ -4418,19 +4412,16 @@ _ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6466
   %cmp.not.i.i6469 = icmp eq ptr %374, null
   br i1 %cmp.not.i.i6469, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i5873.preheader, label %_ZN5eastl9SListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i6466, !llvm.loop !9
 
-invoke.cont1208:                                  ; preds = %call.i.i.i.i.i.i.noexc.i2408
-  %ref.tmp1199.sroa.0.0.ref.tmp1199.sroa.0.0.ref.tmp1199.sroa.0.0.ref.tmp1199.sroa.0.0. = load ptr, ptr %ref.tmp1199.sroa.0, align 8
-  br label %while.body.i.i.i2417
-
-while.body.i.i.i2417:                             ; preds = %invoke.cont1208, %while.body.i.i.i2417
-  %n.05.i.i.i2418 = phi i32 [ %inc.i.i.i2420, %while.body.i.i.i2417 ], [ 0, %invoke.cont1208 ]
-  %pNode.addr.04.i.i.i2419 = phi ptr [ %375, %while.body.i.i.i2417 ], [ %list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0., %invoke.cont1208 ]
+while.body.i.i.i2417:                             ; preds = %call.i.i.i.i.i.i.noexc.i2408, %while.body.i.i.i2417
+  %n.05.i.i.i2418 = phi i32 [ %inc.i.i.i2420, %while.body.i.i.i2417 ], [ 0, %call.i.i.i.i.i.i.noexc.i2408 ]
+  %pNode.addr.04.i.i.i2419 = phi ptr [ %375, %while.body.i.i.i2417 ], [ %list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0.list11134.sroa.0.0., %call.i.i.i.i.i.i.noexc.i2408 ]
   %inc.i.i.i2420 = add i32 %n.05.i.i.i2418, 1
   %375 = load ptr, ptr %pNode.addr.04.i.i.i2419, align 8
   %tobool.not.i.i.i2421 = icmp eq ptr %375, null
   br i1 %tobool.not.i.i.i2421, label %_ZNK5eastl5slistIiNS_9allocatorEE4sizeEv.exit.i2423, label %while.body.i.i.i2417, !llvm.loop !10
 
 _ZNK5eastl5slistIiNS_9allocatorEE4sizeEv.exit.i2423: ; preds = %while.body.i.i.i2417
+  %ref.tmp1199.sroa.0.0.ref.tmp1199.sroa.0.0.ref.tmp1199.sroa.0.0.ref.tmp1199.sroa.0.0. = load ptr, ptr %ref.tmp1199.sroa.0, align 8
   %376 = zext i32 %inc.i.i.i2420 to i64
   %tobool.not3.i.i4.i2425 = icmp eq ptr %ref.tmp1199.sroa.0.0.ref.tmp1199.sroa.0.0.ref.tmp1199.sroa.0.0.ref.tmp1199.sroa.0.0., null
   br i1 %tobool.not3.i.i4.i2425, label %_ZNK5eastl5slistIiNS_9allocatorEE4sizeEv.exit12.i2432, label %while.body.i.i5.i2426

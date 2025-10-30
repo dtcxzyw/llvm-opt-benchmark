@@ -501,34 +501,34 @@ av_log2_i.exit51:                                 ; preds = %57, %47
 61:                                               ; preds = %av_log2_i.exit51
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %62 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   store i64 %1, ptr %21, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %2, ptr %63, align 8
-  br label %64
+  %62 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i64 %2, ptr %62, align 8
+  br label %63
 
-64:                                               ; preds = %64, %61
-  %indvars.iv.i = phi i64 [ 0, %61 ], [ %indvars.iv.next.i, %64 ]
-  %.09.i52 = phi i32 [ 0, %61 ], [ %73, %64 ]
-  %65 = ashr i32 %.09.i52, 16
-  %66 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv.i
-  %67 = load i16, ptr %66, align 2, !tbaa !4
-  %68 = zext i16 %67 to i32
-  %69 = add nsw i32 %65, %68
-  %70 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv.i
-  %71 = load i16, ptr %70, align 2, !tbaa !4
-  %72 = zext i16 %71 to i32
-  %73 = sub nsw i32 %69, %72
-  %74 = trunc i32 %73 to i16
-  store i16 %74, ptr %66, align 2, !tbaa !4
+63:                                               ; preds = %63, %61
+  %indvars.iv.i = phi i64 [ 0, %61 ], [ %indvars.iv.next.i, %63 ]
+  %.09.i52 = phi i32 [ 0, %61 ], [ %72, %63 ]
+  %64 = ashr i32 %.09.i52, 16
+  %65 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv.i
+  %66 = load i16, ptr %65, align 2, !tbaa !4
+  %67 = zext i16 %66 to i32
+  %68 = add nsw i32 %64, %67
+  %69 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv.i
+  %70 = load i16, ptr %69, align 2, !tbaa !4
+  %71 = zext i16 %70 to i32
+  %72 = sub nsw i32 %68, %71
+  %73 = trunc i32 %72 to i16
+  store i16 %73, ptr %65, align 2, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %av_sub_i.exit, label %64, !llvm.loop !11
+  br i1 %exitcond.not.i, label %av_sub_i.exit, label %63, !llvm.loop !11
 
-av_sub_i.exit:                                    ; preds = %64
+av_sub_i.exit:                                    ; preds = %63
+  %74 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %20, align 8
-  %.sroa.2.0.copyload.i = load i64, ptr %62, align 8, !tbaa !10
+  %.sroa.2.0.copyload.i = load i64, ptr %74, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %75 = call { i64, i64 } @av_mod_i(ptr noundef nonnull %spec.store.select, i64 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i64 %3, i64 %4)
@@ -538,70 +538,70 @@ av_sub_i.exit:                                    ; preds = %64
   %77 = load i64, ptr %spec.store.select.sroa.sel112.v.sroa.sel.v.sroa.sel, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %78 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   store i64 %76, ptr %19, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i64 %77, ptr %79, align 8
-  br label %80
+  %78 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i64 %77, ptr %78, align 8
+  br label %79
 
-80:                                               ; preds = %80, %av_sub_i.exit
-  %indvars.iv.i53 = phi i64 [ 0, %av_sub_i.exit ], [ %indvars.iv.next.i55, %80 ]
-  %.09.i54 = phi i32 [ 0, %av_sub_i.exit ], [ %89, %80 ]
-  %81 = ashr i32 %.09.i54, 16
-  %82 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv.i53
-  %83 = load i16, ptr %82, align 2, !tbaa !4
-  %84 = zext i16 %83 to i32
-  %85 = add nsw i32 %81, %84
-  %86 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv.i53
-  %87 = load i16, ptr %86, align 2, !tbaa !4
-  %88 = zext i16 %87 to i32
-  %89 = sub nsw i32 %85, %88
-  %90 = trunc i32 %89 to i16
-  store i16 %90, ptr %82, align 2, !tbaa !4
+79:                                               ; preds = %79, %av_sub_i.exit
+  %indvars.iv.i53 = phi i64 [ 0, %av_sub_i.exit ], [ %indvars.iv.next.i55, %79 ]
+  %.09.i54 = phi i32 [ 0, %av_sub_i.exit ], [ %88, %79 ]
+  %80 = ashr i32 %.09.i54, 16
+  %81 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv.i53
+  %82 = load i16, ptr %81, align 2, !tbaa !4
+  %83 = zext i16 %82 to i32
+  %84 = add nsw i32 %80, %83
+  %85 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv.i53
+  %86 = load i16, ptr %85, align 2, !tbaa !4
+  %87 = zext i16 %86 to i32
+  %88 = sub nsw i32 %84, %87
+  %89 = trunc i32 %88 to i16
+  store i16 %89, ptr %81, align 2, !tbaa !4
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, 8
-  br i1 %exitcond.not.i56, label %av_sub_i.exit61, label %80, !llvm.loop !11
+  br i1 %exitcond.not.i56, label %av_sub_i.exit61, label %79, !llvm.loop !11
 
-av_sub_i.exit61:                                  ; preds = %80
+av_sub_i.exit61:                                  ; preds = %79
+  %90 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %91 = extractvalue { i64, i64 } %75, 0
   %92 = extractvalue { i64, i64 } %75, 1
   %.sroa.0.0.copyload.i57 = load i64, ptr %18, align 8
-  %.sroa.2.0.copyload.i58 = load i64, ptr %78, align 8, !tbaa !10
+  %.sroa.2.0.copyload.i58 = load i64, ptr %90, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   store i64 %.sroa.0.0.copyload.i57, ptr %spec.store.select, align 2
   store i64 %.sroa.2.0.copyload.i58, ptr %spec.store.select.sroa.sel112.v.sroa.sel.v.sroa.sel, align 2, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %93 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store i64 %91, ptr %17, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 %92, ptr %94, align 8
-  br label %95
+  %93 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 %92, ptr %93, align 8
+  br label %94
 
-95:                                               ; preds = %95, %av_sub_i.exit61
-  %indvars.iv.i62 = phi i64 [ 0, %av_sub_i.exit61 ], [ %indvars.iv.next.i64, %95 ]
-  %.09.i63 = phi i32 [ 0, %av_sub_i.exit61 ], [ %104, %95 ]
-  %96 = ashr i32 %.09.i63, 16
-  %97 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv.i62
-  %98 = load i16, ptr %97, align 2, !tbaa !4
-  %99 = zext i16 %98 to i32
-  %100 = add nsw i32 %96, %99
-  %101 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv.i62
-  %102 = load i16, ptr %101, align 2, !tbaa !4
-  %103 = zext i16 %102 to i32
-  %104 = sub nsw i32 %100, %103
-  %105 = trunc i32 %104 to i16
-  store i16 %105, ptr %97, align 2, !tbaa !4
+94:                                               ; preds = %94, %av_sub_i.exit61
+  %indvars.iv.i62 = phi i64 [ 0, %av_sub_i.exit61 ], [ %indvars.iv.next.i64, %94 ]
+  %.09.i63 = phi i32 [ 0, %av_sub_i.exit61 ], [ %103, %94 ]
+  %95 = ashr i32 %.09.i63, 16
+  %96 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv.i62
+  %97 = load i16, ptr %96, align 2, !tbaa !4
+  %98 = zext i16 %97 to i32
+  %99 = add nsw i32 %95, %98
+  %100 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv.i62
+  %101 = load i16, ptr %100, align 2, !tbaa !4
+  %102 = zext i16 %101 to i32
+  %103 = sub nsw i32 %99, %102
+  %104 = trunc i32 %103 to i16
+  store i16 %104, ptr %96, align 2, !tbaa !4
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, 8
-  br i1 %exitcond.not.i65, label %av_sub_i.exit70, label %95, !llvm.loop !11
+  br i1 %exitcond.not.i65, label %av_sub_i.exit70, label %94, !llvm.loop !11
 
-av_sub_i.exit70:                                  ; preds = %95
+av_sub_i.exit70:                                  ; preds = %94
+  %105 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.0.0.copyload.i66 = load i64, ptr %16, align 8
-  %.sroa.2.0.copyload.i67 = load i64, ptr %93, align 8, !tbaa !10
+  %.sroa.2.0.copyload.i67 = load i64, ptr %105, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit

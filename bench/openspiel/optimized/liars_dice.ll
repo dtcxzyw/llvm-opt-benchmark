@@ -1484,8 +1484,8 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %105 = getelementptr inbounds nuw i32, ptr %103, i64 %97
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %105, ptr %106, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %103, i8 0, i64 %102, i1 false)
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 %102
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %103, i8 0, i64 %102, i1 false)
   br label %.loopexit55
 
 .loopexit55:                                      ; preds = %.noexc23, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
@@ -1534,8 +1534,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i24: ; preds = %116
   store ptr %123, ptr %7, align 8
   %124 = getelementptr inbounds nuw i32, ptr %123, i64 %118
   store ptr %124, ptr %113, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %123, i8 -1, i64 %122, i1 false)
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 %122
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %123, i8 -1, i64 %122, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i24, %.noexc32
@@ -4298,8 +4298,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %10 = getelementptr inbounds nuw double, ptr %9, i64 %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc5, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
@@ -9306,8 +9306,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %30 = getelementptr inbounds nuw double, ptr %28, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc4, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i

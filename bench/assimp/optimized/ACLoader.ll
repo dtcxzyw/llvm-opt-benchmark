@@ -4610,8 +4610,8 @@ _ZNSt12_Vector_baseISt4pairIjjESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
   %150 = shl nuw nsw i64 %148, 3
   %151 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %150) #28
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %151, i8 0, i64 %150, i1 false)
-  %152 = getelementptr inbounds nuw %"struct.std::pair.49", ptr %151, i64 %148
   %scevgep = getelementptr i8, ptr %151, i64 %150
+  %152 = getelementptr inbounds nuw %"struct.std::pair.49", ptr %151, i64 %148
   %153 = ptrtoint ptr %152 to i64
   br label %.lr.ph648
 
@@ -5871,16 +5871,16 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %768
           to label %.noexc449 unwind label %805
 
 .noexc449:                                        ; preds = %778
+  %781 = getelementptr inbounds nuw i8, ptr %780, i64 %779
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %780, i8 0, i64 %779, i1 false)
-  %781 = getelementptr inbounds nuw ptr, ptr %780, i64 %775
-  %782 = getelementptr inbounds nuw i8, ptr %780, i64 %779
-  %783 = ptrtoint ptr %781 to i64
+  %782 = getelementptr inbounds nuw ptr, ptr %780, i64 %775
+  %783 = ptrtoint ptr %782 to i64
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EEC2EmRKS1_RKS2_.exit
 
 _ZNSt6vectorIP6aiMeshSaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %.noexc449, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %.sroa.16.0 = phi i64 [ 0, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %783, %.noexc449 ]
   %.sroa.0463.0 = phi ptr [ null, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %780, %.noexc449 ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %782, %.noexc449 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %781, %.noexc449 ]
   %784 = getelementptr inbounds nuw i8, ptr %770, i64 %297
   %785 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
   %786 = ptrtoint ptr %.sroa.0463.0 to i64

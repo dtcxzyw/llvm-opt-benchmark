@@ -8092,18 +8092,18 @@ _ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toI
   %100 = phi ptr [ %.pre8.i, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.loopexit.i ], [ %86, %82 ], [ %86, %.lr.ph.i.i.i.i.i ]
   %101 = phi i64 [ %.pre.i63, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.loopexit.i ], [ %84, %82 ], [ %84, %.lr.ph.i.i.i.i.i ]
   %.sroa.06.1.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.loopexit.i ], [ %89, %82 ], [ %93, %.lr.ph.i.i.i.i.i ]
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !293
+  br label %102
+
+102:                                              ; preds = %102, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i
+  %.0.i.i.i.i.i = phi ptr [ %99, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i ], [ %103, %102 ]
+  %103 = load ptr, ptr %.0.i.i.i.i.i, align 8, !tbaa !249
+  %.not.i.i.i.i3.i = icmp eq ptr %103, %.sroa.06.1.i.i.i
+  br i1 %.not.i.i.i.i3.i, label %_ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i.i, label %102, !llvm.loop !293
+
+_ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i.i: ; preds = %102
   %104 = getelementptr inbounds nuw ptr, ptr %100, i64 %.pre-phi11.i
-  br label %105
-
-105:                                              ; preds = %105, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i
-  %.0.i.i.i.i.i = phi ptr [ %99, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i ], [ %106, %105 ]
-  %106 = load ptr, ptr %.0.i.i.i.i.i, align 8, !tbaa !249
-  %.not.i.i.i.i3.i = icmp eq ptr %106, %.sroa.06.1.i.i.i
-  br i1 %.not.i.i.i.i3.i, label %_ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i.i, label %105, !llvm.loop !295
-
-_ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i.i: ; preds = %105
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
+  %106 = load ptr, ptr %105, align 8, !tbaa !294
   %107 = icmp eq ptr %.0.i.i.i.i.i, %99
   %108 = load ptr, ptr %.sroa.06.1.i.i.i, align 8, !tbaa !249
   %.not18.i.i.i.i4.i = icmp eq ptr %108, null
@@ -8171,19 +8171,19 @@ _ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__d
   unreachable
 
 _ZN9grpc_core18TcpZerocopySendCtx17ReleaseSendRecordEj.exit.i: ; preds = %128
-  %135 = getelementptr inbounds nuw i8, ptr %103, i64 232
+  %135 = getelementptr inbounds nuw i8, ptr %106, i64 232
   %136 = atomicrmw sub ptr %135, i64 1 acq_rel, align 8
   %137 = icmp eq i64 %136, 1
   br i1 %137, label %138, label %_ZL31UnrefMaybePutZerocopySendRecordPN12_GLOBAL__N_18grpc_tcpEPN9grpc_core21TcpZerocopySendRecordEjPKc.exit.i
 
 138:                                              ; preds = %_ZN9grpc_core18TcpZerocopySendCtx17ReleaseSendRecordEj.exit.i
-  call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull align 8 dereferenceable(256) %103)
+  call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull align 8 dereferenceable(256) %106)
   call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
   %139 = load ptr, ptr %22, align 8, !tbaa !224
   %140 = load i32, ptr %23, align 4, !tbaa !225
   %141 = sext i32 %140 to i64
   %142 = getelementptr inbounds ptr, ptr %139, i64 %141
-  store ptr %103, ptr %142, align 8, !tbaa !226
+  store ptr %106, ptr %142, align 8, !tbaa !226
   %143 = add nsw i32 %140, 1
   store i32 %143, ptr %23, align 4, !tbaa !225
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
@@ -8795,20 +8795,20 @@ _ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toI
   %30 = phi ptr [ %.pre8, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.loopexit ], [ %17, %12 ], [ %17, %.lr.ph.i.i.i.i ]
   %31 = phi i64 [ %.pre, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.loopexit ], [ %15, %12 ], [ %15, %.lr.ph.i.i.i.i ]
   %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.loopexit ], [ %20, %12 ], [ %24, %.lr.ph.i.i.i.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !293
-  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %.pre-phi11
-  %35 = load ptr, ptr %34, align 8, !tbaa !291
-  br label %36
+  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %.pre-phi11
+  %33 = load ptr, ptr %32, align 8, !tbaa !291
+  br label %34
 
-36:                                               ; preds = %36, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit
-  %.0.i.i.i.i = phi ptr [ %35, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit ], [ %37, %36 ]
-  %37 = load ptr, ptr %.0.i.i.i.i, align 8, !tbaa !249
-  %.not.i.i.i.i3 = icmp eq ptr %37, %.sroa.06.1.i.i
-  br i1 %.not.i.i.i.i3, label %_ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i, label %36, !llvm.loop !295
+34:                                               ; preds = %34, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit
+  %.0.i.i.i.i = phi ptr [ %33, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit ], [ %35, %34 ]
+  %35 = load ptr, ptr %.0.i.i.i.i, align 8, !tbaa !249
+  %.not.i.i.i.i3 = icmp eq ptr %35, %.sroa.06.1.i.i
+  br i1 %.not.i.i.i.i3, label %_ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i, label %34, !llvm.loop !293
 
-_ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i: ; preds = %36
-  %38 = icmp eq ptr %.0.i.i.i.i, %35
+_ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i: ; preds = %34
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
+  %37 = load ptr, ptr %36, align 8, !tbaa !294
+  %38 = icmp eq ptr %.0.i.i.i.i, %33
   %39 = load ptr, ptr %.sroa.06.1.i.i, align 8, !tbaa !249
   %.not18.i.i.i.i4 = icmp eq ptr %39, null
   br i1 %38, label %40, label %52
@@ -8826,12 +8826,12 @@ _ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__d
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw ptr, ptr %30, i64 %45
-  store ptr %35, ptr %47, align 8, !tbaa !291
+  store ptr %33, ptr %47, align 8, !tbaa !291
   br label %._crit_edge.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %46, %40
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %49 = icmp eq ptr %48, %35
+  %49 = icmp eq ptr %48, %33
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -8839,7 +8839,7 @@ _ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__d
   br label %51
 
 51:                                               ; preds = %50, %._crit_edge.i.i.i.i.i
-  store ptr null, ptr %34, align 8, !tbaa !291
+  store ptr null, ptr %32, align 8, !tbaa !291
   br label %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE5eraseENSt8__detail14_Node_iteratorIS9_Lb0ELb0EEE.exit
 
 52:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i
@@ -8865,7 +8865,7 @@ _ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toI
   %61 = load i64, ptr %4, align 8, !tbaa !289
   %62 = add i64 %61, -1
   store i64 %62, ptr %4, align 8, !tbaa !289
-  ret ptr %33
+  ret ptr %37
 }
 
 ; Function Attrs: noreturn
@@ -9106,7 +9106,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZ
   store i32 %6, ptr %5, align 8, !tbaa !299
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %2, align 8, !tbaa !226
-  store ptr %8, ptr %7, align 8, !tbaa !293
+  store ptr %8, ptr %7, align 8, !tbaa !294
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !tbaa !289
   %.not.not = icmp eq i64 %10, 0
@@ -11584,13 +11584,13 @@ attributes #38 = { cold nounwind }
 !290 = distinct !{!290, !8}
 !291 = !{!72, !72, i64 0}
 !292 = distinct !{!292, !8}
-!293 = !{!294, !63, i64 8}
-!294 = !{!"_ZTSSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEE", !4, i64 0, !63, i64 8}
-!295 = distinct !{!295, !8}
+!293 = distinct !{!293, !8}
+!294 = !{!295, !63, i64 8}
+!295 = !{!"_ZTSSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEE", !4, i64 0, !63, i64 8}
 !296 = distinct !{!296, !8}
 !297 = distinct !{!297, !8}
 !298 = !{!62, !4, i64 32}
-!299 = !{!294, !4, i64 0}
+!299 = !{!295, !4, i64 0}
 !300 = distinct !{!300, !8}
 !301 = !{!73, !14, i64 8}
 !302 = !{!69, !72, i64 48}

@@ -6027,9 +6027,8 @@ define range(i32 -28, 1) i32 @arkPredict_Bootstrap(ptr noundef readonly captures
   %16 = fmul double %2, %2
   %17 = fmul double %16, 5.000000e-01
   %18 = fdiv double %17, %1
-  %19 = fsub double %2, %18
-  %20 = icmp sgt i32 %3, 0
-  br i1 %20, label %.lr.ph.preheader, label %._crit_edge
+  %19 = icmp sgt i32 %3, 0
+  br i1 %19, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %15
   %wide.trip.count = zext nneg i32 %3 to i64
@@ -6037,27 +6036,28 @@ define range(i32 -28, 1) i32 @arkPredict_Bootstrap(ptr noundef readonly captures
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %21 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
-  %22 = load double, ptr %21, align 8, !tbaa !113
-  %23 = fmul double %18, %22
-  %24 = add nuw nsw i64 %indvars.iv, 2
-  %25 = getelementptr inbounds nuw double, ptr %4, i64 %24
-  store double %23, ptr %25, align 8, !tbaa !113
-  %26 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %27 = load ptr, ptr %26, align 8, !tbaa !52
-  %28 = getelementptr inbounds nuw ptr, ptr %5, i64 %24
-  store ptr %27, ptr %28, align 8, !tbaa !52
+  %20 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %21 = load double, ptr %20, align 8, !tbaa !113
+  %22 = fmul double %18, %21
+  %23 = add nuw nsw i64 %indvars.iv, 2
+  %24 = getelementptr inbounds nuw double, ptr %4, i64 %23
+  store double %22, ptr %24, align 8, !tbaa !113
+  %25 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %26 = load ptr, ptr %25, align 8, !tbaa !52
+  %27 = getelementptr inbounds nuw ptr, ptr %5, i64 %23
+  store ptr %26, ptr %27, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
+  %28 = fsub double %2, %18
   store double 1.000000e+00, ptr %4, align 8, !tbaa !113
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %30 = load ptr, ptr %29, align 8, !tbaa !34
   store ptr %30, ptr %5, align 8, !tbaa !52
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store double %19, ptr %31, align 8, !tbaa !113
+  store double %28, ptr %31, align 8, !tbaa !113
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %33 = load ptr, ptr %32, align 8, !tbaa !141
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8

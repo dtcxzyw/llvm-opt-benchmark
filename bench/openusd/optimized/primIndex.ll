@@ -23366,18 +23366,6 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__15Pcp_PrimIndexer
   store i64 65535, ptr %34, align 8, !alias.scope !277
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %38, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !277
-  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink.i.sroa.gep96 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink.i.sroa.gep97 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink.i.sroa.gep99 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink.i.sroa.gep100 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink.i.sroa.gep101 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink.i.sroa.gep103 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sink.i.sroa.gep104 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sink.i.sroa.gep105 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sink.i.sroa.gep107 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink.i.sroa.gep108 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sink.i.sroa.gep109 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.not179 = icmp eq i16 %41, -1
   br i1 %.not179, label %._crit_edge, label %.lr.ph
 
@@ -23461,6 +23449,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildre
   br i1 %.not2.i, label %48, label %._crit_edge, !llvm.loop !283
 
 ._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEppEv.exit, %7
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink.i.sroa.gep96 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink.i.sroa.gep97 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink.i.sroa.gep99 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink.i.sroa.gep100 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink.i.sroa.gep101 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink.i.sroa.gep103 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink.i.sroa.gep104 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink.i.sroa.gep105 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink.i.sroa.gep107 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink.i.sroa.gep108 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink.i.sroa.gep109 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %77 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef18CanContributeSpecsEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br i1 %77, label %78, label %_ZN32pxrInternal_v0_24__pxrReserved__L9_ScanArcsERKNS_10PcpNodeRefE.exit
 

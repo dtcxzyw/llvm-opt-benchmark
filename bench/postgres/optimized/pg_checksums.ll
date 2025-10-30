@@ -1020,8 +1020,8 @@ define internal fastcc void @scan_file(ptr noundef nonnull %0, i32 noundef %1) u
   %13 = add i64 %12, 1
   store i64 %13, ptr @files_scanned, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  %15 = shl i32 %1, 17
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %16 = shl i32 %1, 17
   br label %17
 
 17:                                               ; preds = %.thread, %11
@@ -1060,8 +1060,8 @@ define internal fastcc void @scan_file(ptr noundef nonnull %0, i32 noundef %1) u
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %24
-  %31 = load i16, ptr %16, align 8
-  store i16 0, ptr %16, align 8
+  %31 = load i16, ptr %15, align 8
+  store i16 0, ptr %15, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, ptr noundef nonnull align 16 dereferenceable(128) @checksumBaseOffsets, i64 128, i1 false)
   br label %.preheader28.i.i
@@ -1121,9 +1121,9 @@ define internal fastcc void @scan_file(ptr noundef nonnull %0, i32 noundef %1) u
   br i1 %exitcond47.not.i.i, label %pg_checksum_page.exit, label %.preheader.i.i, !llvm.loop !9
 
 pg_checksum_page.exit:                            ; preds = %.preheader.i.i
-  %54 = add i32 %.0, %15
+  %54 = add i32 %.0, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  store i16 %31, ptr %16, align 8
+  store i16 %31, ptr %15, align 8
   %55 = xor i32 %53, %54
   %56 = urem i32 %55, 65535
   %57 = trunc nuw i32 %56 to i16
@@ -1162,7 +1162,7 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   br i1 %.not56, label %.thread, label %73
 
 73:                                               ; preds = %72
-  store i16 %58, ptr %16, align 8
+  store i16 %58, ptr %15, align 8
   %74 = tail call i64 @lseek(i32 noundef %8, i64 noundef -8192, i32 noundef 1) #12
   %75 = icmp slt i64 %74, 0
   br i1 %75, label %76, label %77

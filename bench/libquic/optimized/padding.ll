@@ -221,84 +221,84 @@ define hidden range(i32 -1, -2147483648) i32 @RSA_padding_check_PKCS1_type_2(ptr
 
 6:                                                ; preds = %4
   tail call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 120, ptr noundef nonnull @.str, i32 noundef 198) #8
-  br label %42
+  br label %41
 
 7:                                                ; preds = %4
   %8 = icmp ult i32 %3, 11
-  br i1 %8, label %9, label %10
+  br i1 %8, label %9, label %.preheader
+
+.preheader:                                       ; preds = %7
+  %wide.trip.count = zext i32 %3 to i64
+  br label %10
 
 9:                                                ; preds = %7
   tail call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 126, ptr noundef nonnull @.str, i32 noundef 207) #8
-  br label %42
+  br label %41
 
-10:                                               ; preds = %7
-  %11 = load i8, ptr %2, align 1, !tbaa !6
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !6
-  %wide.trip.count = zext i32 %3 to i64
-  br label %14
-
-14:                                               ; preds = %10, %14
-  %indvars.iv = phi i64 [ 2, %10 ], [ %indvars.iv.next, %14 ]
-  %.03547 = phi i32 [ 0, %10 ], [ %22, %14 ]
-  %.03646 = phi i32 [ -1, %10 ], [ %23, %14 ]
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %16 = load i8, ptr %15, align 1, !tbaa !6
-  %.not45 = icmp eq i8 %16, 0
-  %17 = select i1 %.not45, i32 %.03646, i32 0
-  %18 = trunc nuw i64 %indvars.iv to i32
-  %19 = and i32 %17, %18
-  %20 = xor i32 %17, -1
-  %21 = and i32 %.03547, %20
-  %22 = or disjoint i32 %21, %19
-  %23 = select i1 %.not45, i32 0, i32 %.03646
+10:                                               ; preds = %.preheader, %10
+  %indvars.iv = phi i64 [ 2, %.preheader ], [ %indvars.iv.next, %10 ]
+  %.03547 = phi i32 [ 0, %.preheader ], [ %18, %10 ]
+  %.03646 = phi i32 [ -1, %.preheader ], [ %19, %10 ]
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
+  %12 = load i8, ptr %11, align 1, !tbaa !6
+  %.not45 = icmp eq i8 %12, 0
+  %13 = select i1 %.not45, i32 %.03646, i32 0
+  %14 = trunc nuw i64 %indvars.iv to i32
+  %15 = and i32 %13, %14
+  %16 = xor i32 %13, -1
+  %17 = and i32 %.03547, %16
+  %18 = or disjoint i32 %17, %15
+  %19 = select i1 %.not45, i32 0, i32 %.03646
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %24, label %14, !llvm.loop !13
+  br i1 %exitcond.not, label %20, label %10, !llvm.loop !13
 
-24:                                               ; preds = %14
-  %25 = icmp ne i8 %11, 0
-  %26 = icmp ne i8 %13, 2
-  %.not44 = or i1 %25, %26
-  %27 = sub i32 9, %22
-  %28 = or i32 %27, %22
-  %isneg = icmp sgt i32 %28, -1
+20:                                               ; preds = %10
+  %21 = load i8, ptr %2, align 1, !tbaa !6
+  %22 = icmp ne i8 %21, 0
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %24 = load i8, ptr %23, align 1, !tbaa !6
+  %25 = icmp ne i8 %24, 2
+  %.not44 = or i1 %22, %25
+  %26 = sub i32 9, %18
+  %27 = or i32 %26, %18
+  %isneg = icmp sgt i32 %27, -1
   %.not41 = select i1 %isneg, i1 true, i1 %.not44
-  %29 = add i32 %22, 1
-  %.not39 = icmp eq i32 %23, -1
+  %28 = add i32 %18, 1
+  %.not39 = icmp eq i32 %19, -1
   %.not = select i1 %.not41, i1 true, i1 %.not39
-  br i1 %.not, label %30, label %31
+  br i1 %.not, label %29, label %30
 
-30:                                               ; preds = %24
+29:                                               ; preds = %20
   tail call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 137, ptr noundef nonnull @.str, i32 noundef 240) #8
-  br label %42
+  br label %41
 
-31:                                               ; preds = %24
-  %32 = sub i32 %3, %29
-  %33 = icmp ugt i32 %32, %1
-  br i1 %33, label %34, label %35
+30:                                               ; preds = %20
+  %31 = sub i32 %3, %28
+  %32 = icmp ugt i32 %31, %1
+  br i1 %32, label %33, label %34
 
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   tail call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 137, ptr noundef nonnull @.str, i32 noundef 248) #8
-  br label %42
+  br label %41
 
-35:                                               ; preds = %31
-  %36 = icmp slt i32 %32, 0
-  br i1 %36, label %37, label %38
+34:                                               ; preds = %30
+  %35 = icmp slt i32 %31, 0
+  br i1 %35, label %36, label %37
 
-37:                                               ; preds = %35
+36:                                               ; preds = %34
   tail call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 69, ptr noundef nonnull @.str, i32 noundef 253) #8
-  br label %42
+  br label %41
 
-38:                                               ; preds = %35
-  %39 = zext i32 %29 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 %39
-  %41 = zext nneg i32 %32 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %40, i64 %41, i1 false)
-  br label %42
+37:                                               ; preds = %34
+  %38 = zext i32 %28 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 %38
+  %40 = zext nneg i32 %31 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %39, i64 %40, i1 false)
+  br label %41
 
-42:                                               ; preds = %30, %38, %37, %34, %9, %6
-  %.0 = phi i32 [ -1, %6 ], [ -1, %9 ], [ -1, %30 ], [ -1, %34 ], [ -1, %37 ], [ %32, %38 ]
+41:                                               ; preds = %29, %37, %36, %33, %9, %6
+  %.0 = phi i32 [ -1, %6 ], [ -1, %9 ], [ -1, %29 ], [ -1, %33 ], [ -1, %36 ], [ %31, %37 ]
   ret i32 %.0
 }
 

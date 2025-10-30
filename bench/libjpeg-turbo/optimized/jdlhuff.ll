@@ -318,9 +318,9 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 372
   %70 = load i32, ptr %64, align 8, !tbaa !42
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %.preheader, label %.preheader.lr.ph.split.us
+  br i1 %71, label %.preheader, label %.preheader.us.preheader
 
-.preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
+.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   store ptr %56, ptr %55, align 8, !tbaa !81
   store i64 %58, ptr %57, align 8, !tbaa !84
   store i64 %61, ptr %60, align 8, !tbaa !67
@@ -475,8 +475,8 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
   %exitcond170.not = icmp eq i32 %141, %4
   br i1 %exitcond170.not, label %.thread136, label %.preheader, !llvm.loop !89
 
-.thread136:                                       ; preds = %._crit_edge155, %80, %99, %109, %52, %.preheader.lr.ph.split.us, %._crit_edge150
-  %.4 = phi i32 [ %4, %._crit_edge150 ], [ %4, %.preheader.lr.ph.split.us ], [ 0, %52 ], [ %.0116157, %109 ], [ %.0116157, %99 ], [ %.0116157, %80 ], [ %4, %._crit_edge155 ]
+.thread136:                                       ; preds = %._crit_edge155, %80, %99, %109, %52, %.preheader.us.preheader, %._crit_edge150
+  %.4 = phi i32 [ %4, %._crit_edge150 ], [ %4, %.preheader.us.preheader ], [ 0, %52 ], [ %.0116157, %109 ], [ %.0116157, %99 ], [ %.0116157, %80 ], [ %4, %._crit_edge155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.4
 }

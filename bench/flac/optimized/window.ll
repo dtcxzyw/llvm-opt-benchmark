@@ -872,28 +872,28 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   br i1 %12, label %56, label %13
 
 13:                                               ; preds = %5
-  %14 = sitofp i32 %11 to float
-  %15 = fmul reassoc nsz arcp float %14, 0x3F999999A0000000
-  %16 = fptosi float %15 to i32
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %8, i32 %1)
-  %17 = icmp sgt i32 %invariant.smin, 0
-  br i1 %17, label %.lr.ph.preheader, label %.preheader102
+  %14 = icmp sgt i32 %invariant.smin, 0
+  br i1 %14, label %.lr.ph.preheader, label %.preheader102
 
 .lr.ph.preheader:                                 ; preds = %13
-  %18 = zext nneg i32 %invariant.smin to i64
-  %19 = shl nuw nsw i64 %18, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %19, i1 false), !tbaa !3
+  %15 = zext nneg i32 %invariant.smin to i64
+  %16 = shl nuw nsw i64 %15, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %16, i1 false), !tbaa !3
   br label %.preheader102
 
 .preheader102:                                    ; preds = %.lr.ph.preheader, %13
   %.066.i.lcssa = phi i32 [ 0, %13 ], [ %invariant.smin, %.lr.ph.preheader ]
-  %20 = add nsw i32 %16, %8
+  %17 = sitofp i32 %11 to float
+  %18 = fmul reassoc nsz arcp float %17, 0x3F999999A0000000
+  %19 = fptosi float %18 to i32
+  %20 = add nsw i32 %19, %8
   %invariant.smin104 = tail call i32 @llvm.smin.i32(i32 %20, i32 %1)
   %21 = icmp slt i32 %.066.i.lcssa, %invariant.smin104
   br i1 %21, label %.lr.ph107, label %.preheader101
 
 .lr.ph107:                                        ; preds = %.preheader102
-  %22 = sitofp i32 %16 to double
+  %22 = sitofp i32 %19 to double
   %23 = zext nneg i32 %.066.i.lcssa to i64
   %wide.trip.count200 = zext nneg i32 %invariant.smin104 to i64
   %24 = fdiv reassoc nsz arcp double 1.000000e+00, %22
@@ -901,7 +901,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
 
 .preheader101:                                    ; preds = %28, %.preheader102
   %.167.i.lcssa = phi i32 [ %.066.i.lcssa, %.preheader102 ], [ %invariant.smin104, %28 ]
-  %25 = sub nsw i32 %10, %16
+  %25 = sub nsw i32 %10, %19
   %invariant.smin109 = tail call i32 @llvm.smin.i32(i32 %25, i32 %1)
   %26 = icmp slt i32 %.167.i.lcssa, %invariant.smin109
   br i1 %26, label %.lr.ph111.preheader, label %.preheader100
@@ -933,7 +933,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   br i1 %37, label %.lr.ph116, label %.preheader98
 
 .lr.ph116:                                        ; preds = %.preheader100
-  %38 = sitofp i32 %16 to double
+  %38 = sitofp i32 %19 to double
   %39 = zext nneg i32 %.2.i.lcssa to i64
   %40 = fdiv reassoc nsz arcp double 1.000000e+00, %38
   br label %45
@@ -954,7 +954,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
 
 45:                                               ; preds = %.lr.ph116, %45
   %indvars.iv204 = phi i64 [ %39, %.lr.ph116 ], [ %indvars.iv.next205, %45 ]
-  %.1.i115 = phi i32 [ %16, %.lr.ph116 ], [ %53, %45 ]
+  %.1.i115 = phi i32 [ %19, %.lr.ph116 ], [ %53, %45 ]
   %46 = sitofp i32 %.1.i115 to double
   %47 = fmul reassoc nsz arcp double %46, 0x400921FB54442D18
   %48 = fmul reassoc nsz arcp double %47, %40
@@ -974,28 +974,28 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   br i1 %57, label %101, label %58
 
 58:                                               ; preds = %56
-  %59 = sitofp i32 %11 to float
-  %60 = fmul reassoc nsz arcp float %59, 0x3FDE666660000000
-  %61 = fptosi float %60 to i32
   %invariant.smin120 = tail call i32 @llvm.smin.i32(i32 %8, i32 %1)
-  %62 = icmp sgt i32 %invariant.smin120, 0
-  br i1 %62, label %.lr.ph122.preheader, label %.preheader97
+  %59 = icmp sgt i32 %invariant.smin120, 0
+  br i1 %59, label %.lr.ph122.preheader, label %.preheader97
 
 .lr.ph122.preheader:                              ; preds = %58
-  %63 = zext nneg i32 %invariant.smin120 to i64
-  %64 = shl nuw nsw i64 %63, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %64, i1 false), !tbaa !3
+  %60 = zext nneg i32 %invariant.smin120 to i64
+  %61 = shl nuw nsw i64 %60, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %61, i1 false), !tbaa !3
   br label %.preheader97
 
 .preheader97:                                     ; preds = %.lr.ph122.preheader, %58
   %.066.i69.lcssa = phi i32 [ 0, %58 ], [ %invariant.smin120, %.lr.ph122.preheader ]
-  %65 = add nsw i32 %61, %8
+  %62 = sitofp i32 %11 to float
+  %63 = fmul reassoc nsz arcp float %62, 0x3FDE666660000000
+  %64 = fptosi float %63 to i32
+  %65 = add nsw i32 %64, %8
   %invariant.smin124 = tail call i32 @llvm.smin.i32(i32 %65, i32 %1)
   %66 = icmp slt i32 %.066.i69.lcssa, %invariant.smin124
   br i1 %66, label %.lr.ph127, label %.preheader96
 
 .lr.ph127:                                        ; preds = %.preheader97
-  %67 = sitofp i32 %61 to double
+  %67 = sitofp i32 %64 to double
   %68 = zext nneg i32 %.066.i69.lcssa to i64
   %wide.trip.count218 = zext nneg i32 %invariant.smin124 to i64
   %69 = fdiv reassoc nsz arcp double 1.000000e+00, %67
@@ -1003,7 +1003,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
 
 .preheader96:                                     ; preds = %73, %.preheader97
   %.167.i70.lcssa = phi i32 [ %.066.i69.lcssa, %.preheader97 ], [ %invariant.smin124, %73 ]
-  %70 = sub nsw i32 %10, %61
+  %70 = sub nsw i32 %10, %64
   %invariant.smin129 = tail call i32 @llvm.smin.i32(i32 %70, i32 %1)
   %71 = icmp slt i32 %.167.i70.lcssa, %invariant.smin129
   br i1 %71, label %.lr.ph131.preheader, label %.preheader95
@@ -1035,7 +1035,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   br i1 %82, label %.lr.ph136, label %.preheader93
 
 .lr.ph136:                                        ; preds = %.preheader95
-  %83 = sitofp i32 %61 to double
+  %83 = sitofp i32 %64 to double
   %84 = zext nneg i32 %.2.i72.lcssa to i64
   %85 = fdiv reassoc nsz arcp double 1.000000e+00, %83
   br label %90
@@ -1056,7 +1056,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
 
 90:                                               ; preds = %.lr.ph136, %90
   %indvars.iv223 = phi i64 [ %84, %.lr.ph136 ], [ %indvars.iv.next224, %90 ]
-  %.1.i74135 = phi i32 [ %61, %.lr.ph136 ], [ %98, %90 ]
+  %.1.i74135 = phi i32 [ %64, %.lr.ph136 ], [ %98, %90 ]
   %91 = sitofp i32 %.1.i74135 to double
   %92 = fmul reassoc nsz arcp double %91, 0x400921FB54442D18
   %93 = fmul reassoc nsz arcp double %92, %85
@@ -1075,31 +1075,31 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   %102 = fcmp reassoc nsz arcp ogt float %2, 0.000000e+00
   %103 = fcmp reassoc nsz arcp olt float %2, 1.000000e+00
   %or.cond = and i1 %102, %103
-  br i1 %or.cond, label %147, label %104
+  %invariant.smin160 = tail call i32 @llvm.smin.i32(i32 %8, i32 %1)
+  %104 = icmp sgt i32 %invariant.smin160, 0
+  br i1 %or.cond, label %147, label %105
 
-104:                                              ; preds = %101
-  %105 = sitofp i32 %11 to float
-  %106 = fmul reassoc nsz arcp float %105, 2.500000e-01
-  %107 = fptosi float %106 to i32
-  %invariant.smin140 = tail call i32 @llvm.smin.i32(i32 %8, i32 %1)
-  %108 = icmp sgt i32 %invariant.smin140, 0
-  br i1 %108, label %.lr.ph142.preheader, label %.preheader92
+105:                                              ; preds = %101
+  br i1 %104, label %.lr.ph142.preheader, label %.preheader92
 
-.lr.ph142.preheader:                              ; preds = %104
-  %109 = zext nneg i32 %invariant.smin140 to i64
-  %110 = shl nuw nsw i64 %109, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %110, i1 false), !tbaa !3
+.lr.ph142.preheader:                              ; preds = %105
+  %106 = zext nneg i32 %invariant.smin160 to i64
+  %107 = shl nuw nsw i64 %106, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %107, i1 false), !tbaa !3
   br label %.preheader92
 
-.preheader92:                                     ; preds = %.lr.ph142.preheader, %104
-  %.066.i77.lcssa = phi i32 [ 0, %104 ], [ %invariant.smin140, %.lr.ph142.preheader ]
-  %111 = add nsw i32 %107, %8
+.preheader92:                                     ; preds = %.lr.ph142.preheader, %105
+  %.066.i77.lcssa = phi i32 [ 0, %105 ], [ %invariant.smin160, %.lr.ph142.preheader ]
+  %108 = sitofp i32 %11 to float
+  %109 = fmul reassoc nsz arcp float %108, 2.500000e-01
+  %110 = fptosi float %109 to i32
+  %111 = add nsw i32 %110, %8
   %invariant.smin144 = tail call i32 @llvm.smin.i32(i32 %111, i32 %1)
   %112 = icmp slt i32 %.066.i77.lcssa, %invariant.smin144
   br i1 %112, label %.lr.ph147, label %.preheader91
 
 .lr.ph147:                                        ; preds = %.preheader92
-  %113 = sitofp i32 %107 to double
+  %113 = sitofp i32 %110 to double
   %114 = zext nneg i32 %.066.i77.lcssa to i64
   %wide.trip.count238 = zext nneg i32 %invariant.smin144 to i64
   %115 = fdiv reassoc nsz arcp double 1.000000e+00, %113
@@ -1107,7 +1107,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
 
 .preheader91:                                     ; preds = %119, %.preheader92
   %.167.i78.lcssa = phi i32 [ %.066.i77.lcssa, %.preheader92 ], [ %invariant.smin144, %119 ]
-  %116 = sub nsw i32 %10, %107
+  %116 = sub nsw i32 %10, %110
   %invariant.smin149 = tail call i32 @llvm.smin.i32(i32 %116, i32 %1)
   %117 = icmp slt i32 %.167.i78.lcssa, %invariant.smin149
   br i1 %117, label %.lr.ph151.preheader, label %.preheader90
@@ -1139,7 +1139,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   br i1 %128, label %.lr.ph156, label %.preheader88
 
 .lr.ph156:                                        ; preds = %.preheader90
-  %129 = sitofp i32 %107 to double
+  %129 = sitofp i32 %110 to double
   %130 = zext nneg i32 %.2.i80.lcssa to i64
   %131 = fdiv reassoc nsz arcp double 1.000000e+00, %129
   br label %136
@@ -1160,7 +1160,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
 
 136:                                              ; preds = %.lr.ph156, %136
   %indvars.iv243 = phi i64 [ %130, %.lr.ph156 ], [ %indvars.iv.next244, %136 ]
-  %.1.i82155 = phi i32 [ %107, %.lr.ph156 ], [ %144, %136 ]
+  %.1.i82155 = phi i32 [ %110, %.lr.ph156 ], [ %144, %136 ]
   %137 = sitofp i32 %.1.i82155 to double
   %138 = fmul reassoc nsz arcp double %137, 0x400921FB54442D18
   %139 = fmul reassoc nsz arcp double %138, %131
@@ -1176,115 +1176,113 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   br i1 %146, label %136, label %.preheader88, !llvm.loop !32
 
 147:                                              ; preds = %101
-  %148 = fmul reassoc nsz arcp float %2, 5.000000e-01
-  %149 = sitofp i32 %11 to float
-  %150 = fmul reassoc nsz arcp float %148, %149
-  %151 = fptosi float %150 to i32
-  %invariant.smin160 = tail call i32 @llvm.smin.i32(i32 %8, i32 %1)
-  %152 = icmp sgt i32 %invariant.smin160, 0
-  br i1 %152, label %.lr.ph162.preheader, label %.preheader87
+  br i1 %104, label %.lr.ph162.preheader, label %.preheader87
 
 .lr.ph162.preheader:                              ; preds = %147
-  %153 = zext nneg i32 %invariant.smin160 to i64
-  %154 = shl nuw nsw i64 %153, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %154, i1 false), !tbaa !3
+  %148 = zext nneg i32 %invariant.smin160 to i64
+  %149 = shl nuw nsw i64 %148, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %149, i1 false), !tbaa !3
   br label %.preheader87
 
 .preheader87:                                     ; preds = %.lr.ph162.preheader, %147
   %.066.lcssa = phi i32 [ 0, %147 ], [ %invariant.smin160, %.lr.ph162.preheader ]
-  %155 = add nsw i32 %151, %8
-  %invariant.smin164 = tail call i32 @llvm.smin.i32(i32 %155, i32 %1)
-  %156 = icmp slt i32 %.066.lcssa, %invariant.smin164
-  br i1 %156, label %.lr.ph167, label %.preheader86
+  %150 = fmul reassoc nsz arcp float %2, 5.000000e-01
+  %151 = sitofp i32 %11 to float
+  %152 = fmul reassoc nsz arcp float %150, %151
+  %153 = fptosi float %152 to i32
+  %154 = add nsw i32 %153, %8
+  %invariant.smin164 = tail call i32 @llvm.smin.i32(i32 %154, i32 %1)
+  %155 = icmp slt i32 %.066.lcssa, %invariant.smin164
+  br i1 %155, label %.lr.ph167, label %.preheader86
 
 .lr.ph167:                                        ; preds = %.preheader87
-  %157 = sitofp i32 %151 to double
-  %158 = zext nneg i32 %.066.lcssa to i64
+  %156 = sitofp i32 %153 to double
+  %157 = zext nneg i32 %.066.lcssa to i64
   %wide.trip.count258 = zext nneg i32 %invariant.smin164 to i64
-  %159 = fdiv reassoc nsz arcp double 1.000000e+00, %157
-  br label %163
+  %158 = fdiv reassoc nsz arcp double 1.000000e+00, %156
+  br label %162
 
-.preheader86:                                     ; preds = %163, %.preheader87
-  %.167.lcssa = phi i32 [ %.066.lcssa, %.preheader87 ], [ %invariant.smin164, %163 ]
-  %160 = sub nsw i32 %10, %151
-  %invariant.smin169 = tail call i32 @llvm.smin.i32(i32 %160, i32 %1)
-  %161 = icmp slt i32 %.167.lcssa, %invariant.smin169
-  br i1 %161, label %.lr.ph171.preheader, label %.preheader85
+.preheader86:                                     ; preds = %162, %.preheader87
+  %.167.lcssa = phi i32 [ %.066.lcssa, %.preheader87 ], [ %invariant.smin164, %162 ]
+  %159 = sub nsw i32 %10, %153
+  %invariant.smin169 = tail call i32 @llvm.smin.i32(i32 %159, i32 %1)
+  %160 = icmp slt i32 %.167.lcssa, %invariant.smin169
+  br i1 %160, label %.lr.ph171.preheader, label %.preheader85
 
 .lr.ph171.preheader:                              ; preds = %.preheader86
-  %162 = zext nneg i32 %.167.lcssa to i64
+  %161 = zext nneg i32 %.167.lcssa to i64
   br label %.lr.ph171
 
-163:                                              ; preds = %.lr.ph167, %163
-  %indvars.iv255 = phi i64 [ %158, %.lr.ph167 ], [ %indvars.iv.next256, %163 ]
-  %.0166 = phi i32 [ 1, %.lr.ph167 ], [ %171, %163 ]
-  %164 = uitofp nneg i32 %.0166 to double
-  %165 = fmul reassoc nsz arcp double %164, 0x400921FB54442D18
-  %166 = fmul reassoc nsz arcp double %165, %159
-  %167 = fptrunc reassoc nsz arcp double %166 to float
-  %168 = tail call reassoc nsz arcp float @cosf(float noundef %167) #6, !tbaa !12
-  %169 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %168, float -5.000000e-01, float 5.000000e-01)
-  %170 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv255
-  store float %169, ptr %170, align 4, !tbaa !3
+162:                                              ; preds = %.lr.ph167, %162
+  %indvars.iv255 = phi i64 [ %157, %.lr.ph167 ], [ %indvars.iv.next256, %162 ]
+  %.0166 = phi i32 [ 1, %.lr.ph167 ], [ %170, %162 ]
+  %163 = uitofp nneg i32 %.0166 to double
+  %164 = fmul reassoc nsz arcp double %163, 0x400921FB54442D18
+  %165 = fmul reassoc nsz arcp double %164, %158
+  %166 = fptrunc reassoc nsz arcp double %165 to float
+  %167 = tail call reassoc nsz arcp float @cosf(float noundef %166) #6, !tbaa !12
+  %168 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %167, float -5.000000e-01, float 5.000000e-01)
+  %169 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv255
+  store float %168, ptr %169, align 4, !tbaa !3
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
-  %171 = add nuw nsw i32 %.0166, 1
+  %170 = add nuw nsw i32 %.0166, 1
   %exitcond259.not = icmp eq i64 %indvars.iv.next256, %wide.trip.count258
-  br i1 %exitcond259.not, label %.preheader86, label %163, !llvm.loop !30
+  br i1 %exitcond259.not, label %.preheader86, label %162, !llvm.loop !30
 
 .preheader85:                                     ; preds = %.lr.ph171, %.preheader86
-  %.2.lcssa = phi i32 [ %.167.lcssa, %.preheader86 ], [ %177, %.lr.ph171 ]
+  %.2.lcssa = phi i32 [ %.167.lcssa, %.preheader86 ], [ %176, %.lr.ph171 ]
   %invariant.smin173 = tail call i32 @llvm.smin.i32(i32 %10, i32 %1)
-  %172 = icmp slt i32 %.2.lcssa, %invariant.smin173
-  br i1 %172, label %.lr.ph176, label %.preheader
+  %171 = icmp slt i32 %.2.lcssa, %invariant.smin173
+  br i1 %171, label %.lr.ph176, label %.preheader
 
 .lr.ph176:                                        ; preds = %.preheader85
-  %173 = sitofp i32 %151 to double
-  %174 = zext nneg i32 %.2.lcssa to i64
-  %175 = fdiv reassoc nsz arcp double 1.000000e+00, %173
-  br label %180
+  %172 = sitofp i32 %153 to double
+  %173 = zext nneg i32 %.2.lcssa to i64
+  %174 = fdiv reassoc nsz arcp double 1.000000e+00, %172
+  br label %179
 
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %.lr.ph171
-  %indvars.iv260 = phi i64 [ %162, %.lr.ph171.preheader ], [ %indvars.iv.next261, %.lr.ph171 ]
-  %176 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv260
-  store float 1.000000e+00, ptr %176, align 4, !tbaa !3
+  %indvars.iv260 = phi i64 [ %161, %.lr.ph171.preheader ], [ %indvars.iv.next261, %.lr.ph171 ]
+  %175 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv260
+  store float 1.000000e+00, ptr %175, align 4, !tbaa !3
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
-  %177 = trunc nuw i64 %indvars.iv.next261 to i32
-  %178 = icmp sgt i32 %invariant.smin169, %177
-  br i1 %178, label %.lr.ph171, label %.preheader85, !llvm.loop !31
+  %176 = trunc nuw i64 %indvars.iv.next261 to i32
+  %177 = icmp sgt i32 %invariant.smin169, %176
+  br i1 %177, label %.lr.ph171, label %.preheader85, !llvm.loop !31
 
-.preheader:                                       ; preds = %180, %.preheader85
-  %.3.lcssa = phi i32 [ %.2.lcssa, %.preheader85 ], [ %189, %180 ]
-  %179 = icmp slt i32 %.3.lcssa, %1
-  br i1 %179, label %FLAC__window_partial_tukey.exit.sink.split, label %FLAC__window_partial_tukey.exit
+.preheader:                                       ; preds = %179, %.preheader85
+  %.3.lcssa = phi i32 [ %.2.lcssa, %.preheader85 ], [ %188, %179 ]
+  %178 = icmp slt i32 %.3.lcssa, %1
+  br i1 %178, label %FLAC__window_partial_tukey.exit.sink.split, label %FLAC__window_partial_tukey.exit
 
-180:                                              ; preds = %.lr.ph176, %180
-  %indvars.iv263 = phi i64 [ %174, %.lr.ph176 ], [ %indvars.iv.next264, %180 ]
-  %.1175 = phi i32 [ %151, %.lr.ph176 ], [ %188, %180 ]
-  %181 = sitofp i32 %.1175 to double
-  %182 = fmul reassoc nsz arcp double %181, 0x400921FB54442D18
-  %183 = fmul reassoc nsz arcp double %182, %175
-  %184 = fptrunc reassoc nsz arcp double %183 to float
-  %185 = tail call reassoc nsz arcp float @cosf(float noundef %184) #6, !tbaa !12
-  %186 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %185, float -5.000000e-01, float 5.000000e-01)
-  %187 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv263
-  store float %186, ptr %187, align 4, !tbaa !3
+179:                                              ; preds = %.lr.ph176, %179
+  %indvars.iv263 = phi i64 [ %173, %.lr.ph176 ], [ %indvars.iv.next264, %179 ]
+  %.1175 = phi i32 [ %153, %.lr.ph176 ], [ %187, %179 ]
+  %180 = sitofp i32 %.1175 to double
+  %181 = fmul reassoc nsz arcp double %180, 0x400921FB54442D18
+  %182 = fmul reassoc nsz arcp double %181, %174
+  %183 = fptrunc reassoc nsz arcp double %182 to float
+  %184 = tail call reassoc nsz arcp float @cosf(float noundef %183) #6, !tbaa !12
+  %185 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %184, float -5.000000e-01, float 5.000000e-01)
+  %186 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv263
+  store float %185, ptr %186, align 4, !tbaa !3
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
-  %188 = add nsw i32 %.1175, -1
-  %189 = trunc nuw i64 %indvars.iv.next264 to i32
-  %190 = icmp sgt i32 %invariant.smin173, %189
-  br i1 %190, label %180, label %.preheader, !llvm.loop !32
+  %187 = add nsw i32 %.1175, -1
+  %188 = trunc nuw i64 %indvars.iv.next264 to i32
+  %189 = icmp sgt i32 %invariant.smin173, %188
+  br i1 %189, label %179, label %.preheader, !llvm.loop !32
 
 FLAC__window_partial_tukey.exit.sink.split:       ; preds = %.preheader, %.preheader88, %.preheader93, %.preheader98
   %.3.i.lcssa.sink289 = phi i32 [ %.3.i.lcssa, %.preheader98 ], [ %.3.i73.lcssa, %.preheader93 ], [ %.3.i81.lcssa, %.preheader88 ], [ %.3.lcssa, %.preheader ]
-  %191 = zext nneg i32 %.3.i.lcssa.sink289 to i64
-  %192 = shl nuw nsw i64 %191, 2
-  %scevgep = getelementptr i8, ptr %0, i64 %192
-  %193 = xor i32 %.3.i.lcssa.sink289, -1
-  %194 = add nsw i32 %1, %193
-  %195 = zext i32 %194 to i64
-  %196 = shl nuw nsw i64 %195, 2
-  %197 = add nuw nsw i64 %196, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %197, i1 false), !tbaa !3
+  %190 = zext nneg i32 %.3.i.lcssa.sink289 to i64
+  %191 = shl nuw nsw i64 %190, 2
+  %scevgep = getelementptr i8, ptr %0, i64 %191
+  %192 = xor i32 %.3.i.lcssa.sink289, -1
+  %193 = add nsw i32 %1, %192
+  %194 = zext i32 %193 to i64
+  %195 = shl nuw nsw i64 %194, 2
+  %196 = add nuw nsw i64 %195, 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %196, i1 false), !tbaa !3
   br label %FLAC__window_partial_tukey.exit
 
 FLAC__window_partial_tukey.exit:                  ; preds = %FLAC__window_partial_tukey.exit.sink.split, %.preheader98, %.preheader93, %.preheader88, %.preheader
@@ -1318,118 +1316,118 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
   %13 = sitofp i32 %1 to float
   %14 = fmul reassoc nsz arcp float %3, %13
   %15 = fptosi float %14 to i32
-  %16 = fmul reassoc nsz arcp float %4, %13
-  %17 = fptosi float %16 to i32
-  %18 = fmul reassoc nsz arcp float %.tr96, 5.000000e-01
-  %19 = sitofp i32 %15 to float
-  %20 = fmul reassoc nsz arcp float %18, %19
-  %21 = fptosi float %20 to i32
-  %22 = sub nsw i32 %1, %17
-  %23 = sitofp i32 %22 to float
-  %24 = fmul reassoc nsz arcp float %18, %23
-  %25 = fptosi float %24 to i32
-  %invariant.smin = tail call i32 @llvm.smin.i32(i32 %21, i32 %1)
-  %26 = icmp sgt i32 %invariant.smin, 0
-  br i1 %26, label %.lr.ph, label %.preheader103
+  %16 = fmul reassoc nsz arcp float %.tr96, 5.000000e-01
+  %17 = sitofp i32 %15 to float
+  %18 = fmul reassoc nsz arcp float %16, %17
+  %19 = fptosi float %18 to i32
+  %invariant.smin = tail call i32 @llvm.smin.i32(i32 %19, i32 %1)
+  %20 = icmp sgt i32 %invariant.smin, 0
+  br i1 %20, label %.lr.ph, label %.preheader103
 
 .lr.ph:                                           ; preds = %12
-  %27 = sitofp i32 %21 to double
+  %21 = sitofp i32 %19 to double
   %wide.trip.count = zext nneg i32 %invariant.smin to i64
-  %28 = fdiv reassoc nsz arcp double 1.000000e+00, %27
-  br label %32
+  %22 = fdiv reassoc nsz arcp double 1.000000e+00, %21
+  br label %26
 
-.preheader103:                                    ; preds = %32, %12
-  %.089.lcssa = phi i32 [ 0, %12 ], [ %invariant.smin, %32 ]
-  %29 = sub nsw i32 %15, %21
-  %invariant.smin110 = tail call i32 @llvm.smin.i32(i32 %29, i32 %1)
-  %30 = icmp slt i32 %.089.lcssa, %invariant.smin110
-  br i1 %30, label %.lr.ph112.preheader, label %.preheader102
+.preheader103:                                    ; preds = %26, %12
+  %.089.lcssa = phi i32 [ 0, %12 ], [ %invariant.smin, %26 ]
+  %23 = sub nsw i32 %15, %19
+  %invariant.smin110 = tail call i32 @llvm.smin.i32(i32 %23, i32 %1)
+  %24 = icmp slt i32 %.089.lcssa, %invariant.smin110
+  br i1 %24, label %.lr.ph112.preheader, label %.preheader102
 
 .lr.ph112.preheader:                              ; preds = %.preheader103
-  %31 = zext nneg i32 %.089.lcssa to i64
+  %25 = zext nneg i32 %.089.lcssa to i64
   %wide.trip.count144 = zext nneg i32 %invariant.smin110 to i64
   br label %.lr.ph112
 
-32:                                               ; preds = %.lr.ph, %32
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %.0109 = phi i32 [ 1, %.lr.ph ], [ %40, %32 ]
-  %33 = uitofp nneg i32 %.0109 to double
-  %34 = fmul reassoc nsz arcp double %33, 0x400921FB54442D18
-  %35 = fmul reassoc nsz arcp double %34, %28
-  %36 = fptrunc reassoc nsz arcp double %35 to float
-  %37 = tail call reassoc nsz arcp float @cosf(float noundef %36) #6, !tbaa !12
-  %38 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %37, float -5.000000e-01, float 5.000000e-01)
-  %39 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  store float %38, ptr %39, align 4, !tbaa !3
+26:                                               ; preds = %.lr.ph, %26
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
+  %.0109 = phi i32 [ 1, %.lr.ph ], [ %34, %26 ]
+  %27 = uitofp nneg i32 %.0109 to double
+  %28 = fmul reassoc nsz arcp double %27, 0x400921FB54442D18
+  %29 = fmul reassoc nsz arcp double %28, %22
+  %30 = fptrunc reassoc nsz arcp double %29 to float
+  %31 = tail call reassoc nsz arcp float @cosf(float noundef %30) #6, !tbaa !12
+  %32 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %31, float -5.000000e-01, float 5.000000e-01)
+  %33 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  store float %32, ptr %33, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = add nuw nsw i32 %.0109, 1
+  %34 = add nuw nsw i32 %.0109, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader103, label %32, !llvm.loop !33
+  br i1 %exitcond.not, label %.preheader103, label %26, !llvm.loop !33
 
 .preheader102:                                    ; preds = %.lr.ph112, %.preheader103
   %.190.lcssa = phi i32 [ %.089.lcssa, %.preheader103 ], [ %invariant.smin110, %.lr.ph112 ]
   %invariant.smin114 = tail call i32 @llvm.smin.i32(i32 %15, i32 %1)
-  %41 = icmp slt i32 %.190.lcssa, %invariant.smin114
-  br i1 %41, label %.lr.ph117, label %.preheader101
+  %35 = icmp slt i32 %.190.lcssa, %invariant.smin114
+  br i1 %35, label %.lr.ph117, label %.preheader101
 
 .lr.ph117:                                        ; preds = %.preheader102
-  %42 = sitofp i32 %21 to double
-  %43 = zext nneg i32 %.190.lcssa to i64
-  %44 = fdiv reassoc nsz arcp double 1.000000e+00, %42
-  br label %54
+  %36 = sitofp i32 %19 to double
+  %37 = zext nneg i32 %.190.lcssa to i64
+  %38 = fdiv reassoc nsz arcp double 1.000000e+00, %36
+  br label %50
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %.lr.ph112
-  %indvars.iv141 = phi i64 [ %31, %.lr.ph112.preheader ], [ %indvars.iv.next142, %.lr.ph112 ]
-  %45 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv141
-  store float 1.000000e+00, ptr %45, align 4, !tbaa !3
+  %indvars.iv141 = phi i64 [ %25, %.lr.ph112.preheader ], [ %indvars.iv.next142, %.lr.ph112 ]
+  %39 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv141
+  store float 1.000000e+00, ptr %39, align 4, !tbaa !3
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
   br i1 %exitcond145.not, label %.preheader102, label %.lr.ph112, !llvm.loop !34
 
-.preheader101:                                    ; preds = %54, %.preheader102
-  %.291.lcssa = phi i32 [ %.190.lcssa, %.preheader102 ], [ %63, %54 ]
-  %invariant.smin119 = tail call i32 @llvm.smin.i32(i32 %17, i32 %1)
-  %46 = icmp slt i32 %.291.lcssa, %invariant.smin119
-  br i1 %46, label %.lr.ph121.preheader, label %.preheader100
+.preheader101:                                    ; preds = %50, %.preheader102
+  %.291.lcssa = phi i32 [ %.190.lcssa, %.preheader102 ], [ %59, %50 ]
+  %40 = fmul reassoc nsz arcp float %4, %13
+  %41 = fptosi float %40 to i32
+  %invariant.smin119 = tail call i32 @llvm.smin.i32(i32 %41, i32 %1)
+  %42 = icmp slt i32 %.291.lcssa, %invariant.smin119
+  br i1 %42, label %.lr.ph121.preheader, label %.preheader100
 
 .lr.ph121.preheader:                              ; preds = %.preheader101
-  %47 = zext nneg i32 %.291.lcssa to i64
+  %43 = zext nneg i32 %.291.lcssa to i64
+  %44 = shl nuw nsw i64 %43, 2
+  %scevgep = getelementptr i8, ptr %0, i64 %44
+  %45 = xor i32 %.291.lcssa, -1
+  %46 = add nsw i32 %invariant.smin119, %45
+  %47 = zext i32 %46 to i64
   %48 = shl nuw nsw i64 %47, 2
-  %scevgep = getelementptr i8, ptr %0, i64 %48
-  %49 = xor i32 %.291.lcssa, -1
-  %50 = add nsw i32 %invariant.smin119, %49
-  %51 = zext i32 %50 to i64
-  %52 = shl nuw nsw i64 %51, 2
-  %53 = add nuw nsw i64 %52, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %53, i1 false), !tbaa !3
+  %49 = add nuw nsw i64 %48, 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %49, i1 false), !tbaa !3
   br label %.lr.ph121
 
-54:                                               ; preds = %.lr.ph117, %54
-  %indvars.iv146 = phi i64 [ %43, %.lr.ph117 ], [ %indvars.iv.next147, %54 ]
-  %.1116 = phi i32 [ %21, %.lr.ph117 ], [ %62, %54 ]
-  %55 = sitofp i32 %.1116 to double
-  %56 = fmul reassoc nsz arcp double %55, 0x400921FB54442D18
-  %57 = fmul reassoc nsz arcp double %56, %44
-  %58 = fptrunc reassoc nsz arcp double %57 to float
-  %59 = tail call reassoc nsz arcp float @cosf(float noundef %58) #6, !tbaa !12
-  %60 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %59, float -5.000000e-01, float 5.000000e-01)
-  %61 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv146
-  store float %60, ptr %61, align 4, !tbaa !3
+50:                                               ; preds = %.lr.ph117, %50
+  %indvars.iv146 = phi i64 [ %37, %.lr.ph117 ], [ %indvars.iv.next147, %50 ]
+  %.1116 = phi i32 [ %19, %.lr.ph117 ], [ %58, %50 ]
+  %51 = sitofp i32 %.1116 to double
+  %52 = fmul reassoc nsz arcp double %51, 0x400921FB54442D18
+  %53 = fmul reassoc nsz arcp double %52, %38
+  %54 = fptrunc reassoc nsz arcp double %53 to float
+  %55 = tail call reassoc nsz arcp float @cosf(float noundef %54) #6, !tbaa !12
+  %56 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %55, float -5.000000e-01, float 5.000000e-01)
+  %57 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv146
+  store float %56, ptr %57, align 4, !tbaa !3
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
-  %62 = add nsw i32 %.1116, -1
-  %63 = trunc nuw i64 %indvars.iv.next147 to i32
-  %64 = icmp sgt i32 %invariant.smin114, %63
-  br i1 %64, label %54, label %.preheader101, !llvm.loop !35
+  %58 = add nsw i32 %.1116, -1
+  %59 = trunc nuw i64 %indvars.iv.next147 to i32
+  %60 = icmp sgt i32 %invariant.smin114, %59
+  br i1 %60, label %50, label %.preheader101, !llvm.loop !35
 
 .preheader100:                                    ; preds = %.lr.ph121, %.preheader101
   %.392.lcssa = phi i32 [ %.291.lcssa, %.preheader101 ], [ %72, %.lr.ph121 ]
-  %65 = add nsw i32 %25, %17
+  %61 = sub nsw i32 %1, %41
+  %62 = sitofp i32 %61 to float
+  %63 = fmul reassoc nsz arcp float %16, %62
+  %64 = fptosi float %63 to i32
+  %65 = add nsw i32 %64, %41
   %invariant.smin123 = tail call i32 @llvm.smin.i32(i32 %65, i32 %1)
   %66 = icmp slt i32 %.392.lcssa, %invariant.smin123
   br i1 %66, label %.lr.ph126, label %.preheader99
 
 .lr.ph126:                                        ; preds = %.preheader100
-  %67 = sitofp i32 %25 to double
+  %67 = sitofp i32 %64 to double
   %68 = zext nneg i32 %.392.lcssa to i64
   %69 = add nuw i32 %invariant.smin123, 1
   %70 = sub i32 %69, %.392.lcssa
@@ -1437,7 +1435,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
   br label %78
 
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %.lr.ph121
-  %indvars.iv149 = phi i64 [ %47, %.lr.ph121.preheader ], [ %indvars.iv.next150, %.lr.ph121 ]
+  %indvars.iv149 = phi i64 [ %43, %.lr.ph121.preheader ], [ %indvars.iv.next150, %.lr.ph121 ]
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %72 = trunc nuw i64 %indvars.iv.next150 to i32
   %73 = icmp sgt i32 %invariant.smin119, %72
@@ -1449,7 +1447,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
 
 .preheader99:                                     ; preds = %.preheader99.loopexit, %.preheader100
   %.4.lcssa = phi i32 [ %.392.lcssa, %.preheader100 ], [ %74, %.preheader99.loopexit ]
-  %75 = sub nsw i32 %1, %25
+  %75 = sub nsw i32 %1, %64
   %invariant.smin128 = tail call i32 @llvm.smin.i32(i32 %75, i32 %1)
   %76 = icmp slt i32 %.4.lcssa, %invariant.smin128
   br i1 %76, label %.lr.ph130.preheader, label %.preheader
@@ -1480,7 +1478,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
   br i1 %87, label %.lr.ph134, label %._crit_edge
 
 .lr.ph134:                                        ; preds = %.preheader
-  %88 = sitofp i32 %25 to double
+  %88 = sitofp i32 %64 to double
   %89 = sext i32 %.5.lcssa to i64
   %wide.trip.count162 = sext i32 %1 to i64
   %90 = fdiv reassoc nsz arcp double 1.000000e+00, %88
@@ -1497,7 +1495,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
 
 94:                                               ; preds = %.lr.ph134, %94
   %indvars.iv159 = phi i64 [ %89, %.lr.ph134 ], [ %indvars.iv.next160, %94 ]
-  %.3133 = phi i32 [ %25, %.lr.ph134 ], [ %102, %94 ]
+  %.3133 = phi i32 [ %64, %.lr.ph134 ], [ %102, %94 ]
   %95 = sitofp i32 %.3133 to double
   %96 = fmul reassoc nsz arcp double %95, 0x400921FB54442D18
   %97 = fmul reassoc nsz arcp double %96, %90

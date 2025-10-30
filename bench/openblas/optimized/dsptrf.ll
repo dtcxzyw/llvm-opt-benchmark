@@ -334,7 +334,6 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %180 = fneg double %175
   %181 = call double @llvm.fmuladd.f64(double %163, double %176, double %180)
   %182 = fmul double %171, %181
-  %indvars.iv.next706 = add nsw i64 %indvars.iv705, -1
   %183 = add nuw i64 %indvars.iv705, 4294967295
   %184 = mul i64 %183, %indvars.iv705
   %185 = lshr i64 %184, 1
@@ -361,6 +360,7 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %196, label %187, label %197, !llvm.loop !12
 
 197:                                              ; preds = %187
+  %indvars.iv.next706 = add nsw i64 %indvars.iv705, -1
   store double %182, ptr %gep758, align 8, !tbaa !7
   store double %179, ptr %gep756, align 8, !tbaa !7
   %198 = icmp samesign ugt i64 %indvars.iv705, 1

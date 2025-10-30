@@ -5345,28 +5345,28 @@ define internal fastcc void @delitem_common(ptr noundef captures(none) %0, i64 n
   %16 = load i8, ptr %12, align 8, !tbaa !63
   %17 = zext i8 %16 to i64
   %18 = getelementptr ptr, ptr %14, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %20 = load i8, ptr %19, align 1, !tbaa !153
-  br label %21
+  br label %19
 
-21:                                               ; preds = %21, %13
-  %.0.i = phi i32 [ 0, %13 ], [ %26, %21 ]
-  %22 = sext i32 %.0.i to i64
-  %23 = getelementptr i8, ptr %18, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !41
-  %25 = zext i8 %24 to i64
-  %.not.i31 = icmp eq i64 %2, %25
-  %26 = add i32 %.0.i, 1
-  br i1 %.not.i31, label %27, label %21, !llvm.loop !154
+19:                                               ; preds = %19, %13
+  %.0.i = phi i32 [ 0, %13 ], [ %24, %19 ]
+  %20 = sext i32 %.0.i to i64
+  %21 = getelementptr i8, ptr %18, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !41
+  %23 = zext i8 %22 to i64
+  %.not.i31 = icmp eq i64 %2, %23
+  %24 = add i32 %.0.i, 1
+  br i1 %.not.i31, label %25, label %19, !llvm.loop !154
 
-27:                                               ; preds = %21
-  %28 = zext i8 %20 to i32
+25:                                               ; preds = %19
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %27 = load i8, ptr %26, align 1, !tbaa !153
+  %28 = zext i8 %27 to i32
   %29 = add nsw i32 %28, -1
   %30 = icmp slt i32 %.0.i, %29
   br i1 %30, label %.lr.ph.i, label %delete_index_from_values.exit
 
-.lr.ph.i:                                         ; preds = %27, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %22, %27 ]
+.lr.ph.i:                                         ; preds = %25, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %20, %25 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %31 = getelementptr i8, ptr %18, i64 %indvars.iv.next.i
   %32 = load i8, ptr %31, align 1, !tbaa !41
@@ -5376,9 +5376,9 @@ define internal fastcc void @delitem_common(ptr noundef captures(none) %0, i64 n
   %exitcond = icmp eq i32 %29, %lftr.wideiv
   br i1 %exitcond, label %delete_index_from_values.exit, label %.lr.ph.i, !llvm.loop !155
 
-delete_index_from_values.exit:                    ; preds = %.lr.ph.i, %27
+delete_index_from_values.exit:                    ; preds = %.lr.ph.i, %25
   %34 = trunc i32 %29 to i8
-  store i8 %34, ptr %19, align 1, !tbaa !153
+  store i8 %34, ptr %26, align 1, !tbaa !153
   br label %Py_DECREF.exit29
 
 35:                                               ; preds = %4
@@ -13798,28 +13798,28 @@ _Py_XNewRef.exit.thread:                          ; preds = %_PyDict_NotifyEvent
   %124 = load i8, ptr %1, align 8, !tbaa !63
   %125 = zext i8 %124 to i64
   %126 = getelementptr ptr, ptr %70, i64 %125
-  %127 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %128 = load i8, ptr %127, align 1, !tbaa !153
-  br label %129
+  br label %127
 
-129:                                              ; preds = %129, %.thread87
-  %.0.i = phi i32 [ 0, %.thread87 ], [ %134, %129 ]
-  %130 = sext i32 %.0.i to i64
-  %131 = getelementptr i8, ptr %126, i64 %130
-  %132 = load i8, ptr %131, align 1, !tbaa !41
-  %133 = zext i8 %132 to i64
-  %.not.i84 = icmp eq i64 %17, %133
-  %134 = add i32 %.0.i, 1
-  br i1 %.not.i84, label %135, label %129, !llvm.loop !154
+127:                                              ; preds = %127, %.thread87
+  %.0.i = phi i32 [ 0, %.thread87 ], [ %132, %127 ]
+  %128 = sext i32 %.0.i to i64
+  %129 = getelementptr i8, ptr %126, i64 %128
+  %130 = load i8, ptr %129, align 1, !tbaa !41
+  %131 = zext i8 %130 to i64
+  %.not.i84 = icmp eq i64 %17, %131
+  %132 = add i32 %.0.i, 1
+  br i1 %.not.i84, label %133, label %127, !llvm.loop !154
 
-135:                                              ; preds = %129
-  %136 = zext i8 %128 to i32
+133:                                              ; preds = %127
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %135 = load i8, ptr %134, align 1, !tbaa !153
+  %136 = zext i8 %135 to i32
   %137 = add nsw i32 %136, -1
   %138 = icmp slt i32 %.0.i, %137
   br i1 %138, label %.lr.ph.i, label %delete_index_from_values.exit
 
-.lr.ph.i:                                         ; preds = %135, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %130, %135 ]
+.lr.ph.i:                                         ; preds = %133, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %128, %133 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %139 = getelementptr i8, ptr %126, i64 %indvars.iv.next.i
   %140 = load i8, ptr %139, align 1, !tbaa !41
@@ -13829,9 +13829,9 @@ _Py_XNewRef.exit.thread:                          ; preds = %_PyDict_NotifyEvent
   %exitcond = icmp eq i32 %137, %lftr.wideiv
   br i1 %exitcond, label %delete_index_from_values.exit, label %.lr.ph.i, !llvm.loop !155
 
-delete_index_from_values.exit:                    ; preds = %.lr.ph.i, %135
+delete_index_from_values.exit:                    ; preds = %.lr.ph.i, %133
   %142 = trunc i32 %137 to i8
-  store i8 %142, ptr %127, align 1, !tbaa !153
+  store i8 %142, ptr %134, align 1, !tbaa !153
   br i1 %.not64, label %147, label %143
 
 143:                                              ; preds = %delete_index_from_values.exit

@@ -11611,8 +11611,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %30 = getelementptr inbounds nuw double, ptr %28, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 %27
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc4, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
@@ -15024,26 +15024,23 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsINSt7__cxx1112b
 
 19:                                               ; preds = %2
   %20 = icmp eq i8 %6, 0
-  br i1 %20, label %.loopexit.sink.split, label %.lr.ph.preheader
+  br i1 %20, label %.loopexit.sink.split, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %19
-  %21 = load ptr, ptr %0, align 8
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04976 = phi ptr [ %23, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %22 = getelementptr inbounds nuw i8, ptr %.04976, i64 240
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 11
-  %25 = load i8, ptr %24, align 1
-  %.not68 = icmp eq i8 %25, 0
+.lr.ph:                                           ; preds = %19, %.lr.ph
+  %.04976 = phi ptr [ %22, %.lr.ph ], [ %0, %19 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.04976, i64 240
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 11
+  %24 = load i8, ptr %23, align 1
+  %.not68 = icmp eq i8 %24, 0
   br i1 %.not68, label %.lr.ph, label %._crit_edge, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = load ptr, ptr %23, align 8
+  %29 = load ptr, ptr %22, align 8
   br label %30
 
 30:                                               ; preds = %.backedge, %._crit_edge
@@ -15137,7 +15134,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsINSt7__cxx1112b
 
 _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE15value_destroy_nEhhPSC_.exit66: ; preds = %.lr.ph.i63, %.preheader71
   tail call void @_ZdlPvm(ptr noundef nonnull %.3, i64 noundef 304) #29
-  %72 = icmp eq ptr %66, %21
+  %72 = icmp eq ptr %66, %25
   br i1 %72, label %.loopexit, label %73
 
 73:                                               ; preds = %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_ELi256ELb0EEEE15value_destroy_nEhhPSC_.exit66

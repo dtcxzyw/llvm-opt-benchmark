@@ -3412,22 +3412,22 @@ define hidden noundef zeroext i1 @_ZN2cv10PAMEncoder5writeERKNS_3MatERKSt6vector
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %3, %15
   %23 = phi i32 [ %22, %15 ], [ 0, %3 ]
-  %24 = mul nsw i32 %23, %9
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !101
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !145
-  %30 = load ptr, ptr %2, align 8, !tbaa !65
-  %31 = ptrtoint ptr %29 to i64
-  %32 = ptrtoint ptr %30 to i64
-  %33 = sub i64 %31, %32
-  %34 = ashr exact i64 %33, 2
-  %.not132 = icmp eq ptr %29, %30
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !145
+  %26 = load ptr, ptr %2, align 8, !tbaa !65
+  %27 = ptrtoint ptr %25 to i64
+  %28 = ptrtoint ptr %26 to i64
+  %29 = sub i64 %27, %28
+  %30 = ashr exact i64 %29, 2
+  %.not132 = icmp eq ptr %25, %26
   br i1 %.not132, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %47, %_ZNK2cv3Mat8elemSizeEv.exit
   %.0102.lcssa = phi ptr [ null, %_ZNK2cv3Mat8elemSizeEv.exit ], [ %.1103, %47 ]
+  %31 = mul nsw i32 %23, %9
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %33 = load ptr, ptr %32, align 8, !tbaa !101
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = load ptr, ptr %35, align 8, !tbaa !146
   %.not = icmp eq ptr %36, null
@@ -3436,7 +3436,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %3, %15
 .lr.ph:                                           ; preds = %_ZNK2cv3Mat8elemSizeEv.exit, %47
   %.097125 = phi i64 [ %48, %47 ], [ 0, %_ZNK2cv3Mat8elemSizeEv.exit ]
   %.0102124 = phi ptr [ %.1103, %47 ], [ null, %_ZNK2cv3Mat8elemSizeEv.exit ]
-  %37 = getelementptr inbounds nuw i32, ptr %30, i64 %.097125
+  %37 = getelementptr inbounds nuw i32, ptr %26, i64 %.097125
   %38 = load i32, ptr %37, align 4, !tbaa !147
   %39 = icmp eq i32 %38, 128
   br i1 %39, label %40, label %47
@@ -3456,7 +3456,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %3, %15
 47:                                               ; preds = %.lr.ph, %44, %40
   %.1103 = phi ptr [ %46, %44 ], [ %.0102124, %40 ], [ %.0102124, %.lr.ph ]
   %48 = add nuw i64 %.097125, 2
-  %49 = icmp ult i64 %48, %34
+  %49 = icmp ult i64 %48, %30
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !148
 
 50:                                               ; preds = %._crit_edge
@@ -3473,7 +3473,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %3, %15
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %35, align 8, !tbaa !146
-  %57 = mul nsw i32 %24, %11
+  %57 = mul nsw i32 %31, %11
   %58 = sext i32 %57 to i64
   %59 = add nsw i64 %58, 511
   %60 = and i64 %59, -256
@@ -3543,7 +3543,7 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %86, label %87, label %_ZNK2cv3Mat8elemSizeEv.exit118
 
 87:                                               ; preds = %_ZNSt6vectorIhSaIhEE7reserveEm.exit
-  %88 = load ptr, ptr %27, align 8, !tbaa !144
+  %88 = load ptr, ptr %34, align 8, !tbaa !144
   %89 = zext nneg i32 %85 to i64
   %90 = getelementptr i64, ptr %88, i64 %89
   %91 = getelementptr i8, ptr %90, i64 -8
@@ -3664,15 +3664,15 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %.noexc119, %_ZNK2cv
   br i1 %160, label %.lr.ph131, label %.loopexit
 
 .lr.ph131:                                        ; preds = %.preheader
-  %161 = sext i32 %24 to i64
-  %162 = icmp sgt i32 %24, 0
+  %161 = sext i32 %31 to i64
+  %162 = icmp sgt i32 %31, 0
   %wide.trip.count141 = zext nneg i32 %11 to i64
   br i1 %162, label %.lr.ph128.us, label %.lr.ph131.split
 
 .lr.ph128.us:                                     ; preds = %.lr.ph131, %168
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %168 ], [ 0, %.lr.ph131 ]
-  %163 = load ptr, ptr %25, align 8, !tbaa !101
-  %164 = load ptr, ptr %27, align 8, !tbaa !144
+  %163 = load ptr, ptr %32, align 8, !tbaa !101
+  %164 = load ptr, ptr %34, align 8, !tbaa !144
   %165 = load i64, ptr %164, align 8, !tbaa !103
   %166 = mul i64 %165, %indvars.iv138
   %167 = getelementptr inbounds nuw i8, ptr %163, i64 %166
@@ -3697,7 +3697,7 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %.noexc119, %_ZNK2cv
   br i1 %174, label %169, label %._crit_edge129.us, !llvm.loop !156
 
 ._crit_edge129.us:                                ; preds = %169
-  %175 = invoke noundef zeroext i1 @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %101, i32 noundef %24)
+  %175 = invoke noundef zeroext i1 @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %101, i32 noundef %31)
           to label %168 unwind label %.loopexit123.split.us
 
 .loopexit123.split.us:                            ; preds = %._crit_edge129.us
@@ -3706,19 +3706,19 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %.noexc119, %_ZNK2cv
   br label %.loopexit123
 
 176:                                              ; preds = %157
-  %177 = mul nsw i32 %24, %11
-  %178 = invoke noundef zeroext i1 @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %26, i32 noundef %177)
+  %177 = mul nsw i32 %31, %11
+  %178 = invoke noundef zeroext i1 @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %33, i32 noundef %177)
           to label %.loopexit unwind label %.loopexit.split-lp
 
 .lr.ph131.split:                                  ; preds = %.lr.ph131, %185
   %indvars.iv = phi i64 [ %indvars.iv.next, %185 ], [ 0, %.lr.ph131 ]
-  %179 = load ptr, ptr %25, align 8, !tbaa !101
-  %180 = load ptr, ptr %27, align 8, !tbaa !144
+  %179 = load ptr, ptr %32, align 8, !tbaa !101
+  %180 = load ptr, ptr %34, align 8, !tbaa !144
   %181 = load i64, ptr %180, align 8, !tbaa !103
   %182 = mul i64 %181, %indvars.iv
   %183 = getelementptr inbounds nuw i8, ptr %179, i64 %182
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr align 1 %183, i64 %161, i1 false)
-  %184 = invoke noundef zeroext i1 @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %101, i32 noundef %24)
+  %184 = invoke noundef zeroext i1 @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %101, i32 noundef %31)
           to label %185 unwind label %.loopexit123.split
 
 185:                                              ; preds = %.lr.ph131.split

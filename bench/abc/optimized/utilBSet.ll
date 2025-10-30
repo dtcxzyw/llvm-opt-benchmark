@@ -445,26 +445,26 @@ define range(i32 0, -1) i32 @Abc_TtGetKey(ptr noundef readonly captures(none) %0
 define i32 @Abc_TtHashLookup5(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #2 {
   %5 = alloca i32, align 4
   store i32 %0, ptr %5, align 4, !tbaa !7
-  %6 = getelementptr i8, ptr %1, i64 4
-  %.val21 = load i32, ptr %6, align 4, !tbaa !14
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.019.i = phi i32 [ 0, %4 ], [ %13, %.lr.ph.i ]
+  %.019.i = phi i32 [ 0, %4 ], [ %12, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
-  %8 = load i8, ptr %7, align 1, !tbaa !19
-  %9 = zext i8 %8 to i32
-  %10 = add i32 %.019.i, %9
-  %11 = mul i32 %10, 1025
-  %12 = lshr i32 %11, 6
-  %13 = xor i32 %12, %11
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
+  %7 = load i8, ptr %6, align 1, !tbaa !19
+  %8 = zext i8 %7 to i32
+  %9 = add i32 %.019.i, %8
+  %10 = mul i32 %9, 1025
+  %11 = lshr i32 %10, 6
+  %12 = xor i32 %11, %10
   %.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %.not.i, label %Abc_TtGetKey.exit, label %.lr.ph.i, !llvm.loop !27
 
 Abc_TtGetKey.exit:                                ; preds = %.lr.ph.i
-  %14 = mul i32 %13, 9
+  %13 = getelementptr i8, ptr %1, i64 4
+  %.val21 = load i32, ptr %13, align 4, !tbaa !14
+  %14 = mul i32 %12, 9
   %15 = lshr i32 %14, 11
   %16 = xor i32 %15, %14
   %17 = mul i32 %16, 32769
@@ -3251,9 +3251,8 @@ define i32 @Abc_BSEvalBest(ptr noundef readonly captures(none) %0, ptr noundef c
   %11 = alloca [32 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %12 = sub i32 %3, %4
-  %13 = icmp sgt i32 %3, 0
-  br i1 %13, label %.lr.ph.preheader, label %._crit_edge.thread
+  %12 = icmp sgt i32 %3, 0
+  br i1 %12, label %.lr.ph.preheader, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %9
   %.not171 = icmp ne ptr %7, null
@@ -3265,11 +3264,11 @@ define i32 @Abc_BSEvalBest(ptr noundef readonly captures(none) %0, ptr noundef c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
-  %15 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %15, ptr %14, align 4, !tbaa !7
-  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
-  store i32 %15, ptr %16, align 4, !tbaa !7
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %14, ptr %13, align 4, !tbaa !7
+  %15 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  store i32 %14, ptr %15, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
@@ -3284,15 +3283,16 @@ define i32 @Abc_BSEvalBest(ptr noundef readonly captures(none) %0, ptr noundef c
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %.lr.ph122
   %indvars.iv145 = phi i64 [ 0, %.lr.ph122.preheader ], [ %indvars.iv.next146, %.lr.ph122 ]
-  %17 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv145
-  %18 = trunc nuw nsw i64 %indvars.iv145 to i32
-  store i32 %18, ptr %17, align 4, !tbaa !7
+  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv145
+  %17 = trunc nuw nsw i64 %indvars.iv145 to i32
+  store i32 %17, ptr %16, align 4, !tbaa !7
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
   br i1 %exitcond149.not, label %.loopexit, label %.lr.ph122, !llvm.loop !83
 
 .loopexit:                                        ; preds = %.lr.ph122, %._crit_edge.thread, %._crit_edge
   %.not173 = phi i1 [ %.not171, %._crit_edge.thread ], [ false, %._crit_edge ], [ true, %.lr.ph122 ]
+  %18 = sub i32 %3, %4
   %19 = shl nuw i32 1, %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !81
@@ -3314,11 +3314,11 @@ define i32 @Abc_BSEvalBest(ptr noundef readonly captures(none) %0, ptr noundef c
   %31 = select i1 %28, i32 1, i32 %30
   %32 = icmp slt i32 %31, 1
   %wide.trip.count.i = zext nneg i32 %31 to i64
-  %33 = sext i32 %12 to i64
+  %33 = sext i32 %18 to i64
   %34 = shl nsw i64 %33, 2
   %.not114 = icmp eq i32 %6, 0
   %35 = icmp sgt i32 %4, 0
-  %.not115.not127 = icmp sgt i32 %12, %5
+  %.not115.not127 = icmp sgt i32 %18, %5
   %36 = icmp sgt i32 %5, 0
   %37 = sext i32 %5 to i64
   %38 = zext i32 %5 to i64
@@ -3327,11 +3327,11 @@ define i32 @Abc_BSEvalBest(ptr noundef readonly captures(none) %0, ptr noundef c
 
 .critedge.preheader:                              ; preds = %101, %.loopexit
   %.0101.lcssa = phi i32 [ %19, %.loopexit ], [ %.1102, %101 ]
-  %39 = icmp sgt i32 %12, 0
+  %39 = icmp sgt i32 %18, 0
   br i1 %39, label %.lr.ph142.preheader, label %.critedge._crit_edge
 
 .lr.ph142.preheader:                              ; preds = %.critedge.preheader
-  %wide.trip.count162 = zext nneg i32 %12 to i64
+  %wide.trip.count162 = zext nneg i32 %18 to i64
   br label %.lr.ph142
 
 40:                                               ; preds = %.lr.ph140, %101
@@ -3396,7 +3396,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %56
 .lr.ph125:                                        ; preds = %62, %.lr.ph125
   %.098.in123 = phi i32 [ %.098, %.lr.ph125 ], [ %4, %62 ]
   %.098 = add nsw i32 %.098.in123, -1
-  %66 = add nsw i32 %.098, %12
+  %66 = add nsw i32 %.098, %18
   %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %66)
   %68 = icmp samesign ugt i32 %.098.in123, 1
   br i1 %68, label %.lr.ph125, label %._crit_edge126, !llvm.loop !85

@@ -284,16 +284,16 @@ define hidden void @av1_cdef_frame(ptr noundef %0, ptr noundef readonly captures
   br i1 %51, label %.preheader673.lr.ph, label %._crit_edge688
 
 .preheader673.lr.ph:                              ; preds = %.preheader674
-  %52 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  %53 = sext i32 %23 to i64
-  %54 = getelementptr inbounds i8, ptr %52, i64 %53
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 2
-  %56 = add nuw nsw i32 %19, 15
-  %57 = lshr i32 %56, 4
+  %52 = add nuw nsw i32 %19, 15
+  %53 = lshr i32 %52, 4
+  %54 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  %55 = sext i32 %23 to i64
+  %56 = getelementptr inbounds i8, ptr %54, i64 %55
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 2
   %58 = icmp sgt i32 %21, 0
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 1112
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 1124
-  %61 = add nsw i32 %57, -1
+  %61 = add nsw i32 %53, -1
   %62 = add nsw i32 %23, -1
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 24032
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 24096
@@ -304,7 +304,7 @@ define hidden void @av1_cdef_frame(ptr noundef %0, ptr noundef readonly captures
   %69 = zext i32 %62 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %23, i32 1)
   %70 = zext nneg i32 %61 to i64
-  %wide.trip.count740 = zext nneg i32 %57 to i64
+  %wide.trip.count740 = zext nneg i32 %53 to i64
   %wide.trip.count734 = zext nneg i32 %smax to i64
   br label %.preheader673
 
@@ -328,8 +328,8 @@ define hidden void @av1_cdef_frame(ptr noundef %0, ptr noundef readonly captures
 
 .preheader673:                                    ; preds = %.preheader673.lr.ph, %._crit_edge
   %indvars.iv736 = phi i64 [ 0, %.preheader673.lr.ph ], [ %indvars.iv.next737.pre-phi, %._crit_edge ]
-  %.0286687 = phi ptr [ %52, %.preheader673.lr.ph ], [ %.0287686, %._crit_edge ]
-  %.0287686 = phi ptr [ %55, %.preheader673.lr.ph ], [ %.0286687, %._crit_edge ]
+  %.0286687 = phi ptr [ %54, %.preheader673.lr.ph ], [ %.0287686, %._crit_edge ]
+  %.0287686 = phi ptr [ %57, %.preheader673.lr.ph ], [ %.0286687, %._crit_edge ]
   br label %90
 
 .preheader:                                       ; preds = %fill_rect.exit

@@ -144,15 +144,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %30 = phi i16 [ %20, %26 ], [ %.sink250, %.preheader192.sink.split ]
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %31, align 8, !tbaa !25
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i16 0, ptr %33, align 8, !tbaa !26
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  store i16 0, ptr %32, align 8, !tbaa !26
   br label %36
 
 .preheader191:                                    ; preds = %36
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %34 = udiv i16 2000, %spec.select173
   %35 = zext nneg i16 %34 to i32
-  store i32 %35, ptr %32, align 8, !tbaa !27
+  store i32 %35, ptr %33, align 8, !tbaa !27
   br label %41
 
 36:                                               ; preds = %.preheader192, %36
@@ -213,7 +213,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not169, label %73, label %61
 
 61:                                               ; preds = %58
-  %62 = load i32, ptr %32, align 8, !tbaa !27
+  %62 = load i32, ptr %33, align 8, !tbaa !27
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !25
   %65 = load i16, ptr %4, align 16, !tbaa !21
@@ -234,7 +234,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not170, label %81, label %76
 
 76:                                               ; preds = %73
-  %77 = load i32, ptr %32, align 8, !tbaa !27
+  %77 = load i32, ptr %33, align 8, !tbaa !27
   %78 = load i16, ptr %4, align 16, !tbaa !21
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %80 = load ptr, ptr %79, align 16, !tbaa !25
@@ -341,7 +341,7 @@ iterate.exit178:                                  ; preds = %122, %110
   %128 = call zeroext i16 @crc16(i16 noundef signext %127, i16 noundef zeroext %126) #6
   %129 = load i16, ptr %14, align 4, !tbaa !23
   %130 = call zeroext i16 @crc16(i16 noundef signext %129, i16 noundef zeroext %128) #6
-  %131 = load i32, ptr %32, align 8, !tbaa !27
+  %131 = load i32, ptr %33, align 8, !tbaa !27
   %132 = trunc i32 %131 to i16
   %133 = call zeroext i16 @crc16(i16 noundef signext %132, i16 noundef zeroext %130) #6
   %134 = zext i16 %133 to i32
@@ -473,7 +473,7 @@ iterate.exit178:                                  ; preds = %122, %110
   %199 = call zeroext i8 @check_data_types() #6
   %200 = zext i8 %199 to i16
   %201 = add i16 %.1132, %200
-  %202 = load i32, ptr %32, align 8, !tbaa !27
+  %202 = load i32, ptr %33, align 8, !tbaa !27
   %203 = zext i32 %202 to i64
   %204 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i64 noundef %203)
   %205 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i64 noundef %124)

@@ -20231,7 +20231,6 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %temp.sroa.11.0, ptr %mMagicValue3.i, align 4
   %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %p.051, i64 -20
   %6 = load i8, ptr %mbThrowOnCopy4.i, align 4
-  %frombool3.i.i = and i8 %6, 1
   store i8 %temp.sroa.5.0, ptr %mbThrowOnCopy4.i, align 4
   %add.ptr7 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %sub.ptr.sub
   %.pre56 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
@@ -20282,6 +20281,7 @@ _ZN10TestObjectaSEOS_.exit34:                     ; preds = %do.body, %if.then.i
   br i1 %cmp17.not, label %do.end, label %do.body, !llvm.loop !403
 
 do.end:                                           ; preds = %_ZN10TestObjectaSEOS_.exit34
+  %frombool3.i.i = and i8 %6, 1
   %inc.i35 = add nsw i64 %14, 1
   store i64 %inc.i35, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %15 = load i32, ptr %p2.0, align 4

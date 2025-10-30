@@ -535,26 +535,26 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %15, %19, %21, %_ZNK
   store i64 %61, ptr %.sroa.5.0..sroa_idx, align 8
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %74, align 4, !tbaa !69
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 4128
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 4168
-  store i8 0, ptr %76, align 8, !tbaa !72
-  %77 = getelementptr inbounds nuw i8, ptr %5, i64 4172
-  store i32 0, ptr %77, align 4, !tbaa !74
-  %78 = trunc i64 %61 to i32
-  br label %79
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 4168
+  store i8 0, ptr %75, align 8, !tbaa !72
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 4172
+  store i32 0, ptr %76, align 4, !tbaa !74
+  br label %77
 
-79:                                               ; preds = %79, %_ZNK3CFF8FDSelect6get_fdEj.exit
-  %.idx.i.i.i.i = phi i64 [ 8, %_ZNK3CFF8FDSelect6get_fdEj.exit ], [ %.add.i.i.i.i, %79 ]
-  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i.i.i.i
+77:                                               ; preds = %77, %_ZNK3CFF8FDSelect6get_fdEj.exit
+  %.idx.i.i.i.i = phi i64 [ 8, %_ZNK3CFF8FDSelect6get_fdEj.exit ], [ %.add.i.i.i.i, %77 ]
+  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %75, i64 %.idx.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i.i, i8 0, i64 16, i1 false)
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 24
-  %80 = icmp eq i64 %.add.i.i.i.i, 248
-  br i1 %80, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %79
+  %78 = icmp eq i64 %.add.i.i.i.i, 248
+  br i1 %78, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %77
 
-_ZN3CFF12call_stack_tC2Ev.exit.i.i:               ; preds = %79
+_ZN3CFF12call_stack_tC2Ev.exit.i.i:               ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 4128
+  %80 = trunc i64 %61 to i32
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 4448
   %.sroa.2.12.insert.mask.i.i = and i64 %61, 4294967295
-  store ptr %60, ptr %75, align 8
+  store ptr %60, ptr %79, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4136
   store i64 %.sroa.2.12.insert.mask.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 4144
@@ -642,7 +642,7 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT
   br label %117
 
 117:                                              ; preds = %154, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit
-  %118 = phi i32 [ %78, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %.fr33, %154 ]
+  %118 = phi i32 [ %80, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %.fr33, %154 ]
   %119 = phi i32 [ 0, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %.fr, %154 ]
   %.0.i13 = phi i32 [ 200000, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %153, %154 ]
   %120 = add i32 %119, 1
@@ -726,7 +726,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread: ; preds = %128, %11
   br label %_ZN3CFF15cff1_cs_opset_tI23cff1_cs_opset_extents_t20cff1_extents_param_t25cff1_path_procs_extents_tE10process_opEjRNS_20cff1_cs_interp_env_tERS2_.exit
 
 _ZN3CFF15cff1_cs_opset_tI23cff1_cs_opset_extents_t20cff1_extents_param_t25cff1_path_procs_extents_tE10process_opEjRNS_20cff1_cs_interp_env_tERS2_.exit: ; preds = %136, %145, %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread
-  %146 = load i8, ptr %76, align 8, !tbaa !72, !range !106, !noundef !107
+  %146 = load i8, ptr %75, align 8, !tbaa !72, !range !106, !noundef !107
   %147 = trunc nuw i8 %146 to i1
   %.pre37 = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !110
   %.fr33 = freeze i32 %.pre37
@@ -1021,26 +1021,26 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %14, %18, %20, %_ZNK
   store i64 %60, ptr %.sroa.5.0..sroa_idx, align 8
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %73, align 4, !tbaa !69
-  %74 = getelementptr inbounds nuw i8, ptr %7, i64 4128
-  %75 = getelementptr inbounds nuw i8, ptr %7, i64 4168
-  store i8 0, ptr %75, align 8, !tbaa !72
-  %76 = getelementptr inbounds nuw i8, ptr %7, i64 4172
-  store i32 0, ptr %76, align 4, !tbaa !74
-  %77 = trunc i64 %60 to i32
-  br label %78
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 4168
+  store i8 0, ptr %74, align 8, !tbaa !72
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 4172
+  store i32 0, ptr %75, align 4, !tbaa !74
+  br label %76
 
-78:                                               ; preds = %78, %_ZNK3CFF8FDSelect6get_fdEj.exit
-  %.idx.i.i.i.i = phi i64 [ 8, %_ZNK3CFF8FDSelect6get_fdEj.exit ], [ %.add.i.i.i.i, %78 ]
-  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %75, i64 %.idx.i.i.i.i
+76:                                               ; preds = %76, %_ZNK3CFF8FDSelect6get_fdEj.exit
+  %.idx.i.i.i.i = phi i64 [ 8, %_ZNK3CFF8FDSelect6get_fdEj.exit ], [ %.add.i.i.i.i, %76 ]
+  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %74, i64 %.idx.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i.i, i8 0, i64 16, i1 false)
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 24
-  %79 = icmp eq i64 %.add.i.i.i.i, 248
-  br i1 %79, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %78
+  %77 = icmp eq i64 %.add.i.i.i.i, 248
+  br i1 %77, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %76
 
-_ZN3CFF12call_stack_tC2Ev.exit.i.i:               ; preds = %78
+_ZN3CFF12call_stack_tC2Ev.exit.i.i:               ; preds = %76
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 4128
+  %79 = trunc i64 %60 to i32
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 4448
   %.sroa.2.12.insert.mask.i.i = and i64 %60, 4294967295
-  store ptr %59, ptr %74, align 8
+  store ptr %59, ptr %78, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4136
   store i64 %.sroa.2.12.insert.mask.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 4144
@@ -1124,7 +1124,7 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT
   br label %114
 
 114:                                              ; preds = %151, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit
-  %115 = phi i32 [ %77, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %.fr35, %151 ]
+  %115 = phi i32 [ %79, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %.fr35, %151 ]
   %116 = phi i32 [ 0, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %.fr, %151 ]
   %.0.i14 = phi i32 [ 200000, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %150, %151 ]
   %117 = add i32 %116, 1
@@ -1208,7 +1208,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread: ; preds = %125, %11
   br label %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_procs_path_tE10process_opEjRNS_20cff1_cs_interp_env_tERS2_.exit
 
 _ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_procs_path_tE10process_opEjRNS_20cff1_cs_interp_env_tERS2_.exit: ; preds = %133, %142, %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread
-  %143 = load i8, ptr %75, align 8, !tbaa !72, !range !106, !noundef !107
+  %143 = load i8, ptr %74, align 8, !tbaa !72, !range !106, !noundef !107
   %144 = trunc nuw i8 %143 to i1
   %.pre39 = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !110
   %.fr35 = freeze i32 %.pre39
@@ -1453,25 +1453,25 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %14, %18, %20, %_ZNK
   store i64 %60, ptr %.sroa.5.0..sroa_idx, align 8
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %73, align 4, !tbaa !69
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 4128
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 4168
-  store i8 0, ptr %75, align 8, !tbaa !72
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 4172
-  store i32 0, ptr %76, align 4, !tbaa !74
-  br label %77
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 4168
+  store i8 0, ptr %74, align 8, !tbaa !72
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 4172
+  store i32 0, ptr %75, align 4, !tbaa !74
+  br label %76
 
-77:                                               ; preds = %77, %_ZNK3CFF8FDSelect6get_fdEj.exit
-  %.idx.i.i.i.i = phi i64 [ 8, %_ZNK3CFF8FDSelect6get_fdEj.exit ], [ %.add.i.i.i.i, %77 ]
-  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %75, i64 %.idx.i.i.i.i
+76:                                               ; preds = %76, %_ZNK3CFF8FDSelect6get_fdEj.exit
+  %.idx.i.i.i.i = phi i64 [ 8, %_ZNK3CFF8FDSelect6get_fdEj.exit ], [ %.add.i.i.i.i, %76 ]
+  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %74, i64 %.idx.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.ptr.i.i.i.i, i8 0, i64 16, i1 false)
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 24
-  %78 = icmp eq i64 %.add.i.i.i.i, 248
-  br i1 %78, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %77
+  %77 = icmp eq i64 %.add.i.i.i.i, 248
+  br i1 %77, label %_ZN3CFF12call_stack_tC2Ev.exit.i.i, label %76
 
-_ZN3CFF12call_stack_tC2Ev.exit.i.i:               ; preds = %77
+_ZN3CFF12call_stack_tC2Ev.exit.i.i:               ; preds = %76
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 4128
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 4448
   %.sroa.2.12.insert.mask.i.i = and i64 %60, 4294967295
-  store ptr %59, ptr %74, align 8
+  store ptr %59, ptr %78, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4136
   store i64 %.sroa.2.12.insert.mask.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 4144

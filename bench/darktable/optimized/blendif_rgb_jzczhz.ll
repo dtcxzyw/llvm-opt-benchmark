@@ -128,11 +128,10 @@ define void @dt_develop_blendif_rgb_jzczhz_make_mask(ptr noundef %0, ptr noalias
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %9)
   %75 = load i32, ptr %9, align 4
-  %76 = and i32 %75, 32768
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %10)
-  %77 = load i32, ptr %10, align 4
-  %78 = or i32 %77, 32768
-  store i32 %78, ptr %11, align 4
+  %76 = load i32, ptr %10, align 4
+  %77 = or i32 %76, 32768
+  store i32 %77, ptr %11, align 4
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -145,39 +144,40 @@ define void @dt_develop_blendif_rgb_jzczhz_make_mask(ptr noundef %0, ptr noalias
   br i1 %.not177, label %._crit_edge, label %.lr.ph163
 
 .lr.ph163:                                        ; preds = %.preheader160
-  %79 = sext i32 %26 to i64
-  %80 = sext i32 %28 to i64
-  %81 = sext i32 %21 to i64
-  br label %86
+  %78 = sext i32 %26 to i64
+  %79 = sext i32 %28 to i64
+  %80 = sext i32 %21 to i64
+  br label %85
 
 .lr.ph:                                           ; preds = %74, %.lr.ph
-  %.0136161 = phi i64 [ %83, %.lr.ph ], [ 0, %74 ]
-  %82 = getelementptr inbounds nuw float, ptr %73, i64 %.0136161
-  store float 1.000000e+00, ptr %82, align 4, !tbaa !36
-  %83 = add nuw i64 %.0136161, 1
-  %exitcond.not = icmp eq i64 %83, %47
+  %.0136161 = phi i64 [ %82, %.lr.ph ], [ 0, %74 ]
+  %81 = getelementptr inbounds nuw float, ptr %73, i64 %.0136161
+  store float 1.000000e+00, ptr %81, align 4, !tbaa !36
+  %82 = add nuw i64 %.0136161, 1
+  %exitcond.not = icmp eq i64 %82, %47
   br i1 %exitcond.not, label %.preheader160, label %.lr.ph
 
-.lr.ph165:                                        ; preds = %86
-  %84 = lshr i32 %40, 4
-  %85 = getelementptr inbounds nuw i8, ptr %12, i64 96
+.lr.ph165:                                        ; preds = %85
+  %83 = lshr i32 %40, 4
+  %84 = getelementptr inbounds nuw i8, ptr %12, i64 96
   br label %94
 
-86:                                               ; preds = %.lr.ph163, %86
-  %.0135162 = phi i64 [ 0, %.lr.ph163 ], [ %93, %86 ]
-  %87 = add i64 %.0135162, %79
-  %88 = mul i64 %87, %80
-  %89 = add i64 %88, %81
-  %.idx148 = shl i64 %89, 4
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx148
-  %91 = mul i64 %.0135162, %45
-  %92 = getelementptr inbounds nuw float, ptr %73, i64 %91
-  call fastcc void @_blendif_combine_channels(ptr noundef %90, ptr noundef %92, i64 noundef %45, i32 noundef %40, ptr noundef %12, ptr noundef %13)
-  %93 = add nuw i64 %.0135162, 1
-  %exitcond187.not = icmp eq i64 %93, %46
-  br i1 %exitcond187.not, label %.lr.ph165, label %86
+85:                                               ; preds = %.lr.ph163, %85
+  %.0135162 = phi i64 [ 0, %.lr.ph163 ], [ %92, %85 ]
+  %86 = add i64 %.0135162, %78
+  %87 = mul i64 %86, %79
+  %88 = add i64 %87, %80
+  %.idx148 = shl i64 %88, 4
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx148
+  %90 = mul i64 %.0135162, %45
+  %91 = getelementptr inbounds nuw float, ptr %73, i64 %90
+  call fastcc void @_blendif_combine_channels(ptr noundef %89, ptr noundef %91, i64 noundef %45, i32 noundef %40, ptr noundef %12, ptr noundef %13)
+  %92 = add nuw i64 %.0135162, 1
+  %exitcond187.not = icmp eq i64 %92, %46
+  br i1 %exitcond187.not, label %.lr.ph165, label %85
 
 ._crit_edge:                                      ; preds = %94, %.preheader160
+  %93 = and i32 %75, 32768
   %.not146 = icmp eq i32 %38, 0
   br i1 %.not140, label %117, label %99
 
@@ -187,7 +187,7 @@ define void @dt_develop_blendif_rgb_jzczhz_make_mask(ptr noundef %0, ptr noalias
   %.idx = shl i64 %95, 4
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %97 = getelementptr inbounds nuw float, ptr %73, i64 %95
-  call fastcc void @_blendif_combine_channels(ptr noundef %96, ptr noundef %97, i64 noundef %45, i32 noundef %84, ptr noundef %85, ptr noundef %13)
+  call fastcc void @_blendif_combine_channels(ptr noundef %96, ptr noundef %97, i64 noundef %45, i32 noundef %83, ptr noundef %84, ptr noundef %13)
   %98 = add nuw i64 %.0133164, 1
   %exitcond188.not = icmp eq i64 %98, %46
   br i1 %exitcond188.not, label %._crit_edge, label %94
@@ -272,7 +272,7 @@ define void @dt_develop_blendif_rgb_jzczhz_make_mask(ptr noundef %0, ptr noalias
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %7)
   %133 = load i32, ptr %7, align 4
   %134 = and i32 %133, -32769
-  %135 = or disjoint i32 %134, %76
+  %135 = or disjoint i32 %134, %93
   store i32 %135, ptr %8, align 4
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

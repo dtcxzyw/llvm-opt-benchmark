@@ -874,9 +874,6 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 3456
   %40 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %39, i32 noundef 0) #15
   %41 = load ptr, ptr @asyncQueueControl, align 8
-  %.sroa.031.0.copyload.i = load i64, ptr %41, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %.sroa.0.0.copyload.i = load i64, ptr %42, align 8
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 24
@@ -899,6 +896,9 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   %.sroa.9.0.lcssa.i = phi i32 [ %.sroa.9.0.copyload.i, %37 ], [ %.sroa.9.1.i, %76 ]
   %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.0.copyload.i, %37 ], [ %.sroa.0.1.i, %76 ]
   %.032.lcssa.i = phi i32 [ -1, %37 ], [ %spec.select.i, %76 ]
+  %.sroa.031.0.copyload.i = load i64, ptr %41, align 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 8
   %46 = sext i32 %.pre.i to i64
   %47 = getelementptr %struct.QueueBackendStatus, ptr %41, i64 %46
   %48 = getelementptr i8, ptr %47, i64 72

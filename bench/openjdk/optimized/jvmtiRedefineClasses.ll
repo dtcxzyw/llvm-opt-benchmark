@@ -10792,32 +10792,32 @@ define hidden noundef i32 @_ZN18VM_RedefineClasses34check_methods_and_mark_as_ob
   %12 = load ptr, ptr @_ZN18VM_RedefineClasses21_matching_old_methodsE, align 8
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv78
   %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr @_ZN18VM_RedefineClasses21_matching_new_methodsE, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv78
-  %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr @_ZN18VM_RedefineClasses12_old_methodsE, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %15 = load ptr, ptr @_ZN18VM_RedefineClasses12_old_methodsE, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %sext = shl i64 %.03469, 32
-  %20 = ashr exact i64 %sext, 32
-  br label %21
+  %17 = ashr exact i64 %sext, 32
+  br label %18
 
-21:                                               ; preds = %21, %11
-  %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ %20, %11 ]
-  %22 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8
-  %.not = icmp eq ptr %23, %14
+18:                                               ; preds = %18, %11
+  %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ %17, %11 ]
+  %19 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %20 = load ptr, ptr %19, align 8
+  %.not = icmp eq ptr %20, %14
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %.not, label %24, label %21, !llvm.loop !69
+  br i1 %.not, label %21, label %18, !llvm.loop !69
 
-24:                                               ; preds = %21
-  %25 = tail call noundef zeroext i1 @_ZN16MethodComparator12methods_EMCPEP6MethodS1_(ptr noundef %14, ptr noundef %17) #19
+21:                                               ; preds = %18
+  %22 = load ptr, ptr @_ZN18VM_RedefineClasses21_matching_new_methodsE, align 8
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv78
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call noundef zeroext i1 @_ZN16MethodComparator12methods_EMCPEP6MethodS1_(ptr noundef %14, ptr noundef %24) #19
   br i1 %25, label %26, label %28
 
-26:                                               ; preds = %24
+26:                                               ; preds = %21
   %27 = add nsw i32 %.071, 1
   br label %_ZN12ResourceMarkD2Ev.exit
 
-28:                                               ; preds = %24
+28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %30 = load volatile i32, ptr %29, align 4
   br label %31

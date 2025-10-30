@@ -4536,11 +4536,11 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %18, %17
 
 .lr.ph130:                                        ; preds = %27
   %.v = select i1 %8, i64 60, i64 48
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %31
 
 ._crit_edge:                                      ; preds = %.loopexit
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %spec.store.select114.lcssa133, ptr %29, align 4
   store i32 %spec.store.select112.lcssa137, ptr %30, align 4
   store i32 %spec.store.select115.lcssa123, ptr %4, align 4

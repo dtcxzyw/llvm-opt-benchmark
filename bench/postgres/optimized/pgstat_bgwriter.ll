@@ -20,24 +20,24 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_report_bgwriter() local_unnamed_addr #0 {
-  %1 = load ptr, ptr @pgStatLocal, align 8
-  br label %2
+  br label %1
 
-2:                                                ; preds = %2, %0
-  %.2.idx3.i = phi i64 [ 0, %0 ], [ %.2.add.i, %2 ]
+1:                                                ; preds = %1, %0
+  %.2.idx3.i = phi i64 [ 0, %0 ], [ %.2.add.i, %1 ]
   %.2.ptr.ptr.i = getelementptr inbounds nuw i8, ptr @PendingBgWriterStats, i64 %.2.idx3.i
-  %3 = load i64, ptr %.2.ptr.ptr.i, align 8
-  %.not44.i = icmp eq i64 %3, 0
+  %2 = load i64, ptr %.2.ptr.ptr.i, align 8
+  %.not44.i = icmp eq i64 %2, 0
   %.2.add.i = add nuw nsw i64 %.2.idx3.i, 8
-  %4 = icmp samesign ult i64 %.2.idx3.i, 24
-  %or.cond.i = select i1 %.not44.i, i1 %4, i1 false
-  br i1 %or.cond.i, label %2, label %pg_memory_is_all_zeros.exit, !llvm.loop !4
+  %3 = icmp samesign ult i64 %.2.idx3.i, 24
+  %or.cond.i = select i1 %.not44.i, i1 %3, i1 false
+  br i1 %or.cond.i, label %1, label %pg_memory_is_all_zeros.exit, !llvm.loop !4
 
-pg_memory_is_all_zeros.exit:                      ; preds = %2
-  br i1 %.not44.i, label %27, label %5
+pg_memory_is_all_zeros.exit:                      ; preds = %1
+  br i1 %.not44.i, label %27, label %4
 
-5:                                                ; preds = %pg_memory_is_all_zeros.exit
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 344
+4:                                                ; preds = %pg_memory_is_all_zeros.exit
+  %5 = load ptr, ptr @pgStatLocal, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 344
   %7 = load volatile i32, ptr @CritSectionCount, align 4
   %8 = add i32 %7, 1
   store volatile i32 %8, ptr @CritSectionCount, align 4
@@ -46,17 +46,17 @@ pg_memory_is_all_zeros.exit:                      ; preds = %2
   store i32 %10, ptr %6, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   %11 = load i64, ptr @PendingBgWriterStats, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 352
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 352
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %11
   store i64 %14, ptr %12, align 8
   %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingBgWriterStats, i64 8), align 8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %15
   store i64 %18, ptr %16, align 8
   %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingBgWriterStats, i64 16), align 8
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 368
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 368
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %19
   store i64 %22, ptr %20, align 8
@@ -71,7 +71,7 @@ pg_memory_is_all_zeros.exit:                      ; preds = %2
   tail call void @pgstat_flush_io(i1 noundef zeroext false) #4
   br label %27
 
-27:                                               ; preds = %pg_memory_is_all_zeros.exit, %5
+27:                                               ; preds = %pg_memory_is_all_zeros.exit, %4
   ret void
 }
 

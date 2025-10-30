@@ -7999,22 +7999,22 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
   %13 = alloca [152 x i8], align 4
   %14 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %16 = load i32, ptr %15, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  br label %17
+  br label %15
 
-17:                                               ; preds = %11, %17
-  %18 = phi i64 [ 0, %11 ], [ %20, %17 ]
-  %19 = getelementptr inbounds nuw i32, ptr %13, i64 %18
-  store i32 268435455, ptr %19, align 4
-  %20 = add nuw nsw i64 %18, 1
-  %exitcond.not = icmp eq i64 %20, 38
-  br i1 %exitcond.not, label %.split, label %17
+15:                                               ; preds = %11, %15
+  %16 = phi i64 [ 0, %11 ], [ %18, %15 ]
+  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %16
+  store i32 268435455, ptr %17, align 4
+  %18 = add nuw nsw i64 %16, 1
+  %exitcond.not = icmp eq i64 %18, 38
+  br i1 %exitcond.not, label %.split, label %15
 
-.split:                                           ; preds = %17
-  %21 = and i64 %5, %4
-  %22 = icmp eq i32 %16, 11
+.split:                                           ; preds = %15
+  %19 = and i64 %5, %4
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %21 = load i32, ptr %20, align 8, !noundef !3
+  %22 = icmp eq i32 %21, 11
   %. = select i1 %22, i64 64, i64 16
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 %.)
   %.sroa.026.0101 = add i64 %5, -1
@@ -8022,11 +8022,11 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.split
-  %24 = icmp ult i64 %21, %3
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 %21
-  %26 = add i64 %21, 1
+  %24 = icmp ult i64 %19, %3
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 %19
+  %26 = add i64 %19, 1
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 %26
-  %28 = sub nuw i64 %3, %21
+  %28 = sub nuw i64 %3, %19
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -8128,7 +8128,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
   br i1 %75, label %._crit_edge, label %76
 
 76:                                               ; preds = %.lr.ph.split
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %21, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c89078488ceecc213926f9c07f09b856.246) #20
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %19, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c89078488ceecc213926f9c07f09b856.246) #20
   unreachable
 
 .split114.us:                                     ; preds = %65, %33
@@ -8191,18 +8191,18 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
   ret i64 %.sroa.03.3
 
 92:                                               ; preds = %89
-  %93 = icmp ugt i64 %21, %3
+  %93 = icmp ugt i64 %19, %3
   br i1 %93, label %99, label %94, !prof !11
 
 94:                                               ; preds = %92
-  %95 = sub nuw i64 %3, %21
-  %96 = getelementptr inbounds nuw i8, ptr %2, i64 %21
+  %95 = sub nuw i64 %3, %19
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 %19
   %97 = call noundef i32 @_ZN6brotli3enc11static_dict36BrotliFindAllStaticDictionaryMatches17hcf6c489fe64d0d57E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %96, i64 noundef %95, i64 noundef %.sroa.0.0.sroa.speculated.i, i64 noundef %6, ptr noalias noundef nonnull align 4 %13, i64 noundef 38)
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %.loopexit, label %100
 
 99:                                               ; preds = %92
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef %21, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c89078488ceecc213926f9c07f09b856.259) #20
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef %19, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c89078488ceecc213926f9c07f09b856.259) #20
   unreachable
 
 100:                                              ; preds = %94

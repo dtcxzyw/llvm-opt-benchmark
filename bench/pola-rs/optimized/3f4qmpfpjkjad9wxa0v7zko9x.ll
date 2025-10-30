@@ -19938,7 +19938,6 @@ common.resume:                                    ; preds = %104, %.body.i, %22,
 .lr.ph.i.i.i:                                     ; preds = %"_ZN93_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$14extend_reserve17h790826b5c1938673E.exit.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !3025
   store ptr %72, ptr %10, align 8, !noalias !3019
-  %.sroa.576.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.679.0..sroa_idx80 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %.sroa.085.0.copyload, ptr %.sroa.679.0..sroa_idx80, align 8, !noalias !3019
   %.sroa.782.0..sroa_idx83 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -19954,6 +19953,7 @@ common.resume:                                    ; preds = %104, %.body.i, %22,
   br label %80
 
 ._crit_edge.i.i.i:                                ; preds = %80
+  %.sroa.576.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %71, ptr %.sroa.576.0..sroa_idx77, align 8, !alias.scope !3027, !noalias !3046
   store i64 %87, ptr %.sroa.5.0..sroa_idx3.i.i, align 8, !alias.scope !3034, !noalias !3037
   store i64 %90, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !3041, !noalias !3044

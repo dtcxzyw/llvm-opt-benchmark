@@ -15638,16 +15638,15 @@ define void @_ZN5folly17AsyncServerSocket20removeAcceptCallbackEPNS0_14AcceptCal
   %.sroa.06.0.copyload72 = phi ptr [ %11, %.lr.ph.split.us ], [ %21, %23 ]
   %.us-phi = phi ptr [ %.sroa.037.049.us, %.lr.ph.split.us ], [ %.sroa.037.049, %23 ]
   %.us-phi53 = phi i32 [ %.050.us, %.lr.ph.split.us ], [ %.050, %23 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %34 = load ptr, ptr %33, align 8, !tbaa !408
-  %.not56 = icmp eq ptr %34, null
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %33 = load ptr, ptr %32, align 8, !tbaa !408
+  %.not56 = icmp eq ptr %33, null
   br i1 %.not56, label %._crit_edge60, label %.lr.ph59
 
 .lr.ph59:                                         ; preds = %.split.us
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %52
 
 ._crit_edge60.loopexit:                           ; preds = %97
@@ -15657,22 +15656,23 @@ define void @_ZN5folly17AsyncServerSocket20removeAcceptCallbackEPNS0_14AcceptCal
   br label %._crit_edge60
 
 ._crit_edge60:                                    ; preds = %._crit_edge60.loopexit, %.split.us
-  %37 = phi ptr [ %.pre73, %._crit_edge60.loopexit ], [ %8, %.split.us ]
-  %38 = phi ptr [ %.pre, %._crit_edge60.loopexit ], [ %6, %.split.us ]
+  %36 = phi ptr [ %.pre73, %._crit_edge60.loopexit ], [ %8, %.split.us ]
+  %37 = phi ptr [ %.pre, %._crit_edge60.loopexit ], [ %6, %.split.us ]
   %.sroa.06.0.copyload = phi ptr [ %.sroa.06.0.copyload.pre, %._crit_edge60.loopexit ], [ %.sroa.06.0.copyload72, %.split.us ]
-  %.sroa.4.0.copyload = load ptr, ptr %31, align 8, !tbaa !163
+  %38 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
+  %.sroa.4.0.copyload = load ptr, ptr %38, align 8, !tbaa !163
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !164
   %39 = ptrtoint ptr %.us-phi to i64
-  %40 = ptrtoint ptr %38 to i64
+  %40 = ptrtoint ptr %37 to i64
   %41 = sub i64 %39, %40
-  %42 = getelementptr inbounds i8, ptr %38, i64 %41
+  %42 = getelementptr inbounds i8, ptr %37, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %.not.i.i = icmp eq ptr %43, %37
+  %.not.i.i = icmp eq ptr %43, %36
   br i1 %.not.i.i, label %_ZNSt6vectorIN5folly17AsyncServerSocket12CallbackInfoESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly17AsyncServerSocket12CallbackInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly17AsyncServerSocket12CallbackInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i: ; preds = %._crit_edge60
-  %44 = ptrtoint ptr %37 to i64
+  %44 = ptrtoint ptr %36 to i64
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %44, %45
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %42, ptr nonnull align 8 %43, i64 %46, i1 false)
@@ -15680,7 +15680,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly17AsyncServerSocket12CallbackIn
   br label %_ZNSt6vectorIN5folly17AsyncServerSocket12CallbackInfoESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit
 
 _ZNSt6vectorIN5folly17AsyncServerSocket12CallbackInfoESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit: ; preds = %._crit_edge60, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly17AsyncServerSocket12CallbackInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
-  %47 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly17AsyncServerSocket12CallbackInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %37, %._crit_edge60 ]
+  %47 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly17AsyncServerSocket12CallbackInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i ], [ %36, %._crit_edge60 ]
   %48 = getelementptr inbounds i8, ptr %47, i64 -24
   store ptr %48, ptr %7, align 8, !tbaa !160
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -15689,7 +15689,7 @@ _ZNSt6vectorIN5folly17AsyncServerSocket12CallbackInfoESaIS2_EE5eraseEN9__gnu_cxx
   br i1 %51, label %98, label %100
 
 52:                                               ; preds = %.lr.ph59, %97
-  %.sroa.033.057 = phi ptr [ %34, %.lr.ph59 ], [ %.sroa.033.1, %97 ]
+  %.sroa.033.057 = phi ptr [ %33, %.lr.ph59 ], [ %.sroa.033.1, %97 ]
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.033.057, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.033.057, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !154
@@ -15704,11 +15704,11 @@ _ZNSt6vectorIN5folly17AsyncServerSocket12CallbackInfoESaIS2_EE5eraseEN9__gnu_cxx
   br i1 %or.cond3, label %61, label %95
 
 61:                                               ; preds = %57
-  %62 = load i64, ptr %35, align 8, !tbaa !228
+  %62 = load i64, ptr %34, align 8, !tbaa !228
   %63 = load i32, ptr %53, align 4, !tbaa !23
   %64 = zext i32 %63 to i64
   %65 = urem i64 %64, %62
-  %66 = load ptr, ptr %32, align 8, !tbaa !229
+  %66 = load ptr, ptr %31, align 8, !tbaa !229
   %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %65
   %68 = load ptr, ptr %67, align 8, !tbaa !230
   br label %69
@@ -15742,11 +15742,11 @@ _ZNSt10_HashtableIjSt4pairIKjN5folly17AsyncServerSocket12CallbackInfoEESaIS5_ENS
   br label %._crit_edge.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %79, %73
-  %81 = icmp eq ptr %33, %68
+  %81 = icmp eq ptr %32, %68
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %._crit_edge.i.i.i.i.i
-  store ptr %72, ptr %33, align 8, !tbaa !408
+  store ptr %72, ptr %32, align 8, !tbaa !408
   br label %83
 
 83:                                               ; preds = %82, %._crit_edge.i.i.i.i.i
@@ -15773,9 +15773,9 @@ _ZNSt13unordered_mapIjN5folly17AsyncServerSocket12CallbackInfoESt4hashIjESt8equa
   %92 = load ptr, ptr %.sroa.033.057, align 8, !tbaa !226
   store ptr %92, ptr %.0.i.i.i.i, align 8, !tbaa !226
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.033.057, i64 noundef 40) #52
-  %93 = load i64, ptr %36, align 8, !tbaa !225
+  %93 = load i64, ptr %35, align 8, !tbaa !225
   %94 = add i64 %93, -1
-  store i64 %94, ptr %36, align 8, !tbaa !225
+  store i64 %94, ptr %35, align 8, !tbaa !225
   br label %97
 
 95:                                               ; preds = %57, %52

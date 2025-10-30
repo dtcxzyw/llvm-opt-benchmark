@@ -974,54 +974,54 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_copy_fences(ptr noundef
   store ptr %1, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 3, ptr %5, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @__rcu_read_lock() #9
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  br label %11
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 44
+  br label %10
 
-11:                                               ; preds = %19, %2
-  %12 = phi ptr [ %20, %19 ], [ %1, %2 ]
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %8, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %14 = load volatile ptr, ptr %13, align 8
-  store ptr %14, ptr %9, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %19, label %16
+10:                                               ; preds = %18, %2
+  %11 = phi ptr [ %19, %18 ], [ %1, %2 ]
+  store i32 0, ptr %6, align 4
+  store i32 0, ptr %7, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %13 = load volatile ptr, ptr %12, align 8
+  store ptr %13, ptr %8, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %18, label %15
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %18 = load i32, ptr %17, align 8
-  store i32 %18, ptr %8, align 8
-  br label %19
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %17 = load i32, ptr %16, align 8
+  store i32 %17, ptr %7, align 8
+  br label %18
 
-19:                                               ; preds = %16, %11
-  store i8 1, ptr %10, align 4
+18:                                               ; preds = %15, %10
+  store i8 1, ptr %9, align 4
   call fastcc void @dma_resv_iter_walk_unlocked(ptr noundef nonnull %3)
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %22 = load volatile ptr, ptr %21, align 8
-  %23 = load ptr, ptr %9, align 8
-  %24 = icmp eq ptr %22, %23
-  br i1 %24, label %25, label %11, !llvm.loop !25
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %21 = load volatile ptr, ptr %20, align 8
+  %22 = load ptr, ptr %8, align 8
+  %23 = icmp eq ptr %21, %22
+  br i1 %23, label %24, label %10, !llvm.loop !25
 
-25:                                               ; preds = %19
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @__rcu_read_unlock() #9
-  %26 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit25, label %28
 
-28:                                               ; preds = %25
+28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %30
 
 30:                                               ; preds = %128, %28
   %31 = phi ptr [ null, %28 ], [ %86, %128 ]
   %32 = phi ptr [ %26, %28 ], [ %129, %128 ]
-  %33 = load i8, ptr %10, align 4, !range !19, !noundef !20
+  %33 = load i8, ptr %9, align 4, !range !19, !noundef !20
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %85, label %35
 
@@ -1080,7 +1080,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_copy_fences(ptr noundef
   br label %63
 
 63:                                               ; preds = %.loopexit24, %35
-  %64 = load i32, ptr %8, align 8
+  %64 = load i32, ptr %7, align 8
   %65 = zext i32 %64 to i64
   %66 = shl nuw nsw i64 %65, 3
   %67 = add nuw nsw i64 %66, 24
@@ -1151,32 +1151,32 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_copy_fences(ptr noundef
   %107 = getelementptr ptr, ptr %105, i64 %106
   store volatile ptr %104, ptr %107, align 8
   tail call void @__rcu_read_lock() #9
-  store i8 0, ptr %10, align 4
+  store i8 0, ptr %9, align 4
   %108 = load ptr, ptr %3, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %110 = load volatile ptr, ptr %109, align 8
-  %111 = load ptr, ptr %9, align 8
+  %111 = load ptr, ptr %8, align 8
   %112 = icmp eq ptr %110, %111
   br i1 %112, label %122, label %113
 
 113:                                              ; preds = %122, %96
   %114 = phi ptr [ %123, %122 ], [ %108, %96 ]
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %8, align 8
+  store i32 0, ptr %6, align 4
+  store i32 0, ptr %7, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 40
   %116 = load volatile ptr, ptr %115, align 8
-  store ptr %116, ptr %9, align 8
+  store ptr %116, ptr %8, align 8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %121, label %118
 
 118:                                              ; preds = %113
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %120 = load i32, ptr %119, align 8
-  store i32 %120, ptr %8, align 8
+  store i32 %120, ptr %7, align 8
   br label %121
 
 121:                                              ; preds = %118, %113
-  store i8 1, ptr %10, align 4
+  store i8 1, ptr %9, align 4
   br label %122
 
 122:                                              ; preds = %121, %96
@@ -1184,18 +1184,18 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_copy_fences(ptr noundef
   %123 = load ptr, ptr %3, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 40
   %125 = load volatile ptr, ptr %124, align 8
-  %126 = load ptr, ptr %9, align 8
+  %126 = load ptr, ptr %8, align 8
   %127 = icmp eq ptr %125, %126
   br i1 %127, label %128, label %113, !llvm.loop !29
 
 128:                                              ; preds = %122
   tail call void @__rcu_read_unlock() #9
-  %129 = load ptr, ptr %6, align 8
+  %129 = load ptr, ptr %25, align 8
   %130 = icmp eq ptr %129, null
   br i1 %130, label %.loopexit25, label %30, !llvm.loop !32
 
-.loopexit25:                                      ; preds = %128, %25
-  %131 = phi ptr [ null, %25 ], [ %86, %128 ]
+.loopexit25:                                      ; preds = %128, %24
+  %131 = phi ptr [ null, %24 ], [ %86, %128 ]
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %133 = load ptr, ptr %132, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !33
@@ -1273,51 +1273,51 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_get_fences(ptr noundef 
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @__rcu_read_lock() #9
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  br label %13
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  br label %12
 
-13:                                               ; preds = %21, %4
-  %14 = phi ptr [ %22, %21 ], [ %0, %4 ]
-  store i32 0, ptr %9, align 4
-  store i32 0, ptr %10, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %16 = load volatile ptr, ptr %15, align 8
-  store ptr %16, ptr %11, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %21, label %18
+12:                                               ; preds = %20, %4
+  %13 = phi ptr [ %21, %20 ], [ %0, %4 ]
+  store i32 0, ptr %8, align 4
+  store i32 0, ptr %9, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %15 = load volatile ptr, ptr %14, align 8
+  store ptr %15, ptr %10, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %20, label %17
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %20 = load i32, ptr %19, align 8
-  store i32 %20, ptr %10, align 8
-  br label %21
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %19 = load i32, ptr %18, align 8
+  store i32 %19, ptr %9, align 8
+  br label %20
 
-21:                                               ; preds = %18, %13
-  store i8 1, ptr %12, align 4
+20:                                               ; preds = %17, %12
+  store i8 1, ptr %11, align 4
   call fastcc void @dma_resv_iter_walk_unlocked(ptr noundef nonnull %5)
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %24 = load volatile ptr, ptr %23, align 8
-  %25 = load ptr, ptr %11, align 8
-  %26 = icmp eq ptr %24, %25
-  br i1 %26, label %27, label %13, !llvm.loop !25
+  %21 = load ptr, ptr %5, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %23 = load volatile ptr, ptr %22, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = icmp eq ptr %23, %24
+  br i1 %25, label %26, label %12, !llvm.loop !25
 
-27:                                               ; preds = %21
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @__rcu_read_unlock() #9
-  %28 = load ptr, ptr %8, align 8
+  %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.thread16, label %.preheader17
 
-.preheader17:                                     ; preds = %27, %109
-  %30 = phi ptr [ %106, %109 ], [ %24, %27 ]
-  %31 = phi ptr [ %104, %109 ], [ %22, %27 ]
-  %32 = phi ptr [ %110, %109 ], [ %28, %27 ]
-  %33 = load i8, ptr %12, align 4, !range !19, !noundef !20
+.preheader17:                                     ; preds = %26, %109
+  %30 = phi ptr [ %106, %109 ], [ %23, %26 ]
+  %31 = phi ptr [ %104, %109 ], [ %21, %26 ]
+  %32 = phi ptr [ %110, %109 ], [ %28, %26 ]
+  %33 = load i8, ptr %11, align 4, !range !19, !noundef !20
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %75, label %35
 
@@ -1366,7 +1366,7 @@ thread-pre-split:                                 ; preds = %49, %51, %52
   br i1 %55, label %.loopexit, label %.preheader, !llvm.loop !34
 
 .loopexit:                                        ; preds = %53, %35
-  %56 = load i32, ptr %10, align 8
+  %56 = load i32, ptr %9, align 8
   %57 = add i32 %56, 1
   %58 = load ptr, ptr %3, align 8
   %59 = zext i32 %57 to i64
@@ -1430,7 +1430,7 @@ thread-pre-split:                                 ; preds = %49, %51, %52
   %90 = getelementptr ptr, ptr %86, i64 %89
   store ptr %32, ptr %90, align 8
   tail call void @__rcu_read_lock() #9
-  store i8 0, ptr %12, align 4
+  store i8 0, ptr %11, align 4
   %91 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %92 = load volatile ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, %30
@@ -1438,22 +1438,22 @@ thread-pre-split:                                 ; preds = %49, %51, %52
 
 94:                                               ; preds = %103, %85
   %95 = phi ptr [ %104, %103 ], [ %31, %85 ]
-  store i32 0, ptr %9, align 4
-  store i32 0, ptr %10, align 8
+  store i32 0, ptr %8, align 4
+  store i32 0, ptr %9, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %97 = load volatile ptr, ptr %96, align 8
-  store ptr %97, ptr %11, align 8
+  store ptr %97, ptr %10, align 8
   %98 = icmp eq ptr %97, null
   br i1 %98, label %102, label %99
 
 99:                                               ; preds = %94
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %101 = load i32, ptr %100, align 8
-  store i32 %101, ptr %10, align 8
+  store i32 %101, ptr %9, align 8
   br label %102
 
 102:                                              ; preds = %99, %94
-  store i8 1, ptr %12, align 4
+  store i8 1, ptr %11, align 4
   br label %103
 
 103:                                              ; preds = %102, %85
@@ -1461,18 +1461,18 @@ thread-pre-split:                                 ; preds = %49, %51, %52
   %104 = load ptr, ptr %5, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 40
   %106 = load volatile ptr, ptr %105, align 8
-  %107 = load ptr, ptr %11, align 8
+  %107 = load ptr, ptr %10, align 8
   %108 = icmp eq ptr %106, %107
   br i1 %108, label %109, label %94, !llvm.loop !29
 
 109:                                              ; preds = %103
   tail call void @__rcu_read_unlock() #9
-  %110 = load ptr, ptr %8, align 8
+  %110 = load ptr, ptr %27, align 8
   %111 = icmp eq ptr %110, null
   br i1 %111, label %.thread16, label %.preheader17, !llvm.loop !35
 
-.thread16:                                        ; preds = %109, %27, %70, %72, %73
-  %112 = phi i32 [ -12, %73 ], [ -12, %72 ], [ -12, %70 ], [ 0, %27 ], [ 0, %109 ]
+.thread16:                                        ; preds = %109, %26, %70, %72, %73
+  %112 = phi i32 [ -12, %73 ], [ -12, %72 ], [ -12, %70 ], [ 0, %26 ], [ 0, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %112
 }
@@ -1581,52 +1581,52 @@ define dso_local i64 @dma_resv_wait_timeout(ptr noundef %0, i32 noundef %1, i1 n
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @__rcu_read_lock() #9
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  br label %13
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  br label %12
 
-13:                                               ; preds = %21, %4
-  %14 = phi ptr [ %22, %21 ], [ %0, %4 ]
-  store i32 0, ptr %9, align 4
-  store i32 0, ptr %10, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %16 = load volatile ptr, ptr %15, align 8
-  store ptr %16, ptr %11, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %21, label %18
+12:                                               ; preds = %20, %4
+  %13 = phi ptr [ %21, %20 ], [ %0, %4 ]
+  store i32 0, ptr %8, align 4
+  store i32 0, ptr %9, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %15 = load volatile ptr, ptr %14, align 8
+  store ptr %15, ptr %10, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %20, label %17
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %20 = load i32, ptr %19, align 8
-  store i32 %20, ptr %10, align 8
-  br label %21
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %19 = load i32, ptr %18, align 8
+  store i32 %19, ptr %9, align 8
+  br label %20
 
-21:                                               ; preds = %18, %13
-  store i8 1, ptr %12, align 4
+20:                                               ; preds = %17, %12
+  store i8 1, ptr %11, align 4
   call fastcc void @dma_resv_iter_walk_unlocked(ptr noundef nonnull %5)
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %24 = load volatile ptr, ptr %23, align 8
-  %25 = load ptr, ptr %11, align 8
-  %26 = icmp eq ptr %24, %25
-  br i1 %26, label %27, label %13, !llvm.loop !25
+  %21 = load ptr, ptr %5, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %23 = load volatile ptr, ptr %22, align 8
+  %24 = load ptr, ptr %10, align 8
+  %25 = icmp eq ptr %23, %24
+  br i1 %25, label %26, label %12, !llvm.loop !25
 
-27:                                               ; preds = %21
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = tail call i64 @llvm.umax.i64(i64 %3, i64 1)
   tail call void @__rcu_read_unlock() #9
-  %29 = load ptr, ptr %8, align 8
+  %29 = load ptr, ptr %27, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %27, %63
-  %31 = phi ptr [ %60, %63 ], [ %24, %27 ]
-  %32 = phi ptr [ %58, %63 ], [ %22, %27 ]
-  %33 = phi ptr [ %64, %63 ], [ %29, %27 ]
-  %34 = phi i64 [ %35, %63 ], [ %28, %27 ]
+.preheader:                                       ; preds = %26, %63
+  %31 = phi ptr [ %60, %63 ], [ %23, %26 ]
+  %32 = phi ptr [ %58, %63 ], [ %21, %26 ]
+  %33 = phi ptr [ %64, %63 ], [ %29, %26 ]
+  %34 = phi i64 [ %35, %63 ], [ %28, %26 ]
   %35 = tail call i64 @dma_fence_wait_timeout(ptr noundef nonnull %33, i1 noundef zeroext %2, i64 noundef %34) #9
   %36 = icmp slt i64 %35, 1
   br i1 %36, label %37, label %44
@@ -1647,7 +1647,7 @@ define dso_local i64 @dma_resv_wait_timeout(ptr noundef %0, i32 noundef %1, i1 n
 
 44:                                               ; preds = %.preheader
   tail call void @__rcu_read_lock() #9
-  store i8 0, ptr %12, align 4
+  store i8 0, ptr %11, align 4
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %46 = load volatile ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, %31
@@ -1655,22 +1655,22 @@ define dso_local i64 @dma_resv_wait_timeout(ptr noundef %0, i32 noundef %1, i1 n
 
 48:                                               ; preds = %57, %44
   %49 = phi ptr [ %58, %57 ], [ %32, %44 ]
-  store i32 0, ptr %9, align 4
-  store i32 0, ptr %10, align 8
+  store i32 0, ptr %8, align 4
+  store i32 0, ptr %9, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %51 = load volatile ptr, ptr %50, align 8
-  store ptr %51, ptr %11, align 8
+  store ptr %51, ptr %10, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %56, label %53
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %55 = load i32, ptr %54, align 8
-  store i32 %55, ptr %10, align 8
+  store i32 %55, ptr %9, align 8
   br label %56
 
 56:                                               ; preds = %53, %48
-  store i8 1, ptr %12, align 4
+  store i8 1, ptr %11, align 4
   br label %57
 
 57:                                               ; preds = %56, %44
@@ -1678,13 +1678,13 @@ define dso_local i64 @dma_resv_wait_timeout(ptr noundef %0, i32 noundef %1, i1 n
   %58 = load ptr, ptr %5, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load volatile ptr, ptr %59, align 8
-  %61 = load ptr, ptr %11, align 8
+  %61 = load ptr, ptr %10, align 8
   %62 = icmp eq ptr %60, %61
   br i1 %62, label %63, label %48, !llvm.loop !29
 
 63:                                               ; preds = %57
   tail call void @__rcu_read_unlock() #9
-  %64 = load ptr, ptr %8, align 8
+  %64 = load ptr, ptr %27, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.thread, label %.preheader, !llvm.loop !37
 
@@ -1693,8 +1693,8 @@ define dso_local i64 @dma_resv_wait_timeout(ptr noundef %0, i32 noundef %1, i1 n
   tail call void @dma_fence_release(ptr noundef nonnull %38) #9
   br label %.thread
 
-.thread:                                          ; preds = %63, %27, %41, %43, %66
-  %67 = phi i64 [ %35, %66 ], [ %35, %43 ], [ %35, %41 ], [ %28, %27 ], [ %35, %63 ]
+.thread:                                          ; preds = %63, %26, %41, %43, %66
+  %67 = phi i64 [ %35, %66 ], [ %35, %43 ], [ %35, %41 ], [ %28, %26 ], [ %35, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %67
 }
@@ -1711,50 +1711,50 @@ define dso_local void @dma_resv_set_deadline(ptr noundef %0, i32 noundef %1, i64
   store ptr %0, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @__rcu_read_lock() #9
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  br label %12
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  br label %11
 
-12:                                               ; preds = %20, %3
-  %13 = phi ptr [ %21, %20 ], [ %0, %3 ]
-  store i32 0, ptr %8, align 4
-  store i32 0, ptr %9, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load volatile ptr, ptr %14, align 8
-  store ptr %15, ptr %10, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %20, label %17
+11:                                               ; preds = %19, %3
+  %12 = phi ptr [ %20, %19 ], [ %0, %3 ]
+  store i32 0, ptr %7, align 4
+  store i32 0, ptr %8, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %14 = load volatile ptr, ptr %13, align 8
+  store ptr %14, ptr %9, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %19, label %16
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %19 = load i32, ptr %18, align 8
-  store i32 %19, ptr %9, align 8
-  br label %20
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i32, ptr %17, align 8
+  store i32 %18, ptr %8, align 8
+  br label %19
 
-20:                                               ; preds = %17, %12
-  store i8 1, ptr %11, align 4
+19:                                               ; preds = %16, %11
+  store i8 1, ptr %10, align 4
   call fastcc void @dma_resv_iter_walk_unlocked(ptr noundef nonnull %4)
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %23 = load volatile ptr, ptr %22, align 8
-  %24 = load ptr, ptr %10, align 8
-  %25 = icmp eq ptr %23, %24
-  br i1 %25, label %26, label %12, !llvm.loop !25
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %22 = load volatile ptr, ptr %21, align 8
+  %23 = load ptr, ptr %9, align 8
+  %24 = icmp eq ptr %22, %23
+  br i1 %24, label %25, label %11, !llvm.loop !25
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %21, i64 40
+25:                                               ; preds = %19
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 40
   tail call void @__rcu_read_unlock() #9
-  %28 = load ptr, ptr %7, align 8
+  %28 = load ptr, ptr %26, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %26
-  %.promoted = load i32, ptr %8, align 4
-  %.promoted25 = load i32, ptr %9, align 8
+.preheader:                                       ; preds = %25
+  %.promoted = load i32, ptr %7, align 4
+  %.promoted25 = load i32, ptr %8, align 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %31 = load i32, ptr %6, align 8
   br label %32
@@ -1763,32 +1763,32 @@ define dso_local void @dma_resv_set_deadline(ptr noundef %0, i32 noundef %1, i64
   %.promoted830 = phi i32 [ %.promoted828, %114 ], [ %.promoted25, %.preheader ]
   %.promoted724 = phi i32 [ %.promoted722, %114 ], [ %.promoted, %.preheader ]
   %.promoted20 = phi ptr [ %.promoted18, %114 ], [ %28, %.preheader ]
-  %.promoted915 = phi ptr [ %.promoted913, %114 ], [ %24, %.preheader ]
+  %.promoted915 = phi ptr [ %.promoted913, %114 ], [ %23, %.preheader ]
   tail call void @dma_fence_set_deadline(ptr noundef nonnull %.promoted20, i64 noundef %2) #9
   tail call void @__rcu_read_lock() #9
-  store i8 0, ptr %11, align 4
+  store i8 0, ptr %10, align 4
   %33 = load volatile ptr, ptr %27, align 8
   %34 = icmp eq ptr %33, %.promoted915
   br i1 %34, label %42, label %35
 
 35:                                               ; preds = %dma_resv_iter_walk_unlocked.exit, %32
   %.promoted17 = phi ptr [ %.promoted18, %dma_resv_iter_walk_unlocked.exit ], [ %.promoted20, %32 ]
-  store i32 0, ptr %8, align 4
-  store i32 0, ptr %9, align 8
+  store i32 0, ptr %7, align 4
+  store i32 0, ptr %8, align 8
   %36 = load volatile ptr, ptr %27, align 8
-  store ptr %36, ptr %10, align 8
+  store ptr %36, ptr %9, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = load i32, ptr %39, align 8
-  store i32 %40, ptr %9, align 8
+  store i32 %40, ptr %8, align 8
   br label %41
 
 41:                                               ; preds = %38, %35
   %.promoted831 = phi i32 [ %40, %38 ], [ 0, %35 ]
-  store i8 1, ptr %11, align 4
+  store i8 1, ptr %10, align 4
   br label %42
 
 42:                                               ; preds = %41, %32
@@ -1837,12 +1837,12 @@ define dso_local void @dma_resv_set_deadline(ptr noundef %0, i32 noundef %1, i64
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %.thread.i
-  store ptr null, ptr %7, align 8
+  store ptr null, ptr %26, align 8
   br label %dma_resv_iter_walk_unlocked.exit
 
 57:                                               ; preds = %.thread.i
   %58 = add nuw i32 %.promoted721, 1
-  store i32 %58, ptr %8, align 4
+  store i32 %58, ptr %7, align 4
   %59 = zext i32 %.promoted721 to i64
   %60 = getelementptr ptr, ptr %44, i64 %59
   %61 = load volatile ptr, ptr %60, align 8
@@ -1886,27 +1886,27 @@ define dso_local void @dma_resv_set_deadline(ptr noundef %0, i32 noundef %1, i64
 83:                                               ; preds = %82, %.thread9.i
   %84 = icmp eq i32 %78, 0
   %85 = select i1 %84, ptr null, ptr %64
-  store ptr %85, ptr %7, align 8
+  store ptr %85, ptr %26, align 8
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %95
 
 87:                                               ; preds = %83
-  store i32 0, ptr %8, align 4
-  store i32 0, ptr %9, align 8
+  store i32 0, ptr %7, align 4
+  store i32 0, ptr %8, align 8
   %88 = load volatile ptr, ptr %27, align 8
-  store ptr %88, ptr %10, align 8
+  store ptr %88, ptr %9, align 8
   %89 = icmp eq ptr %88, null
   br i1 %89, label %93, label %90
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %92 = load i32, ptr %91, align 8
-  store i32 %92, ptr %9, align 8
+  store i32 %92, ptr %8, align 8
   br label %93
 
 93:                                               ; preds = %90, %87
   %94 = phi i32 [ %92, %90 ], [ 0, %87 ]
-  store i8 1, ptr %11, align 4
+  store i8 1, ptr %10, align 4
   br label %.preheader36.outer, !llvm.loop !28
 
 95:                                               ; preds = %83
@@ -1953,7 +1953,7 @@ dma_resv_iter_walk_unlocked.exit:                 ; preds = %110, %42, %56
   %115 = icmp eq ptr %.promoted18, null
   br i1 %115, label %.loopexit, label %32, !llvm.loop !38
 
-.loopexit:                                        ; preds = %114, %26
+.loopexit:                                        ; preds = %114, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1970,47 +1970,47 @@ define dso_local noundef zeroext i1 @dma_resv_test_signaled(ptr noundef %0, i32 
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @__rcu_read_lock() #9
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  br label %11
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 44
+  br label %10
 
-11:                                               ; preds = %19, %2
-  %12 = phi ptr [ %20, %19 ], [ %0, %2 ]
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %8, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %14 = load volatile ptr, ptr %13, align 8
-  store ptr %14, ptr %9, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %19, label %16
+10:                                               ; preds = %18, %2
+  %11 = phi ptr [ %19, %18 ], [ %0, %2 ]
+  store i32 0, ptr %6, align 4
+  store i32 0, ptr %7, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %13 = load volatile ptr, ptr %12, align 8
+  store ptr %13, ptr %8, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %18, label %15
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %18 = load i32, ptr %17, align 8
-  store i32 %18, ptr %8, align 8
-  br label %19
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %17 = load i32, ptr %16, align 8
+  store i32 %17, ptr %7, align 8
+  br label %18
 
-19:                                               ; preds = %16, %11
-  store i8 1, ptr %10, align 4
+18:                                               ; preds = %15, %10
+  store i8 1, ptr %9, align 4
   call fastcc void @dma_resv_iter_walk_unlocked(ptr noundef nonnull %3)
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %22 = load volatile ptr, ptr %21, align 8
-  %23 = load ptr, ptr %9, align 8
-  %24 = icmp eq ptr %22, %23
-  br i1 %24, label %25, label %11, !llvm.loop !25
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %21 = load volatile ptr, ptr %20, align 8
+  %22 = load ptr, ptr %8, align 8
+  %23 = icmp eq ptr %21, %22
+  br i1 %23, label %24, label %10, !llvm.loop !25
 
-25:                                               ; preds = %19
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @__rcu_read_unlock() #9
-  %26 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.thread, label %28
 
-28:                                               ; preds = %25
+28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %30 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %29, i32 -1, ptr nonnull elementtype(i32) %29) #9, !srcloc !5
   %31 = icmp eq i32 %30, 1
@@ -2029,7 +2029,7 @@ define dso_local noundef zeroext i1 @dma_resv_test_signaled(ptr noundef %0, i32 
   tail call void @dma_fence_release(ptr noundef nonnull %29) #9
   br label %.thread
 
-.thread:                                          ; preds = %32, %34, %35, %25
+.thread:                                          ; preds = %32, %34, %35, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %27
 }

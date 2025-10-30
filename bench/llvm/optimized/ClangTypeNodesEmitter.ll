@@ -101,24 +101,24 @@ define dso_local void @_ZN5clang18EmitClangTypeNodesERKN4llvm12RecordKeeperERNS0
 
 .lr.ph.i.i.i.i.i.i15.i.preheader:                 ; preds = %2
   tail call void @_ZN4llvm20emitSourceFileHeaderENS_9StringRefERNS_11raw_ostreamERKNS_12RecordKeeperE(ptr nonnull @.str.2, i64 39, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(240) %0) #13
-  %21 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %23 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
-  store ptr @.str.3, ptr %23, align 8, !tbaa !15
-  %.sroa.3.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %21 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
+  store ptr @.str.3, ptr %21, align 8, !tbaa !15
+  %.sroa.3.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 4, ptr %.sroa.3.0..sroa_idx2.i.i, align 8, !tbaa !17
-  %24 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store ptr @.str.4, ptr %25, align 8, !tbaa !15
-  %.sroa.3.0..sroa_idx2.i13.i = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %22 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr @.str.4, ptr %23, align 8, !tbaa !15
+  %.sroa.3.0..sroa_idx2.i13.i = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 13, ptr %.sroa.3.0..sroa_idx2.i13.i, align 8, !tbaa !17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !19, !alias.scope !20
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef 16) #16
-  store ptr %24, ptr %16, align 8, !tbaa !24
-  store ptr %26, ptr %21, align 8, !tbaa !27
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store ptr %27, ptr %22, align 8, !tbaa !28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !19, !alias.scope !20
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 16) #16
+  store ptr %22, ptr %16, align 8, !tbaa !24
+  store ptr %26, ptr %24, align 8, !tbaa !27
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  store ptr %27, ptr %25, align 8, !tbaa !28
   call fastcc void @_ZN12_GLOBAL__N_115TypeNodeEmitter18emitFallbackDefineEN4llvm9StringRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr nonnull @.str.4, i64 13, ptr nonnull @.str.3, i64 4, ptr nonnull @.str.5, i64 13)
   call fastcc void @_ZN12_GLOBAL__N_115TypeNodeEmitter18emitFallbackDefineEN4llvm9StringRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr nonnull @.str.6, i64 18, ptr nonnull @.str.3, i64 4, ptr nonnull @.str.5, i64 13)
   call fastcc void @_ZN12_GLOBAL__N_115TypeNodeEmitter18emitFallbackDefineEN4llvm9StringRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr nonnull @.str.7, i64 14, ptr nonnull @.str.3, i64 4, ptr nonnull @.str.5, i64 13)
@@ -369,7 +369,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15.i.i:           ; preds = %149, %147, %.lr.ph.
 
 _ZN12_GLOBAL__N_115TypeNodeEmitter23emitLeafNodeInvocationsEv.exit.i: ; preds = %103, %101
   %154 = load ptr, ptr %16, align 8, !tbaa !55
-  %155 = load ptr, ptr %21, align 8, !tbaa !55
+  %155 = load ptr, ptr %24, align 8, !tbaa !55
   %.not10.i.i = icmp eq ptr %154, %155
   br i1 %.not10.i.i, label %_ZN12_GLOBAL__N_115TypeNodeEmitter4emitEv.exit, label %.lr.ph.i25.i
 
@@ -466,7 +466,7 @@ _ZN12_GLOBAL__N_115TypeNodeEmitter4emitEv.exit:   ; preds = %_ZN12_GLOBAL__N_115
   br i1 %.not.i.i.i.i3, label %_ZN12_GLOBAL__N_115TypeNodeEmitterD2Ev.exit, label %195
 
 195:                                              ; preds = %_ZN12_GLOBAL__N_115TypeNodeEmitter4emitEv.exit
-  %.val2 = load ptr, ptr %22, align 8
+  %.val2 = load ptr, ptr %25, align 8
   %196 = ptrtoint ptr %.val2 to i64
   %197 = ptrtoint ptr %.val to i64
   %198 = sub i64 %196, %197

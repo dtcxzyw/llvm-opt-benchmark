@@ -275,15 +275,15 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
   %53 = sext i16 %16 to i32
   %54 = add nsw i32 %53, %52
   %55 = shl nsw i32 %54, 2
-  %56 = sext i16 %17 to i32
-  %57 = sext i16 %18 to i32
-  %58 = add nsw i32 %57, %56
-  %59 = shl nsw i32 %58, 2
-  %60 = add nsw i32 %3, -1
-  %61 = shl nuw i32 1, %44
-  %62 = add nsw i32 %2, -1
-  %63 = shl nuw i32 1, %26
-  %64 = ashr i32 %63, 1
+  %56 = add nsw i32 %3, -1
+  %57 = shl nuw i32 1, %44
+  %58 = add nsw i32 %2, -1
+  %59 = shl nuw i32 1, %26
+  %60 = ashr i32 %59, 1
+  %61 = sext i16 %17 to i32
+  %62 = sext i16 %18 to i32
+  %63 = add nsw i32 %62, %61
+  %64 = shl nsw i32 %63, 2
   %65 = shl nuw i32 1, %43
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -353,7 +353,7 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
   %113 = add nsw i64 %indvars.iv252, %109
   %114 = icmp slt i64 %113, 0
   %115 = trunc nsw i64 %113 to i32
-  %116 = tail call i32 @llvm.smin.i32(i32 %115, i32 range(i32 -2147483648, 2147483647) %60)
+  %116 = tail call i32 @llvm.smin.i32(i32 %115, i32 range(i32 -2147483648, 2147483647) %56)
   %117 = select i1 %114, i32 0, i32 %116
   %118 = mul nsw i32 %117, %4
   %119 = trunc i64 %indvars.iv252 to i32
@@ -382,7 +382,7 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
   br label %138
 
 133:                                              ; preds = %138
-  %134 = add nsw i32 %153, %64
+  %134 = add nsw i32 %153, %60
   %135 = ashr i32 %134, %26
   %136 = getelementptr i32, ptr %124, i64 %indvars.iv248
   store i32 %135, ptr %136, align 4
@@ -393,11 +393,11 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
 
 138:                                              ; preds = %138, %126
   %indvars.iv = phi i64 [ %indvars.iv.next, %138 ], [ 0, %126 ]
-  %.0192218.us = phi i32 [ %153, %138 ], [ %61, %126 ]
+  %.0192218.us = phi i32 [ %153, %138 ], [ %57, %126 ]
   %139 = add nsw i64 %132, %indvars.iv
   %140 = icmp slt i64 %139, 0
   %141 = trunc nsw i64 %139 to i32
-  %142 = tail call i32 @llvm.smin.i32(i32 %141, i32 range(i32 -2147483648, 2147483647) %62)
+  %142 = tail call i32 @llvm.smin.i32(i32 %141, i32 range(i32 -2147483648, 2147483647) %58)
   %143 = select i1 %140, i32 0, i32 %142
   %144 = add nsw i32 %143, %118
   %145 = sext i32 %144 to i64
@@ -415,7 +415,7 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
 
 .preheader.us:                                    ; preds = %125
   %154 = and i32 %101, 65532
-  %155 = sub nsw i32 %154, %59
+  %155 = sub nsw i32 %154, %64
   %156 = and i32 %155, -64
   br i1 %81, label %.lr.ph230.us, label %._crit_edge231.us
 
@@ -440,7 +440,7 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
   %164 = add i32 %159, %163
   %165 = trunc i64 %indvars.iv263 to i32
   %166 = add i32 %165, 4
-  %167 = mul i32 %166, %57
+  %167 = mul i32 %166, %62
   %168 = add i32 %167, %156
   br label %169
 
@@ -572,7 +572,7 @@ clip_pixel_highbd.exit209.us.us:                  ; preds = %237, %235, %233
   br label %239
 
 239:                                              ; preds = %clip_pixel_highbd.exit209.us.us, %223, %clip_pixel_highbd.exit.us.us
-  %240 = add nsw i32 %.0188227.us.us, %56
+  %240 = add nsw i32 %.0188227.us.us, %61
   %indvars.iv.next261 = add nsw i64 %indvars.iv260, 1
   %241 = icmp slt i64 %indvars.iv.next261, %161
   br i1 %241, label %169, label %._crit_edge.us.us, !llvm.loop !9
@@ -753,14 +753,14 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
   %46 = sext i16 %15 to i32
   %47 = add nsw i32 %46, %45
   %48 = shl nsw i32 %47, 2
-  %49 = sext i16 %16 to i32
-  %50 = sext i16 %17 to i32
-  %51 = add nsw i32 %50, %49
-  %52 = shl nsw i32 %51, 2
-  %53 = add nsw i32 %3, -1
-  %54 = add nsw i32 %2, -1
-  %55 = shl nuw i32 1, %21
-  %56 = ashr i32 %55, 1
+  %49 = add nsw i32 %3, -1
+  %50 = add nsw i32 %2, -1
+  %51 = shl nuw i32 1, %21
+  %52 = ashr i32 %51, 1
+  %53 = sext i16 %16 to i32
+  %54 = sext i16 %17 to i32
+  %55 = add nsw i32 %54, %53
+  %56 = shl nsw i32 %55, 2
   %57 = shl nuw i32 1, %37
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -826,7 +826,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
   %103 = add nsw i64 %indvars.iv230, %99
   %104 = icmp slt i64 %103, 0
   %105 = trunc nsw i64 %103 to i32
-  %106 = tail call i32 @llvm.smin.i32(i32 %105, i32 range(i32 -2147483648, 2147483647) %53)
+  %106 = tail call i32 @llvm.smin.i32(i32 %105, i32 range(i32 -2147483648, 2147483647) %49)
   %107 = select i1 %104, i32 0, i32 %106
   %108 = mul nsw i32 %107, %4
   %109 = trunc i64 %indvars.iv230 to i32
@@ -855,7 +855,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
   br label %128
 
 123:                                              ; preds = %128
-  %124 = add nsw i32 %143, %56
+  %124 = add nsw i32 %143, %52
   %125 = ashr i32 %124, %21
   %126 = getelementptr i32, ptr %114, i64 %indvars.iv226
   store i32 %125, ptr %126, align 4
@@ -870,7 +870,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
   %129 = add nsw i64 %122, %indvars.iv
   %130 = icmp slt i64 %129, 0
   %131 = trunc nsw i64 %129 to i32
-  %132 = tail call i32 @llvm.smin.i32(i32 %131, i32 range(i32 -2147483648, 2147483647) %54)
+  %132 = tail call i32 @llvm.smin.i32(i32 %131, i32 range(i32 -2147483648, 2147483647) %50)
   %133 = select i1 %130, i32 0, i32 %132
   %134 = add nsw i32 %133, %108
   %135 = sext i32 %134 to i64
@@ -888,7 +888,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
 
 .preheader.us:                                    ; preds = %115
   %144 = and i32 %91, 65532
-  %145 = sub nsw i32 %144, %52
+  %145 = sub nsw i32 %144, %56
   %146 = and i32 %145, -64
   br i1 %71, label %.lr.ph208.us, label %._crit_edge209.us
 
@@ -913,7 +913,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
   %154 = add i32 %149, %153
   %155 = trunc i64 %indvars.iv241 to i32
   %156 = add i32 %155, 4
-  %157 = mul i32 %156, %50
+  %157 = mul i32 %156, %54
   %158 = add i32 %157, %146
   br label %159
 
@@ -1009,7 +1009,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
   br label %221
 
 221:                                              ; preds = %211, %209, %197
-  %222 = add nsw i32 %.0175205.us.us, %49
+  %222 = add nsw i32 %.0175205.us.us, %53
   %indvars.iv.next239 = add nsw i64 %indvars.iv238, 1
   %223 = icmp slt i64 %indvars.iv.next239, %151
   br i1 %223, label %159, label %._crit_edge.us.us, !llvm.loop !19

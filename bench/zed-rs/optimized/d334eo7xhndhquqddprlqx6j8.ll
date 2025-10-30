@@ -31213,39 +31213,39 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h37fadea9a618
   %.pre = load i64, ptr %5, align 8
   br label %10
 
-._crit_edge.thread:                               ; preds = %.lr.ph
-  %17 = add i64 %11, %1
-  %18 = add i64 %17, -1
-  br label %19
-
 ._crit_edge:                                      ; preds = %10
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %22, label %19
+  br i1 %.not, label %21, label %._crit_edge.thread
 
-19:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.sroa.0.0.lcssa34 = phi ptr [ %25, %._crit_edge.thread ], [ %14, %._crit_edge ]
-  %storemerge.lcssa33 = phi i64 [ %18, %._crit_edge.thread ], [ %11, %._crit_edge ]
+._crit_edge.thread.loopexit:                      ; preds = %.lr.ph
+  %17 = add i64 %11, %1
+  %18 = add i64 %17, -1
+  br label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %._crit_edge.thread.loopexit, %._crit_edge
+  %.sroa.0.0.lcssa34 = phi ptr [ %14, %._crit_edge ], [ %24, %._crit_edge.thread.loopexit ]
+  %storemerge.lcssa33 = phi i64 [ %11, %._crit_edge ], [ %18, %._crit_edge.thread.loopexit ]
   store i16 %2, ptr %.sroa.0.0.lcssa34, align 2
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa34, i64 2
-  store i16 %3, ptr %20, align 2
-  %21 = add i64 %storemerge.lcssa33, 1
-  br label %22
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa34, i64 2
+  store i16 %3, ptr %19, align 2
+  %20 = add i64 %storemerge.lcssa33, 1
+  br label %21
 
-22:                                               ; preds = %._crit_edge, %19
-  %storemerge24 = phi i64 [ %21, %19 ], [ %11, %._crit_edge ]
+21:                                               ; preds = %._crit_edge, %._crit_edge.thread
+  %storemerge24 = phi i64 [ %20, %._crit_edge.thread ], [ %11, %._crit_edge ]
   store i64 %storemerge24, ptr %5, align 8
   ret void
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
-  %.sroa.0.027 = phi ptr [ %25, %.lr.ph ], [ %14, %10 ]
-  %.sroa.03.026 = phi i64 [ %23, %.lr.ph ], [ 1, %10 ]
-  %23 = add nuw i64 %.sroa.03.026, 1
+  %.sroa.0.027 = phi ptr [ %24, %.lr.ph ], [ %14, %10 ]
+  %.sroa.03.026 = phi i64 [ %22, %.lr.ph ], [ 1, %10 ]
+  %22 = add nuw i64 %.sroa.03.026, 1
   store i16 %2, ptr %.sroa.0.027, align 2
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 2
-  store i16 %3, ptr %24, align 2
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 4
-  %exitcond.not = icmp eq i64 %23, %1
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 2
+  store i16 %3, ptr %23, align 2
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 4
+  %exitcond.not = icmp eq i64 %22, %1
+  br i1 %exitcond.not, label %._crit_edge.thread.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -31270,35 +31270,35 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h5b98e9d2fe17
   %.pre = load i64, ptr %4, align 8
   br label %9
 
-._crit_edge.thread:                               ; preds = %.lr.ph
-  %16 = add i64 %10, %1
-  %17 = add i64 %16, -1
-  br label %18
-
 ._crit_edge:                                      ; preds = %9
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %20, label %18
+  br i1 %.not, label %19, label %._crit_edge.thread
 
-18:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.sroa.0.0.lcssa31 = phi ptr [ %22, %._crit_edge.thread ], [ %13, %._crit_edge ]
-  %storemerge.lcssa30 = phi i64 [ %17, %._crit_edge.thread ], [ %10, %._crit_edge ]
+._crit_edge.thread.loopexit:                      ; preds = %.lr.ph
+  %16 = add i64 %10, %1
+  %17 = add i64 %16, -1
+  br label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %._crit_edge.thread.loopexit, %._crit_edge
+  %.sroa.0.0.lcssa31 = phi ptr [ %13, %._crit_edge ], [ %21, %._crit_edge.thread.loopexit ]
+  %storemerge.lcssa30 = phi i64 [ %10, %._crit_edge ], [ %17, %._crit_edge.thread.loopexit ]
   store i16 %2, ptr %.sroa.0.0.lcssa31, align 2
-  %19 = add i64 %storemerge.lcssa30, 1
-  br label %20
+  %18 = add i64 %storemerge.lcssa30, 1
+  br label %19
 
-20:                                               ; preds = %._crit_edge, %18
-  %storemerge21 = phi i64 [ %19, %18 ], [ %10, %._crit_edge ]
+19:                                               ; preds = %._crit_edge, %._crit_edge.thread
+  %storemerge21 = phi i64 [ %18, %._crit_edge.thread ], [ %10, %._crit_edge ]
   store i64 %storemerge21, ptr %4, align 8
   ret void
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
-  %.sroa.0.024 = phi ptr [ %22, %.lr.ph ], [ %13, %9 ]
-  %.sroa.03.023 = phi i64 [ %21, %.lr.ph ], [ 1, %9 ]
-  %21 = add nuw i64 %.sroa.03.023, 1
+  %.sroa.0.024 = phi ptr [ %21, %.lr.ph ], [ %13, %9 ]
+  %.sroa.03.023 = phi i64 [ %20, %.lr.ph ], [ 1, %9 ]
+  %20 = add nuw i64 %.sroa.03.023, 1
   store i16 %2, ptr %.sroa.0.024, align 2
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.024, i64 2
-  %exitcond.not = icmp eq i64 %21, %1
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.024, i64 2
+  %exitcond.not = icmp eq i64 %20, %1
+  br i1 %exitcond.not, label %._crit_edge.thread.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -31370,35 +31370,35 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hc8a84d1778fa
   %.pre = load i64, ptr %4, align 8
   br label %9
 
-._crit_edge.thread:                               ; preds = %.lr.ph
-  %16 = add i64 %10, %1
-  %17 = add i64 %16, -1
-  br label %18
-
 ._crit_edge:                                      ; preds = %9
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %20, label %18
+  br i1 %.not, label %19, label %._crit_edge.thread
 
-18:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.sroa.0.0.lcssa31 = phi ptr [ %22, %._crit_edge.thread ], [ %13, %._crit_edge ]
-  %storemerge.lcssa30 = phi i64 [ %17, %._crit_edge.thread ], [ %10, %._crit_edge ]
+._crit_edge.thread.loopexit:                      ; preds = %.lr.ph
+  %16 = add i64 %10, %1
+  %17 = add i64 %16, -1
+  br label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %._crit_edge.thread.loopexit, %._crit_edge
+  %.sroa.0.0.lcssa31 = phi ptr [ %13, %._crit_edge ], [ %21, %._crit_edge.thread.loopexit ]
+  %storemerge.lcssa30 = phi i64 [ %10, %._crit_edge ], [ %17, %._crit_edge.thread.loopexit ]
   store float %2, ptr %.sroa.0.0.lcssa31, align 4
-  %19 = add i64 %storemerge.lcssa30, 1
-  br label %20
+  %18 = add i64 %storemerge.lcssa30, 1
+  br label %19
 
-20:                                               ; preds = %._crit_edge, %18
-  %storemerge21 = phi i64 [ %19, %18 ], [ %10, %._crit_edge ]
+19:                                               ; preds = %._crit_edge, %._crit_edge.thread
+  %storemerge21 = phi i64 [ %18, %._crit_edge.thread ], [ %10, %._crit_edge ]
   store i64 %storemerge21, ptr %4, align 8
   ret void
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
-  %.sroa.0.024 = phi ptr [ %22, %.lr.ph ], [ %13, %9 ]
-  %.sroa.03.023 = phi i64 [ %21, %.lr.ph ], [ 1, %9 ]
-  %21 = add nuw i64 %.sroa.03.023, 1
+  %.sroa.0.024 = phi ptr [ %21, %.lr.ph ], [ %13, %9 ]
+  %.sroa.03.023 = phi i64 [ %20, %.lr.ph ], [ 1, %9 ]
+  %20 = add nuw i64 %.sroa.03.023, 1
   store float %2, ptr %.sroa.0.024, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.024, i64 4
-  %exitcond.not = icmp eq i64 %21, %1
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.024, i64 4
+  %exitcond.not = icmp eq i64 %20, %1
+  br i1 %exitcond.not, label %._crit_edge.thread.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

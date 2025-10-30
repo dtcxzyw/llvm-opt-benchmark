@@ -11322,40 +11322,40 @@ _ZNK5clang20LazyASTUnresolvedSet21getFromExternalSourceERNS_10ASTContextE.exit.i
 
 _ZNK5clang20LazyASTUnresolvedSet3getERNS_10ASTContextE.exit: ; preds = %._ZNK5clang20LazyASTUnresolvedSet3getERNS_10ASTContextE.exit_crit_edge, %_ZNK5clang20LazyASTUnresolvedSet21getFromExternalSourceERNS_10ASTContextE.exit.i
   %31 = phi ptr [ %.pre, %._ZNK5clang20LazyASTUnresolvedSet3getERNS_10ASTContextE.exit_crit_edge ], [ %29, %_ZNK5clang20LazyASTUnresolvedSet21getFromExternalSourceERNS_10ASTContextE.exit.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %33 = load ptr, ptr %9, align 8, !tbaa !18
-  %34 = ptrtoint ptr %31 to i64
-  %35 = ptrtoint ptr %33 to i64
-  %36 = sub i64 %34, %35
+  %32 = load ptr, ptr %9, align 8, !tbaa !18
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %_ZNK5clang20LazyASTUnresolvedSet3getERNS_10ASTContextE.exit
-  %.01015 = phi i32 [ %42, %.lr.ph ], [ 0, %_ZNK5clang20LazyASTUnresolvedSet3getERNS_10ASTContextE.exit ]
-  %37 = zext i32 %.01015 to i64
-  %38 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %33, i64 %37
-  call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 8) ]
-  %.0.copyload.i.i.i.i = load i64, ptr %38, align 8
-  %39 = and i64 %.0.copyload.i.i.i.i, -8
-  %40 = inttoptr i64 %39 to ptr
-  %41 = icmp eq ptr %1, %40
-  %42 = add nuw i32 %.01015, 1
-  br i1 %41, label %43, label %.lr.ph
+  %.01015 = phi i32 [ %38, %.lr.ph ], [ 0, %_ZNK5clang20LazyASTUnresolvedSet3getERNS_10ASTContextE.exit ]
+  %33 = zext i32 %.01015 to i64
+  %34 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %32, i64 %33
+  call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 8) ]
+  %.0.copyload.i.i.i.i = load i64, ptr %34, align 8
+  %35 = and i64 %.0.copyload.i.i.i.i, -8
+  %36 = inttoptr i64 %35 to ptr
+  %37 = icmp eq ptr %1, %36
+  %38 = add nuw i32 %.01015, 1
+  br i1 %37, label %39, label %.lr.ph
 
-43:                                               ; preds = %.lr.ph
-  %44 = ashr exact i64 %36, 3
+39:                                               ; preds = %.lr.ph
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %41 = ptrtoint ptr %31 to i64
+  %42 = ptrtoint ptr %32 to i64
+  %43 = sub i64 %41, %42
+  %44 = ashr exact i64 %43, 3
   %45 = add nsw i64 %44, -1
-  %46 = icmp eq i64 %45, %37
+  %46 = icmp eq i64 %45, %33
   %47 = getelementptr inbounds i8, ptr %31, i64 -8
   br i1 %46, label %48, label %49
 
-48:                                               ; preds = %43
-  store ptr %47, ptr %32, align 8, !tbaa !23
+48:                                               ; preds = %39
+  store ptr %47, ptr %40, align 8, !tbaa !23
   br label %_ZN5clang16ASTUnresolvedSet5eraseEj.exit
 
-49:                                               ; preds = %43
+49:                                               ; preds = %39
   %.sroa.0.0.copyload.i.i = load i64, ptr %47, align 8, !tbaa !34
-  store ptr %47, ptr %32, align 8, !tbaa !23
-  store i64 %.sroa.0.0.copyload.i.i, ptr %38, align 8, !tbaa !34
+  store ptr %47, ptr %40, align 8, !tbaa !23
+  store i64 %.sroa.0.0.copyload.i.i, ptr %34, align 8, !tbaa !34
   br label %_ZN5clang16ASTUnresolvedSet5eraseEj.exit
 
 _ZN5clang16ASTUnresolvedSet5eraseEj.exit:         ; preds = %49, %48

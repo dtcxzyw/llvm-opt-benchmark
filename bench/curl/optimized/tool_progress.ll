@@ -123,105 +123,105 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = tail call i64 @tvdiff(i64 %19, i64 %20, i64 %30, i64 %32) #7
-  %34 = sdiv i64 %33, 1000
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 11565, ptr %8, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 11565, ptr %9, align 4
   store i64 %19, ptr @progress_meter.stamp.0, align 8, !tbaa !46
   store i64 %20, ptr @progress_meter.stamp.1, align 8, !tbaa !46
-  %35 = load i64, ptr @all_dlalready, align 8, !tbaa !46
-  %36 = load i64, ptr @all_ulalready, align 8, !tbaa !46
+  %34 = load i64, ptr @all_dlalready, align 8, !tbaa !46
+  %35 = load i64, ptr @all_ulalready, align 8, !tbaa !46
   %all_dltotal.promoted = load i64, ptr @all_dltotal, align 8
   %all_ultotal.promoted = load i64, ptr @all_ultotal, align 8
   %.076115 = load ptr, ptr @transfers, align 8, !tbaa !47
   %.not116 = icmp eq ptr %.076115, null
   br i1 %.not116, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %29, %63
-  %.076122 = phi ptr [ %.076, %63 ], [ %.076115, %29 ]
-  %.077121 = phi i64 [ %41, %63 ], [ %35, %29 ]
-  %.081120 = phi i64 [ %44, %63 ], [ %36, %29 ]
-  %.082119 = phi i64 [ %spec.select, %63 ], [ 0, %29 ]
-  %.084118 = phi i1 [ %.185, %63 ], [ true, %29 ]
-  %.086117 = phi i1 [ %.187, %63 ], [ true, %29 ]
-  %37 = phi i64 [ %54, %63 ], [ %all_dltotal.promoted, %29 ]
-  %38 = phi i64 [ %64, %63 ], [ %all_ultotal.promoted, %29 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.076122, i64 408
-  %40 = load i64, ptr %39, align 8, !tbaa !25
-  %41 = add nsw i64 %40, %.077121
-  %42 = getelementptr inbounds nuw i8, ptr %.076122, i64 424
-  %43 = load i64, ptr %42, align 8, !tbaa !27
-  %44 = add nsw i64 %43, %.081120
-  %45 = getelementptr inbounds nuw i8, ptr %.076122, i64 400
-  %46 = load i64, ptr %45, align 8, !tbaa !24
-  %.not95 = icmp eq i64 %46, 0
-  br i1 %.not95, label %53, label %47
+.lr.ph:                                           ; preds = %29, %62
+  %.076122 = phi ptr [ %.076, %62 ], [ %.076115, %29 ]
+  %.077121 = phi i64 [ %40, %62 ], [ %34, %29 ]
+  %.081120 = phi i64 [ %43, %62 ], [ %35, %29 ]
+  %.082119 = phi i64 [ %spec.select, %62 ], [ 0, %29 ]
+  %.084118 = phi i1 [ %.185, %62 ], [ true, %29 ]
+  %.086117 = phi i1 [ %.187, %62 ], [ true, %29 ]
+  %36 = phi i64 [ %53, %62 ], [ %all_dltotal.promoted, %29 ]
+  %37 = phi i64 [ %63, %62 ], [ %all_ultotal.promoted, %29 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.076122, i64 408
+  %39 = load i64, ptr %38, align 8, !tbaa !25
+  %40 = add nsw i64 %39, %.077121
+  %41 = getelementptr inbounds nuw i8, ptr %.076122, i64 424
+  %42 = load i64, ptr %41, align 8, !tbaa !27
+  %43 = add nsw i64 %42, %.081120
+  %44 = getelementptr inbounds nuw i8, ptr %.076122, i64 400
+  %45 = load i64, ptr %44, align 8, !tbaa !24
+  %.not95 = icmp eq i64 %45, 0
+  br i1 %.not95, label %52, label %46
 
-47:                                               ; preds = %.lr.ph
-  %48 = getelementptr inbounds nuw i8, ptr %.076122, i64 448
-  %49 = load i8, ptr %48, align 8, !tbaa !48, !range !29, !noundef !30
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %53, label %51
+46:                                               ; preds = %.lr.ph
+  %47 = getelementptr inbounds nuw i8, ptr %.076122, i64 448
+  %48 = load i8, ptr %47, align 8, !tbaa !48, !range !29, !noundef !30
+  %49 = trunc nuw i8 %48 to i1
+  br i1 %49, label %52, label %50
 
-51:                                               ; preds = %47
-  %52 = add nsw i64 %37, %46
-  store i64 %52, ptr @all_dltotal, align 8, !tbaa !46
-  store i8 1, ptr %48, align 8, !tbaa !48
-  br label %53
+50:                                               ; preds = %46
+  %51 = add nsw i64 %36, %45
+  store i64 %51, ptr @all_dltotal, align 8, !tbaa !46
+  store i8 1, ptr %47, align 8, !tbaa !48
+  br label %52
 
-53:                                               ; preds = %.lr.ph, %47, %51
-  %54 = phi i64 [ %37, %47 ], [ %52, %51 ], [ %37, %.lr.ph ]
-  %.187 = phi i1 [ %.086117, %47 ], [ %.086117, %51 ], [ false, %.lr.ph ]
-  %55 = getelementptr inbounds nuw i8, ptr %.076122, i64 416
-  %56 = load i64, ptr %55, align 8, !tbaa !26
-  %.not96 = icmp eq i64 %56, 0
-  br i1 %.not96, label %63, label %57
+52:                                               ; preds = %.lr.ph, %46, %50
+  %53 = phi i64 [ %36, %46 ], [ %51, %50 ], [ %36, %.lr.ph ]
+  %.187 = phi i1 [ %.086117, %46 ], [ %.086117, %50 ], [ false, %.lr.ph ]
+  %54 = getelementptr inbounds nuw i8, ptr %.076122, i64 416
+  %55 = load i64, ptr %54, align 8, !tbaa !26
+  %.not96 = icmp eq i64 %55, 0
+  br i1 %.not96, label %62, label %56
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %.076122, i64 449
-  %59 = load i8, ptr %58, align 1, !tbaa !49, !range !29, !noundef !30
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %63, label %61
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %.076122, i64 449
+  %58 = load i8, ptr %57, align 1, !tbaa !49, !range !29, !noundef !30
+  %59 = trunc nuw i8 %58 to i1
+  br i1 %59, label %62, label %60
 
-61:                                               ; preds = %57
-  %62 = add nsw i64 %38, %56
-  store i64 %62, ptr @all_ultotal, align 8, !tbaa !46
-  store i8 1, ptr %58, align 1, !tbaa !49
-  br label %63
+60:                                               ; preds = %56
+  %61 = add nsw i64 %37, %55
+  store i64 %61, ptr @all_ultotal, align 8, !tbaa !46
+  store i8 1, ptr %57, align 1, !tbaa !49
+  br label %62
 
-63:                                               ; preds = %53, %57, %61
-  %64 = phi i64 [ %38, %57 ], [ %62, %61 ], [ %38, %53 ]
-  %.185 = phi i1 [ %.084118, %57 ], [ %.084118, %61 ], [ false, %53 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.076122, i64 475
-  %66 = load i8, ptr %65, align 1, !tbaa !50, !range !29, !noundef !30
-  %67 = zext nneg i8 %66 to i64
-  %spec.select = add nuw nsw i64 %.082119, %67
+62:                                               ; preds = %52, %56, %60
+  %63 = phi i64 [ %37, %56 ], [ %61, %60 ], [ %37, %52 ]
+  %.185 = phi i1 [ %.084118, %56 ], [ %.084118, %60 ], [ false, %52 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.076122, i64 475
+  %65 = load i8, ptr %64, align 1, !tbaa !50, !range !29, !noundef !30
+  %66 = zext nneg i8 %65 to i64
+  %spec.select = add nuw nsw i64 %.082119, %66
   %.076 = load ptr, ptr %.076122, align 8, !tbaa !47
   %.not = icmp eq ptr %.076, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
-._crit_edge:                                      ; preds = %63, %29
-  %68 = phi i64 [ %all_ultotal.promoted, %29 ], [ %64, %63 ]
-  %69 = phi i64 [ %all_dltotal.promoted, %29 ], [ %54, %63 ]
-  %.086.lcssa = phi i1 [ true, %29 ], [ %.187, %63 ]
-  %.084.lcssa = phi i1 [ true, %29 ], [ %.185, %63 ]
-  %.082.lcssa = phi i64 [ 0, %29 ], [ %spec.select, %63 ]
-  %.081.lcssa = phi i64 [ %36, %29 ], [ %44, %63 ]
-  %.077.lcssa = phi i64 [ %35, %29 ], [ %41, %63 ]
-  %70 = icmp ne i64 %69, 0
+._crit_edge:                                      ; preds = %62, %29
+  %67 = phi i64 [ %all_ultotal.promoted, %29 ], [ %63, %62 ]
+  %68 = phi i64 [ %all_dltotal.promoted, %29 ], [ %53, %62 ]
+  %.086.lcssa = phi i1 [ true, %29 ], [ %.187, %62 ]
+  %.084.lcssa = phi i1 [ true, %29 ], [ %.185, %62 ]
+  %.082.lcssa = phi i64 [ 0, %29 ], [ %spec.select, %62 ]
+  %.081.lcssa = phi i64 [ %35, %29 ], [ %43, %62 ]
+  %.077.lcssa = phi i64 [ %34, %29 ], [ %40, %62 ]
+  %69 = sdiv i64 %33, 1000
+  %70 = icmp ne i64 %68, 0
   %or.cond3 = select i1 %.086.lcssa, i1 %70, i1 false
   br i1 %or.cond3, label %71, label %75
 
 71:                                               ; preds = %._crit_edge
   %72 = mul nsw i64 %.077.lcssa, 100
-  %73 = sdiv i64 %72, %69
+  %73 = sdiv i64 %72, %68
   %74 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %8, i64 noundef 4, ptr noundef nonnull @.str.1, i64 noundef %73) #7
   %.pre = load i64, ptr @all_ultotal, align 8
   br label %75
 
 75:                                               ; preds = %71, %._crit_edge
-  %76 = phi i64 [ %.pre, %71 ], [ %68, %._crit_edge ]
+  %76 = phi i64 [ %.pre, %71 ], [ %67, %._crit_edge ]
   %77 = icmp ne i64 %76, 0
   %or.cond5 = select i1 %.084.lcssa, i1 %77, i1 false
   br i1 %or.cond5, label %78, label %82
@@ -402,15 +402,15 @@ time2str.exit105:                                 ; preds = %164, %160, %151, %1
   br label %time2str.exit113
 
 169:                                              ; preds = %time2str.exit105
-  %170 = icmp samesign ult i64 %34, 360000
+  %170 = icmp samesign ult i64 %69, 360000
   br i1 %170, label %171, label %177
 
 171:                                              ; preds = %169
-  %.lhs.trunc.i107 = trunc nuw nsw i64 %34 to i32
+  %.lhs.trunc.i107 = trunc nuw nsw i64 %69 to i32
   %172 = udiv i32 %.lhs.trunc.i107, 3600
   %.zext.i108 = zext nneg i32 %172 to i64
   %.neg23.i109 = mul nsw i64 %.zext.i108, -3600
-  %173 = add nsw i64 %.neg23.i109, %34
+  %173 = add nsw i64 %.neg23.i109, %69
   %.lhs.trunc25.i110 = trunc nsw i64 %173 to i32
   %174 = sdiv i32 %.lhs.trunc25.i110, 60
   %.sext.i111 = sext i32 %174 to i64
@@ -420,13 +420,13 @@ time2str.exit105:                                 ; preds = %164, %160, %151, %1
   br label %time2str.exit113
 
 177:                                              ; preds = %169
-  %178 = udiv i64 %34, 86400
-  %179 = icmp samesign ult i64 %34, 86400000
+  %178 = udiv i64 %69, 86400
+  %179 = icmp samesign ult i64 %69, 86400000
   br i1 %179, label %180, label %184
 
 180:                                              ; preds = %177
   %.neg.i106 = mul nsw i64 %178, -86400
-  %181 = add nsw i64 %.neg.i106, %34
+  %181 = add nsw i64 %.neg.i106, %69
   %182 = sdiv i64 %181, 3600
   %183 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %6, i64 noundef 9, ptr noundef nonnull @.str.7, i64 noundef %178, i64 noundef %182) #7
   br label %time2str.exit113

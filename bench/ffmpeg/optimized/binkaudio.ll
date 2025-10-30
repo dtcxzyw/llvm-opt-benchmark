@@ -119,45 +119,45 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   %63 = mul nsw i32 %spec.select, %62
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %63, ptr %64, align 8, !tbaa !47
-  %65 = sext i32 %.082 to i64
-  %66 = add nsw i64 %65, 1
-  %67 = sdiv i64 %66, 2
-  %68 = trunc nsw i64 %67 to i32
-  %69 = sitofp i32 %58 to double
-  %70 = tail call nsz double @llvm.sqrt.f64(double %69)
-  %71 = fmul nsz double %70, 3.276800e+04
-  %.113 = select i1 %39, double 2.000000e+00, double %69
-  %72 = fdiv nsz double %.113, %71
-  %73 = fptrunc double %72 to float
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store float %73, ptr %74, align 8, !tbaa !48
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 6316
-  br label %76
+  %65 = sitofp i32 %58 to double
+  %66 = tail call nsz double @llvm.sqrt.f64(double %65)
+  %67 = fmul nsz double %66, 3.276800e+04
+  %.113 = select i1 %39, double 2.000000e+00, double %65
+  %68 = fdiv nsz double %.113, %67
+  %69 = fptrunc double %68 to float
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store float %69, ptr %70, align 8, !tbaa !48
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 6316
+  br label %72
 
-76:                                               ; preds = %57, %76
-  %indvars.iv = phi i64 [ 0, %57 ], [ %indvars.iv.next, %76 ]
-  %77 = trunc nuw nsw i64 %indvars.iv to i32
-  %78 = uitofp nneg i32 %77 to float
-  %79 = fmul nsz float %78, 0x3FC391F420000000
-  %80 = tail call nsz float @llvm.exp.f32(float %79)
-  %81 = fmul nsz float %80, %73
-  %82 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv
-  store float %81, ptr %82, align 4, !tbaa !49
+72:                                               ; preds = %57, %72
+  %indvars.iv = phi i64 [ 0, %57 ], [ %indvars.iv.next, %72 ]
+  %73 = trunc nuw nsw i64 %indvars.iv to i32
+  %74 = uitofp nneg i32 %73 to float
+  %75 = fmul nsz float %74, 0x3FC391F420000000
+  %76 = tail call nsz float @llvm.exp.f32(float %75)
+  %77 = fmul nsz float %76, %69
+  %78 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv
+  store float %77, ptr %78, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 96
-  br i1 %exitcond.not, label %83, label %76, !llvm.loop !50
+  br i1 %exitcond.not, label %79, label %72, !llvm.loop !50
 
-83:                                               ; preds = %76
+79:                                               ; preds = %72
+  %80 = sext i32 %.082 to i64
+  %81 = add nsw i64 %80, 1
+  %82 = sdiv i64 %81, 2
+  %83 = trunc nsw i64 %82 to i32
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 60
   br label %85
 
-85:                                               ; preds = %83, %90
-  %indvars.iv99 = phi i64 [ 1, %83 ], [ %indvars.iv.next100, %90 ]
+85:                                               ; preds = %79, %90
+  %indvars.iv99 = phi i64 [ 1, %79 ], [ %indvars.iv.next100, %90 ]
   %86 = getelementptr i16, ptr @ff_wma_critical_freqs, i64 %indvars.iv99
   %87 = getelementptr i8, ptr %86, i64 -2
   %88 = load i16, ptr %87, align 2, !tbaa !52
   %89 = zext i16 %88 to i64
-  %.not93 = icmp sgt i64 %67, %89
+  %.not93 = icmp sgt i64 %82, %89
   br i1 %.not93, label %90, label %92
 
 90:                                               ; preds = %85
@@ -193,7 +193,7 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   %102 = load i16, ptr %101, align 2, !tbaa !52
   %103 = zext i16 %102 to i32
   %104 = shl i32 %103, %.1
-  %105 = sdiv i32 %104, %68
+  %105 = sdiv i32 %104, %83
   %106 = and i32 %105, -2
   %107 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv103
   store i32 %106, ptr %107, align 4, !tbaa !56

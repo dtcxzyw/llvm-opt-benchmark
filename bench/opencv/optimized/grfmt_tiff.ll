@@ -4122,8 +4122,8 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit1010:        ; preds = %.noexc, %_ZN2cv10Au
   %.ptr55.i1170 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %908 = udiv i64 %844, 56
   %909 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %910 = lshr exact i64 %854, 1
-  %911 = lshr i64 %854, 3
+  %910 = lshr i64 %854, 3
+  %911 = lshr exact i64 %854, 1
   %.ptr55.i1124 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %912 = udiv i64 %844, 24
   %913 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -5723,7 +5723,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1123: ; preds = %1
   %1503 = lshr i64 %1502, 2
   store i64 %1503, ptr %32, align 8, !tbaa !102
   store i64 %915, ptr %.ptr55.i, align 8, !tbaa !102
-  store i64 %911, ptr %916, align 8, !tbaa !102
+  store i64 %910, ptr %916, align 8, !tbaa !102
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %1497
@@ -5763,7 +5763,7 @@ _ZSt3minImET_St16initializer_listIS0_E.exit.i:    ; preds = %.lr.ph.i.i.i
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %_ZSt3minImET_St16initializer_listIS0_E.exit.i
-  %.pre-phi89.i = phi i64 [ %.pre88.i, %._crit_edge.loopexit.i ], [ %910, %_ZSt3minImET_St16initializer_listIS0_E.exit.i ]
+  %.pre-phi89.i = phi i64 [ %.pre88.i, %._crit_edge.loopexit.i ], [ %911, %_ZSt3minImET_St16initializer_listIS0_E.exit.i ]
   %.044.lcssa.i = phi ptr [ %1521, %._crit_edge.loopexit.i ], [ %1495, %_ZSt3minImET_St16initializer_listIS0_E.exit.i ]
   %.042.lcssa.i = phi ptr [ %1515, %._crit_edge.loopexit.i ], [ %1492, %_ZSt3minImET_St16initializer_listIS0_E.exit.i ]
   %1512 = shl i64 %1511, 2
@@ -5923,7 +5923,7 @@ _ZSt3minImET_St16initializer_listIS0_E.exit.i1132: ; preds = %.lr.ph.i.i.i1125
   br label %._crit_edge.i1148
 
 ._crit_edge.i1148:                                ; preds = %._crit_edge.loopexit.i1145, %_ZSt3minImET_St16initializer_listIS0_E.exit.i1132
-  %.pre-phi87.i = phi i64 [ %.pre86.i1147, %._crit_edge.loopexit.i1145 ], [ %910, %_ZSt3minImET_St16initializer_listIS0_E.exit.i1132 ]
+  %.pre-phi87.i = phi i64 [ %.pre86.i1147, %._crit_edge.loopexit.i1145 ], [ %911, %_ZSt3minImET_St16initializer_listIS0_E.exit.i1132 ]
   %.044.lcssa.i1149 = phi ptr [ %1579, %._crit_edge.loopexit.i1145 ], [ %1495, %_ZSt3minImET_St16initializer_listIS0_E.exit.i1132 ]
   %.042.lcssa.i1150 = phi ptr [ %1573, %._crit_edge.loopexit.i1145 ], [ %1492, %_ZSt3minImET_St16initializer_listIS0_E.exit.i1132 ]
   %1570 = shl i64 %1569, 1
@@ -6038,7 +6038,7 @@ _ZN2cvL13_unpack12To16EPKhS1_PtS2_m.exit:         ; preds = %.loopexit.i1169, %.
   %1617 = lshr i64 %1616, 2
   store i64 %1617, ptr %28, align 8, !tbaa !102
   store i64 %908, ptr %.ptr55.i1170, align 8, !tbaa !102
-  store i64 %911, ptr %909, align 8, !tbaa !102
+  store i64 %910, ptr %909, align 8, !tbaa !102
   br label %.lr.ph.i.i.i1171
 
 .lr.ph.i.i.i1171:                                 ; preds = %.lr.ph.i.i.i1171, %1611
@@ -6078,7 +6078,7 @@ _ZSt3minImET_St16initializer_listIS0_E.exit.i1178: ; preds = %.lr.ph.i.i.i1171
   br label %._crit_edge.i1196
 
 ._crit_edge.i1196:                                ; preds = %._crit_edge.loopexit.i1192, %_ZSt3minImET_St16initializer_listIS0_E.exit.i1178
-  %.pre-phi89.i1197 = phi i64 [ %.pre88.i1195, %._crit_edge.loopexit.i1192 ], [ %910, %_ZSt3minImET_St16initializer_listIS0_E.exit.i1178 ]
+  %.pre-phi89.i1197 = phi i64 [ %.pre88.i1195, %._crit_edge.loopexit.i1192 ], [ %911, %_ZSt3minImET_St16initializer_listIS0_E.exit.i1178 ]
   %.044.lcssa.i1198 = phi ptr [ %1635, %._crit_edge.loopexit.i1192 ], [ %1495, %_ZSt3minImET_St16initializer_listIS0_E.exit.i1178 ]
   %.042.lcssa.i1199 = phi ptr [ %1629, %._crit_edge.loopexit.i1192 ], [ %1492, %_ZSt3minImET_St16initializer_listIS0_E.exit.i1178 ]
   %1626 = shl i64 %1625, 2

@@ -369,35 +369,35 @@ define dso_local ptr @cronspec_to_bitstring(ptr noundef %0) local_unnamed_addr #
   br label %197
 
 182:                                              ; preds = %1
-  %183 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %183 = tail call ptr @__ctype_b_loc() #10
   %184 = load ptr, ptr %183, align 8
-  %185 = tail call ptr @__ctype_b_loc() #10
-  %186 = load ptr, ptr %185, align 8
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i, %182
-  %.015.i = phi ptr [ %0, %182 ], [ %194, %.critedge.i ]
-  %187 = load i8, ptr %.015.i, align 1
-  %188 = sext i8 %187 to i64
-  %189 = getelementptr inbounds i16, ptr %186, i64 %188
-  %190 = load i16, ptr %189, align 2
-  %.fr.i = freeze i16 %190
-  %191 = and i16 %.fr.i, 2048
-  %.not.i = icmp ne i16 %191, 0
-  %192 = and i8 %187, -2
-  %193 = icmp eq i8 %192, 44
-  %or.cond.i = or i1 %193, %.not.i
-  %194 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
-  br i1 %or.cond.i, label %.critedge.i, label %195, !llvm.loop !8
+  %.015.i = phi ptr [ %0, %182 ], [ %192, %.critedge.i ]
+  %185 = load i8, ptr %.015.i, align 1
+  %186 = sext i8 %185 to i64
+  %187 = getelementptr inbounds i16, ptr %184, i64 %186
+  %188 = load i16, ptr %187, align 2
+  %.fr.i = freeze i16 %188
+  %189 = and i16 %.fr.i, 2048
+  %.not.i = icmp ne i16 %189, 0
+  %190 = and i8 %185, -2
+  %191 = icmp eq i8 %190, 44
+  %or.cond.i = or i1 %191, %.not.i
+  %192 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
+  br i1 %or.cond.i, label %.critedge.i, label %193, !llvm.loop !8
 
-195:                                              ; preds = %.critedge.i
+193:                                              ; preds = %.critedge.i
+  %194 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %195 = load ptr, ptr %194, align 8
   store i8 0, ptr %.015.i, align 1
-  %196 = tail call i32 @bit_unfmt(ptr noundef %184, ptr noundef nonnull %0) #8
+  %196 = tail call i32 @bit_unfmt(ptr noundef %195, ptr noundef nonnull %0) #8
   %.not17.i = icmp eq i32 %196, 0
-  store i8 %187, ptr %.015.i, align 1
+  store i8 %185, ptr %.015.i, align 1
   br i1 %.not17.i, label %_parse_range.exit.thread, label %_parse_range.exit
 
-_parse_range.exit.thread:                         ; preds = %195
+_parse_range.exit.thread:                         ; preds = %193
   store ptr %.015.i, ptr %2, align 8
   br label %197
 
@@ -877,7 +877,7 @@ _parse_range.exit.thread:                         ; preds = %195
   %398 = tail call zeroext i1 @valid_cron_entry(ptr noundef %3) #8
   br i1 %398, label %400, label %_parse_range.exit
 
-_parse_range.exit:                                ; preds = %195, %384, %325, %263, %237, %206, %395, %373, %369, %321, %317, %259, %255, %228, %224, %197, %363, %332, %311, %270, %245, %214, %172, %170
+_parse_range.exit:                                ; preds = %193, %384, %325, %263, %237, %206, %395, %373, %369, %321, %317, %259, %255, %228, %224, %197, %363, %332, %311, %270, %245, %214, %172, %170
   %399 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.33) #8
   tail call void @free_cron_entry(ptr noundef %3) #8
   br label %400

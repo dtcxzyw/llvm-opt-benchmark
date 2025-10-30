@@ -297,7 +297,7 @@ validate_metamako_timestamp.exit.i:               ; preds = %46, %43, %20
   br i1 %.not227.i, label %.loopexit4.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %validate_metamako_timestamp.exit.i, %._crit_edge.i
-  %.2209.i = phi i32 [ %54, %._crit_edge.i ], [ 0, %validate_metamako_timestamp.exit.i ]
+  %.2209.i = phi i32 [ %70, %._crit_edge.i ], [ 0, %validate_metamako_timestamp.exit.i ]
   %.2198.i = phi i32 [ %.3199.lcssa.i, %._crit_edge.i ], [ 0, %validate_metamako_timestamp.exit.i ]
   %.1194.i = phi i32 [ %.2195.lcssa.i, %._crit_edge.i ], [ %27, %validate_metamako_timestamp.exit.i ]
   %50 = icmp ugt i32 %.1194.i, 3
@@ -306,40 +306,40 @@ validate_metamako_timestamp.exit.i:               ; preds = %46, %43, %20
 51:                                               ; preds = %.preheader.i
   %52 = add i32 %.1194.i, -4
   %53 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %52)
-  %54 = add i32 %.2209.i, 1
-  %55 = lshr i32 %53, 6
-  %56 = and i32 %55, 3
-  %57 = and i32 %53, 31
-  %58 = icmp eq i32 %57, 31
-  %59 = and i32 %55, 1023
-  %60 = add nuw nsw i32 %59, 1
-  %.0204.i = select i1 %58, i32 %60, i32 %56
+  %54 = lshr i32 %53, 6
+  %55 = and i32 %54, 3
+  %56 = and i32 %53, 31
+  %57 = icmp eq i32 %56, 31
+  %58 = and i32 %54, 1023
+  %59 = add nuw nsw i32 %58, 1
+  %.0204.i = select i1 %57, i32 %59, i32 %55
   %.31996.i = add i32 %.2198.i, 4
-  %61 = icmp ne i32 %.0204.i, 0
-  %62 = icmp ugt i32 %52, 3
-  %63 = and i1 %62, %61
-  br i1 %63, label %.lr.ph.preheader.i, label %._crit_edge.i
+  %60 = icmp ne i32 %.0204.i, 0
+  %61 = icmp ugt i32 %52, 3
+  %62 = and i1 %61, %60
+  br i1 %62, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %51
-  %64 = add i32 %.1194.i, -8
-  %65 = lshr i32 %64, 2
-  %66 = add nsw i32 %.0204.i, -1
-  %umin.i = tail call i32 @llvm.umin.i32(i32 %65, i32 %66)
-  %67 = shl nuw nsw i32 %umin.i, 2
-  %68 = sub i32 %64, %67
-  %69 = add i32 %.2198.i, 8
-  %70 = add i32 %69, %67
+  %63 = add i32 %.1194.i, -8
+  %64 = lshr i32 %63, 2
+  %65 = add nsw i32 %.0204.i, -1
+  %umin.i = tail call i32 @llvm.umin.i32(i32 %64, i32 %65)
+  %66 = shl nuw nsw i32 %umin.i, 2
+  %67 = sub i32 %63, %66
+  %68 = add i32 %.2198.i, 8
+  %69 = add i32 %68, %66
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %51
-  %.2195.lcssa.i = phi i32 [ %52, %51 ], [ %68, %.lr.ph.preheader.i ]
-  %.3199.lcssa.i = phi i32 [ %.31996.i, %51 ], [ %70, %.lr.ph.preheader.i ]
+  %.2195.lcssa.i = phi i32 [ %52, %51 ], [ %67, %.lr.ph.preheader.i ]
+  %.3199.lcssa.i = phi i32 [ %.31996.i, %51 ], [ %69, %.lr.ph.preheader.i ]
+  %70 = add i32 %.2209.i, 1
   %71 = and i32 %53, 32
   %.not228.i = icmp eq i32 %71, 0
   br i1 %.not228.i, label %.preheader.i, label %.loopexit4.i, !llvm.loop !6
 
 .loopexit4.i:                                     ; preds = %._crit_edge.i, %.preheader.i, %validate_metamako_timestamp.exit.i
-  %.1208.i = phi i32 [ 0, %validate_metamako_timestamp.exit.i ], [ %54, %._crit_edge.i ], [ %.2209.i, %.preheader.i ]
+  %.1208.i = phi i32 [ 0, %validate_metamako_timestamp.exit.i ], [ %70, %._crit_edge.i ], [ %.2209.i, %.preheader.i ]
   %.1197.i = phi i32 [ 0, %validate_metamako_timestamp.exit.i ], [ %.3199.lcssa.i, %._crit_edge.i ], [ %.2198.i, %.preheader.i ]
   %.0193.i = phi i32 [ %27, %validate_metamako_timestamp.exit.i ], [ %.2195.lcssa.i, %._crit_edge.i ], [ %.1194.i, %.preheader.i ]
   %72 = icmp ugt i32 %.0193.i, 3

@@ -582,58 +582,58 @@ define void @_ZN7rocksdb15ForwardIteratorC2EPNS_6DBImplERKNS_11ReadOptionsEPNS_1
   store i8 %8, ptr %42, align 16, !tbaa !99
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %47 = ptrtoint ptr %44 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %46 = ptrtoint ptr %44 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
-  store i64 %47, ptr %46, align 16, !tbaa !100
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store ptr %4, ptr %48, align 8, !tbaa !101
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %53, i8 0, i64 6, i1 false), !alias.scope !102
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store ptr null, ptr %55, align 8, !tbaa !105, !alias.scope !106
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i8 0, ptr %56, align 16, !tbaa !109
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 417
-  store i8 0, ptr %57, align 1, !tbaa !110
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(89) %49, i8 0, i64 89, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %54, i8 0, i64 14, i1 false)
-  store ptr %59, ptr %58, align 8, !tbaa !111
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store ptr %59, ptr %60, align 16, !tbaa !112
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  store i64 0, ptr %61, align 8, !tbaa !113
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  store i64 39, ptr %62, align 16, !tbaa !114
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 495
-  store i8 1, ptr %63, align 1, !tbaa !115
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  store ptr %65, ptr %64, align 8, !tbaa !116
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 39, ptr %66, align 16, !tbaa !117
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  br label %68
+  store i64 %46, ptr %45, align 16, !tbaa !100
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store ptr %4, ptr %47, align 8, !tbaa !101
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %49, i8 0, i64 6, i1 false), !alias.scope !102
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  store ptr null, ptr %51, align 8, !tbaa !105, !alias.scope !106
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  store i8 0, ptr %52, align 16, !tbaa !109
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 417
+  store i8 0, ptr %53, align 1, !tbaa !110
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(89) %48, i8 0, i64 89, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %50, i8 0, i64 14, i1 false)
+  store ptr %55, ptr %54, align 8, !tbaa !111
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  store ptr %55, ptr %56, align 16, !tbaa !112
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  store i64 0, ptr %57, align 8, !tbaa !113
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  store i64 39, ptr %58, align 16, !tbaa !114
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 495
+  store i8 1, ptr %59, align 1, !tbaa !115
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  store ptr %61, ptr %60, align 8, !tbaa !116
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  store i64 39, ptr %62, align 16, !tbaa !117
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  br label %64
 
-68:                                               ; preds = %68, %32
-  %.idx.i.i = phi i64 [ 0, %32 ], [ %.add.i.i, %68 ]
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i.i
+64:                                               ; preds = %64, %32
+  %.idx.i.i = phi i64 [ 0, %32 ], [ %.add.i.i, %64 ]
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i.i
   store ptr @.str, ptr %.ptr.i.i, align 8, !tbaa !118
-  %69 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
-  store i64 0, ptr %69, align 16, !tbaa !120
+  %65 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
+  store i64 0, ptr %65, align 16, !tbaa !120
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 16
-  %70 = icmp eq i64 %.add.i.i, 80
-  br i1 %70, label %_ZN7rocksdb7IterKeyC2Ev.exit, label %68
+  %66 = icmp eq i64 %.add.i.i, 80
+  br i1 %66, label %_ZN7rocksdb7IterKeyC2Ev.exit, label %64
 
-_ZN7rocksdb7IterKeyC2Ev.exit:                     ; preds = %68
+_ZN7rocksdb7IterKeyC2Ev.exit:                     ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 632
   store i8 0, ptr %71, align 8, !tbaa !121
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 633
@@ -645,7 +645,7 @@ _ZN7rocksdb7IterKeyC2Ev.exit:                     ; preds = %68
           to label %75 unwind label %78
 
 75:                                               ; preds = %_ZN7rocksdb7IterKeyC2Ev.exit
-  %76 = load ptr, ptr %48, align 8, !tbaa !101
+  %76 = load ptr, ptr %47, align 8, !tbaa !101
   %.not = icmp eq ptr %76, null
   br i1 %.not, label %82, label %77
 
@@ -698,8 +698,8 @@ _ZN7rocksdb7IterKeyC2Ev.exit:                     ; preds = %68
 
 98:                                               ; preds = %80, %78
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %79, %78 ]
-  call void @_ZN7rocksdb7IterKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %58) #29
-  %99 = load ptr, ptr %55, align 8, !tbaa !176
+  call void @_ZN7rocksdb7IterKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %54) #29
+  %99 = load ptr, ptr %51, align 8, !tbaa !176
   %.not.i.i = icmp eq ptr %99, null
   br i1 %.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
@@ -708,8 +708,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %98, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
-  store ptr null, ptr %55, align 8, !tbaa !176
-  %100 = load ptr, ptr %54, align 8, !tbaa !176
+  store ptr null, ptr %51, align 8, !tbaa !176
+  %100 = load ptr, ptr %50, align 8, !tbaa !176
   %.not.i.i27 = icmp eq ptr %100, null
   br i1 %.not.i.i27, label %_ZN7rocksdb6StatusD2Ev.exit29, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i28
 
@@ -718,8 +718,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit29
 
 _ZN7rocksdb6StatusD2Ev.exit29:                    ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i28
-  store ptr null, ptr %54, align 8, !tbaa !176
-  %101 = load ptr, ptr %52, align 8, !tbaa !177
+  store ptr null, ptr %50, align 8, !tbaa !176
+  %101 = load ptr, ptr %70, align 8, !tbaa !177
   %.not.i.i.i30 = icmp eq ptr %101, null
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIPN7rocksdb20ForwardLevelIteratorESaIS2_EED2Ev.exit, label %102
 
@@ -733,7 +733,7 @@ _ZN7rocksdb6StatusD2Ev.exit29:                    ; preds = %_ZN7rocksdb6StatusD
   br label %_ZNSt6vectorIPN7rocksdb20ForwardLevelIteratorESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb20ForwardLevelIteratorESaIS2_EED2Ev.exit: ; preds = %_ZN7rocksdb6StatusD2Ev.exit29, %102
-  %108 = load ptr, ptr %51, align 16, !tbaa !179
+  %108 = load ptr, ptr %69, align 16, !tbaa !179
   %.not.i.i.i31 = icmp eq ptr %108, null
   br i1 %.not.i.i.i31, label %_ZNSt6vectorIPN7rocksdb20InternalIteratorBaseINS0_5SliceEEESaIS4_EED2Ev.exit32, label %109
 
@@ -747,7 +747,7 @@ _ZNSt6vectorIPN7rocksdb20ForwardLevelIteratorESaIS2_EED2Ev.exit: ; preds = %_ZN7
   br label %_ZNSt6vectorIPN7rocksdb20InternalIteratorBaseINS0_5SliceEEESaIS4_EED2Ev.exit32
 
 _ZNSt6vectorIPN7rocksdb20InternalIteratorBaseINS0_5SliceEEESaIS4_EED2Ev.exit32: ; preds = %_ZNSt6vectorIPN7rocksdb20ForwardLevelIteratorESaIS2_EED2Ev.exit, %109
-  %115 = load ptr, ptr %50, align 8, !tbaa !179
+  %115 = load ptr, ptr %68, align 8, !tbaa !179
   %.not.i.i.i33 = icmp eq ptr %115, null
   br i1 %.not.i.i.i33, label %_ZNSt6vectorIPN7rocksdb20InternalIteratorBaseINS0_5SliceEEESaIS4_EED2Ev.exit34, label %116
 
@@ -766,7 +766,7 @@ _ZNSt6vectorIPN7rocksdb20InternalIteratorBaseINS0_5SliceEEESaIS4_EED2Ev.exit34: 
   br i1 %.not.i.i.i.i35, label %_ZNSt6vectorIPN7rocksdb20InternalIteratorBaseINS0_5SliceEEESaIS4_EED2Ev.exit26, label %123
 
 123:                                              ; preds = %_ZNSt6vectorIPN7rocksdb20InternalIteratorBaseINS0_5SliceEEESaIS4_EED2Ev.exit34
-  %124 = load ptr, ptr %45, align 8, !tbaa !180
+  %124 = load ptr, ptr %67, align 8, !tbaa !180
   %125 = ptrtoint ptr %124 to i64
   %126 = ptrtoint ptr %122 to i64
   %127 = sub i64 %125, %126

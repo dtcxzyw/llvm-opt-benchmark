@@ -606,9 +606,8 @@ _ZNK10aiVector3tIfEeqERKS0_.exit:                 ; preds = %88
   %100 = load i32, ptr %32, align 8
   %101 = add i32 %100, -1
   store i32 %101, ptr %32, align 8
-  %102 = add i32 %.1142171, -1
-  %103 = icmp ult i32 %.094174, %101
-  br i1 %103, label %.lr.ph, label %.._crit_edge_crit_edge
+  %102 = icmp ult i32 %.094174, %101
+  br i1 %102, label %.lr.ph, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %99
   %.pre214 = zext i32 %101 to i64
@@ -620,8 +619,9 @@ _ZNK10aiVector3tIfEeqERKS0_.exit:                 ; preds = %88
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %._crit_edge.loopexit
   %.pre-phi = phi i64 [ %.pre214, %.._crit_edge_crit_edge ], [ %111, %._crit_edge.loopexit ]
-  %104 = phi ptr [ %75, %.._crit_edge_crit_edge ], [ %.pre, %._crit_edge.loopexit ]
-  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %.pre-phi
+  %103 = phi ptr [ %75, %.._crit_edge_crit_edge ], [ %.pre, %._crit_edge.loopexit ]
+  %104 = add i32 %.1142171, -1
+  %105 = getelementptr inbounds nuw i32, ptr %103, i64 %.pre-phi
   store i32 -559038737, ptr %105, align 4
   br i1 %.2104172, label %113, label %115
 
@@ -651,7 +651,7 @@ _ZNK10aiVector3tIfEeqERKS0_.exit:                 ; preds = %88
 
 _ZNK10aiVector3tIfEeqERKS0_.exit.thread:          ; preds = %72, %88, %_ZNK10aiVector3tIfEeqERKS0_.exit, %115
   %119 = phi i32 [ %116, %115 ], [ %73, %_ZNK10aiVector3tIfEeqERKS0_.exit ], [ %73, %88 ], [ %73, %72 ]
-  %.2 = phi i32 [ %102, %115 ], [ %.1142171, %_ZNK10aiVector3tIfEeqERKS0_.exit ], [ %.1142171, %88 ], [ %.1142171, %72 ]
+  %.2 = phi i32 [ %104, %115 ], [ %.1142171, %_ZNK10aiVector3tIfEeqERKS0_.exit ], [ %.1142171, %88 ], [ %.1142171, %72 ]
   %.5 = phi i1 [ false, %115 ], [ %.2104172, %_ZNK10aiVector3tIfEeqERKS0_.exit ], [ %.2104172, %88 ], [ %.2104172, %72 ]
   %.195 = phi i32 [ %.094.in173, %115 ], [ %.094174, %_ZNK10aiVector3tIfEeqERKS0_.exit ], [ %.094174, %88 ], [ %.094174, %72 ]
   %.094 = add i32 %.195, 1

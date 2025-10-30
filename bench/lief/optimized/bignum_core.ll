@@ -642,39 +642,39 @@ define hidden range(i64 0, 3) i64 @mbedtls_mpi_core_sub(ptr noundef writeonly ca
 ; Function Attrs: nounwind uwtable
 define hidden i64 @mbedtls_mpi_core_mla(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #4 {
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
-  %6 = sub i64 %1, %spec.select
-  %7 = and i64 %spec.select, 7
   %.not41 = icmp ult i64 %spec.select, 8
   br i1 %.not41, label %.preheader40, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %5
-  %8 = lshr i64 %spec.select, 3
+  %6 = lshr i64 %spec.select, 3
   br label %.lr.ph
 
 .preheader40:                                     ; preds = %.lr.ph, %5
-  %.034.lcssa = phi ptr [ %2, %5 ], [ %13, %.lr.ph ]
-  %.030.lcssa = phi ptr [ %0, %5 ], [ %12, %.lr.ph ]
-  %.029.lcssa = phi i64 [ 0, %5 ], [ %11, %.lr.ph ]
+  %.034.lcssa = phi ptr [ %2, %5 ], [ %12, %.lr.ph ]
+  %.030.lcssa = phi ptr [ %0, %5 ], [ %11, %.lr.ph ]
+  %.029.lcssa = phi i64 [ 0, %5 ], [ %10, %.lr.ph ]
+  %7 = and i64 %spec.select, 7
   %.not3848 = icmp eq i64 %7, 0
   br i1 %.not3848, label %.preheader, label %.lr.ph53
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02745 = phi i64 [ %9, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %.02944 = phi i64 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.03043 = phi ptr [ %12, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.03442 = phi ptr [ %13, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %9 = add nsw i64 %.02745, -1
-  %10 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043, i64 %4, ptr elementtype([16 x i64]) %.03442, i64 %.02944, ptr %.03043, ptr %.03442, ptr elementtype([16 x i64]) %.03043) #10, !srcloc !31
-  %11 = extractvalue { i64, ptr, ptr } %10, 0
-  %12 = extractvalue { i64, ptr, ptr } %10, 1
-  %13 = extractvalue { i64, ptr, ptr } %10, 2
-  %.not = icmp eq i64 %9, 0
+  %.02745 = phi i64 [ %8, %.lr.ph ], [ %6, %.lr.ph.preheader ]
+  %.02944 = phi i64 [ %10, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.03043 = phi ptr [ %11, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.03442 = phi ptr [ %12, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %8 = add nsw i64 %.02745, -1
+  %9 = tail call { i64, ptr, ptr } asm "xorq   %r8, %r8\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0Amovq   (%rsi), %rax\0Amulq   %rbx\0Aaddq   $$8, %rsi\0Aaddq   %rcx, %rax\0Amovq   %r8, %rcx\0Aadcq   $$0, %rdx\0Anop    \0Aaddq   %rax, (%rdi)\0Aadcq   %rdx, %rcx\0Aaddq   $$8, %rdi\0A", "={cx},={di},={si},=*m,{bx},*m,0,1,2,*m,~{rax},~{rdx},~{r8},~{dirflag},~{fpsr},~{flags}"(ptr elementtype([16 x i64]) %.03043, i64 %4, ptr elementtype([16 x i64]) %.03442, i64 %.02944, ptr %.03043, ptr %.03442, ptr elementtype([16 x i64]) %.03043) #10, !srcloc !31
+  %10 = extractvalue { i64, ptr, ptr } %9, 0
+  %11 = extractvalue { i64, ptr, ptr } %9, 1
+  %12 = extractvalue { i64, ptr, ptr } %9, 2
+  %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.preheader40, label %.lr.ph, !llvm.loop !32
 
 .preheader:                                       ; preds = %.lr.ph53, %.preheader40
   %.131.lcssa = phi ptr [ %.030.lcssa, %.preheader40 ], [ %17, %.lr.ph53 ]
   %.1.lcssa = phi i64 [ %.029.lcssa, %.preheader40 ], [ %16, %.lr.ph53 ]
-  %.not3956 = icmp eq i64 %6, 0
+  %13 = sub i64 %1, %spec.select
+  %.not3956 = icmp eq i64 %13, 0
   br i1 %.not3956, label %._crit_edge, label %.lr.ph60
 
 .lr.ph53:                                         ; preds = %.preheader40, %.lr.ph53
@@ -691,7 +691,7 @@ define hidden i64 @mbedtls_mpi_core_mla(ptr noundef %0, i64 noundef %1, ptr noun
   br i1 %.not38, label %.preheader, label %.lr.ph53, !llvm.loop !34
 
 .lr.ph60:                                         ; preds = %.preheader, %.lr.ph60
-  %.02859 = phi i64 [ %19, %.lr.ph60 ], [ %6, %.preheader ]
+  %.02859 = phi i64 [ %19, %.lr.ph60 ], [ %13, %.preheader ]
   %.258 = phi i64 [ %23, %.lr.ph60 ], [ %.1.lcssa, %.preheader ]
   %.23257 = phi ptr [ %24, %.lr.ph60 ], [ %.131.lcssa, %.preheader ]
   %19 = add i64 %.02859, -1
@@ -720,12 +720,12 @@ define hidden void @mbedtls_mpi_core_mul(ptr noundef %0, ptr noundef %1, i64 nou
 .lr.ph:                                           ; preds = %5
   %8 = add i64 %2, 1
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
-  %9 = sub i64 %8, %spec.select.i
-  %10 = and i64 %spec.select.i, 7
   %.not41.i = icmp ult i64 %spec.select.i, 8
-  %11 = lshr i64 %spec.select.i, 3
+  %9 = lshr i64 %spec.select.i, 3
+  %10 = and i64 %spec.select.i, 7
   %.not3848.i = icmp eq i64 %10, 0
-  %.not3956.i = icmp eq i64 %9, 0
+  %11 = sub i64 %8, %spec.select.i
+  %.not3956.i = icmp eq i64 %11, 0
   br i1 %.not41.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -740,7 +740,7 @@ define hidden void @mbedtls_mpi_core_mul(ptr noundef %0, ptr noundef %1, i64 nou
   br label %.lr.ph60.i.us.us
 
 .lr.ph60.i.us.us:                                 ; preds = %.preheader40.i.us.us, %.lr.ph60.i.us.us
-  %.02859.i.us.us = phi i64 [ %13, %.lr.ph60.i.us.us ], [ %9, %.preheader40.i.us.us ]
+  %.02859.i.us.us = phi i64 [ %13, %.lr.ph60.i.us.us ], [ %11, %.preheader40.i.us.us ]
   %.258.i.us.us = phi i64 [ %17, %.lr.ph60.i.us.us ], [ 0, %.preheader40.i.us.us ]
   %.23257.i.us.us = phi ptr [ %18, %.lr.ph60.i.us.us ], [ %12, %.preheader40.i.us.us ]
   %13 = add i64 %.02859.i.us.us, -1
@@ -779,7 +779,7 @@ mbedtls_mpi_core_mla.exit.loopexit.us.us:         ; preds = %.lr.ph60.i.us.us
   br i1 %.not38.i.us, label %.preheader.i.loopexit.us, label %.lr.ph53.i.us, !llvm.loop !34
 
 .lr.ph60.i.us:                                    ; preds = %.preheader.i.loopexit.us, %.lr.ph60.i.us
-  %.02859.i.us = phi i64 [ %28, %.lr.ph60.i.us ], [ %9, %.preheader.i.loopexit.us ]
+  %.02859.i.us = phi i64 [ %28, %.lr.ph60.i.us ], [ %11, %.preheader.i.loopexit.us ]
   %.258.i.us = phi i64 [ %32, %.lr.ph60.i.us ], [ %25, %.preheader.i.loopexit.us ]
   %.23257.i.us = phi ptr [ %33, %.lr.ph60.i.us ], [ %26, %.preheader.i.loopexit.us ]
   %28 = add i64 %.02859.i.us, -1
@@ -814,7 +814,7 @@ mbedtls_mpi_core_mla.exit.us:                     ; preds = %.lr.ph60.i.us, %.pr
   br label %.lr.ph.i.us.us
 
 .lr.ph.i.us.us:                                   ; preds = %.lr.ph.i.us.us, %.lr.ph.preheader.i.us.us
-  %.02745.i.us.us = phi i64 [ %38, %.lr.ph.i.us.us ], [ %11, %.lr.ph.preheader.i.us.us ]
+  %.02745.i.us.us = phi i64 [ %38, %.lr.ph.i.us.us ], [ %9, %.lr.ph.preheader.i.us.us ]
   %.02944.i.us.us = phi i64 [ %40, %.lr.ph.i.us.us ], [ 0, %.lr.ph.preheader.i.us.us ]
   %.03043.i.us.us = phi ptr [ %41, %.lr.ph.i.us.us ], [ %35, %.lr.ph.preheader.i.us.us ]
   %.03442.i.us.us = phi ptr [ %42, %.lr.ph.i.us.us ], [ %1, %.lr.ph.preheader.i.us.us ]
@@ -839,7 +839,7 @@ mbedtls_mpi_core_mla.exit.us:                     ; preds = %.lr.ph60.i.us, %.pr
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us, %.lr.ph.preheader.i.us
-  %.02745.i.us = phi i64 [ %47, %.lr.ph.i.us ], [ %11, %.lr.ph.preheader.i.us ]
+  %.02745.i.us = phi i64 [ %47, %.lr.ph.i.us ], [ %9, %.lr.ph.preheader.i.us ]
   %.02944.i.us = phi i64 [ %49, %.lr.ph.i.us ], [ 0, %.lr.ph.preheader.i.us ]
   %.03043.i.us = phi ptr [ %50, %.lr.ph.i.us ], [ %44, %.lr.ph.preheader.i.us ]
   %.03442.i.us = phi ptr [ %51, %.lr.ph.i.us ], [ %1, %.lr.ph.preheader.i.us ]
@@ -852,7 +852,7 @@ mbedtls_mpi_core_mla.exit.us:                     ; preds = %.lr.ph60.i.us, %.pr
   br i1 %.not.i.us, label %.lr.ph60.i.us21, label %.lr.ph.i.us, !llvm.loop !32
 
 .lr.ph60.i.us21:                                  ; preds = %.lr.ph.i.us, %.lr.ph60.i.us21
-  %.02859.i.us22 = phi i64 [ %52, %.lr.ph60.i.us21 ], [ %9, %.lr.ph.i.us ]
+  %.02859.i.us22 = phi i64 [ %52, %.lr.ph60.i.us21 ], [ %11, %.lr.ph.i.us ]
   %.258.i.us23 = phi i64 [ %56, %.lr.ph60.i.us21 ], [ %49, %.lr.ph.i.us ]
   %.23257.i.us24 = phi ptr [ %57, %.lr.ph60.i.us21 ], [ %50, %.lr.ph.i.us ]
   %52 = add i64 %.02859.i.us22, -1
@@ -881,7 +881,7 @@ mbedtls_mpi_core_mla.exit.loopexit.us28:          ; preds = %.lr.ph60.i.us21
   br label %.lr.ph.i.us31
 
 .lr.ph.i.us31:                                    ; preds = %.lr.ph.i.us31, %.lr.ph.preheader.i.us29
-  %.02745.i.us32 = phi i64 [ %62, %.lr.ph.i.us31 ], [ %11, %.lr.ph.preheader.i.us29 ]
+  %.02745.i.us32 = phi i64 [ %62, %.lr.ph.i.us31 ], [ %9, %.lr.ph.preheader.i.us29 ]
   %.02944.i.us33 = phi i64 [ %64, %.lr.ph.i.us31 ], [ 0, %.lr.ph.preheader.i.us29 ]
   %.03043.i.us34 = phi ptr [ %65, %.lr.ph.i.us31 ], [ %59, %.lr.ph.preheader.i.us29 ]
   %.03442.i.us35 = phi ptr [ %66, %.lr.ph.i.us31 ], [ %1, %.lr.ph.preheader.i.us29 ]
@@ -922,7 +922,7 @@ mbedtls_mpi_core_mla.exit.loopexit.us28:          ; preds = %.lr.ph60.i.us21
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.02745.i = phi i64 [ %76, %.lr.ph.i ], [ %11, %.lr.ph.preheader.i ]
+  %.02745.i = phi i64 [ %76, %.lr.ph.i ], [ %9, %.lr.ph.preheader.i ]
   %.02944.i = phi i64 [ %78, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %.03043.i = phi ptr [ %79, %.lr.ph.i ], [ %73, %.lr.ph.preheader.i ]
   %.03442.i = phi ptr [ %80, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
@@ -948,7 +948,7 @@ mbedtls_mpi_core_mla.exit.loopexit.us28:          ; preds = %.lr.ph60.i.us21
   br i1 %.not38.i, label %.lr.ph60.i, label %.lr.ph53.i, !llvm.loop !34
 
 .lr.ph60.i:                                       ; preds = %.lr.ph53.i, %.lr.ph60.i
-  %.02859.i = phi i64 [ %86, %.lr.ph60.i ], [ %9, %.lr.ph53.i ]
+  %.02859.i = phi i64 [ %86, %.lr.ph60.i ], [ %11, %.lr.ph53.i ]
   %.258.i = phi i64 [ %90, %.lr.ph60.i ], [ %83, %.lr.ph53.i ]
   %.23257.i = phi ptr [ %91, %.lr.ph60.i ], [ %84, %.lr.ph53.i ]
   %86 = add i64 %.02859.i, -1
@@ -1007,19 +1007,19 @@ define hidden void @mbedtls_mpi_core_montmul(ptr noundef %0, ptr noundef readonl
 .lr.ph:                                           ; preds = %8
   %13 = add i64 %5, 2
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %3)
-  %14 = sub i64 %13, %spec.select.i
-  %15 = and i64 %spec.select.i, 7
   %.not41.i = icmp ult i64 %spec.select.i, 8
-  %16 = lshr i64 %spec.select.i, 3
+  %14 = lshr i64 %spec.select.i, 3
+  %15 = and i64 %spec.select.i, 7
   %.not3848.i = icmp eq i64 %15, 0
-  %.not3956.i = icmp eq i64 %14, 0
+  %16 = sub i64 %13, %spec.select.i
+  %.not3956.i = icmp eq i64 %16, 0
   %spec.select.i36 = tail call i64 @llvm.umin.i64(i64 %13, i64 %5)
-  %17 = sub i64 %13, %spec.select.i36
-  %18 = and i64 %spec.select.i36, 7
   %.not41.i37 = icmp ult i64 %spec.select.i36, 8
-  %19 = lshr i64 %spec.select.i36, 3
+  %17 = lshr i64 %spec.select.i36, 3
+  %18 = and i64 %spec.select.i36, 7
   %.not3848.i49 = icmp eq i64 %18, 0
-  %.not3956.i59 = icmp eq i64 %17, 0
+  %19 = sub i64 %13, %spec.select.i36
+  %.not3956.i59 = icmp eq i64 %19, 0
   br label %39
 
 .lr.ph.i.preheader:                               ; preds = %mbedtls_mpi_core_mla.exit66
@@ -1076,7 +1076,7 @@ mbedtls_mpi_core_sub.exit:                        ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not3848.i, label %.preheader.i, label %.lr.ph53.i
 
 .lr.ph.i34:                                       ; preds = %39, %.lr.ph.i34
-  %.02745.i = phi i64 [ %47, %.lr.ph.i34 ], [ %16, %39 ]
+  %.02745.i = phi i64 [ %47, %.lr.ph.i34 ], [ %14, %39 ]
   %.02944.i = phi i64 [ %49, %.lr.ph.i34 ], [ 0, %39 ]
   %.03043.i = phi ptr [ %50, %.lr.ph.i34 ], [ %.078, %39 ]
   %.03442.i = phi ptr [ %51, %.lr.ph.i34 ], [ %2, %39 ]
@@ -1107,7 +1107,7 @@ mbedtls_mpi_core_sub.exit:                        ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not38.i, label %.preheader.i, label %.lr.ph53.i, !llvm.loop !34
 
 .lr.ph60.i:                                       ; preds = %.preheader.i, %.lr.ph60.i
-  %.02859.i = phi i64 [ %57, %.lr.ph60.i ], [ %14, %.preheader.i ]
+  %.02859.i = phi i64 [ %57, %.lr.ph60.i ], [ %16, %.preheader.i ]
   %.258.i = phi i64 [ %61, %.lr.ph60.i ], [ %.1.lcssa.i, %.preheader.i ]
   %.23257.i = phi ptr [ %62, %.lr.ph60.i ], [ %.131.lcssa.i, %.preheader.i ]
   %57 = add i64 %.02859.i, -1
@@ -1130,7 +1130,7 @@ mbedtls_mpi_core_mla.exit:                        ; preds = %.lr.ph60.i, %.prehe
   br i1 %.not3848.i49, label %.preheader.i56, label %.lr.ph53.i50
 
 .lr.ph.i39:                                       ; preds = %mbedtls_mpi_core_mla.exit, %.lr.ph.i39
-  %.02745.i40 = phi i64 [ %63, %.lr.ph.i39 ], [ %19, %mbedtls_mpi_core_mla.exit ]
+  %.02745.i40 = phi i64 [ %63, %.lr.ph.i39 ], [ %17, %mbedtls_mpi_core_mla.exit ]
   %.02944.i41 = phi i64 [ %65, %.lr.ph.i39 ], [ 0, %mbedtls_mpi_core_mla.exit ]
   %.03043.i42 = phi ptr [ %66, %.lr.ph.i39 ], [ %.078, %mbedtls_mpi_core_mla.exit ]
   %.03442.i43 = phi ptr [ %67, %.lr.ph.i39 ], [ %4, %mbedtls_mpi_core_mla.exit ]
@@ -1161,7 +1161,7 @@ mbedtls_mpi_core_mla.exit:                        ; preds = %.lr.ph60.i, %.prehe
   br i1 %.not38.i55, label %.preheader.i56, label %.lr.ph53.i50, !llvm.loop !34
 
 .lr.ph60.i60:                                     ; preds = %.preheader.i56, %.lr.ph60.i60
-  %.02859.i61 = phi i64 [ %73, %.lr.ph60.i60 ], [ %17, %.preheader.i56 ]
+  %.02859.i61 = phi i64 [ %73, %.lr.ph60.i60 ], [ %19, %.preheader.i56 ]
   %.258.i62 = phi i64 [ %77, %.lr.ph60.i60 ], [ %.1.lcssa.i58, %.preheader.i56 ]
   %.23257.i63 = phi ptr [ %78, %.lr.ph60.i60 ], [ %.131.lcssa.i57, %.preheader.i56 ]
   %73 = add i64 %.02859.i61, -1

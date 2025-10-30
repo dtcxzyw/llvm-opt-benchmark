@@ -8665,19 +8665,19 @@ define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef 
 .lr.ph.preheader:
   %6 = alloca %struct.stringlib__pre, align 8
   %7 = alloca %struct.stringlib__pre, align 8
-  %8 = sub nsw i64 %1, %3
-  %9 = add nsw i64 %3, -1
-  %10 = getelementptr i8, ptr %2, i64 %9
-  %11 = load i8, ptr %10, align 1, !tbaa !9
-  %12 = getelementptr i8, ptr %0, i64 %9
+  %8 = add nsw i64 %3, -1
+  %9 = getelementptr i8, ptr %2, i64 %8
+  %10 = load i8, ptr %9, align 1, !tbaa !9
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %13 = and i8 %11, 63
+  %11 = sub nsw i64 %1, %3
+  %12 = getelementptr i8, ptr %0, i64 %8
+  %13 = and i8 %10, 63
   %14 = zext nneg i8 %13 to i64
   %15 = shl nuw i64 1, %14
   %16 = or i64 %52, %15
-  %.not137 = icmp slt i64 %8, 0
+  %.not137 = icmp slt i64 %11, 0
   br i1 %.not137, label %.loopexit, label %.lr.ph143.split.us.preheader
 
 .lr.ph143.split.us.preheader:                     ; preds = %._crit_edge
@@ -8691,7 +8691,7 @@ define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef 
   %.0100138.us = phi i64 [ %.2102.us, %42 ], [ 0, %.lr.ph143.split.us.preheader ]
   %18 = getelementptr i8, ptr %12, i64 %.088140.us
   %19 = load i8, ptr %18, align 1, !tbaa !9
-  %20 = icmp eq i8 %19, %11
+  %20 = icmp eq i8 %19, %10
   br i1 %20, label %.preheader.us, label %.sink.split
 
 21:                                               ; preds = %.preheader.us, %44
@@ -8704,16 +8704,16 @@ define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef 
   br i1 %.not113.us, label %44, label %._crit_edge133.us
 
 ._crit_edge133.us:                                ; preds = %21
-  %26 = icmp eq i64 %.0131.us, %9
+  %26 = icmp eq i64 %.0131.us, %8
   br i1 %26, label %._crit_edge133.us.thread, label %27
 
 27:                                               ; preds = %._crit_edge133.us
   %28 = add i64 %.0100138.us, 1
   %29 = add i64 %28, %.0131.us
   %30 = icmp sgt i64 %29, %17
-  %31 = sub i64 %8, %.088140.us
+  %31 = sub i64 %11, %.088140.us
   %32 = icmp sgt i64 %31, 2000
-  %or.cond.us = select i1 %30, i1 %32, i1 false
+  %or.cond.us = and i1 %30, %32
   br i1 %or.cond.us, label %.split.us, label %.sink.split
 
 ._crit_edge133.us.thread:                         ; preds = %44, %._crit_edge133.us
@@ -8740,15 +8740,15 @@ define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef 
 42:                                               ; preds = %.sink.split, %33
   %.2102.us = phi i64 [ %.0100138.us, %33 ], [ %.2102.us.ph, %.sink.split ]
   %.399.us = phi i64 [ %34, %33 ], [ %.096139.us, %.sink.split ]
-  %.pn.us = phi i64 [ %9, %33 ], [ %..0103.us, %.sink.split ]
+  %.pn.us = phi i64 [ %8, %33 ], [ %..0103.us, %.sink.split ]
   %.3.us = add i64 %.088140.us, 1
   %43 = add i64 %.3.us, %.pn.us
-  %.not.us = icmp sgt i64 %43, %8
+  %.not.us = icmp sgt i64 %43, %11
   br i1 %.not.us, label %.loopexit, label %.lr.ph143.split.us, !llvm.loop !186
 
 44:                                               ; preds = %21
   %45 = add nuw nsw i64 %.0131.us, 1
-  %exitcond216.not = icmp eq i64 %45, %9
+  %exitcond216.not = icmp eq i64 %45, %8
   br i1 %exitcond216.not, label %._crit_edge133.us.thread, label %21, !llvm.loop !187
 
 .preheader.us:                                    ; preds = %.lr.ph143.split.us
@@ -8758,19 +8758,19 @@ define internal fastcc i64 @stringlib_adaptive_find(ptr noundef %0, i64 noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.090129 = phi i64 [ %56, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.091128 = phi i64 [ %52, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0103127 = phi i64 [ %.1104, %.lr.ph ], [ %9, %.lr.ph.preheader ]
+  %.0103127 = phi i64 [ %.1104, %.lr.ph ], [ %8, %.lr.ph.preheader ]
   %47 = getelementptr i8, ptr %2, i64 %.090129
   %48 = load i8, ptr %47, align 1, !tbaa !9
   %49 = and i8 %48, 63
   %50 = zext nneg i8 %49 to i64
   %51 = shl nuw i64 1, %50
   %52 = or i64 %51, %.091128
-  %53 = icmp eq i8 %48, %11
+  %53 = icmp eq i8 %48, %10
   %54 = xor i64 %.090129, -1
-  %55 = add nsw i64 %9, %54
+  %55 = add nsw i64 %8, %54
   %.1104 = select i1 %53, i64 %55, i64 %.0103127
   %56 = add nuw nsw i64 %.090129, 1
-  %exitcond.not = icmp eq i64 %56, %9
+  %exitcond.not = icmp eq i64 %56, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !188
 
 .split.us:                                        ; preds = %27
@@ -10392,69 +10392,69 @@ define internal ptr @stringlib_expandtabs(ptr noundef readonly captures(address)
   %75 = zext i32 %.060 to i64
   br i1 %74, label %.lr.ph86.split.us.i, label %.lr.ph86.split.i
 
-.lr.ph86.split.us.i:                              ; preds = %.lr.ph86.i, %.loopexit.us.i
-  %.184.us.i = phi ptr [ %87, %.loopexit.us.i ], [ %67, %.lr.ph86.i ]
-  %.383.us.i = phi i64 [ %.4.us.i, %.loopexit.us.i ], [ 0, %.lr.ph86.i ]
-  %.05682.us.i = phi ptr [ %.258.us.i, %.loopexit.us.i ], [ %73, %.lr.ph86.i ]
+.lr.ph86.split.us.i:                              ; preds = %.lr.ph86.i, %83
+  %.184.us.i = phi ptr [ %84, %83 ], [ %67, %.lr.ph86.i ]
+  %.383.us.i = phi i64 [ %.4.us.i, %83 ], [ 0, %.lr.ph86.i ]
+  %.05682.us.i = phi ptr [ %.258.us.i, %83 ], [ %73, %.lr.ph86.i ]
   %76 = load i8, ptr %.184.us.i, align 1, !tbaa !9
   %77 = icmp eq i8 %76, 9
-  br i1 %77, label %.lr.ph80.us.preheader.i, label %78
+  br i1 %77, label %.loopexit.us.i, label %78
 
 78:                                               ; preds = %.lr.ph86.split.us.i
   %79 = getelementptr i8, ptr %.05682.us.i, i64 1
   store i8 %76, ptr %.05682.us.i, align 1, !tbaa !9
   %80 = load i8, ptr %.184.us.i, align 1, !tbaa !9
   %81 = add i64 %.383.us.i, 1
-  switch i8 %80, label %.loopexit.us.i [
+  switch i8 %80, label %83 [
     i8 13, label %82
     i8 10, label %82
   ]
 
 82:                                               ; preds = %78, %78
-  br label %.loopexit.us.i
+  br label %83
 
-.lr.ph80.us.preheader.i:                          ; preds = %.lr.ph86.split.us.i
-  %83 = srem i64 %.383.us.i, %75
-  %84 = sub nsw i64 %75, %83
-  %85 = add i64 %84, %.383.us.i
-  call void @llvm.memset.p0.i64(ptr align 1 %.05682.us.i, i8 32, i64 %84, i1 false), !tbaa !9
-  %scevgep.i = getelementptr i8, ptr %.05682.us.i, i64 %75
-  %86 = sub nsw i64 0, %83
-  %scevgep92.i = getelementptr i8, ptr %scevgep.i, i64 %86
-  br label %.loopexit.us.i
-
-.loopexit.us.i:                                   ; preds = %.lr.ph80.us.preheader.i, %82, %78
-  %.258.us.i = phi ptr [ %79, %82 ], [ %79, %78 ], [ %scevgep92.i, %.lr.ph80.us.preheader.i ]
-  %.4.us.i = phi i64 [ 0, %82 ], [ %81, %78 ], [ %85, %.lr.ph80.us.preheader.i ]
-  %87 = getelementptr i8, ptr %.184.us.i, i64 1
-  %exitcond93.not.i = icmp eq ptr %87, %66
+83:                                               ; preds = %.loopexit.us.i, %82, %78
+  %.258.us.i = phi ptr [ %79, %82 ], [ %79, %78 ], [ %scevgep92.i, %.loopexit.us.i ]
+  %.4.us.i = phi i64 [ 0, %82 ], [ %81, %78 ], [ %88, %.loopexit.us.i ]
+  %84 = getelementptr i8, ptr %.184.us.i, i64 1
+  %exitcond93.not.i = icmp eq ptr %84, %66
   br i1 %exitcond93.not.i, label %stringlib_expandtabs_impl.exit, label %.lr.ph86.split.us.i, !llvm.loop !205
 
-.lr.ph86.split.i:                                 ; preds = %.lr.ph86.i, %92
-  %.184.i = phi ptr [ %93, %92 ], [ %67, %.lr.ph86.i ]
-  %.05682.i = phi ptr [ %.258.i, %92 ], [ %73, %.lr.ph86.i ]
-  %88 = load i8, ptr %.184.i, align 1, !tbaa !9
-  %89 = icmp eq i8 %88, 9
-  br i1 %89, label %92, label %90
+.loopexit.us.i:                                   ; preds = %.lr.ph86.split.us.i
+  %85 = srem i64 %.383.us.i, %75
+  %86 = sub nsw i64 %75, %85
+  call void @llvm.memset.p0.i64(ptr align 1 %.05682.us.i, i8 32, i64 %86, i1 false), !tbaa !9
+  %scevgep.i = getelementptr i8, ptr %.05682.us.i, i64 %75
+  %87 = sub nsw i64 0, %85
+  %scevgep92.i = getelementptr i8, ptr %scevgep.i, i64 %87
+  %88 = add i64 %86, %.383.us.i
+  br label %83
 
-90:                                               ; preds = %.lr.ph86.split.i
-  %91 = getelementptr i8, ptr %.05682.i, i64 1
-  store i8 %88, ptr %.05682.i, align 1, !tbaa !9
-  br label %92
+.lr.ph86.split.i:                                 ; preds = %.lr.ph86.i, %93
+  %.184.i = phi ptr [ %94, %93 ], [ %67, %.lr.ph86.i ]
+  %.05682.i = phi ptr [ %.258.i, %93 ], [ %73, %.lr.ph86.i ]
+  %89 = load i8, ptr %.184.i, align 1, !tbaa !9
+  %90 = icmp eq i8 %89, 9
+  br i1 %90, label %93, label %91
 
-92:                                               ; preds = %90, %.lr.ph86.split.i
-  %.258.i = phi ptr [ %.05682.i, %.lr.ph86.split.i ], [ %91, %90 ]
-  %93 = getelementptr i8, ptr %.184.i, i64 1
-  %exitcond91.not.i = icmp eq ptr %93, %66
+91:                                               ; preds = %.lr.ph86.split.i
+  %92 = getelementptr i8, ptr %.05682.i, i64 1
+  store i8 %89, ptr %.05682.i, align 1, !tbaa !9
+  br label %93
+
+93:                                               ; preds = %91, %.lr.ph86.split.i
+  %.258.i = phi ptr [ %.05682.i, %.lr.ph86.split.i ], [ %92, %91 ]
+  %94 = getelementptr i8, ptr %.184.i, i64 1
+  %exitcond91.not.i = icmp eq ptr %94, %66
   br i1 %exitcond91.not.i, label %stringlib_expandtabs_impl.exit, label %.lr.ph86.split.i, !llvm.loop !205
 
 .loopexit68.i:                                    ; preds = %58, %54, %44, %39, %35, %._crit_edge.i
-  %94 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !4
-  call void @PyErr_SetString(ptr noundef %94, ptr noundef nonnull @.str.119) #20
+  %95 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !4
+  call void @PyErr_SetString(ptr noundef %95, ptr noundef nonnull @.str.119) #20
   br label %stringlib_expandtabs_impl.exit
 
-stringlib_expandtabs_impl.exit:                   ; preds = %92, %.loopexit.us.i, %.loopexit68.i, %70, %20, %10
-  %.022 = phi ptr [ null, %20 ], [ null, %10 ], [ null, %.loopexit68.i ], [ %72, %70 ], [ %72, %.loopexit.us.i ], [ %72, %92 ]
+stringlib_expandtabs_impl.exit:                   ; preds = %93, %83, %.loopexit68.i, %70, %20, %10
+  %.022 = phi ptr [ null, %20 ], [ null, %10 ], [ null, %.loopexit68.i ], [ %72, %70 ], [ %72, %83 ], [ %72, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.022
 }

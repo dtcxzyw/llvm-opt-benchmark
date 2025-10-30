@@ -6456,8 +6456,6 @@ if.end:                                           ; preds = %entry
   %5 = trunc i64 %sub.ptr.div.i to i32
   %6 = and i32 %5, -8
   %conv = add i32 %6, 8
-  %idx.ext = sext i32 %conv to i64
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
   %7 = load ptr, ptr %format, align 8
   %vars_.i = getelementptr inbounds nuw i8, ptr %format, i64 8
   tail call void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %7, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(32) %vars_.i, i64 1, ptr nonnull @.str.94)
@@ -6490,6 +6488,8 @@ for.end:                                          ; preds = %if.end
   br label %for.end38
 
 for.body22.lr.ph:                                 ; preds = %for.body
+  %idx.ext28 = zext nneg i32 %conv to i64
+  %add.ptr29 = getelementptr inbounds nuw i8, ptr %1, i64 %idx.ext28
   %10 = load ptr, ptr %format, align 8
   call void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %10, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(32) %vars_.i, i64 2, ptr nonnull @.str.96)
   %_M_string_length.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
@@ -6555,7 +6555,7 @@ for.inc33:                                        ; preds = %for.body22, %invoke
   %idx.ext36 = phi i64 [ 0, %for.body22 ], [ %13, %invoke.cont31 ]
   %incdec.ptr34 = getelementptr inbounds nuw i8, ptr %sizes.024, i64 1
   %add.ptr37 = getelementptr inbounds nuw i8, ptr %p.125, i64 %idx.ext36
-  %cmp21 = icmp ult ptr %incdec.ptr34, %add.ptr
+  %cmp21 = icmp ult ptr %incdec.ptr34, %add.ptr29
   br i1 %cmp21, label %for.body22, label %for.end38, !llvm.loop !177
 
 for.end38:                                        ; preds = %for.inc33, %for.end, %entry

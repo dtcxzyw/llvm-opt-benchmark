@@ -3204,41 +3204,41 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nounde
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv62 = phi i64 [ %36, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %._crit_edge.us ]
   %38 = phi double [ 0.000000e+00, %.lr.ph.us.preheader ], [ %64, %._crit_edge.us ]
-  %39 = getelementptr inbounds double, ptr %24, i64 %indvars.iv62
-  %40 = load double, ptr %39, align 8, !tbaa !4
-  %41 = getelementptr inbounds double, ptr %25, i64 %indvars.iv62
-  %42 = load double, ptr %41, align 8, !tbaa !4
-  br label %43
+  br label %39
 
-43:                                               ; preds = %.lr.ph.us, %43
-  %indvars.iv58 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next59, %43 ]
-  %.04347.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %58, %43 ]
-  %.04446.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %61, %43 ]
-  %44 = mul nsw i64 %indvars.iv58, %34
-  %45 = add nsw i64 %44, %indvars.iv62
-  %46 = getelementptr inbounds double, ptr %28, i64 %45
-  %47 = load double, ptr %46, align 8, !tbaa !4
-  %48 = getelementptr inbounds double, ptr %29, i64 %45
-  %49 = load double, ptr %48, align 8, !tbaa !4
-  %50 = add nsw i64 %indvars.iv58, %35
-  %51 = getelementptr inbounds double, ptr %24, i64 %50
-  %52 = load double, ptr %51, align 8, !tbaa !4
-  %53 = getelementptr inbounds double, ptr %25, i64 %50
-  %54 = load double, ptr %53, align 8, !tbaa !4
-  %55 = fneg double %54
-  %56 = fmul double %49, %55
-  %57 = call double @llvm.fmuladd.f64(double %47, double %52, double %56)
-  %58 = fadd double %.04347.us, %57
-  %59 = fmul double %49, %52
-  %60 = call double @llvm.fmuladd.f64(double %47, double %54, double %59)
-  %61 = fadd double %.04446.us, %60
+39:                                               ; preds = %.lr.ph.us, %39
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next59, %39 ]
+  %.04347.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %54, %39 ]
+  %.04446.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %57, %39 ]
+  %40 = mul nsw i64 %indvars.iv58, %34
+  %41 = add nsw i64 %40, %indvars.iv62
+  %42 = getelementptr inbounds double, ptr %28, i64 %41
+  %43 = load double, ptr %42, align 8, !tbaa !4
+  %44 = getelementptr inbounds double, ptr %29, i64 %41
+  %45 = load double, ptr %44, align 8, !tbaa !4
+  %46 = add nsw i64 %indvars.iv58, %35
+  %47 = getelementptr inbounds double, ptr %24, i64 %46
+  %48 = load double, ptr %47, align 8, !tbaa !4
+  %49 = getelementptr inbounds double, ptr %25, i64 %46
+  %50 = load double, ptr %49, align 8, !tbaa !4
+  %51 = fneg double %50
+  %52 = fmul double %45, %51
+  %53 = call double @llvm.fmuladd.f64(double %43, double %48, double %52)
+  %54 = fadd double %.04347.us, %53
+  %55 = fmul double %45, %48
+  %56 = call double @llvm.fmuladd.f64(double %43, double %50, double %55)
+  %57 = fadd double %.04446.us, %56
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count
-  br i1 %exitcond61.not, label %._crit_edge.us, label %43
+  br i1 %exitcond61.not, label %._crit_edge.us, label %39
 
-._crit_edge.us:                                   ; preds = %43
-  %62 = fmul double %42, %61
-  %63 = call double @llvm.fmuladd.f64(double %58, double %40, double %62)
+._crit_edge.us:                                   ; preds = %39
+  %58 = getelementptr inbounds double, ptr %24, i64 %indvars.iv62
+  %59 = load double, ptr %58, align 8, !tbaa !4
+  %60 = getelementptr inbounds double, ptr %25, i64 %indvars.iv62
+  %61 = load double, ptr %60, align 8, !tbaa !4
+  %62 = fmul double %61, %57
+  %63 = call double @llvm.fmuladd.f64(double %54, double %59, double %62)
   %64 = fadd double %63, %38
   store double %64, ptr %11, align 8, !tbaa !4
   %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
@@ -10503,42 +10503,42 @@ define internal void @densmatr_calcProbOfAllOutcomesLocal.omp_outlined.8(ptr noa
   %.02933 = phi i64 [ %47, %._crit_edge ], [ %21, %17 ]
   %22 = load i64, ptr %3, align 8, !tbaa !16
   %23 = add nsw i64 %22, %.02933
-  %24 = load i64, ptr %4, align 8, !tbaa !16
-  %25 = load i64, ptr %5, align 8, !tbaa !16
-  %26 = mul nsw i64 %25, %.02933
-  %27 = load i32, ptr %6, align 4, !tbaa !18
-  %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph, label %._crit_edge
+  %24 = load i32, ptr %6, align 4, !tbaa !18
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph35
-  %29 = load ptr, ptr %7, align 8, !tbaa !35
-  %wide.trip.count = zext nneg i32 %27 to i64
-  br label %30
+  %26 = load ptr, ptr %7, align 8, !tbaa !35
+  %wide.trip.count = zext nneg i32 %24 to i64
+  br label %27
 
-30:                                               ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %.02830 = phi i64 [ 0, %.lr.ph ], [ %39, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
-  %32 = load i32, ptr %31, align 4, !tbaa !18
-  %33 = zext i32 %32 to i64
-  %34 = shl nuw i64 1, %33
-  %35 = and i64 %34, %23
-  %36 = ashr i64 %35, %33
-  %sext = shl i64 %36, 32
-  %37 = ashr exact i64 %sext, 32
-  %38 = shl i64 %37, %indvars.iv
-  %39 = add nsw i64 %38, %.02830
+27:                                               ; preds = %.lr.ph, %27
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
+  %.02830 = phi i64 [ 0, %.lr.ph ], [ %36, %27 ]
+  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %29 = load i32, ptr %28, align 4, !tbaa !18
+  %30 = zext i32 %29 to i64
+  %31 = shl nuw i64 1, %30
+  %32 = and i64 %31, %23
+  %33 = ashr i64 %32, %30
+  %sext = shl i64 %33, 32
+  %34 = ashr exact i64 %sext, 32
+  %35 = shl i64 %34, %indvars.iv
+  %36 = add nsw i64 %35, %.02830
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %30
+  br i1 %exitcond.not, label %._crit_edge, label %27
 
-._crit_edge:                                      ; preds = %30, %.lr.ph35
-  %.028.lcssa = phi i64 [ 0, %.lr.ph35 ], [ %39, %30 ]
+._crit_edge:                                      ; preds = %27, %.lr.ph35
+  %.028.lcssa = phi i64 [ 0, %.lr.ph35 ], [ %36, %27 ]
+  %37 = load i64, ptr %4, align 8, !tbaa !16
+  %38 = load i64, ptr %5, align 8, !tbaa !16
+  %39 = mul nsw i64 %38, %.02933
   %40 = load ptr, ptr %8, align 8, !tbaa !26
   %41 = getelementptr inbounds double, ptr %40, i64 %.028.lcssa
   %42 = load ptr, ptr %9, align 8, !tbaa !26
-  %43 = getelementptr double, ptr %42, i64 %24
-  %44 = getelementptr double, ptr %43, i64 %26
+  %43 = getelementptr double, ptr %42, i64 %37
+  %44 = getelementptr double, ptr %43, i64 %39
   %45 = load double, ptr %44, align 8, !tbaa !4
   %46 = atomicrmw fadd ptr %41, double %45 monotonic, align 8
   %47 = add nsw i64 %.02933, 1

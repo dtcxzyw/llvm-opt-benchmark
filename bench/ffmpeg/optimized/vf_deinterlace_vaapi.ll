@@ -167,63 +167,63 @@ define internal i32 @deint_vaapi_filter_frame(ptr noundef readonly captures(none
 53:                                               ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !58
-  %56 = ptrtoint ptr %55 to i64
-  %57 = trunc i64 %56 to i32
   %.not169 = icmp eq i32 %48, 0
   br i1 %.not169, label %.preheader, label %.lr.ph150.preheader
 
 .lr.ph150.preheader:                              ; preds = %53
-  %58 = zext i32 %48 to i64
+  %56 = zext i32 %48 to i64
   br label %.lr.ph150
 
 .preheader:                                       ; preds = %.lr.ph150, %53
-  %59 = getelementptr inbounds nuw i8, ptr %14, i64 276
-  %60 = load i32, ptr %59, align 4, !tbaa !59
-  %.not170 = icmp eq i32 %60, 0
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 276
+  %58 = load i32, ptr %57, align 4, !tbaa !59
+  %.not170 = icmp eq i32 %58, 0
   br i1 %.not170, label %._crit_edge153, label %.lr.ph152.preheader
 
 .lr.ph152.preheader:                              ; preds = %.preheader
   %invariant.gep = getelementptr ptr, ptr %49, i64 %50
-  %61 = zext i32 %60 to i64
+  %59 = zext i32 %58 to i64
   br label %.lr.ph152
 
 .lr.ph150:                                        ; preds = %.lr.ph150.preheader, %.lr.ph150
   %indvars.iv = phi i64 [ 0, %.lr.ph150.preheader ], [ %indvars.iv.next, %.lr.ph150 ]
-  %62 = trunc nuw nsw i64 %indvars.iv to i32
-  %63 = xor i32 %62, -1
-  %64 = add i32 %48, %63
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %49, i64 %65
-  %67 = load ptr, ptr %66, align 8, !tbaa !55
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %69 = load ptr, ptr %68, align 8, !tbaa !58
-  %70 = ptrtoint ptr %69 to i64
-  %71 = trunc i64 %70 to i32
-  %72 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
-  store i32 %71, ptr %72, align 4, !tbaa !60
+  %60 = trunc nuw nsw i64 %indvars.iv to i32
+  %61 = xor i32 %60, -1
+  %62 = add i32 %48, %61
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds ptr, ptr %49, i64 %63
+  %65 = load ptr, ptr %64, align 8, !tbaa !55
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %67 = load ptr, ptr %66, align 8, !tbaa !58
+  %68 = ptrtoint ptr %67 to i64
+  %69 = trunc i64 %68 to i32
+  %70 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  store i32 %69, ptr %70, align 4, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %73 = icmp samesign ult i64 %indvars.iv.next, %58
-  br i1 %73, label %.lr.ph150, label %.preheader, !llvm.loop !61
+  %71 = icmp samesign ult i64 %indvars.iv.next, %56
+  br i1 %71, label %.lr.ph150, label %.preheader, !llvm.loop !61
 
 .lr.ph152:                                        ; preds = %.lr.ph152.preheader, %.lr.ph152
   %indvars.iv181 = phi i64 [ 0, %.lr.ph152.preheader ], [ %indvars.iv.next182, %.lr.ph152 ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv181
-  %74 = getelementptr i8, ptr %gep, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !55
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %77 = load ptr, ptr %76, align 8, !tbaa !58
-  %78 = ptrtoint ptr %77 to i64
-  %79 = trunc i64 %78 to i32
-  %80 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv181
-  store i32 %79, ptr %80, align 4, !tbaa !60
+  %72 = getelementptr i8, ptr %gep, i64 8
+  %73 = load ptr, ptr %72, align 8, !tbaa !55
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %75 = load ptr, ptr %74, align 8, !tbaa !58
+  %76 = ptrtoint ptr %75 to i64
+  %77 = trunc i64 %76 to i32
+  %78 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv181
+  store i32 %77, ptr %78, align 4, !tbaa !60
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %81 = icmp samesign ult i64 %indvars.iv.next182, %61
-  br i1 %81, label %.lr.ph152, label %._crit_edge153, !llvm.loop !63
+  %79 = icmp samesign ult i64 %indvars.iv.next182, %59
+  br i1 %79, label %.lr.ph152, label %._crit_edge153, !llvm.loop !63
 
 ._crit_edge153:                                   ; preds = %.lr.ph152, %.preheader
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.4, i32 noundef %57) #6
+  %80 = ptrtoint ptr %55 to i64
+  %81 = trunc i64 %80 to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.4, i32 noundef %81) #6
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.5) #6
-  %82 = load i32, ptr %59, align 4, !tbaa !59
+  %82 = load i32, ptr %57, align 4, !tbaa !59
   %.not171 = icmp eq i32 %82, 0
   br i1 %.not171, label %._crit_edge157, label %.lr.ph156
 
@@ -233,7 +233,7 @@ define internal i32 @deint_vaapi_filter_frame(ptr noundef readonly captures(none
   %84 = load i32, ptr %83, align 4, !tbaa !60
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.6, i32 noundef %84) #6
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
-  %85 = load i32, ptr %59, align 4, !tbaa !59
+  %85 = load i32, ptr %57, align 4, !tbaa !59
   %86 = zext i32 %85 to i64
   %87 = icmp samesign ult i64 %indvars.iv.next185, %86
   br i1 %87, label %.lr.ph156, label %._crit_edge157, !llvm.loop !64
@@ -362,7 +362,7 @@ define internal i32 @deint_vaapi_filter_frame(ptr noundef readonly captures(none
   %153 = load i32, ptr %47, align 8, !tbaa !57
   store i32 %153, ptr %106, align 8, !tbaa !85
   store ptr %4, ptr %107, align 8, !tbaa !86
-  %154 = load i32, ptr %59, align 4, !tbaa !59
+  %154 = load i32, ptr %57, align 4, !tbaa !59
   store i32 %154, ptr %108, align 8, !tbaa !87
   br label %156
 

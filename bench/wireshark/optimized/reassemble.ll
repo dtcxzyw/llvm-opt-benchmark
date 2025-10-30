@@ -6899,7 +6899,6 @@ lookup_fd_head.exit69:                            ; preds = %28, %34
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr %38, align 8
-  %.not71 = icmp eq ptr %43, null
   %.not64 = icmp eq ptr %.052, null
   %..052.lcssa = select i1 %.not64, ptr %18, ptr %.052
   store ptr %38, ptr %..052.lcssa, align 8
@@ -6928,6 +6927,7 @@ lookup_fd_head.exit69:                            ; preds = %28, %34
   br i1 %.not65, label %56, label %45, !llvm.loop !50
 
 56:                                               ; preds = %54
+  %.not71 = icmp eq ptr %43, null
   %57 = load i32, ptr %40, align 4
   %58 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %59 = load i32, ptr %58, align 8

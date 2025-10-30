@@ -3957,8 +3957,8 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIlSaIlE
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %6
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %11, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !67
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !67
   br label %14
 
 14:                                               ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %6, %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread
@@ -5175,17 +5175,17 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   br i1 %9, label %10, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE4$_22bJRKNS_7ndarrayIJEEEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit"
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !148, !noalias !149
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %14 = load i64, ptr %13, align 8, !tbaa !152, !noalias !149
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !120, !noalias !149
-  %17 = load i64, ptr %16, align 8, !tbaa !67
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %14
-  %19 = getelementptr inbounds double, ptr %18, i64 %17
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %12 = load ptr, ptr %11, align 8, !tbaa !120, !noalias !148
+  %13 = load i64, ptr %12, align 8, !tbaa !67
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !151, !noalias !148
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %17 = load i64, ptr %16, align 8, !tbaa !152, !noalias !148
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %17
+  %19 = getelementptr inbounds double, ptr %18, i64 %13
   store double 0x3FF6A09EDBF8B9BB, ptr %19, align 8, !tbaa !142
-  %.idx.i.i = mul nsw i64 %17, 24
+  %.idx.i.i = mul nsw i64 %13, 24
   %20 = getelementptr inbounds i8, ptr %18, i64 %.idx.i.i
   %21 = load double, ptr %20, align 8, !tbaa !142
   %22 = fcmp oeq double %21, 3.141590e+00
@@ -5214,15 +5214,15 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   br i1 %9, label %10, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE4$_23bJRKNS_7ndarrayIJNS_2roEEEEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSD_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESR_SS_ST_SU_SW_.exit"
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !153, !noalias !154
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %14 = load i64, ptr %13, align 8, !tbaa !157, !noalias !154
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !158, !noalias !154
-  %17 = load i64, ptr %16, align 8, !tbaa !67
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %14
-  %.idx.i.i = mul nsw i64 %17, 24
+  %13 = load i64, ptr %12, align 8, !tbaa !67
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !157, !noalias !154
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %17 = load i64, ptr %16, align 8, !tbaa !158, !noalias !154
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %17
+  %.idx.i.i = mul nsw i64 %13, 24
   %19 = getelementptr inbounds i8, ptr %18, i64 %.idx.i.i
   %20 = load double, ptr %19, align 8, !tbaa !142
   %21 = fcmp oeq double %20, 3.141590e+00
@@ -5299,15 +5299,15 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   br i1 %9, label %10, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE4$_25bJRKNS_7ndarrayIJKdNS0_5shapeIJLln1EEEEEEEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSF_PhNS_9rv_policyEPNS0_12cleanup_listEE_clEST_SU_SV_SW_SY_.exit"
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !159, !noalias !160
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %14 = load i64, ptr %13, align 8, !tbaa !163, !noalias !160
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !164, !noalias !160
-  %17 = load i64, ptr %16, align 8, !tbaa !67
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %14
-  %.idx.i.i = mul nsw i64 %17, 24
+  %13 = load i64, ptr %12, align 8, !tbaa !67
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !163, !noalias !160
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %17 = load i64, ptr %16, align 8, !tbaa !164, !noalias !160
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %17
+  %.idx.i.i = mul nsw i64 %13, 24
   %19 = getelementptr inbounds i8, ptr %18, i64 %.idx.i.i
   %20 = load double, ptr %19, align 8, !tbaa !142
   %21 = fcmp oeq double %20, 3.141590e+00
@@ -5336,17 +5336,17 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   br i1 %9, label %10, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE4$_26bJONS_7ndarrayIJEEEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSB_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESP_SQ_SR_SS_SU_.exit"
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !148, !noalias !165
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %14 = load i64, ptr %13, align 8, !tbaa !152, !noalias !165
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !120, !noalias !165
-  %17 = load i64, ptr %16, align 8, !tbaa !67
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %14
-  %19 = getelementptr inbounds double, ptr %18, i64 %17
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %12 = load ptr, ptr %11, align 8, !tbaa !120, !noalias !165
+  %13 = load i64, ptr %12, align 8, !tbaa !67
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !151, !noalias !165
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %17 = load i64, ptr %16, align 8, !tbaa !152, !noalias !165
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %17
+  %19 = getelementptr inbounds double, ptr %18, i64 %13
   store double 0x3FF6A09EDBF8B9BB, ptr %19, align 8, !tbaa !142
-  %.idx.i.i = mul nsw i64 %17, 24
+  %.idx.i.i = mul nsw i64 %13, 24
   %20 = getelementptr inbounds i8, ptr %18, i64 %.idx.i.i
   %21 = load double, ptr %20, align 8, !tbaa !142
   %22 = fcmp oeq double %21, 3.141590e+00
@@ -5375,15 +5375,15 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   br i1 %9, label %10, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE4$_27bJONS_7ndarrayIJNS_2roEEEEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit"
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !153, !noalias !168
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %14 = load i64, ptr %13, align 8, !tbaa !157, !noalias !168
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !158, !noalias !168
-  %17 = load i64, ptr %16, align 8, !tbaa !67
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %14
-  %.idx.i.i = mul nsw i64 %17, 24
+  %13 = load i64, ptr %12, align 8, !tbaa !67
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !157, !noalias !168
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %17 = load i64, ptr %16, align 8, !tbaa !158, !noalias !168
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %17
+  %.idx.i.i = mul nsw i64 %13, 24
   %19 = getelementptr inbounds i8, ptr %18, i64 %.idx.i.i
   %20 = load double, ptr %19, align 8, !tbaa !142
   %21 = fcmp oeq double %20, 3.141590e+00
@@ -5412,23 +5412,23 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   br i1 %9, label %10, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE4$_28bJONS_7ndarrayIJdNS0_5shapeIJLln1EEEEEEEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSD_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESR_SS_ST_SU_SW_.exit"
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !171, !noalias !172
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %14 = load i64, ptr %13, align 8, !tbaa !175, !noalias !172
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !176, !noalias !172
-  %17 = load i64, ptr %16, align 8, !tbaa !67
-  %18 = getelementptr i8, ptr %12, i64 %14
-  %19 = getelementptr inbounds double, ptr %18, i64 %17
+  %13 = load i64, ptr %12, align 8, !tbaa !67
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !175, !noalias !172
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %17 = load i64, ptr %16, align 8, !tbaa !176, !noalias !172
+  %18 = getelementptr i8, ptr %15, i64 %17
+  %19 = getelementptr inbounds double, ptr %18, i64 %13
   store double 0x3FF6A09EDBF8B9BB, ptr %19, align 8, !tbaa !142
-  %20 = shl i64 %17, 4
+  %20 = shl i64 %13, 4
   %21 = getelementptr i8, ptr %18, i64 %20
   store double 0x4005BF0AA21A719B, ptr %21, align 8, !tbaa !142
-  %.idx.i.i = shl nsw i64 %17, 5
+  %.idx.i.i = shl nsw i64 %13, 5
   %22 = getelementptr inbounds i8, ptr %18, i64 %.idx.i.i
   store double 1.600000e+01, ptr %22, align 8, !tbaa !142
-  %.idx34.i.i = mul nsw i64 %17, 24
+  %.idx34.i.i = mul nsw i64 %13, 24
   %23 = getelementptr inbounds i8, ptr %18, i64 %.idx34.i.i
   %24 = load double, ptr %23, align 8, !tbaa !142
   %25 = fcmp oeq double %24, 3.141590e+00
@@ -5457,15 +5457,15 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   br i1 %9, label %10, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE4$_29bJONS_7ndarrayIJKdNS0_5shapeIJLln1EEEEEEEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSE_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESS_ST_SU_SV_SX_.exit"
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !159, !noalias !177
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %14 = load i64, ptr %13, align 8, !tbaa !163, !noalias !177
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !164, !noalias !177
-  %17 = load i64, ptr %16, align 8, !tbaa !67
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %14
-  %.idx.i.i = mul nsw i64 %17, 24
+  %13 = load i64, ptr %12, align 8, !tbaa !67
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !163, !noalias !177
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %17 = load i64, ptr %16, align 8, !tbaa !164, !noalias !177
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %17
+  %.idx.i.i = mul nsw i64 %13, 24
   %19 = getelementptr inbounds i8, ptr %18, i64 %.idx.i.i
   %20 = load double, ptr %19, align 8, !tbaa !142
   %21 = fcmp oeq double %20, 3.141590e+00
@@ -6347,7 +6347,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !148
+  %12 = load ptr, ptr %11, align 8, !tbaa !151
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %14 = load i64, ptr %13, align 8, !tbaa !152
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
@@ -8895,11 +8895,11 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %.05.i = phi i64 [ 0, %10 ], [ %20, %.preheader.i ]
   %14 = getelementptr inbounds nuw %"class.std::complex", ptr %13, i64 %.05.i
   %15 = load float, ptr %14, align 4, !tbaa !192
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %17 = load float, ptr %16, align 4, !tbaa !192
-  %18 = fneg float %15
-  %19 = fneg float %17
-  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %18, i64 0
+  %16 = fneg float %15
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %18 = load float, ptr %17, align 4, !tbaa !192
+  %19 = fneg float %18
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %16, i64 0
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %19, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %14, align 4, !tbaa !60
   %20 = add nuw nsw i64 %.05.i, 1
@@ -10128,35 +10128,35 @@ attributes #28 = { noreturn nounwind optsize }
 !145 = !{!"_ZTSN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEEEEE", !79, i64 0, !80, i64 8}
 !146 = !{!147, !79, i64 0}
 !147 = !{!"_ZTSN8nanobind7ndarrayIJKdNS_6detail5shapeIJLln1EEEEEEE", !79, i64 0, !80, i64 8}
-!148 = !{!116, !5, i64 8}
-!149 = !{!150}
-!150 = distinct !{!150, !151, !"_ZNK8nanobind7ndarrayIJEE4viewIJdNS_6detail5shapeIJLln1EEEEEEEDav: argument 0"}
-!151 = distinct !{!151, !"_ZNK8nanobind7ndarrayIJEE4viewIJdNS_6detail5shapeIJLln1EEEEEEEDav"}
+!148 = !{!149}
+!149 = distinct !{!149, !150, !"_ZNK8nanobind7ndarrayIJEE4viewIJdNS_6detail5shapeIJLln1EEEEEEEDav: argument 0"}
+!150 = distinct !{!150, !"_ZNK8nanobind7ndarrayIJEE4viewIJdNS_6detail5shapeIJLln1EEEEEEEDav"}
+!151 = !{!116, !5, i64 8}
 !152 = !{!116, !53, i64 48}
-!153 = !{!95, !5, i64 8}
+!153 = !{!95, !83, i64 40}
 !154 = !{!155}
 !155 = distinct !{!155, !156, !"_ZNK8nanobind7ndarrayIJNS_2roEEE4viewIJdNS_6detail5shapeIJLln1EEEEEEEDav: argument 0"}
 !156 = distinct !{!156, !"_ZNK8nanobind7ndarrayIJNS_2roEEE4viewIJdNS_6detail5shapeIJLln1EEEEEEEDav"}
-!157 = !{!95, !53, i64 48}
-!158 = !{!95, !83, i64 40}
-!159 = !{!147, !5, i64 8}
+!157 = !{!95, !5, i64 8}
+!158 = !{!95, !53, i64 48}
+!159 = !{!147, !83, i64 40}
 !160 = !{!161}
 !161 = distinct !{!161, !162, !"_ZNK8nanobind7ndarrayIJKdNS_6detail5shapeIJLln1EEEEEE4viewIJdS4_EEEDav: argument 0"}
 !162 = distinct !{!162, !"_ZNK8nanobind7ndarrayIJKdNS_6detail5shapeIJLln1EEEEEE4viewIJdS4_EEEDav"}
-!163 = !{!147, !53, i64 48}
-!164 = !{!147, !83, i64 40}
+!163 = !{!147, !5, i64 8}
+!164 = !{!147, !53, i64 48}
 !165 = !{!166}
 !166 = distinct !{!166, !167, !"_ZNK8nanobind7ndarrayIJEE4viewIJdNS_6detail5shapeIJLln1EEEEEEEDav: argument 0"}
 !167 = distinct !{!167, !"_ZNK8nanobind7ndarrayIJEE4viewIJdNS_6detail5shapeIJLln1EEEEEEEDav"}
 !168 = !{!169}
 !169 = distinct !{!169, !170, !"_ZNK8nanobind7ndarrayIJNS_2roEEE4viewIJdNS_6detail5shapeIJLln1EEEEEEEDav: argument 0"}
 !170 = distinct !{!170, !"_ZNK8nanobind7ndarrayIJNS_2roEEE4viewIJdNS_6detail5shapeIJLln1EEEEEEEDav"}
-!171 = !{!145, !5, i64 8}
+!171 = !{!145, !83, i64 40}
 !172 = !{!173}
 !173 = distinct !{!173, !174, !"_ZNK8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEEEE4viewIJdS3_EEEDav: argument 0"}
 !174 = distinct !{!174, !"_ZNK8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEEEE4viewIJdS3_EEEDav"}
-!175 = !{!145, !53, i64 48}
-!176 = !{!145, !83, i64 40}
+!175 = !{!145, !5, i64 8}
+!176 = !{!145, !53, i64 48}
 !177 = !{!178}
 !178 = distinct !{!178, !179, !"_ZNK8nanobind7ndarrayIJKdNS_6detail5shapeIJLln1EEEEEE4viewIJdS4_EEEDav: argument 0"}
 !179 = distinct !{!179, !"_ZNK8nanobind7ndarrayIJKdNS_6detail5shapeIJLln1EEEEEE4viewIJdS4_EEEDav"}

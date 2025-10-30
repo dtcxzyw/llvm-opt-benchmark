@@ -621,7 +621,6 @@ define internal void @h1v2_fancy_upsample(ptr noundef readonly captures(none) %0
   %indvars.iv = phi i64 [ %15, %.preheader.split.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %18 = phi i1 [ true, %.preheader.split.preheader ], [ false, %._crit_edge ]
   %.025 = select i1 %18, i16 1, i16 2
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.not40 = icmp eq i32 %17, 0
   br i1 %.not40, label %._crit_edge, label %.lr.ph.preheader
 
@@ -659,6 +658,7 @@ define internal void @h1v2_fancy_upsample(ptr noundef readonly captures(none) %0
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader.split
   %37 = phi i32 [ 0, %.preheader.split ], [ %35, %.lr.ph ]
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %18, label %.preheader.split, label %.split.us.loopexit41, !llvm.loop !82
 
 .split.us.loopexit41:                             ; preds = %._crit_edge
@@ -710,7 +710,6 @@ define internal void @h2v2_fancy_upsample(ptr noundef readonly captures(none) %0
   %.049.in.v = select i1 %13, i64 -8, i64 8
   %.049.in = getelementptr i8, ptr %10, i64 %.049.in.v
   %.049 = load ptr, ptr %.049.in, align 8, !tbaa !76
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %15 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !76
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 1
@@ -788,6 +787,7 @@ define internal void @h2v2_fancy_upsample(ptr noundef readonly captures(none) %0
   %.047.lcssa = phi i32 [ %30, %12 ], [ %52, %.lr.ph ]
   %.046.lcssa = phi i32 [ %24, %12 ], [ %.04757, %.lr.ph ]
   %.048.lcssa = phi ptr [ %.04852, %12 ], [ %.048, %.lr.ph ]
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %64 = mul nuw nsw i32 %.047.lcssa, 3
   %65 = add nuw nsw i32 %.046.lcssa, 8
   %66 = add nuw nsw i32 %65, %64
@@ -955,13 +955,13 @@ define internal void @int_upsample(ptr noundef readonly captures(none) %0, ptr n
   br i1 %42, label %.lr.ph.split.us.split.us, label %._crit_edge44, !llvm.loop !91
 
 .lr.ph.us.us.us:                                  ; preds = %.lr.ph.us.us.us.preheader, %.lr.ph.us.us.us
-  %.03239.us.us.us = phi ptr [ %44, %.lr.ph.us.us.us ], [ %37, %.lr.ph.us.us.us.preheader ]
+  %.03239.us.us.us = phi ptr [ %45, %.lr.ph.us.us.us ], [ %37, %.lr.ph.us.us.us.preheader ]
   %.03338.us.us.us = phi ptr [ %scevgep64, %.lr.ph.us.us.us ], [ %32, %.lr.ph.us.us.us.preheader ]
   %43 = load i8, ptr %.03239.us.us.us, align 1, !tbaa !37
   tail call void @llvm.memset.p0.i64(ptr align 1 %.03338.us.us.us, i8 %43, i64 %25, i1 false), !tbaa !37
-  %44 = getelementptr inbounds nuw i8, ptr %.03239.us.us.us, i64 1
-  %45 = getelementptr i8, ptr %.03338.us.us.us, i64 %29
-  %scevgep64 = getelementptr i8, ptr %45, i64 1
+  %44 = getelementptr i8, ptr %.03338.us.us.us, i64 %29
+  %scevgep64 = getelementptr i8, ptr %44, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.03239.us.us.us, i64 1
   %46 = icmp ult ptr %scevgep64, %35
   br i1 %46, label %.lr.ph.us.us.us, label %._crit_edge.split.us.us.us.loopexit, !llvm.loop !92
 
@@ -999,8 +999,8 @@ define internal void @int_upsample(ptr noundef readonly captures(none) %0, ptr n
   %.03338.us.us = phi ptr [ %scevgep, %.lr.ph.us.us ], [ %49, %.lr.ph.us.us.preheader ]
   %58 = load i8, ptr %.03239.us.us, align 1, !tbaa !37
   tail call void @llvm.memset.p0.i64(ptr align 1 %.03338.us.us, i8 %58, i64 %25, i1 false), !tbaa !37
-  %59 = getelementptr inbounds nuw i8, ptr %.03239.us.us, i64 1
   %scevgep = getelementptr i8, ptr %.03338.us.us, i64 %26
+  %59 = getelementptr inbounds nuw i8, ptr %.03239.us.us, i64 1
   %60 = icmp ult ptr %scevgep, %52
   br i1 %60, label %.lr.ph.us.us, label %._crit_edge.split.us.us.loopexit, !llvm.loop !92
 

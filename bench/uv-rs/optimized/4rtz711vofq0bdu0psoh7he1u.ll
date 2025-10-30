@@ -9959,6 +9959,7 @@ define hidden noundef align 8 dereferenceable_or_null(80) ptr @"_ZN8petgraph10gr
 
 .loopexit44:                                      ; preds = %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$11remove_edge17h845ad4b31b860a05E.exit", %23
   %18 = phi i64 [ %.promoted52, %23 ], [ %.promoted49, %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$11remove_edge17h845ad4b31b860a05E.exit" ]
+  %.sroa.025.0.add = add nuw nsw i64 %.sroa.025.0.idx47, 8
   %19 = icmp eq i64 %.sroa.025.0.add, 16
   br i1 %19, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17haa126d3f7697f534E.exit", label %23
 
@@ -9979,7 +9980,6 @@ define hidden noundef align 8 dereferenceable_or_null(80) ptr @"_ZN8petgraph10gr
   %.promoted52 = phi i64 [ %.promoted48, %.preheader ], [ %18, %.loopexit44 ]
   %.sroa.025.0.idx47 = phi i64 [ 0, %.preheader ], [ %.sroa.025.0.add, %.loopexit44 ]
   %.sroa.025.0.ptr = getelementptr inbounds nuw i8, ptr @anon.34bba8261ab7b24dfe131caffbcd5aba.123, i64 %.sroa.025.0.idx47
-  %.sroa.025.0.add = add nuw nsw i64 %.sroa.025.0.idx47, 8
   %24 = load i64, ptr %.sroa.025.0.ptr, align 8, !range !132, !noundef !3
   %25 = getelementptr inbounds nuw i32, ptr %14, i64 %24
   %26 = load i32, ptr %25, align 4, !noundef !3
@@ -10002,13 +10002,13 @@ define hidden noundef align 8 dereferenceable_or_null(80) ptr @"_ZN8petgraph10gr
   ret ptr %.sroa.0.0
 
 .loopexit:                                        ; preds = %.lr.ph53, %33
+  %.sroa.034.0.add = add nuw nsw i64 %.sroa.034.0.idx54, 8
   %32 = icmp eq i64 %.sroa.034.0.add, 16
   br i1 %32, label %.sink.split, label %33
 
 33:                                               ; preds = %28, %.loopexit
   %.sroa.034.0.idx54 = phi i64 [ 0, %28 ], [ %.sroa.034.0.add, %.loopexit ]
   %.sroa.034.0.ptr = getelementptr inbounds nuw i8, ptr @anon.34bba8261ab7b24dfe131caffbcd5aba.123, i64 %.sroa.034.0.idx54
-  %.sroa.034.0.add = add nuw nsw i64 %.sroa.034.0.idx54, 8
   %34 = load i64, ptr %.sroa.034.0.ptr, align 8, !range !132, !noundef !3
   %35 = getelementptr inbounds nuw i32, ptr %7, i64 %34
   %36 = load i32, ptr %35, align 4, !noundef !3

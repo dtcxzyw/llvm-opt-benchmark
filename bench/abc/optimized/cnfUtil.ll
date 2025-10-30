@@ -2920,20 +2920,20 @@ define void @Cnf_SplitSat(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 Abc_Clock.exit:                                   ; preds = %11, %19
   %.0.i.neg = phi i64 [ %.neg34, %19 ], [ 1, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %23 = icmp eq i32 %7, 0
-  %spec.store.select = select i1 %23, i32 1000000000, i32 %7
-  %24 = call i32 @Abc_Random(i32 noundef 1) #22
-  %25 = icmp sgt i32 %8, 0
-  br i1 %25, label %.lr.ph, label %._crit_edge
+  %23 = call i32 @Abc_Random(i32 noundef 1) #22
+  %24 = icmp sgt i32 %8, 0
+  br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit, %.lr.ph
-  %.038 = phi i32 [ %27, %.lr.ph ], [ 0, %Abc_Clock.exit ]
-  %26 = call i32 @Abc_Random(i32 noundef 0) #22
-  %27 = add nuw nsw i32 %.038, 1
-  %exitcond.not = icmp eq i32 %27, %8
+  %.038 = phi i32 [ %26, %.lr.ph ], [ 0, %Abc_Clock.exit ]
+  %25 = call i32 @Abc_Random(i32 noundef 0) #22
+  %26 = add nuw nsw i32 %.038, 1
+  %exitcond.not = icmp eq i32 %26, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Abc_Clock.exit
+  %27 = icmp eq i32 %7, 0
+  %spec.store.select = select i1 %27, i32 1000000000, i32 %7
   %28 = call i32 @Abc_Random(i32 noundef 0) #22
   %29 = icmp sgt i32 %spec.store.select, 0
   br i1 %29, label %.lr.ph41, label %._crit_edge42.thread

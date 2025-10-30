@@ -255,10 +255,10 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .preheader50.us.i.i:                              ; preds = %._crit_edge.us.i.i, %._crit_edge.us.i44.i
   %.056.us.i.i = phi i64 [ %133, %._crit_edge.us.i44.i ], [ 0, %._crit_edge.us.i.i ]
-  %98 = mul i64 %.056.us.i.i, %30
-  %99 = trunc i64 %.056.us.i.i to i32
-  %100 = add i32 %99, -2
-  %101 = getelementptr float, ptr %33, i64 %98
+  %98 = trunc i64 %.056.us.i.i to i32
+  %99 = add i32 %98, -2
+  %100 = mul i64 %.056.us.i.i, %30
+  %101 = getelementptr float, ptr %33, i64 %100
   br label %102
 
 102:                                              ; preds = %105, %.preheader50.us.i.i
@@ -303,7 +303,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.04154.us.i.i = phi i64 [ 0, %102 ], [ %109, %108 ]
   %.04253.us.i.i = phi float [ 0.000000e+00, %102 ], [ %122, %108 ]
   %124 = trunc nuw nsw i64 %.04154.us.i.i to i32
-  %125 = add i32 %100, %124
+  %125 = add i32 %99, %124
   %.not.us.i.i.not = icmp sgt i32 %125, %28
   %126 = tail call i32 @llvm.smax.i32(i32 %125, i32 0)
   %127 = select i1 %.not.us.i.i.not, i32 %28, i32 %126
@@ -422,10 +422,10 @@ create_motion_kernel.exit.i:                      ; preds = %195
 
 .preheader50.us.i51.i:                            ; preds = %._crit_edge.us.i64.i, %create_motion_kernel.exit.i
   %.056.us.i52.i = phi i64 [ %232, %._crit_edge.us.i64.i ], [ 0, %create_motion_kernel.exit.i ]
-  %197 = mul i64 %.056.us.i52.i, %30
-  %198 = trunc i64 %.056.us.i52.i to i32
-  %199 = add i32 %198, -2
-  %200 = getelementptr float, ptr %33, i64 %197
+  %197 = trunc i64 %.056.us.i52.i to i32
+  %198 = add i32 %197, -2
+  %199 = mul i64 %.056.us.i52.i, %30
+  %200 = getelementptr float, ptr %33, i64 %199
   br label %201
 
 201:                                              ; preds = %204, %.preheader50.us.i51.i
@@ -470,7 +470,7 @@ create_motion_kernel.exit.i:                      ; preds = %195
   %.04154.us.i55.i = phi i64 [ 0, %201 ], [ %208, %207 ]
   %.04253.us.i56.i = phi float [ 0.000000e+00, %201 ], [ %221, %207 ]
   %223 = trunc nuw nsw i64 %.04154.us.i55.i to i32
-  %224 = add i32 %199, %223
+  %224 = add i32 %198, %223
   %.not.us.i57.i.not = icmp sgt i32 %224, %28
   %225 = tail call i32 @llvm.smax.i32(i32 %224, i32 0)
   %226 = select i1 %.not.us.i57.i.not, i32 %28, i32 %225
@@ -1010,10 +1010,10 @@ create_lens_kernel.exit:                          ; preds = %14
 
 .preheader50.us.i:                                ; preds = %.preheader50.lr.ph.i, %._crit_edge.us.i58
   %.056.us.i = phi i64 [ %112, %._crit_edge.us.i58 ], [ 0, %.preheader50.lr.ph.i ]
-  %77 = mul i64 %.056.us.i, %1
-  %78 = trunc i64 %.056.us.i to i32
-  %79 = add i32 %78, -2
-  %80 = getelementptr float, ptr %8, i64 %77
+  %77 = trunc i64 %.056.us.i to i32
+  %78 = add i32 %77, -2
+  %79 = mul i64 %.056.us.i, %1
+  %80 = getelementptr float, ptr %8, i64 %79
   br label %81
 
 81:                                               ; preds = %84, %.preheader50.us.i
@@ -1058,7 +1058,7 @@ create_lens_kernel.exit:                          ; preds = %14
   %.04154.us.i = phi i64 [ 0, %81 ], [ %88, %87 ]
   %.04253.us.i = phi float [ 0.000000e+00, %81 ], [ %101, %87 ]
   %103 = trunc nuw nsw i64 %.04154.us.i to i32
-  %104 = add i32 %79, %103
+  %104 = add i32 %78, %103
   %.not.us.i = icmp slt i32 %104, %73
   %105 = tail call i32 @llvm.smax.i32(i32 %104, i32 0)
   %106 = select i1 %.not.us.i, i32 %105, i32 %74
@@ -1197,10 +1197,10 @@ create_motion_kernel.exit:                        ; preds = %174, %init_kernel.e
 
 .preheader50.us.i65:                              ; preds = %.preheader50.lr.ph.i63, %._crit_edge.us.i78
   %.056.us.i66 = phi i64 [ %215, %._crit_edge.us.i78 ], [ 0, %.preheader50.lr.ph.i63 ]
-  %180 = mul i64 %.056.us.i66, %1
-  %181 = trunc i64 %.056.us.i66 to i32
-  %182 = add i32 %181, -2
-  %183 = getelementptr float, ptr %8, i64 %180
+  %180 = trunc i64 %.056.us.i66 to i32
+  %181 = add i32 %180, -2
+  %182 = mul i64 %.056.us.i66, %1
+  %183 = getelementptr float, ptr %8, i64 %182
   br label %184
 
 184:                                              ; preds = %187, %.preheader50.us.i65
@@ -1245,7 +1245,7 @@ create_motion_kernel.exit:                        ; preds = %174, %init_kernel.e
   %.04154.us.i69 = phi i64 [ 0, %184 ], [ %191, %190 ]
   %.04253.us.i70 = phi float [ 0.000000e+00, %184 ], [ %204, %190 ]
   %206 = trunc nuw nsw i64 %.04154.us.i69 to i32
-  %207 = add i32 %182, %206
+  %207 = add i32 %181, %206
   %.not.us.i71 = icmp slt i32 %207, %176
   %208 = tail call i32 @llvm.smax.i32(i32 %207, i32 0)
   %209 = select i1 %.not.us.i71, i32 %208, i32 %177

@@ -1492,74 +1492,74 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i32, ptr %11, align 4
-  %13 = lshr i32 %12, 12
-  %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %16, align 8
-  %19 = load ptr, ptr %17, align 8
-  %20 = ptrtoint ptr %18 to i64
-  %21 = ptrtoint ptr %19 to i64
-  %22 = and i32 %12, 4095
-  %23 = tail call i32 @pg_database_encoding_max_length() #11
-  %24 = add i32 %23, 1
-  %25 = mul i32 %24, %22
-  %26 = add i32 %25, 8
-  %27 = sext i32 %26 to i64
-  %28 = add i64 %20, 1
-  %29 = sub i64 %28, %21
-  %30 = add i64 %29, %27
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = load i32, ptr %31, align 8
-  %33 = sext i32 %32 to i64
-  %.not203265 = icmp slt i64 %30, %33
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %13, align 8
+  %16 = load ptr, ptr %14, align 8
+  %17 = ptrtoint ptr %15 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = and i32 %12, 4095
+  %20 = tail call i32 @pg_database_encoding_max_length() #11
+  %21 = add i32 %20, 1
+  %22 = mul i32 %21, %19
+  %23 = add i32 %22, 8
+  %24 = sext i32 %23 to i64
+  %25 = add i64 %17, 1
+  %26 = sub i64 %25, %18
+  %27 = add i64 %26, %24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %29 = load i32, ptr %28, align 8
+  %30 = sext i32 %29 to i64
+  %.not203265 = icmp slt i64 %27, %30
   br i1 %.not203265, label %._crit_edge268, label %.lr.ph267
 
 .lr.ph267:                                        ; preds = %8, %.lr.ph267
-  %34 = phi i32 [ %57, %.lr.ph267 ], [ %32, %8 ]
-  %35 = load ptr, ptr %16, align 8
-  %36 = load ptr, ptr %17, align 8
-  %37 = ptrtoint ptr %35 to i64
-  %38 = ptrtoint ptr %36 to i64
-  %39 = sub i64 %37, %38
-  %40 = shl i32 %34, 1
-  store i32 %40, ptr %31, align 8
-  %41 = sext i32 %40 to i64
-  %42 = tail call ptr @repalloc(ptr noundef %36, i64 noundef %41) #11
-  store ptr %42, ptr %17, align 8
-  %sext210 = shl i64 %39, 32
-  %43 = ashr exact i64 %sext210, 32
-  %44 = getelementptr inbounds i8, ptr %42, i64 %43
-  store ptr %44, ptr %16, align 8
-  %45 = ptrtoint ptr %44 to i64
-  %46 = ptrtoint ptr %42 to i64
-  %47 = load i32, ptr %11, align 4
-  %48 = and i32 %47, 4095
-  %49 = tail call i32 @pg_database_encoding_max_length() #11
-  %50 = add i32 %49, 1
-  %51 = mul i32 %50, %48
-  %52 = add i32 %51, 8
-  %53 = sext i32 %52 to i64
-  %54 = add i64 %45, 1
-  %55 = sub i64 %54, %46
-  %56 = add i64 %55, %53
-  %57 = load i32, ptr %31, align 8
-  %58 = sext i32 %57 to i64
-  %.not203 = icmp slt i64 %56, %58
+  %31 = phi i32 [ %54, %.lr.ph267 ], [ %29, %8 ]
+  %32 = load ptr, ptr %13, align 8
+  %33 = load ptr, ptr %14, align 8
+  %34 = ptrtoint ptr %32 to i64
+  %35 = ptrtoint ptr %33 to i64
+  %36 = sub i64 %34, %35
+  %37 = shl i32 %31, 1
+  store i32 %37, ptr %28, align 8
+  %38 = sext i32 %37 to i64
+  %39 = tail call ptr @repalloc(ptr noundef %33, i64 noundef %38) #11
+  store ptr %39, ptr %14, align 8
+  %sext210 = shl i64 %36, 32
+  %40 = ashr exact i64 %sext210, 32
+  %41 = getelementptr inbounds i8, ptr %39, i64 %40
+  store ptr %41, ptr %13, align 8
+  %42 = ptrtoint ptr %41 to i64
+  %43 = ptrtoint ptr %39 to i64
+  %44 = load i32, ptr %11, align 4
+  %45 = and i32 %44, 4095
+  %46 = tail call i32 @pg_database_encoding_max_length() #11
+  %47 = add i32 %46, 1
+  %48 = mul i32 %47, %45
+  %49 = add i32 %48, 8
+  %50 = sext i32 %49 to i64
+  %51 = add i64 %42, 1
+  %52 = sub i64 %51, %43
+  %53 = add i64 %52, %50
+  %54 = load i32, ptr %28, align 8
+  %55 = sext i32 %54 to i64
+  %.not203 = icmp slt i64 %53, %55
   br i1 %.not203, label %._crit_edge268, label %.lr.ph267, !llvm.loop !14
 
 ._crit_edge268:                                   ; preds = %.lr.ph267, %8
-  %59 = load ptr, ptr %16, align 8
+  %56 = lshr i32 %12, 12
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 %57
+  %59 = load ptr, ptr %13, align 8
   store i8 39, ptr %59, align 1
   br label %60
 
 60:                                               ; preds = %66, %._crit_edge268
   %.sink301 = phi i64 [ %71, %66 ], [ 1, %._crit_edge268 ]
-  %.0 = phi ptr [ %72, %66 ], [ %15, %._crit_edge268 ]
-  %61 = load ptr, ptr %16, align 8
+  %.0 = phi ptr [ %72, %66 ], [ %58, %._crit_edge268 ]
+  %61 = load ptr, ptr %13, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 %.sink301
-  store ptr %62, ptr %16, align 8
+  store ptr %62, ptr %13, align 8
   %63 = load i8, ptr %.0, align 1
   switch i8 %63, label %66 [
     i8 0, label %73
@@ -1569,9 +1569,9 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
 
 .sink.split:                                      ; preds = %60, %60
   store i8 %63, ptr %62, align 1
-  %64 = load ptr, ptr %16, align 8
+  %64 = load ptr, ptr %13, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
-  store ptr %65, ptr %16, align 8
+  store ptr %65, ptr %13, align 8
   br label %66
 
 66:                                               ; preds = %.sink.split, %60
@@ -1586,9 +1586,9 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
 
 73:                                               ; preds = %60
   store i8 39, ptr %62, align 1
-  %74 = load ptr, ptr %16, align 8
+  %74 = load ptr, ptr %13, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 1
-  store ptr %75, ptr %16, align 8
+  store ptr %75, ptr %13, align 8
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %77 = load i8, ptr %76, align 1
   %.not205 = icmp eq i8 %77, 0
@@ -1602,9 +1602,9 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
 
 82:                                               ; preds = %78, %73
   store i8 58, ptr %75, align 1
-  %83 = load ptr, ptr %16, align 8
+  %83 = load ptr, ptr %13, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
-  store ptr %84, ptr %16, align 8
+  store ptr %84, ptr %13, align 8
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %86 = load i8, ptr %85, align 2, !range !7, !noundef !8
   %87 = trunc nuw i8 %86 to i1
@@ -1612,9 +1612,9 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
 
 88:                                               ; preds = %82
   store i8 42, ptr %84, align 1
-  %89 = load ptr, ptr %16, align 8
+  %89 = load ptr, ptr %13, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 1
-  store ptr %90, ptr %16, align 8
+  store ptr %90, ptr %13, align 8
   br label %91
 
 91:                                               ; preds = %88, %82
@@ -1626,9 +1626,9 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
 
 95:                                               ; preds = %91
   store i8 65, ptr %92, align 1
-  %96 = load ptr, ptr %16, align 8
+  %96 = load ptr, ptr %13, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 1
-  store ptr %97, ptr %16, align 8
+  store ptr %97, ptr %13, align 8
   %.pre278 = load i8, ptr %76, align 1
   br label %98
 
@@ -1641,9 +1641,9 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
 
 102:                                              ; preds = %98
   store i8 66, ptr %99, align 1
-  %103 = load ptr, ptr %16, align 8
+  %103 = load ptr, ptr %13, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 1
-  store ptr %104, ptr %16, align 8
+  store ptr %104, ptr %13, align 8
   %.pre279 = load i8, ptr %76, align 1
   br label %105
 
@@ -1656,9 +1656,9 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
 
 109:                                              ; preds = %105
   store i8 67, ptr %106, align 1
-  %110 = load ptr, ptr %16, align 8
+  %110 = load ptr, ptr %13, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 1
-  store ptr %111, ptr %16, align 8
+  store ptr %111, ptr %13, align 8
   %.pre280 = load i8, ptr %76, align 1
   br label %112
 
@@ -1671,9 +1671,9 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
 
 116:                                              ; preds = %112
   store i8 68, ptr %113, align 1
-  %117 = load ptr, ptr %16, align 8
+  %117 = load ptr, ptr %13, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 1
-  store ptr %118, ptr %16, align 8
+  store ptr %118, ptr %13, align 8
   br label %119
 
 119:                                              ; preds = %112, %116, %78

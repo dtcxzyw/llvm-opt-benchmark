@@ -1609,12 +1609,12 @@ thread-pre-split.i.i.i:                           ; preds = %598, %594, %586
   %603 = load ptr, ptr %602, align 8, !tbaa !209
   %604 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %603) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %605 = getelementptr inbounds nuw i8, ptr %.0.i.i198.i, i64 40
-  %606 = load ptr, ptr %605, align 8, !tbaa !223
-  %607 = getelementptr inbounds nuw i8, ptr %.0.i.i198.i, i64 32
-  %608 = load ptr, ptr %607, align 8, !tbaa !192
+  %605 = getelementptr inbounds nuw i8, ptr %.0.i.i198.i, i64 32
+  %606 = load ptr, ptr %605, align 8, !tbaa !192
+  %607 = getelementptr inbounds nuw i8, ptr %.0.i.i198.i, i64 40
+  %608 = load ptr, ptr %607, align 8, !tbaa !223
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  call void @_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEC2EPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES4_EELb0ELb0EEEPNS_6MDNodeENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef %606, ptr %608, i64 0, ptr noundef null, ptr noundef nonnull byval(%"class.llvm::ArrayRef.201") align 8 %8)
+  call void @_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEC2EPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES4_EELb0ELb0EEEPNS_6MDNodeENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef %608, ptr %606, i64 0, ptr noundef null, ptr noundef nonnull byval(%"class.llvm::ArrayRef.201") align 8 %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !273
   call void @llvm.lifetime.start.p0(ptr nonnull %10)

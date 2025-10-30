@@ -37,7 +37,6 @@ define void @ff_sipr_decode_frame_16k(ptr noundef %0, ptr noundef %1, ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %1, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %indvars.iv.sroa.gep77 = getelementptr inbounds nuw i8, ptr %9, i64 64
   br label %14
 
 14:                                               ; preds = %14, %3
@@ -126,6 +125,7 @@ lsf2lsp.exit:                                     ; preds = %45
   br i1 %exitcond.not.i70, label %acelp_lp_decodef.exit, label %52, !llvm.loop !21
 
 acelp_lp_decodef.exit:                            ; preds = %52
+  %indvars.iv.sroa.gep77 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1952
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 64

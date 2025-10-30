@@ -428,7 +428,7 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
   %.sroa.019.1 = phi i32 [ %.sroa.019.0, %168 ], [ %.sroa.019.0, %171 ], [ %spec.select, %av_cmp_q.exit143 ]
   %.sroa.12.1 = phi i32 [ %.sroa.12.0, %168 ], [ %.sroa.12.0, %171 ], [ %spec.select175, %av_cmp_q.exit143 ]
   %178 = icmp sgt i32 %.sroa.019.1, 0
-  br i1 %178, label %183, label %.preheader
+  br i1 %178, label %181, label %.preheader
 
 .preheader:                                       ; preds = %av_cmp_q.exit143.thread
   %179 = getelementptr inbounds nuw i8, ptr %116, i64 84
@@ -442,107 +442,107 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %181 = getelementptr inbounds nuw i8, ptr %116, i64 76
-  %182 = load i64, ptr %181, align 4
   %wide.trip.count = zext i8 %180 to i64
-  br label %204
+  br label %202
 
-183:                                              ; preds = %av_cmp_q.exit143.thread
-  %184 = tail call ptr @av_csp_luma_coeffs_from_avcsp(i32 noundef %51) #8
-  %.not133.not = icmp eq ptr %184, null
-  br i1 %.not133.not, label %.thread, label %185
+181:                                              ; preds = %av_cmp_q.exit143.thread
+  %182 = tail call ptr @av_csp_luma_coeffs_from_avcsp(i32 noundef %51) #8
+  %.not133.not = icmp eq ptr %182, null
+  br i1 %.not133.not, label %.thread, label %183
 
-185:                                              ; preds = %183
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %187 = load i64, ptr %184, align 4
-  %188 = load i64, ptr %117, align 4
-  %189 = tail call i64 @av_mul_q(i64 %187, i64 %188) #10
-  %190 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %191 = load i64, ptr %190, align 4
-  %192 = load i64, ptr %125, align 4
-  %193 = tail call i64 @av_mul_q(i64 %191, i64 %192) #10
-  %194 = getelementptr inbounds nuw i8, ptr %184, i64 16
-  %195 = load i64, ptr %194, align 4
-  %196 = load i64, ptr %153, align 4
-  %197 = tail call i64 @av_mul_q(i64 %195, i64 %196) #10
-  %198 = tail call i64 @av_add_q(i64 %193, i64 %197) #10
-  %199 = tail call i64 @av_add_q(i64 %189, i64 %198) #10
-  store i64 %199, ptr %186, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %116, i64 76
+183:                                              ; preds = %181
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %185 = load i64, ptr %182, align 4
+  %186 = load i64, ptr %117, align 4
+  %187 = tail call i64 @av_mul_q(i64 %185, i64 %186) #10
+  %188 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %189 = load i64, ptr %188, align 4
+  %190 = load i64, ptr %125, align 4
+  %191 = tail call i64 @av_mul_q(i64 %189, i64 %190) #10
+  %192 = getelementptr inbounds nuw i8, ptr %182, i64 16
+  %193 = load i64, ptr %192, align 4
+  %194 = load i64, ptr %153, align 4
+  %195 = tail call i64 @av_mul_q(i64 %193, i64 %194) #10
+  %196 = tail call i64 @av_add_q(i64 %191, i64 %195) #10
+  %197 = tail call i64 @av_add_q(i64 %187, i64 %196) #10
+  store i64 %197, ptr %184, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %116, i64 76
   %.sroa.12.0.insert.ext46 = zext i32 %.sroa.12.1 to i64
   %.sroa.12.0.insert.shift47 = shl nuw i64 %.sroa.12.0.insert.ext46, 32
   %.sroa.019.0.insert.ext28 = zext nneg i32 %.sroa.019.1 to i64
   %.sroa.019.0.insert.insert30 = or disjoint i64 %.sroa.12.0.insert.shift47, %.sroa.019.0.insert.ext28
-  %201 = tail call i64 @av_div_q(i64 %199, i64 %.sroa.019.0.insert.insert30) #10
-  %202 = load i64, ptr %200, align 4
-  %203 = tail call i64 @av_mul_q(i64 %202, i64 %201) #10
+  %199 = tail call i64 @av_div_q(i64 %197, i64 %.sroa.019.0.insert.insert30) #10
+  %200 = load i64, ptr %198, align 4
+  %201 = tail call i64 @av_mul_q(i64 %200, i64 %199) #10
   br label %.loopexit
 
-204:                                              ; preds = %.lr.ph, %av_cmp_q.exit153
+202:                                              ; preds = %.lr.ph, %av_cmp_q.exit153
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %av_cmp_q.exit153 ]
   %.sroa.12.2159 = phi i32 [ %.sroa.12.1, %.lr.ph ], [ %.sroa.12.3, %av_cmp_q.exit153 ]
   %.sroa.019.2157 = phi i32 [ %.sroa.019.1, %.lr.ph ], [ %.sroa.019.3, %av_cmp_q.exit153 ]
-  %205 = getelementptr inbounds nuw %struct.AVHDRPlusPercentile, ptr %116, i64 %indvars.iv
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 92
-  %.sroa.03.0.copyload = load i64, ptr %206, align 4
+  %203 = getelementptr inbounds nuw %struct.AVHDRPlusPercentile, ptr %116, i64 %indvars.iv
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 92
+  %.sroa.03.0.copyload = load i64, ptr %204, align 4
   %.sroa.011.0.extract.trunc.i144 = trunc i64 %.sroa.03.0.copyload to i32
   %sext.i146 = shl i64 %.sroa.03.0.copyload, 32
-  %207 = ashr exact i64 %sext.i146, 32
-  %208 = sext i32 %.sroa.12.2159 to i64
-  %209 = mul nsw i64 %207, %208
-  %210 = sext i32 %.sroa.019.2157 to i64
-  %211 = ashr i64 %.sroa.03.0.copyload, 32
-  %212 = mul nsw i64 %211, %210
-  %.not.i148 = icmp eq i64 %209, %212
-  br i1 %.not.i148, label %220, label %213
+  %205 = ashr exact i64 %sext.i146, 32
+  %206 = sext i32 %.sroa.12.2159 to i64
+  %207 = mul nsw i64 %205, %206
+  %208 = sext i32 %.sroa.019.2157 to i64
+  %209 = ashr i64 %.sroa.03.0.copyload, 32
+  %210 = mul nsw i64 %209, %208
+  %.not.i148 = icmp eq i64 %207, %210
+  br i1 %.not.i148, label %218, label %211
 
-213:                                              ; preds = %204
-  %214 = sub nsw i64 %209, %212
-  %215 = xor i64 %214, %208
-  %216 = xor i64 %215, %211
-  %217 = ashr i64 %216, 63
-  %218 = trunc nsw i64 %217 to i32
-  %219 = or i32 %218, 1
+211:                                              ; preds = %202
+  %212 = sub nsw i64 %207, %210
+  %213 = xor i64 %212, %206
+  %214 = xor i64 %213, %209
+  %215 = ashr i64 %214, 63
+  %216 = trunc nsw i64 %215 to i32
+  %217 = or i32 %216, 1
   br label %av_cmp_q.exit153
 
-220:                                              ; preds = %204
-  %221 = icmp ne i32 %.sroa.12.2159, 0
-  %222 = icmp ugt i64 %.sroa.03.0.copyload, 4294967295
-  %or.cond.i150 = and i1 %221, %222
-  br i1 %or.cond.i150, label %av_cmp_q.exit153, label %223
+218:                                              ; preds = %202
+  %219 = icmp ne i32 %.sroa.12.2159, 0
+  %220 = icmp ugt i64 %.sroa.03.0.copyload, 4294967295
+  %or.cond.i150 = and i1 %219, %220
+  br i1 %or.cond.i150, label %av_cmp_q.exit153, label %221
 
-223:                                              ; preds = %220
-  %224 = icmp ne i32 %.sroa.011.0.extract.trunc.i144, 0
-  %225 = icmp ne i32 %.sroa.019.2157, 0
-  %or.cond5.i151 = and i1 %225, %224
-  br i1 %or.cond5.i151, label %226, label %av_cmp_q.exit153
+221:                                              ; preds = %218
+  %222 = icmp ne i32 %.sroa.011.0.extract.trunc.i144, 0
+  %223 = icmp ne i32 %.sroa.019.2157, 0
+  %or.cond5.i151 = and i1 %223, %222
+  br i1 %or.cond5.i151, label %224, label %av_cmp_q.exit153
 
-226:                                              ; preds = %223
-  %227 = ashr i32 %.sroa.011.0.extract.trunc.i144, 31
+224:                                              ; preds = %221
+  %225 = ashr i32 %.sroa.011.0.extract.trunc.i144, 31
   %.neg.i152 = lshr i32 %.sroa.019.2157, 31
-  %228 = add nsw i32 %227, %.neg.i152
+  %226 = add nsw i32 %225, %.neg.i152
   br label %av_cmp_q.exit153
 
-av_cmp_q.exit153:                                 ; preds = %213, %220, %223, %226
-  %.0.i149 = phi i32 [ %219, %213 ], [ %228, %226 ], [ 0, %220 ], [ -2147483648, %223 ]
-  %229 = icmp sgt i32 %.0.i149, 0
+av_cmp_q.exit153:                                 ; preds = %211, %218, %221, %224
+  %.0.i149 = phi i32 [ %217, %211 ], [ %226, %224 ], [ 0, %218 ], [ -2147483648, %221 ]
+  %227 = icmp sgt i32 %.0.i149, 0
   %.sroa.12.0.extract.shift = lshr i64 %.sroa.03.0.copyload, 32
   %.sroa.12.0.extract.trunc = trunc nuw i64 %.sroa.12.0.extract.shift to i32
-  %.sroa.019.3 = select i1 %229, i32 %.sroa.011.0.extract.trunc.i144, i32 %.sroa.019.2157
-  %.sroa.12.3 = select i1 %229, i32 %.sroa.12.0.extract.trunc, i32 %.sroa.12.2159
+  %.sroa.019.3 = select i1 %227, i32 %.sroa.011.0.extract.trunc.i144, i32 %.sroa.019.2157
+  %.sroa.12.3 = select i1 %227, i32 %.sroa.12.0.extract.trunc, i32 %.sroa.12.2159
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %204, !llvm.loop !62
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %202, !llvm.loop !62
 
 ..loopexit_crit_edge:                             ; preds = %av_cmp_q.exit153
-  %230 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.sroa.12.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 %.sroa.019.3, ptr %230, align 8, !tbaa !44
+  %229 = getelementptr inbounds nuw i8, ptr %116, i64 76
+  %230 = load i64, ptr %229, align 4
+  store i32 %.sroa.019.3, ptr %228, align 8, !tbaa !44
   store i32 %.sroa.12.3, ptr %.sroa.12.0..sroa_idx55, align 4, !tbaa !44
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader..loopexit_crit_edge, %..loopexit_crit_edge, %185
-  %231 = phi i64 [ %.pre, %.preheader..loopexit_crit_edge ], [ %182, %..loopexit_crit_edge ], [ %203, %185 ]
+.loopexit:                                        ; preds = %.preheader..loopexit_crit_edge, %..loopexit_crit_edge, %183
+  %231 = phi i64 [ %.pre, %.preheader..loopexit_crit_edge ], [ %230, %..loopexit_crit_edge ], [ %201, %183 ]
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %233 = load i64, ptr %232, align 8
   %234 = tail call i64 @av_mul_q(i64 4294977296, i64 %233) #10
@@ -552,7 +552,7 @@ av_cmp_q.exit153:                                 ; preds = %213, %220, %223, %2
   store i64 %236, ptr %235, align 8
   br label %.thread
 
-.thread:                                          ; preds = %183, %.loopexit, %120, %114, %112
+.thread:                                          ; preds = %181, %.loopexit, %120, %114, %112
   %237 = icmp eq i32 %53, 16
   br i1 %237, label %238, label %239
 

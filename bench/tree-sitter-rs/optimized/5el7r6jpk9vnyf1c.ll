@@ -635,14 +635,14 @@ default.unreachable:                              ; preds = %45, %2
   %108 = load i64, ptr %48, align 8, !alias.scope !238, !noundef !13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !238
   tail call void @llvm.experimental.noalias.scope.decl(metadata !263)
-  %109 = icmp sgt i64 %108, -1
   %.0.i.i.i.i = tail call i64 @llvm.abs.i64(i64 %108, i1 false)
-  %110 = icmp ugt i64 %.0.i.i.i.i, 9999
-  br i1 %110, label %.lr.ph.i.i.i9.i, label %._crit_edge.i.i.i3.i
+  %109 = icmp ugt i64 %.0.i.i.i.i, 9999
+  br i1 %109, label %.lr.ph.i.i.i9.i, label %._crit_edge.i.i.i3.i
 
 ._crit_edge.i.i.i3.i:                             ; preds = %.lr.ph.i.i.i9.i, %107
   %.026.lcssa.i.i.i.i = phi i64 [ 20, %107 ], [ %120, %.lr.ph.i.i.i9.i ]
   %.1.lcssa.i.i.i4.i = phi i64 [ %.0.i.i.i.i, %107 ], [ %113, %.lr.ph.i.i.i9.i ]
+  %110 = icmp sgt i64 %108, -1
   %111 = icmp samesign ugt i64 %.1.lcssa.i.i.i4.i, 99
   br i1 %111, label %129, label %138
 
@@ -710,7 +710,7 @@ default.unreachable:                              ; preds = %45, %2
 
 151:                                              ; preds = %146, %140
   %.2.i.i.i5.i = phi i64 [ %147, %146 ], [ %142, %140 ]
-  br i1 %109, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.exit.i.i.i", label %152
+  br i1 %110, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.exit.i.i.i", label %152
 
 152:                                              ; preds = %151
   %153 = add i64 %.2.i.i.i5.i, -1

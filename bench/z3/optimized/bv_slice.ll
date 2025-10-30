@@ -3473,7 +3473,6 @@ _ZNK8uint_set8containsEj.exit:                    ; preds = %_ZNK6vectorIjLb0EjE
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %42
   %.ph95 = phi ptr [ null, %42 ], [ %44, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.i.ph = phi i32 [ 0, %42 ], [ %47, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
-  %.ph96 = add nuw nsw i32 %43, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -3493,6 +3492,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !125
 
 59:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
+  %.ph96 = add nuw nsw i32 %43, 1
   %60 = getelementptr inbounds i8, ptr %55, i64 -4
   store i32 %.ph96, ptr %60, align 4, !tbaa !54
   %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph96
@@ -3605,7 +3605,6 @@ _ZNK8uint_set8containsEj.exit33:                  ; preds = %_ZNK6vectorIjLb0EjE
 thread-pre-split.i.i37.preheader:                 ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i32, %101
   %.ph = phi ptr [ null, %101 ], [ %103, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i32 ]
   %.0.i16.i.i40.ph = phi i32 [ 0, %101 ], [ %106, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i32 ]
-  %.ph94 = add nuw nsw i32 %102, 1
   br label %thread-pre-split.i.i37
 
 thread-pre-split.i.i37:                           ; preds = %thread-pre-split.i.i37.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i44
@@ -3625,6 +3624,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i44: ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i37, !llvm.loop !125
 
 118:                                              ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i41
+  %.ph94 = add nuw nsw i32 %102, 1
   %119 = getelementptr inbounds i8, ptr %114, i64 -4
   store i32 %.ph94, ptr %119, align 4, !tbaa !54
   %.not1218.i.i42 = icmp eq i32 %.0.i16.i.i40.ph, %.ph94

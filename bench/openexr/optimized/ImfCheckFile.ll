@@ -5972,8 +5972,8 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit.i:          ; preds = %._crit_edge.i124
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %653
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %655, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %654, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !124
   %657 = getelementptr inbounds nuw i8, ptr %654, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %654, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !124
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
 658:                                              ; preds = %645
@@ -6776,8 +6776,8 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit.i139:       ; preds = %._crit_edge.i137
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.us.i.us.us.us.us.us.us: ; preds = %924
   %.idx.i.i.i.i.i.i.us.i.us.us.us.us.us.us = shl nuw nsw i64 %926, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %925, i8 0, i64 %.idx.i.i.i.i.i.i.us.i.us.us.us.us.us.us, i1 false), !tbaa !124
   %928 = getelementptr inbounds nuw i8, ptr %925, i64 %.idx.i.i.i.i.i.i.us.i.us.us.us.us.us.us
+  call void @llvm.memset.p0.i64(ptr align 4 %925, i8 0, i64 %.idx.i.i.i.i.i.i.us.i.us.us.us.us.us.us, i1 false), !tbaa !124
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.us.i.us.us.us.us.us.us
 
 929:                                              ; preds = %916
@@ -9393,8 +9393,8 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %._crit_edge
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %145
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %147, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %146, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !124
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %146, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !124
   br label %.preheader.us.preheader
 
 150:                                              ; preds = %137
@@ -10174,8 +10174,8 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %._crit_edge
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.us: ; preds = %160
   %.idx.i.i.i.i.i.i.us = shl nuw nsw i64 %162, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %161, i8 0, i64 %.idx.i.i.i.i.i.i.us, i1 false), !tbaa !124
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 %.idx.i.i.i.i.i.i.us
+  call void @llvm.memset.p0.i64(ptr align 4 %161, i8 0, i64 %.idx.i.i.i.i.i.i.us, i1 false), !tbaa !124
   br label %.preheader304.lr.ph.split.us.us
 
 165:                                              ; preds = %152

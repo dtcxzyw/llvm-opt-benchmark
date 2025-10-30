@@ -3957,51 +3957,51 @@ switch.lookup:                                    ; preds = %179, %174
 .lr.ph:                                           ; preds = %switch.lookup
   %184 = udiv i8 %.lhs.trunc, %.rhs.trunc
   %wide.trip.count.i = zext nneg i32 %181 to i64
-  %185 = getelementptr inbounds nuw i8, ptr %.sink13.i, i64 40
-  %186 = zext i8 %184 to i64
-  br label %187
+  %185 = zext i8 %184 to i64
+  br label %186
 
-.thread96:                                        ; preds = %198, %.thread148, %switch.lookup
+.thread96:                                        ; preds = %197, %.thread148, %switch.lookup
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %202
 
-187:                                              ; preds = %201, %.lr.ph
+186:                                              ; preds = %201, %.lr.ph
   %indvars.iv124 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next125, %201 ]
-  %188 = mul nuw nsw i64 %indvars.iv124, %wide.trip.count.i
-  %189 = getelementptr inbounds nuw i8, ptr %4, i64 %188
-  br label %190
+  %187 = mul nuw nsw i64 %indvars.iv124, %wide.trip.count.i
+  %188 = getelementptr inbounds nuw i8, ptr %4, i64 %187
+  br label %189
 
-190:                                              ; preds = %190, %187
-  %indvars.iv.i = phi i64 [ 0, %187 ], [ %indvars.iv.next.i, %190 ]
-  %.01213.i = phi i32 [ 0, %187 ], [ %196, %190 ]
-  %191 = getelementptr inbounds nuw i8, ptr %189, i64 %indvars.iv.i
-  %192 = load i8, ptr %191, align 1, !tbaa !40
-  %193 = zext i8 %192 to i32
+189:                                              ; preds = %189, %186
+  %indvars.iv.i = phi i64 [ 0, %186 ], [ %indvars.iv.next.i, %189 ]
+  %.01213.i = phi i32 [ 0, %186 ], [ %195, %189 ]
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 %indvars.iv.i
+  %191 = load i8, ptr %190, align 1, !tbaa !40
+  %192 = zext i8 %191 to i32
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
-  %194 = shl i32 %indvars.iv.tr.i, 3
-  %195 = shl nuw i32 %193, %194
-  %196 = or i32 %195, %.01213.i
+  %193 = shl i32 %indvars.iv.tr.i, 3
+  %194 = shl nuw i32 %192, %193
+  %195 = or i32 %194, %.01213.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i79, label %_ZL19decodeMultiByteCharPKhjj.exit, label %190, !llvm.loop !121
+  br i1 %exitcond.not.i79, label %_ZL19decodeMultiByteCharPKhjj.exit, label %189, !llvm.loop !121
 
-_ZL19decodeMultiByteCharPKhjj.exit:               ; preds = %190
+_ZL19decodeMultiByteCharPKhjj.exit:               ; preds = %189
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %197 = icmp samesign ult i64 %indvars.iv.next125, %186
-  br i1 %197, label %201, label %198
+  %196 = icmp samesign ult i64 %indvars.iv.next125, %185
+  br i1 %196, label %201, label %197
 
-198:                                              ; preds = %_ZL19decodeMultiByteCharPKhjj.exit
-  %199 = load i8, ptr %185, align 8, !tbaa !119, !range !45, !noundef !46
+197:                                              ; preds = %_ZL19decodeMultiByteCharPKhjj.exit
+  %198 = getelementptr inbounds nuw i8, ptr %.sink13.i, i64 40
+  %199 = load i8, ptr %198, align 8, !tbaa !119, !range !45, !noundef !46
   %200 = trunc nuw i8 %199 to i1
   br i1 %200, label %.thread148, label %.thread96
 
-.thread148:                                       ; preds = %198
-  call fastcc void @_ZL17outputEscapedCharRN4llvm16itanium_demangle12OutputBufferEj(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef %196)
+.thread148:                                       ; preds = %197
+  call fastcc void @_ZL17outputEscapedCharRN4llvm16itanium_demangle12OutputBufferEj(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef %195)
   br label %.thread96
 
 201:                                              ; preds = %_ZL19decodeMultiByteCharPKhjj.exit
-  call fastcc void @_ZL17outputEscapedCharRN4llvm16itanium_demangle12OutputBufferEj(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef %196)
-  br label %187
+  call fastcc void @_ZL17outputEscapedCharRN4llvm16itanium_demangle12OutputBufferEj(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef %195)
+  br label %186
 
 .thread:                                          ; preds = %_ZN4llvm11ms_demangle9Demangler19demangleCharLiteralERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %116
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -378,25 +378,25 @@ define dso_local range(i32 -1, 1) i32 @client_req_parse_body(ptr noundef %0) loc
   br i1 %or.cond, label %17, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %14, i64 %15
-  %22 = trunc nsw i64 %indvars.iv to i32
-  %.not55 = icmp sgt i32 %13, %22
+  %21 = trunc nsw i64 %indvars.iv to i32
+  %22 = getelementptr inbounds i8, ptr %14, i64 %15
+  %.not55 = icmp sgt i32 %13, %21
   br i1 %.not55, label %25, label %23
 
 23:                                               ; preds = %.critedge
-  %24 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.4, ptr noundef %21) #11
+  %24 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.4, ptr noundef %22) #11
   br label %.loopexit
 
 25:                                               ; preds = %.critedge
   %26 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv
   store i8 0, ptr %26, align 1
-  %27 = add nsw i32 %22, 1
+  %27 = add nsw i32 %21, 1
   %28 = tail call i32 @slurm_get_log_level() #11
   %29 = icmp sgt i32 %28, 6
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %25
-  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.5, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.client_req_parse_body, ptr noundef nonnull %21) #11
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.5, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.client_req_parse_body, ptr noundef nonnull %22) #11
   br label %31
 
 31:                                               ; preds = %30, %25
@@ -488,7 +488,7 @@ define dso_local range(i32 -1, 1) i32 @client_req_parse_body(ptr noundef %0) loc
   %72 = load ptr, ptr %11, align 8
   %73 = zext i32 %.pre-phi to i64
   %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %73
-  store ptr %21, ptr %74, align 8
+  store ptr %22, ptr %74, align 8
   %75 = load ptr, ptr %11, align 8
   %76 = load i32, ptr %9, align 4
   %77 = shl i32 %76, 1

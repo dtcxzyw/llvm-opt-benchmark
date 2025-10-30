@@ -699,15 +699,15 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform17ComputePar
 .noexc:                                           ; preds = %8
   %13 = shl nuw nsw i64 %12, 2
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %13
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %14, i8 0, i64 %13, i1 false), !tbaa !39
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %12
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %13
+  %16 = getelementptr inbounds nuw float, ptr %14, i64 %12
   br label %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc, %8
-  %.sroa.11.0 = phi ptr [ null, %8 ], [ %15, %.noexc ]
+  %.sroa.11.0 = phi ptr [ null, %8 ], [ %16, %.noexc ]
   %.sroa.095.0 = phi ptr [ null, %8 ], [ %14, %.noexc ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %8 ], [ %16, %.noexc ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %8 ], [ %15, %.noexc ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !37
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1372,8 +1372,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !39
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !39
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i

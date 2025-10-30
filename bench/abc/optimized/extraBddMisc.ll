@@ -119,47 +119,47 @@ define ptr @Extra_TransferLevelByLevel(ptr noundef %0, ptr noundef %1, ptr nound
   %5 = load i32, ptr %4, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load i32, ptr %6, align 8, !tbaa !29
-  %8 = icmp slt i32 %5, %7
   %. = tail call i32 @llvm.smin.i32(i32 %5, i32 %7)
-  %9 = tail call i32 @llvm.smax.i32(i32 %5, i32 %7)
-  %10 = sext i32 %9 to i64
-  %11 = shl nsw i64 %10, 2
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #20
-  %13 = icmp sgt i32 %., 0
-  br i1 %13, label %.lr.ph, label %._crit_edge
+  %8 = tail call i32 @llvm.smax.i32(i32 %5, i32 %7)
+  %9 = sext i32 %8 to i64
+  %10 = shl nsw i64 %9, 2
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #20
+  %12 = icmp sgt i32 %., 0
+  br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %15 = load ptr, ptr %14, align 8, !tbaa !30
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %17 = load ptr, ptr %16, align 8, !tbaa !30
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %16 = load ptr, ptr %15, align 8, !tbaa !30
   %wide.trip.count = zext nneg i32 %. to i64
-  br label %18
+  br label %17
 
-18:                                               ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
-  %20 = load i32, ptr %19, align 4, !tbaa !31
-  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
-  %22 = load i32, ptr %21, align 4, !tbaa !31
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %12, i64 %23
-  store i32 %20, ptr %24, align 4, !tbaa !31
+17:                                               ; preds = %.lr.ph, %17
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
+  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %19 = load i32, ptr %18, align 4, !tbaa !31
+  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %21 = load i32, ptr %20, align 4, !tbaa !31
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds i32, ptr %11, i64 %22
+  store i32 %19, ptr %23, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %18, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %., %18 ]
-  %25 = icmp slt i32 %.0.lcssa, %9
-  %or.cond = and i1 %8, %25
+._crit_edge:                                      ; preds = %17, %3
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %., %17 ]
+  %24 = icmp slt i32 %5, %7
+  %25 = icmp slt i32 %.0.lcssa, %8
+  %or.cond = and i1 %24, %25
   br i1 %or.cond, label %.lr.ph38, label %.loopexit
 
 .lr.ph38:                                         ; preds = %._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %27 = load ptr, ptr %26, align 8, !tbaa !30
   %28 = zext nneg i32 %.0.lcssa to i64
-  %wide.trip.count43 = zext nneg i32 %9 to i64
+  %wide.trip.count43 = zext nneg i32 %8 to i64
   br label %29
 
 29:                                               ; preds = %.lr.ph38, %29
@@ -167,24 +167,24 @@ define ptr @Extra_TransferLevelByLevel(ptr noundef %0, ptr noundef %1, ptr nound
   %30 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv40
   %31 = load i32, ptr %30, align 4, !tbaa !31
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i32, ptr %12, i64 %32
+  %33 = getelementptr inbounds i32, ptr %11, i64 %32
   store i32 -1, ptr %33, align 4, !tbaa !31
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
   br i1 %exitcond44.not, label %.loopexit.thread, label %29, !llvm.loop !33
 
 .loopexit.thread:                                 ; preds = %29
-  %34 = tail call ptr @Extra_TransferPermute(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %12)
+  %34 = tail call ptr @Extra_TransferPermute(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %11)
   br label %36
 
 .loopexit:                                        ; preds = %._crit_edge
-  %35 = tail call ptr @Extra_TransferPermute(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %12)
-  %.not = icmp eq ptr %12, null
+  %35 = tail call ptr @Extra_TransferPermute(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %11)
+  %.not = icmp eq ptr %11, null
   br i1 %.not, label %38, label %36
 
 36:                                               ; preds = %.loopexit.thread, %.loopexit
   %37 = phi ptr [ %34, %.loopexit.thread ], [ %35, %.loopexit ]
-  tail call void @free(ptr noundef nonnull %12) #19
+  tail call void @free(ptr noundef nonnull %11) #19
   br label %38
 
 38:                                               ; preds = %.loopexit, %36

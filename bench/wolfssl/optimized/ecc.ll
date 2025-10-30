@@ -3717,12 +3717,12 @@ wc_ecc_free.exit:                                 ; preds = %1
   %7 = trunc i64 %6 to i32
   %8 = sub i32 0, %7
   %9 = and i32 %8, 7
-  %10 = sub nuw nsw i32 4208, %9
   %.not24.i = icmp eq i32 %9, 0
-  br i1 %.not24.i, label %.lr.ph29.i.preheader, label %.lr.ph.i
+  br i1 %.not24.i, label %.lr.ph29.preheader.i, label %.lr.ph.i
 
-.lr.ph29.i.preheader:                             ; preds = %.lr.ph.i, %wc_ecc_free.exit
-  %.01528.i.ph = phi ptr [ %0, %wc_ecc_free.exit ], [ %12, %.lr.ph.i ]
+.lr.ph29.preheader.i:                             ; preds = %.lr.ph.i, %wc_ecc_free.exit
+  %.016.lcssa.i = phi ptr [ %0, %wc_ecc_free.exit ], [ %12, %.lr.ph.i ]
+  %10 = sub nuw nsw i32 4208, %9
   br label %.lr.ph29.i
 
 .lr.ph.i:                                         ; preds = %wc_ecc_free.exit, %.lr.ph.i
@@ -3732,15 +3732,15 @@ wc_ecc_free.exit:                                 ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
   store volatile i8 0, ptr %.01625.i, align 1, !tbaa !64
   %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !68
+  br i1 %.not.i, label %.lr.ph29.preheader.i, label %.lr.ph.i, !llvm.loop !68
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
   %.not2232.i = icmp eq i32 %14, 0
   br i1 %.not2232.i, label %ForceZero.exit, label %.lr.ph35.i
 
-.lr.ph29.i:                                       ; preds = %.lr.ph29.i.preheader, %.lr.ph29.i
-  %.01528.i = phi ptr [ %13, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
-  %.01827.i = phi i32 [ %14, %.lr.ph29.i ], [ %10, %.lr.ph29.i.preheader ]
+.lr.ph29.i:                                       ; preds = %.lr.ph29.i, %.lr.ph29.preheader.i
+  %.01528.i = phi ptr [ %13, %.lr.ph29.i ], [ %.016.lcssa.i, %.lr.ph29.preheader.i ]
+  %.01827.i = phi i32 [ %14, %.lr.ph29.i ], [ %10, %.lr.ph29.preheader.i ]
   %13 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !27
   %14 = add nsw i32 %.01827.i, -8
@@ -4985,12 +4985,12 @@ wc_ecc_del_point_ex.exit:                         ; preds = %208, %211, %217
   %220 = trunc i64 %219 to i32
   %221 = sub i32 0, %220
   %222 = and i32 %221, 7
-  %223 = sub nuw nsw i32 257, %222
   %.not24.i = icmp eq i32 %222, 0
-  br i1 %.not24.i, label %.lr.ph29.i.preheader, label %.lr.ph.i
+  br i1 %.not24.i, label %.lr.ph29.preheader.i, label %.lr.ph.i
 
-.lr.ph29.i.preheader:                             ; preds = %.lr.ph.i, %218
-  %.01528.i.ph = phi ptr [ %19, %218 ], [ %225, %.lr.ph.i ]
+.lr.ph29.preheader.i:                             ; preds = %.lr.ph.i, %218
+  %.016.lcssa.i = phi ptr [ %19, %218 ], [ %225, %.lr.ph.i ]
+  %223 = sub nuw nsw i32 257, %222
   br label %.lr.ph29.i
 
 .lr.ph.i:                                         ; preds = %218, %.lr.ph.i
@@ -5000,15 +5000,15 @@ wc_ecc_del_point_ex.exit:                         ; preds = %208, %211, %217
   %225 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
   store volatile i8 0, ptr %.01625.i, align 1, !tbaa !64
   %.not.i180 = icmp eq i32 %224, 0
-  br i1 %.not.i180, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !68
+  br i1 %.not.i180, label %.lr.ph29.preheader.i, label %.lr.ph.i, !llvm.loop !68
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
   %.not2232.i = icmp eq i32 %227, 0
   br i1 %.not2232.i, label %ForceZero.exit, label %.lr.ph35.i
 
-.lr.ph29.i:                                       ; preds = %.lr.ph29.i.preheader, %.lr.ph29.i
-  %.01528.i = phi ptr [ %226, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
-  %.01827.i = phi i32 [ %227, %.lr.ph29.i ], [ %223, %.lr.ph29.i.preheader ]
+.lr.ph29.i:                                       ; preds = %.lr.ph29.i, %.lr.ph29.preheader.i
+  %.01528.i = phi ptr [ %226, %.lr.ph29.i ], [ %.016.lcssa.i, %.lr.ph29.preheader.i ]
+  %.01827.i = phi i32 [ %227, %.lr.ph29.i ], [ %223, %.lr.ph29.preheader.i ]
   %226 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !27
   %227 = add nsw i32 %.01827.i, -8
@@ -5029,12 +5029,12 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   %232 = trunc i64 %231 to i32
   %233 = sub i32 0, %232
   %234 = and i32 %233, 7
-  %235 = sub nuw nsw i32 257, %234
   %.not24.i181 = icmp eq i32 %234, 0
-  br i1 %.not24.i181, label %.lr.ph29.i188.preheader, label %.lr.ph.i182
+  br i1 %.not24.i181, label %.lr.ph29.preheader.i186, label %.lr.ph.i182
 
-.lr.ph29.i188.preheader:                          ; preds = %.lr.ph.i182, %ForceZero.exit
-  %.01528.i189.ph = phi ptr [ %22, %ForceZero.exit ], [ %237, %.lr.ph.i182 ]
+.lr.ph29.preheader.i186:                          ; preds = %.lr.ph.i182, %ForceZero.exit
+  %.016.lcssa.i187 = phi ptr [ %22, %ForceZero.exit ], [ %237, %.lr.ph.i182 ]
+  %235 = sub nuw nsw i32 257, %234
   br label %.lr.ph29.i188
 
 .lr.ph.i182:                                      ; preds = %ForceZero.exit, %.lr.ph.i182
@@ -5044,15 +5044,15 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   %237 = getelementptr inbounds nuw i8, ptr %.01625.i184, i64 1
   store volatile i8 0, ptr %.01625.i184, align 1, !tbaa !64
   %.not.i185 = icmp eq i32 %236, 0
-  br i1 %.not.i185, label %.lr.ph29.i188.preheader, label %.lr.ph.i182, !llvm.loop !68
+  br i1 %.not.i185, label %.lr.ph29.preheader.i186, label %.lr.ph.i182, !llvm.loop !68
 
 .preheader.i191:                                  ; preds = %.lr.ph29.i188
   %.not2232.i192 = icmp eq i32 %239, 0
   br i1 %.not2232.i192, label %ForceZero.exit197, label %.lr.ph35.i193
 
-.lr.ph29.i188:                                    ; preds = %.lr.ph29.i188.preheader, %.lr.ph29.i188
-  %.01528.i189 = phi ptr [ %238, %.lr.ph29.i188 ], [ %.01528.i189.ph, %.lr.ph29.i188.preheader ]
-  %.01827.i190 = phi i32 [ %239, %.lr.ph29.i188 ], [ %235, %.lr.ph29.i188.preheader ]
+.lr.ph29.i188:                                    ; preds = %.lr.ph29.i188, %.lr.ph29.preheader.i186
+  %.01528.i189 = phi ptr [ %238, %.lr.ph29.i188 ], [ %.016.lcssa.i187, %.lr.ph29.preheader.i186 ]
+  %.01827.i190 = phi i32 [ %239, %.lr.ph29.i188 ], [ %235, %.lr.ph29.preheader.i186 ]
   %238 = getelementptr inbounds nuw i8, ptr %.01528.i189, i64 8
   store volatile i64 0, ptr %.01528.i189, align 8, !tbaa !27
   %239 = add nsw i32 %.01827.i190, -8

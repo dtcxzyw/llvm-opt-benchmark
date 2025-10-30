@@ -3844,9 +3844,9 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d6Fa
   br i1 %exitcond313.not, label %186, label %174, !llvm.loop !45
 
 186:                                              ; preds = %181
-  %187 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %189 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %190 = fmul double %60, %62
   %191 = fcmp uge double %190, %6
   %.sroa.0183.0.copyload = load double, ptr %1, align 8
@@ -3861,9 +3861,9 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d6Fa
   %.sroa.20202.0.copyload = load double, ptr %163, align 8
   %.sroa.22.0.copyload = load double, ptr %164, align 8
   %.sroa.24.0.copyload = load double, ptr %165, align 8
-  %.sroa.26.0.copyload = load double, ptr %189, align 8
+  %.sroa.26.0.copyload = load double, ptr %187, align 8
   %.sroa.28.0.copyload = load double, ptr %188, align 8
-  %.sroa.30213.0.copyload = load double, ptr %187, align 8
+  %.sroa.30213.0.copyload = load double, ptr %189, align 8
   %.sroa.32.0.copyload = load double, ptr %166, align 8
   %192 = load double, ptr %11, align 8
   %193 = getelementptr inbounds nuw i8, ptr %11, i64 32

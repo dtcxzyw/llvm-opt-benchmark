@@ -21631,9 +21631,6 @@ if.end57:                                         ; preds = %lor.lhs.false46, %i
   %30 = load ptr, ptr %this, align 8
   %start.i.i56 = getelementptr inbounds nuw i8, ptr %30, i64 352
   %31 = load ptr, ptr %start.i.i56, align 8
-  %sub.ptr.lhs.cast.i.i57 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i58 = ptrtoint ptr %31 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i57, %sub.ptr.rhs.cast.i.i58
   %32 = load ptr, ptr %_M_left.i.i.i, align 8
   %cmp.i.not215 = icmp eq ptr %32, %add.ptr.i.i.i
   br i1 %cmp.i.not215, label %while.end, label %while.body.lr.ph
@@ -21752,6 +21749,9 @@ if.end102:                                        ; preds = %_ZNK5boost16cpp_reg
   br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !179
 
 while.end:                                        ; preds = %if.end102, %if.end57
+  %sub.ptr.lhs.cast.i.i57 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i58 = ptrtoint ptr %31 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i57, %sub.ptr.rhs.cast.i.i58
   %54 = load ptr, ptr %m_ranges.i, align 8
   %55 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i76.not217 = icmp eq ptr %54, %55
@@ -22330,7 +22330,6 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   %13 = load ptr, ptr %m_last_state.i, align 8
   %m_negate.i = getelementptr inbounds nuw i8, ptr %char_set, i64 72
   %14 = load i8, ptr %m_negate.i, align 8
-  %tobool.i = trunc i8 %14 to i1
   %_map = getelementptr inbounds nuw i8, ptr %13, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %_map, i8 0, i64 256, i1 false)
   %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %char_set, i64 24
@@ -22407,6 +22406,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp.i.not, label %while.end, label %for.cond.preheader, !llvm.loop !193
 
 while.end:                                        ; preds = %for.end, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit
+  %tobool.i = trunc i8 %14 to i1
   %m_ranges.i = getelementptr inbounds nuw i8, ptr %char_set, i64 48
   %27 = load ptr, ptr %m_ranges.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %char_set, i64 56

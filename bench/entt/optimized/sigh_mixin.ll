@@ -28699,8 +28699,8 @@ define linkonce_odr hidden void @_ZNSt6vectorIPN4test25non_default_constructible
 
 _ZSt6fill_nIPPN4test25non_default_constructibleEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !149
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !149
   br label %_ZSt27__uninitialized_default_n_aIPPN4test25non_default_constructibleEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN4test25non_default_constructibleEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN4test25non_default_constructibleEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i
@@ -32498,8 +32498,8 @@ define linkonce_odr hidden void @_ZNSt6vectorIP11auto_signalSaIS1_EE17_M_default
 
 _ZSt6fill_nIPP11auto_signalmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !331
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !331
   br label %_ZSt27__uninitialized_default_n_aIPP11auto_signalmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPP11auto_signalmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPP11auto_signalmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
@@ -33468,8 +33468,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorImSaImEE17_M_default_appendEm(pt
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !10
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !10
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -34013,8 +34013,8 @@ define linkonce_odr hidden void @_ZNSt6vectorIPN4test13throwing_typeESaIS2_EE17_
 
 _ZSt6fill_nIPPN4test13throwing_typeEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !457
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !457
   br label %_ZSt27__uninitialized_default_n_aIPPN4test13throwing_typeEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN4test13throwing_typeEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN4test13throwing_typeEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i
@@ -43864,8 +43864,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPiSaIS0_EE17_M_default_appendEm
 
 _ZSt6fill_nIPPimS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !572
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !572
   br label %_ZSt27__uninitialized_default_n_aIPPimS0_ET_S2_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPimS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPimS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i
@@ -52092,8 +52092,8 @@ define linkonce_odr hidden void @_ZNSt6vectorIPN4test14pointer_stableESaIS2_EE17
 
 _ZSt6fill_nIPPN4test14pointer_stableEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !802
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !802
   br label %_ZSt27__uninitialized_default_n_aIPPN4test14pointer_stableEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN4test14pointer_stableEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN4test14pointer_stableEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i
@@ -102892,21 +102892,20 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %43, %4
   br label %_ZNK4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE13get_allocatorEv.exit
 
 _ZNK4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE13get_allocatorEv.exit: ; preds = %_ZN4test18throwing_allocatorIiEC2IPiEERKNS0_IT_EE.exit.i, %31, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %46
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %50 = load ptr, ptr %49, align 8, !tbaa !1499
-  %51 = load ptr, ptr %48, align 8, !tbaa !1501
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %49 = load ptr, ptr %48, align 8, !tbaa !1499
+  %50 = load ptr, ptr %47, align 8, !tbaa !1501
+  %51 = ptrtoint ptr %49 to i64
   %52 = ptrtoint ptr %50 to i64
-  %53 = ptrtoint ptr %51 to i64
-  %54 = sub i64 %52, %53
-  %55 = ashr exact i64 %54, 3
-  %56 = icmp ult i64 %5, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge
+  %53 = sub i64 %51, %52
+  %54 = ashr exact i64 %53, 3
+  %55 = icmp ult i64 %5, %54
+  br i1 %55, label %.lr.ph, label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre20 = load ptr, ptr %49, align 8, !tbaa !1499
-  %.pre21 = load ptr, ptr %48, align 8, !tbaa !1501
+  %.pre20 = load ptr, ptr %48, align 8, !tbaa !1499
+  %.pre21 = load ptr, ptr %47, align 8, !tbaa !1501
   %.pre23 = ptrtoint ptr %.pre20 to i64
   %.pre24 = ptrtoint ptr %.pre21 to i64
   %.pre26 = sub i64 %.pre23, %.pre24
@@ -102914,19 +102913,20 @@ _ZNK4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE13get_alloc
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE13get_allocatorEv.exit
-  %.pre-phi29 = phi i64 [ %.pre28, %._crit_edge.loopexit ], [ %55, %_ZNK4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE13get_allocatorEv.exit ]
-  %57 = phi ptr [ %.pre21, %._crit_edge.loopexit ], [ %51, %_ZNK4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE13get_allocatorEv.exit ]
-  %58 = phi ptr [ %.pre20, %._crit_edge.loopexit ], [ %50, %_ZNK4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE13get_allocatorEv.exit ]
+  %.pre-phi29 = phi i64 [ %.pre28, %._crit_edge.loopexit ], [ %54, %_ZNK4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE13get_allocatorEv.exit ]
+  %56 = phi ptr [ %.pre21, %._crit_edge.loopexit ], [ %50, %_ZNK4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE13get_allocatorEv.exit ]
+  %57 = phi ptr [ %.pre20, %._crit_edge.loopexit ], [ %49, %_ZNK4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE13get_allocatorEv.exit ]
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %59 = icmp ugt i64 %5, %.pre-phi29
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %._crit_edge
   %61 = sub nuw nsw i64 %5, %.pre-phi29
-  invoke void @_ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(48) %47, i64 noundef %61)
+  invoke void @_ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(48) %58, i64 noundef %61)
           to label %._ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE6resizeEm.exit_crit_edge unwind label %100
 
 ._ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE6resizeEm.exit_crit_edge: ; preds = %60
-  %.pre22 = load ptr, ptr %49, align 8, !tbaa !1499
+  %.pre22 = load ptr, ptr %48, align 8, !tbaa !1499
   br label %_ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE6resizeEm.exit
 
 62:                                               ; preds = %._crit_edge
@@ -102934,33 +102934,33 @@ _ZNK4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE13get_alloc
   br i1 %63, label %64, label %_ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE6resizeEm.exit
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw ptr, ptr %57, i64 %5
-  %.not.i.i = icmp eq ptr %58, %65
+  %65 = getelementptr inbounds nuw ptr, ptr %56, i64 %5
+  %.not.i.i = icmp eq ptr %57, %65
   br i1 %.not.i.i, label %_ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE6resizeEm.exit, label %66
 
 66:                                               ; preds = %64
-  store ptr %65, ptr %49, align 8, !tbaa !1499
+  store ptr %65, ptr %48, align 8, !tbaa !1499
   br label %_ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE6resizeEm.exit
 
 .lr.ph:                                           ; preds = %_ZNK4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE13get_allocatorEv.exit, %.lr.ph
   %.01618 = phi i64 [ %70, %.lr.ph ], [ %5, %_ZNK4entt13basic_storageIiNS_6entityEN4test18throwing_allocatorIiEEvE13get_allocatorEv.exit ]
-  %67 = load ptr, ptr %48, align 8, !tbaa !1501
+  %67 = load ptr, ptr %47, align 8, !tbaa !1501
   %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %.01618
   %69 = load ptr, ptr %68, align 8, !tbaa !572
   tail call void @_ZdlPvm(ptr noundef %69, i64 noundef 4096) #31
   %70 = add i64 %.01618, 1
-  %exitcond.not = icmp eq i64 %70, %55
+  %exitcond.not = icmp eq i64 %70, %54
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !1677
 
 _ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE6resizeEm.exit: ; preds = %._ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE6resizeEm.exit_crit_edge, %66, %64, %62
-  %71 = phi ptr [ %.pre22, %._ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE6resizeEm.exit_crit_edge ], [ %65, %66 ], [ %58, %64 ], [ %58, %62 ]
+  %71 = phi ptr [ %.pre22, %._ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE6resizeEm.exit_crit_edge ], [ %65, %66 ], [ %57, %64 ], [ %57, %62 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %73 = load ptr, ptr %72, align 8, !tbaa !1556
   %74 = icmp eq ptr %73, %71
   br i1 %74, label %_ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE13shrink_to_fitEv.exit, label %75
 
 75:                                               ; preds = %_ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE6resizeEm.exit
-  %76 = tail call noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIPiN4test18throwing_allocatorIS1_EEELb1EE8_S_do_itERS5_(ptr noundef nonnull align 8 dereferenceable(48) %47) #28
+  %76 = tail call noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIPiN4test18throwing_allocatorIS1_EEELb1EE8_S_do_itERS5_(ptr noundef nonnull align 8 dereferenceable(48) %58) #28
   br label %_ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE13shrink_to_fitEv.exit
 
 _ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE13shrink_to_fitEv.exit: ; preds = %75, %_ZNSt6vectorIPiN4test18throwing_allocatorIS0_EEE6resizeEm.exit
@@ -118206,21 +118206,20 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %43, %4
   br label %_ZNK4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocatorIS2_EEvE13get_allocatorEv.exit
 
 _ZNK4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocatorIS2_EEvE13get_allocatorEv.exit: ; preds = %_ZN4test18throwing_allocatorINS_14pointer_stableEEC2IPS1_EERKNS0_IT_EE.exit.i, %31, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %46
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %50 = load ptr, ptr %49, align 8, !tbaa !1804
-  %51 = load ptr, ptr %48, align 8, !tbaa !1806
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %49 = load ptr, ptr %48, align 8, !tbaa !1804
+  %50 = load ptr, ptr %47, align 8, !tbaa !1806
+  %51 = ptrtoint ptr %49 to i64
   %52 = ptrtoint ptr %50 to i64
-  %53 = ptrtoint ptr %51 to i64
-  %54 = sub i64 %52, %53
-  %55 = ashr exact i64 %54, 3
-  %56 = icmp ult i64 %5, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge
+  %53 = sub i64 %51, %52
+  %54 = ashr exact i64 %53, 3
+  %55 = icmp ult i64 %5, %54
+  br i1 %55, label %.lr.ph, label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre21 = load ptr, ptr %49, align 8, !tbaa !1804
-  %.pre22 = load ptr, ptr %48, align 8, !tbaa !1806
+  %.pre21 = load ptr, ptr %48, align 8, !tbaa !1804
+  %.pre22 = load ptr, ptr %47, align 8, !tbaa !1806
   %.pre24 = ptrtoint ptr %.pre21 to i64
   %.pre25 = ptrtoint ptr %.pre22 to i64
   %.pre27 = sub i64 %.pre24, %.pre25
@@ -118228,19 +118227,20 @@ _ZNK4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_alloca
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocatorIS2_EEvE13get_allocatorEv.exit
-  %.pre-phi30 = phi i64 [ %.pre29, %._crit_edge.loopexit ], [ %55, %_ZNK4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocatorIS2_EEvE13get_allocatorEv.exit ]
-  %57 = phi ptr [ %.pre22, %._crit_edge.loopexit ], [ %51, %_ZNK4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocatorIS2_EEvE13get_allocatorEv.exit ]
-  %58 = phi ptr [ %.pre21, %._crit_edge.loopexit ], [ %50, %_ZNK4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocatorIS2_EEvE13get_allocatorEv.exit ]
+  %.pre-phi30 = phi i64 [ %.pre29, %._crit_edge.loopexit ], [ %54, %_ZNK4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocatorIS2_EEvE13get_allocatorEv.exit ]
+  %56 = phi ptr [ %.pre22, %._crit_edge.loopexit ], [ %50, %_ZNK4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocatorIS2_EEvE13get_allocatorEv.exit ]
+  %57 = phi ptr [ %.pre21, %._crit_edge.loopexit ], [ %49, %_ZNK4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocatorIS2_EEvE13get_allocatorEv.exit ]
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %59 = icmp ugt i64 %5, %.pre-phi30
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %._crit_edge
   %61 = sub nuw nsw i64 %5, %.pre-phi30
-  invoke void @_ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(48) %47, i64 noundef %61)
+  invoke void @_ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(48) %58, i64 noundef %61)
           to label %._ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE6resizeEm.exit_crit_edge unwind label %100
 
 ._ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE6resizeEm.exit_crit_edge: ; preds = %60
-  %.pre23 = load ptr, ptr %49, align 8, !tbaa !1804
+  %.pre23 = load ptr, ptr %48, align 8, !tbaa !1804
   br label %_ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE6resizeEm.exit
 
 62:                                               ; preds = %._crit_edge
@@ -118248,33 +118248,33 @@ _ZNK4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_alloca
   br i1 %63, label %64, label %_ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE6resizeEm.exit
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw ptr, ptr %57, i64 %5
-  %.not.i.i = icmp eq ptr %58, %65
+  %65 = getelementptr inbounds nuw ptr, ptr %56, i64 %5
+  %.not.i.i = icmp eq ptr %57, %65
   br i1 %.not.i.i, label %_ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE6resizeEm.exit, label %66
 
 66:                                               ; preds = %64
-  store ptr %65, ptr %49, align 8, !tbaa !1804
+  store ptr %65, ptr %48, align 8, !tbaa !1804
   br label %_ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE6resizeEm.exit
 
 .lr.ph:                                           ; preds = %_ZNK4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocatorIS2_EEvE13get_allocatorEv.exit, %.lr.ph
   %.01719 = phi i64 [ %70, %.lr.ph ], [ %5, %_ZNK4entt13basic_storageIN4test14pointer_stableENS_6entityENS1_18throwing_allocatorIS2_EEvE13get_allocatorEv.exit ]
-  %67 = load ptr, ptr %48, align 8, !tbaa !1806
+  %67 = load ptr, ptr %47, align 8, !tbaa !1806
   %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %.01719
   %69 = load ptr, ptr %68, align 8, !tbaa !802
   tail call void @_ZdlPvm(ptr noundef %69, i64 noundef 4096) #31
   %70 = add i64 %.01719, 1
-  %exitcond.not = icmp eq i64 %70, %55
+  %exitcond.not = icmp eq i64 %70, %54
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !1882
 
 _ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE6resizeEm.exit: ; preds = %._ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE6resizeEm.exit_crit_edge, %66, %64, %62
-  %71 = phi ptr [ %.pre23, %._ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE6resizeEm.exit_crit_edge ], [ %65, %66 ], [ %58, %64 ], [ %58, %62 ]
+  %71 = phi ptr [ %.pre23, %._ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE6resizeEm.exit_crit_edge ], [ %65, %66 ], [ %57, %64 ], [ %57, %62 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %73 = load ptr, ptr %72, align 8, !tbaa !1830
   %74 = icmp eq ptr %73, %71
   br i1 %74, label %_ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE13shrink_to_fitEv.exit, label %75
 
 75:                                               ; preds = %_ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE6resizeEm.exit
-  %76 = tail call noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIPN4test14pointer_stableENS1_18throwing_allocatorIS3_EEELb1EE8_S_do_itERS6_(ptr noundef nonnull align 8 dereferenceable(48) %47) #28
+  %76 = tail call noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIPN4test14pointer_stableENS1_18throwing_allocatorIS3_EEELb1EE8_S_do_itERS6_(ptr noundef nonnull align 8 dereferenceable(48) %58) #28
   br label %_ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE13shrink_to_fitEv.exit
 
 _ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE13shrink_to_fitEv.exit: ; preds = %75, %_ZNSt6vectorIPN4test14pointer_stableENS0_18throwing_allocatorIS2_EEE6resizeEm.exit

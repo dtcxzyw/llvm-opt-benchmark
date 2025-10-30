@@ -1721,10 +1721,10 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %30, 
 
 48:                                               ; preds = %.lr.ph72, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit47
   %.sroa.058.071 = phi ptr [ %41, %.lr.ph72 ], [ %97, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit47 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.058.071, i64 32
   br i1 %4, label %.lr.ph65, label %._crit_edge66
 
 ._crit_edge66:                                    ; preds = %.lr.ph65, %48
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.058.071, i64 32
   %50 = load ptr, ptr %49, align 8, !tbaa !18
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.058.071, i64 40
   %52 = load i64, ptr %51, align 8, !tbaa !14

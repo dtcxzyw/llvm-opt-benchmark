@@ -2640,8 +2640,8 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !19
 
 _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i
-  %mNodes.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %mNodes.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr null, ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -4882,8 +4882,8 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !19
 
 _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i
-  %mNodes.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %mNodes.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr null, ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -6341,8 +6341,8 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !19
 
 _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i
-  %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -8539,8 +8539,8 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !19
 
 _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i
-  %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -8645,8 +8645,8 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !19
 
 _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i
-  %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -9270,8 +9270,8 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !19
 
 _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i
-  %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %mNodes.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -17554,8 +17554,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.end
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 1
-  tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   br label %if.else.i14
 
 if.else.i14:                                      ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
@@ -28428,8 +28428,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.end
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 1
-  tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false)
   br label %if.else.i14
 
 if.else.i14:                                      ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i

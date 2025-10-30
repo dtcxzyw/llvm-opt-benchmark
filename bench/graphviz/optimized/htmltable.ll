@@ -3529,14 +3529,14 @@ set_cell_heights.exit:                            ; preds = %._crit_edge91.i107,
   %460 = shl nuw nsw i32 %459, 1
   %461 = uitofp nneg i32 %460 to double
   %462 = tail call double @llvm.fmuladd.f64(double %455, double %456, double %461)
-  %463 = uitofp i64 %372 to double
-  %464 = fadd double %463, 1.000000e+00
-  %465 = tail call double @llvm.fmuladd.f64(double %464, double %456, double %461)
   %.not193 = icmp eq i64 %291, 0
   br i1 %.not193, label %.preheader, label %.lr.ph183
 
 .preheader:                                       ; preds = %.lr.ph183, %set_cell_heights.exit
   %.049.lcssa = phi double [ %462, %set_cell_heights.exit ], [ %468, %.lr.ph183 ]
+  %463 = uitofp i64 %372 to double
+  %464 = fadd double %463, 1.000000e+00
+  %465 = tail call double @llvm.fmuladd.f64(double %464, double %456, double %461)
   %.not194 = icmp eq i64 %372, 0
   br i1 %.not194, label %._crit_edge188, label %.lr.ph187
 

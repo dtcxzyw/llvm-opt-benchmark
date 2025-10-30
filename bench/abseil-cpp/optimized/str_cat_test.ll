@@ -36732,31 +36732,31 @@ _ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i: ; preds = %286, %_ZNKSt7__cxx
   store i64 0, ptr %398, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %399 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %400 = getelementptr inbounds nuw i8, ptr %29, i64 31
-  %401 = icmp ugt i32 %82, 9
-  br i1 %401, label %.lr.ph.i.i.i.i.i, label %.loopexit38.i.i
+  %400 = icmp ugt i32 %82, 9
+  br i1 %400, label %.lr.ph.i.i.i.i.i, label %.loopexit38.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i, %.lr.ph.i.i.i.i.i
-  %.02533.i.i.i.i.i = phi ptr [ %405, %.lr.ph.i.i.i.i.i ], [ %399, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i ]
-  %.02632.i.i.i.i.i = phi i64 [ %406, %.lr.ph.i.i.i.i.i ], [ %68, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i ]
-  %402 = urem i64 %.02632.i.i.i.i.i, 10
-  %403 = trunc nuw nsw i64 %402 to i8
-  %404 = or disjoint i8 %403, 48
-  %405 = getelementptr inbounds i8, ptr %.02533.i.i.i.i.i, i64 -1
-  store i8 %404, ptr %405, align 1, !tbaa !25
-  %406 = udiv i64 %.02632.i.i.i.i.i, 10
-  %407 = icmp samesign ugt i64 %.02632.i.i.i.i.i, 99
-  br i1 %407, label %.lr.ph.i.i.i.i.i, label %.loopexit38.i.i, !llvm.loop !1023
+  %.02533.i.i.i.i.i = phi ptr [ %404, %.lr.ph.i.i.i.i.i ], [ %399, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i ]
+  %.02632.i.i.i.i.i = phi i64 [ %405, %.lr.ph.i.i.i.i.i ], [ %68, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i ]
+  %401 = urem i64 %.02632.i.i.i.i.i, 10
+  %402 = trunc nuw nsw i64 %401 to i8
+  %403 = or disjoint i8 %402, 48
+  %404 = getelementptr inbounds i8, ptr %.02533.i.i.i.i.i, i64 -1
+  store i8 %403, ptr %404, align 1, !tbaa !25
+  %405 = udiv i64 %.02632.i.i.i.i.i, 10
+  %406 = icmp samesign ugt i64 %.02632.i.i.i.i.i, 99
+  br i1 %406, label %.lr.ph.i.i.i.i.i, label %.loopexit38.i.i, !llvm.loop !1023
 
 .loopexit38.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i
-  %.026.lcssa.i.i.i.i.i = phi i64 [ %68, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i ], [ %406, %.lr.ph.i.i.i.i.i ]
-  %.025.lcssa.i.i.i.i.i = phi ptr [ %399, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i ], [ %405, %.lr.ph.i.i.i.i.i ]
+  %.026.lcssa.i.i.i.i.i = phi i64 [ %68, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i ], [ %405, %.lr.ph.i.i.i.i.i ]
+  %.025.lcssa.i.i.i.i.i = phi ptr [ %399, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i ], [ %404, %.lr.ph.i.i.i.i.i ]
+  %407 = getelementptr inbounds nuw i8, ptr %29, i64 31
   %408 = trunc nuw nsw i64 %.026.lcssa.i.i.i.i.i to i8
   %409 = or disjoint i8 %408, 48
   %410 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i.i.i, i64 -1
   store i8 %409, ptr %410, align 1, !tbaa !25
   %411 = ptrtoint ptr %410 to i64
-  %412 = ptrtoint ptr %400 to i64
+  %412 = ptrtoint ptr %407 to i64
   %413 = sub i64 %411, %412
   %414 = icmp sgt i64 %413, 0
   br i1 %414, label %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i.i
@@ -37044,31 +37044,31 @@ _ZN7testing15AssertionResultD2Ev.exit.i21.i:      ; preds = %_ZNKSt14default_del
   store ptr %499, ptr %37, align 8, !tbaa !20
   store i64 0, ptr %500, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %515 = sub nsw i64 0, %indvars.iv.i22.i
-  %516 = getelementptr inbounds i8, ptr %501, i64 %515
-  br i1 %401, label %.lr.ph.i.i.i81.i.i, label %.loopexit32.i.i
+  br i1 %400, label %.lr.ph.i.i.i81.i.i, label %.loopexit32.i.i
 
 .lr.ph.i.i.i81.i.i:                               ; preds = %514, %.lr.ph.i.i.i81.i.i
-  %.02533.i.i.i82.i.i = phi ptr [ %520, %.lr.ph.i.i.i81.i.i ], [ %501, %514 ]
-  %.02632.i.i.i83.i.i = phi i64 [ %521, %.lr.ph.i.i.i81.i.i ], [ %68, %514 ]
-  %517 = urem i64 %.02632.i.i.i83.i.i, 10
-  %518 = trunc nuw nsw i64 %517 to i8
-  %519 = or disjoint i8 %518, 48
-  %520 = getelementptr inbounds i8, ptr %.02533.i.i.i82.i.i, i64 -1
-  store i8 %519, ptr %520, align 1, !tbaa !25
-  %521 = udiv i64 %.02632.i.i.i83.i.i, 10
-  %522 = icmp samesign ugt i64 %.02632.i.i.i83.i.i, 99
-  br i1 %522, label %.lr.ph.i.i.i81.i.i, label %.loopexit32.i.i, !llvm.loop !1023
+  %.02533.i.i.i82.i.i = phi ptr [ %518, %.lr.ph.i.i.i81.i.i ], [ %501, %514 ]
+  %.02632.i.i.i83.i.i = phi i64 [ %519, %.lr.ph.i.i.i81.i.i ], [ %68, %514 ]
+  %515 = urem i64 %.02632.i.i.i83.i.i, 10
+  %516 = trunc nuw nsw i64 %515 to i8
+  %517 = or disjoint i8 %516, 48
+  %518 = getelementptr inbounds i8, ptr %.02533.i.i.i82.i.i, i64 -1
+  store i8 %517, ptr %518, align 1, !tbaa !25
+  %519 = udiv i64 %.02632.i.i.i83.i.i, 10
+  %520 = icmp samesign ugt i64 %.02632.i.i.i83.i.i, 99
+  br i1 %520, label %.lr.ph.i.i.i81.i.i, label %.loopexit32.i.i, !llvm.loop !1023
 
 .loopexit32.i.i:                                  ; preds = %.lr.ph.i.i.i81.i.i, %514
-  %.026.lcssa.i.i.i72.i.i = phi i64 [ %68, %514 ], [ %521, %.lr.ph.i.i.i81.i.i ]
-  %.025.lcssa.i.i.i73.i.i = phi ptr [ %501, %514 ], [ %520, %.lr.ph.i.i.i81.i.i ]
-  %523 = trunc nuw nsw i64 %.026.lcssa.i.i.i72.i.i to i8
+  %.026.lcssa.i.i.i70.i.i = phi i64 [ %68, %514 ], [ %519, %.lr.ph.i.i.i81.i.i ]
+  %.025.lcssa.i.i.i71.i.i = phi ptr [ %501, %514 ], [ %518, %.lr.ph.i.i.i81.i.i ]
+  %521 = sub nsw i64 0, %indvars.iv.i22.i
+  %522 = getelementptr inbounds i8, ptr %501, i64 %521
+  %523 = trunc nuw nsw i64 %.026.lcssa.i.i.i70.i.i to i8
   %524 = or disjoint i8 %523, 48
-  %525 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i73.i.i, i64 -1
+  %525 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i71.i.i, i64 -1
   store i8 %524, ptr %525, align 1, !tbaa !25
   %526 = ptrtoint ptr %525 to i64
-  %527 = ptrtoint ptr %516 to i64
+  %527 = ptrtoint ptr %522 to i64
   %528 = sub i64 %526, %527
   %529 = icmp sgt i64 %528, 0
   br i1 %529, label %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i77.i.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i75.i.i
@@ -37413,31 +37413,31 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   store ptr %506, ptr %42, align 8, !tbaa !20
   store i64 0, ptr %507, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %640 = sub nsw i64 0, %639
-  %641 = getelementptr inbounds i8, ptr %508, i64 %640
-  br i1 %401, label %.lr.ph.i.i.i147.i.i, label %.loopexit.i30.i
+  br i1 %400, label %.lr.ph.i.i.i147.i.i, label %.loopexit.i30.i
 
 .lr.ph.i.i.i147.i.i:                              ; preds = %637, %.lr.ph.i.i.i147.i.i
-  %.02533.i.i.i148.i.i = phi ptr [ %645, %.lr.ph.i.i.i147.i.i ], [ %508, %637 ]
-  %.02632.i.i.i149.i.i = phi i64 [ %646, %.lr.ph.i.i.i147.i.i ], [ %68, %637 ]
-  %642 = urem i64 %.02632.i.i.i149.i.i, 10
-  %643 = trunc nuw nsw i64 %642 to i8
-  %644 = or disjoint i8 %643, 48
-  %645 = getelementptr inbounds i8, ptr %.02533.i.i.i148.i.i, i64 -1
-  store i8 %644, ptr %645, align 1, !tbaa !25
-  %646 = udiv i64 %.02632.i.i.i149.i.i, 10
-  %647 = icmp samesign ugt i64 %.02632.i.i.i149.i.i, 99
-  br i1 %647, label %.lr.ph.i.i.i147.i.i, label %.loopexit.i30.i, !llvm.loop !1023
+  %.02533.i.i.i148.i.i = phi ptr [ %643, %.lr.ph.i.i.i147.i.i ], [ %508, %637 ]
+  %.02632.i.i.i149.i.i = phi i64 [ %644, %.lr.ph.i.i.i147.i.i ], [ %68, %637 ]
+  %640 = urem i64 %.02632.i.i.i149.i.i, 10
+  %641 = trunc nuw nsw i64 %640 to i8
+  %642 = or disjoint i8 %641, 48
+  %643 = getelementptr inbounds i8, ptr %.02533.i.i.i148.i.i, i64 -1
+  store i8 %642, ptr %643, align 1, !tbaa !25
+  %644 = udiv i64 %.02632.i.i.i149.i.i, 10
+  %645 = icmp samesign ugt i64 %.02632.i.i.i149.i.i, 99
+  br i1 %645, label %.lr.ph.i.i.i147.i.i, label %.loopexit.i30.i, !llvm.loop !1023
 
 .loopexit.i30.i:                                  ; preds = %.lr.ph.i.i.i147.i.i, %637
-  %.026.lcssa.i.i.i138.i.i = phi i64 [ %68, %637 ], [ %646, %.lr.ph.i.i.i147.i.i ]
-  %.025.lcssa.i.i.i139.i.i = phi ptr [ %508, %637 ], [ %645, %.lr.ph.i.i.i147.i.i ]
-  %648 = trunc nuw nsw i64 %.026.lcssa.i.i.i138.i.i to i8
+  %.026.lcssa.i.i.i136.i.i = phi i64 [ %68, %637 ], [ %644, %.lr.ph.i.i.i147.i.i ]
+  %.025.lcssa.i.i.i137.i.i = phi ptr [ %508, %637 ], [ %643, %.lr.ph.i.i.i147.i.i ]
+  %646 = sub nsw i64 0, %639
+  %647 = getelementptr inbounds i8, ptr %508, i64 %646
+  %648 = trunc nuw nsw i64 %.026.lcssa.i.i.i136.i.i to i8
   %649 = or disjoint i8 %648, 48
-  %650 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i139.i.i, i64 -1
+  %650 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i137.i.i, i64 -1
   store i8 %649, ptr %650, align 1, !tbaa !25
   %651 = ptrtoint ptr %650 to i64
-  %652 = ptrtoint ptr %641 to i64
+  %652 = ptrtoint ptr %647 to i64
   %653 = sub i64 %651, %652
   %654 = icmp sgt i64 %653, 0
   br i1 %654, label %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i143.i.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i141.i.i
@@ -37797,25 +37797,25 @@ _ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i: ; preds = %632, %_ZNKSt7__cxx
   store i64 0, ptr %768, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %769 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %770 = getelementptr inbounds nuw i8, ptr %7, i64 31
-  %771 = icmp ugt i32 %763, 9
-  br i1 %771, label %.lr.ph.i.i.i.i121.i, label %._crit_edge.i.i.i.i42.i
+  %770 = icmp ugt i32 %763, 9
+  br i1 %770, label %.lr.ph.i.i.i.i121.i, label %._crit_edge.i.i.i.i42.i
 
 .lr.ph.i.i.i.i121.i:                              ; preds = %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i, %.lr.ph.i.i.i.i121.i
-  %.02533.i.i.i.i122.i = phi ptr [ %775, %.lr.ph.i.i.i.i121.i ], [ %769, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i ]
-  %.02632.i.i.i.i123.i = phi i64 [ %776, %.lr.ph.i.i.i.i121.i ], [ %764, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i ]
-  %772 = urem i64 %.02632.i.i.i.i123.i, 10
-  %773 = trunc nuw nsw i64 %772 to i8
-  %774 = or disjoint i8 %773, 48
-  %775 = getelementptr inbounds i8, ptr %.02533.i.i.i.i122.i, i64 -1
-  store i8 %774, ptr %775, align 1, !tbaa !25
-  %776 = udiv i64 %.02632.i.i.i.i123.i, 10
-  %777 = icmp samesign ugt i64 %.02632.i.i.i.i123.i, 99
-  br i1 %777, label %.lr.ph.i.i.i.i121.i, label %._crit_edge.i.i.i.i42.i, !llvm.loop !1023
+  %.02533.i.i.i.i122.i = phi ptr [ %774, %.lr.ph.i.i.i.i121.i ], [ %769, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i ]
+  %.02632.i.i.i.i123.i = phi i64 [ %775, %.lr.ph.i.i.i.i121.i ], [ %764, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i ]
+  %771 = urem i64 %.02632.i.i.i.i123.i, 10
+  %772 = trunc nuw nsw i64 %771 to i8
+  %773 = or disjoint i8 %772, 48
+  %774 = getelementptr inbounds i8, ptr %.02533.i.i.i.i122.i, i64 -1
+  store i8 %773, ptr %774, align 1, !tbaa !25
+  %775 = udiv i64 %.02632.i.i.i.i123.i, 10
+  %776 = icmp samesign ugt i64 %.02632.i.i.i.i123.i, 99
+  br i1 %776, label %.lr.ph.i.i.i.i121.i, label %._crit_edge.i.i.i.i42.i, !llvm.loop !1023
 
 ._crit_edge.i.i.i.i42.i:                          ; preds = %.lr.ph.i.i.i.i121.i, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i
-  %.026.lcssa.i.i.i.i43.i = phi i64 [ %764, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i ], [ %776, %.lr.ph.i.i.i.i121.i ]
-  %.025.lcssa.i.i.i.i44.i = phi ptr [ %769, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i ], [ %775, %.lr.ph.i.i.i.i121.i ]
+  %.026.lcssa.i.i.i.i43.i = phi i64 [ %764, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i ], [ %775, %.lr.ph.i.i.i.i121.i ]
+  %.025.lcssa.i.i.i.i44.i = phi ptr [ %769, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i ], [ %774, %.lr.ph.i.i.i.i121.i ]
+  %777 = getelementptr inbounds nuw i8, ptr %7, i64 31
   %778 = trunc nuw nsw i64 %.026.lcssa.i.i.i.i43.i to i8
   %779 = or disjoint i8 %778, 48
   %780 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i.i44.i, i64 -1
@@ -37825,7 +37825,7 @@ _ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i: ; preds = %632, %_ZNKSt7__cxx
 
 781:                                              ; preds = %._crit_edge.i.i.i.i42.i
   %782 = ptrtoint ptr %780 to i64
-  %783 = ptrtoint ptr %770 to i64
+  %783 = ptrtoint ptr %777 to i64
   %784 = sub i64 %782, %783
   %785 = icmp sgt i64 %784, 0
   br i1 %785, label %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i120.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i45.i
@@ -37834,7 +37834,7 @@ _ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i: ; preds = %632, %_ZNKSt7__cxx
   %786 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i.i44.i, i64 -2
   store i8 45, ptr %786, align 1, !tbaa !25
   %787 = ptrtoint ptr %786 to i64
-  %788 = ptrtoint ptr %770 to i64
+  %788 = ptrtoint ptr %777 to i64
   %789 = sub i64 %787, %788
   %790 = icmp sgt i64 %789, 0
   br i1 %790, label %793, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i45.i
@@ -38135,56 +38135,56 @@ _ZN7testing15AssertionResultD2Ev.exit.i74.i:      ; preds = %_ZNKSt14default_del
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %880, i8 0, i64 16, i1 false)
   store ptr %880, ptr %15, align 8, !tbaa !20
   store i64 0, ptr %881, align 8, !tbaa !23
-  %.sroa.55.10.insert.insert.i.i = lshr i64 %indvars.iv.i75.i, 8
-  %897 = trunc i64 %.sroa.55.10.insert.insert.i.i to i8
-  %.sroa.4.8.extract.trunc.i.i.i71.i.i = or i8 %897, 48
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %898 = sub nsw i64 0, %indvars.iv.i75.i
-  %899 = getelementptr inbounds i8, ptr %882, i64 %898
-  br i1 %771, label %.lr.ph.i.i.i82.i.i, label %._crit_edge.i.i.i72.i.i
+  br i1 %770, label %.lr.ph.i.i.i82.i.i, label %._crit_edge.i.i.i70.i.i
 
 .lr.ph.i.i.i82.i.i:                               ; preds = %896, %.lr.ph.i.i.i82.i.i
-  %.02533.i.i.i83.i.i = phi ptr [ %903, %.lr.ph.i.i.i82.i.i ], [ %882, %896 ]
-  %.02632.i.i.i84.i.i = phi i64 [ %904, %.lr.ph.i.i.i82.i.i ], [ %764, %896 ]
-  %900 = urem i64 %.02632.i.i.i84.i.i, 10
-  %901 = trunc nuw nsw i64 %900 to i8
-  %902 = or disjoint i8 %901, 48
-  %903 = getelementptr inbounds i8, ptr %.02533.i.i.i83.i.i, i64 -1
-  store i8 %902, ptr %903, align 1, !tbaa !25
-  %904 = udiv i64 %.02632.i.i.i84.i.i, 10
-  %905 = icmp samesign ugt i64 %.02632.i.i.i84.i.i, 99
-  br i1 %905, label %.lr.ph.i.i.i82.i.i, label %._crit_edge.i.i.i72.i.i, !llvm.loop !1023
+  %.02533.i.i.i83.i.i = phi ptr [ %900, %.lr.ph.i.i.i82.i.i ], [ %882, %896 ]
+  %.02632.i.i.i84.i.i = phi i64 [ %901, %.lr.ph.i.i.i82.i.i ], [ %764, %896 ]
+  %897 = urem i64 %.02632.i.i.i84.i.i, 10
+  %898 = trunc nuw nsw i64 %897 to i8
+  %899 = or disjoint i8 %898, 48
+  %900 = getelementptr inbounds i8, ptr %.02533.i.i.i83.i.i, i64 -1
+  store i8 %899, ptr %900, align 1, !tbaa !25
+  %901 = udiv i64 %.02632.i.i.i84.i.i, 10
+  %902 = icmp samesign ugt i64 %.02632.i.i.i84.i.i, 99
+  br i1 %902, label %.lr.ph.i.i.i82.i.i, label %._crit_edge.i.i.i70.i.i, !llvm.loop !1023
 
-._crit_edge.i.i.i72.i.i:                          ; preds = %.lr.ph.i.i.i82.i.i, %896
-  %.026.lcssa.i.i.i73.i.i = phi i64 [ %764, %896 ], [ %904, %.lr.ph.i.i.i82.i.i ]
-  %.025.lcssa.i.i.i74.i.i = phi ptr [ %882, %896 ], [ %903, %.lr.ph.i.i.i82.i.i ]
-  %906 = trunc nuw nsw i64 %.026.lcssa.i.i.i73.i.i to i8
+._crit_edge.i.i.i70.i.i:                          ; preds = %.lr.ph.i.i.i82.i.i, %896
+  %.026.lcssa.i.i.i71.i.i = phi i64 [ %764, %896 ], [ %901, %.lr.ph.i.i.i82.i.i ]
+  %.025.lcssa.i.i.i72.i.i = phi ptr [ %882, %896 ], [ %900, %.lr.ph.i.i.i82.i.i ]
+  %.sroa.55.10.insert.insert.i.i = lshr i64 %indvars.iv.i75.i, 8
+  %903 = trunc i64 %.sroa.55.10.insert.insert.i.i to i8
+  %.sroa.4.8.extract.trunc.i.i.i74.i.i = or i8 %903, 48
+  %904 = sub nsw i64 0, %indvars.iv.i75.i
+  %905 = getelementptr inbounds i8, ptr %882, i64 %904
+  %906 = trunc nuw nsw i64 %.026.lcssa.i.i.i71.i.i to i8
   %907 = or disjoint i8 %906, 48
-  %908 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i74.i.i, i64 -1
+  %908 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i72.i.i, i64 -1
   store i8 %907, ptr %908, align 1, !tbaa !25
   br i1 %883, label %909, label %911
 
-909:                                              ; preds = %._crit_edge.i.i.i72.i.i
-  %910 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i74.i.i, i64 -2
+909:                                              ; preds = %._crit_edge.i.i.i70.i.i
+  %910 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i72.i.i, i64 -2
   store i8 45, ptr %910, align 1, !tbaa !25
   br label %911
 
-911:                                              ; preds = %909, %._crit_edge.i.i.i72.i.i
-  %.1.i.i.i75.i.i = phi ptr [ %910, %909 ], [ %908, %._crit_edge.i.i.i72.i.i ]
+911:                                              ; preds = %909, %._crit_edge.i.i.i70.i.i
+  %.1.i.i.i75.i.i = phi ptr [ %910, %909 ], [ %908, %._crit_edge.i.i.i70.i.i ]
   %912 = ptrtoint ptr %.1.i.i.i75.i.i to i64
-  %913 = ptrtoint ptr %899 to i64
+  %913 = ptrtoint ptr %905 to i64
   %914 = sub i64 %912, %913
   %915 = icmp sgt i64 %914, 0
   br i1 %915, label %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i78.i.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i76.i.i
 
 _ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i78.i.i:  ; preds = %911
-  %916 = icmp eq i8 %.sroa.4.8.extract.trunc.i.i.i71.i.i, 48
+  %916 = icmp eq i8 %.sroa.4.8.extract.trunc.i.i.i74.i.i, 48
   %or.cond.i.i.i79.i.i = and i1 %883, %916
   %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i80.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %or.cond.i.i.i79.i.i to i64
   %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i80.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.1.i.i.i75.i.i, i64 %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i80.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   %917 = sub nsw i64 0, %914
   %918 = getelementptr inbounds i8, ptr %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i80.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %917
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %918, i8 %.sroa.4.8.extract.trunc.i.i.i71.i.i, i64 %914, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %918, i8 %.sroa.4.8.extract.trunc.i.i.i74.i.i, i64 %914, i1 false)
   br i1 %or.cond.i.i.i79.i.i, label %919, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i76.i.i
 
 919:                                              ; preds = %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i78.i.i
@@ -38525,40 +38525,40 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   store ptr %888, ptr %20, align 8, !tbaa !20
   store i64 0, ptr %889, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %1030 = sub nsw i64 0, %1029
-  %1031 = getelementptr inbounds i8, ptr %890, i64 %1030
-  br i1 %771, label %.lr.ph.i.i.i150.i.i, label %._crit_edge.i.i.i140.i.i
+  br i1 %770, label %.lr.ph.i.i.i150.i.i, label %._crit_edge.i.i.i138.i.i
 
 .lr.ph.i.i.i150.i.i:                              ; preds = %1027, %.lr.ph.i.i.i150.i.i
-  %.02533.i.i.i151.i.i = phi ptr [ %1035, %.lr.ph.i.i.i150.i.i ], [ %890, %1027 ]
-  %.02632.i.i.i152.i.i = phi i64 [ %1036, %.lr.ph.i.i.i150.i.i ], [ %764, %1027 ]
-  %1032 = urem i64 %.02632.i.i.i152.i.i, 10
-  %1033 = trunc nuw nsw i64 %1032 to i8
-  %1034 = or disjoint i8 %1033, 48
-  %1035 = getelementptr inbounds i8, ptr %.02533.i.i.i151.i.i, i64 -1
-  store i8 %1034, ptr %1035, align 1, !tbaa !25
-  %1036 = udiv i64 %.02632.i.i.i152.i.i, 10
-  %1037 = icmp samesign ugt i64 %.02632.i.i.i152.i.i, 99
-  br i1 %1037, label %.lr.ph.i.i.i150.i.i, label %._crit_edge.i.i.i140.i.i, !llvm.loop !1023
+  %.02533.i.i.i151.i.i = phi ptr [ %1033, %.lr.ph.i.i.i150.i.i ], [ %890, %1027 ]
+  %.02632.i.i.i152.i.i = phi i64 [ %1034, %.lr.ph.i.i.i150.i.i ], [ %764, %1027 ]
+  %1030 = urem i64 %.02632.i.i.i152.i.i, 10
+  %1031 = trunc nuw nsw i64 %1030 to i8
+  %1032 = or disjoint i8 %1031, 48
+  %1033 = getelementptr inbounds i8, ptr %.02533.i.i.i151.i.i, i64 -1
+  store i8 %1032, ptr %1033, align 1, !tbaa !25
+  %1034 = udiv i64 %.02632.i.i.i152.i.i, 10
+  %1035 = icmp samesign ugt i64 %.02632.i.i.i152.i.i, 99
+  br i1 %1035, label %.lr.ph.i.i.i150.i.i, label %._crit_edge.i.i.i138.i.i, !llvm.loop !1023
 
-._crit_edge.i.i.i140.i.i:                         ; preds = %.lr.ph.i.i.i150.i.i, %1027
-  %.026.lcssa.i.i.i141.i.i = phi i64 [ %764, %1027 ], [ %1036, %.lr.ph.i.i.i150.i.i ]
-  %.025.lcssa.i.i.i142.i.i = phi ptr [ %890, %1027 ], [ %1035, %.lr.ph.i.i.i150.i.i ]
-  %1038 = trunc nuw nsw i64 %.026.lcssa.i.i.i141.i.i to i8
+._crit_edge.i.i.i138.i.i:                         ; preds = %.lr.ph.i.i.i150.i.i, %1027
+  %.026.lcssa.i.i.i139.i.i = phi i64 [ %764, %1027 ], [ %1034, %.lr.ph.i.i.i150.i.i ]
+  %.025.lcssa.i.i.i140.i.i = phi ptr [ %890, %1027 ], [ %1033, %.lr.ph.i.i.i150.i.i ]
+  %1036 = sub nsw i64 0, %1029
+  %1037 = getelementptr inbounds i8, ptr %890, i64 %1036
+  %1038 = trunc nuw nsw i64 %.026.lcssa.i.i.i139.i.i to i8
   %1039 = or disjoint i8 %1038, 48
-  %1040 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i142.i.i, i64 -1
+  %1040 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i140.i.i, i64 -1
   store i8 %1039, ptr %1040, align 1, !tbaa !25
   br i1 %883, label %1041, label %1043
 
-1041:                                             ; preds = %._crit_edge.i.i.i140.i.i
-  %1042 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i142.i.i, i64 -2
+1041:                                             ; preds = %._crit_edge.i.i.i138.i.i
+  %1042 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i140.i.i, i64 -2
   store i8 45, ptr %1042, align 1, !tbaa !25
   br label %1043
 
-1043:                                             ; preds = %1041, %._crit_edge.i.i.i140.i.i
-  %.1.i.i.i143.i.i = phi ptr [ %1042, %1041 ], [ %1040, %._crit_edge.i.i.i140.i.i ]
+1043:                                             ; preds = %1041, %._crit_edge.i.i.i138.i.i
+  %.1.i.i.i143.i.i = phi ptr [ %1042, %1041 ], [ %1040, %._crit_edge.i.i.i138.i.i ]
   %1044 = ptrtoint ptr %.1.i.i.i143.i.i to i64
-  %1045 = ptrtoint ptr %1031 to i64
+  %1045 = ptrtoint ptr %1037 to i64
   %1046 = sub i64 %1044, %1045
   %1047 = icmp sgt i64 %1046, 0
   br i1 %1047, label %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i146.i.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i144.i.i
@@ -39990,31 +39990,31 @@ _ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit:  ; preds = %307, %_ZNKSt7__cxx1
   store i64 0, ptr %419, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %420 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %421 = getelementptr inbounds nuw i8, ptr %51, i64 31
-  %422 = icmp ugt i64 %0, 9
-  br i1 %422, label %.lr.ph.i.i.i.i, label %.loopexit38.i
+  %421 = icmp ugt i64 %0, 9
+  br i1 %421, label %.lr.ph.i.i.i.i, label %.loopexit38.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit, %.lr.ph.i.i.i.i
-  %.02533.i.i.i.i = phi ptr [ %426, %.lr.ph.i.i.i.i ], [ %420, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit ]
-  %.02632.i.i.i.i = phi i64 [ %427, %.lr.ph.i.i.i.i ], [ %0, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit ]
-  %423 = urem i64 %.02632.i.i.i.i, 10
-  %424 = trunc nuw nsw i64 %423 to i8
-  %425 = or disjoint i8 %424, 48
-  %426 = getelementptr inbounds i8, ptr %.02533.i.i.i.i, i64 -1
-  store i8 %425, ptr %426, align 1, !tbaa !25
-  %427 = udiv i64 %.02632.i.i.i.i, 10
-  %428 = icmp ugt i64 %.02632.i.i.i.i, 99
-  br i1 %428, label %.lr.ph.i.i.i.i, label %.loopexit38.i, !llvm.loop !1023
+  %.02533.i.i.i.i = phi ptr [ %425, %.lr.ph.i.i.i.i ], [ %420, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit ]
+  %.02632.i.i.i.i = phi i64 [ %426, %.lr.ph.i.i.i.i ], [ %0, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit ]
+  %422 = urem i64 %.02632.i.i.i.i, 10
+  %423 = trunc nuw nsw i64 %422 to i8
+  %424 = or disjoint i8 %423, 48
+  %425 = getelementptr inbounds i8, ptr %.02533.i.i.i.i, i64 -1
+  store i8 %424, ptr %425, align 1, !tbaa !25
+  %426 = udiv i64 %.02632.i.i.i.i, 10
+  %427 = icmp ugt i64 %.02632.i.i.i.i, 99
+  br i1 %427, label %.lr.ph.i.i.i.i, label %.loopexit38.i, !llvm.loop !1023
 
 .loopexit38.i:                                    ; preds = %.lr.ph.i.i.i.i, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit
-  %.026.lcssa.i.i.i.i = phi i64 [ %0, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit ], [ %427, %.lr.ph.i.i.i.i ]
-  %.025.lcssa.i.i.i.i = phi ptr [ %420, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit ], [ %426, %.lr.ph.i.i.i.i ]
+  %.026.lcssa.i.i.i.i = phi i64 [ %0, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit ], [ %426, %.lr.ph.i.i.i.i ]
+  %.025.lcssa.i.i.i.i = phi ptr [ %420, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit ], [ %425, %.lr.ph.i.i.i.i ]
+  %428 = getelementptr inbounds nuw i8, ptr %51, i64 31
   %429 = trunc nuw nsw i64 %.026.lcssa.i.i.i.i to i8
   %430 = or disjoint i8 %429, 48
   %431 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i.i, i64 -1
   store i8 %430, ptr %431, align 1, !tbaa !25
   %432 = ptrtoint ptr %431 to i64
-  %433 = ptrtoint ptr %421 to i64
+  %433 = ptrtoint ptr %428 to i64
   %434 = sub i64 %432, %433
   %435 = icmp sgt i64 %434, 0
   br i1 %435, label %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i
@@ -40302,31 +40302,31 @@ _ZN7testing15AssertionResultD2Ev.exit.i25:        ; preds = %_ZNKSt14default_del
   store ptr %520, ptr %59, align 8, !tbaa !20
   store i64 0, ptr %521, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  %536 = sub nsw i64 0, %indvars.iv.i26
-  %537 = getelementptr inbounds i8, ptr %522, i64 %536
-  br i1 %422, label %.lr.ph.i.i.i81.i, label %.loopexit32.i
+  br i1 %421, label %.lr.ph.i.i.i81.i, label %.loopexit32.i
 
 .lr.ph.i.i.i81.i:                                 ; preds = %535, %.lr.ph.i.i.i81.i
-  %.02533.i.i.i82.i = phi ptr [ %541, %.lr.ph.i.i.i81.i ], [ %522, %535 ]
-  %.02632.i.i.i83.i = phi i64 [ %542, %.lr.ph.i.i.i81.i ], [ %0, %535 ]
-  %538 = urem i64 %.02632.i.i.i83.i, 10
-  %539 = trunc nuw nsw i64 %538 to i8
-  %540 = or disjoint i8 %539, 48
-  %541 = getelementptr inbounds i8, ptr %.02533.i.i.i82.i, i64 -1
-  store i8 %540, ptr %541, align 1, !tbaa !25
-  %542 = udiv i64 %.02632.i.i.i83.i, 10
-  %543 = icmp ugt i64 %.02632.i.i.i83.i, 99
-  br i1 %543, label %.lr.ph.i.i.i81.i, label %.loopexit32.i, !llvm.loop !1023
+  %.02533.i.i.i82.i = phi ptr [ %539, %.lr.ph.i.i.i81.i ], [ %522, %535 ]
+  %.02632.i.i.i83.i = phi i64 [ %540, %.lr.ph.i.i.i81.i ], [ %0, %535 ]
+  %536 = urem i64 %.02632.i.i.i83.i, 10
+  %537 = trunc nuw nsw i64 %536 to i8
+  %538 = or disjoint i8 %537, 48
+  %539 = getelementptr inbounds i8, ptr %.02533.i.i.i82.i, i64 -1
+  store i8 %538, ptr %539, align 1, !tbaa !25
+  %540 = udiv i64 %.02632.i.i.i83.i, 10
+  %541 = icmp ugt i64 %.02632.i.i.i83.i, 99
+  br i1 %541, label %.lr.ph.i.i.i81.i, label %.loopexit32.i, !llvm.loop !1023
 
 .loopexit32.i:                                    ; preds = %.lr.ph.i.i.i81.i, %535
-  %.026.lcssa.i.i.i72.i = phi i64 [ %0, %535 ], [ %542, %.lr.ph.i.i.i81.i ]
-  %.025.lcssa.i.i.i73.i = phi ptr [ %522, %535 ], [ %541, %.lr.ph.i.i.i81.i ]
-  %544 = trunc nuw nsw i64 %.026.lcssa.i.i.i72.i to i8
+  %.026.lcssa.i.i.i70.i = phi i64 [ %0, %535 ], [ %540, %.lr.ph.i.i.i81.i ]
+  %.025.lcssa.i.i.i71.i = phi ptr [ %522, %535 ], [ %539, %.lr.ph.i.i.i81.i ]
+  %542 = sub nsw i64 0, %indvars.iv.i26
+  %543 = getelementptr inbounds i8, ptr %522, i64 %542
+  %544 = trunc nuw nsw i64 %.026.lcssa.i.i.i70.i to i8
   %545 = or disjoint i8 %544, 48
-  %546 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i73.i, i64 -1
+  %546 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i71.i, i64 -1
   store i8 %545, ptr %546, align 1, !tbaa !25
   %547 = ptrtoint ptr %546 to i64
-  %548 = ptrtoint ptr %537 to i64
+  %548 = ptrtoint ptr %543 to i64
   %549 = sub i64 %547, %548
   %550 = icmp sgt i64 %549, 0
   br i1 %550, label %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i77.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i75.i
@@ -40671,31 +40671,31 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   store ptr %527, ptr %64, align 8, !tbaa !20
   store i64 0, ptr %528, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
-  %661 = sub nsw i64 0, %660
-  %662 = getelementptr inbounds i8, ptr %529, i64 %661
-  br i1 %422, label %.lr.ph.i.i.i147.i, label %.loopexit.i35
+  br i1 %421, label %.lr.ph.i.i.i147.i, label %.loopexit.i35
 
 .lr.ph.i.i.i147.i:                                ; preds = %658, %.lr.ph.i.i.i147.i
-  %.02533.i.i.i148.i = phi ptr [ %666, %.lr.ph.i.i.i147.i ], [ %529, %658 ]
-  %.02632.i.i.i149.i = phi i64 [ %667, %.lr.ph.i.i.i147.i ], [ %0, %658 ]
-  %663 = urem i64 %.02632.i.i.i149.i, 10
-  %664 = trunc nuw nsw i64 %663 to i8
-  %665 = or disjoint i8 %664, 48
-  %666 = getelementptr inbounds i8, ptr %.02533.i.i.i148.i, i64 -1
-  store i8 %665, ptr %666, align 1, !tbaa !25
-  %667 = udiv i64 %.02632.i.i.i149.i, 10
-  %668 = icmp ugt i64 %.02632.i.i.i149.i, 99
-  br i1 %668, label %.lr.ph.i.i.i147.i, label %.loopexit.i35, !llvm.loop !1023
+  %.02533.i.i.i148.i = phi ptr [ %664, %.lr.ph.i.i.i147.i ], [ %529, %658 ]
+  %.02632.i.i.i149.i = phi i64 [ %665, %.lr.ph.i.i.i147.i ], [ %0, %658 ]
+  %661 = urem i64 %.02632.i.i.i149.i, 10
+  %662 = trunc nuw nsw i64 %661 to i8
+  %663 = or disjoint i8 %662, 48
+  %664 = getelementptr inbounds i8, ptr %.02533.i.i.i148.i, i64 -1
+  store i8 %663, ptr %664, align 1, !tbaa !25
+  %665 = udiv i64 %.02632.i.i.i149.i, 10
+  %666 = icmp ugt i64 %.02632.i.i.i149.i, 99
+  br i1 %666, label %.lr.ph.i.i.i147.i, label %.loopexit.i35, !llvm.loop !1023
 
 .loopexit.i35:                                    ; preds = %.lr.ph.i.i.i147.i, %658
-  %.026.lcssa.i.i.i138.i = phi i64 [ %0, %658 ], [ %667, %.lr.ph.i.i.i147.i ]
-  %.025.lcssa.i.i.i139.i = phi ptr [ %529, %658 ], [ %666, %.lr.ph.i.i.i147.i ]
-  %669 = trunc nuw nsw i64 %.026.lcssa.i.i.i138.i to i8
+  %.026.lcssa.i.i.i136.i = phi i64 [ %0, %658 ], [ %665, %.lr.ph.i.i.i147.i ]
+  %.025.lcssa.i.i.i137.i = phi ptr [ %529, %658 ], [ %664, %.lr.ph.i.i.i147.i ]
+  %667 = sub nsw i64 0, %660
+  %668 = getelementptr inbounds i8, ptr %529, i64 %667
+  %669 = trunc nuw nsw i64 %.026.lcssa.i.i.i136.i to i8
   %670 = or disjoint i8 %669, 48
-  %671 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i139.i, i64 -1
+  %671 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i137.i, i64 -1
   store i8 %670, ptr %671, align 1, !tbaa !25
   %672 = ptrtoint ptr %671 to i64
-  %673 = ptrtoint ptr %662 to i64
+  %673 = ptrtoint ptr %668 to i64
   %674 = sub i64 %672, %673
   %675 = icmp sgt i64 %674, 0
   br i1 %675, label %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i143.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i141.i
@@ -41054,25 +41054,25 @@ _ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit:  ; preds = %653, %_ZNKSt7__cxx1
   store i64 0, ptr %787, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %788 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %789 = getelementptr inbounds nuw i8, ptr %29, i64 31
-  %790 = icmp ugt i64 %784, 9
-  br i1 %790, label %.lr.ph.i.i.i.i116, label %._crit_edge.i.i.i.i47
+  %789 = icmp ugt i64 %784, 9
+  br i1 %789, label %.lr.ph.i.i.i.i116, label %._crit_edge.i.i.i.i47
 
 .lr.ph.i.i.i.i116:                                ; preds = %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit, %.lr.ph.i.i.i.i116
-  %.02533.i.i.i.i117 = phi ptr [ %794, %.lr.ph.i.i.i.i116 ], [ %788, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit ]
-  %.02632.i.i.i.i118 = phi i64 [ %795, %.lr.ph.i.i.i.i116 ], [ %784, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit ]
-  %791 = urem i64 %.02632.i.i.i.i118, 10
-  %792 = trunc nuw nsw i64 %791 to i8
-  %793 = or disjoint i8 %792, 48
-  %794 = getelementptr inbounds i8, ptr %.02533.i.i.i.i117, i64 -1
-  store i8 %793, ptr %794, align 1, !tbaa !25
-  %795 = udiv i64 %.02632.i.i.i.i118, 10
-  %796 = icmp ugt i64 %.02632.i.i.i.i118, 99
-  br i1 %796, label %.lr.ph.i.i.i.i116, label %._crit_edge.i.i.i.i47, !llvm.loop !1023
+  %.02533.i.i.i.i117 = phi ptr [ %793, %.lr.ph.i.i.i.i116 ], [ %788, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit ]
+  %.02632.i.i.i.i118 = phi i64 [ %794, %.lr.ph.i.i.i.i116 ], [ %784, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit ]
+  %790 = urem i64 %.02632.i.i.i.i118, 10
+  %791 = trunc nuw nsw i64 %790 to i8
+  %792 = or disjoint i8 %791, 48
+  %793 = getelementptr inbounds i8, ptr %.02533.i.i.i.i117, i64 -1
+  store i8 %792, ptr %793, align 1, !tbaa !25
+  %794 = udiv i64 %.02632.i.i.i.i118, 10
+  %795 = icmp ugt i64 %.02632.i.i.i.i118, 99
+  br i1 %795, label %.lr.ph.i.i.i.i116, label %._crit_edge.i.i.i.i47, !llvm.loop !1023
 
 ._crit_edge.i.i.i.i47:                            ; preds = %.lr.ph.i.i.i.i116, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit
-  %.026.lcssa.i.i.i.i48 = phi i64 [ %784, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit ], [ %795, %.lr.ph.i.i.i.i116 ]
-  %.025.lcssa.i.i.i.i49 = phi ptr [ %788, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit ], [ %794, %.lr.ph.i.i.i.i116 ]
+  %.026.lcssa.i.i.i.i48 = phi i64 [ %784, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit ], [ %794, %.lr.ph.i.i.i.i116 ]
+  %.025.lcssa.i.i.i.i49 = phi ptr [ %788, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit ], [ %793, %.lr.ph.i.i.i.i116 ]
+  %796 = getelementptr inbounds nuw i8, ptr %29, i64 31
   %797 = trunc nuw nsw i64 %.026.lcssa.i.i.i.i48 to i8
   %798 = or disjoint i8 %797, 48
   %799 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i.i49, i64 -1
@@ -41082,7 +41082,7 @@ _ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit:  ; preds = %653, %_ZNKSt7__cxx1
 
 800:                                              ; preds = %._crit_edge.i.i.i.i47
   %801 = ptrtoint ptr %799 to i64
-  %802 = ptrtoint ptr %789 to i64
+  %802 = ptrtoint ptr %796 to i64
   %803 = sub i64 %801, %802
   %804 = icmp sgt i64 %803, 0
   br i1 %804, label %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i.i115, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i50
@@ -41091,7 +41091,7 @@ _ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit:  ; preds = %653, %_ZNKSt7__cxx1
   %805 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i.i49, i64 -2
   store i8 45, ptr %805, align 1, !tbaa !25
   %806 = ptrtoint ptr %805 to i64
-  %807 = ptrtoint ptr %789 to i64
+  %807 = ptrtoint ptr %796 to i64
   %808 = sub i64 %806, %807
   %809 = icmp sgt i64 %808, 0
   br i1 %809, label %812, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i.i50
@@ -41390,56 +41390,56 @@ _ZN7testing15AssertionResultD2Ev.exit.i78:        ; preds = %_ZNKSt14default_del
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %899, i8 0, i64 16, i1 false)
   store ptr %899, ptr %37, align 8, !tbaa !20
   store i64 0, ptr %900, align 8, !tbaa !23
-  %.sroa.55.10.insert.insert.i = lshr i64 %indvars.iv.i79, 8
-  %916 = trunc i64 %.sroa.55.10.insert.insert.i to i8
-  %.sroa.4.8.extract.trunc.i.i.i71.i = or i8 %916, 48
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %917 = sub nsw i64 0, %indvars.iv.i79
-  %918 = getelementptr inbounds i8, ptr %901, i64 %917
-  br i1 %790, label %.lr.ph.i.i.i82.i, label %._crit_edge.i.i.i72.i
+  br i1 %789, label %.lr.ph.i.i.i82.i, label %._crit_edge.i.i.i70.i
 
 .lr.ph.i.i.i82.i:                                 ; preds = %915, %.lr.ph.i.i.i82.i
-  %.02533.i.i.i83.i = phi ptr [ %922, %.lr.ph.i.i.i82.i ], [ %901, %915 ]
-  %.02632.i.i.i84.i = phi i64 [ %923, %.lr.ph.i.i.i82.i ], [ %784, %915 ]
-  %919 = urem i64 %.02632.i.i.i84.i, 10
-  %920 = trunc nuw nsw i64 %919 to i8
-  %921 = or disjoint i8 %920, 48
-  %922 = getelementptr inbounds i8, ptr %.02533.i.i.i83.i, i64 -1
-  store i8 %921, ptr %922, align 1, !tbaa !25
-  %923 = udiv i64 %.02632.i.i.i84.i, 10
-  %924 = icmp ugt i64 %.02632.i.i.i84.i, 99
-  br i1 %924, label %.lr.ph.i.i.i82.i, label %._crit_edge.i.i.i72.i, !llvm.loop !1023
+  %.02533.i.i.i83.i = phi ptr [ %919, %.lr.ph.i.i.i82.i ], [ %901, %915 ]
+  %.02632.i.i.i84.i = phi i64 [ %920, %.lr.ph.i.i.i82.i ], [ %784, %915 ]
+  %916 = urem i64 %.02632.i.i.i84.i, 10
+  %917 = trunc nuw nsw i64 %916 to i8
+  %918 = or disjoint i8 %917, 48
+  %919 = getelementptr inbounds i8, ptr %.02533.i.i.i83.i, i64 -1
+  store i8 %918, ptr %919, align 1, !tbaa !25
+  %920 = udiv i64 %.02632.i.i.i84.i, 10
+  %921 = icmp ugt i64 %.02632.i.i.i84.i, 99
+  br i1 %921, label %.lr.ph.i.i.i82.i, label %._crit_edge.i.i.i70.i, !llvm.loop !1023
 
-._crit_edge.i.i.i72.i:                            ; preds = %.lr.ph.i.i.i82.i, %915
-  %.026.lcssa.i.i.i73.i = phi i64 [ %784, %915 ], [ %923, %.lr.ph.i.i.i82.i ]
-  %.025.lcssa.i.i.i74.i = phi ptr [ %901, %915 ], [ %922, %.lr.ph.i.i.i82.i ]
-  %925 = trunc nuw nsw i64 %.026.lcssa.i.i.i73.i to i8
+._crit_edge.i.i.i70.i:                            ; preds = %.lr.ph.i.i.i82.i, %915
+  %.026.lcssa.i.i.i71.i = phi i64 [ %784, %915 ], [ %920, %.lr.ph.i.i.i82.i ]
+  %.025.lcssa.i.i.i72.i = phi ptr [ %901, %915 ], [ %919, %.lr.ph.i.i.i82.i ]
+  %.sroa.55.10.insert.insert.i = lshr i64 %indvars.iv.i79, 8
+  %922 = trunc i64 %.sroa.55.10.insert.insert.i to i8
+  %.sroa.4.8.extract.trunc.i.i.i74.i = or i8 %922, 48
+  %923 = sub nsw i64 0, %indvars.iv.i79
+  %924 = getelementptr inbounds i8, ptr %901, i64 %923
+  %925 = trunc nuw nsw i64 %.026.lcssa.i.i.i71.i to i8
   %926 = or disjoint i8 %925, 48
-  %927 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i74.i, i64 -1
+  %927 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i72.i, i64 -1
   store i8 %926, ptr %927, align 1, !tbaa !25
   br i1 %902, label %928, label %930
 
-928:                                              ; preds = %._crit_edge.i.i.i72.i
-  %929 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i74.i, i64 -2
+928:                                              ; preds = %._crit_edge.i.i.i70.i
+  %929 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i72.i, i64 -2
   store i8 45, ptr %929, align 1, !tbaa !25
   br label %930
 
-930:                                              ; preds = %928, %._crit_edge.i.i.i72.i
-  %.1.i.i.i75.i = phi ptr [ %929, %928 ], [ %927, %._crit_edge.i.i.i72.i ]
+930:                                              ; preds = %928, %._crit_edge.i.i.i70.i
+  %.1.i.i.i75.i = phi ptr [ %929, %928 ], [ %927, %._crit_edge.i.i.i70.i ]
   %931 = ptrtoint ptr %.1.i.i.i75.i to i64
-  %932 = ptrtoint ptr %918 to i64
+  %932 = ptrtoint ptr %924 to i64
   %933 = sub i64 %931, %932
   %934 = icmp sgt i64 %933, 0
   br i1 %934, label %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i78.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i76.i
 
 _ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i78.i:    ; preds = %930
-  %935 = icmp eq i8 %.sroa.4.8.extract.trunc.i.i.i71.i, 48
+  %935 = icmp eq i8 %.sroa.4.8.extract.trunc.i.i.i74.i, 48
   %or.cond.i.i.i79.i = and i1 %902, %935
   %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i80.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %or.cond.i.i.i79.i to i64
   %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i80.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.1.i.i.i75.i, i64 %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i80.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   %936 = sub nsw i64 0, %933
   %937 = getelementptr inbounds i8, ptr %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i80.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %936
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %937, i8 %.sroa.4.8.extract.trunc.i.i.i71.i, i64 %933, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %937, i8 %.sroa.4.8.extract.trunc.i.i.i74.i, i64 %933, i1 false)
   br i1 %or.cond.i.i.i79.i, label %938, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i76.i
 
 938:                                              ; preds = %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i78.i
@@ -41780,40 +41780,40 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   store ptr %907, ptr %42, align 8, !tbaa !20
   store i64 0, ptr %908, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %1049 = sub nsw i64 0, %1048
-  %1050 = getelementptr inbounds i8, ptr %909, i64 %1049
-  br i1 %790, label %.lr.ph.i.i.i149.i, label %._crit_edge.i.i.i139.i
+  br i1 %789, label %.lr.ph.i.i.i149.i, label %._crit_edge.i.i.i137.i
 
 .lr.ph.i.i.i149.i:                                ; preds = %1046, %.lr.ph.i.i.i149.i
-  %.02533.i.i.i150.i = phi ptr [ %1054, %.lr.ph.i.i.i149.i ], [ %909, %1046 ]
-  %.02632.i.i.i151.i = phi i64 [ %1055, %.lr.ph.i.i.i149.i ], [ %784, %1046 ]
-  %1051 = urem i64 %.02632.i.i.i151.i, 10
-  %1052 = trunc nuw nsw i64 %1051 to i8
-  %1053 = or disjoint i8 %1052, 48
-  %1054 = getelementptr inbounds i8, ptr %.02533.i.i.i150.i, i64 -1
-  store i8 %1053, ptr %1054, align 1, !tbaa !25
-  %1055 = udiv i64 %.02632.i.i.i151.i, 10
-  %1056 = icmp ugt i64 %.02632.i.i.i151.i, 99
-  br i1 %1056, label %.lr.ph.i.i.i149.i, label %._crit_edge.i.i.i139.i, !llvm.loop !1023
+  %.02533.i.i.i150.i = phi ptr [ %1052, %.lr.ph.i.i.i149.i ], [ %909, %1046 ]
+  %.02632.i.i.i151.i = phi i64 [ %1053, %.lr.ph.i.i.i149.i ], [ %784, %1046 ]
+  %1049 = urem i64 %.02632.i.i.i151.i, 10
+  %1050 = trunc nuw nsw i64 %1049 to i8
+  %1051 = or disjoint i8 %1050, 48
+  %1052 = getelementptr inbounds i8, ptr %.02533.i.i.i150.i, i64 -1
+  store i8 %1051, ptr %1052, align 1, !tbaa !25
+  %1053 = udiv i64 %.02632.i.i.i151.i, 10
+  %1054 = icmp ugt i64 %.02632.i.i.i151.i, 99
+  br i1 %1054, label %.lr.ph.i.i.i149.i, label %._crit_edge.i.i.i137.i, !llvm.loop !1023
 
-._crit_edge.i.i.i139.i:                           ; preds = %.lr.ph.i.i.i149.i, %1046
-  %.026.lcssa.i.i.i140.i = phi i64 [ %784, %1046 ], [ %1055, %.lr.ph.i.i.i149.i ]
-  %.025.lcssa.i.i.i141.i = phi ptr [ %909, %1046 ], [ %1054, %.lr.ph.i.i.i149.i ]
-  %1057 = trunc nuw nsw i64 %.026.lcssa.i.i.i140.i to i8
+._crit_edge.i.i.i137.i:                           ; preds = %.lr.ph.i.i.i149.i, %1046
+  %.026.lcssa.i.i.i138.i = phi i64 [ %784, %1046 ], [ %1053, %.lr.ph.i.i.i149.i ]
+  %.025.lcssa.i.i.i139.i = phi ptr [ %909, %1046 ], [ %1052, %.lr.ph.i.i.i149.i ]
+  %1055 = sub nsw i64 0, %1048
+  %1056 = getelementptr inbounds i8, ptr %909, i64 %1055
+  %1057 = trunc nuw nsw i64 %.026.lcssa.i.i.i138.i to i8
   %1058 = or disjoint i8 %1057, 48
-  %1059 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i141.i, i64 -1
+  %1059 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i139.i, i64 -1
   store i8 %1058, ptr %1059, align 1, !tbaa !25
   br i1 %902, label %1060, label %1062
 
-1060:                                             ; preds = %._crit_edge.i.i.i139.i
-  %1061 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i141.i, i64 -2
+1060:                                             ; preds = %._crit_edge.i.i.i137.i
+  %1061 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i139.i, i64 -2
   store i8 45, ptr %1061, align 1, !tbaa !25
   br label %1062
 
-1062:                                             ; preds = %1060, %._crit_edge.i.i.i139.i
-  %.1.i.i.i142.i = phi ptr [ %1061, %1060 ], [ %1059, %._crit_edge.i.i.i139.i ]
+1062:                                             ; preds = %1060, %._crit_edge.i.i.i137.i
+  %.1.i.i.i142.i = phi ptr [ %1061, %1060 ], [ %1059, %._crit_edge.i.i.i137.i ]
   %1063 = ptrtoint ptr %.1.i.i.i142.i to i64
-  %1064 = ptrtoint ptr %1050 to i64
+  %1064 = ptrtoint ptr %1056 to i64
   %1065 = sub i64 %1063, %1064
   %1066 = icmp sgt i64 %1065, 0
   br i1 %1066, label %_ZSt6fill_nIPclcET_S1_T0_RKT1_.exit.i.i.i145.i, label %_ZN4absl16strings_internal22ExtractStringificationINS_3DecEEESt17basic_string_viewIcSt11char_traitsIcEERNS0_13StringifySinkERKT_.exit.i143.i

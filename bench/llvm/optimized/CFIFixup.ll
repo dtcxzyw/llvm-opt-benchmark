@@ -579,8 +579,6 @@ _ZN4llvm13SmallDenseMapINS_12MBBSectionIDE14InsertionPointLj4ENS_12DenseMapInfoI
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %167 = getelementptr inbounds nuw i8, ptr %.sroa.028.052.i, i64 8
   %168 = load ptr, ptr %167, align 8, !tbaa !177
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.not44 = icmp eq ptr %168, %38
   br i1 %.not44, label %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb0EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit._crit_edge, label %.lr.ph
 
@@ -618,6 +616,8 @@ _ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineB
   br i1 %.not.i.i, label %192, label %_ZN4llvm13SmallDenseMapINS_12MBBSectionIDE14InsertionPointLj4ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev.exit
 
 192:                                              ; preds = %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb0EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit._crit_edge
+  %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %14, i64 8
   %193 = load ptr, ptr %.phi.trans.insert.i.i.ptr, align 8, !tbaa !232
   %194 = load i32, ptr %.phi.trans.insert3.i.i, align 8, !tbaa !235
   %195 = zext i32 %194 to i64

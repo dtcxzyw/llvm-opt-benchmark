@@ -14476,46 +14476,46 @@ define internal fastcc void @"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$26up
   %.promoted214 = load i32, ptr %3, align 4
   %.promoted226 = load i8, ptr %4, align 8
   %.promoted = load i64, ptr %5, align 8
-  br label %14
+  br label %15
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit.thread.loopexit": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit"
-  %12 = icmp eq i64 %.sroa.0.0.add, 1056
-  br i1 %12, label %13, label %14
+  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx254, 264
+  %12 = add nuw nsw i64 %.sroa.7.0253, 1
+  %13 = icmp eq i64 %.sroa.0.0.add, 1056
+  br i1 %13, label %14, label %15
 
-13:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit.thread.loopexit"
+14:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit.thread.loopexit"
   store i32 %111, ptr %2, align 8
   ret void
 
-14:                                               ; preds = %1, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit.thread.loopexit"
+15:                                               ; preds = %1, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit.thread.loopexit"
   %.sroa.0.0.idx254 = phi i64 [ 0, %1 ], [ %.sroa.0.0.add, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit.thread.loopexit" ]
-  %.sroa.7.0253 = phi i64 [ 0, %1 ], [ %15, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit.thread.loopexit" ]
+  %.sroa.7.0253 = phi i64 [ 0, %1 ], [ %12, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit.thread.loopexit" ]
   %.promoted164213252 = phi i32 [ %.promoted208, %1 ], [ %111, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit.thread.loopexit" ]
   %.promoted169225251 = phi i32 [ %.promoted214, %1 ], [ %.promoted169218, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit.thread.loopexit" ]
   %.promoted235250 = phi i8 [ %.promoted226, %1 ], [ %.promoted229, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit.thread.loopexit" ]
   %.promoted188248249 = phi i64 [ %.promoted, %1 ], [ %.promoted188240, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit.thread.loopexit" ]
   %.sroa.0.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN5image6codecs4webp3vp818COEFF_UPDATE_PROBS17had47374740679169E, i64 %.sroa.0.0.idx254
-  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx254, 264
-  %15 = add nuw nsw i64 %.sroa.7.0253, 1
   %16 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %11, i64 %.sroa.7.0253
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit": ; preds = %.thread
-  %17 = icmp eq i64 %.sroa.047.0.add, 264
-  br i1 %17, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit.thread.loopexit", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit"
-
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit": ; preds = %14, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit"
-  %.promoted188247 = phi i64 [ %.promoted188248249, %14 ], [ %.promoted188240, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
-  %.promoted234 = phi i8 [ %.promoted235250, %14 ], [ %.promoted229, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
-  %.promoted169224 = phi i32 [ %.promoted169225251, %14 ], [ %.promoted169218, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
-  %.promoted164212 = phi i32 [ %.promoted164213252, %14 ], [ %111, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
-  %.sroa.047.0.idx206 = phi i64 [ 0, %14 ], [ %.sroa.047.0.add, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
-  %.sroa.749.0205 = phi i64 [ 0, %14 ], [ %18, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
-  %.promoted179203 = phi i32 [ %.promoted169225251, %14 ], [ %.promoted173, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
-  %.promoted137187202 = phi i8 [ %.promoted235250, %14 ], [ %.promoted137182, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
-  %.promoted145200201 = phi i64 [ %.promoted188248249, %14 ], [ %.promoted145193, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
-  %.sroa.047.0.ptr207 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr, i64 %.sroa.047.0.idx206
   %.sroa.047.0.add = add nuw nsw i64 %.sroa.047.0.idx206, 33
-  %18 = add nuw nsw i64 %.sroa.749.0205, 1
+  %17 = add nuw nsw i64 %.sroa.749.0205, 1
+  %18 = icmp eq i64 %.sroa.047.0.add, 264
+  br i1 %18, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit.thread.loopexit", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit"
+
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit": ; preds = %15, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit"
+  %.promoted188247 = phi i64 [ %.promoted188248249, %15 ], [ %.promoted188240, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
+  %.promoted234 = phi i8 [ %.promoted235250, %15 ], [ %.promoted229, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
+  %.promoted169224 = phi i32 [ %.promoted169225251, %15 ], [ %.promoted169218, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
+  %.promoted164212 = phi i32 [ %.promoted164213252, %15 ], [ %111, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
+  %.sroa.047.0.idx206 = phi i64 [ 0, %15 ], [ %.sroa.047.0.add, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
+  %.sroa.749.0205 = phi i64 [ 0, %15 ], [ %17, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
+  %.promoted179203 = phi i32 [ %.promoted169225251, %15 ], [ %.promoted173, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
+  %.promoted137187202 = phi i8 [ %.promoted235250, %15 ], [ %.promoted137182, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
+  %.promoted145200201 = phi i64 [ %.promoted188248249, %15 ], [ %.promoted145193, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit" ]
+  %.sroa.047.0.ptr207 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr, i64 %.sroa.047.0.idx206
   %19 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %16, i64 %.sroa.749.0205
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit"
 
@@ -14528,17 +14528,17 @@ define internal fastcc void @"_ZN5image6codecs4webp3vp819Vp8Decoder$LT$R$GT$26up
   %.promoted137186 = phi i8 [ %.promoted137187202, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit" ], [ %.promoted137182, %.thread ]
   %.promoted178 = phi i32 [ %.promoted179203, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit" ], [ %.promoted173, %.thread ]
   %.sroa.050.0.idx162 = phi i64 [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit" ], [ %.sroa.050.0.add, %.thread ]
-  %.sroa.752.0161 = phi i64 [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit" ], [ %20, %.thread ]
+  %.sroa.752.0161 = phi i64 [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit" ], [ %21, %.thread ]
   %.promoted106136159 = phi i32 [ %.promoted179203, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit" ], [ %.promoted106131, %.thread ]
   %.promoted107144158 = phi i8 [ %.promoted137187202, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit" ], [ %.promoted107140, %.thread ]
   %.promoted113156157 = phi i64 [ %.promoted145200201, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha01fe05a7a43692eE.exit" ], [ %.promoted113150, %.thread ]
   %.sroa.050.0.ptr163 = getelementptr inbounds nuw i8, ptr %.sroa.047.0.ptr207, i64 %.sroa.050.0.idx162
-  %.sroa.050.0.add = add nuw nsw i64 %.sroa.050.0.idx162, 11
-  %20 = add nuw nsw i64 %.sroa.752.0161, 1
-  %21 = getelementptr inbounds nuw [11 x i8], ptr %19, i64 %.sroa.752.0161
+  %20 = getelementptr inbounds nuw [11 x i8], ptr %19, i64 %.sroa.752.0161
   br label %23
 
 .thread:                                          ; preds = %109
+  %.sroa.050.0.add = add nuw nsw i64 %.sroa.050.0.idx162, 11
+  %21 = add nuw nsw i64 %.sroa.752.0161, 1
   %22 = icmp eq i64 %.sroa.050.0.add, 33
   br i1 %22, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit.thread.loopexit", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h860e2eb23b5b6871E.exit"
 
@@ -14783,7 +14783,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i: ; pr
   br i1 %112, label %.thread, label %23
 
 113:                                              ; preds = %_ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit.i
-  %114 = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.755.0103
+  %114 = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.755.0103
   store i8 %106, ptr %114, align 1
   br label %109
 }

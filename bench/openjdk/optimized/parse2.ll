@@ -4533,29 +4533,29 @@ _ZL11sum_of_cntsP11SwitchRangeS0_.exit:           ; preds = %.lr.ph.i, %4
   %.074120 = phi float [ 1.000000e+00, %.lr.ph123 ], [ %182, %_ZL7if_probff.exit ]
   %.075119 = phi float [ 0.000000e+00, %.lr.ph123 ], [ %180, %_ZL7if_probff.exit ]
   %28 = load ptr, ptr %2, align 8
-  %29 = icmp eq ptr %28, %18
-  %30 = select i1 %29, ptr %21, ptr %18
-  %31 = load ptr, ptr %3, align 8
+  %29 = load ptr, ptr %3, align 8
   %.082112 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %.not113 = icmp ugt ptr %.082112, %31
+  %.not113 = icmp ugt ptr %.082112, %29
   br i1 %.not113, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
   %.082116 = phi ptr [ %.082, %.lr.ph ], [ %.082112, %27 ]
   %.076115 = phi ptr [ %.1, %.lr.ph ], [ %28, %27 ]
   %.pn114 = phi ptr [ %.082116, %.lr.ph ], [ %28, %27 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.pn114, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %.pn114, i64 28
+  %31 = load float, ptr %30, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %.076115, i64 12
   %33 = load float, ptr %32, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %.076115, i64 12
-  %35 = load float, ptr %34, align 4
-  %36 = fcmp ogt float %33, %35
-  %.1 = select i1 %36, ptr %.082116, ptr %.076115
+  %34 = fcmp ogt float %31, %33
+  %.1 = select i1 %34, ptr %.082116, ptr %.076115
   %.082 = getelementptr inbounds nuw i8, ptr %.082116, i64 16
-  %.not = icmp ugt ptr %.082, %31
+  %.not = icmp ugt ptr %.082, %29
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   %.076.lcssa = phi ptr [ %28, %27 ], [ %.1, %.lr.ph ]
+  %35 = icmp eq ptr %28, %18
+  %36 = select i1 %35, ptr %21, ptr %18
   %.sroa.0106.0.copyload = load i32, ptr %.076.lcssa, align 4
   %.sroa.3.0..076.sroa_idx = getelementptr inbounds nuw i8, ptr %.076.lcssa, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..076.sroa_idx, align 4
@@ -4582,7 +4582,7 @@ _ZL11sum_of_cntsP11SwitchRangeS0_.exit:           ; preds = %.lr.ph.i, %4
 43:                                               ; preds = %39
   %44 = sub i32 %.077118, %.079117
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %class.SwitchRange, ptr %30, i64 %45
+  %46 = getelementptr inbounds nuw %class.SwitchRange, ptr %36, i64 %45
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %42, i64 16, i1 false)
   br label %74
 
@@ -4634,7 +4634,7 @@ _ZN11SwitchRange6adjoinERS_.exit:                 ; preds = %51, %._crit_edge.i.
   %spec.select = select i1 %or.cond.i, i32 %70, i32 %48
   %71 = sub i32 %spec.select91, %spec.select
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw %class.SwitchRange, ptr %30, i64 %72
+  %73 = getelementptr inbounds nuw %class.SwitchRange, ptr %36, i64 %72
   store i32 %.sroa.0.0.copyload, ptr %73, align 4
   %.sroa.4.0..sroa_idx99 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i32 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx99, align 4
@@ -4655,14 +4655,14 @@ _ZN11SwitchRange6adjoinERS_.exit:                 ; preds = %51, %._crit_edge.i.
   %78 = sub i32 %.0122, %.281
   %79 = add i32 %78, -1
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw %class.SwitchRange, ptr %30, i64 %80
-  %82 = tail call fastcc noundef float @_ZL17compute_tree_costP11SwitchRangeS0_f(ptr noundef %30, ptr noundef %81, float noundef %.07.lcssa.i)
+  %81 = getelementptr inbounds nuw %class.SwitchRange, ptr %36, i64 %80
+  %82 = tail call fastcc noundef float @_ZL17compute_tree_costP11SwitchRangeS0_f(ptr noundef %36, ptr noundef %81, float noundef %.07.lcssa.i)
   %83 = fadd float %.074120, %82
   %84 = fcmp ult float %83, %.073121
   br i1 %84, label %85, label %._crit_edge124
 
 85:                                               ; preds = %77
-  store ptr %30, ptr %2, align 8
+  store ptr %36, ptr %2, align 8
   store ptr %81, ptr %3, align 8
   %86 = load ptr, ptr %23, align 8
   %87 = load ptr, ptr %24, align 8

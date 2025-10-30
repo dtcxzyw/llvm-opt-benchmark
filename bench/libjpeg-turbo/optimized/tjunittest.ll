@@ -2110,14 +2110,14 @@ define internal fastcc range(i32 -1, 1) i32 @doBmpTest(ptr noundef %0, i32 nound
   %91 = mul i32 %13, %90
   %92 = add i32 %91, %83
   %93 = sext i32 %92 to i64
+  %.sink188 = shl nsw i64 %93, %75
+  %scevgep104.i = getelementptr i8, ptr %54, i64 %.sink188
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep104.i, i8 0, i64 %.sink, i1 false), !tbaa !17
   %94 = mul i32 %66, %90
   %95 = sdiv i32 %94, 35
   %96 = srem i32 %95, %66
   %97 = add nsw i32 %95, %81
   %98 = srem i32 %97, %66
-  %.sink188 = shl nsw i64 %93, %75
-  %scevgep104.i = getelementptr i8, ptr %54, i64 %.sink188
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep104.i, i8 0, i64 %.sink, i1 false), !tbaa !17
   switch i32 %2, label %163 [
     i32 6, label %99
     i32 11, label %108

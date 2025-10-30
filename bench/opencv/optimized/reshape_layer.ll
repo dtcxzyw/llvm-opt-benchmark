@@ -3072,11 +3072,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IiSa
   call void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %118, i32 noundef %100, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn14dnn4_v20241223L20normalize_axis_rangeERKNS_5RangeEiE15__cv_check__265) #25
   unreachable
 
-_ZN2cv3dnn14dnn4_v20241223L20normalize_axis_rangeERKNS_5RangeEi.exit.i: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %121
+_ZN2cv3dnn14dnn4_v20241223L20normalize_axis_rangeERKNS_5RangeEi.exit.i: ; preds = %121, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %.sroa.021.0.i.i = phi i64 [ %.sroa.0.0.copyload, %121 ], [ 0, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %.sroa.423.0.i.i = phi i32 [ %118, %121 ], [ %100, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %.sroa.423.0.i.fr.i = freeze i32 %.sroa.423.0.i.i
-  %.sroa.0243.0.extract.trunc255.i = trunc i64 %.sroa.021.0.i.i to i32
   %123 = icmp ne ptr %102, %101
   %124 = icmp sgt i32 %107, 0
   %125 = select i1 %124, i1 %123, i1 false
@@ -3088,6 +3087,7 @@ _ZN2cv3dnn14dnn4_v20241223L20normalize_axis_rangeERKNS_5RangeEi.exit.i: ; preds 
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZN2cv3dnn14dnn4_v20241223L20normalize_axis_rangeERKNS_5RangeEi.exit.i
   %.0.in.lcssa.i = phi i1 [ %123, %_ZN2cv3dnn14dnn4_v20241223L20normalize_axis_rangeERKNS_5RangeEi.exit.i ], [ %129, %.lr.ph.i ]
+  %.sroa.0243.0.extract.trunc255.i = trunc i64 %.sroa.021.0.i.i to i32
   br i1 %.0.in.lcssa.i, label %132, label %226
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -4897,8 +4897,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !72
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !72
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i

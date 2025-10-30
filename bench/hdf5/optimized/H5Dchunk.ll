@@ -11769,31 +11769,31 @@ H5D_chunk_idx_reset.exit:                         ; preds = %38, %36
   br label %.thread202
 
 144:                                              ; preds = %137
-  %145 = call i64 @llvm.umax.i64(i64 %124, i64 %131)
-  %146 = call i64 @llvm.umax.i64(i64 %145, i64 %138)
-  %147 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %148 = load i32, ptr %147, align 8, !tbaa !201
-  %149 = add i32 %148, -1
-  %.not333 = icmp eq i32 %149, 0
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %146 = load i32, ptr %145, align 8, !tbaa !201
+  %147 = add i32 %146, -1
+  %.not333 = icmp eq i32 %147, 0
   br i1 %.not333, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %144
-  %150 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %wide.trip.count = zext i32 %149 to i64
-  br label %151
+  %148 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %wide.trip.count = zext i32 %147 to i64
+  br label %149
 
-151:                                              ; preds = %.lr.ph, %151
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %151 ]
-  %.1150326 = phi i32 [ 1, %.lr.ph ], [ %154, %151 ]
-  %152 = getelementptr inbounds nuw i32, ptr %150, i64 %indvars.iv
-  %153 = load i32, ptr %152, align 4, !tbaa !62
-  %154 = mul i32 %153, %.1150326
+149:                                              ; preds = %.lr.ph, %149
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %149 ]
+  %.1150326 = phi i32 [ 1, %.lr.ph ], [ %152, %149 ]
+  %150 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv
+  %151 = load i32, ptr %150, align 4, !tbaa !62
+  %152 = mul i32 %151, %.1150326
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %151, !llvm.loop !315
+  br i1 %exitcond.not, label %._crit_edge, label %149, !llvm.loop !315
 
-._crit_edge:                                      ; preds = %151, %144
-  %.1150.lcssa = phi i32 [ 1, %144 ], [ %154, %151 ]
+._crit_edge:                                      ; preds = %149, %144
+  %.1150.lcssa = phi i32 [ 1, %144 ], [ %152, %149 ]
+  %153 = call i64 @llvm.umax.i64(i64 %124, i64 %131)
+  %154 = call i64 @llvm.umax.i64(i64 %153, i64 %138)
   %155 = zext i32 %.1150.lcssa to i64
   store i64 %155, ptr %16, align 8, !tbaa !21
   %156 = call ptr @H5S_create_simple(i32 noundef 1, ptr noundef nonnull %16, ptr noundef null) #15
@@ -11825,7 +11825,7 @@ H5D_chunk_idx_reset.exit:                         ; preds = %38, %36
   br label %260
 
 .thread214:                                       ; preds = %162
-  %170 = mul i64 %146, %155
+  %170 = mul i64 %154, %155
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %177
 

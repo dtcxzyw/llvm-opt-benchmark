@@ -59,53 +59,53 @@ define i32 @CountLiteralsCheck() local_unnamed_addr #0 {
   br i1 %.not23, label %._crit_edge29.thread, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %0, %._crit_edge
-  %.026 = phi i32 [ %5, %._crit_edge ], [ 0, %0 ]
+  %.026 = phi i32 [ %16, %._crit_edge ], [ 0, %0 ]
   %.01625 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %0 ]
   %.01824 = phi ptr [ %17, %._crit_edge ], [ %1, %0 ]
   %2 = getelementptr inbounds nuw i8, ptr %.01824, i64 2
   %3 = load i16, ptr %2, align 2, !tbaa !3
-  %4 = sext i16 %3 to i32
-  %5 = add nsw i32 %.026, %4
-  %6 = load i32, ptr @g_CoverInfo, align 8, !tbaa !13
-  %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph, label %._crit_edge
+  %4 = load i32, ptr @g_CoverInfo, align 8, !tbaa !13
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph28, %13
-  %.122 = phi i32 [ %.2, %13 ], [ %.01625, %.lr.ph28 ]
-  %.01721 = phi i32 [ %14, %13 ], [ 0, %.lr.ph28 ]
-  %8 = tail call i32 @GetVar(ptr noundef nonnull %.01824, i32 noundef %.01721) #6
-  switch i32 %8, label %13 [
-    i32 1, label %9
-    i32 2, label %11
+.lr.ph:                                           ; preds = %.lr.ph28, %11
+  %.122 = phi i32 [ %.2, %11 ], [ %.01625, %.lr.ph28 ]
+  %.01721 = phi i32 [ %12, %11 ], [ 0, %.lr.ph28 ]
+  %6 = tail call i32 @GetVar(ptr noundef nonnull %.01824, i32 noundef %.01721) #6
+  switch i32 %6, label %11 [
+    i32 1, label %7
+    i32 2, label %9
   ]
+
+7:                                                ; preds = %.lr.ph
+  %8 = add nsw i32 %.122, 1
+  br label %11
 
 9:                                                ; preds = %.lr.ph
   %10 = add nsw i32 %.122, 1
-  br label %13
+  br label %11
 
-11:                                               ; preds = %.lr.ph
-  %12 = add nsw i32 %.122, 1
-  br label %13
+11:                                               ; preds = %.lr.ph, %7, %9
+  %.2 = phi i32 [ %8, %7 ], [ %10, %9 ], [ %.122, %.lr.ph ]
+  %12 = add nuw nsw i32 %.01721, 1
+  %13 = load i32, ptr @g_CoverInfo, align 8, !tbaa !13
+  %14 = icmp slt i32 %12, %13
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
-13:                                               ; preds = %.lr.ph, %9, %11
-  %.2 = phi i32 [ %10, %9 ], [ %12, %11 ], [ %.122, %.lr.ph ]
-  %14 = add nuw nsw i32 %.01721, 1
-  %15 = load i32, ptr @g_CoverInfo, align 8, !tbaa !13
-  %16 = icmp slt i32 %14, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !17
-
-._crit_edge:                                      ; preds = %13, %.lr.ph28
-  %.1.lcssa = phi i32 [ %.01625, %.lr.ph28 ], [ %.2, %13 ]
+._crit_edge:                                      ; preds = %11, %.lr.ph28
+  %.1.lcssa = phi i32 [ %.01625, %.lr.ph28 ], [ %.2, %11 ]
+  %15 = sext i16 %3 to i32
+  %16 = add nsw i32 %.026, %15
   %17 = tail call ptr (...) @IterCubeSetNext() #6
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !18
 
 ._crit_edge29:                                    ; preds = %._crit_edge
-  %.not20 = icmp eq i32 %5, %.1.lcssa
+  %.not20 = icmp eq i32 %16, %.1.lcssa
   br i1 %.not20, label %._crit_edge29.thread, label %18
 
 18:                                               ; preds = %._crit_edge29
-  %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %5, i32 noundef %.1.lcssa)
+  %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %16, i32 noundef %.1.lcssa)
   br label %._crit_edge29.thread
 
 ._crit_edge29.thread:                             ; preds = %0, %18, %._crit_edge29
@@ -248,57 +248,57 @@ define range(i32 0, 2) i32 @WriteResultIntoFile(ptr noundef readonly captures(no
   br i1 %.not23.i, label %CountLiteralsCheck.exit, label %.lr.ph28.i
 
 .lr.ph28.i:                                       ; preds = %8, %._crit_edge.i
-  %.026.i = phi i32 [ %16, %._crit_edge.i ], [ 0, %8 ]
+  %.026.i = phi i32 [ %27, %._crit_edge.i ], [ 0, %8 ]
   %.01625.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %8 ]
   %.01824.i = phi ptr [ %28, %._crit_edge.i ], [ %12, %8 ]
   %13 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 2
   %14 = load i16, ptr %13, align 2, !tbaa !3
-  %15 = sext i16 %14 to i32
-  %16 = add nsw i32 %.026.i, %15
-  %17 = load i32, ptr @g_CoverInfo, align 8, !tbaa !13
-  %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph.i, label %._crit_edge.i
+  %15 = load i32, ptr @g_CoverInfo, align 8, !tbaa !13
+  %16 = icmp sgt i32 %15, 0
+  br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph28.i, %24
-  %.122.i = phi i32 [ %.2.i, %24 ], [ %.01625.i, %.lr.ph28.i ]
-  %.01721.i = phi i32 [ %25, %24 ], [ 0, %.lr.ph28.i ]
-  %19 = call i32 @GetVar(ptr noundef nonnull %.01824.i, i32 noundef %.01721.i) #6
-  switch i32 %19, label %24 [
-    i32 1, label %20
-    i32 2, label %22
+.lr.ph.i:                                         ; preds = %.lr.ph28.i, %22
+  %.122.i = phi i32 [ %.2.i, %22 ], [ %.01625.i, %.lr.ph28.i ]
+  %.01721.i = phi i32 [ %23, %22 ], [ 0, %.lr.ph28.i ]
+  %17 = call i32 @GetVar(ptr noundef nonnull %.01824.i, i32 noundef %.01721.i) #6
+  switch i32 %17, label %22 [
+    i32 1, label %18
+    i32 2, label %20
   ]
+
+18:                                               ; preds = %.lr.ph.i
+  %19 = add nsw i32 %.122.i, 1
+  br label %22
 
 20:                                               ; preds = %.lr.ph.i
   %21 = add nsw i32 %.122.i, 1
-  br label %24
+  br label %22
 
-22:                                               ; preds = %.lr.ph.i
-  %23 = add nsw i32 %.122.i, 1
-  br label %24
+22:                                               ; preds = %20, %18, %.lr.ph.i
+  %.2.i = phi i32 [ %19, %18 ], [ %21, %20 ], [ %.122.i, %.lr.ph.i ]
+  %23 = add nuw nsw i32 %.01721.i, 1
+  %24 = load i32, ptr @g_CoverInfo, align 8, !tbaa !13
+  %25 = icmp slt i32 %23, %24
+  br i1 %25, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
-24:                                               ; preds = %22, %20, %.lr.ph.i
-  %.2.i = phi i32 [ %21, %20 ], [ %23, %22 ], [ %.122.i, %.lr.ph.i ]
-  %25 = add nuw nsw i32 %.01721.i, 1
-  %26 = load i32, ptr @g_CoverInfo, align 8, !tbaa !13
-  %27 = icmp slt i32 %25, %26
-  br i1 %27, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
-
-._crit_edge.i:                                    ; preds = %24, %.lr.ph28.i
-  %.1.lcssa.i = phi i32 [ %.01625.i, %.lr.ph28.i ], [ %.2.i, %24 ]
+._crit_edge.i:                                    ; preds = %22, %.lr.ph28.i
+  %.1.lcssa.i = phi i32 [ %.01625.i, %.lr.ph28.i ], [ %.2.i, %22 ]
+  %26 = sext i16 %14 to i32
+  %27 = add nsw i32 %.026.i, %26
   %28 = call ptr (...) @IterCubeSetNext() #6
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %._crit_edge29.i, label %.lr.ph28.i, !llvm.loop !18
 
 ._crit_edge29.i:                                  ; preds = %._crit_edge.i
-  %.not20.i = icmp eq i32 %16, %.1.lcssa.i
+  %.not20.i = icmp eq i32 %27, %.1.lcssa.i
   br i1 %.not20.i, label %CountLiteralsCheck.exit, label %29
 
 29:                                               ; preds = %._crit_edge29.i
-  %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %16, i32 noundef %.1.lcssa.i)
+  %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %27, i32 noundef %.1.lcssa.i)
   br label %CountLiteralsCheck.exit
 
 CountLiteralsCheck.exit:                          ; preds = %8, %._crit_edge29.i, %29
-  %.016.lcssa37.i = phi i32 [ %.1.lcssa.i, %29 ], [ %16, %._crit_edge29.i ], [ 0, %8 ]
+  %.016.lcssa37.i = phi i32 [ %.1.lcssa.i, %29 ], [ %.1.lcssa.i, %._crit_edge29.i ], [ 0, %8 ]
   store i32 %.016.lcssa37.i, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 36), align 4, !tbaa !30
   %31 = call ptr (...) @IterCubeSetStart() #6
   %.not7.i = icmp eq ptr %31, null

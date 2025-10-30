@@ -324,50 +324,50 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i64, ptr %0, align 8, !tbaa !11
   %.fr = freeze i64 %6
-  %7 = add i64 %.fr, -1
-  %8 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #9
-  %9 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #9
-  %10 = tail call ptr @N_VGetArrayPointer(ptr noundef %3) #9
+  %7 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #9
+  %8 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #9
+  %9 = tail call ptr @N_VGetArrayPointer(ptr noundef %3) #9
   tail call void @N_VConst(double noundef 1.000000e+00, ptr noundef %3) #9
-  %11 = icmp sgt i64 %.fr, 0
-  br i1 %11, label %.lr.ph64, label %._crit_edge65
+  %10 = icmp sgt i64 %.fr, 0
+  br i1 %10, label %.lr.ph64, label %._crit_edge65
 
 .lr.ph64:                                         ; preds = %5
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.lr.ph64
-  %.062.us = phi i64 [ 0, %.lr.ph64 ], [ %30, %._crit_edge.us ]
-  %13 = load double, ptr %12, align 8, !tbaa !15
-  %14 = uitofp nneg i64 %.062.us to double
-  %15 = fmul double %13, %14
-  %16 = mul nuw nsw i64 %.062.us, %.fr
-  %17 = fsub double 1.000000e+00, %15
-  %18 = getelementptr double, ptr %8, i64 %16
-  br label %19
+  %.062.us = phi i64 [ 0, %.lr.ph64 ], [ %29, %._crit_edge.us ]
+  %12 = load double, ptr %11, align 8, !tbaa !15
+  %13 = uitofp nneg i64 %.062.us to double
+  %14 = fmul double %12, %13
+  %15 = mul nuw nsw i64 %.062.us, %.fr
+  %16 = fsub double 1.000000e+00, %14
+  %17 = getelementptr double, ptr %7, i64 %15
+  br label %18
 
-19:                                               ; preds = %.lr.ph.us, %19
-  %.05561.us = phi i64 [ 0, %.lr.ph.us ], [ %29, %19 ]
-  %20 = load double, ptr %12, align 8, !tbaa !15
-  %21 = uitofp nneg i64 %.05561.us to double
-  %22 = fmul double %20, %21
-  %23 = fmul double %22, 1.600000e+01
-  %24 = fsub double 1.000000e+00, %22
-  %25 = fmul double %23, %24
-  %26 = fmul double %15, %25
-  %27 = fmul double %17, %26
-  %28 = getelementptr double, ptr %18, i64 %.05561.us
-  store double %27, ptr %28, align 8, !tbaa !18
-  %29 = add nuw nsw i64 %.05561.us, 1
-  %exitcond.not = icmp eq i64 %29, %.fr
-  br i1 %exitcond.not, label %._crit_edge.us, label %19
+18:                                               ; preds = %.lr.ph.us, %18
+  %.05561.us = phi i64 [ 0, %.lr.ph.us ], [ %28, %18 ]
+  %19 = load double, ptr %11, align 8, !tbaa !15
+  %20 = uitofp nneg i64 %.05561.us to double
+  %21 = fmul double %19, %20
+  %22 = fmul double %21, 1.600000e+01
+  %23 = fsub double 1.000000e+00, %21
+  %24 = fmul double %22, %23
+  %25 = fmul double %14, %24
+  %26 = fmul double %16, %25
+  %27 = getelementptr double, ptr %17, i64 %.05561.us
+  store double %26, ptr %27, align 8, !tbaa !18
+  %28 = add nuw nsw i64 %.05561.us, 1
+  %exitcond.not = icmp eq i64 %28, %.fr
+  br i1 %exitcond.not, label %._crit_edge.us, label %18
 
-._crit_edge.us:                                   ; preds = %19
-  %30 = add nuw nsw i64 %.062.us, 1
-  %exitcond81.not = icmp eq i64 %30, %.fr
+._crit_edge.us:                                   ; preds = %18
+  %29 = add nuw nsw i64 %.062.us, 1
+  %exitcond81.not = icmp eq i64 %29, %.fr
   br i1 %exitcond81.not, label %._crit_edge65, label %.lr.ph.us
 
 ._crit_edge65:                                    ; preds = %._crit_edge.us, %5
+  %30 = add i64 %.fr, -1
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %2) #9
   %31 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #9
   %32 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #9
@@ -423,7 +423,7 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
 
 heatres.exit:                                     ; preds = %._crit_edge.us.i, %._crit_edge65
   tail call void @N_VScale(double noundef -1.000000e+00, ptr noundef %4, ptr noundef %2) #9
-  br i1 %11, label %.lr.ph.us73, label %._crit_edge71
+  br i1 %10, label %.lr.ph.us73, label %._crit_edge71
 
 .lr.ph.us73:                                      ; preds = %heatres.exit, %._crit_edge.us76
   %.169.us = phi i64 [ %76, %._crit_edge.us76 ], [ 0, %heatres.exit ]
@@ -434,17 +434,17 @@ heatres.exit:                                     ; preds = %._crit_edge.us.i, %
 .lr.ph.split.split.us77:                          ; preds = %.lr.ph.split.us75, %73
   %.15666.us72 = phi i64 [ %74, %73 ], [ 0, %.lr.ph.split.us75 ]
   %66 = icmp eq i64 %.15666.us72, 0
-  %67 = icmp eq i64 %.15666.us72, %7
+  %67 = icmp eq i64 %.15666.us72, %30
   %or.cond60.us = or i1 %67, %66
   br i1 %or.cond60.us, label %68, label %73
 
 68:                                               ; preds = %.lr.ph.split.split.us77
   %69 = add nuw nsw i64 %.15666.us72, %64
-  %70 = getelementptr inbounds nuw double, ptr %8, i64 %69
+  %70 = getelementptr inbounds nuw double, ptr %7, i64 %69
   store double 1.000000e-01, ptr %70, align 8, !tbaa !18
-  %71 = getelementptr inbounds nuw double, ptr %9, i64 %69
+  %71 = getelementptr inbounds nuw double, ptr %8, i64 %69
   store double 0.000000e+00, ptr %71, align 8, !tbaa !18
-  %72 = getelementptr inbounds nuw double, ptr %10, i64 %69
+  %72 = getelementptr inbounds nuw double, ptr %9, i64 %69
   store double 0.000000e+00, ptr %72, align 8, !tbaa !18
   br label %73
 
@@ -454,7 +454,7 @@ heatres.exit:                                     ; preds = %._crit_edge.us.i, %
   br i1 %exitcond82.not, label %._crit_edge.us76, label %.lr.ph.split.split.us77
 
 .lr.ph.split.us75:                                ; preds = %.lr.ph.us73
-  %75 = icmp eq i64 %.169.us, %7
+  %75 = icmp eq i64 %.169.us, %30
   br i1 %75, label %.lr.ph.split.split.us.us, label %.lr.ph.split.split.us77
 
 ._crit_edge.us76:                                 ; preds = %73, %.lr.ph.split.split.us.us, %.lr.ph.split.us.us
@@ -464,11 +464,11 @@ heatres.exit:                                     ; preds = %._crit_edge.us.i, %
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us73, %.lr.ph.split.us.us
   %.15666.us.us = phi i64 [ %80, %.lr.ph.split.us.us ], [ 0, %.lr.ph.us73 ]
-  %77 = getelementptr inbounds nuw double, ptr %8, i64 %.15666.us.us
+  %77 = getelementptr inbounds nuw double, ptr %7, i64 %.15666.us.us
   store double 1.000000e-01, ptr %77, align 8, !tbaa !18
-  %78 = getelementptr inbounds nuw double, ptr %9, i64 %.15666.us.us
+  %78 = getelementptr inbounds nuw double, ptr %8, i64 %.15666.us.us
   store double 0.000000e+00, ptr %78, align 8, !tbaa !18
-  %79 = getelementptr inbounds nuw double, ptr %10, i64 %.15666.us.us
+  %79 = getelementptr inbounds nuw double, ptr %9, i64 %.15666.us.us
   store double 0.000000e+00, ptr %79, align 8, !tbaa !18
   %80 = add nuw nsw i64 %.15666.us.us, 1
   %exitcond84.not = icmp eq i64 %80, %.fr
@@ -477,11 +477,11 @@ heatres.exit:                                     ; preds = %._crit_edge.us.i, %
 .lr.ph.split.split.us.us:                         ; preds = %.lr.ph.split.us75, %.lr.ph.split.split.us.us
   %.15666.us68.us = phi i64 [ %85, %.lr.ph.split.split.us.us ], [ 0, %.lr.ph.split.us75 ]
   %81 = add nuw nsw i64 %.15666.us68.us, %64
-  %82 = getelementptr inbounds nuw double, ptr %8, i64 %81
+  %82 = getelementptr inbounds nuw double, ptr %7, i64 %81
   store double 1.000000e-01, ptr %82, align 8, !tbaa !18
-  %83 = getelementptr inbounds nuw double, ptr %9, i64 %81
+  %83 = getelementptr inbounds nuw double, ptr %8, i64 %81
   store double 0.000000e+00, ptr %83, align 8, !tbaa !18
-  %84 = getelementptr inbounds nuw double, ptr %10, i64 %81
+  %84 = getelementptr inbounds nuw double, ptr %9, i64 %81
   store double 0.000000e+00, ptr %84, align 8, !tbaa !18
   %85 = add nuw nsw i64 %.15666.us68.us, 1
   %exitcond83.not = icmp eq i64 %85, %.fr

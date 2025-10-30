@@ -495,9 +495,9 @@ Dar_Permutations.exit:                            ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %19
 
-19:                                               ; preds = %Dar_Permutations.exit, %.loopexit
-  %indvars.iv197 = phi i64 [ 1, %Dar_Permutations.exit ], [ %indvars.iv.next198, %.loopexit ]
-  %.0118190 = phi i8 [ 1, %Dar_Permutations.exit ], [ %.1119, %.loopexit ]
+19:                                               ; preds = %Dar_Permutations.exit, %168
+  %indvars.iv197 = phi i64 [ 1, %Dar_Permutations.exit ], [ %indvars.iv.next198, %168 ]
+  %.0118190 = phi i8 [ 1, %Dar_Permutations.exit ], [ %.1119, %168 ]
   %20 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv197
   %21 = load i16, ptr %20, align 2, !tbaa !23
   %.not140 = icmp eq i16 %21, 0
@@ -513,7 +513,7 @@ Dar_Permutations.exit:                            ; preds = %.lr.ph.i
   %28 = xor i64 %27, 65535
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 %28
   store i8 %25, ptr %29, align 1, !tbaa !11
-  br label %.loopexit
+  br label %168
 
 30:                                               ; preds = %19
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv197
@@ -836,78 +836,78 @@ Dar_TruthPolarize.exit160:                        ; preds = %151, %Dar_TruthPerm
 165:                                              ; preds = %Dar_TruthPolarize.exit160
   %166 = add nuw nsw i32 %.0117188, 1
   %exitcond196.not = icmp eq i32 %166, 16
-  br i1 %exitcond196.not, label %.loopexit.loopexit, label %.lr.ph.i141.preheader, !llvm.loop !27
+  br i1 %exitcond196.not, label %.loopexit, label %.lr.ph.i141.preheader, !llvm.loop !27
 
-.loopexit.loopexit:                               ; preds = %165
+.loopexit:                                        ; preds = %165
   %167 = add i8 %.0118190, 1
-  br label %.loopexit
+  br label %168
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %22
-  %.1119 = phi i8 [ %.0118190, %22 ], [ %167, %.loopexit.loopexit ]
+168:                                              ; preds = %.loopexit, %22
+  %.1119 = phi i8 [ %.0118190, %22 ], [ %167, %.loopexit ]
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next198, 32768
   br i1 %exitcond199.not, label %.preheader.preheader, label %19, !llvm.loop !28
 
-.preheader.preheader:                             ; preds = %.loopexit
-  %168 = getelementptr inbounds nuw i8, ptr %6, i64 65535
-  store i8 16, ptr %168, align 1, !tbaa !11
+.preheader.preheader:                             ; preds = %168
+  %169 = getelementptr inbounds nuw i8, ptr %6, i64 65535
+  store i8 16, ptr %169, align 1, !tbaa !11
   tail call void @free(ptr noundef %9) #14
   %.not132 = icmp eq ptr %0, null
-  br i1 %.not132, label %170, label %169
-
-169:                                              ; preds = %.preheader.preheader
-  store ptr %5, ptr %0, align 8, !tbaa !29
-  br label %171
+  br i1 %.not132, label %171, label %170
 
 170:                                              ; preds = %.preheader.preheader
+  store ptr %5, ptr %0, align 8, !tbaa !29
+  br label %172
+
+171:                                              ; preds = %.preheader.preheader
   tail call void @free(ptr noundef nonnull %5) #14
-  br label %171
+  br label %172
 
-171:                                              ; preds = %170, %169
+172:                                              ; preds = %171, %170
   %.not134 = icmp eq ptr %1, null
-  br i1 %.not134, label %173, label %172
+  br i1 %.not134, label %174, label %173
 
-172:                                              ; preds = %171
+173:                                              ; preds = %172
   store ptr %6, ptr %1, align 8, !tbaa !3
-  br label %174
+  br label %175
 
-173:                                              ; preds = %171
+174:                                              ; preds = %172
   tail call void @free(ptr noundef nonnull %6) #14
-  br label %174
+  br label %175
 
-174:                                              ; preds = %173, %172
+175:                                              ; preds = %174, %173
   %.not136 = icmp eq ptr %2, null
-  br i1 %.not136, label %176, label %175
+  br i1 %.not136, label %177, label %176
 
-175:                                              ; preds = %174
+176:                                              ; preds = %175
   store ptr %7, ptr %2, align 8, !tbaa !3
-  br label %178
+  br label %179
 
-176:                                              ; preds = %174
+177:                                              ; preds = %175
   %.not137 = icmp eq ptr %7, null
-  br i1 %.not137, label %178, label %177
+  br i1 %.not137, label %179, label %178
 
-177:                                              ; preds = %176
+178:                                              ; preds = %177
   tail call void @free(ptr noundef nonnull %7) #14
-  br label %178
+  br label %179
 
-178:                                              ; preds = %177, %176, %175
+179:                                              ; preds = %178, %177, %176
   %.not138 = icmp eq ptr %3, null
-  br i1 %.not138, label %180, label %179
+  br i1 %.not138, label %181, label %180
 
-179:                                              ; preds = %178
+180:                                              ; preds = %179
   store ptr %8, ptr %3, align 8, !tbaa !3
-  br label %182
+  br label %183
 
-180:                                              ; preds = %178
+181:                                              ; preds = %179
   %.not139 = icmp eq ptr %8, null
-  br i1 %.not139, label %182, label %181
+  br i1 %.not139, label %183, label %182
 
-181:                                              ; preds = %180
+182:                                              ; preds = %181
   tail call void @free(ptr noundef nonnull %8) #14
-  br label %182
+  br label %183
 
-182:                                              ; preds = %181, %180, %179
+183:                                              ; preds = %182, %181, %180
   ret void
 }
 

@@ -1347,21 +1347,21 @@ _ZN6icu_7716ReorderingBuffer6resizeEiR10UErrorCode.exit: ; preds = %13
   %.promoted = phi ptr [ %69, %66 ], [ %.promoted.ph, %._crit_edge.sink.split ]
   %73 = sext i32 %2 to i64
   %74 = getelementptr inbounds i16, ptr %1, i64 %73
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %76
+  br label %75
 
-76:                                               ; preds = %76, %._crit_edge
-  %77 = phi ptr [ %.promoted, %._crit_edge ], [ %80, %76 ]
-  %.052 = phi ptr [ %1, %._crit_edge ], [ %78, %76 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.052, i64 2
-  %79 = load i16, ptr %.052, align 2, !tbaa !32
-  %80 = getelementptr inbounds nuw i8, ptr %77, i64 2
-  store i16 %79, ptr %77, align 2, !tbaa !32
-  %.not65 = icmp eq ptr %78, %74
-  br i1 %.not65, label %81, label %76, !llvm.loop !54
+75:                                               ; preds = %75, %._crit_edge
+  %76 = phi ptr [ %.promoted, %._crit_edge ], [ %79, %75 ]
+  %.052 = phi ptr [ %1, %._crit_edge ], [ %77, %75 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.052, i64 2
+  %78 = load i16, ptr %.052, align 2, !tbaa !32
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 2
+  store i16 %78, ptr %76, align 2, !tbaa !32
+  %.not65 = icmp eq ptr %77, %74
+  br i1 %.not65, label %80, label %75, !llvm.loop !54
 
-81:                                               ; preds = %76
-  store ptr %80, ptr %75, align 8, !tbaa !23
+80:                                               ; preds = %75
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %79, ptr %81, align 8, !tbaa !23
   store i8 %5, ptr %55, align 4, !tbaa !27
   br label %.loopexit
 
@@ -1684,8 +1684,8 @@ _ZNK6icu_7715Normalizer2Impl5getCCEt.exit:        ; preds = %258, %250, %_ZNK6ic
 _ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit: ; preds = %263, %266
   br i1 %162, label %141, label %.loopexit, !llvm.loop !57
 
-.loopexit:                                        ; preds = %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit, %_ZN6icu_7716ReorderingBuffer6insertEih.exit, %_ZN6icu_7716ReorderingBuffer6resizeEiR10UErrorCode.exit.thread, %81, %7
-  %.0 = phi i8 [ 1, %7 ], [ 1, %81 ], [ 0, %_ZN6icu_7716ReorderingBuffer6resizeEiR10UErrorCode.exit.thread ], [ 1, %_ZN6icu_7716ReorderingBuffer6insertEih.exit ], [ 1, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit ]
+.loopexit:                                        ; preds = %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit, %_ZN6icu_7716ReorderingBuffer6insertEih.exit, %_ZN6icu_7716ReorderingBuffer6resizeEiR10UErrorCode.exit.thread, %80, %7
+  %.0 = phi i8 [ 1, %7 ], [ 1, %80 ], [ 0, %_ZN6icu_7716ReorderingBuffer6resizeEiR10UErrorCode.exit.thread ], [ 1, %_ZN6icu_7716ReorderingBuffer6insertEih.exit ], [ 1, %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit ]
   ret i8 %.0
 }
 

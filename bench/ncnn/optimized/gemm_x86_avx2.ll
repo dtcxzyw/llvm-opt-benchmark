@@ -2138,13 +2138,13 @@ define hidden void @_ZN4ncnn29pack_A_tile_fp32_to_int8_avx2ERKNS_3MatERS0_iiiiS2
   %334 = shufflevector <4 x float> %333, <4 x float> poison, <4 x i32> zeroinitializer
   %335 = insertelement <4 x float> poison, float %332, i64 0
   %336 = shufflevector <4 x float> %335, <4 x float> poison, <4 x i32> zeroinitializer
-  %337 = shufflevector <4 x float> %333, <4 x float> %335, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
   br i1 %308, label %.lr.ph462.i, label %.preheader370.i
 
 .preheader370.i:                                  ; preds = %.lr.ph462.i, %322
   %.0312.lcssa.i = phi ptr [ %327, %322 ], [ %360, %.lr.ph462.i ]
   %.0309.lcssa.i = phi i32 [ 0, %322 ], [ %310, %.lr.ph462.i ]
   %.18.lcssa.i = phi ptr [ %.17479.i, %322 ], [ %359, %.lr.ph462.i ]
+  %337 = shufflevector <4 x float> %333, <4 x float> %335, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
   %338 = or disjoint i32 %.0309.lcssa.i, 1
   %339 = icmp slt i32 %338, %5
   br i1 %339, label %.lr.ph469.i, label %.preheader369.i
@@ -3204,13 +3204,13 @@ define hidden void @_ZN4ncnn39transpose_pack_A_tile_fp32_to_int8_avx2ERKNS_3MatE
   %627 = shufflevector <4 x float> %626, <4 x float> poison, <4 x i32> zeroinitializer
   %628 = insertelement <4 x float> poison, float %625, i64 0
   %629 = shufflevector <4 x float> %628, <4 x float> poison, <4 x i32> zeroinitializer
-  %630 = shufflevector <4 x float> %626, <4 x float> %628, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
   br i1 %330, label %.lr.ph701.i, label %.preheader615.i
 
 .preheader615.i:                                  ; preds = %.lr.ph701.i, %620
   %.0488.lcssa.i = phi i32 [ 0, %620 ], [ %338, %.lr.ph701.i ]
   %.4483.lcssa.i = phi ptr [ %548, %620 ], [ %669, %.lr.ph701.i ]
   %.22.lcssa.i = phi ptr [ %.16718.i, %620 ], [ %668, %.lr.ph701.i ]
+  %630 = shufflevector <4 x float> %626, <4 x float> %628, <4 x i32> <i32 0, i32 0, i32 4, i32 4>
   %631 = or disjoint i32 %.0488.lcssa.i, 1
   %632 = icmp slt i32 %631, %5
   br i1 %632, label %.lr.ph708.i, label %.preheader613.i

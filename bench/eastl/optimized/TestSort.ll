@@ -15453,52 +15453,52 @@ call.i.i.noexc:                                   ; preds = %if.end.i
 call.i.i.i.noexc:                                 ; preds = %call.i.i.noexc
   call void @llvm.lifetime.start.p0(ptr nonnull %first.addr.i.i.i.i)
   store ptr %call.i.i.i63, ptr %first.addr.i.i.i.i, align 8
-  %sub.ptr.rhs.cast.i.i.i.i55 = ptrtoint ptr %call.i.i.i63 to i64
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 1
   %29 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosw\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i.i, i16 0, i64 %sub.ptr.div.i.i.i.i, ptr %call.i.i.i63) #13, !srcloc !364
   call void @llvm.lifetime.end.p0(ptr nonnull %first.addr.i.i.i.i)
   %30 = load i16, ptr %first.addr.06.i.i, align 2
   store i16 %30, ptr %call.i.i.i63, align 2
-  %incdec.ptr.i56 = getelementptr inbounds nuw i8, ptr %call.i.i.i63, i64 2
+  %incdec.ptr.i55 = getelementptr inbounds nuw i8, ptr %call.i.i.i63, i64 2
   %first.addr.034.i = getelementptr inbounds nuw i8, ptr %first.addr.06.i.i, i64 2
   %cmp6.not35.i = icmp eq ptr %first.addr.034.i, %25
-  br i1 %cmp6.not35.i, label %if.end.i.i.i.i.i, label %for.body.i57
+  br i1 %cmp6.not35.i, label %if.end.i.i.i.i.i, label %for.body.i56
 
-for.body.i57:                                     ; preds = %call.i.i.i.noexc, %for.inc.i60
-  %first.addr.038.i = phi ptr [ %first.addr.0.i, %for.inc.i60 ], [ %first.addr.034.i, %call.i.i.i.noexc ]
-  %result2.037.i = phi ptr [ %result2.1.i, %for.inc.i60 ], [ %incdec.ptr.i56, %call.i.i.i.noexc ]
-  %result1.036.i = phi ptr [ %result1.1.i, %for.inc.i60 ], [ %first.addr.06.i.i, %call.i.i.i.noexc ]
+for.body.i56:                                     ; preds = %call.i.i.i.noexc, %for.inc.i59
+  %first.addr.038.i = phi ptr [ %first.addr.0.i, %for.inc.i59 ], [ %first.addr.034.i, %call.i.i.i.noexc ]
+  %result2.037.i = phi ptr [ %result2.1.i, %for.inc.i59 ], [ %incdec.ptr.i55, %call.i.i.i.noexc ]
+  %result1.036.i = phi ptr [ %result1.1.i, %for.inc.i59 ], [ %first.addr.06.i.i, %call.i.i.i.noexc ]
   %31 = load i16, ptr %first.addr.038.i, align 2
   %32 = and i16 %31, 1
-  %cmp.i.i58 = icmp eq i16 %32, 0
-  br i1 %cmp.i.i58, label %if.then8.i, label %if.else.i59
+  %cmp.i.i57 = icmp eq i16 %32, 0
+  br i1 %cmp.i.i57, label %if.then8.i, label %if.else.i58
 
-if.then8.i:                                       ; preds = %for.body.i57
+if.then8.i:                                       ; preds = %for.body.i56
   store i16 %31, ptr %result1.036.i, align 2
   %incdec.ptr10.i = getelementptr inbounds nuw i8, ptr %result1.036.i, i64 2
-  br label %for.inc.i60
+  br label %for.inc.i59
 
-if.else.i59:                                      ; preds = %for.body.i57
+if.else.i58:                                      ; preds = %for.body.i56
   store i16 %31, ptr %result2.037.i, align 2
   %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %result2.037.i, i64 2
-  br label %for.inc.i60
+  br label %for.inc.i59
 
-for.inc.i60:                                      ; preds = %if.else.i59, %if.then8.i
-  %result1.1.i = phi ptr [ %incdec.ptr10.i, %if.then8.i ], [ %result1.036.i, %if.else.i59 ]
-  %result2.1.i = phi ptr [ %result2.037.i, %if.then8.i ], [ %incdec.ptr12.i, %if.else.i59 ]
+for.inc.i59:                                      ; preds = %if.else.i58, %if.then8.i
+  %result1.1.i = phi ptr [ %incdec.ptr10.i, %if.then8.i ], [ %result1.036.i, %if.else.i58 ]
+  %result2.1.i = phi ptr [ %result2.037.i, %if.then8.i ], [ %incdec.ptr12.i, %if.else.i58 ]
   %first.addr.0.i = getelementptr inbounds nuw i8, ptr %first.addr.038.i, i64 2
   %cmp6.not.i = icmp eq ptr %first.addr.0.i, %25
-  br i1 %cmp6.not.i, label %for.end.i, label %for.body.i57, !llvm.loop !365
+  br i1 %cmp6.not.i, label %for.end.i, label %for.body.i56, !llvm.loop !365
 
-for.end.i:                                        ; preds = %for.inc.i60
+for.end.i:                                        ; preds = %for.inc.i59
   %cmp.i.i.i.i.i = icmp eq ptr %call.i.i.i63, %result2.1.i
   br i1 %cmp.i.i.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %for.end.i, %call.i.i.i.noexc
-  %result2.0.lcssa46.i = phi ptr [ %result2.1.i, %for.end.i ], [ %incdec.ptr.i56, %call.i.i.i.noexc ]
+  %result2.0.lcssa46.i = phi ptr [ %result2.1.i, %for.end.i ], [ %incdec.ptr.i55, %call.i.i.i.noexc ]
   %result1.0.lcssa44.i = phi ptr [ %result1.1.i, %for.end.i ], [ %first.addr.06.i.i, %call.i.i.i.noexc ]
+  %sub.ptr.rhs.cast.i.i.i.i60 = ptrtoint ptr %call.i.i.i63 to i64
   %33 = ptrtoint ptr %result2.0.lcssa46.i to i64
-  %sub.i.i.i.i.i = sub i64 %33, %sub.ptr.rhs.cast.i.i.i.i55
+  %sub.i.i.i.i.i = sub i64 %33, %sub.ptr.rhs.cast.i.i.i.i60
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %result1.0.lcssa44.i, ptr nonnull align 2 %call.i.i.i63, i64 %sub.i.i.i.i.i, i1 false)
   br label %_ZN5eastl9allocator10deallocateEPvm.exit.i
 

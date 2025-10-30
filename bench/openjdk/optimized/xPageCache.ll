@@ -1501,6 +1501,7 @@ define hidden void @_ZNK10XPageCache8pages_doEP12XPageClosure(ptr noundef nonnul
   br i1 %.not, label %_ZN19XValueConstIteratorI15XPerNUMAStorage5XListI5XPageEE4nextEPPKS3_.exit, label %.lr.ph56
 
 _ZN17XListIteratorImplI5XPageLb1EE4nextEPPS0_.exit.loopexit: ; preds = %select.unfold, %.lr.ph56
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = tail call noundef i32 @_ZN5XNUMA5countEv() #9
   %5 = zext i32 %4 to i64
   %6 = icmp samesign ult i64 %indvars.iv.next, %5
@@ -1508,7 +1509,6 @@ _ZN17XListIteratorImplI5XPageLb1EE4nextEPPS0_.exit.loopexit: ; preds = %select.u
 
 .lr.ph56:                                         ; preds = %2, %_ZN17XListIteratorImplI5XPageLb1EE4nextEPPS0_.exit.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN17XListIteratorImplI5XPageLb1EE4nextEPPS0_.exit.loopexit ], [ 0, %2 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load i64, ptr %0, align 8
   %8 = shl nuw nsw i64 %indvars.iv, 12
   %9 = add i64 %7, %8

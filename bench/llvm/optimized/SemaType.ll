@@ -78418,127 +78418,127 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIPN5clang14SourceLocationE
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
   %7 = icmp sgt i64 %6, 64
-  br i1 %7, label %8, label %22
+  br i1 %7, label %.preheader, label %21
 
-8:                                                ; preds = %3
+.preheader:                                       ; preds = %3
   %scevgep = getelementptr i8, ptr %0, i64 4
-  br label %9
+  br label %8
 
-9:                                                ; preds = %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i, %8
-  %.022.i.idx = phi i64 [ 4, %8 ], [ %.022.i.add, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i ]
-  %.pn21.i = phi ptr [ %0, %8 ], [ %.022.i.ptr, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i ]
+8:                                                ; preds = %.preheader, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i
+  %.022.i.idx = phi i64 [ %.022.i.add, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i ], [ 4, %.preheader ]
+  %.pn21.i = phi ptr [ %.022.i.ptr, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i ], [ %0, %.preheader ]
   %.022.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.022.i.idx
   %.sroa.01.0.copyload.i.i = load i32, ptr %.022.i.ptr, align 4, !tbaa !13
   %.sroa.0.0.copyload.i.i = load i32, ptr %0, align 4, !tbaa !13
-  %10 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.01.0.copyload.i.i, i32 %.sroa.0.0.copyload.i.i) #24
+  %9 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.01.0.copyload.i.i, i32 %.sroa.0.0.copyload.i.i) #24
   %.sroa.02.0.copyload.i = load i32, ptr %.022.i.ptr, align 4, !tbaa !13
-  br i1 %10, label %11, label %12
+  br i1 %9, label %10, label %11
 
-11:                                               ; preds = %9
+10:                                               ; preds = %8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %.022.i.idx, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i
 
-12:                                               ; preds = %9
+11:                                               ; preds = %8
   %.sroa.0.0.copyload.i13.i.i = load i32, ptr %.pn21.i, align 4, !tbaa !13
-  %13 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.02.0.copyload.i, i32 %.sroa.0.0.copyload.i13.i.i) #24
-  br i1 %13, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i
+  %12 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.02.0.copyload.i, i32 %.sroa.0.0.copyload.i13.i.i) #24
+  br i1 %12, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i
 
-.lr.ph.i.i:                                       ; preds = %12, %.lr.ph.i.i
-  %.015.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn21.i, %12 ]
-  %.0914.i.i = phi ptr [ %.015.i.i, %.lr.ph.i.i ], [ %.022.i.ptr, %12 ]
-  %14 = load i32, ptr %.015.i.i, align 4, !tbaa !13
-  store i32 %14, ptr %.0914.i.i, align 4, !tbaa !13
+.lr.ph.i.i:                                       ; preds = %11, %.lr.ph.i.i
+  %.015.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn21.i, %11 ]
+  %.0914.i.i = phi ptr [ %.015.i.i, %.lr.ph.i.i ], [ %.022.i.ptr, %11 ]
+  %13 = load i32, ptr %.015.i.i, align 4, !tbaa !13
+  store i32 %13, ptr %.0914.i.i, align 4, !tbaa !13
   %.0.i.i = getelementptr inbounds i8, ptr %.015.i.i, i64 -4
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %.0.i.i, align 4, !tbaa !13
-  %15 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.02.0.copyload.i, i32 %.sroa.0.0.copyload.i.i.i) #24
-  br i1 %15, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i, !llvm.loop !2250
+  %14 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.02.0.copyload.i, i32 %.sroa.0.0.copyload.i.i.i) #24
+  br i1 %14, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i, !llvm.loop !2250
 
-_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %12, %11
-  %.sink.i = phi ptr [ %0, %11 ], [ %.022.i.ptr, %12 ], [ %.015.i.i, %.lr.ph.i.i ]
+_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %11, %10
+  %.sink.i = phi ptr [ %0, %10 ], [ %.022.i.ptr, %11 ], [ %.015.i.i, %.lr.ph.i.i ]
   store i32 %.sroa.02.0.copyload.i, ptr %.sink.i, align 4, !tbaa !13
   %.022.i.add = add nuw nsw i64 %.022.i.idx, 4
   %.not.i = icmp eq i64 %.022.i.add, 64
-  br i1 %.not.i, label %_ZSt16__insertion_sortIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_T0_.exit, label %9, !llvm.loop !2251
+  br i1 %.not.i, label %_ZSt16__insertion_sortIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_T0_.exit, label %8, !llvm.loop !2251
 
 _ZSt16__insertion_sortIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.not7.i = icmp eq ptr %16, %1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.not7.i = icmp eq ptr %15, %1
   br i1 %.not7.i, label %_ZSt26__unguarded_insertion_sortIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_T0_.exit, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i12
-  %.08.i = phi ptr [ %21, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i12 ], [ %16, %_ZSt16__insertion_sortIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_T0_.exit ]
-  %17 = load i32, ptr %.08.i, align 4, !tbaa !13
+  %.08.i = phi ptr [ %20, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i12 ], [ %15, %_ZSt16__insertion_sortIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_T0_.exit ]
+  %16 = load i32, ptr %.08.i, align 4, !tbaa !13
   %.012.i.i = getelementptr inbounds i8, ptr %.08.i, i64 -4
   %.sroa.0.0.copyload.i13.i.i11 = load i32, ptr %.012.i.i, align 4, !tbaa !13
-  %18 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %17, i32 %.sroa.0.0.copyload.i13.i.i11) #24
-  br i1 %18, label %.lr.ph.i.i14, label %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i12
+  %17 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %16, i32 %.sroa.0.0.copyload.i13.i.i11) #24
+  br i1 %17, label %.lr.ph.i.i14, label %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i12
 
 .lr.ph.i.i14:                                     ; preds = %.lr.ph.i, %.lr.ph.i.i14
   %.015.i.i15 = phi ptr [ %.0.i.i17, %.lr.ph.i.i14 ], [ %.012.i.i, %.lr.ph.i ]
   %.0914.i.i16 = phi ptr [ %.015.i.i15, %.lr.ph.i.i14 ], [ %.08.i, %.lr.ph.i ]
-  %19 = load i32, ptr %.015.i.i15, align 4, !tbaa !13
-  store i32 %19, ptr %.0914.i.i16, align 4, !tbaa !13
+  %18 = load i32, ptr %.015.i.i15, align 4, !tbaa !13
+  store i32 %18, ptr %.0914.i.i16, align 4, !tbaa !13
   %.0.i.i17 = getelementptr inbounds i8, ptr %.015.i.i15, i64 -4
   %.sroa.0.0.copyload.i.i.i18 = load i32, ptr %.0.i.i17, align 4, !tbaa !13
-  %20 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %17, i32 %.sroa.0.0.copyload.i.i.i18) #24
-  br i1 %20, label %.lr.ph.i.i14, label %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i12, !llvm.loop !2250
+  %19 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %16, i32 %.sroa.0.0.copyload.i.i.i18) #24
+  br i1 %19, label %.lr.ph.i.i14, label %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i12, !llvm.loop !2250
 
 _ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i12: ; preds = %.lr.ph.i.i14, %.lr.ph.i
   %.09.lcssa.i.i = phi ptr [ %.08.i, %.lr.ph.i ], [ %.015.i.i15, %.lr.ph.i.i14 ]
-  store i32 %17, ptr %.09.lcssa.i.i, align 4, !tbaa !13
-  %21 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
-  %.not.i13 = icmp eq ptr %21, %1
+  store i32 %16, ptr %.09.lcssa.i.i, align 4, !tbaa !13
+  %20 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
+  %.not.i13 = icmp eq ptr %20, %1
   br i1 %.not.i13, label %_ZSt26__unguarded_insertion_sortIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_T0_.exit, label %.lr.ph.i, !llvm.loop !2252
 
-22:                                               ; preds = %3
-  %23 = icmp eq ptr %0, %1
+21:                                               ; preds = %3
+  %22 = icmp eq ptr %0, %1
   %.019.i19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not20.i = icmp eq ptr %.019.i19, %1
-  %or.cond = select i1 %23, i1 true, i1 %.not20.i
+  %or.cond = select i1 %22, i1 true, i1 %.not20.i
   br i1 %or.cond, label %_ZSt26__unguarded_insertion_sortIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_T0_.exit, label %.lr.ph.i20
 
-.lr.ph.i20:                                       ; preds = %22, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i27
-  %.022.i21 = phi ptr [ %.0.i29, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i27 ], [ %.019.i19, %22 ]
-  %.pn21.i22 = phi ptr [ %.022.i21, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i27 ], [ %0, %22 ]
+.lr.ph.i20:                                       ; preds = %21, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i27
+  %.022.i21 = phi ptr [ %.0.i29, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i27 ], [ %.019.i19, %21 ]
+  %.pn21.i22 = phi ptr [ %.022.i21, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i27 ], [ %0, %21 ]
   %.sroa.01.0.copyload.i.i23 = load i32, ptr %.022.i21, align 4, !tbaa !13
   %.sroa.0.0.copyload.i.i24 = load i32, ptr %0, align 4, !tbaa !13
-  %24 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.01.0.copyload.i.i23, i32 %.sroa.0.0.copyload.i.i24) #24
+  %23 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.01.0.copyload.i.i23, i32 %.sroa.0.0.copyload.i.i24) #24
   %.sroa.02.0.copyload.i25 = load i32, ptr %.022.i21, align 4, !tbaa !13
-  br i1 %24, label %25, label %32
+  br i1 %23, label %24, label %31
 
-25:                                               ; preds = %.lr.ph.i20
-  %26 = getelementptr inbounds nuw i8, ptr %.pn21.i22, i64 8
-  %27 = ptrtoint ptr %.022.i21 to i64
-  %28 = sub i64 %27, %5
-  %29 = ashr exact i64 %28, 2
-  %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds %"class.clang::SourceLocation", ptr %26, i64 %30
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %31, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %28, i1 false)
+24:                                               ; preds = %.lr.ph.i20
+  %25 = getelementptr inbounds nuw i8, ptr %.pn21.i22, i64 8
+  %26 = ptrtoint ptr %.022.i21 to i64
+  %27 = sub i64 %26, %5
+  %28 = ashr exact i64 %27, 2
+  %29 = sub nsw i64 0, %28
+  %30 = getelementptr inbounds %"class.clang::SourceLocation", ptr %25, i64 %29
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %30, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %27, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i27
 
-32:                                               ; preds = %.lr.ph.i20
+31:                                               ; preds = %.lr.ph.i20
   %.sroa.0.0.copyload.i13.i.i26 = load i32, ptr %.pn21.i22, align 4, !tbaa !13
-  %33 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.02.0.copyload.i25, i32 %.sroa.0.0.copyload.i13.i.i26) #24
-  br i1 %33, label %.lr.ph.i.i31, label %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i27
+  %32 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.02.0.copyload.i25, i32 %.sroa.0.0.copyload.i13.i.i26) #24
+  br i1 %32, label %.lr.ph.i.i31, label %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i27
 
-.lr.ph.i.i31:                                     ; preds = %32, %.lr.ph.i.i31
-  %.015.i.i32 = phi ptr [ %.0.i.i34, %.lr.ph.i.i31 ], [ %.pn21.i22, %32 ]
-  %.0914.i.i33 = phi ptr [ %.015.i.i32, %.lr.ph.i.i31 ], [ %.022.i21, %32 ]
-  %34 = load i32, ptr %.015.i.i32, align 4, !tbaa !13
-  store i32 %34, ptr %.0914.i.i33, align 4, !tbaa !13
+.lr.ph.i.i31:                                     ; preds = %31, %.lr.ph.i.i31
+  %.015.i.i32 = phi ptr [ %.0.i.i34, %.lr.ph.i.i31 ], [ %.pn21.i22, %31 ]
+  %.0914.i.i33 = phi ptr [ %.015.i.i32, %.lr.ph.i.i31 ], [ %.022.i21, %31 ]
+  %33 = load i32, ptr %.015.i.i32, align 4, !tbaa !13
+  store i32 %33, ptr %.0914.i.i33, align 4, !tbaa !13
   %.0.i.i34 = getelementptr inbounds i8, ptr %.015.i.i32, i64 -4
   %.sroa.0.0.copyload.i.i.i35 = load i32, ptr %.0.i.i34, align 4, !tbaa !13
-  %35 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.02.0.copyload.i25, i32 %.sroa.0.0.copyload.i.i.i35) #24
-  br i1 %35, label %.lr.ph.i.i31, label %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i27, !llvm.loop !2250
+  %34 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.02.0.copyload.i25, i32 %.sroa.0.0.copyload.i.i.i35) #24
+  br i1 %34, label %.lr.ph.i.i31, label %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i27, !llvm.loop !2250
 
-_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i27: ; preds = %.lr.ph.i.i31, %32, %25
-  %.sink.i28 = phi ptr [ %0, %25 ], [ %.022.i21, %32 ], [ %.015.i.i32, %.lr.ph.i.i31 ]
+_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i27: ; preds = %.lr.ph.i.i31, %31, %24
+  %.sink.i28 = phi ptr [ %0, %24 ], [ %.022.i21, %31 ], [ %.015.i.i32, %.lr.ph.i.i31 ]
   store i32 %.sroa.02.0.copyload.i25, ptr %.sink.i28, align 4, !tbaa !13
   %.0.i29 = getelementptr inbounds nuw i8, ptr %.022.i21, i64 4
   %.not.i30 = icmp eq ptr %.0.i29, %1
   br i1 %.not.i30, label %_ZSt26__unguarded_insertion_sortIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_T0_.exit, label %.lr.ph.i20, !llvm.loop !2251
 
-_ZSt26__unguarded_insertion_sortIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i27, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i12, %22, %_ZSt16__insertion_sortIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_T0_.exit
+_ZSt26__unguarded_insertion_sortIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i27, %_ZSt25__unguarded_linear_insertIPN5clang14SourceLocationEN9__gnu_cxx5__ops14_Val_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_.exit.i12, %21, %_ZSt16__insertion_sortIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_T0_.exit
   ret void
 }
 

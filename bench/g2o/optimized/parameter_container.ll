@@ -83,17 +83,17 @@ define void @_ZN3g2o18ParameterContainer5clearEv(ptr noundef nonnull align 8 der
   br i1 %4, label %5, label %26
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !13
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not4 = icmp eq ptr %8, %9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = load ptr, ptr %6, align 8, !tbaa !13
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.not4 = icmp eq ptr %7, %8
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %24, %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !12
-  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiPN3g2o9ParameterEESt10_Select1stIS5_ESt4lessIiESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %11)
+  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiPN3g2o9ParameterEESt10_Select1stIS5_ESt4lessIiESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %11)
           to label %_ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE5clearEv.exit unwind label %12
 
 12:                                               ; preds = %._crit_edge
@@ -105,15 +105,15 @@ define void @_ZN3g2o18ParameterContainer5clearEv(ptr noundef nonnull align 8 der
 
 _ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE5clearEv.exit: ; preds = %._crit_edge
   store ptr null, ptr %10, align 8, !tbaa !12
-  store ptr %9, ptr %7, align 8, !tbaa !13
+  store ptr %8, ptr %6, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %9, ptr %15, align 8, !tbaa !14
+  store ptr %8, ptr %15, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %16, align 8, !tbaa !15
   br label %26
 
 .lr.ph:                                           ; preds = %5, %24
-  %.sroa.01.05 = phi ptr [ %25, %24 ], [ %8, %5 ]
+  %.sroa.01.05 = phi ptr [ %25, %24 ], [ %7, %5 ]
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.01.05, i64 40
   %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = icmp eq ptr %18, null
@@ -128,7 +128,7 @@ _ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE5clearEv.exit: ; preds 
 
 24:                                               ; preds = %.lr.ph, %20
   %25 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.05) #19
-  %.not = icmp eq ptr %25, %9
+  %.not = icmp eq ptr %25, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 26:                                               ; preds = %1, %_ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE5clearEv.exit
@@ -149,17 +149,17 @@ define void @_ZN3g2o18ParameterContainerD2Ev(ptr noundef nonnull align 8 derefer
   br label %_ZN3g2o18ParameterContainer5clearEv.exit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !13
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not4.i = icmp eq ptr %8, %9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = load ptr, ptr %6, align 8, !tbaa !13
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.not4.i = icmp eq ptr %7, %8
   br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %24, %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !12
-  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiPN3g2o9ParameterEESt10_Select1stIS5_ESt4lessIiESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %11)
+  invoke void @_ZNSt8_Rb_treeIiSt4pairIKiPN3g2o9ParameterEESt10_Select1stIS5_ESt4lessIiESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %11)
           to label %_ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE5clearEv.exit.i unwind label %12
 
 12:                                               ; preds = %._crit_edge.i
@@ -171,15 +171,15 @@ define void @_ZN3g2o18ParameterContainerD2Ev(ptr noundef nonnull align 8 derefer
 
 _ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE5clearEv.exit.i: ; preds = %._crit_edge.i
   store ptr null, ptr %10, align 8, !tbaa !12
-  store ptr %9, ptr %7, align 8, !tbaa !13
+  store ptr %8, ptr %6, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %9, ptr %15, align 8, !tbaa !14
+  store ptr %8, ptr %15, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %16, align 8, !tbaa !15
   br label %_ZN3g2o18ParameterContainer5clearEv.exit
 
 .lr.ph.i:                                         ; preds = %5, %24
-  %.sroa.01.05.i = phi ptr [ %25, %24 ], [ %8, %5 ]
+  %.sroa.01.05.i = phi ptr [ %25, %24 ], [ %7, %5 ]
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 40
   %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = icmp eq ptr %18, null
@@ -194,7 +194,7 @@ _ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE5clearEv.exit.i: ; pred
 
 24:                                               ; preds = %20, %.lr.ph.i
   %25 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.05.i) #19
-  %.not.i = icmp eq ptr %25, %9
+  %.not.i = icmp eq ptr %25, %8
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !32
 
 _ZN3g2o18ParameterContainer5clearEv.exit:         ; preds = %._ZN3g2o18ParameterContainer5clearEv.exit_crit_edge, %_ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE5clearEv.exit.i

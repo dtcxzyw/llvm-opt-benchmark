@@ -3055,71 +3055,71 @@ define void @DrawSplineBasis(ptr noundef readonly captures(none) %0, i32 noundef
   %.sroa.048.0.vec.insert = insertelement <2 x float> poison, float %35, i64 0
   %.sroa.048.4.vec.insert = insertelement <2 x float> %.sroa.048.0.vec.insert, float %50, i64 1
   %51 = icmp eq i64 %indvars.iv170, 0
-  br i1 %51, label %.split.preheader, label %.split.us.preheader
-
-.split.us.preheader:                              ; preds = %13
-  %52 = tail call float @llvm.fmuladd.f32(float %.0125149, float %.0122151, float %35)
-  %53 = fneg float %.0123150
-  %54 = tail call float @llvm.fmuladd.f32(float %53, float %.0122151, float %50)
-  %55 = fneg float %.0125149
-  %56 = tail call float @llvm.fmuladd.f32(float %55, float %.0122151, float %35)
-  %57 = tail call float @llvm.fmuladd.f32(float %.0123150, float %.0122151, float %50)
-  br label %.split.us
+  br i1 %51, label %.split.preheader, label %.split.us
 
 .split.preheader:                                 ; preds = %13
   tail call void @DrawCircleSector(<2 x float> %.sroa.048.4.vec.insert, float noundef %12, float noundef 0.000000e+00, float noundef 3.600000e+02, i32 noundef 36, i32 %3)
   br label %.split
 
-.split.us:                                        ; preds = %.split.us.preheader, %.split.us
-  %indvars.iv = phi i64 [ 1, %.split.us.preheader ], [ %indvars.iv.next, %.split.us ]
-  %.sroa.048.1128.us = phi <2 x float> [ %.sroa.048.4.vec.insert, %.split.us.preheader ], [ %.sroa.048.4.vec.insert72.us, %.split.us ]
-  %58 = trunc nuw nsw i64 %indvars.iv to i32
-  %59 = uitofp nneg i32 %58 to float
-  %60 = fdiv float %59, 2.400000e+01
-  %61 = tail call float @llvm.fmuladd.f32(float %60, float %25, float %29)
-  %62 = tail call float @llvm.fmuladd.f32(float %60, float %61, float %32)
-  %63 = tail call float @llvm.fmuladd.f32(float %60, float %62, float %35)
-  %64 = tail call float @llvm.fmuladd.f32(float %60, float %40, float %44)
-  %65 = tail call float @llvm.fmuladd.f32(float %60, float %64, float %47)
-  %66 = tail call float @llvm.fmuladd.f32(float %60, float %65, float %50)
+.split.us:                                        ; preds = %13, %.split.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.split.us ], [ 1, %13 ]
+  %.sroa.048.1128.us = phi <2 x float> [ %.sroa.048.4.vec.insert72.us, %.split.us ], [ %.sroa.048.4.vec.insert, %13 ]
+  %52 = trunc nuw nsw i64 %indvars.iv to i32
+  %53 = uitofp nneg i32 %52 to float
+  %54 = fdiv float %53, 2.400000e+01
+  %55 = tail call float @llvm.fmuladd.f32(float %54, float %25, float %29)
+  %56 = tail call float @llvm.fmuladd.f32(float %54, float %55, float %32)
+  %57 = tail call float @llvm.fmuladd.f32(float %54, float %56, float %35)
+  %58 = tail call float @llvm.fmuladd.f32(float %54, float %40, float %44)
+  %59 = tail call float @llvm.fmuladd.f32(float %54, float %58, float %47)
+  %60 = tail call float @llvm.fmuladd.f32(float %54, float %59, float %50)
   %.sroa.048.4.vec.extract66.us = extractelement <2 x float> %.sroa.048.1128.us, i64 1
-  %67 = fsub float %66, %.sroa.048.4.vec.extract66.us
+  %61 = fsub float %60, %.sroa.048.4.vec.extract66.us
   %.sroa.048.0.vec.extract55.us = extractelement <2 x float> %.sroa.048.1128.us, i64 0
-  %68 = fsub float %63, %.sroa.048.0.vec.extract55.us
-  %69 = fmul float %67, %67
-  %70 = tail call float @llvm.fmuladd.f32(float %68, float %68, float %69)
-  %sqrt.us = tail call float @llvm.sqrt.f32(float %70)
-  %71 = fdiv float %12, %sqrt.us
-  %72 = fneg float %67
-  %73 = tail call float @llvm.fmuladd.f32(float %72, float %71, float %63)
+  %62 = fsub float %57, %.sroa.048.0.vec.extract55.us
+  %63 = fmul float %61, %61
+  %64 = tail call float @llvm.fmuladd.f32(float %62, float %62, float %63)
+  %sqrt.us = tail call float @llvm.sqrt.f32(float %64)
+  %65 = fdiv float %12, %sqrt.us
+  %66 = fneg float %61
+  %67 = tail call float @llvm.fmuladd.f32(float %66, float %65, float %57)
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store float %73, ptr %75, align 8
-  %76 = tail call float @llvm.fmuladd.f32(float %68, float %71, float %66)
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 12
-  store float %76, ptr %77, align 4
-  %78 = tail call float @llvm.fmuladd.f32(float %67, float %71, float %63)
-  store float %78, ptr %74, align 16
-  %79 = fneg float %68
-  %80 = tail call float @llvm.fmuladd.f32(float %79, float %71, float %66)
-  %81 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  store float %80, ptr %81, align 4
-  %.sroa.048.0.vec.insert61.us = insertelement <2 x float> poison, float %63, i64 0
-  %.sroa.048.4.vec.insert72.us = insertelement <2 x float> %.sroa.048.0.vec.insert61.us, float %66, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store float %67, ptr %69, align 8
+  %70 = tail call float @llvm.fmuladd.f32(float %62, float %65, float %60)
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 12
+  store float %70, ptr %71, align 4
+  %72 = tail call float @llvm.fmuladd.f32(float %61, float %65, float %57)
+  store float %72, ptr %68, align 16
+  %73 = fneg float %62
+  %74 = tail call float @llvm.fmuladd.f32(float %73, float %65, float %60)
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  store float %74, ptr %75, align 4
+  %.sroa.048.0.vec.insert61.us = insertelement <2 x float> poison, float %57, i64 0
+  %.sroa.048.4.vec.insert72.us = insertelement <2 x float> %.sroa.048.0.vec.insert61.us, float %60, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %.split137.us, label %.split.us
+  br i1 %exitcond.not, label %.split137.us.loopexit182, label %.split.us
 
-.split137.us:                                     ; preds = %.split.us, %108
-  %.us-phi = phi float [ %109, %108 ], [ %57, %.split.us ]
-  %.us-phi138 = phi float [ %110, %108 ], [ %56, %.split.us ]
-  %.us-phi139 = phi float [ %111, %108 ], [ %54, %.split.us ]
-  %.us-phi140 = phi float [ %112, %108 ], [ %52, %.split.us ]
-  %.us-phi141 = phi float [ %95, %108 ], [ %67, %.split.us ]
-  %.us-phi142 = phi float [ %96, %108 ], [ %68, %.split.us ]
-  %.us-phi143 = phi float [ %99, %108 ], [ %71, %.split.us ]
-  %.us-phi144 = phi <2 x float> [ %.sroa.048.4.vec.insert72, %108 ], [ %.sroa.048.4.vec.insert72.us, %.split.us ]
+.split137.us.loopexit182:                         ; preds = %.split.us
+  %76 = tail call float @llvm.fmuladd.f32(float %.0125149, float %.0122151, float %35)
+  %77 = fneg float %.0123150
+  %78 = tail call float @llvm.fmuladd.f32(float %77, float %.0122151, float %50)
+  %79 = fneg float %.0125149
+  %80 = tail call float @llvm.fmuladd.f32(float %79, float %.0122151, float %35)
+  %81 = tail call float @llvm.fmuladd.f32(float %.0123150, float %.0122151, float %50)
+  br label %.split137.us
+
+.split137.us:                                     ; preds = %108, %.split137.us.loopexit182
+  %.us-phi = phi float [ %81, %.split137.us.loopexit182 ], [ %109, %108 ]
+  %.us-phi138 = phi float [ %80, %.split137.us.loopexit182 ], [ %110, %108 ]
+  %.us-phi139 = phi float [ %78, %.split137.us.loopexit182 ], [ %111, %108 ]
+  %.us-phi140 = phi float [ %76, %.split137.us.loopexit182 ], [ %112, %108 ]
+  %.us-phi141 = phi float [ %61, %.split137.us.loopexit182 ], [ %95, %108 ]
+  %.us-phi142 = phi float [ %62, %.split137.us.loopexit182 ], [ %96, %108 ]
+  %.us-phi143 = phi float [ %65, %.split137.us.loopexit182 ], [ %99, %108 ]
+  %.us-phi144 = phi <2 x float> [ %.sroa.048.4.vec.insert72.us, %.split137.us.loopexit182 ], [ %.sroa.048.4.vec.insert72, %108 ]
   store float %.us-phi139, ptr %9, align 4
   store float %.us-phi138, ptr %10, align 8
   store float %.us-phi, ptr %11, align 4

@@ -712,7 +712,7 @@ define internal noundef i32 @zmbv_decode_xor_8(ptr noundef captures(none) %0) #1
 45:                                               ; preds = %.lr.ph, %.loopexit145
   %46 = phi i32 [ %38, %.lr.ph ], [ %134, %.loopexit145 ]
   %47 = phi i32 [ %.pre217, %.lr.ph ], [ %135, %.loopexit145 ]
-  %indvars.iv214 = phi i64 [ %44, %.lr.ph ], [ %indvars.iv.next215, %.loopexit145 ]
+  %indvars.iv214 = phi i64 [ %44, %.lr.ph ], [ %indvars.iv.next215241, %.loopexit145 ]
   %48 = phi i32 [ %39, %.lr.ph ], [ %134, %.loopexit145 ]
   %.3174 = phi ptr [ %.2183, %.lr.ph ], [ %.4, %.loopexit145 ]
   %.0124172 = phi i32 [ 0, %.lr.ph ], [ %136, %.loopexit145 ]
@@ -727,7 +727,6 @@ define internal noundef i32 @zmbv_decode_xor_8(ptr noundef captures(none) %0) #1
   %54 = load i8, ptr %53, align 1, !tbaa !45
   %55 = ashr i8 %54, 1
   %56 = sext i8 %55 to i32
-  %indvars.iv.next215 = add nsw i64 %indvars.iv214, 2
   %57 = sub i32 %.fr190, %.0124172.fr
   %.fr191 = freeze i32 %47
   %.143 = tail call i32 @llvm.smin.i32(i32 %57, i32 %.fr191)
@@ -886,10 +885,10 @@ define internal noundef i32 @zmbv_decode_xor_8(ptr noundef captures(none) %0) #1
   %121 = phi i32 [ %91, %..loopexit_crit_edge.us ], [ %116, %.loopexit ], [ %104, %.loopexit.us162 ]
   %122 = and i8 %.fr, 1
   %.not139 = icmp ne i8 %122, 0
-  %brmerge.not252 = select i1 %.not139, i1 %43, i1 false
+  %brmerge.not254 = select i1 %.not139, i1 %43, i1 false
   %123 = icmp sgt i32 %.143, 0
-  %or.cond250 = and i1 %brmerge.not252, %123
-  br i1 %or.cond250, label %.preheader.us.preheader, label %.loopexit145
+  %or.cond252 = and i1 %brmerge.not254, %123
+  br i1 %or.cond252, label %.preheader.us.preheader, label %.loopexit145
 
 .preheader.us.preheader:                          ; preds = %._crit_edge
   %wide.trip.count211 = zext nneg i32 %.143 to i64
@@ -925,13 +924,14 @@ define internal noundef i32 @zmbv_decode_xor_8(ptr noundef captures(none) %0) #1
 .loopexit145:                                     ; preds = %._crit_edge166.us, %45, %._crit_edge
   %134 = phi i32 [ %121, %._crit_edge ], [ %46, %45 ], [ %130, %._crit_edge166.us ]
   %.4 = phi ptr [ %.3174, %._crit_edge ], [ %.3174, %45 ], [ %125, %._crit_edge166.us ]
+  %indvars.iv.next215241 = add nsw i64 %indvars.iv214, 2
   %135 = load i32, ptr %33, align 8, !tbaa !50
   %136 = add nsw i32 %135, %.0124172.fr
   %137 = icmp slt i32 %136, %134
   br i1 %137, label %45, label %._crit_edge176.loopexit, !llvm.loop !82
 
 ._crit_edge176.loopexit:                          ; preds = %.loopexit145
-  %138 = trunc nsw i64 %indvars.iv.next215 to i32
+  %138 = trunc nsw i64 %indvars.iv.next215241 to i32
   %.pre219 = load i32, ptr %31, align 4, !tbaa !51
   %.pre220 = load i32, ptr %28, align 4, !tbaa !36
   br label %._crit_edge176
@@ -1036,7 +1036,7 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
 35:                                               ; preds = %.lr.ph, %.loopexit138
   %36 = phi i32 [ %28, %.lr.ph ], [ %126, %.loopexit138 ]
   %37 = phi i32 [ %.pre201, %.lr.ph ], [ %127, %.loopexit138 ]
-  %indvars.iv198 = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next199, %.loopexit138 ]
+  %indvars.iv198 = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next199225, %.loopexit138 ]
   %38 = phi i32 [ %29, %.lr.ph ], [ %126, %.loopexit138 ]
   %.1109163 = phi ptr [ %.0108172, %.lr.ph ], [ %.2, %.loopexit138 ]
   %.0118161 = phi i32 [ 0, %.lr.ph ], [ %128, %.loopexit138 ]
@@ -1051,7 +1051,6 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   %44 = load i8, ptr %43, align 1, !tbaa !45
   %45 = ashr i8 %44, 1
   %46 = sext i8 %45 to i32
-  %indvars.iv.next199 = add nsw i64 %indvars.iv198, 2
   %47 = sub i32 %.fr179, %.0118161.fr
   %.fr180 = freeze i32 %37
   %.136 = tail call i32 @llvm.smin.i32(i32 %47, i32 %.fr180)
@@ -1114,8 +1113,8 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   %75 = add nsw i64 %indvars.iv, %65
   %76 = icmp sgt i64 %75, -1
   %.not135.us = icmp slt i64 %75, %73
-  %or.cond232 = select i1 %76, i1 %.not135.us, i1 false
-  br i1 %or.cond232, label %77, label %80
+  %or.cond234 = select i1 %76, i1 %.not135.us, i1 false
+  br i1 %or.cond234, label %77, label %80
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i16, ptr %.0143.us, i64 %indvars.iv
@@ -1254,13 +1253,14 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
 .loopexit138:                                     ; preds = %._crit_edge155.us, %35, %.preheader.lr.ph, %._crit_edge
   %126 = phi i32 [ %113, %._crit_edge ], [ %113, %.preheader.lr.ph ], [ %36, %35 ], [ %113, %._crit_edge155.us ]
   %.2 = phi ptr [ %.1109163, %._crit_edge ], [ %.1109163, %.preheader.lr.ph ], [ %.1109163, %35 ], [ %123, %._crit_edge155.us ]
+  %indvars.iv.next199225 = add nsw i64 %indvars.iv198, 2
   %127 = load i32, ptr %19, align 8, !tbaa !50
   %128 = add nsw i32 %127, %.0118161.fr
   %129 = icmp slt i32 %128, %126
   br i1 %129, label %35, label %._crit_edge165.loopexit, !llvm.loop !91
 
 ._crit_edge165.loopexit:                          ; preds = %.loopexit138
-  %130 = trunc nsw i64 %indvars.iv.next199 to i32
+  %130 = trunc nsw i64 %indvars.iv.next199225 to i32
   %.pre203 = load i32, ptr %17, align 4, !tbaa !51
   %.pre204 = load i32, ptr %14, align 4, !tbaa !36
   br label %._crit_edge165
@@ -1365,7 +1365,7 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
 35:                                               ; preds = %.lr.ph, %.loopexit138
   %36 = phi i32 [ %28, %.lr.ph ], [ %127, %.loopexit138 ]
   %37 = phi i32 [ %.pre201, %.lr.ph ], [ %128, %.loopexit138 ]
-  %indvars.iv198 = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next199, %.loopexit138 ]
+  %indvars.iv198 = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next199225, %.loopexit138 ]
   %38 = phi i32 [ %29, %.lr.ph ], [ %127, %.loopexit138 ]
   %.1109163 = phi ptr [ %.0108172, %.lr.ph ], [ %.2, %.loopexit138 ]
   %.0118161 = phi i32 [ 0, %.lr.ph ], [ %129, %.loopexit138 ]
@@ -1380,7 +1380,6 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   %44 = load i8, ptr %43, align 1, !tbaa !45
   %45 = ashr i8 %44, 1
   %46 = sext i8 %45 to i32
-  %indvars.iv.next199 = add nsw i64 %indvars.iv198, 2
   %47 = sub i32 %.fr179, %.0118161.fr
   %.fr180 = freeze i32 %37
   %.136 = tail call i32 @llvm.smin.i32(i32 %47, i32 %.fr180)
@@ -1542,10 +1541,10 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   %114 = phi i32 [ %84, %..loopexit_crit_edge.us ], [ %109, %.loopexit ], [ %97, %.loopexit.us151 ]
   %115 = and i8 %.fr, 1
   %.not132 = icmp ne i8 %115, 0
-  %brmerge.not235 = select i1 %.not132, i1 %33, i1 false
+  %brmerge.not237 = select i1 %.not132, i1 %33, i1 false
   %116 = icmp sgt i32 %.136, 0
-  %or.cond233 = and i1 %brmerge.not235, %116
-  br i1 %or.cond233, label %.preheader.us.preheader, label %.loopexit138
+  %or.cond235 = and i1 %brmerge.not237, %116
+  br i1 %or.cond235, label %.preheader.us.preheader, label %.loopexit138
 
 .preheader.us.preheader:                          ; preds = %._crit_edge
   %wide.trip.count195 = zext nneg i32 %.136 to i64
@@ -1581,13 +1580,14 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
 .loopexit138:                                     ; preds = %._crit_edge155.us, %35, %._crit_edge
   %127 = phi i32 [ %114, %._crit_edge ], [ %36, %35 ], [ %123, %._crit_edge155.us ]
   %.2 = phi ptr [ %.1109163, %._crit_edge ], [ %.1109163, %35 ], [ %122, %._crit_edge155.us ]
+  %indvars.iv.next199225 = add nsw i64 %indvars.iv198, 2
   %128 = load i32, ptr %19, align 8, !tbaa !50
   %129 = add nsw i32 %128, %.0118161.fr
   %130 = icmp slt i32 %129, %127
   br i1 %130, label %35, label %._crit_edge165.loopexit, !llvm.loop !97
 
 ._crit_edge165.loopexit:                          ; preds = %.loopexit138
-  %131 = trunc nsw i64 %indvars.iv.next199 to i32
+  %131 = trunc nsw i64 %indvars.iv.next199225 to i32
   %.pre203 = load i32, ptr %17, align 4, !tbaa !51
   %.pre204 = load i32, ptr %14, align 4, !tbaa !36
   br label %._crit_edge165

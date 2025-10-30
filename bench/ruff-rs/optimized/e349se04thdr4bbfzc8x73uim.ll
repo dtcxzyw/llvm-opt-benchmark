@@ -347,7 +347,7 @@ define internal fastcc { i64, i64 } @_ZN6memchr6memmem4find17hafe8180c1595ec0eE(
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %11 = load i64, ptr %10, align 16
   %12 = icmp ult i64 %1, %11
-  br i1 %12, label %68, label %57
+  br i1 %12, label %69, label %58
 
 13:                                               ; preds = %3
   %14 = load i8, ptr %2, align 1, !alias.scope !17, !noundef !3
@@ -392,11 +392,15 @@ _ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit: ; preds = %18
   br i1 %29, label %_ZN6memchr4arch3all9rabinkarp6Finder4find17h0198749bac52d2bdE.exit, label %30
 
 30:                                               ; preds = %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit
-  %31 = sub nsw i64 0, %28
-  %32 = getelementptr inbounds i8, ptr %26, i64 %31
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %28
   %.not3.i.i = icmp eq i64 %28, 0
-  br i1 %.not3.i.i, label %.preheader.i.i.preheader, label %.lr.ph.i.i
+  br i1 %.not3.i.i, label %.preheader.i.i, label %.lr.ph.i.i
+
+.preheader.i.i:                                   ; preds = %.lr.ph.i.i, %30
+  %.sroa.013.0.lcssa.i.i = phi i32 [ 0, %30 ], [ %37, %.lr.ph.i.i ]
+  %32 = sub nsw i64 0, %28
+  %33 = getelementptr inbounds i8, ptr %26, i64 %32
+  br label %40
 
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.i.i
   %.sroa.010.02.i.i = phi ptr [ %38, %.lr.ph.i.i ], [ %0, %30 ]
@@ -406,83 +410,79 @@ _ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit: ; preds = %18
   %36 = zext i8 %34 to i32
   %37 = add i32 %35, %36
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.010.02.i.i, i64 1
-  %39 = icmp ult ptr %38, %33
-  br i1 %39, label %.lr.ph.i.i, label %.preheader.i.i.preheader
+  %39 = icmp ult ptr %38, %31
+  br i1 %39, label %.lr.ph.i.i, label %.preheader.i.i
 
-.preheader.i.i.preheader:                         ; preds = %.lr.ph.i.i, %30
-  %.sroa.013.1.i.i.ph = phi i32 [ 0, %30 ], [ %37, %.lr.ph.i.i ]
-  br label %.preheader.i.i
+40:                                               ; preds = %45, %.preheader.i.i
+  %.sroa.013.1.i.i = phi i32 [ %54, %45 ], [ %.sroa.013.0.lcssa.i.i, %.preheader.i.i ]
+  %.sroa.0.0.i.i = phi ptr [ %55, %45 ], [ %0, %.preheader.i.i ]
+  %41 = icmp eq i32 %.sroa.0.1.i, %.sroa.013.1.i.i
+  br i1 %41, label %43, label %42, !prof !26
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %44
-  %.sroa.013.1.i.i = phi i32 [ %53, %44 ], [ %.sroa.013.1.i.i.ph, %.preheader.i.i.preheader ]
-  %.sroa.0.0.i.i = phi ptr [ %54, %44 ], [ %0, %.preheader.i.i.preheader ]
-  %40 = icmp eq i32 %.sroa.0.1.i, %.sroa.013.1.i.i
-  br i1 %40, label %42, label %41, !prof !26
+42:                                               ; preds = %43, %40
+  %.not.i.i = icmp ult ptr %.sroa.0.0.i.i, %33
+  br i1 %.not.i.i, label %45, label %_ZN6memchr4arch3all9rabinkarp6Finder4find17h0198749bac52d2bdE.exit
 
-41:                                               ; preds = %42, %.preheader.i.i
-  %.not.i.i = icmp ult ptr %.sroa.0.0.i.i, %32
-  br i1 %.not.i.i, label %44, label %_ZN6memchr4arch3all9rabinkarp6Finder4find17h0198749bac52d2bdE.exit
+43:                                               ; preds = %40
+  %44 = tail call noundef zeroext i1 @_ZN6memchr4arch3all9rabinkarp12is_equal_raw17h5a7e97eb2ec9221dE(ptr noundef nonnull %.sroa.0.0.i.i, ptr noundef nonnull readonly align 1 %2, i64 noundef %28)
+  br i1 %44, label %56, label %42
 
-42:                                               ; preds = %.preheader.i.i
-  %43 = tail call noundef zeroext i1 @_ZN6memchr4arch3all9rabinkarp12is_equal_raw17h5a7e97eb2ec9221dE(ptr noundef nonnull %.sroa.0.0.i.i, ptr noundef nonnull readonly align 1 %2, i64 noundef %28)
-  br i1 %43, label %55, label %41
+45:                                               ; preds = %42
+  %46 = load i8, ptr %.sroa.0.0.i.i, align 1, !alias.scope !24, !noalias !21, !noundef !3
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %28
+  %48 = load i8, ptr %47, align 1, !alias.scope !24, !noalias !21, !noundef !3
+  %49 = zext i8 %46 to i32
+  %50 = mul i32 %.sroa.6.1.i, %49
+  %51 = sub i32 %.sroa.013.1.i.i, %50
+  %52 = shl i32 %51, 1
+  %53 = zext i8 %48 to i32
+  %54 = add i32 %52, %53
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 1
+  br label %40
 
-44:                                               ; preds = %41
-  %45 = load i8, ptr %.sroa.0.0.i.i, align 1, !alias.scope !24, !noalias !21, !noundef !3
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %28
-  %47 = load i8, ptr %46, align 1, !alias.scope !24, !noalias !21, !noundef !3
-  %48 = zext i8 %45 to i32
-  %49 = mul i32 %.sroa.6.1.i, %48
-  %50 = sub i32 %.sroa.013.1.i.i, %49
-  %51 = shl i32 %50, 1
-  %52 = zext i8 %47 to i32
-  %53 = add i32 %51, %52
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 1
-  br label %.preheader.i.i
-
-55:                                               ; preds = %42
-  %56 = tail call noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17hc3e45aaea3a1c547E"(ptr noundef nonnull %.sroa.0.0.i.i, ptr noundef nonnull readonly align 1 %0)
+56:                                               ; preds = %43
+  %57 = tail call noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17hc3e45aaea3a1c547E"(ptr noundef nonnull %.sroa.0.0.i.i, ptr noundef nonnull readonly align 1 %0)
   br label %_ZN6memchr4arch3all9rabinkarp6Finder4find17h0198749bac52d2bdE.exit
 
-57:                                               ; preds = %8
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 264
-  %59 = load ptr, ptr %58, align 8, !nonnull !3
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  %61 = load ptr, ptr %60, align 8, !nonnull !3, !noundef !3
-  %62 = invoke { i64, i64 } %61(ptr noalias noundef nonnull readonly align 32 dereferenceable(256) %6, ptr noalias noundef nonnull align 4 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %59, i64 noundef %11)
-          to label %65 unwind label %63
+58:                                               ; preds = %8
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 264
+  %60 = load ptr, ptr %59, align 8, !nonnull !3
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 232
+  %62 = load ptr, ptr %61, align 8, !nonnull !3, !noundef !3
+  %63 = invoke { i64, i64 } %62(ptr noalias noundef nonnull readonly align 32 dereferenceable(256) %6, ptr noalias noundef nonnull align 4 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %60, i64 noundef %11)
+          to label %66 unwind label %64
 
-63:                                               ; preds = %57
-  %64 = landingpad { ptr, i32 }
+64:                                               ; preds = %58
+  %65 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$memchr..memmem..Finder$GT$17hd7cdd269c4c5d88bE"(ptr noalias noundef nonnull align 32 dereferenceable(288) %6) #19
-          to label %71 unwind label %69
+          to label %72 unwind label %70
 
-65:                                               ; preds = %57
-  %66 = extractvalue { i64, i64 } %62, 0
-  %67 = extractvalue { i64, i64 } %62, 1
-  br label %68
+66:                                               ; preds = %58
+  %67 = extractvalue { i64, i64 } %63, 0
+  %68 = extractvalue { i64, i64 } %63, 1
+  br label %69
 
-68:                                               ; preds = %8, %65
-  %.sroa.4.1 = phi i64 [ %67, %65 ], [ undef, %8 ]
-  %.sroa.0.1 = phi i64 [ %66, %65 ], [ 0, %8 ]
+69:                                               ; preds = %8, %66
+  %.sroa.4.1 = phi i64 [ %68, %66 ], [ undef, %8 ]
+  %.sroa.0.1 = phi i64 [ %67, %66 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @"_ZN4core3ptr43drop_in_place$LT$memchr..memmem..Finder$GT$17hd7cdd269c4c5d88bE"(ptr noalias noundef nonnull align 32 dereferenceable(288) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6memchr4arch3all9rabinkarp6Finder4find17h0198749bac52d2bdE.exit
 
-69:                                               ; preds = %63
-  %70 = landingpad { ptr, i32 }
+70:                                               ; preds = %64
+  %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #20
   unreachable
 
-71:                                               ; preds = %63
-  resume { ptr, i32 } %64
+72:                                               ; preds = %64
+  resume { ptr, i32 } %65
 
-_ZN6memchr4arch3all9rabinkarp6Finder4find17h0198749bac52d2bdE.exit: ; preds = %41, %55, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit, %68
-  %.sroa.0.0.i.pn = phi i64 [ %.sroa.0.1, %68 ], [ 1, %55 ], [ 0, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit ], [ 0, %41 ]
-  %.sroa.3.0.i.pn = phi i64 [ %.sroa.4.1, %68 ], [ %56, %55 ], [ undef, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit ], [ undef, %41 ]
+_ZN6memchr4arch3all9rabinkarp6Finder4find17h0198749bac52d2bdE.exit: ; preds = %42, %56, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit, %69
+  %.sroa.0.0.i.pn = phi i64 [ %.sroa.0.1, %69 ], [ 1, %56 ], [ 0, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit ], [ 0, %42 ]
+  %.sroa.3.0.i.pn = phi i64 [ %.sroa.4.1, %69 ], [ %57, %56 ], [ undef, %_ZN6memchr4arch3all9rabinkarp6Finder3new17h51facdc46257d881E.exit ], [ undef, %42 ]
   %.pn = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.pn, 0
   %.merged = insertvalue { i64, i64 } %.pn, i64 %.sroa.3.0.i.pn, 1
   ret { i64, i64 } %.merged

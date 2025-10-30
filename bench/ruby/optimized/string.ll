@@ -5588,19 +5588,19 @@ define internal fastcc i64 @enc_strlen(ptr noundef %0, ptr noundef %1, ptr nound
   %29 = add i64 %25, 7
   %30 = and i64 %29, -8
   %31 = inttoptr i64 %30 to ptr
-  %32 = and i64 %24, -8
-  %33 = inttoptr i64 %32 to ptr
-  %34 = icmp ult ptr %0, %31
-  br i1 %34, label %.lr.ph164.preheader, label %.preheader
+  %32 = icmp ult ptr %0, %31
+  br i1 %32, label %.lr.ph164.preheader, label %.preheader
 
 .lr.ph164.preheader:                              ; preds = %28
-  %35 = sub i64 %30, %25
-  %scevgep = getelementptr i8, ptr %0, i64 %35
+  %33 = sub i64 %30, %25
+  %scevgep = getelementptr i8, ptr %0, i64 %33
   br label %.lr.ph164
 
 .preheader:                                       ; preds = %.lr.ph164, %28
   %.181.lcssa = phi i64 [ 0, %28 ], [ %spec.select, %.lr.ph164 ]
-  %36 = icmp ult i64 %30, %32
+  %34 = and i64 %24, -8
+  %35 = inttoptr i64 %34 to ptr
+  %36 = icmp ult i64 %30, %34
   br i1 %36, label %.lr.ph168, label %.loopexit131
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %.lr.ph164
@@ -5632,7 +5632,7 @@ define internal fastcc i64 @enc_strlen(ptr noundef %0, ptr noundef %1, ptr nound
   %51 = and i64 %50, 15
   %52 = add i64 %51, %.383166
   %53 = getelementptr i8, ptr %.079167, i64 8
-  %54 = icmp ult ptr %53, %33
+  %54 = icmp ult ptr %53, %35
   br i1 %54, label %.lr.ph168, label %.loopexit131, !llvm.loop !135
 
 .loopexit131:                                     ; preds = %.lr.ph168, %.preheader, %23
@@ -8718,15 +8718,19 @@ define internal fastcc ptr @str_utf8_nth(ptr noundef %0, ptr noundef %1, ptr nou
   %11 = add i64 %6, 7
   %12 = and i64 %11, -8
   %13 = inttoptr i64 %12 to ptr
-  %14 = and i64 %5, -8
-  %15 = inttoptr i64 %14 to ptr
-  %16 = icmp ult ptr %0, %13
-  br i1 %16, label %.lr.ph.preheader, label %.preheader.preheader
+  %14 = icmp ult ptr %0, %13
+  br i1 %14, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %10
-  %17 = sub i64 %12, %6
-  %scevgep = getelementptr i8, ptr %0, i64 %17
+  %15 = sub i64 %12, %6
+  %scevgep = getelementptr i8, ptr %0, i64 %15
   br label %.lr.ph
+
+.preheader:                                       ; preds = %.lr.ph, %10
+  %.128.lcssa = phi i64 [ %4, %10 ], [ %spec.select, %.lr.ph ]
+  %16 = and i64 %5, -8
+  %17 = inttoptr i64 %16 to ptr
+  br label %21
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.136 = phi ptr [ %20, %.lr.ph ], [ %0, %.lr.ph.preheader ]
@@ -8737,75 +8741,71 @@ define internal fastcc ptr @str_utf8_nth(ptr noundef %0, ptr noundef %1, ptr nou
   %spec.select = add i64 %.12835, %19
   %20 = getelementptr i8, ptr %.136, i64 1
   %exitcond.not = icmp eq ptr %20, %scevgep
-  br i1 %exitcond.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !220
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !220
 
-.preheader.preheader:                             ; preds = %.lr.ph, %10
-  %.3.ph = phi i64 [ %4, %10 ], [ %spec.select, %.lr.ph ]
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.030 = phi ptr [ %34, %.preheader ], [ %13, %.preheader.preheader ]
-  %.3 = phi i64 [ %33, %.preheader ], [ %.3.ph, %.preheader.preheader ]
+21:                                               ; preds = %.preheader, %21
+  %.030 = phi ptr [ %35, %21 ], [ %13, %.preheader ]
+  %.3 = phi i64 [ %34, %21 ], [ %.128.lcssa, %.preheader ]
   %.030.val = load i64, ptr %.030, align 8, !tbaa !26
-  %21 = lshr i64 %.030.val, 6
-  %22 = xor i64 %.030.val, -1
-  %23 = lshr i64 %22, 7
-  %24 = or i64 %21, %23
-  %25 = and i64 %24, 72340172838076673
-  %26 = lshr i64 %25, 8
-  %27 = add nuw nsw i64 %26, %25
-  %28 = lshr i64 %27, 16
-  %29 = add nuw nsw i64 %28, %27
-  %30 = lshr i64 %29, 32
-  %31 = add nuw nsw i64 %30, %29
-  %32 = and i64 %31, 15
-  %33 = sub i64 %.3, %32
-  %34 = getelementptr i8, ptr %.030, i64 8
-  %35 = icmp ult ptr %34, %15
-  %36 = icmp sgt i64 %33, 7
-  %37 = select i1 %35, i1 %36, i1 false
-  br i1 %37, label %.preheader, label %.loopexit.loopexit, !llvm.loop !221
+  %22 = lshr i64 %.030.val, 6
+  %23 = xor i64 %.030.val, -1
+  %24 = lshr i64 %23, 7
+  %25 = or i64 %22, %24
+  %26 = and i64 %25, 72340172838076673
+  %27 = lshr i64 %26, 8
+  %28 = add nuw nsw i64 %27, %26
+  %29 = lshr i64 %28, 16
+  %30 = add nuw nsw i64 %29, %28
+  %31 = lshr i64 %30, 32
+  %32 = add nuw nsw i64 %31, %30
+  %33 = and i64 %32, 15
+  %34 = sub i64 %.3, %33
+  %35 = getelementptr i8, ptr %.030, i64 8
+  %36 = icmp ult ptr %35, %17
+  %37 = icmp sgt i64 %34, 7
+  %38 = select i1 %36, i1 %37, i1 false
+  br i1 %38, label %21, label %.loopexit.loopexit, !llvm.loop !221
 
-.loopexit.loopexit:                               ; preds = %.preheader
-  %.pre = ptrtoint ptr %34 to i64
+.loopexit.loopexit:                               ; preds = %21
+  %.pre = ptrtoint ptr %35 to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
   %.046.pre-phi = phi i64 [ %.pre, %.loopexit.loopexit ], [ %6, %3 ]
-  %.027 = phi i64 [ %33, %.loopexit.loopexit ], [ %4, %3 ]
-  %.0 = phi ptr [ %34, %.loopexit.loopexit ], [ %0, %3 ]
-  %38 = icmp ult ptr %.0, %1
-  br i1 %38, label %.lr.ph39.preheader, label %._crit_edge
+  %.027 = phi i64 [ %34, %.loopexit.loopexit ], [ %4, %3 ]
+  %.0 = phi ptr [ %35, %.loopexit.loopexit ], [ %0, %3 ]
+  %39 = icmp ult ptr %.0, %1
+  br i1 %39, label %.lr.ph39.preheader, label %._crit_edge
 
 .lr.ph39.preheader:                               ; preds = %.loopexit
-  %39 = sub i64 %5, %.046.pre-phi
-  %scevgep47 = getelementptr i8, ptr %.0, i64 %39
+  %40 = sub i64 %5, %.046.pre-phi
+  %scevgep47 = getelementptr i8, ptr %.0, i64 %40
   br label %.lr.ph39
 
-.lr.ph39:                                         ; preds = %.lr.ph39.preheader, %45
-  %.238 = phi ptr [ %46, %45 ], [ %.0, %.lr.ph39.preheader ]
-  %.437 = phi i64 [ %.5, %45 ], [ %.027, %.lr.ph39.preheader ]
-  %40 = load i8, ptr %.238, align 1, !tbaa !19
-  %.not = icmp slt i8 %40, -64
-  br i1 %.not, label %45, label %41
+.lr.ph39:                                         ; preds = %.lr.ph39.preheader, %46
+  %.238 = phi ptr [ %47, %46 ], [ %.0, %.lr.ph39.preheader ]
+  %.437 = phi i64 [ %.5, %46 ], [ %.027, %.lr.ph39.preheader ]
+  %41 = load i8, ptr %.238, align 1, !tbaa !19
+  %.not = icmp slt i8 %41, -64
+  br i1 %.not, label %46, label %42
 
-41:                                               ; preds = %.lr.ph39
-  %42 = icmp eq i64 %.437, 0
-  br i1 %42, label %._crit_edge, label %43
+42:                                               ; preds = %.lr.ph39
+  %43 = icmp eq i64 %.437, 0
+  br i1 %43, label %._crit_edge, label %44
 
-43:                                               ; preds = %41
-  %44 = add i64 %.437, -1
-  br label %45
+44:                                               ; preds = %42
+  %45 = add i64 %.437, -1
+  br label %46
 
-45:                                               ; preds = %43, %.lr.ph39
-  %.5 = phi i64 [ %44, %43 ], [ %.437, %.lr.ph39 ]
-  %46 = getelementptr i8, ptr %.238, i64 1
-  %exitcond48.not = icmp eq ptr %46, %scevgep47
+46:                                               ; preds = %44, %.lr.ph39
+  %.5 = phi i64 [ %45, %44 ], [ %.437, %.lr.ph39 ]
+  %47 = getelementptr i8, ptr %.238, i64 1
+  %exitcond48.not = icmp eq ptr %47, %scevgep47
   br i1 %exitcond48.not, label %._crit_edge, label %.lr.ph39, !llvm.loop !222
 
-._crit_edge:                                      ; preds = %45, %41, %.loopexit
-  %.4.lcssa = phi i64 [ %.027, %.loopexit ], [ 0, %41 ], [ %.5, %45 ]
-  %.2.lcssa = phi ptr [ %.0, %.loopexit ], [ %.238, %41 ], [ %scevgep47, %45 ]
+._crit_edge:                                      ; preds = %46, %42, %.loopexit
+  %.4.lcssa = phi i64 [ %.027, %.loopexit ], [ 0, %42 ], [ %.5, %46 ]
+  %.2.lcssa = phi ptr [ %.0, %.loopexit ], [ %.238, %42 ], [ %scevgep47, %46 ]
   store i64 %.4.lcssa, ptr %2, align 8, !tbaa !26
   ret ptr %.2.lcssa
 }
@@ -8824,15 +8824,19 @@ define internal fastcc i64 @str_utf8_offset(ptr noundef %0, ptr noundef %1, i64 
   %10 = add i64 %5, 7
   %11 = and i64 %10, -8
   %12 = inttoptr i64 %11 to ptr
-  %13 = and i64 %4, -8
-  %14 = inttoptr i64 %13 to ptr
-  %15 = icmp ult ptr %0, %12
-  br i1 %15, label %.lr.ph.preheader.i, label %.preheader.i.preheader
+  %13 = icmp ult ptr %0, %12
+  br i1 %13, label %.lr.ph.preheader.i, label %.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %9
-  %16 = sub i64 %11, %5
-  %scevgep.i = getelementptr i8, ptr %0, i64 %16
+  %14 = sub i64 %11, %5
+  %scevgep.i = getelementptr i8, ptr %0, i64 %14
   br label %.lr.ph.i
+
+.preheader.i:                                     ; preds = %.lr.ph.i, %9
+  %.128.lcssa.i = phi i64 [ %2, %9 ], [ %spec.select.i, %.lr.ph.i ]
+  %15 = and i64 %4, -8
+  %16 = inttoptr i64 %15 to ptr
+  br label %20
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.136.i = phi ptr [ %19, %.lr.ph.i ], [ %0, %.lr.ph.preheader.i ]
@@ -8843,77 +8847,73 @@ define internal fastcc i64 @str_utf8_offset(ptr noundef %0, ptr noundef %1, i64 
   %spec.select.i = add i64 %.12835.i, %18
   %19 = getelementptr i8, ptr %.136.i, i64 1
   %exitcond.not.i = icmp eq ptr %19, %scevgep.i
-  br i1 %exitcond.not.i, label %.preheader.i.preheader, label %.lr.ph.i, !llvm.loop !220
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !220
 
-.preheader.i.preheader:                           ; preds = %.lr.ph.i, %9
-  %.3.i.ph = phi i64 [ %2, %9 ], [ %spec.select.i, %.lr.ph.i ]
-  br label %.preheader.i
-
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %.030.i = phi ptr [ %33, %.preheader.i ], [ %12, %.preheader.i.preheader ]
-  %.3.i = phi i64 [ %32, %.preheader.i ], [ %.3.i.ph, %.preheader.i.preheader ]
+20:                                               ; preds = %20, %.preheader.i
+  %.030.i = phi ptr [ %34, %20 ], [ %12, %.preheader.i ]
+  %.3.i = phi i64 [ %33, %20 ], [ %.128.lcssa.i, %.preheader.i ]
   %.030.val.i = load i64, ptr %.030.i, align 8, !tbaa !26
-  %20 = lshr i64 %.030.val.i, 6
-  %21 = xor i64 %.030.val.i, -1
-  %22 = lshr i64 %21, 7
-  %23 = or i64 %20, %22
-  %24 = and i64 %23, 72340172838076673
-  %25 = lshr i64 %24, 8
-  %26 = add nuw nsw i64 %25, %24
-  %27 = lshr i64 %26, 16
-  %28 = add nuw nsw i64 %27, %26
-  %29 = lshr i64 %28, 32
-  %30 = add nuw nsw i64 %29, %28
-  %31 = and i64 %30, 15
-  %32 = sub i64 %.3.i, %31
-  %33 = getelementptr i8, ptr %.030.i, i64 8
-  %34 = icmp ult ptr %33, %14
-  %35 = icmp sgt i64 %32, 7
-  %36 = select i1 %34, i1 %35, i1 false
-  br i1 %36, label %.preheader.i, label %.loopexit.loopexit.i, !llvm.loop !221
+  %21 = lshr i64 %.030.val.i, 6
+  %22 = xor i64 %.030.val.i, -1
+  %23 = lshr i64 %22, 7
+  %24 = or i64 %21, %23
+  %25 = and i64 %24, 72340172838076673
+  %26 = lshr i64 %25, 8
+  %27 = add nuw nsw i64 %26, %25
+  %28 = lshr i64 %27, 16
+  %29 = add nuw nsw i64 %28, %27
+  %30 = lshr i64 %29, 32
+  %31 = add nuw nsw i64 %30, %29
+  %32 = and i64 %31, 15
+  %33 = sub i64 %.3.i, %32
+  %34 = getelementptr i8, ptr %.030.i, i64 8
+  %35 = icmp ult ptr %34, %16
+  %36 = icmp sgt i64 %33, 7
+  %37 = select i1 %35, i1 %36, i1 false
+  br i1 %37, label %20, label %.loopexit.loopexit.i, !llvm.loop !221
 
-.loopexit.loopexit.i:                             ; preds = %.preheader.i
-  %.pre.i = ptrtoint ptr %33 to i64
+.loopexit.loopexit.i:                             ; preds = %20
+  %.pre.i = ptrtoint ptr %34 to i64
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %3
   %.046.pre-phi.i = phi i64 [ %.pre.i, %.loopexit.loopexit.i ], [ %5, %3 ]
-  %.027.i = phi i64 [ %32, %.loopexit.loopexit.i ], [ %2, %3 ]
-  %.0.i = phi ptr [ %33, %.loopexit.loopexit.i ], [ %0, %3 ]
-  %37 = icmp ult ptr %.0.i, %1
-  br i1 %37, label %.lr.ph39.preheader.i, label %str_utf8_nth.exit
+  %.027.i = phi i64 [ %33, %.loopexit.loopexit.i ], [ %2, %3 ]
+  %.0.i = phi ptr [ %34, %.loopexit.loopexit.i ], [ %0, %3 ]
+  %38 = icmp ult ptr %.0.i, %1
+  br i1 %38, label %.lr.ph39.preheader.i, label %str_utf8_nth.exit
 
 .lr.ph39.preheader.i:                             ; preds = %.loopexit.i
-  %38 = sub i64 %4, %.046.pre-phi.i
-  %scevgep47.i = getelementptr i8, ptr %.0.i, i64 %38
+  %39 = sub i64 %4, %.046.pre-phi.i
+  %scevgep47.i = getelementptr i8, ptr %.0.i, i64 %39
   br label %.lr.ph39.i
 
-.lr.ph39.i:                                       ; preds = %44, %.lr.ph39.preheader.i
-  %.238.i = phi ptr [ %45, %44 ], [ %.0.i, %.lr.ph39.preheader.i ]
-  %.437.i = phi i64 [ %.5.i, %44 ], [ %.027.i, %.lr.ph39.preheader.i ]
-  %39 = load i8, ptr %.238.i, align 1, !tbaa !19
-  %.not.i = icmp slt i8 %39, -64
-  br i1 %.not.i, label %44, label %40
+.lr.ph39.i:                                       ; preds = %45, %.lr.ph39.preheader.i
+  %.238.i = phi ptr [ %46, %45 ], [ %.0.i, %.lr.ph39.preheader.i ]
+  %.437.i = phi i64 [ %.5.i, %45 ], [ %.027.i, %.lr.ph39.preheader.i ]
+  %40 = load i8, ptr %.238.i, align 1, !tbaa !19
+  %.not.i = icmp slt i8 %40, -64
+  br i1 %.not.i, label %45, label %41
 
-40:                                               ; preds = %.lr.ph39.i
-  %41 = icmp eq i64 %.437.i, 0
-  br i1 %41, label %str_utf8_nth.exit, label %42
+41:                                               ; preds = %.lr.ph39.i
+  %42 = icmp eq i64 %.437.i, 0
+  br i1 %42, label %str_utf8_nth.exit, label %43
 
-42:                                               ; preds = %40
-  %43 = add i64 %.437.i, -1
-  br label %44
+43:                                               ; preds = %41
+  %44 = add i64 %.437.i, -1
+  br label %45
 
-44:                                               ; preds = %42, %.lr.ph39.i
-  %.5.i = phi i64 [ %43, %42 ], [ %.437.i, %.lr.ph39.i ]
-  %45 = getelementptr i8, ptr %.238.i, i64 1
-  %exitcond48.not.i = icmp eq ptr %45, %scevgep47.i
+45:                                               ; preds = %43, %.lr.ph39.i
+  %.5.i = phi i64 [ %44, %43 ], [ %.437.i, %.lr.ph39.i ]
+  %46 = getelementptr i8, ptr %.238.i, i64 1
+  %exitcond48.not.i = icmp eq ptr %46, %scevgep47.i
   br i1 %exitcond48.not.i, label %str_utf8_nth.exit, label %.lr.ph39.i, !llvm.loop !222
 
-str_utf8_nth.exit:                                ; preds = %40, %44, %.loopexit.i
-  %.2.lcssa.i = phi ptr [ %.0.i, %.loopexit.i ], [ %scevgep47.i, %44 ], [ %.238.i, %40 ]
-  %46 = ptrtoint ptr %.2.lcssa.i to i64
-  %47 = sub i64 %46, %5
-  ret i64 %47
+str_utf8_nth.exit:                                ; preds = %41, %45, %.loopexit.i
+  %.2.lcssa.i = phi ptr [ %.0.i, %.loopexit.i ], [ %scevgep47.i, %45 ], [ %.238.i, %41 ]
+  %47 = ptrtoint ptr %.2.lcssa.i to i64
+  %48 = sub i64 %47, %5
+  ret i64 %48
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

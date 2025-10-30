@@ -568,32 +568,32 @@ _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %49
   br i1 %61, label %_ZN4llvm5ErrorD2Ev.exit57, label %62
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %64 = load i32, ptr %63, align 8, !tbaa !96, !noalias !86
-  %65 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  br label %66
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  br label %64
 
-66:                                               ; preds = %66, %62
-  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %66 ], [ 0, %62 ]
-  %67 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
-  call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv.i.i.i.i
-  %69 = load i64, ptr %68, align 8, !tbaa !74, !noalias !86
-  %.not.i.i.i.i = icmp eq i64 %69, 0
+64:                                               ; preds = %64, %62
+  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %64 ], [ 0, %62 ]
+  %65 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
+  call void @llvm.assume(i1 %65)
+  %66 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv.i.i.i.i
+  %67 = load i64, ptr %66, align 8, !tbaa !74, !noalias !86
+  %.not.i.i.i.i = icmp eq i64 %67, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  br i1 %.not.i.i.i.i, label %66, label %.lr.ph, !llvm.loop !98
+  br i1 %.not.i.i.i.i, label %64, label %.lr.ph, !llvm.loop !96
 
-.lr.ph:                                           ; preds = %66
-  %70 = shl i32 %64, 7
+.lr.ph:                                           ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %69 = load i32, ptr %68, align 8, !tbaa !97, !noalias !86
+  %70 = shl i32 %69, 7
   %71 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %72 = shl nuw nsw i32 %71, 6
-  %73 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %69, i1 true)
+  %73 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %67, i1 true)
   %74 = trunc nuw nsw i64 %73 to i32
   %75 = or disjoint i32 %72, %74
-  %76 = or disjoint i32 %75, %70
+  %76 = or disjoint i32 %70, %75
   store i32 %76, ptr %58, align 8, !tbaa !99, !alias.scope !86
   store i32 %71, ptr %60, align 4, !tbaa !100, !alias.scope !86
-  %77 = lshr exact i64 %69, %73
+  %77 = lshr exact i64 %67, %73
   store i64 %77, ptr %59, align 8, !tbaa !101, !alias.scope !86
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %79
@@ -794,29 +794,29 @@ _ZN4llvm5ErrorD2Ev.exit45:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   br i1 %30, label %_ZN4llvm5ErrorD2Ev.exit53, label %31
 
 31:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit45
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %33 = load i32, ptr %32, align 8, !tbaa !96
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  br label %35
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  br label %33
 
-35:                                               ; preds = %35, %31
-  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %35 ], [ 0, %31 ]
-  %36 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
-  call void @llvm.assume(i1 %36)
-  %37 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv.i.i.i.i
-  %38 = load i64, ptr %37, align 8, !tbaa !74
-  %.not.i.i.i.i = icmp eq i64 %38, 0
+33:                                               ; preds = %33, %31
+  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %33 ], [ 0, %31 ]
+  %34 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
+  call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv.i.i.i.i
+  %36 = load i64, ptr %35, align 8, !tbaa !74
+  %.not.i.i.i.i = icmp eq i64 %36, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  br i1 %.not.i.i.i.i, label %35, label %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit, !llvm.loop !98
+  br i1 %.not.i.i.i.i, label %33, label %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit, !llvm.loop !96
 
-_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit: ; preds = %35
-  %39 = shl i32 %33, 7
+_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit: ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %38 = load i32, ptr %37, align 8, !tbaa !97
+  %39 = shl i32 %38, 7
   %40 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %41 = shl nuw nsw i32 %40, 6
-  %42 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %38, i1 true)
+  %42 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %36, i1 true)
   %43 = trunc nuw nsw i64 %42 to i32
   %44 = or disjoint i32 %41, %43
-  %45 = or disjoint i32 %44, %39
+  %45 = or disjoint i32 %39, %44
   %46 = icmp eq i32 %45, -1
   br i1 %46, label %_ZN4llvm5ErrorD2Ev.exit53, label %.lr.ph
 
@@ -909,7 +909,7 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i: ; preds = %.lr.ph.i, %_ZNK4
 85:                                               ; preds = %82, %.lr.ph.split.preheader.i
   %86 = phi ptr [ %84, %82 ], [ %77, %.lr.ph.split.preheader.i ]
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %88 = load i32, ptr %87, align 8, !tbaa !96
+  %88 = load i32, ptr %87, align 8, !tbaa !97
   %89 = icmp eq i32 %88, %80
   br i1 %89, label %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i, label %90
 
@@ -928,7 +928,7 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i: ; preds = %.lr.ph.i, %_ZNK4
 .lr.ph24.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i, %95
   %.sroa.08.123.i.i.i.i = phi ptr [ %97, %95 ], [ %86, %.preheader.i.i.i.i ]
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i.i.i, i64 16
-  %93 = load i32, ptr %92, align 8, !tbaa !96
+  %93 = load i32, ptr %92, align 8, !tbaa !97
   %94 = icmp ugt i32 %93, %80
   br i1 %94, label %95, label %.sink.split.i.i.i.i
 
@@ -941,7 +941,7 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i: ; preds = %.lr.ph.i, %_ZNK4
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader16.i.i.i.i, %101
   %.sroa.08.219.i.i.i.i = phi ptr [ %102, %101 ], [ %86, %.preheader16.i.i.i.i ]
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i.i.i, i64 16
-  %99 = load i32, ptr %98, align 8, !tbaa !96
+  %99 = load i32, ptr %98, align 8, !tbaa !97
   %100 = icmp ult i32 %99, %80
   br i1 %100, label %101, label %.sink.split.i.i.i.i
 
@@ -965,7 +965,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i: ; preds = %.
 
 106:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i, i64 16
-  %108 = load i32, ptr %107, align 8, !tbaa !96
+  %108 = load i32, ptr %107, align 8, !tbaa !97
   %.not.i.i51 = icmp eq i32 %108, %80
   br i1 %.not.i.i51, label %109, label %.backedge.i
 
@@ -1035,31 +1035,31 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm3pdb9HashTableINS_7support6deta
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !15
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !96
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  br label %11
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  br label %9
 
-11:                                               ; preds = %11, %5
-  %.09.i.i = phi i32 [ 0, %5 ], [ %17, %11 ]
-  %12 = icmp samesign ult i32 %.09.i.i, 2
-  tail call void @llvm.assume(i1 %12)
-  %13 = xor i32 %.09.i.i, 1
-  %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i64, ptr %10, i64 %14
-  %16 = load i64, ptr %15, align 8, !tbaa !74
-  %.not.i.i = icmp eq i64 %16, 0
-  %17 = add nuw nsw i32 %.09.i.i, 1
-  br i1 %.not.i.i, label %11, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_lastEv.exit.i, !llvm.loop !137
+9:                                                ; preds = %9, %5
+  %.09.i.i = phi i32 [ 0, %5 ], [ %15, %9 ]
+  %10 = icmp samesign ult i32 %.09.i.i, 2
+  tail call void @llvm.assume(i1 %10)
+  %11 = xor i32 %.09.i.i, 1
+  %12 = zext nneg i32 %11 to i64
+  %13 = getelementptr inbounds nuw i64, ptr %8, i64 %12
+  %14 = load i64, ptr %13, align 8, !tbaa !74
+  %.not.i.i = icmp eq i64 %14, 0
+  %15 = add nuw nsw i32 %.09.i.i, 1
+  br i1 %.not.i.i, label %9, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_lastEv.exit.i, !llvm.loop !137
 
-_ZNK4llvm22SparseBitVectorElementILj128EE9find_lastEv.exit.i: ; preds = %11
-  %18 = shl i32 %9, 7
-  %19 = shl nuw nsw i32 %13, 6
-  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %16, i1 true)
+_ZNK4llvm22SparseBitVectorElementILj128EE9find_lastEv.exit.i: ; preds = %9
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %17 = load i32, ptr %16, align 8, !tbaa !97
+  %18 = shl i32 %17, 7
+  %19 = shl nuw nsw i32 %11, 6
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 true)
   %21 = trunc nuw nsw i64 %20 to i32
-  %22 = or disjoint i32 %18, 64
-  %23 = add i32 %22, %19
-  %24 = sub i32 %23, %21
+  %22 = add nuw nsw i32 %19, 64
+  %23 = sub nuw nsw i32 %22, %21
+  %24 = add i32 %23, %18
   br label %_ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit
 
 _ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit: ; preds = %1, %_ZNK4llvm22SparseBitVectorElementILj128EE9find_lastEv.exit.i
@@ -1072,31 +1072,31 @@ _ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit: ; preds = %1, %_ZNK4llvm22S
 28:                                               ; preds = %_ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !15
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load i32, ptr %31, align 8, !tbaa !96
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  br label %34
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  br label %32
 
-34:                                               ; preds = %34, %28
-  %.09.i.i11 = phi i32 [ 0, %28 ], [ %40, %34 ]
-  %35 = icmp samesign ult i32 %.09.i.i11, 2
-  tail call void @llvm.assume(i1 %35)
-  %36 = xor i32 %.09.i.i11, 1
-  %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw i64, ptr %33, i64 %37
-  %39 = load i64, ptr %38, align 8, !tbaa !74
-  %.not.i.i12 = icmp eq i64 %39, 0
-  %40 = add nuw nsw i32 %.09.i.i11, 1
-  br i1 %.not.i.i12, label %34, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_lastEv.exit.i13, !llvm.loop !137
+32:                                               ; preds = %32, %28
+  %.09.i.i11 = phi i32 [ 0, %28 ], [ %38, %32 ]
+  %33 = icmp samesign ult i32 %.09.i.i11, 2
+  tail call void @llvm.assume(i1 %33)
+  %34 = xor i32 %.09.i.i11, 1
+  %35 = zext nneg i32 %34 to i64
+  %36 = getelementptr inbounds nuw i64, ptr %31, i64 %35
+  %37 = load i64, ptr %36, align 8, !tbaa !74
+  %.not.i.i12 = icmp eq i64 %37, 0
+  %38 = add nuw nsw i32 %.09.i.i11, 1
+  br i1 %.not.i.i12, label %32, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_lastEv.exit.i13, !llvm.loop !137
 
-_ZNK4llvm22SparseBitVectorElementILj128EE9find_lastEv.exit.i13: ; preds = %34
-  %41 = shl i32 %32, 7
-  %42 = shl nuw nsw i32 %36, 6
-  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %39, i1 true)
+_ZNK4llvm22SparseBitVectorElementILj128EE9find_lastEv.exit.i13: ; preds = %32
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %40 = load i32, ptr %39, align 8, !tbaa !97
+  %41 = shl i32 %40, 7
+  %42 = shl nuw nsw i32 %34, 6
+  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %37, i1 true)
   %44 = trunc nuw nsw i64 %43 to i32
-  %45 = or disjoint i32 %41, 64
-  %46 = add i32 %45, %42
-  %47 = sub i32 %46, %44
+  %45 = add nuw nsw i32 %42, 64
+  %46 = sub nuw nsw i32 %45, %44
+  %47 = add i32 %46, %41
   br label %_ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit15
 
 _ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit15: ; preds = %_ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit, %_ZNK4llvm22SparseBitVectorElementILj128EE9find_lastEv.exit.i13
@@ -1286,7 +1286,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm3pdb9HashTableINS_7support6det
 33:                                               ; preds = %30, %26
   %.in.i.i.i.i = phi ptr [ %32, %30 ], [ %28, %26 ]
   %34 = getelementptr inbounds nuw i8, ptr %.in.i.i.i.i, i64 16
-  %35 = load i32, ptr %34, align 8, !tbaa !96
+  %35 = load i32, ptr %34, align 8, !tbaa !97
   %36 = icmp eq i32 %35, %27
   br i1 %36, label %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i, label %37
 
@@ -1305,7 +1305,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm3pdb9HashTableINS_7support6det
 .lr.ph24.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i, %42
   %.sroa.08.123.i.i.i.i = phi ptr [ %44, %42 ], [ %.in.i.i.i.i, %.preheader.i.i.i.i ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i.i.i, i64 16
-  %40 = load i32, ptr %39, align 8, !tbaa !96
+  %40 = load i32, ptr %39, align 8, !tbaa !97
   %41 = icmp ugt i32 %40, %27
   br i1 %41, label %42, label %.sink.split.i.i.i.i
 
@@ -1318,7 +1318,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm3pdb9HashTableINS_7support6det
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader16.i.i.i.i, %48
   %.sroa.08.219.i.i.i.i = phi ptr [ %49, %48 ], [ %.in.i.i.i.i, %.preheader16.i.i.i.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i.i.i, i64 16
-  %46 = load i32, ptr %45, align 8, !tbaa !96
+  %46 = load i32, ptr %45, align 8, !tbaa !97
   %47 = icmp ult i32 %46, %27
   br i1 %47, label %48, label %.sink.split.i.i.i.i
 
@@ -1341,7 +1341,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i: ; preds = %.
 
 52:                                               ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i, i64 16
-  %54 = load i32, ptr %53, align 8, !tbaa !96
+  %54 = load i32, ptr %53, align 8, !tbaa !97
   %.not.i.i = icmp eq i32 %54, %27
   br i1 %.not.i.i, label %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit, label %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread
 
@@ -1404,7 +1404,7 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
 82:                                               ; preds = %79, %75
   %.in.i.i.i.i10 = phi ptr [ %81, %79 ], [ %77, %75 ]
   %83 = getelementptr inbounds nuw i8, ptr %.in.i.i.i.i10, i64 16
-  %84 = load i32, ptr %83, align 8, !tbaa !96
+  %84 = load i32, ptr %83, align 8, !tbaa !97
   %85 = icmp eq i32 %84, %76
   br i1 %85, label %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18, label %86
 
@@ -1423,7 +1423,7 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
 .lr.ph24.i.i.i.i25:                               ; preds = %.preheader.i.i.i.i23, %91
   %.sroa.08.123.i.i.i.i26 = phi ptr [ %93, %91 ], [ %.in.i.i.i.i10, %.preheader.i.i.i.i23 ]
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i.i.i26, i64 16
-  %89 = load i32, ptr %88, align 8, !tbaa !96
+  %89 = load i32, ptr %88, align 8, !tbaa !97
   %90 = icmp ugt i32 %89, %76
   br i1 %90, label %91, label %.sink.split.i.i.i.i15
 
@@ -1436,7 +1436,7 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
 .lr.ph.i.i.i.i13:                                 ; preds = %.preheader16.i.i.i.i11, %97
   %.sroa.08.219.i.i.i.i14 = phi ptr [ %98, %97 ], [ %.in.i.i.i.i10, %.preheader16.i.i.i.i11 ]
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i.i.i14, i64 16
-  %95 = load i32, ptr %94, align 8, !tbaa !96
+  %95 = load i32, ptr %94, align 8, !tbaa !97
   %96 = icmp ult i32 %95, %76
   br i1 %96, label %97, label %.sink.split.i.i.i.i15
 
@@ -1459,7 +1459,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18: ; preds = 
 
 101:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i19, i64 16
-  %103 = load i32, ptr %102, align 8, !tbaa !96
+  %103 = load i32, ptr %102, align 8, !tbaa !97
   %.not.i.i20 = icmp eq i32 %103, %76
   br i1 %.not.i.i20, label %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
@@ -1508,29 +1508,29 @@ define dso_local void @_ZNK4llvm3pdb14NamedStreamMap7entriesEv(ptr dead_on_unwin
   br i1 %7, label %_ZNK4llvm20iterator_facade_baseINS_3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt20forward_iterator_tagKSt4pairIjS7_ElPSC_RSC_EneERKS8_.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !96
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  br label %12
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  br label %10
 
-12:                                               ; preds = %12, %8
-  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %12 ], [ 0, %8 ]
-  %13 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
-  tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i.i.i.i
-  %15 = load i64, ptr %14, align 8, !tbaa !74
-  %.not.i.i.i.i = icmp eq i64 %15, 0
+10:                                               ; preds = %10, %8
+  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %10 ], [ 0, %8 ]
+  %11 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
+  tail call void @llvm.assume(i1 %11)
+  %12 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i.i.i.i
+  %13 = load i64, ptr %12, align 8, !tbaa !74
+  %.not.i.i.i.i = icmp eq i64 %13, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  br i1 %.not.i.i.i.i, label %12, label %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit, !llvm.loop !98
+  br i1 %.not.i.i.i.i, label %10, label %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit, !llvm.loop !96
 
-_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit: ; preds = %12
-  %16 = shl i32 %10, 7
+_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE5beginEv.exit: ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %15 = load i32, ptr %14, align 8, !tbaa !97
+  %16 = shl i32 %15, 7
   %17 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %18 = shl nuw nsw i32 %17, 6
-  %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 true)
+  %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %13, i1 true)
   %20 = trunc nuw nsw i64 %19 to i32
   %21 = or disjoint i32 %18, %20
-  %22 = or disjoint i32 %21, %16
+  %22 = or disjoint i32 %16, %21
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %_ZNK4llvm20iterator_facade_baseINS_3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt20forward_iterator_tagKSt4pairIjS7_ElPSC_RSC_EneERKS8_.exit, label %.lr.ph
 
@@ -1618,7 +1618,7 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i: ; preds = %.lr.ph.i, %_ZNK4
 62:                                               ; preds = %59, %.lr.ph.split.preheader.i
   %63 = phi ptr [ %61, %59 ], [ %54, %.lr.ph.split.preheader.i ]
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %65 = load i32, ptr %64, align 8, !tbaa !96
+  %65 = load i32, ptr %64, align 8, !tbaa !97
   %66 = icmp eq i32 %65, %57
   br i1 %66, label %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i, label %67
 
@@ -1637,7 +1637,7 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i: ; preds = %.lr.ph.i, %_ZNK4
 .lr.ph24.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i, %72
   %.sroa.08.123.i.i.i.i = phi ptr [ %74, %72 ], [ %63, %.preheader.i.i.i.i ]
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i.i.i, i64 16
-  %70 = load i32, ptr %69, align 8, !tbaa !96
+  %70 = load i32, ptr %69, align 8, !tbaa !97
   %71 = icmp ugt i32 %70, %57
   br i1 %71, label %72, label %.sink.split.i.i.i.i
 
@@ -1650,7 +1650,7 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i: ; preds = %.lr.ph.i, %_ZNK4
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader16.i.i.i.i, %78
   %.sroa.08.219.i.i.i.i = phi ptr [ %79, %78 ], [ %63, %.preheader16.i.i.i.i ]
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i.i.i, i64 16
-  %76 = load i32, ptr %75, align 8, !tbaa !96
+  %76 = load i32, ptr %75, align 8, !tbaa !97
   %77 = icmp ult i32 %76, %57
   br i1 %77, label %78, label %.sink.split.i.i.i.i
 
@@ -1674,7 +1674,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i: ; preds = %.
 
 83:                                               ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i, i64 16
-  %85 = load i32, ptr %84, align 8, !tbaa !96
+  %85 = load i32, ptr %84, align 8, !tbaa !97
   %.not.i.i15 = icmp eq i32 %85, %57
   br i1 %.not.i.i15, label %86, label %.backedge.i
 
@@ -2545,9 +2545,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15SparseBitVectorILj128E
   %.sroa.012.021 = phi ptr [ %.sroa.012.1, %30 ], [ %3, %2 ]
   %.sroa.06.020 = phi ptr [ %.sroa.06.1, %30 ], [ %4, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.012.021, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !96
+  %8 = load i32, ptr %7, align 8, !tbaa !97
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.06.020, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !96
+  %10 = load i32, ptr %9, align 8, !tbaa !97
   %11 = icmp ugt i32 %8, %10
   br i1 %11, label %12, label %14
 
@@ -2737,37 +2737,37 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit: ; preds = %34, %42
   br label %80
 
 50:                                               ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %52 = load i32, ptr %51, align 8, !tbaa !96
-  %53 = shl i32 %52, 7
-  %54 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  br label %55
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  br label %52
 
-55:                                               ; preds = %55, %50
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %50 ]
-  %56 = icmp samesign ult i64 %indvars.iv.i, 2
-  tail call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i
-  %58 = load i64, ptr %57, align 8, !tbaa !74
-  %.not.i9 = icmp eq i64 %58, 0
+52:                                               ; preds = %52, %50
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %50 ]
+  %53 = icmp samesign ult i64 %indvars.iv.i, 2
+  tail call void @llvm.assume(i1 %53)
+  %54 = getelementptr inbounds nuw i64, ptr %51, i64 %indvars.iv.i
+  %55 = load i64, ptr %54, align 8, !tbaa !74
+  %.not.i9 = icmp eq i64 %55, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i9, label %55, label %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit, !llvm.loop !98
+  br i1 %.not.i9, label %52, label %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit, !llvm.loop !96
 
-_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %55
+_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %57 = load i32, ptr %56, align 8, !tbaa !97
+  %58 = shl i32 %57, 7
   %59 = trunc nuw nsw i64 %indvars.iv.i to i32
   %60 = shl nuw nsw i32 %59, 6
-  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %58, i1 true)
+  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %55, i1 true)
   %.fr = freeze i64 %61
   %62 = trunc i64 %.fr to i32
   %63 = or i32 %60, %62
-  %64 = or disjoint i32 %63, %53
+  %64 = or disjoint i32 %63, %58
   store i32 %64, ptr %17, align 8, !tbaa !99
   store i32 %59, ptr %45, align 4, !tbaa !100
   %.urem = add i32 %63, -64
   %.cmp = icmp ult i32 %63, 64
   %65 = select i1 %.cmp, i32 %63, i32 %.urem
   %66 = zext nneg i32 %65 to i64
-  %67 = lshr i64 %58, %66
+  %67 = lshr i64 %55, %66
   store i64 %67, ptr %4, align 8, !tbaa !101
   br label %80
 
@@ -2785,7 +2785,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %55
   %75 = zext nneg i32 %74 to i64
   %76 = lshr i64 %73, %75
   store i64 %76, ptr %4, align 8, !tbaa !101
-  %77 = load i32, ptr %16, align 8, !tbaa !96
+  %77 = load i32, ptr %16, align 8, !tbaa !97
   %78 = shl i32 %77, 7
   %79 = add nuw i32 %78, %.018.i.ph.frozen
   store i32 %79, ptr %17, align 8, !tbaa !99
@@ -3149,7 +3149,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm3pdb9HashTableINS_7support6det
 33:                                               ; preds = %30, %26
   %.in.i.i.i.i = phi ptr [ %32, %30 ], [ %28, %26 ]
   %34 = getelementptr inbounds nuw i8, ptr %.in.i.i.i.i, i64 16
-  %35 = load i32, ptr %34, align 8, !tbaa !96
+  %35 = load i32, ptr %34, align 8, !tbaa !97
   %36 = icmp eq i32 %35, %27
   br i1 %36, label %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i, label %37
 
@@ -3168,7 +3168,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm3pdb9HashTableINS_7support6det
 .lr.ph24.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i, %42
   %.sroa.08.123.i.i.i.i = phi ptr [ %44, %42 ], [ %.in.i.i.i.i, %.preheader.i.i.i.i ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i.i.i, i64 16
-  %40 = load i32, ptr %39, align 8, !tbaa !96
+  %40 = load i32, ptr %39, align 8, !tbaa !97
   %41 = icmp ugt i32 %40, %27
   br i1 %41, label %42, label %.sink.split.i.i.i.i
 
@@ -3181,7 +3181,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm3pdb9HashTableINS_7support6det
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader16.i.i.i.i, %48
   %.sroa.08.219.i.i.i.i = phi ptr [ %49, %48 ], [ %.in.i.i.i.i, %.preheader16.i.i.i.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i.i.i, i64 16
-  %46 = load i32, ptr %45, align 8, !tbaa !96
+  %46 = load i32, ptr %45, align 8, !tbaa !97
   %47 = icmp ult i32 %46, %27
   br i1 %47, label %48, label %.sink.split.i.i.i.i
 
@@ -3204,7 +3204,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i: ; preds = %.
 
 52:                                               ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i, i64 16
-  %54 = load i32, ptr %53, align 8, !tbaa !96
+  %54 = load i32, ptr %53, align 8, !tbaa !97
   %.not.i.i = icmp eq i32 %54, %27
   br i1 %.not.i.i, label %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit, label %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread
 
@@ -3267,7 +3267,7 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
 82:                                               ; preds = %79, %75
   %.in.i.i.i.i10 = phi ptr [ %81, %79 ], [ %77, %75 ]
   %83 = getelementptr inbounds nuw i8, ptr %.in.i.i.i.i10, i64 16
-  %84 = load i32, ptr %83, align 8, !tbaa !96
+  %84 = load i32, ptr %83, align 8, !tbaa !97
   %85 = icmp eq i32 %84, %76
   br i1 %85, label %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18, label %86
 
@@ -3286,7 +3286,7 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
 .lr.ph24.i.i.i.i25:                               ; preds = %.preheader.i.i.i.i23, %91
   %.sroa.08.123.i.i.i.i26 = phi ptr [ %93, %91 ], [ %.in.i.i.i.i10, %.preheader.i.i.i.i23 ]
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i.i.i26, i64 16
-  %89 = load i32, ptr %88, align 8, !tbaa !96
+  %89 = load i32, ptr %88, align 8, !tbaa !97
   %90 = icmp ugt i32 %89, %76
   br i1 %90, label %91, label %.sink.split.i.i.i.i15
 
@@ -3299,7 +3299,7 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
 .lr.ph.i.i.i.i13:                                 ; preds = %.preheader16.i.i.i.i11, %97
   %.sroa.08.219.i.i.i.i14 = phi ptr [ %98, %97 ], [ %.in.i.i.i.i10, %.preheader16.i.i.i.i11 ]
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i.i.i14, i64 16
-  %95 = load i32, ptr %94, align 8, !tbaa !96
+  %95 = load i32, ptr %94, align 8, !tbaa !97
   %96 = icmp ult i32 %95, %76
   br i1 %96, label %97, label %.sink.split.i.i.i.i15
 
@@ -3322,7 +3322,7 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18: ; preds = 
 
 101:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i19, i64 16
-  %103 = load i32, ptr %102, align 8, !tbaa !96
+  %103 = load i32, ptr %102, align 8, !tbaa !97
   %.not.i.i20 = icmp eq i32 %103, %76
   br i1 %.not.i.i20, label %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
@@ -3381,7 +3381,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE3setEj(ptr nou
 13:                                               ; preds = %10, %6
   %.in.i.i = phi ptr [ %12, %10 ], [ %8, %6 ]
   %14 = getelementptr inbounds nuw i8, ptr %.in.i.i, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !96
+  %15 = load i32, ptr %14, align 8, !tbaa !97
   %16 = icmp eq i32 %15, %3
   br i1 %16, label %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit, label %17
 
@@ -3400,7 +3400,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE3setEj(ptr nou
 .lr.ph24.i.i:                                     ; preds = %.preheader.i.i, %22
   %.sroa.08.123.i.i = phi ptr [ %24, %22 ], [ %.in.i.i, %.preheader.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !96
+  %20 = load i32, ptr %19, align 8, !tbaa !97
   %21 = icmp ugt i32 %20, %3
   br i1 %21, label %22, label %.sink.split.i.i
 
@@ -3413,7 +3413,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE3setEj(ptr nou
 .lr.ph.i.i:                                       ; preds = %.preheader16.i.i, %28
   %.sroa.08.219.i.i = phi ptr [ %29, %28 ], [ %.in.i.i, %.preheader16.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !96
+  %26 = load i32, ptr %25, align 8, !tbaa !97
   %27 = icmp ult i32 %26, %3
   br i1 %27, label %28, label %.sink.split.i.i
 
@@ -3436,13 +3436,13 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
 
 32:                                               ; preds = %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i, i64 16
-  %34 = load i32, ptr %33, align 8, !tbaa !96
+  %34 = load i32, ptr %33, align 8, !tbaa !97
   %.not = icmp eq i32 %34, %3
   br i1 %.not, label %46, label %.critedge
 
 .critedge:                                        ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !96
+  %36 = load i32, ptr %35, align 8, !tbaa !97
   %37 = icmp ult i32 %36, %3
   br i1 %37, label %38, label %.sink.split
 
@@ -3454,7 +3454,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
   %.sroa.010.1.sink = phi ptr [ %0, %2 ], [ %39, %38 ], [ %.sroa.08.0.i.i, %.critedge ], [ %.sroa.08.0.i.i, %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit ]
   %40 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i32 %3, ptr %41, align 8, !tbaa !96
+  store i32 %3, ptr %41, align 8, !tbaa !97
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %.sroa.010.1.sink) #19
@@ -3505,7 +3505,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE5resetEj(ptr n
 13:                                               ; preds = %10, %5
   %.in.i.i = phi ptr [ %12, %10 ], [ %8, %5 ]
   %14 = getelementptr inbounds nuw i8, ptr %.in.i.i, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !96
+  %15 = load i32, ptr %14, align 8, !tbaa !97
   %16 = icmp eq i32 %15, %6
   br i1 %16, label %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit, label %17
 
@@ -3524,7 +3524,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE5resetEj(ptr n
 .lr.ph24.i.i:                                     ; preds = %.preheader.i.i, %22
   %.sroa.08.123.i.i = phi ptr [ %24, %22 ], [ %.in.i.i, %.preheader.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.123.i.i, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !96
+  %20 = load i32, ptr %19, align 8, !tbaa !97
   %21 = icmp ugt i32 %20, %6
   br i1 %21, label %22, label %.sink.split.i.i
 
@@ -3537,7 +3537,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj128EE5resetEj(ptr n
 .lr.ph.i.i:                                       ; preds = %.preheader16.i.i, %28
   %.sroa.08.219.i.i = phi ptr [ %29, %28 ], [ %.in.i.i, %.preheader16.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.219.i.i, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !96
+  %26 = load i32, ptr %25, align 8, !tbaa !97
   %27 = icmp ult i32 %26, %6
   br i1 %27, label %28, label %.sink.split.i.i
 
@@ -3560,7 +3560,7 @@ _ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit: ; preds = %13, %.sink.
 
 32:                                               ; preds = %_ZN4llvm15SparseBitVectorILj128EE14FindLowerBoundEj.exit
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i, i64 16
-  %34 = load i32, ptr %33, align 8, !tbaa !96
+  %34 = load i32, ptr %33, align 8, !tbaa !97
   %.not = icmp eq i32 %34, %6
   br i1 %.not, label %35, label %.critedge
 
@@ -3702,32 +3702,32 @@ _ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLN
   br i1 %.not6.i.i, label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratorneERKS2_.exit, label %51
 
 51:                                               ; preds = %_ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLNS1_10endiannessE1ELm1ELm1EEEESaIS7_EE6resizeEm.exit
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i, i64 16
-  %53 = load i32, ptr %52, align 8, !tbaa !96, !noalias !235
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i, i64 24
-  br label %55
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i, i64 24
+  br label %53
 
-55:                                               ; preds = %55, %51
-  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %55 ], [ 0, %51 ]
-  %56 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
-  call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i.i.i.i
-  %58 = load i64, ptr %57, align 8, !tbaa !74, !noalias !235
-  %.not.i.i.i.i = icmp eq i64 %58, 0
+53:                                               ; preds = %53, %51
+  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %53 ], [ 0, %51 ]
+  %54 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
+  call void @llvm.assume(i1 %54)
+  %55 = getelementptr inbounds nuw i64, ptr %52, i64 %indvars.iv.i.i.i.i
+  %56 = load i64, ptr %55, align 8, !tbaa !74, !noalias !235
+  %.not.i.i.i.i = icmp eq i64 %56, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  br i1 %.not.i.i.i.i, label %55, label %.lr.ph, !llvm.loop !98
+  br i1 %.not.i.i.i.i, label %53, label %.lr.ph, !llvm.loop !96
 
-.lr.ph:                                           ; preds = %55
-  %59 = shl i32 %53, 7
+.lr.ph:                                           ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i, i64 16
+  %58 = load i32, ptr %57, align 8, !tbaa !97, !noalias !235
+  %59 = shl i32 %58, 7
   %60 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %61 = shl nuw nsw i32 %60, 6
-  %62 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %58, i1 true)
+  %62 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %56, i1 true)
   %63 = trunc nuw nsw i64 %62 to i32
   %64 = or disjoint i32 %61, %63
-  %65 = or disjoint i32 %64, %59
+  %65 = or disjoint i32 %59, %64
   store i32 %65, ptr %48, align 8, !tbaa !99, !alias.scope !235
   store i32 %60, ptr %50, align 4, !tbaa !100, !alias.scope !235
-  %66 = lshr exact i64 %58, %62
+  %66 = lshr exact i64 %56, %62
   store i64 %66, ptr %49, align 8, !tbaa !101, !alias.scope !235
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %138
@@ -4141,9 +4141,9 @@ attributes #23 = { "function-inline-cost-multiplier"="2" }
 !93 = !{!"int", !7, i64 0}
 !94 = !{!17, !17, i64 0}
 !95 = !{!90, !55, i64 0}
-!96 = !{!97, !93, i64 0}
-!97 = !{!"_ZTSN4llvm22SparseBitVectorElementILj128EEE", !93, i64 0, !7, i64 8}
-!98 = distinct !{!98, !76}
+!96 = distinct !{!96, !76}
+!97 = !{!98, !93, i64 0}
+!98 = !{!"_ZTSN4llvm22SparseBitVectorElementILj128EEE", !93, i64 0, !7, i64 8}
 !99 = !{!90, !93, i64 24}
 !100 = !{!90, !93, i64 28}
 !101 = !{!90, !21, i64 32}

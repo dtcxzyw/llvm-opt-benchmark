@@ -1564,32 +1564,32 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %4 = load i16, ptr %3, align 2, !tbaa !6
   %5 = zext i16 %4 to i32
-  %6 = mul nuw nsw i32 %5, 3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %8 = load i16, ptr %7, align 4, !tbaa !71
-  %9 = zext i16 %8 to i32
-  %10 = mul nuw nsw i32 %9, %5
-  %11 = zext nneg i32 %10 to i64
-  %12 = tail call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %11, i64 noundef 8)
-  %13 = load i16, ptr %7, align 4, !tbaa !71
-  %14 = zext i16 %13 to i32
-  %15 = icmp ugt i16 %13, 2
-  br i1 %15, label %.lr.ph3687, label %._crit_edge3713
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %7 = load i16, ptr %6, align 4, !tbaa !71
+  %8 = zext i16 %7 to i32
+  %9 = mul nuw nsw i32 %8, %5
+  %10 = zext nneg i32 %9 to i64
+  %11 = tail call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %10, i64 noundef 8)
+  %12 = load i16, ptr %6, align 4, !tbaa !71
+  %13 = zext i16 %12 to i32
+  %14 = icmp ugt i16 %12, 2
+  br i1 %14, label %.lr.ph3687, label %._crit_edge3713
 
 .lr.ph3687:                                       ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %17 = load i32, ptr %16, align 8, !tbaa !72
-  %18 = load i16, ptr %3, align 2, !tbaa !6
-  %19 = zext i16 %18 to i32
-  %20 = add nsw i32 %5, -1
-  %21 = load ptr, ptr %2, align 8
-  %22 = add nuw nsw i32 %19, 1
-  %23 = add nsw i32 %14, -2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %16 = load i32, ptr %15, align 8, !tbaa !72
+  %17 = load i16, ptr %3, align 2, !tbaa !6
+  %18 = zext i16 %17 to i32
+  %19 = add nsw i32 %5, -1
+  %20 = load ptr, ptr %2, align 8
+  %21 = add nuw nsw i32 %18, 1
+  %22 = add nsw i32 %13, -2
   br label %35
 
 .preheader3681:                                   ; preds = %._crit_edge
-  %24 = add nsw i32 %14, -3
-  %25 = icmp ugt i16 %13, 6
+  %23 = mul nuw nsw i32 %5, 3
+  %24 = add nsw i32 %13, -3
+  %25 = icmp ugt i16 %12, 6
   br i1 %25, label %.lr.ph3696, label %.preheader
 
 .lr.ph3696:                                       ; preds = %.preheader3681
@@ -1600,35 +1600,35 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %30 = add nsw i32 %5, -3
   %31 = mul nuw nsw i32 %29, 3
   %32 = add nuw nsw i32 %31, 3
-  %33 = zext nneg i32 %6 to i64
+  %33 = zext nneg i32 %23 to i64
   %34 = zext i16 %4 to i64
-  %invariant.gep3871 = getelementptr [2 x float], ptr %12, i64 %34
-  %invariant.gep3873 = getelementptr [2 x float], ptr %12, i64 %33
+  %invariant.gep3872 = getelementptr [2 x float], ptr %11, i64 %34
+  %invariant.gep3874 = getelementptr [2 x float], ptr %11, i64 %33
   br label %75
 
 35:                                               ; preds = %.lr.ph3687, %._crit_edge
-  %indvars.iv = phi i32 [ %22, %.lr.ph3687 ], [ %indvars.iv.next, %._crit_edge ]
+  %indvars.iv = phi i32 [ %21, %.lr.ph3687 ], [ %indvars.iv.next, %._crit_edge ]
   %.03685 = phi i32 [ 1, %.lr.ph3687 ], [ %65, %._crit_edge ]
   %36 = shl nuw i32 %.03685, 1
   %37 = and i32 %36, 14
   %38 = shl nuw nsw i32 %37, 1
   %39 = or disjoint i32 %38, 2
-  %40 = lshr i32 %17, %39
+  %40 = lshr i32 %16, %39
   %41 = and i32 %40, 1
   %42 = add nuw nsw i32 %41, 1
-  %43 = icmp slt i32 %42, %20
+  %43 = icmp slt i32 %42, %19
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %35
   %44 = and i32 %42, 1
   %45 = or disjoint i32 %44, %37
   %46 = shl nuw nsw i32 %45, 1
-  %47 = lshr i32 %17, %46
+  %47 = lshr i32 %16, %46
   %48 = and i32 %47, 3
   %.cmp = icmp samesign ugt i32 %48, 1
   %49 = zext nneg i32 %48 to i64
   %50 = zext i1 %.cmp to i64
-  %invariant.gep = getelementptr inbounds nuw float, ptr %12, i64 %50
+  %invariant.gep = getelementptr inbounds nuw float, ptr %11, i64 %50
   %51 = add i32 %indvars.iv, %41
   %52 = zext i32 %51 to i64
   br label %53
@@ -1636,7 +1636,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
 53:                                               ; preds = %.lr.ph, %53
   %indvars.iv3714 = phi i64 [ %52, %.lr.ph ], [ %indvars.iv.next3715, %53 ]
   %.030973683 = phi i32 [ %42, %.lr.ph ], [ %63, %53 ]
-  %54 = getelementptr inbounds nuw [4 x i16], ptr %21, i64 %indvars.iv3714
+  %54 = getelementptr inbounds nuw [4 x i16], ptr %20, i64 %indvars.iv3714
   %55 = getelementptr inbounds nuw i16, ptr %54, i64 %49
   %56 = load i16, ptr %55, align 2, !tbaa !73
   %57 = zext i16 %56 to i32
@@ -1649,13 +1649,13 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   store float %62, ptr %gep, align 4, !tbaa !74
   %63 = add nuw nsw i32 %.030973683, 2
   %indvars.iv.next3715 = add nuw nsw i64 %indvars.iv3714, 2
-  %64 = icmp slt i32 %63, %20
+  %64 = icmp slt i32 %63, %19
   br i1 %64, label %53, label %._crit_edge, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %53, %35
   %65 = add nuw nsw i32 %.03685, 1
-  %indvars.iv.next = add nuw i32 %indvars.iv, %19
-  %exitcond.not = icmp eq i32 %.03685, %23
+  %indvars.iv.next = add nuw i32 %indvars.iv, %18
+  %exitcond.not = icmp eq i32 %.03685, %22
   br i1 %exitcond.not, label %.preheader3681, label %35, !llvm.loop !102
 
 .lr.ph3705:                                       ; preds = %._crit_edge3692
@@ -1666,10 +1666,10 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %70 = add nsw i32 %5, -3
   %71 = mul nuw nsw i32 %69, 3
   %72 = add nuw nsw i32 %71, 3
-  %73 = zext nneg i32 %6 to i64
+  %73 = zext nneg i32 %23 to i64
   %74 = zext i16 %4 to i64
-  %invariant.gep3875 = getelementptr [2 x float], ptr %12, i64 %74
-  %invariant.gep3877 = getelementptr [2 x float], ptr %12, i64 %73
+  %invariant.gep3876 = getelementptr [2 x float], ptr %11, i64 %74
+  %invariant.gep3878 = getelementptr [2 x float], ptr %11, i64 %73
   br label %246
 
 75:                                               ; preds = %.lr.ph3696, %._crit_edge3692
@@ -1693,7 +1693,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %88 = and i32 %87, %27
   %.neg3499.cmp.not = icmp eq i32 %88, 0
   %89 = zext i1 %.neg3499.cmp.not to i64
-  %invariant.gep3693 = getelementptr inbounds nuw float, ptr %12, i64 %89
+  %invariant.gep3693 = getelementptr inbounds nuw float, ptr %11, i64 %89
   %90 = add i32 %indvars.iv3717, %81
   %91 = sext i32 %90 to i64
   br label %92
@@ -1702,12 +1702,12 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %indvars.iv3719 = phi i64 [ %91, %.lr.ph3691 ], [ %indvars.iv.next3720, %92 ]
   %.130983688 = phi i32 [ %82, %.lr.ph3691 ], [ %240, %92 ]
   %93 = sub nsw i64 %indvars.iv3719, %34
-  %94 = getelementptr [2 x float], ptr %12, i64 %93
+  %94 = getelementptr [2 x float], ptr %11, i64 %93
   %95 = getelementptr i8, ptr %94, i64 -8
   %96 = getelementptr inbounds nuw float, ptr %95, i64 %89
   %97 = load float, ptr %96, align 4, !tbaa !74
-  %gep3872 = getelementptr [2 x float], ptr %invariant.gep3871, i64 %indvars.iv3719
-  %98 = getelementptr inbounds nuw i8, ptr %gep3872, i64 8
+  %gep3873 = getelementptr [2 x float], ptr %invariant.gep3872, i64 %indvars.iv3719
+  %98 = getelementptr inbounds nuw i8, ptr %gep3873, i64 8
   %99 = getelementptr inbounds nuw float, ptr %98, i64 %89
   %100 = load float, ptr %99, align 4, !tbaa !74
   %101 = fsub reassoc nsz arcp contract afn float %97, %100
@@ -1715,7 +1715,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %103 = fpext reassoc nsz arcp contract afn float %102 to double
   %104 = fadd reassoc nsz arcp contract afn double %103, 1.000000e+00
   %105 = sub nsw i64 %indvars.iv3719, %33
-  %106 = getelementptr [2 x float], ptr %12, i64 %105
+  %106 = getelementptr [2 x float], ptr %11, i64 %105
   %107 = getelementptr i8, ptr %106, i64 -24
   %108 = getelementptr inbounds nuw float, ptr %107, i64 %89
   %109 = load float, ptr %108, align 4, !tbaa !74
@@ -1732,7 +1732,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %120 = getelementptr i8, ptr %94, i64 8
   %121 = getelementptr inbounds nuw float, ptr %120, i64 %89
   %122 = load float, ptr %121, align 4, !tbaa !74
-  %123 = getelementptr i8, ptr %gep3872, i64 -8
+  %123 = getelementptr i8, ptr %gep3873, i64 -8
   %124 = getelementptr inbounds nuw float, ptr %123, i64 %89
   %125 = load float, ptr %124, align 4, !tbaa !74
   %126 = fsub reassoc nsz arcp contract afn float %122, %125
@@ -1756,15 +1756,15 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %144 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %143)
   %145 = fpext reassoc nsz arcp contract afn float %144 to double
   %146 = fadd reassoc nsz arcp contract afn double %145, 1.000000e+00
-  %gep3874 = getelementptr [2 x float], ptr %invariant.gep3873, i64 %indvars.iv3719
-  %147 = getelementptr inbounds nuw i8, ptr %gep3874, i64 24
+  %gep3875 = getelementptr [2 x float], ptr %invariant.gep3874, i64 %indvars.iv3719
+  %147 = getelementptr inbounds nuw i8, ptr %gep3875, i64 24
   %148 = getelementptr inbounds nuw float, ptr %147, i64 %89
   %149 = load float, ptr %148, align 4, !tbaa !74
   %150 = fsub reassoc nsz arcp contract afn float %125, %149
   %151 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %150)
   %152 = fpext reassoc nsz arcp contract afn float %151 to double
   %153 = fadd reassoc nsz arcp contract afn double %146, %152
-  %154 = getelementptr i8, ptr %gep3874, i64 -24
+  %154 = getelementptr i8, ptr %gep3875, i64 -24
   %155 = getelementptr inbounds nuw float, ptr %154, i64 %89
   %156 = load float, ptr %155, align 4, !tbaa !74
   %157 = fsub reassoc nsz arcp contract afn float %122, %156
@@ -1824,11 +1824,11 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %203 = fpext reassoc nsz arcp contract afn float %125 to double
   %204 = fmul reassoc nsz arcp contract afn double %203, 1.325000e+00
   %205 = fpext reassoc nsz arcp contract afn float %156 to double
-  %206 = getelementptr i8, ptr %gep3874, i64 -8
+  %206 = getelementptr i8, ptr %gep3875, i64 -8
   %207 = getelementptr inbounds nuw float, ptr %206, i64 %89
   %208 = load float, ptr %207, align 4, !tbaa !74
   %209 = fpext reassoc nsz arcp contract afn float %208 to double
-  %210 = getelementptr i8, ptr %gep3872, i64 -24
+  %210 = getelementptr i8, ptr %gep3873, i64 -24
   %211 = getelementptr inbounds nuw float, ptr %210, i64 %89
   %212 = load float, ptr %211, align 4, !tbaa !74
   %213 = fpext reassoc nsz arcp contract afn float %212 to double
@@ -1841,11 +1841,11 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %216 = fpext reassoc nsz arcp contract afn float %100 to double
   %217 = fmul reassoc nsz arcp contract afn double %216, 1.325000e+00
   %218 = fpext reassoc nsz arcp contract afn float %149 to double
-  %219 = getelementptr inbounds nuw i8, ptr %gep3874, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %gep3875, i64 8
   %220 = getelementptr inbounds nuw float, ptr %219, i64 %89
   %221 = load float, ptr %220, align 4, !tbaa !74
   %222 = fpext reassoc nsz arcp contract afn float %221 to double
-  %223 = getelementptr inbounds nuw i8, ptr %gep3872, i64 24
+  %223 = getelementptr inbounds nuw i8, ptr %gep3873, i64 24
   %224 = getelementptr inbounds nuw float, ptr %223, i64 %89
   %225 = load float, ptr %224, align 4, !tbaa !74
   %226 = fpext reassoc nsz arcp contract afn float %225 to double
@@ -1880,7 +1880,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br i1 %exitcond3722.not, label %.lr.ph3705, label %75, !llvm.loop !104
 
 .preheader:                                       ; preds = %._crit_edge3703, %.preheader3681
-  %.pr = load i16, ptr %7, align 4, !tbaa !71
+  %.pr = load i16, ptr %6, align 4, !tbaa !71
   %243 = icmp ugt i16 %.pr, 12
   br i1 %243, label %.lr.ph3712, label %._crit_edge3713
 
@@ -1888,7 +1888,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %244 = load ptr, ptr %2, align 8
   %245 = zext i16 %4 to i64
   %.pre = load i16, ptr %3, align 2, !tbaa !6
-  %invariant.gep3879 = getelementptr [4 x i16], ptr %244, i64 %245
+  %invariant.gep3880 = getelementptr [4 x i16], ptr %244, i64 %245
   br label %386
 
 246:                                              ; preds = %.lr.ph3705, %._crit_edge3703
@@ -1919,16 +1919,16 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %.230993701 = phi i32 [ %252, %.preheader3679.preheader ], [ %383, %382 ]
   %.031013700 = phi i32 [ %258, %.preheader3679.preheader ], [ %381, %382 ]
   %261 = sub nsw i64 %indvars.iv3725, %74
-  %262 = getelementptr inbounds [2 x float], ptr %12, i64 %261
-  %gep3876 = getelementptr [2 x float], ptr %invariant.gep3875, i64 %indvars.iv3725
+  %262 = getelementptr inbounds [2 x float], ptr %11, i64 %261
+  %gep3877 = getelementptr [2 x float], ptr %invariant.gep3876, i64 %indvars.iv3725
   %263 = sub nsw i64 %indvars.iv3725, %73
-  %264 = getelementptr inbounds [2 x float], ptr %12, i64 %263
-  %265 = getelementptr inbounds nuw [2 x float], ptr %12, i64 %indvars.iv3725
+  %264 = getelementptr inbounds [2 x float], ptr %11, i64 %263
+  %265 = getelementptr inbounds nuw [2 x float], ptr %11, i64 %indvars.iv3725
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %267 = getelementptr i8, ptr %265, i64 -8
   %268 = getelementptr inbounds nuw i8, ptr %265, i64 24
   %269 = getelementptr i8, ptr %265, i64 -24
-  %gep3878 = getelementptr [2 x float], ptr %invariant.gep3877, i64 %indvars.iv3725
+  %gep3879 = getelementptr [2 x float], ptr %invariant.gep3878, i64 %indvars.iv3725
   br label %270
 
 270:                                              ; preds = %.preheader3679, %270
@@ -1937,7 +1937,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %272 = zext nneg i32 %.131023699 to i64
   %273 = getelementptr inbounds nuw float, ptr %262, i64 %272
   %274 = load float, ptr %273, align 4, !tbaa !74
-  %275 = getelementptr inbounds nuw float, ptr %gep3876, i64 %272
+  %275 = getelementptr inbounds nuw float, ptr %gep3877, i64 %272
   %276 = load float, ptr %275, align 4, !tbaa !74
   %277 = fsub reassoc nsz arcp contract afn float %274, %276
   %278 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %277)
@@ -1995,7 +1995,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %330 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %329)
   %331 = fpext reassoc nsz arcp contract afn float %330 to double
   %332 = fadd reassoc nsz arcp contract afn double %331, 1.000000e+00
-  %333 = getelementptr inbounds nuw float, ptr %gep3878, i64 %272
+  %333 = getelementptr inbounds nuw float, ptr %gep3879, i64 %272
   %334 = load float, ptr %333, align 4, !tbaa !74
   %335 = fsub reassoc nsz arcp contract afn float %276, %334
   %336 = tail call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %335)
@@ -2074,10 +2074,10 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %394 = sext i32 %393 to i64
   br label %395
 
-395:                                              ; preds = %.lr.ph3709, %.thread3869
-  %indvars.iv3729 = phi i64 [ %394, %.lr.ph3709 ], [ %indvars.iv.next3730, %.thread3869 ]
-  %.331003706 = phi i32 [ 6, %.lr.ph3709 ], [ %967, %.thread3869 ]
-  %396 = getelementptr inbounds nuw [2 x float], ptr %12, i64 %indvars.iv3729
+395:                                              ; preds = %.lr.ph3709, %.thread3870
+  %indvars.iv3729 = phi i64 [ %394, %.lr.ph3709 ], [ %indvars.iv.next3730, %.thread3870 ]
+  %.331003706 = phi i32 [ 6, %.lr.ph3709 ], [ %967, %.thread3870 ]
+  %396 = getelementptr inbounds nuw [2 x float], ptr %11, i64 %indvars.iv3729
   %397 = load float, ptr %396, align 4, !tbaa !74
   %398 = getelementptr inbounds nuw [4 x i16], ptr %244, i64 %indvars.iv3729
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 2
@@ -2112,8 +2112,8 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %421 = getelementptr inbounds nuw i8, ptr %398, i64 4
   store i16 %420, ptr %421, align 2, !tbaa !73
   %indvars.iv.next3730 = add nuw nsw i64 %indvars.iv3729, 1
-  %gep3880 = getelementptr [4 x i16], ptr %invariant.gep3879, i64 %indvars.iv.next3730
-  %422 = load i16, ptr %gep3880, align 2, !tbaa !73
+  %gep3881 = getelementptr [4 x i16], ptr %invariant.gep3880, i64 %indvars.iv.next3730
+  %422 = load i16, ptr %gep3881, align 2, !tbaa !73
   %423 = sub nsw i64 %indvars.iv.next3730, %245
   %424 = getelementptr inbounds [4 x i16], ptr %244, i64 %423
   %425 = load i16, ptr %424, align 2, !tbaa !73
@@ -2225,7 +2225,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
 492:                                              ; preds = %.thread3389, %491, %476, %473
   %493 = phi i16 [ %429, %473 ], [ %478, %476 ], [ %spec.select3506, %491 ], [ %spec.select3507, %.thread3389 ]
   %494 = icmp ult i16 %425, %493
-  br i1 %494, label %.thread3849, label %495
+  br i1 %494, label %.thread3850, label %495
 
 495:                                              ; preds = %492
   %496 = getelementptr inbounds [4 x i16], ptr %391, i64 %427
@@ -2245,36 +2245,36 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %minmaxop3628 = tail call i16 @llvm.umin.i16(i16 %503, i16 %.3142)
   %509 = tail call i16 @llvm.umin.i16(i16 %minmaxop3628, i16 %501)
   %510 = icmp ult i16 %499, %509
-  br i1 %510, label %.thread3848, label %511
+  br i1 %510, label %.thread3849, label %511
 
 511:                                              ; preds = %495
   %..3142 = tail call i16 @llvm.umin.i16(i16 %503, i16 %.3142)
   %spec.select3511 = tail call i16 @llvm.umin.i16(i16 %501, i16 %..3142)
   %512 = icmp ult i16 %497, %spec.select3511
   %.mux = select i1 %512, i16 %497, i16 %499
-  br i1 %512, label %.thread3849, label %513
+  br i1 %512, label %.thread3850, label %513
 
-.thread3848:                                      ; preds = %495
+.thread3849:                                      ; preds = %495
   %spec.select = tail call i16 @llvm.umin.i16(i16 %497, i16 %499)
-  br label %.thread3849
+  br label %.thread3850
 
 513:                                              ; preds = %511
   br i1 %508, label %514, label %.thread3397
 
 514:                                              ; preds = %513
   %spec.select3514 = tail call i16 @llvm.umin.i16(i16 %501, i16 %503)
-  br label %.thread3849
+  br label %.thread3850
 
 .thread3397:                                      ; preds = %513
   %spec.select3515 = tail call i16 @llvm.umin.i16(i16 %501, i16 %.3142)
-  br label %.thread3849
+  br label %.thread3850
 
-.thread3849:                                      ; preds = %.thread3848, %511, %.thread3397, %514, %492
-  %515 = phi i16 [ %425, %492 ], [ %.mux, %511 ], [ %spec.select3514, %514 ], [ %spec.select3515, %.thread3397 ], [ %spec.select, %.thread3848 ]
+.thread3850:                                      ; preds = %.thread3849, %511, %.thread3397, %514, %492
+  %515 = phi i16 [ %425, %492 ], [ %.mux, %511 ], [ %spec.select3514, %514 ], [ %spec.select3515, %.thread3397 ], [ %spec.select, %.thread3849 ]
   %516 = icmp ult i16 %422, %515
-  br i1 %516, label %.thread3853, label %517
+  br i1 %516, label %.thread3854, label %517
 
-517:                                              ; preds = %.thread3849
+517:                                              ; preds = %.thread3850
   %518 = getelementptr inbounds [4 x i16], ptr %391, i64 %423
   %519 = load i16, ptr %518, align 2, !tbaa !73
   %520 = getelementptr inbounds [4 x i16], ptr %391, i64 %427
@@ -2294,68 +2294,68 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %minmaxop3630 = tail call i16 @llvm.umin.i16(i16 %527, i16 %.3158)
   %533 = tail call i16 @llvm.umin.i16(i16 %minmaxop3630, i16 %525)
   %534 = icmp ult i16 %523, %533
-  br i1 %534, label %.thread3850, label %535
+  br i1 %534, label %.thread3851, label %535
 
 535:                                              ; preds = %517
   %..3158 = tail call i16 @llvm.umin.i16(i16 %527, i16 %.3158)
   %spec.select3519 = tail call i16 @llvm.umin.i16(i16 %525, i16 %..3158)
   %536 = icmp ult i16 %521, %spec.select3519
-  %.mux3883 = select i1 %536, i16 %521, i16 %523
-  br i1 %536, label %.thread3851, label %537
+  %.mux3884 = select i1 %536, i16 %521, i16 %523
+  br i1 %536, label %.thread3852, label %537
 
-.thread3850:                                      ; preds = %517
-  %spec.select3881 = tail call i16 @llvm.umin.i16(i16 %521, i16 %523)
-  br label %.thread3851
+.thread3851:                                      ; preds = %517
+  %spec.select3882 = tail call i16 @llvm.umin.i16(i16 %521, i16 %523)
+  br label %.thread3852
 
 537:                                              ; preds = %535
   br i1 %532, label %538, label %.thread3405
 
 538:                                              ; preds = %537
   %spec.select3522 = tail call i16 @llvm.umin.i16(i16 %525, i16 %527)
-  br label %.thread3851
+  br label %.thread3852
 
 .thread3405:                                      ; preds = %537
   %spec.select3523 = tail call i16 @llvm.umin.i16(i16 %525, i16 %.3158)
-  br label %.thread3851
+  br label %.thread3852
 
-.thread3851:                                      ; preds = %.thread3850, %535, %.thread3405, %538
-  %539 = phi i16 [ %.mux3883, %535 ], [ %spec.select3522, %538 ], [ %spec.select3523, %.thread3405 ], [ %spec.select3881, %.thread3850 ]
+.thread3852:                                      ; preds = %.thread3851, %535, %.thread3405, %538
+  %539 = phi i16 [ %.mux3884, %535 ], [ %spec.select3522, %538 ], [ %spec.select3523, %.thread3405 ], [ %spec.select3882, %.thread3851 ]
   %540 = icmp ult i16 %519, %539
-  br i1 %540, label %.thread3853, label %541
+  br i1 %540, label %.thread3854, label %541
 
-541:                                              ; preds = %.thread3851
-  br i1 %534, label %.thread3852, label %542
+541:                                              ; preds = %.thread3852
+  br i1 %534, label %.thread3853, label %542
 
 542:                                              ; preds = %541
-  %..31583919 = tail call i16 @llvm.umin.i16(i16 %527, i16 %.3158)
-  %spec.select3527 = tail call i16 @llvm.umin.i16(i16 %525, i16 %..31583919)
+  %..31583920 = tail call i16 @llvm.umin.i16(i16 %527, i16 %.3158)
+  %spec.select3527 = tail call i16 @llvm.umin.i16(i16 %525, i16 %..31583920)
   %543 = icmp ult i16 %521, %spec.select3527
-  %.mux3887 = select i1 %543, i16 %521, i16 %523
-  br i1 %543, label %.thread3853, label %544
+  %.mux3888 = select i1 %543, i16 %521, i16 %523
+  br i1 %543, label %.thread3854, label %544
 
-.thread3852:                                      ; preds = %541
-  %spec.select3885 = tail call i16 @llvm.umin.i16(i16 %521, i16 %523)
-  br label %.thread3853
+.thread3853:                                      ; preds = %541
+  %spec.select3886 = tail call i16 @llvm.umin.i16(i16 %521, i16 %523)
+  br label %.thread3854
 
 544:                                              ; preds = %542
   br i1 %532, label %545, label %.thread3413
 
 545:                                              ; preds = %544
   %spec.select3530 = tail call i16 @llvm.umin.i16(i16 %525, i16 %527)
-  br label %.thread3853
+  br label %.thread3854
 
 .thread3413:                                      ; preds = %544
   %spec.select3531 = tail call i16 @llvm.umin.i16(i16 %525, i16 %.3158)
-  br label %.thread3853
+  br label %.thread3854
 
-.thread3853:                                      ; preds = %.thread3852, %542, %.thread3413, %545, %.thread3851, %.thread3849
-  %546 = phi i16 [ %422, %.thread3849 ], [ %519, %.thread3851 ], [ %.mux3887, %542 ], [ %spec.select3530, %545 ], [ %spec.select3531, %.thread3413 ], [ %spec.select3885, %.thread3852 ]
+.thread3854:                                      ; preds = %.thread3853, %542, %.thread3413, %545, %.thread3852, %.thread3850
+  %546 = phi i16 [ %422, %.thread3850 ], [ %519, %.thread3852 ], [ %.mux3888, %542 ], [ %spec.select3530, %545 ], [ %spec.select3531, %.thread3413 ], [ %spec.select3886, %.thread3853 ]
   %547 = zext i16 %546 to i32
   %.3190 = tail call i16 @llvm.umax.i16(i16 %439, i16 %442)
   %548 = icmp ugt i16 %436, %.3190
   br i1 %548, label %554, label %549
 
-549:                                              ; preds = %.thread3853
+549:                                              ; preds = %.thread3854
   %550 = getelementptr inbounds [4 x i16], ptr %391, i64 %437
   %551 = load i16, ptr %550, align 2, !tbaa !73
   %552 = getelementptr inbounds nuw [4 x i16], ptr %391, i64 %440
@@ -2363,8 +2363,8 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %.3191 = tail call i16 @llvm.umax.i16(i16 %551, i16 %553)
   br label %554
 
-554:                                              ; preds = %.thread3853, %549
-  %555 = phi i16 [ %.3191, %549 ], [ %436, %.thread3853 ]
+554:                                              ; preds = %.thread3854, %549
+  %555 = phi i16 [ %.3191, %549 ], [ %436, %.thread3854 ]
   %556 = icmp ugt i16 %434, %555
   br i1 %556, label %564, label %557
 
@@ -2442,7 +2442,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
 597:                                              ; preds = %.thread3419, %596, %581, %578
   %598 = phi i16 [ %429, %578 ], [ %583, %581 ], [ %spec.select3537, %596 ], [ %spec.select3538, %.thread3419 ]
   %599 = icmp ugt i16 %425, %598
-  br i1 %599, label %.thread3855, label %600
+  br i1 %599, label %.thread3856, label %600
 
 600:                                              ; preds = %597
   %601 = getelementptr inbounds [4 x i16], ptr %391, i64 %427
@@ -2462,36 +2462,36 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %minmaxop3635 = tail call i16 @llvm.umax.i16(i16 %608, i16 %.3206)
   %614 = tail call i16 @llvm.umax.i16(i16 %minmaxop3635, i16 %606)
   %615 = icmp ugt i16 %604, %614
-  br i1 %615, label %.thread3854, label %616
+  br i1 %615, label %.thread3855, label %616
 
 616:                                              ; preds = %600
   %..3206 = tail call i16 @llvm.umax.i16(i16 %608, i16 %.3206)
   %spec.select3542 = tail call i16 @llvm.umax.i16(i16 %606, i16 %..3206)
   %617 = icmp ugt i16 %602, %spec.select3542
-  %.mux3890 = select i1 %617, i16 %602, i16 %604
-  br i1 %617, label %.thread3855, label %618
+  %.mux3891 = select i1 %617, i16 %602, i16 %604
+  br i1 %617, label %.thread3856, label %618
 
-.thread3854:                                      ; preds = %600
-  %spec.select3888 = tail call i16 @llvm.umax.i16(i16 %602, i16 %604)
-  br label %.thread3855
+.thread3855:                                      ; preds = %600
+  %spec.select3889 = tail call i16 @llvm.umax.i16(i16 %602, i16 %604)
+  br label %.thread3856
 
 618:                                              ; preds = %616
   br i1 %613, label %619, label %.thread3427
 
 619:                                              ; preds = %618
   %spec.select3545 = tail call i16 @llvm.umax.i16(i16 %606, i16 %608)
-  br label %.thread3855
+  br label %.thread3856
 
 .thread3427:                                      ; preds = %618
   %spec.select3546 = tail call i16 @llvm.umax.i16(i16 %606, i16 %.3206)
-  br label %.thread3855
+  br label %.thread3856
 
-.thread3855:                                      ; preds = %.thread3854, %616, %.thread3427, %619, %597
-  %620 = phi i16 [ %425, %597 ], [ %.mux3890, %616 ], [ %spec.select3545, %619 ], [ %spec.select3546, %.thread3427 ], [ %spec.select3888, %.thread3854 ]
+.thread3856:                                      ; preds = %.thread3855, %616, %.thread3427, %619, %597
+  %620 = phi i16 [ %425, %597 ], [ %.mux3891, %616 ], [ %spec.select3545, %619 ], [ %spec.select3546, %.thread3427 ], [ %spec.select3889, %.thread3855 ]
   %621 = icmp ugt i16 %422, %620
-  br i1 %621, label %.thread3859, label %622
+  br i1 %621, label %.thread3860, label %622
 
-622:                                              ; preds = %.thread3855
+622:                                              ; preds = %.thread3856
   %623 = getelementptr inbounds [4 x i16], ptr %391, i64 %423
   %624 = load i16, ptr %623, align 2, !tbaa !73
   %625 = getelementptr inbounds [4 x i16], ptr %391, i64 %427
@@ -2511,66 +2511,66 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %minmaxop3637 = tail call i16 @llvm.umax.i16(i16 %632, i16 %.3222)
   %638 = tail call i16 @llvm.umax.i16(i16 %minmaxop3637, i16 %630)
   %639 = icmp ugt i16 %628, %638
-  br i1 %639, label %.thread3856, label %640
+  br i1 %639, label %.thread3857, label %640
 
 640:                                              ; preds = %622
   %..3222 = tail call i16 @llvm.umax.i16(i16 %632, i16 %.3222)
   %spec.select3550 = tail call i16 @llvm.umax.i16(i16 %630, i16 %..3222)
   %641 = icmp ugt i16 %626, %spec.select3550
-  %.mux3893 = select i1 %641, i16 %626, i16 %628
-  br i1 %641, label %.thread3857, label %642
+  %.mux3894 = select i1 %641, i16 %626, i16 %628
+  br i1 %641, label %.thread3858, label %642
 
-.thread3856:                                      ; preds = %622
-  %spec.select3891 = tail call i16 @llvm.umax.i16(i16 %626, i16 %628)
-  br label %.thread3857
+.thread3857:                                      ; preds = %622
+  %spec.select3892 = tail call i16 @llvm.umax.i16(i16 %626, i16 %628)
+  br label %.thread3858
 
 642:                                              ; preds = %640
   br i1 %637, label %643, label %.thread3435
 
 643:                                              ; preds = %642
   %spec.select3553 = tail call i16 @llvm.umax.i16(i16 %630, i16 %632)
-  br label %.thread3857
+  br label %.thread3858
 
 .thread3435:                                      ; preds = %642
   %spec.select3554 = tail call i16 @llvm.umax.i16(i16 %630, i16 %.3222)
-  br label %.thread3857
+  br label %.thread3858
 
-.thread3857:                                      ; preds = %.thread3856, %640, %.thread3435, %643
-  %644 = phi i16 [ %.mux3893, %640 ], [ %spec.select3553, %643 ], [ %spec.select3554, %.thread3435 ], [ %spec.select3891, %.thread3856 ]
+.thread3858:                                      ; preds = %.thread3857, %640, %.thread3435, %643
+  %644 = phi i16 [ %.mux3894, %640 ], [ %spec.select3553, %643 ], [ %spec.select3554, %.thread3435 ], [ %spec.select3892, %.thread3857 ]
   %645 = icmp ugt i16 %624, %644
-  br i1 %645, label %.thread3859, label %646
+  br i1 %645, label %.thread3860, label %646
 
-646:                                              ; preds = %.thread3857
-  br i1 %639, label %.thread3858, label %647
+646:                                              ; preds = %.thread3858
+  br i1 %639, label %.thread3859, label %647
 
 647:                                              ; preds = %646
-  %..32223920 = tail call i16 @llvm.umax.i16(i16 %632, i16 %.3222)
-  %spec.select3558 = tail call i16 @llvm.umax.i16(i16 %630, i16 %..32223920)
+  %..32223921 = tail call i16 @llvm.umax.i16(i16 %632, i16 %.3222)
+  %spec.select3558 = tail call i16 @llvm.umax.i16(i16 %630, i16 %..32223921)
   %648 = icmp ugt i16 %626, %spec.select3558
-  %.mux3897 = select i1 %648, i16 %626, i16 %628
-  br i1 %648, label %.thread3859, label %649
+  %.mux3898 = select i1 %648, i16 %626, i16 %628
+  br i1 %648, label %.thread3860, label %649
 
-.thread3858:                                      ; preds = %646
-  %spec.select3895 = tail call i16 @llvm.umax.i16(i16 %626, i16 %628)
-  br label %.thread3859
+.thread3859:                                      ; preds = %646
+  %spec.select3896 = tail call i16 @llvm.umax.i16(i16 %626, i16 %628)
+  br label %.thread3860
 
 649:                                              ; preds = %647
   br i1 %637, label %650, label %.thread3443
 
 650:                                              ; preds = %649
   %spec.select3561 = tail call i16 @llvm.umax.i16(i16 %630, i16 %632)
-  br label %.thread3859
+  br label %.thread3860
 
 .thread3443:                                      ; preds = %649
   %spec.select3562 = tail call i16 @llvm.umax.i16(i16 %630, i16 %.3222)
-  br label %.thread3859
+  br label %.thread3860
 
-.thread3859:                                      ; preds = %.thread3858, %647, %.thread3443, %650, %.thread3857, %.thread3855
-  %651 = phi i16 [ %422, %.thread3855 ], [ %624, %.thread3857 ], [ %.mux3897, %647 ], [ %spec.select3561, %650 ], [ %spec.select3562, %.thread3443 ], [ %spec.select3895, %.thread3858 ]
+.thread3860:                                      ; preds = %.thread3859, %647, %.thread3443, %650, %.thread3858, %.thread3856
+  %651 = phi i16 [ %422, %.thread3856 ], [ %624, %.thread3858 ], [ %.mux3898, %647 ], [ %spec.select3561, %650 ], [ %spec.select3562, %.thread3443 ], [ %spec.select3896, %.thread3859 ]
   %652 = icmp ult i16 %651, %546
   br i1 %652, label %653, label %658
 
-653:                                              ; preds = %.thread3859
+653:                                              ; preds = %.thread3860
   %654 = zext i16 %651 to i32
   %655 = icmp ugt i16 %546, %406
   %656 = select i1 %655, i32 %405, i32 %547
@@ -2579,7 +2579,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %spec.select3563 = select i1 %657, i16 %651, i16 %.3254
   br label %662
 
-658:                                              ; preds = %.thread3859
+658:                                              ; preds = %.thread3860
   %659 = getelementptr inbounds nuw [4 x i16], ptr %391, i64 %indvars.iv3729
   %660 = load i16, ptr %659, align 2, !tbaa !73
   %661 = icmp ult i16 %660, %546
@@ -2590,7 +2590,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
 662:                                              ; preds = %658, %653
   %663 = phi i16 [ %spec.select3563, %653 ], [ %spec.select3564, %658 ]
   store i16 %663, ptr %398, align 2, !tbaa !73
-  %664 = getelementptr inbounds nuw i8, ptr %gep3880, i64 4
+  %664 = getelementptr inbounds nuw i8, ptr %gep3881, i64 4
   %665 = load i16, ptr %664, align 2, !tbaa !73
   %666 = getelementptr inbounds nuw i8, ptr %424, i64 4
   %667 = load i16, ptr %666, align 2, !tbaa !73
@@ -2711,7 +2711,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
 743:                                              ; preds = %.thread3449, %742, %722, %719
   %744 = phi i16 [ %669, %719 ], [ %725, %722 ], [ %spec.select3570, %742 ], [ %spec.select3571, %.thread3449 ]
   %745 = icmp ult i16 %667, %744
-  br i1 %745, label %.thread3861, label %746
+  br i1 %745, label %.thread3862, label %746
 
 746:                                              ; preds = %743
   %747 = getelementptr inbounds [4 x i16], ptr %391, i64 %427
@@ -2737,36 +2737,36 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %minmaxop3642 = tail call i16 @llvm.umin.i16(i16 %758, i16 %.3272)
   %766 = tail call i16 @llvm.umin.i16(i16 %minmaxop3642, i16 %755)
   %767 = icmp ult i16 %752, %766
-  br i1 %767, label %.thread3860, label %768
+  br i1 %767, label %.thread3861, label %768
 
 768:                                              ; preds = %746
   %..3272 = tail call i16 @llvm.umin.i16(i16 %758, i16 %.3272)
   %spec.select3575 = tail call i16 @llvm.umin.i16(i16 %755, i16 %..3272)
   %769 = icmp ult i16 %749, %spec.select3575
-  %.mux3900 = select i1 %769, i16 %749, i16 %752
-  br i1 %769, label %.thread3861, label %770
+  %.mux3901 = select i1 %769, i16 %749, i16 %752
+  br i1 %769, label %.thread3862, label %770
 
-.thread3860:                                      ; preds = %746
-  %spec.select3898 = tail call i16 @llvm.umin.i16(i16 %749, i16 %752)
-  br label %.thread3861
+.thread3861:                                      ; preds = %746
+  %spec.select3899 = tail call i16 @llvm.umin.i16(i16 %749, i16 %752)
+  br label %.thread3862
 
 770:                                              ; preds = %768
   br i1 %765, label %771, label %.thread3457
 
 771:                                              ; preds = %770
   %spec.select3578 = tail call i16 @llvm.umin.i16(i16 %755, i16 %758)
-  br label %.thread3861
+  br label %.thread3862
 
 .thread3457:                                      ; preds = %770
   %spec.select3579 = tail call i16 @llvm.umin.i16(i16 %755, i16 %.3272)
-  br label %.thread3861
+  br label %.thread3862
 
-.thread3861:                                      ; preds = %.thread3860, %768, %.thread3457, %771, %743
-  %772 = phi i16 [ %667, %743 ], [ %.mux3900, %768 ], [ %spec.select3578, %771 ], [ %spec.select3579, %.thread3457 ], [ %spec.select3898, %.thread3860 ]
+.thread3862:                                      ; preds = %.thread3861, %768, %.thread3457, %771, %743
+  %772 = phi i16 [ %667, %743 ], [ %.mux3901, %768 ], [ %spec.select3578, %771 ], [ %spec.select3579, %.thread3457 ], [ %spec.select3899, %.thread3861 ]
   %773 = icmp ult i16 %665, %772
   br i1 %773, label %935, label %774
 
-774:                                              ; preds = %.thread3861
+774:                                              ; preds = %.thread3862
   br i1 %680, label %782, label %775
 
 775:                                              ; preds = %774
@@ -3020,134 +3020,134 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %spec.select3591 = tail call i16 @llvm.umin.i16(i16 %928, i16 %.3318)
   br label %935
 
-935:                                              ; preds = %925, %903, %879, %837, %.thread3861, %921
-  %936 = phi i16 [ %924, %921 ], [ %665, %.thread3861 ], [ %667, %837 ], [ %669, %879 ], [ %671, %903 ], [ %spec.select3591, %925 ]
+935:                                              ; preds = %925, %903, %879, %837, %.thread3862, %921
+  %936 = phi i16 [ %924, %921 ], [ %665, %.thread3862 ], [ %667, %837 ], [ %669, %879 ], [ %671, %903 ], [ %spec.select3591, %925 ]
   %.3320 = tail call i16 @llvm.umax.i16(i16 %677, i16 %679)
   %937 = icmp ugt i16 %675, %.3320
   %minmaxop3645 = tail call i16 @llvm.umax.i16(i16 %675, i16 %.3320)
   %938 = tail call i16 @llvm.umax.i16(i16 %minmaxop3645, i16 %673)
   %939 = icmp ugt i16 %671, %938
-  br i1 %939, label %.thread3862, label %940
+  br i1 %939, label %.thread3863, label %940
 
 940:                                              ; preds = %935
   %..3320 = tail call i16 @llvm.umax.i16(i16 %675, i16 %.3320)
   %spec.select3595 = tail call i16 @llvm.umax.i16(i16 %673, i16 %..3320)
   %941 = icmp ugt i16 %669, %spec.select3595
-  %.mux3903 = select i1 %941, i16 %669, i16 %671
-  br i1 %941, label %.thread3863, label %942
+  %.mux3904 = select i1 %941, i16 %669, i16 %671
+  br i1 %941, label %.thread3864, label %942
 
-.thread3862:                                      ; preds = %935
-  %spec.select3901 = tail call i16 @llvm.umax.i16(i16 %669, i16 %671)
-  br label %.thread3863
+.thread3863:                                      ; preds = %935
+  %spec.select3902 = tail call i16 @llvm.umax.i16(i16 %669, i16 %671)
+  br label %.thread3864
 
 942:                                              ; preds = %940
   br i1 %937, label %943, label %.thread3473
 
 943:                                              ; preds = %942
   %spec.select3598 = tail call i16 @llvm.umax.i16(i16 %673, i16 %675)
-  br label %.thread3863
+  br label %.thread3864
 
 .thread3473:                                      ; preds = %942
   %spec.select3599 = tail call i16 @llvm.umax.i16(i16 %673, i16 %.3320)
-  br label %.thread3863
+  br label %.thread3864
 
-.thread3863:                                      ; preds = %.thread3862, %940, %.thread3473, %943
-  %944 = phi i16 [ %.mux3903, %940 ], [ %spec.select3598, %943 ], [ %spec.select3599, %.thread3473 ], [ %spec.select3901, %.thread3862 ]
+.thread3864:                                      ; preds = %.thread3863, %940, %.thread3473, %943
+  %944 = phi i16 [ %.mux3904, %940 ], [ %spec.select3598, %943 ], [ %spec.select3599, %.thread3473 ], [ %spec.select3902, %.thread3863 ]
   %945 = icmp ugt i16 %667, %944
-  br i1 %945, label %.thread3865, label %946
+  br i1 %945, label %.thread3866, label %946
 
-946:                                              ; preds = %.thread3863
-  br i1 %939, label %.thread3864, label %947
+946:                                              ; preds = %.thread3864
+  br i1 %939, label %.thread3865, label %947
 
 947:                                              ; preds = %946
-  %..33203921 = tail call i16 @llvm.umax.i16(i16 %675, i16 %.3320)
-  %spec.select3603 = tail call i16 @llvm.umax.i16(i16 %673, i16 %..33203921)
+  %..33203922 = tail call i16 @llvm.umax.i16(i16 %675, i16 %.3320)
+  %spec.select3603 = tail call i16 @llvm.umax.i16(i16 %673, i16 %..33203922)
   %948 = icmp ugt i16 %669, %spec.select3603
-  %.mux3907 = select i1 %948, i16 %669, i16 %671
-  br i1 %948, label %.thread3865, label %949
+  %.mux3908 = select i1 %948, i16 %669, i16 %671
+  br i1 %948, label %.thread3866, label %949
 
-.thread3864:                                      ; preds = %946
-  %spec.select3905 = tail call i16 @llvm.umax.i16(i16 %669, i16 %671)
-  br label %.thread3865
+.thread3865:                                      ; preds = %946
+  %spec.select3906 = tail call i16 @llvm.umax.i16(i16 %669, i16 %671)
+  br label %.thread3866
 
 949:                                              ; preds = %947
   br i1 %937, label %950, label %.thread3481
 
 950:                                              ; preds = %949
   %spec.select3606 = tail call i16 @llvm.umax.i16(i16 %673, i16 %675)
-  br label %.thread3865
+  br label %.thread3866
 
 .thread3481:                                      ; preds = %949
   %spec.select3607 = tail call i16 @llvm.umax.i16(i16 %673, i16 %.3320)
-  br label %.thread3865
+  br label %.thread3866
 
-.thread3865:                                      ; preds = %.thread3864, %947, %.thread3481, %950, %.thread3863
-  %951 = phi i16 [ %667, %.thread3863 ], [ %.mux3907, %947 ], [ %spec.select3606, %950 ], [ %spec.select3607, %.thread3481 ], [ %spec.select3905, %.thread3864 ]
+.thread3866:                                      ; preds = %.thread3865, %947, %.thread3481, %950, %.thread3864
+  %951 = phi i16 [ %667, %.thread3864 ], [ %.mux3908, %947 ], [ %spec.select3606, %950 ], [ %spec.select3607, %.thread3481 ], [ %spec.select3906, %.thread3865 ]
   %952 = icmp ugt i16 %665, %951
-  br i1 %952, label %.thread3869, label %953
+  br i1 %952, label %.thread3870, label %953
 
-953:                                              ; preds = %.thread3865
-  br i1 %939, label %.thread3866, label %954
+953:                                              ; preds = %.thread3866
+  br i1 %939, label %.thread3867, label %954
 
 954:                                              ; preds = %953
-  %..33203922 = tail call i16 @llvm.umax.i16(i16 %675, i16 %.3320)
-  %spec.select3611 = tail call i16 @llvm.umax.i16(i16 %673, i16 %..33203922)
+  %..33203923 = tail call i16 @llvm.umax.i16(i16 %675, i16 %.3320)
+  %spec.select3611 = tail call i16 @llvm.umax.i16(i16 %673, i16 %..33203923)
   %955 = icmp ugt i16 %669, %spec.select3611
-  %.mux3911 = select i1 %955, i16 %669, i16 %671
-  br i1 %955, label %.thread3867, label %956
+  %.mux3912 = select i1 %955, i16 %669, i16 %671
+  br i1 %955, label %.thread3868, label %956
 
-.thread3866:                                      ; preds = %953
-  %spec.select3909 = tail call i16 @llvm.umax.i16(i16 %669, i16 %671)
-  br label %.thread3867
+.thread3867:                                      ; preds = %953
+  %spec.select3910 = tail call i16 @llvm.umax.i16(i16 %669, i16 %671)
+  br label %.thread3868
 
 956:                                              ; preds = %954
   br i1 %937, label %957, label %.thread3489
 
 957:                                              ; preds = %956
   %spec.select3614 = tail call i16 @llvm.umax.i16(i16 %673, i16 %675)
-  br label %.thread3867
+  br label %.thread3868
 
 .thread3489:                                      ; preds = %956
   %spec.select3615 = tail call i16 @llvm.umax.i16(i16 %673, i16 %.3320)
-  br label %.thread3867
+  br label %.thread3868
 
-.thread3867:                                      ; preds = %.thread3866, %954, %.thread3489, %957
-  %958 = phi i16 [ %.mux3911, %954 ], [ %spec.select3614, %957 ], [ %spec.select3615, %.thread3489 ], [ %spec.select3909, %.thread3866 ]
+.thread3868:                                      ; preds = %.thread3867, %954, %.thread3489, %957
+  %958 = phi i16 [ %.mux3912, %954 ], [ %spec.select3614, %957 ], [ %spec.select3615, %.thread3489 ], [ %spec.select3910, %.thread3867 ]
   %959 = icmp ugt i16 %667, %958
-  br i1 %959, label %.thread3869, label %960
+  br i1 %959, label %.thread3870, label %960
 
-960:                                              ; preds = %.thread3867
-  br i1 %939, label %.thread3868, label %961
+960:                                              ; preds = %.thread3868
+  br i1 %939, label %.thread3869, label %961
 
 961:                                              ; preds = %960
-  %..33203923 = tail call i16 @llvm.umax.i16(i16 %675, i16 %.3320)
-  %spec.select3619 = tail call i16 @llvm.umax.i16(i16 %673, i16 %..33203923)
+  %..33203924 = tail call i16 @llvm.umax.i16(i16 %675, i16 %.3320)
+  %spec.select3619 = tail call i16 @llvm.umax.i16(i16 %673, i16 %..33203924)
   %962 = icmp ugt i16 %669, %spec.select3619
-  %.mux3915 = select i1 %962, i16 %669, i16 %671
-  br i1 %962, label %.thread3869, label %963
+  %.mux3916 = select i1 %962, i16 %669, i16 %671
+  br i1 %962, label %.thread3870, label %963
 
-.thread3868:                                      ; preds = %960
-  %spec.select3913 = tail call i16 @llvm.umax.i16(i16 %669, i16 %671)
-  br label %.thread3869
+.thread3869:                                      ; preds = %960
+  %spec.select3914 = tail call i16 @llvm.umax.i16(i16 %669, i16 %671)
+  br label %.thread3870
 
 963:                                              ; preds = %961
   br i1 %937, label %964, label %.thread3497
 
 964:                                              ; preds = %963
   %spec.select3622 = tail call i16 @llvm.umax.i16(i16 %673, i16 %675)
-  br label %.thread3869
+  br label %.thread3870
 
 .thread3497:                                      ; preds = %963
   %spec.select3623 = tail call i16 @llvm.umax.i16(i16 %673, i16 %.3320)
-  br label %.thread3869
+  br label %.thread3870
 
-.thread3869:                                      ; preds = %.thread3868, %961, %.thread3497, %964, %.thread3867, %.thread3865
-  %965 = phi i16 [ %665, %.thread3865 ], [ %667, %.thread3867 ], [ %.mux3915, %961 ], [ %spec.select3622, %964 ], [ %spec.select3623, %.thread3497 ], [ %spec.select3913, %.thread3868 ]
-  %.3924 = tail call i16 @llvm.umin.i16(i16 %965, i16 %936)
-  %.3925 = tail call i16 @llvm.umax.i16(i16 %965, i16 %936)
-  %966 = icmp ult i16 %420, %.3924
-  %.3385 = tail call i16 @llvm.umin.i16(i16 %420, i16 %.3925)
-  %spec.select3625 = select i1 %966, i16 %.3924, i16 %.3385
+.thread3870:                                      ; preds = %.thread3869, %961, %.thread3497, %964, %.thread3868, %.thread3866
+  %965 = phi i16 [ %665, %.thread3866 ], [ %667, %.thread3868 ], [ %.mux3916, %961 ], [ %spec.select3622, %964 ], [ %spec.select3623, %.thread3497 ], [ %spec.select3914, %.thread3869 ]
+  %.3925 = tail call i16 @llvm.umin.i16(i16 %965, i16 %936)
+  %.3926 = tail call i16 @llvm.umax.i16(i16 %965, i16 %936)
+  %966 = icmp ult i16 %420, %.3925
+  %.3385 = tail call i16 @llvm.umin.i16(i16 %420, i16 %.3926)
+  %spec.select3625 = select i1 %966, i16 %.3925, i16 %.3385
   store i16 %spec.select3625, ptr %421, align 2, !tbaa !73
   %967 = add nuw nsw i32 %.331003706, 1
   %968 = load i16, ptr %3, align 2, !tbaa !6
@@ -3156,8 +3156,8 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   %971 = icmp slt i32 %967, %970
   br i1 %971, label %395, label %._crit_edge3710.loopexit, !llvm.loop !108
 
-._crit_edge3710.loopexit:                         ; preds = %.thread3869
-  %.pre3732 = load i16, ptr %7, align 4, !tbaa !71
+._crit_edge3710.loopexit:                         ; preds = %.thread3870
+  %.pre3732 = load i16, ptr %6, align 4, !tbaa !71
   br label %._crit_edge3710
 
 ._crit_edge3710:                                  ; preds = %._crit_edge3710.loopexit, %386
@@ -3170,7 +3170,7 @@ define void @_ZN6LibRaw14dcb_color_fullEv(ptr noundef nonnull align 8 dereferenc
   br i1 %977, label %386, label %._crit_edge3713, !llvm.loop !109
 
 ._crit_edge3713:                                  ; preds = %._crit_edge3710, %1, %.preheader
-  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %12)
+  tail call void @_ZN6LibRaw4freeEPv(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %11)
   ret void
 }
 

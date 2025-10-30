@@ -2754,11 +2754,11 @@ define hidden void @_ZN3ue225buildFloatingMatcherProtoERKNS_13RoseBuildImplERKSt
   br label %61
 
 .lr.ph:                                           ; preds = %6
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.promoted = load i64, ptr %4, align 8
   br label %22
 
 ._crit_edge:                                      ; preds = %22
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i8, ptr %19, align 8, !range !5, !noundef !6
   %21 = trunc nuw i8 %20 to i1

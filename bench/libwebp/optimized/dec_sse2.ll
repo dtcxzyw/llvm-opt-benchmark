@@ -3448,25 +3448,25 @@ define internal void @VL4_SSE2(ptr noundef captures(none) initializes((0, 4), (3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @DC16_SSE2(ptr noundef captures(none) %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 -32
-  %3 = load <16 x i8>, ptr %2, align 1, !tbaa !7
-  br label %4
+  br label %2
 
-4:                                                ; preds = %1, %4
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %.015 = phi i32 [ 0, %1 ], [ %10, %4 ]
-  %5 = shl nuw nsw i64 %indvars.iv, 5
-  %6 = getelementptr i8, ptr %0, i64 %5
-  %7 = getelementptr i8, ptr %6, i64 -1
-  %8 = load i8, ptr %7, align 1, !tbaa !7
-  %9 = zext i8 %8 to i32
-  %10 = add nuw nsw i32 %.015, %9
+2:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %.015 = phi i32 [ 0, %1 ], [ %8, %2 ]
+  %3 = shl nuw nsw i64 %indvars.iv, 5
+  %4 = getelementptr i8, ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 -1
+  %6 = load i8, ptr %5, align 1, !tbaa !7
+  %7 = zext i8 %6 to i32
+  %8 = add nuw nsw i32 %.015, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %11, label %4, !llvm.loop !16
+  br i1 %exitcond.not, label %9, label %2, !llvm.loop !16
 
-11:                                               ; preds = %4
-  %12 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %3, <16 x i8> zeroinitializer)
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %0, i64 -32
+  %11 = load <16 x i8>, ptr %10, align 1, !tbaa !7
+  %12 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %11, <16 x i8> zeroinitializer)
   %13 = bitcast <2 x i64> %12 to <4 x i32>
   %14 = shufflevector <4 x i32> %13, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %15 = bitcast <2 x i64> %12 to <8 x i16>
@@ -3475,15 +3475,15 @@ define internal void @DC16_SSE2(ptr noundef captures(none) %0) #2 {
   %18 = bitcast <8 x i16> %17 to <4 x i32>
   %19 = extractelement <4 x i32> %18, i64 0
   %20 = add i32 %19, 16
-  %21 = add i32 %20, %10
+  %21 = add i32 %20, %8
   %22 = lshr i32 %21, 5
   %23 = trunc i32 %22 to i8
   %24 = insertelement <16 x i8> poison, i8 %23, i64 0
   %25 = shufflevector <16 x i8> %24, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %26
 
-26:                                               ; preds = %26, %11
-  %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %26 ]
+26:                                               ; preds = %26, %9
+  %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %26 ]
   %27 = shl nuw nsw i64 %indvars.iv.i, 5
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
   store <16 x i8> %25, ptr %28, align 1, !tbaa !7
@@ -3658,31 +3658,31 @@ Put16_SSE2.exit:                                  ; preds = %2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @DC8uv_SSE2(ptr noundef captures(none) %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 -32
-  %3 = load i64, ptr %2, align 1, !tbaa !7
-  br label %4
+  br label %2
 
-4:                                                ; preds = %1, %4
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %.013 = phi i32 [ 0, %1 ], [ %10, %4 ]
-  %5 = shl nuw nsw i64 %indvars.iv, 5
-  %6 = getelementptr i8, ptr %0, i64 %5
-  %7 = getelementptr i8, ptr %6, i64 -1
-  %8 = load i8, ptr %7, align 1, !tbaa !7
-  %9 = zext i8 %8 to i32
-  %10 = add nuw nsw i32 %.013, %9
+2:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %.013 = phi i32 [ 0, %1 ], [ %8, %2 ]
+  %3 = shl nuw nsw i64 %indvars.iv, 5
+  %4 = getelementptr i8, ptr %0, i64 %3
+  %5 = getelementptr i8, ptr %4, i64 -1
+  %6 = load i8, ptr %5, align 1, !tbaa !7
+  %7 = zext i8 %6 to i32
+  %8 = add nuw nsw i32 %.013, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %11, label %4, !llvm.loop !22
+  br i1 %exitcond.not, label %9, label %2, !llvm.loop !22
 
-11:                                               ; preds = %4
-  %12 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %0, i64 -32
+  %11 = load i64, ptr %10, align 1, !tbaa !7
+  %12 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %11, i64 0
   %13 = bitcast <2 x i64> %12 to <16 x i8>
   %14 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %13, <16 x i8> zeroinitializer)
   %15 = bitcast <2 x i64> %14 to <4 x i32>
   %16 = extractelement <4 x i32> %15, i64 0
   %17 = add i32 %16, 8
-  %18 = add i32 %17, %10
+  %18 = add i32 %17, %8
   %19 = lshr i32 %18, 4
   %20 = trunc i32 %19 to i8
   %21 = insertelement <16 x i8> poison, i8 %20, i64 0
@@ -3691,8 +3691,8 @@ define internal void @DC8uv_SSE2(ptr noundef captures(none) %0) #2 {
   %24 = extractelement <2 x i64> %23, i64 0
   br label %25
 
-25:                                               ; preds = %25, %11
-  %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %25 ]
+25:                                               ; preds = %25, %9
+  %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %25 ]
   %26 = shl nuw nsw i64 %indvars.iv.i, 5
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 %26
   store i64 %24, ptr %27, align 1, !tbaa !7

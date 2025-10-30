@@ -725,7 +725,6 @@ _ZN4node9inspector21InspectorSocketServer7SessionEi.exit: ; preds = %_ZNSt3mapIi
   br i1 %cmp, label %if.end29, label %while.body.i.i.i.i5.preheader
 
 while.body.i.i.i.i5.preheader:                    ; preds = %_ZN4node9inspector21InspectorSocketServer7SessionEi.exit
-  %connected_sessions_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br label %while.body.i.i.i.i5
@@ -744,6 +743,7 @@ while.body.i.i.i.i5:                              ; preds = %while.body.i.i.i.i5
   br i1 %cmp.not.i.i.i.i14, label %_ZNSt3mapIiSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4node9inspector13SocketSessionESt14default_deleteISA_EEESt4lessIiESaIS0_IKiSE_EEE11lower_boundERSH_.exit.i, label %while.body.i.i.i.i5, !llvm.loop !21
 
 _ZNSt3mapIiSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4node9inspector13SocketSessionESt14default_deleteISA_EEESt4lessIiESaIS0_IKiSE_EEE11lower_boundERSH_.exit.i: ; preds = %while.body.i.i.i.i5
+  %connected_sessions_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %cmp.i.i = icmp eq ptr %__y.addr.1.i.i.i.i10, %add.ptr.i.i.i.i
   br i1 %cmp.i.i, label %if.then.i, label %lor.rhs.i
 

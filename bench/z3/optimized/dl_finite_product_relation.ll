@@ -25878,161 +25878,161 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPjN9__gnu_cxx5__op
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
   %7 = icmp sgt i64 %6, 64
-  br i1 %7, label %8, label %51
+  br i1 %7, label %.preheader, label %50
 
-8:                                                ; preds = %3
+.preheader:                                       ; preds = %3
   %scevgep = getelementptr i8, ptr %0, i64 4
-  br label %9
+  br label %8
 
-9:                                                ; preds = %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i, %8
-  %.020.i.idx = phi i64 [ 4, %8 ], [ %.020.i.add, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i ]
-  %.pn19.i = phi ptr [ %0, %8 ], [ %.020.i.ptr, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i ]
+8:                                                ; preds = %.preheader, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i
+  %.020.i.idx = phi i64 [ %.020.i.add, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i ], [ 4, %.preheader ]
+  %.pn19.i = phi ptr [ %.020.i.ptr, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i ], [ %0, %.preheader ]
   %.020.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.020.i.idx
-  %10 = load i32, ptr %.020.i.ptr, align 4, !tbaa !49
-  %11 = load i32, ptr %0, align 4, !tbaa !49
-  %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %2, i64 %12
-  %14 = load i32, ptr %13, align 4, !tbaa !49
-  %15 = zext i32 %11 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %15
-  %17 = load i32, ptr %16, align 4, !tbaa !49
-  %18 = icmp ult i32 %14, %17
-  br i1 %18, label %19, label %20
+  %9 = load i32, ptr %.020.i.ptr, align 4, !tbaa !49
+  %10 = load i32, ptr %0, align 4, !tbaa !49
+  %11 = zext i32 %9 to i64
+  %12 = getelementptr inbounds nuw i32, ptr %2, i64 %11
+  %13 = load i32, ptr %12, align 4, !tbaa !49
+  %14 = zext i32 %10 to i64
+  %15 = getelementptr inbounds nuw i32, ptr %2, i64 %14
+  %16 = load i32, ptr %15, align 4, !tbaa !49
+  %17 = icmp ult i32 %13, %16
+  br i1 %17, label %18, label %19
 
-19:                                               ; preds = %9
+18:                                               ; preds = %8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %.020.i.idx, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i
 
-20:                                               ; preds = %9
-  %21 = load i32, ptr %.pn19.i, align 4, !tbaa !49
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %2, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !49
-  %25 = icmp ult i32 %14, %24
-  br i1 %25, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i
+19:                                               ; preds = %8
+  %20 = load i32, ptr %.pn19.i, align 4, !tbaa !49
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %21
+  %23 = load i32, ptr %22, align 4, !tbaa !49
+  %24 = icmp ult i32 %13, %23
+  br i1 %24, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i
 
-.lr.ph.i.i:                                       ; preds = %20, %.lr.ph.i.i
-  %26 = phi i32 [ %27, %.lr.ph.i.i ], [ %21, %20 ]
-  %.013.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn19.i, %20 ]
-  %.0912.i.i = phi ptr [ %.013.i.i, %.lr.ph.i.i ], [ %.020.i.ptr, %20 ]
-  store i32 %26, ptr %.0912.i.i, align 4, !tbaa !49
+.lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
+  %25 = phi i32 [ %26, %.lr.ph.i.i ], [ %20, %19 ]
+  %.013.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn19.i, %19 ]
+  %.0912.i.i = phi ptr [ %.013.i.i, %.lr.ph.i.i ], [ %.020.i.ptr, %19 ]
+  store i32 %25, ptr %.0912.i.i, align 4, !tbaa !49
   %.0.i.i = getelementptr inbounds i8, ptr %.013.i.i, i64 -4
-  %27 = load i32, ptr %.0.i.i, align 4, !tbaa !49
-  %28 = load i32, ptr %13, align 4, !tbaa !49
-  %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %29
-  %31 = load i32, ptr %30, align 4, !tbaa !49
-  %32 = icmp ult i32 %28, %31
-  br i1 %32, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i, !llvm.loop !626
+  %26 = load i32, ptr %.0.i.i, align 4, !tbaa !49
+  %27 = load i32, ptr %12, align 4, !tbaa !49
+  %28 = zext i32 %26 to i64
+  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %28
+  %30 = load i32, ptr %29, align 4, !tbaa !49
+  %31 = icmp ult i32 %27, %30
+  br i1 %31, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i, !llvm.loop !626
 
-_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %20, %19
-  %.sink.i = phi ptr [ %0, %19 ], [ %.020.i.ptr, %20 ], [ %.013.i.i, %.lr.ph.i.i ]
-  store i32 %10, ptr %.sink.i, align 4, !tbaa !49
+_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %19, %18
+  %.sink.i = phi ptr [ %0, %18 ], [ %.020.i.ptr, %19 ], [ %.013.i.i, %.lr.ph.i.i ]
+  store i32 %9, ptr %.sink.i, align 4, !tbaa !49
   %.020.i.add = add nuw nsw i64 %.020.i.idx, 4
   %.not.i = icmp eq i64 %.020.i.add, 64
-  br i1 %.not.i, label %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_S8_T0_.exit, label %9, !llvm.loop !627
+  br i1 %.not.i, label %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_S8_T0_.exit, label %8, !llvm.loop !627
 
 _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_S8_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.not7.i = icmp eq ptr %33, %1
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.not7.i = icmp eq ptr %32, %1
   br i1 %.not7.i, label %_ZSt26__unguarded_insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_S8_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_S8_T0_.exit, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i11
-  %.08.i = phi ptr [ %50, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i11 ], [ %33, %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_S8_T0_.exit ]
-  %34 = load i32, ptr %.08.i, align 4, !tbaa !49
-  %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %2, i64 %35
+  %.08.i = phi ptr [ %49, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i11 ], [ %32, %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_S8_T0_.exit ]
+  %33 = load i32, ptr %.08.i, align 4, !tbaa !49
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw i32, ptr %2, i64 %34
   %.011.i.i = getelementptr inbounds i8, ptr %.08.i, i64 -4
-  %37 = load i32, ptr %.011.i.i, align 4, !tbaa !49
-  %38 = load i32, ptr %36, align 4, !tbaa !49
-  %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %2, i64 %39
-  %41 = load i32, ptr %40, align 4, !tbaa !49
-  %42 = icmp ult i32 %38, %41
-  br i1 %42, label %.lr.ph.i.i13, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i11
+  %36 = load i32, ptr %.011.i.i, align 4, !tbaa !49
+  %37 = load i32, ptr %35, align 4, !tbaa !49
+  %38 = zext i32 %36 to i64
+  %39 = getelementptr inbounds nuw i32, ptr %2, i64 %38
+  %40 = load i32, ptr %39, align 4, !tbaa !49
+  %41 = icmp ult i32 %37, %40
+  br i1 %41, label %.lr.ph.i.i13, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i11
 
 .lr.ph.i.i13:                                     ; preds = %.lr.ph.i, %.lr.ph.i.i13
-  %43 = phi i32 [ %44, %.lr.ph.i.i13 ], [ %37, %.lr.ph.i ]
+  %42 = phi i32 [ %43, %.lr.ph.i.i13 ], [ %36, %.lr.ph.i ]
   %.013.i.i14 = phi ptr [ %.0.i.i16, %.lr.ph.i.i13 ], [ %.011.i.i, %.lr.ph.i ]
   %.0912.i.i15 = phi ptr [ %.013.i.i14, %.lr.ph.i.i13 ], [ %.08.i, %.lr.ph.i ]
-  store i32 %43, ptr %.0912.i.i15, align 4, !tbaa !49
+  store i32 %42, ptr %.0912.i.i15, align 4, !tbaa !49
   %.0.i.i16 = getelementptr inbounds i8, ptr %.013.i.i14, i64 -4
-  %44 = load i32, ptr %.0.i.i16, align 4, !tbaa !49
-  %45 = load i32, ptr %36, align 4, !tbaa !49
-  %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %2, i64 %46
-  %48 = load i32, ptr %47, align 4, !tbaa !49
-  %49 = icmp ult i32 %45, %48
-  br i1 %49, label %.lr.ph.i.i13, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i11, !llvm.loop !626
+  %43 = load i32, ptr %.0.i.i16, align 4, !tbaa !49
+  %44 = load i32, ptr %35, align 4, !tbaa !49
+  %45 = zext i32 %43 to i64
+  %46 = getelementptr inbounds nuw i32, ptr %2, i64 %45
+  %47 = load i32, ptr %46, align 4, !tbaa !49
+  %48 = icmp ult i32 %44, %47
+  br i1 %48, label %.lr.ph.i.i13, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i11, !llvm.loop !626
 
 _ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i11: ; preds = %.lr.ph.i.i13, %.lr.ph.i
   %.09.lcssa.i.i = phi ptr [ %.08.i, %.lr.ph.i ], [ %.013.i.i14, %.lr.ph.i.i13 ]
-  store i32 %34, ptr %.09.lcssa.i.i, align 4, !tbaa !49
-  %50 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
-  %.not.i12 = icmp eq ptr %50, %1
+  store i32 %33, ptr %.09.lcssa.i.i, align 4, !tbaa !49
+  %49 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
+  %.not.i12 = icmp eq ptr %49, %1
   br i1 %.not.i12, label %_ZSt26__unguarded_insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_S8_T0_.exit, label %.lr.ph.i, !llvm.loop !628
 
-51:                                               ; preds = %3
-  %52 = icmp eq ptr %0, %1
+50:                                               ; preds = %3
+  %51 = icmp eq ptr %0, %1
   %.017.i17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not18.i = icmp eq ptr %.017.i17, %1
-  %or.cond = select i1 %52, i1 true, i1 %.not18.i
+  %or.cond = select i1 %51, i1 true, i1 %.not18.i
   br i1 %or.cond, label %_ZSt26__unguarded_insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_S8_T0_.exit, label %.lr.ph.i18
 
-.lr.ph.i18:                                       ; preds = %51, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i21
-  %.020.i19 = phi ptr [ %.0.i23, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i21 ], [ %.017.i17, %51 ]
-  %.pn19.i20 = phi ptr [ %.020.i19, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i21 ], [ %0, %51 ]
-  %53 = load i32, ptr %.020.i19, align 4, !tbaa !49
-  %54 = load i32, ptr %0, align 4, !tbaa !49
-  %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %2, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !49
-  %58 = zext i32 %54 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %2, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !49
-  %61 = icmp ult i32 %57, %60
-  br i1 %61, label %62, label %69
+.lr.ph.i18:                                       ; preds = %50, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i21
+  %.020.i19 = phi ptr [ %.0.i23, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i21 ], [ %.017.i17, %50 ]
+  %.pn19.i20 = phi ptr [ %.020.i19, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i21 ], [ %0, %50 ]
+  %52 = load i32, ptr %.020.i19, align 4, !tbaa !49
+  %53 = load i32, ptr %0, align 4, !tbaa !49
+  %54 = zext i32 %52 to i64
+  %55 = getelementptr inbounds nuw i32, ptr %2, i64 %54
+  %56 = load i32, ptr %55, align 4, !tbaa !49
+  %57 = zext i32 %53 to i64
+  %58 = getelementptr inbounds nuw i32, ptr %2, i64 %57
+  %59 = load i32, ptr %58, align 4, !tbaa !49
+  %60 = icmp ult i32 %56, %59
+  br i1 %60, label %61, label %68
 
-62:                                               ; preds = %.lr.ph.i18
-  %63 = getelementptr inbounds nuw i8, ptr %.pn19.i20, i64 8
-  %64 = ptrtoint ptr %.020.i19 to i64
-  %65 = sub i64 %64, %5
-  %66 = ashr exact i64 %65, 2
-  %67 = sub nsw i64 0, %66
-  %68 = getelementptr inbounds i32, ptr %63, i64 %67
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %68, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %65, i1 false)
+61:                                               ; preds = %.lr.ph.i18
+  %62 = getelementptr inbounds nuw i8, ptr %.pn19.i20, i64 8
+  %63 = ptrtoint ptr %.020.i19 to i64
+  %64 = sub i64 %63, %5
+  %65 = ashr exact i64 %64, 2
+  %66 = sub nsw i64 0, %65
+  %67 = getelementptr inbounds i32, ptr %62, i64 %66
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %67, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %64, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i21
 
-69:                                               ; preds = %.lr.ph.i18
-  %70 = load i32, ptr %.pn19.i20, align 4, !tbaa !49
-  %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %2, i64 %71
-  %73 = load i32, ptr %72, align 4, !tbaa !49
-  %74 = icmp ult i32 %57, %73
-  br i1 %74, label %.lr.ph.i.i25, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i21
+68:                                               ; preds = %.lr.ph.i18
+  %69 = load i32, ptr %.pn19.i20, align 4, !tbaa !49
+  %70 = zext i32 %69 to i64
+  %71 = getelementptr inbounds nuw i32, ptr %2, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !49
+  %73 = icmp ult i32 %56, %72
+  br i1 %73, label %.lr.ph.i.i25, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i21
 
-.lr.ph.i.i25:                                     ; preds = %69, %.lr.ph.i.i25
-  %75 = phi i32 [ %76, %.lr.ph.i.i25 ], [ %70, %69 ]
-  %.013.i.i26 = phi ptr [ %.0.i.i28, %.lr.ph.i.i25 ], [ %.pn19.i20, %69 ]
-  %.0912.i.i27 = phi ptr [ %.013.i.i26, %.lr.ph.i.i25 ], [ %.020.i19, %69 ]
-  store i32 %75, ptr %.0912.i.i27, align 4, !tbaa !49
+.lr.ph.i.i25:                                     ; preds = %68, %.lr.ph.i.i25
+  %74 = phi i32 [ %75, %.lr.ph.i.i25 ], [ %69, %68 ]
+  %.013.i.i26 = phi ptr [ %.0.i.i28, %.lr.ph.i.i25 ], [ %.pn19.i20, %68 ]
+  %.0912.i.i27 = phi ptr [ %.013.i.i26, %.lr.ph.i.i25 ], [ %.020.i19, %68 ]
+  store i32 %74, ptr %.0912.i.i27, align 4, !tbaa !49
   %.0.i.i28 = getelementptr inbounds i8, ptr %.013.i.i26, i64 -4
-  %76 = load i32, ptr %.0.i.i28, align 4, !tbaa !49
-  %77 = load i32, ptr %56, align 4, !tbaa !49
-  %78 = zext i32 %76 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %2, i64 %78
-  %80 = load i32, ptr %79, align 4, !tbaa !49
-  %81 = icmp ult i32 %77, %80
-  br i1 %81, label %.lr.ph.i.i25, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i21, !llvm.loop !626
+  %75 = load i32, ptr %.0.i.i28, align 4, !tbaa !49
+  %76 = load i32, ptr %55, align 4, !tbaa !49
+  %77 = zext i32 %75 to i64
+  %78 = getelementptr inbounds nuw i32, ptr %2, i64 %77
+  %79 = load i32, ptr %78, align 4, !tbaa !49
+  %80 = icmp ult i32 %76, %79
+  br i1 %80, label %.lr.ph.i.i25, label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i21, !llvm.loop !626
 
-_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i21: ; preds = %.lr.ph.i.i25, %69, %62
-  %.sink.i22 = phi ptr [ %0, %62 ], [ %.020.i19, %69 ], [ %.013.i.i26, %.lr.ph.i.i25 ]
-  store i32 %53, ptr %.sink.i22, align 4, !tbaa !49
+_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i21: ; preds = %.lr.ph.i.i25, %68, %61
+  %.sink.i22 = phi ptr [ %0, %61 ], [ %.020.i19, %68 ], [ %.013.i.i26, %.lr.ph.i.i25 ]
+  store i32 %52, ptr %.sink.i22, align 4, !tbaa !49
   %.0.i23 = getelementptr inbounds nuw i8, ptr %.020.i19, i64 4
   %.not.i24 = icmp eq ptr %.0.i23, %1
   br i1 %.not.i24, label %_ZSt26__unguarded_insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_S8_T0_.exit, label %.lr.ph.i18, !llvm.loop !627
 
-_ZSt26__unguarded_insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_S8_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i21, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i11, %51, %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_S8_T0_.exit
+_ZSt26__unguarded_insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_S8_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i21, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_T0_.exit.i11, %50, %_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog21aux__index_comparatorIjEEEEEvT_S8_T0_.exit
   ret void
 }
 
@@ -26396,7 +26396,6 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %3
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %3
   %.ph = phi ptr [ null, %3 ], [ %9, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.i.ph = phi i32 [ 0, %3 ], [ %12, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
-  %.ph6 = add nuw nsw i32 %8, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -26416,6 +26415,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !416
 
 17:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
+  %.ph6 = add nuw nsw i32 %8, 1
   %18 = getelementptr inbounds i8, ptr %13, i64 -4
   store i32 %.ph6, ptr %18, align 4, !tbaa !49
   %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph6

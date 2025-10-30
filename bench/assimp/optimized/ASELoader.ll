@@ -7542,72 +7542,72 @@ define hidden void @_ZN6Assimp11ASEImporter9AddMeshesEPKNS_3ASE8BaseNodeEP6aiNod
 
 62:                                               ; preds = %51
   %63 = load ptr, ptr %36, align 8
-  %64 = add i32 %.04775, 1
-  %65 = zext i32 %.04775 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %63, i64 %65
-  %67 = trunc nuw i64 %indvars.iv83 to i32
-  store i32 %67, ptr %66, align 4
+  %64 = zext i32 %.04775 to i64
+  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %66 = trunc nuw i64 %indvars.iv83 to i32
+  store i32 %66, ptr %65, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %68 = getelementptr inbounds nuw i8, ptr %58, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %68, i64 64, i1 false)
-  %69 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN12aiMatrix4x4tIfE7InverseEv(ptr noundef nonnull align 4 dereferenceable(64) %4)
-  %70 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %73 = load i32, ptr %72, align 4
-  %74 = zext i32 %73 to i64
-  %.idx = mul nuw nsw i64 %74, 12
-  %75 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx
-  %.not5166 = icmp eq i32 %73, 0
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %67, i64 64, i1 false)
+  %68 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN12aiMatrix4x4tIfE7InverseEv(ptr noundef nonnull align 4 dereferenceable(64) %4)
+  %69 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %72 = load i32, ptr %71, align 4
+  %73 = zext i32 %72 to i64
+  %.idx = mul nuw nsw i64 %73, 12
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx
+  %.not5166 = icmp eq i32 %72, 0
   br i1 %.not5166, label %._crit_edge70, label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %62, %.lr.ph69
-  %.04867 = phi ptr [ %105, %.lr.ph69 ], [ %71, %62 ]
-  %76 = load float, ptr %4, align 4
-  %77 = load float, ptr %.04867, align 4
-  %78 = load float, ptr %40, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %.04867, i64 4
-  %80 = load float, ptr %79, align 4
-  %81 = fmul float %78, %80
-  %82 = call float @llvm.fmuladd.f32(float %76, float %77, float %81)
-  %83 = load float, ptr %41, align 4
-  %84 = getelementptr inbounds nuw i8, ptr %.04867, i64 8
-  %85 = load float, ptr %84, align 4
-  %86 = call float @llvm.fmuladd.f32(float %83, float %85, float %82)
-  %87 = load float, ptr %42, align 4
-  %88 = fadd float %86, %87
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %88, i64 0
-  %89 = load float, ptr %43, align 4
-  %90 = load float, ptr %44, align 4
-  %91 = fmul float %80, %90
-  %92 = call float @llvm.fmuladd.f32(float %89, float %77, float %91)
-  %93 = load float, ptr %45, align 4
-  %94 = call float @llvm.fmuladd.f32(float %93, float %85, float %92)
-  %95 = load float, ptr %46, align 4
-  %96 = fadd float %95, %94
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %96, i64 1
-  %97 = load float, ptr %47, align 4
-  %98 = load float, ptr %48, align 4
-  %99 = fmul float %80, %98
-  %100 = call float @llvm.fmuladd.f32(float %97, float %77, float %99)
-  %101 = load float, ptr %49, align 4
-  %102 = call float @llvm.fmuladd.f32(float %101, float %85, float %100)
-  %103 = load float, ptr %50, align 4
-  %104 = fadd float %103, %102
+  %.04867 = phi ptr [ %104, %.lr.ph69 ], [ %70, %62 ]
+  %75 = load float, ptr %4, align 4
+  %76 = load float, ptr %.04867, align 4
+  %77 = load float, ptr %40, align 4
+  %78 = getelementptr inbounds nuw i8, ptr %.04867, i64 4
+  %79 = load float, ptr %78, align 4
+  %80 = fmul float %77, %79
+  %81 = call float @llvm.fmuladd.f32(float %75, float %76, float %80)
+  %82 = load float, ptr %41, align 4
+  %83 = getelementptr inbounds nuw i8, ptr %.04867, i64 8
+  %84 = load float, ptr %83, align 4
+  %85 = call float @llvm.fmuladd.f32(float %82, float %84, float %81)
+  %86 = load float, ptr %42, align 4
+  %87 = fadd float %85, %86
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %87, i64 0
+  %88 = load float, ptr %43, align 4
+  %89 = load float, ptr %44, align 4
+  %90 = fmul float %79, %89
+  %91 = call float @llvm.fmuladd.f32(float %88, float %76, float %90)
+  %92 = load float, ptr %45, align 4
+  %93 = call float @llvm.fmuladd.f32(float %92, float %84, float %91)
+  %94 = load float, ptr %46, align 4
+  %95 = fadd float %94, %93
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %95, i64 1
+  %96 = load float, ptr %47, align 4
+  %97 = load float, ptr %48, align 4
+  %98 = fmul float %79, %97
+  %99 = call float @llvm.fmuladd.f32(float %96, float %76, float %98)
+  %100 = load float, ptr %49, align 4
+  %101 = call float @llvm.fmuladd.f32(float %100, float %84, float %99)
+  %102 = load float, ptr %50, align 4
+  %103 = fadd float %102, %101
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %.04867, align 4
-  store float %104, ptr %84, align 4
-  %105 = getelementptr inbounds nuw i8, ptr %.04867, i64 12
-  %.not51 = icmp eq ptr %105, %75
+  store float %103, ptr %83, align 4
+  %104 = getelementptr inbounds nuw i8, ptr %.04867, i64 12
+  %.not51 = icmp eq ptr %104, %74
   br i1 %.not51, label %._crit_edge70, label %.lr.ph69, !llvm.loop !98
 
 ._crit_edge70:                                    ; preds = %.lr.ph69, %62
+  %105 = add i32 %.04775, 1
   %106 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %107 = load ptr, ptr %106, align 8
   %.not52 = icmp eq ptr %107, null
   br i1 %.not52, label %.loopexit, label %108
 
 108:                                              ; preds = %._crit_edge70
-  %109 = load float, ptr %68, align 4
+  %109 = load float, ptr %67, align 4
   %110 = getelementptr inbounds nuw i8, ptr %58, i64 148
   %111 = load float, ptr %110, align 4
   %112 = getelementptr inbounds nuw i8, ptr %58, i64 152
@@ -7624,7 +7624,7 @@ define hidden void @_ZN6Assimp11ASEImporter9AddMeshesEPKNS_3ASE8BaseNodeEP6aiNod
   %123 = load float, ptr %122, align 4
   %124 = getelementptr inbounds nuw i8, ptr %58, i64 184
   %125 = load float, ptr %124, align 4
-  %126 = load i32, ptr %72, align 4
+  %126 = load i32, ptr %71, align 4
   %127 = zext i32 %126 to i64
   %.idx81 = mul nuw nsw i64 %127, 12
   %128 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx81
@@ -7662,7 +7662,7 @@ define hidden void @_ZN6Assimp11ASEImporter9AddMeshesEPKNS_3ASE8BaseNodeEP6aiNod
 
 144:                                              ; preds = %.loopexit, %51
   %145 = phi ptr [ %.pre86, %.loopexit ], [ %52, %51 ]
-  %.1 = phi i32 [ %64, %.loopexit ], [ %.04775, %51 ]
+  %.1 = phi i32 [ %105, %.loopexit ], [ %.04775, %51 ]
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %147 = load i32, ptr %146, align 8

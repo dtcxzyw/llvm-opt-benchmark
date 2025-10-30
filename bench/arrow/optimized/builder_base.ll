@@ -2863,7 +2863,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_18TypedBu
   %82 = or i8 %79, %81
   %83 = getelementptr inbounds nuw i8, ptr %.14154, i64 1
   store i8 %82, ptr %.14154, align 1, !tbaa !51
-  %84 = icmp sgt i64 %.in, 1
+  %84 = icmp samesign ugt i64 %.in, 1
   br i1 %84, label %.preheader48, label %._crit_edge55, !llvm.loop !259
 
 85:                                               ; preds = %.preheader48, %85
@@ -9470,18 +9470,18 @@ _ZN5arrow6StatusD2Ev.exit17.i.i814:               ; preds = %_ZN5arrow6StatusD2E
 
 3127:                                             ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1085)
-  %3128 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3129 = load ptr, ptr %3128, align 8, !tbaa !320, !noalias !1085
-  %3130 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1085
-  %3131 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3132 = load ptr, ptr %3131, align 8, !tbaa !193, !noalias !1085
-  %.not8.i = icmp eq ptr %3130, %3132
+  %3128 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1085
+  %3129 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %3130 = load ptr, ptr %3129, align 8, !tbaa !193, !noalias !1085
+  %.not8.i = icmp eq ptr %3128, %3130
   br i1 %.not8.i, label %._crit_edge.i831, label %.lr.ph.i829
 
 ._crit_edge.i831:                                 ; preds = %3161, %3127
   %.052.lcssa.i = phi i64 [ 0, %3127 ], [ %.153.i, %3161 ]
+  %3131 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %3132 = load ptr, ptr %3131, align 8, !tbaa !320, !noalias !1085
   call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !1085
-  %3133 = getelementptr inbounds nuw i8, ptr %3129, i64 200
+  %3133 = getelementptr inbounds nuw i8, ptr %3132, i64 200
   %3134 = load ptr, ptr %3133, align 8, !tbaa !1088, !noalias !1085
   %3135 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3136 = load i64, ptr %3135, align 8, !tbaa !194, !noalias !1085
@@ -9517,7 +9517,7 @@ _ZN5arrow6StatusD2Ev.exit.i842:                   ; preds = %._crit_edge.i831
 
 .lr.ph.i829:                                      ; preds = %3127, %3161
   %.05210.i = phi i64 [ %.153.i, %3161 ], [ 0, %3127 ]
-  %.0569.i = phi ptr [ %3162, %3161 ], [ %3130, %3127 ]
+  %.0569.i = phi ptr [ %3162, %3161 ], [ %3128, %3127 ]
   %3150 = getelementptr inbounds nuw i8, ptr %.0569.i, i64 40
   %3151 = load i8, ptr %3150, align 8, !tbaa !334, !range !102, !noalias !1085, !noundef !103
   %3152 = trunc nuw i8 %3151 to i1
@@ -9536,7 +9536,7 @@ _ZN5arrow6StatusD2Ev.exit.i842:                   ; preds = %._crit_edge.i831
 3161:                                             ; preds = %3153, %.lr.ph.i829
   %.153.i = phi i64 [ %3160, %3153 ], [ %.05210.i, %.lr.ph.i829 ]
   %3162 = getelementptr inbounds nuw i8, ptr %.0569.i, i64 48
-  %.not.i830 = icmp eq ptr %3162, %3132
+  %.not.i830 = icmp eq ptr %3162, %3130
   br i1 %.not.i830, label %._crit_edge.i831, label %.lr.ph.i829, !llvm.loop !1117
 
 _ZN5arrow6StatusD2Ev.exit82.i:                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i842, %_ZN5arrow6StatusD2Ev.exit.thread.i833
@@ -9545,15 +9545,15 @@ _ZN5arrow6StatusD2Ev.exit82.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %.not6718.i, label %.lr.ph20.i, label %.critedge78.i
 
 .lr.ph20.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit82.i
-  %3164 = getelementptr inbounds nuw i8, ptr %3129, i64 112
-  %3165 = getelementptr inbounds nuw i8, ptr %3129, i64 48
-  %3166 = getelementptr inbounds nuw i8, ptr %3129, i64 80
-  %3167 = getelementptr inbounds nuw i8, ptr %3129, i64 104
+  %3164 = getelementptr inbounds nuw i8, ptr %3132, i64 112
+  %3165 = getelementptr inbounds nuw i8, ptr %3132, i64 48
+  %3166 = getelementptr inbounds nuw i8, ptr %3132, i64 80
+  %3167 = getelementptr inbounds nuw i8, ptr %3132, i64 104
   %3168 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %3169 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %3170 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %3171 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1085
-  %3172 = load ptr, ptr %3131, align 8, !tbaa !193, !noalias !1085
+  %3172 = load ptr, ptr %3129, align 8, !tbaa !193, !noalias !1085
   %3173 = icmp eq ptr %3171, %3172
   br i1 %3173, label %.critedge78.i, label %.lr.ph20.split.i
 
@@ -9581,10 +9581,10 @@ _ZN5arrow6StatusD2Ev.exit82.i:                    ; preds = %_ZN5arrow6StatusD2E
   %3186 = load i64, ptr %3185, align 8, !tbaa !1099, !noalias !1085
   call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !1118
   %3187 = load i64, ptr %3164, align 8, !tbaa !108, !noalias !1121
-  %3188 = load ptr, ptr %3129, align 8, !tbaa !92, !noalias !1121
+  %3188 = load ptr, ptr %3132, align 8, !tbaa !92, !noalias !1121
   %3189 = getelementptr inbounds nuw i8, ptr %3188, i64 16
   %3190 = load ptr, ptr %3189, align 8, !noalias !1121
-  %3191 = call noundef i64 %3190(ptr noundef nonnull align 8 dereferenceable(232) %3129), !noalias !1121
+  %3191 = call noundef i64 %3190(ptr noundef nonnull align 8 dereferenceable(232) %3132), !noalias !1121
   %.not.i.not.i.i = icmp slt i64 %3191, %3187
   br i1 %.not.i.not.i.i, label %_ZN5arrow6StatusD2Ev.exit7.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit.i.i835
 
@@ -9596,10 +9596,10 @@ _ZN5arrow6StatusD2Ev.exit.i.i835:                 ; preds = %3180
   %3192 = add nsw i64 %3191, 1
   %3193 = shl nsw i64 %3187, 1
   %.sroa.speculated.i.i.i.i836 = call noundef i64 @llvm.smax.i64(i64 %3192, i64 %3193)
-  %3194 = load ptr, ptr %3129, align 8, !tbaa !92, !noalias !1121
+  %3194 = load ptr, ptr %3132, align 8, !tbaa !92, !noalias !1121
   %3195 = getelementptr inbounds nuw i8, ptr %3194, i64 24
   %3196 = load ptr, ptr %3195, align 8, !noalias !1121
-  call void %3196(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %57, ptr noundef nonnull align 8 dereferenceable(232) %3129, i64 noundef %.sroa.speculated.i.i.i.i836), !noalias !1118
+  call void %3196(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %57, ptr noundef nonnull align 8 dereferenceable(232) %3132, i64 noundef %.sroa.speculated.i.i.i.i836), !noalias !1118
   %.pr.i.i837 = load ptr, ptr %57, align 8, !tbaa !52, !noalias !1124
   call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !1118
   %3197 = icmp eq ptr %.pr.i.i837, null
@@ -9631,10 +9631,10 @@ _ZN5arrow6StatusD2Ev.exit86.i:                    ; preds = %_ZN5arrow6StatusD2E
   %3212 = getelementptr inbounds nuw i8, ptr %3211, i64 16
   %3213 = load ptr, ptr %3212, align 8, !noalias !1118
   %3214 = call noundef i64 %3213(ptr noundef nonnull align 8 dereferenceable(144) %3210), !noalias !1118
-  %3215 = load ptr, ptr %3129, align 8, !tbaa !92, !noalias !1118
+  %3215 = load ptr, ptr %3132, align 8, !tbaa !92, !noalias !1118
   %3216 = getelementptr inbounds nuw i8, ptr %3215, i64 128
   %3217 = load ptr, ptr %3216, align 8, !noalias !1118
-  call void %3217(ptr noundef nonnull align 8 dereferenceable(232) %3129, i64 noundef %3214, i64 noundef %3186), !noalias !1118
+  call void %3217(ptr noundef nonnull align 8 dereferenceable(232) %3132, i64 noundef %3214, i64 noundef %3186), !noalias !1118
   store ptr null, ptr %0, align 8, !tbaa !52, !alias.scope !1130
   %3218 = load ptr, ptr %3183, align 8, !tbaa !40, !noalias !1085
   %3219 = getelementptr inbounds nuw i8, ptr %3218, i64 16
@@ -10093,7 +10093,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit118.i: ; preds = %3402, %_
 
 _ZN5arrow6StatusD2Ev.exit120.i:                   ; preds = %.lr.ph17.i
   call void @llvm.lifetime.start.p0(ptr nonnull %62), !noalias !1085
-  %3403 = load ptr, ptr %3128, align 8, !tbaa !195, !noalias !1085
+  %3403 = load ptr, ptr %3131, align 8, !tbaa !195, !noalias !1085
   %3404 = load ptr, ptr %3403, align 8, !tbaa !92, !noalias !1085
   %3405 = getelementptr inbounds nuw i8, ptr %3404, i64 40
   %3406 = load ptr, ptr %3405, align 8, !noalias !1085
@@ -10107,7 +10107,7 @@ _ZN5arrow6StatusD2Ev.exit120.i:                   ; preds = %.lr.ph17.i
 
 .critedge73.i:                                    ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit.i, %_ZN5arrow6StatusD2Ev.exit120.i, %_ZN5arrow6StatusD2Ev.exit86.i
   %3409 = getelementptr inbounds nuw i8, ptr %.05715.i, i64 48
-  %3410 = load ptr, ptr %3131, align 8, !tbaa !193, !noalias !1085
+  %3410 = load ptr, ptr %3129, align 8, !tbaa !193, !noalias !1085
   %.not62.i = icmp eq ptr %3409, %3410
   br i1 %.not62.i, label %.critedge76.loopexit.i, label %.lr.ph17.i, !llvm.loop !1152
 
@@ -10128,18 +10128,18 @@ _ZN5arrow6StatusD2Ev.exit120.i:                   ; preds = %.lr.ph17.i
 
 3414:                                             ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1157)
-  %3415 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3416 = load ptr, ptr %3415, align 8, !tbaa !320, !noalias !1157
-  %3417 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1157
-  %3418 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3419 = load ptr, ptr %3418, align 8, !tbaa !193, !noalias !1157
-  %.not8.i845 = icmp eq ptr %3417, %3419
+  %3415 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1157
+  %3416 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %3417 = load ptr, ptr %3416, align 8, !tbaa !193, !noalias !1157
+  %.not8.i845 = icmp eq ptr %3415, %3417
   br i1 %.not8.i845, label %._crit_edge.i851, label %.lr.ph.i846
 
 ._crit_edge.i851:                                 ; preds = %3448, %3414
   %.052.lcssa.i852 = phi i64 [ 0, %3414 ], [ %.153.i849, %3448 ]
+  %3418 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %3419 = load ptr, ptr %3418, align 8, !tbaa !320, !noalias !1157
   call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !1157
-  %3420 = getelementptr inbounds nuw i8, ptr %3416, i64 200
+  %3420 = getelementptr inbounds nuw i8, ptr %3419, i64 200
   %3421 = load ptr, ptr %3420, align 8, !tbaa !1088, !noalias !1157
   %3422 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3423 = load i64, ptr %3422, align 8, !tbaa !194, !noalias !1157
@@ -10175,7 +10175,7 @@ _ZN5arrow6StatusD2Ev.exit.i933:                   ; preds = %._crit_edge.i851
 
 .lr.ph.i846:                                      ; preds = %3414, %3448
   %.05210.i847 = phi i64 [ %.153.i849, %3448 ], [ 0, %3414 ]
-  %.0569.i848 = phi ptr [ %3449, %3448 ], [ %3417, %3414 ]
+  %.0569.i848 = phi ptr [ %3449, %3448 ], [ %3415, %3414 ]
   %3437 = getelementptr inbounds nuw i8, ptr %.0569.i848, i64 40
   %3438 = load i8, ptr %3437, align 8, !tbaa !334, !range !102, !noalias !1157, !noundef !103
   %3439 = trunc nuw i8 %3438 to i1
@@ -10194,7 +10194,7 @@ _ZN5arrow6StatusD2Ev.exit.i933:                   ; preds = %._crit_edge.i851
 3448:                                             ; preds = %3440, %.lr.ph.i846
   %.153.i849 = phi i64 [ %3447, %3440 ], [ %.05210.i847, %.lr.ph.i846 ]
   %3449 = getelementptr inbounds nuw i8, ptr %.0569.i848, i64 48
-  %.not.i850 = icmp eq ptr %3449, %3419
+  %.not.i850 = icmp eq ptr %3449, %3417
   br i1 %.not.i850, label %._crit_edge.i851, label %.lr.ph.i846, !llvm.loop !1169
 
 _ZN5arrow6StatusD2Ev.exit82.i855:                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i933, %_ZN5arrow6StatusD2Ev.exit.thread.i854
@@ -10203,15 +10203,15 @@ _ZN5arrow6StatusD2Ev.exit82.i855:                 ; preds = %_ZN5arrow6StatusD2E
   br i1 %.not6718.i856, label %.lr.ph20.i858, label %.critedge78.i857
 
 .lr.ph20.i858:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit82.i855
-  %3451 = getelementptr inbounds nuw i8, ptr %3416, i64 112
-  %3452 = getelementptr inbounds nuw i8, ptr %3416, i64 48
-  %3453 = getelementptr inbounds nuw i8, ptr %3416, i64 80
-  %3454 = getelementptr inbounds nuw i8, ptr %3416, i64 104
+  %3451 = getelementptr inbounds nuw i8, ptr %3419, i64 112
+  %3452 = getelementptr inbounds nuw i8, ptr %3419, i64 48
+  %3453 = getelementptr inbounds nuw i8, ptr %3419, i64 80
+  %3454 = getelementptr inbounds nuw i8, ptr %3419, i64 104
   %3455 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %3456 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %3457 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %3458 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1157
-  %3459 = load ptr, ptr %3418, align 8, !tbaa !193, !noalias !1157
+  %3459 = load ptr, ptr %3416, align 8, !tbaa !193, !noalias !1157
   %3460 = icmp eq ptr %3458, %3459
   br i1 %3460, label %.critedge78.i857, label %.lr.ph20.split.i859
 
@@ -10239,10 +10239,10 @@ _ZN5arrow6StatusD2Ev.exit82.i855:                 ; preds = %_ZN5arrow6StatusD2E
   %3473 = load i64, ptr %3472, align 8, !tbaa !1099, !noalias !1157
   call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !1170
   %3474 = load i64, ptr %3451, align 8, !tbaa !108, !noalias !1173
-  %3475 = load ptr, ptr %3416, align 8, !tbaa !92, !noalias !1173
+  %3475 = load ptr, ptr %3419, align 8, !tbaa !92, !noalias !1173
   %3476 = getelementptr inbounds nuw i8, ptr %3475, i64 16
   %3477 = load ptr, ptr %3476, align 8, !noalias !1173
-  %3478 = call noundef i64 %3477(ptr noundef nonnull align 8 dereferenceable(232) %3416), !noalias !1173
+  %3478 = call noundef i64 %3477(ptr noundef nonnull align 8 dereferenceable(232) %3419), !noalias !1173
   %.not.i.not.i.i871 = icmp slt i64 %3478, %3474
   br i1 %.not.i.not.i.i871, label %_ZN5arrow6StatusD2Ev.exit7.thread.i.i932, label %_ZN5arrow6StatusD2Ev.exit.i.i872
 
@@ -10254,10 +10254,10 @@ _ZN5arrow6StatusD2Ev.exit.i.i872:                 ; preds = %3467
   %3479 = add nsw i64 %3478, 1
   %3480 = shl nsw i64 %3474, 1
   %.sroa.speculated.i.i.i.i873 = call noundef i64 @llvm.smax.i64(i64 %3479, i64 %3480)
-  %3481 = load ptr, ptr %3416, align 8, !tbaa !92, !noalias !1173
+  %3481 = load ptr, ptr %3419, align 8, !tbaa !92, !noalias !1173
   %3482 = getelementptr inbounds nuw i8, ptr %3481, i64 24
   %3483 = load ptr, ptr %3482, align 8, !noalias !1173
-  call void %3483(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %51, ptr noundef nonnull align 8 dereferenceable(232) %3416, i64 noundef %.sroa.speculated.i.i.i.i873), !noalias !1170
+  call void %3483(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %51, ptr noundef nonnull align 8 dereferenceable(232) %3419, i64 noundef %.sroa.speculated.i.i.i.i873), !noalias !1170
   %.pr.i.i874 = load ptr, ptr %51, align 8, !tbaa !52, !noalias !1176
   call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !1170
   %3484 = icmp eq ptr %.pr.i.i874, null
@@ -10289,10 +10289,10 @@ _ZN5arrow6StatusD2Ev.exit86.i876:                 ; preds = %_ZN5arrow6StatusD2E
   %3499 = getelementptr inbounds nuw i8, ptr %3498, i64 16
   %3500 = load ptr, ptr %3499, align 8, !noalias !1170
   %3501 = call noundef i64 %3500(ptr noundef nonnull align 8 dereferenceable(144) %3497), !noalias !1170
-  %3502 = load ptr, ptr %3416, align 8, !tbaa !92, !noalias !1170
+  %3502 = load ptr, ptr %3419, align 8, !tbaa !92, !noalias !1170
   %3503 = getelementptr inbounds nuw i8, ptr %3502, i64 128
   %3504 = load ptr, ptr %3503, align 8, !noalias !1170
-  call void %3504(ptr noundef nonnull align 8 dereferenceable(232) %3416, i64 noundef %3501, i64 noundef %3473), !noalias !1170
+  call void %3504(ptr noundef nonnull align 8 dereferenceable(232) %3419, i64 noundef %3501, i64 noundef %3473), !noalias !1170
   store ptr null, ptr %0, align 8, !tbaa !52, !alias.scope !1182
   %3505 = load ptr, ptr %3470, align 8, !tbaa !40, !noalias !1157
   %3506 = getelementptr inbounds nuw i8, ptr %3505, i64 16
@@ -10747,7 +10747,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit118.i900: ; preds = %3689,
 
 _ZN5arrow6StatusD2Ev.exit120.i864:                ; preds = %.lr.ph17.i862
   call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !1157
-  %3690 = load ptr, ptr %3415, align 8, !tbaa !195, !noalias !1157
+  %3690 = load ptr, ptr %3418, align 8, !tbaa !195, !noalias !1157
   %3691 = load ptr, ptr %3690, align 8, !tbaa !92, !noalias !1157
   %3692 = getelementptr inbounds nuw i8, ptr %3691, i64 40
   %3693 = load ptr, ptr %3692, align 8, !noalias !1157
@@ -10761,7 +10761,7 @@ _ZN5arrow6StatusD2Ev.exit120.i864:                ; preds = %.lr.ph17.i862
 
 .critedge73.i865:                                 ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit.i922, %_ZN5arrow6StatusD2Ev.exit120.i864, %_ZN5arrow6StatusD2Ev.exit86.i876
   %3696 = getelementptr inbounds nuw i8, ptr %.05715.i863, i64 48
-  %3697 = load ptr, ptr %3418, align 8, !tbaa !193, !noalias !1157
+  %3697 = load ptr, ptr %3416, align 8, !tbaa !193, !noalias !1157
   %.not62.i866 = icmp eq ptr %3696, %3697
   br i1 %.not62.i866, label %.critedge76.loopexit.i867, label %.lr.ph17.i862, !llvm.loop !1204
 
@@ -10782,18 +10782,18 @@ _ZN5arrow6StatusD2Ev.exit120.i864:                ; preds = %.lr.ph17.i862
 
 3701:                                             ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1209)
-  %3702 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3703 = load ptr, ptr %3702, align 8, !tbaa !320, !noalias !1209
-  %3704 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1209
-  %3705 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3706 = load ptr, ptr %3705, align 8, !tbaa !193, !noalias !1209
-  %.not8.i936 = icmp eq ptr %3704, %3706
+  %3702 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1209
+  %3703 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %3704 = load ptr, ptr %3703, align 8, !tbaa !193, !noalias !1209
+  %.not8.i936 = icmp eq ptr %3702, %3704
   br i1 %.not8.i936, label %._crit_edge.i942, label %.lr.ph.i937
 
 ._crit_edge.i942:                                 ; preds = %3735, %3701
   %.052.lcssa.i943 = phi i64 [ 0, %3701 ], [ %.153.i940, %3735 ]
+  %3705 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %3706 = load ptr, ptr %3705, align 8, !tbaa !320, !noalias !1209
   call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !1209
-  %3707 = getelementptr inbounds nuw i8, ptr %3703, i64 200
+  %3707 = getelementptr inbounds nuw i8, ptr %3706, i64 200
   %3708 = load ptr, ptr %3707, align 8, !tbaa !1088, !noalias !1209
   %3709 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3710 = load i64, ptr %3709, align 8, !tbaa !194, !noalias !1209
@@ -10829,7 +10829,7 @@ _ZN5arrow6StatusD2Ev.exit.i1024:                  ; preds = %._crit_edge.i942
 
 .lr.ph.i937:                                      ; preds = %3701, %3735
   %.05210.i938 = phi i64 [ %.153.i940, %3735 ], [ 0, %3701 ]
-  %.0569.i939 = phi ptr [ %3736, %3735 ], [ %3704, %3701 ]
+  %.0569.i939 = phi ptr [ %3736, %3735 ], [ %3702, %3701 ]
   %3724 = getelementptr inbounds nuw i8, ptr %.0569.i939, i64 40
   %3725 = load i8, ptr %3724, align 8, !tbaa !334, !range !102, !noalias !1209, !noundef !103
   %3726 = trunc nuw i8 %3725 to i1
@@ -10848,7 +10848,7 @@ _ZN5arrow6StatusD2Ev.exit.i1024:                  ; preds = %._crit_edge.i942
 3735:                                             ; preds = %3727, %.lr.ph.i937
   %.153.i940 = phi i64 [ %3734, %3727 ], [ %.05210.i938, %.lr.ph.i937 ]
   %3736 = getelementptr inbounds nuw i8, ptr %.0569.i939, i64 48
-  %.not.i941 = icmp eq ptr %3736, %3706
+  %.not.i941 = icmp eq ptr %3736, %3704
   br i1 %.not.i941, label %._crit_edge.i942, label %.lr.ph.i937, !llvm.loop !1221
 
 _ZN5arrow6StatusD2Ev.exit82.i946:                 ; preds = %_ZN5arrow6StatusD2Ev.exit.i1024, %_ZN5arrow6StatusD2Ev.exit.thread.i945
@@ -10857,15 +10857,15 @@ _ZN5arrow6StatusD2Ev.exit82.i946:                 ; preds = %_ZN5arrow6StatusD2E
   br i1 %.not6718.i947, label %.lr.ph20.i949, label %.critedge78.i948
 
 .lr.ph20.i949:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit82.i946
-  %3738 = getelementptr inbounds nuw i8, ptr %3703, i64 112
-  %3739 = getelementptr inbounds nuw i8, ptr %3703, i64 48
-  %3740 = getelementptr inbounds nuw i8, ptr %3703, i64 80
-  %3741 = getelementptr inbounds nuw i8, ptr %3703, i64 104
+  %3738 = getelementptr inbounds nuw i8, ptr %3706, i64 112
+  %3739 = getelementptr inbounds nuw i8, ptr %3706, i64 48
+  %3740 = getelementptr inbounds nuw i8, ptr %3706, i64 80
+  %3741 = getelementptr inbounds nuw i8, ptr %3706, i64 104
   %3742 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %3743 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %3744 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %3745 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1209
-  %3746 = load ptr, ptr %3705, align 8, !tbaa !193, !noalias !1209
+  %3746 = load ptr, ptr %3703, align 8, !tbaa !193, !noalias !1209
   %3747 = icmp eq ptr %3745, %3746
   br i1 %3747, label %.critedge78.i948, label %.lr.ph20.split.i950
 
@@ -10893,10 +10893,10 @@ _ZN5arrow6StatusD2Ev.exit82.i946:                 ; preds = %_ZN5arrow6StatusD2E
   %3760 = load i64, ptr %3759, align 8, !tbaa !1099, !noalias !1209
   call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !1222
   %3761 = load i64, ptr %3738, align 8, !tbaa !108, !noalias !1225
-  %3762 = load ptr, ptr %3703, align 8, !tbaa !92, !noalias !1225
+  %3762 = load ptr, ptr %3706, align 8, !tbaa !92, !noalias !1225
   %3763 = getelementptr inbounds nuw i8, ptr %3762, i64 16
   %3764 = load ptr, ptr %3763, align 8, !noalias !1225
-  %3765 = call noundef i64 %3764(ptr noundef nonnull align 8 dereferenceable(232) %3703), !noalias !1225
+  %3765 = call noundef i64 %3764(ptr noundef nonnull align 8 dereferenceable(232) %3706), !noalias !1225
   %.not.i.not.i.i962 = icmp slt i64 %3765, %3761
   br i1 %.not.i.not.i.i962, label %_ZN5arrow6StatusD2Ev.exit7.thread.i.i1023, label %_ZN5arrow6StatusD2Ev.exit.i.i963
 
@@ -10908,10 +10908,10 @@ _ZN5arrow6StatusD2Ev.exit.i.i963:                 ; preds = %3754
   %3766 = add nsw i64 %3765, 1
   %3767 = shl nsw i64 %3761, 1
   %.sroa.speculated.i.i.i.i964 = call noundef i64 @llvm.smax.i64(i64 %3766, i64 %3767)
-  %3768 = load ptr, ptr %3703, align 8, !tbaa !92, !noalias !1225
+  %3768 = load ptr, ptr %3706, align 8, !tbaa !92, !noalias !1225
   %3769 = getelementptr inbounds nuw i8, ptr %3768, i64 24
   %3770 = load ptr, ptr %3769, align 8, !noalias !1225
-  call void %3770(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %45, ptr noundef nonnull align 8 dereferenceable(232) %3703, i64 noundef %.sroa.speculated.i.i.i.i964), !noalias !1222
+  call void %3770(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %45, ptr noundef nonnull align 8 dereferenceable(232) %3706, i64 noundef %.sroa.speculated.i.i.i.i964), !noalias !1222
   %.pr.i.i965 = load ptr, ptr %45, align 8, !tbaa !52, !noalias !1228
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !1222
   %3771 = icmp eq ptr %.pr.i.i965, null
@@ -10943,10 +10943,10 @@ _ZN5arrow6StatusD2Ev.exit86.i967:                 ; preds = %_ZN5arrow6StatusD2E
   %3786 = getelementptr inbounds nuw i8, ptr %3785, i64 16
   %3787 = load ptr, ptr %3786, align 8, !noalias !1222
   %3788 = call noundef i64 %3787(ptr noundef nonnull align 8 dereferenceable(144) %3784), !noalias !1222
-  %3789 = load ptr, ptr %3703, align 8, !tbaa !92, !noalias !1222
+  %3789 = load ptr, ptr %3706, align 8, !tbaa !92, !noalias !1222
   %3790 = getelementptr inbounds nuw i8, ptr %3789, i64 128
   %3791 = load ptr, ptr %3790, align 8, !noalias !1222
-  call void %3791(ptr noundef nonnull align 8 dereferenceable(232) %3703, i64 noundef %3788, i64 noundef %3760), !noalias !1222
+  call void %3791(ptr noundef nonnull align 8 dereferenceable(232) %3706, i64 noundef %3788, i64 noundef %3760), !noalias !1222
   store ptr null, ptr %0, align 8, !tbaa !52, !alias.scope !1234
   %3792 = load ptr, ptr %3757, align 8, !tbaa !40, !noalias !1209
   %3793 = getelementptr inbounds nuw i8, ptr %3792, i64 16
@@ -11401,7 +11401,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit118.i991: ; preds = %3976,
 
 _ZN5arrow6StatusD2Ev.exit120.i955:                ; preds = %.lr.ph17.i953
   call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !1209
-  %3977 = load ptr, ptr %3702, align 8, !tbaa !195, !noalias !1209
+  %3977 = load ptr, ptr %3705, align 8, !tbaa !195, !noalias !1209
   %3978 = load ptr, ptr %3977, align 8, !tbaa !92, !noalias !1209
   %3979 = getelementptr inbounds nuw i8, ptr %3978, i64 40
   %3980 = load ptr, ptr %3979, align 8, !noalias !1209
@@ -11415,7 +11415,7 @@ _ZN5arrow6StatusD2Ev.exit120.i955:                ; preds = %.lr.ph17.i953
 
 .critedge73.i956:                                 ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit.i1013, %_ZN5arrow6StatusD2Ev.exit120.i955, %_ZN5arrow6StatusD2Ev.exit86.i967
   %3983 = getelementptr inbounds nuw i8, ptr %.05715.i954, i64 48
-  %3984 = load ptr, ptr %3705, align 8, !tbaa !193, !noalias !1209
+  %3984 = load ptr, ptr %3703, align 8, !tbaa !193, !noalias !1209
   %.not62.i957 = icmp eq ptr %3983, %3984
   br i1 %.not62.i957, label %.critedge76.loopexit.i958, label %.lr.ph17.i953, !llvm.loop !1256
 
@@ -11436,18 +11436,18 @@ _ZN5arrow6StatusD2Ev.exit120.i955:                ; preds = %.lr.ph17.i953
 
 3988:                                             ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1261)
-  %3989 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3990 = load ptr, ptr %3989, align 8, !tbaa !320, !noalias !1261
-  %3991 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1261
-  %3992 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3993 = load ptr, ptr %3992, align 8, !tbaa !193, !noalias !1261
-  %.not8.i1027 = icmp eq ptr %3991, %3993
+  %3989 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1261
+  %3990 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %3991 = load ptr, ptr %3990, align 8, !tbaa !193, !noalias !1261
+  %.not8.i1027 = icmp eq ptr %3989, %3991
   br i1 %.not8.i1027, label %._crit_edge.i1033, label %.lr.ph.i1028
 
 ._crit_edge.i1033:                                ; preds = %4022, %3988
   %.052.lcssa.i1034 = phi i64 [ 0, %3988 ], [ %.153.i1031, %4022 ]
+  %3992 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %3993 = load ptr, ptr %3992, align 8, !tbaa !320, !noalias !1261
   call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !1261
-  %3994 = getelementptr inbounds nuw i8, ptr %3990, i64 200
+  %3994 = getelementptr inbounds nuw i8, ptr %3993, i64 200
   %3995 = load ptr, ptr %3994, align 8, !tbaa !1088, !noalias !1261
   %3996 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3997 = load i64, ptr %3996, align 8, !tbaa !194, !noalias !1261
@@ -11483,7 +11483,7 @@ _ZN5arrow6StatusD2Ev.exit.i1115:                  ; preds = %._crit_edge.i1033
 
 .lr.ph.i1028:                                     ; preds = %3988, %4022
   %.05210.i1029 = phi i64 [ %.153.i1031, %4022 ], [ 0, %3988 ]
-  %.0569.i1030 = phi ptr [ %4023, %4022 ], [ %3991, %3988 ]
+  %.0569.i1030 = phi ptr [ %4023, %4022 ], [ %3989, %3988 ]
   %4011 = getelementptr inbounds nuw i8, ptr %.0569.i1030, i64 40
   %4012 = load i8, ptr %4011, align 8, !tbaa !334, !range !102, !noalias !1261, !noundef !103
   %4013 = trunc nuw i8 %4012 to i1
@@ -11502,7 +11502,7 @@ _ZN5arrow6StatusD2Ev.exit.i1115:                  ; preds = %._crit_edge.i1033
 4022:                                             ; preds = %4014, %.lr.ph.i1028
   %.153.i1031 = phi i64 [ %4021, %4014 ], [ %.05210.i1029, %.lr.ph.i1028 ]
   %4023 = getelementptr inbounds nuw i8, ptr %.0569.i1030, i64 48
-  %.not.i1032 = icmp eq ptr %4023, %3993
+  %.not.i1032 = icmp eq ptr %4023, %3991
   br i1 %.not.i1032, label %._crit_edge.i1033, label %.lr.ph.i1028, !llvm.loop !1273
 
 _ZN5arrow6StatusD2Ev.exit82.i1037:                ; preds = %_ZN5arrow6StatusD2Ev.exit.i1115, %_ZN5arrow6StatusD2Ev.exit.thread.i1036
@@ -11511,15 +11511,15 @@ _ZN5arrow6StatusD2Ev.exit82.i1037:                ; preds = %_ZN5arrow6StatusD2E
   br i1 %.not6718.i1038, label %.lr.ph20.i1040, label %.critedge78.i1039
 
 .lr.ph20.i1040:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit82.i1037
-  %4025 = getelementptr inbounds nuw i8, ptr %3990, i64 112
-  %4026 = getelementptr inbounds nuw i8, ptr %3990, i64 48
-  %4027 = getelementptr inbounds nuw i8, ptr %3990, i64 80
-  %4028 = getelementptr inbounds nuw i8, ptr %3990, i64 104
+  %4025 = getelementptr inbounds nuw i8, ptr %3993, i64 112
+  %4026 = getelementptr inbounds nuw i8, ptr %3993, i64 48
+  %4027 = getelementptr inbounds nuw i8, ptr %3993, i64 80
+  %4028 = getelementptr inbounds nuw i8, ptr %3993, i64 104
   %4029 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %4030 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %4031 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %4032 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1261
-  %4033 = load ptr, ptr %3992, align 8, !tbaa !193, !noalias !1261
+  %4033 = load ptr, ptr %3990, align 8, !tbaa !193, !noalias !1261
   %4034 = icmp eq ptr %4032, %4033
   br i1 %4034, label %.critedge78.i1039, label %.lr.ph20.split.i1041
 
@@ -11547,10 +11547,10 @@ _ZN5arrow6StatusD2Ev.exit82.i1037:                ; preds = %_ZN5arrow6StatusD2E
   %4047 = load i64, ptr %4046, align 8, !tbaa !1099, !noalias !1261
   call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !1274
   %4048 = load i64, ptr %4025, align 8, !tbaa !108, !noalias !1277
-  %4049 = load ptr, ptr %3990, align 8, !tbaa !92, !noalias !1277
+  %4049 = load ptr, ptr %3993, align 8, !tbaa !92, !noalias !1277
   %4050 = getelementptr inbounds nuw i8, ptr %4049, i64 16
   %4051 = load ptr, ptr %4050, align 8, !noalias !1277
-  %4052 = call noundef i64 %4051(ptr noundef nonnull align 8 dereferenceable(232) %3990), !noalias !1277
+  %4052 = call noundef i64 %4051(ptr noundef nonnull align 8 dereferenceable(232) %3993), !noalias !1277
   %.not.i.not.i.i1053 = icmp slt i64 %4052, %4048
   br i1 %.not.i.not.i.i1053, label %_ZN5arrow6StatusD2Ev.exit7.thread.i.i1114, label %_ZN5arrow6StatusD2Ev.exit.i.i1054
 
@@ -11562,10 +11562,10 @@ _ZN5arrow6StatusD2Ev.exit.i.i1054:                ; preds = %4041
   %4053 = add nsw i64 %4052, 1
   %4054 = shl nsw i64 %4048, 1
   %.sroa.speculated.i.i.i.i1055 = call noundef i64 @llvm.smax.i64(i64 %4053, i64 %4054)
-  %4055 = load ptr, ptr %3990, align 8, !tbaa !92, !noalias !1277
+  %4055 = load ptr, ptr %3993, align 8, !tbaa !92, !noalias !1277
   %4056 = getelementptr inbounds nuw i8, ptr %4055, i64 24
   %4057 = load ptr, ptr %4056, align 8, !noalias !1277
-  call void %4057(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %39, ptr noundef nonnull align 8 dereferenceable(232) %3990, i64 noundef %.sroa.speculated.i.i.i.i1055), !noalias !1274
+  call void %4057(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %39, ptr noundef nonnull align 8 dereferenceable(232) %3993, i64 noundef %.sroa.speculated.i.i.i.i1055), !noalias !1274
   %.pr.i.i1056 = load ptr, ptr %39, align 8, !tbaa !52, !noalias !1280
   call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !1274
   %4058 = icmp eq ptr %.pr.i.i1056, null
@@ -11597,10 +11597,10 @@ _ZN5arrow6StatusD2Ev.exit86.i1058:                ; preds = %_ZN5arrow6StatusD2E
   %4073 = getelementptr inbounds nuw i8, ptr %4072, i64 16
   %4074 = load ptr, ptr %4073, align 8, !noalias !1274
   %4075 = call noundef i64 %4074(ptr noundef nonnull align 8 dereferenceable(144) %4071), !noalias !1274
-  %4076 = load ptr, ptr %3990, align 8, !tbaa !92, !noalias !1274
+  %4076 = load ptr, ptr %3993, align 8, !tbaa !92, !noalias !1274
   %4077 = getelementptr inbounds nuw i8, ptr %4076, i64 128
   %4078 = load ptr, ptr %4077, align 8, !noalias !1274
-  call void %4078(ptr noundef nonnull align 8 dereferenceable(232) %3990, i64 noundef %4075, i64 noundef %4047), !noalias !1274
+  call void %4078(ptr noundef nonnull align 8 dereferenceable(232) %3993, i64 noundef %4075, i64 noundef %4047), !noalias !1274
   store ptr null, ptr %0, align 8, !tbaa !52, !alias.scope !1286
   %4079 = load ptr, ptr %4044, align 8, !tbaa !40, !noalias !1261
   %4080 = getelementptr inbounds nuw i8, ptr %4079, i64 16
@@ -12055,7 +12055,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit118.i1082: ; preds = %4263
 
 _ZN5arrow6StatusD2Ev.exit120.i1046:               ; preds = %.lr.ph17.i1044
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !1261
-  %4264 = load ptr, ptr %3989, align 8, !tbaa !195, !noalias !1261
+  %4264 = load ptr, ptr %3992, align 8, !tbaa !195, !noalias !1261
   %4265 = load ptr, ptr %4264, align 8, !tbaa !92, !noalias !1261
   %4266 = getelementptr inbounds nuw i8, ptr %4265, i64 40
   %4267 = load ptr, ptr %4266, align 8, !noalias !1261
@@ -12069,7 +12069,7 @@ _ZN5arrow6StatusD2Ev.exit120.i1046:               ; preds = %.lr.ph17.i1044
 
 .critedge73.i1047:                                ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit.i1104, %_ZN5arrow6StatusD2Ev.exit120.i1046, %_ZN5arrow6StatusD2Ev.exit86.i1058
   %4270 = getelementptr inbounds nuw i8, ptr %.05715.i1045, i64 48
-  %4271 = load ptr, ptr %3992, align 8, !tbaa !193, !noalias !1261
+  %4271 = load ptr, ptr %3990, align 8, !tbaa !193, !noalias !1261
   %.not62.i1048 = icmp eq ptr %4270, %4271
   br i1 %.not62.i1048, label %.critedge76.loopexit.i1049, label %.lr.ph17.i1044, !llvm.loop !1308
 
@@ -12090,18 +12090,18 @@ _ZN5arrow6StatusD2Ev.exit120.i1046:               ; preds = %.lr.ph17.i1044
 
 4275:                                             ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1313)
-  %4276 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4277 = load ptr, ptr %4276, align 8, !tbaa !320, !noalias !1313
-  %4278 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1313
-  %4279 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4280 = load ptr, ptr %4279, align 8, !tbaa !193, !noalias !1313
-  %.not8.i1118 = icmp eq ptr %4278, %4280
+  %4276 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1313
+  %4277 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4278 = load ptr, ptr %4277, align 8, !tbaa !193, !noalias !1313
+  %.not8.i1118 = icmp eq ptr %4276, %4278
   br i1 %.not8.i1118, label %._crit_edge.i1121, label %.lr.ph.i1119
 
 ._crit_edge.i1121:                                ; preds = %4311, %4275
   %.051.lcssa.i = phi i64 [ 0, %4275 ], [ %.152.i, %4311 ]
+  %4279 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %4280 = load ptr, ptr %4279, align 8, !tbaa !320, !noalias !1313
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !1313
-  %4281 = getelementptr inbounds nuw i8, ptr %4277, i64 248
+  %4281 = getelementptr inbounds nuw i8, ptr %4280, i64 248
   %4282 = load ptr, ptr %4281, align 8, !tbaa !1316, !noalias !1313
   %4283 = getelementptr inbounds nuw i8, ptr %4282, i64 200
   %4284 = load ptr, ptr %4283, align 8, !tbaa !1088, !noalias !1313
@@ -12139,7 +12139,7 @@ _ZN5arrow6StatusD2Ev.exit.i1141:                  ; preds = %._crit_edge.i1121
 
 .lr.ph.i1119:                                     ; preds = %4275, %4311
   %.05110.i = phi i64 [ %.152.i, %4311 ], [ 0, %4275 ]
-  %.0559.i = phi ptr [ %4312, %4311 ], [ %4278, %4275 ]
+  %.0559.i = phi ptr [ %4312, %4311 ], [ %4276, %4275 ]
   %4300 = getelementptr inbounds nuw i8, ptr %.0559.i, i64 40
   %4301 = load i8, ptr %4300, align 8, !tbaa !334, !range !102, !noalias !1313, !noundef !103
   %4302 = trunc nuw i8 %4301 to i1
@@ -12158,7 +12158,7 @@ _ZN5arrow6StatusD2Ev.exit.i1141:                  ; preds = %._crit_edge.i1121
 4311:                                             ; preds = %4303, %.lr.ph.i1119
   %.152.i = phi i64 [ %4310, %4303 ], [ %.05110.i, %.lr.ph.i1119 ]
   %4312 = getelementptr inbounds nuw i8, ptr %.0559.i, i64 48
-  %.not.i1120 = icmp eq ptr %4312, %4280
+  %.not.i1120 = icmp eq ptr %4312, %4278
   br i1 %.not.i1120, label %._crit_edge.i1121, label %.lr.ph.i1119, !llvm.loop !1328
 
 _ZN5arrow6StatusD2Ev.exit81.i:                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i1141, %_ZN5arrow6StatusD2Ev.exit.thread.i1123
@@ -12171,7 +12171,7 @@ _ZN5arrow6StatusD2Ev.exit81.i:                    ; preds = %_ZN5arrow6StatusD2E
   %4315 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %4316 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %4317 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1313
-  %4318 = load ptr, ptr %4279, align 8, !tbaa !193, !noalias !1313
+  %4318 = load ptr, ptr %4277, align 8, !tbaa !193, !noalias !1313
   %4319 = icmp eq ptr %4317, %4318
   br i1 %4319, label %.critedge77.i, label %.lr.ph20.split.i1125
 
@@ -12194,7 +12194,7 @@ _ZN5arrow6StatusD2Ev.exit83.i:                    ; preds = %.lr.ph17.i1126
   %4326 = getelementptr inbounds nuw i8, ptr %.05615.i, i64 48
   %4327 = load ptr, ptr %4326, align 8, !tbaa !222, !noalias !1313
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !1313
-  call void @_ZN5arrow10MapBuilder6AppendEv(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %34, ptr noundef nonnull align 8 dereferenceable(296) %4277), !noalias !1313
+  call void @_ZN5arrow10MapBuilder6AppendEv(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %34, ptr noundef nonnull align 8 dereferenceable(296) %4280), !noalias !1313
   call void @llvm.experimental.noalias.scope.decl(metadata !1329)
   %4328 = load ptr, ptr %34, align 8, !tbaa !52, !noalias !1332
   store ptr %4328, ptr %0, align 8, !tbaa !52, !alias.scope !1332
@@ -12659,7 +12659,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit113.i: ; preds = %4517, %_
 
 _ZN5arrow6StatusD2Ev.exit115.i:                   ; preds = %.lr.ph17.i1126
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !1313
-  %4518 = load ptr, ptr %4276, align 8, !tbaa !195, !noalias !1313
+  %4518 = load ptr, ptr %4279, align 8, !tbaa !195, !noalias !1313
   %4519 = load ptr, ptr %4518, align 8, !tbaa !92, !noalias !1313
   %4520 = getelementptr inbounds nuw i8, ptr %4519, i64 40
   %4521 = load ptr, ptr %4520, align 8, !noalias !1313
@@ -12673,7 +12673,7 @@ _ZN5arrow6StatusD2Ev.exit115.i:                   ; preds = %.lr.ph17.i1126
 
 .critedge72.i:                                    ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit.i1135, %_ZN5arrow6StatusD2Ev.exit115.i, %_ZN5arrow6StatusD2Ev.exit85.preheader.i
   %4524 = getelementptr inbounds nuw i8, ptr %.05615.i, i64 48
-  %4525 = load ptr, ptr %4279, align 8, !tbaa !193, !noalias !1313
+  %4525 = load ptr, ptr %4277, align 8, !tbaa !193, !noalias !1313
   %.not61.i = icmp eq ptr %4524, %4525
   br i1 %.not61.i, label %.critedge75.loopexit.i, label %.lr.ph17.i1126, !llvm.loop !1353
 
@@ -12694,18 +12694,18 @@ _ZN5arrow6StatusD2Ev.exit115.i:                   ; preds = %.lr.ph17.i1126
 
 4529:                                             ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1358)
-  %4530 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4531 = load ptr, ptr %4530, align 8, !tbaa !320, !noalias !1358
-  %4532 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1358
-  %4533 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4534 = load ptr, ptr %4533, align 8, !tbaa !193, !noalias !1358
-  %.not8.i1144 = icmp eq ptr %4532, %4534
+  %4530 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1358
+  %4531 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4532 = load ptr, ptr %4531, align 8, !tbaa !193, !noalias !1358
+  %.not8.i1144 = icmp eq ptr %4530, %4532
   br i1 %.not8.i1144, label %._crit_edge.i1150, label %.lr.ph.i1145
 
 ._crit_edge.i1150:                                ; preds = %4563, %4529
   %.051.lcssa.i1151 = phi i64 [ 0, %4529 ], [ %.152.i1148, %4563 ]
+  %4533 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %4534 = load ptr, ptr %4533, align 8, !tbaa !320, !noalias !1358
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !1358
-  %4535 = getelementptr inbounds nuw i8, ptr %4531, i64 168
+  %4535 = getelementptr inbounds nuw i8, ptr %4534, i64 168
   %4536 = load ptr, ptr %4535, align 8, !tbaa !1088, !noalias !1358
   %4537 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4538 = load i64, ptr %4537, align 8, !tbaa !194, !noalias !1358
@@ -12741,7 +12741,7 @@ _ZN5arrow6StatusD2Ev.exit.i1226:                  ; preds = %._crit_edge.i1150
 
 .lr.ph.i1145:                                     ; preds = %4529, %4563
   %.05110.i1146 = phi i64 [ %.152.i1148, %4563 ], [ 0, %4529 ]
-  %.0559.i1147 = phi ptr [ %4564, %4563 ], [ %4532, %4529 ]
+  %.0559.i1147 = phi ptr [ %4564, %4563 ], [ %4530, %4529 ]
   %4552 = getelementptr inbounds nuw i8, ptr %.0559.i1147, i64 40
   %4553 = load i8, ptr %4552, align 8, !tbaa !334, !range !102, !noalias !1358, !noundef !103
   %4554 = trunc nuw i8 %4553 to i1
@@ -12760,7 +12760,7 @@ _ZN5arrow6StatusD2Ev.exit.i1226:                  ; preds = %._crit_edge.i1150
 4563:                                             ; preds = %4555, %.lr.ph.i1145
   %.152.i1148 = phi i64 [ %4562, %4555 ], [ %.05110.i1146, %.lr.ph.i1145 ]
   %4564 = getelementptr inbounds nuw i8, ptr %.0559.i1147, i64 48
-  %.not.i1149 = icmp eq ptr %4564, %4534
+  %.not.i1149 = icmp eq ptr %4564, %4532
   br i1 %.not.i1149, label %._crit_edge.i1150, label %.lr.ph.i1145, !llvm.loop !1370
 
 _ZN5arrow6StatusD2Ev.exit81.i1154:                ; preds = %_ZN5arrow6StatusD2Ev.exit.i1226, %_ZN5arrow6StatusD2Ev.exit.thread.i1153
@@ -12773,7 +12773,7 @@ _ZN5arrow6StatusD2Ev.exit81.i1154:                ; preds = %_ZN5arrow6StatusD2E
   %4567 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %4568 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %4569 = load ptr, ptr %2, align 8, !tbaa !189, !noalias !1358
-  %4570 = load ptr, ptr %4533, align 8, !tbaa !193, !noalias !1358
+  %4570 = load ptr, ptr %4531, align 8, !tbaa !193, !noalias !1358
   %4571 = icmp eq ptr %4569, %4570
   br i1 %4571, label %.critedge77.i1156, label %.lr.ph20.split.i1158
 
@@ -12796,7 +12796,7 @@ _ZN5arrow6StatusD2Ev.exit83.i1170:                ; preds = %.lr.ph17.i1161
   %4578 = getelementptr inbounds nuw i8, ptr %.05615.i1162, i64 48
   %4579 = load ptr, ptr %4578, align 8, !tbaa !222, !noalias !1358
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !1358
-  call void @_ZN5arrow20FixedSizeListBuilder6AppendEv(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %28, ptr noundef nonnull align 8 dereferenceable(184) %4531), !noalias !1358
+  call void @_ZN5arrow20FixedSizeListBuilder6AppendEv(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %28, ptr noundef nonnull align 8 dereferenceable(184) %4534), !noalias !1358
   call void @llvm.experimental.noalias.scope.decl(metadata !1371)
   %4580 = load ptr, ptr %28, align 8, !tbaa !52, !noalias !1374
   store ptr %4580, ptr %0, align 8, !tbaa !52, !alias.scope !1374
@@ -13259,7 +13259,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit113.i1194: ; preds = %4767
 
 _ZN5arrow6StatusD2Ev.exit115.i1163:               ; preds = %.lr.ph17.i1161
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !1358
-  %4768 = load ptr, ptr %4530, align 8, !tbaa !195, !noalias !1358
+  %4768 = load ptr, ptr %4533, align 8, !tbaa !195, !noalias !1358
   %4769 = load ptr, ptr %4768, align 8, !tbaa !92, !noalias !1358
   %4770 = getelementptr inbounds nuw i8, ptr %4769, i64 40
   %4771 = load ptr, ptr %4770, align 8, !noalias !1358
@@ -13273,7 +13273,7 @@ _ZN5arrow6StatusD2Ev.exit115.i1163:               ; preds = %.lr.ph17.i1161
 
 .critedge72.i1164:                                ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit.i1216, %_ZN5arrow6StatusD2Ev.exit115.i1163, %_ZN5arrow6StatusD2Ev.exit85.preheader.i1171
   %4774 = getelementptr inbounds nuw i8, ptr %.05615.i1162, i64 48
-  %4775 = load ptr, ptr %4533, align 8, !tbaa !193, !noalias !1358
+  %4775 = load ptr, ptr %4531, align 8, !tbaa !193, !noalias !1358
   %.not61.i1165 = icmp eq ptr %4774, %4775
   br i1 %.not61.i1165, label %.critedge75.loopexit.i1166, label %.lr.ph17.i1161, !llvm.loop !1395
 
@@ -20459,19 +20459,19 @@ _ZN5arrow6StatusD2Ev.exit17.i.i989:               ; preds = %_ZN5arrow6StatusD2E
 
 2941:                                             ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2335)
-  %2942 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2943 = load ptr, ptr %2942, align 8, !tbaa !320, !noalias !2335
-  %2944 = load i64, ptr %2, align 8, !tbaa !199, !noalias !2335
-  %2945 = inttoptr i64 %2944 to ptr
-  %2946 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val70.i = load ptr, ptr %2946, align 8, !tbaa !199, !noalias !2335
-  %.not611.i = icmp eq ptr %.val70.i, %2945
+  %2942 = load i64, ptr %2, align 8, !tbaa !199, !noalias !2335
+  %2943 = inttoptr i64 %2942 to ptr
+  %2944 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val70.i = load ptr, ptr %2944, align 8, !tbaa !199, !noalias !2335
+  %.not611.i = icmp eq ptr %.val70.i, %2943
   br i1 %.not611.i, label %._crit_edge.i1009, label %.lr.ph.i1008
 
 ._crit_edge.i1009:                                ; preds = %2975, %2941
   %.044.lcssa.i = phi i64 [ 0, %2941 ], [ %.145.i, %2975 ]
+  %2945 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %2946 = load ptr, ptr %2945, align 8, !tbaa !320, !noalias !2335
   call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !2335
-  %2947 = getelementptr inbounds nuw i8, ptr %2943, i64 200
+  %2947 = getelementptr inbounds nuw i8, ptr %2946, i64 200
   %2948 = load ptr, ptr %2947, align 8, !tbaa !1088, !noalias !2335
   %2949 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %2950 = load i64, ptr %2949, align 8, !tbaa !211, !noalias !2335
@@ -20507,7 +20507,7 @@ _ZN5arrow6StatusD2Ev.exit.i1020:                  ; preds = %._crit_edge.i1009
 
 .lr.ph.i1008:                                     ; preds = %2941, %2975
   %.04413.i = phi i64 [ %.145.i, %2975 ], [ 0, %2941 ]
-  %.sroa.01.012.i = phi ptr [ %2976, %2975 ], [ %2945, %2941 ]
+  %.sroa.01.012.i = phi ptr [ %2976, %2975 ], [ %2943, %2941 ]
   %.val68.val.i = load ptr, ptr %.sroa.01.012.i, align 8, !tbaa !204, !noalias !2335
   %2964 = getelementptr inbounds nuw i8, ptr %.val68.val.i, i64 40
   %2965 = load i8, ptr %2964, align 8, !tbaa !334, !range !102, !noalias !2335, !noundef !103
@@ -20536,14 +20536,14 @@ _ZN5arrow6StatusD2Ev.exit77.i:                    ; preds = %_ZN5arrow6StatusD2E
   br i1 %.not5522.i, label %.lr.ph24.i, label %.critedge66.i
 
 .lr.ph24.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit77.i
-  %2978 = getelementptr inbounds nuw i8, ptr %2943, i64 112
-  %2979 = getelementptr inbounds nuw i8, ptr %2943, i64 48
-  %2980 = getelementptr inbounds nuw i8, ptr %2943, i64 80
-  %2981 = getelementptr inbounds nuw i8, ptr %2943, i64 104
+  %2978 = getelementptr inbounds nuw i8, ptr %2946, i64 112
+  %2979 = getelementptr inbounds nuw i8, ptr %2946, i64 48
+  %2980 = getelementptr inbounds nuw i8, ptr %2946, i64 80
+  %2981 = getelementptr inbounds nuw i8, ptr %2946, i64 104
   %2982 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %2983 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %2984 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %.val7217.pre.i = load ptr, ptr %2946, align 8, !tbaa !199, !noalias !2335
+  %.val7217.pre.i = load ptr, ptr %2944, align 8, !tbaa !199, !noalias !2335
   br label %2985
 
 2985:                                             ; preds = %.critedge64.i, %.lr.ph24.i
@@ -20572,10 +20572,10 @@ _ZN5arrow6StatusD2Ev.exit77.i:                    ; preds = %_ZN5arrow6StatusD2E
   %2998 = load i64, ptr %2997, align 8, !tbaa !1099, !noalias !2335
   call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !2348
   %2999 = load i64, ptr %2978, align 8, !tbaa !108, !noalias !2351
-  %3000 = load ptr, ptr %2943, align 8, !tbaa !92, !noalias !2351
+  %3000 = load ptr, ptr %2946, align 8, !tbaa !92, !noalias !2351
   %3001 = getelementptr inbounds nuw i8, ptr %3000, i64 16
   %3002 = load ptr, ptr %3001, align 8, !noalias !2351
-  %3003 = call noundef i64 %3002(ptr noundef nonnull align 8 dereferenceable(232) %2943), !noalias !2351
+  %3003 = call noundef i64 %3002(ptr noundef nonnull align 8 dereferenceable(232) %2946), !noalias !2351
   %.not.i.not.i.i = icmp slt i64 %3003, %2999
   br i1 %.not.i.not.i.i, label %_ZN5arrow6StatusD2Ev.exit7.thread.i.i, label %_ZN5arrow6StatusD2Ev.exit.i.i1013
 
@@ -20587,10 +20587,10 @@ _ZN5arrow6StatusD2Ev.exit.i.i1013:                ; preds = %2992
   %3004 = add nsw i64 %3003, 1
   %3005 = shl nsw i64 %2999, 1
   %.sroa.speculated.i.i.i.i1014 = call noundef i64 @llvm.smax.i64(i64 %3004, i64 %3005)
-  %3006 = load ptr, ptr %2943, align 8, !tbaa !92, !noalias !2351
+  %3006 = load ptr, ptr %2946, align 8, !tbaa !92, !noalias !2351
   %3007 = getelementptr inbounds nuw i8, ptr %3006, i64 24
   %3008 = load ptr, ptr %3007, align 8, !noalias !2351
-  call void %3008(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %57, ptr noundef nonnull align 8 dereferenceable(232) %2943, i64 noundef %.sroa.speculated.i.i.i.i1014), !noalias !2348
+  call void %3008(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %57, ptr noundef nonnull align 8 dereferenceable(232) %2946, i64 noundef %.sroa.speculated.i.i.i.i1014), !noalias !2348
   %.pr.i.i1015 = load ptr, ptr %57, align 8, !tbaa !52, !noalias !2354
   call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !2348
   %3009 = icmp eq ptr %.pr.i.i1015, null
@@ -20622,10 +20622,10 @@ _ZN5arrow6StatusD2Ev.exit81.i:                    ; preds = %_ZN5arrow6StatusD2E
   %3024 = getelementptr inbounds nuw i8, ptr %3023, i64 16
   %3025 = load ptr, ptr %3024, align 8, !noalias !2348
   %3026 = call noundef i64 %3025(ptr noundef nonnull align 8 dereferenceable(144) %3022), !noalias !2348
-  %3027 = load ptr, ptr %2943, align 8, !tbaa !92, !noalias !2348
+  %3027 = load ptr, ptr %2946, align 8, !tbaa !92, !noalias !2348
   %3028 = getelementptr inbounds nuw i8, ptr %3027, i64 128
   %3029 = load ptr, ptr %3028, align 8, !noalias !2348
-  call void %3029(ptr noundef nonnull align 8 dereferenceable(232) %2943, i64 noundef %3026, i64 noundef %2998), !noalias !2348
+  call void %3029(ptr noundef nonnull align 8 dereferenceable(232) %2946, i64 noundef %3026, i64 noundef %2998), !noalias !2348
   store ptr null, ptr %0, align 8, !tbaa !52, !alias.scope !2360
   %3030 = load ptr, ptr %2995, align 8, !tbaa !40, !noalias !2335
   %3031 = getelementptr inbounds nuw i8, ptr %3030, i64 16
@@ -21084,7 +21084,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit113.i: ; preds = %3214, %_
 
 _ZN5arrow6StatusD2Ev.exit115.i:                   ; preds = %.lr.ph21.i
   call void @llvm.lifetime.start.p0(ptr nonnull %62), !noalias !2335
-  %3215 = load ptr, ptr %2942, align 8, !tbaa !215, !noalias !2335
+  %3215 = load ptr, ptr %2945, align 8, !tbaa !215, !noalias !2335
   %3216 = load ptr, ptr %3215, align 8, !tbaa !92, !noalias !2335
   %3217 = getelementptr inbounds nuw i8, ptr %3216, i64 40
   %3218 = load ptr, ptr %3217, align 8, !noalias !2335
@@ -21098,7 +21098,7 @@ _ZN5arrow6StatusD2Ev.exit115.i:                   ; preds = %.lr.ph21.i
 
 .critedge61.i:                                    ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit.i, %_ZN5arrow6StatusD2Ev.exit115.i, %_ZN5arrow6StatusD2Ev.exit81.i
   %3221 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i, i64 16
-  %.val72.i = load ptr, ptr %2946, align 8, !tbaa !199, !noalias !2335
+  %.val72.i = load ptr, ptr %2944, align 8, !tbaa !199, !noalias !2335
   %.not7.i = icmp eq ptr %3221, %.val72.i
   br i1 %.not7.i, label %.critedge64.loopexit.i, label %.lr.ph21.i, !llvm.loop !2382
 
@@ -21119,19 +21119,19 @@ _ZN5arrow6StatusD2Ev.exit115.i:                   ; preds = %.lr.ph21.i
 
 3224:                                             ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2387)
-  %3225 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3226 = load ptr, ptr %3225, align 8, !tbaa !320, !noalias !2387
-  %3227 = load i64, ptr %2, align 8, !tbaa !199, !noalias !2387
-  %3228 = inttoptr i64 %3227 to ptr
-  %3229 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val70.i1023 = load ptr, ptr %3229, align 8, !tbaa !199, !noalias !2387
-  %.not611.i1024 = icmp eq ptr %.val70.i1023, %3228
+  %3225 = load i64, ptr %2, align 8, !tbaa !199, !noalias !2387
+  %3226 = inttoptr i64 %3225 to ptr
+  %3227 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val70.i1023 = load ptr, ptr %3227, align 8, !tbaa !199, !noalias !2387
+  %.not611.i1024 = icmp eq ptr %.val70.i1023, %3226
   br i1 %.not611.i1024, label %._crit_edge.i1031, label %.lr.ph.i1025
 
 ._crit_edge.i1031:                                ; preds = %3258, %3224
   %.044.lcssa.i1032 = phi i64 [ 0, %3224 ], [ %.145.i1029, %3258 ]
+  %3228 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %3229 = load ptr, ptr %3228, align 8, !tbaa !320, !noalias !2387
   call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !2387
-  %3230 = getelementptr inbounds nuw i8, ptr %3226, i64 200
+  %3230 = getelementptr inbounds nuw i8, ptr %3229, i64 200
   %3231 = load ptr, ptr %3230, align 8, !tbaa !1088, !noalias !2387
   %3232 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3233 = load i64, ptr %3232, align 8, !tbaa !211, !noalias !2387
@@ -21167,7 +21167,7 @@ _ZN5arrow6StatusD2Ev.exit.i1117:                  ; preds = %._crit_edge.i1031
 
 .lr.ph.i1025:                                     ; preds = %3224, %3258
   %.04413.i1026 = phi i64 [ %.145.i1029, %3258 ], [ 0, %3224 ]
-  %.sroa.01.012.i1027 = phi ptr [ %3259, %3258 ], [ %3228, %3224 ]
+  %.sroa.01.012.i1027 = phi ptr [ %3259, %3258 ], [ %3226, %3224 ]
   %.val68.val.i1028 = load ptr, ptr %.sroa.01.012.i1027, align 8, !tbaa !204, !noalias !2387
   %3247 = getelementptr inbounds nuw i8, ptr %.val68.val.i1028, i64 40
   %3248 = load i8, ptr %3247, align 8, !tbaa !334, !range !102, !noalias !2387, !noundef !103
@@ -21196,14 +21196,14 @@ _ZN5arrow6StatusD2Ev.exit77.i1035:                ; preds = %_ZN5arrow6StatusD2E
   br i1 %.not5522.i1036, label %.lr.ph24.i1038, label %.critedge66.i1037
 
 .lr.ph24.i1038:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit77.i1035
-  %3261 = getelementptr inbounds nuw i8, ptr %3226, i64 112
-  %3262 = getelementptr inbounds nuw i8, ptr %3226, i64 48
-  %3263 = getelementptr inbounds nuw i8, ptr %3226, i64 80
-  %3264 = getelementptr inbounds nuw i8, ptr %3226, i64 104
+  %3261 = getelementptr inbounds nuw i8, ptr %3229, i64 112
+  %3262 = getelementptr inbounds nuw i8, ptr %3229, i64 48
+  %3263 = getelementptr inbounds nuw i8, ptr %3229, i64 80
+  %3264 = getelementptr inbounds nuw i8, ptr %3229, i64 104
   %3265 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %3266 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %3267 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %.val7217.pre.i1039 = load ptr, ptr %3229, align 8, !tbaa !199, !noalias !2387
+  %.val7217.pre.i1039 = load ptr, ptr %3227, align 8, !tbaa !199, !noalias !2387
   br label %3268
 
 3268:                                             ; preds = %.critedge64.i1052, %.lr.ph24.i1038
@@ -21232,10 +21232,10 @@ _ZN5arrow6StatusD2Ev.exit77.i1035:                ; preds = %_ZN5arrow6StatusD2E
   %3281 = load i64, ptr %3280, align 8, !tbaa !1099, !noalias !2387
   call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !2400
   %3282 = load i64, ptr %3261, align 8, !tbaa !108, !noalias !2403
-  %3283 = load ptr, ptr %3226, align 8, !tbaa !92, !noalias !2403
+  %3283 = load ptr, ptr %3229, align 8, !tbaa !92, !noalias !2403
   %3284 = getelementptr inbounds nuw i8, ptr %3283, i64 16
   %3285 = load ptr, ptr %3284, align 8, !noalias !2403
-  %3286 = call noundef i64 %3285(ptr noundef nonnull align 8 dereferenceable(232) %3226), !noalias !2403
+  %3286 = call noundef i64 %3285(ptr noundef nonnull align 8 dereferenceable(232) %3229), !noalias !2403
   %.not.i.not.i.i1055 = icmp slt i64 %3286, %3282
   br i1 %.not.i.not.i.i1055, label %_ZN5arrow6StatusD2Ev.exit7.thread.i.i1116, label %_ZN5arrow6StatusD2Ev.exit.i.i1056
 
@@ -21247,10 +21247,10 @@ _ZN5arrow6StatusD2Ev.exit.i.i1056:                ; preds = %3275
   %3287 = add nsw i64 %3286, 1
   %3288 = shl nsw i64 %3282, 1
   %.sroa.speculated.i.i.i.i1057 = call noundef i64 @llvm.smax.i64(i64 %3287, i64 %3288)
-  %3289 = load ptr, ptr %3226, align 8, !tbaa !92, !noalias !2403
+  %3289 = load ptr, ptr %3229, align 8, !tbaa !92, !noalias !2403
   %3290 = getelementptr inbounds nuw i8, ptr %3289, i64 24
   %3291 = load ptr, ptr %3290, align 8, !noalias !2403
-  call void %3291(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %51, ptr noundef nonnull align 8 dereferenceable(232) %3226, i64 noundef %.sroa.speculated.i.i.i.i1057), !noalias !2400
+  call void %3291(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %51, ptr noundef nonnull align 8 dereferenceable(232) %3229, i64 noundef %.sroa.speculated.i.i.i.i1057), !noalias !2400
   %.pr.i.i1058 = load ptr, ptr %51, align 8, !tbaa !52, !noalias !2406
   call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !2400
   %3292 = icmp eq ptr %.pr.i.i1058, null
@@ -21282,10 +21282,10 @@ _ZN5arrow6StatusD2Ev.exit81.i1060:                ; preds = %_ZN5arrow6StatusD2E
   %3307 = getelementptr inbounds nuw i8, ptr %3306, i64 16
   %3308 = load ptr, ptr %3307, align 8, !noalias !2400
   %3309 = call noundef i64 %3308(ptr noundef nonnull align 8 dereferenceable(144) %3305), !noalias !2400
-  %3310 = load ptr, ptr %3226, align 8, !tbaa !92, !noalias !2400
+  %3310 = load ptr, ptr %3229, align 8, !tbaa !92, !noalias !2400
   %3311 = getelementptr inbounds nuw i8, ptr %3310, i64 128
   %3312 = load ptr, ptr %3311, align 8, !noalias !2400
-  call void %3312(ptr noundef nonnull align 8 dereferenceable(232) %3226, i64 noundef %3309, i64 noundef %3281), !noalias !2400
+  call void %3312(ptr noundef nonnull align 8 dereferenceable(232) %3229, i64 noundef %3309, i64 noundef %3281), !noalias !2400
   store ptr null, ptr %0, align 8, !tbaa !52, !alias.scope !2412
   %3313 = load ptr, ptr %3278, align 8, !tbaa !40, !noalias !2387
   %3314 = getelementptr inbounds nuw i8, ptr %3313, i64 16
@@ -21740,7 +21740,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit113.i1084: ; preds = %3497
 
 _ZN5arrow6StatusD2Ev.exit115.i1046:               ; preds = %.lr.ph21.i1043
   call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !2387
-  %3498 = load ptr, ptr %3225, align 8, !tbaa !215, !noalias !2387
+  %3498 = load ptr, ptr %3228, align 8, !tbaa !215, !noalias !2387
   %3499 = load ptr, ptr %3498, align 8, !tbaa !92, !noalias !2387
   %3500 = getelementptr inbounds nuw i8, ptr %3499, i64 40
   %3501 = load ptr, ptr %3500, align 8, !noalias !2387
@@ -21754,7 +21754,7 @@ _ZN5arrow6StatusD2Ev.exit115.i1046:               ; preds = %.lr.ph21.i1043
 
 .critedge61.i1047:                                ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit.i1106, %_ZN5arrow6StatusD2Ev.exit115.i1046, %_ZN5arrow6StatusD2Ev.exit81.i1060
   %3504 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i1044, i64 16
-  %.val72.i1048 = load ptr, ptr %3229, align 8, !tbaa !199, !noalias !2387
+  %.val72.i1048 = load ptr, ptr %3227, align 8, !tbaa !199, !noalias !2387
   %.not7.i1049 = icmp eq ptr %3504, %.val72.i1048
   br i1 %.not7.i1049, label %.critedge64.loopexit.i1050, label %.lr.ph21.i1043, !llvm.loop !2434
 
@@ -21775,19 +21775,19 @@ _ZN5arrow6StatusD2Ev.exit115.i1046:               ; preds = %.lr.ph21.i1043
 
 3507:                                             ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2439)
-  %3508 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3509 = load ptr, ptr %3508, align 8, !tbaa !320, !noalias !2439
-  %3510 = load i64, ptr %2, align 8, !tbaa !199, !noalias !2439
-  %3511 = inttoptr i64 %3510 to ptr
-  %3512 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val70.i1120 = load ptr, ptr %3512, align 8, !tbaa !199, !noalias !2439
-  %.not611.i1121 = icmp eq ptr %.val70.i1120, %3511
+  %3508 = load i64, ptr %2, align 8, !tbaa !199, !noalias !2439
+  %3509 = inttoptr i64 %3508 to ptr
+  %3510 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val70.i1120 = load ptr, ptr %3510, align 8, !tbaa !199, !noalias !2439
+  %.not611.i1121 = icmp eq ptr %.val70.i1120, %3509
   br i1 %.not611.i1121, label %._crit_edge.i1128, label %.lr.ph.i1122
 
 ._crit_edge.i1128:                                ; preds = %3541, %3507
   %.044.lcssa.i1129 = phi i64 [ 0, %3507 ], [ %.145.i1126, %3541 ]
+  %3511 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %3512 = load ptr, ptr %3511, align 8, !tbaa !320, !noalias !2439
   call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !2439
-  %3513 = getelementptr inbounds nuw i8, ptr %3509, i64 200
+  %3513 = getelementptr inbounds nuw i8, ptr %3512, i64 200
   %3514 = load ptr, ptr %3513, align 8, !tbaa !1088, !noalias !2439
   %3515 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3516 = load i64, ptr %3515, align 8, !tbaa !211, !noalias !2439
@@ -21823,7 +21823,7 @@ _ZN5arrow6StatusD2Ev.exit.i1214:                  ; preds = %._crit_edge.i1128
 
 .lr.ph.i1122:                                     ; preds = %3507, %3541
   %.04413.i1123 = phi i64 [ %.145.i1126, %3541 ], [ 0, %3507 ]
-  %.sroa.01.012.i1124 = phi ptr [ %3542, %3541 ], [ %3511, %3507 ]
+  %.sroa.01.012.i1124 = phi ptr [ %3542, %3541 ], [ %3509, %3507 ]
   %.val68.val.i1125 = load ptr, ptr %.sroa.01.012.i1124, align 8, !tbaa !204, !noalias !2439
   %3530 = getelementptr inbounds nuw i8, ptr %.val68.val.i1125, i64 40
   %3531 = load i8, ptr %3530, align 8, !tbaa !334, !range !102, !noalias !2439, !noundef !103
@@ -21852,14 +21852,14 @@ _ZN5arrow6StatusD2Ev.exit77.i1132:                ; preds = %_ZN5arrow6StatusD2E
   br i1 %.not5522.i1133, label %.lr.ph24.i1135, label %.critedge66.i1134
 
 .lr.ph24.i1135:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit77.i1132
-  %3544 = getelementptr inbounds nuw i8, ptr %3509, i64 112
-  %3545 = getelementptr inbounds nuw i8, ptr %3509, i64 48
-  %3546 = getelementptr inbounds nuw i8, ptr %3509, i64 80
-  %3547 = getelementptr inbounds nuw i8, ptr %3509, i64 104
+  %3544 = getelementptr inbounds nuw i8, ptr %3512, i64 112
+  %3545 = getelementptr inbounds nuw i8, ptr %3512, i64 48
+  %3546 = getelementptr inbounds nuw i8, ptr %3512, i64 80
+  %3547 = getelementptr inbounds nuw i8, ptr %3512, i64 104
   %3548 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %3549 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %3550 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %.val7217.pre.i1136 = load ptr, ptr %3512, align 8, !tbaa !199, !noalias !2439
+  %.val7217.pre.i1136 = load ptr, ptr %3510, align 8, !tbaa !199, !noalias !2439
   br label %3551
 
 3551:                                             ; preds = %.critedge64.i1149, %.lr.ph24.i1135
@@ -21888,10 +21888,10 @@ _ZN5arrow6StatusD2Ev.exit77.i1132:                ; preds = %_ZN5arrow6StatusD2E
   %3564 = load i64, ptr %3563, align 8, !tbaa !1099, !noalias !2439
   call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !2452
   %3565 = load i64, ptr %3544, align 8, !tbaa !108, !noalias !2455
-  %3566 = load ptr, ptr %3509, align 8, !tbaa !92, !noalias !2455
+  %3566 = load ptr, ptr %3512, align 8, !tbaa !92, !noalias !2455
   %3567 = getelementptr inbounds nuw i8, ptr %3566, i64 16
   %3568 = load ptr, ptr %3567, align 8, !noalias !2455
-  %3569 = call noundef i64 %3568(ptr noundef nonnull align 8 dereferenceable(232) %3509), !noalias !2455
+  %3569 = call noundef i64 %3568(ptr noundef nonnull align 8 dereferenceable(232) %3512), !noalias !2455
   %.not.i.not.i.i1152 = icmp slt i64 %3569, %3565
   br i1 %.not.i.not.i.i1152, label %_ZN5arrow6StatusD2Ev.exit7.thread.i.i1213, label %_ZN5arrow6StatusD2Ev.exit.i.i1153
 
@@ -21903,10 +21903,10 @@ _ZN5arrow6StatusD2Ev.exit.i.i1153:                ; preds = %3558
   %3570 = add nsw i64 %3569, 1
   %3571 = shl nsw i64 %3565, 1
   %.sroa.speculated.i.i.i.i1154 = call noundef i64 @llvm.smax.i64(i64 %3570, i64 %3571)
-  %3572 = load ptr, ptr %3509, align 8, !tbaa !92, !noalias !2455
+  %3572 = load ptr, ptr %3512, align 8, !tbaa !92, !noalias !2455
   %3573 = getelementptr inbounds nuw i8, ptr %3572, i64 24
   %3574 = load ptr, ptr %3573, align 8, !noalias !2455
-  call void %3574(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %45, ptr noundef nonnull align 8 dereferenceable(232) %3509, i64 noundef %.sroa.speculated.i.i.i.i1154), !noalias !2452
+  call void %3574(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %45, ptr noundef nonnull align 8 dereferenceable(232) %3512, i64 noundef %.sroa.speculated.i.i.i.i1154), !noalias !2452
   %.pr.i.i1155 = load ptr, ptr %45, align 8, !tbaa !52, !noalias !2458
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !2452
   %3575 = icmp eq ptr %.pr.i.i1155, null
@@ -21938,10 +21938,10 @@ _ZN5arrow6StatusD2Ev.exit81.i1157:                ; preds = %_ZN5arrow6StatusD2E
   %3590 = getelementptr inbounds nuw i8, ptr %3589, i64 16
   %3591 = load ptr, ptr %3590, align 8, !noalias !2452
   %3592 = call noundef i64 %3591(ptr noundef nonnull align 8 dereferenceable(144) %3588), !noalias !2452
-  %3593 = load ptr, ptr %3509, align 8, !tbaa !92, !noalias !2452
+  %3593 = load ptr, ptr %3512, align 8, !tbaa !92, !noalias !2452
   %3594 = getelementptr inbounds nuw i8, ptr %3593, i64 128
   %3595 = load ptr, ptr %3594, align 8, !noalias !2452
-  call void %3595(ptr noundef nonnull align 8 dereferenceable(232) %3509, i64 noundef %3592, i64 noundef %3564), !noalias !2452
+  call void %3595(ptr noundef nonnull align 8 dereferenceable(232) %3512, i64 noundef %3592, i64 noundef %3564), !noalias !2452
   store ptr null, ptr %0, align 8, !tbaa !52, !alias.scope !2464
   %3596 = load ptr, ptr %3561, align 8, !tbaa !40, !noalias !2439
   %3597 = getelementptr inbounds nuw i8, ptr %3596, i64 16
@@ -22396,7 +22396,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit113.i1181: ; preds = %3780
 
 _ZN5arrow6StatusD2Ev.exit115.i1143:               ; preds = %.lr.ph21.i1140
   call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !2439
-  %3781 = load ptr, ptr %3508, align 8, !tbaa !215, !noalias !2439
+  %3781 = load ptr, ptr %3511, align 8, !tbaa !215, !noalias !2439
   %3782 = load ptr, ptr %3781, align 8, !tbaa !92, !noalias !2439
   %3783 = getelementptr inbounds nuw i8, ptr %3782, i64 40
   %3784 = load ptr, ptr %3783, align 8, !noalias !2439
@@ -22410,7 +22410,7 @@ _ZN5arrow6StatusD2Ev.exit115.i1143:               ; preds = %.lr.ph21.i1140
 
 .critedge61.i1144:                                ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit.i1203, %_ZN5arrow6StatusD2Ev.exit115.i1143, %_ZN5arrow6StatusD2Ev.exit81.i1157
   %3787 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i1141, i64 16
-  %.val72.i1145 = load ptr, ptr %3512, align 8, !tbaa !199, !noalias !2439
+  %.val72.i1145 = load ptr, ptr %3510, align 8, !tbaa !199, !noalias !2439
   %.not7.i1146 = icmp eq ptr %3787, %.val72.i1145
   br i1 %.not7.i1146, label %.critedge64.loopexit.i1147, label %.lr.ph21.i1140, !llvm.loop !2486
 
@@ -22431,19 +22431,19 @@ _ZN5arrow6StatusD2Ev.exit115.i1143:               ; preds = %.lr.ph21.i1140
 
 3790:                                             ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2491)
-  %3791 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3792 = load ptr, ptr %3791, align 8, !tbaa !320, !noalias !2491
-  %3793 = load i64, ptr %2, align 8, !tbaa !199, !noalias !2491
-  %3794 = inttoptr i64 %3793 to ptr
-  %3795 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val70.i1217 = load ptr, ptr %3795, align 8, !tbaa !199, !noalias !2491
-  %.not611.i1218 = icmp eq ptr %.val70.i1217, %3794
+  %3791 = load i64, ptr %2, align 8, !tbaa !199, !noalias !2491
+  %3792 = inttoptr i64 %3791 to ptr
+  %3793 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val70.i1217 = load ptr, ptr %3793, align 8, !tbaa !199, !noalias !2491
+  %.not611.i1218 = icmp eq ptr %.val70.i1217, %3792
   br i1 %.not611.i1218, label %._crit_edge.i1225, label %.lr.ph.i1219
 
 ._crit_edge.i1225:                                ; preds = %3824, %3790
   %.044.lcssa.i1226 = phi i64 [ 0, %3790 ], [ %.145.i1223, %3824 ]
+  %3794 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %3795 = load ptr, ptr %3794, align 8, !tbaa !320, !noalias !2491
   call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !2491
-  %3796 = getelementptr inbounds nuw i8, ptr %3792, i64 200
+  %3796 = getelementptr inbounds nuw i8, ptr %3795, i64 200
   %3797 = load ptr, ptr %3796, align 8, !tbaa !1088, !noalias !2491
   %3798 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3799 = load i64, ptr %3798, align 8, !tbaa !211, !noalias !2491
@@ -22479,7 +22479,7 @@ _ZN5arrow6StatusD2Ev.exit.i1311:                  ; preds = %._crit_edge.i1225
 
 .lr.ph.i1219:                                     ; preds = %3790, %3824
   %.04413.i1220 = phi i64 [ %.145.i1223, %3824 ], [ 0, %3790 ]
-  %.sroa.01.012.i1221 = phi ptr [ %3825, %3824 ], [ %3794, %3790 ]
+  %.sroa.01.012.i1221 = phi ptr [ %3825, %3824 ], [ %3792, %3790 ]
   %.val68.val.i1222 = load ptr, ptr %.sroa.01.012.i1221, align 8, !tbaa !204, !noalias !2491
   %3813 = getelementptr inbounds nuw i8, ptr %.val68.val.i1222, i64 40
   %3814 = load i8, ptr %3813, align 8, !tbaa !334, !range !102, !noalias !2491, !noundef !103
@@ -22508,14 +22508,14 @@ _ZN5arrow6StatusD2Ev.exit77.i1229:                ; preds = %_ZN5arrow6StatusD2E
   br i1 %.not5522.i1230, label %.lr.ph24.i1232, label %.critedge66.i1231
 
 .lr.ph24.i1232:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit77.i1229
-  %3827 = getelementptr inbounds nuw i8, ptr %3792, i64 112
-  %3828 = getelementptr inbounds nuw i8, ptr %3792, i64 48
-  %3829 = getelementptr inbounds nuw i8, ptr %3792, i64 80
-  %3830 = getelementptr inbounds nuw i8, ptr %3792, i64 104
+  %3827 = getelementptr inbounds nuw i8, ptr %3795, i64 112
+  %3828 = getelementptr inbounds nuw i8, ptr %3795, i64 48
+  %3829 = getelementptr inbounds nuw i8, ptr %3795, i64 80
+  %3830 = getelementptr inbounds nuw i8, ptr %3795, i64 104
   %3831 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %3832 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %3833 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %.val7217.pre.i1233 = load ptr, ptr %3795, align 8, !tbaa !199, !noalias !2491
+  %.val7217.pre.i1233 = load ptr, ptr %3793, align 8, !tbaa !199, !noalias !2491
   br label %3834
 
 3834:                                             ; preds = %.critedge64.i1246, %.lr.ph24.i1232
@@ -22544,10 +22544,10 @@ _ZN5arrow6StatusD2Ev.exit77.i1229:                ; preds = %_ZN5arrow6StatusD2E
   %3847 = load i64, ptr %3846, align 8, !tbaa !1099, !noalias !2491
   call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !2504
   %3848 = load i64, ptr %3827, align 8, !tbaa !108, !noalias !2507
-  %3849 = load ptr, ptr %3792, align 8, !tbaa !92, !noalias !2507
+  %3849 = load ptr, ptr %3795, align 8, !tbaa !92, !noalias !2507
   %3850 = getelementptr inbounds nuw i8, ptr %3849, i64 16
   %3851 = load ptr, ptr %3850, align 8, !noalias !2507
-  %3852 = call noundef i64 %3851(ptr noundef nonnull align 8 dereferenceable(232) %3792), !noalias !2507
+  %3852 = call noundef i64 %3851(ptr noundef nonnull align 8 dereferenceable(232) %3795), !noalias !2507
   %.not.i.not.i.i1249 = icmp slt i64 %3852, %3848
   br i1 %.not.i.not.i.i1249, label %_ZN5arrow6StatusD2Ev.exit7.thread.i.i1310, label %_ZN5arrow6StatusD2Ev.exit.i.i1250
 
@@ -22559,10 +22559,10 @@ _ZN5arrow6StatusD2Ev.exit.i.i1250:                ; preds = %3841
   %3853 = add nsw i64 %3852, 1
   %3854 = shl nsw i64 %3848, 1
   %.sroa.speculated.i.i.i.i1251 = call noundef i64 @llvm.smax.i64(i64 %3853, i64 %3854)
-  %3855 = load ptr, ptr %3792, align 8, !tbaa !92, !noalias !2507
+  %3855 = load ptr, ptr %3795, align 8, !tbaa !92, !noalias !2507
   %3856 = getelementptr inbounds nuw i8, ptr %3855, i64 24
   %3857 = load ptr, ptr %3856, align 8, !noalias !2507
-  call void %3857(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %39, ptr noundef nonnull align 8 dereferenceable(232) %3792, i64 noundef %.sroa.speculated.i.i.i.i1251), !noalias !2504
+  call void %3857(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %39, ptr noundef nonnull align 8 dereferenceable(232) %3795, i64 noundef %.sroa.speculated.i.i.i.i1251), !noalias !2504
   %.pr.i.i1252 = load ptr, ptr %39, align 8, !tbaa !52, !noalias !2510
   call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !2504
   %3858 = icmp eq ptr %.pr.i.i1252, null
@@ -22594,10 +22594,10 @@ _ZN5arrow6StatusD2Ev.exit81.i1254:                ; preds = %_ZN5arrow6StatusD2E
   %3873 = getelementptr inbounds nuw i8, ptr %3872, i64 16
   %3874 = load ptr, ptr %3873, align 8, !noalias !2504
   %3875 = call noundef i64 %3874(ptr noundef nonnull align 8 dereferenceable(144) %3871), !noalias !2504
-  %3876 = load ptr, ptr %3792, align 8, !tbaa !92, !noalias !2504
+  %3876 = load ptr, ptr %3795, align 8, !tbaa !92, !noalias !2504
   %3877 = getelementptr inbounds nuw i8, ptr %3876, i64 128
   %3878 = load ptr, ptr %3877, align 8, !noalias !2504
-  call void %3878(ptr noundef nonnull align 8 dereferenceable(232) %3792, i64 noundef %3875, i64 noundef %3847), !noalias !2504
+  call void %3878(ptr noundef nonnull align 8 dereferenceable(232) %3795, i64 noundef %3875, i64 noundef %3847), !noalias !2504
   store ptr null, ptr %0, align 8, !tbaa !52, !alias.scope !2516
   %3879 = load ptr, ptr %3844, align 8, !tbaa !40, !noalias !2491
   %3880 = getelementptr inbounds nuw i8, ptr %3879, i64 16
@@ -23052,7 +23052,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit113.i1278: ; preds = %4063
 
 _ZN5arrow6StatusD2Ev.exit115.i1240:               ; preds = %.lr.ph21.i1237
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !2491
-  %4064 = load ptr, ptr %3791, align 8, !tbaa !215, !noalias !2491
+  %4064 = load ptr, ptr %3794, align 8, !tbaa !215, !noalias !2491
   %4065 = load ptr, ptr %4064, align 8, !tbaa !92, !noalias !2491
   %4066 = getelementptr inbounds nuw i8, ptr %4065, i64 40
   %4067 = load ptr, ptr %4066, align 8, !noalias !2491
@@ -23066,7 +23066,7 @@ _ZN5arrow6StatusD2Ev.exit115.i1240:               ; preds = %.lr.ph21.i1237
 
 .critedge61.i1241:                                ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit.i1300, %_ZN5arrow6StatusD2Ev.exit115.i1240, %_ZN5arrow6StatusD2Ev.exit81.i1254
   %4070 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i1238, i64 16
-  %.val72.i1242 = load ptr, ptr %3795, align 8, !tbaa !199, !noalias !2491
+  %.val72.i1242 = load ptr, ptr %3793, align 8, !tbaa !199, !noalias !2491
   %.not7.i1243 = icmp eq ptr %4070, %.val72.i1242
   br i1 %.not7.i1243, label %.critedge64.loopexit.i1244, label %.lr.ph21.i1237, !llvm.loop !2538
 
@@ -23087,19 +23087,19 @@ _ZN5arrow6StatusD2Ev.exit115.i1240:               ; preds = %.lr.ph21.i1237
 
 4073:                                             ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2543)
-  %4074 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4075 = load ptr, ptr %4074, align 8, !tbaa !320, !noalias !2543
-  %4076 = load i64, ptr %2, align 8, !tbaa !199, !noalias !2543
-  %4077 = inttoptr i64 %4076 to ptr
-  %4078 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val69.i = load ptr, ptr %4078, align 8, !tbaa !199, !noalias !2543
-  %.not611.i1314 = icmp eq ptr %.val69.i, %4077
+  %4074 = load i64, ptr %2, align 8, !tbaa !199, !noalias !2543
+  %4075 = inttoptr i64 %4074 to ptr
+  %4076 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val69.i = load ptr, ptr %4076, align 8, !tbaa !199, !noalias !2543
+  %.not611.i1314 = icmp eq ptr %.val69.i, %4075
   br i1 %.not611.i1314, label %._crit_edge.i1318, label %.lr.ph.i1315
 
 ._crit_edge.i1318:                                ; preds = %4109, %4073
   %.043.lcssa.i = phi i64 [ 0, %4073 ], [ %.144.i, %4109 ]
+  %4077 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %4078 = load ptr, ptr %4077, align 8, !tbaa !320, !noalias !2543
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !2543
-  %4079 = getelementptr inbounds nuw i8, ptr %4075, i64 248
+  %4079 = getelementptr inbounds nuw i8, ptr %4078, i64 248
   %4080 = load ptr, ptr %4079, align 8, !tbaa !1316, !noalias !2543
   %4081 = getelementptr inbounds nuw i8, ptr %4080, i64 200
   %4082 = load ptr, ptr %4081, align 8, !tbaa !1088, !noalias !2543
@@ -23137,7 +23137,7 @@ _ZN5arrow6StatusD2Ev.exit.i1343:                  ; preds = %._crit_edge.i1318
 
 .lr.ph.i1315:                                     ; preds = %4073, %4109
   %.04313.i = phi i64 [ %.144.i, %4109 ], [ 0, %4073 ]
-  %.sroa.01.012.i1316 = phi ptr [ %4110, %4109 ], [ %4077, %4073 ]
+  %.sroa.01.012.i1316 = phi ptr [ %4110, %4109 ], [ %4075, %4073 ]
   %.val67.val.i = load ptr, ptr %.sroa.01.012.i1316, align 8, !tbaa !204, !noalias !2543
   %4098 = getelementptr inbounds nuw i8, ptr %.val67.val.i, i64 40
   %4099 = load i8, ptr %4098, align 8, !tbaa !334, !range !102, !noalias !2543, !noundef !103
@@ -23169,7 +23169,7 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
   %4112 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %4113 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %4114 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %.val7117.pre.i = load ptr, ptr %4078, align 8, !tbaa !199, !noalias !2543
+  %.val7117.pre.i = load ptr, ptr %4076, align 8, !tbaa !199, !noalias !2543
   br label %4115
 
 4115:                                             ; preds = %.critedge63.i, %.lr.ph24.i1321
@@ -23193,7 +23193,7 @@ _ZN5arrow6StatusD2Ev.exit78.i:                    ; preds = %.lr.ph21.i1323
   %4122 = getelementptr inbounds nuw i8, ptr %.val.val.i1325, i64 48
   %4123 = load ptr, ptr %4122, align 8, !tbaa !222, !noalias !2543
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !2543
-  call void @_ZN5arrow10MapBuilder6AppendEv(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %34, ptr noundef nonnull align 8 dereferenceable(296) %4075), !noalias !2543
+  call void @_ZN5arrow10MapBuilder6AppendEv(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %34, ptr noundef nonnull align 8 dereferenceable(296) %4078), !noalias !2543
   call void @llvm.experimental.noalias.scope.decl(metadata !2556)
   %4124 = load ptr, ptr %34, align 8, !tbaa !52, !noalias !2559
   store ptr %4124, ptr %0, align 8, !tbaa !52, !alias.scope !2559
@@ -23658,7 +23658,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit108.i: ; preds = %4313, %_
 
 _ZN5arrow6StatusD2Ev.exit110.i:                   ; preds = %.lr.ph21.i1323
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !2543
-  %4314 = load ptr, ptr %4074, align 8, !tbaa !215, !noalias !2543
+  %4314 = load ptr, ptr %4077, align 8, !tbaa !215, !noalias !2543
   %4315 = load ptr, ptr %4314, align 8, !tbaa !92, !noalias !2543
   %4316 = getelementptr inbounds nuw i8, ptr %4315, i64 40
   %4317 = load ptr, ptr %4316, align 8, !noalias !2543
@@ -23672,7 +23672,7 @@ _ZN5arrow6StatusD2Ev.exit110.i:                   ; preds = %.lr.ph21.i1323
 
 .critedge60.i:                                    ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit.i1336, %_ZN5arrow6StatusD2Ev.exit110.i, %_ZN5arrow6StatusD2Ev.exit80.preheader.i
   %4320 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i1324, i64 16
-  %.val71.i = load ptr, ptr %4078, align 8, !tbaa !199, !noalias !2543
+  %.val71.i = load ptr, ptr %4076, align 8, !tbaa !199, !noalias !2543
   %.not7.i1326 = icmp eq ptr %4320, %.val71.i
   br i1 %.not7.i1326, label %.critedge63.loopexit.i, label %.lr.ph21.i1323, !llvm.loop !2580
 
@@ -23693,19 +23693,19 @@ _ZN5arrow6StatusD2Ev.exit110.i:                   ; preds = %.lr.ph21.i1323
 
 4323:                                             ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2585)
-  %4324 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4325 = load ptr, ptr %4324, align 8, !tbaa !320, !noalias !2585
-  %4326 = load i64, ptr %2, align 8, !tbaa !199, !noalias !2585
-  %4327 = inttoptr i64 %4326 to ptr
-  %4328 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val69.i1346 = load ptr, ptr %4328, align 8, !tbaa !199, !noalias !2585
-  %.not611.i1347 = icmp eq ptr %.val69.i1346, %4327
+  %4324 = load i64, ptr %2, align 8, !tbaa !199, !noalias !2585
+  %4325 = inttoptr i64 %4324 to ptr
+  %4326 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val69.i1346 = load ptr, ptr %4326, align 8, !tbaa !199, !noalias !2585
+  %.not611.i1347 = icmp eq ptr %.val69.i1346, %4325
   br i1 %.not611.i1347, label %._crit_edge.i1354, label %.lr.ph.i1348
 
 ._crit_edge.i1354:                                ; preds = %4357, %4323
   %.043.lcssa.i1355 = phi i64 [ 0, %4323 ], [ %.144.i1352, %4357 ]
+  %4327 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %4328 = load ptr, ptr %4327, align 8, !tbaa !320, !noalias !2585
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !2585
-  %4329 = getelementptr inbounds nuw i8, ptr %4325, i64 168
+  %4329 = getelementptr inbounds nuw i8, ptr %4328, i64 168
   %4330 = load ptr, ptr %4329, align 8, !tbaa !1088, !noalias !2585
   %4331 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4332 = load i64, ptr %4331, align 8, !tbaa !211, !noalias !2585
@@ -23741,7 +23741,7 @@ _ZN5arrow6StatusD2Ev.exit.i1434:                  ; preds = %._crit_edge.i1354
 
 .lr.ph.i1348:                                     ; preds = %4323, %4357
   %.04313.i1349 = phi i64 [ %.144.i1352, %4357 ], [ 0, %4323 ]
-  %.sroa.01.012.i1350 = phi ptr [ %4358, %4357 ], [ %4327, %4323 ]
+  %.sroa.01.012.i1350 = phi ptr [ %4358, %4357 ], [ %4325, %4323 ]
   %.val67.val.i1351 = load ptr, ptr %.sroa.01.012.i1350, align 8, !tbaa !204, !noalias !2585
   %4346 = getelementptr inbounds nuw i8, ptr %.val67.val.i1351, i64 40
   %4347 = load i8, ptr %4346, align 8, !tbaa !334, !range !102, !noalias !2585, !noundef !103
@@ -23773,7 +23773,7 @@ _ZN5arrow6StatusD2Ev.exit76.i1358:                ; preds = %_ZN5arrow6StatusD2E
   %4360 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %4361 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %4362 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %.val7117.pre.i1362 = load ptr, ptr %4328, align 8, !tbaa !199, !noalias !2585
+  %.val7117.pre.i1362 = load ptr, ptr %4326, align 8, !tbaa !199, !noalias !2585
   br label %4363
 
 4363:                                             ; preds = %.critedge63.i1375, %.lr.ph24.i1361
@@ -23797,7 +23797,7 @@ _ZN5arrow6StatusD2Ev.exit78.i1378:                ; preds = %.lr.ph21.i1366
   %4370 = getelementptr inbounds nuw i8, ptr %.val.val.i1368, i64 48
   %4371 = load ptr, ptr %4370, align 8, !tbaa !222, !noalias !2585
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !2585
-  call void @_ZN5arrow20FixedSizeListBuilder6AppendEv(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %28, ptr noundef nonnull align 8 dereferenceable(184) %4325), !noalias !2585
+  call void @_ZN5arrow20FixedSizeListBuilder6AppendEv(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %28, ptr noundef nonnull align 8 dereferenceable(184) %4328), !noalias !2585
   call void @llvm.experimental.noalias.scope.decl(metadata !2598)
   %4372 = load ptr, ptr %28, align 8, !tbaa !52, !noalias !2601
   store ptr %4372, ptr %0, align 8, !tbaa !52, !alias.scope !2601
@@ -24260,7 +24260,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit108.i1402: ; preds = %4559
 
 _ZN5arrow6StatusD2Ev.exit110.i1369:               ; preds = %.lr.ph21.i1366
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !2585
-  %4560 = load ptr, ptr %4324, align 8, !tbaa !215, !noalias !2585
+  %4560 = load ptr, ptr %4327, align 8, !tbaa !215, !noalias !2585
   %4561 = load ptr, ptr %4560, align 8, !tbaa !92, !noalias !2585
   %4562 = getelementptr inbounds nuw i8, ptr %4561, i64 40
   %4563 = load ptr, ptr %4562, align 8, !noalias !2585
@@ -24274,7 +24274,7 @@ _ZN5arrow6StatusD2Ev.exit110.i1369:               ; preds = %.lr.ph21.i1366
 
 .critedge60.i1370:                                ; preds = %_ZN5arrow6ResultISt10shared_ptrINS_6ScalarEEED2Ev.exit.i1424, %_ZN5arrow6StatusD2Ev.exit110.i1369, %_ZN5arrow6StatusD2Ev.exit80.preheader.i1379
   %4566 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i1367, i64 16
-  %.val71.i1371 = load ptr, ptr %4328, align 8, !tbaa !199, !noalias !2585
+  %.val71.i1371 = load ptr, ptr %4326, align 8, !tbaa !199, !noalias !2585
   %.not7.i1372 = icmp eq ptr %4566, %.val71.i1371
   br i1 %.not7.i1372, label %.critedge63.loopexit.i1373, label %.lr.ph21.i1366, !llvm.loop !2622
 

@@ -532,25 +532,25 @@ test_bignum_zero_print.exit154:                   ; preds = %test_bignum_zero_pr
   %invariant.op = or i1 %16, %27
   br label %92
 
-92:                                               ; preds = %.lr.ph176, %138
-  %.1109174 = phi ptr [ %.0108, %.lr.ph176 ], [ %.2, %138 ]
-  %.1111173 = phi ptr [ %.0110, %.lr.ph176 ], [ %spec.select, %138 ]
-  %.1120172 = phi i64 [ %.0119, %.lr.ph176 ], [ %93, %138 ]
-  %93 = add i64 %.1120172, -32
-  %.tr = trunc i64 %93 to i32
-  %94 = shl i32 %.tr, 3
-  %95 = call fastcc i32 @convert_bn_memory(ptr noundef %.1111173, ptr noundef %10, ptr noundef %13, ptr noundef %7)
-  %96 = call fastcc i32 @convert_bn_memory(ptr noundef %.1109174, ptr noundef %11, ptr noundef %14, ptr noundef %8)
-  %97 = load i8, ptr %10, align 16, !tbaa !8
-  %.not137164 = icmp eq i8 %97, 0
+92:                                               ; preds = %.lr.ph176, %142
+  %.1109174 = phi ptr [ %.0108, %.lr.ph176 ], [ %.2, %142 ]
+  %.1111173 = phi ptr [ %.0110, %.lr.ph176 ], [ %spec.select, %142 ]
+  %.1120172 = phi i64 [ %.0119, %.lr.ph176 ], [ %143, %142 ]
+  %93 = call fastcc i32 @convert_bn_memory(ptr noundef %.1111173, ptr noundef %10, ptr noundef %13, ptr noundef %7)
+  %94 = call fastcc i32 @convert_bn_memory(ptr noundef %.1109174, ptr noundef %11, ptr noundef %14, ptr noundef %8)
+  %95 = load i8, ptr %10, align 16, !tbaa !8
+  %.not137164 = icmp eq i8 %95, 0
   br i1 %.not137164, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %92
+  %96 = add i64 %.1120172, -32
+  %.tr193 = trunc i64 %96 to i32
+  %97 = shl i32 %.tr193, 3
   store i8 0, ptr %12, align 16, !tbaa !8
-  br label %112
+  br label %114
 
 .lr.ph:                                           ; preds = %92, %.lr.ph
-  %98 = phi i8 [ %109, %.lr.ph ], [ %97, %92 ]
+  %98 = phi i8 [ %109, %.lr.ph ], [ %95, %92 ]
   %.0113168 = phi i32 [ %.1114, %.lr.ph ], [ 0, %92 ]
   %.0115167 = phi i32 [ %.1116, %.lr.ph ], [ 0, %92 ]
   %.0117166 = phi ptr [ %.1118, %.lr.ph ], [ %12, %92 ]
@@ -579,94 +579,100 @@ test_bignum_zero_print.exit154:                   ; preds = %test_bignum_zero_pr
 ._crit_edge:                                      ; preds = %.lr.ph
   %110 = icmp eq i32 %.1116, 0
   %111 = icmp eq i32 %.1114, 0
+  %112 = add i64 %.1120172, -32
+  %.tr = trunc i64 %112 to i32
+  %113 = shl i32 %.tr, 3
   store i8 0, ptr %.1118, align 1, !tbaa !8
-  br i1 %110, label %112, label %116
+  br i1 %110, label %114, label %120
 
-112:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %113 = icmp ugt i32 %96, %95
-  %114 = select i1 %113, ptr %11, ptr %10
-  %115 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.18, ptr noundef nonnull %114, i32 noundef %94) #8
-  br label %138
+114:                                              ; preds = %._crit_edge.thread, %._crit_edge
+  %115 = phi i32 [ %97, %._crit_edge.thread ], [ %113, %._crit_edge ]
+  %116 = phi i64 [ %96, %._crit_edge.thread ], [ %112, %._crit_edge ]
+  %117 = icmp ugt i32 %94, %93
+  %118 = select i1 %117, ptr %11, ptr %10
+  %119 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.18, ptr noundef nonnull %118, i32 noundef %115) #8
+  br label %142
 
-116:                                              ; preds = %._crit_edge
-  %117 = icmp eq i32 %94, 0
-  %or.cond7 = and i1 %16, %117
-  br i1 %or.cond7, label %118, label %120
-
-118:                                              ; preds = %116
-  %119 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.19, ptr noundef nonnull %10) #8
-  br label %124
-
-120:                                              ; preds = %116
-  %121 = icmp ne i32 %95, 0
-  %or.cond9 = select i1 %117, i1 true, i1 %121
-  br i1 %or.cond9, label %122, label %.thread
+120:                                              ; preds = %._crit_edge
+  %121 = icmp eq i32 %113, 0
+  %or.cond7 = and i1 %16, %121
+  br i1 %or.cond7, label %122, label %124
 
 122:                                              ; preds = %120
-  %123 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.20, ptr noundef nonnull %10, i32 noundef %94) #8
-  br label %124
+  %123 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.19, ptr noundef nonnull %10) #8
+  br label %128
 
-124:                                              ; preds = %122, %118
-  %or.cond11 = and i1 %27, %117
-  br i1 %or.cond11, label %125, label %.thread
+124:                                              ; preds = %120
+  %125 = icmp ne i32 %93, 0
+  %or.cond9 = select i1 %121, i1 true, i1 %125
+  br i1 %or.cond9, label %126, label %.thread
 
-125:                                              ; preds = %124
-  %126 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.21, ptr noundef nonnull %11) #8
-  br label %130
+126:                                              ; preds = %124
+  %127 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.20, ptr noundef nonnull %10, i32 noundef %113) #8
+  br label %128
 
-.thread:                                          ; preds = %120, %124
-  %127 = icmp ne i32 %96, 0
-  %or.cond13 = select i1 %117, i1 true, i1 %127
-  br i1 %or.cond13, label %128, label %130
+128:                                              ; preds = %126, %122
+  %or.cond11 = and i1 %27, %121
+  br i1 %or.cond11, label %129, label %.thread
 
-128:                                              ; preds = %.thread
-  %129 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.22, ptr noundef nonnull %11, i32 noundef %94) #8
-  br label %130
+129:                                              ; preds = %128
+  %130 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.21, ptr noundef nonnull %11) #8
+  br label %134
 
-130:                                              ; preds = %128, %.thread, %125
-  br i1 %111, label %138, label %131
+.thread:                                          ; preds = %124, %128
+  %131 = icmp ne i32 %94, 0
+  %or.cond13 = select i1 %121, i1 true, i1 %131
+  br i1 %or.cond13, label %132, label %134
 
-131:                                              ; preds = %130
-  br i1 %117, label %135, label %132
+132:                                              ; preds = %.thread
+  %133 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.22, ptr noundef nonnull %11, i32 noundef %113) #8
+  br label %134
 
-132:                                              ; preds = %131
-  %133 = icmp eq i32 %95, 0
-  %134 = icmp eq i32 %96, 0
-  %or.cond15.not163 = select i1 %133, i1 true, i1 %134
+134:                                              ; preds = %132, %.thread, %129
+  br i1 %111, label %142, label %135
+
+135:                                              ; preds = %134
+  br i1 %121, label %139, label %136
+
+136:                                              ; preds = %135
+  %137 = icmp eq i32 %93, 0
+  %138 = icmp eq i32 %94, 0
+  %or.cond15.not163 = select i1 %137, i1 true, i1 %138
   %brmerge.reass.reass.reass = or i1 %or.cond15.not163, %invariant.op
-  br i1 %brmerge.reass.reass.reass, label %138, label %136
+  br i1 %brmerge.reass.reass.reass, label %142, label %140
 
-135:                                              ; preds = %131
-  br i1 %brmerge146, label %138, label %136
+139:                                              ; preds = %135
+  br i1 %brmerge146, label %142, label %140
 
-136:                                              ; preds = %135, %132
-  %137 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.23, ptr noundef nonnull %12) #8
-  br label %138
+140:                                              ; preds = %139, %136
+  %141 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.23, ptr noundef nonnull %12) #8
+  br label %142
 
-138:                                              ; preds = %135, %132, %130, %136, %112
+142:                                              ; preds = %139, %136, %134, %140, %114
+  %143 = phi i64 [ %112, %139 ], [ %112, %136 ], [ %112, %134 ], [ %112, %140 ], [ %116, %114 ]
   %.not140 = icmp eq ptr %.1111173, null
-  %139 = getelementptr inbounds nuw i8, ptr %.1111173, i64 32
-  %spec.select = select i1 %.not140, ptr null, ptr %139
+  %144 = getelementptr inbounds nuw i8, ptr %.1111173, i64 32
+  %spec.select = select i1 %.not140, ptr null, ptr %144
   %.not141 = icmp eq ptr %.1109174, null
-  %140 = getelementptr inbounds nuw i8, ptr %.1109174, i64 32
-  %.2 = select i1 %.not141, ptr null, ptr %140
-  %.not136 = icmp eq i64 %93, 0
+  %145 = getelementptr inbounds nuw i8, ptr %.1109174, i64 32
+  %.2 = select i1 %.not141, ptr null, ptr %145
+  %.not136 = icmp eq i64 %143, 0
   br i1 %.not136, label %._crit_edge177, label %92, !llvm.loop !21
 
 .thread156:                                       ; preds = %test_bignum_zero_print.exit, %test_bignum_zero_print.exit154
-  %141 = tail call i32 @test_flush_stderr() #8
-  br label %144
+  %146 = tail call i32 @test_flush_stderr() #8
+  br label %149
 
-._crit_edge177:                                   ; preds = %138, %91
-  %142 = call i32 @test_flush_stderr() #8
+._crit_edge177:                                   ; preds = %142, %91
+  %147 = call i32 @test_flush_stderr() #8
   %.not142 = icmp eq ptr %.1, %15
-  br i1 %.not142, label %144, label %143
+  br i1 %.not142, label %149, label %148
 
-143:                                              ; preds = %._crit_edge177
+148:                                              ; preds = %._crit_edge177
   call void @CRYPTO_free(ptr noundef nonnull %.1, ptr noundef nonnull @.str.16, i32 noundef 358) #8
-  br label %144
+  br label %149
 
-144:                                              ; preds = %.thread156, %143, %._crit_edge177
+149:                                              ; preds = %.thread156, %148, %._crit_edge177
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

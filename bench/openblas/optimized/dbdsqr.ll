@@ -243,64 +243,64 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %126 = call double @pow(double noundef %93, double noundef -1.250000e-01) #6, !tbaa !3
   %127 = fcmp oge double %126, 1.000000e+02
   %128 = select i1 %127, double 1.000000e+02, double %126
-  %129 = fcmp ole double %128, 1.000000e+01
-  %130 = select i1 %129, double 1.000000e+01, double %128
-  %131 = fmul double %93, %130
-  %132 = load i32, ptr %1, align 4, !tbaa !3
-  %.not8991081 = icmp slt i32 %132, 1
+  %129 = load i32, ptr %1, align 4, !tbaa !3
+  %.not8991081 = icmp slt i32 %129, 1
   br i1 %.not8991081, label %.thread, label %.lr.ph1085.preheader
 
 .thread:                                          ; preds = %125
-  %133 = add nsw i32 %132, -1
-  store i32 %133, ptr %16, align 4, !tbaa !3
+  %130 = add nsw i32 %129, -1
+  store i32 %130, ptr %16, align 4, !tbaa !3
   br label %._crit_edge1093
 
 .lr.ph1085.preheader:                             ; preds = %125
-  %134 = add nuw i32 %132, 1
-  %wide.trip.count = zext i32 %134 to i64
+  %131 = add nuw i32 %129, 1
+  %wide.trip.count = zext i32 %131 to i64
   br label %.lr.ph1085
 
 .lr.ph1085:                                       ; preds = %.lr.ph1085.preheader, %.lr.ph1085
   %indvars.iv1365 = phi i64 [ 1, %.lr.ph1085.preheader ], [ %indvars.iv.next1366, %.lr.ph1085 ]
-  %.08581082 = phi double [ 0.000000e+00, %.lr.ph1085.preheader ], [ %141, %.lr.ph1085 ]
-  %135 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv1365
-  %136 = load double, ptr %135, align 8, !tbaa !7
-  %137 = fcmp oge double %136, 0.000000e+00
-  %138 = fneg double %136
-  %139 = select i1 %137, double %136, double %138
-  %140 = fcmp oge double %.08581082, %139
-  %141 = select i1 %140, double %.08581082, double %139
+  %.08581082 = phi double [ 0.000000e+00, %.lr.ph1085.preheader ], [ %138, %.lr.ph1085 ]
+  %132 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv1365
+  %133 = load double, ptr %132, align 8, !tbaa !7
+  %134 = fcmp oge double %133, 0.000000e+00
+  %135 = fneg double %133
+  %136 = select i1 %134, double %133, double %135
+  %137 = fcmp oge double %.08581082, %136
+  %138 = select i1 %137, double %.08581082, double %136
   %indvars.iv.next1366 = add nuw nsw i64 %indvars.iv1365, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next1366, %wide.trip.count
-  br i1 %exitcond.not, label %142, label %.lr.ph1085, !llvm.loop !11
+  br i1 %exitcond.not, label %139, label %.lr.ph1085, !llvm.loop !11
 
-142:                                              ; preds = %.lr.ph1085
-  %143 = add nsw i32 %132, -1
-  store i32 %143, ptr %16, align 4, !tbaa !3
-  %.not900.not1088.not = icmp eq i32 %132, 1
+139:                                              ; preds = %.lr.ph1085
+  %140 = add nsw i32 %129, -1
+  store i32 %140, ptr %16, align 4, !tbaa !3
+  %.not900.not1088.not = icmp eq i32 %129, 1
   br i1 %.not900.not1088.not, label %._crit_edge1093, label %.lr.ph1092.preheader
 
-.lr.ph1092.preheader:                             ; preds = %142
-  %wide.trip.count1371 = zext nneg i32 %132 to i64
+.lr.ph1092.preheader:                             ; preds = %139
+  %wide.trip.count1371 = zext nneg i32 %129 to i64
   br label %.lr.ph1092
 
 .lr.ph1092:                                       ; preds = %.lr.ph1092.preheader, %.lr.ph1092
   %indvars.iv1368 = phi i64 [ 1, %.lr.ph1092.preheader ], [ %indvars.iv.next1369, %.lr.ph1092 ]
-  %.18591089 = phi double [ %141, %.lr.ph1092.preheader ], [ %150, %.lr.ph1092 ]
-  %144 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv1368
-  %145 = load double, ptr %144, align 8, !tbaa !7
-  %146 = fcmp oge double %145, 0.000000e+00
-  %147 = fneg double %145
-  %148 = select i1 %146, double %145, double %147
-  %149 = fcmp oge double %.18591089, %148
-  %150 = select i1 %149, double %.18591089, double %148
+  %.18591089 = phi double [ %138, %.lr.ph1092.preheader ], [ %147, %.lr.ph1092 ]
+  %141 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv1368
+  %142 = load double, ptr %141, align 8, !tbaa !7
+  %143 = fcmp oge double %142, 0.000000e+00
+  %144 = fneg double %142
+  %145 = select i1 %143, double %142, double %144
+  %146 = fcmp oge double %.18591089, %145
+  %147 = select i1 %146, double %.18591089, double %145
   %indvars.iv.next1369 = add nuw nsw i64 %indvars.iv1368, 1
   %exitcond1372.not = icmp eq i64 %indvars.iv.next1369, %wide.trip.count1371
   br i1 %exitcond1372.not, label %._crit_edge1093, label %.lr.ph1092, !llvm.loop !12
 
-._crit_edge1093:                                  ; preds = %.lr.ph1092, %.thread, %142
-  %.1859.lcssa = phi double [ %141, %142 ], [ 0.000000e+00, %.thread ], [ %150, %.lr.ph1092 ]
-  %151 = fcmp oge double %131, 0.000000e+00
+._crit_edge1093:                                  ; preds = %.lr.ph1092, %.thread, %139
+  %.1859.lcssa = phi double [ %138, %139 ], [ 0.000000e+00, %.thread ], [ %147, %.lr.ph1092 ]
+  %148 = fcmp ole double %128, 1.000000e+01
+  %149 = select i1 %148, double 1.000000e+01, double %128
+  %150 = fmul double %93, %149
+  %151 = fcmp oge double %150, 0.000000e+00
   br i1 %151, label %152, label %181
 
 152:                                              ; preds = %._crit_edge1093
@@ -309,12 +309,12 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %155 = fneg double %153
   %156 = select i1 %154, double %155, double %153
   %157 = fcmp oeq double %153, 0.000000e+00
-  %.not9011096 = icmp slt i32 %132, 2
+  %.not9011096 = icmp slt i32 %129, 2
   %or.cond1613 = or i1 %157, %.not9011096
   br i1 %or.cond1613, label %.loopexit983, label %.lr.ph1101.preheader
 
 .lr.ph1101.preheader:                             ; preds = %152
-  %158 = add nuw i32 %132, 1
+  %158 = add nuw i32 %129, 1
   %wide.trip.count1376 = zext i32 %158 to i64
   br label %.lr.ph1101
 
@@ -346,22 +346,22 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .loopexit983:                                     ; preds = %.lr.ph1101, %152
   %.0837 = phi double [ %156, %152 ], [ %174, %.lr.ph1101 ]
-  %176 = sitofp i32 %132 to double
+  %176 = sitofp i32 %129 to double
   %177 = call double @sqrt(double noundef %176) #6, !tbaa !3
   %178 = fdiv double %.0837, %177
-  %179 = fmul double %131, %178
+  %179 = fmul double %150, %178
   store double %179, ptr %17, align 8, !tbaa !7
   %180 = load i32, ptr %1, align 4, !tbaa !3
   br label %184
 
 181:                                              ; preds = %._crit_edge1093
-  %182 = fneg double %131
+  %182 = fneg double %150
   %183 = fmul double %.1859.lcssa, %182
   store double %183, ptr %17, align 8, !tbaa !7
   br label %184
 
 184:                                              ; preds = %181, %.loopexit983
-  %.sink1624 = phi i32 [ %132, %181 ], [ %180, %.loopexit983 ]
+  %.sink1624 = phi i32 [ %129, %181 ], [ %180, %.loopexit983 ]
   %.sink1617 = phi double [ %183, %181 ], [ %179, %.loopexit983 ]
   %185 = sitofp i32 %.sink1624 to double
   %186 = fmul double %94, %185
@@ -375,10 +375,10 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %192, label %.loopexit976, label %.lr.ph1194.lr.ph.lr.ph
 
 .lr.ph1194.lr.ph.lr.ph:                           ; preds = %184
-  %193 = fcmp uge double %131, 0.000000e+00
-  %194 = fneg double %131
-  %195 = select i1 %151, double %131, double %194
-  %196 = fmul double %131, 1.000000e-02
+  %193 = fcmp uge double %150, 0.000000e+00
+  %194 = fneg double %150
+  %195 = select i1 %151, double %150, double %194
+  %196 = fmul double %150, 1.000000e-02
   %197 = fcmp oge double %93, %196
   %198 = select i1 %197, double %93, double %196
   %199 = sext i32 %91 to i64
@@ -666,7 +666,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %324 = getelementptr inbounds double, ptr %34, i64 %indvars.iv1383
   %325 = load double, ptr %324, align 8, !tbaa !7
   %326 = call double @llvm.fabs.f64(double %325)
-  %327 = fmul double %131, %.18401121
+  %327 = fmul double %150, %.18401121
   %328 = fcmp ugt double %326, %327
   br i1 %328, label %331, label %329
 
@@ -742,7 +742,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %363 = getelementptr inbounds double, ptr %34, i64 %indvars.iv1387
   %364 = load double, ptr %363, align 8, !tbaa !7
   %365 = call double @llvm.fabs.f64(double %364)
-  %366 = fmul double %131, %.28411151
+  %366 = fmul double %150, %.28411151
   %367 = fcmp ugt double %365, %366
   br i1 %367, label %370, label %368
 
@@ -807,7 +807,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %389 = phi double [ %.ph1469, %.loopexit973.thread ], [ %385, %.loopexit973 ]
   %390 = phi double [ %.ph, %.loopexit973.thread ], [ %384, %.loopexit973 ]
   %391 = sitofp i32 %215 to double
-  %392 = fmul double %131, %391
+  %392 = fmul double %150, %391
   %393 = fdiv double %.28481476, %.2860985
   %394 = fmul double %392, %393
   %395 = fcmp ugt double %394, %198

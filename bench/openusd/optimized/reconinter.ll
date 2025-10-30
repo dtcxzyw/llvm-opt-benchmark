@@ -3543,27 +3543,26 @@ define hidden void @av1_setup_build_prediction_by_above_pred(ptr noundef capture
   %7 = load i8, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = add nsw i32 %9, %1
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  store i8 -1, ptr %11, align 1
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 91
-  store i8 0, ptr %12, align 1
-  %13 = icmp sgt i32 %5, 0
-  br i1 %13, label %.lr.ph, label %._crit_edge
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  store i8 -1, ptr %10, align 1
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 91
+  store i8 0, ptr %11, align 1
+  %12 = icmp sgt i32 %5, 0
+  br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
   %spec.select = tail call i8 @llvm.umax.i8(i8 %7, i8 3)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %19 = and i32 %1, 1
-  %.not29.i = icmp eq i32 %19, 0
-  %20 = zext nneg i8 %spec.select to i64
-  %21 = shl nuw i64 1, %20
-  %22 = and i64 %21, 65539
-  %.not30.i = icmp ne i64 %22, 0
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %18 = and i32 %1, 1
+  %.not29.i = icmp eq i32 %18, 0
+  %19 = zext nneg i8 %spec.select to i64
+  %20 = shl nuw i64 1, %19
+  %21 = and i64 %20, 65539
+  %.not30.i = icmp ne i64 %21, 0
   br i1 %.not29.i, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -3571,85 +3570,86 @@ define hidden void @av1_setup_build_prediction_by_above_pred(ptr noundef capture
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %23 = shl nsw i32 %1, 2
+  %22 = shl nsw i32 %1, 2
   %wide.trip.count74 = zext nneg i32 %5 to i64
   br label %setup_pred_plane.exit.us
 
 setup_pred_plane.exit.us:                         ; preds = %setup_pred_plane.exit.us, %.lr.ph.split.us
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %setup_pred_plane.exit.us ], [ 0, %.lr.ph.split.us ]
-  %24 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %14, i64 %indvars.iv71
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load ptr, ptr %15, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv71
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %16, align 8
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv71
-  %31 = load i32, ptr %30, align 4
-  %32 = load ptr, ptr %17, align 8
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv71
-  %34 = load i32, ptr %33, align 4
-  %35 = load ptr, ptr %18, align 8
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv71
-  %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %39 = load i32, ptr %38, align 4
-  %40 = ashr i32 %23, %39
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr i8, ptr %28, i64 %41
-  store ptr %42, ptr %25, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr %28, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store i32 %31, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %24, i64 36
-  store i32 %34, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  store i32 %37, ptr %46, align 8
+  %23 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %13, i64 %indvars.iv71
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = load ptr, ptr %14, align 8
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv71
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr %15, align 8
+  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv71
+  %30 = load i32, ptr %29, align 4
+  %31 = load ptr, ptr %16, align 8
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv71
+  %33 = load i32, ptr %32, align 4
+  %34 = load ptr, ptr %17, align 8
+  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv71
+  %36 = load i32, ptr %35, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %38 = load i32, ptr %37, align 4
+  %39 = ashr i32 %22, %38
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr i8, ptr %27, i64 %40
+  store ptr %41, ptr %24, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  store ptr %27, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  store i32 %30, ptr %43, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %23, i64 36
+  store i32 %33, ptr %44, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  store i32 %36, ptr %45, align 8
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
   br i1 %exitcond75.not, label %._crit_edge, label %setup_pred_plane.exit.us, !llvm.loop !42
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %47 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %14, i64 %indvars.iv
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load ptr, ptr %15, align 8
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %16, align 8
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
-  %54 = load i32, ptr %53, align 4
-  %55 = load ptr, ptr %17, align 8
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
-  %57 = load i32, ptr %56, align 4
-  %58 = load ptr, ptr %18, align 8
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
-  %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %62 = load i32, ptr %61, align 4
-  %.not28.i = icmp ne i32 %62, 0
+  %46 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %13, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %48 = load ptr, ptr %14, align 8
+  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %15, align 8
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
+  %53 = load i32, ptr %52, align 4
+  %54 = load ptr, ptr %16, align 8
+  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
+  %56 = load i32, ptr %55, align 4
+  %57 = load ptr, ptr %17, align 8
+  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv
+  %59 = load i32, ptr %58, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %61 = load i32, ptr %60, align 4
+  %.not28.i = icmp ne i32 %61, 0
   %narrow = select i1 %.not28.i, i1 %.not30.i, i1 false
   %spec.select32.i = sext i1 %narrow to i32
   %spec.select68 = add nsw i32 %1, %spec.select32.i
-  %63 = shl nsw i32 %spec.select68, 2
-  %64 = ashr i32 %63, %62
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr i8, ptr %51, i64 %65
-  store ptr %66, ptr %48, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store ptr %51, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  store i32 %54, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %47, i64 36
-  store i32 %57, ptr %69, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  store i32 %60, ptr %70, align 8
+  %62 = shl nsw i32 %spec.select68, 2
+  %63 = ashr i32 %62, %61
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr i8, ptr %50, i64 %64
+  store ptr %65, ptr %47, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  store ptr %50, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  store i32 %53, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %46, i64 36
+  store i32 %56, ptr %68, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  store i32 %59, ptr %69, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %setup_pred_plane.exit.us, %6
-  %.val = load i8, ptr %11, align 1
+  %70 = add nsw i32 %9, %1
+  %.val = load i8, ptr %10, align 1
   %71 = icmp sgt i8 %.val, 0
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 7944
@@ -3717,12 +3717,12 @@ av1_is_valid_scale.exit.thread:                   ; preds = %get_ref_scale_facto
   %103 = getelementptr inbounds nuw i8, ptr %95, i64 1312
   %104 = load i32, ptr %0, align 16
   %105 = trunc nuw nsw i64 %indvars.iv76 to i32
-  tail call void @av1_setup_pre_planes(ptr noundef nonnull %0, i32 noundef %105, ptr noundef nonnull %103, i32 noundef %104, i32 noundef %10, ptr noundef nonnull %96, i32 noundef %5)
+  tail call void @av1_setup_pre_planes(ptr noundef nonnull %0, i32 noundef %105, ptr noundef nonnull %103, i32 noundef %104, i32 noundef %70, ptr noundef nonnull %96, i32 noundef %5)
   %.not.not = and i1 %76, %71
   br i1 %.not.not, label %75, label %106, !llvm.loop !43
 
 106:                                              ; preds = %102
-  %.neg = mul i32 %10, -32
+  %.neg = mul i32 %70, -32
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 7924
   store i32 %.neg, ptr %107, align 4
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -3746,27 +3746,26 @@ declare void @aom_internal_error(ptr noundef, i32 noundef, ptr noundef, ...) loc
 define hidden void @av1_setup_build_prediction_by_left_pred(ptr noundef captures(none) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef captures(none) initializes((17, 18), (91, 92)) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = load i8, ptr %3, align 8
   %8 = load i32, ptr %0, align 16
-  %9 = add nsw i32 %8, %1
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 17
-  store i8 -1, ptr %10, align 1
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 91
-  store i8 0, ptr %11, align 1
-  %12 = icmp sgt i32 %5, 0
-  br i1 %12, label %.lr.ph, label %._crit_edge
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 17
+  store i8 -1, ptr %9, align 1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 91
+  store i8 0, ptr %10, align 1
+  %11 = icmp sgt i32 %5, 0
+  br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
   %spec.select = tail call i8 @llvm.umax.i8(i8 %7, i8 3)
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %18 = and i32 %1, 1
-  %.not26.i = icmp eq i32 %18, 0
-  %19 = zext nneg i8 %spec.select to i64
-  %20 = shl nuw i64 1, %19
-  %21 = and i64 %20, 131077
-  %.not27.i = icmp ne i64 %21, 0
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %17 = and i32 %1, 1
+  %.not26.i = icmp eq i32 %17, 0
+  %18 = zext nneg i8 %spec.select to i64
+  %19 = shl nuw i64 1, %18
+  %20 = and i64 %19, 131077
+  %.not27.i = icmp ne i64 %20, 0
   br i1 %.not26.i, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -3774,89 +3773,90 @@ define hidden void @av1_setup_build_prediction_by_left_pred(ptr noundef captures
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %22 = shl nsw i32 %1, 2
+  %21 = shl nsw i32 %1, 2
   %wide.trip.count73 = zext nneg i32 %5 to i64
   br label %setup_pred_plane.exit.us
 
 setup_pred_plane.exit.us:                         ; preds = %setup_pred_plane.exit.us, %.lr.ph.split.us
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %setup_pred_plane.exit.us ], [ 0, %.lr.ph.split.us ]
-  %23 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %13, i64 %indvars.iv70
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = load ptr, ptr %14, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv70
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %15, align 8
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv70
-  %30 = load i32, ptr %29, align 4
-  %31 = load ptr, ptr %16, align 8
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv70
-  %33 = load i32, ptr %32, align 4
-  %34 = load ptr, ptr %17, align 8
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv70
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %38 = load i32, ptr %37, align 8
-  %39 = ashr i32 %22, %38
-  %40 = sext i32 %39 to i64
-  %41 = sext i32 %36 to i64
-  %42 = mul nsw i64 %40, %41
-  %43 = getelementptr i8, ptr %27, i64 %42
-  store ptr %43, ptr %24, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr %27, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store i32 %30, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %23, i64 36
-  store i32 %33, ptr %46, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store i32 %36, ptr %47, align 8
+  %22 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %12, i64 %indvars.iv70
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %24 = load ptr, ptr %13, align 8
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv70
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %14, align 8
+  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv70
+  %29 = load i32, ptr %28, align 4
+  %30 = load ptr, ptr %15, align 8
+  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv70
+  %32 = load i32, ptr %31, align 4
+  %33 = load ptr, ptr %16, align 8
+  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv70
+  %35 = load i32, ptr %34, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %37 = load i32, ptr %36, align 8
+  %38 = ashr i32 %21, %37
+  %39 = sext i32 %38 to i64
+  %40 = sext i32 %35 to i64
+  %41 = mul nsw i64 %39, %40
+  %42 = getelementptr i8, ptr %26, i64 %41
+  store ptr %42, ptr %23, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  store ptr %26, ptr %43, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  store i32 %29, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %22, i64 36
+  store i32 %32, ptr %45, align 4
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  store i32 %35, ptr %46, align 8
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
   br i1 %exitcond74.not, label %._crit_edge, label %setup_pred_plane.exit.us, !llvm.loop !44
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %48 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %13, i64 %indvars.iv
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %50 = load ptr, ptr %14, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %15, align 8
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
-  %55 = load i32, ptr %54, align 4
-  %56 = load ptr, ptr %16, align 8
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
-  %58 = load i32, ptr %57, align 4
-  %59 = load ptr, ptr %17, align 8
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
-  %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %63 = load i32, ptr %62, align 8
-  %.not.i = icmp ne i32 %63, 0
+  %47 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %12, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = load ptr, ptr %13, align 8
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %14, align 8
+  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
+  %54 = load i32, ptr %53, align 4
+  %55 = load ptr, ptr %15, align 8
+  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %57 = load i32, ptr %56, align 4
+  %58 = load ptr, ptr %16, align 8
+  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
+  %60 = load i32, ptr %59, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %62 = load i32, ptr %61, align 8
+  %.not.i = icmp ne i32 %62, 0
   %narrow = select i1 %.not.i, i1 %.not27.i, i1 false
   %spec.select.i = sext i1 %narrow to i32
   %spec.select67 = add nsw i32 %1, %spec.select.i
-  %64 = shl nsw i32 %spec.select67, 2
-  %65 = ashr i32 %64, %63
-  %66 = sext i32 %65 to i64
-  %67 = sext i32 %61 to i64
-  %68 = mul nsw i64 %66, %67
-  %69 = getelementptr i8, ptr %52, i64 %68
-  store ptr %69, ptr %49, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store ptr %52, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  store i32 %55, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %48, i64 36
-  store i32 %58, ptr %72, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  store i32 %61, ptr %73, align 8
+  %63 = shl nsw i32 %spec.select67, 2
+  %64 = ashr i32 %63, %62
+  %65 = sext i32 %64 to i64
+  %66 = sext i32 %60 to i64
+  %67 = mul nsw i64 %65, %66
+  %68 = getelementptr i8, ptr %51, i64 %67
+  store ptr %68, ptr %48, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  store ptr %51, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  store i32 %54, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %47, i64 36
+  store i32 %57, ptr %71, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  store i32 %60, ptr %72, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %setup_pred_plane.exit.us, %6
-  %.val = load i8, ptr %10, align 1
+  %73 = add nsw i32 %8, %1
+  %.val = load i8, ptr %9, align 1
   %74 = icmp sgt i8 %.val, 0
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 7944
@@ -3925,12 +3925,12 @@ av1_is_valid_scale.exit.thread:                   ; preds = %get_ref_scale_facto
   %107 = getelementptr inbounds nuw i8, ptr %99, i64 1312
   %108 = load i32, ptr %78, align 4
   %109 = trunc nuw nsw i64 %indvars.iv75 to i32
-  tail call void @av1_setup_pre_planes(ptr noundef nonnull %0, i32 noundef %109, ptr noundef nonnull %107, i32 noundef %9, i32 noundef %108, ptr noundef nonnull %100, i32 noundef %5)
+  tail call void @av1_setup_pre_planes(ptr noundef nonnull %0, i32 noundef %109, ptr noundef nonnull %107, i32 noundef %73, i32 noundef %108, ptr noundef nonnull %100, i32 noundef %5)
   %.not.not = and i1 %80, %74
   br i1 %.not.not, label %79, label %110, !llvm.loop !45
 
 110:                                              ; preds = %106
-  %111 = mul i32 %9, -32
+  %111 = mul i32 %73, -32
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 7932
   store i32 %111, ptr %112, align 4
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 40

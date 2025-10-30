@@ -316,25 +316,25 @@ invert.exit89:                                    ; preds = %.lr.ph.i85, %72
   br i1 %87, label %88, label %311
 
 88:                                               ; preds = %84
-  %89 = fcmp nsz ogt float %86, 5.000000e+01
-  %90 = fsub nsz float 1.000000e+02, %86
-  %91 = select nsz i1 %89, float %90, float %86
-  %92 = fdiv nsz float %91, 5.000000e+01
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 1.000000e+00, ptr %2, align 4, !tbaa !56
-  %93 = icmp sgt i32 %53, 1
-  br i1 %93, label %.lr.ph.i95, label %._crit_edge.i
+  %89 = icmp sgt i32 %53, 1
+  br i1 %89, label %.lr.ph.i95, label %._crit_edge.i
 
 .lr.ph.i95:                                       ; preds = %88, %.lr.ph.i95
-  %.0222259.i = phi i32 [ %95, %.lr.ph.i95 ], [ %53, %88 ]
-  %.0223258.i = phi i32 [ %94, %.lr.ph.i95 ], [ 32, %88 ]
-  %94 = shl i32 %.0223258.i, 1
-  %95 = lshr i32 %.0222259.i, 1
-  %96 = icmp samesign ugt i32 %.0222259.i, 3
-  br i1 %96, label %.lr.ph.i95, label %._crit_edge.i, !llvm.loop !61
+  %.0222259.i = phi i32 [ %91, %.lr.ph.i95 ], [ %53, %88 ]
+  %.0223258.i = phi i32 [ %90, %.lr.ph.i95 ], [ 32, %88 ]
+  %90 = shl i32 %.0223258.i, 1
+  %91 = lshr i32 %.0222259.i, 1
+  %92 = icmp samesign ugt i32 %.0222259.i, 3
+  br i1 %92, label %.lr.ph.i95, label %._crit_edge.i, !llvm.loop !61
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i95, %88
-  %.0223.lcssa.i = phi i32 [ 32, %88 ], [ %94, %.lr.ph.i95 ]
+  %.0223.lcssa.i = phi i32 [ 32, %88 ], [ %90, %.lr.ph.i95 ]
+  %93 = fcmp nsz ogt float %86, 5.000000e+01
+  %94 = fsub nsz float 1.000000e+02, %86
+  %95 = select nsz i1 %93, float %94, float %86
+  %96 = fdiv nsz float %95, 5.000000e+01
   %97 = or disjoint i32 %.0223.lcssa.i, 2
   %98 = ashr exact i32 %.0223.lcssa.i, 1
   %99 = add nuw nsw i32 %98, 1
@@ -493,7 +493,7 @@ safe_log.exit.i:                                  ; preds = %.lr.ph267.i
   %172 = uitofp nneg i32 %.0223.lcssa.i to float
   %173 = zext nneg i32 %98 to i64
   %174 = getelementptr inbounds nuw float, ptr %105, i64 %173
-  %175 = fsub nsz float 1.000000e+00, %92
+  %175 = fsub nsz float 1.000000e+00, %96
   %176 = zext nneg i32 %.0223.lcssa.i to i64
   br label %177
 
@@ -501,7 +501,7 @@ safe_log.exit.i:                                  ; preds = %.lr.ph267.i
   %indvars.iv318.i = phi i64 [ 2, %.lr.ph277.i ], [ %indvars.iv.next319.i, %177 ]
   %178 = trunc nuw nsw i64 %indvars.iv318.i to i32
   %179 = uitofp nneg i32 %178 to float
-  %180 = fmul nsz float %92, %179
+  %180 = fmul nsz float %96, %179
   %181 = fdiv nsz float %180, %172
   %182 = load float, ptr %174, align 4, !tbaa !56
   %183 = getelementptr inbounds nuw float, ptr %102, i64 %indvars.iv318.i
@@ -662,11 +662,11 @@ safe_log.exit.i:                                  ; preds = %.lr.ph267.i
   %.0225.lcssa356.i = phi i32 [ %.1226.i, %.preheader.i ], [ 0, %.preheader255.i ], [ %.1226.i, %.critedge.loopexit.split.loop.exit.i ], [ %.1226.i, %254 ]
   %.0231.lcssa355.i = phi double [ %232, %.preheader.i ], [ 0.000000e+00, %.preheader255.i ], [ %232, %.critedge.loopexit.split.loop.exit.i ], [ %232, %254 ]
   %.2237.lcssa.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader255.i ], [ %255, %.critedge.loopexit.split.loop.exit.i ], [ 0, %254 ]
-  %256 = fcmp nsz une float %92, 0.000000e+00
+  %256 = fcmp nsz une float %96, 0.000000e+00
   br i1 %256, label %257, label %thread-pre-split.i
 
 257:                                              ; preds = %.critedge.i
-  %258 = fcmp nsz oeq float %92, 1.000000e+00
+  %258 = fcmp nsz oeq float %96, 1.000000e+00
   br i1 %258, label %259, label %.cont
 
 259:                                              ; preds = %257
@@ -675,12 +675,12 @@ safe_log.exit.i:                                  ; preds = %.lr.ph267.i
   br label %thread-pre-split.i
 
 .cont:                                            ; preds = %257
-  %261 = fadd nsz float %92, -2.000000e+00
+  %261 = fadd nsz float %96, -2.000000e+00
   %262 = call nsz float @llvm.fmuladd.f32(float %261, float 0x3FCC28F5C0000000, float 0x3FEFE76C80000000)
   %263 = sitofp i32 %53 to float
   %264 = call nsz float @llvm.fmuladd.f32(float %262, float %263, float 5.000000e-01)
   %265 = fptosi float %264 to i32
-  %266 = fneg nsz float %92
+  %266 = fneg nsz float %96
   %267 = call nsz float @llvm.fmuladd.f32(float %266, float 0x3FCC28F5C0000000, float 0x3FEFE76C80000000)
   %268 = call nsz float @llvm.fmuladd.f32(float %267, float %263, float 5.000000e-01)
   %269 = fptosi float %268 to i32
@@ -718,7 +718,7 @@ thread-pre-split.i:                               ; preds = %.critedge.i, %.cont
   %283 = trunc nuw nsw i64 %indvars.iv337.i to i32
   %284 = xor i32 %283, -1
   %285 = add nsw i32 %.2, %284
-  %286 = select i1 %89, i32 %285, i32 %283
+  %286 = select i1 %93, i32 %285, i32 %283
   %287 = add i32 %280, %286
   %288 = and i32 %287, %281
   %289 = sext i32 %288 to i64
@@ -741,7 +741,7 @@ fir_to_phase.exit:                                ; preds = %282, %thread-pre-sp
   %.neg250.i = xor i32 %.2237.lcssa.i, -1
   %294 = add i32 %.2, %.neg250.i
   %295 = add i32 %294, %.0224.i
-  %296 = select i1 %89, i32 %293, i32 %295
+  %296 = select i1 %93, i32 %293, i32 %295
   %297 = load float, ptr %221, align 4, !tbaa !56
   %298 = fpext nsz float %297 to double
   %299 = fdiv nsz double %298, 0x400921FB54442D18

@@ -4169,30 +4169,30 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegula
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i32, ptr %28, i64 %43
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %46 = load ptr, ptr %45, align 8
-  br label %47
+  br label %45
 
-47:                                               ; preds = %5, %47
-  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %47 ]
-  %.0212 = phi i32 [ -1, %5 ], [ %spec.select, %47 ]
-  %.0153211 = phi i32 [ -1, %5 ], [ %.1154, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp eq i32 %1, %49
-  %51 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %50, i32 %51, i32 %.0212
-  %52 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
-  %53 = load i32, ptr %52, align 4
-  %54 = icmp eq i32 %1, %53
-  %.1154 = select i1 %54, i32 %51, i32 %.0153211
+45:                                               ; preds = %5, %45
+  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %45 ]
+  %.0212 = phi i32 [ -1, %5 ], [ %spec.select, %45 ]
+  %.0153211 = phi i32 [ -1, %5 ], [ %.1154, %45 ]
+  %46 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %47 = load i32, ptr %46, align 4
+  %48 = icmp eq i32 %1, %47
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select = select i1 %48, i32 %49, i32 %.0212
+  %50 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp eq i32 %1, %51
+  %.1154 = select i1 %52, i32 %49, i32 %.0153211
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %55, label %47, !llvm.loop !50
+  br i1 %exitcond.not, label %53, label %45, !llvm.loop !50
 
-55:                                               ; preds = %47
-  %56 = getelementptr inbounds i16, ptr %46, i64 %36
-  %57 = getelementptr inbounds i16, ptr %46, i64 %43
+53:                                               ; preds = %45
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i16, ptr %55, i64 %36
+  %57 = getelementptr inbounds i16, ptr %55, i64 %43
   %58 = add nsw i32 %spec.select, 1
   %59 = and i32 %58, 3
   %60 = and i32 %spec.select, 3
@@ -4224,7 +4224,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegula
   %86 = icmp slt i32 %4, 0
   br i1 %86, label %103, label %87
 
-87:                                               ; preds = %55
+87:                                               ; preds = %53
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %89 = zext nneg i32 %4 to i64
   %90 = load ptr, ptr %88, align 8
@@ -4242,10 +4242,10 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegula
   %102 = getelementptr inbounds i32, ptr %101, i64 %100
   br label %103
 
-103:                                              ; preds = %55, %87
-  %.sink242 = phi ptr [ %95, %87 ], [ %13, %55 ]
-  %.sink237 = phi ptr [ %101, %87 ], [ %19, %55 ]
-  %.sroa.0190.0 = phi ptr [ %102, %87 ], [ %20, %55 ]
+103:                                              ; preds = %53, %87
+  %.sink242 = phi ptr [ %95, %87 ], [ %13, %53 ]
+  %.sink237 = phi ptr [ %101, %87 ], [ %19, %53 ]
+  %.sroa.0190.0 = phi ptr [ %102, %87 ], [ %20, %53 ]
   %104 = shl nsw i32 %68, 1
   %105 = sext i32 %104 to i64
   %106 = getelementptr i32, ptr %.sink242, i64 %105
@@ -6967,8 +6967,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit8.i:        ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %543
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %545, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %544, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false)
   %547 = getelementptr inbounds nuw i8, ptr %544, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %544, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %543
@@ -9148,8 +9148,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -9253,8 +9253,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -9731,8 +9731,8 @@ define linkonce_odr void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 1
-  tail call void @llvm.memset.p0.i64(ptr align 2 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 2 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i

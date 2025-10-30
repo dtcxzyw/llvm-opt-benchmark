@@ -1426,34 +1426,34 @@ define internal noundef i32 @_ZL8str_packP9lua_State(ptr noundef %0) #0 {
   %21 = call fastcc noundef i32 @_ZL10getdetailsP6HeadermPPKcPiS4_(ptr noundef %6, i64 noundef %.047124, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %22 = load i32, ptr %9, align 4, !tbaa !43
   %23 = load i32, ptr %8, align 4, !tbaa !43
-  %24 = add nsw i32 %23, %22
-  %25 = sext i32 %24 to i64
-  %26 = add i64 %.047124, %25
-  %27 = icmp sgt i32 %22, 0
-  br i1 %27, label %.lr.ph, label %._crit_edge
+  %24 = icmp sgt i32 %22, 0
+  br i1 %24, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %20, %34
-  %.in = phi i32 [ %28, %34 ], [ %22, %20 ]
-  %28 = add nsw i32 %.in, -1
-  %29 = load ptr, ptr %5, align 8, !tbaa !12
-  %30 = load ptr, ptr %19, align 8, !tbaa !18
-  %31 = icmp ult ptr %29, %30
-  br i1 %31, label %34, label %32
+.lr.ph:                                           ; preds = %20, %31
+  %.in = phi i32 [ %25, %31 ], [ %22, %20 ]
+  %25 = add nsw i32 %.in, -1
+  %26 = load ptr, ptr %5, align 8, !tbaa !12
+  %27 = load ptr, ptr %19, align 8, !tbaa !18
+  %28 = icmp ult ptr %26, %27
+  br i1 %28, label %31, label %29
 
-32:                                               ; preds = %.lr.ph
-  %33 = call noundef ptr @_Z17luaL_prepbuffsizeP11luaL_Strbufm(ptr noundef nonnull %5, i64 noundef 1)
+29:                                               ; preds = %.lr.ph
+  %30 = call noundef ptr @_Z17luaL_prepbuffsizeP11luaL_Strbufm(ptr noundef nonnull %5, i64 noundef 1)
   %.pre = load ptr, ptr %5, align 8, !tbaa !12
-  br label %34
+  br label %31
 
-34:                                               ; preds = %32, %.lr.ph
-  %35 = phi ptr [ %.pre, %32 ], [ %29, %.lr.ph ]
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  store ptr %36, ptr %5, align 8, !tbaa !12
-  store i8 0, ptr %35, align 1, !tbaa !8
-  %37 = icmp sgt i32 %.in, 1
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !54
+31:                                               ; preds = %29, %.lr.ph
+  %32 = phi ptr [ %.pre, %29 ], [ %26, %.lr.ph ]
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  store ptr %33, ptr %5, align 8, !tbaa !12
+  store i8 0, ptr %32, align 1, !tbaa !8
+  %34 = icmp sgt i32 %.in, 1
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !54
 
-._crit_edge:                                      ; preds = %34, %20
+._crit_edge:                                      ; preds = %31, %20
+  %35 = add nsw i32 %23, %22
+  %36 = sext i32 %35 to i64
+  %37 = add i64 %.047124, %36
   %38 = add nsw i32 %.0125, 1
   switch i32 %21, label %default.unreachable152 [
     i32 0, label %39
@@ -1829,7 +1829,7 @@ _ZL7packintP11luaL_Strbufyiii.exit111:            ; preds = %.lr.ph.split.i91, %
   %169 = load i64, ptr %13, align 8, !tbaa !4
   call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %5, ptr noundef %145, i64 noundef %169)
   %170 = load i64, ptr %13, align 8, !tbaa !4
-  %171 = add i64 %170, %26
+  %171 = add i64 %170, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %199
 
@@ -1863,7 +1863,7 @@ _ZL7packintP11luaL_Strbufyiii.exit111:            ; preds = %.lr.ph.split.i91, %
   store ptr %186, ptr %5, align 8, !tbaa !12
   store i8 0, ptr %185, align 1, !tbaa !8
   %187 = load i64, ptr %14, align 8, !tbaa !4
-  %188 = add i64 %26, 1
+  %188 = add i64 %37, 1
   %189 = add i64 %188, %187
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %199
@@ -1890,7 +1890,7 @@ default.unreachable152:                           ; preds = %._crit_edge
   unreachable
 
 199:                                              ; preds = %._crit_edge, %._crit_edge, %196, %184, %_ZL7packintP11luaL_Strbufyiii.exit111, %._crit_edge122, %_ZL14copywithendianPVcPVKcii.exit, %_ZL7packintP11luaL_Strbufyiii.exit83, %_ZL7packintP11luaL_Strbufyiii.exit
-  %.148 = phi i64 [ %26, %_ZL7packintP11luaL_Strbufyiii.exit ], [ %26, %_ZL7packintP11luaL_Strbufyiii.exit83 ], [ %26, %_ZL14copywithendianPVcPVKcii.exit ], [ %26, %._crit_edge122 ], [ %171, %_ZL7packintP11luaL_Strbufyiii.exit111 ], [ %189, %184 ], [ %26, %196 ], [ %26, %._crit_edge ], [ %26, %._crit_edge ]
+  %.148 = phi i64 [ %37, %_ZL7packintP11luaL_Strbufyiii.exit ], [ %37, %_ZL7packintP11luaL_Strbufyiii.exit83 ], [ %37, %_ZL14copywithendianPVcPVKcii.exit ], [ %37, %._crit_edge122 ], [ %171, %_ZL7packintP11luaL_Strbufyiii.exit111 ], [ %189, %184 ], [ %37, %196 ], [ %37, %._crit_edge ], [ %37, %._crit_edge ]
   %.1 = phi i32 [ %38, %_ZL7packintP11luaL_Strbufyiii.exit ], [ %38, %_ZL7packintP11luaL_Strbufyiii.exit83 ], [ %38, %_ZL14copywithendianPVcPVKcii.exit ], [ %38, %._crit_edge122 ], [ %38, %_ZL7packintP11luaL_Strbufyiii.exit111 ], [ %38, %184 ], [ %.0125, %196 ], [ %.0125, %._crit_edge ], [ %.0125, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

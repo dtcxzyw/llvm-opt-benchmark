@@ -396,14 +396,14 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %96, %.thread79
   %197 = getelementptr inbounds nuw [3 x double], ptr %195, i64 %indvars.iv132
   br label %198
 
-198:                                              ; preds = %.preheader.us, %200
-  %indvars.iv127 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next128, %200 ]
-  %199 = getelementptr inbounds nuw float, ptr %196, i64 %indvars.iv127
+198:                                              ; preds = %.preheader.us, %199
+  %indvars.iv127 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next128, %199 ]
   %invariant.gep.us = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv127
   br label %201
 
-200:                                              ; preds = %201
-  store float %210, ptr %199, align 4, !tbaa !91
+199:                                              ; preds = %201
+  %200 = getelementptr inbounds nuw float, ptr %196, i64 %indvars.iv127
+  store float %210, ptr %200, align 4, !tbaa !91
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
   br i1 %exitcond131.not, label %._crit_edge98.us, label %198, !llvm.loop !92
@@ -422,9 +422,9 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %96, %.thread79
   %210 = fptrunc reassoc nsz arcp contract afn double %209 to float
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next124, 3
-  br i1 %exitcond126.not, label %200, label %201, !llvm.loop !93
+  br i1 %exitcond126.not, label %199, label %201, !llvm.loop !93
 
-._crit_edge98.us:                                 ; preds = %200
+._crit_edge98.us:                                 ; preds = %199
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next133, 3
   br i1 %exitcond135.not, label %_ZNSt6vectorIcSaIcEED2Ev.exit65, label %.preheader.us, !llvm.loop !94

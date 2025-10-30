@@ -642,7 +642,7 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %14
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 24
   br label %62
 
-50:                                               ; preds = %65
+50:                                               ; preds = %64
   %51 = load i64, ptr %6, align 16, !tbaa !4
   %52 = icmp eq i64 %51, 0
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -659,15 +659,15 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %14
   %or.cond81 = select i1 %or.cond13, i1 %61, i1 false, !prof !25
   br i1 %or.cond81, label %73, label %.critedge78, !prof !25
 
-62:                                               ; preds = %48, %65
-  %indvars.iv131 = phi i64 [ 0, %48 ], [ %indvars.iv.next132, %65 ]
-  %63 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv131
-  %64 = shl nuw nsw i64 %indvars.iv131, 3
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %49, i64 %64
+62:                                               ; preds = %48, %64
+  %indvars.iv131 = phi i64 [ 0, %48 ], [ %indvars.iv.next132, %64 ]
+  %63 = shl nuw nsw i64 %indvars.iv131, 3
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %49, i64 %63
   br label %66
 
-65:                                               ; preds = %66
-  store i64 %72, ptr %63, align 8, !tbaa !4
+64:                                               ; preds = %66
+  %65 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv131
+  store i64 %72, ptr %65, align 8, !tbaa !4
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next132, 4
   br i1 %exitcond134.not, label %50, label %62
@@ -683,7 +683,7 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %14
   %72 = add i64 %71, %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %65, label %66
+  br i1 %exitcond.not, label %64, label %66
 
 73:                                               ; preds = %50
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.1) #7

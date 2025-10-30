@@ -4101,14 +4101,10 @@ _ZNSt15__new_allocatorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 
 if.end:                                           ; preds = %entry
   %cmp = icmp eq i8 %node.val52, 0
-  br i1 %cmp, label %return.sink.split, label %while.body.preheader
+  br i1 %cmp, label %return.sink.split, label %while.body
 
-while.body.preheader:                             ; preds = %if.end
-  %node.val45 = load ptr, ptr %node, align 8
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.preheader, %while.body
-  %node.addr.07 = phi ptr [ %node.addr.0.val54, %while.body ], [ %node, %while.body.preheader ]
+while.body:                                       ; preds = %if.end, %while.body
+  %node.addr.07 = phi ptr [ %node.addr.0.val54, %while.body ], [ %node, %if.end ]
   %4 = getelementptr i8, ptr %node.addr.07, i64 256
   %node.addr.0.val54 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %node.addr.0.val54, i64 11
@@ -4117,6 +4113,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp.i.not.i, label %while.body, label %while.end, !llvm.loop !104
 
 while.end:                                        ; preds = %while.body
+  %node.val45 = load ptr, ptr %node, align 8
   %6 = getelementptr i8, ptr %node.addr.0.val54, i64 8
   %node.addr.0.val48 = load i8, ptr %6, align 1
   %conv14 = zext i8 %node.addr.0.val48 to i64

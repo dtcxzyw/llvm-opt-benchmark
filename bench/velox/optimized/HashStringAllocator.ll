@@ -346,7 +346,6 @@ terminate.lpad:                                   ; preds = %entry
 define void @_ZN8facebook5velox19HashStringAllocator5clearEv(ptr noundef nonnull align 8 dereferenceable(37416) initializes((36848, 37248)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scevgep = getelementptr inbounds nuw i8, ptr %this, i64 36848
-  %allocationsFromPool_ = getelementptr inbounds nuw i8, ptr %this, i64 37376
   %packedBegin_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 37400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %scevgep, i8 0, i64 400, i1 false)
   %0 = load i64, ptr %packedBegin_.i.i.i, align 8
@@ -428,6 +427,7 @@ for.body.backedge:                                ; preds = %while.body.i.i, %if
   br label %for.body
 
 for.end:                                          ; preds = %for.cond.i.i, %entry
+  %allocationsFromPool_ = getelementptr inbounds nuw i8, ptr %this, i64 37376
   %15 = load ptr, ptr %allocationsFromPool_, align 8
   %cmp.i.i.i5 = icmp eq ptr %15, @_ZN5folly3f146detail15kEmptyTagVectorE
   br i1 %cmp.i.i.i5, label %_ZN5folly3f146detail11F14BasicMapINS1_20ValueContainerPolicyIPvmvvvEEE5clearEv.exit, label %if.end.i.i.i

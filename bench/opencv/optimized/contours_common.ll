@@ -697,99 +697,99 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i: ; preds = %265
   br i1 %272, label %.critedge.i131.invoke, label %.lr.ph.i.i.i.i96
 
 .lr.ph.i.i.i.i96:                                 ; preds = %270
-  %.19.i.i.i.i.sroa.sel143.v.sroa.sel.v.sroa.sel.v = select i1 %268, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.19.i.i.i.i.sroa.sel143.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.sroa.sel143.v.sroa.sel.v.sroa.sel.v, i64 36
-  %273 = load i32, ptr %.19.i.i.i.i.sroa.sel143.v.sroa.sel.v.sroa.sel, align 4, !tbaa !39
-  %274 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  %275 = load i32, ptr %274, align 4, !tbaa !39
-  br label %276
+  %273 = getelementptr inbounds nuw i8, ptr %216, i64 12
+  %274 = load i32, ptr %273, align 4, !tbaa !39
+  br label %275
 
-276:                                              ; preds = %276, %.lr.ph.i.i.i.i96
-  %.012.i.i.i.i97 = phi ptr [ %262, %.lr.ph.i.i.i.i96 ], [ %.1.i.i.i.i102, %276 ]
-  %.0811.i.i.i.i98 = phi ptr [ %43, %.lr.ph.i.i.i.i96 ], [ %.19.i.i.i.i99, %276 ]
-  %277 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i97, i64 32
-  %278 = load i32, ptr %277, align 4, !tbaa !39
-  %279 = icmp slt i32 %278, %275
-  %.19.i.i.i.i99 = select i1 %279, ptr %.0811.i.i.i.i98, ptr %.012.i.i.i.i97
-  %.1.in.v.i.i.i.i100 = select i1 %279, i64 24, i64 16
+275:                                              ; preds = %275, %.lr.ph.i.i.i.i96
+  %.012.i.i.i.i97 = phi ptr [ %262, %.lr.ph.i.i.i.i96 ], [ %.1.i.i.i.i102, %275 ]
+  %.0811.i.i.i.i98 = phi ptr [ %43, %.lr.ph.i.i.i.i96 ], [ %.19.i.i.i.i99, %275 ]
+  %276 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i97, i64 32
+  %277 = load i32, ptr %276, align 4, !tbaa !39
+  %278 = icmp slt i32 %277, %274
+  %.19.i.i.i.i99 = select i1 %278, ptr %.0811.i.i.i.i98, ptr %.012.i.i.i.i97
+  %.1.in.v.i.i.i.i100 = select i1 %278, i64 24, i64 16
   %.1.in.i.i.i.i101 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i97, i64 %.1.in.v.i.i.i.i100
   %.1.i.i.i.i102 = load ptr, ptr %.1.in.i.i.i.i101, align 8, !tbaa !84
   %.not.i.i.i.i103 = icmp eq ptr %.1.i.i.i.i102, null
-  br i1 %.not.i.i.i.i103, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i104, label %276, !llvm.loop !85
+  br i1 %.not.i.i.i.i103, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i104, label %275, !llvm.loop !85
 
-_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i104: ; preds = %276
+_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i104: ; preds = %275
+  %.19.i.i.i.i.sroa.sel143.v.sroa.sel.v.sroa.sel.v = select i1 %268, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.19.i.i.i.i.sroa.sel143.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.sroa.sel143.v.sroa.sel.v.sroa.sel.v, i64 36
+  %279 = load i32, ptr %.19.i.i.i.i.sroa.sel143.v.sroa.sel.v.sroa.sel, align 4, !tbaa !39
   %280 = icmp eq ptr %.19.i.i.i.i99, %43
   br i1 %280, label %.critedge.i131.invoke, label %281
 
 281:                                              ; preds = %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i104
-  %.19.i.i.i.i99.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %279, ptr %.0811.i.i.i.i98, ptr %.012.i.i.i.i97
+  %.19.i.i.i.i99.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %278, ptr %.0811.i.i.i.i98, ptr %.012.i.i.i.i97
   %.19.i.i.i.i99.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i99.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %282 = load i32, ptr %.19.i.i.i.i99.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !39
-  %283 = icmp slt i32 %275, %282
+  %283 = icmp slt i32 %274, %282
   br i1 %283, label %.critedge.i131.invoke, label %.lr.ph.i.i.i.i109
 
 .lr.ph.i.i.i.i109:                                ; preds = %281
-  %.19.i.i.i.i99.sroa.sel146.v.sroa.sel.v.sroa.sel.v = select i1 %279, ptr %.0811.i.i.i.i98, ptr %.012.i.i.i.i97
-  %.19.i.i.i.i99.sroa.sel146.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i99.sroa.sel146.v.sroa.sel.v.sroa.sel.v, i64 36
-  %284 = load i32, ptr %.19.i.i.i.i99.sroa.sel146.v.sroa.sel.v.sroa.sel, align 4, !tbaa !39
-  %285 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %286 = load i32, ptr %285, align 8, !tbaa !39
-  br label %287
+  %284 = getelementptr inbounds nuw i8, ptr %216, i64 8
+  %285 = load i32, ptr %284, align 8, !tbaa !39
+  br label %286
 
-287:                                              ; preds = %287, %.lr.ph.i.i.i.i109
-  %.012.i.i.i.i110 = phi ptr [ %262, %.lr.ph.i.i.i.i109 ], [ %.1.i.i.i.i115, %287 ]
-  %.0811.i.i.i.i111 = phi ptr [ %43, %.lr.ph.i.i.i.i109 ], [ %.19.i.i.i.i112, %287 ]
-  %288 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i110, i64 32
-  %289 = load i32, ptr %288, align 4, !tbaa !39
-  %290 = icmp slt i32 %289, %286
-  %.19.i.i.i.i112 = select i1 %290, ptr %.0811.i.i.i.i111, ptr %.012.i.i.i.i110
-  %.1.in.v.i.i.i.i113 = select i1 %290, i64 24, i64 16
+286:                                              ; preds = %286, %.lr.ph.i.i.i.i109
+  %.012.i.i.i.i110 = phi ptr [ %262, %.lr.ph.i.i.i.i109 ], [ %.1.i.i.i.i115, %286 ]
+  %.0811.i.i.i.i111 = phi ptr [ %43, %.lr.ph.i.i.i.i109 ], [ %.19.i.i.i.i112, %286 ]
+  %287 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i110, i64 32
+  %288 = load i32, ptr %287, align 4, !tbaa !39
+  %289 = icmp slt i32 %288, %285
+  %.19.i.i.i.i112 = select i1 %289, ptr %.0811.i.i.i.i111, ptr %.012.i.i.i.i110
+  %.1.in.v.i.i.i.i113 = select i1 %289, i64 24, i64 16
   %.1.in.i.i.i.i114 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i110, i64 %.1.in.v.i.i.i.i113
   %.1.i.i.i.i115 = load ptr, ptr %.1.in.i.i.i.i114, align 8, !tbaa !84
   %.not.i.i.i.i116 = icmp eq ptr %.1.i.i.i.i115, null
-  br i1 %.not.i.i.i.i116, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i117, label %287, !llvm.loop !85
+  br i1 %.not.i.i.i.i116, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i117, label %286, !llvm.loop !85
 
-_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i117: ; preds = %287
+_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i117: ; preds = %286
+  %.19.i.i.i.i99.sroa.sel146.v.sroa.sel.v.sroa.sel.v = select i1 %278, ptr %.0811.i.i.i.i98, ptr %.012.i.i.i.i97
+  %.19.i.i.i.i99.sroa.sel146.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i99.sroa.sel146.v.sroa.sel.v.sroa.sel.v, i64 36
+  %290 = load i32, ptr %.19.i.i.i.i99.sroa.sel146.v.sroa.sel.v.sroa.sel, align 4, !tbaa !39
   %291 = icmp eq ptr %.19.i.i.i.i112, %43
   br i1 %291, label %.critedge.i131.invoke, label %292
 
 292:                                              ; preds = %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i117
-  %.19.i.i.i.i112.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %290, ptr %.0811.i.i.i.i111, ptr %.012.i.i.i.i110
+  %.19.i.i.i.i112.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %289, ptr %.0811.i.i.i.i111, ptr %.012.i.i.i.i110
   %.19.i.i.i.i112.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i112.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %293 = load i32, ptr %.19.i.i.i.i112.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !39
-  %294 = icmp slt i32 %286, %293
+  %294 = icmp slt i32 %285, %293
   br i1 %294, label %.critedge.i131.invoke, label %.lr.ph.i.i.i.i122
 
 .lr.ph.i.i.i.i122:                                ; preds = %292
-  %.19.i.i.i.i112.sroa.sel149.v.sroa.sel.v.sroa.sel.v = select i1 %290, ptr %.0811.i.i.i.i111, ptr %.012.i.i.i.i110
-  %.19.i.i.i.i112.sroa.sel149.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i112.sroa.sel149.v.sroa.sel.v.sroa.sel.v, i64 36
-  %295 = load i32, ptr %.19.i.i.i.i112.sroa.sel149.v.sroa.sel.v.sroa.sel, align 4, !tbaa !39
-  %296 = getelementptr inbounds nuw i8, ptr %216, i64 4
-  %297 = load i32, ptr %296, align 4, !tbaa !39
-  br label %298
+  %295 = getelementptr inbounds nuw i8, ptr %216, i64 4
+  %296 = load i32, ptr %295, align 4, !tbaa !39
+  br label %297
 
-298:                                              ; preds = %298, %.lr.ph.i.i.i.i122
-  %.012.i.i.i.i123 = phi ptr [ %262, %.lr.ph.i.i.i.i122 ], [ %.1.i.i.i.i128, %298 ]
-  %.0811.i.i.i.i124 = phi ptr [ %43, %.lr.ph.i.i.i.i122 ], [ %.19.i.i.i.i125, %298 ]
-  %299 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i123, i64 32
-  %300 = load i32, ptr %299, align 4, !tbaa !39
-  %301 = icmp slt i32 %300, %297
-  %.19.i.i.i.i125 = select i1 %301, ptr %.0811.i.i.i.i124, ptr %.012.i.i.i.i123
-  %.1.in.v.i.i.i.i126 = select i1 %301, i64 24, i64 16
+297:                                              ; preds = %297, %.lr.ph.i.i.i.i122
+  %.012.i.i.i.i123 = phi ptr [ %262, %.lr.ph.i.i.i.i122 ], [ %.1.i.i.i.i128, %297 ]
+  %.0811.i.i.i.i124 = phi ptr [ %43, %.lr.ph.i.i.i.i122 ], [ %.19.i.i.i.i125, %297 ]
+  %298 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i123, i64 32
+  %299 = load i32, ptr %298, align 4, !tbaa !39
+  %300 = icmp slt i32 %299, %296
+  %.19.i.i.i.i125 = select i1 %300, ptr %.0811.i.i.i.i124, ptr %.012.i.i.i.i123
+  %.1.in.v.i.i.i.i126 = select i1 %300, i64 24, i64 16
   %.1.in.i.i.i.i127 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i123, i64 %.1.in.v.i.i.i.i126
   %.1.i.i.i.i128 = load ptr, ptr %.1.in.i.i.i.i127, align 8, !tbaa !84
   %.not.i.i.i.i129 = icmp eq ptr %.1.i.i.i.i128, null
-  br i1 %.not.i.i.i.i129, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i130, label %298, !llvm.loop !85
+  br i1 %.not.i.i.i.i129, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i130, label %297, !llvm.loop !85
 
-_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i130: ; preds = %298
+_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i130: ; preds = %297
+  %.19.i.i.i.i112.sroa.sel149.v.sroa.sel.v.sroa.sel.v = select i1 %289, ptr %.0811.i.i.i.i111, ptr %.012.i.i.i.i110
+  %.19.i.i.i.i112.sroa.sel149.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i112.sroa.sel149.v.sroa.sel.v.sroa.sel.v, i64 36
+  %301 = load i32, ptr %.19.i.i.i.i112.sroa.sel149.v.sroa.sel.v.sroa.sel, align 4, !tbaa !39
   %302 = icmp eq ptr %.19.i.i.i.i125, %43
   br i1 %302, label %.critedge.i131.invoke, label %303
 
 303:                                              ; preds = %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i130
-  %.19.i.i.i.i125.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %301, ptr %.0811.i.i.i.i124, ptr %.012.i.i.i.i123
+  %.19.i.i.i.i125.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %300, ptr %.0811.i.i.i.i124, ptr %.012.i.i.i.i123
   %.19.i.i.i.i125.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i125.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %304 = load i32, ptr %.19.i.i.i.i125.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !39
-  %305 = icmp slt i32 %297, %304
+  %305 = icmp slt i32 %296, %304
   br i1 %305, label %.critedge.i131.invoke, label %306
 
 .critedge.i131.invoke:                            ; preds = %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i130, %303, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i117, %292, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i104, %281, %_ZN2cv3Mat2atINS_3VecIiLi4EEEEERT_i.exit, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i, %270
@@ -800,14 +800,14 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit.i130: ; preds = %
   unreachable
 
 306:                                              ; preds = %303
-  %.19.i.i.i.i125.sroa.sel152.v.sroa.sel.v.sroa.sel.v = select i1 %301, ptr %.0811.i.i.i.i124, ptr %.012.i.i.i.i123
+  %.19.i.i.i.i125.sroa.sel152.v.sroa.sel.v.sroa.sel.v = select i1 %300, ptr %.0811.i.i.i.i124, ptr %.012.i.i.i.i123
   %.19.i.i.i.i125.sroa.sel152.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i125.sroa.sel152.v.sroa.sel.v.sroa.sel.v, i64 36
   %307 = load i32, ptr %.19.i.i.i.i125.sroa.sel152.v.sroa.sel.v.sroa.sel, align 4, !tbaa !39
-  store i32 %273, ptr %.0.i, align 4
+  store i32 %279, ptr %.0.i, align 4
   %.sroa.5.0..0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  store i32 %284, ptr %.sroa.5.0..0.i.sroa_idx, align 4
+  store i32 %290, ptr %.sroa.5.0..0.i.sroa_idx, align 4
   %.sroa.6.0..0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  store i32 %295, ptr %.sroa.6.0..0.i.sroa_idx, align 4
+  store i32 %301, ptr %.sroa.6.0..0.i.sroa_idx, align 4
   %.sroa.7.0..0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   store i32 %307, ptr %.sroa.7.0..0.i.sroa_idx, align 4
   %308 = add nsw i32 %.053167, 1

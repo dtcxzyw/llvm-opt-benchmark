@@ -4969,9 +4969,9 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_ImNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZN4llvm17TimeTraceProfiler5writeERNSN_17raw_pwrite_streamEEUlRKSF_SS_E_EEEvT_SV_SV_SV_T0_(ptr %0, ptr nonnull %10, ptr %22, ptr nonnull %23)
   br label %24
 
-24:                                               ; preds = %37, %20
-  %.sroa.010.0.i.i = phi ptr [ %10, %20 ], [ %30, %37 ]
-  %.sroa.0.0.i.i = phi ptr [ %storemerge24, %20 ], [ %.sroa.0.1.i.i, %37 ]
+24:                                               ; preds = %36, %20
+  %.sroa.010.0.i.i = phi ptr [ %10, %20 ], [ %30, %36 ]
+  %.sroa.0.0.i.i = phi ptr [ %storemerge24, %20 ], [ %.sroa.0.1.i.i, %36 ]
   %25 = load i64, ptr %11, align 8, !tbaa !46
   br label %26
 
@@ -4981,26 +4981,23 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_
   %28 = load i64, ptr %27, align 8, !tbaa !46
   %29 = icmp slt i64 %25, %28
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 48
-  br i1 %29, label %26, label %.preheader.i.i.preheader, !llvm.loop !212
+  br i1 %29, label %26, label %.preheader.i.i, !llvm.loop !212
 
-.preheader.i.i.preheader:                         ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 40
-  br label %.preheader.i.i
-
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %.preheader.i.i.preheader ]
+.preheader.i.i:                                   ; preds = %26, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %26 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -48
-  %32 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %33 = load i64, ptr %32, align 8, !tbaa !46
-  %34 = icmp slt i64 %33, %25
-  br i1 %34, label %.preheader.i.i, label %35, !llvm.loop !213
+  %31 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
+  %32 = load i64, ptr %31, align 8, !tbaa !46
+  %33 = icmp slt i64 %32, %25
+  br i1 %33, label %.preheader.i.i, label %34, !llvm.loop !213
 
-35:                                               ; preds = %.preheader.i.i
-  %36 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
-  br i1 %36, label %37, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_ImNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZN4llvm17TimeTraceProfiler5writeERNSN_17raw_pwrite_streamEEUlRKSF_SS_E_EEET_SV_SV_T0_.exit
+34:                                               ; preds = %.preheader.i.i
+  %35 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
+  br i1 %35, label %36, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_ImNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZN4llvm17TimeTraceProfiler5writeERNSN_17raw_pwrite_streamEEUlRKSF_SS_E_EEET_SV_SV_T0_.exit
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.010.1.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.1.i.i) #22
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 32
   %40 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
@@ -5008,13 +5005,13 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_
   %42 = load i64, ptr %40, align 8, !tbaa !46
   store i64 %42, ptr %39, align 8, !tbaa !46
   store i64 %41, ptr %40, align 8, !tbaa !46
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %31, align 8, !tbaa !46
-  %43 = load i64, ptr %38, align 8, !tbaa !46
-  store i64 %43, ptr %31, align 8, !tbaa !46
-  store i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr %38, align 8, !tbaa !46
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %38, align 8, !tbaa !46
+  %43 = load i64, ptr %37, align 8, !tbaa !46
+  store i64 %43, ptr %38, align 8, !tbaa !46
+  store i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr %37, align 8, !tbaa !46
   br label %24, !llvm.loop !214
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_ImNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZN4llvm17TimeTraceProfiler5writeERNSN_17raw_pwrite_streamEEUlRKSF_SS_E_EEET_SV_SV_T0_.exit: ; preds = %35
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_ImNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt6vectorISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZN4llvm17TimeTraceProfiler5writeERNSN_17raw_pwrite_streamEEUlRKSF_SS_E_EEET_SV_SV_T0_.exit: ; preds = %34
   %44 = add nsw i64 %.025, -1
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_ImNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt6vectorISF_SaISF_EEEElNS0_5__ops15_Iter_comp_iterIZN4llvm17TimeTraceProfiler5writeERNSN_17raw_pwrite_streamEEUlRKSF_SS_E_EEEvT_SV_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge24, i64 noundef %44)
   %45 = ptrtoint ptr %.sroa.010.1.i.i to i64

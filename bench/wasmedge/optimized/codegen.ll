@@ -1282,8 +1282,8 @@ _ZSt10from_charsImENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %306
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %308, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %307, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !noalias !53
   %310 = getelementptr inbounds nuw i8, ptr %307, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %307, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !noalias !53
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit.i
 
 311:                                              ; preds = %298
@@ -1449,8 +1449,8 @@ _ZSt10from_charsImENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i232.i: ; preds = %378
   %.idx.i.i.i.i.i.i233.i = shl nuw nsw i64 %380, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %379, i8 0, i64 %.idx.i.i.i.i.i.i233.i, i1 false), !noalias !53
   %382 = getelementptr inbounds nuw i8, ptr %379, i64 %.idx.i.i.i.i.i.i233.i
+  call void @llvm.memset.p0.i64(ptr align 8 %379, i8 0, i64 %.idx.i.i.i.i.i.i233.i, i1 false), !noalias !53
   br label %_ZNSt6vectorImSaImEE6resizeEm.exit143.i
 
 383:                                              ; preds = %370

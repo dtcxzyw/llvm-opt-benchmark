@@ -103,41 +103,41 @@ define noundef ptr @Pobsopen(ptr noundef readonly captures(none) %0, i32 noundef
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !8
   %37 = trunc i64 %36 to i32
-  %38 = add i32 %.07186, -1
-  %39 = add i32 %38, %37
-  %40 = icmp sgt i32 %37, 0
-  %41 = sext i32 %.07186 to i64
-  br i1 %40, label %.lr.ph83, label %._crit_edge84
+  %38 = icmp sgt i32 %37, 0
+  %39 = sext i32 %.07186 to i64
+  br i1 %38, label %.lr.ph83, label %._crit_edge84
 
 .lr.ph83:                                         ; preds = %.lr.ph89, %.lr.ph83
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.lr.ph83 ], [ 0, %.lr.ph89 ]
-  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.lr.ph83 ], [ %41, %.lr.ph89 ]
-  %42 = getelementptr inbounds %struct.Pxy_t, ptr %12, i64 %indvars.iv96
-  %43 = load ptr, ptr %34, align 8, !tbaa !25
-  %44 = getelementptr inbounds nuw %struct.Pxy_t, ptr %43, i64 %indvars.iv98
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !26
+  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.lr.ph83 ], [ %39, %.lr.ph89 ]
+  %40 = getelementptr inbounds %struct.Pxy_t, ptr %12, i64 %indvars.iv96
+  %41 = load ptr, ptr %34, align 8, !tbaa !25
+  %42 = getelementptr inbounds nuw %struct.Pxy_t, ptr %41, i64 %indvars.iv98
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !26
   %indvars.iv.next97 = add nsw i64 %indvars.iv96, 1
-  %45 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv96
-  %46 = trunc nsw i64 %indvars.iv.next97 to i32
-  store i32 %46, ptr %45, align 4, !tbaa !24
-  %47 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv96
-  %48 = trunc i64 %indvars.iv96 to i32
-  %49 = add i32 %48, -1
-  store i32 %49, ptr %47, align 4, !tbaa !24
+  %43 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv96
+  %44 = trunc nsw i64 %indvars.iv.next97 to i32
+  store i32 %44, ptr %43, align 4, !tbaa !24
+  %45 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv96
+  %46 = trunc i64 %indvars.iv96 to i32
+  %47 = add i32 %46, -1
+  store i32 %47, ptr %45, align 4, !tbaa !24
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %50 = load i64, ptr %35, align 8, !tbaa !8
-  %sext = shl i64 %50, 32
-  %51 = ashr exact i64 %sext, 32
-  %52 = icmp slt i64 %indvars.iv.next99, %51
-  br i1 %52, label %.lr.ph83, label %._crit_edge84, !llvm.loop !29
+  %48 = load i64, ptr %35, align 8, !tbaa !8
+  %sext = shl i64 %48, 32
+  %49 = ashr exact i64 %sext, 32
+  %50 = icmp slt i64 %indvars.iv.next99, %49
+  br i1 %50, label %.lr.ph83, label %._crit_edge84, !llvm.loop !29
 
 ._crit_edge84:                                    ; preds = %.lr.ph83, %.lr.ph89
-  %.172.lcssa = phi i32 [ %.07186, %.lr.ph89 ], [ %46, %.lr.ph83 ]
-  %53 = sext i32 %39 to i64
+  %.172.lcssa = phi i32 [ %.07186, %.lr.ph89 ], [ %44, %.lr.ph83 ]
+  %51 = add i32 %.07186, -1
+  %52 = add i32 %51, %37
+  %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i32, ptr %18, i64 %53
   store i32 %.07186, ptr %54, align 4, !tbaa !24
-  %55 = getelementptr inbounds i32, ptr %20, i64 %41
-  store i32 %39, ptr %55, align 4, !tbaa !24
+  %55 = getelementptr inbounds i32, ptr %20, i64 %39
+  store i32 %52, ptr %55, align 4, !tbaa !24
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
   br i1 %exitcond107.not, label %._crit_edge90.loopexit, label %.lr.ph89, !llvm.loop !30

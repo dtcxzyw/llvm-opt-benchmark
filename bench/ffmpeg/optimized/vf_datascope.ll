@@ -282,21 +282,21 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %64 = sub nsw i32 %63, %62
   %65 = sdiv i32 %64, %45
   %66 = load i32, ptr %18, align 8, !tbaa !42
-  %67 = sub nsw i32 %66, %55
-  %68 = sdiv i32 %67, %47
-  %69 = icmp sgt i32 %65, 0
-  br i1 %69, label %.lr.ph121, label %.preheader
+  %67 = icmp sgt i32 %65, 0
+  br i1 %67, label %.lr.ph121, label %.preheader
 
 .lr.ph121:                                        ; preds = %41
-  %70 = getelementptr inbounds nuw i8, ptr %9, i64 388
-  %71 = add nuw nsw i32 %.0106.lcssa, 1
-  %72 = getelementptr inbounds nuw i8, ptr %9, i64 184
-  %73 = getelementptr inbounds nuw i8, ptr %22, i64 104
-  %74 = getelementptr inbounds nuw i8, ptr %22, i64 108
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 388
+  %69 = add nuw nsw i32 %.0106.lcssa, 1
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 184
+  %71 = getelementptr inbounds nuw i8, ptr %22, i64 104
+  %72 = getelementptr inbounds nuw i8, ptr %22, i64 108
   br label %81
 
 .preheader:                                       ; preds = %draw_text.exit, %41
-  %75 = icmp sgt i32 %68, 0
+  %73 = sub nsw i32 %66, %55
+  %74 = sdiv i32 %73, %47
+  %75 = icmp sgt i32 %74, 0
   br i1 %75, label %.lr.ph123, label %._crit_edge124
 
 .lr.ph123:                                        ; preds = %.preheader
@@ -313,11 +313,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %83 = add nsw i32 %82, %.0119
   %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 256, ptr noundef nonnull @.str.7, i32 noundef %83) #15
   %85 = mul i32 %.0119, 12
-  %reass.add = add i32 %71, %85
+  %reass.add = add i32 %69, %85
   %reass.mul = mul i32 %reass.add, %.0106.lcssa
   %86 = add i32 %reass.mul, %62
   %87 = add nsw i32 %86, -2
-  tail call void @ff_fill_rectangle(ptr noundef nonnull %26, ptr noundef nonnull %70, ptr noundef nonnull %22, ptr noundef nonnull %28, i32 noundef 0, i32 noundef %87, i32 noundef %55, i32 noundef 10) #15
+  tail call void @ff_fill_rectangle(ptr noundef nonnull %26, ptr noundef nonnull %68, ptr noundef nonnull %22, ptr noundef nonnull %28, i32 noundef 0, i32 noundef %87, i32 noundef %55, i32 noundef 10) #15
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %98, %81
@@ -336,11 +336,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 91:                                               ; preds = %.split.us.i
   %92 = zext i8 %88 to i64
-  %93 = load i32, ptr %73, align 8, !tbaa !52
-  %94 = load i32, ptr %74, align 4, !tbaa !58
+  %93 = load i32, ptr %71, align 8, !tbaa !52
+  %94 = load i32, ptr %72, align 4, !tbaa !58
   %95 = shl nuw nsw i64 %92, 3
   %96 = getelementptr inbounds nuw i8, ptr @avpriv_cga_font, i64 %95
-  tail call void @ff_blend_mask(ptr noundef nonnull %26, ptr noundef nonnull %72, ptr noundef nonnull %22, ptr noundef nonnull %28, i32 noundef %93, i32 noundef %94, ptr noundef nonnull %96, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i, i32 noundef %.018.us.i) #15
+  tail call void @ff_blend_mask(ptr noundef nonnull %26, ptr noundef nonnull %70, ptr noundef nonnull %22, ptr noundef nonnull %28, i32 noundef %93, i32 noundef %94, ptr noundef nonnull %96, i32 noundef 1, i32 noundef 8, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %.0.us.i, i32 noundef %.018.us.i) #15
   %97 = add nsw i32 %.0.us.i, 8
   br label %98
 
@@ -393,7 +393,7 @@ draw_text.exit:                                   ; preds = %.split.us.i
 
 draw_text.exit115:                                ; preds = %.split.i
   %119 = add nuw nsw i32 %.0102122, 1
-  %exitcond126.not = icmp eq i32 %119, %68
+  %exitcond126.not = icmp eq i32 %119, %74
   br i1 %exitcond126.not, label %._crit_edge124, label %101, !llvm.loop !61
 
 ._crit_edge124:                                   ; preds = %draw_text.exit115, %.preheader

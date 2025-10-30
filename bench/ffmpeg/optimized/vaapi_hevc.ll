@@ -1031,12 +1031,12 @@ fill_vaapi_reference_frames.exit:                 ; preds = %fill_vaapi_pic.exit
   %.sroa.30.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 612
   store i8 %510, ptr %.sroa.30.0..sroa_idx, align 4, !tbaa !136
   %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 613
-  %.sroa.32.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 619
   %511 = getelementptr inbounds nuw i8, ptr %18, i64 1639
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.31.0..sroa_idx, i8 0, i64 15, i1 false)
   br label %513
 
 .preheader352:                                    ; preds = %513
+  %.sroa.32.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 619
   %512 = getelementptr inbounds nuw i8, ptr %18, i64 1645
   br label %517
 

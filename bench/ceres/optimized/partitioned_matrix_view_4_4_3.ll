@@ -2069,9 +2069,9 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi4ELi4E
 .lr.ph:                                           ; preds = %29
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !92
-  %42 = load ptr, ptr %6, align 8, !tbaa !38
-  %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds double, ptr %1, i64 %43
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds double, ptr %1, i64 %42
+  %44 = load ptr, ptr %6, align 8, !tbaa !38
   br label %45
 
 ._crit_edge:                                      ; preds = %_ZN5ceres8internal29MatrixTransposeVectorMultiplyILi4ELi3ELi1EEEvPKdiiS3_Pd.exit, %29
@@ -2082,20 +2082,20 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi4ELi4E
 45:                                               ; preds = %.lr.ph, %_ZN5ceres8internal29MatrixTransposeVectorMultiplyILi4ELi3ELi1EEEvPKdiiS3_Pd.exit
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZN5ceres8internal29MatrixTransposeVectorMultiplyILi4ELi3ELi1EEEvPKdiiS3_Pd.exit ]
   %46 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %34, i64 %indvars.iv
-  %47 = load i32, ptr %46, align 4, !tbaa !48
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %42, i64 %48
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !93
-  %52 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %53 = load i32, ptr %52, align 4, !tbaa !94
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds double, ptr %9, i64 %54
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %48 = load i32, ptr %47, align 4, !tbaa !94
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds double, ptr %9, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   br label %62
 
-57:                                               ; preds = %62
-  %58 = sext i32 %51 to i64
+52:                                               ; preds = %62
+  %53 = load i32, ptr %46, align 4, !tbaa !48
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %44, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  %57 = load i32, ptr %56, align 4, !tbaa !93
+  %58 = sext i32 %57 to i64
   %gep = getelementptr double, ptr %invariant.gep, i64 %58
   %59 = getelementptr inbounds nuw i8, ptr %gep, i64 16
   %60 = load double, ptr %59, align 8, !tbaa !95
@@ -2104,8 +2104,8 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi4ELi4E
   br label %69
 
 62:                                               ; preds = %62, %45
-  %.041.i = phi ptr [ %56, %45 ], [ %67, %62 ]
-  %.03540.i = phi ptr [ %44, %45 ], [ %64, %62 ]
+  %.041.i = phi ptr [ %51, %45 ], [ %67, %62 ]
+  %.03540.i = phi ptr [ %43, %45 ], [ %64, %62 ]
   %.03639.i = phi i32 [ 0, %45 ], [ %68, %62 ]
   %.03738.i = phi double [ 0.000000e+00, %45 ], [ %66, %62 ]
   %63 = load double, ptr %.041.i, align 8, !tbaa !95
@@ -2115,14 +2115,14 @@ define weak_odr hidden void @_ZNK5ceres8internal21PartitionedMatrixViewILi4ELi4E
   %67 = getelementptr inbounds nuw i8, ptr %.041.i, i64 24
   %68 = add nuw nsw i32 %.03639.i, 1
   %exitcond.not.i = icmp eq i32 %68, 4
-  br i1 %exitcond.not.i, label %57, label %62, !llvm.loop !111
+  br i1 %exitcond.not.i, label %52, label %62, !llvm.loop !111
 
-69:                                               ; preds = %69, %57
-  %.03046.i = phi i32 [ 0, %57 ], [ %78, %69 ]
-  %.03145.i = phi double [ 0.000000e+00, %57 ], [ %76, %69 ]
-  %.03244.i = phi double [ 0.000000e+00, %57 ], [ %73, %69 ]
-  %.03343.i = phi ptr [ %44, %57 ], [ %70, %69 ]
-  %.03442.i = phi ptr [ %55, %57 ], [ %77, %69 ]
+69:                                               ; preds = %69, %52
+  %.03046.i = phi i32 [ 0, %52 ], [ %78, %69 ]
+  %.03145.i = phi double [ 0.000000e+00, %52 ], [ %76, %69 ]
+  %.03244.i = phi double [ 0.000000e+00, %52 ], [ %73, %69 ]
+  %.03343.i = phi ptr [ %43, %52 ], [ %70, %69 ]
+  %.03442.i = phi ptr [ %50, %52 ], [ %77, %69 ]
   %70 = getelementptr inbounds nuw i8, ptr %.03343.i, i64 8
   %71 = load double, ptr %.03343.i, align 8, !tbaa !95
   %72 = load double, ptr %.03442.i, align 8, !tbaa !95

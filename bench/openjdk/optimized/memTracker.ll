@@ -444,10 +444,6 @@ define hidden void @_ZN10MemTracker6reportEbP12outputStreamm(i1 noundef zeroext 
   %4 = alloca %class.MemBaseline, align 8
   %5 = alloca %class.MemSummaryReporter, align 8
   %6 = alloca %class.MemDetailReporter, align 8
-  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink.sroa.gep18 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink.sroa.gep20 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink.sroa.gep21 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %7
 
 7:                                                ; preds = %7, %3
@@ -495,6 +491,10 @@ _ZN20MallocMemorySnapshotC2Ev.exit.i:             ; preds = %7
   br i1 %23, label %_ZN11MemBaselineC2Ev.exit, label %21
 
 _ZN11MemBaselineC2Ev.exit:                        ; preds = %21
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink.sroa.gep18 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink.sroa.gep20 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink.sroa.gep21 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 2496
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 2592
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 2600

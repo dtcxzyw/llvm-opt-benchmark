@@ -908,10 +908,13 @@ define dso_local noundef ptr @_ZN23btHashedSimplePairCache21removeOverlappingPai
   br i1 %cond.i, label %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread, label %31, !llvm.loop !38
 
 _ZN23btHashedSimplePairCache16internalFindPairEiii.exit: ; preds = %31
-  %42 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !27
   %.not57 = icmp eq i32 %.010.i, %.012.i
   br i1 %.not57, label %._crit_edge.thread, label %.lr.ph
+
+._crit_edge.thread:                               ; preds = %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !27
+  br label %53
 
 .lr.ph:                                           ; preds = %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit, %.lr.ph
   %.04258 = phi i32 [ %.042, %.lr.ph ], [ %.010.i, %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit ]
@@ -922,107 +925,111 @@ _ZN23btHashedSimplePairCache16internalFindPairEiii.exit: ; preds = %31
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph
+  %46 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !27
   %.not49 = icmp eq i32 %.04258, -1
-  br i1 %.not49, label %._crit_edge.thread, label %46
+  br i1 %.not49, label %53, label %48
 
-46:                                               ; preds = %._crit_edge
-  %47 = getelementptr inbounds i32, ptr %30, i64 %32
-  %48 = load i32, ptr %47, align 4, !tbaa !26
-  %49 = sext i32 %.04258 to i64
-  %50 = getelementptr inbounds i32, ptr %30, i64 %49
-  store i32 %48, ptr %50, align 4, !tbaa !26
-  br label %53
+48:                                               ; preds = %._crit_edge
+  %49 = getelementptr inbounds i32, ptr %30, i64 %32
+  %50 = load i32, ptr %49, align 4, !tbaa !26
+  %51 = sext i32 %.04258 to i64
+  %52 = getelementptr inbounds i32, ptr %30, i64 %51
+  store i32 %50, ptr %52, align 4, !tbaa !26
+  br label %57
 
-._crit_edge.thread:                               ; preds = %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit, %._crit_edge
-  %51 = getelementptr inbounds i32, ptr %30, i64 %32
-  %52 = load i32, ptr %51, align 4, !tbaa !26
-  store i32 %52, ptr %26, align 4, !tbaa !26
-  br label %53
+53:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %54 = phi ptr [ %43, %._crit_edge.thread ], [ %47, %._crit_edge ]
+  %55 = getelementptr inbounds i32, ptr %30, i64 %32
+  %56 = load i32, ptr %55, align 4, !tbaa !26
+  store i32 %56, ptr %26, align 4, !tbaa !26
+  br label %57
 
-53:                                               ; preds = %._crit_edge.thread, %46
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %55 = load i32, ptr %54, align 4, !tbaa !16
-  %56 = add nsw i32 %55, -1
-  %57 = icmp eq i32 %56, %.012.i
-  br i1 %57, label %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread.sink.split, label %58
+57:                                               ; preds = %53, %48
+  %58 = phi ptr [ %54, %53 ], [ %47, %48 ]
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %60 = load i32, ptr %59, align 4, !tbaa !16
+  %61 = add nsw i32 %60, -1
+  %62 = icmp eq i32 %61, %.012.i
+  br i1 %62, label %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread.sink.split, label %63
 
-58:                                               ; preds = %53
-  %59 = sext i32 %56 to i64
-  %60 = getelementptr inbounds %struct.btSimplePair, ptr %28, i64 %59
-  %61 = load i32, ptr %60, align 8, !tbaa !33
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %63 = load i32, ptr %62, align 4, !tbaa !35
-  %64 = shl i32 %63, 16
-  %65 = or i32 %64, %61
-  %66 = shl i32 %65, 15
-  %67 = xor i32 %66, -1
-  %68 = add i32 %65, %67
-  %69 = lshr i32 %68, 10
-  %70 = xor i32 %69, %68
-  %71 = mul i32 %70, 9
-  %72 = lshr i32 %71, 6
-  %73 = xor i32 %72, %71
-  %74 = shl i32 %73, 11
-  %75 = xor i32 %74, -1
-  %76 = add i32 %73, %75
-  %77 = lshr i32 %76, 16
+63:                                               ; preds = %57
+  %64 = sext i32 %61 to i64
+  %65 = getelementptr inbounds %struct.btSimplePair, ptr %28, i64 %64
+  %66 = load i32, ptr %65, align 8, !tbaa !33
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  %68 = load i32, ptr %67, align 4, !tbaa !35
+  %69 = shl i32 %68, 16
+  %70 = or i32 %69, %66
+  %71 = shl i32 %70, 15
+  %72 = xor i32 %71, -1
+  %73 = add i32 %70, %72
+  %74 = lshr i32 %73, 10
+  %75 = xor i32 %74, %73
+  %76 = mul i32 %75, 9
+  %77 = lshr i32 %76, 6
   %78 = xor i32 %77, %76
-  %79 = load i32, ptr %19, align 8, !tbaa !17
-  %80 = add nsw i32 %79, -1
-  %81 = and i32 %78, %80
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i32, ptr %24, i64 %82
-  %.14359 = load i32, ptr %83, align 4, !tbaa !26
-  %.not5060 = icmp eq i32 %.14359, %56
+  %79 = shl i32 %78, 11
+  %80 = xor i32 %79, -1
+  %81 = add i32 %78, %80
+  %82 = lshr i32 %81, 16
+  %83 = xor i32 %82, %81
+  %84 = load i32, ptr %19, align 8, !tbaa !17
+  %85 = add nsw i32 %84, -1
+  %86 = and i32 %83, %85
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds i32, ptr %24, i64 %87
+  %.14359 = load i32, ptr %88, align 4, !tbaa !26
+  %.not5060 = icmp eq i32 %.14359, %61
   br i1 %.not5060, label %._crit_edge64.thread, label %.lr.ph63
 
-.lr.ph63:                                         ; preds = %58, %.lr.ph63
-  %.14361 = phi i32 [ %.143, %.lr.ph63 ], [ %.14359, %58 ]
-  %84 = sext i32 %.14361 to i64
-  %85 = getelementptr inbounds i32, ptr %30, i64 %84
-  %.143 = load i32, ptr %85, align 4, !tbaa !26
-  %.not50 = icmp eq i32 %.143, %56
+.lr.ph63:                                         ; preds = %63, %.lr.ph63
+  %.14361 = phi i32 [ %.143, %.lr.ph63 ], [ %.14359, %63 ]
+  %89 = sext i32 %.14361 to i64
+  %90 = getelementptr inbounds i32, ptr %30, i64 %89
+  %.143 = load i32, ptr %90, align 4, !tbaa !26
+  %.not50 = icmp eq i32 %.143, %61
   br i1 %.not50, label %._crit_edge64, label %.lr.ph63, !llvm.loop !40
 
 ._crit_edge64:                                    ; preds = %.lr.ph63
   %.not51 = icmp eq i32 %.14361, -1
-  br i1 %.not51, label %._crit_edge64.thread, label %86
+  br i1 %.not51, label %._crit_edge64.thread, label %91
 
-86:                                               ; preds = %._crit_edge64
-  %87 = getelementptr inbounds i32, ptr %30, i64 %59
-  %88 = load i32, ptr %87, align 4, !tbaa !26
-  %89 = sext i32 %.14361 to i64
-  %90 = getelementptr inbounds i32, ptr %30, i64 %89
-  store i32 %88, ptr %90, align 4, !tbaa !26
-  br label %93
+91:                                               ; preds = %._crit_edge64
+  %92 = getelementptr inbounds i32, ptr %30, i64 %64
+  %93 = load i32, ptr %92, align 4, !tbaa !26
+  %94 = sext i32 %.14361 to i64
+  %95 = getelementptr inbounds i32, ptr %30, i64 %94
+  store i32 %93, ptr %95, align 4, !tbaa !26
+  br label %98
 
-._crit_edge64.thread:                             ; preds = %58, %._crit_edge64
-  %91 = getelementptr inbounds i32, ptr %30, i64 %59
-  %92 = load i32, ptr %91, align 4, !tbaa !26
-  store i32 %92, ptr %83, align 4, !tbaa !26
-  br label %93
-
-93:                                               ; preds = %._crit_edge64.thread, %86
-  %94 = getelementptr inbounds %struct.btSimplePair, ptr %28, i64 %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !25
-  %95 = load ptr, ptr %23, align 8, !tbaa !22
-  %96 = getelementptr inbounds i32, ptr %95, i64 %82
+._crit_edge64.thread:                             ; preds = %63, %._crit_edge64
+  %96 = getelementptr inbounds i32, ptr %30, i64 %64
   %97 = load i32, ptr %96, align 4, !tbaa !26
-  %98 = load ptr, ptr %29, align 8, !tbaa !22
-  %99 = getelementptr inbounds i32, ptr %98, i64 %32
-  store i32 %97, ptr %99, align 4, !tbaa !26
-  store i32 %.012.i, ptr %96, align 4, !tbaa !26
-  %100 = load i32, ptr %54, align 4, !tbaa !16
-  %101 = add nsw i32 %100, -1
+  store i32 %97, ptr %88, align 4, !tbaa !26
+  br label %98
+
+98:                                               ; preds = %._crit_edge64.thread, %91
+  %99 = getelementptr inbounds %struct.btSimplePair, ptr %28, i64 %32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false), !tbaa.struct !25
+  %100 = load ptr, ptr %23, align 8, !tbaa !22
+  %101 = getelementptr inbounds i32, ptr %100, i64 %87
+  %102 = load i32, ptr %101, align 4, !tbaa !26
+  %103 = load ptr, ptr %29, align 8, !tbaa !22
+  %104 = getelementptr inbounds i32, ptr %103, i64 %32
+  store i32 %102, ptr %104, align 4, !tbaa !26
+  store i32 %.012.i, ptr %101, align 4, !tbaa !26
+  %105 = load i32, ptr %59, align 4, !tbaa !16
+  %106 = add nsw i32 %105, -1
   br label %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread.sink.split
 
-_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread.sink.split: ; preds = %53, %93
-  %.012.i.lcssa.sink = phi i32 [ %101, %93 ], [ %.012.i, %53 ]
-  store i32 %.012.i.lcssa.sink, ptr %54, align 4, !tbaa !16
+_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread.sink.split: ; preds = %57, %98
+  %.012.i.lcssa.sink = phi i32 [ %106, %98 ], [ %.012.i, %57 ]
+  store i32 %.012.i.lcssa.sink, ptr %59, align 4, !tbaa !16
   br label %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread
 
 _ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread: ; preds = %40, %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread.sink.split, %3
-  %.0 = phi ptr [ null, %3 ], [ %43, %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread.sink.split ], [ null, %40 ]
+  %.0 = phi ptr [ null, %3 ], [ %58, %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread.sink.split ], [ null, %40 ]
   ret ptr %.0
 }
 

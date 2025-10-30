@@ -444,41 +444,41 @@ define dso_local void @_ZN4llvm24AArch64TargetELFStreamer6finishEv(ptr noundef n
   br i1 %22, label %23, label %299
 
 23:                                               ; preds = %1
-  %24 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %25 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %26 = load i32, ptr %25, align 8, !tbaa !90
-  %27 = zext i32 %26 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %25 = load i32, ptr %24, align 8, !tbaa !90
+  %26 = zext i32 %25 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
-  %28 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !91
-  %30 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %31 = load i32, ptr %30, align 8, !tbaa !90
-  %32 = zext i32 %31 to i64
-  %.idx = shl nuw nsw i64 %32, 3
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
-  %.not180192 = icmp eq i32 %31, 0
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %28 = load ptr, ptr %27, align 8, !tbaa !91
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %30 = load i32, ptr %29, align 8, !tbaa !90
+  %31 = zext i32 %30 to i64
+  %.idx = shl nuw nsw i64 %31, 3
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
+  %.not180192 = icmp eq i32 %30, 0
   br i1 %.not180192, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
-  %34 = getelementptr inbounds nuw i8, ptr %.val, i64 6640
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.val, i64 6640
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.4171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %37
 
 ._crit_edge:                                      ; preds = %54
-  %.pre = load i32, ptr %25, align 8, !tbaa !90
-  %36 = icmp eq i32 %.pre, %26
-  br i1 %36, label %._crit_edge.thread, label %56
+  %.pre = load i32, ptr %24, align 8, !tbaa !90
+  %35 = icmp eq i32 %.pre, %25
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  br i1 %35, label %._crit_edge.thread, label %56
 
 37:                                               ; preds = %.lr.ph, %54
-  %.sroa.0174.0193 = phi ptr [ %29, %.lr.ph ], [ %55, %54 ]
+  %.sroa.0174.0193 = phi ptr [ %28, %.lr.ph ], [ %55, %54 ]
   %38 = load ptr, ptr %.sroa.0174.0193, align 8, !tbaa !92
   %39 = load ptr, ptr %.val, align 8, !tbaa !80
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 176
   %41 = load ptr, ptr %40, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(296) %.val, ptr noundef nonnull %38, i32 noundef 0) #14
-  %42 = load i32, ptr %34, align 8, !tbaa !18
+  %42 = load i32, ptr %33, align 8, !tbaa !18
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %44 = load i8, ptr %43, align 8
   %45 = and i8 %44, 16
@@ -497,17 +497,17 @@ define dso_local void @_ZN4llvm24AArch64TargetELFStreamer6finishEv(ptr noundef n
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(6645) %.val, ptr noundef %50, ptr null) #14
   store ptr %38, ptr %5, align 8, !tbaa !94
-  store i64 %27, ptr %35, align 8
+  store i64 %26, ptr %34, align 8
   store ptr %50, ptr %.sroa.4171.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9MCSectionESt4pairImPNS_8MCSymbolEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E11try_emplaceIJS7_EEES4_INS_16DenseMapIteratorIS3_S7_S9_SC_Lb0EEEbEOS3_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(16) %35)
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9MCSectionESt4pairImPNS_8MCSymbolEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E11try_emplaceIJS7_EEES4_INS_16DenseMapIteratorIS3_S7_S9_SC_Lb0EEEbEOS3_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(16) %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 54:                                               ; preds = %48, %37
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.0174.0193, i64 8
-  %.not180 = icmp eq ptr %55, %33
+  %.not180 = icmp eq ptr %55, %32
   br i1 %.not180, label %._crit_edge, label %37
 
 56:                                               ; preds = %._crit_edge
@@ -518,11 +518,11 @@ define dso_local void @_ZN4llvm24AArch64TargetELFStreamer6finishEv(ptr noundef n
   store i32 0, ptr %58, align 8, !tbaa !90
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %59, align 4, !tbaa !97
-  store i32 %26, ptr %25, align 8, !tbaa !90
-  %60 = load ptr, ptr %24, align 8, !tbaa !91, !noalias !98
-  %.idx218 = shl nuw nsw i64 %27, 3
+  store i32 %25, ptr %24, align 8, !tbaa !90
+  %60 = load ptr, ptr %36, align 8, !tbaa !91, !noalias !98
+  %.idx218 = shl nuw nsw i64 %26, 3
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx218
-  %.not181194 = icmp eq i32 %26, 0
+  %.not181194 = icmp eq i32 %25, 0
   br i1 %.not181194, label %._crit_edge199.thread, label %.lr.ph198
 
 ._crit_edge199.thread:                            ; preds = %56
@@ -540,8 +540,8 @@ define dso_local void @_ZN4llvm24AArch64TargetELFStreamer6finishEv(ptr noundef n
   br label %72
 
 ._crit_edge199:                                   ; preds = %_ZNK4llvm8MCSymbol11isInSectionEv.exit.thread
-  %.pre224 = load ptr, ptr %24, align 8, !tbaa !91, !noalias !103
-  %.pre225 = load i32, ptr %25, align 8, !tbaa !90, !noalias !108
+  %.pre224 = load ptr, ptr %36, align 8, !tbaa !91, !noalias !103
+  %.pre225 = load i32, ptr %24, align 8, !tbaa !90, !noalias !108
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %66, ptr %8, align 8, !tbaa !91
@@ -676,7 +676,7 @@ _ZNK4llvm8MCSymbol11isInSectionEv.exit.thread:    ; preds = %75, %_ZNK4llvm8MCSy
 ._crit_edge205:                                   ; preds = %.critedge, %._crit_edge199.thread, %._crit_edge199
   %128 = phi ptr [ %63, %._crit_edge199.thread ], [ %67, %._crit_edge199 ], [ %67, %.critedge ]
   %129 = phi ptr [ %62, %._crit_edge199.thread ], [ %66, %._crit_edge199 ], [ %66, %.critedge ]
-  %130 = icmp eq ptr %24, %7
+  %130 = icmp eq ptr %36, %7
   br i1 %130, label %_ZN4llvm15SmallVectorImplIPKNS_8MCSymbolEEaSEOS4_.exit, label %131
 
 131:                                              ; preds = %._crit_edge205
@@ -685,7 +685,7 @@ _ZNK4llvm8MCSymbol11isInSectionEv.exit.thread:    ; preds = %75, %_ZNK4llvm8MCSy
   br i1 %133, label %143, label %134
 
 134:                                              ; preds = %131
-  %135 = load ptr, ptr %24, align 8, !tbaa !91
+  %135 = load ptr, ptr %36, align 8, !tbaa !91
   %136 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %137 = icmp eq ptr %135, %136
   br i1 %137, label %_ZN4llvm15SmallVectorImplIPKNS_8MCSymbolEE12assignRemoteEOS4_.exit.i, label %138
@@ -697,9 +697,9 @@ _ZNK4llvm8MCSymbol11isInSectionEv.exit.thread:    ; preds = %75, %_ZNK4llvm8MCSy
 
 _ZN4llvm15SmallVectorImplIPKNS_8MCSymbolEE12assignRemoteEOS4_.exit.i: ; preds = %138, %134
   %139 = phi ptr [ %132, %134 ], [ %.pre.i, %138 ]
-  store ptr %139, ptr %24, align 8, !tbaa !91
+  store ptr %139, ptr %36, align 8, !tbaa !91
   %140 = load i32, ptr %58, align 8, !tbaa !90
-  store i32 %140, ptr %25, align 8, !tbaa !90
+  store i32 %140, ptr %24, align 8, !tbaa !90
   %141 = load i32, ptr %59, align 4, !tbaa !97
   %142 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 %141, ptr %142, align 4, !tbaa !97
@@ -710,7 +710,7 @@ _ZN4llvm15SmallVectorImplIPKNS_8MCSymbolEE12assignRemoteEOS4_.exit.i: ; preds = 
 143:                                              ; preds = %131
   %144 = load i32, ptr %58, align 8, !tbaa !90
   %145 = zext i32 %144 to i64
-  %146 = load i32, ptr %25, align 8, !tbaa !90
+  %146 = load i32, ptr %24, align 8, !tbaa !90
   %147 = zext i32 %146 to i64
   %.not.i77 = icmp ult i32 %146, %144
   br i1 %.not.i77, label %151, label %148
@@ -720,13 +720,13 @@ _ZN4llvm15SmallVectorImplIPKNS_8MCSymbolEE12assignRemoteEOS4_.exit.i: ; preds = 
   br i1 %.not33.i, label %_ZSt4moveIPPKN4llvm8MCSymbolES4_ET0_T_S6_S5_.exit.i, label %149
 
 149:                                              ; preds = %148
-  %150 = load ptr, ptr %24, align 8, !tbaa !91
+  %150 = load ptr, ptr %36, align 8, !tbaa !91
   %.idx.i = shl nuw nsw i64 %145, 3
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %150, ptr align 8 %132, i64 %.idx.i, i1 false)
   br label %_ZSt4moveIPPKN4llvm8MCSymbolES4_ET0_T_S6_S5_.exit.i
 
 _ZSt4moveIPPKN4llvm8MCSymbolES4_ET0_T_S6_S5_.exit.i: ; preds = %149, %148
-  store i32 %144, ptr %25, align 8, !tbaa !90
+  store i32 %144, ptr %24, align 8, !tbaa !90
   br label %_ZN4llvm15SmallVectorImplIPKNS_8MCSymbolEEaSEOS4_.exit.sink.split
 
 151:                                              ; preds = %143
@@ -736,9 +736,9 @@ _ZSt4moveIPPKN4llvm8MCSymbolES4_ET0_T_S6_S5_.exit.i: ; preds = %149, %148
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %151
-  store i32 0, ptr %25, align 8, !tbaa !90
+  store i32 0, ptr %24, align 8, !tbaa !90
   %156 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %156, i64 noundef %145, i64 noundef 8) #14
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull %156, i64 noundef %145, i64 noundef 8) #14
   br label %_ZSt4moveIPPKN4llvm8MCSymbolES4_ET0_T_S6_S5_.exit35.i
 
 157:                                              ; preds = %151
@@ -747,7 +747,7 @@ _ZSt4moveIPPKN4llvm8MCSymbolES4_ET0_T_S6_S5_.exit.i: ; preds = %149, %148
 
 158:                                              ; preds = %157
   %.idx37.i = shl nuw nsw i64 %147, 3
-  %159 = load ptr, ptr %24, align 8, !tbaa !91
+  %159 = load ptr, ptr %36, align 8, !tbaa !91
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %159, ptr align 8 %132, i64 %.idx37.i, i1 false)
   br label %_ZSt4moveIPPKN4llvm8MCSymbolES4_ET0_T_S6_S5_.exit35.i
 
@@ -762,7 +762,7 @@ _ZSt4moveIPPKN4llvm8MCSymbolES4_ET0_T_S6_S5_.exit35.i: ; preds = %158, %157, %15
   %163 = load ptr, ptr %7, align 8, !tbaa !91
   %.idx40.i = shl nuw nsw i64 %.026.i, 3
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 %.idx40.i
-  %165 = load ptr, ptr %24, align 8, !tbaa !91
+  %165 = load ptr, ptr %36, align 8, !tbaa !91
   %166 = getelementptr inbounds nuw ptr, ptr %165, i64 %.026.i
   %167 = sub nsw i64 %161, %.026.i
   %gepdiff.i = shl nsw i64 %167, 3
@@ -770,7 +770,7 @@ _ZSt4moveIPPKN4llvm8MCSymbolES4_ET0_T_S6_S5_.exit35.i: ; preds = %158, %157, %15
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_8MCSymbolELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseIPKNS_8MCSymbolELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %162, %_ZSt4moveIPPKN4llvm8MCSymbolES4_ET0_T_S6_S5_.exit35.i
-  store i32 %144, ptr %25, align 8, !tbaa !90
+  store i32 %144, ptr %24, align 8, !tbaa !90
   br label %_ZN4llvm15SmallVectorImplIPKNS_8MCSymbolEEaSEOS4_.exit.sink.split
 
 _ZN4llvm15SmallVectorImplIPKNS_8MCSymbolEEaSEOS4_.exit.sink.split: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_8MCSymbolELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i, %_ZSt4moveIPPKN4llvm8MCSymbolES4_ET0_T_S6_S5_.exit.i, %_ZN4llvm15SmallVectorImplIPKNS_8MCSymbolEE12assignRemoteEOS4_.exit.i

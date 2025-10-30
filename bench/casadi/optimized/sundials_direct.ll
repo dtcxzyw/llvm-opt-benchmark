@@ -562,16 +562,16 @@ define void @PrintMat(ptr noundef readonly captures(none) %0) local_unnamed_addr
   %.152 = phi i64 [ 0, %.lr.ph54 ], [ %52, %._crit_edge ]
   %34 = load i64, ptr %29, align 8, !tbaa !24
   %35 = sub i64 %.152, %34
-  %spec.select = tail call i64 @llvm.smax.i64(i64 %35, i64 0)
   %36 = load i64, ptr %30, align 8, !tbaa !23
-  %37 = add nsw i64 %36, %.152
-  %38 = add nsw i64 %33, -1
-  %39 = tail call i64 @llvm.smin.i64(i64 %37, i64 %38)
-  %40 = icmp sgt i64 %35, 0
-  br i1 %40, label %.lr.ph, label %.preheader47
+  %37 = icmp sgt i64 %35, 0
+  br i1 %37, label %.lr.ph, label %.preheader47
 
 .preheader47:                                     ; preds = %.lr.ph, %32
-  %.not4249 = icmp sgt i64 %spec.select, %39
+  %spec.select = tail call i64 @llvm.smax.i64(i64 %35, i64 0)
+  %38 = add nsw i64 %36, %.152
+  %39 = add nsw i64 %33, -1
+  %40 = tail call i64 @llvm.smin.i64(i64 %38, i64 %39)
+  %.not4249 = icmp sgt i64 %spec.select, %40
   br i1 %.not4249, label %._crit_edge, label %.lr.ph51
 
 .lr.ph:                                           ; preds = %32, %.lr.ph
@@ -592,7 +592,7 @@ define void @PrintMat(ptr noundef readonly captures(none) %0) local_unnamed_addr
   %49 = load double, ptr %48, align 8, !tbaa !27
   %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, double noundef %49)
   %51 = add nuw nsw i64 %.250, 1
-  %.not42.not = icmp slt i64 %.250, %39
+  %.not42.not = icmp slt i64 %.250, %40
   br i1 %.not42.not, label %.lr.ph51, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph51, %.preheader47

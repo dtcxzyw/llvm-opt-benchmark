@@ -583,51 +583,51 @@ define i64 @adjoint_derivative_compute(ptr noundef readonly captures(address_is_
   %162 = tail call ptr @OSQPVectorf_data(ptr noundef %157) #6
   tail call void @OSQPVectorf_subvector_assign(ptr noundef %159, ptr noundef %162, i64 noundef %161, i64 noundef %.0309.lcssa, double noundef -1.000000e+00) #6
   tail call void @OSQPVectorf_free(ptr noundef %157) #6
-  %163 = add nsw i64 %161, %.0309.lcssa
-  %164 = shl i64 %.0311.lcssa, 3
-  %165 = tail call noalias ptr @malloc(i64 noundef %164) #7
-  %166 = icmp sgt i64 %.0311.lcssa, 0
-  br i1 %166, label %.lr.ph336, label %._crit_edge337
+  %163 = shl i64 %.0311.lcssa, 3
+  %164 = tail call noalias ptr @malloc(i64 noundef %163) #7
+  %165 = icmp sgt i64 %.0311.lcssa, 0
+  br i1 %165, label %.lr.ph336, label %._crit_edge337
 
-.lr.ph336:                                        ; preds = %._crit_edge, %181
-  %.1314334 = phi i64 [ %182, %181 ], [ 0, %._crit_edge ]
-  %167 = getelementptr inbounds nuw i64, ptr %95, i64 %.1314334
-  %168 = load i64, ptr %167, align 8, !tbaa !42
-  switch i64 %168, label %181 [
-    i64 1, label %169
-    i64 -1, label %174
+.lr.ph336:                                        ; preds = %._crit_edge, %180
+  %.1314334 = phi i64 [ %181, %180 ], [ 0, %._crit_edge ]
+  %166 = getelementptr inbounds nuw i64, ptr %95, i64 %.1314334
+  %167 = load i64, ptr %166, align 8, !tbaa !42
+  switch i64 %167, label %180 [
+    i64 1, label %168
+    i64 -1, label %173
   ]
 
-169:                                              ; preds = %.lr.ph336
-  %170 = getelementptr inbounds nuw i64, ptr %92, i64 %.1314334
-  %171 = load i64, ptr %170, align 8, !tbaa !42
-  %172 = getelementptr inbounds double, ptr %3, i64 %171
-  %173 = load double, ptr %172, align 8, !tbaa !47
+168:                                              ; preds = %.lr.ph336
+  %169 = getelementptr inbounds nuw i64, ptr %92, i64 %.1314334
+  %170 = load i64, ptr %169, align 8, !tbaa !42
+  %171 = getelementptr inbounds double, ptr %3, i64 %170
+  %172 = load double, ptr %171, align 8, !tbaa !47
   br label %.sink.split
 
-174:                                              ; preds = %.lr.ph336
-  %175 = getelementptr inbounds nuw i64, ptr %92, i64 %.1314334
-  %176 = load i64, ptr %175, align 8, !tbaa !42
-  %177 = getelementptr inbounds double, ptr %2, i64 %176
-  %178 = load double, ptr %177, align 8, !tbaa !47
-  %179 = fneg double %178
+173:                                              ; preds = %.lr.ph336
+  %174 = getelementptr inbounds nuw i64, ptr %92, i64 %.1314334
+  %175 = load i64, ptr %174, align 8, !tbaa !42
+  %176 = getelementptr inbounds double, ptr %2, i64 %175
+  %177 = load double, ptr %176, align 8, !tbaa !47
+  %178 = fneg double %177
   br label %.sink.split
 
-.sink.split:                                      ; preds = %174, %169
-  %.sink377 = phi double [ %173, %169 ], [ %179, %174 ]
-  %180 = getelementptr inbounds nuw double, ptr %165, i64 %.1314334
-  store double %.sink377, ptr %180, align 8, !tbaa !47
-  br label %181
+.sink.split:                                      ; preds = %173, %168
+  %.sink377 = phi double [ %172, %168 ], [ %178, %173 ]
+  %179 = getelementptr inbounds nuw double, ptr %164, i64 %.1314334
+  store double %.sink377, ptr %179, align 8, !tbaa !47
+  br label %180
 
-181:                                              ; preds = %.sink.split, %.lr.ph336
-  %182 = add nuw nsw i64 %.1314334, 1
-  %exitcond358.not = icmp eq i64 %182, %.0311.lcssa
+180:                                              ; preds = %.sink.split, %.lr.ph336
+  %181 = add nuw nsw i64 %.1314334, 1
+  %exitcond358.not = icmp eq i64 %181, %.0311.lcssa
   br i1 %exitcond358.not, label %._crit_edge337, label %.lr.ph336, !llvm.loop !62
 
-._crit_edge337:                                   ; preds = %181, %._crit_edge
-  tail call void @OSQPVectorf_subvector_assign(ptr noundef %159, ptr noundef %165, i64 noundef %163, i64 noundef %.0311.lcssa, double noundef -1.000000e+00) #6
-  tail call void @free(ptr noundef %165) #6
-  %183 = add nsw i64 %163, %.0311.lcssa
+._crit_edge337:                                   ; preds = %180, %._crit_edge
+  %182 = add nsw i64 %161, %.0309.lcssa
+  tail call void @OSQPVectorf_subvector_assign(ptr noundef %159, ptr noundef %164, i64 noundef %182, i64 noundef %.0311.lcssa, double noundef -1.000000e+00) #6
+  tail call void @free(ptr noundef %164) #6
+  %183 = add nsw i64 %182, %.0311.lcssa
   tail call void @OSQPVectorf_subvector_assign_scalar(ptr noundef %159, double noundef 0.000000e+00, i64 noundef %183, i64 noundef %183) #6
   %184 = tail call ptr @OSQPMatrix_triu_to_symm(ptr noundef %20) #6
   tail call void @OSQPMatrix_free(ptr noundef %20) #6

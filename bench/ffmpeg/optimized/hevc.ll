@@ -6743,26 +6743,26 @@ hvcc_update_ptl.exit:                             ; preds = %11, %118
   br i1 %or.cond, label %.lr.ph42, label %.lr.ph46
 
 .lr.ph42:                                         ; preds = %._crit_edge
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %163 = load i32, ptr %162, align 8, !tbaa !61
-  br label %164
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %162 = load i32, ptr %161, align 8, !tbaa !61
+  br label %163
 
-164:                                              ; preds = %.lr.ph42, %164
-  %165 = phi i32 [ %spec.select.i34, %.lr.ph42 ], [ %167, %164 ]
-  %.141 = phi i32 [ %3, %.lr.ph42 ], [ %168, %164 ]
-  %166 = add i32 %165, 2
-  %167 = tail call i32 @llvm.umin.i32(i32 %163, i32 %166)
-  %168 = add i32 %.141, 1
-  %exitcond51.not = icmp eq i32 %168, 8
-  br i1 %exitcond51.not, label %..loopexit_crit_edge, label %164, !llvm.loop !87
+163:                                              ; preds = %.lr.ph42, %163
+  %164 = phi i32 [ %spec.select.i34, %.lr.ph42 ], [ %166, %163 ]
+  %.141 = phi i32 [ %3, %.lr.ph42 ], [ %167, %163 ]
+  %165 = add i32 %164, 2
+  %166 = tail call i32 @llvm.umin.i32(i32 %162, i32 %165)
+  %167 = add i32 %.141, 1
+  %exitcond51.not = icmp eq i32 %167, 8
+  br i1 %exitcond51.not, label %..loopexit_crit_edge, label %163, !llvm.loop !87
 
-..loopexit_crit_edge:                             ; preds = %164
-  store i32 %167, ptr %161, align 8, !tbaa !63
+..loopexit_crit_edge:                             ; preds = %163
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %166, ptr %168, align 8, !tbaa !63
   br label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %..loopexit_crit_edge, %._crit_edge
-  %.ph = phi i32 [ %spec.select.i34, %._crit_edge ], [ %167, %..loopexit_crit_edge ]
+  %.ph = phi i32 [ %spec.select.i34, %._crit_edge ], [ %166, %..loopexit_crit_edge ]
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count55 = zext i32 %3 to i64

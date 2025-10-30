@@ -851,62 +851,62 @@ define noundef i32 @Io_WriteMoPlaOneIntMinterms(ptr noundef captures(none) %0, p
   %9 = getelementptr i8, ptr %.val55, i64 4
   %.val55.val = load i32, ptr %9, align 4, !tbaa !24
   %.val55.val.fr = freeze i32 %.val55.val
-  %10 = shl nuw i32 1, %.val59.val
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %.val59.val) #11
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %.val55.val.fr) #11
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 4, i64 1, ptr %0)
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %.val59.val) #11
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %.val55.val.fr) #11
+  %12 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 4, i64 1, ptr %0)
   %.val5861 = load ptr, ptr %6, align 8, !tbaa !38
-  %14 = getelementptr i8, ptr %.val5861, i64 4
-  %.val58.val62 = load i32, ptr %14, align 4, !tbaa !24
-  %15 = icmp sgt i32 %.val58.val62, 0
-  br i1 %15, label %.lr.ph, label %.critedge
+  %13 = getelementptr i8, ptr %.val5861, i64 4
+  %.val58.val62 = load i32, ptr %13, align 4, !tbaa !24
+  %14 = icmp sgt i32 %.val58.val62, 0
+  br i1 %14, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %.val5864 = phi ptr [ %.val58, %.lr.ph ], [ %.val5861, %4 ]
-  %16 = getelementptr i8, ptr %.val5864, i64 8
-  %.val60.val = load ptr, ptr %16, align 8, !tbaa !26
-  %17 = getelementptr inbounds nuw ptr, ptr %.val60.val, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8, !tbaa !27
-  %19 = tail call ptr @Abc_ObjName(ptr noundef %18) #11
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %19) #11
+  %15 = getelementptr i8, ptr %.val5864, i64 8
+  %.val60.val = load ptr, ptr %15, align 8, !tbaa !26
+  %16 = getelementptr inbounds nuw ptr, ptr %.val60.val, i64 %indvars.iv
+  %17 = load ptr, ptr %16, align 8, !tbaa !27
+  %18 = tail call ptr @Abc_ObjName(ptr noundef %17) #11
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %18) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val58 = load ptr, ptr %6, align 8, !tbaa !38
-  %21 = getelementptr i8, ptr %.val58, i64 4
-  %.val58.val = load i32, ptr %21, align 4, !tbaa !24
-  %22 = sext i32 %.val58.val to i64
-  %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %.critedge, !llvm.loop !60
+  %20 = getelementptr i8, ptr %.val58, i64 4
+  %.val58.val = load i32, ptr %20, align 4, !tbaa !24
+  %21 = sext i32 %.val58.val to i64
+  %22 = icmp slt i64 %indvars.iv.next, %21
+  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !60
 
 .critedge:                                        ; preds = %.lr.ph, %4
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 3, i64 1, ptr %0)
+  %23 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 3, i64 1, ptr %0)
   %.val65 = load ptr, ptr %8, align 8, !tbaa !3
-  %25 = getelementptr i8, ptr %.val65, i64 4
-  %.val.val66 = load i32, ptr %25, align 4, !tbaa !24
-  %26 = icmp sgt i32 %.val.val66, 0
-  br i1 %26, label %.lr.ph69, label %.critedge2
+  %24 = getelementptr i8, ptr %.val65, i64 4
+  %.val.val66 = load i32, ptr %24, align 4, !tbaa !24
+  %25 = icmp sgt i32 %.val.val66, 0
+  br i1 %25, label %.lr.ph69, label %.critedge2
 
 .lr.ph69:                                         ; preds = %.critedge, %.lr.ph69
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.lr.ph69 ], [ 0, %.critedge ]
   %.val68 = phi ptr [ %.val, %.lr.ph69 ], [ %.val65, %.critedge ]
-  %27 = getelementptr i8, ptr %.val68, i64 8
-  %.val57.val = load ptr, ptr %27, align 8, !tbaa !26
-  %28 = getelementptr inbounds nuw ptr, ptr %.val57.val, i64 %indvars.iv89
-  %29 = load ptr, ptr %28, align 8, !tbaa !27
-  %30 = tail call ptr @Abc_ObjName(ptr noundef %29) #11
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %30) #11
+  %26 = getelementptr i8, ptr %.val68, i64 8
+  %.val57.val = load ptr, ptr %26, align 8, !tbaa !26
+  %27 = getelementptr inbounds nuw ptr, ptr %.val57.val, i64 %indvars.iv89
+  %28 = load ptr, ptr %27, align 8, !tbaa !27
+  %29 = tail call ptr @Abc_ObjName(ptr noundef %28) #11
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %29) #11
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %.val = load ptr, ptr %8, align 8, !tbaa !3
-  %32 = getelementptr i8, ptr %.val, i64 4
-  %.val.val = load i32, ptr %32, align 4, !tbaa !24
-  %33 = sext i32 %.val.val to i64
-  %34 = icmp slt i64 %indvars.iv.next90, %33
-  br i1 %34, label %.lr.ph69, label %.critedge2, !llvm.loop !61
+  %31 = getelementptr i8, ptr %.val, i64 4
+  %.val.val = load i32, ptr %31, align 4, !tbaa !24
+  %32 = sext i32 %.val.val to i64
+  %33 = icmp slt i64 %indvars.iv.next90, %32
+  br i1 %33, label %.lr.ph69, label %.critedge2, !llvm.loop !61
 
 .critedge2:                                       ; preds = %.lr.ph69, %.critedge
+  %34 = shl nuw i32 1, %.val59.val
   %fputc50 = tail call i32 @fputc(i32 10, ptr %0)
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %10) #11
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %34) #11
   %.not = icmp eq i32 %.val59.val, 31
   br i1 %.not, label %._crit_edge77, label %.preheader.lr.ph
 
@@ -914,7 +914,7 @@ define noundef i32 @Io_WriteMoPlaOneIntMinterms(ptr noundef captures(none) %0, p
   %36 = icmp sgt i32 %.val59.val, 0
   %37 = icmp sgt i32 %.val55.val.fr, 0
   %38 = getelementptr i8, ptr %3, i64 8
-  %smax108 = tail call i32 @llvm.smax.i32(i32 %10, i32 1)
+  %smax108 = tail call i32 @llvm.smax.i32(i32 %34, i32 1)
   br i1 %37, label %.preheader.us.preheader, label %.preheader.lr.ph.split
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph

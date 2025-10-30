@@ -3725,27 +3725,27 @@ define internal fastcc range(i32 -14, 1) i32 @processcompl(ptr noundef nonnull r
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 132
-  %12 = zext nneg i32 %8 to i64
-  %13 = getelementptr i8, ptr %4, i64 192
-  br label %14
+  %11 = zext nneg i32 %8 to i64
+  %12 = getelementptr i8, ptr %4, i64 192
+  br label %13
 
-14:                                               ; preds = %14, %10
-  %15 = phi i64 [ 0, %10 ], [ %20, %14 ]
-  %16 = phi i32 [ 0, %10 ], [ %19, %14 ]
-  %.idx = shl i64 %15, 4
-  %17 = getelementptr i8, ptr %13, i64 %.idx
-  %18 = load i32, ptr %17, align 8
-  %19 = add i32 %18, %16
-  %20 = add nuw nsw i64 %15, 1
-  %21 = icmp eq i64 %20, %12
-  br i1 %21, label %22, label %14, !llvm.loop !58
+13:                                               ; preds = %13, %10
+  %14 = phi i64 [ 0, %10 ], [ %19, %13 ]
+  %15 = phi i32 [ 0, %10 ], [ %18, %13 ]
+  %.idx = shl i64 %14, 4
+  %16 = getelementptr i8, ptr %12, i64 %.idx
+  %17 = load i32, ptr %16, align 8
+  %18 = add i32 %17, %15
+  %19 = add nuw nsw i64 %14, 1
+  %20 = icmp eq i64 %19, %11
+  br i1 %20, label %21, label %13, !llvm.loop !58
 
-22:                                               ; preds = %14
-  store i32 %19, ptr %11, align 4
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 132
+  store i32 %18, ptr %22, align 4
   br label %23
 
-23:                                               ; preds = %22, %2
+23:                                               ; preds = %21, %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
@@ -4169,27 +4169,27 @@ define internal fastcc range(i32 -14, 1) i32 @processcompl_compat(ptr noundef no
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 132
-  %12 = zext nneg i32 %8 to i64
-  %13 = getelementptr i8, ptr %4, i64 192
-  br label %14
+  %11 = zext nneg i32 %8 to i64
+  %12 = getelementptr i8, ptr %4, i64 192
+  br label %13
 
-14:                                               ; preds = %14, %10
-  %15 = phi i64 [ 0, %10 ], [ %20, %14 ]
-  %16 = phi i32 [ 0, %10 ], [ %19, %14 ]
-  %.idx = shl i64 %15, 4
-  %17 = getelementptr i8, ptr %13, i64 %.idx
-  %18 = load i32, ptr %17, align 8
-  %19 = add i32 %18, %16
-  %20 = add nuw nsw i64 %15, 1
-  %21 = icmp eq i64 %20, %12
-  br i1 %21, label %22, label %14, !llvm.loop !58
+13:                                               ; preds = %13, %10
+  %14 = phi i64 [ 0, %10 ], [ %19, %13 ]
+  %15 = phi i32 [ 0, %10 ], [ %18, %13 ]
+  %.idx = shl i64 %14, 4
+  %16 = getelementptr i8, ptr %12, i64 %.idx
+  %17 = load i32, ptr %16, align 8
+  %18 = add i32 %17, %15
+  %19 = add nuw nsw i64 %14, 1
+  %20 = icmp eq i64 %19, %11
+  br i1 %20, label %21, label %13, !llvm.loop !58
 
-22:                                               ; preds = %14
-  store i32 %19, ptr %11, align 4
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 132
+  store i32 %18, ptr %22, align 4
   br label %23
 
-23:                                               ; preds = %22, %2
+23:                                               ; preds = %21, %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null

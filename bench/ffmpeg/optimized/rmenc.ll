@@ -260,35 +260,35 @@ define internal noundef i32 @rm_write_trailer(ptr noundef %0) #0 {
 
 9:                                                ; preds = %1
   %10 = tail call i64 @avio_seek(ptr noundef nonnull %5, i64 noundef 0, i32 noundef 1) #6
-  %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %13 = load i32, ptr %12, align 8, !tbaa !66
-  %14 = sub nsw i32 %11, %13
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %12 = load i32, ptr %11, align 8, !tbaa !66
   tail call void @avio_wb32(ptr noundef nonnull %5, i32 noundef 0) #6
   tail call void @avio_wb32(ptr noundef nonnull %5, i32 noundef 0) #6
-  %15 = tail call i64 @avio_seek(ptr noundef nonnull %5, i64 noundef 0, i32 noundef 0) #6
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %17 = load i32, ptr %16, align 4, !tbaa !24
-  %.not20 = icmp eq i32 %17, 0
+  %13 = tail call i64 @avio_seek(ptr noundef nonnull %5, i64 noundef 0, i32 noundef 0) #6
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %15 = load i32, ptr %14, align 4, !tbaa !24
+  %.not20 = icmp eq i32 %15, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %9
-  %wide.trip.count = zext i32 %17 to i64
+  %wide.trip.count = zext i32 %15 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %18 = getelementptr inbounds nuw %struct.StreamInfo, ptr %3, i64 %indvars.iv
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %20 = load i32, ptr %19, align 8, !tbaa !63
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 28
-  store i32 %20, ptr %21, align 4, !tbaa !52
+  %16 = getelementptr inbounds nuw %struct.StreamInfo, ptr %3, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %18 = load i32, ptr %17, align 8, !tbaa !63
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 28
+  store i32 %18, ptr %19, align 4, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
-  %22 = tail call fastcc i32 @rv10_write_header(ptr noundef nonnull %0, i32 noundef %14)
+  %20 = trunc i64 %10 to i32
+  %21 = sub nsw i32 %20, %12
+  %22 = tail call fastcc i32 @rv10_write_header(ptr noundef nonnull %0, i32 noundef %21)
   br label %24
 
 23:                                               ; preds = %1

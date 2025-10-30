@@ -183,7 +183,6 @@ define void @Cba_NtkPrintDistrib(ptr noundef %0, i32 %1) local_unnamed_addr #1 {
 Vec_IntStart.exit:
   %2 = alloca [90 x ptr], align 16
   %calloc = tail call dereferenceable_or_null(360) ptr @calloc(i64 1, i64 360)
-  %.not.i = icmp eq ptr %calloc, null
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @Cba_ManCreatePrimMap(ptr noundef nonnull %2) #25
   %3 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
@@ -218,6 +217,7 @@ Vec_IntStart.exit:
   br i1 %exitcond.not, label %.preheader590, label %9, !llvm.loop !23
 
 .preheader:                                       ; preds = %.preheader590
+  %.not.i = icmp eq ptr %calloc, null
   %15 = getelementptr i8, ptr %0, i64 92
   %.val357594 = load i32, ptr %15, align 4, !tbaa !24
   %16 = icmp sgt i32 %.val357594, 1

@@ -9056,9 +9056,9 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPSt4pairIjP3appElN9__gnu
   tail call void @_ZSt22__move_median_to_firstIPSt4pairIjP3appEN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEEEvT_SC_SC_SC_T0_(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %29, ptr noundef nonnull %30)
   br label %31
 
-31:                                               ; preds = %51, %27
-  %.013.i.i = phi ptr [ %.032, %27 ], [ %.114.i.i, %51 ]
-  %.0.i.i = phi ptr [ %8, %27 ], [ %41, %51 ]
+31:                                               ; preds = %50, %27
+  %.013.i.i = phi ptr [ %.032, %27 ], [ %.114.i.i, %50 ]
+  %.0.i.i = phi ptr [ %8, %27 ], [ %41, %50 ]
   %32 = load i32, ptr %0, align 4, !tbaa !43
   %33 = load ptr, ptr %9, align 8
   br label %34
@@ -9073,37 +9073,34 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPSt4pairIjP3appElN9__gnu
   %40 = icmp ult ptr %39, %33
   %.sroa.04.0.i.i.i.i.i = select i1 %36, i1 %40, i1 %37
   %41 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
-  br i1 %.sroa.04.0.i.i.i.i.i, label %34, label %.preheader.i.i.preheader, !llvm.loop !285
+  br i1 %.sroa.04.0.i.i.i.i.i, label %34, label %.preheader.i.i, !llvm.loop !285
 
-.preheader.i.i.preheader:                         ; preds = %34
-  %42 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br label %.preheader.i.i
-
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %.preheader.i.i.preheader ]
+.preheader.i.i:                                   ; preds = %34, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %34 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -16
-  %43 = load i32, ptr %.114.i.i, align 4, !tbaa !43
-  %44 = icmp eq i32 %32, %43
-  %45 = icmp ult i32 %32, %43
-  %46 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp ult ptr %33, %47
-  %.sroa.04.0.i.i.i15.i.i = select i1 %44, i1 %48, i1 %45
-  br i1 %.sroa.04.0.i.i.i15.i.i, label %.preheader.i.i, label %49, !llvm.loop !286
+  %42 = load i32, ptr %.114.i.i, align 4, !tbaa !43
+  %43 = icmp eq i32 %32, %42
+  %44 = icmp ult i32 %32, %42
+  %45 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ult ptr %33, %46
+  %.sroa.04.0.i.i.i15.i.i = select i1 %43, i1 %47, i1 %44
+  br i1 %.sroa.04.0.i.i.i15.i.i, label %.preheader.i.i, label %48, !llvm.loop !286
 
-49:                                               ; preds = %.preheader.i.i
-  %50 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %50, label %51, label %_ZSt27__unguarded_partition_pivotIPSt4pairIjP3appEN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEEET_SC_SC_T0_.exit
+48:                                               ; preds = %.preheader.i.i
+  %49 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %49, label %50, label %_ZSt27__unguarded_partition_pivotIPSt4pairIjP3appEN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEEET_SC_SC_T0_.exit
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
-  store i32 %43, ptr %.1.i.i, align 4, !tbaa !43
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
+  %52 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  store i32 %42, ptr %.1.i.i, align 4, !tbaa !43
   store i32 %35, ptr %.114.i.i, align 4, !tbaa !43
-  store ptr %47, ptr %42, align 8, !tbaa !44
-  store ptr %39, ptr %52, align 8, !tbaa !44
+  store ptr %46, ptr %52, align 8, !tbaa !44
+  store ptr %39, ptr %51, align 8, !tbaa !44
   br label %31, !llvm.loop !287
 
-_ZSt27__unguarded_partition_pivotIPSt4pairIjP3appEN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEEET_SC_SC_T0_.exit: ; preds = %49
+_ZSt27__unguarded_partition_pivotIPSt4pairIjP3appEN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEEET_SC_SC_T0_.exit: ; preds = %48
   %53 = add nsw i64 %.01731, -1
   tail call void @_ZSt16__introsort_loopIPSt4pairIjP3appElN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp22array_project_eqs_util10compare_ndEEEEvT_SC_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.032, i64 noundef %53)
   %54 = ptrtoint ptr %.1.i.i to i64

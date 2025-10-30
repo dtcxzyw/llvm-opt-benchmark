@@ -5132,9 +5132,9 @@ _ZNSt6vectorIN10open_spiel7oh_hell5TrickESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_Z
   br label %1649
 
 .preheader403.i.i:                                ; preds = %..loopexit405_crit_edge.i.i
-  br i1 %.not.i.i.i.i103.i, label %.preheader397.thread.i.i, label %.preheader402.us.i.preheader.i
+  br i1 %.not.i.i.i.i103.i, label %.preheader397.thread.i.i, label %.preheader402.us.i.i.preheader
 
-.preheader402.us.i.preheader.i:                   ; preds = %.preheader403.i.i
+.preheader402.us.i.i.preheader:                   ; preds = %.preheader403.i.i
   %1641 = getelementptr i8, ptr %1620, i64 %1506
   %scevgep.i = getelementptr i8, ptr %1641, i64 660
   br label %.preheader402.us.i.i
@@ -5143,9 +5143,9 @@ _ZNSt6vectorIN10open_spiel7oh_hell5TrickESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_Z
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1587, i8 0, i64 12, i1 false)
   br label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit.i.i
 
-.preheader402.us.i.i:                             ; preds = %._crit_edge448.us.i.i, %.preheader402.us.i.preheader.i
-  %indvars.iv544.i.i = phi i64 [ %indvars.iv.next545.i.i, %._crit_edge448.us.i.i ], [ 0, %.preheader402.us.i.preheader.i ]
-  %.sroa.0320.1450.us.i.i = phi ptr [ %1648, %._crit_edge448.us.i.i ], [ %scevgep.i, %.preheader402.us.i.preheader.i ]
+.preheader402.us.i.i:                             ; preds = %.preheader402.us.i.i.preheader, %._crit_edge448.us.i.i
+  %indvars.iv544.i.i = phi i64 [ %indvars.iv.next545.i.i, %._crit_edge448.us.i.i ], [ 0, %.preheader402.us.i.i.preheader ]
+  %.sroa.0320.1450.us.i.i = phi ptr [ %1648, %._crit_edge448.us.i.i ], [ %scevgep.i, %.preheader402.us.i.i.preheader ]
   br label %1642
 
 1642:                                             ; preds = %1642, %.preheader402.us.i.i

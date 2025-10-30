@@ -24128,9 +24128,9 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T
 
 70:                                               ; preds = %51
   %71 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #25
-          to label %.noexc184 unwind label %73
+          to label %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader unwind label %73
 
-.noexc184:                                        ; preds = %70
+.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %70
   store i32 0, ptr %71, align 4, !tbaa !158
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   br label %_ZNSt6vectorIiSaIiEEaSERKS1_.exit
@@ -24140,10 +24140,10 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit105
 
-_ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %.noexc184, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i
-  %.sroa.0.0 = phi ptr [ %71, %.noexc184 ], [ %61, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i ]
-  %.sroa.11.0 = phi ptr [ %72, %.noexc184 ], [ %63, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i ]
-  %.sroa.18.0 = phi ptr [ %72, %.noexc184 ], [ %62, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i ]
+_ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i
+  %.sroa.0.0 = phi ptr [ %71, %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader ], [ %61, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %72, %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader ], [ %63, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i ]
+  %.sroa.18.0 = phi ptr [ %72, %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader ], [ %62, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i ]
   %75 = ptrtoint ptr %.sroa.11.0 to i64
   %76 = ptrtoint ptr %.sroa.0.0 to i64
   %77 = sub i64 %75, %76
@@ -26259,9 +26259,9 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T
 
 70:                                               ; preds = %51
   %71 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
-          to label %.noexc187 unwind label %73
+          to label %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader unwind label %73
 
-.noexc187:                                        ; preds = %70
+.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %70
   store i64 0, ptr %71, align 8, !tbaa !62
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   br label %_ZNSt6vectorImSaImEEaSERKS1_.exit
@@ -26271,10 +26271,10 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T
           cleanup
   br label %_ZNSt6vectorImSaImEED2Ev.exit106
 
-_ZNSt6vectorImSaImEEaSERKS1_.exit:                ; preds = %.noexc187, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T_SB_SA_.exit.i
-  %.sroa.0.0 = phi ptr [ %71, %.noexc187 ], [ %61, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T_SB_SA_.exit.i ]
-  %.sroa.11.0 = phi ptr [ %72, %.noexc187 ], [ %63, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T_SB_SA_.exit.i ]
-  %.sroa.18.0 = phi ptr [ %72, %.noexc187 ], [ %62, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T_SB_SA_.exit.i ]
+_ZNSt6vectorImSaImEEaSERKS1_.exit:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T_SB_SA_.exit.i
+  %.sroa.0.0 = phi ptr [ %71, %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader ], [ %61, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T_SB_SA_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %72, %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader ], [ %63, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T_SB_SA_.exit.i ]
+  %.sroa.18.0 = phi ptr [ %72, %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader ], [ %62, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T_SB_SA_.exit.i ]
   %75 = ptrtoint ptr %.sroa.11.0 to i64
   %76 = ptrtoint ptr %.sroa.0.0 to i64
   %77 = sub i64 %75, %76
@@ -28390,9 +28390,9 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPlS6_EEET0_T
 
 70:                                               ; preds = %51
   %71 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
-          to label %.noexc187 unwind label %73
+          to label %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader unwind label %73
 
-.noexc187:                                        ; preds = %70
+.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %70
   store i64 0, ptr %71, align 8, !tbaa !62
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   br label %_ZNSt6vectorIlSaIlEEaSERKS1_.exit
@@ -28402,10 +28402,10 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPlS6_EEET0_T
           cleanup
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit106
 
-_ZNSt6vectorIlSaIlEEaSERKS1_.exit:                ; preds = %.noexc187, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPlS6_EEET0_T_SB_SA_.exit.i
-  %.sroa.0.0 = phi ptr [ %71, %.noexc187 ], [ %61, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPlS6_EEET0_T_SB_SA_.exit.i ]
-  %.sroa.11.0 = phi ptr [ %72, %.noexc187 ], [ %63, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPlS6_EEET0_T_SB_SA_.exit.i ]
-  %.sroa.18.0 = phi ptr [ %72, %.noexc187 ], [ %62, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPlS6_EEET0_T_SB_SA_.exit.i ]
+_ZNSt6vectorIlSaIlEEaSERKS1_.exit:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPlS6_EEET0_T_SB_SA_.exit.i
+  %.sroa.0.0 = phi ptr [ %71, %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader ], [ %61, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPlS6_EEET0_T_SB_SA_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %72, %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader ], [ %63, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPlS6_EEET0_T_SB_SA_.exit.i ]
+  %.sroa.18.0 = phi ptr [ %72, %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader ], [ %62, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPlS6_EEET0_T_SB_SA_.exit.i ]
   %75 = ptrtoint ptr %.sroa.11.0 to i64
   %76 = ptrtoint ptr %.sroa.0.0 to i64
   %77 = sub i64 %75, %76
@@ -33518,9 +33518,9 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T
 
 70:                                               ; preds = %51
   %71 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
-          to label %.noexc187 unwind label %73
+          to label %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader unwind label %73
 
-.noexc187:                                        ; preds = %70
+.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %70
   store double 0.000000e+00, ptr %71, align 8, !tbaa !358
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   br label %_ZNSt6vectorIdSaIdEEaSERKS1_.exit
@@ -33530,10 +33530,10 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T
           cleanup
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit106
 
-_ZNSt6vectorIdSaIdEEaSERKS1_.exit:                ; preds = %.noexc187, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit.i
-  %.sroa.0.0 = phi ptr [ %71, %.noexc187 ], [ %61, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit.i ]
-  %.sroa.11.0 = phi ptr [ %72, %.noexc187 ], [ %63, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit.i ]
-  %.sroa.18.0 = phi ptr [ %72, %.noexc187 ], [ %62, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit.i ]
+_ZNSt6vectorIdSaIdEEaSERKS1_.exit:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit.i
+  %.sroa.0.0 = phi ptr [ %71, %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader ], [ %61, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit.i ]
+  %.sroa.11.0 = phi ptr [ %72, %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader ], [ %63, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit.i ]
+  %.sroa.18.0 = phi ptr [ %72, %.lr.ph.i.i.i.i.i.i.i.i.i.i.preheader ], [ %62, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit.i ]
   %75 = ptrtoint ptr %.sroa.11.0 to i64
   %76 = ptrtoint ptr %.sroa.0.0 to i64
   %77 = sub i64 %75, %76

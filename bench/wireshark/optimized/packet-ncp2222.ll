@@ -13967,27 +13967,27 @@ thread-pre-split:                                 ; preds = %266, %dissect_nds_r
   %1008 = load i32, ptr @hf_ncp_number_of_data_streams_long, align 4
   %1009 = call ptr @proto_tree_add_item(ptr noundef %1007, i32 noundef %1008, ptr noundef %0, i32 noundef %.16.i, i32 noundef 4, i32 noundef -2147483648)
   %1010 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.16.i)
-  %1011 = zext i16 %1010 to i32
-  %1012 = add i32 %.16.i, 4
+  %1011 = add i32 %.16.i, 4
   %.not413426.i = icmp eq i16 %1010, 0
   br i1 %.not413426.i, label %._crit_edge.i, label %.lr.ph.i289
 
 .lr.ph.i289:                                      ; preds = %1005, %.lr.ph.i289
-  %.18428.i = phi i32 [ %1018, %.lr.ph.i289 ], [ %1012, %1005 ]
-  %.2397427.i = phi i16 [ %1019, %.lr.ph.i289 ], [ 1, %1005 ]
-  %1013 = load i32, ptr @hf_ncp_data_stream_num_long, align 4
-  %1014 = call ptr @proto_tree_add_item(ptr noundef %1007, i32 noundef %1013, ptr noundef %0, i32 noundef %.18428.i, i32 noundef 4, i32 noundef -2147483648)
-  %1015 = load i32, ptr @hf_ncp_data_stream_size, align 4
-  %1016 = add i32 %.18428.i, 4
-  %1017 = call ptr @proto_tree_add_item(ptr noundef %1007, i32 noundef %1015, ptr noundef %0, i32 noundef %1016, i32 noundef 4, i32 noundef -2147483648)
-  %1018 = add i32 %.18428.i, 8
-  %1019 = add i16 %.2397427.i, 1
-  %.not413.i = icmp ugt i16 %1019, %1010
+  %.18428.i = phi i32 [ %1017, %.lr.ph.i289 ], [ %1011, %1005 ]
+  %.2397427.i = phi i16 [ %1018, %.lr.ph.i289 ], [ 1, %1005 ]
+  %1012 = load i32, ptr @hf_ncp_data_stream_num_long, align 4
+  %1013 = call ptr @proto_tree_add_item(ptr noundef %1007, i32 noundef %1012, ptr noundef %0, i32 noundef %.18428.i, i32 noundef 4, i32 noundef -2147483648)
+  %1014 = load i32, ptr @hf_ncp_data_stream_size, align 4
+  %1015 = add i32 %.18428.i, 4
+  %1016 = call ptr @proto_tree_add_item(ptr noundef %1007, i32 noundef %1014, ptr noundef %0, i32 noundef %1015, i32 noundef 4, i32 noundef -2147483648)
+  %1017 = add i32 %.18428.i, 8
+  %1018 = add i16 %.2397427.i, 1
+  %.not413.i = icmp ugt i16 %1018, %1010
   br i1 %.not413.i, label %._crit_edge.i, label %.lr.ph.i289, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i289, %1005
-  %.2397.lcssa.i = phi i16 [ 1, %1005 ], [ %1019, %.lr.ph.i289 ]
-  %.18.lcssa.i = phi i32 [ %1012, %1005 ], [ %1018, %.lr.ph.i289 ]
+  %.2397.lcssa.i = phi i16 [ 1, %1005 ], [ %1018, %.lr.ph.i289 ]
+  %.18.lcssa.i = phi i32 [ %1011, %1005 ], [ %1017, %.lr.ph.i289 ]
+  %1019 = zext i16 %1010 to i32
   %1020 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %1020, ptr noundef %0, i32 noundef %.18.lcssa.i)
   br label %1021
@@ -13995,7 +13995,7 @@ thread-pre-split:                                 ; preds = %266, %dissect_nds_r
 1021:                                             ; preds = %._crit_edge.i, %1003
   %.1396.i = phi i16 [ %.2397.lcssa.i, %._crit_edge.i ], [ %.0395431.i, %1003 ]
   %.17.i = phi i32 [ %.18.lcssa.i, %._crit_edge.i ], [ %.16.i, %1003 ]
-  %.1392.i = phi i32 [ %1011, %._crit_edge.i ], [ %.0391433.i, %1003 ]
+  %.1392.i = phi i32 [ %1019, %._crit_edge.i ], [ %.0391433.i, %1003 ]
   %1022 = load i16, ptr %764, align 2
   %1023 = and i16 %1022, 1
   %1024 = icmp ne i16 %1023, 0

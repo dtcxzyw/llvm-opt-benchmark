@@ -329,7 +329,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   br i1 %104, label %.lr.ph84.split.us, label %._crit_edge85, !llvm.loop !10
 
 .lr.ph84.split:                                   ; preds = %.lr.ph84, %107
-  %.06582 = phi i32 [ %109, %107 ], [ 0, %.lr.ph84 ]
+  %.06582 = phi i32 [ %114, %107 ], [ 0, %.lr.ph84 ]
   %.481 = phi i32 [ %115, %107 ], [ %.1, %.lr.ph84 ]
   %.16880 = phi ptr [ %116, %107 ], [ %.067, %.lr.ph84 ]
   %105 = load volatile i32, ptr @InterruptPending, align 4
@@ -342,19 +342,19 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
 
 107:                                              ; preds = %106, %.lr.ph84.split
   %108 = call i32 @llvm.umin.i32(i32 %.481, i32 1996)
-  %109 = add i32 %.06582, 1
-  %110 = sext i32 %.06582 to i64
-  store i64 %110, ptr %75, align 8
-  %111 = shl nuw nsw i32 %108, 2
-  %112 = add nuw nsw i32 %111, 16
-  store i32 %112, ptr %8, align 4
-  %113 = zext nneg i32 %108 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %76, ptr align 1 %.16880, i64 %113, i1 false)
-  %114 = call ptr @heap_form_tuple(ptr noundef %18, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
-  call void @heap_insert(ptr noundef %16, ptr noundef %114, i32 noundef %10, i32 noundef %3, ptr noundef null) #6
-  call void @heap_freetuple(ptr noundef %114) #6
+  %109 = sext i32 %.06582 to i64
+  store i64 %109, ptr %75, align 8
+  %110 = shl nuw nsw i32 %108, 2
+  %111 = add nuw nsw i32 %110, 16
+  store i32 %111, ptr %8, align 4
+  %112 = zext nneg i32 %108 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %76, ptr align 1 %.16880, i64 %112, i1 false)
+  %113 = call ptr @heap_form_tuple(ptr noundef %18, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
+  call void @heap_insert(ptr noundef %16, ptr noundef %113, i32 noundef %10, i32 noundef %3, ptr noundef null) #6
+  %114 = add i32 %.06582, 1
+  call void @heap_freetuple(ptr noundef %113) #6
   %115 = sub nsw i32 %.481, %108
-  %116 = getelementptr inbounds nuw i8, ptr %.16880, i64 %113
+  %116 = getelementptr inbounds nuw i8, ptr %.16880, i64 %112
   %117 = icmp sgt i32 %115, 0
   br i1 %117, label %.lr.ph84.split, label %._crit_edge85, !llvm.loop !10
 

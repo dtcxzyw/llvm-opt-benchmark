@@ -1990,31 +1990,31 @@ switch.lookup:                                    ; preds = %29
   unreachable
 
 switch.lookup128:                                 ; preds = %65
-  %71 = zext nneg i32 %67 to i64
-  %switch.gep129 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.3, i64 %71
+  %71 = load i64, ptr %1, align 8
+  %72 = ashr i64 %71, 6
+  %73 = and i64 %71, 63
+  %74 = shl nuw i64 1, %73
+  br label %75
+
+75:                                               ; preds = %75, %switch.lookup128
+  %76 = phi i1 [ true, %switch.lookup128 ], [ false, %75 ]
+  %indvars.iv.i.i = phi i64 [ 0, %switch.lookup128 ], [ 1, %75 ]
+  %.067.i.i = phi i8 [ 2, %switch.lookup128 ], [ %spec.select.i.i, %75 ]
+  %77 = getelementptr inbounds nuw %class.ShenandoahSimpleBitMap, ptr %0, i64 %indvars.iv.i.i
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i64, ptr %79, i64 %72
+  %81 = load i64, ptr %80, align 8
+  %82 = and i64 %81, %74
+  %.not.i.i = icmp eq i64 %82, 0
+  %83 = trunc nuw nsw i64 %indvars.iv.i.i to i8
+  %spec.select.i.i = select i1 %.not.i.i, i8 %.067.i.i, i8 %83
+  br i1 %76, label %75, label %switch.lookup131, !llvm.loop !12
+
+switch.lookup131:                                 ; preds = %75
+  %84 = zext nneg i32 %67 to i64
+  %switch.gep129 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.3, i64 %84
   %switch.load130 = load ptr, ptr %switch.gep129, align 8
-  %72 = load i64, ptr %1, align 8
-  %73 = ashr i64 %72, 6
-  %74 = and i64 %72, 63
-  %75 = shl nuw i64 1, %74
-  br label %76
-
-76:                                               ; preds = %76, %switch.lookup128
-  %77 = phi i1 [ true, %switch.lookup128 ], [ false, %76 ]
-  %indvars.iv.i.i = phi i64 [ 0, %switch.lookup128 ], [ 1, %76 ]
-  %.067.i.i = phi i8 [ 2, %switch.lookup128 ], [ %spec.select.i.i, %76 ]
-  %78 = getelementptr inbounds nuw %class.ShenandoahSimpleBitMap, ptr %0, i64 %indvars.iv.i.i
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i64, ptr %80, i64 %73
-  %82 = load i64, ptr %81, align 8
-  %83 = and i64 %82, %75
-  %.not.i.i = icmp eq i64 %83, 0
-  %84 = trunc nuw nsw i64 %indvars.iv.i.i to i8
-  %spec.select.i.i = select i1 %.not.i.i, i8 %.067.i.i, i8 %84
-  br i1 %77, label %76, label %switch.lookup131, !llvm.loop !12
-
-switch.lookup131:                                 ; preds = %76
   %85 = zext nneg i8 %spec.select.i.i to i64
   %switch.gep132 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 %85
   %switch.load133 = load ptr, ptr %switch.gep132, align 8
@@ -2022,7 +2022,7 @@ switch.lookup131:                                 ; preds = %76
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %63 to i64
   %89 = sub i64 %87, %88
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, i64 noundef %spec.select, i64 noundef %66, ptr noundef nonnull %switch.load130, i64 noundef %51, ptr noundef nonnull %switch.load133, i64 noundef %72, i64 noundef %89)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, i64 noundef %spec.select, i64 noundef %66, ptr noundef nonnull %switch.load130, i64 noundef %51, ptr noundef nonnull %switch.load133, i64 noundef %71, i64 noundef %89)
   br label %132
 
 90:                                               ; preds = %43
@@ -2073,31 +2073,31 @@ _ZN20ShenandoahHeapRegion8allocateEmN22ShenandoahAllocRequest4TypeE.exit78: ; pr
   unreachable
 
 switch.lookup134:                                 ; preds = %107
-  %112 = zext nneg i32 %108 to i64
-  %switch.gep135 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.3, i64 %112
+  %112 = load i64, ptr %1, align 8
+  %113 = ashr i64 %112, 6
+  %114 = and i64 %112, 63
+  %115 = shl nuw i64 1, %114
+  br label %116
+
+116:                                              ; preds = %116, %switch.lookup134
+  %117 = phi i1 [ true, %switch.lookup134 ], [ false, %116 ]
+  %indvars.iv.i.i81 = phi i64 [ 0, %switch.lookup134 ], [ 1, %116 ]
+  %.067.i.i82 = phi i8 [ 2, %switch.lookup134 ], [ %spec.select.i.i84, %116 ]
+  %118 = getelementptr inbounds nuw %class.ShenandoahSimpleBitMap, ptr %0, i64 %indvars.iv.i.i81
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 48
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i64, ptr %120, i64 %113
+  %122 = load i64, ptr %121, align 8
+  %123 = and i64 %122, %115
+  %.not.i.i83 = icmp eq i64 %123, 0
+  %124 = trunc nuw nsw i64 %indvars.iv.i.i81 to i8
+  %spec.select.i.i84 = select i1 %.not.i.i83, i8 %.067.i.i82, i8 %124
+  br i1 %117, label %116, label %switch.lookup137, !llvm.loop !12
+
+switch.lookup137:                                 ; preds = %116
+  %125 = zext nneg i32 %108 to i64
+  %switch.gep135 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.3, i64 %125
   %switch.load136 = load ptr, ptr %switch.gep135, align 8
-  %113 = load i64, ptr %1, align 8
-  %114 = ashr i64 %113, 6
-  %115 = and i64 %113, 63
-  %116 = shl nuw i64 1, %115
-  br label %117
-
-117:                                              ; preds = %117, %switch.lookup134
-  %118 = phi i1 [ true, %switch.lookup134 ], [ false, %117 ]
-  %indvars.iv.i.i81 = phi i64 [ 0, %switch.lookup134 ], [ 1, %117 ]
-  %.067.i.i82 = phi i8 [ 2, %switch.lookup134 ], [ %spec.select.i.i84, %117 ]
-  %119 = getelementptr inbounds nuw %class.ShenandoahSimpleBitMap, ptr %0, i64 %indvars.iv.i.i81
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 48
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i64, ptr %121, i64 %114
-  %123 = load i64, ptr %122, align 8
-  %124 = and i64 %123, %116
-  %.not.i.i83 = icmp eq i64 %124, 0
-  %125 = trunc nuw nsw i64 %indvars.iv.i.i81 to i8
-  %spec.select.i.i84 = select i1 %.not.i.i83, i8 %.067.i.i82, i8 %125
-  br i1 %118, label %117, label %switch.lookup137, !llvm.loop !12
-
-switch.lookup137:                                 ; preds = %117
   %126 = zext nneg i8 %spec.select.i.i84 to i64
   %switch.gep138 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 %126
   %switch.load139 = load ptr, ptr %switch.gep138, align 8
@@ -2105,7 +2105,7 @@ switch.lookup137:                                 ; preds = %117
   %128 = ptrtoint ptr %127 to i64
   %129 = ptrtoint ptr %104 to i64
   %130 = sub i64 %128, %129
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %95, ptr noundef nonnull %switch.load136, i64 noundef %101, ptr noundef nonnull %switch.load139, i64 noundef %113, i64 noundef %130)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %95, ptr noundef nonnull %switch.load136, i64 noundef %101, ptr noundef nonnull %switch.load139, i64 noundef %112, i64 noundef %130)
   br label %.thread102
 
 .thread102:                                       ; preds = %switch.lookup137, %105

@@ -43648,8 +43648,6 @@ _ZNK4llvm4Type13getScalarTypeEv.exit1162:         ; preds = %._crit_edge, %633
   store i32 1, ptr %.sroa.226.0..sroa_idx, align 8
   call void @_ZN4llvm23IntrinsicCostAttributesC1EjPNS_4TypeENS_8ArrayRefIS2_EENS_13FastMathFlagsEPKNS_13IntrinsicInstENS_15InstructionCostE(ptr noundef nonnull align 8 dereferenceable(144) %52, i32 noundef %55, ptr noundef %.0.i1161, ptr %637, i64 %629, i32 %.sroa.0.0.copyload.i, ptr noundef null, ptr noundef nonnull byval(%"class.llvm::InstructionCost") align 8 %53) #30
   %638 = call { i64, i32 } @_ZN4llvm14AArch64TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(144) %52, i32 noundef %2)
-  %.fca.0.extract19 = extractvalue { i64, i32 } %638, 0
-  %.fca.1.extract20 = extractvalue { i64, i32 } %638, 1
   %639 = load ptr, ptr %58, align 8, !tbaa !25
   %640 = load i32, ptr %62, align 8, !tbaa !26
   %641 = zext i32 %640 to i64
@@ -43706,6 +43704,8 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit1180:   ; preds = %689, %_ZNK4llvm4Typ
   %.01616.lcssa = phi i32 [ %620, %_ZNK4llvm4Type13getScalarTypeEv.exit1162 ], [ %.11617, %689 ]
   %.sroa.01208.1.lcssa = phi i64 [ %.sroa.01208.0, %_ZNK4llvm4Type13getScalarTypeEv.exit1162 ], [ %.sroa.01208.2, %689 ]
   %.sroa.7.1.lcssa = phi i32 [ %.sroa.7.0, %_ZNK4llvm4Type13getScalarTypeEv.exit1162 ], [ %.sroa.7.2, %689 ]
+  %.fca.0.extract19 = extractvalue { i64, i32 } %638, 0
+  %.fca.1.extract20 = extractvalue { i64, i32 } %638, 1
   %665 = zext i32 %.01616.lcssa to i64
   %666 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %665, i64 %.fca.0.extract19)
   %667 = extractvalue { i64, i1 } %666, 1

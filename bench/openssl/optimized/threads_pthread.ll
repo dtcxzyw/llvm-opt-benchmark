@@ -266,34 +266,34 @@ update_qp.exit:                                   ; preds = %15, %1
   %32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #9
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !20
-  %35 = zext i32 %22 to i64
-  %36 = getelementptr inbounds nuw %struct.rcu_qp, ptr %34, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %38 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %37) #9
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %40 = load i32, ptr %39, align 8, !tbaa !28
-  %.not28 = icmp eq i32 %40, %27
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %36 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %35) #9
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %38 = load i32, ptr %37, align 8, !tbaa !28
+  %.not28 = icmp eq i32 %38, %27
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %update_qp.exit
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  br label %42
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  br label %40
 
-42:                                               ; preds = %.lr.ph, %42
-  %43 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %41, ptr noundef nonnull %37) #9
-  %44 = load i32, ptr %39, align 8, !tbaa !28
-  %.not = icmp eq i32 %44, %27
-  br i1 %.not, label %._crit_edge, label %42, !llvm.loop !29
+40:                                               ; preds = %.lr.ph, %40
+  %41 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %39, ptr noundef nonnull %35) #9
+  %42 = load i32, ptr %37, align 8, !tbaa !28
+  %.not = icmp eq i32 %42, %27
+  br i1 %.not, label %._crit_edge, label %40, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %42, %update_qp.exit
-  store i32 %28, ptr %39, align 8, !tbaa !28
+._crit_edge:                                      ; preds = %40, %update_qp.exit
+  %43 = zext i32 %22 to i64
+  %44 = getelementptr inbounds nuw %struct.rcu_qp, ptr %34, i64 %43
+  store i32 %28, ptr %37, align 8, !tbaa !28
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %46 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %45) #9
-  %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %37) #9
+  %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %35) #9
   br label %48
 
 48:                                               ; preds = %48, %._crit_edge
-  %49 = load atomic i64, ptr %36 acquire, align 8
+  %49 = load atomic i64, ptr %44 acquire, align 8
   %.not23 = icmp eq i64 %49, 0
   br i1 %.not23, label %50, label %48, !llvm.loop !30
 

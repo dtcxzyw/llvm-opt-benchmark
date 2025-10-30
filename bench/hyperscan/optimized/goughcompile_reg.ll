@@ -1062,27 +1062,27 @@ _ZNKSt3mapIPKN3ue211GoughSSAVarEN5boost6detail14edge_desc_implINS4_17bidirection
   unreachable
 
 _ZNKSt3mapIPKN3ue211GoughSSAVarEN5boost6detail14edge_desc_implINS4_17bidirectional_tagEmEESt4lessIS3_ESaISt4pairIKS3_S8_EEE2atERSC_.exit.i.i.i: ; preds = %308
+  %311 = getelementptr inbounds nuw i8, ptr %289, i64 48
   %.19.i.i.i.i62.i.i.sroa.sel31.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %306, ptr %.0811.i.i.i.i61.i.i.i, ptr %.012.i.i.i.i60.i.i.i
-  %.19.i.i.i.i62.i.i.sroa.sel31.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i62.i.i.sroa.sel31.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 48
-  %311 = load i64, ptr %.19.i.i.i.i62.i.i.sroa.sel31.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  %312 = getelementptr inbounds nuw i8, ptr %289, i64 48
-  %.19.i.i.i.i62.i.i.sroa.sel34.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %306, ptr %.0811.i.i.i.i61.i.i.i, ptr %.012.i.i.i.i60.i.i.i
-  %.19.i.i.i.i62.i.i.sroa.sel34.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i62.i.i.sroa.sel34.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 56
-  %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.19.i.i.i.i62.i.i.sroa.sel34.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  %313 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i, i64 40
-  %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i, i64 48
-  %316 = load ptr, ptr %315, align 8
-  %.not3442.i.i.i = icmp eq ptr %314, %316
+  %.19.i.i.i.i62.i.i.sroa.sel31.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i62.i.i.sroa.sel31.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 56
+  %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.19.i.i.i.i62.i.i.sroa.sel31.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  %312 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i, i64 40
+  %313 = load ptr, ptr %312, align 8
+  %314 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i.i.i, i64 48
+  %315 = load ptr, ptr %314, align 8
+  %.not3442.i.i.i = icmp eq ptr %313, %315
   br i1 %.not3442.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i18.i
 
 .lr.ph.i.i18.i:                                   ; preds = %_ZNKSt3mapIPKN3ue211GoughSSAVarEN5boost6detail14edge_desc_implINS4_17bidirectional_tagEmEESt4lessIS3_ESaISt4pairIKS3_S8_EEE2atERSC_.exit.i.i.i
-  %317 = getelementptr inbounds nuw i8, ptr %289, i64 56
+  %316 = getelementptr inbounds nuw i8, ptr %289, i64 56
   br label %324
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN3ue28containsINS_8flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS3_ESaIS3_EEEEEbRKT_RKNS8_8key_typeE.exit.thread.i.i.i, %_ZNKSt3mapIPKN3ue211GoughSSAVarEN5boost6detail14edge_desc_implINS4_17bidirectional_tagEmEESt4lessIS3_ESaISt4pairIKS3_S8_EEE2atERSC_.exit.i.i.i
   %.032.lcssa.i.i.i = phi i64 [ 0, %_ZNKSt3mapIPKN3ue211GoughSSAVarEN5boost6detail14edge_desc_implINS4_17bidirectional_tagEmEESt4lessIS3_ESaISt4pairIKS3_S8_EEE2atERSC_.exit.i.i.i ], [ %.234.i.i.i, %_ZN3ue28containsINS_8flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS3_ESaIS3_EEEEEbRKT_RKNS8_8key_typeE.exit.thread.i.i.i ]
-  %318 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %.val.i.i, i64 %311
+  %.19.i.i.i.i62.i.i.sroa.sel34.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %306, ptr %.0811.i.i.i.i61.i.i.i, ptr %.012.i.i.i.i60.i.i.i
+  %.19.i.i.i.i62.i.i.sroa.sel34.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i62.i.i.sroa.sel34.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 48
+  %317 = load i64, ptr %.19.i.i.i.i62.i.i.sroa.sel34.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  %318 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %.val.i.i, i64 %317
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 56
   %320 = load ptr, ptr %319, align 8
   %321 = getelementptr inbounds nuw i8, ptr %318, i64 64
@@ -1097,7 +1097,7 @@ _ZNKSt3mapIPKN3ue211GoughSSAVarEN5boost6detail14edge_desc_implINS4_17bidirection
 324:                                              ; preds = %_ZN3ue28containsINS_8flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS3_ESaIS3_EEEEEbRKT_RKNS8_8key_typeE.exit.thread.i.i.i, %.lr.ph.i.i18.i
   %.03245.i.i.i = phi i64 [ 0, %.lr.ph.i.i18.i ], [ %.234.i.i.i, %_ZN3ue28containsINS_8flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS3_ESaIS3_EEEEEbRKT_RKNS8_8key_typeE.exit.thread.i.i.i ]
   %.04244.i.i.i = phi i1 [ false, %.lr.ph.i.i18.i ], [ %.143.i.i.i, %_ZN3ue28containsINS_8flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS3_ESaIS3_EEEEEbRKT_RKNS8_8key_typeE.exit.thread.i.i.i ]
-  %.sroa.09.043.i.i.i = phi ptr [ %314, %.lr.ph.i.i18.i ], [ %351, %_ZN3ue28containsINS_8flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS3_ESaIS3_EEEEEbRKT_RKNS8_8key_typeE.exit.thread.i.i.i ]
+  %.sroa.09.043.i.i.i = phi ptr [ %313, %.lr.ph.i.i18.i ], [ %351, %_ZN3ue28containsINS_8flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS3_ESaIS3_EEEEEbRKT_RKNS8_8key_typeE.exit.thread.i.i.i ]
   %325 = load ptr, ptr %.sroa.09.043.i.i.i, align 8
   br i1 %.04244.i.i.i, label %326, label %349
 
@@ -1112,8 +1112,8 @@ _ZNKSt3mapIPKN3ue211GoughSSAVarEN5boost6detail14edge_desc_implINS4_17bidirection
 
 331:                                              ; preds = %328, %326
   %.fr.i.i.i = phi ptr [ %330, %328 ], [ null, %326 ]
-  %332 = load ptr, ptr %312, align 8, !noalias !36
-  %333 = load i64, ptr %317, align 8, !noalias !41
+  %332 = load ptr, ptr %311, align 8, !noalias !36
+  %333 = load i64, ptr %316, align 8, !noalias !41
   %334 = getelementptr inbounds nuw ptr, ptr %332, i64 %333
   %335 = icmp sgt i64 %333, 0
   br i1 %335, label %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb1EEES5_St4lessIS5_EET_SA_SA_RKT0_T1_.exit.i.i.i.i.i
@@ -1154,14 +1154,14 @@ _ZN3ue28containsINS_8flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS3_ESaIS3_EEEE
   %.143.i.i.i = phi i1 [ %350, %349 ], [ true, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb1EEES5_St4lessIS5_EET_SA_SA_RKT0_T1_.exit.i.i.i.i.i ], [ true, %_ZN3ue28containsINS_8flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS3_ESaIS3_EEEEEbRKT_RKNS8_8key_typeE.exit.i.i.i ]
   %.234.i.i.i = phi i64 [ %.03245.i.i.i, %349 ], [ %.03245.i.i.i, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb1EEES5_St4lessIS5_EET_SA_SA_RKT0_T1_.exit.i.i.i.i.i ], [ %spec.select.i.i.i, %_ZN3ue28containsINS_8flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS3_ESaIS3_EEEEEbRKT_RKNS8_8key_typeE.exit.i.i.i ]
   %351 = getelementptr inbounds nuw i8, ptr %.sroa.09.043.i.i.i, i64 16
-  %.not34.i.i.i = icmp eq ptr %351, %316
+  %.not34.i.i.i = icmp eq ptr %351, %315
   br i1 %.not34.i.i.i, label %._crit_edge.i.i.i, label %324
 
 352:                                              ; preds = %.critedge46.thread.i.i.i, %.lr.ph50.i.i.i
   %.33548.i.i.i = phi i64 [ %.032.lcssa.i.i.i, %.lr.ph50.i.i.i ], [ %.63827.i.i.i, %.critedge46.thread.i.i.i ]
   %.sroa.03.047.i.i.i = phi ptr [ %320, %.lr.ph50.i.i.i ], [ %379, %.critedge46.thread.i.i.i ]
   %353 = load ptr, ptr %.sroa.03.047.i.i.i, align 8
-  %354 = load ptr, ptr %312, align 8, !noalias !53
+  %354 = load ptr, ptr %311, align 8, !noalias !53
   %355 = load i64, ptr %323, align 8, !noalias !58
   %356 = getelementptr inbounds nuw ptr, ptr %354, i64 %355
   %357 = icmp sgt i64 %355, 0
@@ -1207,7 +1207,7 @@ _ZN3ue28containsINS_8flat_setIPNS_21GoughSSAVarWithInputsESt4lessIS3_ESaIS3_EEEE
   %375 = load ptr, ptr %371, align 8, !noalias !69
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 16
   %377 = load ptr, ptr %376, align 8
-  %378 = load ptr, ptr %.19.i.i.i.i62.i.i.sroa.sel34.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  %378 = load ptr, ptr %.19.i.i.i.i62.i.i.sroa.sel31.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %.not37.i.i.i = icmp eq ptr %377, %378
   br i1 %.not37.i.i.i, label %.critedge46.thread.i.i.i, label %_ZN3ue2L14is_block_localERKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS_11GoughSSAVarERKNS_12_GLOBAL__N_113GoughGraphAuxE.exit.thread.i.i
 

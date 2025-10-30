@@ -6445,8 +6445,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2123
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc1254
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %2130, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %2129, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !196
   %2132 = getelementptr inbounds nuw i8, ptr %2129, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %2129, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !196
   br label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i1255
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i1255: ; preds = %.noexc1254, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -7620,8 +7620,8 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i1381: ; preds = %.noexc1385
   %.idx.i.i.i.i.i.i.i1382 = shl nuw nsw i64 %2618, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %2617, i8 0, i64 %.idx.i.i.i.i.i.i.i1382, i1 false), !tbaa !196
   %2620 = getelementptr inbounds nuw i8, ptr %2617, i64 %.idx.i.i.i.i.i.i.i1382
+  call void @llvm.memset.p0.i64(ptr align 4 %2617, i8 0, i64 %.idx.i.i.i.i.i.i.i1382, i1 false), !tbaa !196
   br label %2621
 
 2621:                                             ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i1381, %.noexc1385, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i
@@ -26885,7 +26885,7 @@ _ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit:  ; preds = %_ZN3fmt2v86detail6b
   br i1 %56, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.sink.split, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.backedge, !llvm.loop !568
 
 57:                                               ; preds = %51
-  switch i8 %8, label %.preheader165 [
+  switch i8 %8, label %.preheader142 [
     i8 2, label %58
     i8 3, label %90
   ]
@@ -26971,44 +26971,47 @@ _ZN3fmt2v86detail6bufferIcE10try_resizeEm.exit129: ; preds = %90, %94
   store i64 %..i127, ptr %7, align 8, !tbaa !387
   br label %135
 
-.preheader165:                                    ; preds = %57, %.preheader165
-  %.0100.idx = phi i64 [ %.0100.add, %.preheader165 ], [ %52, %57 ]
+.preheader142:                                    ; preds = %57, %.preheader142
+  %.0100.idx = phi i64 [ %.0100.add, %.preheader142 ], [ %52, %57 ]
   %.0100.add = add nsw i64 %.0100.idx, -1
   %.ptr = getelementptr inbounds i8, ptr %37, i64 %.0100.add
   %98 = load i8, ptr %.ptr, align 1, !tbaa !19
   %.not119 = icmp eq i8 %98, 101
-  br i1 %.not119, label %99, label %.preheader165, !llvm.loop !570
+  br i1 %.not119, label %99, label %.preheader142, !llvm.loop !570
 
-99:                                               ; preds = %.preheader165
-  %.ptr.le = getelementptr inbounds i8, ptr %37, i64 %.0100.add
+99:                                               ; preds = %.preheader142
   %.ptr122 = getelementptr inbounds nuw i8, ptr %37, i64 %52
   %.0100.ptr = getelementptr inbounds i8, ptr %37, i64 %.0100.idx
-  %100 = load i8, ptr %.0100.ptr, align 1, !tbaa !19
-  %101 = getelementptr inbounds nuw i8, ptr %.0100.ptr, i64 1
-  br label %102
+  %100 = getelementptr inbounds nuw i8, ptr %.0100.ptr, i64 1
+  br label %101
 
-102:                                              ; preds = %102, %99
-  %.097 = phi i32 [ 0, %99 ], [ %108, %102 ]
-  %.096 = phi ptr [ %101, %99 ], [ %105, %102 ]
-  %103 = load i8, ptr %.096, align 1, !tbaa !19
-  %104 = mul nsw i32 %.097, 10
-  %105 = getelementptr inbounds nuw i8, ptr %.096, i64 1
-  %106 = sext i8 %103 to i32
-  %107 = add i32 %104, -48
-  %108 = add i32 %107, %106
-  %.not120 = icmp eq ptr %105, %.ptr122
-  br i1 %.not120, label %109, label %102, !llvm.loop !571
+101:                                              ; preds = %101, %99
+  %.097 = phi i32 [ 0, %99 ], [ %107, %101 ]
+  %.096 = phi ptr [ %100, %99 ], [ %104, %101 ]
+  %102 = load i8, ptr %.096, align 1, !tbaa !19
+  %103 = mul nsw i32 %.097, 10
+  %104 = getelementptr inbounds nuw i8, ptr %.096, i64 1
+  %105 = sext i8 %102 to i32
+  %106 = add i32 %103, -48
+  %107 = add i32 %106, %105
+  %.not120 = icmp eq ptr %104, %.ptr122
+  br i1 %.not120, label %108, label %101, !llvm.loop !571
 
-109:                                              ; preds = %102
-  %110 = icmp eq i8 %100, 45
-  %111 = sub nsw i32 0, %108
-  %spec.select = select i1 %110, i32 %111, i32 %108
+108:                                              ; preds = %101
+  %109 = load i8, ptr %.0100.ptr, align 1, !tbaa !19
+  %110 = icmp eq i8 %109, 45
+  %111 = sub nsw i32 0, %107
+  %spec.select = select i1 %110, i32 %111, i32 %107
   %112 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %.not121 = icmp eq i64 %.0100.add, 1
-  br i1 %.not121, label %123, label %.preheader
+  br i1 %.not121, label %123, label %.preheader.preheader
 
-.preheader:                                       ; preds = %109, %.preheader
-  %.ptr.pn = phi ptr [ %.0, %.preheader ], [ %.ptr.le, %109 ]
+.preheader.preheader:                             ; preds = %108
+  %.ptr.le = getelementptr inbounds i8, ptr %37, i64 %.0100.add
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %.ptr.pn = phi ptr [ %.0, %.preheader ], [ %.ptr.le, %.preheader.preheader ]
   %.0 = getelementptr inbounds i8, ptr %.ptr.pn, i64 -1
   %113 = load i8, ptr %.0, align 1, !tbaa !19
   %114 = icmp eq i8 %113, 48
@@ -27025,8 +27028,8 @@ _ZN3fmt2v86detail6bufferIcE10try_resizeEm.exit129: ; preds = %90, %94
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %112, ptr nonnull align 1 %121, i64 %122, i1 false)
   br label %123
 
-123:                                              ; preds = %115, %109
-  %.095 = phi i32 [ %120, %115 ], [ 0, %109 ]
+123:                                              ; preds = %115, %108
+  %.095 = phi i32 [ %120, %115 ], [ 0, %108 ]
   %124 = zext i32 %.095 to i64
   %125 = add i64 %35, %124
   %126 = load i64, ptr %6, align 8, !tbaa !386
@@ -39580,7 +39583,7 @@ _ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit:  ; preds = %_ZN3fmt2v86detail6b
   br i1 %55, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.sink.split, label %_ZN3fmt2v86detail6bufferIcE11try_reserveEm.exit.backedge, !llvm.loop !801
 
 56:                                               ; preds = %50
-  switch i8 %8, label %.preheader164 [
+  switch i8 %8, label %.preheader141 [
     i8 2, label %57
     i8 3, label %89
   ]
@@ -39666,44 +39669,47 @@ _ZN3fmt2v86detail6bufferIcE10try_resizeEm.exit128: ; preds = %89, %93
   store i64 %..i126, ptr %7, align 8, !tbaa !387
   br label %134
 
-.preheader164:                                    ; preds = %56, %.preheader164
-  %.099.idx = phi i64 [ %.099.add, %.preheader164 ], [ %51, %56 ]
+.preheader141:                                    ; preds = %56, %.preheader141
+  %.099.idx = phi i64 [ %.099.add, %.preheader141 ], [ %51, %56 ]
   %.099.add = add nsw i64 %.099.idx, -1
   %.ptr = getelementptr inbounds i8, ptr %36, i64 %.099.add
   %97 = load i8, ptr %.ptr, align 1, !tbaa !19
   %.not118 = icmp eq i8 %97, 101
-  br i1 %.not118, label %98, label %.preheader164, !llvm.loop !803
+  br i1 %.not118, label %98, label %.preheader141, !llvm.loop !803
 
-98:                                               ; preds = %.preheader164
-  %.ptr.le = getelementptr inbounds i8, ptr %36, i64 %.099.add
+98:                                               ; preds = %.preheader141
   %.ptr121 = getelementptr inbounds nuw i8, ptr %36, i64 %51
   %.099.ptr = getelementptr inbounds i8, ptr %36, i64 %.099.idx
-  %99 = load i8, ptr %.099.ptr, align 1, !tbaa !19
-  %100 = getelementptr inbounds nuw i8, ptr %.099.ptr, i64 1
-  br label %101
+  %99 = getelementptr inbounds nuw i8, ptr %.099.ptr, i64 1
+  br label %100
 
-101:                                              ; preds = %101, %98
-  %.096 = phi i32 [ 0, %98 ], [ %107, %101 ]
-  %.095 = phi ptr [ %100, %98 ], [ %104, %101 ]
-  %102 = load i8, ptr %.095, align 1, !tbaa !19
-  %103 = mul nsw i32 %.096, 10
-  %104 = getelementptr inbounds nuw i8, ptr %.095, i64 1
-  %105 = sext i8 %102 to i32
-  %106 = add i32 %103, -48
-  %107 = add i32 %106, %105
-  %.not119 = icmp eq ptr %104, %.ptr121
-  br i1 %.not119, label %108, label %101, !llvm.loop !804
+100:                                              ; preds = %100, %98
+  %.096 = phi i32 [ 0, %98 ], [ %106, %100 ]
+  %.095 = phi ptr [ %99, %98 ], [ %103, %100 ]
+  %101 = load i8, ptr %.095, align 1, !tbaa !19
+  %102 = mul nsw i32 %.096, 10
+  %103 = getelementptr inbounds nuw i8, ptr %.095, i64 1
+  %104 = sext i8 %101 to i32
+  %105 = add i32 %102, -48
+  %106 = add i32 %105, %104
+  %.not119 = icmp eq ptr %103, %.ptr121
+  br i1 %.not119, label %107, label %100, !llvm.loop !804
 
-108:                                              ; preds = %101
-  %109 = icmp eq i8 %99, 45
-  %110 = sub nsw i32 0, %107
-  %spec.select = select i1 %109, i32 %110, i32 %107
+107:                                              ; preds = %100
+  %108 = load i8, ptr %.099.ptr, align 1, !tbaa !19
+  %109 = icmp eq i8 %108, 45
+  %110 = sub nsw i32 0, %106
+  %spec.select = select i1 %109, i32 %110, i32 %106
   %111 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %.not120 = icmp eq i64 %.099.add, 1
-  br i1 %.not120, label %122, label %.preheader
+  br i1 %.not120, label %122, label %.preheader.preheader
 
-.preheader:                                       ; preds = %108, %.preheader
-  %.ptr.pn = phi ptr [ %.0, %.preheader ], [ %.ptr.le, %108 ]
+.preheader.preheader:                             ; preds = %107
+  %.ptr.le = getelementptr inbounds i8, ptr %36, i64 %.099.add
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %.ptr.pn = phi ptr [ %.0, %.preheader ], [ %.ptr.le, %.preheader.preheader ]
   %.0 = getelementptr inbounds i8, ptr %.ptr.pn, i64 -1
   %112 = load i8, ptr %.0, align 1, !tbaa !19
   %113 = icmp eq i8 %112, 48
@@ -39720,8 +39726,8 @@ _ZN3fmt2v86detail6bufferIcE10try_resizeEm.exit128: ; preds = %89, %93
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %111, ptr nonnull align 1 %120, i64 %121, i1 false)
   br label %122
 
-122:                                              ; preds = %114, %108
-  %.094 = phi i32 [ %119, %114 ], [ 0, %108 ]
+122:                                              ; preds = %114, %107
+  %.094 = phi i32 [ %119, %114 ], [ 0, %107 ]
   %123 = zext i32 %.094 to i64
   %124 = add i64 %34, %123
   %125 = load i64, ptr %6, align 8, !tbaa !386
@@ -55207,63 +55213,63 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIfEvRKN11OpenImageIO6v3
 
 34:                                               ; preds = %5, %29
   %35 = phi ptr [ %33, %29 ], [ null, %5 ]
-  %36 = sext i32 %28 to i64
-  %37 = getelementptr float, ptr %35, i64 %36
-  %38 = getelementptr float, ptr %37, i64 %36
-  %39 = getelementptr float, ptr %38, i64 %36
-  %40 = fadd float %22, -5.000000e-01
-  %41 = fadd float %25, -5.000000e-01
-  %42 = tail call noundef float @llvm.floor.f32(float %40)
-  %43 = fptosi float %42 to i32
-  %44 = fsub float %40, %42
-  %45 = tail call noundef float @llvm.floor.f32(float %41)
-  %46 = fptosi float %45 to i32
-  %47 = fsub float %41, %45
+  %36 = fadd float %22, -5.000000e-01
+  %37 = fadd float %25, -5.000000e-01
+  %38 = tail call noundef float @llvm.floor.f32(float %36)
+  %39 = fptosi float %38 to i32
+  %40 = tail call noundef float @llvm.floor.f32(float %37)
+  %41 = fptosi float %40 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %48 = add nsw i32 %43, 2
-  %49 = add nsw i32 %46, 2
-  store i32 %43, ptr %7, align 4, !tbaa !152
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %48, ptr %50, align 4, !tbaa !254
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %46, ptr %51, align 4, !tbaa !252
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %49, ptr %52, align 4, !tbaa !255
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %53, align 4, !tbaa !253
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 1, ptr %54, align 4, !tbaa !256
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %55, align 4, !tbaa !257
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 10000, ptr %56, align 4, !tbaa !258
+  %42 = add nsw i32 %39, 2
+  %43 = add nsw i32 %41, 2
+  store i32 %39, ptr %7, align 4, !tbaa !152
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %42, ptr %44, align 4, !tbaa !254
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 %41, ptr %45, align 4, !tbaa !252
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 %43, ptr %46, align 4, !tbaa !255
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 0, ptr %47, align 4, !tbaa !253
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i32 1, ptr %48, align 4, !tbaa !256
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i32 0, ptr %49, align 4, !tbaa !257
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  store i32 10000, ptr %50, align 4, !tbaa !258
   call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseC2ERKS1_RKNS0_3ROIENS1_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(126) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(32) %7, i32 noundef 2, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %57 = icmp sgt i32 %28, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge
+  %51 = icmp sgt i32 %28, 0
+  br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %34
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %59 = load ptr, ptr %58, align 8, !tbaa !1151
-  %60 = zext nneg i32 %28 to i64
-  %61 = shl nuw nsw i64 %60, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %35, ptr align 4 %59, i64 %61, i1 false), !tbaa !196
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %53 = load ptr, ptr %52, align 8, !tbaa !1151
+  %54 = zext nneg i32 %28 to i64
+  %55 = shl nuw nsw i64 %54, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %35, ptr align 4 %53, i64 %55, i1 false), !tbaa !196
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %34
+  %56 = sext i32 %28 to i64
+  %57 = getelementptr float, ptr %35, i64 %56
+  %58 = getelementptr float, ptr %57, i64 %56
+  %59 = getelementptr float, ptr %58, i64 %56
+  %60 = fsub float %36, %38
+  %61 = fsub float %37, %40
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %6)
           to label %.preheader99 unwind label %70
 
 .preheader99:                                     ; preds = %._crit_edge
-  br i1 %57, label %.lr.ph102, label %._crit_edge103
+  br i1 %51, label %.lr.ph102, label %._crit_edge103
 
 .lr.ph102:                                        ; preds = %.preheader99
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %63 = load ptr, ptr %62, align 8, !tbaa !1151
   %64 = zext nneg i32 %28 to i64
   %65 = shl nuw nsw i64 %64, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %37, ptr align 4 %63, i64 %65, i1 false), !tbaa !196
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %57, ptr align 4 %63, i64 %65, i1 false), !tbaa !196
   br label %._crit_edge103
 
 ._crit_edge103:                                   ; preds = %.lr.ph102, %.preheader99
@@ -55271,14 +55277,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIfEvRKN11OpenImageIO6v3
           to label %.preheader98 unwind label %70
 
 .preheader98:                                     ; preds = %._crit_edge103
-  br i1 %57, label %.lr.ph105, label %._crit_edge106
+  br i1 %51, label %.lr.ph105, label %._crit_edge106
 
 .lr.ph105:                                        ; preds = %.preheader98
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %67 = load ptr, ptr %66, align 8, !tbaa !1151
   %68 = zext nneg i32 %28 to i64
   %69 = shl nuw nsw i64 %68, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr align 4 %67, i64 %69, i1 false), !tbaa !196
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %58, ptr align 4 %67, i64 %69, i1 false), !tbaa !196
   br label %._crit_edge106
 
 70:                                               ; preds = %._crit_edge106, %._crit_edge103, %._crit_edge
@@ -55291,21 +55297,21 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIfEvRKN11OpenImageIO6v3
           to label %.preheader unwind label %70
 
 .preheader:                                       ; preds = %._crit_edge106
-  br i1 %57, label %.lr.ph108, label %._crit_edge109
+  br i1 %51, label %.lr.ph108, label %._crit_edge109
 
 .lr.ph108:                                        ; preds = %.preheader
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %73 = load ptr, ptr %72, align 8, !tbaa !1151
   %74 = zext nneg i32 %28 to i64
   %75 = shl nuw nsw i64 %74, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %39, ptr align 4 %73, i64 %75, i1 false), !tbaa !196
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %59, ptr align 4 %73, i64 %75, i1 false), !tbaa !196
   br label %._crit_edge109
 
 ._crit_edge109:                                   ; preds = %.lr.ph108, %.preheader
   br i1 %4, label %76, label %109
 
 76:                                               ; preds = %._crit_edge109
-  %77 = add nsw i32 %46, 1
+  %77 = add nsw i32 %41, 1
   %78 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf4yminEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %79 unwind label %101
 
@@ -55324,9 +55330,9 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIfEvRKN11OpenImageIO6v3
           to label %85 unwind label %107
 
 85:                                               ; preds = %83
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %82, i32 %46)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %82, i32 %41)
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %84)
-  %86 = fsub float 1.000000e+00, %47
+  %86 = fsub float 1.000000e+00, %61
   %87 = sitofp i32 %.1.i to float
   %88 = fadd float %87, 5.000000e-01
   %89 = fmul float %88, 0x400921FB60000000
@@ -55338,7 +55344,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIfEvRKN11OpenImageIO6v3
   %95 = fmul float %94, 0x400921FB60000000
   %96 = fdiv float %95, %24
   %97 = call float @llvm.sin.f32(float %96)
-  %98 = fmul float %47, %97
+  %98 = fmul float %61, %97
   %99 = fadd float %98, %92
   %100 = fdiv float %98, %99
   br label %109
@@ -55364,10 +55370,10 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIfEvRKN11OpenImageIO6v3
   br label %133
 
 109:                                              ; preds = %85, %._crit_edge109
-  %.0 = phi float [ %100, %85 ], [ %47, %._crit_edge109 ]
-  %110 = fsub float 1.000000e+00, %44
+  %.0 = phi float [ %100, %85 ], [ %61, %._crit_edge109 ]
+  %110 = fsub float 1.000000e+00, %60
   %111 = fsub float 1.000000e+00, %.0
-  br i1 %57, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
+  br i1 %51, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
 
 .lr.ph.preheader.i:                               ; preds = %109
   %wide.trip.count.i = zext nneg i32 %28 to i64
@@ -55377,15 +55383,15 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIfEvRKN11OpenImageIO6v3
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %112 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i
   %113 = load float, ptr %112, align 4, !tbaa !196
-  %114 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i
+  %114 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i
   %115 = load float, ptr %114, align 4, !tbaa !196
-  %116 = fmul float %44, %115
+  %116 = fmul float %60, %115
   %117 = call float @llvm.fmuladd.f32(float %113, float %110, float %116)
-  %118 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv.i
+  %118 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv.i
   %119 = load float, ptr %118, align 4, !tbaa !196
-  %120 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i
+  %120 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv.i
   %121 = load float, ptr %120, align 4, !tbaa !196
-  %122 = fmul float %44, %121
+  %122 = fmul float %60, %121
   %123 = call float @llvm.fmuladd.f32(float %119, float %110, float %122)
   %124 = fmul float %.0, %123
   %125 = call float @llvm.fmuladd.f32(float %111, float %117, float %124)
@@ -55875,54 +55881,54 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
 
 34:                                               ; preds = %5, %29
   %35 = phi ptr [ %33, %29 ], [ null, %5 ]
-  %36 = sext i32 %28 to i64
-  %37 = getelementptr inbounds float, ptr %35, i64 %36
-  %38 = getelementptr inbounds float, ptr %37, i64 %36
-  %39 = getelementptr inbounds float, ptr %38, i64 %36
-  %40 = fadd float %22, -5.000000e-01
-  %41 = fadd float %25, -5.000000e-01
-  %42 = tail call noundef float @llvm.floor.f32(float %40)
-  %43 = fptosi float %42 to i32
-  %44 = fsub float %40, %42
-  %45 = tail call noundef float @llvm.floor.f32(float %41)
-  %46 = fptosi float %45 to i32
-  %47 = fsub float %41, %45
+  %36 = fadd float %22, -5.000000e-01
+  %37 = fadd float %25, -5.000000e-01
+  %38 = tail call noundef float @llvm.floor.f32(float %36)
+  %39 = fptosi float %38 to i32
+  %40 = tail call noundef float @llvm.floor.f32(float %37)
+  %41 = fptosi float %40 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %48 = add nsw i32 %43, 2
-  %49 = add nsw i32 %46, 2
-  store i32 %43, ptr %7, align 4, !tbaa !152
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %48, ptr %50, align 4, !tbaa !254
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %46, ptr %51, align 4, !tbaa !252
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %49, ptr %52, align 4, !tbaa !255
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %53, align 4, !tbaa !253
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 1, ptr %54, align 4, !tbaa !256
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %55, align 4, !tbaa !257
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 10000, ptr %56, align 4, !tbaa !258
+  %42 = add nsw i32 %39, 2
+  %43 = add nsw i32 %41, 2
+  store i32 %39, ptr %7, align 4, !tbaa !152
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %42, ptr %44, align 4, !tbaa !254
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 %41, ptr %45, align 4, !tbaa !252
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 %43, ptr %46, align 4, !tbaa !255
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 0, ptr %47, align 4, !tbaa !253
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i32 1, ptr %48, align 4, !tbaa !256
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i32 0, ptr %49, align 4, !tbaa !257
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  store i32 10000, ptr %50, align 4, !tbaa !258
   call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseC2ERKS1_RKNS0_3ROIENS1_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(126) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(32) %7, i32 noundef 2, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %57 = icmp sgt i32 %28, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge
+  %51 = icmp sgt i32 %28, 0
+  br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %34
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %59 = load ptr, ptr %58, align 8, !tbaa !1151
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %53 = load ptr, ptr %52, align 8, !tbaa !1151
   %wide.trip.count = zext nneg i32 %28 to i64
   br label %62
 
 ._crit_edge:                                      ; preds = %62, %34
+  %54 = sext i32 %28 to i64
+  %55 = getelementptr inbounds float, ptr %35, i64 %54
+  %56 = getelementptr inbounds float, ptr %55, i64 %54
+  %57 = getelementptr inbounds float, ptr %56, i64 %54
+  %58 = fsub float %36, %38
+  %59 = fsub float %37, %40
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %6)
           to label %.preheader99 unwind label %70
 
 .preheader99:                                     ; preds = %._crit_edge
-  br i1 %57, label %.lr.ph102, label %._crit_edge103
+  br i1 %51, label %.lr.ph102, label %._crit_edge103
 
 .lr.ph102:                                        ; preds = %.preheader99
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -55932,7 +55938,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
 
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv
   %64 = load i8, ptr %63, align 1, !tbaa !19
   %65 = uitofp i8 %64 to float
   %66 = fmul float %65, 0x3F70101020000000
@@ -55947,7 +55953,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
           to label %.preheader98 unwind label %70
 
 .preheader98:                                     ; preds = %._crit_edge103
-  br i1 %57, label %.lr.ph105, label %._crit_edge106
+  br i1 %51, label %.lr.ph105, label %._crit_edge106
 
 .lr.ph105:                                        ; preds = %.preheader98
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -55966,7 +55972,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
   %74 = load i8, ptr %73, align 1, !tbaa !19
   %75 = uitofp i8 %74 to float
   %76 = fmul float %75, 0x3F70101020000000
-  %77 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv111
+  %77 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !196
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -55977,7 +55983,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
           to label %.preheader unwind label %70
 
 .preheader:                                       ; preds = %._crit_edge106
-  br i1 %57, label %.lr.ph108, label %._crit_edge109
+  br i1 %51, label %.lr.ph108, label %._crit_edge109
 
 .lr.ph108:                                        ; preds = %.preheader
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -55991,7 +55997,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
   %82 = load i8, ptr %81, align 1, !tbaa !19
   %83 = uitofp i8 %82 to float
   %84 = fmul float %83, 0x3F70101020000000
-  %85 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv116
+  %85 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv116
   store float %84, ptr %85, align 4, !tbaa !196
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
@@ -56006,14 +56012,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
   %88 = load i8, ptr %87, align 1, !tbaa !19
   %89 = uitofp i8 %88 to float
   %90 = fmul float %89, 0x3F70101020000000
-  %91 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv121
+  %91 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv121
   store float %90, ptr %91, align 4, !tbaa !196
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
   br i1 %exitcond125.not, label %._crit_edge109, label %86, !llvm.loop !1174
 
 92:                                               ; preds = %._crit_edge109
-  %93 = add nsw i32 %46, 1
+  %93 = add nsw i32 %41, 1
   %94 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf4yminEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %95 unwind label %117
 
@@ -56032,9 +56038,9 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
           to label %101 unwind label %123
 
 101:                                              ; preds = %99
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %98, i32 %46)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %98, i32 %41)
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %100)
-  %102 = fsub float 1.000000e+00, %47
+  %102 = fsub float 1.000000e+00, %59
   %103 = sitofp i32 %.1.i to float
   %104 = fadd float %103, 5.000000e-01
   %105 = fmul float %104, 0x400921FB60000000
@@ -56046,7 +56052,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
   %111 = fmul float %110, 0x400921FB60000000
   %112 = fdiv float %111, %24
   %113 = call float @llvm.sin.f32(float %112)
-  %114 = fmul float %47, %113
+  %114 = fmul float %59, %113
   %115 = fadd float %114, %108
   %116 = fdiv float %114, %115
   br label %125
@@ -56072,10 +56078,10 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
   br label %149
 
 125:                                              ; preds = %101, %._crit_edge109
-  %.0 = phi float [ %116, %101 ], [ %47, %._crit_edge109 ]
-  %126 = fsub float 1.000000e+00, %44
+  %.0 = phi float [ %116, %101 ], [ %59, %._crit_edge109 ]
+  %126 = fsub float 1.000000e+00, %58
   %127 = fsub float 1.000000e+00, %.0
-  br i1 %57, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
+  br i1 %51, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
 
 .lr.ph.preheader.i:                               ; preds = %125
   %wide.trip.count.i = zext nneg i32 %28 to i64
@@ -56085,15 +56091,15 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %128 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i
   %129 = load float, ptr %128, align 4, !tbaa !196
-  %130 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i
   %131 = load float, ptr %130, align 4, !tbaa !196
-  %132 = fmul float %44, %131
+  %132 = fmul float %58, %131
   %133 = call float @llvm.fmuladd.f32(float %129, float %126, float %132)
-  %134 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i
   %135 = load float, ptr %134, align 4, !tbaa !196
-  %136 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i
+  %136 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i
   %137 = load float, ptr %136, align 4, !tbaa !196
-  %138 = fmul float %44, %137
+  %138 = fmul float %58, %137
   %139 = call float @llvm.fmuladd.f32(float %135, float %126, float %138)
   %140 = fmul float %.0, %139
   %141 = call float @llvm.fmuladd.f32(float %127, float %133, float %140)
@@ -56424,54 +56430,54 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIN9Imath_3_14halfEEvRKN
 
 34:                                               ; preds = %5, %29
   %35 = phi ptr [ %33, %29 ], [ null, %5 ]
-  %36 = sext i32 %28 to i64
-  %37 = getelementptr inbounds float, ptr %35, i64 %36
-  %38 = getelementptr inbounds float, ptr %37, i64 %36
-  %39 = getelementptr inbounds float, ptr %38, i64 %36
-  %40 = fadd float %22, -5.000000e-01
-  %41 = fadd float %25, -5.000000e-01
-  %42 = tail call noundef float @llvm.floor.f32(float %40)
-  %43 = fptosi float %42 to i32
-  %44 = fsub float %40, %42
-  %45 = tail call noundef float @llvm.floor.f32(float %41)
-  %46 = fptosi float %45 to i32
-  %47 = fsub float %41, %45
+  %36 = fadd float %22, -5.000000e-01
+  %37 = fadd float %25, -5.000000e-01
+  %38 = tail call noundef float @llvm.floor.f32(float %36)
+  %39 = fptosi float %38 to i32
+  %40 = tail call noundef float @llvm.floor.f32(float %37)
+  %41 = fptosi float %40 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %48 = add nsw i32 %43, 2
-  %49 = add nsw i32 %46, 2
-  store i32 %43, ptr %7, align 4, !tbaa !152
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %48, ptr %50, align 4, !tbaa !254
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %46, ptr %51, align 4, !tbaa !252
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %49, ptr %52, align 4, !tbaa !255
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %53, align 4, !tbaa !253
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 1, ptr %54, align 4, !tbaa !256
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %55, align 4, !tbaa !257
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 10000, ptr %56, align 4, !tbaa !258
+  %42 = add nsw i32 %39, 2
+  %43 = add nsw i32 %41, 2
+  store i32 %39, ptr %7, align 4, !tbaa !152
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %42, ptr %44, align 4, !tbaa !254
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 %41, ptr %45, align 4, !tbaa !252
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 %43, ptr %46, align 4, !tbaa !255
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 0, ptr %47, align 4, !tbaa !253
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i32 1, ptr %48, align 4, !tbaa !256
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i32 0, ptr %49, align 4, !tbaa !257
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  store i32 10000, ptr %50, align 4, !tbaa !258
   call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseC2ERKS1_RKNS0_3ROIENS1_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(126) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(32) %7, i32 noundef 2, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %57 = icmp sgt i32 %28, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge
+  %51 = icmp sgt i32 %28, 0
+  br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %34
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %59 = load ptr, ptr %58, align 8, !tbaa !1151
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %53 = load ptr, ptr %52, align 8, !tbaa !1151
   %wide.trip.count = zext nneg i32 %28 to i64
   br label %62
 
 ._crit_edge:                                      ; preds = %86, %34
+  %54 = sext i32 %28 to i64
+  %55 = getelementptr inbounds float, ptr %35, i64 %54
+  %56 = getelementptr inbounds float, ptr %55, i64 %54
+  %57 = getelementptr inbounds float, ptr %56, i64 %54
+  %58 = fsub float %36, %38
+  %59 = fsub float %37, %40
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %6)
           to label %.preheader111 unwind label %90
 
 .preheader111:                                    ; preds = %._crit_edge
-  br i1 %57, label %.lr.ph114, label %._crit_edge115
+  br i1 %51, label %.lr.ph114, label %._crit_edge115
 
 .lr.ph114:                                        ; preds = %.preheader111
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -56481,7 +56487,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIN9Imath_3_14halfEEvRKN
 
 62:                                               ; preds = %.lr.ph, %86
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
-  %63 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %59, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %53, i64 %indvars.iv
   %64 = load i16, ptr %63, align 2, !tbaa !1181
   %65 = zext i16 %64 to i32
   %66 = shl nuw nsw i32 %65, 13
@@ -56531,7 +56537,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIN9Imath_3_14halfEEvRKN
           to label %.preheader110 unwind label %90
 
 .preheader110:                                    ; preds = %._crit_edge115
-  br i1 %57, label %.lr.ph117, label %._crit_edge118
+  br i1 %51, label %.lr.ph117, label %._crit_edge118
 
 .lr.ph117:                                        ; preds = %.preheader110
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -56585,7 +56591,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIN9Imath_3_14halfEEvRKN
 
 116:                                              ; preds = %108, %107, %105, %103
   %.sroa.0.0.i.i.i.i.i91 = phi i32 [ %104, %103 ], [ %106, %105 ], [ %115, %108 ], [ %98, %107 ]
-  %117 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv123
+  %117 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv123
   store i32 %.sroa.0.0.i.i.i.i.i91, ptr %117, align 4, !tbaa !196
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
@@ -56596,7 +56602,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIN9Imath_3_14halfEEvRKN
           to label %.preheader unwind label %90
 
 .preheader:                                       ; preds = %._crit_edge118
-  br i1 %57, label %.lr.ph120, label %._crit_edge121
+  br i1 %51, label %.lr.ph120, label %._crit_edge121
 
 .lr.ph120:                                        ; preds = %.preheader
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -56645,7 +56651,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIN9Imath_3_14halfEEvRKN
 
 144:                                              ; preds = %136, %135, %133, %131
   %.sroa.0.0.i.i.i.i.i95 = phi i32 [ %132, %131 ], [ %134, %133 ], [ %143, %136 ], [ %126, %135 ]
-  %145 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv128
+  %145 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv128
   store i32 %.sroa.0.0.i.i.i.i.i95, ptr %145, align 4, !tbaa !196
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
@@ -56695,14 +56701,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIN9Imath_3_14halfEEvRKN
 
 170:                                              ; preds = %162, %161, %159, %157
   %.sroa.0.0.i.i.i.i.i99 = phi i32 [ %158, %157 ], [ %160, %159 ], [ %169, %162 ], [ %152, %161 ]
-  %171 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv133
+  %171 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv133
   store i32 %.sroa.0.0.i.i.i.i.i99, ptr %171, align 4, !tbaa !196
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
   br i1 %exitcond137.not, label %._crit_edge121, label %146, !llvm.loop !1186
 
 172:                                              ; preds = %._crit_edge121
-  %173 = add nsw i32 %46, 1
+  %173 = add nsw i32 %41, 1
   %174 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf4yminEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %175 unwind label %197
 
@@ -56721,9 +56727,9 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIN9Imath_3_14halfEEvRKN
           to label %181 unwind label %203
 
 181:                                              ; preds = %179
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %178, i32 %46)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %178, i32 %41)
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %180)
-  %182 = fsub float 1.000000e+00, %47
+  %182 = fsub float 1.000000e+00, %59
   %183 = sitofp i32 %.1.i to float
   %184 = fadd float %183, 5.000000e-01
   %185 = fmul float %184, 0x400921FB60000000
@@ -56735,7 +56741,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIN9Imath_3_14halfEEvRKN
   %191 = fmul float %190, 0x400921FB60000000
   %192 = fdiv float %191, %24
   %193 = call float @llvm.sin.f32(float %192)
-  %194 = fmul float %47, %193
+  %194 = fmul float %59, %193
   %195 = fadd float %194, %188
   %196 = fdiv float %194, %195
   br label %205
@@ -56761,10 +56767,10 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIN9Imath_3_14halfEEvRKN
   br label %229
 
 205:                                              ; preds = %181, %._crit_edge121
-  %.0 = phi float [ %196, %181 ], [ %47, %._crit_edge121 ]
-  %206 = fsub float 1.000000e+00, %44
+  %.0 = phi float [ %196, %181 ], [ %59, %._crit_edge121 ]
+  %206 = fsub float 1.000000e+00, %58
   %207 = fsub float 1.000000e+00, %.0
-  br i1 %57, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
+  br i1 %51, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
 
 .lr.ph.preheader.i:                               ; preds = %205
   %wide.trip.count.i = zext nneg i32 %28 to i64
@@ -56774,15 +56780,15 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIN9Imath_3_14halfEEvRKN
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %208 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i
   %209 = load float, ptr %208, align 4, !tbaa !196
-  %210 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i
+  %210 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i
   %211 = load float, ptr %210, align 4, !tbaa !196
-  %212 = fmul float %44, %211
+  %212 = fmul float %58, %211
   %213 = call float @llvm.fmuladd.f32(float %209, float %206, float %212)
-  %214 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv.i
+  %214 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i
   %215 = load float, ptr %214, align 4, !tbaa !196
-  %216 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i
+  %216 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i
   %217 = load float, ptr %216, align 4, !tbaa !196
-  %218 = fmul float %44, %217
+  %218 = fmul float %58, %217
   %219 = call float @llvm.fmuladd.f32(float %215, float %206, float %218)
   %220 = fmul float %.0, %219
   %221 = call float @llvm.fmuladd.f32(float %207, float %213, float %220)
@@ -57113,54 +57119,54 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
 
 34:                                               ; preds = %5, %29
   %35 = phi ptr [ %33, %29 ], [ null, %5 ]
-  %36 = sext i32 %28 to i64
-  %37 = getelementptr inbounds float, ptr %35, i64 %36
-  %38 = getelementptr inbounds float, ptr %37, i64 %36
-  %39 = getelementptr inbounds float, ptr %38, i64 %36
-  %40 = fadd float %22, -5.000000e-01
-  %41 = fadd float %25, -5.000000e-01
-  %42 = tail call noundef float @llvm.floor.f32(float %40)
-  %43 = fptosi float %42 to i32
-  %44 = fsub float %40, %42
-  %45 = tail call noundef float @llvm.floor.f32(float %41)
-  %46 = fptosi float %45 to i32
-  %47 = fsub float %41, %45
+  %36 = fadd float %22, -5.000000e-01
+  %37 = fadd float %25, -5.000000e-01
+  %38 = tail call noundef float @llvm.floor.f32(float %36)
+  %39 = fptosi float %38 to i32
+  %40 = tail call noundef float @llvm.floor.f32(float %37)
+  %41 = fptosi float %40 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %48 = add nsw i32 %43, 2
-  %49 = add nsw i32 %46, 2
-  store i32 %43, ptr %7, align 4, !tbaa !152
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %48, ptr %50, align 4, !tbaa !254
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %46, ptr %51, align 4, !tbaa !252
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %49, ptr %52, align 4, !tbaa !255
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %53, align 4, !tbaa !253
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 1, ptr %54, align 4, !tbaa !256
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %55, align 4, !tbaa !257
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 10000, ptr %56, align 4, !tbaa !258
+  %42 = add nsw i32 %39, 2
+  %43 = add nsw i32 %41, 2
+  store i32 %39, ptr %7, align 4, !tbaa !152
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %42, ptr %44, align 4, !tbaa !254
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 %41, ptr %45, align 4, !tbaa !252
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 %43, ptr %46, align 4, !tbaa !255
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 0, ptr %47, align 4, !tbaa !253
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i32 1, ptr %48, align 4, !tbaa !256
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i32 0, ptr %49, align 4, !tbaa !257
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  store i32 10000, ptr %50, align 4, !tbaa !258
   call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseC2ERKS1_RKNS0_3ROIENS1_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(126) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(32) %7, i32 noundef 2, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %57 = icmp sgt i32 %28, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge
+  %51 = icmp sgt i32 %28, 0
+  br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %34
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %59 = load ptr, ptr %58, align 8, !tbaa !1151
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %53 = load ptr, ptr %52, align 8, !tbaa !1151
   %wide.trip.count = zext nneg i32 %28 to i64
   br label %62
 
 ._crit_edge:                                      ; preds = %62, %34
+  %54 = sext i32 %28 to i64
+  %55 = getelementptr inbounds float, ptr %35, i64 %54
+  %56 = getelementptr inbounds float, ptr %55, i64 %54
+  %57 = getelementptr inbounds float, ptr %56, i64 %54
+  %58 = fsub float %36, %38
+  %59 = fsub float %37, %40
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %6)
           to label %.preheader99 unwind label %70
 
 .preheader99:                                     ; preds = %._crit_edge
-  br i1 %57, label %.lr.ph102, label %._crit_edge103
+  br i1 %51, label %.lr.ph102, label %._crit_edge103
 
 .lr.ph102:                                        ; preds = %.preheader99
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -57170,7 +57176,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
 
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv
   %64 = load i16, ptr %63, align 2, !tbaa !807
   %65 = uitofp i16 %64 to float
   %66 = fmul float %65, 0x3EF0001000000000
@@ -57185,7 +57191,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
           to label %.preheader98 unwind label %70
 
 .preheader98:                                     ; preds = %._crit_edge103
-  br i1 %57, label %.lr.ph105, label %._crit_edge106
+  br i1 %51, label %.lr.ph105, label %._crit_edge106
 
 .lr.ph105:                                        ; preds = %.preheader98
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -57204,7 +57210,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
   %74 = load i16, ptr %73, align 2, !tbaa !807
   %75 = uitofp i16 %74 to float
   %76 = fmul float %75, 0x3EF0001000000000
-  %77 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv111
+  %77 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !196
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -57215,7 +57221,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
           to label %.preheader unwind label %70
 
 .preheader:                                       ; preds = %._crit_edge106
-  br i1 %57, label %.lr.ph108, label %._crit_edge109
+  br i1 %51, label %.lr.ph108, label %._crit_edge109
 
 .lr.ph108:                                        ; preds = %.preheader
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -57229,7 +57235,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
   %82 = load i16, ptr %81, align 2, !tbaa !807
   %83 = uitofp i16 %82 to float
   %84 = fmul float %83, 0x3EF0001000000000
-  %85 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv116
+  %85 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv116
   store float %84, ptr %85, align 4, !tbaa !196
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
@@ -57244,14 +57250,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
   %88 = load i16, ptr %87, align 2, !tbaa !807
   %89 = uitofp i16 %88 to float
   %90 = fmul float %89, 0x3EF0001000000000
-  %91 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv121
+  %91 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv121
   store float %90, ptr %91, align 4, !tbaa !196
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
   br i1 %exitcond125.not, label %._crit_edge109, label %86, !llvm.loop !1196
 
 92:                                               ; preds = %._crit_edge109
-  %93 = add nsw i32 %46, 1
+  %93 = add nsw i32 %41, 1
   %94 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf4yminEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %95 unwind label %117
 
@@ -57270,9 +57276,9 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
           to label %101 unwind label %123
 
 101:                                              ; preds = %99
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %98, i32 %46)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %98, i32 %41)
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %100)
-  %102 = fsub float 1.000000e+00, %47
+  %102 = fsub float 1.000000e+00, %59
   %103 = sitofp i32 %.1.i to float
   %104 = fadd float %103, 5.000000e-01
   %105 = fmul float %104, 0x400921FB60000000
@@ -57284,7 +57290,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
   %111 = fmul float %110, 0x400921FB60000000
   %112 = fdiv float %111, %24
   %113 = call float @llvm.sin.f32(float %112)
-  %114 = fmul float %47, %113
+  %114 = fmul float %59, %113
   %115 = fadd float %114, %108
   %116 = fdiv float %114, %115
   br label %125
@@ -57310,10 +57316,10 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
   br label %149
 
 125:                                              ; preds = %101, %._crit_edge109
-  %.0 = phi float [ %116, %101 ], [ %47, %._crit_edge109 ]
-  %126 = fsub float 1.000000e+00, %44
+  %.0 = phi float [ %116, %101 ], [ %59, %._crit_edge109 ]
+  %126 = fsub float 1.000000e+00, %58
   %127 = fsub float 1.000000e+00, %.0
-  br i1 %57, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
+  br i1 %51, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
 
 .lr.ph.preheader.i:                               ; preds = %125
   %wide.trip.count.i = zext nneg i32 %28 to i64
@@ -57323,15 +57329,15 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %128 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i
   %129 = load float, ptr %128, align 4, !tbaa !196
-  %130 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i
   %131 = load float, ptr %130, align 4, !tbaa !196
-  %132 = fmul float %44, %131
+  %132 = fmul float %58, %131
   %133 = call float @llvm.fmuladd.f32(float %129, float %126, float %132)
-  %134 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i
   %135 = load float, ptr %134, align 4, !tbaa !196
-  %136 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i
+  %136 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i
   %137 = load float, ptr %136, align 4, !tbaa !196
-  %138 = fmul float %44, %137
+  %138 = fmul float %58, %137
   %139 = call float @llvm.fmuladd.f32(float %135, float %126, float %138)
   %140 = fmul float %.0, %139
   %141 = call float @llvm.fmuladd.f32(float %127, float %133, float %140)
@@ -60171,8 +60177,8 @@ define internal fastcc void @_ZL18resize_block_2passIfEbRN11OpenImageIO6v3_1_08I
   br label %.preheader.lr.ph.i.us
 
 .preheader.lr.ph.i.us:                            ; preds = %.preheader.lr.ph.i.us.preheader, %._crit_edge107.us126
-  %.050111.us116 = phi i64 [ %88, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
-  %.057110.us117 = phi ptr [ %89, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
+  %.050111.us116 = phi i64 [ %89, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
+  %.057110.us117 = phi ptr [ %88, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
   %.058109.us118 = phi ptr [ %98, %._crit_edge107.us126 ], [ %58, %.preheader.lr.ph.i.us.preheader ]
   br label %.preheader.us.i.us
 
@@ -60234,22 +60240,19 @@ define internal fastcc void @_ZL18resize_block_2passIfEbRN11OpenImageIO6v3_1_08I
   %85 = add nuw i64 %.01325.us.i72.us, 2
   %86 = getelementptr inbounds nuw float, ptr %84, i64 %53
   %87 = icmp ult i64 %85, %51
-  br i1 %87, label %.preheader.us.i71.us, label %.preheader.us.us129.preheader, !llvm.loop !1243
+  br i1 %87, label %.preheader.us.i71.us, label %.preheader.us.us129, !llvm.loop !1243
 
 ._crit_edge107.us126:                             ; preds = %._crit_edge.us.us138
-  %88 = add nuw i64 %.050111.us116, 1
-  %exitcond200.not = icmp eq i64 %88, %50
+  %88 = getelementptr inbounds nuw float, ptr %75, i64 %45
+  %89 = add nuw i64 %.050111.us116, 1
+  %exitcond200.not = icmp eq i64 %89, %50
   br i1 %exitcond200.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67, label %.preheader.lr.ph.i.us, !llvm.loop !1244
 
-.preheader.us.us129.preheader:                    ; preds = %._crit_edge.us.i79.us
-  %89 = getelementptr inbounds nuw float, ptr %75, i64 %45
-  br label %.preheader.us.us129
-
-.preheader.us.us129:                              ; preds = %.preheader.us.us129.preheader, %._crit_edge.us.us138
-  %.046106.us.us130 = phi i64 [ %99, %._crit_edge.us.us138 ], [ 0, %.preheader.us.us129.preheader ]
-  %.047105.us.us131 = phi ptr [ %97, %._crit_edge.us.us138 ], [ %28, %.preheader.us.us129.preheader ]
-  %.048104.us.us132 = phi ptr [ %96, %._crit_edge.us.us138 ], [ %27, %.preheader.us.us129.preheader ]
-  %.159103.us.us133 = phi ptr [ %98, %._crit_edge.us.us138 ], [ %.058109.us118, %.preheader.us.us129.preheader ]
+.preheader.us.us129:                              ; preds = %._crit_edge.us.i79.us, %._crit_edge.us.us138
+  %.046106.us.us130 = phi i64 [ %99, %._crit_edge.us.us138 ], [ 0, %._crit_edge.us.i79.us ]
+  %.047105.us.us131 = phi ptr [ %97, %._crit_edge.us.us138 ], [ %28, %._crit_edge.us.i79.us ]
+  %.048104.us.us132 = phi ptr [ %96, %._crit_edge.us.us138 ], [ %27, %._crit_edge.us.i79.us ]
+  %.159103.us.us133 = phi ptr [ %98, %._crit_edge.us.us138 ], [ %.058109.us118, %._crit_edge.us.i79.us ]
   br label %90
 
 90:                                               ; preds = %90, %.preheader.us.us129
@@ -60406,8 +60409,8 @@ define internal fastcc void @_ZL18resize_block_2passIhEbRN11OpenImageIO6v3_1_08I
   br label %.preheader.lr.ph.i.us
 
 .preheader.lr.ph.i.us:                            ; preds = %.preheader.lr.ph.i.us.preheader, %._crit_edge107.us126
-  %.050111.us116 = phi i64 [ %94, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
-  %.057110.us117 = phi ptr [ %95, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
+  %.050111.us116 = phi i64 [ %95, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
+  %.057110.us117 = phi ptr [ %94, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
   %.058109.us118 = phi ptr [ %105, %._crit_edge107.us126 ], [ %58, %.preheader.lr.ph.i.us.preheader ]
   br label %.preheader.us.i.us
 
@@ -60475,22 +60478,19 @@ define internal fastcc void @_ZL18resize_block_2passIhEbRN11OpenImageIO6v3_1_08I
   %91 = add nuw i64 %.01325.us.i72.us, 2
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 %53
   %93 = icmp ult i64 %91, %51
-  br i1 %93, label %.preheader.us.i71.us, label %.preheader.us.us129.preheader, !llvm.loop !1248
+  br i1 %93, label %.preheader.us.i71.us, label %.preheader.us.us129, !llvm.loop !1248
 
 ._crit_edge107.us126:                             ; preds = %._crit_edge.us.us138
-  %94 = add nuw i64 %.050111.us116, 1
-  %exitcond200.not = icmp eq i64 %94, %50
+  %94 = getelementptr inbounds nuw i8, ptr %78, i64 %45
+  %95 = add nuw i64 %.050111.us116, 1
+  %exitcond200.not = icmp eq i64 %95, %50
   br i1 %exitcond200.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67, label %.preheader.lr.ph.i.us, !llvm.loop !1249
 
-.preheader.us.us129.preheader:                    ; preds = %._crit_edge.us.i79.us
-  %95 = getelementptr inbounds nuw i8, ptr %78, i64 %45
-  br label %.preheader.us.us129
-
-.preheader.us.us129:                              ; preds = %.preheader.us.us129.preheader, %._crit_edge.us.us138
-  %.046106.us.us130 = phi i64 [ %106, %._crit_edge.us.us138 ], [ 0, %.preheader.us.us129.preheader ]
-  %.047105.us.us131 = phi ptr [ %104, %._crit_edge.us.us138 ], [ %28, %.preheader.us.us129.preheader ]
-  %.048104.us.us132 = phi ptr [ %103, %._crit_edge.us.us138 ], [ %27, %.preheader.us.us129.preheader ]
-  %.159103.us.us133 = phi ptr [ %105, %._crit_edge.us.us138 ], [ %.058109.us118, %.preheader.us.us129.preheader ]
+.preheader.us.us129:                              ; preds = %._crit_edge.us.i79.us, %._crit_edge.us.us138
+  %.046106.us.us130 = phi i64 [ %106, %._crit_edge.us.us138 ], [ 0, %._crit_edge.us.i79.us ]
+  %.047105.us.us131 = phi ptr [ %104, %._crit_edge.us.us138 ], [ %28, %._crit_edge.us.i79.us ]
+  %.048104.us.us132 = phi ptr [ %103, %._crit_edge.us.us138 ], [ %27, %._crit_edge.us.i79.us ]
+  %.159103.us.us133 = phi ptr [ %105, %._crit_edge.us.us138 ], [ %.058109.us118, %._crit_edge.us.i79.us ]
   br label %96
 
 96:                                               ; preds = %96, %.preheader.us.us129
@@ -60577,7 +60577,7 @@ define internal fastcc void @_ZL18resize_block_2passIN9Imath_3_14halfEEbRN11Open
 
 15:                                               ; preds = %10, %5
   tail call fastcc void @_ZL13resize_block_IN9Imath_3_14halfEEbRN11OpenImageIO6v3_1_08ImageBufERKS4_NS3_3ROIEb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull byval(%"struct.OpenImageIO::v3_1_0::ROI") align 8 %2, i1 noundef zeroext false)
-  br label %255
+  br label %250
 
 16:                                               ; preds = %10, %4
   %17 = tail call noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf9nchannelsEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -60638,16 +60638,18 @@ define internal fastcc void @_ZL18resize_block_2passIN9Imath_3_14halfEEbRN11Open
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds %"class.Imath_3_1::half", ptr %32, i64 %58
   %.not.i68 = icmp eq i32 %19, %20
-  %60 = icmp sgt i32 %17, 0
+  %60 = icmp slt i32 %17, 1
   %61 = sext i32 %17 to i64
   %62 = zext nneg i32 %17 to i64
   %umax = tail call i64 @llvm.umax.i64(i64 %46, i64 1)
+  %brmerge = or i1 %.not.i68, %60
+  %brmerge162 = or i1 %.not.i68, %60
   br label %71
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67: ; preds = %._crit_edge117, %41
   tail call void @_ZdaPv(ptr noundef nonnull %28) #29
   tail call void @_ZdaPv(ptr noundef nonnull %27) #29
-  br label %255
+  br label %250
 
 63:                                               ; preds = %16
   %64 = landingpad { ptr, i32 }
@@ -60670,353 +60672,339 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67: ; preds = %._crit_edge
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit91
 
 71:                                               ; preds = %.lr.ph, %._crit_edge117
-  %.050121 = phi i64 [ 0, %.lr.ph ], [ %254, %._crit_edge117 ]
-  %.057120 = phi ptr [ %55, %.lr.ph ], [ %253, %._crit_edge117 ]
+  %.050121 = phi i64 [ 0, %.lr.ph ], [ %249, %._crit_edge117 ]
+  %.057120 = phi ptr [ %55, %.lr.ph ], [ %248, %._crit_edge117 ]
   %.058119 = phi ptr [ %59, %.lr.ph ], [ %.159.lcssa, %._crit_edge117 ]
-  br i1 %.not.i68, label %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88.thread, label %.preheader.lr.ph.i
+  br i1 %brmerge, label %._crit_edge117, label %.preheader.us.i
 
-_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88.thread: ; preds = %71
-  %72 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %.057120, i64 %45
-  %73 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %72, i64 %45
-  br label %._crit_edge117
+.preheader.us.i:                                  ; preds = %71, %._crit_edge.us.i
+  %.01329.us.i = phi i64 [ %125, %._crit_edge.us.i ], [ 0, %71 ]
+  %.01428.us.i = phi ptr [ %123, %._crit_edge.us.i ], [ %27, %71 ]
+  %.01527.us.i = phi ptr [ %126, %._crit_edge.us.i ], [ %.057120, %71 ]
+  br label %72
 
-.preheader.lr.ph.i:                               ; preds = %71
-  br i1 %60, label %.preheader.us.i, label %.preheader.lr.ph.thread
+72:                                               ; preds = %_ZNK9Imath_3_14halfcvfEv.exit22.us.i, %.preheader.us.i
+  %.025.us.i = phi i32 [ 0, %.preheader.us.i ], [ %122, %_ZNK9Imath_3_14halfcvfEv.exit22.us.i ]
+  %.124.us.i = phi ptr [ %.01428.us.i, %.preheader.us.i ], [ %123, %_ZNK9Imath_3_14halfcvfEv.exit22.us.i ]
+  %.11623.us.i = phi ptr [ %.01527.us.i, %.preheader.us.i ], [ %124, %_ZNK9Imath_3_14halfcvfEv.exit22.us.i ]
+  %73 = load i16, ptr %.11623.us.i, align 2, !tbaa !1181
+  %74 = zext i16 %73 to i32
+  %75 = shl nuw nsw i32 %74, 13
+  %76 = and i32 %75, 268427264
+  %.signext.i.i.us.i = sext i16 %73 to i32
+  %77 = and i32 %.signext.i.i.us.i, -2147483648
+  %78 = icmp samesign ugt i32 %76, 8388607
+  br i1 %78, label %88, label %79, !prof !36
 
-.preheader.lr.ph.thread:                          ; preds = %.preheader.lr.ph.i
-  %74 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %.057120, i64 %45
-  %75 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %74, i64 %45
-  br label %._crit_edge117
+79:                                               ; preds = %72
+  %.not.i.i.us.i = icmp eq i32 %76, 0
+  br i1 %.not.i.i.us.i, label %_ZNK9Imath_3_14halfcvfEv.exit.us.i, label %80
 
-.preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %._crit_edge.us.i
-  %.01329.us.i = phi i64 [ %129, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.i ]
-  %.01428.us.i = phi ptr [ %127, %._crit_edge.us.i ], [ %27, %.preheader.lr.ph.i ]
-  %.01527.us.i = phi ptr [ %130, %._crit_edge.us.i ], [ %.057120, %.preheader.lr.ph.i ]
-  br label %76
-
-76:                                               ; preds = %_ZNK9Imath_3_14halfcvfEv.exit22.us.i, %.preheader.us.i
-  %.025.us.i = phi i32 [ 0, %.preheader.us.i ], [ %126, %_ZNK9Imath_3_14halfcvfEv.exit22.us.i ]
-  %.124.us.i = phi ptr [ %.01428.us.i, %.preheader.us.i ], [ %127, %_ZNK9Imath_3_14halfcvfEv.exit22.us.i ]
-  %.11623.us.i = phi ptr [ %.01527.us.i, %.preheader.us.i ], [ %128, %_ZNK9Imath_3_14halfcvfEv.exit22.us.i ]
-  %77 = load i16, ptr %.11623.us.i, align 2, !tbaa !1181
-  %78 = zext i16 %77 to i32
-  %79 = shl nuw nsw i32 %78, 13
-  %80 = and i32 %79, 268427264
-  %.signext.i.i.us.i = sext i16 %77 to i32
-  %81 = and i32 %.signext.i.i.us.i, -2147483648
-  %82 = icmp samesign ugt i32 %80, 8388607
-  br i1 %82, label %92, label %83, !prof !36
-
-83:                                               ; preds = %76
-  %.not.i.i.us.i = icmp eq i32 %80, 0
-  br i1 %.not.i.i.us.i, label %_ZNK9Imath_3_14halfcvfEv.exit.us.i, label %84
-
-84:                                               ; preds = %83
-  %85 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %80, i1 true)
-  %86 = add nsw i32 %85, -8
-  %87 = shl i32 %80, %86
-  %88 = or i32 %81, %87
-  %89 = or i32 %88, 947912704
-  %90 = shl nuw nsw i32 %86, 23
-  %91 = sub nuw i32 %89, %90
+80:                                               ; preds = %79
+  %81 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %76, i1 true)
+  %82 = add nsw i32 %81, -8
+  %83 = shl i32 %76, %82
+  %84 = or i32 %77, %83
+  %85 = or i32 %84, 947912704
+  %86 = shl nuw nsw i32 %82, 23
+  %87 = sub nuw i32 %85, %86
   br label %_ZNK9Imath_3_14halfcvfEv.exit.us.i
 
-92:                                               ; preds = %76
-  %93 = or disjoint i32 %80, %81
-  %94 = icmp samesign ult i32 %80, 260046848
-  br i1 %94, label %97, label %95, !prof !36
+88:                                               ; preds = %72
+  %89 = or disjoint i32 %76, %77
+  %90 = icmp samesign ult i32 %76, 260046848
+  br i1 %90, label %93, label %91, !prof !36
 
-95:                                               ; preds = %92
-  %96 = or i32 %93, 2139095040
+91:                                               ; preds = %88
+  %92 = or i32 %89, 2139095040
   br label %_ZNK9Imath_3_14halfcvfEv.exit.us.i
 
-97:                                               ; preds = %92
-  %98 = add nuw nsw i32 %93, 939524096
+93:                                               ; preds = %88
+  %94 = add nuw nsw i32 %89, 939524096
   br label %_ZNK9Imath_3_14halfcvfEv.exit.us.i
 
-_ZNK9Imath_3_14halfcvfEv.exit.us.i:               ; preds = %97, %95, %84, %83
-  %.sroa.0.0.i.i.us.i = phi i32 [ %98, %97 ], [ %96, %95 ], [ %91, %84 ], [ %81, %83 ]
-  %99 = bitcast i32 %.sroa.0.0.i.i.us.i to float
-  %100 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %.11623.us.i, i64 %61
-  %101 = load i16, ptr %100, align 2, !tbaa !1181
-  %102 = zext i16 %101 to i32
-  %103 = shl nuw nsw i32 %102, 13
-  %104 = and i32 %103, 268427264
-  %.signext.i.i19.us.i = sext i16 %101 to i32
-  %105 = and i32 %.signext.i.i19.us.i, -2147483648
-  %106 = icmp samesign ugt i32 %104, 8388607
-  br i1 %106, label %116, label %107, !prof !36
+_ZNK9Imath_3_14halfcvfEv.exit.us.i:               ; preds = %93, %91, %80, %79
+  %.sroa.0.0.i.i.us.i = phi i32 [ %94, %93 ], [ %92, %91 ], [ %87, %80 ], [ %77, %79 ]
+  %95 = bitcast i32 %.sroa.0.0.i.i.us.i to float
+  %96 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %.11623.us.i, i64 %61
+  %97 = load i16, ptr %96, align 2, !tbaa !1181
+  %98 = zext i16 %97 to i32
+  %99 = shl nuw nsw i32 %98, 13
+  %100 = and i32 %99, 268427264
+  %.signext.i.i19.us.i = sext i16 %97 to i32
+  %101 = and i32 %.signext.i.i19.us.i, -2147483648
+  %102 = icmp samesign ugt i32 %100, 8388607
+  br i1 %102, label %112, label %103, !prof !36
 
-107:                                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit.us.i
-  %.not.i.i20.us.i = icmp eq i32 %104, 0
-  br i1 %.not.i.i20.us.i, label %_ZNK9Imath_3_14halfcvfEv.exit22.us.i, label %108
+103:                                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit.us.i
+  %.not.i.i20.us.i = icmp eq i32 %100, 0
+  br i1 %.not.i.i20.us.i, label %_ZNK9Imath_3_14halfcvfEv.exit22.us.i, label %104
 
-108:                                              ; preds = %107
-  %109 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %104, i1 true)
-  %110 = add nsw i32 %109, -8
-  %111 = shl i32 %104, %110
-  %112 = or i32 %105, %111
-  %113 = or i32 %112, 947912704
-  %114 = shl nuw nsw i32 %110, 23
-  %115 = sub nuw i32 %113, %114
+104:                                              ; preds = %103
+  %105 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %100, i1 true)
+  %106 = add nsw i32 %105, -8
+  %107 = shl i32 %100, %106
+  %108 = or i32 %101, %107
+  %109 = or i32 %108, 947912704
+  %110 = shl nuw nsw i32 %106, 23
+  %111 = sub nuw i32 %109, %110
   br label %_ZNK9Imath_3_14halfcvfEv.exit22.us.i
 
-116:                                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit.us.i
-  %117 = or disjoint i32 %104, %105
-  %118 = icmp samesign ult i32 %104, 260046848
-  br i1 %118, label %121, label %119, !prof !36
+112:                                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit.us.i
+  %113 = or disjoint i32 %100, %101
+  %114 = icmp samesign ult i32 %100, 260046848
+  br i1 %114, label %117, label %115, !prof !36
 
-119:                                              ; preds = %116
-  %120 = or i32 %117, 2139095040
+115:                                              ; preds = %112
+  %116 = or i32 %113, 2139095040
   br label %_ZNK9Imath_3_14halfcvfEv.exit22.us.i
 
-121:                                              ; preds = %116
-  %122 = add nuw nsw i32 %117, 939524096
+117:                                              ; preds = %112
+  %118 = add nuw nsw i32 %113, 939524096
   br label %_ZNK9Imath_3_14halfcvfEv.exit22.us.i
 
-_ZNK9Imath_3_14halfcvfEv.exit22.us.i:             ; preds = %121, %119, %108, %107
-  %.sroa.0.0.i.i21.us.i = phi i32 [ %122, %121 ], [ %120, %119 ], [ %115, %108 ], [ %105, %107 ]
-  %123 = bitcast i32 %.sroa.0.0.i.i21.us.i to float
-  %124 = fadd float %99, %123
-  %125 = fmul float %124, 5.000000e-01
-  store float %125, ptr %.124.us.i, align 4, !tbaa !196
-  %126 = add nuw nsw i32 %.025.us.i, 1
-  %127 = getelementptr inbounds nuw i8, ptr %.124.us.i, i64 4
-  %128 = getelementptr inbounds nuw i8, ptr %.11623.us.i, i64 2
-  %exitcond.not.i = icmp eq i32 %126, %17
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %76, !llvm.loop !1252
+_ZNK9Imath_3_14halfcvfEv.exit22.us.i:             ; preds = %117, %115, %104, %103
+  %.sroa.0.0.i.i21.us.i = phi i32 [ %118, %117 ], [ %116, %115 ], [ %111, %104 ], [ %101, %103 ]
+  %119 = bitcast i32 %.sroa.0.0.i.i21.us.i to float
+  %120 = fadd float %95, %119
+  %121 = fmul float %120, 5.000000e-01
+  store float %121, ptr %.124.us.i, align 4, !tbaa !196
+  %122 = add nuw nsw i32 %.025.us.i, 1
+  %123 = getelementptr inbounds nuw i8, ptr %.124.us.i, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %.11623.us.i, i64 2
+  %exitcond.not.i = icmp eq i32 %122, %17
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %72, !llvm.loop !1252
 
 ._crit_edge.us.i:                                 ; preds = %_ZNK9Imath_3_14halfcvfEv.exit22.us.i
-  %129 = add nuw i64 %.01329.us.i, 2
-  %130 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %128, i64 %61
-  %131 = icmp ult i64 %129, %49
-  br i1 %131, label %.preheader.us.i, label %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit, !llvm.loop !1253
+  %125 = add nuw i64 %.01329.us.i, 2
+  %126 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %124, i64 %61
+  %127 = icmp ult i64 %125, %49
+  br i1 %127, label %.preheader.us.i, label %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit, !llvm.loop !1253
 
 _ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit: ; preds = %._crit_edge.us.i
-  %132 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %.057120, i64 %45
+  %128 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %.057120, i64 %45
   br label %.preheader.us.i71
 
 .preheader.us.i71:                                ; preds = %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit, %._crit_edge.us.i87
-  %.01329.us.i72 = phi i64 [ %186, %._crit_edge.us.i87 ], [ 0, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit ]
-  %.01428.us.i73 = phi ptr [ %184, %._crit_edge.us.i87 ], [ %28, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit ]
-  %.01527.us.i74 = phi ptr [ %187, %._crit_edge.us.i87 ], [ %132, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit ]
-  br label %133
+  %.01329.us.i72 = phi i64 [ %182, %._crit_edge.us.i87 ], [ 0, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit ]
+  %.01428.us.i73 = phi ptr [ %180, %._crit_edge.us.i87 ], [ %28, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit ]
+  %.01527.us.i74 = phi ptr [ %183, %._crit_edge.us.i87 ], [ %128, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit ]
+  br label %129
 
-133:                                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit22.us.i84, %.preheader.us.i71
-  %.025.us.i75 = phi i32 [ 0, %.preheader.us.i71 ], [ %183, %_ZNK9Imath_3_14halfcvfEv.exit22.us.i84 ]
-  %.124.us.i76 = phi ptr [ %.01428.us.i73, %.preheader.us.i71 ], [ %184, %_ZNK9Imath_3_14halfcvfEv.exit22.us.i84 ]
-  %.11623.us.i77 = phi ptr [ %.01527.us.i74, %.preheader.us.i71 ], [ %185, %_ZNK9Imath_3_14halfcvfEv.exit22.us.i84 ]
-  %134 = load i16, ptr %.11623.us.i77, align 2, !tbaa !1181
-  %135 = zext i16 %134 to i32
-  %136 = shl nuw nsw i32 %135, 13
-  %137 = and i32 %136, 268427264
-  %.signext.i.i.us.i78 = sext i16 %134 to i32
-  %138 = and i32 %.signext.i.i.us.i78, -2147483648
-  %139 = icmp samesign ugt i32 %137, 8388607
-  br i1 %139, label %149, label %140, !prof !36
+129:                                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit22.us.i84, %.preheader.us.i71
+  %.025.us.i75 = phi i32 [ 0, %.preheader.us.i71 ], [ %179, %_ZNK9Imath_3_14halfcvfEv.exit22.us.i84 ]
+  %.124.us.i76 = phi ptr [ %.01428.us.i73, %.preheader.us.i71 ], [ %180, %_ZNK9Imath_3_14halfcvfEv.exit22.us.i84 ]
+  %.11623.us.i77 = phi ptr [ %.01527.us.i74, %.preheader.us.i71 ], [ %181, %_ZNK9Imath_3_14halfcvfEv.exit22.us.i84 ]
+  %130 = load i16, ptr %.11623.us.i77, align 2, !tbaa !1181
+  %131 = zext i16 %130 to i32
+  %132 = shl nuw nsw i32 %131, 13
+  %133 = and i32 %132, 268427264
+  %.signext.i.i.us.i78 = sext i16 %130 to i32
+  %134 = and i32 %.signext.i.i.us.i78, -2147483648
+  %135 = icmp samesign ugt i32 %133, 8388607
+  br i1 %135, label %145, label %136, !prof !36
 
-140:                                              ; preds = %133
-  %.not.i.i.us.i79 = icmp eq i32 %137, 0
-  br i1 %.not.i.i.us.i79, label %_ZNK9Imath_3_14halfcvfEv.exit.us.i80, label %141
+136:                                              ; preds = %129
+  %.not.i.i.us.i79 = icmp eq i32 %133, 0
+  br i1 %.not.i.i.us.i79, label %_ZNK9Imath_3_14halfcvfEv.exit.us.i80, label %137
 
-141:                                              ; preds = %140
-  %142 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %137, i1 true)
-  %143 = add nsw i32 %142, -8
-  %144 = shl i32 %137, %143
-  %145 = or i32 %138, %144
-  %146 = or i32 %145, 947912704
-  %147 = shl nuw nsw i32 %143, 23
-  %148 = sub nuw i32 %146, %147
+137:                                              ; preds = %136
+  %138 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %133, i1 true)
+  %139 = add nsw i32 %138, -8
+  %140 = shl i32 %133, %139
+  %141 = or i32 %134, %140
+  %142 = or i32 %141, 947912704
+  %143 = shl nuw nsw i32 %139, 23
+  %144 = sub nuw i32 %142, %143
   br label %_ZNK9Imath_3_14halfcvfEv.exit.us.i80
 
-149:                                              ; preds = %133
-  %150 = or disjoint i32 %137, %138
-  %151 = icmp samesign ult i32 %137, 260046848
-  br i1 %151, label %154, label %152, !prof !36
+145:                                              ; preds = %129
+  %146 = or disjoint i32 %133, %134
+  %147 = icmp samesign ult i32 %133, 260046848
+  br i1 %147, label %150, label %148, !prof !36
 
-152:                                              ; preds = %149
-  %153 = or i32 %150, 2139095040
+148:                                              ; preds = %145
+  %149 = or i32 %146, 2139095040
   br label %_ZNK9Imath_3_14halfcvfEv.exit.us.i80
 
-154:                                              ; preds = %149
-  %155 = add nuw nsw i32 %150, 939524096
+150:                                              ; preds = %145
+  %151 = add nuw nsw i32 %146, 939524096
   br label %_ZNK9Imath_3_14halfcvfEv.exit.us.i80
 
-_ZNK9Imath_3_14halfcvfEv.exit.us.i80:             ; preds = %154, %152, %141, %140
-  %.sroa.0.0.i.i.us.i81 = phi i32 [ %155, %154 ], [ %153, %152 ], [ %148, %141 ], [ %138, %140 ]
-  %156 = bitcast i32 %.sroa.0.0.i.i.us.i81 to float
-  %157 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %.11623.us.i77, i64 %62
-  %158 = load i16, ptr %157, align 2, !tbaa !1181
-  %159 = zext i16 %158 to i32
-  %160 = shl nuw nsw i32 %159, 13
-  %161 = and i32 %160, 268427264
-  %.signext.i.i19.us.i82 = sext i16 %158 to i32
-  %162 = and i32 %.signext.i.i19.us.i82, -2147483648
-  %163 = icmp samesign ugt i32 %161, 8388607
-  br i1 %163, label %173, label %164, !prof !36
+_ZNK9Imath_3_14halfcvfEv.exit.us.i80:             ; preds = %150, %148, %137, %136
+  %.sroa.0.0.i.i.us.i81 = phi i32 [ %151, %150 ], [ %149, %148 ], [ %144, %137 ], [ %134, %136 ]
+  %152 = bitcast i32 %.sroa.0.0.i.i.us.i81 to float
+  %153 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %.11623.us.i77, i64 %62
+  %154 = load i16, ptr %153, align 2, !tbaa !1181
+  %155 = zext i16 %154 to i32
+  %156 = shl nuw nsw i32 %155, 13
+  %157 = and i32 %156, 268427264
+  %.signext.i.i19.us.i82 = sext i16 %154 to i32
+  %158 = and i32 %.signext.i.i19.us.i82, -2147483648
+  %159 = icmp samesign ugt i32 %157, 8388607
+  br i1 %159, label %169, label %160, !prof !36
 
-164:                                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit.us.i80
-  %.not.i.i20.us.i83 = icmp eq i32 %161, 0
-  br i1 %.not.i.i20.us.i83, label %_ZNK9Imath_3_14halfcvfEv.exit22.us.i84, label %165
+160:                                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit.us.i80
+  %.not.i.i20.us.i83 = icmp eq i32 %157, 0
+  br i1 %.not.i.i20.us.i83, label %_ZNK9Imath_3_14halfcvfEv.exit22.us.i84, label %161
 
-165:                                              ; preds = %164
-  %166 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %161, i1 true)
-  %167 = add nsw i32 %166, -8
-  %168 = shl i32 %161, %167
-  %169 = or i32 %162, %168
-  %170 = or i32 %169, 947912704
-  %171 = shl nuw nsw i32 %167, 23
-  %172 = sub nuw i32 %170, %171
+161:                                              ; preds = %160
+  %162 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %157, i1 true)
+  %163 = add nsw i32 %162, -8
+  %164 = shl i32 %157, %163
+  %165 = or i32 %158, %164
+  %166 = or i32 %165, 947912704
+  %167 = shl nuw nsw i32 %163, 23
+  %168 = sub nuw i32 %166, %167
   br label %_ZNK9Imath_3_14halfcvfEv.exit22.us.i84
 
-173:                                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit.us.i80
-  %174 = or disjoint i32 %161, %162
-  %175 = icmp samesign ult i32 %161, 260046848
-  br i1 %175, label %178, label %176, !prof !36
+169:                                              ; preds = %_ZNK9Imath_3_14halfcvfEv.exit.us.i80
+  %170 = or disjoint i32 %157, %158
+  %171 = icmp samesign ult i32 %157, 260046848
+  br i1 %171, label %174, label %172, !prof !36
 
-176:                                              ; preds = %173
-  %177 = or i32 %174, 2139095040
+172:                                              ; preds = %169
+  %173 = or i32 %170, 2139095040
   br label %_ZNK9Imath_3_14halfcvfEv.exit22.us.i84
 
-178:                                              ; preds = %173
-  %179 = add nuw nsw i32 %174, 939524096
+174:                                              ; preds = %169
+  %175 = add nuw nsw i32 %170, 939524096
   br label %_ZNK9Imath_3_14halfcvfEv.exit22.us.i84
 
-_ZNK9Imath_3_14halfcvfEv.exit22.us.i84:           ; preds = %178, %176, %165, %164
-  %.sroa.0.0.i.i21.us.i85 = phi i32 [ %179, %178 ], [ %177, %176 ], [ %172, %165 ], [ %162, %164 ]
-  %180 = bitcast i32 %.sroa.0.0.i.i21.us.i85 to float
-  %181 = fadd float %156, %180
-  %182 = fmul float %181, 5.000000e-01
-  store float %182, ptr %.124.us.i76, align 4, !tbaa !196
-  %183 = add nuw nsw i32 %.025.us.i75, 1
-  %184 = getelementptr inbounds nuw i8, ptr %.124.us.i76, i64 4
-  %185 = getelementptr inbounds nuw i8, ptr %.11623.us.i77, i64 2
-  %exitcond.not.i86 = icmp eq i32 %183, %17
-  br i1 %exitcond.not.i86, label %._crit_edge.us.i87, label %133, !llvm.loop !1252
+_ZNK9Imath_3_14halfcvfEv.exit22.us.i84:           ; preds = %174, %172, %161, %160
+  %.sroa.0.0.i.i21.us.i85 = phi i32 [ %175, %174 ], [ %173, %172 ], [ %168, %161 ], [ %158, %160 ]
+  %176 = bitcast i32 %.sroa.0.0.i.i21.us.i85 to float
+  %177 = fadd float %152, %176
+  %178 = fmul float %177, 5.000000e-01
+  store float %178, ptr %.124.us.i76, align 4, !tbaa !196
+  %179 = add nuw nsw i32 %.025.us.i75, 1
+  %180 = getelementptr inbounds nuw i8, ptr %.124.us.i76, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %.11623.us.i77, i64 2
+  %exitcond.not.i86 = icmp eq i32 %179, %17
+  br i1 %exitcond.not.i86, label %._crit_edge.us.i87, label %129, !llvm.loop !1252
 
 ._crit_edge.us.i87:                               ; preds = %_ZNK9Imath_3_14halfcvfEv.exit22.us.i84
-  %186 = add nuw i64 %.01329.us.i72, 2
-  %187 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %185, i64 %62
-  %188 = icmp ult i64 %186, %49
-  br i1 %188, label %.preheader.us.i71, label %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88, !llvm.loop !1253
+  %182 = add nuw i64 %.01329.us.i72, 2
+  %183 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %181, i64 %62
+  %184 = icmp ult i64 %182, %49
+  br i1 %184, label %.preheader.us.i71, label %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88, !llvm.loop !1253
 
 _ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88: ; preds = %._crit_edge.us.i87
-  %189 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %.057120, i64 %45
-  %190 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %189, i64 %45
-  br label %.preheader.us
+  br i1 %brmerge162, label %._crit_edge117, label %.preheader.us
 
 .preheader.us:                                    ; preds = %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88, %._crit_edge.us
-  %.046116.us = phi i64 [ %252, %._crit_edge.us ], [ 0, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88 ]
-  %.047115.us = phi ptr [ %250, %._crit_edge.us ], [ %28, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88 ]
-  %.048114.us = phi ptr [ %249, %._crit_edge.us ], [ %27, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88 ]
-  %.159113.us = phi ptr [ %251, %._crit_edge.us ], [ %.058119, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88 ]
-  br label %191
+  %.046116.us = phi i64 [ %246, %._crit_edge.us ], [ 0, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88 ]
+  %.047115.us = phi ptr [ %244, %._crit_edge.us ], [ %28, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88 ]
+  %.048114.us = phi ptr [ %243, %._crit_edge.us ], [ %27, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88 ]
+  %.159113.us = phi ptr [ %245, %._crit_edge.us ], [ %.058119, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88 ]
+  br label %185
 
-191:                                              ; preds = %.preheader.us, %_ZN9Imath_3_14halfC2Ef.exit.us
-  %.0110.us = phi i32 [ 0, %.preheader.us ], [ %248, %_ZN9Imath_3_14halfC2Ef.exit.us ]
-  %.1109.us = phi ptr [ %.047115.us, %.preheader.us ], [ %250, %_ZN9Imath_3_14halfC2Ef.exit.us ]
-  %.149108.us = phi ptr [ %.048114.us, %.preheader.us ], [ %249, %_ZN9Imath_3_14halfC2Ef.exit.us ]
-  %.260107.us = phi ptr [ %.159113.us, %.preheader.us ], [ %251, %_ZN9Imath_3_14halfC2Ef.exit.us ]
-  %192 = load float, ptr %.149108.us, align 4, !tbaa !196
-  %193 = load float, ptr %.1109.us, align 4, !tbaa !196
-  %194 = fadd float %192, %193
-  %195 = fmul float %194, 5.000000e-01
-  %196 = bitcast float %195 to i32
-  %197 = tail call float @llvm.fabs.f32(float %195)
-  %198 = bitcast float %197 to i32
-  %199 = lshr i32 %196, 16
-  %200 = trunc nuw i32 %199 to i16
-  %201 = and i16 %200, -32768
-  %202 = icmp samesign ugt i32 %198, 947912703
-  br i1 %202, label %222, label %203
+185:                                              ; preds = %.preheader.us, %_ZN9Imath_3_14halfC2Ef.exit.us
+  %.0110.us = phi i32 [ 0, %.preheader.us ], [ %242, %_ZN9Imath_3_14halfC2Ef.exit.us ]
+  %.1109.us = phi ptr [ %.047115.us, %.preheader.us ], [ %244, %_ZN9Imath_3_14halfC2Ef.exit.us ]
+  %.149108.us = phi ptr [ %.048114.us, %.preheader.us ], [ %243, %_ZN9Imath_3_14halfC2Ef.exit.us ]
+  %.260107.us = phi ptr [ %.159113.us, %.preheader.us ], [ %245, %_ZN9Imath_3_14halfC2Ef.exit.us ]
+  %186 = load float, ptr %.149108.us, align 4, !tbaa !196
+  %187 = load float, ptr %.1109.us, align 4, !tbaa !196
+  %188 = fadd float %186, %187
+  %189 = fmul float %188, 5.000000e-01
+  %190 = bitcast float %189 to i32
+  %191 = tail call float @llvm.fabs.f32(float %189)
+  %192 = bitcast float %191 to i32
+  %193 = lshr i32 %190, 16
+  %194 = trunc nuw i32 %193 to i16
+  %195 = and i16 %194, -32768
+  %196 = icmp samesign ugt i32 %192, 947912703
+  br i1 %196, label %216, label %197
 
-203:                                              ; preds = %191
-  %204 = icmp samesign ult i32 %198, 855638017
-  br i1 %204, label %_ZN9Imath_3_14halfC2Ef.exit.us, label %205
+197:                                              ; preds = %185
+  %198 = icmp samesign ult i32 %192, 855638017
+  br i1 %198, label %_ZN9Imath_3_14halfC2Ef.exit.us, label %199
 
-205:                                              ; preds = %203
-  %206 = lshr i32 %198, 23
-  %207 = sub nuw nsw i32 126, %206
-  %208 = and i32 %198, 8388607
-  %209 = or disjoint i32 %208, 8388608
-  %210 = add nsw i32 %206, -94
-  %211 = shl i32 %209, %210
-  %212 = lshr i32 %209, %207
-  %213 = and i32 %199, 32768
-  %214 = or i32 %212, %213
-  %215 = trunc nuw i32 %214 to i16
-  %216 = icmp ugt i32 %211, -2147483648
-  br i1 %216, label %220, label %217
+199:                                              ; preds = %197
+  %200 = lshr i32 %192, 23
+  %201 = sub nuw nsw i32 126, %200
+  %202 = and i32 %192, 8388607
+  %203 = or disjoint i32 %202, 8388608
+  %204 = add nsw i32 %200, -94
+  %205 = shl i32 %203, %204
+  %206 = lshr i32 %203, %201
+  %207 = and i32 %193, 32768
+  %208 = or i32 %206, %207
+  %209 = trunc nuw i32 %208 to i16
+  %210 = icmp ugt i32 %205, -2147483648
+  br i1 %210, label %214, label %211
 
-217:                                              ; preds = %205
-  %218 = icmp ne i32 %211, -2147483648
-  %219 = and i32 %212, 1
-  %.not.i.i.us = icmp eq i32 %219, 0
-  %or.cond.i.i.us = select i1 %218, i1 true, i1 %.not.i.i.us
-  br i1 %or.cond.i.i.us, label %_ZN9Imath_3_14halfC2Ef.exit.us, label %220
+211:                                              ; preds = %199
+  %212 = icmp ne i32 %205, -2147483648
+  %213 = and i32 %206, 1
+  %.not.i.i.us = icmp eq i32 %213, 0
+  %or.cond.i.i.us = select i1 %212, i1 true, i1 %.not.i.i.us
+  br i1 %or.cond.i.i.us, label %_ZN9Imath_3_14halfC2Ef.exit.us, label %214
 
-220:                                              ; preds = %217, %205
-  %221 = add nuw i16 %215, 1
+214:                                              ; preds = %211, %199
+  %215 = add nuw i16 %209, 1
   br label %_ZN9Imath_3_14halfC2Ef.exit.us
 
-222:                                              ; preds = %191
-  %223 = icmp samesign ugt i32 %198, 2139095039
-  br i1 %223, label %237, label %224, !prof !77
+216:                                              ; preds = %185
+  %217 = icmp samesign ugt i32 %192, 2139095039
+  br i1 %217, label %231, label %218, !prof !77
 
-224:                                              ; preds = %222
-  %225 = icmp samesign ugt i32 %198, 1199566847
-  br i1 %225, label %235, label %226, !prof !77
+218:                                              ; preds = %216
+  %219 = icmp samesign ugt i32 %192, 1199566847
+  br i1 %219, label %229, label %220, !prof !77
 
-226:                                              ; preds = %224
-  %227 = add nuw nsw i32 %198, 134221823
-  %228 = lshr i32 %198, 13
-  %229 = and i32 %228, 1
-  %230 = add nuw nsw i32 %227, %229
-  %231 = lshr i32 %230, 13
-  %232 = and i32 %199, 32768
-  %233 = or i32 %231, %232
-  %234 = trunc i32 %233 to i16
+220:                                              ; preds = %218
+  %221 = add nuw nsw i32 %192, 134221823
+  %222 = lshr i32 %192, 13
+  %223 = and i32 %222, 1
+  %224 = add nuw nsw i32 %221, %223
+  %225 = lshr i32 %224, 13
+  %226 = and i32 %193, 32768
+  %227 = or i32 %225, %226
+  %228 = trunc i32 %227 to i16
   br label %_ZN9Imath_3_14halfC2Ef.exit.us
 
-235:                                              ; preds = %224
-  %236 = or disjoint i16 %201, 31744
+229:                                              ; preds = %218
+  %230 = or disjoint i16 %195, 31744
   br label %_ZN9Imath_3_14halfC2Ef.exit.us
 
-237:                                              ; preds = %222
-  %238 = or disjoint i16 %201, 31744
-  %239 = icmp eq i32 %198, 2139095040
-  br i1 %239, label %_ZN9Imath_3_14halfC2Ef.exit.us, label %240
+231:                                              ; preds = %216
+  %232 = or disjoint i16 %195, 31744
+  %233 = icmp eq i32 %192, 2139095040
+  br i1 %233, label %_ZN9Imath_3_14halfC2Ef.exit.us, label %234
 
-240:                                              ; preds = %237
-  %241 = lshr i32 %198, 13
-  %242 = and i32 %241, 1023
-  %243 = icmp eq i32 %242, 0
-  %244 = zext i1 %243 to i16
-  %245 = trunc nuw nsw i32 %242 to i16
-  %246 = or i16 %245, %244
-  %247 = or disjoint i16 %246, %238
+234:                                              ; preds = %231
+  %235 = lshr i32 %192, 13
+  %236 = and i32 %235, 1023
+  %237 = icmp eq i32 %236, 0
+  %238 = zext i1 %237 to i16
+  %239 = trunc nuw nsw i32 %236 to i16
+  %240 = or i16 %239, %238
+  %241 = or disjoint i16 %240, %232
   br label %_ZN9Imath_3_14halfC2Ef.exit.us
 
-_ZN9Imath_3_14halfC2Ef.exit.us:                   ; preds = %240, %237, %235, %226, %220, %217, %203
-  %.0.i.i.us = phi i16 [ %247, %240 ], [ %236, %235 ], [ %234, %226 ], [ %238, %237 ], [ %201, %203 ], [ %221, %220 ], [ %215, %217 ]
+_ZN9Imath_3_14halfC2Ef.exit.us:                   ; preds = %234, %231, %229, %220, %214, %211, %197
+  %.0.i.i.us = phi i16 [ %241, %234 ], [ %230, %229 ], [ %228, %220 ], [ %232, %231 ], [ %195, %197 ], [ %215, %214 ], [ %209, %211 ]
   store i16 %.0.i.i.us, ptr %.260107.us, align 2, !tbaa !807
-  %248 = add nuw nsw i32 %.0110.us, 1
-  %249 = getelementptr inbounds nuw i8, ptr %.149108.us, i64 4
-  %250 = getelementptr inbounds nuw i8, ptr %.1109.us, i64 4
-  %251 = getelementptr inbounds nuw i8, ptr %.260107.us, i64 2
-  %exitcond.not = icmp eq i32 %248, %17
-  br i1 %exitcond.not, label %._crit_edge.us, label %191, !llvm.loop !1254
+  %242 = add nuw nsw i32 %.0110.us, 1
+  %243 = getelementptr inbounds nuw i8, ptr %.149108.us, i64 4
+  %244 = getelementptr inbounds nuw i8, ptr %.1109.us, i64 4
+  %245 = getelementptr inbounds nuw i8, ptr %.260107.us, i64 2
+  %exitcond.not = icmp eq i32 %242, %17
+  br i1 %exitcond.not, label %._crit_edge.us, label %185, !llvm.loop !1254
 
 ._crit_edge.us:                                   ; preds = %_ZN9Imath_3_14halfC2Ef.exit.us
-  %252 = add nuw i64 %.046116.us, 1
-  %exitcond131.not = icmp eq i64 %252, %umax
+  %246 = add nuw i64 %.046116.us, 1
+  %exitcond131.not = icmp eq i64 %246, %umax
   br i1 %exitcond131.not, label %._crit_edge117, label %.preheader.us, !llvm.loop !1255
 
-._crit_edge117:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph.thread, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88.thread
-  %253 = phi ptr [ %73, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88.thread ], [ %75, %.preheader.lr.ph.thread ], [ %190, %._crit_edge.us ]
-  %.159.lcssa = phi ptr [ %.058119, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88.thread ], [ %.058119, %.preheader.lr.ph.thread ], [ %251, %._crit_edge.us ]
-  %254 = add nuw i64 %.050121, 1
-  %exitcond133.not = icmp eq i64 %254, %51
+._crit_edge117:                                   ; preds = %._crit_edge.us, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88, %71
+  %.159.lcssa = phi ptr [ %.058119, %_ZL14halve_scanlineIN9Imath_3_14halfEEvPKT_imPf.exit88 ], [ %.058119, %71 ], [ %245, %._crit_edge.us ]
+  %247 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %.057120, i64 %45
+  %248 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %247, i64 %45
+  %249 = add nuw i64 %.050121, 1
+  %exitcond133.not = icmp eq i64 %249, %51
   br i1 %exitcond133.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67, label %71, !llvm.loop !1256
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit91: ; preds = %67, %69, %65
@@ -61029,7 +61017,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit94: ; preds = %_ZNSt10uniq
   tail call void @_ZdaPv(ptr noundef nonnull %27) #29
   resume { ptr, i32 } %.pn.pn.pn
 
-255:                                              ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67, %15
+250:                                              ; preds = %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67, %15
   ret void
 }
 
@@ -61126,8 +61114,8 @@ define internal fastcc void @_ZL18resize_block_2passItEbRN11OpenImageIO6v3_1_08I
   br label %.preheader.lr.ph.i.us
 
 .preheader.lr.ph.i.us:                            ; preds = %.preheader.lr.ph.i.us.preheader, %._crit_edge107.us126
-  %.050111.us116 = phi i64 [ %94, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
-  %.057110.us117 = phi ptr [ %95, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
+  %.050111.us116 = phi i64 [ %95, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
+  %.057110.us117 = phi ptr [ %94, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
   %.058109.us118 = phi ptr [ %105, %._crit_edge107.us126 ], [ %58, %.preheader.lr.ph.i.us.preheader ]
   br label %.preheader.us.i.us
 
@@ -61195,22 +61183,19 @@ define internal fastcc void @_ZL18resize_block_2passItEbRN11OpenImageIO6v3_1_08I
   %91 = add nuw i64 %.01325.us.i72.us, 2
   %92 = getelementptr inbounds nuw i16, ptr %90, i64 %53
   %93 = icmp ult i64 %91, %51
-  br i1 %93, label %.preheader.us.i71.us, label %.preheader.us.us129.preheader, !llvm.loop !1258
+  br i1 %93, label %.preheader.us.i71.us, label %.preheader.us.us129, !llvm.loop !1258
 
 ._crit_edge107.us126:                             ; preds = %._crit_edge.us.us138
-  %94 = add nuw i64 %.050111.us116, 1
-  %exitcond200.not = icmp eq i64 %94, %50
+  %94 = getelementptr inbounds nuw i16, ptr %78, i64 %45
+  %95 = add nuw i64 %.050111.us116, 1
+  %exitcond200.not = icmp eq i64 %95, %50
   br i1 %exitcond200.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67, label %.preheader.lr.ph.i.us, !llvm.loop !1259
 
-.preheader.us.us129.preheader:                    ; preds = %._crit_edge.us.i79.us
-  %95 = getelementptr inbounds nuw i16, ptr %78, i64 %45
-  br label %.preheader.us.us129
-
-.preheader.us.us129:                              ; preds = %.preheader.us.us129.preheader, %._crit_edge.us.us138
-  %.046106.us.us130 = phi i64 [ %106, %._crit_edge.us.us138 ], [ 0, %.preheader.us.us129.preheader ]
-  %.047105.us.us131 = phi ptr [ %104, %._crit_edge.us.us138 ], [ %28, %.preheader.us.us129.preheader ]
-  %.048104.us.us132 = phi ptr [ %103, %._crit_edge.us.us138 ], [ %27, %.preheader.us.us129.preheader ]
-  %.159103.us.us133 = phi ptr [ %105, %._crit_edge.us.us138 ], [ %.058109.us118, %.preheader.us.us129.preheader ]
+.preheader.us.us129:                              ; preds = %._crit_edge.us.i79.us, %._crit_edge.us.us138
+  %.046106.us.us130 = phi i64 [ %106, %._crit_edge.us.us138 ], [ 0, %._crit_edge.us.i79.us ]
+  %.047105.us.us131 = phi ptr [ %104, %._crit_edge.us.us138 ], [ %28, %._crit_edge.us.i79.us ]
+  %.048104.us.us132 = phi ptr [ %103, %._crit_edge.us.us138 ], [ %27, %._crit_edge.us.i79.us ]
+  %.159103.us.us133 = phi ptr [ %105, %._crit_edge.us.us138 ], [ %.058109.us118, %._crit_edge.us.i79.us ]
   br label %96
 
 96:                                               ; preds = %96, %.preheader.us.us129
@@ -61368,8 +61353,8 @@ define internal fastcc void @_ZL18resize_block_2passIcEbRN11OpenImageIO6v3_1_08I
   br label %.preheader.lr.ph.i.us
 
 .preheader.lr.ph.i.us:                            ; preds = %.preheader.lr.ph.i.us.preheader, %._crit_edge107.us126
-  %.050111.us116 = phi i64 [ %94, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
-  %.057110.us117 = phi ptr [ %95, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
+  %.050111.us116 = phi i64 [ %95, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
+  %.057110.us117 = phi ptr [ %94, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
   %.058109.us118 = phi ptr [ %105, %._crit_edge107.us126 ], [ %58, %.preheader.lr.ph.i.us.preheader ]
   br label %.preheader.us.i.us
 
@@ -61437,22 +61422,19 @@ define internal fastcc void @_ZL18resize_block_2passIcEbRN11OpenImageIO6v3_1_08I
   %91 = add nuw i64 %.01325.us.i72.us, 2
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 %53
   %93 = icmp ult i64 %91, %51
-  br i1 %93, label %.preheader.us.i71.us, label %.preheader.us.us129.preheader, !llvm.loop !1263
+  br i1 %93, label %.preheader.us.i71.us, label %.preheader.us.us129, !llvm.loop !1263
 
 ._crit_edge107.us126:                             ; preds = %._crit_edge.us.us138
-  %94 = add nuw i64 %.050111.us116, 1
-  %exitcond200.not = icmp eq i64 %94, %50
+  %94 = getelementptr inbounds nuw i8, ptr %78, i64 %45
+  %95 = add nuw i64 %.050111.us116, 1
+  %exitcond200.not = icmp eq i64 %95, %50
   br i1 %exitcond200.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67, label %.preheader.lr.ph.i.us, !llvm.loop !1264
 
-.preheader.us.us129.preheader:                    ; preds = %._crit_edge.us.i79.us
-  %95 = getelementptr inbounds nuw i8, ptr %78, i64 %45
-  br label %.preheader.us.us129
-
-.preheader.us.us129:                              ; preds = %.preheader.us.us129.preheader, %._crit_edge.us.us138
-  %.046106.us.us130 = phi i64 [ %106, %._crit_edge.us.us138 ], [ 0, %.preheader.us.us129.preheader ]
-  %.047105.us.us131 = phi ptr [ %104, %._crit_edge.us.us138 ], [ %28, %.preheader.us.us129.preheader ]
-  %.048104.us.us132 = phi ptr [ %103, %._crit_edge.us.us138 ], [ %27, %.preheader.us.us129.preheader ]
-  %.159103.us.us133 = phi ptr [ %105, %._crit_edge.us.us138 ], [ %.058109.us118, %.preheader.us.us129.preheader ]
+.preheader.us.us129:                              ; preds = %._crit_edge.us.i79.us, %._crit_edge.us.us138
+  %.046106.us.us130 = phi i64 [ %106, %._crit_edge.us.us138 ], [ 0, %._crit_edge.us.i79.us ]
+  %.047105.us.us131 = phi ptr [ %104, %._crit_edge.us.us138 ], [ %28, %._crit_edge.us.i79.us ]
+  %.048104.us.us132 = phi ptr [ %103, %._crit_edge.us.us138 ], [ %27, %._crit_edge.us.i79.us ]
+  %.159103.us.us133 = phi ptr [ %105, %._crit_edge.us.us138 ], [ %.058109.us118, %._crit_edge.us.i79.us ]
   br label %96
 
 96:                                               ; preds = %96, %.preheader.us.us129
@@ -61610,8 +61592,8 @@ define internal fastcc void @_ZL18resize_block_2passIsEbRN11OpenImageIO6v3_1_08I
   br label %.preheader.lr.ph.i.us
 
 .preheader.lr.ph.i.us:                            ; preds = %.preheader.lr.ph.i.us.preheader, %._crit_edge107.us126
-  %.050111.us116 = phi i64 [ %94, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
-  %.057110.us117 = phi ptr [ %95, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
+  %.050111.us116 = phi i64 [ %95, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
+  %.057110.us117 = phi ptr [ %94, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
   %.058109.us118 = phi ptr [ %105, %._crit_edge107.us126 ], [ %58, %.preheader.lr.ph.i.us.preheader ]
   br label %.preheader.us.i.us
 
@@ -61679,22 +61661,19 @@ define internal fastcc void @_ZL18resize_block_2passIsEbRN11OpenImageIO6v3_1_08I
   %91 = add nuw i64 %.01325.us.i72.us, 2
   %92 = getelementptr inbounds nuw i16, ptr %90, i64 %53
   %93 = icmp ult i64 %91, %51
-  br i1 %93, label %.preheader.us.i71.us, label %.preheader.us.us129.preheader, !llvm.loop !1268
+  br i1 %93, label %.preheader.us.i71.us, label %.preheader.us.us129, !llvm.loop !1268
 
 ._crit_edge107.us126:                             ; preds = %._crit_edge.us.us138
-  %94 = add nuw i64 %.050111.us116, 1
-  %exitcond200.not = icmp eq i64 %94, %50
+  %94 = getelementptr inbounds nuw i16, ptr %78, i64 %45
+  %95 = add nuw i64 %.050111.us116, 1
+  %exitcond200.not = icmp eq i64 %95, %50
   br i1 %exitcond200.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67, label %.preheader.lr.ph.i.us, !llvm.loop !1269
 
-.preheader.us.us129.preheader:                    ; preds = %._crit_edge.us.i79.us
-  %95 = getelementptr inbounds nuw i16, ptr %78, i64 %45
-  br label %.preheader.us.us129
-
-.preheader.us.us129:                              ; preds = %.preheader.us.us129.preheader, %._crit_edge.us.us138
-  %.046106.us.us130 = phi i64 [ %106, %._crit_edge.us.us138 ], [ 0, %.preheader.us.us129.preheader ]
-  %.047105.us.us131 = phi ptr [ %104, %._crit_edge.us.us138 ], [ %28, %.preheader.us.us129.preheader ]
-  %.048104.us.us132 = phi ptr [ %103, %._crit_edge.us.us138 ], [ %27, %.preheader.us.us129.preheader ]
-  %.159103.us.us133 = phi ptr [ %105, %._crit_edge.us.us138 ], [ %.058109.us118, %.preheader.us.us129.preheader ]
+.preheader.us.us129:                              ; preds = %._crit_edge.us.i79.us, %._crit_edge.us.us138
+  %.046106.us.us130 = phi i64 [ %106, %._crit_edge.us.us138 ], [ 0, %._crit_edge.us.i79.us ]
+  %.047105.us.us131 = phi ptr [ %104, %._crit_edge.us.us138 ], [ %28, %._crit_edge.us.i79.us ]
+  %.048104.us.us132 = phi ptr [ %103, %._crit_edge.us.us138 ], [ %27, %._crit_edge.us.i79.us ]
+  %.159103.us.us133 = phi ptr [ %105, %._crit_edge.us.us138 ], [ %.058109.us118, %._crit_edge.us.i79.us ]
   br label %96
 
 96:                                               ; preds = %96, %.preheader.us.us129
@@ -61852,8 +61831,8 @@ define internal fastcc void @_ZL18resize_block_2passIjEbRN11OpenImageIO6v3_1_08I
   br label %.preheader.lr.ph.i.us
 
 .preheader.lr.ph.i.us:                            ; preds = %.preheader.lr.ph.i.us.preheader, %._crit_edge107.us126
-  %.050111.us116 = phi i64 [ %90, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
-  %.057110.us117 = phi ptr [ %91, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
+  %.050111.us116 = phi i64 [ %91, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
+  %.057110.us117 = phi ptr [ %90, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
   %.058109.us118 = phi ptr [ %101, %._crit_edge107.us126 ], [ %58, %.preheader.lr.ph.i.us.preheader ]
   br label %.preheader.us.i.us
 
@@ -61917,22 +61896,19 @@ define internal fastcc void @_ZL18resize_block_2passIjEbRN11OpenImageIO6v3_1_08I
   %87 = add nuw i64 %.01325.us.i72.us, 2
   %88 = getelementptr inbounds nuw i32, ptr %86, i64 %53
   %89 = icmp ult i64 %87, %51
-  br i1 %89, label %.preheader.us.i71.us, label %.preheader.us.us129.preheader, !llvm.loop !1273
+  br i1 %89, label %.preheader.us.i71.us, label %.preheader.us.us129, !llvm.loop !1273
 
 ._crit_edge107.us126:                             ; preds = %._crit_edge.us.us138
-  %90 = add nuw i64 %.050111.us116, 1
-  %exitcond200.not = icmp eq i64 %90, %50
+  %90 = getelementptr inbounds nuw i32, ptr %76, i64 %45
+  %91 = add nuw i64 %.050111.us116, 1
+  %exitcond200.not = icmp eq i64 %91, %50
   br i1 %exitcond200.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67, label %.preheader.lr.ph.i.us, !llvm.loop !1274
 
-.preheader.us.us129.preheader:                    ; preds = %._crit_edge.us.i79.us
-  %91 = getelementptr inbounds nuw i32, ptr %76, i64 %45
-  br label %.preheader.us.us129
-
-.preheader.us.us129:                              ; preds = %.preheader.us.us129.preheader, %._crit_edge.us.us138
-  %.046106.us.us130 = phi i64 [ %102, %._crit_edge.us.us138 ], [ 0, %.preheader.us.us129.preheader ]
-  %.047105.us.us131 = phi ptr [ %100, %._crit_edge.us.us138 ], [ %28, %.preheader.us.us129.preheader ]
-  %.048104.us.us132 = phi ptr [ %99, %._crit_edge.us.us138 ], [ %27, %.preheader.us.us129.preheader ]
-  %.159103.us.us133 = phi ptr [ %101, %._crit_edge.us.us138 ], [ %.058109.us118, %.preheader.us.us129.preheader ]
+.preheader.us.us129:                              ; preds = %._crit_edge.us.i79.us, %._crit_edge.us.us138
+  %.046106.us.us130 = phi i64 [ %102, %._crit_edge.us.us138 ], [ 0, %._crit_edge.us.i79.us ]
+  %.047105.us.us131 = phi ptr [ %100, %._crit_edge.us.us138 ], [ %28, %._crit_edge.us.i79.us ]
+  %.048104.us.us132 = phi ptr [ %99, %._crit_edge.us.us138 ], [ %27, %._crit_edge.us.i79.us ]
+  %.159103.us.us133 = phi ptr [ %101, %._crit_edge.us.us138 ], [ %.058109.us118, %._crit_edge.us.i79.us ]
   br label %92
 
 92:                                               ; preds = %92, %.preheader.us.us129
@@ -62090,8 +62066,8 @@ define internal fastcc void @_ZL18resize_block_2passIiEbRN11OpenImageIO6v3_1_08I
   br label %.preheader.lr.ph.i.us
 
 .preheader.lr.ph.i.us:                            ; preds = %.preheader.lr.ph.i.us.preheader, %._crit_edge107.us126
-  %.050111.us116 = phi i64 [ %90, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
-  %.057110.us117 = phi ptr [ %91, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
+  %.050111.us116 = phi i64 [ %91, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
+  %.057110.us117 = phi ptr [ %90, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
   %.058109.us118 = phi ptr [ %101, %._crit_edge107.us126 ], [ %58, %.preheader.lr.ph.i.us.preheader ]
   br label %.preheader.us.i.us
 
@@ -62155,22 +62131,19 @@ define internal fastcc void @_ZL18resize_block_2passIiEbRN11OpenImageIO6v3_1_08I
   %87 = add nuw i64 %.01325.us.i72.us, 2
   %88 = getelementptr inbounds nuw i32, ptr %86, i64 %53
   %89 = icmp ult i64 %87, %51
-  br i1 %89, label %.preheader.us.i71.us, label %.preheader.us.us129.preheader, !llvm.loop !1278
+  br i1 %89, label %.preheader.us.i71.us, label %.preheader.us.us129, !llvm.loop !1278
 
 ._crit_edge107.us126:                             ; preds = %._crit_edge.us.us138
-  %90 = add nuw i64 %.050111.us116, 1
-  %exitcond200.not = icmp eq i64 %90, %50
+  %90 = getelementptr inbounds nuw i32, ptr %76, i64 %45
+  %91 = add nuw i64 %.050111.us116, 1
+  %exitcond200.not = icmp eq i64 %91, %50
   br i1 %exitcond200.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67, label %.preheader.lr.ph.i.us, !llvm.loop !1279
 
-.preheader.us.us129.preheader:                    ; preds = %._crit_edge.us.i79.us
-  %91 = getelementptr inbounds nuw i32, ptr %76, i64 %45
-  br label %.preheader.us.us129
-
-.preheader.us.us129:                              ; preds = %.preheader.us.us129.preheader, %._crit_edge.us.us138
-  %.046106.us.us130 = phi i64 [ %102, %._crit_edge.us.us138 ], [ 0, %.preheader.us.us129.preheader ]
-  %.047105.us.us131 = phi ptr [ %100, %._crit_edge.us.us138 ], [ %28, %.preheader.us.us129.preheader ]
-  %.048104.us.us132 = phi ptr [ %99, %._crit_edge.us.us138 ], [ %27, %.preheader.us.us129.preheader ]
-  %.159103.us.us133 = phi ptr [ %101, %._crit_edge.us.us138 ], [ %.058109.us118, %.preheader.us.us129.preheader ]
+.preheader.us.us129:                              ; preds = %._crit_edge.us.i79.us, %._crit_edge.us.us138
+  %.046106.us.us130 = phi i64 [ %102, %._crit_edge.us.us138 ], [ 0, %._crit_edge.us.i79.us ]
+  %.047105.us.us131 = phi ptr [ %100, %._crit_edge.us.us138 ], [ %28, %._crit_edge.us.i79.us ]
+  %.048104.us.us132 = phi ptr [ %99, %._crit_edge.us.us138 ], [ %27, %._crit_edge.us.i79.us ]
+  %.159103.us.us133 = phi ptr [ %101, %._crit_edge.us.us138 ], [ %.058109.us118, %._crit_edge.us.i79.us ]
   br label %92
 
 92:                                               ; preds = %92, %.preheader.us.us129
@@ -62328,8 +62301,8 @@ define internal fastcc void @_ZL18resize_block_2passIdEbRN11OpenImageIO6v3_1_08I
   br label %.preheader.lr.ph.i.us
 
 .preheader.lr.ph.i.us:                            ; preds = %.preheader.lr.ph.i.us.preheader, %._crit_edge107.us126
-  %.050111.us116 = phi i64 [ %90, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
-  %.057110.us117 = phi ptr [ %91, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
+  %.050111.us116 = phi i64 [ %91, %._crit_edge107.us126 ], [ 0, %.preheader.lr.ph.i.us.preheader ]
+  %.057110.us117 = phi ptr [ %90, %._crit_edge107.us126 ], [ %62, %.preheader.lr.ph.i.us.preheader ]
   %.058109.us118 = phi ptr [ %101, %._crit_edge107.us126 ], [ %58, %.preheader.lr.ph.i.us.preheader ]
   br label %.preheader.us.i.us
 
@@ -62393,22 +62366,19 @@ define internal fastcc void @_ZL18resize_block_2passIdEbRN11OpenImageIO6v3_1_08I
   %87 = add nuw i64 %.01325.us.i72.us, 2
   %88 = getelementptr inbounds nuw double, ptr %86, i64 %53
   %89 = icmp ult i64 %87, %51
-  br i1 %89, label %.preheader.us.i71.us, label %.preheader.us.us129.preheader, !llvm.loop !1283
+  br i1 %89, label %.preheader.us.i71.us, label %.preheader.us.us129, !llvm.loop !1283
 
 ._crit_edge107.us126:                             ; preds = %._crit_edge.us.us138
-  %90 = add nuw i64 %.050111.us116, 1
-  %exitcond200.not = icmp eq i64 %90, %50
+  %90 = getelementptr inbounds nuw double, ptr %76, i64 %45
+  %91 = add nuw i64 %.050111.us116, 1
+  %exitcond200.not = icmp eq i64 %91, %50
   br i1 %exitcond200.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit67, label %.preheader.lr.ph.i.us, !llvm.loop !1284
 
-.preheader.us.us129.preheader:                    ; preds = %._crit_edge.us.i79.us
-  %91 = getelementptr inbounds nuw double, ptr %76, i64 %45
-  br label %.preheader.us.us129
-
-.preheader.us.us129:                              ; preds = %.preheader.us.us129.preheader, %._crit_edge.us.us138
-  %.046106.us.us130 = phi i64 [ %102, %._crit_edge.us.us138 ], [ 0, %.preheader.us.us129.preheader ]
-  %.047105.us.us131 = phi ptr [ %100, %._crit_edge.us.us138 ], [ %28, %.preheader.us.us129.preheader ]
-  %.048104.us.us132 = phi ptr [ %99, %._crit_edge.us.us138 ], [ %27, %.preheader.us.us129.preheader ]
-  %.159103.us.us133 = phi ptr [ %101, %._crit_edge.us.us138 ], [ %.058109.us118, %.preheader.us.us129.preheader ]
+.preheader.us.us129:                              ; preds = %._crit_edge.us.i79.us, %._crit_edge.us.us138
+  %.046106.us.us130 = phi i64 [ %102, %._crit_edge.us.us138 ], [ 0, %._crit_edge.us.i79.us ]
+  %.047105.us.us131 = phi ptr [ %100, %._crit_edge.us.us138 ], [ %28, %._crit_edge.us.i79.us ]
+  %.048104.us.us132 = phi ptr [ %99, %._crit_edge.us.us138 ], [ %27, %._crit_edge.us.i79.us ]
+  %.159103.us.us133 = phi ptr [ %101, %._crit_edge.us.us138 ], [ %.058109.us118, %._crit_edge.us.i79.us ]
   br label %92
 
 92:                                               ; preds = %92, %.preheader.us.us129
@@ -65792,54 +65762,54 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
 
 34:                                               ; preds = %5, %29
   %35 = phi ptr [ %33, %29 ], [ null, %5 ]
-  %36 = sext i32 %28 to i64
-  %37 = getelementptr inbounds float, ptr %35, i64 %36
-  %38 = getelementptr inbounds float, ptr %37, i64 %36
-  %39 = getelementptr inbounds float, ptr %38, i64 %36
-  %40 = fadd float %22, -5.000000e-01
-  %41 = fadd float %25, -5.000000e-01
-  %42 = tail call noundef float @llvm.floor.f32(float %40)
-  %43 = fptosi float %42 to i32
-  %44 = fsub float %40, %42
-  %45 = tail call noundef float @llvm.floor.f32(float %41)
-  %46 = fptosi float %45 to i32
-  %47 = fsub float %41, %45
+  %36 = fadd float %22, -5.000000e-01
+  %37 = fadd float %25, -5.000000e-01
+  %38 = tail call noundef float @llvm.floor.f32(float %36)
+  %39 = fptosi float %38 to i32
+  %40 = tail call noundef float @llvm.floor.f32(float %37)
+  %41 = fptosi float %40 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %48 = add nsw i32 %43, 2
-  %49 = add nsw i32 %46, 2
-  store i32 %43, ptr %7, align 4, !tbaa !152
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %48, ptr %50, align 4, !tbaa !254
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %46, ptr %51, align 4, !tbaa !252
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %49, ptr %52, align 4, !tbaa !255
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %53, align 4, !tbaa !253
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 1, ptr %54, align 4, !tbaa !256
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %55, align 4, !tbaa !257
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 10000, ptr %56, align 4, !tbaa !258
+  %42 = add nsw i32 %39, 2
+  %43 = add nsw i32 %41, 2
+  store i32 %39, ptr %7, align 4, !tbaa !152
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %42, ptr %44, align 4, !tbaa !254
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 %41, ptr %45, align 4, !tbaa !252
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 %43, ptr %46, align 4, !tbaa !255
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 0, ptr %47, align 4, !tbaa !253
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i32 1, ptr %48, align 4, !tbaa !256
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i32 0, ptr %49, align 4, !tbaa !257
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  store i32 10000, ptr %50, align 4, !tbaa !258
   call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseC2ERKS1_RKNS0_3ROIENS1_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(126) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(32) %7, i32 noundef 2, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %57 = icmp sgt i32 %28, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge
+  %51 = icmp sgt i32 %28, 0
+  br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %34
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %59 = load ptr, ptr %58, align 8, !tbaa !1151
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %53 = load ptr, ptr %52, align 8, !tbaa !1151
   %wide.trip.count = zext nneg i32 %28 to i64
   br label %62
 
 ._crit_edge:                                      ; preds = %62, %34
+  %54 = sext i32 %28 to i64
+  %55 = getelementptr inbounds float, ptr %35, i64 %54
+  %56 = getelementptr inbounds float, ptr %55, i64 %54
+  %57 = getelementptr inbounds float, ptr %56, i64 %54
+  %58 = fsub float %36, %38
+  %59 = fsub float %37, %40
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %6)
           to label %.preheader99 unwind label %70
 
 .preheader99:                                     ; preds = %._crit_edge
-  br i1 %57, label %.lr.ph102, label %._crit_edge103
+  br i1 %51, label %.lr.ph102, label %._crit_edge103
 
 .lr.ph102:                                        ; preds = %.preheader99
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -65849,7 +65819,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
 
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv
   %64 = load i8, ptr %63, align 1, !tbaa !19
   %65 = sitofp i8 %64 to float
   %66 = fmul float %65, 0x3F80204080000000
@@ -65864,7 +65834,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
           to label %.preheader98 unwind label %70
 
 .preheader98:                                     ; preds = %._crit_edge103
-  br i1 %57, label %.lr.ph105, label %._crit_edge106
+  br i1 %51, label %.lr.ph105, label %._crit_edge106
 
 .lr.ph105:                                        ; preds = %.preheader98
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -65883,7 +65853,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
   %74 = load i8, ptr %73, align 1, !tbaa !19
   %75 = sitofp i8 %74 to float
   %76 = fmul float %75, 0x3F80204080000000
-  %77 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv111
+  %77 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !196
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -65894,7 +65864,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
           to label %.preheader unwind label %70
 
 .preheader:                                       ; preds = %._crit_edge106
-  br i1 %57, label %.lr.ph108, label %._crit_edge109
+  br i1 %51, label %.lr.ph108, label %._crit_edge109
 
 .lr.ph108:                                        ; preds = %.preheader
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -65908,7 +65878,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
   %82 = load i8, ptr %81, align 1, !tbaa !19
   %83 = sitofp i8 %82 to float
   %84 = fmul float %83, 0x3F80204080000000
-  %85 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv116
+  %85 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv116
   store float %84, ptr %85, align 4, !tbaa !196
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
@@ -65923,14 +65893,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
   %88 = load i8, ptr %87, align 1, !tbaa !19
   %89 = sitofp i8 %88 to float
   %90 = fmul float %89, 0x3F80204080000000
-  %91 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv121
+  %91 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv121
   store float %90, ptr %91, align 4, !tbaa !196
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
   br i1 %exitcond125.not, label %._crit_edge109, label %86, !llvm.loop !1320
 
 92:                                               ; preds = %._crit_edge109
-  %93 = add nsw i32 %46, 1
+  %93 = add nsw i32 %41, 1
   %94 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf4yminEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %95 unwind label %117
 
@@ -65949,9 +65919,9 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
           to label %101 unwind label %123
 
 101:                                              ; preds = %99
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %98, i32 %46)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %98, i32 %41)
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %100)
-  %102 = fsub float 1.000000e+00, %47
+  %102 = fsub float 1.000000e+00, %59
   %103 = sitofp i32 %.1.i to float
   %104 = fadd float %103, 5.000000e-01
   %105 = fmul float %104, 0x400921FB60000000
@@ -65963,7 +65933,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
   %111 = fmul float %110, 0x400921FB60000000
   %112 = fdiv float %111, %24
   %113 = call float @llvm.sin.f32(float %112)
-  %114 = fmul float %47, %113
+  %114 = fmul float %59, %113
   %115 = fadd float %114, %108
   %116 = fdiv float %114, %115
   br label %125
@@ -65989,10 +65959,10 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
   br label %149
 
 125:                                              ; preds = %101, %._crit_edge109
-  %.0 = phi float [ %116, %101 ], [ %47, %._crit_edge109 ]
-  %126 = fsub float 1.000000e+00, %44
+  %.0 = phi float [ %116, %101 ], [ %59, %._crit_edge109 ]
+  %126 = fsub float 1.000000e+00, %58
   %127 = fsub float 1.000000e+00, %.0
-  br i1 %57, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
+  br i1 %51, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
 
 .lr.ph.preheader.i:                               ; preds = %125
   %wide.trip.count.i = zext nneg i32 %28 to i64
@@ -66002,15 +65972,15 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %128 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i
   %129 = load float, ptr %128, align 4, !tbaa !196
-  %130 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i
   %131 = load float, ptr %130, align 4, !tbaa !196
-  %132 = fmul float %44, %131
+  %132 = fmul float %58, %131
   %133 = call float @llvm.fmuladd.f32(float %129, float %126, float %132)
-  %134 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i
   %135 = load float, ptr %134, align 4, !tbaa !196
-  %136 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i
+  %136 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i
   %137 = load float, ptr %136, align 4, !tbaa !196
-  %138 = fmul float %44, %137
+  %138 = fmul float %58, %137
   %139 = call float @llvm.fmuladd.f32(float %135, float %126, float %138)
   %140 = fmul float %.0, %139
   %141 = call float @llvm.fmuladd.f32(float %127, float %133, float %140)
@@ -66085,54 +66055,54 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
 
 34:                                               ; preds = %5, %29
   %35 = phi ptr [ %33, %29 ], [ null, %5 ]
-  %36 = sext i32 %28 to i64
-  %37 = getelementptr inbounds float, ptr %35, i64 %36
-  %38 = getelementptr inbounds float, ptr %37, i64 %36
-  %39 = getelementptr inbounds float, ptr %38, i64 %36
-  %40 = fadd float %22, -5.000000e-01
-  %41 = fadd float %25, -5.000000e-01
-  %42 = tail call noundef float @llvm.floor.f32(float %40)
-  %43 = fptosi float %42 to i32
-  %44 = fsub float %40, %42
-  %45 = tail call noundef float @llvm.floor.f32(float %41)
-  %46 = fptosi float %45 to i32
-  %47 = fsub float %41, %45
+  %36 = fadd float %22, -5.000000e-01
+  %37 = fadd float %25, -5.000000e-01
+  %38 = tail call noundef float @llvm.floor.f32(float %36)
+  %39 = fptosi float %38 to i32
+  %40 = tail call noundef float @llvm.floor.f32(float %37)
+  %41 = fptosi float %40 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %48 = add nsw i32 %43, 2
-  %49 = add nsw i32 %46, 2
-  store i32 %43, ptr %7, align 4, !tbaa !152
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %48, ptr %50, align 4, !tbaa !254
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %46, ptr %51, align 4, !tbaa !252
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %49, ptr %52, align 4, !tbaa !255
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %53, align 4, !tbaa !253
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 1, ptr %54, align 4, !tbaa !256
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %55, align 4, !tbaa !257
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 10000, ptr %56, align 4, !tbaa !258
+  %42 = add nsw i32 %39, 2
+  %43 = add nsw i32 %41, 2
+  store i32 %39, ptr %7, align 4, !tbaa !152
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %42, ptr %44, align 4, !tbaa !254
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 %41, ptr %45, align 4, !tbaa !252
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 %43, ptr %46, align 4, !tbaa !255
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 0, ptr %47, align 4, !tbaa !253
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i32 1, ptr %48, align 4, !tbaa !256
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i32 0, ptr %49, align 4, !tbaa !257
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  store i32 10000, ptr %50, align 4, !tbaa !258
   call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseC2ERKS1_RKNS0_3ROIENS1_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(126) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(32) %7, i32 noundef 2, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %57 = icmp sgt i32 %28, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge
+  %51 = icmp sgt i32 %28, 0
+  br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %34
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %59 = load ptr, ptr %58, align 8, !tbaa !1151
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %53 = load ptr, ptr %52, align 8, !tbaa !1151
   %wide.trip.count = zext nneg i32 %28 to i64
   br label %62
 
 ._crit_edge:                                      ; preds = %62, %34
+  %54 = sext i32 %28 to i64
+  %55 = getelementptr inbounds float, ptr %35, i64 %54
+  %56 = getelementptr inbounds float, ptr %55, i64 %54
+  %57 = getelementptr inbounds float, ptr %56, i64 %54
+  %58 = fsub float %36, %38
+  %59 = fsub float %37, %40
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %6)
           to label %.preheader99 unwind label %70
 
 .preheader99:                                     ; preds = %._crit_edge
-  br i1 %57, label %.lr.ph102, label %._crit_edge103
+  br i1 %51, label %.lr.ph102, label %._crit_edge103
 
 .lr.ph102:                                        ; preds = %.preheader99
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -66142,7 +66112,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
 
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv
   %64 = load i16, ptr %63, align 2, !tbaa !807
   %65 = sitofp i16 %64 to float
   %66 = fmul float %65, 0x3F00002000000000
@@ -66157,7 +66127,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
           to label %.preheader98 unwind label %70
 
 .preheader98:                                     ; preds = %._crit_edge103
-  br i1 %57, label %.lr.ph105, label %._crit_edge106
+  br i1 %51, label %.lr.ph105, label %._crit_edge106
 
 .lr.ph105:                                        ; preds = %.preheader98
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -66176,7 +66146,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
   %74 = load i16, ptr %73, align 2, !tbaa !807
   %75 = sitofp i16 %74 to float
   %76 = fmul float %75, 0x3F00002000000000
-  %77 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv111
+  %77 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !196
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -66187,7 +66157,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
           to label %.preheader unwind label %70
 
 .preheader:                                       ; preds = %._crit_edge106
-  br i1 %57, label %.lr.ph108, label %._crit_edge109
+  br i1 %51, label %.lr.ph108, label %._crit_edge109
 
 .lr.ph108:                                        ; preds = %.preheader
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -66201,7 +66171,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
   %82 = load i16, ptr %81, align 2, !tbaa !807
   %83 = sitofp i16 %82 to float
   %84 = fmul float %83, 0x3F00002000000000
-  %85 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv116
+  %85 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv116
   store float %84, ptr %85, align 4, !tbaa !196
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
@@ -66216,14 +66186,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
   %88 = load i16, ptr %87, align 2, !tbaa !807
   %89 = sitofp i16 %88 to float
   %90 = fmul float %89, 0x3F00002000000000
-  %91 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv121
+  %91 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv121
   store float %90, ptr %91, align 4, !tbaa !196
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
   br i1 %exitcond125.not, label %._crit_edge109, label %86, !llvm.loop !1324
 
 92:                                               ; preds = %._crit_edge109
-  %93 = add nsw i32 %46, 1
+  %93 = add nsw i32 %41, 1
   %94 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf4yminEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %95 unwind label %117
 
@@ -66242,9 +66212,9 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
           to label %101 unwind label %123
 
 101:                                              ; preds = %99
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %98, i32 %46)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %98, i32 %41)
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %100)
-  %102 = fsub float 1.000000e+00, %47
+  %102 = fsub float 1.000000e+00, %59
   %103 = sitofp i32 %.1.i to float
   %104 = fadd float %103, 5.000000e-01
   %105 = fmul float %104, 0x400921FB60000000
@@ -66256,7 +66226,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
   %111 = fmul float %110, 0x400921FB60000000
   %112 = fdiv float %111, %24
   %113 = call float @llvm.sin.f32(float %112)
-  %114 = fmul float %47, %113
+  %114 = fmul float %59, %113
   %115 = fadd float %114, %108
   %116 = fdiv float %114, %115
   br label %125
@@ -66282,10 +66252,10 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
   br label %149
 
 125:                                              ; preds = %101, %._crit_edge109
-  %.0 = phi float [ %116, %101 ], [ %47, %._crit_edge109 ]
-  %126 = fsub float 1.000000e+00, %44
+  %.0 = phi float [ %116, %101 ], [ %59, %._crit_edge109 ]
+  %126 = fsub float 1.000000e+00, %58
   %127 = fsub float 1.000000e+00, %.0
-  br i1 %57, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
+  br i1 %51, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
 
 .lr.ph.preheader.i:                               ; preds = %125
   %wide.trip.count.i = zext nneg i32 %28 to i64
@@ -66295,15 +66265,15 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %128 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i
   %129 = load float, ptr %128, align 4, !tbaa !196
-  %130 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i
   %131 = load float, ptr %130, align 4, !tbaa !196
-  %132 = fmul float %44, %131
+  %132 = fmul float %58, %131
   %133 = call float @llvm.fmuladd.f32(float %129, float %126, float %132)
-  %134 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i
   %135 = load float, ptr %134, align 4, !tbaa !196
-  %136 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i
+  %136 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i
   %137 = load float, ptr %136, align 4, !tbaa !196
-  %138 = fmul float %44, %137
+  %138 = fmul float %58, %137
   %139 = call float @llvm.fmuladd.f32(float %135, float %126, float %138)
   %140 = fmul float %.0, %139
   %141 = call float @llvm.fmuladd.f32(float %127, float %133, float %140)
@@ -66378,54 +66348,54 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
 
 34:                                               ; preds = %5, %29
   %35 = phi ptr [ %33, %29 ], [ null, %5 ]
-  %36 = sext i32 %28 to i64
-  %37 = getelementptr inbounds float, ptr %35, i64 %36
-  %38 = getelementptr inbounds float, ptr %37, i64 %36
-  %39 = getelementptr inbounds float, ptr %38, i64 %36
-  %40 = fadd float %22, -5.000000e-01
-  %41 = fadd float %25, -5.000000e-01
-  %42 = tail call noundef float @llvm.floor.f32(float %40)
-  %43 = fptosi float %42 to i32
-  %44 = fsub float %40, %42
-  %45 = tail call noundef float @llvm.floor.f32(float %41)
-  %46 = fptosi float %45 to i32
-  %47 = fsub float %41, %45
+  %36 = fadd float %22, -5.000000e-01
+  %37 = fadd float %25, -5.000000e-01
+  %38 = tail call noundef float @llvm.floor.f32(float %36)
+  %39 = fptosi float %38 to i32
+  %40 = tail call noundef float @llvm.floor.f32(float %37)
+  %41 = fptosi float %40 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %48 = add nsw i32 %43, 2
-  %49 = add nsw i32 %46, 2
-  store i32 %43, ptr %7, align 4, !tbaa !152
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %48, ptr %50, align 4, !tbaa !254
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %46, ptr %51, align 4, !tbaa !252
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %49, ptr %52, align 4, !tbaa !255
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %53, align 4, !tbaa !253
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 1, ptr %54, align 4, !tbaa !256
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %55, align 4, !tbaa !257
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 10000, ptr %56, align 4, !tbaa !258
+  %42 = add nsw i32 %39, 2
+  %43 = add nsw i32 %41, 2
+  store i32 %39, ptr %7, align 4, !tbaa !152
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %42, ptr %44, align 4, !tbaa !254
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 %41, ptr %45, align 4, !tbaa !252
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 %43, ptr %46, align 4, !tbaa !255
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 0, ptr %47, align 4, !tbaa !253
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i32 1, ptr %48, align 4, !tbaa !256
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i32 0, ptr %49, align 4, !tbaa !257
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  store i32 10000, ptr %50, align 4, !tbaa !258
   call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseC2ERKS1_RKNS0_3ROIENS1_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(126) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(32) %7, i32 noundef 2, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %57 = icmp sgt i32 %28, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge
+  %51 = icmp sgt i32 %28, 0
+  br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %34
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %59 = load ptr, ptr %58, align 8, !tbaa !1151
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %53 = load ptr, ptr %52, align 8, !tbaa !1151
   %wide.trip.count = zext nneg i32 %28 to i64
   br label %62
 
 ._crit_edge:                                      ; preds = %62, %34
+  %54 = sext i32 %28 to i64
+  %55 = getelementptr inbounds float, ptr %35, i64 %54
+  %56 = getelementptr inbounds float, ptr %55, i64 %54
+  %57 = getelementptr inbounds float, ptr %56, i64 %54
+  %58 = fsub float %36, %38
+  %59 = fsub float %37, %40
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %6)
           to label %.preheader99 unwind label %70
 
 .preheader99:                                     ; preds = %._crit_edge
-  br i1 %57, label %.lr.ph102, label %._crit_edge103
+  br i1 %51, label %.lr.ph102, label %._crit_edge103
 
 .lr.ph102:                                        ; preds = %.preheader99
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -66435,7 +66405,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
 
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !24
   %65 = uitofp i32 %64 to float
   %66 = fmul float %65, 0x3DF0000000000000
@@ -66450,7 +66420,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
           to label %.preheader98 unwind label %70
 
 .preheader98:                                     ; preds = %._crit_edge103
-  br i1 %57, label %.lr.ph105, label %._crit_edge106
+  br i1 %51, label %.lr.ph105, label %._crit_edge106
 
 .lr.ph105:                                        ; preds = %.preheader98
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -66469,7 +66439,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
   %74 = load i32, ptr %73, align 4, !tbaa !24
   %75 = uitofp i32 %74 to float
   %76 = fmul float %75, 0x3DF0000000000000
-  %77 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv111
+  %77 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !196
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -66480,7 +66450,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
           to label %.preheader unwind label %70
 
 .preheader:                                       ; preds = %._crit_edge106
-  br i1 %57, label %.lr.ph108, label %._crit_edge109
+  br i1 %51, label %.lr.ph108, label %._crit_edge109
 
 .lr.ph108:                                        ; preds = %.preheader
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -66494,7 +66464,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
   %82 = load i32, ptr %81, align 4, !tbaa !24
   %83 = uitofp i32 %82 to float
   %84 = fmul float %83, 0x3DF0000000000000
-  %85 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv116
+  %85 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv116
   store float %84, ptr %85, align 4, !tbaa !196
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
@@ -66509,14 +66479,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
   %88 = load i32, ptr %87, align 4, !tbaa !24
   %89 = uitofp i32 %88 to float
   %90 = fmul float %89, 0x3DF0000000000000
-  %91 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv121
+  %91 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv121
   store float %90, ptr %91, align 4, !tbaa !196
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
   br i1 %exitcond125.not, label %._crit_edge109, label %86, !llvm.loop !1328
 
 92:                                               ; preds = %._crit_edge109
-  %93 = add nsw i32 %46, 1
+  %93 = add nsw i32 %41, 1
   %94 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf4yminEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %95 unwind label %117
 
@@ -66535,9 +66505,9 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
           to label %101 unwind label %123
 
 101:                                              ; preds = %99
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %98, i32 %46)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %98, i32 %41)
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %100)
-  %102 = fsub float 1.000000e+00, %47
+  %102 = fsub float 1.000000e+00, %59
   %103 = sitofp i32 %.1.i to float
   %104 = fadd float %103, 5.000000e-01
   %105 = fmul float %104, 0x400921FB60000000
@@ -66549,7 +66519,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
   %111 = fmul float %110, 0x400921FB60000000
   %112 = fdiv float %111, %24
   %113 = call float @llvm.sin.f32(float %112)
-  %114 = fmul float %47, %113
+  %114 = fmul float %59, %113
   %115 = fadd float %114, %108
   %116 = fdiv float %114, %115
   br label %125
@@ -66575,10 +66545,10 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
   br label %149
 
 125:                                              ; preds = %101, %._crit_edge109
-  %.0 = phi float [ %116, %101 ], [ %47, %._crit_edge109 ]
-  %126 = fsub float 1.000000e+00, %44
+  %.0 = phi float [ %116, %101 ], [ %59, %._crit_edge109 ]
+  %126 = fsub float 1.000000e+00, %58
   %127 = fsub float 1.000000e+00, %.0
-  br i1 %57, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
+  br i1 %51, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
 
 .lr.ph.preheader.i:                               ; preds = %125
   %wide.trip.count.i = zext nneg i32 %28 to i64
@@ -66588,15 +66558,15 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %128 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i
   %129 = load float, ptr %128, align 4, !tbaa !196
-  %130 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i
   %131 = load float, ptr %130, align 4, !tbaa !196
-  %132 = fmul float %44, %131
+  %132 = fmul float %58, %131
   %133 = call float @llvm.fmuladd.f32(float %129, float %126, float %132)
-  %134 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i
   %135 = load float, ptr %134, align 4, !tbaa !196
-  %136 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i
+  %136 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i
   %137 = load float, ptr %136, align 4, !tbaa !196
-  %138 = fmul float %44, %137
+  %138 = fmul float %58, %137
   %139 = call float @llvm.fmuladd.f32(float %135, float %126, float %138)
   %140 = fmul float %.0, %139
   %141 = call float @llvm.fmuladd.f32(float %127, float %133, float %140)
@@ -66671,54 +66641,54 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
 
 34:                                               ; preds = %5, %29
   %35 = phi ptr [ %33, %29 ], [ null, %5 ]
-  %36 = sext i32 %28 to i64
-  %37 = getelementptr inbounds float, ptr %35, i64 %36
-  %38 = getelementptr inbounds float, ptr %37, i64 %36
-  %39 = getelementptr inbounds float, ptr %38, i64 %36
-  %40 = fadd float %22, -5.000000e-01
-  %41 = fadd float %25, -5.000000e-01
-  %42 = tail call noundef float @llvm.floor.f32(float %40)
-  %43 = fptosi float %42 to i32
-  %44 = fsub float %40, %42
-  %45 = tail call noundef float @llvm.floor.f32(float %41)
-  %46 = fptosi float %45 to i32
-  %47 = fsub float %41, %45
+  %36 = fadd float %22, -5.000000e-01
+  %37 = fadd float %25, -5.000000e-01
+  %38 = tail call noundef float @llvm.floor.f32(float %36)
+  %39 = fptosi float %38 to i32
+  %40 = tail call noundef float @llvm.floor.f32(float %37)
+  %41 = fptosi float %40 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %48 = add nsw i32 %43, 2
-  %49 = add nsw i32 %46, 2
-  store i32 %43, ptr %7, align 4, !tbaa !152
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %48, ptr %50, align 4, !tbaa !254
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %46, ptr %51, align 4, !tbaa !252
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %49, ptr %52, align 4, !tbaa !255
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %53, align 4, !tbaa !253
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 1, ptr %54, align 4, !tbaa !256
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %55, align 4, !tbaa !257
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 10000, ptr %56, align 4, !tbaa !258
+  %42 = add nsw i32 %39, 2
+  %43 = add nsw i32 %41, 2
+  store i32 %39, ptr %7, align 4, !tbaa !152
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %42, ptr %44, align 4, !tbaa !254
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 %41, ptr %45, align 4, !tbaa !252
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 %43, ptr %46, align 4, !tbaa !255
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 0, ptr %47, align 4, !tbaa !253
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i32 1, ptr %48, align 4, !tbaa !256
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i32 0, ptr %49, align 4, !tbaa !257
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  store i32 10000, ptr %50, align 4, !tbaa !258
   call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseC2ERKS1_RKNS0_3ROIENS1_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(126) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(32) %7, i32 noundef 2, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %57 = icmp sgt i32 %28, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge
+  %51 = icmp sgt i32 %28, 0
+  br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %34
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %59 = load ptr, ptr %58, align 8, !tbaa !1151
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %53 = load ptr, ptr %52, align 8, !tbaa !1151
   %wide.trip.count = zext nneg i32 %28 to i64
   br label %62
 
 ._crit_edge:                                      ; preds = %62, %34
+  %54 = sext i32 %28 to i64
+  %55 = getelementptr inbounds float, ptr %35, i64 %54
+  %56 = getelementptr inbounds float, ptr %55, i64 %54
+  %57 = getelementptr inbounds float, ptr %56, i64 %54
+  %58 = fsub float %36, %38
+  %59 = fsub float %37, %40
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %6)
           to label %.preheader99 unwind label %70
 
 .preheader99:                                     ; preds = %._crit_edge
-  br i1 %57, label %.lr.ph102, label %._crit_edge103
+  br i1 %51, label %.lr.ph102, label %._crit_edge103
 
 .lr.ph102:                                        ; preds = %.preheader99
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -66728,7 +66698,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
 
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !24
   %65 = sitofp i32 %64 to float
   %66 = fmul float %65, 0x3E00000000000000
@@ -66743,7 +66713,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
           to label %.preheader98 unwind label %70
 
 .preheader98:                                     ; preds = %._crit_edge103
-  br i1 %57, label %.lr.ph105, label %._crit_edge106
+  br i1 %51, label %.lr.ph105, label %._crit_edge106
 
 .lr.ph105:                                        ; preds = %.preheader98
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -66762,7 +66732,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
   %74 = load i32, ptr %73, align 4, !tbaa !24
   %75 = sitofp i32 %74 to float
   %76 = fmul float %75, 0x3E00000000000000
-  %77 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv111
+  %77 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !196
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -66773,7 +66743,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
           to label %.preheader unwind label %70
 
 .preheader:                                       ; preds = %._crit_edge106
-  br i1 %57, label %.lr.ph108, label %._crit_edge109
+  br i1 %51, label %.lr.ph108, label %._crit_edge109
 
 .lr.ph108:                                        ; preds = %.preheader
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -66787,7 +66757,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
   %82 = load i32, ptr %81, align 4, !tbaa !24
   %83 = sitofp i32 %82 to float
   %84 = fmul float %83, 0x3E00000000000000
-  %85 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv116
+  %85 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv116
   store float %84, ptr %85, align 4, !tbaa !196
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
@@ -66802,14 +66772,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
   %88 = load i32, ptr %87, align 4, !tbaa !24
   %89 = sitofp i32 %88 to float
   %90 = fmul float %89, 0x3E00000000000000
-  %91 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv121
+  %91 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv121
   store float %90, ptr %91, align 4, !tbaa !196
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
   br i1 %exitcond125.not, label %._crit_edge109, label %86, !llvm.loop !1332
 
 92:                                               ; preds = %._crit_edge109
-  %93 = add nsw i32 %46, 1
+  %93 = add nsw i32 %41, 1
   %94 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf4yminEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %95 unwind label %117
 
@@ -66828,9 +66798,9 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
           to label %101 unwind label %123
 
 101:                                              ; preds = %99
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %98, i32 %46)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %98, i32 %41)
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %100)
-  %102 = fsub float 1.000000e+00, %47
+  %102 = fsub float 1.000000e+00, %59
   %103 = sitofp i32 %.1.i to float
   %104 = fadd float %103, 5.000000e-01
   %105 = fmul float %104, 0x400921FB60000000
@@ -66842,7 +66812,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
   %111 = fmul float %110, 0x400921FB60000000
   %112 = fdiv float %111, %24
   %113 = call float @llvm.sin.f32(float %112)
-  %114 = fmul float %47, %113
+  %114 = fmul float %59, %113
   %115 = fadd float %114, %108
   %116 = fdiv float %114, %115
   br label %125
@@ -66868,10 +66838,10 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
   br label %149
 
 125:                                              ; preds = %101, %._crit_edge109
-  %.0 = phi float [ %116, %101 ], [ %47, %._crit_edge109 ]
-  %126 = fsub float 1.000000e+00, %44
+  %.0 = phi float [ %116, %101 ], [ %59, %._crit_edge109 ]
+  %126 = fsub float 1.000000e+00, %58
   %127 = fsub float 1.000000e+00, %.0
-  br i1 %57, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
+  br i1 %51, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
 
 .lr.ph.preheader.i:                               ; preds = %125
   %wide.trip.count.i = zext nneg i32 %28 to i64
@@ -66881,15 +66851,15 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %128 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i
   %129 = load float, ptr %128, align 4, !tbaa !196
-  %130 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i
   %131 = load float, ptr %130, align 4, !tbaa !196
-  %132 = fmul float %44, %131
+  %132 = fmul float %58, %131
   %133 = call float @llvm.fmuladd.f32(float %129, float %126, float %132)
-  %134 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i
   %135 = load float, ptr %134, align 4, !tbaa !196
-  %136 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i
+  %136 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i
   %137 = load float, ptr %136, align 4, !tbaa !196
-  %138 = fmul float %44, %137
+  %138 = fmul float %58, %137
   %139 = call float @llvm.fmuladd.f32(float %135, float %126, float %138)
   %140 = fmul float %.0, %139
   %141 = call float @llvm.fmuladd.f32(float %127, float %133, float %140)
@@ -66964,54 +66934,54 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIdEvRKN11OpenImageIO6v3
 
 34:                                               ; preds = %5, %29
   %35 = phi ptr [ %33, %29 ], [ null, %5 ]
-  %36 = sext i32 %28 to i64
-  %37 = getelementptr inbounds float, ptr %35, i64 %36
-  %38 = getelementptr inbounds float, ptr %37, i64 %36
-  %39 = getelementptr inbounds float, ptr %38, i64 %36
-  %40 = fadd float %22, -5.000000e-01
-  %41 = fadd float %25, -5.000000e-01
-  %42 = tail call noundef float @llvm.floor.f32(float %40)
-  %43 = fptosi float %42 to i32
-  %44 = fsub float %40, %42
-  %45 = tail call noundef float @llvm.floor.f32(float %41)
-  %46 = fptosi float %45 to i32
-  %47 = fsub float %41, %45
+  %36 = fadd float %22, -5.000000e-01
+  %37 = fadd float %25, -5.000000e-01
+  %38 = tail call noundef float @llvm.floor.f32(float %36)
+  %39 = fptosi float %38 to i32
+  %40 = tail call noundef float @llvm.floor.f32(float %37)
+  %41 = fptosi float %40 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %48 = add nsw i32 %43, 2
-  %49 = add nsw i32 %46, 2
-  store i32 %43, ptr %7, align 4, !tbaa !152
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %48, ptr %50, align 4, !tbaa !254
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %46, ptr %51, align 4, !tbaa !252
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %49, ptr %52, align 4, !tbaa !255
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %53, align 4, !tbaa !253
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 1, ptr %54, align 4, !tbaa !256
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 0, ptr %55, align 4, !tbaa !257
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 10000, ptr %56, align 4, !tbaa !258
+  %42 = add nsw i32 %39, 2
+  %43 = add nsw i32 %41, 2
+  store i32 %39, ptr %7, align 4, !tbaa !152
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %42, ptr %44, align 4, !tbaa !254
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 %41, ptr %45, align 4, !tbaa !252
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 %43, ptr %46, align 4, !tbaa !255
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 0, ptr %47, align 4, !tbaa !253
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i32 1, ptr %48, align 4, !tbaa !256
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i32 0, ptr %49, align 4, !tbaa !257
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  store i32 10000, ptr %50, align 4, !tbaa !258
   call void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseC2ERKS1_RKNS0_3ROIENS1_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(126) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(32) %7, i32 noundef 2, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %57 = icmp sgt i32 %28, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge
+  %51 = icmp sgt i32 %28, 0
+  br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %34
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %59 = load ptr, ptr %58, align 8, !tbaa !1151
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %53 = load ptr, ptr %52, align 8, !tbaa !1151
   %wide.trip.count = zext nneg i32 %28 to i64
   br label %62
 
 ._crit_edge:                                      ; preds = %62, %34
+  %54 = sext i32 %28 to i64
+  %55 = getelementptr inbounds float, ptr %35, i64 %54
+  %56 = getelementptr inbounds float, ptr %55, i64 %54
+  %57 = getelementptr inbounds float, ptr %56, i64 %54
+  %58 = fsub float %36, %38
+  %59 = fsub float %37, %40
   invoke void @_ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseppEv(ptr noundef nonnull align 8 dereferenceable(126) %6)
           to label %.preheader99 unwind label %69
 
 .preheader99:                                     ; preds = %._crit_edge
-  br i1 %57, label %.lr.ph102, label %._crit_edge103
+  br i1 %51, label %.lr.ph102, label %._crit_edge103
 
 .lr.ph102:                                        ; preds = %.preheader99
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -67021,7 +66991,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIdEvRKN11OpenImageIO6v3
 
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv
   %64 = load double, ptr %63, align 8, !tbaa !39
   %65 = fptrunc double %64 to float
   %66 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
@@ -67035,7 +67005,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIdEvRKN11OpenImageIO6v3
           to label %.preheader98 unwind label %69
 
 .preheader98:                                     ; preds = %._crit_edge103
-  br i1 %57, label %.lr.ph105, label %._crit_edge106
+  br i1 %51, label %.lr.ph105, label %._crit_edge106
 
 .lr.ph105:                                        ; preds = %.preheader98
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -67053,7 +67023,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIdEvRKN11OpenImageIO6v3
   %72 = getelementptr inbounds nuw double, ptr %61, i64 %indvars.iv111
   %73 = load double, ptr %72, align 8, !tbaa !39
   %74 = fptrunc double %73 to float
-  %75 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv111
+  %75 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv111
   store float %74, ptr %75, align 4, !tbaa !196
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -67064,7 +67034,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIdEvRKN11OpenImageIO6v3
           to label %.preheader unwind label %69
 
 .preheader:                                       ; preds = %._crit_edge106
-  br i1 %57, label %.lr.ph108, label %._crit_edge109
+  br i1 %51, label %.lr.ph108, label %._crit_edge109
 
 .lr.ph108:                                        ; preds = %.preheader
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -67077,7 +67047,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIdEvRKN11OpenImageIO6v3
   %79 = getelementptr inbounds nuw double, ptr %68, i64 %indvars.iv116
   %80 = load double, ptr %79, align 8, !tbaa !39
   %81 = fptrunc double %80 to float
-  %82 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv116
+  %82 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv116
   store float %81, ptr %82, align 4, !tbaa !196
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
@@ -67091,14 +67061,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIdEvRKN11OpenImageIO6v3
   %84 = getelementptr inbounds nuw double, ptr %77, i64 %indvars.iv121
   %85 = load double, ptr %84, align 8, !tbaa !39
   %86 = fptrunc double %85 to float
-  %87 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv121
+  %87 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv121
   store float %86, ptr %87, align 4, !tbaa !196
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
   br i1 %exitcond125.not, label %._crit_edge109, label %83, !llvm.loop !1336
 
 88:                                               ; preds = %._crit_edge109
-  %89 = add nsw i32 %46, 1
+  %89 = add nsw i32 %41, 1
   %90 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf4yminEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %91 unwind label %113
 
@@ -67117,9 +67087,9 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIdEvRKN11OpenImageIO6v3
           to label %97 unwind label %119
 
 97:                                               ; preds = %95
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %94, i32 %46)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %94, i32 %41)
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %96)
-  %98 = fsub float 1.000000e+00, %47
+  %98 = fsub float 1.000000e+00, %59
   %99 = sitofp i32 %.1.i to float
   %100 = fadd float %99, 5.000000e-01
   %101 = fmul float %100, 0x400921FB60000000
@@ -67131,7 +67101,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIdEvRKN11OpenImageIO6v3
   %107 = fmul float %106, 0x400921FB60000000
   %108 = fdiv float %107, %24
   %109 = call float @llvm.sin.f32(float %108)
-  %110 = fmul float %47, %109
+  %110 = fmul float %59, %109
   %111 = fadd float %110, %104
   %112 = fdiv float %110, %111
   br label %121
@@ -67157,10 +67127,10 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIdEvRKN11OpenImageIO6v3
   br label %145
 
 121:                                              ; preds = %97, %._crit_edge109
-  %.0 = phi float [ %112, %97 ], [ %47, %._crit_edge109 ]
-  %122 = fsub float 1.000000e+00, %44
+  %.0 = phi float [ %112, %97 ], [ %59, %._crit_edge109 ]
+  %122 = fsub float 1.000000e+00, %58
   %123 = fsub float 1.000000e+00, %.0
-  br i1 %57, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
+  br i1 %51, label %.lr.ph.preheader.i, label %_ZN11OpenImageIO6v3_1_06bilerpIffEEvPKT_S4_S4_S4_T0_S5_iPS2_.exit
 
 .lr.ph.preheader.i:                               ; preds = %121
   %wide.trip.count.i = zext nneg i32 %28 to i64
@@ -67170,15 +67140,15 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIdEvRKN11OpenImageIO6v3
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %124 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i
   %125 = load float, ptr %124, align 4, !tbaa !196
-  %126 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i
   %127 = load float, ptr %126, align 4, !tbaa !196
-  %128 = fmul float %44, %127
+  %128 = fmul float %58, %127
   %129 = call float @llvm.fmuladd.f32(float %125, float %122, float %128)
-  %130 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i
   %131 = load float, ptr %130, align 4, !tbaa !196
-  %132 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i
+  %132 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i
   %133 = load float, ptr %132, align 4, !tbaa !196
-  %134 = fmul float %44, %133
+  %134 = fmul float %58, %133
   %135 = call float @llvm.fmuladd.f32(float %131, float %122, float %134)
   %136 = fmul float %.0, %135
   %137 = call float @llvm.fmuladd.f32(float %123, float %129, float %136)

@@ -351,21 +351,21 @@ define void @_RNvMs0_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCs8mTrBI1stz4_15tur
   %15 = load ptr, ptr %14, align 8, !alias.scope !103, !noalias !106, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %15, i64 %13
   %17 = icmp ugt i64 %8, 1
-  br i1 %17, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %17, label %.lr.ph.i, label %._crit_edge.thread.i
 
 18:                                               ; preds = %7
   tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellNtNtBa_5alloc6GlobalEB1r_(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %5, i64 noundef %8), !noalias !106
   %.pre.i = load i64, ptr %4, align 8, !alias.scope !103, !noalias !106
   br label %12
 
-._crit_edge.thread.i:                             ; preds = %.lr.ph.i
+._crit_edge.thread.loopexit.i:                    ; preds = %.lr.ph.i
   %19 = add i64 %8, -1
   %20 = add i64 %19, %13
-  br label %._crit_edge.i
+  br label %._crit_edge.thread.i
 
-._crit_edge.i:                                    ; preds = %12, %._crit_edge.thread.i
-  %.sroa.0.0.lcssa30.i = phi ptr [ %23, %._crit_edge.thread.i ], [ %16, %12 ]
-  %storemerge.lcssa29.i = phi i64 [ %20, %._crit_edge.thread.i ], [ %13, %12 ]
+._crit_edge.thread.i:                             ; preds = %12, %._crit_edge.thread.loopexit.i
+  %.sroa.0.0.lcssa30.i = phi ptr [ %23, %._crit_edge.thread.loopexit.i ], [ %16, %12 ]
+  %storemerge.lcssa29.i = phi i64 [ %20, %._crit_edge.thread.loopexit.i ], [ %13, %12 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.0.0.lcssa30.i, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   %.sroa.5.0..sroa.0.0.lcssa30.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa30.i, i64 24
   store i8 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa.0.0.lcssa30.i.sroa_idx, align 4
@@ -391,10 +391,10 @@ define void @_RNvMs0_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCs8mTrBI1stz4_15tur
   store i8 %.sroa.7.0.copyload, ptr %.sroa.4.0..sroa.0.0.sroa_idx.i, align 2, !noalias !106
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i, i64 36
   %exitcond.not.i = icmp eq i64 %22, %8
-  br i1 %exitcond.not.i, label %._crit_edge.thread.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %._crit_edge.thread.loopexit.i, label %.lr.ph.i
 
-_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellE8truncateBI_.exit: ; preds = %3, %._crit_edge.i
-  %storemerge = phi i64 [ %21, %._crit_edge.i ], [ %1, %3 ]
+_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellE8truncateBI_.exit: ; preds = %3, %._crit_edge.thread.i
+  %storemerge = phi i64 [ %21, %._crit_edge.thread.i ], [ %1, %3 ]
   store i64 %storemerge, ptr %4, align 8
   ret void
 }
@@ -620,38 +620,38 @@ define void @_RNvMs2_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCs8mTrBI1stz4_15tur
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = load i8, ptr %18, align 4, !range !116, !alias.scope !168, !noalias !171, !noundef !4
-  br label %26
+  br label %25
 
 20:                                               ; preds = %3
   tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellNtNtBa_5alloc6GlobalEB1r_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5, i64 noundef %1)
   %.pre = load i64, ptr %4, align 8
   br label %9
 
-._crit_edge.thread:                               ; preds = %26
-  %21 = add i64 %10, %1
-  %22 = add i64 %21, -1
-  br label %23
-
 ._crit_edge:                                      ; preds = %9
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %25, label %23
+  br i1 %.not, label %24, label %._crit_edge.thread
 
-23:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.sroa.0.0.lcssa30 = phi ptr [ %28, %._crit_edge.thread ], [ %13, %._crit_edge ]
-  %storemerge.lcssa29 = phi i64 [ %22, %._crit_edge.thread ], [ %10, %._crit_edge ]
+._crit_edge.thread.loopexit:                      ; preds = %25
+  %21 = add i64 %10, %1
+  %22 = add i64 %21, -1
+  br label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %._crit_edge.thread.loopexit, %._crit_edge
+  %.sroa.0.0.lcssa30 = phi ptr [ %13, %._crit_edge ], [ %27, %._crit_edge.thread.loopexit ]
+  %storemerge.lcssa29 = phi i64 [ %10, %._crit_edge ], [ %22, %._crit_edge.thread.loopexit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.0.0.lcssa30, ptr noundef nonnull align 4 dereferenceable(36) %2, i64 36, i1 false)
-  %24 = add i64 %storemerge.lcssa29, 1
-  br label %25
+  %23 = add i64 %storemerge.lcssa29, 1
+  br label %24
 
-25:                                               ; preds = %._crit_edge, %23
-  %storemerge20 = phi i64 [ %24, %23 ], [ %10, %._crit_edge ]
+24:                                               ; preds = %._crit_edge, %._crit_edge.thread
+  %storemerge20 = phi i64 [ %23, %._crit_edge.thread ], [ %10, %._crit_edge ]
   store i64 %storemerge20, ptr %4, align 8
   ret void
 
-26:                                               ; preds = %.lr.ph, %26
-  %.sroa.0.023 = phi ptr [ %13, %.lr.ph ], [ %28, %26 ]
-  %.sroa.03.022 = phi i64 [ 1, %.lr.ph ], [ %27, %26 ]
-  %27 = add nuw i64 %.sroa.03.022, 1
+25:                                               ; preds = %.lr.ph, %25
+  %.sroa.0.023 = phi ptr [ %13, %.lr.ph ], [ %27, %25 ]
+  %.sroa.03.022 = phi i64 [ 1, %.lr.ph ], [ %26, %25 ]
+  %26 = add nuw i64 %.sroa.03.022, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.0.023, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   %.sroa.2.0..sroa.0.0.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.023, i64 24
   store i8 %19, ptr %.sroa.2.0..sroa.0.0.sroa_idx, align 4
@@ -659,9 +659,9 @@ define void @_RNvMs2_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCs8mTrBI1stz4_15tur
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.sroa.3.0..sroa.0.0.sroa_idx, ptr noundef nonnull align 1 dereferenceable(9) %17, i64 9, i1 false)
   %.sroa.4.0..sroa.0.0.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.023, i64 34
   store i8 %16, ptr %.sroa.4.0..sroa.0.0.sroa_idx, align 2
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.023, i64 36
-  %exitcond.not = icmp eq i64 %27, %1
-  br i1 %exitcond.not, label %._crit_edge.thread, label %26
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.023, i64 36
+  %exitcond.not = icmp eq i64 %26, %1
+  br i1 %exitcond.not, label %._crit_edge.thread.loopexit, label %25
 }
 
 ; Function Attrs: nonlazybind uwtable

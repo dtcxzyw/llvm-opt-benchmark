@@ -57,24 +57,24 @@ define hidden void @_ZN2cv7barcode7cropROIERKNS_3MatERS1_RKSt6vectorINS_6Point_I
 20:                                               ; preds = %3
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #16
   store ptr %21, ptr %4, align 8, !tbaa !9
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %18
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %23, ptr %24, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %18
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %22, ptr %23, align 8, !tbaa !11
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %20, %.lr.ph.i.i.i.i.i
-  %25 = phi ptr [ %28, %.lr.ph.i.i.i.i.i ], [ %21, %20 ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i ], [ %15, %20 ]
-  %26 = load i64, ptr %.sroa.04.08.i.i.i.i.i, align 4
-  store i64 %26, ptr %25, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %27, %14
-  br i1 %.not.i.i.i.i.i, label %29, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
+  %24 = phi ptr [ %27, %.lr.ph.i.i.i.i.i ], [ %21, %20 ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i ], [ %15, %20 ]
+  %25 = load i64, ptr %.sroa.04.08.i.i.i.i.i, align 4
+  store i64 %25, ptr %24, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %26, %14
+  br i1 %.not.i.i.i.i.i, label %28, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
-29:                                               ; preds = %.lr.ph.i.i.i.i.i
-  store ptr %28, ptr %22, align 8, !tbaa !3
+28:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %27, ptr %29, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.val = load float, ptr %21, align 4, !tbaa !14
   %31 = getelementptr i8, ptr %21, i64 4
@@ -107,26 +107,26 @@ define hidden void @_ZN2cv7barcode7cropROIERKNS_3MatERS1_RKSt6vectorINS_6Point_I
   %51 = icmp sgt i32 %40, %50
   br i1 %51, label %52, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit
 
-52:                                               ; preds = %29
+52:                                               ; preds = %28
   %53 = load i64, ptr %21, align 4
-  %.not.i.i = icmp eq ptr %21, %25
+  %.not.i.i = icmp eq ptr %21, %24
   br i1 %.not.i.i, label %57, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i: ; preds = %52
-  %54 = ptrtoint ptr %28 to i64
+  %54 = ptrtoint ptr %27 to i64
   %55 = ptrtoint ptr %30 to i64
   %56 = sub i64 %54, %55
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %21, ptr nonnull align 4 %30, i64 %56, i1 false)
   br label %57
 
 57:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i, %52
-  store ptr %25, ptr %22, align 8, !tbaa !3
-  %.not.i = icmp eq ptr %25, %23
+  store ptr %24, ptr %29, align 8, !tbaa !3
+  %.not.i = icmp eq ptr %24, %22
   br i1 %.not.i, label %59, label %58
 
 58:                                               ; preds = %57
-  store i64 %53, ptr %25, align 4
-  store ptr %28, ptr %22, align 8, !tbaa !3
+  store i64 %53, ptr %24, align 4
+  store ptr %27, ptr %29, align 8, !tbaa !3
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit
 
 59:                                               ; preds = %57
@@ -164,16 +164,16 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %59
   %.0911.i.i.i.i.i.i = phi ptr [ %73, %.lr.ph.i.i.i.i.i.i ], [ %21, %.lr.ph.i.i.i.i.i.i.preheader ]
   %73 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %73, %23
+  %.not.i.i.i.i.i.i = icmp eq ptr %73, %22
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !23
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %75 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 16
   tail call void @_ZdlPv(ptr noundef nonnull %21) #17
   store ptr %68, ptr %4, align 8, !tbaa !9
-  store ptr %75, ptr %22, align 8, !tbaa !3
+  store ptr %75, ptr %29, align 8, !tbaa !3
   %76 = getelementptr inbounds nuw %"class.cv::Point_", ptr %68, i64 %66
-  store ptr %76, ptr %24, align 8, !tbaa !11
+  store ptr %76, ptr %23, align 8, !tbaa !11
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit
 
 .thread94:                                        ; preds = %61, %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -181,9 +181,9 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
           cleanup
   br label %125
 
-_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %58, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %29
-  %.074 = phi i32 [ %50, %29 ], [ %40, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %40, %58 ]
-  %.0 = phi i32 [ %40, %29 ], [ %50, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %50, %58 ]
+_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %58, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %28
+  %.074 = phi i32 [ %50, %28 ], [ %40, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %40, %58 ]
+  %.0 = phi i32 [ %40, %28 ], [ %50, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %50, %58 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %78 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
           to label %79 unwind label %114

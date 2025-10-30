@@ -2554,25 +2554,25 @@ _ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEED2Ev.exit: ; pr
   br i1 %.not153, label %._crit_edge185, label %409
 
 .lr.ph188:                                        ; preds = %380, %._crit_edge185
-  %421 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %422 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %423 = ptrtoint ptr %198 to i64
-  %424 = ptrtoint ptr %378 to i64
-  %425 = sub i64 %423, %424
-  %426 = ashr exact i64 %425, 3
-  %427 = load ptr, ptr %378, align 8, !tbaa !58
-  %428 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau7CodeGen28getNativeProtoExecDataHeaderEPj(ptr noundef %427) #24
-  %429 = getelementptr inbounds nuw i8, ptr %428, i64 8
-  %430 = load ptr, ptr %429, align 8, !tbaa !76
-  %431 = ptrtoint ptr %430 to i64
-  %432 = icmp ugt i64 %426, 1
-  br i1 %432, label %.lr.ph302, label %._crit_edge189
+  %421 = ptrtoint ptr %198 to i64
+  %422 = ptrtoint ptr %378 to i64
+  %423 = sub i64 %421, %422
+  %424 = ashr exact i64 %423, 3
+  %425 = load ptr, ptr %378, align 8, !tbaa !58
+  %426 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau7CodeGen28getNativeProtoExecDataHeaderEPj(ptr noundef %425) #24
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 8
+  %428 = load ptr, ptr %427, align 8, !tbaa !76
+  %429 = ptrtoint ptr %428 to i64
+  %430 = icmp ugt i64 %424, 1
+  br i1 %430, label %.lr.ph302, label %._crit_edge189
 
 ._crit_edge189:                                   ; preds = %.lr.ph302, %.lr.ph188
-  %.lcssa290 = phi ptr [ %428, %.lr.ph188 ], [ %474, %.lr.ph302 ]
-  %.lcssa = phi i64 [ %431, %.lr.ph188 ], [ %477, %.lr.ph302 ]
-  %433 = load ptr, ptr %422, align 8, !tbaa !305
-  %434 = load ptr, ptr %421, align 8, !tbaa !306
+  %.lcssa290 = phi ptr [ %426, %.lr.ph188 ], [ %474, %.lr.ph302 ]
+  %.lcssa = phi i64 [ %429, %.lr.ph188 ], [ %477, %.lr.ph302 ]
+  %431 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %432 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %433 = load ptr, ptr %432, align 8, !tbaa !305
+  %434 = load ptr, ptr %431, align 8, !tbaa !306
   %435 = ptrtoint ptr %433 to i64
   %436 = ptrtoint ptr %434 to i64
   %437 = add i64 %.lcssa, %436
@@ -2607,8 +2607,8 @@ _ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEED2Ev.exit: ; pr
 
 .lr.ph302:                                        ; preds = %.lr.ph188, %.lr.ph302
   %460 = phi i64 [ %478, %.lr.ph302 ], [ 1, %.lr.ph188 ]
-  %461 = phi i64 [ %477, %.lr.ph302 ], [ %431, %.lr.ph188 ]
-  %462 = phi ptr [ %474, %.lr.ph302 ], [ %428, %.lr.ph188 ]
+  %461 = phi i64 [ %477, %.lr.ph302 ], [ %429, %.lr.ph188 ]
+  %462 = phi ptr [ %474, %.lr.ph302 ], [ %426, %.lr.ph188 ]
   %463 = getelementptr inbounds nuw %"class.std::unique_ptr.20", ptr %378, i64 %460
   %464 = load ptr, ptr %463, align 8, !tbaa !58
   %465 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau7CodeGen28getNativeProtoExecDataHeaderEPj(ptr noundef %464) #24
@@ -2626,7 +2626,7 @@ _ZNSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEED2Ev.exit: ; pr
   %476 = load ptr, ptr %475, align 8, !tbaa !76
   %477 = ptrtoint ptr %476 to i64
   %478 = add nuw i64 %460, 1
-  %479 = icmp ult i64 %478, %426
+  %479 = icmp ult i64 %478, %424
   br i1 %479, label %.lr.ph302, label %._crit_edge189
 
 480:                                              ; preds = %._crit_edge189
@@ -3279,8 +3279,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP5ProtoSaIS1_EE17_M_default_app
 
 _ZSt6fill_nIPP5ProtomS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !64
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !64
   br label %_ZSt27__uninitialized_default_n_aIPP5ProtomS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPP5ProtomS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPP5ProtomS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i

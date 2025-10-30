@@ -693,10 +693,10 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds i32, ptr %130, i64 %133
   %135 = sext i32 %124 to i64
-  %136 = sext i32 %8 to i64
-  %137 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %138 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %139 = sext i32 %121 to i64
+  %136 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %137 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %138 = sext i32 %121 to i64
+  %139 = sext i32 %8 to i64
   %140 = sext i32 %125 to i64
   %.idx.i = shl nsw i64 %135, 2
   %141 = icmp sgt i32 %124, 0
@@ -710,35 +710,35 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %6, i8 0, i64 3, i1 false)
   %143 = getelementptr inbounds i8, ptr %.060.i53, i64 %.idx.i
-  %144 = getelementptr inbounds i32, ptr %.060.i53, i64 %136
   br i1 %141, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %142, %.lr.ph.i
-  %.154.i = phi ptr [ %153, %.lr.ph.i ], [ %.060.i53, %142 ]
-  %.14653.i = phi ptr [ %154, %.lr.ph.i ], [ %.04559.i, %142 ]
-  %.04852.i = phi ptr [ %145, %.lr.ph.i ], [ %.04958.i, %142 ]
-  %145 = getelementptr inbounds nuw i8, ptr %.04852.i, i64 4
-  %146 = load i32, ptr %.04852.i, align 4, !tbaa !3
-  %147 = trunc i32 %146 to i8
-  store i8 %147, ptr %6, align 1, !tbaa !9
-  %148 = lshr i32 %146, 8
-  %149 = trunc i32 %148 to i8
-  store i8 %149, ptr %137, align 1, !tbaa !11
-  %150 = lshr i32 %146, 16
-  %151 = trunc i32 %150 to i8
-  store i8 %151, ptr %138, align 1, !tbaa !12
-  %152 = load ptr, ptr @VP8LTransformColorInverse, align 8, !tbaa !23
-  call void %152(ptr noundef nonnull %6, ptr noundef %.154.i, i32 noundef %121, ptr noundef %.14653.i) #12
-  %153 = getelementptr inbounds i32, ptr %.154.i, i64 %139
-  %154 = getelementptr inbounds i32, ptr %.14653.i, i64 %139
-  %155 = icmp ult ptr %153, %143
-  br i1 %155, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !38
+  %.154.i = phi ptr [ %152, %.lr.ph.i ], [ %.060.i53, %142 ]
+  %.14653.i = phi ptr [ %153, %.lr.ph.i ], [ %.04559.i, %142 ]
+  %.04852.i = phi ptr [ %144, %.lr.ph.i ], [ %.04958.i, %142 ]
+  %144 = getelementptr inbounds nuw i8, ptr %.04852.i, i64 4
+  %145 = load i32, ptr %.04852.i, align 4, !tbaa !3
+  %146 = trunc i32 %145 to i8
+  store i8 %146, ptr %6, align 1, !tbaa !9
+  %147 = lshr i32 %145, 8
+  %148 = trunc i32 %147 to i8
+  store i8 %148, ptr %136, align 1, !tbaa !11
+  %149 = lshr i32 %145, 16
+  %150 = trunc i32 %149 to i8
+  store i8 %150, ptr %137, align 1, !tbaa !12
+  %151 = load ptr, ptr @VP8LTransformColorInverse, align 8, !tbaa !23
+  call void %151(ptr noundef nonnull %6, ptr noundef %.154.i, i32 noundef %121, ptr noundef %.14653.i) #12
+  %152 = getelementptr inbounds i32, ptr %.154.i, i64 %138
+  %153 = getelementptr inbounds i32, ptr %.14653.i, i64 %138
+  %154 = icmp ult ptr %152, %143
+  br i1 %154, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !38
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %142
-  %.048.lcssa.i = phi ptr [ %.04958.i, %142 ], [ %145, %.lr.ph.i ]
-  %.146.lcssa.i = phi ptr [ %.04559.i, %142 ], [ %154, %.lr.ph.i ]
-  %.1.lcssa.i = phi ptr [ %.060.i53, %142 ], [ %153, %.lr.ph.i ]
-  %156 = icmp ult ptr %.1.lcssa.i, %144
+  %.048.lcssa.i = phi ptr [ %.04958.i, %142 ], [ %144, %.lr.ph.i ]
+  %.146.lcssa.i = phi ptr [ %.04559.i, %142 ], [ %153, %.lr.ph.i ]
+  %.1.lcssa.i = phi ptr [ %.060.i53, %142 ], [ %152, %.lr.ph.i ]
+  %155 = getelementptr inbounds i32, ptr %.060.i53, i64 %139
+  %156 = icmp ult ptr %.1.lcssa.i, %155
   br i1 %156, label %157, label %167
 
 157:                                              ; preds = %._crit_edge.i
@@ -747,10 +747,10 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
   store i8 %159, ptr %6, align 1, !tbaa !9
   %160 = lshr i32 %158, 8
   %161 = trunc i32 %160 to i8
-  store i8 %161, ptr %137, align 1, !tbaa !11
+  store i8 %161, ptr %136, align 1, !tbaa !11
   %162 = lshr i32 %158, 16
   %163 = trunc i32 %162 to i8
-  store i8 %163, ptr %138, align 1, !tbaa !12
+  store i8 %163, ptr %137, align 1, !tbaa !12
   %164 = load ptr, ptr @VP8LTransformColorInverse, align 8, !tbaa !23
   call void %164(ptr noundef nonnull %6, ptr noundef %.1.lcssa.i, i32 noundef %125, ptr noundef %.146.lcssa.i) #12
   %165 = getelementptr inbounds i32, ptr %.1.lcssa.i, i64 %140

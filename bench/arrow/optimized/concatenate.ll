@@ -10716,29 +10716,29 @@ _ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EED2Ev.exit69
           to label %.noexc73.i unwind label %3888
 
 .noexc73.i:                                       ; preds = %3639
-  %3652 = sdiv i32 %3651, 8
-  %3653 = load ptr, ptr %1, align 8, !tbaa !99, !noalias !520
-  %3654 = load ptr, ptr %3653, align 8, !tbaa !100, !noalias !517
-  %3655 = getelementptr inbounds nuw i8, ptr %3653, i64 8
-  %3656 = load ptr, ptr %3655, align 8, !tbaa !100, !noalias !517
-  %.not131135.i.i = icmp eq ptr %3654, %3656
+  %3652 = load ptr, ptr %1, align 8, !tbaa !99, !noalias !520
+  %3653 = load ptr, ptr %3652, align 8, !tbaa !100, !noalias !517
+  %3654 = getelementptr inbounds nuw i8, ptr %3652, i64 8
+  %3655 = load ptr, ptr %3654, align 8, !tbaa !100, !noalias !517
+  %.not131135.i.i = icmp eq ptr %3653, %3655
   br i1 %.not131135.i.i, label %._crit_edge.i.i, label %.lr.ph.i66.i
 
 .lr.ph.i66.i:                                     ; preds = %.noexc73.i, %.lr.ph.i66.i
-  %.0137.i.i = phi i64 [ %3660, %.lr.ph.i66.i ], [ 0, %.noexc73.i ]
-  %.sroa.0114.0136.i.i = phi ptr [ %3661, %.lr.ph.i66.i ], [ %3654, %.noexc73.i ]
-  %3657 = load ptr, ptr %.sroa.0114.0136.i.i, align 8, !tbaa !74, !noalias !517
-  %3658 = getelementptr inbounds nuw i8, ptr %3657, i64 16
-  %3659 = load i64, ptr %3658, align 8, !tbaa !106, !noalias !517
-  %3660 = add nsw i64 %3659, %.0137.i.i
-  %3661 = getelementptr inbounds nuw i8, ptr %.sroa.0114.0136.i.i, i64 16
-  %.not131.i.i = icmp eq ptr %3661, %3656
+  %.0137.i.i = phi i64 [ %3659, %.lr.ph.i66.i ], [ 0, %.noexc73.i ]
+  %.sroa.0114.0136.i.i = phi ptr [ %3660, %.lr.ph.i66.i ], [ %3653, %.noexc73.i ]
+  %3656 = load ptr, ptr %.sroa.0114.0136.i.i, align 8, !tbaa !74, !noalias !517
+  %3657 = getelementptr inbounds nuw i8, ptr %3656, i64 16
+  %3658 = load i64, ptr %3657, align 8, !tbaa !106, !noalias !517
+  %3659 = add nsw i64 %3658, %.0137.i.i
+  %3660 = getelementptr inbounds nuw i8, ptr %.sroa.0114.0136.i.i, i64 16
+  %.not131.i.i = icmp eq ptr %3660, %3655
   br i1 %.not131.i.i, label %._crit_edge.i.i, label %.lr.ph.i66.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i66.i, %.noexc73.i
-  %.0.lcssa.i.i = phi i64 [ 0, %.noexc73.i ], [ %3660, %.lr.ph.i66.i ]
+  %.0.lcssa.i.i = phi i64 [ 0, %.noexc73.i ], [ %3659, %.lr.ph.i66.i ]
+  %3661 = sdiv i32 %3651, 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !520
-  %3662 = sext i32 %3652 to i64
+  %3662 = sext i32 %3661 to i64
   %3663 = mul nsw i64 %.0.lcssa.i.i, %3662
   %3664 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3665 = load ptr, ptr %3664, align 8, !tbaa !90, !noalias !520

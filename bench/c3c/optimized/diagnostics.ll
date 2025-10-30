@@ -102,21 +102,21 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
   %23 = tail call double @llvm.round.f64(double %22)
   %24 = fptoui double %23 to i32
   %25 = add i32 %24, 1
-  %26 = sub i32 117, %24
-  %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 20, ptr noundef nonnull @.str.8, i32 noundef %25) #8
-  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 20, ptr noundef nonnull @.str.9, i32 noundef %25) #8
-  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 20, ptr noundef nonnull @.str.8, i32 noundef %25) #8
-  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 20, ptr noundef nonnull @.str.9, i32 noundef %25) #8
-  %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call i64 @llvm.umax.i64(i64 %.sroa.5.0.extract.shift, i64 4)
-  %spec.store.select = add nsw i64 %33, -3
-  %34 = icmp ugt i64 %0, 21474836479
-  br i1 %34, label %.lr.ph, label %.preheader108
+  %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 20, ptr noundef nonnull @.str.8, i32 noundef %25) #8
+  %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 20, ptr noundef nonnull @.str.9, i32 noundef %25) #8
+  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 20, ptr noundef nonnull @.str.8, i32 noundef %25) #8
+  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 20, ptr noundef nonnull @.str.9, i32 noundef %25) #8
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call i64 @llvm.umax.i64(i64 %.sroa.5.0.extract.shift, i64 4)
+  %spec.store.select = add nsw i64 %32, -3
+  %33 = icmp ugt i64 %0, 21474836479
+  br i1 %33, label %.lr.ph, label %.preheader108
 
 .preheader108:                                    ; preds = %.lr.ph, %20
   %.090.lcssa = phi i64 [ 1, %20 ], [ %spec.select, %.lr.ph ]
-  %.088.lcssa = phi ptr [ %32, %20 ], [ %36, %.lr.ph ]
+  %.088.lcssa = phi ptr [ %31, %20 ], [ %36, %.lr.ph ]
+  %34 = sub i32 117, %24
   %.not95112 = icmp samesign ugt i64 %.090.lcssa, %.sroa.5.0.extract.shift
   br i1 %.not95112, label %._crit_edge, label %.lr.ph116
 
@@ -125,7 +125,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
   br label %41
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
-  %.088110 = phi ptr [ %36, %.lr.ph ], [ %32, %20 ]
+  %.088110 = phi ptr [ %36, %.lr.ph ], [ %31, %20 ]
   %.090109 = phi i64 [ %spec.select, %.lr.ph ], [ 1, %20 ]
   %36 = getelementptr inbounds nuw i8, ptr %.088110, i64 1
   %37 = load i8, ptr %.088110, align 1
@@ -160,7 +160,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
 
 .critedge:                                        ; preds = %45, %45
   %49 = trunc nuw nsw i64 %indvars.iv to i32
-  %50 = icmp ult i32 %26, %49
+  %50 = icmp ult i32 %34, %49
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %.critedge
@@ -191,7 +191,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
 
 ._crit_edge121:                                   ; preds = %.lr.ph120, %._crit_edge
   %.not96 = icmp ult i32 %6, 16777216
-  %56 = icmp ugt i32 %8, %26
+  %56 = icmp ugt i32 %8, %34
   %or.cond104 = or i1 %.not96, %56
   %.085 = select i1 %or.cond104, i32 0, i32 %8
   %.not97 = icmp eq i32 %.085, 0

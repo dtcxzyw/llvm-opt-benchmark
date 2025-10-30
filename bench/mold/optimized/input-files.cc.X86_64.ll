@@ -13632,8 +13632,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPN4mold6SymbolINS0_6X86_64EEESa
 
 _ZSt6fill_nIPPN4mold6SymbolINS0_6X86_64EEEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !328
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !328
   br label %_ZSt27__uninitialized_default_n_aIPPN4mold6SymbolINS0_6X86_64EEEmS4_ET_S6_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN4mold6SymbolINS0_6X86_64EEEmS4_ET_S6_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN4mold6SymbolINS0_6X86_64EEEmS4_ET_S6_T0_RKT1_.exit.loopexit.i.i.i
@@ -21306,251 +21306,251 @@ define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
   %6 = icmp sgt i64 %5, 128
-  br i1 %6, label %.lr.ph.i, label %108
+  br i1 %6, label %.lr.ph.i.preheader, label %107
 
-.lr.ph.i:                                         ; preds = %2
+.lr.ph.i.preheader:                               ; preds = %2
   %scevgep = getelementptr i8, ptr %0, i64 8
-  br label %7
+  br label %.lr.ph.i
 
-7:                                                ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i, %.lr.ph.i
-  %.sroa.0.018.i.idx = phi i64 [ 8, %.lr.ph.i ], [ %.sroa.0.018.i.add, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i ]
-  %.pn17.i = phi ptr [ %0, %.lr.ph.i ], [ %.sroa.0.018.i.ptr, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i
+  %.sroa.0.018.i.idx = phi i64 [ %.sroa.0.018.i.add, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i ], [ 8, %.lr.ph.i.preheader ]
+  %.pn17.i = phi ptr [ %.sroa.0.018.i.ptr, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i ], [ %0, %.lr.ph.i.preheader ]
   %.sroa.0.018.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.018.i.idx
-  %8 = load ptr, ptr %.sroa.0.018.i.ptr, align 8, !tbaa !328
-  %9 = load ptr, ptr %0, align 8, !tbaa !328
-  %10 = load ptr, ptr %8, align 8, !tbaa !329
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  %13 = load i32, ptr %12, align 4, !tbaa !337
-  %14 = sext i32 %13 to i64
-  %15 = load ptr, ptr %11, align 8, !tbaa !338
-  %16 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %15, i64 %14
-  %17 = load ptr, ptr %9, align 8, !tbaa !329
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  %20 = load i32, ptr %19, align 4, !tbaa !337
-  %21 = sext i32 %20 to i64
-  %22 = load ptr, ptr %18, align 8, !tbaa !338
-  %23 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %22, i64 %21
-  %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %25 = load i64, ptr %24, align 1, !tbaa !49
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %27 = load i64, ptr %26, align 1, !tbaa !49
-  %28 = icmp eq i64 %25, %27
-  %29 = icmp ult ptr %16, %23
-  %30 = icmp ult i64 %25, %27
-  %31 = select i1 %28, i1 %29, i1 %30
-  br i1 %31, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i, label %32
+  %7 = load ptr, ptr %.sroa.0.018.i.ptr, align 8, !tbaa !328
+  %8 = load ptr, ptr %0, align 8, !tbaa !328
+  %9 = load ptr, ptr %7, align 8, !tbaa !329
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %12 = load i32, ptr %11, align 4, !tbaa !337
+  %13 = sext i32 %12 to i64
+  %14 = load ptr, ptr %10, align 8, !tbaa !338
+  %15 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %14, i64 %13
+  %16 = load ptr, ptr %8, align 8, !tbaa !329
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  %19 = load i32, ptr %18, align 4, !tbaa !337
+  %20 = sext i32 %19 to i64
+  %21 = load ptr, ptr %17, align 8, !tbaa !338
+  %22 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %21, i64 %20
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %24 = load i64, ptr %23, align 1, !tbaa !49
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %26 = load i64, ptr %25, align 1, !tbaa !49
+  %27 = icmp eq i64 %24, %26
+  %28 = icmp ult ptr %15, %22
+  %29 = icmp ult i64 %24, %26
+  %30 = select i1 %27, i1 %28, i1 %29
+  br i1 %30, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i, label %31
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i: ; preds = %7
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i: ; preds = %.lr.ph.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %.sroa.0.018.i.idx, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i
 
-32:                                               ; preds = %7
-  %33 = load ptr, ptr %.pn17.i, align 8, !tbaa !328
-  %34 = load ptr, ptr %33, align 8, !tbaa !329
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 36
-  %37 = load i32, ptr %36, align 4, !tbaa !337
-  %38 = sext i32 %37 to i64
-  %39 = load ptr, ptr %35, align 8, !tbaa !338
-  %40 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %39, i64 %38
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load i64, ptr %41, align 1, !tbaa !49
-  %43 = icmp eq i64 %25, %42
-  %44 = icmp ult ptr %16, %40
-  %45 = icmp ult i64 %25, %42
-  %46 = select i1 %43, i1 %44, i1 %45
-  br i1 %46, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i
+31:                                               ; preds = %.lr.ph.i
+  %32 = load ptr, ptr %.pn17.i, align 8, !tbaa !328
+  %33 = load ptr, ptr %32, align 8, !tbaa !329
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 36
+  %36 = load i32, ptr %35, align 4, !tbaa !337
+  %37 = sext i32 %36 to i64
+  %38 = load ptr, ptr %34, align 8, !tbaa !338
+  %39 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %38, i64 %37
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load i64, ptr %40, align 1, !tbaa !49
+  %42 = icmp eq i64 %24, %41
+  %43 = icmp ult ptr %15, %39
+  %44 = icmp ult i64 %24, %41
+  %45 = select i1 %42, i1 %43, i1 %44
+  br i1 %45, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i
 
-.lr.ph.i.i:                                       ; preds = %32, %.lr.ph.i.i
-  %47 = phi ptr [ %48, %.lr.ph.i.i ], [ %33, %32 ]
-  %.sroa.0.09.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.pn17.i, %32 ]
-  %.sroa.04.08.i.i = phi ptr [ %.sroa.0.09.i.i, %.lr.ph.i.i ], [ %.sroa.0.018.i.ptr, %32 ]
-  store ptr %47, ptr %.sroa.04.08.i.i, align 8, !tbaa !328
+.lr.ph.i.i:                                       ; preds = %31, %.lr.ph.i.i
+  %46 = phi ptr [ %47, %.lr.ph.i.i ], [ %32, %31 ]
+  %.sroa.0.09.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.pn17.i, %31 ]
+  %.sroa.04.08.i.i = phi ptr [ %.sroa.0.09.i.i, %.lr.ph.i.i ], [ %.sroa.0.018.i.ptr, %31 ]
+  store ptr %46, ptr %.sroa.04.08.i.i, align 8, !tbaa !328
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.09.i.i, i64 -8
-  %48 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !328
-  %49 = load ptr, ptr %48, align 8, !tbaa !329
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 36
-  %52 = load i32, ptr %51, align 4, !tbaa !337
-  %53 = sext i32 %52 to i64
-  %54 = load ptr, ptr %50, align 8, !tbaa !338
-  %55 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %54, i64 %53
-  %56 = load i64, ptr %24, align 1, !tbaa !49
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %58 = load i64, ptr %57, align 1, !tbaa !49
-  %59 = icmp eq i64 %56, %58
-  %60 = icmp ult ptr %16, %55
-  %61 = icmp ult i64 %56, %58
-  %62 = select i1 %59, i1 %60, i1 %61
-  br i1 %62, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i, !llvm.loop !1003
+  %47 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !328
+  %48 = load ptr, ptr %47, align 8, !tbaa !329
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 36
+  %51 = load i32, ptr %50, align 4, !tbaa !337
+  %52 = sext i32 %51 to i64
+  %53 = load ptr, ptr %49, align 8, !tbaa !338
+  %54 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %53, i64 %52
+  %55 = load i64, ptr %23, align 1, !tbaa !49
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %57 = load i64, ptr %56, align 1, !tbaa !49
+  %58 = icmp eq i64 %55, %57
+  %59 = icmp ult ptr %15, %54
+  %60 = icmp ult i64 %55, %57
+  %61 = select i1 %58, i1 %59, i1 %60
+  br i1 %61, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i, !llvm.loop !1003
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %32, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i
-  %.sink.i = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i ], [ %.sroa.0.018.i.ptr, %32 ], [ %.sroa.0.09.i.i, %.lr.ph.i.i ]
-  store ptr %8, ptr %.sink.i, align 8, !tbaa !328
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %31, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i
+  %.sink.i = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i ], [ %.sroa.0.018.i.ptr, %31 ], [ %.sroa.0.09.i.i, %.lr.ph.i.i ]
+  store ptr %7, ptr %.sink.i, align 8, !tbaa !328
   %.sroa.0.018.i.add = add nuw nsw i64 %.sroa.0.018.i.idx, 8
-  %63 = icmp eq i64 %.sroa.0.018.i.add, 128
-  br i1 %63, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit, label %7, !llvm.loop !1004
+  %62 = icmp eq i64 %.sroa.0.018.i.add, 128
+  br i1 %62, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit, label %.lr.ph.i, !llvm.loop !1004
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %65 = icmp eq ptr %64, %1
-  br i1 %65, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit, label %.lr.ph.i12
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %64 = icmp eq ptr %63, %1
+  br i1 %64, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit, label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i13
-  %.sroa.0.06.i = phi ptr [ %106, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i13 ], [ %64, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit ]
-  %66 = load ptr, ptr %.sroa.0.06.i, align 8, !tbaa !328
-  %67 = load ptr, ptr %66, align 8, !tbaa !329
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 36
-  %70 = load i32, ptr %69, align 4, !tbaa !337
-  %71 = sext i32 %70 to i64
-  %72 = load ptr, ptr %68, align 8, !tbaa !338
-  %73 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %72, i64 %71
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %.sroa.0.06.i = phi ptr [ %105, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i13 ], [ %63, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit ]
+  %65 = load ptr, ptr %.sroa.0.06.i, align 8, !tbaa !328
+  %66 = load ptr, ptr %65, align 8, !tbaa !329
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 36
+  %69 = load i32, ptr %68, align 4, !tbaa !337
+  %70 = sext i32 %69 to i64
+  %71 = load ptr, ptr %67, align 8, !tbaa !338
+  %72 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %71, i64 %70
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %.sroa.0.07.i.i = getelementptr inbounds i8, ptr %.sroa.0.06.i, i64 -8
-  %75 = load ptr, ptr %.sroa.0.07.i.i, align 8, !tbaa !328
-  %76 = load ptr, ptr %75, align 8, !tbaa !329
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 36
-  %79 = load i32, ptr %78, align 4, !tbaa !337
-  %80 = sext i32 %79 to i64
-  %81 = load ptr, ptr %77, align 8, !tbaa !338
-  %82 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %81, i64 %80
-  %83 = load i64, ptr %74, align 1, !tbaa !49
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %85 = load i64, ptr %84, align 1, !tbaa !49
-  %86 = icmp eq i64 %83, %85
-  %87 = icmp ult ptr %73, %82
-  %88 = icmp ult i64 %83, %85
-  %89 = select i1 %86, i1 %87, i1 %88
-  br i1 %89, label %.lr.ph.i.i14, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i13
+  %74 = load ptr, ptr %.sroa.0.07.i.i, align 8, !tbaa !328
+  %75 = load ptr, ptr %74, align 8, !tbaa !329
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 36
+  %78 = load i32, ptr %77, align 4, !tbaa !337
+  %79 = sext i32 %78 to i64
+  %80 = load ptr, ptr %76, align 8, !tbaa !338
+  %81 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %80, i64 %79
+  %82 = load i64, ptr %73, align 1, !tbaa !49
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %84 = load i64, ptr %83, align 1, !tbaa !49
+  %85 = icmp eq i64 %82, %84
+  %86 = icmp ult ptr %72, %81
+  %87 = icmp ult i64 %82, %84
+  %88 = select i1 %85, i1 %86, i1 %87
+  br i1 %88, label %.lr.ph.i.i14, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i13
 
 .lr.ph.i.i14:                                     ; preds = %.lr.ph.i12, %.lr.ph.i.i14
-  %90 = phi ptr [ %91, %.lr.ph.i.i14 ], [ %75, %.lr.ph.i12 ]
+  %89 = phi ptr [ %90, %.lr.ph.i.i14 ], [ %74, %.lr.ph.i12 ]
   %.sroa.0.09.i.i15 = phi ptr [ %.sroa.0.0.i.i17, %.lr.ph.i.i14 ], [ %.sroa.0.07.i.i, %.lr.ph.i12 ]
   %.sroa.04.08.i.i16 = phi ptr [ %.sroa.0.09.i.i15, %.lr.ph.i.i14 ], [ %.sroa.0.06.i, %.lr.ph.i12 ]
-  store ptr %90, ptr %.sroa.04.08.i.i16, align 8, !tbaa !328
+  store ptr %89, ptr %.sroa.04.08.i.i16, align 8, !tbaa !328
   %.sroa.0.0.i.i17 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i15, i64 -8
-  %91 = load ptr, ptr %.sroa.0.0.i.i17, align 8, !tbaa !328
-  %92 = load ptr, ptr %91, align 8, !tbaa !329
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 36
-  %95 = load i32, ptr %94, align 4, !tbaa !337
-  %96 = sext i32 %95 to i64
-  %97 = load ptr, ptr %93, align 8, !tbaa !338
-  %98 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %97, i64 %96
-  %99 = load i64, ptr %74, align 1, !tbaa !49
-  %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %101 = load i64, ptr %100, align 1, !tbaa !49
-  %102 = icmp eq i64 %99, %101
-  %103 = icmp ult ptr %73, %98
-  %104 = icmp ult i64 %99, %101
-  %105 = select i1 %102, i1 %103, i1 %104
-  br i1 %105, label %.lr.ph.i.i14, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i13, !llvm.loop !1003
+  %90 = load ptr, ptr %.sroa.0.0.i.i17, align 8, !tbaa !328
+  %91 = load ptr, ptr %90, align 8, !tbaa !329
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 36
+  %94 = load i32, ptr %93, align 4, !tbaa !337
+  %95 = sext i32 %94 to i64
+  %96 = load ptr, ptr %92, align 8, !tbaa !338
+  %97 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %96, i64 %95
+  %98 = load i64, ptr %73, align 1, !tbaa !49
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %100 = load i64, ptr %99, align 1, !tbaa !49
+  %101 = icmp eq i64 %98, %100
+  %102 = icmp ult ptr %72, %97
+  %103 = icmp ult i64 %98, %100
+  %104 = select i1 %101, i1 %102, i1 %103
+  br i1 %104, label %.lr.ph.i.i14, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i13, !llvm.loop !1003
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i13: ; preds = %.lr.ph.i.i14, %.lr.ph.i12
   %.sroa.04.0.lcssa.i.i = phi ptr [ %.sroa.0.06.i, %.lr.ph.i12 ], [ %.sroa.0.09.i.i15, %.lr.ph.i.i14 ]
-  store ptr %66, ptr %.sroa.04.0.lcssa.i.i, align 8, !tbaa !328
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 8
-  %107 = icmp eq ptr %106, %1
-  br i1 %107, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit, label %.lr.ph.i12, !llvm.loop !1005
+  store ptr %65, ptr %.sroa.04.0.lcssa.i.i, align 8, !tbaa !328
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 8
+  %106 = icmp eq ptr %105, %1
+  br i1 %106, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit, label %.lr.ph.i12, !llvm.loop !1005
 
-108:                                              ; preds = %2
-  %109 = icmp eq ptr %0, %1
+107:                                              ; preds = %2
+  %108 = icmp eq ptr %0, %1
   %.sroa.0.016.i19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %110 = icmp eq ptr %.sroa.0.016.i19, %1
-  %or.cond = select i1 %109, i1 true, i1 %110
+  %109 = icmp eq ptr %.sroa.0.016.i19, %1
+  %or.cond = select i1 %108, i1 true, i1 %109
   br i1 %or.cond, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit, label %.lr.ph.i20
 
-.lr.ph.i20:                                       ; preds = %108, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i23
-  %.sroa.0.018.i21 = phi ptr [ %.sroa.0.0.i25, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i23 ], [ %.sroa.0.016.i19, %108 ]
-  %.pn17.i22 = phi ptr [ %.sroa.0.018.i21, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i23 ], [ %0, %108 ]
-  %111 = load ptr, ptr %.sroa.0.018.i21, align 8, !tbaa !328
-  %112 = load ptr, ptr %0, align 8, !tbaa !328
-  %113 = load ptr, ptr %111, align 8, !tbaa !329
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  %115 = getelementptr inbounds nuw i8, ptr %111, i64 36
-  %116 = load i32, ptr %115, align 4, !tbaa !337
-  %117 = sext i32 %116 to i64
-  %118 = load ptr, ptr %114, align 8, !tbaa !338
-  %119 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %118, i64 %117
-  %120 = load ptr, ptr %112, align 8, !tbaa !329
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
-  %122 = getelementptr inbounds nuw i8, ptr %112, i64 36
-  %123 = load i32, ptr %122, align 4, !tbaa !337
-  %124 = sext i32 %123 to i64
-  %125 = load ptr, ptr %121, align 8, !tbaa !338
-  %126 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %125, i64 %124
-  %127 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %128 = load i64, ptr %127, align 1, !tbaa !49
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %130 = load i64, ptr %129, align 1, !tbaa !49
-  %131 = icmp eq i64 %128, %130
-  %132 = icmp ult ptr %119, %126
-  %133 = icmp ult i64 %128, %130
-  %134 = select i1 %131, i1 %132, i1 %133
-  br i1 %134, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30, label %141
+.lr.ph.i20:                                       ; preds = %107, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i23
+  %.sroa.0.018.i21 = phi ptr [ %.sroa.0.0.i25, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i23 ], [ %.sroa.0.016.i19, %107 ]
+  %.pn17.i22 = phi ptr [ %.sroa.0.018.i21, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i23 ], [ %0, %107 ]
+  %110 = load ptr, ptr %.sroa.0.018.i21, align 8, !tbaa !328
+  %111 = load ptr, ptr %0, align 8, !tbaa !328
+  %112 = load ptr, ptr %110, align 8, !tbaa !329
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 36
+  %115 = load i32, ptr %114, align 4, !tbaa !337
+  %116 = sext i32 %115 to i64
+  %117 = load ptr, ptr %113, align 8, !tbaa !338
+  %118 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %117, i64 %116
+  %119 = load ptr, ptr %111, align 8, !tbaa !329
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %111, i64 36
+  %122 = load i32, ptr %121, align 4, !tbaa !337
+  %123 = sext i32 %122 to i64
+  %124 = load ptr, ptr %120, align 8, !tbaa !338
+  %125 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %124, i64 %123
+  %126 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %127 = load i64, ptr %126, align 1, !tbaa !49
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %129 = load i64, ptr %128, align 1, !tbaa !49
+  %130 = icmp eq i64 %127, %129
+  %131 = icmp ult ptr %118, %125
+  %132 = icmp ult i64 %127, %129
+  %133 = select i1 %130, i1 %131, i1 %132
+  br i1 %133, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30, label %140
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30: ; preds = %.lr.ph.i20
-  %135 = getelementptr inbounds nuw i8, ptr %.pn17.i22, i64 16
-  %136 = ptrtoint ptr %.sroa.0.018.i21 to i64
-  %137 = sub i64 %136, %4
-  %138 = ashr exact i64 %137, 3
-  %139 = sub nsw i64 0, %138
-  %140 = getelementptr inbounds ptr, ptr %135, i64 %139
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %140, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %137, i1 false)
+  %134 = getelementptr inbounds nuw i8, ptr %.pn17.i22, i64 16
+  %135 = ptrtoint ptr %.sroa.0.018.i21 to i64
+  %136 = sub i64 %135, %4
+  %137 = ashr exact i64 %136, 3
+  %138 = sub nsw i64 0, %137
+  %139 = getelementptr inbounds ptr, ptr %134, i64 %138
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %139, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %136, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i23
 
-141:                                              ; preds = %.lr.ph.i20
-  %142 = load ptr, ptr %.pn17.i22, align 8, !tbaa !328
-  %143 = load ptr, ptr %142, align 8, !tbaa !329
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 32
-  %145 = getelementptr inbounds nuw i8, ptr %142, i64 36
-  %146 = load i32, ptr %145, align 4, !tbaa !337
-  %147 = sext i32 %146 to i64
-  %148 = load ptr, ptr %144, align 8, !tbaa !338
-  %149 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %148, i64 %147
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load i64, ptr %150, align 1, !tbaa !49
-  %152 = icmp eq i64 %128, %151
-  %153 = icmp ult ptr %119, %149
-  %154 = icmp ult i64 %128, %151
-  %155 = select i1 %152, i1 %153, i1 %154
-  br i1 %155, label %.lr.ph.i.i26, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i23
+140:                                              ; preds = %.lr.ph.i20
+  %141 = load ptr, ptr %.pn17.i22, align 8, !tbaa !328
+  %142 = load ptr, ptr %141, align 8, !tbaa !329
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 36
+  %145 = load i32, ptr %144, align 4, !tbaa !337
+  %146 = sext i32 %145 to i64
+  %147 = load ptr, ptr %143, align 8, !tbaa !338
+  %148 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %147, i64 %146
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  %150 = load i64, ptr %149, align 1, !tbaa !49
+  %151 = icmp eq i64 %127, %150
+  %152 = icmp ult ptr %118, %148
+  %153 = icmp ult i64 %127, %150
+  %154 = select i1 %151, i1 %152, i1 %153
+  br i1 %154, label %.lr.ph.i.i26, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i23
 
-.lr.ph.i.i26:                                     ; preds = %141, %.lr.ph.i.i26
-  %156 = phi ptr [ %157, %.lr.ph.i.i26 ], [ %142, %141 ]
-  %.sroa.0.09.i.i27 = phi ptr [ %.sroa.0.0.i.i29, %.lr.ph.i.i26 ], [ %.pn17.i22, %141 ]
-  %.sroa.04.08.i.i28 = phi ptr [ %.sroa.0.09.i.i27, %.lr.ph.i.i26 ], [ %.sroa.0.018.i21, %141 ]
-  store ptr %156, ptr %.sroa.04.08.i.i28, align 8, !tbaa !328
+.lr.ph.i.i26:                                     ; preds = %140, %.lr.ph.i.i26
+  %155 = phi ptr [ %156, %.lr.ph.i.i26 ], [ %141, %140 ]
+  %.sroa.0.09.i.i27 = phi ptr [ %.sroa.0.0.i.i29, %.lr.ph.i.i26 ], [ %.pn17.i22, %140 ]
+  %.sroa.04.08.i.i28 = phi ptr [ %.sroa.0.09.i.i27, %.lr.ph.i.i26 ], [ %.sroa.0.018.i21, %140 ]
+  store ptr %155, ptr %.sroa.04.08.i.i28, align 8, !tbaa !328
   %.sroa.0.0.i.i29 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i27, i64 -8
-  %157 = load ptr, ptr %.sroa.0.0.i.i29, align 8, !tbaa !328
-  %158 = load ptr, ptr %157, align 8, !tbaa !329
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 32
-  %160 = getelementptr inbounds nuw i8, ptr %157, i64 36
-  %161 = load i32, ptr %160, align 4, !tbaa !337
-  %162 = sext i32 %161 to i64
-  %163 = load ptr, ptr %159, align 8, !tbaa !338
-  %164 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %163, i64 %162
-  %165 = load i64, ptr %127, align 1, !tbaa !49
-  %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %167 = load i64, ptr %166, align 1, !tbaa !49
-  %168 = icmp eq i64 %165, %167
-  %169 = icmp ult ptr %119, %164
-  %170 = icmp ult i64 %165, %167
-  %171 = select i1 %168, i1 %169, i1 %170
-  br i1 %171, label %.lr.ph.i.i26, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i23, !llvm.loop !1003
+  %156 = load ptr, ptr %.sroa.0.0.i.i29, align 8, !tbaa !328
+  %157 = load ptr, ptr %156, align 8, !tbaa !329
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 32
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 36
+  %160 = load i32, ptr %159, align 4, !tbaa !337
+  %161 = sext i32 %160 to i64
+  %162 = load ptr, ptr %158, align 8, !tbaa !338
+  %163 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %162, i64 %161
+  %164 = load i64, ptr %126, align 1, !tbaa !49
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %166 = load i64, ptr %165, align 1, !tbaa !49
+  %167 = icmp eq i64 %164, %166
+  %168 = icmp ult ptr %118, %163
+  %169 = icmp ult i64 %164, %166
+  %170 = select i1 %167, i1 %168, i1 %169
+  br i1 %170, label %.lr.ph.i.i26, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i23, !llvm.loop !1003
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i23: ; preds = %.lr.ph.i.i26, %141, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30
-  %.sink.i24 = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30 ], [ %.sroa.0.018.i21, %141 ], [ %.sroa.0.09.i.i27, %.lr.ph.i.i26 ]
-  store ptr %111, ptr %.sink.i24, align 8, !tbaa !328
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i23: ; preds = %.lr.ph.i.i26, %140, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30
+  %.sink.i24 = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i30 ], [ %.sroa.0.018.i21, %140 ], [ %.sroa.0.09.i.i27, %.lr.ph.i.i26 ]
+  store ptr %110, ptr %.sink.i24, align 8, !tbaa !328
   %.sroa.0.0.i25 = getelementptr inbounds nuw i8, ptr %.sroa.0.018.i21, i64 8
-  %172 = icmp eq ptr %.sroa.0.0.i25, %1
-  br i1 %172, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit, label %.lr.ph.i20, !llvm.loop !1004
+  %171 = icmp eq ptr %.sroa.0.0.i25, %1
+  br i1 %171, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit, label %.lr.ph.i20, !llvm.loop !1004
 
-_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i23, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i13, %108, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit
+_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i23, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_T0_.exit.i13, %107, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZZNS2_10SharedFileIS4_E14get_symbols_atES6_ENKUlvE_clEvEUlS6_S6_E_EEEvT_SJ_T0_.exit
   ret void
 }
 

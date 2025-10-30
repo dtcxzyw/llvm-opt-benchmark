@@ -413,14 +413,14 @@ define internal noundef i32 @sdr_fltp(ptr noundef readonly captures(none) %0, pt
 .lr.ph50:                                         ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !57
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %22 = load ptr, ptr %21, align 8, !tbaa !71
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %24 = load ptr, ptr %23, align 8, !tbaa !71
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  %26 = load ptr, ptr %25, align 8, !tbaa !71
-  %27 = icmp sgt i32 %17, 0
-  br i1 %27, label %.lr.ph.us.preheader, label %._crit_edge51
+  %25 = icmp sgt i32 %17, 0
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !28
+  br i1 %25, label %.lr.ph.us.preheader, label %._crit_edge51
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph50
   %28 = sext i32 %12 to i64
@@ -430,9 +430,9 @@ define internal noundef i32 @sdr_fltp(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv55 = phi i64 [ %28, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
-  %29 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv55
+  %29 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv55
   %30 = load ptr, ptr %29, align 8, !tbaa !72
-  %31 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv55
+  %31 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv55
   %32 = load ptr, ptr %31, align 8, !tbaa !72
   br label %33
 
@@ -456,7 +456,7 @@ define internal noundef i32 @sdr_fltp(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %33
-  %45 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv55
+  %45 = getelementptr inbounds %struct.ChanStats, ptr %27, i64 %indvars.iv55
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load double, ptr %46, align 8, !tbaa !31
   %48 = fadd nsz double %44, %47
@@ -493,14 +493,14 @@ define internal noundef i32 @sdr_dblp(ptr noundef readonly captures(none) %0, pt
 .lr.ph50:                                         ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !57
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %22 = load ptr, ptr %21, align 8, !tbaa !71
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %24 = load ptr, ptr %23, align 8, !tbaa !71
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  %26 = load ptr, ptr %25, align 8, !tbaa !71
-  %27 = icmp sgt i32 %17, 0
-  br i1 %27, label %.lr.ph.us.preheader, label %._crit_edge51
+  %25 = icmp sgt i32 %17, 0
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !28
+  br i1 %25, label %.lr.ph.us.preheader, label %._crit_edge51
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph50
   %28 = sext i32 %12 to i64
@@ -510,9 +510,9 @@ define internal noundef i32 @sdr_dblp(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv55 = phi i64 [ %28, %.lr.ph.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
-  %29 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv55
+  %29 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv55
   %30 = load ptr, ptr %29, align 8, !tbaa !72
-  %31 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv55
+  %31 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv55
   %32 = load ptr, ptr %31, align 8, !tbaa !72
   br label %33
 
@@ -532,7 +532,7 @@ define internal noundef i32 @sdr_dblp(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !78
 
 ._crit_edge.us:                                   ; preds = %33
-  %41 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv55
+  %41 = getelementptr inbounds %struct.ChanStats, ptr %27, i64 %indvars.iv55
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load double, ptr %42, align 8, !tbaa !31
   %44 = fadd nsz double %40, %43
@@ -569,14 +569,14 @@ define internal noundef i32 @sisdr_fltp(ptr noundef readonly captures(none) %0, 
 .lr.ph56:                                         ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !57
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %22 = load ptr, ptr %21, align 8, !tbaa !71
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %24 = load ptr, ptr %23, align 8, !tbaa !71
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  %26 = load ptr, ptr %25, align 8, !tbaa !71
-  %27 = icmp sgt i32 %17, 0
-  br i1 %27, label %.lr.ph.us.preheader, label %._crit_edge57
+  %25 = icmp sgt i32 %17, 0
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !28
+  br i1 %25, label %.lr.ph.us.preheader, label %._crit_edge57
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph56
   %28 = sext i32 %12 to i64
@@ -586,9 +586,9 @@ define internal noundef i32 @sisdr_fltp(ptr noundef readonly captures(none) %0, 
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv62 = phi i64 [ %28, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %._crit_edge.us ]
-  %29 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv62
+  %29 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv62
   %30 = load ptr, ptr %29, align 8, !tbaa !72
-  %31 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv62
+  %31 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv62
   %32 = load ptr, ptr %31, align 8, !tbaa !72
   br label %33
 
@@ -615,7 +615,7 @@ define internal noundef i32 @sisdr_fltp(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !80
 
 ._crit_edge.us:                                   ; preds = %33
-  %47 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv62
+  %47 = getelementptr inbounds %struct.ChanStats, ptr %27, i64 %indvars.iv62
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load double, ptr %48, align 8, !tbaa !31
   %50 = fadd nsz double %46, %49
@@ -656,14 +656,14 @@ define internal noundef i32 @sisdr_dblp(ptr noundef readonly captures(none) %0, 
 .lr.ph56:                                         ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !57
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %22 = load ptr, ptr %21, align 8, !tbaa !71
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %24 = load ptr, ptr %23, align 8, !tbaa !71
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  %26 = load ptr, ptr %25, align 8, !tbaa !71
-  %27 = icmp sgt i32 %17, 0
-  br i1 %27, label %.lr.ph.us.preheader, label %._crit_edge57
+  %25 = icmp sgt i32 %17, 0
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !28
+  br i1 %25, label %.lr.ph.us.preheader, label %._crit_edge57
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph56
   %28 = sext i32 %12 to i64
@@ -673,9 +673,9 @@ define internal noundef i32 @sisdr_dblp(ptr noundef readonly captures(none) %0, 
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv62 = phi i64 [ %28, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %._crit_edge.us ]
-  %29 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv62
+  %29 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv62
   %30 = load ptr, ptr %29, align 8, !tbaa !72
-  %31 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv62
+  %31 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv62
   %32 = load ptr, ptr %31, align 8, !tbaa !72
   br label %33
 
@@ -696,7 +696,7 @@ define internal noundef i32 @sisdr_dblp(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !82
 
 ._crit_edge.us:                                   ; preds = %33
-  %41 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv62
+  %41 = getelementptr inbounds %struct.ChanStats, ptr %27, i64 %indvars.iv62
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load double, ptr %42, align 8, !tbaa !31
   %44 = fadd nsz double %40, %43
@@ -737,14 +737,14 @@ define internal noundef i32 @psnr_fltp(ptr noundef readonly captures(none) %0, p
 .lr.ph40:                                         ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !57
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %22 = load ptr, ptr %21, align 8, !tbaa !71
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %24 = load ptr, ptr %23, align 8, !tbaa !71
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  %26 = load ptr, ptr %25, align 8, !tbaa !71
-  %27 = icmp sgt i32 %17, 0
-  br i1 %27, label %.lr.ph.us.preheader, label %._crit_edge41
+  %25 = icmp sgt i32 %17, 0
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !28
+  br i1 %25, label %.lr.ph.us.preheader, label %._crit_edge41
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph40
   %28 = sext i32 %12 to i64
@@ -754,9 +754,9 @@ define internal noundef i32 @psnr_fltp(ptr noundef readonly captures(none) %0, p
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv44 = phi i64 [ %28, %.lr.ph.us.preheader ], [ %indvars.iv.next45, %._crit_edge.us ]
-  %29 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv44
+  %29 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv44
   %30 = load ptr, ptr %29, align 8, !tbaa !72
-  %31 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv44
+  %31 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv44
   %32 = load ptr, ptr %31, align 8, !tbaa !72
   br label %33
 
@@ -776,7 +776,7 @@ define internal noundef i32 @psnr_fltp(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !84
 
 ._crit_edge.us:                                   ; preds = %33
-  %42 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv44
+  %42 = getelementptr inbounds %struct.ChanStats, ptr %27, i64 %indvars.iv44
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load double, ptr %43, align 8, !tbaa !31
   %45 = fadd nsz double %41, %44
@@ -810,14 +810,14 @@ define internal noundef i32 @psnr_dblp(ptr noundef readonly captures(none) %0, p
 .lr.ph40:                                         ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !57
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %22 = load ptr, ptr %21, align 8, !tbaa !71
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %24 = load ptr, ptr %23, align 8, !tbaa !71
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 96
-  %26 = load ptr, ptr %25, align 8, !tbaa !71
-  %27 = icmp sgt i32 %17, 0
-  br i1 %27, label %.lr.ph.us.preheader, label %._crit_edge41
+  %25 = icmp sgt i32 %17, 0
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !28
+  br i1 %25, label %.lr.ph.us.preheader, label %._crit_edge41
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph40
   %28 = sext i32 %12 to i64
@@ -827,9 +827,9 @@ define internal noundef i32 @psnr_dblp(ptr noundef readonly captures(none) %0, p
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv44 = phi i64 [ %28, %.lr.ph.us.preheader ], [ %indvars.iv.next45, %._crit_edge.us ]
-  %29 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv44
+  %29 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv44
   %30 = load ptr, ptr %29, align 8, !tbaa !72
-  %31 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv44
+  %31 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv44
   %32 = load ptr, ptr %31, align 8, !tbaa !72
   br label %33
 
@@ -847,7 +847,7 @@ define internal noundef i32 @psnr_dblp(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond.not, label %._crit_edge.us, label %33, !llvm.loop !86
 
 ._crit_edge.us:                                   ; preds = %33
-  %40 = getelementptr inbounds %struct.ChanStats, ptr %22, i64 %indvars.iv44
+  %40 = getelementptr inbounds %struct.ChanStats, ptr %27, i64 %indvars.iv44
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load double, ptr %41, align 8, !tbaa !31
   %43 = fadd nsz double %39, %42

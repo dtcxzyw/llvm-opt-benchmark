@@ -57,8 +57,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.us.preheader: ; preds = %.
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.us:         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.us.preheader, %._crit_edge.us106
   %indvars.iv169 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.us.preheader ], [ %indvars.iv.next170, %._crit_edge.us106 ]
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #11
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %20, i8 0, i64 %19, i1 false), !tbaa !12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %19
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %20, i8 0, i64 %19, i1 false), !tbaa !12
   %22 = load ptr, ptr %0, align 8
   %23 = load i64, ptr %4, align 8
   %24 = mul nsw i64 %23, %indvars.iv169
@@ -316,8 +316,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.us.preheader: ; preds = %.
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.us:         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.us.preheader, %._crit_edge.us106
   %indvars.iv169 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.us.preheader ], [ %indvars.iv.next170, %._crit_edge.us106 ]
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #11
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %20, i8 0, i64 %19, i1 false), !tbaa !12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %19
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %20, i8 0, i64 %19, i1 false), !tbaa !12
   %22 = load ptr, ptr %0, align 8
   %23 = load i64, ptr %4, align 8
   %24 = mul nsw i64 %23, %indvars.iv169

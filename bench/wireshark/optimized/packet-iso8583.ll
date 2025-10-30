@@ -882,29 +882,29 @@ ishex_str.exit149.thread:                         ; preds = %224, %229, %ishex_s
   br i1 %.not110.i.i, label %.thread.i, label %281
 
 281:                                              ; preds = %273
-  %282 = add i32 %279, %.04984.i
   %.not109132.i.i = icmp eq i32 %278, 0
   br i1 %.not109132.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i154
 
 .lr.ph.i.i154:                                    ; preds = %281, %.lr.ph.i.i154
-  %.088134.i.i = phi ptr [ %293, %.lr.ph.i.i154 ], [ %5, %281 ]
-  %.089133.i.i = phi i32 [ %291, %.lr.ph.i.i154 ], [ 0, %281 ]
-  %283 = phi i32 [ %292, %.lr.ph.i.i154 ], [ %278, %281 ]
-  %284 = mul i32 %.089133.i.i, 100
-  %285 = load i8, ptr %.088134.i.i, align 1
-  %286 = zext i8 %285 to i32
-  %287 = lshr i32 %286, 4
-  %288 = mul nuw nsw i32 %287, 10
-  %289 = and i32 %286, 15
-  %290 = add i32 %289, %284
-  %291 = add i32 %290, %288
-  %292 = add i32 %283, -2
-  %293 = getelementptr i8, ptr %.088134.i.i, i64 1
-  %.not109.i.i = icmp eq i32 %292, 0
+  %.088134.i.i = phi ptr [ %292, %.lr.ph.i.i154 ], [ %5, %281 ]
+  %.089133.i.i = phi i32 [ %290, %.lr.ph.i.i154 ], [ 0, %281 ]
+  %282 = phi i32 [ %291, %.lr.ph.i.i154 ], [ %278, %281 ]
+  %283 = mul i32 %.089133.i.i, 100
+  %284 = load i8, ptr %.088134.i.i, align 1
+  %285 = zext i8 %284 to i32
+  %286 = lshr i32 %285, 4
+  %287 = mul nuw nsw i32 %286, 10
+  %288 = and i32 %285, 15
+  %289 = add i32 %288, %283
+  %290 = add i32 %289, %287
+  %291 = add i32 %282, -2
+  %292 = getelementptr i8, ptr %.088134.i.i, i64 1
+  %.not109.i.i = icmp eq i32 %291, 0
   br i1 %.not109.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i154, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i154, %281
-  %.089.lcssa.i.i = phi i32 [ 0, %281 ], [ %291, %.lr.ph.i.i154 ]
+  %.089.lcssa.i.i = phi i32 [ 0, %281 ], [ %290, %.lr.ph.i.i154 ]
+  %293 = add i32 %279, %.04984.i
   store i32 %.089.lcssa.i.i, ptr %6, align 4
   br label %295
 
@@ -915,7 +915,7 @@ thread-pre-split.i.i:                             ; preds = %265
 
 295:                                              ; preds = %thread-pre-split.i.i, %._crit_edge.i.i, %256
   %296 = phi i32 [ %.pr115.i.i, %thread-pre-split.i.i ], [ %.089.lcssa.i.i, %._crit_edge.i.i ], [ %258, %256 ]
-  %.098.i.i = phi i32 [ %294, %thread-pre-split.i.i ], [ %282, %._crit_edge.i.i ], [ %.04984.i, %256 ]
+  %.098.i.i = phi i32 [ %294, %thread-pre-split.i.i ], [ %293, %._crit_edge.i.i ], [ %.04984.i, %256 ]
   %.not111.i.i = icmp eq i32 %296, 0
   br i1 %.not111.i.i, label %.sink.split.i, label %._crit_edge138.i.i
 

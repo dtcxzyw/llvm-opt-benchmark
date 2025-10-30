@@ -620,97 +620,97 @@ define internal fastcc void @cdg_scroll(ptr noundef captures(none) %0, ptr nound
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %43, ptr noundef nonnull align 1 dereferenceable(64) %45, i64 64, i1 false)
-  %46 = icmp slt i32 %.193, 0
-  %47 = tail call i32 @llvm.smax.i32(i32 %.193, i32 0)
-  %48 = add nsw i32 %.193, 216
-  %49 = tail call i32 @llvm.smin.i32(i32 %48, i32 216)
-  %50 = icmp slt i32 %47, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge
+  %46 = tail call i32 @llvm.smax.i32(i32 %.193, i32 0)
+  %47 = add nsw i32 %.193, 216
+  %48 = tail call i32 @llvm.smin.i32(i32 %47, i32 216)
+  %49 = icmp slt i32 %46, %48
+  br i1 %49, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %41
-  %51 = tail call i32 @llvm.smax.i32(i32 %.1, i32 0)
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i8, ptr %10, i64 %52
-  %54 = getelementptr inbounds nuw i8, ptr %9, i64 %52
-  %55 = sext i32 %.1 to i64
-  %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds i8, ptr %54, i64 %56
-  %58 = tail call i64 @llvm.abs.i64(i64 %8, i1 true)
-  %59 = tail call i32 @llvm.abs.i32(i32 %.1, i1 true)
-  %60 = zext nneg i32 %59 to i64
-  %61 = sub nsw i64 %58, %60
-  %62 = zext nneg i32 %47 to i64
-  %63 = sext i32 %.193 to i64
-  %wide.trip.count = zext nneg i32 %49 to i64
-  br label %64
+  %50 = tail call i32 @llvm.smax.i32(i32 %.1, i32 0)
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 %51
+  %54 = sext i32 %.1 to i64
+  %55 = sub nsw i64 0, %54
+  %56 = getelementptr inbounds i8, ptr %53, i64 %55
+  %57 = tail call i64 @llvm.abs.i64(i64 %8, i1 true)
+  %58 = tail call i32 @llvm.abs.i32(i32 %.1, i1 true)
+  %59 = zext nneg i32 %58 to i64
+  %60 = sub nsw i64 %57, %59
+  %61 = zext nneg i32 %46 to i64
+  %62 = sext i32 %.193 to i64
+  %wide.trip.count = zext nneg i32 %48 to i64
+  br label %63
 
-64:                                               ; preds = %.lr.ph, %64
-  %indvars.iv = phi i64 [ %62, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %65 = mul nsw i64 %indvars.iv, %8
-  %66 = getelementptr inbounds i8, ptr %53, i64 %65
-  %67 = sub nsw i64 %indvars.iv, %63
-  %68 = mul nsw i64 %67, %8
-  %69 = getelementptr inbounds i8, ptr %57, i64 %68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %66, ptr align 1 %69, i64 %61, i1 false)
+63:                                               ; preds = %.lr.ph, %63
+  %indvars.iv = phi i64 [ %61, %.lr.ph ], [ %indvars.iv.next, %63 ]
+  %64 = mul nsw i64 %indvars.iv, %8
+  %65 = getelementptr inbounds i8, ptr %52, i64 %64
+  %66 = sub nsw i64 %indvars.iv, %62
+  %67 = mul nsw i64 %66, %8
+  %68 = getelementptr inbounds i8, ptr %56, i64 %67
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 1 %68, i64 %60, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %63, !llvm.loop !59
 
-._crit_edge:                                      ; preds = %64, %41
-  %70 = icmp sgt i32 %.193, 0
-  br i1 %70, label %71, label %89
+._crit_edge:                                      ; preds = %63, %41
+  %69 = icmp sgt i32 %.193, 0
+  br i1 %69, label %70, label %88
 
-71:                                               ; preds = %._crit_edge
-  %72 = tail call i64 @llvm.abs.i64(i64 %8, i1 true)
+70:                                               ; preds = %._crit_edge
+  %71 = tail call i64 @llvm.abs.i64(i64 %8, i1 true)
   %.not.i = icmp eq i32 %3, 0
-  br i1 %.not.i, label %83, label %73
+  br i1 %.not.i, label %82, label %72
 
-73:                                               ; preds = %71
-  %74 = sub nsw i32 216, %.193
-  %75 = mul nsw i32 %74, %7
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr %9, i64 %76
-  %sext120 = shl nuw i64 %72, 32
-  %78 = ashr exact i64 %sext120, 32
+72:                                               ; preds = %70
+  %73 = sub nsw i32 216, %.193
+  %74 = mul nsw i32 %73, %7
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds i8, ptr %9, i64 %75
+  %sext120 = shl nuw i64 %71, 32
+  %77 = ashr exact i64 %sext120, 32
   %wide.trip.count.i.i = zext nneg i32 %.193 to i64
-  br label %79
+  br label %78
 
-79:                                               ; preds = %79, %73
-  %indvars.iv.i.i = phi i64 [ 0, %73 ], [ %indvars.iv.next.i.i, %79 ]
-  %80 = mul nsw i64 %indvars.iv.i.i, %8
-  %81 = getelementptr inbounds i8, ptr %10, i64 %80
-  %82 = getelementptr inbounds i8, ptr %77, i64 %80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr readonly align 1 %82, i64 %78, i1 false)
+78:                                               ; preds = %78, %72
+  %indvars.iv.i.i = phi i64 [ 0, %72 ], [ %indvars.iv.next.i.i, %78 ]
+  %79 = mul nsw i64 %indvars.iv.i.i, %8
+  %80 = getelementptr inbounds i8, ptr %10, i64 %79
+  %81 = getelementptr inbounds i8, ptr %76, i64 %79
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr readonly align 1 %81, i64 %77, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %cdg_fill_wrapper.exit, label %79, !llvm.loop !60
+  br i1 %exitcond.not.i.i, label %cdg_fill_wrapper.exit, label %78, !llvm.loop !60
 
-83:                                               ; preds = %71
-  %sext121 = shl nuw i64 %72, 32
-  %84 = ashr exact i64 %sext121, 32
-  %85 = zext nneg i32 %.193 to i64
-  br label %86
+82:                                               ; preds = %70
+  %sext121 = shl nuw i64 %71, 32
+  %83 = ashr exact i64 %sext121, 32
+  %84 = zext nneg i32 %.193 to i64
+  br label %85
 
-86:                                               ; preds = %86, %83
-  %indvars.iv.i16.i = phi i64 [ 0, %83 ], [ %indvars.iv.next.i17.i, %86 ]
-  %87 = mul nsw i64 %indvars.iv.i16.i, %8
-  %88 = getelementptr inbounds i8, ptr %10, i64 %87
-  tail call void @llvm.memset.p0.i64(ptr align 1 %88, i8 %12, i64 %84, i1 false)
+85:                                               ; preds = %85, %82
+  %indvars.iv.i16.i = phi i64 [ 0, %82 ], [ %indvars.iv.next.i17.i, %85 ]
+  %86 = mul nsw i64 %indvars.iv.i16.i, %8
+  %87 = getelementptr inbounds i8, ptr %10, i64 %86
+  tail call void @llvm.memset.p0.i64(ptr align 1 %87, i8 %12, i64 %83, i1 false)
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
-  %exitcond137.not = icmp eq i64 %indvars.iv.next.i17.i, %85
-  br i1 %exitcond137.not, label %cdg_fill_wrapper.exit, label %86, !llvm.loop !61
+  %exitcond137.not = icmp eq i64 %indvars.iv.next.i17.i, %84
+  br i1 %exitcond137.not, label %cdg_fill_wrapper.exit, label %85, !llvm.loop !61
 
-89:                                               ; preds = %._crit_edge
-  br i1 %46, label %90, label %cdg_fill_wrapper.exit
+88:                                               ; preds = %._crit_edge
+  %89 = icmp slt i32 %.193, 0
+  br i1 %89, label %90, label %cdg_fill_wrapper.exit
 
-90:                                               ; preds = %89
+90:                                               ; preds = %88
   %91 = tail call i64 @llvm.abs.i64(i64 %8, i1 true)
   %.not.i97 = icmp eq i32 %3, 0
   br i1 %.not.i97, label %102, label %92
 
 92:                                               ; preds = %90
   %93 = sub nsw i32 0, %.193
-  %94 = mul nsw i32 %48, %7
+  %94 = mul nsw i32 %47, %7
   %95 = sext i32 %94 to i64
   %96 = getelementptr inbounds i8, ptr %10, i64 %95
   %sext = shl nuw i64 %91, 32
@@ -731,7 +731,7 @@ define internal fastcc void @cdg_scroll(ptr noundef captures(none) %0, ptr nound
 102:                                              ; preds = %90
   %sext119 = shl nuw i64 %91, 32
   %103 = ashr exact i64 %sext119, 32
-  %104 = sext i32 %48 to i64
+  %104 = sext i32 %47 to i64
   br label %105
 
 105:                                              ; preds = %105, %102
@@ -743,7 +743,7 @@ define internal fastcc void @cdg_scroll(ptr noundef captures(none) %0, ptr nound
   %exitcond136.not = icmp eq i64 %indvars.iv.next.i17.i103, 216
   br i1 %exitcond136.not, label %cdg_fill_wrapper.exit, label %105, !llvm.loop !61
 
-cdg_fill_wrapper.exit:                            ; preds = %98, %105, %79, %86, %89
+cdg_fill_wrapper.exit:                            ; preds = %98, %105, %78, %85, %88
   %108 = icmp sgt i32 %.1, 0
   br i1 %108, label %109, label %124
 

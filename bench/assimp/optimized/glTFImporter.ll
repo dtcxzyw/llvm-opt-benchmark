@@ -30527,25 +30527,25 @@ _ZN4glTF12_GLOBAL__N_19MakeValueIfLm16EEERN9rapidjson12GenericValueINS2_4UTF8IcE
 
 .noexc55:                                         ; preds = %120, %.noexc149
   %.0.i132 = phi i64 [ %127, %120 ], [ 1125899906842624, %.noexc149 ]
-  %128 = inttoptr i64 %.0.i132 to ptr
-  %129 = and i64 %.0.i132, 281474976710655
-  %130 = inttoptr i64 %129 to ptr
+  %128 = and i64 %.0.i132, 281474976710655
+  %129 = inttoptr i64 %128 to ptr
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i48
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i48: ; preds = %.noexc55, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i48
-  %.09.i45 = phi i64 [ 0, %.noexc55 ], [ %134, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i48 ]
-  %131 = getelementptr inbounds nuw float, ptr %107, i64 %.09.i45
-  %132 = load float, ptr %131, align 4
-  %133 = fpext float %132 to double
-  %134 = add nuw nsw i64 %.09.i45, 1
-  %135 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %130, i64 %.09.i45
-  store double %133, ptr %135, align 8
-  %.sroa.5.0..sroa_idx.i.i49 = getelementptr inbounds nuw i8, ptr %135, i64 8
+  %.09.i45 = phi i64 [ 0, %.noexc55 ], [ %133, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i48 ]
+  %130 = getelementptr inbounds nuw float, ptr %107, i64 %.09.i45
+  %131 = load float, ptr %130, align 4
+  %132 = fpext float %131 to double
+  %133 = add nuw nsw i64 %.09.i45, 1
+  %134 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %129, i64 %.09.i45
+  store double %132, ptr %134, align 8
+  %.sroa.5.0..sroa_idx.i.i49 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store i64 150307637563490304, ptr %.sroa.5.0..sroa_idx.i.i49, align 8
-  %exitcond.not.i50 = icmp eq i64 %134, 3
+  %exitcond.not.i50 = icmp eq i64 %133, 3
   br i1 %exitcond.not.i50, label %_ZN4glTF12_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i48, !llvm.loop !402
 
 _ZN4glTF12_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i48
+  %135 = inttoptr i64 %.0.i132 to ptr
   %136 = load ptr, ptr %108, align 8
   %137 = load i32, ptr %0, align 8
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -30605,7 +30605,7 @@ _ZN4glTF12_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcEE
   %.sroa.9243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 20
   store i32 3, ptr %.sroa.9243.0..sroa_idx, align 4
   %.sroa.12244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 24
-  store ptr %128, ptr %.sroa.12244.0..sroa_idx, align 8
+  store ptr %135, ptr %.sroa.12244.0..sroa_idx, align 8
   %174 = load i32, ptr %0, align 8
   %175 = add i32 %174, 1
   store i32 %175, ptr %0, align 8
@@ -30659,25 +30659,25 @@ _ZN4glTF12_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcEE
 
 .noexc75:                                         ; preds = %194, %.noexc172
   %.0.i155 = phi i64 [ %201, %194 ], [ 1125899906842624, %.noexc172 ]
-  %202 = inttoptr i64 %.0.i155 to ptr
-  %203 = and i64 %.0.i155, 281474976710655
-  %204 = inttoptr i64 %203 to ptr
+  %202 = and i64 %.0.i155, 281474976710655
+  %203 = inttoptr i64 %202 to ptr
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i68
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i68: ; preds = %.noexc75, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i68
-  %.09.i65 = phi i64 [ 0, %.noexc75 ], [ %208, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i68 ]
-  %205 = getelementptr inbounds nuw float, ptr %181, i64 %.09.i65
-  %206 = load float, ptr %205, align 4
-  %207 = fpext float %206 to double
-  %208 = add nuw nsw i64 %.09.i65, 1
-  %209 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %204, i64 %.09.i65
-  store double %207, ptr %209, align 8
-  %.sroa.5.0..sroa_idx.i.i69 = getelementptr inbounds nuw i8, ptr %209, i64 8
+  %.09.i65 = phi i64 [ 0, %.noexc75 ], [ %207, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i68 ]
+  %204 = getelementptr inbounds nuw float, ptr %181, i64 %.09.i65
+  %205 = load float, ptr %204, align 4
+  %206 = fpext float %205 to double
+  %207 = add nuw nsw i64 %.09.i65, 1
+  %208 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %203, i64 %.09.i65
+  store double %206, ptr %208, align 8
+  %.sroa.5.0..sroa_idx.i.i69 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store i64 150307637563490304, ptr %.sroa.5.0..sroa_idx.i.i69, align 8
-  %exitcond.not.i70 = icmp eq i64 %208, 3
+  %exitcond.not.i70 = icmp eq i64 %207, 3
   br i1 %exitcond.not.i70, label %_ZN4glTF12_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit77, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i68, !llvm.loop !402
 
 _ZN4glTF12_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit77: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i68
+  %209 = inttoptr i64 %.0.i155 to ptr
   %210 = load ptr, ptr %182, align 8
   %211 = load i32, ptr %0, align 8
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -30737,7 +30737,7 @@ _ZN4glTF12_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcEE
   %.sroa.9227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %246, i64 20
   store i32 3, ptr %.sroa.9227.0..sroa_idx, align 4
   %.sroa.12228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %246, i64 24
-  store ptr %202, ptr %.sroa.12228.0..sroa_idx, align 8
+  store ptr %209, ptr %.sroa.12228.0..sroa_idx, align 8
   %248 = load i32, ptr %0, align 8
   %249 = add i32 %248, 1
   store i32 %249, ptr %0, align 8

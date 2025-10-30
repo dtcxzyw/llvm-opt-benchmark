@@ -1712,30 +1712,30 @@ define float @b2DynamicTree_GetAreaRatio(ptr noundef readonly captures(none) %0)
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8, !tbaa !15
-  %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds %struct.b2TreeNode, ptr %6, i64 %7
-  %9 = load <2 x float>, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load <2 x float>, ptr %10, align 8
-  %foldExtExtBinop = fsub <2 x float> %11, %9
-  %foldExtExtBinop33 = fsub <2 x float> %11, %9
-  %shift = shufflevector <2 x float> %foldExtExtBinop33, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop35 = fadd <2 x float> %foldExtExtBinop, %shift
-  %12 = extractelement <2 x float> %foldExtExtBinop35, i64 0
-  %13 = fmul float %12, 2.000000e+00
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !13
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph.preheader, label %._crit_edge
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load i32, ptr %7, align 8, !tbaa !13
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %5
-  %17 = zext i32 %3 to i64
-  %wide.trip.count = zext nneg i32 %15 to i64
+  %10 = zext i32 %3 to i64
+  %wide.trip.count = zext nneg i32 %8 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %30, %5
   %.018.lcssa = phi float [ 0.000000e+00, %5 ], [ %.1, %30 ]
-  %18 = fdiv float %.018.lcssa, %13
+  %11 = sext i32 %3 to i64
+  %12 = getelementptr inbounds %struct.b2TreeNode, ptr %6, i64 %11
+  %13 = load <2 x float>, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %15 = load <2 x float>, ptr %14, align 8
+  %foldExtExtBinop = fsub <2 x float> %15, %13
+  %foldExtExtBinop33 = fsub <2 x float> %15, %13
+  %shift = shufflevector <2 x float> %foldExtExtBinop33, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop35 = fadd <2 x float> %foldExtExtBinop, %shift
+  %16 = extractelement <2 x float> %foldExtExtBinop35, i64 0
+  %17 = fmul float %16, 2.000000e+00
+  %18 = fdiv float %.018.lcssa, %17
   br label %31
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
@@ -1746,7 +1746,7 @@ define float @b2DynamicTree_GetAreaRatio(ptr noundef readonly captures(none) %0)
   %.val = load i16, ptr %20, align 2, !tbaa !34
   %21 = and i16 %.val, 5
   %or.cond = icmp ne i16 %21, 1
-  %22 = icmp eq i64 %indvars.iv, %17
+  %22 = icmp eq i64 %indvars.iv, %10
   %or.cond26 = or i1 %22, %or.cond
   br i1 %or.cond26, label %30, label %23
 

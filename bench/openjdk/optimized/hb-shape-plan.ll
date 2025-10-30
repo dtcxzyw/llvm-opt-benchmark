@@ -89,12 +89,12 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t4initEbP9hb_face_tPK23
 .loopexit101:                                     ; preds = %31, %14
   %.04584 = phi ptr [ null, %14 ], [ %13, %31 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
-  %37 = tail call i32 @hb_ot_layout_table_find_feature_variations(ptr noundef %2, i32 noundef 1196643650, ptr noundef %6, i32 noundef %7, ptr noundef nonnull %36)
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %39 = tail call i32 @hb_ot_layout_table_find_feature_variations(ptr noundef %2, i32 noundef 1196445523, ptr noundef %6, i32 noundef %7, ptr noundef nonnull %38)
+  %36 = tail call i32 @hb_ot_layout_table_find_feature_variations(ptr noundef %2, i32 noundef 1196643650, ptr noundef %6, i32 noundef %7, ptr noundef nonnull %35)
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = tail call i32 @hb_ot_layout_table_find_feature_variations(ptr noundef %2, i32 noundef 1196445523, ptr noundef %6, i32 noundef %7, ptr noundef nonnull %37)
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not54 = icmp eq ptr %8, null
   br i1 %.not54, label %81, label %.preheader
 
@@ -165,7 +165,7 @@ _ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1
 
 .loopexit95:                                      ; preds = %51, %_ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i, %56
   store ptr @_hb_ot_shape, ptr %34, align 8
-  store ptr @.str, ptr %35, align 8
+  store ptr @.str, ptr %39, align 8
   br label %120
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
@@ -210,7 +210,7 @@ _ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_fac
 
 .loopexit97:                                      ; preds = %66, %_ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i, %71
   store ptr @_hb_fallback_shape, ptr %34, align 8
-  store ptr @.str.1, ptr %35, align 8
+  store ptr @.str.1, ptr %39, align 8
   br label %120
 
 _ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit: ; preds = %.thread.i.i64, %.lr.ph.i.i60, %.thread.i.i, %.lr.ph.i.i, %.tail.thread
@@ -272,7 +272,7 @@ _ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1
 
 .loopexit:                                        ; preds = %92, %_ZN16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_E10do_destroyEPS0_.exit.i.i70, %97
   store ptr @_hb_ot_shape, ptr %34, align 8
-  store ptr @.str, ptr %35, align 8
+  store ptr @.str, ptr %39, align 8
   br label %120
 
 105:                                              ; preds = %86
@@ -316,7 +316,7 @@ _ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_fac
 
 .loopexit91:                                      ; preds = %107, %_ZN16hb_lazy_loader_tI23hb_fallback_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj2ES0_ES2_Lj2ES0_E10do_destroyEPS0_.exit.i.i79, %112
   store ptr @_hb_fallback_shape, ptr %34, align 8
-  store ptr @.str.1, ptr %35, align 8
+  store ptr @.str.1, ptr %39, align 8
   br label %120
 
 _ZNK16hb_lazy_loader_tI17hb_ot_face_data_t23hb_shaper_lazy_loader_tI9hb_face_tLj1ES0_ES2_Lj1ES0_EcvbEv.exit73: ; preds = %.thread.i.i81, %.lr.ph.i.i76, %.thread.i.i72, %.lr.ph.i.i67, %105

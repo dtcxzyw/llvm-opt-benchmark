@@ -17417,7 +17417,6 @@ _ZN3smt12theory_arithINS_6mi_extEE6column8compressER6vectorINS2_3rowELb1EjE.exit
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %4
   %.ph = phi ptr [ null, %4 ], [ %23, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.i.ph = phi i32 [ 0, %4 ], [ %26, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
-  %.ph73 = add nuw nsw i32 %22, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -17437,6 +17436,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !867
 
 113:                                              ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
+  %.ph73 = add nuw nsw i32 %22, 1
   %114 = getelementptr inbounds i8, ptr %109, i64 -4
   store i32 %.ph73, ptr %114, align 4, !tbaa !10
   %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph73
@@ -18669,7 +18669,6 @@ _ZN3smt12theory_arithINS_6mi_extEE6column8compressER6vectorINS2_3rowELb1EjE.exit
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %4
   %.ph = phi ptr [ null, %4 ], [ %23, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.i.ph = phi i32 [ 0, %4 ], [ %26, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
-  %.ph74 = add nuw nsw i32 %22, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -18689,6 +18688,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !867
 
 134:                                              ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
+  %.ph74 = add nuw nsw i32 %22, 1
   %135 = getelementptr inbounds i8, ptr %130, i64 -4
   store i32 %.ph74, ptr %135, align 4, !tbaa !10
   %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph74
@@ -106270,7 +106270,6 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %2
 thread-pre-split.i.preheader:                     ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit, %2
   %.ph = phi ptr [ null, %2 ], [ %4, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
   %.0.i16.i.ph = phi i32 [ 0, %2 ], [ %7, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
-  %.ph11 = add nuw nsw i32 %3, 1
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %thread-pre-split.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i
@@ -106290,6 +106289,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i:     ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i, !llvm.loop !867
 
 12:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i
+  %.ph11 = add nuw nsw i32 %3, 1
   %13 = getelementptr inbounds i8, ptr %8, i64 -4
   store i32 %.ph11, ptr %13, align 4, !tbaa !10
   %.not1218.i = icmp eq i32 %.0.i16.i.ph, %.ph11
@@ -123079,7 +123079,6 @@ _ZN3smt12theory_arithINS_5i_extEE6column8compressER6vectorINS2_3rowELb1EjE.exit:
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %4
   %.ph = phi ptr [ null, %4 ], [ %23, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.i.ph = phi i32 [ 0, %4 ], [ %26, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
-  %.ph73 = add nuw nsw i32 %22, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -123099,6 +123098,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !867
 
 113:                                              ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
+  %.ph73 = add nuw nsw i32 %22, 1
   %114 = getelementptr inbounds i8, ptr %109, i64 -4
   store i32 %.ph73, ptr %114, align 4, !tbaa !10
   %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph73
@@ -124183,7 +124183,6 @@ _ZN3smt12theory_arithINS_5i_extEE6column8compressER6vectorINS2_3rowELb1EjE.exit:
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %4
   %.ph = phi ptr [ null, %4 ], [ %23, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.i.ph = phi i32 [ 0, %4 ], [ %26, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
-  %.ph74 = add nuw nsw i32 %22, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -124203,6 +124202,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !867
 
 134:                                              ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
+  %.ph74 = add nuw nsw i32 %22, 1
   %135 = getelementptr inbounds i8, ptr %130, i64 -4
   store i32 %.ph74, ptr %135, align 4, !tbaa !10
   %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph74
@@ -228857,7 +228857,6 @@ _ZN3smt12theory_arithINS_7inf_extEE6column8compressER6vectorINS2_3rowELb1EjE.exi
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %4
   %.ph = phi ptr [ null, %4 ], [ %23, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.i.ph = phi i32 [ 0, %4 ], [ %26, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
-  %.ph73 = add nuw nsw i32 %22, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -228877,6 +228876,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !867
 
 113:                                              ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
+  %.ph73 = add nuw nsw i32 %22, 1
   %114 = getelementptr inbounds i8, ptr %109, i64 -4
   store i32 %.ph73, ptr %114, align 4, !tbaa !10
   %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph73
@@ -230024,7 +230024,6 @@ _ZN3smt12theory_arithINS_7inf_extEE6column8compressER6vectorINS2_3rowELb1EjE.exi
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %4
   %.ph = phi ptr [ null, %4 ], [ %23, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.i.ph = phi i32 [ 0, %4 ], [ %26, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
-  %.ph74 = add nuw nsw i32 %22, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -230044,6 +230043,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i, !llvm.loop !867
 
 134:                                              ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
+  %.ph74 = add nuw nsw i32 %22, 1
   %135 = getelementptr inbounds i8, ptr %130, i64 -4
   store i32 %.ph74, ptr %135, align 4, !tbaa !10
   %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph74
@@ -328745,140 +328745,140 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPPN3smt12theory_ar
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
   %6 = icmp sgt i64 %5, 128
-  br i1 %6, label %7, label %36
+  br i1 %6, label %.preheader, label %35
 
-7:                                                ; preds = %2
+.preheader:                                       ; preds = %2
   %scevgep = getelementptr i8, ptr %0, i64 8
-  br label %8
+  br label %7
 
-8:                                                ; preds = %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i, %7
-  %.020.i.idx = phi i64 [ 8, %7 ], [ %.020.i.add, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i ]
-  %.pn19.i = phi ptr [ %0, %7 ], [ %.020.i.ptr, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i ]
+7:                                                ; preds = %.preheader, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i
+  %.020.i.idx = phi i64 [ %.020.i.add, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i ], [ 8, %.preheader ]
+  %.pn19.i = phi ptr [ %.020.i.ptr, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i ], [ %0, %.preheader ]
   %.020.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.020.i.idx
-  %9 = load ptr, ptr %.020.i.ptr, align 8, !tbaa !901
-  %10 = load ptr, ptr %0, align 8, !tbaa !901
+  %8 = load ptr, ptr %.020.i.ptr, align 8, !tbaa !901
+  %9 = load ptr, ptr %0, align 8, !tbaa !901
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %13 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %12)
-  %14 = load ptr, ptr %.020.i.ptr, align 8, !tbaa !901
-  br i1 %13, label %15, label %16
+  %12 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %11)
+  %13 = load ptr, ptr %.020.i.ptr, align 8, !tbaa !901
+  br i1 %12, label %14, label %15
 
-15:                                               ; preds = %8
+14:                                               ; preds = %7
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %.020.i.idx, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i
 
-16:                                               ; preds = %8
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 88
-  %18 = load ptr, ptr %.pn19.i, align 8, !tbaa !901
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  %20 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %19)
-  br i1 %20, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i
+15:                                               ; preds = %7
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  %17 = load ptr, ptr %.pn19.i, align 8, !tbaa !901
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 88
+  %19 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %18)
+  br i1 %19, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i
 
-.lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
-  %.013.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn19.i, %16 ]
-  %.0912.i.i = phi ptr [ %.013.i.i, %.lr.ph.i.i ], [ %.020.i.ptr, %16 ]
-  %21 = load ptr, ptr %.013.i.i, align 8, !tbaa !901
-  store ptr %21, ptr %.0912.i.i, align 8, !tbaa !901
+.lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
+  %.013.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.pn19.i, %15 ]
+  %.0912.i.i = phi ptr [ %.013.i.i, %.lr.ph.i.i ], [ %.020.i.ptr, %15 ]
+  %20 = load ptr, ptr %.013.i.i, align 8, !tbaa !901
+  store ptr %20, ptr %.0912.i.i, align 8, !tbaa !901
   %.0.i.i = getelementptr inbounds i8, ptr %.013.i.i, i64 -8
-  %22 = load ptr, ptr %.0.i.i, align 8, !tbaa !901
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 88
-  %24 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %23)
-  br i1 %24, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i, !llvm.loop !3221
+  %21 = load ptr, ptr %.0.i.i, align 8, !tbaa !901
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
+  %23 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %22)
+  br i1 %23, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i, !llvm.loop !3221
 
-_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %16, %15
-  %.sink.i = phi ptr [ %0, %15 ], [ %.020.i.ptr, %16 ], [ %.013.i.i, %.lr.ph.i.i ]
-  store ptr %14, ptr %.sink.i, align 8, !tbaa !901
+_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %15, %14
+  %.sink.i = phi ptr [ %0, %14 ], [ %.020.i.ptr, %15 ], [ %.013.i.i, %.lr.ph.i.i ]
+  store ptr %13, ptr %.sink.i, align 8, !tbaa !901
   %.020.i.add = add nuw nsw i64 %.020.i.idx, 8
   %.not.i = icmp eq i64 %.020.i.add, 128
-  br i1 %.not.i, label %_ZSt16__insertion_sortIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_SC_T0_.exit, label %8, !llvm.loop !3222
+  br i1 %.not.i, label %_ZSt16__insertion_sortIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_SC_T0_.exit, label %7, !llvm.loop !3222
 
 _ZSt16__insertion_sortIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_SC_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.not6.i = icmp eq ptr %25, %1
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.not6.i = icmp eq ptr %24, %1
   br i1 %.not6.i, label %_ZSt26__unguarded_insertion_sortIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_SC_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_SC_T0_.exit, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i13
-  %.07.i = phi ptr [ %35, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i13 ], [ %25, %_ZSt16__insertion_sortIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_SC_T0_.exit ]
-  %26 = load ptr, ptr %.07.i, align 8, !tbaa !901
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 88
+  %.07.i = phi ptr [ %34, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i13 ], [ %24, %_ZSt16__insertion_sortIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_SC_T0_.exit ]
+  %25 = load ptr, ptr %.07.i, align 8, !tbaa !901
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
   %.011.i.i = getelementptr inbounds i8, ptr %.07.i, i64 -8
-  %28 = load ptr, ptr %.011.i.i, align 8, !tbaa !901
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 88
-  %30 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %29)
-  br i1 %30, label %.lr.ph.i.i15, label %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i13
+  %27 = load ptr, ptr %.011.i.i, align 8, !tbaa !901
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
+  %29 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(64) %28)
+  br i1 %29, label %.lr.ph.i.i15, label %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i13
 
 .lr.ph.i.i15:                                     ; preds = %.lr.ph.i, %.lr.ph.i.i15
   %.013.i.i16 = phi ptr [ %.0.i.i18, %.lr.ph.i.i15 ], [ %.011.i.i, %.lr.ph.i ]
   %.0912.i.i17 = phi ptr [ %.013.i.i16, %.lr.ph.i.i15 ], [ %.07.i, %.lr.ph.i ]
-  %31 = load ptr, ptr %.013.i.i16, align 8, !tbaa !901
-  store ptr %31, ptr %.0912.i.i17, align 8, !tbaa !901
+  %30 = load ptr, ptr %.013.i.i16, align 8, !tbaa !901
+  store ptr %30, ptr %.0912.i.i17, align 8, !tbaa !901
   %.0.i.i18 = getelementptr inbounds i8, ptr %.013.i.i16, i64 -8
-  %32 = load ptr, ptr %.0.i.i18, align 8, !tbaa !901
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 88
-  %34 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %33)
-  br i1 %34, label %.lr.ph.i.i15, label %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i13, !llvm.loop !3221
+  %31 = load ptr, ptr %.0.i.i18, align 8, !tbaa !901
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 88
+  %33 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(64) %32)
+  br i1 %33, label %.lr.ph.i.i15, label %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i13, !llvm.loop !3221
 
 _ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i13: ; preds = %.lr.ph.i.i15, %.lr.ph.i
   %.09.lcssa.i.i = phi ptr [ %.07.i, %.lr.ph.i ], [ %.013.i.i16, %.lr.ph.i.i15 ]
-  store ptr %26, ptr %.09.lcssa.i.i, align 8, !tbaa !901
-  %35 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
-  %.not.i14 = icmp eq ptr %35, %1
+  store ptr %25, ptr %.09.lcssa.i.i, align 8, !tbaa !901
+  %34 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
+  %.not.i14 = icmp eq ptr %34, %1
   br i1 %.not.i14, label %_ZSt26__unguarded_insertion_sortIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_SC_T0_.exit, label %.lr.ph.i, !llvm.loop !3223
 
-36:                                               ; preds = %2
-  %37 = icmp eq ptr %0, %1
+35:                                               ; preds = %2
+  %36 = icmp eq ptr %0, %1
   %.017.i19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not18.i = icmp eq ptr %.017.i19, %1
-  %or.cond = select i1 %37, i1 true, i1 %.not18.i
+  %or.cond = select i1 %36, i1 true, i1 %.not18.i
   br i1 %or.cond, label %_ZSt26__unguarded_insertion_sortIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_SC_T0_.exit, label %.lr.ph.i20
 
-.lr.ph.i20:                                       ; preds = %36, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i23
-  %.020.i21 = phi ptr [ %.0.i25, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i23 ], [ %.017.i19, %36 ]
-  %.pn19.i22 = phi ptr [ %.020.i21, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i23 ], [ %0, %36 ]
-  %38 = load ptr, ptr %.020.i21, align 8, !tbaa !901
-  %39 = load ptr, ptr %0, align 8, !tbaa !901
+.lr.ph.i20:                                       ; preds = %35, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i23
+  %.020.i21 = phi ptr [ %.0.i25, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i23 ], [ %.017.i19, %35 ]
+  %.pn19.i22 = phi ptr [ %.020.i21, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i23 ], [ %0, %35 ]
+  %37 = load ptr, ptr %.020.i21, align 8, !tbaa !901
+  %38 = load ptr, ptr %0, align 8, !tbaa !901
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 88
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 88
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 88
-  %42 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %40, ptr noundef nonnull align 8 dereferenceable(64) %41)
-  %43 = load ptr, ptr %.020.i21, align 8, !tbaa !901
-  br i1 %42, label %44, label %51
+  %41 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %40)
+  %42 = load ptr, ptr %.020.i21, align 8, !tbaa !901
+  br i1 %41, label %43, label %50
 
-44:                                               ; preds = %.lr.ph.i20
-  %45 = getelementptr inbounds nuw i8, ptr %.pn19.i22, i64 16
-  %46 = ptrtoint ptr %.020.i21 to i64
-  %47 = sub i64 %46, %4
-  %48 = ashr exact i64 %47, 3
-  %49 = sub nsw i64 0, %48
-  %50 = getelementptr inbounds ptr, ptr %45, i64 %49
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %50, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %47, i1 false)
+43:                                               ; preds = %.lr.ph.i20
+  %44 = getelementptr inbounds nuw i8, ptr %.pn19.i22, i64 16
+  %45 = ptrtoint ptr %.020.i21 to i64
+  %46 = sub i64 %45, %4
+  %47 = ashr exact i64 %46, 3
+  %48 = sub nsw i64 0, %47
+  %49 = getelementptr inbounds ptr, ptr %44, i64 %48
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %49, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %46, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i23
 
-51:                                               ; preds = %.lr.ph.i20
-  %52 = getelementptr inbounds nuw i8, ptr %43, i64 88
-  %53 = load ptr, ptr %.pn19.i22, align 8, !tbaa !901
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 88
-  %55 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %52, ptr noundef nonnull align 8 dereferenceable(64) %54)
-  br i1 %55, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i23
+50:                                               ; preds = %.lr.ph.i20
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 88
+  %52 = load ptr, ptr %.pn19.i22, align 8, !tbaa !901
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 88
+  %54 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %51, ptr noundef nonnull align 8 dereferenceable(64) %53)
+  br i1 %54, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i23
 
-.lr.ph.i.i27:                                     ; preds = %51, %.lr.ph.i.i27
-  %.013.i.i28 = phi ptr [ %.0.i.i30, %.lr.ph.i.i27 ], [ %.pn19.i22, %51 ]
-  %.0912.i.i29 = phi ptr [ %.013.i.i28, %.lr.ph.i.i27 ], [ %.020.i21, %51 ]
-  %56 = load ptr, ptr %.013.i.i28, align 8, !tbaa !901
-  store ptr %56, ptr %.0912.i.i29, align 8, !tbaa !901
+.lr.ph.i.i27:                                     ; preds = %50, %.lr.ph.i.i27
+  %.013.i.i28 = phi ptr [ %.0.i.i30, %.lr.ph.i.i27 ], [ %.pn19.i22, %50 ]
+  %.0912.i.i29 = phi ptr [ %.013.i.i28, %.lr.ph.i.i27 ], [ %.020.i21, %50 ]
+  %55 = load ptr, ptr %.013.i.i28, align 8, !tbaa !901
+  store ptr %55, ptr %.0912.i.i29, align 8, !tbaa !901
   %.0.i.i30 = getelementptr inbounds i8, ptr %.013.i.i28, i64 -8
-  %57 = load ptr, ptr %.0.i.i30, align 8, !tbaa !901
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 88
-  %59 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %52, ptr noundef nonnull align 8 dereferenceable(64) %58)
-  br i1 %59, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i23, !llvm.loop !3221
+  %56 = load ptr, ptr %.0.i.i30, align 8, !tbaa !901
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 88
+  %58 = tail call noundef zeroext i1 @_ZltRK12inf_rationalS1_(ptr noundef nonnull align 8 dereferenceable(64) %51, ptr noundef nonnull align 8 dereferenceable(64) %57)
+  br i1 %58, label %.lr.ph.i.i27, label %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i23, !llvm.loop !3221
 
-_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i23: ; preds = %.lr.ph.i.i27, %51, %44
-  %.sink.i24 = phi ptr [ %0, %44 ], [ %.020.i21, %51 ], [ %.013.i.i28, %.lr.ph.i.i27 ]
-  store ptr %43, ptr %.sink.i24, align 8, !tbaa !901
+_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i23: ; preds = %.lr.ph.i.i27, %50, %43
+  %.sink.i24 = phi ptr [ %0, %43 ], [ %.020.i21, %50 ], [ %.013.i.i28, %.lr.ph.i.i27 ]
+  store ptr %42, ptr %.sink.i24, align 8, !tbaa !901
   %.0.i25 = getelementptr inbounds nuw i8, ptr %.020.i21, i64 8
   %.not.i26 = icmp eq ptr %.0.i25, %1
   br i1 %.not.i26, label %_ZSt26__unguarded_insertion_sortIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_SC_T0_.exit, label %.lr.ph.i20, !llvm.loop !3222
 
-_ZSt26__unguarded_insertion_sortIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_SC_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i23, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i13, %36, %_ZSt16__insertion_sortIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_SC_T0_.exit
+_ZSt26__unguarded_insertion_sortIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_SC_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i23, %_ZSt25__unguarded_linear_insertIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops14_Val_comp_iterINS3_13compare_atomsEEEEvT_T0_.exit.i13, %35, %_ZSt16__insertion_sortIPPN3smt12theory_arithINS0_6mi_extEE4atomEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_SC_T0_.exit
   ret void
 }
 

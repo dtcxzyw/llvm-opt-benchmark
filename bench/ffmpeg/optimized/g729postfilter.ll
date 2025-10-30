@@ -198,49 +198,49 @@ residual_filter.exit:                             ; preds = %59, %41
   br i1 %.not290.i, label %.thread.i, label %105
 
 105:                                              ; preds = %.loopexit342.i
-  %.not.i302.i = icmp ult i32 %104, 65536
-  %106 = lshr i32 %104, 16
-  %spec.select.i303.i = select i1 %.not.i302.i, i32 %104, i32 %106
-  %.not11.i305.i = icmp samesign ult i32 %spec.select.i303.i, 256
-  %107 = lshr i32 %spec.select.i303.i, 8
-  %.110.i306.i = select i1 %.not11.i305.i, i32 %spec.select.i303.i, i32 %107
-  %108 = zext nneg i32 %.110.i306.i to i64
-  %109 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !14
-  %111 = add i32 %4, -1
-  %112 = trunc i32 %111 to i16
-  %113 = sext i32 %111 to i64
-  %114 = sext i32 %4 to i64
-  br label %115
+  %106 = add i32 %4, -1
+  %107 = trunc i32 %106 to i16
+  %108 = sext i32 %106 to i64
+  %109 = sext i32 %4 to i64
+  br label %110
 
-115:                                              ; preds = %115, %105
-  %indvars.iv389.i = phi i64 [ %113, %105 ], [ %indvars.iv.next390.i, %115 ]
-  %.1243353.i = phi i16 [ %112, %105 ], [ %spec.select298.i, %115 ]
-  %.0270352.i = phi i32 [ 0, %105 ], [ %spec.select.i, %115 ]
-  %116 = load ptr, ptr %0, align 8, !tbaa !17
-  %117 = sub nsw i64 0, %indvars.iv389.i
-  %118 = getelementptr inbounds i16, ptr %103, i64 %117
-  %119 = call i32 %116(ptr noundef nonnull %103, ptr noundef nonnull %118, i32 noundef %9) #7
-  %120 = icmp sgt i32 %119, %.0270352.i
-  %121 = trunc i64 %indvars.iv389.i to i16
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %119, i32 %.0270352.i)
-  %spec.select298.i = select i1 %120, i16 %121, i16 %.1243353.i
+110:                                              ; preds = %110, %105
+  %indvars.iv389.i = phi i64 [ %108, %105 ], [ %indvars.iv.next390.i, %110 ]
+  %.1243353.i = phi i16 [ %107, %105 ], [ %spec.select298.i, %110 ]
+  %.0270352.i = phi i32 [ 0, %105 ], [ %spec.select.i, %110 ]
+  %111 = load ptr, ptr %0, align 8, !tbaa !17
+  %112 = sub nsw i64 0, %indvars.iv389.i
+  %113 = getelementptr inbounds i16, ptr %103, i64 %112
+  %114 = call i32 %111(ptr noundef nonnull %103, ptr noundef nonnull %113, i32 noundef %9) #7
+  %115 = icmp sgt i32 %114, %.0270352.i
+  %116 = trunc i64 %indvars.iv389.i to i16
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %114, i32 %.0270352.i)
+  %spec.select298.i = select i1 %115, i16 %116, i16 %.1243353.i
   %indvars.iv.next390.i = add nsw i64 %indvars.iv389.i, 1
-  %.not291.i = icmp sgt i64 %indvars.iv389.i, %114
-  br i1 %.not291.i, label %122, label %115, !llvm.loop !20
+  %.not291.i = icmp sgt i64 %indvars.iv389.i, %109
+  br i1 %.not291.i, label %117, label %110, !llvm.loop !20
 
-122:                                              ; preds = %115
+117:                                              ; preds = %110
+  %.not.i302.i = icmp ult i32 %104, 65536
+  %118 = lshr i32 %104, 16
+  %spec.select.i303.i = select i1 %.not.i302.i, i32 %104, i32 %118
   %spec.select12.i304.i = select i1 %.not.i302.i, i32 0, i32 16
-  %123 = or disjoint i32 %spec.select12.i304.i, 8
-  %.1.i307.i = select i1 %.not11.i305.i, i32 %spec.select12.i304.i, i32 %123
-  %124 = zext i8 %110 to i32
+  %.not11.i305.i = icmp samesign ult i32 %spec.select.i303.i, 256
+  %119 = lshr i32 %spec.select.i303.i, 8
+  %120 = or disjoint i32 %spec.select12.i304.i, 8
+  %.110.i306.i = select i1 %.not11.i305.i, i32 %spec.select.i303.i, i32 %119
+  %.1.i307.i = select i1 %.not11.i305.i, i32 %spec.select12.i304.i, i32 %120
+  %121 = zext nneg i32 %.110.i306.i to i64
+  %122 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %121
+  %123 = load i8, ptr %122, align 1, !tbaa !14
+  %124 = zext i8 %123 to i32
   %125 = add nuw nsw i32 %.1.i307.i, %124
   %126 = call i32 @llvm.usub.sat.i32(i32 %125, i32 14)
   %127 = ashr i32 %104, %126
   %.not292.i = icmp eq i32 %spec.select.i, 0
   br i1 %.not292.i, label %.thread.i, label %128
 
-128:                                              ; preds = %122
+128:                                              ; preds = %117
   %129 = load ptr, ptr %0, align 8, !tbaa !17
   %130 = sext i16 %spec.select298.i to i64
   %131 = sub nsw i64 0, %130
@@ -405,7 +405,7 @@ residual_filter.exit:                             ; preds = %59, %41
   %or.cond.i = select i1 %225, i1 true, i1 %.not294.i
   br i1 %or.cond.i, label %.thread.i, label %227
 
-.thread.i:                                        ; preds = %212, %158, %122, %.loopexit342.i
+.thread.i:                                        ; preds = %212, %158, %117, %.loopexit342.i
   %226 = shl nsw i64 %67, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %70, ptr nonnull align 2 %43, i64 %226, i1 false)
   br label %long_term_filter.exit

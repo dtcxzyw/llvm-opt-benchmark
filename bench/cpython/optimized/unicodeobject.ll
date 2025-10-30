@@ -5571,16 +5571,16 @@ _PyUnicode_DATA.exit:                             ; preds = %9, %11
   ]
 
 30:                                               ; preds = %29
-  %31 = getelementptr i8, ptr %.0.i, i64 %.val
-  %32 = and i64 %.val, -4
-  %33 = getelementptr i8, ptr %.0.i, i64 %32
-  %34 = icmp ult ptr %.0.i, %33
-  br i1 %34, label %.lr.ph101, label %.preheader
+  %31 = and i64 %.val, -4
+  %32 = getelementptr i8, ptr %.0.i, i64 %31
+  %33 = icmp ult ptr %.0.i, %32
+  br i1 %33, label %.lr.ph101, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph101, %30
   %.083.lcssa = phi ptr [ %.0.i, %30 ], [ %50, %.lr.ph101 ]
   %.081.lcssa = phi ptr [ %.076, %30 ], [ %51, %.lr.ph101 ]
-  %35 = icmp ult ptr %.083.lcssa, %31
+  %34 = getelementptr i8, ptr %.0.i, i64 %.val
+  %35 = icmp ult ptr %.083.lcssa, %34
   br i1 %35, label %.lr.ph106, label %.loopexit
 
 .lr.ph101:                                        ; preds = %30, %.lr.ph101
@@ -5606,7 +5606,7 @@ _PyUnicode_DATA.exit:                             ; preds = %9, %11
   store i32 %48, ptr %49, align 4, !tbaa !200
   %50 = getelementptr i8, ptr %.08399, i64 4
   %51 = getelementptr i8, ptr %.081100, i64 16
-  %52 = icmp ult ptr %50, %33
+  %52 = icmp ult ptr %50, %32
   br i1 %52, label %.lr.ph101, label %.preheader, !llvm.loop !253
 
 .lr.ph106:                                        ; preds = %.preheader, %.lr.ph106
@@ -5617,22 +5617,22 @@ _PyUnicode_DATA.exit:                             ; preds = %9, %11
   %55 = zext i8 %54 to i32
   %56 = getelementptr i8, ptr %.182105, i64 4
   store i32 %55, ptr %.182105, align 4, !tbaa !200
-  %57 = icmp ult ptr %53, %31
+  %57 = icmp ult ptr %53, %34
   br i1 %57, label %.lr.ph106, label %.loopexit, !llvm.loop !254
 
 58:                                               ; preds = %29
-  %59 = getelementptr i16, ptr %.0.i, i64 %.val
   %.idx = shl i64 %.val, 1
-  %60 = ashr exact i64 %.idx, 1
-  %61 = and i64 %60, -4
-  %62 = getelementptr i16, ptr %.0.i, i64 %61
-  %63 = icmp ult ptr %.0.i, %62
-  br i1 %63, label %.lr.ph, label %.preheader91
+  %59 = ashr exact i64 %.idx, 1
+  %60 = and i64 %59, -4
+  %61 = getelementptr i16, ptr %.0.i, i64 %60
+  %62 = icmp ult ptr %.0.i, %61
+  br i1 %62, label %.lr.ph, label %.preheader91
 
 .preheader91:                                     ; preds = %.lr.ph, %58
   %.079.lcssa = phi ptr [ %.076, %58 ], [ %80, %.lr.ph ]
   %.078.lcssa = phi ptr [ %.0.i, %58 ], [ %79, %.lr.ph ]
-  %64 = icmp ult ptr %.078.lcssa, %59
+  %63 = getelementptr i16, ptr %.0.i, i64 %.val
+  %64 = icmp ult ptr %.078.lcssa, %63
   br i1 %64, label %.lr.ph98, label %.loopexit
 
 .lr.ph:                                           ; preds = %58, %.lr.ph
@@ -5658,7 +5658,7 @@ _PyUnicode_DATA.exit:                             ; preds = %9, %11
   store i32 %77, ptr %78, align 4, !tbaa !200
   %79 = getelementptr i8, ptr %.07894, i64 8
   %80 = getelementptr i8, ptr %.07993, i64 16
-  %81 = icmp ult ptr %79, %62
+  %81 = icmp ult ptr %79, %61
   br i1 %81, label %.lr.ph, label %.preheader91, !llvm.loop !255
 
 .lr.ph98:                                         ; preds = %.preheader91, %.lr.ph98
@@ -5669,7 +5669,7 @@ _PyUnicode_DATA.exit:                             ; preds = %9, %11
   %84 = zext i16 %83 to i32
   %85 = getelementptr i8, ptr %.18096, i64 4
   store i32 %84, ptr %.18096, align 4, !tbaa !200
-  %86 = icmp ult ptr %82, %59
+  %86 = icmp ult ptr %82, %63
   br i1 %86, label %.lr.ph98, label %.loopexit, !llvm.loop !256
 
 87:                                               ; preds = %29
@@ -30049,16 +30049,16 @@ define internal fastcc ptr @unicode_askind(i32 noundef range(i32 0, 8) %0, ptr n
   br i1 %.not97, label %.loopexit.sink.split, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr i8, ptr %1, i64 %2
-  %13 = and i64 %2, 4611686018427387900
-  %14 = getelementptr i8, ptr %1, i64 %13
-  %15 = icmp ult ptr %1, %14
-  br i1 %15, label %.lr.ph121, label %.preheader
+  %12 = and i64 %2, 4611686018427387900
+  %13 = getelementptr i8, ptr %1, i64 %12
+  %14 = icmp ult ptr %1, %13
+  br i1 %14, label %.lr.ph121, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph121, %11
   %.087.lcssa = phi ptr [ %1, %11 ], [ %31, %.lr.ph121 ]
   %.085.lcssa = phi ptr [ %10, %11 ], [ %32, %.lr.ph121 ]
-  %16 = icmp ult ptr %.087.lcssa, %12
+  %15 = getelementptr i8, ptr %1, i64 %2
+  %16 = icmp ult ptr %.087.lcssa, %15
   br i1 %16, label %.lr.ph126, label %.loopexit
 
 .lr.ph121:                                        ; preds = %11, %.lr.ph121
@@ -30084,7 +30084,7 @@ define internal fastcc ptr @unicode_askind(i32 noundef range(i32 0, 8) %0, ptr n
   store i16 %29, ptr %30, align 2, !tbaa !199
   %31 = getelementptr i8, ptr %.087119, i64 4
   %32 = getelementptr i8, ptr %.085120, i64 8
-  %33 = icmp ult ptr %31, %14
+  %33 = icmp ult ptr %31, %13
   br i1 %33, label %.lr.ph121, label %.preheader, !llvm.loop !386
 
 .lr.ph126:                                        ; preds = %.preheader, %.lr.ph126
@@ -30095,7 +30095,7 @@ define internal fastcc ptr @unicode_askind(i32 noundef range(i32 0, 8) %0, ptr n
   %36 = zext i8 %35 to i16
   %37 = getelementptr i8, ptr %.186125, i64 2
   store i16 %36, ptr %.186125, align 2, !tbaa !199
-  %38 = icmp ult ptr %34, %12
+  %38 = icmp ult ptr %34, %15
   br i1 %38, label %.lr.ph126, label %.loopexit, !llvm.loop !387
 
 39:                                               ; preds = %4
@@ -30114,15 +30114,15 @@ define internal fastcc ptr @unicode_askind(i32 noundef range(i32 0, 8) %0, ptr n
   br i1 %45, label %47, label %74
 
 47:                                               ; preds = %44
-  %48 = getelementptr i16, ptr %1, i64 %2
-  %49 = getelementptr i16, ptr %1, i64 %46
-  %50 = icmp ult ptr %1, %49
-  br i1 %50, label %.lr.ph113, label %.preheader101
+  %48 = getelementptr i16, ptr %1, i64 %46
+  %49 = icmp ult ptr %1, %48
+  br i1 %49, label %.lr.ph113, label %.preheader101
 
 .preheader101:                                    ; preds = %.lr.ph113, %47
   %.091.lcssa = phi ptr [ %1, %47 ], [ %66, %.lr.ph113 ]
   %.089.lcssa = phi ptr [ %43, %47 ], [ %67, %.lr.ph113 ]
-  %51 = icmp ult ptr %.091.lcssa, %48
+  %50 = getelementptr i16, ptr %1, i64 %2
+  %51 = icmp ult ptr %.091.lcssa, %50
   br i1 %51, label %.lr.ph118, label %.loopexit
 
 .lr.ph113:                                        ; preds = %47, %.lr.ph113
@@ -30148,7 +30148,7 @@ define internal fastcc ptr @unicode_askind(i32 noundef range(i32 0, 8) %0, ptr n
   store i32 %64, ptr %65, align 4, !tbaa !200
   %66 = getelementptr i8, ptr %.091111, i64 8
   %67 = getelementptr i8, ptr %.089112, i64 16
-  %68 = icmp ult ptr %66, %49
+  %68 = icmp ult ptr %66, %48
   br i1 %68, label %.lr.ph113, label %.preheader101, !llvm.loop !388
 
 .lr.ph118:                                        ; preds = %.preheader101, %.lr.ph118
@@ -30159,19 +30159,19 @@ define internal fastcc ptr @unicode_askind(i32 noundef range(i32 0, 8) %0, ptr n
   %71 = zext i16 %70 to i32
   %72 = getelementptr i8, ptr %.190117, i64 4
   store i32 %71, ptr %.190117, align 4, !tbaa !200
-  %73 = icmp ult ptr %69, %48
+  %73 = icmp ult ptr %69, %50
   br i1 %73, label %.lr.ph118, label %.loopexit, !llvm.loop !389
 
 74:                                               ; preds = %44
-  %75 = getelementptr i8, ptr %1, i64 %2
-  %76 = getelementptr i8, ptr %1, i64 %46
-  %77 = icmp ult ptr %1, %76
-  br i1 %77, label %.lr.ph, label %.preheader103
+  %75 = getelementptr i8, ptr %1, i64 %46
+  %76 = icmp ult ptr %1, %75
+  br i1 %76, label %.lr.ph, label %.preheader103
 
 .preheader103:                                    ; preds = %.lr.ph, %74
   %.083.lcssa = phi ptr [ %43, %74 ], [ %94, %.lr.ph ]
   %.082.lcssa = phi ptr [ %1, %74 ], [ %93, %.lr.ph ]
-  %78 = icmp ult ptr %.082.lcssa, %75
+  %77 = getelementptr i8, ptr %1, i64 %2
+  %78 = icmp ult ptr %.082.lcssa, %77
   br i1 %78, label %.lr.ph110, label %.loopexit
 
 .lr.ph:                                           ; preds = %74, %.lr.ph
@@ -30197,7 +30197,7 @@ define internal fastcc ptr @unicode_askind(i32 noundef range(i32 0, 8) %0, ptr n
   store i32 %91, ptr %92, align 4, !tbaa !200
   %93 = getelementptr i8, ptr %.082106, i64 4
   %94 = getelementptr i8, ptr %.083105, i64 16
-  %95 = icmp ult ptr %93, %76
+  %95 = icmp ult ptr %93, %75
   br i1 %95, label %.lr.ph, label %.preheader103, !llvm.loop !390
 
 .lr.ph110:                                        ; preds = %.preheader103, %.lr.ph110
@@ -30208,7 +30208,7 @@ define internal fastcc ptr @unicode_askind(i32 noundef range(i32 0, 8) %0, ptr n
   %98 = zext i8 %97 to i32
   %99 = getelementptr i8, ptr %.184108, i64 4
   store i32 %98, ptr %.184108, align 4, !tbaa !200
-  %100 = icmp ult ptr %96, %75
+  %100 = icmp ult ptr %96, %77
   br i1 %100, label %.lr.ph110, label %.loopexit, !llvm.loop !391
 
 .loopexit.sink.split:                             ; preds = %41, %39, %8, %6
@@ -42464,16 +42464,16 @@ _PyUnicodeWriter_Update.exit:                     ; preds = %40, %42
 
 73:                                               ; preds = %.critedge
   %74 = getelementptr i16, ptr %68, i64 %70
-  %75 = getelementptr i8, ptr %1, i64 %.081
-  %76 = and i64 %.081, -4
-  %77 = getelementptr i8, ptr %1, i64 %76
-  %78 = icmp ult ptr %1, %77
-  br i1 %78, label %.lr.ph116, label %.preheader
+  %75 = and i64 %.081, -4
+  %76 = getelementptr i8, ptr %1, i64 %75
+  %77 = icmp ult ptr %1, %76
+  br i1 %77, label %.lr.ph116, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph116, %73
   %.088.lcssa = phi ptr [ %1, %73 ], [ %94, %.lr.ph116 ]
   %.086.lcssa = phi ptr [ %74, %73 ], [ %95, %.lr.ph116 ]
-  %79 = icmp ult ptr %.088.lcssa, %75
+  %78 = getelementptr i8, ptr %1, i64 %.081
+  %79 = icmp ult ptr %.088.lcssa, %78
   br i1 %79, label %.lr.ph121, label %.loopexit
 
 .lr.ph116:                                        ; preds = %73, %.lr.ph116
@@ -42499,7 +42499,7 @@ _PyUnicodeWriter_Update.exit:                     ; preds = %40, %42
   store i16 %92, ptr %93, align 2, !tbaa !199
   %94 = getelementptr i8, ptr %.088114, i64 4
   %95 = getelementptr i8, ptr %.086115, i64 8
-  %96 = icmp ult ptr %94, %77
+  %96 = icmp ult ptr %94, %76
   br i1 %96, label %.lr.ph116, label %.preheader, !llvm.loop !465
 
 .lr.ph121:                                        ; preds = %.preheader, %.lr.ph121
@@ -42510,21 +42510,21 @@ _PyUnicodeWriter_Update.exit:                     ; preds = %40, %42
   %99 = zext i8 %98 to i16
   %100 = getelementptr i8, ptr %.187120, i64 2
   store i16 %99, ptr %.187120, align 2, !tbaa !199
-  %101 = icmp ult ptr %97, %75
+  %101 = icmp ult ptr %97, %78
   br i1 %101, label %.lr.ph121, label %.loopexit, !llvm.loop !466
 
 102:                                              ; preds = %.critedge
   %103 = getelementptr i32, ptr %68, i64 %70
-  %104 = getelementptr i8, ptr %1, i64 %.081
-  %105 = and i64 %.081, -4
-  %106 = getelementptr i8, ptr %1, i64 %105
-  %107 = icmp ult ptr %1, %106
-  br i1 %107, label %.lr.ph, label %.preheader106
+  %104 = and i64 %.081, -4
+  %105 = getelementptr i8, ptr %1, i64 %104
+  %106 = icmp ult ptr %1, %105
+  br i1 %106, label %.lr.ph, label %.preheader106
 
 .preheader106:                                    ; preds = %.lr.ph, %102
   %.084.lcssa = phi ptr [ %103, %102 ], [ %124, %.lr.ph ]
   %.082.lcssa = phi ptr [ %1, %102 ], [ %123, %.lr.ph ]
-  %108 = icmp ult ptr %.082.lcssa, %104
+  %107 = getelementptr i8, ptr %1, i64 %.081
+  %108 = icmp ult ptr %.082.lcssa, %107
   br i1 %108, label %.lr.ph113, label %.loopexit
 
 .lr.ph:                                           ; preds = %102, %.lr.ph
@@ -42550,7 +42550,7 @@ _PyUnicodeWriter_Update.exit:                     ; preds = %40, %42
   store i32 %121, ptr %122, align 4, !tbaa !200
   %123 = getelementptr i8, ptr %.082109, i64 4
   %124 = getelementptr i8, ptr %.084108, i64 16
-  %125 = icmp ult ptr %123, %106
+  %125 = icmp ult ptr %123, %105
   br i1 %125, label %.lr.ph, label %.preheader106, !llvm.loop !467
 
 .lr.ph113:                                        ; preds = %.preheader106, %.lr.ph113
@@ -42561,7 +42561,7 @@ _PyUnicodeWriter_Update.exit:                     ; preds = %40, %42
   %128 = zext i8 %127 to i32
   %129 = getelementptr i8, ptr %.185111, i64 4
   store i32 %128, ptr %.185111, align 4, !tbaa !200
-  %130 = icmp ult ptr %126, %104
+  %130 = icmp ult ptr %126, %107
   br i1 %130, label %.lr.ph113, label %.loopexit, !llvm.loop !468
 
 131:                                              ; preds = %.critedge
@@ -53219,19 +53219,19 @@ asciilib__two_way.exit:                           ; preds = %.thread167.us231.i,
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
 define internal fastcc i64 @asciilib_adaptive_find(ptr noundef %0, i64 noundef range(i64 2500, -9223372036854775808) %1, ptr noundef %2, i64 noundef range(i64 6, -9223372036854775808) %3) unnamed_addr #28 {
 .lr.ph.preheader:
-  %4 = sub nsw i64 %1, %3
-  %5 = add nsw i64 %3, -1
-  %6 = getelementptr i8, ptr %2, i64 %5
-  %7 = load i8, ptr %6, align 1, !tbaa !195
-  %8 = getelementptr i8, ptr %0, i64 %5
+  %4 = add nsw i64 %3, -1
+  %5 = getelementptr i8, ptr %2, i64 %4
+  %6 = load i8, ptr %5, align 1, !tbaa !195
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %9 = and i8 %7, 63
+  %7 = sub nsw i64 %1, %3
+  %8 = getelementptr i8, ptr %0, i64 %4
+  %9 = and i8 %6, 63
   %10 = zext nneg i8 %9 to i64
   %11 = shl nuw i64 1, %10
   %12 = or i64 %45, %11
-  %.not133 = icmp slt i64 %4, 0
+  %.not133 = icmp slt i64 %7, 0
   br i1 %.not133, label %.thread, label %.lr.ph137.split.us.preheader
 
 .lr.ph137.split.us.preheader:                     ; preds = %._crit_edge
@@ -53243,7 +53243,7 @@ define internal fastcc i64 @asciilib_adaptive_find(ptr noundef %0, i64 noundef r
   %.0100134.us = phi i64 [ %.2102.us, %29 ], [ 0, %.lr.ph137.split.us.preheader ]
   %14 = getelementptr i8, ptr %8, i64 %.088135.us
   %15 = load i8, ptr %14, align 1, !tbaa !195
-  %16 = icmp eq i8 %15, %7
+  %16 = icmp eq i8 %15, %6
   br i1 %16, label %.preheader.us, label %29
 
 17:                                               ; preds = %.preheader.us, %37
@@ -53256,16 +53256,16 @@ define internal fastcc i64 @asciilib_adaptive_find(ptr noundef %0, i64 noundef r
   br i1 %.not113.us, label %37, label %._crit_edge129.us
 
 ._crit_edge129.us:                                ; preds = %17
-  %22 = icmp eq i64 %.0127.us, %5
+  %22 = icmp eq i64 %.0127.us, %4
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %._crit_edge129.us
   %24 = add i64 %.0100134.us, 1
   %25 = add i64 %24, %.0127.us
   %26 = icmp sgt i64 %25, %13
-  %27 = sub i64 %4, %.088135.us
+  %27 = sub i64 %7, %.088135.us
   %28 = icmp sgt i64 %27, 2000
-  %or.cond.us = select i1 %26, i1 %28, i1 false
+  %or.cond.us = and i1 %26, %28
   br i1 %or.cond.us, label %.split.us, label %29
 
 29:                                               ; preds = %23, %.lr.ph137.split.us
@@ -53281,12 +53281,12 @@ define internal fastcc i64 @asciilib_adaptive_find(ptr noundef %0, i64 noundef r
   %..0103.us = select i1 %.not114.us, i64 %3, i64 %.1104.lcssa.sink
   %.3.us = add i64 %.088135.us, 1
   %36 = add i64 %.3.us, %..0103.us
-  %.not.us = icmp sgt i64 %36, %4
+  %.not.us = icmp sgt i64 %36, %7
   br i1 %.not.us, label %.thread, label %.lr.ph137.split.us, !llvm.loop !569
 
 37:                                               ; preds = %17
   %38 = add nuw nsw i64 %.0127.us, 1
-  %exitcond161.not = icmp eq i64 %38, %5
+  %exitcond161.not = icmp eq i64 %38, %4
   br i1 %exitcond161.not, label %.thread, label %17, !llvm.loop !570
 
 .preheader.us:                                    ; preds = %.lr.ph137.split.us
@@ -53296,19 +53296,19 @@ define internal fastcc i64 @asciilib_adaptive_find(ptr noundef %0, i64 noundef r
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.090125 = phi i64 [ %49, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.091124 = phi i64 [ %45, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0103123 = phi i64 [ %.1104, %.lr.ph ], [ %5, %.lr.ph.preheader ]
+  %.0103123 = phi i64 [ %.1104, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %40 = getelementptr i8, ptr %2, i64 %.090125
   %41 = load i8, ptr %40, align 1, !tbaa !195
   %42 = and i8 %41, 63
   %43 = zext nneg i8 %42 to i64
   %44 = shl nuw i64 1, %43
   %45 = or i64 %44, %.091124
-  %46 = icmp eq i8 %41, %7
+  %46 = icmp eq i8 %41, %6
   %47 = xor i64 %.090125, -1
-  %48 = add nsw i64 %5, %47
+  %48 = add nsw i64 %4, %47
   %.1104 = select i1 %46, i64 %48, i64 %.0103123
   %49 = add nuw nsw i64 %.090125, 1
-  %exitcond.not = icmp eq i64 %49, %5
+  %exitcond.not = icmp eq i64 %49, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !571
 
 .split.us:                                        ; preds = %23
@@ -53739,19 +53739,19 @@ define internal fastcc i64 @ucs1lib_adaptive_find(ptr noundef %0, i64 noundef ra
 .lr.ph.preheader:
   %6 = alloca %struct.ucs1lib__pre, align 8
   %7 = alloca %struct.ucs1lib__pre, align 8
-  %8 = sub nsw i64 %1, %3
-  %9 = add nsw i64 %3, -1
-  %10 = getelementptr i8, ptr %2, i64 %9
-  %11 = load i8, ptr %10, align 1, !tbaa !195
-  %12 = getelementptr i8, ptr %0, i64 %9
+  %8 = add nsw i64 %3, -1
+  %9 = getelementptr i8, ptr %2, i64 %8
+  %10 = load i8, ptr %9, align 1, !tbaa !195
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %13 = and i8 %11, 63
+  %11 = sub nsw i64 %1, %3
+  %12 = getelementptr i8, ptr %0, i64 %8
+  %13 = and i8 %10, 63
   %14 = zext nneg i8 %13 to i64
   %15 = shl nuw i64 1, %14
   %16 = or i64 %52, %15
-  %.not137 = icmp slt i64 %8, 0
+  %.not137 = icmp slt i64 %11, 0
   br i1 %.not137, label %.loopexit, label %.lr.ph143.split.us.preheader
 
 .lr.ph143.split.us.preheader:                     ; preds = %._crit_edge
@@ -53765,7 +53765,7 @@ define internal fastcc i64 @ucs1lib_adaptive_find(ptr noundef %0, i64 noundef ra
   %.0100138.us = phi i64 [ %.2102.us, %42 ], [ 0, %.lr.ph143.split.us.preheader ]
   %18 = getelementptr i8, ptr %12, i64 %.088140.us
   %19 = load i8, ptr %18, align 1, !tbaa !195
-  %20 = icmp eq i8 %19, %11
+  %20 = icmp eq i8 %19, %10
   br i1 %20, label %.preheader.us, label %.sink.split
 
 21:                                               ; preds = %.preheader.us, %44
@@ -53778,16 +53778,16 @@ define internal fastcc i64 @ucs1lib_adaptive_find(ptr noundef %0, i64 noundef ra
   br i1 %.not113.us, label %44, label %._crit_edge133.us
 
 ._crit_edge133.us:                                ; preds = %21
-  %26 = icmp eq i64 %.0131.us, %9
+  %26 = icmp eq i64 %.0131.us, %8
   br i1 %26, label %._crit_edge133.us.thread, label %27
 
 27:                                               ; preds = %._crit_edge133.us
   %28 = add i64 %.0100138.us, 1
   %29 = add i64 %28, %.0131.us
   %30 = icmp sgt i64 %29, %17
-  %31 = sub i64 %8, %.088140.us
+  %31 = sub i64 %11, %.088140.us
   %32 = icmp sgt i64 %31, 2000
-  %or.cond.us = select i1 %30, i1 %32, i1 false
+  %or.cond.us = and i1 %30, %32
   br i1 %or.cond.us, label %.split.us, label %.sink.split
 
 ._crit_edge133.us.thread:                         ; preds = %44, %._crit_edge133.us
@@ -53814,15 +53814,15 @@ define internal fastcc i64 @ucs1lib_adaptive_find(ptr noundef %0, i64 noundef ra
 42:                                               ; preds = %.sink.split, %33
   %.2102.us = phi i64 [ %.0100138.us, %33 ], [ %.2102.us.ph, %.sink.split ]
   %.399.us = phi i64 [ %34, %33 ], [ %.096139.us, %.sink.split ]
-  %.pn.us = phi i64 [ %9, %33 ], [ %..0103.us, %.sink.split ]
+  %.pn.us = phi i64 [ %8, %33 ], [ %..0103.us, %.sink.split ]
   %.3.us = add i64 %.088140.us, 1
   %43 = add i64 %.3.us, %.pn.us
-  %.not.us = icmp sgt i64 %43, %8
+  %.not.us = icmp sgt i64 %43, %11
   br i1 %.not.us, label %.loopexit, label %.lr.ph143.split.us, !llvm.loop !577
 
 44:                                               ; preds = %21
   %45 = add nuw nsw i64 %.0131.us, 1
-  %exitcond216.not = icmp eq i64 %45, %9
+  %exitcond216.not = icmp eq i64 %45, %8
   br i1 %exitcond216.not, label %._crit_edge133.us.thread, label %21, !llvm.loop !578
 
 .preheader.us:                                    ; preds = %.lr.ph143.split.us
@@ -53832,19 +53832,19 @@ define internal fastcc i64 @ucs1lib_adaptive_find(ptr noundef %0, i64 noundef ra
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.090129 = phi i64 [ %56, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.091128 = phi i64 [ %52, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0103127 = phi i64 [ %.1104, %.lr.ph ], [ %9, %.lr.ph.preheader ]
+  %.0103127 = phi i64 [ %.1104, %.lr.ph ], [ %8, %.lr.ph.preheader ]
   %47 = getelementptr i8, ptr %2, i64 %.090129
   %48 = load i8, ptr %47, align 1, !tbaa !195
   %49 = and i8 %48, 63
   %50 = zext nneg i8 %49 to i64
   %51 = shl nuw i64 1, %50
   %52 = or i64 %51, %.091128
-  %53 = icmp eq i8 %48, %11
+  %53 = icmp eq i8 %48, %10
   %54 = xor i64 %.090129, -1
-  %55 = add nsw i64 %9, %54
+  %55 = add nsw i64 %8, %54
   %.1104 = select i1 %53, i64 %55, i64 %.0103127
   %56 = add nuw nsw i64 %.090129, 1
-  %exitcond.not = icmp eq i64 %56, %9
+  %exitcond.not = icmp eq i64 %56, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !579
 
 .split.us:                                        ; preds = %27
@@ -54926,19 +54926,19 @@ define internal fastcc i64 @ucs2lib_adaptive_find(ptr noundef %0, i64 noundef ra
 .lr.ph.preheader:
   %6 = alloca %struct.ucs2lib__pre, align 8
   %7 = alloca %struct.ucs2lib__pre, align 8
-  %8 = sub nsw i64 %1, %3
-  %9 = add nsw i64 %3, -1
-  %10 = getelementptr i16, ptr %2, i64 %9
-  %11 = load i16, ptr %10, align 2, !tbaa !199
-  %12 = getelementptr i16, ptr %0, i64 %9
+  %8 = add nsw i64 %3, -1
+  %9 = getelementptr i16, ptr %2, i64 %8
+  %10 = load i16, ptr %9, align 2, !tbaa !199
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %13 = and i16 %11, 63
+  %11 = sub nsw i64 %1, %3
+  %12 = getelementptr i16, ptr %0, i64 %8
+  %13 = and i16 %10, 63
   %14 = zext nneg i16 %13 to i64
   %15 = shl nuw i64 1, %14
   %16 = or i64 %52, %15
-  %.not137 = icmp slt i64 %8, 0
+  %.not137 = icmp slt i64 %11, 0
   br i1 %.not137, label %.loopexit, label %.lr.ph143.split.us.preheader
 
 .lr.ph143.split.us.preheader:                     ; preds = %._crit_edge
@@ -54952,7 +54952,7 @@ define internal fastcc i64 @ucs2lib_adaptive_find(ptr noundef %0, i64 noundef ra
   %.0100138.us = phi i64 [ %.2102.us, %42 ], [ 0, %.lr.ph143.split.us.preheader ]
   %18 = getelementptr i16, ptr %12, i64 %.088140.us
   %19 = load i16, ptr %18, align 2, !tbaa !199
-  %20 = icmp eq i16 %19, %11
+  %20 = icmp eq i16 %19, %10
   br i1 %20, label %.preheader.us, label %.sink.split
 
 21:                                               ; preds = %.preheader.us, %44
@@ -54965,16 +54965,16 @@ define internal fastcc i64 @ucs2lib_adaptive_find(ptr noundef %0, i64 noundef ra
   br i1 %.not113.us, label %44, label %._crit_edge133.us
 
 ._crit_edge133.us:                                ; preds = %21
-  %26 = icmp eq i64 %.0131.us, %9
+  %26 = icmp eq i64 %.0131.us, %8
   br i1 %26, label %._crit_edge133.us.thread, label %27
 
 27:                                               ; preds = %._crit_edge133.us
   %28 = add i64 %.0100138.us, 1
   %29 = add i64 %28, %.0131.us
   %30 = icmp sgt i64 %29, %17
-  %31 = sub i64 %8, %.088140.us
+  %31 = sub i64 %11, %.088140.us
   %32 = icmp sgt i64 %31, 2000
-  %or.cond.us = select i1 %30, i1 %32, i1 false
+  %or.cond.us = and i1 %30, %32
   br i1 %or.cond.us, label %.split.us, label %.sink.split
 
 ._crit_edge133.us.thread:                         ; preds = %44, %._crit_edge133.us
@@ -55001,15 +55001,15 @@ define internal fastcc i64 @ucs2lib_adaptive_find(ptr noundef %0, i64 noundef ra
 42:                                               ; preds = %.sink.split, %33
   %.2102.us = phi i64 [ %.0100138.us, %33 ], [ %.2102.us.ph, %.sink.split ]
   %.399.us = phi i64 [ %34, %33 ], [ %.096139.us, %.sink.split ]
-  %.pn.us = phi i64 [ %9, %33 ], [ %..0103.us, %.sink.split ]
+  %.pn.us = phi i64 [ %8, %33 ], [ %..0103.us, %.sink.split ]
   %.3.us = add i64 %.088140.us, 1
   %43 = add i64 %.3.us, %.pn.us
-  %.not.us = icmp sgt i64 %43, %8
+  %.not.us = icmp sgt i64 %43, %11
   br i1 %.not.us, label %.loopexit, label %.lr.ph143.split.us, !llvm.loop !602
 
 44:                                               ; preds = %21
   %45 = add nuw nsw i64 %.0131.us, 1
-  %exitcond216.not = icmp eq i64 %45, %9
+  %exitcond216.not = icmp eq i64 %45, %8
   br i1 %exitcond216.not, label %._crit_edge133.us.thread, label %21, !llvm.loop !603
 
 .preheader.us:                                    ; preds = %.lr.ph143.split.us
@@ -55019,19 +55019,19 @@ define internal fastcc i64 @ucs2lib_adaptive_find(ptr noundef %0, i64 noundef ra
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.090129 = phi i64 [ %56, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.091128 = phi i64 [ %52, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0103127 = phi i64 [ %.1104, %.lr.ph ], [ %9, %.lr.ph.preheader ]
+  %.0103127 = phi i64 [ %.1104, %.lr.ph ], [ %8, %.lr.ph.preheader ]
   %47 = getelementptr i16, ptr %2, i64 %.090129
   %48 = load i16, ptr %47, align 2, !tbaa !199
   %49 = and i16 %48, 63
   %50 = zext nneg i16 %49 to i64
   %51 = shl nuw i64 1, %50
   %52 = or i64 %51, %.091128
-  %53 = icmp eq i16 %48, %11
+  %53 = icmp eq i16 %48, %10
   %54 = xor i64 %.090129, -1
-  %55 = add nsw i64 %9, %54
+  %55 = add nsw i64 %8, %54
   %.1104 = select i1 %53, i64 %55, i64 %.0103127
   %56 = add nuw nsw i64 %.090129, 1
-  %exitcond.not = icmp eq i64 %56, %9
+  %exitcond.not = icmp eq i64 %56, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !604
 
 .split.us:                                        ; preds = %27
@@ -56048,19 +56048,19 @@ define internal fastcc i64 @ucs4lib_adaptive_find(ptr noundef %0, i64 noundef ra
 .lr.ph.preheader:
   %6 = alloca %struct.ucs4lib__pre, align 8
   %7 = alloca %struct.ucs4lib__pre, align 8
-  %8 = sub nsw i64 %1, %3
-  %9 = add nsw i64 %3, -1
-  %10 = getelementptr i32, ptr %2, i64 %9
-  %11 = load i32, ptr %10, align 4, !tbaa !200
-  %12 = getelementptr i32, ptr %0, i64 %9
+  %8 = add nsw i64 %3, -1
+  %9 = getelementptr i32, ptr %2, i64 %8
+  %10 = load i32, ptr %9, align 4, !tbaa !200
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %13 = and i32 %11, 63
+  %11 = sub nsw i64 %1, %3
+  %12 = getelementptr i32, ptr %0, i64 %8
+  %13 = and i32 %10, 63
   %14 = zext nneg i32 %13 to i64
   %15 = shl nuw i64 1, %14
   %16 = or i64 %52, %15
-  %.not137 = icmp slt i64 %8, 0
+  %.not137 = icmp slt i64 %11, 0
   br i1 %.not137, label %.loopexit, label %.lr.ph143.split.us.preheader
 
 .lr.ph143.split.us.preheader:                     ; preds = %._crit_edge
@@ -56074,7 +56074,7 @@ define internal fastcc i64 @ucs4lib_adaptive_find(ptr noundef %0, i64 noundef ra
   %.0100138.us = phi i64 [ %.2102.us, %42 ], [ 0, %.lr.ph143.split.us.preheader ]
   %18 = getelementptr i32, ptr %12, i64 %.088140.us
   %19 = load i32, ptr %18, align 4, !tbaa !200
-  %20 = icmp eq i32 %19, %11
+  %20 = icmp eq i32 %19, %10
   br i1 %20, label %.preheader.us, label %.sink.split
 
 21:                                               ; preds = %.preheader.us, %44
@@ -56087,16 +56087,16 @@ define internal fastcc i64 @ucs4lib_adaptive_find(ptr noundef %0, i64 noundef ra
   br i1 %.not113.us, label %44, label %._crit_edge133.us
 
 ._crit_edge133.us:                                ; preds = %21
-  %26 = icmp eq i64 %.0131.us, %9
+  %26 = icmp eq i64 %.0131.us, %8
   br i1 %26, label %._crit_edge133.us.thread, label %27
 
 27:                                               ; preds = %._crit_edge133.us
   %28 = add i64 %.0100138.us, 1
   %29 = add i64 %28, %.0131.us
   %30 = icmp sgt i64 %29, %17
-  %31 = sub i64 %8, %.088140.us
+  %31 = sub i64 %11, %.088140.us
   %32 = icmp sgt i64 %31, 2000
-  %or.cond.us = select i1 %30, i1 %32, i1 false
+  %or.cond.us = and i1 %30, %32
   br i1 %or.cond.us, label %.split.us, label %.sink.split
 
 ._crit_edge133.us.thread:                         ; preds = %44, %._crit_edge133.us
@@ -56123,15 +56123,15 @@ define internal fastcc i64 @ucs4lib_adaptive_find(ptr noundef %0, i64 noundef ra
 42:                                               ; preds = %.sink.split, %33
   %.2102.us = phi i64 [ %.0100138.us, %33 ], [ %.2102.us.ph, %.sink.split ]
   %.399.us = phi i64 [ %34, %33 ], [ %.096139.us, %.sink.split ]
-  %.pn.us = phi i64 [ %9, %33 ], [ %..0103.us, %.sink.split ]
+  %.pn.us = phi i64 [ %8, %33 ], [ %..0103.us, %.sink.split ]
   %.3.us = add i64 %.088140.us, 1
   %43 = add i64 %.3.us, %.pn.us
-  %.not.us = icmp sgt i64 %43, %8
+  %.not.us = icmp sgt i64 %43, %11
   br i1 %.not.us, label %.loopexit, label %.lr.ph143.split.us, !llvm.loop !628
 
 44:                                               ; preds = %21
   %45 = add nuw nsw i64 %.0131.us, 1
-  %exitcond216.not = icmp eq i64 %45, %9
+  %exitcond216.not = icmp eq i64 %45, %8
   br i1 %exitcond216.not, label %._crit_edge133.us.thread, label %21, !llvm.loop !629
 
 .preheader.us:                                    ; preds = %.lr.ph143.split.us
@@ -56141,19 +56141,19 @@ define internal fastcc i64 @ucs4lib_adaptive_find(ptr noundef %0, i64 noundef ra
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.090129 = phi i64 [ %56, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.091128 = phi i64 [ %52, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0103127 = phi i64 [ %.1104, %.lr.ph ], [ %9, %.lr.ph.preheader ]
+  %.0103127 = phi i64 [ %.1104, %.lr.ph ], [ %8, %.lr.ph.preheader ]
   %47 = getelementptr i32, ptr %2, i64 %.090129
   %48 = load i32, ptr %47, align 4, !tbaa !200
   %49 = and i32 %48, 63
   %50 = zext nneg i32 %49 to i64
   %51 = shl nuw i64 1, %50
   %52 = or i64 %51, %.091128
-  %53 = icmp eq i32 %48, %11
+  %53 = icmp eq i32 %48, %10
   %54 = xor i64 %.090129, -1
-  %55 = add nsw i64 %9, %54
+  %55 = add nsw i64 %8, %54
   %.1104 = select i1 %53, i64 %55, i64 %.0103127
   %56 = add nuw nsw i64 %.090129, 1
-  %exitcond.not = icmp eq i64 %56, %9
+  %exitcond.not = icmp eq i64 %56, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !630
 
 .split.us:                                        ; preds = %27

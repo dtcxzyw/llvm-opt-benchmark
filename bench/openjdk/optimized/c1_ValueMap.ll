@@ -294,10 +294,10 @@ _ZN13GrowableArrayIP13ValueMapEntryEC2EiiRKS1_.exit: ; preds = %1
   %16 = add i32 %.096, %.sroa.057.2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %18, %.loopexit.loopexit, %.preheader
-  %.sroa.18.1.lcssa108 = phi ptr [ %.sroa.18.2, %.preheader ], [ %.sroa.18.2, %.loopexit.loopexit ], [ %.sroa.18.095, %18 ]
-  %.sroa.11.1.lcssa107 = phi i32 [ %.sroa.11.2, %.preheader ], [ %.sroa.11.2, %.loopexit.loopexit ], [ %.sroa.11.094, %18 ]
-  %.1.lcssa = phi i32 [ %.096, %.preheader ], [ %16, %.loopexit.loopexit ], [ %.096, %18 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %18, %.preheader
+  %.sroa.18.1.lcssa108 = phi ptr [ %.sroa.18.2, %.preheader ], [ %.sroa.18.095, %18 ], [ %.sroa.18.2, %.loopexit.loopexit ]
+  %.sroa.11.1.lcssa107 = phi i32 [ %.sroa.11.2, %.preheader ], [ %.sroa.11.094, %18 ], [ %.sroa.11.2, %.loopexit.loopexit ]
+  %.1.lcssa = phi i32 [ %.096, %.preheader ], [ %.096, %18 ], [ %16, %.loopexit.loopexit ]
   %17 = icmp sgt i64 %indvars.iv101, 1
   br i1 %17, label %18, label %_ZN13GrowableArrayIP13ValueMapEntryED2Ev.exit20, !llvm.loop !8
 

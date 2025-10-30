@@ -260,70 +260,70 @@ define void @ff_h264_direct_ref_list_init(ptr noundef readonly captures(none) %0
   %9 = xor i32 %8, 1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 25388
   %11 = load i32, ptr %10, align 4, !tbaa !83
-  %12 = and i32 %11, 1
-  %13 = xor i32 %12, 1
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 22656
-  %15 = load i32, ptr %14, align 16, !tbaa !84
-  %.not177 = icmp eq i32 %15, 0
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 22656
+  %13 = load i32, ptr %12, align 16, !tbaa !84
+  %.not177 = icmp eq i32 %13, 0
   br i1 %.not177, label %._crit_edge132, label %.lr.ph131
 
 .lr.ph131:                                        ; preds = %2
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 22648
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 676
-  %18 = zext nneg i32 %9 to i64
-  %19 = getelementptr inbounds nuw [2 x i32], ptr %17, i64 %18
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 164
-  %21 = getelementptr inbounds nuw [2 x [32 x i32]], ptr %20, i64 %18
-  br label %22
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 22648
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 676
+  %16 = zext nneg i32 %9 to i64
+  %17 = getelementptr inbounds nuw [2 x i32], ptr %15, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 164
+  %19 = getelementptr inbounds nuw [2 x [32 x i32]], ptr %18, i64 %16
+  br label %20
 
-22:                                               ; preds = %.lr.ph131, %._crit_edge
+20:                                               ; preds = %.lr.ph131, %._crit_edge
   %indvars.iv200 = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next201, %._crit_edge ]
-  %23 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv200
-  %24 = load i32, ptr %23, align 4, !tbaa !65
-  %25 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv200
-  store i32 %24, ptr %25, align 4, !tbaa !65
-  %.not178 = icmp eq i32 %24, 0
+  %21 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv200
+  %22 = load i32, ptr %21, align 4, !tbaa !65
+  %23 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv200
+  store i32 %22, ptr %23, align 4, !tbaa !65
+  %.not178 = icmp eq i32 %22, 0
   br i1 %.not178, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %22
-  %26 = getelementptr inbounds nuw [48 x %struct.H264Ref], ptr %3, i64 %indvars.iv200
-  %27 = getelementptr inbounds nuw [32 x i32], ptr %21, i64 %indvars.iv200
-  br label %28
+.lr.ph:                                           ; preds = %20
+  %24 = getelementptr inbounds nuw [48 x %struct.H264Ref], ptr %3, i64 %indvars.iv200
+  %25 = getelementptr inbounds nuw [32 x i32], ptr %19, i64 %indvars.iv200
+  br label %26
 
-28:                                               ; preds = %.lr.ph, %28
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw %struct.H264Ref, ptr %26, i64 %indvars.iv
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %31 = load ptr, ptr %30, align 8, !tbaa !69
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 148
-  %33 = load i32, ptr %32, align 4, !tbaa !85
-  %34 = shl nsw i32 %33, 2
-  %35 = getelementptr inbounds nuw i8, ptr %29, i64 36
-  %36 = load i32, ptr %35, align 4, !tbaa !83
-  %37 = and i32 %36, 3
-  %38 = or disjoint i32 %37, %34
-  %39 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
-  store i32 %38, ptr %39, align 4, !tbaa !65
+26:                                               ; preds = %.lr.ph, %26
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
+  %27 = getelementptr inbounds nuw %struct.H264Ref, ptr %24, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %29 = load ptr, ptr %28, align 8, !tbaa !69
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 148
+  %31 = load i32, ptr %30, align 4, !tbaa !85
+  %32 = shl nsw i32 %31, 2
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 36
+  %34 = load i32, ptr %33, align 4, !tbaa !83
+  %35 = and i32 %34, 3
+  %36 = or disjoint i32 %35, %32
+  %37 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  store i32 %36, ptr %37, align 4, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = load i32, ptr %23, align 4, !tbaa !65
-  %41 = zext i32 %40 to i64
-  %42 = icmp samesign ult i64 %indvars.iv.next, %41
-  br i1 %42, label %28, label %._crit_edge, !llvm.loop !86
+  %38 = load i32, ptr %21, align 4, !tbaa !65
+  %39 = zext i32 %38 to i64
+  %40 = icmp samesign ult i64 %indvars.iv.next, %39
+  br i1 %40, label %26, label %._crit_edge, !llvm.loop !86
 
-._crit_edge:                                      ; preds = %28, %22
+._crit_edge:                                      ; preds = %26, %20
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %43 = load i32, ptr %14, align 16, !tbaa !84
-  %44 = zext i32 %43 to i64
-  %45 = icmp samesign ult i64 %indvars.iv.next201, %44
-  br i1 %45, label %22, label %._crit_edge132.loopexit, !llvm.loop !87
+  %41 = load i32, ptr %12, align 16, !tbaa !84
+  %42 = zext i32 %41 to i64
+  %43 = icmp samesign ult i64 %indvars.iv.next201, %42
+  br i1 %43, label %20, label %._crit_edge132.loopexit, !llvm.loop !87
 
 ._crit_edge132.loopexit:                          ; preds = %._crit_edge
   %.pre = load i32, ptr %6, align 4, !tbaa !4
   br label %._crit_edge132
 
 ._crit_edge132:                                   ; preds = %._crit_edge132.loopexit, %2
-  %46 = phi i32 [ %.pre, %._crit_edge132.loopexit ], [ %7, %2 ]
-  %47 = icmp eq i32 %46, 3
+  %44 = phi i32 [ %.pre, %._crit_edge132.loopexit ], [ %7, %2 ]
+  %45 = and i32 %11, 1
+  %46 = xor i32 %45, 1
+  %47 = icmp eq i32 %44, 3
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %._crit_edge132
@@ -365,7 +365,7 @@ define void @ff_h264_direct_ref_list_init(ptr noundef readonly captures(none) %0
 69:                                               ; preds = %62, %58
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 21096
   store i32 0, ptr %70, align 8, !tbaa !90
-  %71 = load i32, ptr %14, align 16, !tbaa !84
+  %71 = load i32, ptr %12, align 16, !tbaa !84
   %.not = icmp eq i32 %71, 2
   br i1 %.not, label %72, label %.loopexit123
 
@@ -439,7 +439,7 @@ define void @ff_h264_direct_ref_list_init(ptr noundef readonly captures(none) %0
 
 115:                                              ; preds = %87, %._crit_edge209, %104, %107, %112
   %.086 = phi i32 [ %9, %104 ], [ %9, %107 ], [ %9, %112 ], [ %102, %._crit_edge209 ], [ 1, %87 ]
-  %.085 = phi i32 [ %13, %104 ], [ %13, %107 ], [ %13, %112 ], [ %102, %._crit_edge209 ], [ 1, %87 ]
+  %.085 = phi i32 [ %46, %104 ], [ %46, %107 ], [ %46, %112 ], [ %102, %._crit_edge209 ], [ 1, %87 ]
   %.086.fr = freeze i32 %.086
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %117 = load i32, ptr %116, align 8, !tbaa !93

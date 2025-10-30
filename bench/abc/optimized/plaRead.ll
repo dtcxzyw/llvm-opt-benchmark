@@ -989,9 +989,9 @@ Vec_WrdFillExtra.exit74:                          ; preds = %Vec_WrdFillExtra.ex
   %139 = sext i32 %.04781.us.us to i64
   br label %154
 
-.critedge2.us.us:                                 ; preds = %.critedge2.us.us.preheader, %.critedge2.us.us
-  %indvars.iv122 = phi i64 [ %171, %.critedge2.us.us.preheader ], [ %indvars.iv.next123, %.critedge2.us.us ]
-  %.14977.us.us = phi i32 [ 0, %.critedge2.us.us.preheader ], [ %153, %.critedge2.us.us ]
+.critedge2.us.us:                                 ; preds = %..critedge2.preheader_crit_edge.us.us, %.critedge2.us.us
+  %indvars.iv122 = phi i64 [ %171, %..critedge2.preheader_crit_edge.us.us ], [ %indvars.iv.next123, %.critedge2.us.us ]
+  %.14977.us.us = phi i32 [ 0, %..critedge2.preheader_crit_edge.us.us ], [ %153, %.critedge2.us.us ]
   %140 = lshr i32 %.14977.us.us, 5
   %141 = zext nneg i32 %140 to i64
   %142 = getelementptr inbounds nuw i64, ptr %170, i64 %141
@@ -1033,9 +1033,9 @@ Vec_WrdFillExtra.exit74:                          ; preds = %Vec_WrdFillExtra.ex
   store i64 %167, ptr %157, align 8, !tbaa !38
   %168 = add nuw nsw i32 %.04875.us.us, 1
   %exitcond119.not = icmp eq i32 %168, %129
-  br i1 %exitcond119.not, label %.critedge2.us.us.preheader, label %154, !llvm.loop !42
+  br i1 %exitcond119.not, label %..critedge2.preheader_crit_edge.us.us, label %154, !llvm.loop !42
 
-.critedge2.us.us.preheader:                       ; preds = %154
+..critedge2.preheader_crit_edge.us.us:            ; preds = %154
   %169 = mul nsw i64 %indvars.iv126, %136
   %170 = getelementptr inbounds i64, ptr %.val58, i64 %169
   %171 = sext i32 %indvars.iv120 to i64

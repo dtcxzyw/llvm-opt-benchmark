@@ -455,9 +455,9 @@ define internal i32 @qdm2_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 51368
-  %indvars.iv.i.sroa.gep121.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 51440
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %indvars.iv.i.sroa.gep121.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   %65 = getelementptr inbounds nuw i8, ptr %13, i64 51364
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 41344
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 51384

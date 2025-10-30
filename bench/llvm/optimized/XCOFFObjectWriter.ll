@@ -3432,31 +3432,31 @@ _ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_E
   unreachable
 
 471:                                              ; preds = %468
-  %472 = add nsw i32 %.0131348.i, 1
-  %473 = trunc i32 %.0131348.i to i16
-  %474 = getelementptr inbounds nuw i8, ptr %354, i64 56
-  store i16 %473, ptr %474, align 8, !tbaa !138
-  %475 = load i16, ptr %326, align 8, !tbaa !108
-  %476 = add i16 %475, 1
-  store i16 %476, ptr %326, align 8, !tbaa !108
-  %477 = getelementptr inbounds nuw i8, ptr %354, i64 52
-  %478 = load i32, ptr %477, align 4, !tbaa !137
-  %479 = icmp eq i32 %478, 1024
-  %spec.select149.i = select i1 %479, i1 true, i1 %.0135346.i
-  %spec.select150.i = select i1 %479, i64 0, i64 %.0121350.i
-  %480 = icmp ne i32 %478, 2048
-  %or.cond.i = select i1 %480, i1 true, i1 %.0135346.i
+  %472 = trunc i32 %.0131348.i to i16
+  %473 = getelementptr inbounds nuw i8, ptr %354, i64 56
+  store i16 %472, ptr %473, align 8, !tbaa !138
+  %474 = load i16, ptr %326, align 8, !tbaa !108
+  %475 = add i16 %474, 1
+  store i16 %475, ptr %326, align 8, !tbaa !108
+  %476 = getelementptr inbounds nuw i8, ptr %354, i64 52
+  %477 = load i32, ptr %476, align 4, !tbaa !137
+  %478 = icmp eq i32 %477, 1024
+  %spec.select149.i = select i1 %478, i1 true, i1 %.0135346.i
+  %spec.select150.i = select i1 %478, i64 0, i64 %.0121350.i
+  %479 = icmp ne i32 %477, 2048
+  %or.cond.i = select i1 %479, i1 true, i1 %.0135346.i
   %.3124.i = select i1 %or.cond.i, i64 %spec.select150.i, i64 0
   %.not280333.i = icmp eq ptr %356, %362
   br i1 %.not280333.i, label %._crit_edge342.i, label %.lr.ph341.i
 
 .lr.ph341.i:                                      ; preds = %471
-  %481 = getelementptr inbounds nuw i8, ptr %354, i64 16
+  %480 = getelementptr inbounds nuw i8, ptr %354, i64 16
   br label %491
 
 ._crit_edge342.i:                                 ; preds = %_ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_EppEv.exit.i, %471
   %.4125.lcssa.i = phi i64 [ %.3124.i, %471 ], [ %.5126.i, %_ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_EppEv.exit.i ]
   %.4.lcssa.i = phi i32 [ %.2352.i, %471 ], [ %.5.i, %_ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_EppEv.exit.i ]
+  %481 = add nsw i32 %.0131348.i, 1
   %482 = icmp ne i64 %.4125.lcssa.i, 0
   %.neg.i = sext i1 %482 to i64
   %483 = add i64 %.4125.lcssa.i, %.neg.i
@@ -4147,7 +4147,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolEjNS_12DenseMapInfoIS4_vEENS_6
   %798 = load ptr, ptr %493, align 8, !tbaa !204, !noalias !450
   %799 = getelementptr inbounds nuw i8, ptr %798, i64 16
   %800 = load i64, ptr %799, align 8, !tbaa !313
-  store i64 %800, ptr %481, align 8, !tbaa !433
+  store i64 %800, ptr %480, align 8, !tbaa !433
   br label %801
 
 801:                                              ; preds = %797, %501, %491
@@ -4173,7 +4173,7 @@ _ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_E
 
 "_ZN4llvm6all_ofIRSt5dequeIPS1_IN12_GLOBAL__N_112XCOFFSectionESaIS3_EESaIS6_EEZNS2_11XCOFFWriter25assignAddressesAndIndicesERNS_11MCAssemblerEE3$_0EEbOT_T0_.exit.thread.i": ; preds = %._crit_edge342.i, %"_ZN4llvm6all_ofIRSt5dequeIPS1_IN12_GLOBAL__N_112XCOFFSectionESaIS3_EESaIS6_EEZNS2_11XCOFFWriter25assignAddressesAndIndicesERNS_11MCAssemblerEE3$_0EEbOT_T0_.exit.i", %_ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_EppEv.exit20.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
   %.1136.i = phi i1 [ %spec.select149.i, %._crit_edge342.i ], [ %.0135346.i, %"_ZN4llvm6all_ofIRSt5dequeIPS1_IN12_GLOBAL__N_112XCOFFSectionESaIS3_EESaIS6_EEZNS2_11XCOFFWriter25assignAddressesAndIndicesERNS_11MCAssemblerEE3$_0EEbOT_T0_.exit.i" ], [ %.0135346.i, %._crit_edge.i.i.i.i.i.i ], [ %.0135346.i, %_ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_EppEv.exit20.i.i.i.i.i.i ]
-  %.1132.i = phi i32 [ %472, %._crit_edge342.i ], [ %.0131348.i, %"_ZN4llvm6all_ofIRSt5dequeIPS1_IN12_GLOBAL__N_112XCOFFSectionESaIS3_EESaIS6_EEZNS2_11XCOFFWriter25assignAddressesAndIndicesERNS_11MCAssemblerEE3$_0EEbOT_T0_.exit.i" ], [ %.0131348.i, %._crit_edge.i.i.i.i.i.i ], [ %.0131348.i, %_ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_EppEv.exit20.i.i.i.i.i.i ]
+  %.1132.i = phi i32 [ %481, %._crit_edge342.i ], [ %.0131348.i, %"_ZN4llvm6all_ofIRSt5dequeIPS1_IN12_GLOBAL__N_112XCOFFSectionESaIS3_EESaIS6_EEZNS2_11XCOFFWriter25assignAddressesAndIndicesERNS_11MCAssemblerEE3$_0EEbOT_T0_.exit.i" ], [ %.0131348.i, %._crit_edge.i.i.i.i.i.i ], [ %.0131348.i, %_ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_EppEv.exit20.i.i.i.i.i.i ]
   %.1122.i = phi i64 [ %486, %._crit_edge342.i ], [ %.0121350.i, %"_ZN4llvm6all_ofIRSt5dequeIPS1_IN12_GLOBAL__N_112XCOFFSectionESaIS3_EESaIS6_EEZNS2_11XCOFFWriter25assignAddressesAndIndicesERNS_11MCAssemblerEE3$_0EEbOT_T0_.exit.i" ], [ %.0121350.i, %._crit_edge.i.i.i.i.i.i ], [ %.0121350.i, %_ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_EppEv.exit20.i.i.i.i.i.i ]
   %.3.i = phi i32 [ %.4.lcssa.i, %._crit_edge342.i ], [ %.2352.i, %"_ZN4llvm6all_ofIRSt5dequeIPS1_IN12_GLOBAL__N_112XCOFFSectionESaIS3_EESaIS6_EEZNS2_11XCOFFWriter25assignAddressesAndIndicesERNS_11MCAssemblerEE3$_0EEbOT_T0_.exit.i" ], [ %.2352.i, %._crit_edge.i.i.i.i.i.i ], [ %.2352.i, %_ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_EppEv.exit20.i.i.i.i.i.i ]
   %.0138.add.i = add nuw nsw i64 %.0138.idx345.i, 8

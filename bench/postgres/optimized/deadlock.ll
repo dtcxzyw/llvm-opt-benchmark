@@ -765,95 +765,95 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   br i1 %136, label %.loopexit.i, label %.preheader158.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph201.i.i, %._crit_edge196.i.i
-  %137 = icmp slt i32 %173, 0
-  br i1 %137, label %.loopexit.i, label %.preheader158.i.i, !llvm.loop !16
+  %137 = sub i32 %.2127203.i.i, %.1.i.i
+  %138 = icmp slt i32 %137, 0
+  br i1 %138, label %.loopexit.i, label %.preheader158.i.i, !llvm.loop !16
 
 .preheader158.i.i:                                ; preds = %._crit_edge186.i.i, %.loopexit.i.i
-  %.2127203.i.i = phi i32 [ %173, %.loopexit.i.i ], [ %86, %._crit_edge186.i.i ]
+  %.2127203.i.i = phi i32 [ %137, %.loopexit.i.i ], [ %86, %._crit_edge186.i.i ]
   %.0138202.i.i = phi i32 [ %.1139.i.i, %.loopexit.i.i ], [ %86, %._crit_edge186.i.i ]
-  br label %138
+  br label %139
 
-138:                                              ; preds = %138, %.preheader158.i.i
-  %.1139.i.i = phi i32 [ %143, %138 ], [ %.0138202.i.i, %.preheader158.i.i ]
-  %139 = sext i32 %.1139.i.i to i64
-  %140 = getelementptr inbounds ptr, ptr %18, i64 %139
-  %141 = load ptr, ptr %140, align 8
-  %142 = icmp eq ptr %141, null
-  %143 = add i32 %.1139.i.i, -1
-  br i1 %142, label %138, label %.preheader.i.i, !llvm.loop !17
+139:                                              ; preds = %139, %.preheader158.i.i
+  %.1139.i.i = phi i32 [ %144, %139 ], [ %.0138202.i.i, %.preheader158.i.i ]
+  %140 = sext i32 %.1139.i.i to i64
+  %141 = getelementptr inbounds ptr, ptr %18, i64 %140
+  %142 = load ptr, ptr %141, align 8
+  %143 = icmp eq ptr %142, null
+  %144 = add i32 %.1139.i.i, -1
+  br i1 %143, label %139, label %.preheader.i.i, !llvm.loop !17
 
-.preheader.i.i:                                   ; preds = %138
-  %144 = icmp sgt i32 %.1139.i.i, -1
-  br i1 %144, label %.lr.ph188.preheader.i.i, label %ExpandConstraints.exit.thread
+.preheader.i.i:                                   ; preds = %139
+  %145 = icmp sgt i32 %.1139.i.i, -1
+  br i1 %145, label %.lr.ph188.preheader.i.i, label %ExpandConstraints.exit.thread
 
 .lr.ph188.preheader.i.i:                          ; preds = %.preheader.i.i
-  %145 = zext nneg i32 %.1139.i.i to i64
+  %146 = zext nneg i32 %.1139.i.i to i64
   br label %.lr.ph188.i.i
 
-.lr.ph188.i.i:                                    ; preds = %152, %.lr.ph188.preheader.i.i
-  %indvars.iv219.i.i = phi i64 [ %145, %.lr.ph188.preheader.i.i ], [ %indvars.iv.next220.i.i, %152 ]
-  %146 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv219.i.i
-  %147 = load ptr, ptr %146, align 8
-  %.not152.i.i = icmp eq ptr %147, null
-  br i1 %.not152.i.i, label %152, label %148
+.lr.ph188.i.i:                                    ; preds = %153, %.lr.ph188.preheader.i.i
+  %indvars.iv219.i.i = phi i64 [ %146, %.lr.ph188.preheader.i.i ], [ %indvars.iv.next220.i.i, %153 ]
+  %147 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv219.i.i
+  %148 = load ptr, ptr %147, align 8
+  %.not152.i.i = icmp eq ptr %148, null
+  br i1 %.not152.i.i, label %153, label %149
 
-148:                                              ; preds = %.lr.ph188.i.i
-  %149 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv219.i.i
-  %150 = load i32, ptr %149, align 4
-  %151 = icmp eq i32 %150, 0
-  br i1 %151, label %.lr.ph195.preheader.i.i, label %152
+149:                                              ; preds = %.lr.ph188.i.i
+  %150 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv219.i.i
+  %151 = load i32, ptr %150, align 4
+  %152 = icmp eq i32 %151, 0
+  br i1 %152, label %.lr.ph195.preheader.i.i, label %153
 
-152:                                              ; preds = %148, %.lr.ph188.i.i
+153:                                              ; preds = %149, %.lr.ph188.i.i
   %indvars.iv.next220.i.i = add nsw i64 %indvars.iv219.i.i, -1
-  %153 = icmp sgt i64 %indvars.iv219.i.i, 0
-  br i1 %153, label %.lr.ph188.i.i, label %ExpandConstraints.exit.thread, !llvm.loop !18
+  %154 = icmp sgt i64 %indvars.iv219.i.i, 0
+  br i1 %154, label %.lr.ph188.i.i, label %ExpandConstraints.exit.thread, !llvm.loop !18
 
-.lr.ph195.preheader.i.i:                          ; preds = %148
-  %154 = and i64 %indvars.iv219.i.i, 4294967295
-  %155 = getelementptr inbounds nuw ptr, ptr %18, i64 %154
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 792
-  %158 = load ptr, ptr %157, align 8
-  %.not153.i.i = icmp eq ptr %158, null
-  %spec.select.i.i = select i1 %.not153.i.i, ptr %156, ptr %158
+.lr.ph195.preheader.i.i:                          ; preds = %149
+  %155 = and i64 %indvars.iv219.i.i, 4294967295
+  %156 = getelementptr inbounds nuw ptr, ptr %18, i64 %155
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 792
+  %159 = load ptr, ptr %158, align 8
+  %.not153.i.i = icmp eq ptr %159, null
+  %spec.select.i.i = select i1 %.not153.i.i, ptr %157, ptr %159
   br label %.lr.ph195.i.i
 
-.lr.ph195.i.i:                                    ; preds = %172, %.lr.ph195.preheader.i.i
-  %indvars.iv222.i.i = phi i64 [ 0, %.lr.ph195.preheader.i.i ], [ %indvars.iv.next223.i.i, %172 ]
-  %.0120193.i.i = phi i32 [ 0, %.lr.ph195.preheader.i.i ], [ %.1.i.i, %172 ]
-  %159 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv222.i.i
-  %160 = load ptr, ptr %159, align 8
-  %161 = icmp eq ptr %160, %spec.select.i.i
-  br i1 %161, label %167, label %162
+.lr.ph195.i.i:                                    ; preds = %173, %.lr.ph195.preheader.i.i
+  %indvars.iv222.i.i = phi i64 [ 0, %.lr.ph195.preheader.i.i ], [ %indvars.iv.next223.i.i, %173 ]
+  %.0120193.i.i = phi i32 [ 0, %.lr.ph195.preheader.i.i ], [ %.1.i.i, %173 ]
+  %160 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv222.i.i
+  %161 = load ptr, ptr %160, align 8
+  %162 = icmp eq ptr %161, %spec.select.i.i
+  br i1 %162, label %168, label %163
 
-162:                                              ; preds = %.lr.ph195.i.i
-  %.not155.i.i = icmp eq ptr %160, null
-  br i1 %.not155.i.i, label %172, label %163
+163:                                              ; preds = %.lr.ph195.i.i
+  %.not155.i.i = icmp eq ptr %161, null
+  br i1 %.not155.i.i, label %173, label %164
 
-163:                                              ; preds = %162
-  %164 = getelementptr inbounds nuw i8, ptr %160, i64 792
-  %165 = load ptr, ptr %164, align 8
-  %166 = icmp eq ptr %165, %spec.select.i.i
-  br i1 %166, label %167, label %172
+164:                                              ; preds = %163
+  %165 = getelementptr inbounds nuw i8, ptr %161, i64 792
+  %166 = load ptr, ptr %165, align 8
+  %167 = icmp eq ptr %166, %spec.select.i.i
+  br i1 %167, label %168, label %173
 
-167:                                              ; preds = %163, %.lr.ph195.i.i
-  %168 = sub i32 %.2127203.i.i, %.0120193.i.i
-  %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds ptr, ptr %51, i64 %169
-  store ptr %160, ptr %170, align 8
-  store ptr null, ptr %159, align 8
-  %171 = add i32 %.0120193.i.i, 1
-  br label %172
+168:                                              ; preds = %164, %.lr.ph195.i.i
+  %169 = sub i32 %.2127203.i.i, %.0120193.i.i
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds ptr, ptr %51, i64 %170
+  store ptr %161, ptr %171, align 8
+  store ptr null, ptr %160, align 8
+  %172 = add i32 %.0120193.i.i, 1
+  br label %173
 
-172:                                              ; preds = %167, %163, %162
-  %.1.i.i = phi i32 [ %171, %167 ], [ %.0120193.i.i, %163 ], [ %.0120193.i.i, %162 ]
+173:                                              ; preds = %168, %164, %163
+  %.1.i.i = phi i32 [ %172, %168 ], [ %.0120193.i.i, %164 ], [ %.0120193.i.i, %163 ]
   %indvars.iv.next223.i.i = add nuw nsw i64 %indvars.iv222.i.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv222.i.i, %139
+  %exitcond.not.i = icmp eq i64 %indvars.iv222.i.i, %140
   br i1 %exitcond.not.i, label %._crit_edge196.i.i, label %.lr.ph195.i.i, !llvm.loop !19
 
-._crit_edge196.i.i:                               ; preds = %172
-  %173 = sub i32 %.2127203.i.i, %.1.i.i
-  %174 = getelementptr inbounds nuw i32, ptr %25, i64 %154
+._crit_edge196.i.i:                               ; preds = %173
+  %174 = getelementptr inbounds nuw i32, ptr %25, i64 %155
   %.1134198.i.i = load i32, ptr %174, align 4
   %175 = icmp sgt i32 %.1134198.i.i, 0
   br i1 %175, label %.lr.ph201.i.i, label %.loopexit.i.i
@@ -947,8 +947,8 @@ ExpandConstraints.exit:                           ; preds = %TopoSort.exit.i
   %spec.select = select i1 %213, i32 -1, i32 %212
   br label %ExpandConstraints.exit.thread
 
-ExpandConstraints.exit.thread:                    ; preds = %.preheader.i.i, %152, %203, %194, %211, %._crit_edge, %1
-  %.09 = phi i32 [ -1, %1 ], [ %.010.lcssa, %._crit_edge ], [ %spec.select, %211 ], [ -1, %194 ], [ -1, %203 ], [ -1, %152 ], [ -1, %.preheader.i.i ]
+ExpandConstraints.exit.thread:                    ; preds = %.preheader.i.i, %153, %203, %194, %211, %._crit_edge, %1
+  %.09 = phi i32 [ -1, %1 ], [ %.010.lcssa, %._crit_edge ], [ %spec.select, %211 ], [ -1, %194 ], [ -1, %203 ], [ -1, %153 ], [ -1, %.preheader.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.09
 }

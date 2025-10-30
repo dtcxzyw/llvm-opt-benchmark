@@ -6585,47 +6585,47 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %1) #14
-  %11 = add i32 %10, -8
-  %12 = tail call ptr @cmsDictGetEntryList(ptr noundef nonnull %2) #14
-  %.not125 = icmp eq ptr %12, null
+  %11 = tail call ptr @cmsDictGetEntryList(ptr noundef nonnull %2) #14
+  %.not125 = icmp eq ptr %11, null
   br i1 %.not125, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
-  %.062129 = phi ptr [ %18, %.lr.ph ], [ %12, %7 ]
+  %.062129 = phi ptr [ %17, %.lr.ph ], [ %11, %7 ]
   %.063128 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %7 ]
-  %.067127 = phi i32 [ %17, %.lr.ph ], [ 0, %7 ]
+  %.067127 = phi i32 [ %16, %.lr.ph ], [ 0, %7 ]
   %.069126 = phi i32 [ %.170, %.lr.ph ], [ 0, %7 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.062129, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %.not89 = icmp eq ptr %14, null
+  %12 = getelementptr inbounds nuw i8, ptr %.062129, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %.not89 = icmp eq ptr %13, null
   %spec.select = select i1 %.not89, i32 %.063128, i32 1
-  %15 = getelementptr inbounds nuw i8, ptr %.062129, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %.fr = freeze ptr %16
+  %14 = getelementptr inbounds nuw i8, ptr %.062129, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %.fr = freeze ptr %15
   %.not90 = icmp eq ptr %.fr, null
   %.170 = select i1 %.not90, i32 %.069126, i32 1
-  %17 = add i32 %.067127, 1
-  %18 = tail call ptr @cmsDictNextEntry(ptr noundef nonnull %.062129) #14
-  %.not = icmp eq ptr %18, null
+  %16 = add i32 %.067127, 1
+  %17 = tail call ptr @cmsDictNextEntry(ptr noundef nonnull %.062129) #14
+  %.not = icmp eq ptr %17, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %19 = icmp eq i32 %spec.select, 0
-  %20 = select i1 %19, i32 16, i32 24
-  %21 = icmp eq i32 %.170, 0
-  %22 = add nuw nsw i32 %20, 8
-  %spec.select158 = select i1 %21, i32 %20, i32 %22
+  %18 = icmp eq i32 %spec.select, 0
+  %19 = select i1 %18, i32 16, i32 24
+  %20 = icmp eq i32 %.170, 0
+  %21 = add nuw nsw i32 %19, 8
+  %spec.select158 = select i1 %20, i32 %19, i32 %21
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %._crit_edge, %7
-  %.067.lcssa153 = phi i32 [ 0, %7 ], [ %17, %._crit_edge ]
-  %23 = phi i32 [ 16, %7 ], [ %spec.select158, %._crit_edge ]
+._crit_edge.thread:                               ; preds = %7, %._crit_edge
+  %.067.lcssa153 = phi i32 [ %16, %._crit_edge ], [ 0, %7 ]
+  %22 = phi i32 [ %spec.select158, %._crit_edge ], [ 16, %7 ]
+  %23 = add i32 %10, -8
   %24 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %.067.lcssa153) #14
   %.not76 = icmp eq i32 %24, 0
   br i1 %.not76, label %135, label %25
 
 25:                                               ; preds = %._crit_edge.thread
-  %26 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %23) #14
+  %26 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %22) #14
   %.not77 = icmp eq i32 %26, 0
   br i1 %.not77, label %135, label %27
 
@@ -6634,12 +6634,12 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   %29 = tail call i32 %28(ptr noundef nonnull %1) #14
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = call fastcc i32 @AllocArray(ptr noundef %31, ptr noundef %5, i32 noundef %.067.lcssa153, i32 noundef %23)
+  %32 = call fastcc i32 @AllocArray(ptr noundef %31, ptr noundef %5, i32 noundef %.067.lcssa153, i32 noundef %22)
   %.not78 = icmp eq i32 %32, 0
   br i1 %.not78, label %WriteOneMLUC.exit, label %33
 
 33:                                               ; preds = %27
-  %34 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %.067.lcssa153, i32 noundef %23)
+  %34 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %.067.lcssa153, i32 noundef %22)
   %.not79 = icmp eq i32 %34, 0
   br i1 %.not79, label %WriteOneMLUC.exit, label %35
 
@@ -6679,7 +6679,7 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %8, align 8
   %53 = tail call i32 %52(ptr noundef nonnull %1) #14
-  %54 = sub i32 %53, %11
+  %54 = sub i32 %53, %23
   %55 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
   store i32 %54, ptr %55, align 4
   %56 = icmp eq ptr %51, null
@@ -6726,7 +6726,7 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %8, align 8
   %74 = tail call i32 %73(ptr noundef nonnull %1) #14
-  %75 = sub i32 %74, %11
+  %75 = sub i32 %74, %23
   %76 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
   store i32 %75, ptr %76, align 4
   %77 = icmp eq ptr %72, null
@@ -6780,7 +6780,7 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   br i1 %.not.i, label %100, label %97
 
 97:                                               ; preds = %94
-  %98 = sub i32 %96, %11
+  %98 = sub i32 %96, %23
   %99 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
   store i32 %98, ptr %99, align 4
   br label %100
@@ -6813,7 +6813,7 @@ WriteOneMLUC.exit.thread:                         ; preds = %102, %103, %90
   br i1 %.not.i110, label %116, label %113
 
 113:                                              ; preds = %110
-  %114 = sub i32 %112, %11
+  %114 = sub i32 %112, %23
   %115 = getelementptr inbounds nuw i32, ptr %.val93, i64 %indvars.iv
   store i32 %114, ptr %115, align 4
   br label %116
@@ -6850,7 +6850,7 @@ WriteOneMLUC.exit114.thread:                      ; preds = %118, %119, %WriteOn
   br i1 %.not80, label %WriteOneMLUC.exit, label %130
 
 130:                                              ; preds = %._crit_edge136
-  %131 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %.067.lcssa153, i32 noundef %23)
+  %131 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %.067.lcssa153, i32 noundef %22)
   %.not81 = icmp eq i32 %131, 0
   br i1 %.not81, label %WriteOneMLUC.exit, label %132
 

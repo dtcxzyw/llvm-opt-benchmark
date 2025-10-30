@@ -4203,20 +4203,20 @@ define internal fastcc void @"_ZN6quiche19Connection$LT$F$GT$11recv_single17hc28
   %.sroa.5.0.i = phi i64 [ %300, %298 ], [ %311, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3c314c86967f96aeE.exit.i" ]
   %.sroa.0.03.i = phi ptr [ %.cast, %298 ], [ %310, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3c314c86967f96aeE.exit.i" ]
   %304 = icmp eq i64 %.sroa.5.0.i, 0
-  br i1 %304, label %312, label %.preheader
+  br i1 %304, label %312, label %.preheader.i
 
-.preheader:                                       ; preds = %303, %.preheader
-  %.sroa.07.0.i.i = phi i1 [ %307, %.preheader ], [ false, %303 ]
-  %.sroa.09.0.i.i = phi i64 [ %308, %.preheader ], [ 0, %303 ]
+.preheader.i:                                     ; preds = %303, %.preheader.i
+  %.sroa.07.0.i.i = phi i1 [ %307, %.preheader.i ], [ false, %303 ]
+  %.sroa.09.0.i.i = phi i64 [ %308, %.preheader.i ], [ 0, %303 ]
   %305 = getelementptr inbounds nuw i32, ptr %.sroa.0.03.i, i64 %.sroa.09.0.i.i
   %.val19.i.i = load i32, ptr %305, align 4, !alias.scope !217, !noalias !220, !noundef !4
   %306 = icmp eq i32 %.val19.i.i, %.val
   %307 = or i1 %.sroa.07.0.i.i, %306
   %308 = add nuw nsw i64 %.sroa.09.0.i.i, 1
   %309 = icmp eq i64 %308, 16
-  br i1 %309, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3c314c86967f96aeE.exit.i", label %.preheader
+  br i1 %309, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3c314c86967f96aeE.exit.i", label %.preheader.i
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3c314c86967f96aeE.exit.i": ; preds = %.preheader
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3c314c86967f96aeE.exit.i": ; preds = %.preheader.i
   %310 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i, i64 64
   %311 = add i64 %.sroa.5.0.i, -16
   br i1 %307, label %.loopexit1534, label %303

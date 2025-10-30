@@ -2206,40 +2206,40 @@ set_assoc_usage_norm.exit:                        ; preds = %10, %12, %21
   br i1 %66, label %67, label %137
 
 67:                                               ; preds = %63
-  %68 = fpext double %57 to x86_fp80
-  %69 = fdiv x86_fp80 %61, %68
-  %70 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = tail call ptr @list_iterator_create(ptr noundef %71) #14
-  %73 = tail call ptr @list_next(ptr noundef %72) #14
-  %.not6063.i.i = icmp eq ptr %73, null
+  %68 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call ptr @list_iterator_create(ptr noundef %69) #14
+  %71 = tail call ptr @list_next(ptr noundef %70) #14
+  %.not6063.i.i = icmp eq ptr %71, null
   br i1 %.not6063.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %67, %83
-  %74 = phi ptr [ %84, %83 ], [ %73, %67 ]
-  %.05164.i.i = phi x86_fp80 [ %.1.i.i, %83 ], [ 0xK00000000000000000000, %67 ]
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 288
-  %76 = load i32, ptr %75, align 8
-  %.not62.i.i = icmp eq i32 %76, 2147483647
-  br i1 %.not62.i.i, label %83, label %77
+.lr.ph.i.i:                                       ; preds = %67, %81
+  %72 = phi ptr [ %82, %81 ], [ %71, %67 ]
+  %.05164.i.i = phi x86_fp80 [ %.1.i.i, %81 ], [ 0xK00000000000000000000, %67 ]
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 288
+  %74 = load i32, ptr %73, align 8
+  %.not62.i.i = icmp eq i32 %74, 2147483647
+  br i1 %.not62.i.i, label %81, label %75
 
-77:                                               ; preds = %.lr.ph.i.i
-  %78 = getelementptr inbounds nuw i8, ptr %74, i64 296
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 128
-  %81 = load x86_fp80, ptr %80, align 16
-  %82 = fadd x86_fp80 %.05164.i.i, %81
-  br label %83
+75:                                               ; preds = %.lr.ph.i.i
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 296
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 128
+  %79 = load x86_fp80, ptr %78, align 16
+  %80 = fadd x86_fp80 %.05164.i.i, %79
+  br label %81
 
-83:                                               ; preds = %77, %.lr.ph.i.i
-  %.1.i.i = phi x86_fp80 [ %82, %77 ], [ %.05164.i.i, %.lr.ph.i.i ]
-  %84 = tail call ptr @list_next(ptr noundef %72) #14
-  %.not60.i.i = icmp eq ptr %84, null
+81:                                               ; preds = %75, %.lr.ph.i.i
+  %.1.i.i = phi x86_fp80 [ %80, %75 ], [ %.05164.i.i, %.lr.ph.i.i ]
+  %82 = tail call ptr @list_next(ptr noundef %70) #14
+  %.not60.i.i = icmp eq ptr %82, null
   br i1 %.not60.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !24
 
-._crit_edge.i.i:                                  ; preds = %83, %67
-  %.051.lcssa.i.i = phi x86_fp80 [ 0xK00000000000000000000, %67 ], [ %.1.i.i, %83 ]
-  tail call void @list_iterator_destroy(ptr noundef %72) #14
+._crit_edge.i.i:                                  ; preds = %81, %67
+  %.051.lcssa.i.i = phi x86_fp80 [ 0xK00000000000000000000, %67 ], [ %.1.i.i, %81 ]
+  %83 = fpext double %57 to x86_fp80
+  %84 = fdiv x86_fp80 %61, %83
+  tail call void @list_iterator_destroy(ptr noundef %70) #14
   %85 = load ptr, ptr %54, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 96
   %87 = load double, ptr %86, align 16
@@ -2253,20 +2253,20 @@ set_assoc_usage_norm.exit:                        ; preds = %10, %12, %21
   %95 = fpext double %94 to x86_fp80
   %96 = fdiv x86_fp80 %92, %95
   %97 = fdiv x86_fp80 %96, %89
-  %98 = fcmp une x86_fp80 %69, 0xK00000000000000000000
+  %98 = fcmp une x86_fp80 %84, 0xK00000000000000000000
   %99 = fcmp une x86_fp80 %97, 0xK00000000000000000000
   %or.cond.i.i = select i1 %98, i1 %99, i1 false
   br i1 %or.cond.i.i, label %100, label %110
 
 100:                                              ; preds = %._crit_edge.i.i
-  %101 = tail call x86_fp80 @logl(x86_fp80 noundef %69) #14
+  %101 = tail call x86_fp80 @logl(x86_fp80 noundef %84) #14
   %102 = tail call x86_fp80 @logl(x86_fp80 noundef %97) #14
   %103 = fmul x86_fp80 %101, %102
   %104 = fcmp ult x86_fp80 %103, 0xK00000000000000000000
   br i1 %104, label %105, label %110
 
 105:                                              ; preds = %100
-  %106 = tail call x86_fp80 @logl(x86_fp80 noundef %69) #14
+  %106 = tail call x86_fp80 @logl(x86_fp80 noundef %84) #14
   %107 = fmul x86_fp80 %106, 0xK4001A000000000000000
   %square.i.i = fmul x86_fp80 %107, %107
   %108 = fadd x86_fp80 %square.i.i, 0xK3FFF8000000000000000
@@ -2279,7 +2279,7 @@ set_assoc_usage_norm.exit:                        ; preds = %10, %12, %21
   %112 = fptrunc x86_fp80 %.052.i.i to double
   %113 = tail call double @pow(double noundef %111, double noundef %112) #14
   %114 = fpext double %113 to x86_fp80
-  %115 = fmul x86_fp80 %69, %114
+  %115 = fmul x86_fp80 %84, %114
   %116 = fmul x86_fp80 %115, %95
   %117 = getelementptr inbounds nuw i8, ptr %90, i64 112
   store x86_fp80 %116, ptr %117, align 16
@@ -2307,7 +2307,7 @@ set_assoc_usage_norm.exit:                        ; preds = %10, %12, %21
   %134 = load double, ptr %133, align 16
   %135 = getelementptr inbounds nuw i8, ptr %124, i64 112
   %136 = load x86_fp80, ptr %135, align 16
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.77, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._depth_oblivious_set_usage_efctv, ptr noundef nonnull %.050.i.i, ptr noundef %.0.i.i, ptr noundef %128, ptr noundef %132, x86_fp80 noundef %69, x86_fp80 noundef %97, x86_fp80 noundef %.052.i.i, double noundef %134, x86_fp80 noundef %136) #14
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.77, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._depth_oblivious_set_usage_efctv, ptr noundef nonnull %.050.i.i, ptr noundef %.0.i.i, ptr noundef %128, ptr noundef %132, x86_fp80 noundef %84, x86_fp80 noundef %97, x86_fp80 noundef %.052.i.i, double noundef %134, x86_fp80 noundef %136) #14
   br label %_set_assoc_usage_efctv.exit
 
 137:                                              ; preds = %63, %59, %53, %49

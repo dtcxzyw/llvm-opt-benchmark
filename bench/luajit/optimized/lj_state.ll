@@ -30,12 +30,12 @@ define hidden void @lj_state_relimitstack(ptr noundef %0) local_unnamed_addr #0 
   %16 = tail call ptr @lj_mem_realloc(ptr noundef nonnull %0, ptr noundef %13, i64 noundef %15, i64 noundef 524072) #8
   %17 = ptrtoint ptr %16 to i64
   store i64 %17, ptr %8, align 8, !tbaa !15
-  %18 = sub i64 %17, %9
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 524000
-  %20 = ptrtoint ptr %19 to i64
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %20, ptr %21, align 8, !tbaa !16
-  %22 = zext i32 %3 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 524000
+  %19 = ptrtoint ptr %18 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %19, ptr %20, align 8, !tbaa !16
+  %21 = zext i32 %3 to i64
+  %22 = sub i64 %17, %9
   store i32 65509, ptr %2, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8, !tbaa !17
@@ -43,21 +43,21 @@ define hidden void @lj_state_relimitstack(ptr noundef %0) local_unnamed_addr #0 
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 376
   %27 = load i64, ptr %26, align 8, !tbaa !18
   %28 = sub i64 %27, %9
-  %29 = icmp ult i64 %28, %22
+  %29 = icmp ult i64 %28, %21
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %._crit_edge.i
-  %31 = add i64 %27, %18
+  %31 = add i64 %27, %22
   store i64 %31, ptr %26, align 8, !tbaa !18
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !29
-  %35 = getelementptr inbounds i8, ptr %34, i64 %18
+  %35 = getelementptr inbounds i8, ptr %34, i64 %22
   store ptr %35, ptr %33, align 8, !tbaa !29
   %36 = load ptr, ptr %6, align 8, !tbaa !14
-  %37 = getelementptr inbounds i8, ptr %36, i64 %18
+  %37 = getelementptr inbounds i8, ptr %36, i64 %22
   store ptr %37, ptr %6, align 8, !tbaa !14
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.0.in40.i = load i64, ptr %38, align 8, !tbaa !30
@@ -69,7 +69,7 @@ define hidden void @lj_state_relimitstack(ptr noundef %0) local_unnamed_addr #0 
   %.0.i = inttoptr i64 %.0.in42.i to ptr
   %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %40 = load i64, ptr %39, align 8, !tbaa !30
-  %41 = add i64 %40, %18
+  %41 = add i64 %40, %22
   store i64 %41, ptr %39, align 8, !tbaa !30
   %.0.in.i = load i64, ptr %.0.i, align 8, !tbaa !30
   %.not.i = icmp eq i64 %.0.in.i, 0
@@ -94,30 +94,30 @@ define internal fastcc void @resizestack(ptr noundef %0, i32 noundef %1) unnamed
   %13 = tail call ptr @lj_mem_realloc(ptr noundef %0, ptr noundef %5, i64 noundef %10, i64 noundef %12) #8
   %14 = ptrtoint ptr %13 to i64
   store i64 %14, ptr %3, align 8, !tbaa !15
-  %15 = sub i64 %14, %4
-  %16 = zext i32 %1 to i64
-  %17 = getelementptr inbounds nuw %union.TValue, ptr %13, i64 %16
-  %18 = ptrtoint ptr %17 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %18, ptr %19, align 8, !tbaa !16
-  %20 = icmp ult i32 %7, %8
-  %21 = zext i32 %7 to i64
-  br i1 %20, label %.lr.ph.preheader, label %._crit_edge
+  %15 = zext i32 %1 to i64
+  %16 = getelementptr inbounds nuw %union.TValue, ptr %13, i64 %15
+  %17 = ptrtoint ptr %16 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %17, ptr %18, align 8, !tbaa !16
+  %19 = icmp ult i32 %7, %8
+  %20 = zext i32 %7 to i64
+  br i1 %19, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2
-  %22 = shl nuw nsw i64 %21, 3
-  %scevgep = getelementptr i8, ptr %13, i64 %22
-  %23 = add i32 %1, 8
-  %24 = sub i32 %23, %7
-  %25 = zext i32 %24 to i64
-  %26 = shl nuw nsw i64 %25, 3
-  %27 = add nuw nsw i64 %26, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 -1, i64 %27, i1 false), !tbaa !30
+  %21 = shl nuw nsw i64 %20, 3
+  %scevgep = getelementptr i8, ptr %13, i64 %21
+  %22 = add i32 %1, 8
+  %23 = sub i32 %22, %7
+  %24 = zext i32 %23 to i64
+  %25 = shl nuw nsw i64 %24, 3
+  %26 = add nuw nsw i64 %25, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 -1, i64 %26, i1 false), !tbaa !30
   %wide.trip.count = zext i32 %8 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %2
-  %.pre-phi = phi i64 [ %21, %2 ], [ %wide.trip.count, %.lr.ph.preheader ]
+  %.pre-phi = phi i64 [ %20, %2 ], [ %wide.trip.count, %.lr.ph.preheader ]
+  %27 = sub i64 %14, %4
   store i32 %8, ptr %6, align 8, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8, !tbaa !17
@@ -129,18 +129,18 @@ define internal fastcc void @resizestack(ptr noundef %0, i32 noundef %1) unnamed
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %._crit_edge
-  %36 = add i64 %32, %15
+  %36 = add i64 %32, %27
   store i64 %36, ptr %31, align 8, !tbaa !18
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8, !tbaa !29
-  %40 = getelementptr inbounds i8, ptr %39, i64 %15
+  %40 = getelementptr inbounds i8, ptr %39, i64 %27
   store ptr %40, ptr %38, align 8, !tbaa !29
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !14
-  %43 = getelementptr inbounds i8, ptr %42, i64 %15
+  %43 = getelementptr inbounds i8, ptr %42, i64 %27
   store ptr %43, ptr %41, align 8, !tbaa !14
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.0.in40 = load i64, ptr %44, align 8, !tbaa !30
@@ -152,7 +152,7 @@ define internal fastcc void @resizestack(ptr noundef %0, i32 noundef %1) unnamed
   %.0 = inttoptr i64 %.0.in42 to ptr
   %45 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %46 = load i64, ptr %45, align 8, !tbaa !30
-  %47 = add i64 %46, %15
+  %47 = add i64 %46, %27
   store i64 %47, ptr %45, align 8, !tbaa !30
   %.0.in = load i64, ptr %.0, align 8, !tbaa !30
   %.not = icmp eq i64 %.0.in, 0
@@ -202,30 +202,30 @@ define hidden void @lj_state_shrinkstack(ptr noundef %0, i32 noundef %1) local_u
   %30 = tail call ptr @lj_mem_realloc(ptr noundef nonnull %0, ptr noundef %24, i64 noundef %27, i64 noundef %29) #8
   %31 = ptrtoint ptr %30 to i64
   store i64 %31, ptr %22, align 8, !tbaa !15
-  %32 = sub i64 %31, %23
-  %33 = zext nneg i32 %21 to i64
-  %34 = getelementptr inbounds nuw %union.TValue, ptr %30, i64 %33
-  %35 = ptrtoint ptr %34 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %35, ptr %36, align 8, !tbaa !16
-  %37 = icmp samesign ult i32 %4, %25
-  %38 = zext nneg i32 %4 to i64
-  br i1 %37, label %.lr.ph.preheader.i, label %._crit_edge.i
+  %32 = zext nneg i32 %21 to i64
+  %33 = getelementptr inbounds nuw %union.TValue, ptr %30, i64 %32
+  %34 = ptrtoint ptr %33 to i64
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %34, ptr %35, align 8, !tbaa !16
+  %36 = icmp samesign ult i32 %4, %25
+  %37 = zext nneg i32 %4 to i64
+  br i1 %36, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %20
-  %39 = shl nuw nsw i64 %38, 3
-  %scevgep.i = getelementptr i8, ptr %30, i64 %39
+  %38 = shl nuw nsw i64 %37, 3
+  %scevgep.i = getelementptr i8, ptr %30, i64 %38
   %reass.sub = sub nsw i32 %21, %4
-  %40 = add nsw i32 %reass.sub, 8
-  %41 = zext i32 %40 to i64
-  %42 = shl nuw nsw i64 %41, 3
-  %43 = add nuw nsw i64 %42, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, i8 -1, i64 %43, i1 false), !tbaa !30
+  %39 = add nsw i32 %reass.sub, 8
+  %40 = zext i32 %39 to i64
+  %41 = shl nuw nsw i64 %40, 3
+  %42 = add nuw nsw i64 %41, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, i8 -1, i64 %42, i1 false), !tbaa !30
   %wide.trip.count.i = zext nneg i32 %25 to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %20
-  %.pre-phi.i = phi i64 [ %38, %20 ], [ %wide.trip.count.i, %.lr.ph.preheader.i ]
+  %.pre-phi.i = phi i64 [ %37, %20 ], [ %wide.trip.count.i, %.lr.ph.preheader.i ]
+  %43 = sub i64 %31, %23
   store i32 %25, ptr %3, align 8, !tbaa !4
   %44 = load i64, ptr %10, align 8, !tbaa !17
   %45 = inttoptr i64 %44 to ptr
@@ -236,18 +236,18 @@ define hidden void @lj_state_shrinkstack(ptr noundef %0, i32 noundef %1) local_u
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %._crit_edge.i
-  %51 = add i64 %47, %32
+  %51 = add i64 %47, %43
   store i64 %51, ptr %46, align 8, !tbaa !18
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge.i
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8, !tbaa !29
-  %55 = getelementptr inbounds i8, ptr %54, i64 %32
+  %55 = getelementptr inbounds i8, ptr %54, i64 %43
   store ptr %55, ptr %53, align 8, !tbaa !29
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !14
-  %58 = getelementptr inbounds i8, ptr %57, i64 %32
+  %58 = getelementptr inbounds i8, ptr %57, i64 %43
   store ptr %58, ptr %56, align 8, !tbaa !14
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.0.in40.i = load i64, ptr %59, align 8, !tbaa !30
@@ -259,7 +259,7 @@ define hidden void @lj_state_shrinkstack(ptr noundef %0, i32 noundef %1) local_u
   %.0.i = inttoptr i64 %.0.in42.i to ptr
   %60 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %61 = load i64, ptr %60, align 8, !tbaa !30
-  %62 = add i64 %61, %32
+  %62 = add i64 %61, %43
   store i64 %62, ptr %60, align 8, !tbaa !30
   %.0.in.i = load i64, ptr %.0.i, align 8, !tbaa !30
   %.not.i = icmp eq i64 %.0.in.i, 0
@@ -293,30 +293,30 @@ define hidden void @lj_state_growstack(ptr noundef %0, i32 noundef %1) local_unn
   %18 = tail call ptr @lj_mem_realloc(ptr noundef nonnull %0, ptr noundef %12, i64 noundef %15, i64 noundef %17) #8
   %19 = ptrtoint ptr %18 to i64
   store i64 %19, ptr %10, align 8, !tbaa !15
-  %20 = sub i64 %19, %11
-  %21 = zext nneg i32 %.0 to i64
-  %22 = getelementptr inbounds nuw %union.TValue, ptr %18, i64 %21
-  %23 = ptrtoint ptr %22 to i64
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %23, ptr %24, align 8, !tbaa !16
-  %25 = icmp ult i32 %4, %13
-  %26 = zext i32 %4 to i64
-  br i1 %25, label %.lr.ph.preheader.i, label %._crit_edge.i
+  %20 = zext nneg i32 %.0 to i64
+  %21 = getelementptr inbounds nuw %union.TValue, ptr %18, i64 %20
+  %22 = ptrtoint ptr %21 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %22, ptr %23, align 8, !tbaa !16
+  %24 = icmp ult i32 %4, %13
+  %25 = zext i32 %4 to i64
+  br i1 %24, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %7
-  %27 = shl nuw nsw i64 %26, 3
-  %scevgep.i = getelementptr i8, ptr %18, i64 %27
+  %26 = shl nuw nsw i64 %25, 3
+  %scevgep.i = getelementptr i8, ptr %18, i64 %26
   %reass.sub = sub nsw i32 %.0, %4
-  %28 = add nsw i32 %reass.sub, 8
-  %29 = zext i32 %28 to i64
-  %30 = shl nuw nsw i64 %29, 3
-  %31 = add nuw nsw i64 %30, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, i8 -1, i64 %31, i1 false), !tbaa !30
+  %27 = add nsw i32 %reass.sub, 8
+  %28 = zext i32 %27 to i64
+  %29 = shl nuw nsw i64 %28, 3
+  %30 = add nuw nsw i64 %29, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, i8 -1, i64 %30, i1 false), !tbaa !30
   %wide.trip.count.i = zext nneg i32 %13 to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %7
-  %.pre-phi.i = phi i64 [ %26, %7 ], [ %wide.trip.count.i, %.lr.ph.preheader.i ]
+  %.pre-phi.i = phi i64 [ %25, %7 ], [ %wide.trip.count.i, %.lr.ph.preheader.i ]
+  %31 = sub i64 %19, %11
   store i32 %13, ptr %3, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i64, ptr %32, align 8, !tbaa !17
@@ -328,18 +328,18 @@ define hidden void @lj_state_growstack(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %._crit_edge.i
-  %40 = add i64 %36, %20
+  %40 = add i64 %36, %31
   store i64 %40, ptr %35, align 8, !tbaa !18
   br label %41
 
 41:                                               ; preds = %39, %._crit_edge.i
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8, !tbaa !29
-  %44 = getelementptr inbounds i8, ptr %43, i64 %20
+  %44 = getelementptr inbounds i8, ptr %43, i64 %31
   store ptr %44, ptr %42, align 8, !tbaa !29
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load ptr, ptr %45, align 8, !tbaa !14
-  %47 = getelementptr inbounds i8, ptr %46, i64 %20
+  %47 = getelementptr inbounds i8, ptr %46, i64 %31
   store ptr %47, ptr %45, align 8, !tbaa !14
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.0.in40.i = load i64, ptr %48, align 8, !tbaa !30
@@ -351,7 +351,7 @@ define hidden void @lj_state_growstack(ptr noundef %0, i32 noundef %1) local_unn
   %.0.i = inttoptr i64 %.0.in42.i to ptr
   %49 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %50 = load i64, ptr %49, align 8, !tbaa !30
-  %51 = add i64 %50, %20
+  %51 = add i64 %50, %31
   store i64 %51, ptr %49, align 8, !tbaa !30
   %.0.in.i = load i64, ptr %.0.i, align 8, !tbaa !30
   %.not.i = icmp eq i64 %.0.in.i, 0

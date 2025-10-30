@@ -248,13 +248,13 @@ define void @help_ref_msg(ptr noundef captures(none) %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @parse_hsize_list(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %59, label %3
+  br i1 %.not, label %60, label %3
 
 3:                                                ; preds = %2
   %4 = load i8, ptr %0, align 1, !tbaa !3
   switch i8 %4, label %.preheader [
-    i8 0, label %59
-    i8 59, label %59
+    i8 0, label %60
+    i8 59, label %60
   ]
 
 .preheader:                                       ; preds = %3, %6
@@ -286,7 +286,7 @@ define void @parse_hsize_list(ptr noundef readonly captures(address_is_null) %0,
 
 .critedge:                                        ; preds = %.preheader, %.preheader, %.preheader
   %14 = icmp eq i32 %.040, 0
-  br i1 %14, label %59, label %15
+  br i1 %14, label %60, label %15
 
 15:                                               ; preds = %.critedge
   %16 = zext i32 %.040 to i64
@@ -321,9 +321,9 @@ define void @parse_hsize_list(ptr noundef readonly captures(address_is_null) %0,
 .preheader67:                                     ; preds = %30, %26, %15
   br label %34
 
-34:                                               ; preds = %.preheader67, %.loopexit
-  %.03863 = phi i32 [ %.139, %.loopexit ], [ 0, %.preheader67 ]
-  %.14362 = phi ptr [ %56, %.loopexit ], [ %0, %.preheader67 ]
+34:                                               ; preds = %.preheader67, %56
+  %.03863 = phi i32 [ %.139, %56 ], [ 0, %.preheader67 ]
+  %.14362 = phi ptr [ %57, %56 ], [ %0, %.preheader67 ]
   %35 = load i8, ptr %.14362, align 1, !tbaa !3
   switch i8 %35, label %36 [
     i8 0, label %.critedge5
@@ -339,7 +339,7 @@ define void @parse_hsize_list(ptr noundef readonly captures(address_is_null) %0,
   %41 = load i16, ptr %40, align 2, !tbaa !18
   %42 = and i16 %41, 2048
   %.not58 = icmp eq i16 %42, 0
-  br i1 %.not58, label %.loopexit, label %43
+  br i1 %.not58, label %56, label %43
 
 43:                                               ; preds = %36
   %44 = tail call i64 @strtoull(ptr noundef nonnull captures(none) %.14362, ptr noundef null, i32 noundef 0) #23
@@ -358,26 +358,26 @@ define void @parse_hsize_list(ptr noundef readonly captures(address_is_null) %0,
   %53 = and i16 %52, 2048
   %.not59 = icmp eq i16 %53, 0
   %54 = getelementptr inbounds nuw i8, ptr %.244, i64 1
-  br i1 %.not59, label %.loopexit.loopexit, label %48, !llvm.loop !24
+  br i1 %.not59, label %.loopexit, label %48, !llvm.loop !24
 
-.loopexit.loopexit:                               ; preds = %48
+.loopexit:                                        ; preds = %48
   %55 = add nuw i32 %.03863, 1
-  br label %.loopexit
+  br label %56
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %36
-  %.3 = phi ptr [ %.14362, %36 ], [ %.244, %.loopexit.loopexit ]
-  %.139 = phi i32 [ %.03863, %36 ], [ %55, %.loopexit.loopexit ]
-  %56 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  %57 = icmp ult i32 %.139, %.040
-  br i1 %57, label %34, label %.critedge5, !llvm.loop !25
+56:                                               ; preds = %.loopexit, %36
+  %.3 = phi ptr [ %.14362, %36 ], [ %.244, %.loopexit ]
+  %.139 = phi i32 [ %.03863, %36 ], [ %55, %.loopexit ]
+  %57 = getelementptr inbounds nuw i8, ptr %.3, i64 1
+  %58 = icmp ult i32 %.139, %.040
+  br i1 %58, label %34, label %.critedge5, !llvm.loop !25
 
-.critedge5:                                       ; preds = %34, %34, %34, %.loopexit
+.critedge5:                                       ; preds = %34, %34, %34, %56
   store ptr %17, ptr %1, align 8, !tbaa !26
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.040, ptr %58, align 8, !tbaa !29
-  br label %59
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %.040, ptr %59, align 8, !tbaa !29
+  br label %60
 
-59:                                               ; preds = %.critedge, %2, %3, %3, %.critedge5
+60:                                               ; preds = %.critedge, %2, %3, %3, %.critedge5
   ret void
 }
 

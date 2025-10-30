@@ -15328,9 +15328,9 @@ entry:
   store ptr %3, ptr %_M_refcount.i.i1, align 8
   store ptr null, ptr %input, align 8
   %call5.i.i.i.i2.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
-          to label %call5.i.i.i.i.noexc.i unwind label %_ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.i
+          to label %for.body.i.i.i.i.i.i.preheader unwind label %_ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.i
 
-call5.i.i.i.i.noexc.i:                            ; preds = %entry
+for.body.i.i.i.i.i.i.preheader:                   ; preds = %entry
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i, i64 16
   store ptr %2, ptr %call5.i.i.i.i2.i, align 8
   %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i, i64 8
@@ -15338,7 +15338,7 @@ call5.i.i.i.i.noexc.i:                            ; preds = %entry
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i.i.noexc.i
+if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i.i.preheader
   %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %4, 0
@@ -15358,10 +15358,10 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i
   %.pre50 = load ptr, ptr %_M_refcount.i.i9.phi.trans.insert, align 8
   br label %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i
 
-_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i.noexc.i
-  %7 = phi ptr [ %.pre50, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %3, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %call5.i.i.i.i.noexc.i ]
-  %8 = phi ptr [ %.pre49, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %1, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %1, %call5.i.i.i.i.noexc.i ]
-  %9 = phi ptr [ %.pre, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %0, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %0, %call5.i.i.i.i.noexc.i ]
+_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.preheader
+  %7 = phi ptr [ %.pre50, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %3, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %for.body.i.i.i.i.i.i.preheader ]
+  %8 = phi ptr [ %.pre49, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %1, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %1, %for.body.i.i.i.i.i.i.preheader ]
+  %9 = phi ptr [ %.pre, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %0, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %0, %for.body.i.i.i.i.i.i.preheader ]
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox4core10ITypedExprE, i64 16), ptr %this, align 8
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %9, ptr %type_.i, align 8
@@ -18834,9 +18834,9 @@ entry:
   store ptr %3, ptr %_M_refcount.i.i1, align 8
   store ptr null, ptr %input, align 8
   %call5.i.i.i.i2.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
-          to label %call5.i.i.i.i.noexc.i unwind label %_ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.i
+          to label %for.body.i.i.i.i.i.i.preheader unwind label %_ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4core10ITypedExprEESaIS6_EED2Ev.exit.i
 
-call5.i.i.i.i.noexc.i:                            ; preds = %entry
+for.body.i.i.i.i.i.i.preheader:                   ; preds = %entry
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i, i64 16
   store ptr %2, ptr %call5.i.i.i.i2.i, align 8
   %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i, i64 8
@@ -18844,7 +18844,7 @@ call5.i.i.i.i.noexc.i:                            ; preds = %entry
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i.i.noexc.i
+if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i.i.preheader
   %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %4, 0
@@ -18864,10 +18864,10 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i
   %.pre91 = load ptr, ptr %_M_refcount.i.i9.phi.trans.insert, align 8
   br label %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i
 
-_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i.noexc.i
-  %7 = phi ptr [ %.pre91, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %3, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %call5.i.i.i.i.noexc.i ]
-  %8 = phi ptr [ %.pre90, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %1, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %1, %call5.i.i.i.i.noexc.i ]
-  %9 = phi ptr [ %.pre, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %0, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %0, %call5.i.i.i.i.noexc.i ]
+_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4core10ITypedExprEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.preheader
+  %7 = phi ptr [ %.pre91, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %3, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %for.body.i.i.i.i.i.i.preheader ]
+  %8 = phi ptr [ %.pre90, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %1, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %1, %for.body.i.i.i.i.i.i.preheader ]
+  %9 = phi ptr [ %.pre, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ], [ %0, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %0, %for.body.i.i.i.i.i.i.preheader ]
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox4core10ITypedExprE, i64 16), ptr %this, align 8
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %9, ptr %type_.i, align 8

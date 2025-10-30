@@ -282,58 +282,58 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.0173209.us.us = phi i64 [ %136, %._crit_edge208.us.us ], [ 0, %.preheader201.us ]
   %111 = mul i64 %59, %.0173209.us.us
   %umin232 = call i64 @llvm.umin.i64(i64 %111, i64 %66)
-  %112 = add i64 %77, %umin232
-  %113 = add i64 %umin232, %45
-  %114 = call i64 @llvm.umin.i64(i64 %113, i64 %66)
-  %115 = add i64 %114, %45
-  %116 = call i64 @llvm.umin.i64(i64 %115, i64 %66)
+  %112 = add i64 %umin232, %45
+  %113 = call i64 @llvm.umin.i64(i64 %112, i64 %66)
+  %114 = add i64 %113, %45
+  %115 = call i64 @llvm.umin.i64(i64 %114, i64 %66)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %umin232, ptr %10, align 16, !tbaa !39
   store i64 %umin, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !39
-  store i64 %116, ptr %69, align 16, !tbaa !40
+  store i64 %115, ptr %69, align 16, !tbaa !40
   store i64 %umin, ptr %70, align 8, !tbaa !42
-  store i64 %114, ptr %71, align 16, !tbaa !39
+  store i64 %113, ptr %71, align 16, !tbaa !39
   store i64 %79, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !39
   store i64 %umin232, ptr %72, align 16, !tbaa !40
   store i64 %81, ptr %73, align 8, !tbaa !42
-  store i64 %116, ptr %74, align 16, !tbaa !39
+  store i64 %115, ptr %74, align 16, !tbaa !39
   store i64 %81, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  br label %117
+  br label %116
 
-117:                                              ; preds = %125, %.lr.ph.split.us.us
-  %.0170204.us.us = phi i64 [ 0, %.lr.ph.split.us.us ], [ %126, %125 ]
-  %118 = getelementptr inbounds nuw %struct.point_t, ptr %10, i64 %.0170204.us.us
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %120 = load i64, ptr %119, align 8, !tbaa !42
-  %121 = mul i64 %120, %58
-  %122 = load i64, ptr %118, align 16, !tbaa !40
-  %123 = add i64 %121, %122
-  %.idx197.us.us = shl i64 %123, 4
-  %124 = getelementptr inbounds nuw i8, ptr %.0168, i64 %.idx197.us.us
-  br label %127
+116:                                              ; preds = %124, %.lr.ph.split.us.us
+  %.0170204.us.us = phi i64 [ 0, %.lr.ph.split.us.us ], [ %125, %124 ]
+  %117 = getelementptr inbounds nuw %struct.point_t, ptr %10, i64 %.0170204.us.us
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %119 = load i64, ptr %118, align 8, !tbaa !42
+  %120 = mul i64 %119, %58
+  %121 = load i64, ptr %117, align 16, !tbaa !40
+  %122 = add i64 %120, %121
+  %.idx197.us.us = shl i64 %122, 4
+  %123 = getelementptr inbounds nuw i8, ptr %.0168, i64 %.idx197.us.us
+  br label %126
 
-125:                                              ; preds = %127
-  %126 = add nuw nsw i64 %.0170204.us.us, 1
-  %exitcond231.not = icmp eq i64 %126, 5
-  br i1 %exitcond231.not, label %.preheader200.us.us, label %117
+124:                                              ; preds = %126
+  %125 = add nuw nsw i64 %.0170204.us.us, 1
+  %exitcond231.not = icmp eq i64 %125, 5
+  br i1 %exitcond231.not, label %.preheader200.us.us, label %116
 
-127:                                              ; preds = %127, %117
-  %.0167203.us.us = phi i64 [ 0, %117 ], [ %134, %127 ]
-  %128 = getelementptr inbounds nuw float, ptr %124, i64 %.0167203.us.us
-  %129 = load float, ptr %128, align 4, !tbaa !36
-  %130 = fmul reassoc nsz arcp contract afn float %129, 0x3FC99999A0000000
-  %131 = getelementptr inbounds nuw float, ptr %11, i64 %.0167203.us.us
-  %132 = load float, ptr %131, align 4, !tbaa !36
-  %133 = fadd reassoc nsz arcp contract afn float %132, %130
-  store float %133, ptr %131, align 4, !tbaa !36
-  %134 = add nuw nsw i64 %.0167203.us.us, 1
-  %exitcond230.not = icmp eq i64 %134, 4
-  br i1 %exitcond230.not, label %125, label %127
+126:                                              ; preds = %126, %116
+  %.0167203.us.us = phi i64 [ 0, %116 ], [ %133, %126 ]
+  %127 = getelementptr inbounds nuw float, ptr %123, i64 %.0167203.us.us
+  %128 = load float, ptr %127, align 4, !tbaa !36
+  %129 = fmul reassoc nsz arcp contract afn float %128, 0x3FC99999A0000000
+  %130 = getelementptr inbounds nuw float, ptr %11, i64 %.0167203.us.us
+  %131 = load float, ptr %130, align 4, !tbaa !36
+  %132 = fadd reassoc nsz arcp contract afn float %131, %129
+  store float %132, ptr %130, align 4, !tbaa !36
+  %133 = add nuw nsw i64 %.0167203.us.us, 1
+  %exitcond230.not = icmp eq i64 %133, 4
+  br i1 %exitcond230.not, label %124, label %126
 
-.preheader200.us.us:                              ; preds = %125
-  %135 = icmp ult i64 %111, %116
+.preheader200.us.us:                              ; preds = %124
+  %134 = add i64 %77, %umin232
+  %135 = icmp ult i64 %111, %115
   br i1 %135, label %.preheader.us.us.us, label %._crit_edge208.us.us
 
 ._crit_edge208.us.us:                             ; preds = %._crit_edge.us.us.us, %.preheader200.us.us
@@ -353,12 +353,12 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 139:                                              ; preds = %139, %.preheader.us.us.us
   %indvar233 = phi i64 [ %indvar.next234, %139 ], [ 0, %.preheader.us.us.us ]
   %.0165206.us.us.us = phi i64 [ %142, %139 ], [ %umin232, %.preheader.us.us.us ]
-  %140 = add i64 %112, %indvar233
+  %140 = add i64 %134, %indvar233
   %141 = shl i64 %140, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %gep, ptr noundef nonnull align 16 dereferenceable(16) %11, i64 16, i1 false), !tbaa !36
   %142 = add nuw i64 %.0165206.us.us.us, 1
-  %143 = icmp ult i64 %142, %116
+  %143 = icmp ult i64 %142, %115
   %indvar.next234 = add nuw i64 %indvar233, 1
   br i1 %143, label %139, label %._crit_edge.us.us.us
 

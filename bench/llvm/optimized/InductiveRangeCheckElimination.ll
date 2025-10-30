@@ -1183,89 +1183,88 @@ define dso_local void @_ZN4llvm8IRCEPass3runERNS_8FunctionERNS_15AnalysisManager
   %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm23ScalarEvolutionAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #15
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm25BranchProbabilityAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #15
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %58 = load ptr, ptr %37, align 8, !tbaa !69
-  %59 = load ptr, ptr %39, align 8, !tbaa !69
-  %.not99 = icmp eq ptr %58, %59
+  %57 = load ptr, ptr %37, align 8, !tbaa !69
+  %58 = load ptr, ptr %39, align 8, !tbaa !69
+  %.not99 = icmp eq ptr %57, %58
   br i1 %.not99, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %60 = or i1 %65, %68
-  %.037.not = xor i1 %65, true
-  %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL23SkipProfitabilityChecks, i64 120), align 8, !range !52
-  %62 = trunc nuw i8 %61 to i1
-  %or.cond = select i1 %.037.not, i1 true, i1 %62
+  %59 = or i1 %64, %67
+  %.037.not = xor i1 %64, true
+  %60 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL23SkipProfitabilityChecks, i64 120), align 8, !range !52
+  %61 = trunc nuw i8 %60 to i1
+  %or.cond = select i1 %.037.not, i1 true, i1 %61
   br i1 %or.cond, label %._crit_edge.thread, label %_ZN4llvm17PreservedAnalyses7abandonINS_22BlockFrequencyAnalysisEEEvv.exit
 
 .lr.ph:                                           ; preds = %53, %.lr.ph
-  %.0102 = phi i1 [ %68, %.lr.ph ], [ false, %53 ]
-  %.037101 = phi i1 [ %65, %.lr.ph ], [ false, %53 ]
-  %.sroa.072.0100 = phi ptr [ %69, %.lr.ph ], [ %58, %53 ]
-  %63 = load ptr, ptr %.sroa.072.0100, align 8, !tbaa !78
-  %64 = tail call noundef zeroext i1 @_ZN4llvm12simplifyLoopEPNS_4LoopEPNS_13DominatorTreeEPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_15AssumptionCacheEPNS_16MemorySSAUpdaterEb(ptr noundef %63, ptr noundef nonnull %34, ptr noundef nonnull %36, ptr noundef nonnull %55, ptr noundef null, ptr noundef null, i1 noundef zeroext false) #15
-  %65 = or i1 %.037101, %64
-  %66 = load ptr, ptr %.sroa.072.0100, align 8, !tbaa !78
-  %67 = tail call noundef zeroext i1 @_ZN4llvm20formLCSSARecursivelyERNS_4LoopERKNS_13DominatorTreeEPKNS_8LoopInfoEPNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(144) %66, ptr noundef nonnull align 8 dereferenceable(124) %34, ptr noundef nonnull %36, ptr noundef nonnull %55) #15
-  %68 = or i1 %.0102, %67
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.072.0100, i64 8
-  %.not = icmp eq ptr %69, %59
+  %.0102 = phi i1 [ %67, %.lr.ph ], [ false, %53 ]
+  %.037101 = phi i1 [ %64, %.lr.ph ], [ false, %53 ]
+  %.sroa.072.0100 = phi ptr [ %68, %.lr.ph ], [ %57, %53 ]
+  %62 = load ptr, ptr %.sroa.072.0100, align 8, !tbaa !78
+  %63 = tail call noundef zeroext i1 @_ZN4llvm12simplifyLoopEPNS_4LoopEPNS_13DominatorTreeEPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_15AssumptionCacheEPNS_16MemorySSAUpdaterEb(ptr noundef %62, ptr noundef nonnull %34, ptr noundef nonnull %36, ptr noundef nonnull %55, ptr noundef null, ptr noundef null, i1 noundef zeroext false) #15
+  %64 = or i1 %.037101, %63
+  %65 = load ptr, ptr %.sroa.072.0100, align 8, !tbaa !78
+  %66 = tail call noundef zeroext i1 @_ZN4llvm20formLCSSARecursivelyERNS_4LoopERKNS_13DominatorTreeEPKNS_8LoopInfoEPNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(144) %65, ptr noundef nonnull align 8 dereferenceable(124) %34, ptr noundef nonnull %36, ptr noundef nonnull %55) #15
+  %67 = or i1 %.0102, %66
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.072.0100, i64 8
+  %.not = icmp eq ptr %68, %58
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 _ZN4llvm17PreservedAnalyses7abandonINS_22BlockFrequencyAnalysisEEEvv.exit: ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %.ptr1.i38.ptr = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr %.ptr1.i38.ptr, ptr %29, align 8, !tbaa !28, !alias.scope !80
-  %70 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i32 2, ptr %70, align 8, !tbaa !29, !alias.scope !80
-  %71 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  %72 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store i32 0, ptr %72, align 8, !tbaa !31, !alias.scope !80
-  %73 = getelementptr inbounds nuw i8, ptr %29, i64 20
-  store i8 1, ptr %73, align 4, !tbaa !32, !alias.scope !80
-  %74 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %75 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  store ptr %75, ptr %74, align 8, !tbaa !28, !alias.scope !80
-  %76 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  store i32 2, ptr %76, align 8, !tbaa !29, !alias.scope !80
-  %77 = getelementptr inbounds nuw i8, ptr %29, i64 52
-  %78 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  store i32 0, ptr %78, align 8, !tbaa !31, !alias.scope !80
-  %79 = getelementptr inbounds nuw i8, ptr %29, i64 60
-  store i8 1, ptr %79, align 4, !tbaa !32, !alias.scope !80
-  store i32 1, ptr %71, align 4, !tbaa !30, !alias.scope !80, !noalias !83
+  %69 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i32 2, ptr %69, align 8, !tbaa !29, !alias.scope !80
+  %70 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store i32 0, ptr %71, align 8, !tbaa !31, !alias.scope !80
+  %72 = getelementptr inbounds nuw i8, ptr %29, i64 20
+  store i8 1, ptr %72, align 4, !tbaa !32, !alias.scope !80
+  %73 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %29, i64 64
+  store ptr %74, ptr %73, align 8, !tbaa !28, !alias.scope !80
+  %75 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  store i32 2, ptr %75, align 8, !tbaa !29, !alias.scope !80
+  %76 = getelementptr inbounds nuw i8, ptr %29, i64 52
+  %77 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  store i32 0, ptr %77, align 8, !tbaa !31, !alias.scope !80
+  %78 = getelementptr inbounds nuw i8, ptr %29, i64 60
+  store i8 1, ptr %78, align 4, !tbaa !32, !alias.scope !80
+  store i32 1, ptr %70, align 4, !tbaa !30, !alias.scope !80, !noalias !83
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i38.ptr, align 8, !tbaa !77, !alias.scope !80, !noalias !83
-  store i32 1, ptr %77, align 4, !tbaa !30, !noalias !86
-  store ptr @_ZN4llvm22BlockFrequencyAnalysis3KeyE, ptr %75, align 8, !tbaa !77, !noalias !86
+  store i32 1, ptr %76, align 4, !tbaa !30, !noalias !86
+  store ptr @_ZN4llvm22BlockFrequencyAnalysis3KeyE, ptr %74, align 8, !tbaa !77, !noalias !86
   call void @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE10invalidateERS1_RKNS_17PreservedAnalysesE(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(80) %29) #15
-  %80 = load i8, ptr %79, align 4, !tbaa !32, !range !52, !noundef !53
-  %81 = trunc nuw i8 %80 to i1
-  br i1 %81, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, label %82
+  %79 = load i8, ptr %78, align 4, !tbaa !32, !range !52, !noundef !53
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, label %81
 
-82:                                               ; preds = %_ZN4llvm17PreservedAnalyses7abandonINS_22BlockFrequencyAnalysisEEEvv.exit
-  %83 = load ptr, ptr %74, align 8, !tbaa !28
-  call void @free(ptr noundef %83) #15
+81:                                               ; preds = %_ZN4llvm17PreservedAnalyses7abandonINS_22BlockFrequencyAnalysisEEEvv.exit
+  %82 = load ptr, ptr %73, align 8, !tbaa !28
+  call void @free(ptr noundef %82) #15
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i
 
-_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i:         ; preds = %82, %_ZN4llvm17PreservedAnalyses7abandonINS_22BlockFrequencyAnalysisEEEvv.exit
-  %84 = load i8, ptr %73, align 4, !tbaa !32, !range !52, !noundef !53
-  %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %_ZN4llvm17PreservedAnalysesD2Ev.exit, label %86
+_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i:         ; preds = %81, %_ZN4llvm17PreservedAnalyses7abandonINS_22BlockFrequencyAnalysisEEEvv.exit
+  %83 = load i8, ptr %72, align 4, !tbaa !32, !range !52, !noundef !53
+  %84 = trunc nuw i8 %83 to i1
+  br i1 %84, label %_ZN4llvm17PreservedAnalysesD2Ev.exit, label %85
 
-86:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i
-  %87 = load ptr, ptr %29, align 8, !tbaa !28
-  call void @free(ptr noundef %87) #15
+85:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i
+  %86 = load ptr, ptr %29, align 8, !tbaa !28
+  call void @free(ptr noundef %86) #15
   br label %_ZN4llvm17PreservedAnalysesD2Ev.exit
 
-_ZN4llvm17PreservedAnalysesD2Ev.exit:             ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, %86
+_ZN4llvm17PreservedAnalysesD2Ev.exit:             ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %53, %_ZN4llvm17PreservedAnalysesD2Ev.exit, %._crit_edge
-  %88 = phi i1 [ %60, %_ZN4llvm17PreservedAnalysesD2Ev.exit ], [ %60, %._crit_edge ], [ false, %53 ]
+  %87 = phi i1 [ %59, %_ZN4llvm17PreservedAnalysesD2Ev.exit ], [ %59, %._crit_edge ], [ false, %53 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 1, ptr %30, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store i32 0, ptr %89, align 4, !tbaa !89
+  %88 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  store i32 0, ptr %88, align 4, !tbaa !89
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge.thread
@@ -1277,6 +1276,7 @@ _ZN4llvm17PreservedAnalysesD2Ev.exit:             ; preds = %_ZN4llvm19SmallPtrS
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm21SmallPriorityWorklistIPNS_4LoopELj4EEC2Ev.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !92
 
 _ZN4llvm21SmallPriorityWorklistIPNS_4LoopELj4EEC2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i
+  %89 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %91 = getelementptr inbounds nuw i8, ptr %30, i64 88
   store ptr %91, ptr %90, align 8, !tbaa !25
@@ -1367,7 +1367,7 @@ _ZN4llvm21SmallPriorityWorklistIPNS_4LoopELj4EEC2Ev.exit: ; preds = %.lr.ph.i.i.
 
 155:                                              ; preds = %.lr.ph108, %734
   %156 = phi i32 [ %94, %.lr.ph108 ], [ %735, %734 ]
-  %.1107 = phi i1 [ %88, %.lr.ph108 ], [ %.2, %734 ]
+  %.1107 = phi i1 [ %87, %.lr.ph108 ], [ %.2, %734 ]
   %157 = load ptr, ptr %90, align 8, !tbaa !25
   %158 = zext i32 %156 to i64
   %159 = getelementptr inbounds nuw ptr, ptr %157, i64 %158
@@ -1423,9 +1423,9 @@ _ZN4llvm21SmallPriorityWorklistIPNS_4LoopELj4EEC2Ev.exit: ; preds = %.lr.ph.i.i.
   %192 = and i32 %189, 1
   %193 = or disjoint i32 %191, %192
   store i32 %193, ptr %30, align 8
-  %194 = load i32, ptr %89, align 4, !tbaa !89
+  %194 = load i32, ptr %88, align 4, !tbaa !89
   %195 = add i32 %194, 1
-  store i32 %195, ptr %89, align 4, !tbaa !89
+  store i32 %195, ptr %88, align 4, !tbaa !89
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_4LoopElLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_lEEEES3_lS5_S8_E5eraseERKS3_.exit.i.i.preheader
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_4LoopElLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_lEEEES3_lS5_S8_E5eraseERKS3_.exit.i.i.preheader: ; preds = %.lr.ph.i.i.i.i39, %.loopexit.i.i.i, %155
@@ -1581,7 +1581,7 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.i.i: ; preds =
   %274 = zext i1 %not..i.i to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %275 = load ptr, ptr %251, align 8, !tbaa !113
-  %276 = call i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockEj(ptr noundef nonnull align 8 dereferenceable(248) %57, ptr noundef %275, i32 noundef %274) #15
+  %276 = call i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockEj(ptr noundef nonnull align 8 dereferenceable(248) %89, ptr noundef %275, i32 noundef %274) #15
   store i32 %276, ptr %15, align 4
   br i1 %or.cond.i.i.not, label %277, label %281
 
@@ -1616,7 +1616,7 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.i.i: ; preds =
   call void @_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEC2EPNS_11InstructionEPNS_6MDNodeENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE(ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef nonnull %243, ptr noundef null, ptr null, i64 0)
   call void @_ZN4llvm12InvertBranchEPNS_10BranchInstERNS_13IRBuilderBaseE(ptr noundef nonnull %243, ptr noundef nonnull align 8 dereferenceable(128) %17) #15
   %286 = load ptr, ptr %251, align 8, !tbaa !113
-  call void @_ZN4llvm21BranchProbabilityInfo26swapSuccEdgesProbabilitiesEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(248) %57, ptr noundef %286) #15
+  call void @_ZN4llvm21BranchProbabilityInfo26swapSuccEdgesProbabilitiesEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(248) %89, ptr noundef %286) #15
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %101) #15
   call void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %102) #15
   %287 = load ptr, ptr %17, align 8, !tbaa !25
@@ -2666,7 +2666,7 @@ _ZN4llvm17PreservedAnalysesD2Ev.exit66:           ; preds = %_ZN4llvm19SmallPtrS
   br i1 %.not.i.i, label %._crit_edge109, label %155, !llvm.loop !217
 
 ._crit_edge109:                                   ; preds = %734, %_ZN4llvm21SmallPriorityWorklistIPNS_4LoopELj4EEC2Ev.exit
-  %.1.lcssa = phi i1 [ %88, %_ZN4llvm21SmallPriorityWorklistIPNS_4LoopELj4EEC2Ev.exit ], [ %.2, %734 ]
+  %.1.lcssa = phi i1 [ %87, %_ZN4llvm21SmallPriorityWorklistIPNS_4LoopELj4EEC2Ev.exit ], [ %.2, %734 ]
   br i1 %.1.lcssa, label %747, label %736
 
 736:                                              ; preds = %._crit_edge109

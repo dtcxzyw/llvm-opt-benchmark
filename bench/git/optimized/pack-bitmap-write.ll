@@ -2830,58 +2830,58 @@ st_mult.exit.i:                                   ; preds = %st_mult.exit.loopex
   unreachable
 
 st_add.exit.i:                                    ; preds = %st_mult.exit.i
-  %229 = add i64 %225, %.pre-phi299.i
-  %230 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i64 %224, ptr %230, align 8, !tbaa !168
-  %231 = call ptr @xcalloc(i64 noundef %224, i64 noundef 36) #19
-  store ptr %231, ptr %22, align 8, !tbaa !170
-  %232 = load ptr, ptr %220, align 8, !tbaa !18
-  %233 = load i32, ptr %232, align 8, !tbaa !30
-  %.not236.i = icmp eq i32 %233, 0
+  %229 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store i64 %224, ptr %229, align 8, !tbaa !168
+  %230 = call ptr @xcalloc(i64 noundef %224, i64 noundef 36) #19
+  store ptr %230, ptr %22, align 8, !tbaa !170
+  %231 = load ptr, ptr %220, align 8, !tbaa !18
+  %232 = load i32, ptr %231, align 8, !tbaa !30
+  %.not236.i = icmp eq i32 %232, 0
   br i1 %.not236.i, label %._crit_edge239.i, label %.lr.ph238.i
 
-.lr.ph238.i:                                      ; preds = %st_add.exit.i, %249
-  %234 = phi i32 [ %250, %249 ], [ %233, %st_add.exit.i ]
-  %235 = phi ptr [ %251, %249 ], [ %232, %st_add.exit.i ]
-  %.2237.i = phi i64 [ %252, %249 ], [ 0, %st_add.exit.i ]
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
-  %237 = load ptr, ptr %236, align 8, !tbaa !24
-  %238 = lshr i64 %.2237.i, 4
-  %239 = getelementptr inbounds nuw i32, ptr %237, i64 %238
-  %240 = load i32, ptr %239, align 4, !tbaa !31
+.lr.ph238.i:                                      ; preds = %st_add.exit.i, %248
+  %233 = phi i32 [ %249, %248 ], [ %232, %st_add.exit.i ]
+  %234 = phi ptr [ %250, %248 ], [ %231, %st_add.exit.i ]
+  %.2237.i = phi i64 [ %251, %248 ], [ 0, %st_add.exit.i ]
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
+  %236 = load ptr, ptr %235, align 8, !tbaa !24
+  %237 = lshr i64 %.2237.i, 4
+  %238 = getelementptr inbounds nuw i32, ptr %236, i64 %237
+  %239 = load i32, ptr %238, align 4, !tbaa !31
   %.2.tr.i = trunc i64 %.2237.i to i32
-  %241 = shl i32 %.2.tr.i, 1
-  %242 = and i32 %241, 30
-  %243 = shl nuw i32 3, %242
-  %244 = and i32 %243, %240
-  %.not122.i = icmp eq i32 %244, 0
-  br i1 %.not122.i, label %245, label %249
+  %240 = shl i32 %.2.tr.i, 1
+  %241 = and i32 %240, 30
+  %242 = shl nuw i32 3, %241
+  %243 = and i32 %242, %239
+  %.not122.i = icmp eq i32 %243, 0
+  br i1 %.not122.i, label %244, label %248
 
-245:                                              ; preds = %.lr.ph238.i
-  %246 = getelementptr inbounds nuw i8, ptr %235, i64 24
-  %247 = load ptr, ptr %246, align 8, !tbaa !28
-  %248 = getelementptr inbounds nuw %struct.object_id, ptr %247, i64 %.2237.i
-  call void @oid_array_append(ptr noundef nonnull %22, ptr noundef %248) #19
+244:                                              ; preds = %.lr.ph238.i
+  %245 = getelementptr inbounds nuw i8, ptr %234, i64 24
+  %246 = load ptr, ptr %245, align 8, !tbaa !28
+  %247 = getelementptr inbounds nuw %struct.object_id, ptr %246, i64 %.2237.i
+  call void @oid_array_append(ptr noundef nonnull %22, ptr noundef %247) #19
   %.pre.i = load ptr, ptr %220, align 8, !tbaa !18
   %.pre296.i = load i32, ptr %.pre.i, align 8, !tbaa !30
-  br label %249
+  br label %248
 
-249:                                              ; preds = %245, %.lr.ph238.i
-  %250 = phi i32 [ %234, %.lr.ph238.i ], [ %.pre296.i, %245 ]
-  %251 = phi ptr [ %235, %.lr.ph238.i ], [ %.pre.i, %245 ]
-  %252 = add i64 %.2237.i, 1
-  %253 = zext i32 %250 to i64
-  %.not.i62 = icmp eq i64 %252, %253
+248:                                              ; preds = %244, %.lr.ph238.i
+  %249 = phi i32 [ %233, %.lr.ph238.i ], [ %.pre296.i, %244 ]
+  %250 = phi ptr [ %234, %.lr.ph238.i ], [ %.pre.i, %244 ]
+  %251 = add i64 %.2237.i, 1
+  %252 = zext i32 %249 to i64
+  %.not.i62 = icmp eq i64 %251, %252
   br i1 %.not.i62, label %._crit_edge239.i, label %.lr.ph238.i, !llvm.loop !171
 
-._crit_edge239.i:                                 ; preds = %249, %st_add.exit.i
+._crit_edge239.i:                                 ; preds = %248, %st_add.exit.i
   call void @oid_array_sort(ptr noundef nonnull %22) #19
-  %254 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %255 = load i64, ptr %254, align 8, !tbaa !172
-  %.not256.i = icmp eq i64 %255, 0
+  %253 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %254 = load i64, ptr %253, align 8, !tbaa !172
+  %.not256.i = icmp eq i64 %254, 0
   br i1 %.not256.i, label %.preheader.i, label %.lr.ph243.i
 
 .lr.ph243.i:                                      ; preds = %._crit_edge239.i
+  %255 = add i64 %225, %.pre-phi299.i
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %258
 
@@ -2890,7 +2890,7 @@ st_add.exit.i:                                    ; preds = %st_mult.exit.i
   br i1 %257, label %.preheader.i, label %.lr.ph247.i
 
 258:                                              ; preds = %338, %.lr.ph243.i
-  %.0241.i = phi i64 [ %229, %.lr.ph243.i ], [ %.1.i, %338 ]
+  %.0241.i = phi i64 [ %255, %.lr.ph243.i ], [ %.1.i, %338 ]
   %.3240.i = phi i64 [ 0, %.lr.ph243.i ], [ %339, %338 ]
   %259 = load ptr, ptr %220, align 8, !tbaa !18
   %260 = load ptr, ptr %22, align 8, !tbaa !170
@@ -3075,7 +3075,7 @@ st_add.exit154.i:                                 ; preds = %st_mult.exit153.i
 338:                                              ; preds = %st_add.exit154.i, %hashwrite_be64.exit.i
   %.1.i = phi i64 [ %.0241.i, %hashwrite_be64.exit.i ], [ %333, %st_add.exit154.i ]
   %339 = add nuw i64 %.3240.i, 1
-  %340 = load i64, ptr %254, align 8, !tbaa !172
+  %340 = load i64, ptr %253, align 8, !tbaa !172
   %341 = icmp ult i64 %339, %340
   br i1 %341, label %258, label %.preheader186.i, !llvm.loop !175
 
@@ -3205,7 +3205,7 @@ hashwrite_be32.exit170.i:                         ; preds = %376
 
 .loopexit.i:                                      ; preds = %.lr.ph245.i, %hashwrite_be32.exit170.i, %376
   %398 = add nuw i64 %.4246.i, 1
-  %399 = load i64, ptr %254, align 8, !tbaa !172
+  %399 = load i64, ptr %253, align 8, !tbaa !172
   %400 = icmp ult i64 %398, %399
   br i1 %400, label %.lr.ph247.i, label %.preheader.i, !llvm.loop !177
 

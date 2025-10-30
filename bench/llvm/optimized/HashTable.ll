@@ -403,31 +403,31 @@ define dso_local void @_ZN4llvm3pdb20writeSparseBitVectorERNS_18BinaryStreamWrit
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !57
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !60
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  br label %22
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  br label %20
 
-22:                                               ; preds = %22, %16
-  %.09.i.i = phi i32 [ 0, %16 ], [ %28, %22 ]
-  %23 = icmp samesign ult i32 %.09.i.i, 2
-  tail call void @llvm.assume(i1 %23)
-  %24 = xor i32 %.09.i.i, 1
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i64, ptr %21, i64 %25
-  %27 = load i64, ptr %26, align 8, !tbaa !71
-  %.not.i.i = icmp eq i64 %27, 0
-  %28 = add nuw nsw i32 %.09.i.i, 1
-  br i1 %.not.i.i, label %22, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_lastEv.exit.i, !llvm.loop !74
+20:                                               ; preds = %20, %16
+  %.09.i.i = phi i32 [ 0, %16 ], [ %26, %20 ]
+  %21 = icmp samesign ult i32 %.09.i.i, 2
+  tail call void @llvm.assume(i1 %21)
+  %22 = xor i32 %.09.i.i, 1
+  %23 = zext nneg i32 %22 to i64
+  %24 = getelementptr inbounds nuw i64, ptr %19, i64 %23
+  %25 = load i64, ptr %24, align 8, !tbaa !71
+  %.not.i.i = icmp eq i64 %25, 0
+  %26 = add nuw nsw i32 %.09.i.i, 1
+  br i1 %.not.i.i, label %20, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_lastEv.exit.i, !llvm.loop !74
 
-_ZNK4llvm22SparseBitVectorElementILj128EE9find_lastEv.exit.i: ; preds = %22
-  %29 = shl i32 %20, 7
-  %30 = shl nuw nsw i32 %24, 6
-  %31 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %27, i1 true)
+_ZNK4llvm22SparseBitVectorElementILj128EE9find_lastEv.exit.i: ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %28 = load i32, ptr %27, align 8, !tbaa !60
+  %29 = shl i32 %28, 7
+  %30 = shl nuw nsw i32 %22, 6
+  %31 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 true)
   %32 = trunc nuw nsw i64 %31 to i32
-  %33 = or disjoint i32 %29, 64
-  %34 = add i32 %33, %30
-  %35 = sub i32 %34, %32
+  %33 = add nuw nsw i32 %30, 64
+  %34 = sub nuw nsw i32 %33, %32
+  %35 = add i32 %34, %29
   br label %_ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit
 
 _ZNK4llvm15SparseBitVectorILj128EE9find_lastEv.exit: ; preds = %3, %_ZNK4llvm22SparseBitVectorElementILj128EE9find_lastEv.exit.i

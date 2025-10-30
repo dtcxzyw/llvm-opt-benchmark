@@ -7774,8 +7774,8 @@ _ZNSt6vectorIP23cmCPackInstallationTypeSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 _ZSt6fill_nIPP23cmCPackInstallationTypemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc1637
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %2667, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %2666, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !359
   %2669 = getelementptr inbounds nuw i8, ptr %2666, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %2666, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !359
   br label %_ZNSt6vectorIP23cmCPackInstallationTypeSaIS1_EEC2EmRKS2_.exit
 
 _ZNSt6vectorIP23cmCPackInstallationTypeSaIS1_EEC2EmRKS2_.exit: ; preds = %_ZSt6fill_nIPP23cmCPackInstallationTypemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc1637, %_ZNSt6vectorIP23cmCPackInstallationTypeSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i

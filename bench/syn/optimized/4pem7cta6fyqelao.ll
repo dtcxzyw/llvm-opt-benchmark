@@ -1154,16 +1154,16 @@ _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 4
   %51 = load i32, ptr %50, align 4, !range !178, !noalias !172, !noundef !4
   %52 = icmp eq i32 %51, 39
-  br i1 %52, label %67, label %.preheader
+  br i1 %52, label %67, label %.preheader.i
 
-.preheader:                                       ; preds = %49, %.preheader
-  %.pn.i.i5 = phi ptr [ %.0.i.i.i6, %.preheader ], [ %.sroa.0.1.i, %49 ]
+.preheader.i:                                     ; preds = %49, %.preheader.i
+  %.pn.i.i5 = phi ptr [ %.0.i.i.i6, %.preheader.i ], [ %.sroa.0.1.i, %49 ]
   %.0.i.i.i6 = getelementptr inbounds nuw i8, ptr %.pn.i.i5, i64 40
   %53 = load i32, ptr %.0.i.i.i6, align 8, !range !144, !noalias !172, !noundef !4
   %54 = icmp ne i32 %53, 4
   %55 = icmp eq ptr %.0.i.i.i6, %1
   %or.cond.i.i.i7 = or i1 %55, %54
-  br i1 %or.cond.i.i.i7, label %_ZN3syn6buffer6Cursor5punct17h6386474329364b2bE.exit, label %.preheader
+  br i1 %or.cond.i.i.i7, label %71, label %.preheader.i
 
 56:                                               ; preds = %36
   %57 = landingpad { ptr, i32 }
@@ -1199,8 +1199,8 @@ _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %67
 
-67:                                               ; preds = %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i4, %49, %_ZN3syn6buffer6Cursor5punct17h6386474329364b2bE.exit, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit"
-  %.0.shrunk = phi i1 [ %37, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit" ], [ %71, %_ZN3syn6buffer6Cursor5punct17h6386474329364b2bE.exit ], [ false, %49 ], [ false, %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i4 ]
+67:                                               ; preds = %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i4, %49, %71, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit"
+  %.0.shrunk = phi i1 [ %37, %"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h4ca7abc058954aecE.exit" ], [ %72, %71 ], [ false, %49 ], [ false, %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i4 ]
   ret i1 %.0.shrunk
 
 68:                                               ; preds = %56
@@ -1212,8 +1212,8 @@ _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.
 70:                                               ; preds = %56
   resume { ptr, i32 } %57
 
-_ZN3syn6buffer6Cursor5punct17h6386474329364b2bE.exit: ; preds = %.preheader
-  %71 = icmp eq i32 %51, 95
+71:                                               ; preds = %.preheader.i
+  %72 = icmp eq i32 %51, 95
   br label %67
 }
 

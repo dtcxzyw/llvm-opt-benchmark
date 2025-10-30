@@ -131,23 +131,23 @@ define dso_local void @_ZN4Luau7CodeGen22constPropInBlockChainsERNS0_9IrBuilderE
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !4
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  br label %7
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  br label %6
 
-7:                                                ; preds = %7, %2
-  %.idx.i.i = phi i64 [ 0, %2 ], [ %.add.i.i, %7 ]
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
+6:                                                ; preds = %6, %2
+  %.idx.i.i = phi i64 [ 0, %2 ], [ %.add.i.i, %6 ]
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
   store i8 -1, ptr %.ptr.i.i, align 4, !tbaa !9
-  %8 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 4
-  %9 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %8, i8 0, i64 10, i1 false)
-  store i32 -1, ptr %9, align 4, !tbaa !15
+  %7 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %7, i8 0, i64 10, i1 false)
+  store i32 -1, ptr %8, align 4, !tbaa !15
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 20
-  %10 = icmp eq i64 %.add.i.i, 5120
-  br i1 %10, label %_ZN4Luau7CodeGen14ConstPropStateC2ERNS0_10IrFunctionE.exit, label %7
+  %9 = icmp eq i64 %.add.i.i, 5120
+  br i1 %9, label %_ZN4Luau7CodeGen14ConstPropStateC2ERNS0_10IrFunctionE.exit, label %6
 
-_ZN4Luau7CodeGen14ConstPropStateC2ERNS0_10IrFunctionE.exit: ; preds = %7
+_ZN4Luau7CodeGen14ConstPropStateC2ERNS0_10IrFunctionE.exit: ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = zext i1 %1 to i8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 5132
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 5144
@@ -165,7 +165,7 @@ _ZN4Luau7CodeGen14ConstPropStateC2ERNS0_10IrFunctionE.exit: ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 5248
   store i32 0, ptr %.sroa.15.0..sroa_idx.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %16, i8 0, i64 216, i1 false)
-  store i8 %11, ptr %5, align 8, !tbaa !23
+  store i8 %11, ptr %10, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !49
   %19 = load ptr, ptr %4, align 8, !tbaa !52
@@ -680,23 +680,23 @@ define dso_local void @_ZN4Luau7CodeGen18createLinearBlocksERNS0_9IrBuilderEb(pt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !4
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  br label %7
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  br label %6
 
-7:                                                ; preds = %7, %2
-  %.idx.i.i = phi i64 [ 0, %2 ], [ %.add.i.i, %7 ]
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
+6:                                                ; preds = %6, %2
+  %.idx.i.i = phi i64 [ 0, %2 ], [ %.add.i.i, %6 ]
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
   store i8 -1, ptr %.ptr.i.i, align 4, !tbaa !9
-  %8 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 4
-  %9 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %8, i8 0, i64 10, i1 false)
-  store i32 -1, ptr %9, align 4, !tbaa !15
+  %7 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %7, i8 0, i64 10, i1 false)
+  store i32 -1, ptr %8, align 4, !tbaa !15
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 20
-  %10 = icmp eq i64 %.add.i.i, 5120
-  br i1 %10, label %_ZN4Luau7CodeGen14ConstPropStateC2ERNS0_10IrFunctionE.exit, label %7
+  %9 = icmp eq i64 %.add.i.i, 5120
+  br i1 %9, label %_ZN4Luau7CodeGen14ConstPropStateC2ERNS0_10IrFunctionE.exit, label %6
 
-_ZN4Luau7CodeGen14ConstPropStateC2ERNS0_10IrFunctionE.exit: ; preds = %7
+_ZN4Luau7CodeGen14ConstPropStateC2ERNS0_10IrFunctionE.exit: ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = zext i1 %1 to i8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 5132
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 5144
@@ -714,7 +714,7 @@ _ZN4Luau7CodeGen14ConstPropStateC2ERNS0_10IrFunctionE.exit: ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 5248
   store i32 0, ptr %.sroa.15.0..sroa_idx.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %16, i8 0, i64 216, i1 false)
-  store i8 %11, ptr %5, align 8, !tbaa !23
+  store i8 %11, ptr %10, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !49
   %19 = load ptr, ptr %4, align 8, !tbaa !52

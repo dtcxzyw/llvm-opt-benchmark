@@ -3008,8 +3008,8 @@ _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %_ZN4llvm9BitVectorC
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %75
   %78 = shl nuw nsw i64 %69, 3
   %79 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %78) #23
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %79, i8 0, i64 %78, i1 false), !tbaa !47
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 %78
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %79, i8 0, i64 %78, i1 false), !tbaa !47
   %81 = getelementptr inbounds nuw i64, ptr %79, i64 %69
   %.not.i.i.i.i276 = icmp eq ptr %.sroa.0342.0427, null
   br i1 %.not.i.i.i.i276, label %_ZNSt6vectorImSaImEE14_M_fill_assignEmRKm.exit, label %82
@@ -3040,8 +3040,8 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %75
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i272.preheader, %88
   %93 = sub nsw i64 %69, %86
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %93, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %.sroa.8.0426, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !47
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.8.0426, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %.sroa.8.0426, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !47
   br label %_ZNSt6vectorImSaImEE14_M_fill_assignEmRKm.exit
 
 95:                                               ; preds = %83
@@ -3050,8 +3050,8 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.loopexit:   ; preds = %95
   %.idx.i.i.i = shl nuw nsw i64 %69, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %.sroa.0342.0427, i8 0, i64 %.idx.i.i.i, i1 false), !tbaa !47
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.0342.0427, i64 %.idx.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %.sroa.0342.0427, i8 0, i64 %.idx.i.i.i, i1 false), !tbaa !47
   br label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i:            ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.loopexit, %95

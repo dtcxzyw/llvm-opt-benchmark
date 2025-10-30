@@ -22276,7 +22276,6 @@ define hidden void @_ZN14polars_parquet7parquet5write9row_group15write_row_group
 .lr.ph.i.i.i:                                     ; preds = %"_ZN93_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$14extend_reserve17hafde659ecf897c44E.exit.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !2438
   store ptr %65, ptr %10, align 8, !noalias !2432
-  %.sroa.574.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.677.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %.sroa.083.0.copyload, ptr %.sroa.677.0..sroa_idx78, align 8, !noalias !2432
   %.sroa.780.0..sroa_idx81 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -22292,6 +22291,7 @@ define hidden void @_ZN14polars_parquet7parquet5write9row_group15write_row_group
   br label %74
 
 ._crit_edge.i.i.i:                                ; preds = %74
+  %.sroa.574.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %64, ptr %.sroa.574.0..sroa_idx75, align 8, !alias.scope !2440, !noalias !2459
   store i64 %81, ptr %.sroa.5.0..sroa_idx3.i.i, align 8, !alias.scope !2447, !noalias !2450
   store i64 %84, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !2454, !noalias !2457

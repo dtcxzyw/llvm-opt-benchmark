@@ -2632,9 +2632,9 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPvSt4pairINS_12PointerUnionIJPNS_15Met
   call fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_SJ_T0_T1_"(ptr noundef %.val.pre, ptr noundef nonnull %41, i64 noundef %46)
   %47 = icmp ugt i32 %.val1336, 16
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %.val.pre, i64 8
-  br i1 %47, label %.preheader.i.i.i, label %65
+  br i1 %47, label %.preheader.i.i.i.i.i, label %65
 
-.preheader.i.i.i:                                 ; preds = %42, %"_ZSt25__unguarded_linear_insertIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
+.preheader.i.i.i.i.i:                             ; preds = %42, %"_ZSt25__unguarded_linear_insertIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
   %.020.i.idx.i.i.i.i.i = phi i64 [ %.020.i.add.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ], [ 8, %42 ]
   %.pn19.i.i.i.i.i.i = phi ptr [ %.020.i.ptr.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ], [ %.val.pre, %42 ]
   %.020.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.pre, i64 %.020.i.idx.i.i.i.i.i
@@ -2647,11 +2647,11 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPvSt4pairINS_12PointerUnionIJPNS_15Met
   %50 = icmp ult i64 %.0.val.val.i.i.i.i.i.i, %.val.val.i.i.i.i.i.i
   br i1 %50, label %51, label %52
 
-51:                                               ; preds = %.preheader.i.i.i
+51:                                               ; preds = %.preheader.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %.val.pre, i64 %.020.i.idx.i.i.i.i.i, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
 
-52:                                               ; preds = %.preheader.i.i.i
+52:                                               ; preds = %.preheader.i.i.i.i.i
   %.0.val11.i.i.i.i.i.i.i = load ptr, ptr %.pn19.i.i.i.i.i.i, align 8, !tbaa !105
   %53 = getelementptr i8, ptr %.0.val11.i.i.i.i.i.i.i, i64 8
   %.0.val.val12.i.i.i.i.i.i.i = load i64, ptr %53, align 8, !tbaa !107
@@ -2675,7 +2675,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPvSt4pairINS_12PointerUnionIJPNS_15Met
   store ptr %.0.val.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i, align 8, !tbaa !105
   %.020.i.add.i.i.i.i.i = add nuw nsw i64 %.020.i.idx.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i15 = icmp eq i64 %.020.i.add.i.i.i.i.i, 128
-  br i1 %.not.i.i.i.i.i.i15, label %"_ZSt16__insertion_sortIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_SJ_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i, !llvm.loop !109
+  br i1 %.not.i.i.i.i.i.i15, label %"_ZSt16__insertion_sortIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_SJ_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i.i.i, !llvm.loop !109
 
 "_ZSt16__insertion_sortIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_SJ_T0_.exit.i.i.i.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
   %57 = getelementptr inbounds nuw i8, ptr %.val.pre, i64 128
@@ -3115,9 +3115,9 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPvSt4pairINS_12PointerUnionIJPNS_15Met
   call fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_SJ_T0_T1_"(ptr noundef %.val.pre, ptr noundef nonnull %41, i64 noundef %46)
   %47 = icmp ugt i32 %.val1233, 16
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %.val.pre, i64 8
-  br i1 %47, label %.preheader.i.i.i, label %65
+  br i1 %47, label %.preheader.i.i.i.i.i, label %65
 
-.preheader.i.i.i:                                 ; preds = %42, %"_ZSt25__unguarded_linear_insertIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
+.preheader.i.i.i.i.i:                             ; preds = %42, %"_ZSt25__unguarded_linear_insertIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
   %.020.i.idx.i.i.i.i.i = phi i64 [ %.020.i.add.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ], [ 8, %42 ]
   %.pn19.i.i.i.i.i.i = phi ptr [ %.020.i.ptr.i.i.i.i.i, %"_ZSt25__unguarded_linear_insertIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i" ], [ %.val.pre, %42 ]
   %.020.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.pre, i64 %.020.i.idx.i.i.i.i.i
@@ -3130,11 +3130,11 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPvSt4pairINS_12PointerUnionIJPNS_15Met
   %50 = icmp ugt i64 %.0.val.val.i.i.i.i.i.i, %.val.val.i.i.i.i.i.i
   br i1 %50, label %51, label %52
 
-51:                                               ; preds = %.preheader.i.i.i
+51:                                               ; preds = %.preheader.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %.val.pre, i64 %.020.i.idx.i.i.i.i.i, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
 
-52:                                               ; preds = %.preheader.i.i.i
+52:                                               ; preds = %.preheader.i.i.i.i.i
   %.0.val11.i.i.i.i.i.i.i = load ptr, ptr %.pn19.i.i.i.i.i.i, align 8, !tbaa !105
   %53 = getelementptr i8, ptr %.0.val11.i.i.i.i.i.i.i, i64 8
   %.0.val.val12.i.i.i.i.i.i.i = load i64, ptr %53, align 8, !tbaa !107
@@ -3158,7 +3158,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPvSt4pairINS_12PointerUnionIJPNS_15Met
   store ptr %.0.val.i.i.i.i.i.i, ptr %.sink.i.i.i.i.i.i, align 8, !tbaa !105
   %.020.i.add.i.i.i.i.i = add nuw nsw i64 %.020.i.idx.i.i.i.i.i, 8
   %.not.i.i.i.i.i.i14 = icmp eq i64 %.020.i.add.i.i.i.i.i, 128
-  br i1 %.not.i.i.i.i.i.i14, label %"_ZSt16__insertion_sortIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_SJ_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i, !llvm.loop !115
+  br i1 %.not.i.i.i.i.i.i14, label %"_ZSt16__insertion_sortIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_SJ_T0_.exit.i.i.i.i.i", label %.preheader.i.i.i.i.i, !llvm.loop !115
 
 "_ZSt16__insertion_sortIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_SJ_T0_.exit.i.i.i.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i"
   %57 = getelementptr inbounds nuw i8, ptr %.val.pre, i64 128
@@ -27481,8 +27481,8 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.thread: ; preds = %_ZNSt6v
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.thread
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %157, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %156, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !72
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %156, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !72
   br label %_ZNSt6vectorImSaImEEC2EmRKS0_.exit
 
 _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.thread, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -30896,9 +30896,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
 "_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader": ; preds = %179, %173, %165, %159, %153, %144
   br label %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEEvT_SK_SK_SK_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEEvT_SK_SK_SK_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader", %193
-  %.013.i.i = phi ptr [ %.114.i.i, %193 ], [ %.029, %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader" ]
-  %.0.i.i = phi ptr [ %187, %193 ], [ %8, %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEEvT_SK_SK_SK_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader", %192
+  %.013.i.i = phi ptr [ %.114.i.i, %192 ], [ %.029, %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader" ]
+  %.0.i.i = phi ptr [ %187, %192 ], [ %8, %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader" ]
   %.val15.i.i = load i64, ptr %11, align 8, !tbaa !134
   br label %184
 
@@ -30908,26 +30908,23 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
   %.1.val.i.i = load i64, ptr %185, align 8, !tbaa !134
   %186 = icmp ult i64 %.1.val.i.i, %.val15.i.i
   %187 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
-  br i1 %186, label %184, label %.preheader.i.i.preheader, !llvm.loop !1108
+  br i1 %186, label %184, label %.preheader.i.i, !llvm.loop !1108
 
-.preheader.i.i.preheader:                         ; preds = %184
-  %188 = getelementptr i8, ptr %.1.i.i, i64 16
-  br label %.preheader.i.i
-
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %.preheader.i.i.preheader ]
+.preheader.i.i:                                   ; preds = %184, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %184 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -24
-  %189 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
-  %.114.val.i.i = load i64, ptr %189, align 8, !tbaa !134
-  %190 = icmp ult i64 %.val15.i.i, %.114.val.i.i
-  br i1 %190, label %.preheader.i.i, label %191, !llvm.loop !1109
+  %188 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
+  %.114.val.i.i = load i64, ptr %188, align 8, !tbaa !134
+  %189 = icmp ult i64 %.val15.i.i, %.114.val.i.i
+  br i1 %189, label %.preheader.i.i, label %190, !llvm.loop !1109
 
-191:                                              ; preds = %.preheader.i.i
-  %192 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %192, label %193, label %"_ZSt27__unguarded_partition_pivotIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEET_SK_SK_T0_.exit"
+190:                                              ; preds = %.preheader.i.i
+  %191 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %191, label %192, label %"_ZSt27__unguarded_partition_pivotIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEET_SK_SK_T0_.exit"
 
-193:                                              ; preds = %191
-  %194 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
+192:                                              ; preds = %190
+  %193 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
+  %194 = getelementptr i8, ptr %.1.i.i, i64 16
   %195 = load ptr, ptr %.1.i.i, align 8, !tbaa !63
   %196 = load ptr, ptr %.114.i.i, align 8, !tbaa !63
   store ptr %196, ptr %.1.i.i, align 8, !tbaa !63
@@ -30938,13 +30935,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
   %199 = load i64, ptr %198, align 8
   store i64 %199, ptr %197, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i13.i, ptr %198, align 8
-  %200 = load i64, ptr %188, align 8, !tbaa !72
-  %201 = load i64, ptr %194, align 8, !tbaa !72
-  store i64 %201, ptr %188, align 8, !tbaa !72
-  store i64 %200, ptr %194, align 8, !tbaa !72
+  %200 = load i64, ptr %194, align 8, !tbaa !72
+  %201 = load i64, ptr %193, align 8, !tbaa !72
+  store i64 %201, ptr %194, align 8, !tbaa !72
+  store i64 %200, ptr %193, align 8, !tbaa !72
   br label %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEEvT_SK_SK_SK_T0_.exit.i", !llvm.loop !1110
 
-"_ZSt27__unguarded_partition_pivotIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEET_SK_SK_T0_.exit": ; preds = %191
+"_ZSt27__unguarded_partition_pivotIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEET_SK_SK_T0_.exit": ; preds = %190
   tail call fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEEvT_SK_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.029, i64 noundef %135)
   %202 = ptrtoint ptr %.1.i.i to i64
   %203 = sub i64 %202, %4
@@ -31454,9 +31451,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
 "_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader": ; preds = %179, %173, %165, %159, %153, %144
   br label %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEEvT_SK_SK_SK_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEEvT_SK_SK_SK_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader", %193
-  %.013.i.i = phi ptr [ %.114.i.i, %193 ], [ %.029, %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader" ]
-  %.0.i.i = phi ptr [ %187, %193 ], [ %8, %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEEvT_SK_SK_SK_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader", %192
+  %.013.i.i = phi ptr [ %.114.i.i, %192 ], [ %.029, %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader" ]
+  %.0.i.i = phi ptr [ %187, %192 ], [ %8, %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader" ]
   %.val15.i.i = load i64, ptr %11, align 8, !tbaa !134
   br label %184
 
@@ -31466,26 +31463,23 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
   %.1.val.i.i = load i64, ptr %185, align 8, !tbaa !134
   %186 = icmp ult i64 %.1.val.i.i, %.val15.i.i
   %187 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
-  br i1 %186, label %184, label %.preheader.i.i.preheader, !llvm.loop !1116
+  br i1 %186, label %184, label %.preheader.i.i, !llvm.loop !1116
 
-.preheader.i.i.preheader:                         ; preds = %184
-  %188 = getelementptr i8, ptr %.1.i.i, i64 16
-  br label %.preheader.i.i
-
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %.preheader.i.i.preheader ]
+.preheader.i.i:                                   ; preds = %184, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %184 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -24
-  %189 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
-  %.114.val.i.i = load i64, ptr %189, align 8, !tbaa !134
-  %190 = icmp ult i64 %.val15.i.i, %.114.val.i.i
-  br i1 %190, label %.preheader.i.i, label %191, !llvm.loop !1117
+  %188 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
+  %.114.val.i.i = load i64, ptr %188, align 8, !tbaa !134
+  %189 = icmp ult i64 %.val15.i.i, %.114.val.i.i
+  br i1 %189, label %.preheader.i.i, label %190, !llvm.loop !1117
 
-191:                                              ; preds = %.preheader.i.i
-  %192 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %192, label %193, label %"_ZSt27__unguarded_partition_pivotIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEET_SK_SK_T0_.exit"
+190:                                              ; preds = %.preheader.i.i
+  %191 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %191, label %192, label %"_ZSt27__unguarded_partition_pivotIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEET_SK_SK_T0_.exit"
 
-193:                                              ; preds = %191
-  %194 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
+192:                                              ; preds = %190
+  %193 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
+  %194 = getelementptr i8, ptr %.1.i.i, i64 16
   %195 = load ptr, ptr %.1.i.i, align 8, !tbaa !63
   %196 = load ptr, ptr %.114.i.i, align 8, !tbaa !63
   store ptr %196, ptr %.1.i.i, align 8, !tbaa !63
@@ -31496,13 +31490,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
   %199 = load i64, ptr %198, align 8
   store i64 %199, ptr %197, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i13.i, ptr %198, align 8
-  %200 = load i64, ptr %188, align 8, !tbaa !72
-  %201 = load i64, ptr %194, align 8, !tbaa !72
-  store i64 %201, ptr %188, align 8, !tbaa !72
-  store i64 %200, ptr %194, align 8, !tbaa !72
+  %200 = load i64, ptr %194, align 8, !tbaa !72
+  %201 = load i64, ptr %193, align 8, !tbaa !72
+  store i64 %201, ptr %194, align 8, !tbaa !72
+  store i64 %200, ptr %193, align 8, !tbaa !72
   br label %"_ZSt22__move_median_to_firstIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEEvT_SK_SK_SK_T0_.exit.i", !llvm.loop !1118
 
-"_ZSt27__unguarded_partition_pivotIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEET_SK_SK_T0_.exit": ; preds = %191
+"_ZSt27__unguarded_partition_pivotIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEET_SK_SK_T0_.exit": ; preds = %190
   tail call fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEEvT_SK_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.029, i64 noundef %135)
   %202 = ptrtoint ptr %.1.i.i to i64
   %203 = sub i64 %202, %4

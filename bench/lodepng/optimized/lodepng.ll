@@ -4228,10 +4228,10 @@ _ZL8inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings.exit.thread33: ; preds =
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %70
-  %.032.i.i = phi ptr [ %73, %70 ], [ %61, %.lr.ph.i.i.preheader ]
+  %.032.i.i = phi ptr [ %72, %70 ], [ %61, %.lr.ph.i.i.preheader ]
   %.01831.i.i = phi i32 [ %75, %70 ], [ 0, %.lr.ph.i.i.preheader ]
   %.02030.i.i = phi i32 [ %74, %70 ], [ 1, %.lr.ph.i.i.preheader ]
-  %.02229.i.i = phi i32 [ %71, %70 ], [ %60, %.lr.ph.i.i.preheader ]
+  %.02229.i.i = phi i32 [ %73, %70 ], [ %60, %.lr.ph.i.i.preheader ]
   %62 = tail call i32 @llvm.umin.i32(i32 %.02229.i.i, i32 5552)
   br label %63
 
@@ -4250,12 +4250,12 @@ _ZL8inflatevP8ucvectorPKhmPK25LodePNGDecompressSettings.exit.thread33: ; preds =
   br i1 %.not23.i.i, label %70, label %63, !llvm.loop !163
 
 70:                                               ; preds = %63
-  %71 = sub i32 %.02229.i.i, %62
-  %72 = zext nneg i32 %62 to i64
-  %73 = getelementptr i8, ptr %.032.i.i, i64 %72
+  %71 = zext nneg i32 %62 to i64
+  %72 = getelementptr i8, ptr %.032.i.i, i64 %71
+  %73 = sub i32 %.02229.i.i, %62
   %74 = urem i32 %67, 65521
   %75 = urem i32 %68, 65521
-  %.not.i.i = icmp eq i32 %71, 0
+  %.not.i.i = icmp eq i32 %73, 0
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !164
 
 ._crit_edge.loopexit.i.i:                         ; preds = %70
@@ -4321,10 +4321,10 @@ _ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread: ; preds = %10, %_ZL
   br i1 %.not28.i.i, label %_ZL7adler32PKhj.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16, %26
-  %.032.i.i = phi ptr [ %29, %26 ], [ %2, %16 ]
+  %.032.i.i = phi ptr [ %28, %26 ], [ %2, %16 ]
   %.01831.i.i = phi i32 [ %31, %26 ], [ 0, %16 ]
   %.02030.i.i = phi i32 [ %30, %26 ], [ 1, %16 ]
-  %.02229.i.i = phi i32 [ %27, %26 ], [ %17, %16 ]
+  %.02229.i.i = phi i32 [ %29, %26 ], [ %17, %16 ]
   %18 = call i32 @llvm.umin.i32(i32 %.02229.i.i, i32 5552)
   br label %19
 
@@ -4343,12 +4343,12 @@ _ZL7deflatePPhPmPKhmPK23LodePNGCompressSettings.exit.thread: ; preds = %10, %_ZL
   br i1 %.not23.i.i, label %26, label %19, !llvm.loop !163
 
 26:                                               ; preds = %19
-  %27 = sub i32 %.02229.i.i, %18
-  %28 = zext nneg i32 %18 to i64
-  %29 = getelementptr i8, ptr %.032.i.i, i64 %28
+  %27 = zext nneg i32 %18 to i64
+  %28 = getelementptr i8, ptr %.032.i.i, i64 %27
+  %29 = sub i32 %.02229.i.i, %18
   %30 = urem i32 %23, 65521
   %31 = urem i32 %24, 65521
-  %.not.i.i = icmp eq i32 %27, 0
+  %.not.i.i = icmp eq i32 %29, 0
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !164
 
 ._crit_edge.loopexit.i.i:                         ; preds = %26
@@ -7253,8 +7253,8 @@ _ZL13rgba16ToPixelPhmPK16LodePNGColorModetttt.exit: ; preds = %.lr.ph148, %156, 
 ._crit_edge297.thread.i:                          ; preds = %.lr.ph296.i
   %230 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %231 = load i32, ptr %230, align 8, !tbaa !198, !noalias !313
-  %.not219336.i = icmp eq i32 %231, 0
-  br i1 %.not219336.i, label %_ZL14color_tree_addP9ColorTreehhhhj.exit, label %.lr.ph303.i
+  %.not219334.i = icmp eq i32 %231, 0
+  br i1 %.not219334.i, label %_ZL14color_tree_addP9ColorTreehhhhj.exit, label %.lr.ph303.i
 
 .lr.ph303.i:                                      ; preds = %._crit_edge297.thread.i
   %.neg220.i = mul i64 %18, -4
@@ -7425,8 +7425,8 @@ _ZL26readBitsFromReversedStreamPmPKhm.exit.i:     ; preds = %_ZL26readBitsFromRe
 ._crit_edge.thread.i:                             ; preds = %.lr.ph283.i
   %313 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %314 = load i32, ptr %313, align 8, !tbaa !198, !noalias !313
-  %.not212341.i = icmp eq i32 %314, 0
-  br i1 %.not212341.i, label %_ZL14color_tree_addP9ColorTreehhhhj.exit, label %.lr.ph288.i
+  %.not212339.i = icmp eq i32 %314, 0
+  br i1 %.not212339.i, label %_ZL14color_tree_addP9ColorTreehhhhj.exit, label %.lr.ph288.i
 
 .lr.ph288.i:                                      ; preds = %._crit_edge.thread.i
   %.neg.i = mul i64 %18, -4
@@ -21999,27 +21999,27 @@ _ZL18uivector_push_backP8uivectorj.exit251:       ; preds = %228, %240
 
 _ZL15searchCodeIndexPKjmm.exit.i:                 ; preds = %253, %249
   %.2.i.i = phi i64 [ %254, %253 ], [ %.1.i.i, %249 ]
-  %255 = and i64 %.2.i.i, 4294967295
-  %256 = getelementptr inbounds nuw i32, ptr @_ZL10LENGTHBASE, i64 %255
-  %257 = load i32, ptr %256, align 4, !tbaa !10
   br label %.lr.ph.i21.i
 
 .lr.ph.i21.i:                                     ; preds = %.lr.ph.i21.i, %_ZL15searchCodeIndexPKjmm.exit.i
   %.022.i22.i = phi i64 [ %.1.i26.i, %.lr.ph.i21.i ], [ 1, %_ZL15searchCodeIndexPKjmm.exit.i ]
   %.01621.i23.i = phi i64 [ %.117.i25.i, %.lr.ph.i21.i ], [ 29, %_ZL15searchCodeIndexPKjmm.exit.i ]
-  %258 = add i64 %.01621.i23.i, %.022.i22.i
-  %259 = lshr i64 %258, 1
-  %260 = getelementptr inbounds nuw i32, ptr @_ZL12DISTANCEBASE, i64 %259
-  %261 = load i32, ptr %260, align 4, !tbaa !10
-  %.not19.i24.i = icmp ugt i32 %.3204, %261
-  %262 = add nsw i64 %259, -1
-  %263 = add nuw i64 %259, 1
-  %.117.i25.i = select i1 %.not19.i24.i, i64 %.01621.i23.i, i64 %262
-  %.1.i26.i = select i1 %.not19.i24.i, i64 %263, i64 %.022.i22.i
+  %255 = add i64 %.01621.i23.i, %.022.i22.i
+  %256 = lshr i64 %255, 1
+  %257 = getelementptr inbounds nuw i32, ptr @_ZL12DISTANCEBASE, i64 %256
+  %258 = load i32, ptr %257, align 4, !tbaa !10
+  %.not19.i24.i = icmp ugt i32 %.3204, %258
+  %259 = add nsw i64 %256, -1
+  %260 = add nuw i64 %256, 1
+  %.117.i25.i = select i1 %.not19.i24.i, i64 %.01621.i23.i, i64 %259
+  %.1.i26.i = select i1 %.not19.i24.i, i64 %260, i64 %.022.i22.i
   %.not.i27.i = icmp ugt i64 %.1.i26.i, %.117.i25.i
   br i1 %.not.i27.i, label %._crit_edge.i28.i, label %.lr.ph.i21.i, !llvm.loop !802
 
 ._crit_edge.i28.i:                                ; preds = %.lr.ph.i21.i
+  %261 = and i64 %.2.i.i, 4294967295
+  %262 = getelementptr inbounds nuw i32, ptr @_ZL10LENGTHBASE, i64 %261
+  %263 = load i32, ptr %262, align 4, !tbaa !10
   %.not18.i29.i = icmp ult i64 %.1.i26.i, 30
   br i1 %.not18.i29.i, label %264, label %268
 
@@ -22063,7 +22063,7 @@ _ZL15searchCodeIndexPKjmm.exit31.i:               ; preds = %268, %264
   store i64 %274, ptr %28, align 8, !tbaa !144
   %285 = sub i32 %.3204, %272
   %286 = trunc i64 %.2.i30.i to i32
-  %287 = sub i32 %.3200, %257
+  %287 = sub i32 %.3200, %263
   %288 = trunc i64 %.2.i.i to i32
   %289 = add i32 %288, 257
   %290 = getelementptr inbounds nuw i32, ptr %284, i64 %273

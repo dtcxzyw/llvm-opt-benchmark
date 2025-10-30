@@ -70264,25 +70264,25 @@ _ZN4glTF12_GLOBAL__N_19MakeValueIfLm16EEERN9rapidjson12GenericValueINS2_4UTF8IcE
 
 .noexc55:                                         ; preds = %120, %.noexc149
   %.0.i132 = phi i64 [ %127, %120 ], [ 1125899906842624, %.noexc149 ]
-  %128 = inttoptr i64 %.0.i132 to ptr
-  %129 = and i64 %.0.i132, 281474976710655
-  %130 = inttoptr i64 %129 to ptr
+  %128 = and i64 %.0.i132, 281474976710655
+  %129 = inttoptr i64 %128 to ptr
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i48
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i48: ; preds = %.noexc55, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i48
-  %.09.i45 = phi i64 [ 0, %.noexc55 ], [ %134, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i48 ]
-  %131 = getelementptr inbounds nuw float, ptr %107, i64 %.09.i45
-  %132 = load float, ptr %131, align 4
-  %133 = fpext float %132 to double
-  %134 = add nuw nsw i64 %.09.i45, 1
-  %135 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %130, i64 %.09.i45
-  store double %133, ptr %135, align 8
-  %.sroa.5.0..sroa_idx.i.i49 = getelementptr inbounds nuw i8, ptr %135, i64 8
+  %.09.i45 = phi i64 [ 0, %.noexc55 ], [ %133, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i48 ]
+  %130 = getelementptr inbounds nuw float, ptr %107, i64 %.09.i45
+  %131 = load float, ptr %130, align 4
+  %132 = fpext float %131 to double
+  %133 = add nuw nsw i64 %.09.i45, 1
+  %134 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %129, i64 %.09.i45
+  store double %132, ptr %134, align 8
+  %.sroa.5.0..sroa_idx.i.i49 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store i64 150307637563490304, ptr %.sroa.5.0..sroa_idx.i.i49, align 8
-  %exitcond.not.i50 = icmp eq i64 %134, 3
+  %exitcond.not.i50 = icmp eq i64 %133, 3
   br i1 %exitcond.not.i50, label %_ZN4glTF12_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i48, !llvm.loop !721
 
 _ZN4glTF12_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i48
+  %135 = inttoptr i64 %.0.i132 to ptr
   %136 = load ptr, ptr %108, align 8
   %137 = load i32, ptr %0, align 8
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -70342,7 +70342,7 @@ _ZN4glTF12_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcEE
   %.sroa.9243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 20
   store i32 3, ptr %.sroa.9243.0..sroa_idx, align 4
   %.sroa.12244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %172, i64 24
-  store ptr %128, ptr %.sroa.12244.0..sroa_idx, align 8
+  store ptr %135, ptr %.sroa.12244.0..sroa_idx, align 8
   %174 = load i32, ptr %0, align 8
   %175 = add i32 %174, 1
   store i32 %175, ptr %0, align 8
@@ -70396,25 +70396,25 @@ _ZN4glTF12_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcEE
 
 .noexc75:                                         ; preds = %194, %.noexc172
   %.0.i155 = phi i64 [ %201, %194 ], [ 1125899906842624, %.noexc172 ]
-  %202 = inttoptr i64 %.0.i155 to ptr
-  %203 = and i64 %.0.i155, 281474976710655
-  %204 = inttoptr i64 %203 to ptr
+  %202 = and i64 %.0.i155, 281474976710655
+  %203 = inttoptr i64 %202 to ptr
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i68
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i68: ; preds = %.noexc75, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i68
-  %.09.i65 = phi i64 [ 0, %.noexc75 ], [ %208, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i68 ]
-  %205 = getelementptr inbounds nuw float, ptr %181, i64 %.09.i65
-  %206 = load float, ptr %205, align 4
-  %207 = fpext float %206 to double
-  %208 = add nuw nsw i64 %.09.i65, 1
-  %209 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %204, i64 %.09.i65
-  store double %207, ptr %209, align 8
-  %.sroa.5.0..sroa_idx.i.i69 = getelementptr inbounds nuw i8, ptr %209, i64 8
+  %.09.i65 = phi i64 [ 0, %.noexc75 ], [ %207, %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i68 ]
+  %204 = getelementptr inbounds nuw float, ptr %181, i64 %.09.i65
+  %205 = load float, ptr %204, align 4
+  %206 = fpext float %205 to double
+  %207 = add nuw nsw i64 %.09.i65, 1
+  %208 = getelementptr inbounds nuw %"class.rapidjson::GenericValue", ptr %203, i64 %.09.i65
+  store double %206, ptr %208, align 8
+  %.sroa.5.0..sroa_idx.i.i69 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store i64 150307637563490304, ptr %.sroa.5.0..sroa_idx.i.i69, align 8
-  %exitcond.not.i70 = icmp eq i64 %208, 3
+  %exitcond.not.i70 = icmp eq i64 %207, 3
   br i1 %exitcond.not.i70, label %_ZN4glTF12_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit77, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i68, !llvm.loop !721
 
 _ZN4glTF12_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RAT0__T_RS8_.exit77: ; preds = %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i68
+  %209 = inttoptr i64 %.0.i155 to ptr
   %210 = load ptr, ptr %182, align 8
   %211 = load i32, ptr %0, align 8
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -70474,7 +70474,7 @@ _ZN4glTF12_GLOBAL__N_19MakeValueIfLm3EEERN9rapidjson12GenericValueINS2_4UTF8IcEE
   %.sroa.9227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %246, i64 20
   store i32 3, ptr %.sroa.9227.0..sroa_idx, align 4
   %.sroa.12228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %246, i64 24
-  store ptr %202, ptr %.sroa.12228.0..sroa_idx, align 8
+  store ptr %209, ptr %.sroa.12228.0..sroa_idx, align 8
   %248 = load i32, ptr %0, align 8
   %249 = add i32 %248, 1
   store i32 %249, ptr %0, align 8
@@ -84321,23 +84321,23 @@ _ZN5o3dgc12BinaryStream13WriteIntASCIIEl.exit:    ; preds = %127
   br label %200
 
 .loopexit611:                                     ; preds = %_ZN5o3dgc12BinaryStream13WriteIntASCIIEl.exit, %.preheader610, %._crit_edge
-  %152 = mul i64 %3, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.not.i354 = icmp eq i64 %3, 0
   br i1 %.not.i354, label %._crit_edge.i356, label %.lr.ph.i355
 
 .lr.ph.i355:                                      ; preds = %.loopexit611
-  %153 = trunc i64 %7 to i32
-  %154 = add i32 %153, 1
-  %notmask.i = shl nsw i32 -1, %154
-  %155 = xor i32 %notmask.i, -1
-  %156 = uitofp nneg i32 %155 to float
+  %152 = trunc i64 %7 to i32
+  %153 = add i32 %152, 1
+  %notmask.i = shl nsw i32 -1, %153
+  %154 = xor i32 %notmask.i, -1
+  %155 = uitofp nneg i32 %154 to float
   br label %160
 
 ._crit_edge.i356:                                 ; preds = %160, %.loopexit611
+  %156 = mul i64 %3, %2
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %158 = load i64, ptr %157, align 8
-  %159 = icmp ult i64 %158, %152
+  %159 = icmp ult i64 %158, %156
   br i1 %159, label %170, label %180
 
 160:                                              ; preds = %160, %.lr.ph.i355
@@ -84348,7 +84348,7 @@ _ZN5o3dgc12BinaryStream13WriteIntASCIIEl.exit:    ; preds = %127
   %164 = load float, ptr %163, align 4
   %165 = fsub float %162, %164
   %166 = fcmp ogt float %165, 0.000000e+00
-  %167 = fdiv float %156, %165
+  %167 = fdiv float %155, %165
   %.sink.i = select i1 %166, float %167, float 1.000000e+00
   %168 = getelementptr inbounds nuw float, ptr %13, i64 %.03439.i
   store float %.sink.i, ptr %168, align 4
@@ -84367,9 +84367,9 @@ _ZN5o3dgc12BinaryStream13WriteIntASCIIEl.exit:    ; preds = %127
   br label %175
 
 175:                                              ; preds = %174, %170
-  store i64 %152, ptr %157, align 8
-  %176 = icmp ugt i64 %152, 2305843009213693951
-  %177 = shl nuw i64 %152, 3
+  store i64 %156, ptr %157, align 8
+  %176 = icmp ugt i64 %156, 2305843009213693951
+  %177 = shl nuw i64 %156, 3
   %178 = select i1 %176, i64 -1, i64 %177
   %179 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %178) #35
           to label %.noexc357 unwind label %198
@@ -84433,22 +84433,22 @@ _ZN5o3dgc12BinaryStream13WriteIntASCIIEl.exit:    ; preds = %127
   br label %.loopexit.split-lp619
 
 201:                                              ; preds = %121
-  %202 = mul i64 %3, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not.i358 = icmp eq i64 %3, 0
   br i1 %.not.i358, label %._crit_edge.i364, label %.lr.ph.i359
 
 .lr.ph.i359:                                      ; preds = %201
-  %203 = trunc i64 %7 to i32
-  %notmask.i360 = shl nsw i32 -1, %203
-  %204 = xor i32 %notmask.i360, -1
-  %205 = uitofp nneg i32 %204 to float
+  %202 = trunc i64 %7 to i32
+  %notmask.i360 = shl nsw i32 -1, %202
+  %203 = xor i32 %notmask.i360, -1
+  %204 = uitofp nneg i32 %203 to float
   br label %209
 
 ._crit_edge.i364:                                 ; preds = %209, %201
+  %205 = mul i64 %3, %2
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %207 = load i64, ptr %206, align 8
-  %208 = icmp ult i64 %207, %202
+  %208 = icmp ult i64 %207, %205
   br i1 %208, label %219, label %229
 
 209:                                              ; preds = %209, %.lr.ph.i359
@@ -84459,7 +84459,7 @@ _ZN5o3dgc12BinaryStream13WriteIntASCIIEl.exit:    ; preds = %127
   %213 = load float, ptr %212, align 4
   %214 = fsub float %211, %213
   %215 = fcmp ogt float %214, 0.000000e+00
-  %216 = fdiv float %205, %214
+  %216 = fdiv float %204, %214
   %.sink.i362 = select i1 %215, float %216, float 1.000000e+00
   %217 = getelementptr inbounds nuw float, ptr %12, i64 %.03439.i361
   store float %.sink.i362, ptr %217, align 4
@@ -84478,9 +84478,9 @@ _ZN5o3dgc12BinaryStream13WriteIntASCIIEl.exit:    ; preds = %127
   br label %224
 
 224:                                              ; preds = %223, %219
-  store i64 %202, ptr %206, align 8
-  %225 = icmp ugt i64 %202, 2305843009213693951
-  %226 = shl nuw i64 %202, 3
+  store i64 %205, ptr %206, align 8
+  %225 = icmp ugt i64 %205, 2305843009213693951
+  %226 = shl nuw i64 %205, 3
   %227 = select i1 %225, i64 -1, i64 %226
   %228 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %227) #35
           to label %.noexc373 unwind label %.loopexit.split-lp614

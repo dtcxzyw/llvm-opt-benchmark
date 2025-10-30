@@ -1177,10 +1177,10 @@ invoke.cont279.i:                                 ; preds = %arraydestroy.body.i
   %call293.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znam(i64 noundef 24) #15
   store i64 1, ptr %call293.i, align 16
   %_ZN12SmartPtrTest1A6mCountE.promoted.i = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %39 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted.i, 1
   %arrayctor.cur296.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %call293.i, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur296.ptr.ptr.i, align 8
   %mc.i151.i = getelementptr inbounds nuw i8, ptr %call293.i, i64 16
-  %39 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted.i, 1
   store i32 %39, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   store ptr %arrayctor.cur296.ptr.ptr.i, ptr %pT2291.i, align 8
   store i8 1, ptr %mc.i151.i, align 16
@@ -1218,9 +1218,9 @@ arrayctor.loop332.i:                              ; preds = %arrayctor.loop332.i
   br i1 %arrayctor.done344.i, label %arrayctor.cont345.i, label %arrayctor.loop332.i
 
 arrayctor.cont345.i:                              ; preds = %arrayctor.loop332.i
-  %.ptr14.i = getelementptr inbounds nuw i8, ptr %call330.i, i64 8
   %41 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted712.i, 2
   store i32 %41, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %.ptr14.i = getelementptr inbounds nuw i8, ptr %call330.i, i64 8
   %cmp.not.i159.i = icmp eq ptr %call330.i, %call293.i
   br i1 %cmp.not.i159.i, label %invoke.cont350.i, label %delete.notnull.i.i.i
 
@@ -1313,9 +1313,9 @@ arrayctor.loop364.i:                              ; preds = %arrayctor.loop364.i
   br i1 %arrayctor.done376.i, label %arrayctor.cont377.i, label %arrayctor.loop364.i
 
 arrayctor.cont377.i:                              ; preds = %arrayctor.loop364.i
-  %.ptr15.i = getelementptr inbounds nuw i8, ptr %call362.i, i64 8
   %46 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted715.i, 3
   store i32 %46, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %.ptr15.i = getelementptr inbounds nuw i8, ptr %call362.i, i64 8
   %cmp.not.i192.i = icmp eq ptr %.ptr15.i, %.pre.i
   br i1 %cmp.not.i192.i, label %invoke.cont382.i, label %invoke.cont3.i193.i
 
@@ -1378,9 +1378,9 @@ arrayctor.loop393.i:                              ; preds = %arrayctor.loop393.i
   br i1 %arrayctor.done405.i, label %invoke.cont412.i, label %arrayctor.loop393.i
 
 invoke.cont412.i:                                 ; preds = %arrayctor.loop393.i
-  %.ptr16.i = getelementptr inbounds nuw i8, ptr %call391.i, i64 8
   %50 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted718.i, 4
   store i32 %50, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %.ptr16.i = getelementptr inbounds nuw i8, ptr %call391.i, i64 8
   store ptr %.ptr16.i, ptr %pT3389.i, align 8
   %mc411.i = getelementptr inbounds nuw i8, ptr %call391.i, i64 16
   store i8 4, ptr %mc411.i, align 8
@@ -1590,11 +1590,11 @@ if.end506.i:                                      ; preds = %delete.end486.i
 if.end532.i:                                      ; preds = %if.end506.i
   store i64 1, ptr %call508.i, align 16
   %_ZN12SmartPtrTest1A6mCountE.promoted724.i = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %76 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted724.i, 1
   %arrayctor.cur511.ptr.i = getelementptr inbounds nuw i8, ptr %call508.i, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur511.ptr.i, align 8
   %mc.i282.i = getelementptr inbounds nuw i8, ptr %call508.i, i64 16
   store i8 0, ptr %mc.i282.i, align 16
-  %76 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted724.i, 1
   store i32 %76, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   store ptr %arrayctor.cur511.ptr.i, ptr %pT4487.i, align 8
   %cmp533.i = icmp eq i32 %76, 8
@@ -1626,9 +1626,9 @@ arrayctor.loop548.i:                              ; preds = %arrayctor.loop548.i
   br i1 %arrayctor.done560.i, label %invoke.cont567.i, label %arrayctor.loop548.i
 
 invoke.cont567.i:                                 ; preds = %arrayctor.loop548.i
-  %.ptr19.ptr.i = getelementptr inbounds nuw i8, ptr %call546.i, i64 8
   %77 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted727.i, 17
   store i32 %77, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %.ptr19.ptr.i = getelementptr inbounds nuw i8, ptr %call546.i, i64 8
   store ptr %.ptr19.ptr.i, ptr %pT6544.i, align 8
   %mc566.i = getelementptr inbounds nuw i8, ptr %call546.i, i64 16
   store i8 17, ptr %mc566.i, align 8
@@ -1655,9 +1655,9 @@ arrayctor.loop578.i:                              ; preds = %arrayctor.loop578.i
   br i1 %arrayctor.done590.i, label %invoke.cont599.i, label %arrayctor.loop578.i
 
 invoke.cont599.i:                                 ; preds = %arrayctor.loop578.i
-  %.ptr20.i = getelementptr inbounds nuw i8, ptr %call576.i, i64 8
   %78 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted729.i, 18
   store i32 %78, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %.ptr20.i = getelementptr inbounds nuw i8, ptr %call576.i, i64 8
   store ptr %.ptr20.i, ptr %pT7574.i, align 8
   %mc598.i = getelementptr inbounds nuw i8, ptr %call576.i, i64 16
   store i8 18, ptr %mc598.i, align 8
@@ -2573,9 +2573,9 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %arrayctor.cont.i, label %arrayctor.loop.i
 
 arrayctor.cont.i:                                 ; preds = %arrayctor.loop.i
-  %.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %call12.i31, i64 8
   %163 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted.i32, 2
   store i32 %163, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %call12.i31, i64 8
   store ptr %.ptr.ptr.i, ptr %pT2.i, align 8
   %cmp17.i = icmp eq i32 %_ZN12SmartPtrTest1A6mCountE.promoted.i32, 0
   %call20.i = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp17.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i27, ptr noundef nonnull @.str, i32 noundef 954, ptr noundef nonnull @.str.16)
@@ -2620,9 +2620,9 @@ arrayctor.loop45.i:                               ; preds = %arrayctor.loop45.i,
   br i1 %arrayctor.done56.i, label %arrayctor.cont57.i, label %arrayctor.loop45.i
 
 arrayctor.cont57.i:                               ; preds = %arrayctor.loop45.i
-  %.ptr1.i = getelementptr inbounds nuw i8, ptr %call43.i, i64 8
   %167 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted98.i, 4
   store i32 %167, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %.ptr1.i = getelementptr inbounds nuw i8, ptr %call43.i, i64 8
   %cmp.not.i.i40 = icmp eq ptr %call43.i, %call12.i31
   br i1 %cmp.not.i.i40, label %invoke.cont58.i, label %delete.notnull.i.i.i41
 
@@ -2726,9 +2726,9 @@ arrayctor.loop93.i:                               ; preds = %arrayctor.loop93.i,
   br i1 %arrayctor.done104.i, label %arrayctor.cont105.i, label %arrayctor.loop93.i
 
 arrayctor.cont105.i:                              ; preds = %arrayctor.loop93.i
-  %.ptr2.ptr.i = getelementptr inbounds nuw i8, ptr %call91.i46, i64 8
   %176 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted101.i, 3
   store i32 %176, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %.ptr2.ptr.i = getelementptr inbounds nuw i8, ptr %call91.i46, i64 8
   store ptr %.ptr2.ptr.i, ptr %pT3.i, align 8
   %cmp107.i = icmp eq i32 %_ZN12SmartPtrTest1A6mCountE.promoted101.i, 0
   %call110.i = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp107.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i27, ptr noundef nonnull @.str, i32 noundef 972, ptr noundef nonnull @.str.26)
@@ -5273,9 +5273,9 @@ arrayctor.loop.i131:                              ; preds = %arrayctor.loop.i131
   br i1 %arrayctor.done.i136, label %arrayctor.cont.i137, label %arrayctor.loop.i131
 
 arrayctor.cont.i137:                              ; preds = %arrayctor.loop.i131
-  %.ptr.ptr.i138 = getelementptr inbounds nuw i8, ptr %call106.i129, i64 8
   %489 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted.i130, 5
   store i32 %489, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %.ptr.ptr.i138 = getelementptr inbounds nuw i8, ptr %call106.i129, i64 8
   store ptr %.ptr.ptr.i138, ptr %pT2105.i, align 8
   %mpRefCount.i58.i = getelementptr inbounds nuw i8, ptr %pT2105.i, i64 8
   store ptr null, ptr %mpRefCount.i58.i, align 8
@@ -5320,11 +5320,11 @@ invoke.cont128.i143:                              ; preds = %invoke.cont124.i141
 invoke.cont130.i144:                              ; preds = %invoke.cont128.i143
   store i64 1, ptr %call131.i, align 16
   %_ZN12SmartPtrTest1A6mCountE.promoted280.i = load i32, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %494 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted280.i, 1
   %arrayctor.cur134.ptr.i = getelementptr inbounds nuw i8, ptr %call131.i, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12SmartPtrTest1AE, i64 16), ptr %arrayctor.cur134.ptr.i, align 8
   %mc.i65.i = getelementptr inbounds nuw i8, ptr %call131.i, i64 16
   store i8 0, ptr %mc.i65.i, align 16
-  %494 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted280.i, 1
   store i32 %494, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
   %cmp.not.i67.i = icmp eq ptr %call131.i, %call106.i129
   br i1 %cmp.not.i67.i, label %invoke.cont148.i145, label %if.then.i68.i
@@ -5426,9 +5426,9 @@ arrayctor.loop173.i:                              ; preds = %arrayctor.loop173.i
   br i1 %arrayctor.done185.i, label %arrayctor.cont186.i, label %arrayctor.loop173.i
 
 arrayctor.cont186.i:                              ; preds = %arrayctor.loop173.i
-  %.ptr3.i = getelementptr inbounds nuw i8, ptr %call171.i146, i64 8
   %502 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted282.i, 2
   store i32 %502, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %.ptr3.i = getelementptr inbounds nuw i8, ptr %call171.i146, i64 8
   store ptr %.ptr3.i, ptr %pT3.i94, align 8
   %mpRefCount.i84.i = getelementptr inbounds nuw i8, ptr %pT3.i94, i64 8
   store ptr null, ptr %mpRefCount.i84.i, align 8
@@ -7657,9 +7657,9 @@ arrayctor.loop.i273:                              ; preds = %arrayctor.loop.i273
   br i1 %arrayctor.done.i278, label %invoke.cont3.i279, label %arrayctor.loop.i273
 
 invoke.cont3.i279:                                ; preds = %arrayctor.loop.i273
-  %.ptr.ptr.i280 = getelementptr inbounds nuw i8, ptr %call.i271, i64 8
   %785 = add i32 %_ZN12SmartPtrTest1A6mCountE.promoted.i272, 2
   store i32 %785, ptr @_ZN12SmartPtrTest1A6mCountE, align 4
+  %.ptr.ptr.i280 = getelementptr inbounds nuw i8, ptr %call.i271, i64 8
   store ptr %.ptr.ptr.i280, ptr %pT2.i269, align 8
   %mpNext.i.i281 = getelementptr inbounds nuw i8, ptr %pT2.i269, i64 16
   %mpPrev.i.i282 = getelementptr inbounds nuw i8, ptr %pT2.i269, i64 8

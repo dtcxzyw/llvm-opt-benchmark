@@ -570,8 +570,8 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIfS
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc55.i
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %100, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %99, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !23
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx.i.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %99, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !23
   br label %103
 
 103:                                              ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc55.i, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i
@@ -1584,8 +1584,8 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !23
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !23
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -6444,8 +6444,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i: ; preds = %42
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc8.i.i.i.i.i
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %51, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %50, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !23
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %50, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i
 
 common.resume.i:                                  ; preds = %1117, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %1103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i32.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i33.i, %746, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %common.resume.i263.i.i, %common.resume.i231.i.i, %common.resume.i199.i.i, %common.resume.i.i.i, %common.resume.i.i164.i.i, %common.resume.i.i129.i.i, %common.resume.i.i94.i.i, %common.resume.i.i59.i.i, %common.resume.i.i.i.i
@@ -6519,8 +6519,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i.i.i: ; preds = %
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i26.i.i.i.i: ; preds = %.noexc8.i25.i.i.i.i
   %.idx.i.i.i.i.i.i.i.i.i27.i.i.i.i = shl nuw nsw i64 %67, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %66, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i27.i.i.i.i, i1 false), !tbaa !23
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i.i.i.i.i.i.i.i27.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %66, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i27.i.i.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i
 
 70:                                               ; preds = %.noexc12.i.i24.i.i.i.i, %.noexc.i.i29.i.i.i.i
@@ -6599,8 +6599,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i.i.i: ; preds = %
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i37.i.i.i.i: ; preds = %.noexc8.i36.i.i.i.i
   %.idx.i.i.i.i.i.i.i.i.i38.i.i.i.i = shl nuw nsw i64 %96, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %95, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i38.i.i.i.i, i1 false), !tbaa !23
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx.i.i.i.i.i.i.i.i.i38.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %95, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i38.i.i.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i
 
 99:                                               ; preds = %.noexc12.i.i35.i.i.i.i, %.noexc.i.i40.i.i.i.i
@@ -6702,8 +6702,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i68.i.i: ; preds = %
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i72.i.i: ; preds = %.noexc8.i.i.i71.i.i
   %.idx.i.i.i.i.i.i.i.i.i.i.i73.i.i = shl nuw nsw i64 %139, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %138, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i73.i.i, i1 false), !tbaa !23
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i73.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %138, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i73.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i
 
 common.resume.i.i59.i.i:                          ; preds = %187, %158, %142
@@ -6773,8 +6773,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i56.i.i: ; preds =
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i26.i.i62.i.i: ; preds = %.noexc8.i25.i.i61.i.i
   %.idx.i.i.i.i.i.i.i.i.i27.i.i63.i.i = shl nuw nsw i64 %155, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %154, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i27.i.i63.i.i, i1 false), !tbaa !23
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 %.idx.i.i.i.i.i.i.i.i.i27.i.i63.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %154, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i27.i.i63.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i
 
 158:                                              ; preds = %.noexc12.i.i24.i.i58.i.i, %.noexc.i.i29.i.i65.i.i
@@ -6853,8 +6853,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i79.i.i: ; preds =
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i37.i.i83.i.i: ; preds = %.noexc8.i36.i.i82.i.i
   %.idx.i.i.i.i.i.i.i.i.i38.i.i84.i.i = shl nuw nsw i64 %184, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %183, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i38.i.i84.i.i, i1 false), !tbaa !23
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 %.idx.i.i.i.i.i.i.i.i.i38.i.i84.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %183, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i38.i.i84.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i
 
 187:                                              ; preds = %.noexc12.i.i35.i.i81.i.i, %.noexc.i.i40.i.i86.i.i
@@ -6954,8 +6954,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i103.i.i: ; preds = 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i107.i.i: ; preds = %.noexc8.i.i.i106.i.i
   %.idx.i.i.i.i.i.i.i.i.i.i.i108.i.i = shl nuw nsw i64 %225, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %224, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i108.i.i, i1 false), !tbaa !23
   %227 = getelementptr inbounds nuw i8, ptr %224, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i108.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %224, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i108.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i
 
 common.resume.i.i94.i.i:                          ; preds = %269, %242, %228
@@ -7023,8 +7023,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i91.i.i: ; preds =
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i26.i.i97.i.i: ; preds = %.noexc8.i25.i.i96.i.i
   %.idx.i.i.i.i.i.i.i.i.i27.i.i98.i.i = shl nuw nsw i64 %239, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %238, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i27.i.i98.i.i, i1 false), !tbaa !23
   %241 = getelementptr inbounds nuw i8, ptr %238, i64 %.idx.i.i.i.i.i.i.i.i.i27.i.i98.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %238, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i27.i.i98.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i
 
 242:                                              ; preds = %.noexc12.i.i24.i.i93.i.i, %.noexc.i.i29.i.i100.i.i
@@ -7101,8 +7101,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i114.i.i: ; preds 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i37.i.i118.i.i: ; preds = %.noexc8.i36.i.i117.i.i
   %.idx.i.i.i.i.i.i.i.i.i38.i.i119.i.i = shl nuw nsw i64 %266, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %265, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i38.i.i119.i.i, i1 false), !tbaa !23
   %268 = getelementptr inbounds nuw i8, ptr %265, i64 %.idx.i.i.i.i.i.i.i.i.i38.i.i119.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %265, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i38.i.i119.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i
 
 269:                                              ; preds = %.noexc12.i.i35.i.i116.i.i, %.noexc.i.i40.i.i121.i.i
@@ -7202,8 +7202,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i138.i.i: ; preds = 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i142.i.i: ; preds = %.noexc8.i.i.i141.i.i
   %.idx.i.i.i.i.i.i.i.i.i.i.i143.i.i = shl nuw nsw i64 %307, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %306, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i143.i.i, i1 false), !tbaa !23
   %309 = getelementptr inbounds nuw i8, ptr %306, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i143.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %306, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i143.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i
 
 common.resume.i.i129.i.i:                         ; preds = %351, %324, %310
@@ -7271,8 +7271,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i126.i.i: ; preds 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i26.i.i132.i.i: ; preds = %.noexc8.i25.i.i131.i.i
   %.idx.i.i.i.i.i.i.i.i.i27.i.i133.i.i = shl nuw nsw i64 %321, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %320, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i27.i.i133.i.i, i1 false), !tbaa !23
   %323 = getelementptr inbounds nuw i8, ptr %320, i64 %.idx.i.i.i.i.i.i.i.i.i27.i.i133.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %320, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i27.i.i133.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i
 
 324:                                              ; preds = %.noexc12.i.i24.i.i128.i.i, %.noexc.i.i29.i.i135.i.i
@@ -7349,8 +7349,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i149.i.i: ; preds 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i37.i.i153.i.i: ; preds = %.noexc8.i36.i.i152.i.i
   %.idx.i.i.i.i.i.i.i.i.i38.i.i154.i.i = shl nuw nsw i64 %348, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %347, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i38.i.i154.i.i, i1 false), !tbaa !23
   %350 = getelementptr inbounds nuw i8, ptr %347, i64 %.idx.i.i.i.i.i.i.i.i.i38.i.i154.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %347, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i38.i.i154.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i
 
 351:                                              ; preds = %.noexc12.i.i35.i.i151.i.i, %.noexc.i.i40.i.i156.i.i
@@ -7450,8 +7450,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i173.i.i: ; preds = 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i177.i.i: ; preds = %.noexc8.i.i.i176.i.i
   %.idx.i.i.i.i.i.i.i.i.i.i.i178.i.i = shl nuw nsw i64 %389, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %388, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i178.i.i, i1 false), !tbaa !23
   %391 = getelementptr inbounds nuw i8, ptr %388, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i178.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %388, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i178.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i
 
 common.resume.i.i164.i.i:                         ; preds = %433, %406, %392
@@ -7519,8 +7519,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i22.i.i161.i.i: ; preds 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i26.i.i167.i.i: ; preds = %.noexc8.i25.i.i166.i.i
   %.idx.i.i.i.i.i.i.i.i.i27.i.i168.i.i = shl nuw nsw i64 %403, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %402, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i27.i.i168.i.i, i1 false), !tbaa !23
   %405 = getelementptr inbounds nuw i8, ptr %402, i64 %.idx.i.i.i.i.i.i.i.i.i27.i.i168.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %402, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i27.i.i168.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i
 
 406:                                              ; preds = %.noexc12.i.i24.i.i163.i.i, %.noexc.i.i29.i.i170.i.i
@@ -7597,8 +7597,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i33.i.i184.i.i: ; preds 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i37.i.i188.i.i: ; preds = %.noexc8.i36.i.i187.i.i
   %.idx.i.i.i.i.i.i.i.i.i38.i.i189.i.i = shl nuw nsw i64 %430, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %429, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i38.i.i189.i.i, i1 false), !tbaa !23
   %432 = getelementptr inbounds nuw i8, ptr %429, i64 %.idx.i.i.i.i.i.i.i.i.i38.i.i189.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %429, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i38.i.i189.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELNS0_24QuantizerTemplateScalingE1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i
 
 433:                                              ; preds = %.noexc12.i.i35.i.i186.i.i, %.noexc.i.i40.i.i191.i.i
@@ -7691,8 +7691,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i: ; preds = %461
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i: ; preds = %.noexc8.i.i.i.i
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %467, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %466, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !23
   %469 = getelementptr inbounds nuw i8, ptr %466, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %466, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
 
 common.resume.i.i.i:                              ; preds = %507, %483, %470
@@ -7756,8 +7756,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i.i: ; preds = %47
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i.i: ; preds = %.noexc8.i24.i.i.i
   %.idx.i.i.i.i.i.i.i.i.i26.i.i.i = shl nuw nsw i64 %480, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %479, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i26.i.i.i, i1 false), !tbaa !23
   %482 = getelementptr inbounds nuw i8, ptr %479, i64 %.idx.i.i.i.i.i.i.i.i.i26.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %479, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i26.i.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
 
 483:                                              ; preds = %.noexc12.i.i23.i.i.i, %.noexc.i.i28.i.i.i
@@ -7828,8 +7828,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i.i.i: ; preds = %48
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i35.i.i.i: ; preds = %.noexc8.i34.i.i.i
   %.idx.i.i.i.i.i.i.i.i.i36.i.i.i = shl nuw nsw i64 %504, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %503, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i36.i.i.i, i1 false), !tbaa !23
   %506 = getelementptr inbounds nuw i8, ptr %503, i64 %.idx.i.i.i.i.i.i.i.i.i36.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %503, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i36.i.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
 
 507:                                              ; preds = %.noexc12.i.i33.i.i.i, %.noexc.i.i38.i.i.i
@@ -7922,8 +7922,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i207.i.i: ; preds = %5
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i211.i.i: ; preds = %.noexc8.i.i210.i.i
   %.idx.i.i.i.i.i.i.i.i.i.i212.i.i = shl nuw nsw i64 %541, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %540, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i212.i.i, i1 false), !tbaa !23
   %543 = getelementptr inbounds nuw i8, ptr %540, i64 %.idx.i.i.i.i.i.i.i.i.i.i212.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %540, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i212.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
 
 common.resume.i199.i.i:                           ; preds = %581, %557, %544
@@ -7987,8 +7987,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i196.i.i: ; preds = 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i202.i.i: ; preds = %.noexc8.i24.i201.i.i
   %.idx.i.i.i.i.i.i.i.i.i26.i203.i.i = shl nuw nsw i64 %554, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %553, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i26.i203.i.i, i1 false), !tbaa !23
   %556 = getelementptr inbounds nuw i8, ptr %553, i64 %.idx.i.i.i.i.i.i.i.i.i26.i203.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %553, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i26.i203.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
 
 557:                                              ; preds = %.noexc12.i.i23.i198.i.i, %.noexc.i.i28.i205.i.i
@@ -8059,8 +8059,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i217.i.i: ; preds = 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i35.i221.i.i: ; preds = %.noexc8.i34.i220.i.i
   %.idx.i.i.i.i.i.i.i.i.i36.i222.i.i = shl nuw nsw i64 %578, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %577, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i36.i222.i.i, i1 false), !tbaa !23
   %580 = getelementptr inbounds nuw i8, ptr %577, i64 %.idx.i.i.i.i.i.i.i.i.i36.i222.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %577, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i36.i222.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
 
 581:                                              ; preds = %.noexc12.i.i33.i219.i.i, %.noexc.i.i38.i224.i.i
@@ -8153,8 +8153,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i239.i.i: ; preds = %6
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i243.i.i: ; preds = %.noexc8.i.i242.i.i
   %.idx.i.i.i.i.i.i.i.i.i.i244.i.i = shl nuw nsw i64 %615, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %614, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i244.i.i, i1 false), !tbaa !23
   %617 = getelementptr inbounds nuw i8, ptr %614, i64 %.idx.i.i.i.i.i.i.i.i.i.i244.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %614, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i244.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
 
 common.resume.i231.i.i:                           ; preds = %655, %631, %618
@@ -8218,8 +8218,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i228.i.i: ; preds = 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i234.i.i: ; preds = %.noexc8.i24.i233.i.i
   %.idx.i.i.i.i.i.i.i.i.i26.i235.i.i = shl nuw nsw i64 %628, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %627, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i26.i235.i.i, i1 false), !tbaa !23
   %630 = getelementptr inbounds nuw i8, ptr %627, i64 %.idx.i.i.i.i.i.i.i.i.i26.i235.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %627, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i26.i235.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
 
 631:                                              ; preds = %.noexc12.i.i23.i230.i.i, %.noexc.i.i28.i237.i.i
@@ -8290,8 +8290,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i249.i.i: ; preds = 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i35.i253.i.i: ; preds = %.noexc8.i34.i252.i.i
   %.idx.i.i.i.i.i.i.i.i.i36.i254.i.i = shl nuw nsw i64 %652, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %651, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i36.i254.i.i, i1 false), !tbaa !23
   %654 = getelementptr inbounds nuw i8, ptr %651, i64 %.idx.i.i.i.i.i.i.i.i.i36.i254.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %651, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i36.i254.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
 
 655:                                              ; preds = %.noexc12.i.i33.i251.i.i, %.noexc.i.i38.i256.i.i
@@ -8384,8 +8384,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i271.i.i: ; preds = %6
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i275.i.i: ; preds = %.noexc8.i.i274.i.i
   %.idx.i.i.i.i.i.i.i.i.i.i276.i.i = shl nuw nsw i64 %689, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %688, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i276.i.i, i1 false), !tbaa !23
   %691 = getelementptr inbounds nuw i8, ptr %688, i64 %.idx.i.i.i.i.i.i.i.i.i.i276.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %688, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i276.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
 
 common.resume.i263.i.i:                           ; preds = %729, %705, %692
@@ -8449,8 +8449,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i260.i.i: ; preds = 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i266.i.i: ; preds = %.noexc8.i24.i265.i.i
   %.idx.i.i.i.i.i.i.i.i.i26.i267.i.i = shl nuw nsw i64 %702, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %701, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i26.i267.i.i, i1 false), !tbaa !23
   %704 = getelementptr inbounds nuw i8, ptr %701, i64 %.idx.i.i.i.i.i.i.i.i.i26.i267.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %701, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i26.i267.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
 
 705:                                              ; preds = %.noexc12.i.i23.i262.i.i, %.noexc.i.i28.i269.i.i
@@ -8521,8 +8521,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i31.i281.i.i: ; preds = 
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i35.i285.i.i: ; preds = %.noexc8.i34.i284.i.i
   %.idx.i.i.i.i.i.i.i.i.i36.i286.i.i = shl nuw nsw i64 %726, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %725, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i36.i286.i.i, i1 false), !tbaa !23
   %728 = getelementptr inbounds nuw i8, ptr %725, i64 %.idx.i.i.i.i.i.i.i.i.i36.i286.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %725, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i36.i286.i.i, i1 false), !tbaa !23
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
 
 729:                                              ; preds = %.noexc12.i.i33.i283.i.i, %.noexc.i.i38.i288.i.i

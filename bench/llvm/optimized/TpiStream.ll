@@ -2572,32 +2572,32 @@ _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %49
   br i1 %61, label %_ZN4llvm5ErrorD2Ev.exit57, label %62
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %64 = load i32, ptr %63, align 8, !tbaa !217, !noalias !208
-  %65 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  br label %66
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  br label %64
 
-66:                                               ; preds = %66, %62
-  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %66 ], [ 0, %62 ]
-  %67 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
-  call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv.i.i.i.i
-  %69 = load i64, ptr %68, align 8, !tbaa !54, !noalias !208
-  %.not.i.i.i.i = icmp eq i64 %69, 0
+64:                                               ; preds = %64, %62
+  %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %64 ], [ 0, %62 ]
+  %65 = icmp samesign ult i64 %indvars.iv.i.i.i.i, 2
+  call void @llvm.assume(i1 %65)
+  %66 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv.i.i.i.i
+  %67 = load i64, ptr %66, align 8, !tbaa !54, !noalias !208
+  %.not.i.i.i.i = icmp eq i64 %67, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  br i1 %.not.i.i.i.i, label %66, label %.lr.ph, !llvm.loop !219
+  br i1 %.not.i.i.i.i, label %64, label %.lr.ph, !llvm.loop !217
 
-.lr.ph:                                           ; preds = %66
-  %70 = shl i32 %64, 7
+.lr.ph:                                           ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %69 = load i32, ptr %68, align 8, !tbaa !218, !noalias !208
+  %70 = shl i32 %69, 7
   %71 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %72 = shl nuw nsw i32 %71, 6
-  %73 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %69, i1 true)
+  %73 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %67, i1 true)
   %74 = trunc nuw nsw i64 %73 to i32
   %75 = or disjoint i32 %72, %74
-  %76 = or disjoint i32 %75, %70
+  %76 = or disjoint i32 %70, %75
   store i32 %76, ptr %58, align 8, !tbaa !220, !alias.scope !208
   store i32 %71, ptr %60, align 4, !tbaa !221, !alias.scope !208
-  %77 = lshr exact i64 %69, %73
+  %77 = lshr exact i64 %67, %73
   store i64 %77, ptr %59, align 8, !tbaa !222, !alias.scope !208
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %79
@@ -4945,9 +4945,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15SparseBitVectorILj128E
   %.sroa.012.021 = phi ptr [ %.sroa.012.1, %30 ], [ %3, %2 ]
   %.sroa.06.020 = phi ptr [ %.sroa.06.1, %30 ], [ %4, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.012.021, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !217
+  %8 = load i32, ptr %7, align 8, !tbaa !218
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.06.020, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !217
+  %10 = load i32, ptr %9, align 8, !tbaa !218
   %11 = icmp ugt i32 %8, %10
   br i1 %11, label %12, label %14
 
@@ -5137,37 +5137,37 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit: ; preds = %34, %42
   br label %80
 
 50:                                               ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %52 = load i32, ptr %51, align 8, !tbaa !217
-  %53 = shl i32 %52, 7
-  %54 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  br label %55
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  br label %52
 
-55:                                               ; preds = %55, %50
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %50 ]
-  %56 = icmp samesign ult i64 %indvars.iv.i, 2
-  tail call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i
-  %58 = load i64, ptr %57, align 8, !tbaa !54
-  %.not.i9 = icmp eq i64 %58, 0
+52:                                               ; preds = %52, %50
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %50 ]
+  %53 = icmp samesign ult i64 %indvars.iv.i, 2
+  tail call void @llvm.assume(i1 %53)
+  %54 = getelementptr inbounds nuw i64, ptr %51, i64 %indvars.iv.i
+  %55 = load i64, ptr %54, align 8, !tbaa !54
+  %.not.i9 = icmp eq i64 %55, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %.not.i9, label %55, label %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit, !llvm.loop !219
+  br i1 %.not.i9, label %52, label %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit, !llvm.loop !217
 
-_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %55
+_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %57 = load i32, ptr %56, align 8, !tbaa !218
+  %58 = shl i32 %57, 7
   %59 = trunc nuw nsw i64 %indvars.iv.i to i32
   %60 = shl nuw nsw i32 %59, 6
-  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %58, i1 true)
+  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %55, i1 true)
   %.fr = freeze i64 %61
   %62 = trunc i64 %.fr to i32
   %63 = or i32 %60, %62
-  %64 = or disjoint i32 %63, %53
+  %64 = or disjoint i32 %63, %58
   store i32 %64, ptr %17, align 8, !tbaa !220
   store i32 %59, ptr %45, align 4, !tbaa !221
   %.urem = add i32 %63, -64
   %.cmp = icmp ult i32 %63, 64
   %65 = select i1 %.cmp, i32 %63, i32 %.urem
   %66 = zext nneg i32 %65 to i64
-  %67 = lshr i64 %58, %66
+  %67 = lshr i64 %55, %66
   store i64 %67, ptr %4, align 8, !tbaa !222
   br label %80
 
@@ -5185,7 +5185,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %55
   %75 = zext nneg i32 %74 to i64
   %76 = lshr i64 %73, %75
   store i64 %76, ptr %4, align 8, !tbaa !222
-  %77 = load i32, ptr %16, align 8, !tbaa !217
+  %77 = load i32, ptr %16, align 8, !tbaa !218
   %78 = shl i32 %77, 7
   %79 = add nuw i32 %78, %.018.i.ph.frozen
   store i32 %79, ptr %17, align 8, !tbaa !220
@@ -6279,9 +6279,9 @@ attributes #24 = { noreturn nounwind }
 !214 = !{!"_ZTSSt20_List_const_iteratorIN4llvm22SparseBitVectorElementILj128EEEE", !15, i64 0}
 !215 = !{!15, !15, i64 0}
 !216 = !{!212, !12, i64 0}
-!217 = !{!218, !41, i64 0}
-!218 = !{!"_ZTSN4llvm22SparseBitVectorElementILj128EEE", !41, i64 0, !6, i64 8}
-!219 = distinct !{!219, !29}
+!217 = distinct !{!217, !29}
+!218 = !{!219, !41, i64 0}
+!219 = !{!"_ZTSN4llvm22SparseBitVectorElementILj128EEE", !41, i64 0, !6, i64 8}
 !220 = !{!212, !41, i64 24}
 !221 = !{!212, !41, i64 28}
 !222 = !{!212, !19, i64 32}

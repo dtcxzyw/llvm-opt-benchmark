@@ -1746,14 +1746,14 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %66 = load i64, ptr %60, align 8, !alias.scope !150, !noalias !153, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !155
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
-  %67 = icmp sgt i64 %66, -1
   %.sroa.0.0.i.i.i4 = tail call i64 @llvm.abs.i64(i64 %66, i1 false)
-  %68 = icmp ugt i64 %.sroa.0.0.i.i.i4, 9999
-  br i1 %68, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %67 = icmp ugt i64 %.sroa.0.0.i.i.i4, 9999
+  br i1 %67, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %65
   %.sroa.09.0.lcssa.i.i.i = phi i64 [ 20, %65 ], [ %78, %.lr.ph.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i = phi i64 [ %.sroa.0.0.i.i.i4, %65 ], [ %71, %.lr.ph.i.i.i ]
+  %68 = icmp sgt i64 %66, -1
   %69 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i, 99
   br i1 %69, label %87, label %96
 
@@ -1821,7 +1821,7 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
 
 109:                                              ; preds = %104, %98
   %.sroa.09.2.i.i.i = phi i64 [ %105, %104 ], [ %100, %98 ]
-  br i1 %67, label %_ZN11polars_json4json5write9serialize13write_integer17h5e5cf73305eb0867E.exit.i, label %110
+  br i1 %68, label %_ZN11polars_json4json5write9serialize13write_integer17h5e5cf73305eb0867E.exit.i, label %110
 
 110:                                              ; preds = %109
   %111 = add i64 %.sroa.09.2.i.i.i, -1
@@ -2188,19 +2188,19 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %49, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
-  br i1 %46, label %50, label %96
+  br i1 %46, label %50, label %99
 
 50:                                               ; preds = %.thread, %44
   %.sroa.4.0.i818 = phi ptr [ %37, %.thread ], [ %45, %44 ]
   %51 = load i16, ptr %.sroa.4.0.i818, align 2, !alias.scope !216, !noalias !219, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !221
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
-  %52 = icmp sgt i16 %51, -1
   %.sroa.0.0.in.i.i.i = tail call i16 @llvm.abs.i16(i16 %51, i1 false)
-  %53 = icmp ugt i16 %.sroa.0.0.in.i.i.i, 9999
-  br i1 %53, label %.thread.i.i.i, label %._crit_edge.i.i.i5
+  %52 = icmp ugt i16 %.sroa.0.0.in.i.i.i, 9999
+  br i1 %52, label %.thread.i.i.i, label %._crit_edge.i.i.i5
 
 .thread.i.i.i:                                    ; preds = %50
+  %53 = udiv i16 %.sroa.0.0.in.i.i.i, 10000
   %.lhs.trunc.i.i.i = urem i16 %.sroa.0.0.in.i.i.i, 10000
   %54 = udiv i16 %.lhs.trunc.i.i.i, 100
   %55 = shl nuw nsw i16 %54, 1
@@ -2216,78 +2216,78 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %65 = load i16, ptr %63, align 1, !noalias !227
   store i16 %65, ptr %64, align 1, !alias.scope !224, !noalias !221
-  %66 = udiv i16 %.sroa.0.0.in.i.i.i, 10000
-  br label %85
+  %66 = icmp sgt i16 %51, -1
+  %67 = trunc nuw nsw i16 %53 to i8
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %69 = or disjoint i8 %67, 48
+  store i8 %69, ptr %68, align 1, !alias.scope !224, !noalias !221
+  br i1 %66, label %_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i, label %94
 
 ._crit_edge.i.i.i5:                               ; preds = %50
-  %67 = icmp samesign ugt i16 %.sroa.0.0.in.i.i.i, 99
-  br i1 %67, label %68, label %76
+  %70 = icmp sgt i16 %51, -1
+  %71 = icmp samesign ugt i16 %.sroa.0.0.in.i.i.i, 99
+  br i1 %71, label %72, label %80
 
-68:                                               ; preds = %._crit_edge.i.i.i5
-  %69 = urem i16 %.sroa.0.0.in.i.i.i, 100
-  %70 = shl nuw nsw i16 %69, 1
-  %71 = zext nneg i16 %70 to i64
-  %72 = udiv i16 %.sroa.0.0.in.i.i.i, 100
-  %73 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %71
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %75 = load i16, ptr %73, align 1, !noalias !227
-  store i16 %75, ptr %74, align 1, !alias.scope !224, !noalias !221
-  br label %76
+72:                                               ; preds = %._crit_edge.i.i.i5
+  %73 = urem i16 %.sroa.0.0.in.i.i.i, 100
+  %74 = shl nuw nsw i16 %73, 1
+  %75 = zext nneg i16 %74 to i64
+  %76 = udiv i16 %.sroa.0.0.in.i.i.i, 100
+  %77 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %75
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %79 = load i16, ptr %77, align 1, !noalias !227
+  store i16 %79, ptr %78, align 1, !alias.scope !224, !noalias !221
+  br label %80
 
-76:                                               ; preds = %68, %._crit_edge.i.i.i5
-  %.sroa.09.1.i.i.i = phi i64 [ 4, %68 ], [ 6, %._crit_edge.i.i.i5 ]
-  %.sroa.0.2.in.i.i.i = phi i16 [ %72, %68 ], [ %.sroa.0.0.in.i.i.i, %._crit_edge.i.i.i5 ]
-  %77 = icmp samesign ult i16 %.sroa.0.2.in.i.i.i, 10
-  br i1 %77, label %85, label %78
+80:                                               ; preds = %72, %._crit_edge.i.i.i5
+  %.sroa.09.1.i.i.i = phi i64 [ 4, %72 ], [ 6, %._crit_edge.i.i.i5 ]
+  %.sroa.0.2.in.i.i.i = phi i16 [ %76, %72 ], [ %.sroa.0.0.in.i.i.i, %._crit_edge.i.i.i5 ]
+  %81 = icmp samesign ult i16 %.sroa.0.2.in.i.i.i, 10
+  br i1 %81, label %82, label %87
 
-78:                                               ; preds = %76
-  %79 = shl nuw nsw i16 %.sroa.0.2.in.i.i.i, 1
-  %80 = zext nneg i16 %79 to i64
-  %81 = add nsw i64 %.sroa.09.1.i.i.i, -2
-  %82 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %80
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 %81
-  %84 = load i16, ptr %82, align 1, !noalias !227
-  store i16 %84, ptr %83, align 1, !alias.scope !224, !noalias !221
-  br label %90
+82:                                               ; preds = %80
+  %83 = add nsw i64 %.sroa.09.1.i.i.i, -1
+  %84 = trunc nuw nsw i16 %.sroa.0.2.in.i.i.i to i8
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 %83
+  %86 = or disjoint i8 %84, 48
+  store i8 %86, ptr %85, align 1, !alias.scope !224, !noalias !221
+  br i1 %70, label %_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i, label %94
 
-85:                                               ; preds = %76, %.thread.i.i.i
-  %.sroa.0.236.i.i.i = phi i16 [ %66, %.thread.i.i.i ], [ %.sroa.0.2.in.i.i.i, %76 ]
-  %.sroa.09.135.i.i.i = phi i64 [ 2, %.thread.i.i.i ], [ %.sroa.09.1.i.i.i, %76 ]
-  %86 = add nsw i64 %.sroa.09.135.i.i.i, -1
-  %87 = trunc nuw nsw i16 %.sroa.0.236.i.i.i to i8
-  %88 = getelementptr inbounds nuw i8, ptr %2, i64 %86
-  %89 = or disjoint i8 %87, 48
-  store i8 %89, ptr %88, align 1, !alias.scope !224, !noalias !221
-  br label %90
+87:                                               ; preds = %80
+  %88 = shl nuw nsw i16 %.sroa.0.2.in.i.i.i, 1
+  %89 = zext nneg i16 %88 to i64
+  %90 = add nsw i64 %.sroa.09.1.i.i.i, -2
+  %91 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %89
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 %90
+  %93 = load i16, ptr %91, align 1, !noalias !227
+  store i16 %93, ptr %92, align 1, !alias.scope !224, !noalias !221
+  br i1 %70, label %_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i, label %94
 
-90:                                               ; preds = %85, %78
-  %.sroa.09.2.i.i.i = phi i64 [ %86, %85 ], [ %81, %78 ]
-  br i1 %52, label %_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i, label %91
-
-91:                                               ; preds = %90
-  %92 = add nsw i64 %.sroa.09.2.i.i.i, -1
-  %93 = getelementptr inbounds nuw i8, ptr %2, i64 %92
-  store i8 45, ptr %93, align 1, !alias.scope !224, !noalias !221
+94:                                               ; preds = %87, %82, %.thread.i.i.i
+  %.sroa.09.237.i.i.i = phi i64 [ %83, %82 ], [ %90, %87 ], [ 1, %.thread.i.i.i ]
+  %95 = add nsw i64 %.sroa.09.237.i.i.i, -1
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 %95
+  store i8 45, ptr %96, align 1, !alias.scope !224, !noalias !221
   br label %_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i
 
-_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i: ; preds = %91, %90
-  %.sroa.09.3.i.i.i = phi i64 [ %.sroa.09.2.i.i.i, %90 ], [ %92, %91 ]
-  %94 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.09.3.i.i.i
-  %95 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h882da03ce7dd375aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %94, ptr noundef nonnull %95, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed06e595e37926ce62257f82b3d740a0.62), !noalias !216
+_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i: ; preds = %94, %87, %82, %.thread.i.i.i
+  %.sroa.09.3.i.i.i = phi i64 [ %90, %87 ], [ %95, %94 ], [ %83, %82 ], [ 1, %.thread.i.i.i ]
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.09.3.i.i.i
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h882da03ce7dd375aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %97, ptr noundef nonnull %98, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed06e595e37926ce62257f82b3d740a0.62), !noalias !216
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !221
   br label %"_ZN11polars_json4json5write9serialize20primitive_serializer28_$u7b$$u7b$closure$u7d$$u7d$17h776efe1f1fa5ab3bE.exit"
 
-96:                                               ; preds = %44
+99:                                               ; preds = %44
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h882da03ce7dd375aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @anon.ed06e595e37926ce62257f82b3d740a0.110, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.110, i64 4), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed06e595e37926ce62257f82b3d740a0.117), !noalias !216
   br label %"_ZN11polars_json4json5write9serialize20primitive_serializer28_$u7b$$u7b$closure$u7d$$u7d$17h776efe1f1fa5ab3bE.exit"
 
 "_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ecd25ce278e9dE.exit.thread9": ; preds = %35, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i"
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 0, ptr %97, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i8 0, ptr %100, align 8
   br label %"_ZN11polars_json4json5write9serialize20primitive_serializer28_$u7b$$u7b$closure$u7d$$u7d$17h776efe1f1fa5ab3bE.exit"
 
-"_ZN11polars_json4json5write9serialize20primitive_serializer28_$u7b$$u7b$closure$u7d$$u7d$17h776efe1f1fa5ab3bE.exit": ; preds = %96, %_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ecd25ce278e9dE.exit.thread9"
+"_ZN11polars_json4json5write9serialize20primitive_serializer28_$u7b$$u7b$closure$u7d$$u7d$17h776efe1f1fa5ab3bE.exit": ; preds = %99, %_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ecd25ce278e9dE.exit.thread9"
   ret void
 }
 
@@ -2787,22 +2787,22 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   br i1 %67, label %.thread.i.i.i, label %._crit_edge.i.i.i
 
 .thread.i.i.i:                                    ; preds = %65
+  %68 = udiv i16 %66, 10000
   %.lhs.trunc.i.i.i = urem i16 %66, 10000
-  %68 = udiv i16 %.lhs.trunc.i.i.i, 100
-  %69 = shl nuw nsw i16 %68, 1
-  %70 = zext nneg i16 %69 to i64
-  %71 = urem i16 %.lhs.trunc.i.i.i, 100
-  %72 = shl nuw nsw i16 %71, 1
-  %73 = zext nneg i16 %72 to i64
-  %74 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %70
-  %75 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %76 = load i16, ptr %74, align 1, !noalias !326
-  store i16 %76, ptr %75, align 1, !alias.scope !323, !noalias !320
-  %77 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %73
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %79 = load i16, ptr %77, align 1, !noalias !326
-  store i16 %79, ptr %78, align 1, !alias.scope !323, !noalias !320
-  %80 = udiv i16 %66, 10000
+  %69 = udiv i16 %.lhs.trunc.i.i.i, 100
+  %70 = shl nuw nsw i16 %69, 1
+  %71 = zext nneg i16 %70 to i64
+  %72 = urem i16 %.lhs.trunc.i.i.i, 100
+  %73 = shl nuw nsw i16 %72, 1
+  %74 = zext nneg i16 %73 to i64
+  %75 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %71
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %77 = load i16, ptr %75, align 1, !noalias !326
+  store i16 %77, ptr %76, align 1, !alias.scope !323, !noalias !320
+  %78 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %74
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %80 = load i16, ptr %78, align 1, !noalias !326
+  store i16 %80, ptr %79, align 1, !alias.scope !323, !noalias !320
   br label %99
 
 ._crit_edge.i.i.i:                                ; preds = %65
@@ -2837,7 +2837,7 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   br label %_ZN11polars_json4json5write9serialize13write_integer17h2ce0441eeae53be6E.exit.i
 
 99:                                               ; preds = %90, %.thread.i.i.i
-  %.sroa.0.236.i.i.i = phi i16 [ %80, %.thread.i.i.i ], [ %.sroa.0.2.in.i.i.i, %90 ]
+  %.sroa.0.236.i.i.i = phi i16 [ %68, %.thread.i.i.i ], [ %.sroa.0.2.in.i.i.i, %90 ]
   %.sroa.09.135.i.i.i = phi i64 [ 1, %.thread.i.i.i ], [ %.sroa.09.1.i.i.i, %90 ]
   %100 = add nsw i64 %.sroa.09.135.i.i.i, -1
   %101 = trunc nuw nsw i16 %.sroa.0.236.i.i.i to i8
@@ -2979,22 +2979,22 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   br i1 %52, label %.thread.i.i.i, label %._crit_edge.i.i.i5
 
 .thread.i.i.i:                                    ; preds = %50
+  %53 = udiv i16 %51, 10000
   %.lhs.trunc.i.i.i = urem i16 %51, 10000
-  %53 = udiv i16 %.lhs.trunc.i.i.i, 100
-  %54 = shl nuw nsw i16 %53, 1
-  %55 = zext nneg i16 %54 to i64
-  %56 = urem i16 %.lhs.trunc.i.i.i, 100
-  %57 = shl nuw nsw i16 %56, 1
-  %58 = zext nneg i16 %57 to i64
-  %59 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %55
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %61 = load i16, ptr %59, align 1, !noalias !355
-  store i16 %61, ptr %60, align 1, !alias.scope !352, !noalias !349
-  %62 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %58
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %64 = load i16, ptr %62, align 1, !noalias !355
-  store i16 %64, ptr %63, align 1, !alias.scope !352, !noalias !349
-  %65 = udiv i16 %51, 10000
+  %54 = udiv i16 %.lhs.trunc.i.i.i, 100
+  %55 = shl nuw nsw i16 %54, 1
+  %56 = zext nneg i16 %55 to i64
+  %57 = urem i16 %.lhs.trunc.i.i.i, 100
+  %58 = shl nuw nsw i16 %57, 1
+  %59 = zext nneg i16 %58 to i64
+  %60 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %56
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %62 = load i16, ptr %60, align 1, !noalias !355
+  store i16 %62, ptr %61, align 1, !alias.scope !352, !noalias !349
+  %63 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %59
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %65 = load i16, ptr %63, align 1, !noalias !355
+  store i16 %65, ptr %64, align 1, !alias.scope !352, !noalias !349
   br label %84
 
 ._crit_edge.i.i.i5:                               ; preds = %50
@@ -3029,7 +3029,7 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   br label %_ZN11polars_json4json5write9serialize13write_integer17h2ce0441eeae53be6E.exit.i
 
 84:                                               ; preds = %75, %.thread.i.i.i
-  %.sroa.0.236.i.i.i = phi i16 [ %65, %.thread.i.i.i ], [ %.sroa.0.2.in.i.i.i, %75 ]
+  %.sroa.0.236.i.i.i = phi i16 [ %53, %.thread.i.i.i ], [ %.sroa.0.2.in.i.i.i, %75 ]
   %.sroa.09.135.i.i.i = phi i64 [ 1, %.thread.i.i.i ], [ %.sroa.09.1.i.i.i, %75 ]
   %85 = add nsw i64 %.sroa.09.135.i.i.i, -1
   %86 = trunc nuw nsw i16 %.sroa.0.236.i.i.i to i8
@@ -3583,14 +3583,14 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %51 = load i64, ptr %.sroa.4.0.i919, align 8, !alias.scope !449, !noalias !452, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !454
   tail call void @llvm.experimental.noalias.scope.decl(metadata !457)
-  %52 = icmp sgt i64 %51, -1
   %.sroa.0.0.i.i.i5 = tail call i64 @llvm.abs.i64(i64 %51, i1 false)
-  %53 = icmp ugt i64 %.sroa.0.0.i.i.i5, 9999
-  br i1 %53, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i6
+  %52 = icmp ugt i64 %.sroa.0.0.i.i.i5, 9999
+  br i1 %52, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i6
 
 ._crit_edge.i.i.i6:                               ; preds = %.lr.ph.i.i.i, %50
   %.sroa.09.0.lcssa.i.i.i = phi i64 [ 20, %50 ], [ %63, %.lr.ph.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i = phi i64 [ %.sroa.0.0.i.i.i5, %50 ], [ %56, %.lr.ph.i.i.i ]
+  %53 = icmp sgt i64 %51, -1
   %54 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i, 99
   br i1 %54, label %72, label %81
 
@@ -3658,7 +3658,7 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
 
 94:                                               ; preds = %89, %83
   %.sroa.09.2.i.i.i = phi i64 [ %90, %89 ], [ %85, %83 ]
-  br i1 %52, label %_ZN11polars_json4json5write9serialize13write_integer17h5e5cf73305eb0867E.exit.i, label %95
+  br i1 %53, label %_ZN11polars_json4json5write9serialize13write_integer17h5e5cf73305eb0867E.exit.i, label %95
 
 95:                                               ; preds = %94
   %96 = add i64 %.sroa.09.2.i.i.i, -1
@@ -3832,18 +3832,18 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   store i64 0, ptr %64, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !486)
   %.not.i = icmp eq ptr %60, null
-  br i1 %.not.i, label %111, label %65
+  br i1 %.not.i, label %114, label %65
 
 65:                                               ; preds = %62
   %66 = load i16, ptr %60, align 2, !alias.scope !486, !noalias !489, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !491
   tail call void @llvm.experimental.noalias.scope.decl(metadata !494)
-  %67 = icmp sgt i16 %66, -1
   %.sroa.0.0.in.i.i.i = tail call i16 @llvm.abs.i16(i16 %66, i1 false)
-  %68 = icmp ugt i16 %.sroa.0.0.in.i.i.i, 9999
-  br i1 %68, label %.thread.i.i.i, label %._crit_edge.i.i.i
+  %67 = icmp ugt i16 %.sroa.0.0.in.i.i.i, 9999
+  br i1 %67, label %.thread.i.i.i, label %._crit_edge.i.i.i
 
 .thread.i.i.i:                                    ; preds = %65
+  %68 = udiv i16 %.sroa.0.0.in.i.i.i, 10000
   %.lhs.trunc.i.i.i = urem i16 %.sroa.0.0.in.i.i.i, 10000
   %69 = udiv i16 %.lhs.trunc.i.i.i, 100
   %70 = shl nuw nsw i16 %69, 1
@@ -3859,78 +3859,78 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %80 = load i16, ptr %78, align 1, !noalias !497
   store i16 %80, ptr %79, align 1, !alias.scope !494, !noalias !491
-  %81 = udiv i16 %.sroa.0.0.in.i.i.i, 10000
-  br label %100
+  %81 = icmp sgt i16 %66, -1
+  %82 = trunc nuw nsw i16 %68 to i8
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %84 = or disjoint i8 %82, 48
+  store i8 %84, ptr %83, align 1, !alias.scope !494, !noalias !491
+  br i1 %81, label %_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i, label %109
 
 ._crit_edge.i.i.i:                                ; preds = %65
-  %82 = icmp samesign ugt i16 %.sroa.0.0.in.i.i.i, 99
-  br i1 %82, label %83, label %91
+  %85 = icmp sgt i16 %66, -1
+  %86 = icmp samesign ugt i16 %.sroa.0.0.in.i.i.i, 99
+  br i1 %86, label %87, label %95
 
-83:                                               ; preds = %._crit_edge.i.i.i
-  %84 = urem i16 %.sroa.0.0.in.i.i.i, 100
-  %85 = shl nuw nsw i16 %84, 1
-  %86 = zext nneg i16 %85 to i64
-  %87 = udiv i16 %.sroa.0.0.in.i.i.i, 100
-  %88 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %86
-  %89 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %90 = load i16, ptr %88, align 1, !noalias !497
-  store i16 %90, ptr %89, align 1, !alias.scope !494, !noalias !491
-  br label %91
+87:                                               ; preds = %._crit_edge.i.i.i
+  %88 = urem i16 %.sroa.0.0.in.i.i.i, 100
+  %89 = shl nuw nsw i16 %88, 1
+  %90 = zext nneg i16 %89 to i64
+  %91 = udiv i16 %.sroa.0.0.in.i.i.i, 100
+  %92 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %90
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %94 = load i16, ptr %92, align 1, !noalias !497
+  store i16 %94, ptr %93, align 1, !alias.scope !494, !noalias !491
+  br label %95
 
-91:                                               ; preds = %83, %._crit_edge.i.i.i
-  %.sroa.09.1.i.i.i = phi i64 [ 4, %83 ], [ 6, %._crit_edge.i.i.i ]
-  %.sroa.0.2.in.i.i.i = phi i16 [ %87, %83 ], [ %.sroa.0.0.in.i.i.i, %._crit_edge.i.i.i ]
-  %92 = icmp samesign ult i16 %.sroa.0.2.in.i.i.i, 10
-  br i1 %92, label %100, label %93
+95:                                               ; preds = %87, %._crit_edge.i.i.i
+  %.sroa.09.1.i.i.i = phi i64 [ 4, %87 ], [ 6, %._crit_edge.i.i.i ]
+  %.sroa.0.2.in.i.i.i = phi i16 [ %91, %87 ], [ %.sroa.0.0.in.i.i.i, %._crit_edge.i.i.i ]
+  %96 = icmp samesign ult i16 %.sroa.0.2.in.i.i.i, 10
+  br i1 %96, label %97, label %102
 
-93:                                               ; preds = %91
-  %94 = shl nuw nsw i16 %.sroa.0.2.in.i.i.i, 1
-  %95 = zext nneg i16 %94 to i64
-  %96 = add nsw i64 %.sroa.09.1.i.i.i, -2
-  %97 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %95
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 %96
-  %99 = load i16, ptr %97, align 1, !noalias !497
-  store i16 %99, ptr %98, align 1, !alias.scope !494, !noalias !491
-  br label %105
+97:                                               ; preds = %95
+  %98 = add nsw i64 %.sroa.09.1.i.i.i, -1
+  %99 = trunc nuw nsw i16 %.sroa.0.2.in.i.i.i to i8
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 %98
+  %101 = or disjoint i8 %99, 48
+  store i8 %101, ptr %100, align 1, !alias.scope !494, !noalias !491
+  br i1 %85, label %_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i, label %109
 
-100:                                              ; preds = %91, %.thread.i.i.i
-  %.sroa.0.236.i.i.i = phi i16 [ %81, %.thread.i.i.i ], [ %.sroa.0.2.in.i.i.i, %91 ]
-  %.sroa.09.135.i.i.i = phi i64 [ 2, %.thread.i.i.i ], [ %.sroa.09.1.i.i.i, %91 ]
-  %101 = add nsw i64 %.sroa.09.135.i.i.i, -1
-  %102 = trunc nuw nsw i16 %.sroa.0.236.i.i.i to i8
-  %103 = getelementptr inbounds nuw i8, ptr %2, i64 %101
-  %104 = or disjoint i8 %102, 48
-  store i8 %104, ptr %103, align 1, !alias.scope !494, !noalias !491
-  br label %105
+102:                                              ; preds = %95
+  %103 = shl nuw nsw i16 %.sroa.0.2.in.i.i.i, 1
+  %104 = zext nneg i16 %103 to i64
+  %105 = add nsw i64 %.sroa.09.1.i.i.i, -2
+  %106 = getelementptr inbounds nuw i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.26, i64 %104
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 %105
+  %108 = load i16, ptr %106, align 1, !noalias !497
+  store i16 %108, ptr %107, align 1, !alias.scope !494, !noalias !491
+  br i1 %85, label %_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i, label %109
 
-105:                                              ; preds = %100, %93
-  %.sroa.09.2.i.i.i = phi i64 [ %101, %100 ], [ %96, %93 ]
-  br i1 %67, label %_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i, label %106
-
-106:                                              ; preds = %105
-  %107 = add nsw i64 %.sroa.09.2.i.i.i, -1
-  %108 = getelementptr inbounds nuw i8, ptr %2, i64 %107
-  store i8 45, ptr %108, align 1, !alias.scope !494, !noalias !491
+109:                                              ; preds = %102, %97, %.thread.i.i.i
+  %.sroa.09.237.i.i.i = phi i64 [ %98, %97 ], [ %105, %102 ], [ 1, %.thread.i.i.i ]
+  %110 = add nsw i64 %.sroa.09.237.i.i.i, -1
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 %110
+  store i8 45, ptr %111, align 1, !alias.scope !494, !noalias !491
   br label %_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i
 
-_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i: ; preds = %106, %105
-  %.sroa.09.3.i.i.i = phi i64 [ %.sroa.09.2.i.i.i, %105 ], [ %107, %106 ]
-  %109 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.09.3.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h882da03ce7dd375aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %109, ptr noundef nonnull %110, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed06e595e37926ce62257f82b3d740a0.62), !noalias !486
+_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i: ; preds = %109, %102, %97, %.thread.i.i.i
+  %.sroa.09.3.i.i.i = phi i64 [ %105, %102 ], [ %110, %109 ], [ %98, %97 ], [ 1, %.thread.i.i.i ]
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.09.3.i.i.i
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h882da03ce7dd375aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %112, ptr noundef nonnull %113, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed06e595e37926ce62257f82b3d740a0.62), !noalias !486
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !491
   br label %"_ZN11polars_json4json5write9serialize20primitive_serializer28_$u7b$$u7b$closure$u7d$$u7d$17h776efe1f1fa5ab3bE.exit"
 
-111:                                              ; preds = %62
+114:                                              ; preds = %62
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h882da03ce7dd375aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @anon.ed06e595e37926ce62257f82b3d740a0.110, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.110, i64 4), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed06e595e37926ce62257f82b3d740a0.117), !noalias !486
   br label %"_ZN11polars_json4json5write9serialize20primitive_serializer28_$u7b$$u7b$closure$u7d$$u7d$17h776efe1f1fa5ab3bE.exit"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hec481c57239ec8abE.exit.thread": ; preds = %1, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hec481c57239ec8abE.exit"
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i8 0, ptr %112, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i8 0, ptr %115, align 8
   br label %"_ZN11polars_json4json5write9serialize20primitive_serializer28_$u7b$$u7b$closure$u7d$$u7d$17h776efe1f1fa5ab3bE.exit"
 
-"_ZN11polars_json4json5write9serialize20primitive_serializer28_$u7b$$u7b$closure$u7d$$u7d$17h776efe1f1fa5ab3bE.exit": ; preds = %111, %_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hec481c57239ec8abE.exit.thread"
+"_ZN11polars_json4json5write9serialize20primitive_serializer28_$u7b$$u7b$closure$u7d$$u7d$17h776efe1f1fa5ab3bE.exit": ; preds = %114, %_ZN11polars_json4json5write9serialize13write_integer17ha8b7e0468be8b428E.exit.i, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hec481c57239ec8abE.exit.thread"
   ret void
 }
 
@@ -5774,14 +5774,14 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %66 = load i32, ptr %60, align 4, !alias.scope !800, !noalias !803, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !805
   tail call void @llvm.experimental.noalias.scope.decl(metadata !808)
-  %67 = icmp sgt i32 %66, -1
   %.sroa.0.0.i.i.i4 = tail call i32 @llvm.abs.i32(i32 %66, i1 false)
-  %68 = icmp ugt i32 %.sroa.0.0.i.i.i4, 9999
-  br i1 %68, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %67 = icmp ugt i32 %.sroa.0.0.i.i.i4, 9999
+  br i1 %67, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %65
   %.sroa.09.0.lcssa.i.i.i = phi i64 [ 11, %65 ], [ %78, %.lr.ph.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i = phi i32 [ %.sroa.0.0.i.i.i4, %65 ], [ %71, %.lr.ph.i.i.i ]
+  %68 = icmp sgt i32 %66, -1
   %69 = icmp samesign ugt i32 %.sroa.0.1.lcssa.i.i.i, 99
   br i1 %69, label %87, label %96
 
@@ -5850,7 +5850,7 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
 
 110:                                              ; preds = %105, %98
   %.sroa.09.2.i.i.i = phi i64 [ %106, %105 ], [ %101, %98 ]
-  br i1 %67, label %_ZN11polars_json4json5write9serialize13write_integer17hc8c3593b766dd67fE.exit.i, label %111
+  br i1 %68, label %_ZN11polars_json4json5write9serialize13write_integer17hc8c3593b766dd67fE.exit.i, label %111
 
 111:                                              ; preds = %110
   %112 = add i64 %.sroa.09.2.i.i.i, -1
@@ -6789,14 +6789,14 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %51 = load i32, ptr %.sroa.4.0.i919, align 4, !alias.scope !955, !noalias !958, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !960
   tail call void @llvm.experimental.noalias.scope.decl(metadata !963)
-  %52 = icmp sgt i32 %51, -1
   %.sroa.0.0.i.i.i5 = tail call i32 @llvm.abs.i32(i32 %51, i1 false)
-  %53 = icmp ugt i32 %.sroa.0.0.i.i.i5, 9999
-  br i1 %53, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i6
+  %52 = icmp ugt i32 %.sroa.0.0.i.i.i5, 9999
+  br i1 %52, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i6
 
 ._crit_edge.i.i.i6:                               ; preds = %.lr.ph.i.i.i, %50
   %.sroa.09.0.lcssa.i.i.i = phi i64 [ 11, %50 ], [ %63, %.lr.ph.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i = phi i32 [ %.sroa.0.0.i.i.i5, %50 ], [ %56, %.lr.ph.i.i.i ]
+  %53 = icmp sgt i32 %51, -1
   %54 = icmp samesign ugt i32 %.sroa.0.1.lcssa.i.i.i, 99
   br i1 %54, label %72, label %81
 
@@ -6865,7 +6865,7 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
 
 95:                                               ; preds = %90, %83
   %.sroa.09.2.i.i.i = phi i64 [ %91, %90 ], [ %86, %83 ]
-  br i1 %52, label %_ZN11polars_json4json5write9serialize13write_integer17hc8c3593b766dd67fE.exit.i, label %96
+  br i1 %53, label %_ZN11polars_json4json5write9serialize13write_integer17hc8c3593b766dd67fE.exit.i, label %96
 
 96:                                               ; preds = %95
   %97 = add i64 %.sroa.09.2.i.i.i, -1

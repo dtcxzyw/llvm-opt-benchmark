@@ -627,14 +627,14 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h265(ptr noundef rea
   %344 = add i8 %343, -1
   %345 = getelementptr inbounds nuw i8, ptr %2, i64 7943794
   store i8 %344, ptr %345, align 2, !tbaa !192
-  %346 = zext i8 %341 to i64
-  %347 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %348 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %349 = load i32, ptr %348, align 4, !tbaa !193
-  %350 = zext i8 %341 to i64
+  %346 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %347 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %348 = load i32, ptr %347, align 4, !tbaa !193
+  %349 = zext i8 %341 to i64
   br label %356
 
 .preheader328:                                    ; preds = %356
+  %350 = zext i8 %341 to i64
   %351 = zext i8 %344 to i64
   br i1 %.not323, label %.lr.ph, label %._crit_edge
 
@@ -647,18 +647,18 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h265(ptr noundef rea
 
 356:                                              ; preds = %338, %356
   %indvars.iv344 = phi i64 [ 0, %338 ], [ %indvars.iv.next345, %356 ]
-  %357 = getelementptr inbounds nuw i32, ptr %347, i64 %indvars.iv344
+  %357 = getelementptr inbounds nuw i32, ptr %346, i64 %indvars.iv344
   %358 = load i32, ptr %357, align 4, !tbaa !91
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %359 = trunc nuw nsw i64 %indvars.iv.next345 to i32
-  %360 = mul i32 %349, %359
+  %360 = mul i32 %348, %359
   %361 = sdiv i32 %360, %337
   %362 = trunc nuw nsw i64 %indvars.iv344 to i32
-  %363 = mul i32 %349, %362
+  %363 = mul i32 %348, %362
   %364 = sdiv i32 %363, %337
   %365 = sub nsw i32 %361, %364
   %.not323 = icmp eq i32 %358, %365
-  %366 = icmp samesign ult i64 %indvars.iv344, %350
+  %366 = icmp samesign ult i64 %indvars.iv344, %349
   %367 = and i1 %366, %.not323
   br i1 %367, label %356, label %.preheader328, !llvm.loop !195
 
@@ -697,14 +697,14 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h265(ptr noundef rea
 
 385:                                              ; preds = %._crit_edge, %385
   %indvars.iv350 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next351, %385 ]
-  %386 = getelementptr inbounds nuw i32, ptr %347, i64 %indvars.iv350
+  %386 = getelementptr inbounds nuw i32, ptr %346, i64 %indvars.iv350
   %387 = load i32, ptr %386, align 4, !tbaa !91
   %388 = trunc i32 %387 to i16
   %389 = add i16 %388, -1
   %390 = getelementptr inbounds nuw i16, ptr %382, i64 %indvars.iv350
   store i16 %389, ptr %390, align 2, !tbaa !198
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
-  %exitcond354.not = icmp eq i64 %indvars.iv350, %346
+  %exitcond354.not = icmp eq i64 %indvars.iv350, %350
   br i1 %exitcond354.not, label %.preheader, label %385, !llvm.loop !199
 
 391:                                              ; preds = %.preheader, %391

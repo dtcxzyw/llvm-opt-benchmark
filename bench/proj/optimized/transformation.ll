@@ -2116,34 +2116,33 @@ define void @_ZNK5osgeo4proj9operation14Transformation20getTOWGS84ParametersEb(p
   %.0108177 = phi double [ -1.000000e+00, %20 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %20 ], [ 1.000000e+00, %22 ], [ 1.000000e+00, %26 ], [ 1.000000e+00, %26 ], [ -1.000000e+00, %16 ], [ -1.000000e+00, %20 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %21 ], [ -1.000000e+00, %21 ], [ 1.000000e+00, %33 ], [ 1.000000e+00, %33 ], [ 1.000000e+00, %29 ], [ 1.000000e+00, %.thread172.fold.split ], [ 1.000000e+00, %.thread172.fold.split185 ]
   %34 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false), !tbaa !68
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
-  %36 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation15parameterValuesEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #30
-  %37 = load ptr, ptr %36, align 8, !tbaa !70
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !70
-  %.not186 = icmp eq ptr %37, %39
+  %35 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation15parameterValuesEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #30
+  %36 = load ptr, ptr %35, align 8, !tbaa !70
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !70
+  %.not186 = icmp eq ptr %36, %38
   br i1 %.not186, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread172
-  %40 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %41 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  %42 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %43 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %44 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %45 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  br label %51
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  br label %50
 
 ._crit_edge:                                      ; preds = %.thread179
-  %46 = select i1 %.1114, i1 %.1117, i1 false
-  %47 = select i1 %46, i1 %.1121, i1 false
-  %48 = select i1 %.1137, i1 %.1133, i1 false
-  %49 = select i1 %48, i1 %.1129, i1 false
-  %50 = select i1 %49, i1 %.1125, i1 false
-  %brmerge = select i1 %.0107178, i1 true, i1 %50
-  %or.cond208 = select i1 %47, i1 %brmerge, i1 false
+  %45 = select i1 %.1114, i1 %.1117, i1 false
+  %46 = select i1 %45, i1 %.1121, i1 false
+  %47 = select i1 %.1137, i1 %.1133, i1 false
+  %48 = select i1 %47, i1 %.1129, i1 false
+  %49 = select i1 %48, i1 %.1125, i1 false
+  %brmerge = select i1 %.0107178, i1 true, i1 %49
+  %or.cond208 = select i1 %46, i1 %brmerge, i1 false
   br i1 %or.cond208, label %.thread181, label %._crit_edge.thread
 
-51:                                               ; preds = %.lr.ph, %.thread179
+50:                                               ; preds = %.lr.ph, %.thread179
   %.0113194 = phi i1 [ false, %.lr.ph ], [ %.1114, %.thread179 ]
   %.0116193 = phi i1 [ false, %.lr.ph ], [ %.1117, %.thread179 ]
   %.0120192 = phi i1 [ false, %.lr.ph ], [ %.1121, %.thread179 ]
@@ -2151,101 +2150,102 @@ define void @_ZNK5osgeo4proj9operation14Transformation20getTOWGS84ParametersEb(p
   %.0128190 = phi i1 [ false, %.lr.ph ], [ %.1129, %.thread179 ]
   %.0132189 = phi i1 [ false, %.lr.ph ], [ %.1133, %.thread179 ]
   %.0136188 = phi i1 [ false, %.lr.ph ], [ %.1137, %.thread179 ]
-  %.sroa.0151.0187 = phi ptr [ %37, %.lr.ph ], [ %88, %.thread179 ]
-  %52 = load ptr, ptr %.sroa.0151.0187, align 8, !tbaa !71
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %.thread179, label %54
+  %.sroa.0151.0187 = phi ptr [ %36, %.lr.ph ], [ %87, %.thread179 ]
+  %51 = load ptr, ptr %.sroa.0151.0187, align 8, !tbaa !71
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %.thread179, label %53
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %52, align 8, !tbaa !3
-  %56 = icmp eq ptr %55, getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5osgeo4proj9operation23OperationParameterValueE, i64 16)
-  br i1 %56, label %57, label %.thread179
+53:                                               ; preds = %50
+  %54 = load ptr, ptr %51, align 8, !tbaa !3
+  %55 = icmp eq ptr %54, getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5osgeo4proj9operation23OperationParameterValueE, i64 16)
+  br i1 %55, label %56, label %.thread179
 
-57:                                               ; preds = %54
-  %58 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation23OperationParameterValue14parameterValueEv(ptr noundef nonnull align 8 dereferenceable(56) %52) #30
-  %59 = load ptr, ptr %58, align 8, !tbaa !74
-  %60 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5osgeo4proj9operation14ParameterValue4typeEv(ptr noundef nonnull align 8 dereferenceable(40) %59) #30
-  %61 = load i32, ptr %60, align 4, !tbaa !77
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %.thread179
+56:                                               ; preds = %53
+  %57 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation23OperationParameterValue14parameterValueEv(ptr noundef nonnull align 8 dereferenceable(56) %51) #30
+  %58 = load ptr, ptr %57, align 8, !tbaa !74
+  %59 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5osgeo4proj9operation14ParameterValue4typeEv(ptr noundef nonnull align 8 dereferenceable(40) %58) #30
+  %60 = load i32, ptr %59, align 4, !tbaa !77
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %.thread179
 
-63:                                               ; preds = %57
-  %64 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation23OperationParameterValue9parameterEv(ptr noundef nonnull align 8 dereferenceable(56) %52) #30
-  %65 = load ptr, ptr %64, align 8, !tbaa !79
-  %66 = tail call noundef i32 @_ZNK5osgeo4proj9operation18OperationParameter11getEPSGCodeEv(ptr noundef nonnull align 8 dereferenceable(56) %65) #30
-  %67 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation14ParameterValue5valueEv(ptr noundef nonnull align 8 dereferenceable(40) %59) #30
-  switch i32 %66, label %.thread179 [
-    i32 8605, label %68
-    i32 8606, label %70
-    i32 8607, label %72
-    i32 8608, label %74
-    i32 8609, label %78
-    i32 8610, label %82
-    i32 8611, label %86
+62:                                               ; preds = %56
+  %63 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation23OperationParameterValue9parameterEv(ptr noundef nonnull align 8 dereferenceable(56) %51) #30
+  %64 = load ptr, ptr %63, align 8, !tbaa !79
+  %65 = tail call noundef i32 @_ZNK5osgeo4proj9operation18OperationParameter11getEPSGCodeEv(ptr noundef nonnull align 8 dereferenceable(56) %64) #30
+  %66 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation14ParameterValue5valueEv(ptr noundef nonnull align 8 dereferenceable(40) %58) #30
+  switch i32 %65, label %.thread179 [
+    i32 8605, label %67
+    i32 8606, label %69
+    i32 8607, label %71
+    i32 8608, label %73
+    i32 8609, label %77
+    i32 8610, label %81
+    i32 8611, label %85
   ]
 
-68:                                               ; preds = %63
-  %69 = tail call noundef double @_ZNK5osgeo4proj6common7Measure10getSIValueEv(ptr noundef nonnull align 8 dereferenceable(24) %67) #30
-  store double %69, ptr %34, align 8, !tbaa !68
+67:                                               ; preds = %62
+  %68 = tail call noundef double @_ZNK5osgeo4proj6common7Measure10getSIValueEv(ptr noundef nonnull align 8 dereferenceable(24) %66) #30
+  store double %68, ptr %34, align 8, !tbaa !68
   br label %.thread179
 
-70:                                               ; preds = %63
-  %71 = tail call noundef double @_ZNK5osgeo4proj6common7Measure10getSIValueEv(ptr noundef nonnull align 8 dereferenceable(24) %67) #30
-  store double %71, ptr %45, align 8, !tbaa !68
+69:                                               ; preds = %62
+  %70 = tail call noundef double @_ZNK5osgeo4proj6common7Measure10getSIValueEv(ptr noundef nonnull align 8 dereferenceable(24) %66) #30
+  store double %70, ptr %44, align 8, !tbaa !68
   br label %.thread179
 
-72:                                               ; preds = %63
-  %73 = tail call noundef double @_ZNK5osgeo4proj6common7Measure10getSIValueEv(ptr noundef nonnull align 8 dereferenceable(24) %67) #30
-  store double %73, ptr %44, align 8, !tbaa !68
+71:                                               ; preds = %62
+  %72 = tail call noundef double @_ZNK5osgeo4proj6common7Measure10getSIValueEv(ptr noundef nonnull align 8 dereferenceable(24) %66) #30
+  store double %72, ptr %43, align 8, !tbaa !68
   br label %.thread179
 
-74:                                               ; preds = %63
-  %75 = tail call noundef double @_ZNK5osgeo4proj6common7Measure13convertToUnitERKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure10ARC_SECONDE) #30
-  %76 = fmul double %.0108177, %75
-  %77 = fcmp oeq double %76, 0.000000e+00
-  %..i = select i1 %77, double 0.000000e+00, double %76
-  store double %..i, ptr %43, align 8, !tbaa !68
+73:                                               ; preds = %62
+  %74 = tail call noundef double @_ZNK5osgeo4proj6common7Measure13convertToUnitERKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure10ARC_SECONDE) #30
+  %75 = fmul double %.0108177, %74
+  %76 = fcmp oeq double %75, 0.000000e+00
+  %..i = select i1 %76, double 0.000000e+00, double %75
+  store double %..i, ptr %42, align 8, !tbaa !68
   br label %.thread179
 
-78:                                               ; preds = %63
-  %79 = tail call noundef double @_ZNK5osgeo4proj6common7Measure13convertToUnitERKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure10ARC_SECONDE) #30
-  %80 = fmul double %.0108177, %79
-  %81 = fcmp oeq double %80, 0.000000e+00
-  %..i147 = select i1 %81, double 0.000000e+00, double %80
-  store double %..i147, ptr %42, align 8, !tbaa !68
+77:                                               ; preds = %62
+  %78 = tail call noundef double @_ZNK5osgeo4proj6common7Measure13convertToUnitERKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure10ARC_SECONDE) #30
+  %79 = fmul double %.0108177, %78
+  %80 = fcmp oeq double %79, 0.000000e+00
+  %..i147 = select i1 %80, double 0.000000e+00, double %79
+  store double %..i147, ptr %41, align 8, !tbaa !68
   br label %.thread179
 
-82:                                               ; preds = %63
-  %83 = tail call noundef double @_ZNK5osgeo4proj6common7Measure13convertToUnitERKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure10ARC_SECONDE) #30
-  %84 = fmul double %.0108177, %83
-  %85 = fcmp oeq double %84, 0.000000e+00
-  %..i148 = select i1 %85, double 0.000000e+00, double %84
-  store double %..i148, ptr %41, align 8, !tbaa !68
+81:                                               ; preds = %62
+  %82 = tail call noundef double @_ZNK5osgeo4proj6common7Measure13convertToUnitERKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure10ARC_SECONDE) #30
+  %83 = fmul double %.0108177, %82
+  %84 = fcmp oeq double %83, 0.000000e+00
+  %..i148 = select i1 %84, double 0.000000e+00, double %83
+  store double %..i148, ptr %40, align 8, !tbaa !68
   br label %.thread179
 
-86:                                               ; preds = %63
-  %87 = tail call noundef double @_ZNK5osgeo4proj6common7Measure13convertToUnitERKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure17PARTS_PER_MILLIONE) #30
-  store double %87, ptr %40, align 8, !tbaa !68
+85:                                               ; preds = %62
+  %86 = tail call noundef double @_ZNK5osgeo4proj6common7Measure13convertToUnitERKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure17PARTS_PER_MILLIONE) #30
+  store double %86, ptr %39, align 8, !tbaa !68
   br label %.thread179
 
-.thread179:                                       ; preds = %54, %51, %57, %63, %70, %74, %82, %86, %78, %72, %68
-  %.1137 = phi i1 [ %.0136188, %57 ], [ %.0136188, %68 ], [ %.0136188, %70 ], [ %.0136188, %72 ], [ true, %74 ], [ %.0136188, %78 ], [ %.0136188, %82 ], [ %.0136188, %86 ], [ %.0136188, %63 ], [ %.0136188, %51 ], [ %.0136188, %54 ]
-  %.1133 = phi i1 [ %.0132189, %57 ], [ %.0132189, %68 ], [ %.0132189, %70 ], [ %.0132189, %72 ], [ %.0132189, %74 ], [ true, %78 ], [ %.0132189, %82 ], [ %.0132189, %86 ], [ %.0132189, %63 ], [ %.0132189, %51 ], [ %.0132189, %54 ]
-  %.1129 = phi i1 [ %.0128190, %57 ], [ %.0128190, %68 ], [ %.0128190, %70 ], [ %.0128190, %72 ], [ %.0128190, %74 ], [ %.0128190, %78 ], [ true, %82 ], [ %.0128190, %86 ], [ %.0128190, %63 ], [ %.0128190, %51 ], [ %.0128190, %54 ]
-  %.1125 = phi i1 [ %.0124191, %57 ], [ %.0124191, %68 ], [ %.0124191, %70 ], [ %.0124191, %72 ], [ %.0124191, %74 ], [ %.0124191, %78 ], [ %.0124191, %82 ], [ true, %86 ], [ %.0124191, %63 ], [ %.0124191, %51 ], [ %.0124191, %54 ]
-  %.1121 = phi i1 [ %.0120192, %57 ], [ %.0120192, %68 ], [ %.0120192, %70 ], [ true, %72 ], [ %.0120192, %74 ], [ %.0120192, %78 ], [ %.0120192, %82 ], [ %.0120192, %86 ], [ %.0120192, %63 ], [ %.0120192, %51 ], [ %.0120192, %54 ]
-  %.1117 = phi i1 [ %.0116193, %57 ], [ %.0116193, %68 ], [ true, %70 ], [ %.0116193, %72 ], [ %.0116193, %74 ], [ %.0116193, %78 ], [ %.0116193, %82 ], [ %.0116193, %86 ], [ %.0116193, %63 ], [ %.0116193, %51 ], [ %.0116193, %54 ]
-  %.1114 = phi i1 [ %.0113194, %57 ], [ true, %68 ], [ %.0113194, %70 ], [ %.0113194, %72 ], [ %.0113194, %74 ], [ %.0113194, %78 ], [ %.0113194, %82 ], [ %.0113194, %86 ], [ %.0113194, %63 ], [ %.0113194, %51 ], [ %.0113194, %54 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0151.0187, i64 16
-  %.not = icmp eq ptr %88, %39
-  br i1 %.not, label %._crit_edge, label %51
+.thread179:                                       ; preds = %53, %50, %56, %62, %69, %73, %81, %85, %77, %71, %67
+  %.1137 = phi i1 [ %.0136188, %56 ], [ %.0136188, %67 ], [ %.0136188, %69 ], [ %.0136188, %71 ], [ true, %73 ], [ %.0136188, %77 ], [ %.0136188, %81 ], [ %.0136188, %85 ], [ %.0136188, %62 ], [ %.0136188, %50 ], [ %.0136188, %53 ]
+  %.1133 = phi i1 [ %.0132189, %56 ], [ %.0132189, %67 ], [ %.0132189, %69 ], [ %.0132189, %71 ], [ %.0132189, %73 ], [ true, %77 ], [ %.0132189, %81 ], [ %.0132189, %85 ], [ %.0132189, %62 ], [ %.0132189, %50 ], [ %.0132189, %53 ]
+  %.1129 = phi i1 [ %.0128190, %56 ], [ %.0128190, %67 ], [ %.0128190, %69 ], [ %.0128190, %71 ], [ %.0128190, %73 ], [ %.0128190, %77 ], [ true, %81 ], [ %.0128190, %85 ], [ %.0128190, %62 ], [ %.0128190, %50 ], [ %.0128190, %53 ]
+  %.1125 = phi i1 [ %.0124191, %56 ], [ %.0124191, %67 ], [ %.0124191, %69 ], [ %.0124191, %71 ], [ %.0124191, %73 ], [ %.0124191, %77 ], [ %.0124191, %81 ], [ true, %85 ], [ %.0124191, %62 ], [ %.0124191, %50 ], [ %.0124191, %53 ]
+  %.1121 = phi i1 [ %.0120192, %56 ], [ %.0120192, %67 ], [ %.0120192, %69 ], [ true, %71 ], [ %.0120192, %73 ], [ %.0120192, %77 ], [ %.0120192, %81 ], [ %.0120192, %85 ], [ %.0120192, %62 ], [ %.0120192, %50 ], [ %.0120192, %53 ]
+  %.1117 = phi i1 [ %.0116193, %56 ], [ %.0116193, %67 ], [ true, %69 ], [ %.0116193, %71 ], [ %.0116193, %73 ], [ %.0116193, %77 ], [ %.0116193, %81 ], [ %.0116193, %85 ], [ %.0116193, %62 ], [ %.0116193, %50 ], [ %.0116193, %53 ]
+  %.1114 = phi i1 [ %.0113194, %56 ], [ true, %67 ], [ %.0113194, %69 ], [ %.0113194, %71 ], [ %.0113194, %73 ], [ %.0113194, %77 ], [ %.0113194, %81 ], [ %.0113194, %85 ], [ %.0113194, %62 ], [ %.0113194, %50 ], [ %.0113194, %53 ]
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.0151.0187, i64 16
+  %.not = icmp eq ptr %87, %38
+  br i1 %.not, label %._crit_edge, label %50
 
 .thread181:                                       ; preds = %._crit_edge
+  %88 = getelementptr inbounds nuw i8, ptr %34, i64 56
   store ptr %34, ptr %0, align 8, !tbaa !82
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %35, ptr %89, align 8, !tbaa !85
+  store ptr %88, ptr %89, align 8, !tbaa !85
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %35, ptr %90, align 8, !tbaa !86
+  store ptr %88, ptr %90, align 8, !tbaa !86
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 ._crit_edge.thread:                               ; preds = %.thread172, %._crit_edge

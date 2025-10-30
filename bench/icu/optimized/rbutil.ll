@@ -86,25 +86,25 @@ define dso_local i32 @itostr(ptr noundef captures(none) %0, i32 noundef %1, i32 
   br i1 %.not, label %.preheader, label %6, !llvm.loop !7
 
 .preheader:                                       ; preds = %6
-  %13 = icmp slt i32 %1, 0
-  %14 = trunc nuw i64 %indvars.iv.next to i32
-  %15 = icmp sgt i32 %3, %14
-  br i1 %15, label %.lr.ph.preheader, label %._crit_edge
+  %13 = trunc nuw i64 %indvars.iv.next to i32
+  %14 = icmp sgt i32 %3, %13
+  br i1 %14, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %scevgep = getelementptr i8, ptr %0, i64 %indvars.iv.next
-  %16 = trunc i64 %indvars.iv to i32
-  %17 = sub i32 %5, %16
-  %18 = zext i32 %17 to i64
-  %19 = add nuw nsw i64 %18, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %19, i1 false), !tbaa !4
-  %20 = trunc i64 %indvars.iv57 to i32
-  %21 = add i32 %indvars.iv59, %20
+  %15 = trunc i64 %indvars.iv to i32
+  %16 = sub i32 %5, %15
+  %17 = zext i32 %16 to i64
+  %18 = add nuw nsw i64 %17, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %18, i1 false), !tbaa !4
+  %19 = trunc i64 %indvars.iv57 to i32
+  %20 = add i32 %indvars.iv59, %19
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader
-  %.141.lcssa = phi i32 [ %14, %.preheader ], [ %21, %.lr.ph.preheader ]
-  br i1 %13, label %22, label %26
+  %.141.lcssa = phi i32 [ %13, %.preheader ], [ %20, %.lr.ph.preheader ]
+  %21 = icmp slt i32 %1, 0
+  br i1 %21, label %22, label %26
 
 22:                                               ; preds = %._crit_edge
   %23 = add nuw nsw i32 %.141.lcssa, 1

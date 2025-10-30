@@ -5512,32 +5512,32 @@ define internal fastcc range(i32 -1, 1) i32 @php_ini_on_update_tags(ptr noundef 
   br i1 %.not39, label %zend_string_release_ex.exit, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store i8 0, ptr %20, align 1, !tbaa !18
-  %23 = load i8, ptr %.0324, align 1, !tbaa !18
-  %.not401 = icmp eq i8 %23, 0
+  %22 = load i8, ptr %.0324, align 1, !tbaa !18
+  %.not401 = icmp eq i8 %22, 0
   br i1 %.not401, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
-  %24 = tail call ptr @__ctype_tolower_loc() #22
-  br label %25
+  %23 = tail call ptr @__ctype_tolower_loc() #22
+  br label %24
 
-25:                                               ; preds = %.lr.ph, %25
-  %26 = phi i8 [ %23, %.lr.ph ], [ %33, %25 ]
-  %.0332 = phi ptr [ %.0324, %.lr.ph ], [ %32, %25 ]
-  %27 = load ptr, ptr %24, align 8, !tbaa !91
-  %28 = sext i8 %26 to i64
-  %29 = getelementptr inbounds i32, ptr %27, i64 %28
-  %30 = load i32, ptr %29, align 4, !tbaa !93
-  %31 = trunc i32 %30 to i8
-  store i8 %31, ptr %.0332, align 1, !tbaa !18
-  %32 = getelementptr inbounds nuw i8, ptr %.0332, i64 1
-  %33 = load i8, ptr %32, align 1, !tbaa !18
-  %.not40 = icmp eq i8 %33, 0
-  br i1 %.not40, label %._crit_edge, label %25
+24:                                               ; preds = %.lr.ph, %24
+  %25 = phi i8 [ %22, %.lr.ph ], [ %32, %24 ]
+  %.0332 = phi ptr [ %.0324, %.lr.ph ], [ %31, %24 ]
+  %26 = load ptr, ptr %23, align 8, !tbaa !91
+  %27 = sext i8 %25 to i64
+  %28 = getelementptr inbounds i32, ptr %26, i64 %27
+  %29 = load i32, ptr %28, align 4, !tbaa !93
+  %30 = trunc i32 %29 to i8
+  store i8 %30, ptr %.0332, align 1, !tbaa !18
+  %31 = getelementptr inbounds nuw i8, ptr %.0332, i64 1
+  %32 = load i8, ptr %31, align 1, !tbaa !18
+  %.not40 = icmp eq i8 %32, 0
+  br i1 %.not40, label %._crit_edge, label %24
 
-._crit_edge:                                      ; preds = %25, %21
-  %.033.lcssa = phi ptr [ %.0324, %21 ], [ %32, %25 ]
+._crit_edge:                                      ; preds = %24, %21
+  %.033.lcssa = phi ptr [ %.0324, %21 ], [ %31, %24 ]
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %34 = ptrtoint ptr %.033.lcssa to i64
   %35 = ptrtoint ptr %.0324 to i64
   %36 = sub i64 %34, %35
@@ -5556,7 +5556,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_ini_on_update_tags(ptr noundef 
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %36
   store i8 0, ptr %44, align 1, !tbaa !18
   %45 = load ptr, ptr %9, align 8, !tbaa !94
-  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #20
+  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #20
   %47 = add i64 %46, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !18
@@ -5583,7 +5583,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_ini_on_update_tags(ptr noundef 
 57:                                               ; preds = %55, %53
   %58 = phi ptr [ %54, %53 ], [ %56, %55 ]
   store ptr %58, ptr %48, align 8, !tbaa !18
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr nonnull align 1 %22, i64 %47, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr nonnull align 1 %33, i64 %47, i1 false)
   br label %zend_hash_add_mem.exit
 
 zend_hash_add_mem.exit:                           ; preds = %._crit_edge, %57

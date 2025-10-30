@@ -44232,12 +44232,12 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %4
   br i1 %73, label %_ZN15ruff_python_ast17statement_visitor9walk_body17h5d7e6eda895b2488E.exit10, label %.lr.ph25
 
 _ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17hbaa69be398edea0dE.exit.loopexit: ; preds = %.lr.ph21, %.lr.ph23
-  %74 = icmp eq ptr %75, %22
-  br i1 %74, label %_ZN15ruff_python_ast17statement_visitor9walk_body17h5d7e6eda895b2488E.exit10, label %.lr.ph23
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.06.022, i64 96
+  %75 = icmp eq ptr %74, %22
+  br i1 %75, label %_ZN15ruff_python_ast17statement_visitor9walk_body17h5d7e6eda895b2488E.exit10, label %.lr.ph23
 
 .lr.ph23:                                         ; preds = %_ZN15ruff_python_ast17statement_visitor9walk_body17h5d7e6eda895b2488E.exit, %_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17hbaa69be398edea0dE.exit.loopexit
-  %.sroa.06.022 = phi ptr [ %75, %_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17hbaa69be398edea0dE.exit.loopexit ], [ %19, %_ZN15ruff_python_ast17statement_visitor9walk_body17h5d7e6eda895b2488E.exit ]
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.06.022, i64 96
+  %.sroa.06.022 = phi ptr [ %74, %_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17hbaa69be398edea0dE.exit.loopexit ], [ %19, %_ZN15ruff_python_ast17statement_visitor9walk_body17h5d7e6eda895b2488E.exit ]
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.06.022, i64 8
   %77 = load ptr, ptr %76, align 8, !noalias !6370, !nonnull !3, !noundef !3
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.06.022, i64 16
@@ -44255,12 +44255,12 @@ _ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17hbaa69be3
   br i1 %83, label %_ZN15ruff_python_ast17statement_visitor16StatementVisitor10visit_body17hbaa69be398edea0dE.exit.loopexit, label %.lr.ph21
 
 _ZN15ruff_python_ast17statement_visitor9walk_body17h5d7e6eda895b2488E.exit12.loopexit: ; preds = %.lr.ph, %.lr.ph17
-  %84 = icmp eq ptr %85, %30
-  br i1 %84, label %_ZN15ruff_python_ast17statement_visitor9walk_body17h5d7e6eda895b2488E.exit10, label %.lr.ph17
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.07.016, i64 128
+  %85 = icmp eq ptr %84, %30
+  br i1 %85, label %_ZN15ruff_python_ast17statement_visitor9walk_body17h5d7e6eda895b2488E.exit10, label %.lr.ph17
 
 .lr.ph17:                                         ; preds = %25, %_ZN15ruff_python_ast17statement_visitor9walk_body17h5d7e6eda895b2488E.exit12.loopexit
-  %.sroa.07.016 = phi ptr [ %85, %_ZN15ruff_python_ast17statement_visitor9walk_body17h5d7e6eda895b2488E.exit12.loopexit ], [ %27, %25 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.07.016, i64 128
+  %.sroa.07.016 = phi ptr [ %84, %_ZN15ruff_python_ast17statement_visitor9walk_body17h5d7e6eda895b2488E.exit12.loopexit ], [ %27, %25 ]
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.07.016, i64 8
   %87 = load ptr, ptr %86, align 8, !nonnull !3, !noundef !3
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.07.016, i64 16

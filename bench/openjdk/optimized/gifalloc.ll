@@ -610,21 +610,21 @@ define hidden ptr @GifMakeSavedImage(ptr noundef captures(address_is_null) %0, p
 
 25:                                               ; preds = %22
   %26 = load i32, ptr %24, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %28 = load ptr, ptr %27, align 8
-  br label %29
+  br label %27
 
-29:                                               ; preds = %29, %25
-  %.0.i.i = phi i32 [ 1, %25 ], [ %32, %29 ]
-  %30 = icmp samesign ult i32 %.0.i.i, 9
-  %31 = shl nuw nsw i32 1, %.0.i.i
-  %.not.i.i = icmp slt i32 %31, %26
-  %or.cond.i.i = select i1 %30, i1 %.not.i.i, i1 false
-  %32 = add nuw nsw i32 %.0.i.i, 1
-  br i1 %or.cond.i.i, label %29, label %GifBitSize.exit.i, !llvm.loop !6
+27:                                               ; preds = %27, %25
+  %.0.i.i = phi i32 [ 1, %25 ], [ %30, %27 ]
+  %28 = icmp samesign ult i32 %.0.i.i, 9
+  %29 = shl nuw nsw i32 1, %.0.i.i
+  %.not.i.i = icmp slt i32 %29, %26
+  %or.cond.i.i = select i1 %28, i1 %.not.i.i, i1 false
+  %30 = add nuw nsw i32 %.0.i.i, 1
+  br i1 %or.cond.i.i, label %27, label %GifBitSize.exit.i, !llvm.loop !6
 
-GifBitSize.exit.i:                                ; preds = %29
-  %.not.i = icmp eq i32 %26, %31
+GifBitSize.exit.i:                                ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %32 = load ptr, ptr %31, align 8
+  %.not.i = icmp eq i32 %26, %29
   br i1 %.not.i, label %33, label %52
 
 33:                                               ; preds = %GifBitSize.exit.i
@@ -662,12 +662,12 @@ GifBitSize.exit24.i:                              ; preds = %43
   store i32 %.0.i21.i, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i8 0, ptr %48, align 8
-  %.not20.i = icmp eq ptr %28, null
+  %.not20.i = icmp eq ptr %32, null
   br i1 %.not20.i, label %GifMakeMapObject.exit, label %49
 
 49:                                               ; preds = %GifBitSize.exit24.i
   %50 = mul nuw nsw i64 %37, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull readonly align 1 %28, i64 %50, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull readonly align 1 %32, i64 %50, i1 false)
   br label %GifMakeMapObject.exit
 
 GifMakeMapObject.exit:                            ; preds = %GifBitSize.exit24.i, %49

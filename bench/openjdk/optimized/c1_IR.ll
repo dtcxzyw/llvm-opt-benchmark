@@ -780,35 +780,35 @@ declare void @_ZN6BitMap9set_rangeEmm(ptr noundef nonnull align 8 dereferenceabl
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK7IRScope9max_stackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 76
-  %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load i32, ptr %6, align 8
-  %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = load i32, ptr %2, align 8
+  %4 = icmp sgt i32 %3, 0
+  br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load ptr, ptr %9, align 8
-  %wide.trip.count = zext nneg i32 %7 to i64
-  br label %11
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = load ptr, ptr %5, align 8
+  %wide.trip.count = zext nneg i32 %3 to i64
+  br label %7
 
-11:                                               ; preds = %.lr.ph, %11
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %.067 = phi i32 [ 0, %.lr.ph ], [ %15, %11 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef i32 @_ZNK7IRScope9max_stackEv(ptr noundef nonnull align 8 dereferenceable(96) %13)
-  %15 = tail call noundef i32 @llvm.smax.i32(i32 %.067, i32 %14)
+7:                                                ; preds = %.lr.ph, %7
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
+  %.067 = phi i32 [ 0, %.lr.ph ], [ %11, %7 ]
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call noundef i32 @_ZNK7IRScope9max_stackEv(ptr noundef nonnull align 8 dereferenceable(96) %9)
+  %11 = tail call noundef i32 @llvm.smax.i32(i32 %.067, i32 %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %11, %1
-  %.06.lcssa = phi i32 [ 0, %1 ], [ %15, %11 ]
-  %16 = add nsw i32 %.06.lcssa, %5
+._crit_edge:                                      ; preds = %7, %1
+  %.06.lcssa = phi i32 [ 0, %1 ], [ %11, %7 ]
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 76
+  %15 = load i32, ptr %14, align 4
+  %16 = add nsw i32 %.06.lcssa, %15
   ret i32 %16
 }
 

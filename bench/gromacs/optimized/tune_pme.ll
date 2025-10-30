@@ -4510,14 +4510,14 @@ default.unreachable:                              ; preds = %2217
   %1701 = lshr exact i32 %.0.i.i.i.i, %1700
   %1702 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1689, i1 true)
   %1703 = lshr exact i32 %.0.i4.i.i.i, %1702
-  %1704 = call i32 @llvm.umin.i32(i32 %1700, i32 %1702)
   %spec.select3334.i.i.i.i = call i32 @llvm.umin.i32(i32 %1701, i32 %1703)
-  %1705 = icmp eq i32 %1701, %1703
-  br i1 %1705, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %1704 = icmp eq i32 %1701, %1703
+  br i1 %1704, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %1699
   %spec.select33.lcssa.i.i.i.i = phi i32 [ %spec.select3334.i.i.i.i, %1699 ], [ %spec.select33.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %1706 = shl i32 %spec.select33.lcssa.i.i.i.i, %1704
+  %1705 = call i32 @llvm.umin.i32(i32 %1700, i32 %1702)
+  %1706 = shl i32 %spec.select33.lcssa.i.i.i.i, %1705
   br label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1699, %.lr.ph.i.i.i.i

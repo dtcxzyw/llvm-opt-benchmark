@@ -135,10 +135,10 @@ define noundef i32 @dgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, d
   %.0109.us = phi ptr [ %8, %.lr.ph.us.preheader ], [ %80, %._crit_edge.us ]
   %.0102.us = phi i64 [ %1, %.lr.ph.us.preheader ], [ %81, %._crit_edge.us ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.0109.us, i8 0, i64 %63, i1 false), !tbaa !11
-  %80 = getelementptr double, ptr %.0109.us, i64 %9
   br i1 %79, label %.lr.ph133.us.preheader, label %.preheader.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph138.us.preheader, %.preheader.us
+  %80 = getelementptr double, ptr %.0109.us, i64 %9
   %81 = add nsw i64 %.0102.us, -1
   %82 = icmp sgt i64 %.0102.us, 1
   %scevgep180 = getelementptr i8, ptr %indvars.iv179, i64 %66
@@ -185,10 +185,10 @@ define noundef i32 @dgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, d
   %.0109.us140 = phi ptr [ %8, %.preheader118.us139.preheader ], [ %98, %._crit_edge.us154 ]
   %.0102.us141 = phi i64 [ %1, %.preheader118.us139.preheader ], [ %99, %._crit_edge.us154 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0109.us140, i8 0, i64 %90, i1 false), !tbaa !11
-  %98 = getelementptr double, ptr %.0109.us140, i64 %9
   br i1 %97, label %.lr.ph138.us153.preheader, label %._crit_edge.us154
 
 ._crit_edge.us154:                                ; preds = %.lr.ph138.us153.preheader, %.preheader118.us139
+  %98 = getelementptr double, ptr %.0109.us140, i64 %9
   %99 = add nsw i64 %.0102.us141, -1
   %100 = icmp sgt i64 %.0102.us141, 1
   %scevgep175 = getelementptr i8, ptr %indvars.iv, i64 %93

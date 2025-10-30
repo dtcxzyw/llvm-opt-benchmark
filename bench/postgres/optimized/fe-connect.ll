@@ -7457,16 +7457,16 @@ conninfo_storeval.exit.i.i:                       ; preds = %conninfo_find.exit.
 
 55:                                               ; preds = %conninfo_storeval.exit.i.i, %.critedge4.i.i
   %56 = icmp eq i8 %39, 58
-  br i1 %56, label %.preheader.i, label %.thread.i.i
+  br i1 %56, label %.preheader234.i.i, label %.thread.i.i
 
-.preheader.i:                                     ; preds = %55, %.preheader.i
-  %.3.i.i = phi ptr [ %58, %.preheader.i ], [ %.1.i.i, %55 ]
+.preheader234.i.i:                                ; preds = %55, %.preheader234.i.i
+  %.3.i.i = phi ptr [ %58, %.preheader234.i.i ], [ %.1.i.i, %55 ]
   %57 = load i8, ptr %.3.i.i, align 1
   %.not153.i.i = icmp eq i8 %57, 64
   %58 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 1
-  br i1 %.not153.i.i, label %59, label %.preheader.i, !llvm.loop !43
+  br i1 %.not153.i.i, label %59, label %.preheader234.i.i, !llvm.loop !43
 
-59:                                               ; preds = %.preheader.i
+59:                                               ; preds = %.preheader234.i.i
   %60 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
   store i8 0, ptr %.3.i.i, align 1
   %61 = load i8, ptr %60, align 1

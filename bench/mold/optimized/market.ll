@@ -660,26 +660,26 @@ define void @_ZN3tbb6detail2r16market16update_allotmentEv(ptr noundef nonnull re
   %.055 = phi i32 [ 0, %1 ], [ %.1.lcssa, %._crit_edge ]
   %.02954 = phi i32 [ 0, %1 ], [ %.130.lcssa, %._crit_edge ]
   %.03253 = phi i32 [ 3, %1 ], [ %.133.lcssa, %._crit_edge ]
-  %.04351 = phi i32 [ %..i, %1 ], [ %17, %._crit_edge ]
+  %.04351 = phi i32 [ %..i, %1 ], [ %22, %._crit_edge ]
   %15 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !92
   %..i39 = tail call noundef i32 @llvm.smin.i32(i32 %16, i32 %.04351)
-  %17 = sub nsw i32 %.04351, %..i39
-  %18 = getelementptr inbounds nuw %"class.std::vector", ptr %12, i64 %indvars.iv
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !89, !noalias !93
-  %21 = load ptr, ptr %18, align 8, !tbaa !89, !noalias !96
-  %.not44 = icmp eq ptr %20, %21
+  %17 = getelementptr inbounds nuw %"class.std::vector", ptr %12, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !89, !noalias !93
+  %20 = load ptr, ptr %17, align 8, !tbaa !89, !noalias !96
+  %.not44 = icmp eq ptr %19, %20
   br i1 %.not44, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %14
-  %22 = trunc nuw nsw i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %55, %14
   %.133.lcssa = phi i32 [ %.03253, %14 ], [ %.234, %55 ]
   %.130.lcssa = phi i32 [ %.02954, %14 ], [ %.231, %55 ]
   %.1.lcssa = phi i32 [ %.055, %14 ], [ %.2, %55 ]
+  %22 = sub nsw i32 %.04351, %..i39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %13, label %14, !llvm.loop !99
@@ -688,7 +688,7 @@ define void @_ZN3tbb6detail2r16market16update_allotmentEv(ptr noundef nonnull re
   %.148 = phi i32 [ %.2, %55 ], [ %.055, %.lr.ph.preheader ]
   %.13047 = phi i32 [ %.231, %55 ], [ %.02954, %.lr.ph.preheader ]
   %.13346 = phi i32 [ %.234, %55 ], [ %.03253, %.lr.ph.preheader ]
-  %.sroa.040.045 = phi ptr [ %23, %55 ], [ %20, %.lr.ph.preheader ]
+  %.sroa.040.045 = phi ptr [ %23, %55 ], [ %19, %.lr.ph.preheader ]
   %23 = getelementptr inbounds i8, ptr %.sroa.040.045, i64 -8
   %24 = load ptr, ptr %23, align 8, !tbaa !79
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
@@ -704,7 +704,7 @@ define void @_ZN3tbb6detail2r16market16update_allotmentEv(ptr noundef nonnull re
 
 31:                                               ; preds = %.lr.ph
   %32 = icmp eq i32 %.13346, 3
-  %spec.select = select i1 %32, i32 %22, i32 %.13346
+  %spec.select = select i1 %32, i32 %21, i32 %.13346
   %33 = load i32, ptr %5, align 8, !tbaa !14
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %42
@@ -743,7 +743,7 @@ define void @_ZN3tbb6detail2r16market16update_allotmentEv(ptr noundef nonnull re
   %.234 = phi i32 [ %.13346, %28 ], [ %spec.select, %48 ]
   %.231 = phi i32 [ %.13047, %28 ], [ %.3, %48 ]
   %.2 = phi i32 [ %.148, %28 ], [ %54, %48 ]
-  %56 = load ptr, ptr %18, align 8, !tbaa !89, !noalias !96
+  %56 = load ptr, ptr %17, align 8, !tbaa !89, !noalias !96
   %.not = icmp eq ptr %23, %56
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 }

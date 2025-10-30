@@ -3430,8 +3430,8 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit162: ; preds = %_ZNKSt8_Rb_treeI
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc.i.i
   %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %230, 1
-  call void @llvm.memset.p0.i64(ptr align 2 %229, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !267, !noalias !262
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 %.idx.i.i.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 2 %229, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !267, !noalias !262
   br label %.lr.ph.i.i163
 
 233:                                              ; preds = %220

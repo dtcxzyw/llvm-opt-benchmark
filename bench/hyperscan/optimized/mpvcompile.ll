@@ -936,22 +936,22 @@ _ZN3ue2L8calcSizeERKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffE
   %.val78 = load i64, ptr %31, align 8
   %310 = shl i64 %.val78, 6
   %311 = getelementptr inbounds nuw i8, ptr %309, i64 %310
-  %312 = sdiv exact i64 %reass.sub.i, 24
-  %313 = getelementptr inbounds nuw i8, ptr %311, i64 %reass.sub.i
-  store i64 0, ptr %313, align 4
-  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
-  store i32 -1, ptr %314, align 4
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 %reass.sub.i
+  store i64 0, ptr %312, align 4
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
+  store i32 -1, ptr %313, align 4
   %.val.i.i.i = load ptr, ptr %29, align 8, !noalias !37
   %.not258 = icmp eq ptr %.val.i.i.i, %27
   br i1 %.not258, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %315 = add i32 %.sroa.speculated, -1
+  %314 = add i32 %.sroa.speculated, -1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %306
-  %.0213.lcssa = phi i32 [ -1, %306 ], [ %315, %._crit_edge.loopexit ]
+  %.0213.lcssa = phi i32 [ -1, %306 ], [ %314, %._crit_edge.loopexit ]
   %.0212.lcssa = phi i32 [ -1, %306 ], [ %.sroa.speculated166, %._crit_edge.loopexit ]
+  %315 = sdiv exact i64 %reass.sub.i, 24
   %316 = load ptr, ptr %0, align 8
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 64
   %.val79 = load i64, ptr %31, align 8
@@ -1044,7 +1044,7 @@ _ZN3ue2L8calcSizeERKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffE
 338:                                              ; preds = %._crit_edge
   %339 = trunc nuw i64 %.val79 to i32
   store i32 %339, ptr %317, align 32
-  %.not.i.i115 = icmp ult i64 %312, 4294967296
+  %.not.i.i115 = icmp ult i64 %315, 4294967296
   br i1 %.not.i.i115, label %344, label %340
 
 340:                                              ; preds = %338
@@ -1059,7 +1059,7 @@ _ZN3ue2L8calcSizeERKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffE
   br label %.body
 
 344:                                              ; preds = %338
-  %345 = trunc nuw i64 %312 to i32
+  %345 = trunc nuw i64 %315 to i32
   %346 = getelementptr inbounds nuw i8, ptr %316, i64 68
   store i32 %345, ptr %346, align 4
   %347 = getelementptr inbounds nuw i8, ptr %316, i64 72
@@ -1118,7 +1118,7 @@ _ZN3ue2L8calcSizeERKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffE
   br label %.body
 
 370:                                              ; preds = %.lr.ph269, %.loopexit
-  %.pn276 = phi ptr [ %313, %.lr.ph269 ], [ %481, %.loopexit ]
+  %.pn276 = phi ptr [ %312, %.lr.ph269 ], [ %481, %.loopexit ]
   %.053266 = phi ptr [ %366, %.lr.ph269 ], [ %517, %.loopexit ]
   %.sroa.0155.0265 = phi ptr [ %.val.i.i.i, %.lr.ph269 ], [ %518, %.loopexit ]
   %.0211267 = getelementptr inbounds nuw i8, ptr %.pn276, i64 12

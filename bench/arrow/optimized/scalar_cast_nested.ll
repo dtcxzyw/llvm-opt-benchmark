@@ -51911,16 +51911,16 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK5arrow7com
 .noexc177:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %63 = shl nuw nsw i64 %61, 2
   %64 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %63) #22
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %63
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %64, i8 -1, i64 %63, i1 false), !tbaa !51
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %61
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %63
-  %67 = ptrtoint ptr %65 to i64
+  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %61
+  %67 = ptrtoint ptr %66 to i64
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc177, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.13.0 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %67, %.noexc177 ]
   %.sroa.0289.0 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %64, %.noexc177 ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %66, %.noexc177 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %65, %.noexc177 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %68, align 8, !tbaa !1297

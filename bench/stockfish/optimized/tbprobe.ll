@@ -2842,21 +2842,21 @@ _ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4Fi
 
 .preheader132.us.i.i.i:                           ; preds = %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.i.i.i, %.preheader132.us.i.i.i
   %indvars.iv200.i.i.i = phi i64 [ %indvars.iv.next201.i.i.i, %.preheader132.us.i.i.i ], [ 0, %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.i.i.i ]
-  %.4165.us.i.i.i = phi ptr [ %403, %.preheader132.us.i.i.i ], [ %397, %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.i.i.i ]
+  %.4165.us.i.i.i = phi ptr [ %402, %.preheader132.us.i.i.i ], [ %397, %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.i.i.i ]
   %398 = getelementptr inbounds nuw %"struct.Stockfish::(anonymous namespace)::PairsData", ptr %151, i64 %indvars.iv200.i.i.i
-  %399 = getelementptr inbounds nuw i8, ptr %398, i64 56
-  %400 = getelementptr inbounds nuw i8, ptr %398, i64 64
-  %401 = load i64, ptr %400, align 8
-  %402 = mul i64 %401, 6
-  %403 = getelementptr inbounds i8, ptr %.4165.us.i.i.i, i64 %402
-  store ptr %.4165.us.i.i.i, ptr %399, align 8
+  %399 = getelementptr inbounds nuw i8, ptr %398, i64 64
+  %400 = load i64, ptr %399, align 8
+  %401 = mul i64 %400, 6
+  %402 = getelementptr inbounds i8, ptr %.4165.us.i.i.i, i64 %401
+  %403 = getelementptr inbounds nuw i8, ptr %398, i64 56
+  store ptr %.4165.us.i.i.i, ptr %403, align 8
   %indvars.iv.next201.i.i.i = add nuw nsw i64 %indvars.iv200.i.i.i, 1
   %exitcond204.not.i.i.i = icmp eq i64 %indvars.iv.next201.i.i.i, %wide.trip.count192.i.i.i
   br i1 %exitcond204.not.i.i.i, label %.preheader130.i.us.i.i, label %.preheader132.us.i.i.i, !llvm.loop !94
 
 .preheader130.i.us.i.i:                           ; preds = %.preheader132.us.i.i.i, %.preheader130.i.us.i.i
   %indvars.iv205.i.us.i.i = phi i64 [ %indvars.iv.next206.i.us.i.i, %.preheader130.i.us.i.i ], [ 0, %.preheader132.us.i.i.i ]
-  %.6168.i.us.i.i = phi ptr [ %410, %.preheader130.i.us.i.i ], [ %403, %.preheader132.us.i.i.i ]
+  %.6168.i.us.i.i = phi ptr [ %410, %.preheader130.i.us.i.i ], [ %402, %.preheader132.us.i.i.i ]
   %404 = getelementptr inbounds nuw %"struct.Stockfish::(anonymous namespace)::PairsData", ptr %151, i64 %indvars.iv205.i.us.i.i
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 40
   %406 = getelementptr inbounds nuw i8, ptr %404, i64 48
@@ -7446,8 +7446,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorImSaImEE17_M_default_appendEm(pt
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i

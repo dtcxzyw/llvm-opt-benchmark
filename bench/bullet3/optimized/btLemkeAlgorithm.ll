@@ -339,10 +339,10 @@ _ZN9btMatrixXIfEC2Eii.exit93:                     ; preds = %71
   %93 = icmp sgt i32 %92, 0
   %94 = load ptr, ptr %44, align 8
   %95 = load ptr, ptr %78, align 8
-  %.promoted17.i = load i32, ptr %76, align 8
   br i1 %93, label %.preheader.us.preheader.i, label %_ZN9btMatrixXIfE12setSubMatrixEiiiiRKS0_.exit
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
+  %.promoted17.i = load i32, ptr %76, align 8
   %96 = load i32, ptr %73, align 4
   %97 = zext nneg i32 %92 to i64
   %wide.trip.count24.i = zext nneg i32 %90 to i64
@@ -392,17 +392,17 @@ _ZN9btMatrixXIfE12setSubMatrixEiiiiRKS0_.exit:    ; preds = %._crit_edge16.split
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr %78, align 8
-  %.promoted17.i99 = load i32, ptr %76, align 8
-  br i1 %114, label %.preheader.us.preheader.i100, label %_ZN9btMatrixXIfE12setSubMatrixEiiiiRKS0_.exit113
+  br i1 %114, label %.preheader.us.preheader.i99, label %_ZN9btMatrixXIfE12setSubMatrixEiiiiRKS0_.exit113
 
-.preheader.us.preheader.i100:                     ; preds = %.preheader.lr.ph.i98
+.preheader.us.preheader.i99:                      ; preds = %.preheader.lr.ph.i98
+  %.promoted17.i100 = load i32, ptr %76, align 8
   %118 = load i32, ptr %73, align 4
   %119 = zext nneg i32 %113 to i64
   %wide.trip.count24.i101 = zext nneg i32 %110 to i64
   br label %.preheader.us.i103
 
-.preheader.us.i103:                               ; preds = %._crit_edge.us.i109, %.preheader.us.preheader.i100
-  %indvars.iv21.i104 = phi i64 [ 0, %.preheader.us.preheader.i100 ], [ %indvars.iv.next22.i110, %._crit_edge.us.i109 ]
+.preheader.us.i103:                               ; preds = %._crit_edge.us.i109, %.preheader.us.preheader.i99
+  %indvars.iv21.i104 = phi i64 [ 0, %.preheader.us.preheader.i99 ], [ %indvars.iv.next22.i110, %._crit_edge.us.i109 ]
   %120 = mul nuw nsw i64 %indvars.iv21.i104, %119
   %121 = trunc i64 %indvars.iv21.i104 to i32
   %122 = mul i32 %118, %121
@@ -430,7 +430,7 @@ _ZN9btMatrixXIfE12setSubMatrixEiiiiRKS0_.exit:    ; preds = %._crit_edge16.split
 
 ._crit_edge16.split.us.i112:                      ; preds = %._crit_edge.us.i109
   %130 = mul i32 %113, %110
-  %131 = add i32 %.promoted17.i99, %130
+  %131 = add i32 %.promoted17.i100, %130
   store i32 %131, ptr %76, align 8, !tbaa !35
   br label %_ZN9btMatrixXIfE12setSubMatrixEiiiiRKS0_.exit113
 

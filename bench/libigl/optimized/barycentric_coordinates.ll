@@ -516,23 +516,23 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %34 = lshr exact i64 %27, 3
   %35 = and i64 %34, 1
   %36 = call i64 @llvm.smin.i64(i64 %35, i64 %24)
-  %37 = sub nsw i64 %24, %36
-  %38 = and i64 %37, -2
-  %39 = add nsw i64 %38, %36
-  %40 = icmp sgt i64 %36, 0
-  br i1 %40, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
+  %37 = icmp sgt i64 %36, 0
+  br i1 %37, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph52.i.i.i.i.i.i.i.i.i.i.i.i
-  %41 = load double, ptr %26, align 8, !tbaa !20, !noalias !29
-  store double %41, ptr %25, align 8, !tbaa !20, !noalias !29
+  %38 = load double, ptr %26, align 8, !tbaa !20, !noalias !29
+  store double %38, ptr %25, align 8, !tbaa !20, !noalias !29
   br label %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
 
 .preheader43.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph52.i.i.i.i.i.i.i.i.i.i.i.i
-  %42 = icmp sgt i64 %37, 1
+  %39 = sub nsw i64 %24, %36
+  %40 = and i64 %39, -2
+  %41 = add nsw i64 %40, %36
+  %42 = icmp sgt i64 %39, 1
   br i1 %42, label %.lr.ph47.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %.lr.ph47.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
-  %43 = icmp slt i64 %39, %24
+  %43 = icmp slt i64 %41, %24
   br i1 %43, label %.lr.ph49.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEElsINS1_IdLin1ELi1ELi0ELin1ELi1EEEEENS_16CommaInitializerIS2_EERKNS0_IT_EE.exit
 
 .lr.ph47.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph47.i.i.i.i.i.i.i.i.i.i.i.i
@@ -542,11 +542,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %46 = load <2 x double>, ptr %45, align 1, !tbaa !19, !noalias !29
   store <2 x double> %46, ptr %44, align 16, !tbaa !19, !noalias !29
   %47 = add nsw i64 %.03246.i.i.i.i.i.i.i.i.i.i.i.i, 2
-  %48 = icmp slt i64 %47, %39
+  %48 = icmp slt i64 %47, %41
   br i1 %48, label %.lr.ph47.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !38
 
 .lr.ph49.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph49.i.i.i.i.i.i.i.i.i.i.i.i
-  %.048.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %52, %.lr.ph49.i.i.i.i.i.i.i.i.i.i.i.i ], [ %39, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.048.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %52, %.lr.ph49.i.i.i.i.i.i.i.i.i.i.i.i ], [ %41, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i ]
   %49 = getelementptr double, ptr %25, i64 %.048.i.i.i.i.i.i.i.i.i.i.i.i
   %50 = getelementptr double, ptr %26, i64 %.048.i.i.i.i.i.i.i.i.i.i.i.i
   %51 = load double, ptr %50, align 8, !tbaa !20, !noalias !29

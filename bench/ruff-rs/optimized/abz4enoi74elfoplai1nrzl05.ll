@@ -9255,7 +9255,6 @@ thread-pre-split:                                 ; preds = %.thread.i.i
 594:                                              ; preds = %590, %592, %573
   %.sroa.015.0 = phi i64 [ 1, %573 ], [ %.93, %592 ], [ 2, %590 ]
   %595 = load i64, ptr %8, align 8, !range !347, !noundef !3
-  %.not83 = icmp eq i64 %595, -9223372036854775808
   %596 = sub nsw i64 0, %.sroa.015.0
   %.not = icmp eq i64 %574, %596
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -9268,6 +9267,7 @@ thread-pre-split:                                 ; preds = %.thread.i.i
 ._crit_edge:                                      ; preds = %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit173", %594
   %.lcssa369 = phi i64 [ %.sroa.44.1, %594 ], [ %600, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit173" ]
   %.lcssa368 = phi ptr [ %.sroa.0.1, %594 ], [ %601, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit173" ]
+  %.not83 = icmp eq i64 %595, -9223372036854775808
   br i1 %.not83, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hdb6a89251b9e94c7E.exit162", label %599
 
 599:                                              ; preds = %._crit_edge

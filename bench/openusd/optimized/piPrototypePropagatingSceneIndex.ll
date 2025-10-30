@@ -15314,27 +15314,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE8capacityEv.exit: ; 
   br i1 %37, label %.critedge, label %79
 
 .critedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE9_IsUniqueEv.exit, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE8capacityEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i64 %19, 1
-  br label %41
+  %38 = add i64 %19, 1
+  br label %39
 
-41:                                               ; preds = %41, %.critedge
-  %.0.i11 = phi i64 [ 1, %.critedge ], [ %43, %41 ]
-  %42 = icmp ult i64 %.0.i11, %40
-  %43 = shl i64 %.0.i11, 1
-  br i1 %42, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE16_CapacityForSizeEm.exit, !llvm.loop !109
+39:                                               ; preds = %39, %.critedge
+  %.0.i11 = phi i64 [ 1, %.critedge ], [ %41, %39 ]
+  %40 = icmp ult i64 %.0.i11, %38
+  %41 = shl i64 %.0.i11, 1
+  br i1 %40, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE16_CapacityForSizeEm.exit, !llvm.loop !109
 
-_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE16_CapacityForSizeEm.exit: ; preds = %41
+_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE16_CapacityForSizeEm.exit: ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0.i11)
   %.idx.i = shl nsw i64 %19, 3
-  %45 = getelementptr inbounds i8, ptr %39, i64 %.idx.i
+  %45 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
   %.not9.i.i.i.i = icmp eq i64 %19, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE13_AllocateCopyEPS1_mm.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE16_CapacityForSizeEm.exit, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRS1_EEvPT_DpOT0_.exit.i.i.i.i
   %.011.i.i.i.i = phi ptr [ %62, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %44, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE16_CapacityForSizeEm.exit ]
-  %.0810.i.i.i.i = phi ptr [ %61, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %39, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE16_CapacityForSizeEm.exit ]
+  %.0810.i.i.i.i = phi ptr [ %61, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %43, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE16_CapacityForSizeEm.exit ]
   %46 = load i32, ptr %.0810.i.i.i.i, align 4
   store i32 %46, ptr %.011.i.i.i.i, align 4
   %.not.i.i.i.i.i.i.i = icmp eq i32 %46, 0
@@ -15389,7 +15389,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %_ZN32pxrI
   %78 = load i32, ptr %77, align 4
   store i32 %78, ptr %76, align 4
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE7_DecRefEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  store ptr %44, ptr %38, align 8
+  store ptr %44, ptr %42, align 8
   br label %96
 
 79:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7SdfPathEE8capacityEv.exit

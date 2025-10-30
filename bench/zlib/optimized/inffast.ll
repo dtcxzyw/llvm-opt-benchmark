@@ -303,38 +303,38 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   %197 = getelementptr inbounds nuw i8, ptr %29, i64 %196
   %198 = sub nuw nsw i32 %173, %27
   %199 = icmp ult i32 %198, %.0239
-  br i1 %199, label %.preheader486, label %230
+  br i1 %199, label %.preheader382, label %230
 
-.preheader486:                                    ; preds = %194, %.preheader486
-  %.4260 = phi ptr [ %202, %.preheader486 ], [ %.0256, %194 ]
-  %.1244 = phi i32 [ %203, %.preheader486 ], [ %198, %194 ]
-  %.2 = phi ptr [ %200, %.preheader486 ], [ %197, %194 ]
+.preheader382:                                    ; preds = %194, %.preheader382
+  %.4260 = phi ptr [ %202, %.preheader382 ], [ %.0256, %194 ]
+  %.1244 = phi i32 [ %203, %.preheader382 ], [ %198, %194 ]
+  %.2 = phi ptr [ %200, %.preheader382 ], [ %197, %194 ]
   %200 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %201 = load i8, ptr %.2, align 1, !tbaa !29
   %202 = getelementptr inbounds nuw i8, ptr %.4260, i64 1
   store i8 %201, ptr %.4260, align 1, !tbaa !29
   %203 = add i32 %.1244, -1
   %.not321 = icmp eq i32 %203, 0
-  br i1 %.not321, label %204, label %.preheader486, !llvm.loop !38
+  br i1 %.not321, label %204, label %.preheader382, !llvm.loop !38
 
-204:                                              ; preds = %.preheader486
+204:                                              ; preds = %.preheader382
   %205 = sub nuw nsw i32 %.0239, %198
   %206 = icmp ult i32 %27, %205
-  br i1 %206, label %.preheader485, label %230
+  br i1 %206, label %.preheader381, label %230
 
-.preheader485:                                    ; preds = %204, %.preheader485
-  %.5261 = phi ptr [ %209, %.preheader485 ], [ %202, %204 ]
-  %.2245 = phi i32 [ %210, %.preheader485 ], [ %27, %204 ]
-  %.3 = phi ptr [ %207, %.preheader485 ], [ %29, %204 ]
+.preheader381:                                    ; preds = %204, %.preheader381
+  %.5261 = phi ptr [ %209, %.preheader381 ], [ %202, %204 ]
+  %.2245 = phi i32 [ %210, %.preheader381 ], [ %27, %204 ]
+  %.3 = phi ptr [ %207, %.preheader381 ], [ %29, %204 ]
   %207 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %208 = load i8, ptr %.3, align 1, !tbaa !29
   %209 = getelementptr inbounds nuw i8, ptr %.5261, i64 1
   store i8 %208, ptr %.5261, align 1, !tbaa !29
   %210 = add i32 %.2245, -1
   %.not322 = icmp eq i32 %210, 0
-  br i1 %.not322, label %211, label %.preheader485, !llvm.loop !39
+  br i1 %.not322, label %211, label %.preheader381, !llvm.loop !39
 
-211:                                              ; preds = %.preheader485
+211:                                              ; preds = %.preheader381
   %212 = sub nuw nsw i32 %205, %27
   %213 = zext nneg i32 %164 to i64
   %214 = sub nsw i64 0, %213
@@ -346,21 +346,21 @@ define hidden void @inflate_fast(ptr noundef captures(none) %0, i32 noundef %1) 
   %218 = zext i32 %217 to i64
   %219 = getelementptr inbounds nuw i8, ptr %29, i64 %218
   %220 = icmp ult i32 %173, %.0239
-  br i1 %220, label %.preheader487, label %230
+  br i1 %220, label %.preheader383, label %230
 
-.preheader487:                                    ; preds = %216, %.preheader487
-  %.6262 = phi ptr [ %223, %.preheader487 ], [ %.0256, %216 ]
-  %.3246 = phi i32 [ %224, %.preheader487 ], [ %173, %216 ]
-  %.4 = phi ptr [ %221, %.preheader487 ], [ %219, %216 ]
+.preheader383:                                    ; preds = %216, %.preheader383
+  %.6262 = phi ptr [ %223, %.preheader383 ], [ %.0256, %216 ]
+  %.3246 = phi i32 [ %224, %.preheader383 ], [ %173, %216 ]
+  %.4 = phi ptr [ %221, %.preheader383 ], [ %219, %216 ]
   %221 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %222 = load i8, ptr %.4, align 1, !tbaa !29
   %223 = getelementptr inbounds nuw i8, ptr %.6262, i64 1
   store i8 %222, ptr %.6262, align 1, !tbaa !29
   %224 = add i32 %.3246, -1
   %.not320 = icmp eq i32 %224, 0
-  br i1 %.not320, label %225, label %.preheader487, !llvm.loop !40
+  br i1 %.not320, label %225, label %.preheader383, !llvm.loop !40
 
-225:                                              ; preds = %.preheader487
+225:                                              ; preds = %.preheader383
   %226 = sub nuw nsw i32 %.0239, %173
   %227 = zext nneg i32 %164 to i64
   %228 = sub nsw i64 0, %227

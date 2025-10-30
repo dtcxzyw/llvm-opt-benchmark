@@ -6285,8 +6285,6 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl12fillReservedERKSt6vectorIhSaIhEER
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %indvars.iv100.sroa.gep109 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %indvars.iv100.sroa.gep112 = getelementptr inbounds nuw i8, ptr %4, i64 72
   br label %9
 
 9:                                                ; preds = %3, %9
@@ -6338,6 +6336,8 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl12fillReservedERKSt6vectorIhSaIhEER
   br i1 %exitcond92.not, label %.preheader81, label %.preheader82, !llvm.loop !171
 
 42:                                               ; preds = %.preheader81
+  %indvars.iv100.sroa.gep109 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %indvars.iv100.sroa.gep112 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load i32, ptr %43, align 8, !tbaa !73
   %45 = icmp sgt i32 %44, 6

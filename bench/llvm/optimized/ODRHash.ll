@@ -2085,15 +2085,15 @@ define dso_local noundef i32 @_ZN5clang7ODRHash13CalculateHashEv(ptr noundef non
   %4 = load i64, ptr %3, align 8, !tbaa !13
   %5 = trunc i64 %4 to i32
   %6 = and i32 %5, 31
-  %7 = lshr i32 %5, 5
-  %8 = load ptr, ptr %2, align 8, !tbaa !17, !noalias !164
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %4
+  %7 = load ptr, ptr %2, align 8, !tbaa !17, !noalias !164
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.sroa.0.0.lcssa = phi ptr [ %9, %1 ], [ %27, %.lr.ph ]
+  %.sroa.0.0.lcssa = phi ptr [ %8, %1 ], [ %27, %.lr.ph ]
   %.018.lcssa = phi i32 [ 0, %1 ], [ %30, %.lr.ph ]
+  %9 = lshr i32 %5, 5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %12 = load i32, ptr %11, align 8, !tbaa !24
@@ -2124,13 +2124,13 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %._crit_edge, %15
 
 .preheader.lr.ph:                                 ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %umax = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
+  %umax = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
   br label %.preheader
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.01727 = phi i32 [ %31, %.lr.ph ], [ 0, %1 ]
   %.01826 = phi i32 [ %30, %.lr.ph ], [ 0, %1 ]
-  %.sroa.0.025 = phi ptr [ %27, %.lr.ph ], [ %9, %1 ]
+  %.sroa.0.025 = phi ptr [ %27, %.lr.ph ], [ %8, %1 ]
   %26 = shl i32 %.01826, 1
   %27 = getelementptr inbounds i8, ptr %.sroa.0.025, i64 -1
   %28 = load i8, ptr %27, align 1, !tbaa !167, !range !33, !noundef !34

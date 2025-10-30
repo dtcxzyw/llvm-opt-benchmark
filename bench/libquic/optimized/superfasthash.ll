@@ -11,39 +11,39 @@ define i32 @SuperFastHash(ptr noundef readonly captures(address_is_null) %0, i32
   br i1 %or.cond, label %65, label %5
 
 5:                                                ; preds = %2
-  %6 = and i32 %1, 3
   %.not = icmp samesign ult i32 %1, 4
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %5
-  %7 = lshr i32 %1, 2
+  %6 = lshr i32 %1, 2
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.05562 = phi ptr [ %18, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.05661 = phi i32 [ %20, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.05760 = phi i32 [ %21, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %8 = load i16, ptr %.05562, align 1
-  %9 = zext i16 %8 to i32
-  %10 = add i32 %.05661, %9
-  %11 = getelementptr inbounds nuw i8, ptr %.05562, i64 2
-  %12 = load i16, ptr %11, align 1
-  %13 = zext i16 %12 to i32
-  %14 = shl nuw nsw i32 %13, 11
-  %15 = shl i32 %10, 16
-  %16 = xor i32 %15, %14
-  %17 = xor i32 %16, %10
-  %18 = getelementptr inbounds nuw i8, ptr %.05562, i64 4
-  %19 = lshr i32 %17, 11
-  %20 = add i32 %19, %17
-  %21 = add nsw i32 %.05760, -1
-  %22 = icmp samesign ugt i32 %.05760, 1
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !3
+  %.05562 = phi ptr [ %17, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.05661 = phi i32 [ %19, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.05760 = phi i32 [ %20, %.lr.ph ], [ %6, %.lr.ph.preheader ]
+  %7 = load i16, ptr %.05562, align 1
+  %8 = zext i16 %7 to i32
+  %9 = add i32 %.05661, %8
+  %10 = getelementptr inbounds nuw i8, ptr %.05562, i64 2
+  %11 = load i16, ptr %10, align 1
+  %12 = zext i16 %11 to i32
+  %13 = shl nuw nsw i32 %12, 11
+  %14 = shl i32 %9, 16
+  %15 = xor i32 %14, %13
+  %16 = xor i32 %15, %9
+  %17 = getelementptr inbounds nuw i8, ptr %.05562, i64 4
+  %18 = lshr i32 %16, 11
+  %19 = add i32 %18, %16
+  %20 = add nsw i32 %.05760, -1
+  %21 = icmp samesign ugt i32 %.05760, 1
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %.056.lcssa = phi i32 [ %1, %5 ], [ %20, %.lr.ph ]
-  %.055.lcssa = phi ptr [ %0, %5 ], [ %18, %.lr.ph ]
-  switch i32 %6, label %default.unreachable [
+  %.056.lcssa = phi i32 [ %1, %5 ], [ %19, %.lr.ph ]
+  %.055.lcssa = phi ptr [ %0, %5 ], [ %17, %.lr.ph ]
+  %22 = and i32 %1, 3
+  switch i32 %22, label %default.unreachable [
     i32 3, label %23
     i32 2, label %36
     i32 1, label %44

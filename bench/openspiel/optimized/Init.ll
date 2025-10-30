@@ -953,34 +953,34 @@ define void @_Z13SetDealTablesP10ThreadData(ptr noundef captures(none) %0) local
   %28 = shl i32 %.06798, 1
   %29 = zext i32 %28 to i64
   %.not = icmp samesign uge i64 %indvars.iv127, %29
-  %30 = zext i1 %.not to i32
-  %spec.select = add i32 %.06996, %30
   %spec.select78 = select i1 %.not, i32 %28, i32 %.06798
-  %31 = trunc nuw nsw i64 %indvars.iv127 to i32
-  %32 = xor i32 %spec.select78, %31
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %struct.relRanksType, ptr %3, i64 %33
-  %35 = getelementptr inbounds nuw %struct.relRanksType, ptr %3, i64 %indvars.iv127
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %35, ptr noundef nonnull align 8 dereferenceable(120) %34, i64 120, i1 false)
-  %36 = getelementptr inbounds nuw i32, ptr @counttable, i64 %indvars.iv127
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp sgt i32 %37, 1
-  br i1 %38, label %.preheader.preheader, label %.preheader79
+  %30 = trunc nuw nsw i64 %indvars.iv127 to i32
+  %31 = xor i32 %spec.select78, %30
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw %struct.relRanksType, ptr %3, i64 %32
+  %34 = getelementptr inbounds nuw %struct.relRanksType, ptr %3, i64 %indvars.iv127
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %34, ptr noundef nonnull align 8 dereferenceable(120) %33, i64 120, i1 false)
+  %35 = getelementptr inbounds nuw i32, ptr @counttable, i64 %indvars.iv127
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp sgt i32 %36, 1
+  br i1 %37, label %.preheader.preheader, label %.preheader79
 
 .preheader.preheader:                             ; preds = %27
-  %39 = zext nneg i32 %37 to i64
+  %38 = zext nneg i32 %36 to i64
   br label %.preheader
 
 .preheader79:                                     ; preds = %52, %27
+  %39 = zext i1 %.not to i32
+  %spec.select = add i32 %.06996, %39
   %40 = zext i32 %spec.select to i64
   %invariant.gep93 = getelementptr inbounds nuw i32, ptr %2, i64 %40
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %42 = trunc i32 %spec.select to i8
   br label %54
 
 .preheader:                                       ; preds = %.preheader.preheader, %52
-  %indvars.iv120 = phi i64 [ %39, %.preheader.preheader ], [ %indvars.iv.next121, %52 ]
-  %43 = getelementptr [4 x %struct.absRankType], ptr %35, i64 %indvars.iv120
+  %indvars.iv120 = phi i64 [ %38, %.preheader.preheader ], [ %indvars.iv.next121, %52 ]
+  %43 = getelementptr [4 x %struct.absRankType], ptr %34, i64 %indvars.iv120
   %44 = getelementptr i8, ptr %43, i64 -8
   br label %45
 

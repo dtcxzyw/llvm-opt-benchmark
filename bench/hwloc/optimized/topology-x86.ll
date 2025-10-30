@@ -3584,8 +3584,6 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load i32, ptr %11, align 8, !tbaa !29
   %13 = tail call noalias ptr @hwloc_bitmap_alloc() #22
-  %14 = trunc nuw nsw i64 %2 to i32
-  %15 = and i32 %14, 1
   %.not583 = icmp eq i32 %12, 0
   br i1 %.not583, label %._crit_edge.thread, label %.lr.ph.preheader
 
@@ -3593,26 +3591,28 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
   %wide.trip.count = zext i32 %12 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
-  %.0397497 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1398, %21 ]
-  %16 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 8, !tbaa !104
-  %.not446 = icmp eq i32 %17, 0
-  br i1 %.not446, label %21, label %18
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
+  %.0397497 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1398, %19 ]
+  %14 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv
+  %15 = load i32, ptr %14, align 8, !tbaa !104
+  %.not446 = icmp eq i32 %15, 0
+  br i1 %.not446, label %19, label %16
 
-18:                                               ; preds = %.lr.ph
-  %19 = trunc nuw i64 %indvars.iv to i32
-  %20 = tail call i32 @hwloc_bitmap_set(ptr noundef %13, i32 noundef %19) #22
-  br label %21
+16:                                               ; preds = %.lr.ph
+  %17 = trunc nuw i64 %indvars.iv to i32
+  %18 = tail call i32 @hwloc_bitmap_set(ptr noundef %13, i32 noundef %17) #22
+  br label %19
 
-21:                                               ; preds = %.lr.ph, %18
-  %.1398 = phi i32 [ %19, %18 ], [ %.0397497, %.lr.ph ]
+19:                                               ; preds = %.lr.ph, %16
+  %.1398 = phi i32 [ %17, %16 ], [ %.0397497, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
 
-._crit_edge:                                      ; preds = %21
+._crit_edge:                                      ; preds = %19
+  %20 = trunc nuw nsw i64 %2 to i32
+  %21 = and i32 %20, 1
   %22 = icmp eq i32 %.1398, -1
   br i1 %22, label %._crit_edge.thread, label %23
 
@@ -3637,7 +3637,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
   br i1 %.not421503, label %.loopexit483, label %.lr.ph505
 
 .lr.ph505:                                        ; preds = %27
-  %.not422 = icmp eq i32 %15, 0
+  %.not422 = icmp eq i32 %21, 0
   br i1 %.not422, label %.lr.ph505.split.us, label %.lr.ph505.split
 
 .lr.ph505.split.us:                               ; preds = %.lr.ph505, %.thread.us
@@ -3728,7 +3728,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
   br label %.loopexit483
 
 .loopexit483:                                     ; preds = %._crit_edge502, %.thread.us, %27, %.loopexit482, %23
-  %71 = icmp ne i32 %15, 0
+  %71 = icmp ne i32 %21, 0
   %.not424 = icmp samesign ugt i64 %2, 1
   %or.cond448.not = select i1 %71, i1 %.not424, i1 false
   br i1 %or.cond448.not, label %72, label %._crit_edge517

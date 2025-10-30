@@ -3209,33 +3209,33 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.thread261
           to label %.noexc212 unwind label %.loopexit
 
 .noexc212:                                        ; preds = %290
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 %291
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %292, i8 0, i64 %291, i1 false), !tbaa !75
-  %293 = getelementptr inbounds nuw i32, ptr %292, i64 %.0.lcssa334
-  %294 = getelementptr inbounds nuw i8, ptr %292, i64 %291
-  %295 = ptrtoint ptr %293 to i64
+  %294 = getelementptr inbounds nuw i32, ptr %292, i64 %.0.lcssa334
+  %295 = ptrtoint ptr %294 to i64
   br label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc212, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.17.2 = phi i64 [ 0, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ], [ %295, %.noexc212 ]
   %.sroa.0224.2 = phi ptr [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ], [ %292, %.noexc212 ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ], [ %294, %.noexc212 ]
-  %296 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
-  %297 = ptrtoint ptr %.sroa.0224.2 to i64
-  %298 = sub i64 %296, %297
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ], [ %293, %.noexc212 ]
   br i1 %219, label %.lr.ph271, label %._crit_edge272
 
 .lr.ph271:                                        ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
-  %299 = load ptr, ptr %87, align 8, !tbaa !47
+  %296 = load ptr, ptr %87, align 8, !tbaa !47
   br label %316
 
 ._crit_edge272:                                   ; preds = %316, %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
+  %297 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
+  %298 = ptrtoint ptr %.sroa.0224.2 to i64
+  %299 = sub i64 %297, %298
   %300 = load ptr, ptr %201, align 8, !tbaa !94
   %301 = load ptr, ptr %200, align 8, !tbaa !96
   %302 = ptrtoint ptr %300 to i64
   %303 = ptrtoint ptr %301 to i64
   %304 = sub i64 %302, %303
   %305 = ashr exact i64 %304, 2
-  %306 = ashr exact i64 %298, 2
+  %306 = ashr exact i64 %299, 2
   %307 = add nsw i64 %305, %306
   %308 = icmp ugt i64 %307, %305
   br i1 %308, label %309, label %310
@@ -3274,7 +3274,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc212, %_ZNSt6v
 
 316:                                              ; preds = %.lr.ph271, %316
   %.084270 = phi i64 [ %214, %.lr.ph271 ], [ %327, %316 ]
-  %317 = getelementptr inbounds nuw i32, ptr %299, i64 %.084270
+  %317 = getelementptr inbounds nuw i32, ptr %296, i64 %.084270
   %318 = load i32, ptr %317, align 4, !tbaa !75
   %319 = sext i32 %318 to i64
   %320 = lshr i64 %319, 5
@@ -3296,7 +3296,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %314, %312, %310, %3
 329:                                              ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %330 = load ptr, ptr %200, align 8, !tbaa !74
   %331 = getelementptr inbounds i8, ptr %330, i64 %304
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %331, ptr align 4 %.sroa.0224.2, i64 %298, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %331, ptr align 4 %.sroa.0224.2, i64 %299, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit: ; preds = %329, %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -3332,12 +3332,12 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.ex
   br i1 %.not.i.i.i215, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %349
 
 349:                                              ; preds = %348
-  %350 = sub i64 %.sroa.17.2, %297
+  %350 = sub i64 %.sroa.17.2, %298
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0224.2, i64 noundef %350) #38
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 351:                                              ; preds = %343
-  %352 = sub i64 %.sroa.17.2, %297
+  %352 = sub i64 %.sroa.17.2, %298
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0224.2, i64 noundef %352) #38
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit217.thread336
 
@@ -4409,16 +4409,16 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.thread280
           to label %.noexc234 unwind label %.loopexit
 
 .noexc234:                                        ; preds = %352
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 %353
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %354, i8 0, i64 %353, i1 false), !tbaa !75
-  %355 = getelementptr inbounds nuw i32, ptr %354, i64 %.0.lcssa365
-  %356 = getelementptr inbounds nuw i8, ptr %354, i64 %353
-  %357 = ptrtoint ptr %355 to i64
+  %356 = getelementptr inbounds nuw i32, ptr %354, i64 %.0.lcssa365
+  %357 = ptrtoint ptr %356 to i64
   br label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc234, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.17.2 = phi i64 [ 0, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ], [ %357, %.noexc234 ]
   %.sroa.0249.2 = phi ptr [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ], [ %354, %.noexc234 ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ], [ %356, %.noexc234 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ], [ %355, %.noexc234 ]
   %358 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
   %359 = ptrtoint ptr %.sroa.0249.2 to i64
   %360 = sub i64 %358, %359
@@ -18792,59 +18792,62 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %_ZNKSt6vectorIlSaIl
   br label %.body234
 
 .lr.ph.i.preheader:                               ; preds = %.noexc456, %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i
-  %390 = getelementptr inbounds nuw i64, ptr %385, i64 %306
-  %391 = load ptr, ptr %130, align 8, !tbaa !212
-  %392 = load ptr, ptr %96, align 8, !tbaa !195
+  %390 = load ptr, ptr %130, align 8, !tbaa !212
+  %391 = load ptr, ptr %96, align 8, !tbaa !195
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %393 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %391, i64 %indvars.iv.i
-  %394 = load float, ptr %393, align 4, !tbaa !321
-  %395 = getelementptr inbounds nuw float, ptr %.sroa.8670.10735759851956110212611460, i64 %indvars.iv.i
-  store float %394, ptr %395, align 4, !tbaa !213
-  %396 = getelementptr inbounds nuw i8, ptr %393, i64 4
-  %397 = load float, ptr %396, align 4, !tbaa !323
-  %398 = getelementptr inbounds nuw float, ptr %.sroa.8649.9782841966109212711450, i64 %indvars.iv.i
-  store float %397, ptr %398, align 4, !tbaa !213
-  %399 = getelementptr inbounds nuw i8, ptr %393, i64 8
-  %400 = load float, ptr %399, align 4, !tbaa !324
-  %401 = getelementptr inbounds nuw float, ptr %.sroa.8628.8869950110812551466, i64 %indvars.iv.i
-  store float %400, ptr %401, align 4, !tbaa !213
-  %402 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %392, i64 %indvars.iv.i
-  %403 = getelementptr inbounds nuw i8, ptr %402, i64 4
-  %404 = load i32, ptr %403, align 4, !tbaa !198
-  %405 = getelementptr inbounds nuw i32, ptr %.sroa.8607.7983108612771444, i64 %indvars.iv.i
-  store i32 %404, ptr %405, align 4, !tbaa !75
-  %406 = getelementptr inbounds nuw i8, ptr %402, i64 8
-  %407 = load i32, ptr %406, align 4, !tbaa !199
-  %408 = getelementptr inbounds nuw i32, ptr %.sroa.8586.6111112531468, i64 %indvars.iv.i
-  store i32 %407, ptr %408, align 4, !tbaa !75
-  %409 = load i32, ptr %402, align 4, !tbaa !196
-  %410 = and i32 %409, 2147483647
-  %411 = getelementptr inbounds nuw i32, ptr %.sroa.8565.512801442, i64 %indvars.iv.i
-  store i32 %410, ptr %411, align 4, !tbaa !75
-  %412 = getelementptr inbounds nuw i8, ptr %402, i64 12
-  %413 = load i32, ptr %412, align 4, !tbaa !200
-  %414 = and i32 %413, 2147483647
-  %415 = zext nneg i32 %414 to i64
-  %416 = getelementptr inbounds nuw i64, ptr %385, i64 %indvars.iv.i
-  store i64 %415, ptr %416, align 8, !tbaa !13
-  %417 = getelementptr inbounds nuw i8, ptr %402, i64 16
-  %418 = load float, ptr %417, align 4, !tbaa !12
-  %419 = getelementptr inbounds nuw float, ptr %.sroa.8545.41475, i64 %indvars.iv.i
-  store float %418, ptr %419, align 4, !tbaa !213
-  %.lobit.i236 = lshr i32 %413, 31
-  %420 = trunc nuw nsw i32 %.lobit.i236 to i8
-  %421 = getelementptr inbounds nuw i8, ptr %.sroa.8.0699, i64 %indvars.iv.i
-  store i8 %420, ptr %421, align 1, !tbaa !12
+  %392 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %390, i64 %indvars.iv.i
+  %393 = load float, ptr %392, align 4, !tbaa !321
+  %394 = getelementptr inbounds nuw float, ptr %.sroa.8670.10735759851956110212611460, i64 %indvars.iv.i
+  store float %393, ptr %394, align 4, !tbaa !213
+  %395 = getelementptr inbounds nuw i8, ptr %392, i64 4
+  %396 = load float, ptr %395, align 4, !tbaa !323
+  %397 = getelementptr inbounds nuw float, ptr %.sroa.8649.9782841966109212711450, i64 %indvars.iv.i
+  store float %396, ptr %397, align 4, !tbaa !213
+  %398 = getelementptr inbounds nuw i8, ptr %392, i64 8
+  %399 = load float, ptr %398, align 4, !tbaa !324
+  %400 = getelementptr inbounds nuw float, ptr %.sroa.8628.8869950110812551466, i64 %indvars.iv.i
+  store float %399, ptr %400, align 4, !tbaa !213
+  %401 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %391, i64 %indvars.iv.i
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 4
+  %403 = load i32, ptr %402, align 4, !tbaa !198
+  %404 = getelementptr inbounds nuw i32, ptr %.sroa.8607.7983108612771444, i64 %indvars.iv.i
+  store i32 %403, ptr %404, align 4, !tbaa !75
+  %405 = getelementptr inbounds nuw i8, ptr %401, i64 8
+  %406 = load i32, ptr %405, align 4, !tbaa !199
+  %407 = getelementptr inbounds nuw i32, ptr %.sroa.8586.6111112531468, i64 %indvars.iv.i
+  store i32 %406, ptr %407, align 4, !tbaa !75
+  %408 = load i32, ptr %401, align 4, !tbaa !196
+  %409 = and i32 %408, 2147483647
+  %410 = getelementptr inbounds nuw i32, ptr %.sroa.8565.512801442, i64 %indvars.iv.i
+  store i32 %409, ptr %410, align 4, !tbaa !75
+  %411 = getelementptr inbounds nuw i8, ptr %401, i64 12
+  %412 = load i32, ptr %411, align 4, !tbaa !200
+  %413 = and i32 %412, 2147483647
+  %414 = zext nneg i32 %413 to i64
+  %415 = getelementptr inbounds nuw i64, ptr %385, i64 %indvars.iv.i
+  store i64 %414, ptr %415, align 8, !tbaa !13
+  %416 = getelementptr inbounds nuw i8, ptr %401, i64 16
+  %417 = load float, ptr %416, align 4, !tbaa !12
+  %418 = getelementptr inbounds nuw float, ptr %.sroa.8545.41475, i64 %indvars.iv.i
+  store float %417, ptr %418, align 4, !tbaa !213
+  %.lobit.i236 = lshr i32 %412, 31
+  %419 = trunc nuw nsw i32 %.lobit.i236 to i8
+  %420 = getelementptr inbounds nuw i8, ptr %.sroa.8.0699, i64 %indvars.iv.i
+  store i8 %419, ptr %420, align 1, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond1788.not = icmp eq i64 %indvars.iv.next.i, %306
-  br i1 %exitcond1788.not, label %"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIlLNS_5Value9ValueKindE13EEEEEDaPT_.exit", label %.lr.ph.i, !llvm.loop !442
+  br i1 %exitcond1788.not, label %"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIlLNS_5Value9ValueKindE13EEEEEDaPT_.exit.loopexit", label %.lr.ph.i, !llvm.loop !442
 
-"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIlLNS_5Value9ValueKindE13EEEEEDaPT_.exit": ; preds = %.lr.ph.i, %383
-  %.sroa.8492.01838 = phi ptr [ null, %383 ], [ %385, %.lr.ph.i ]
-  %.sroa.21500.01835 = phi ptr [ null, %383 ], [ %390, %.lr.ph.i ]
+"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIlLNS_5Value9ValueKindE13EEEEEDaPT_.exit.loopexit": ; preds = %.lr.ph.i
+  %421 = getelementptr inbounds nuw i64, ptr %385, i64 %306
+  br label %"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIlLNS_5Value9ValueKindE13EEEEEDaPT_.exit"
+
+"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIlLNS_5Value9ValueKindE13EEEEEDaPT_.exit": ; preds = %"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIlLNS_5Value9ValueKindE13EEEEEDaPT_.exit.loopexit", %383
+  %.sroa.8492.01838 = phi ptr [ null, %383 ], [ %385, %"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIlLNS_5Value9ValueKindE13EEEEEDaPT_.exit.loopexit" ]
+  %.sroa.21500.01835 = phi ptr [ null, %383 ], [ %421, %"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIlLNS_5Value9ValueKindE13EEEEEDaPT_.exit.loopexit" ]
   %422 = load ptr, ptr %1, align 8, !tbaa !64
   %423 = load ptr, ptr %422, align 8, !tbaa !67
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 24
@@ -18924,59 +18927,62 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i248:               ; preds = %_ZNKSt6vectorIiSaIi
   br label %.body234
 
 .lr.ph.i252.preheader:                            ; preds = %.noexc472, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i465
-  %453 = getelementptr inbounds nuw i32, ptr %448, i64 %306
-  %454 = load ptr, ptr %130, align 8, !tbaa !212
-  %455 = load ptr, ptr %96, align 8, !tbaa !195
+  %453 = load ptr, ptr %130, align 8, !tbaa !212
+  %454 = load ptr, ptr %96, align 8, !tbaa !195
   br label %.lr.ph.i252
 
 .lr.ph.i252:                                      ; preds = %.lr.ph.i252.preheader, %.lr.ph.i252
   %indvars.iv.i253 = phi i64 [ %indvars.iv.next.i255, %.lr.ph.i252 ], [ 0, %.lr.ph.i252.preheader ]
-  %456 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %454, i64 %indvars.iv.i253
-  %457 = load float, ptr %456, align 4, !tbaa !321
-  %458 = getelementptr inbounds nuw float, ptr %.sroa.8670.10735759851956110212611460, i64 %indvars.iv.i253
-  store float %457, ptr %458, align 4, !tbaa !213
-  %459 = getelementptr inbounds nuw i8, ptr %456, i64 4
-  %460 = load float, ptr %459, align 4, !tbaa !323
-  %461 = getelementptr inbounds nuw float, ptr %.sroa.8649.9782841966109212711450, i64 %indvars.iv.i253
-  store float %460, ptr %461, align 4, !tbaa !213
-  %462 = getelementptr inbounds nuw i8, ptr %456, i64 8
-  %463 = load float, ptr %462, align 4, !tbaa !324
-  %464 = getelementptr inbounds nuw float, ptr %.sroa.8628.8869950110812551466, i64 %indvars.iv.i253
-  store float %463, ptr %464, align 4, !tbaa !213
-  %465 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %455, i64 %indvars.iv.i253
-  %466 = getelementptr inbounds nuw i8, ptr %465, i64 4
-  %467 = load i32, ptr %466, align 4, !tbaa !198
-  %468 = getelementptr inbounds nuw i32, ptr %.sroa.8607.7983108612771444, i64 %indvars.iv.i253
-  store i32 %467, ptr %468, align 4, !tbaa !75
-  %469 = getelementptr inbounds nuw i8, ptr %465, i64 8
-  %470 = load i32, ptr %469, align 4, !tbaa !199
-  %471 = getelementptr inbounds nuw i32, ptr %.sroa.8586.6111112531468, i64 %indvars.iv.i253
-  store i32 %470, ptr %471, align 4, !tbaa !75
-  %472 = load i32, ptr %465, align 4, !tbaa !196
-  %473 = and i32 %472, 2147483647
-  %474 = getelementptr inbounds nuw i32, ptr %.sroa.8565.512801442, i64 %indvars.iv.i253
-  store i32 %473, ptr %474, align 4, !tbaa !75
-  %475 = getelementptr inbounds nuw i8, ptr %465, i64 12
-  %476 = load i32, ptr %475, align 4, !tbaa !200
-  %477 = and i32 %476, 2147483647
-  %478 = getelementptr inbounds nuw i32, ptr %448, i64 %indvars.iv.i253
-  store i32 %477, ptr %478, align 4, !tbaa !75
-  %479 = getelementptr inbounds nuw i8, ptr %465, i64 16
-  %480 = load float, ptr %479, align 4, !tbaa !12
-  %481 = getelementptr inbounds nuw float, ptr %.sroa.8545.41475, i64 %indvars.iv.i253
-  store float %480, ptr %481, align 4, !tbaa !213
-  %482 = load i32, ptr %475, align 4, !tbaa !200
-  %.lobit.i254 = lshr i32 %482, 31
-  %483 = trunc nuw nsw i32 %.lobit.i254 to i8
-  %484 = getelementptr inbounds nuw i8, ptr %.sroa.8.0699, i64 %indvars.iv.i253
-  store i8 %483, ptr %484, align 1, !tbaa !12
+  %455 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %453, i64 %indvars.iv.i253
+  %456 = load float, ptr %455, align 4, !tbaa !321
+  %457 = getelementptr inbounds nuw float, ptr %.sroa.8670.10735759851956110212611460, i64 %indvars.iv.i253
+  store float %456, ptr %457, align 4, !tbaa !213
+  %458 = getelementptr inbounds nuw i8, ptr %455, i64 4
+  %459 = load float, ptr %458, align 4, !tbaa !323
+  %460 = getelementptr inbounds nuw float, ptr %.sroa.8649.9782841966109212711450, i64 %indvars.iv.i253
+  store float %459, ptr %460, align 4, !tbaa !213
+  %461 = getelementptr inbounds nuw i8, ptr %455, i64 8
+  %462 = load float, ptr %461, align 4, !tbaa !324
+  %463 = getelementptr inbounds nuw float, ptr %.sroa.8628.8869950110812551466, i64 %indvars.iv.i253
+  store float %462, ptr %463, align 4, !tbaa !213
+  %464 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %454, i64 %indvars.iv.i253
+  %465 = getelementptr inbounds nuw i8, ptr %464, i64 4
+  %466 = load i32, ptr %465, align 4, !tbaa !198
+  %467 = getelementptr inbounds nuw i32, ptr %.sroa.8607.7983108612771444, i64 %indvars.iv.i253
+  store i32 %466, ptr %467, align 4, !tbaa !75
+  %468 = getelementptr inbounds nuw i8, ptr %464, i64 8
+  %469 = load i32, ptr %468, align 4, !tbaa !199
+  %470 = getelementptr inbounds nuw i32, ptr %.sroa.8586.6111112531468, i64 %indvars.iv.i253
+  store i32 %469, ptr %470, align 4, !tbaa !75
+  %471 = load i32, ptr %464, align 4, !tbaa !196
+  %472 = and i32 %471, 2147483647
+  %473 = getelementptr inbounds nuw i32, ptr %.sroa.8565.512801442, i64 %indvars.iv.i253
+  store i32 %472, ptr %473, align 4, !tbaa !75
+  %474 = getelementptr inbounds nuw i8, ptr %464, i64 12
+  %475 = load i32, ptr %474, align 4, !tbaa !200
+  %476 = and i32 %475, 2147483647
+  %477 = getelementptr inbounds nuw i32, ptr %448, i64 %indvars.iv.i253
+  store i32 %476, ptr %477, align 4, !tbaa !75
+  %478 = getelementptr inbounds nuw i8, ptr %464, i64 16
+  %479 = load float, ptr %478, align 4, !tbaa !12
+  %480 = getelementptr inbounds nuw float, ptr %.sroa.8545.41475, i64 %indvars.iv.i253
+  store float %479, ptr %480, align 4, !tbaa !213
+  %481 = load i32, ptr %474, align 4, !tbaa !200
+  %.lobit.i254 = lshr i32 %481, 31
+  %482 = trunc nuw nsw i32 %.lobit.i254 to i8
+  %483 = getelementptr inbounds nuw i8, ptr %.sroa.8.0699, i64 %indvars.iv.i253
+  store i8 %482, ptr %483, align 1, !tbaa !12
   %indvars.iv.next.i255 = add nuw nsw i64 %indvars.iv.i253, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i255, %306
-  br i1 %exitcond.not, label %"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIiLNS_5Value9ValueKindE12EEEEEDaPT_.exit", label %.lr.ph.i252, !llvm.loop !443
+  br i1 %exitcond.not, label %"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIiLNS_5Value9ValueKindE12EEEEEDaPT_.exit.loopexit", label %.lr.ph.i252, !llvm.loop !443
 
-"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIiLNS_5Value9ValueKindE12EEEEEDaPT_.exit": ; preds = %.lr.ph.i252, %446
-  %.sroa.17.01843 = phi ptr [ null, %446 ], [ %453, %.lr.ph.i252 ]
-  %.sroa.8.01842 = phi ptr [ null, %446 ], [ %448, %.lr.ph.i252 ]
+"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIiLNS_5Value9ValueKindE12EEEEEDaPT_.exit.loopexit": ; preds = %.lr.ph.i252
+  %484 = getelementptr inbounds nuw i32, ptr %448, i64 %306
+  br label %"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIiLNS_5Value9ValueKindE12EEEEEDaPT_.exit"
+
+"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIiLNS_5Value9ValueKindE12EEEEEDaPT_.exit": ; preds = %"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIiLNS_5Value9ValueKindE12EEEEEDaPT_.exit.loopexit", %446
+  %.sroa.17.01843 = phi ptr [ null, %446 ], [ %484, %"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIiLNS_5Value9ValueKindE12EEEEEDaPT_.exit.loopexit" ]
+  %.sroa.8.01842 = phi ptr [ null, %446 ], [ %448, %"_ZZNK7xgboost7RegTree9SaveModelEPNS_4JsonEENK3$_0clINS_14JsonTypedArrayIiLNS_5Value9ValueKindE12EEEEEDaPT_.exit.loopexit" ]
   %485 = load ptr, ptr %1, align 8, !tbaa !64
   %486 = load ptr, ptr %485, align 8, !tbaa !67
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 24
@@ -73930,8 +73936,8 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !75
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !75
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i

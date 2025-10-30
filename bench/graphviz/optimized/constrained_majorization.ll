@@ -396,47 +396,47 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   br i1 %166, label %.lr.ph647.preheader, label %.loopexit589
 
 .lr.ph647.preheader:                              ; preds = %.loopexit593
-  %167 = uitofp nneg i32 %149 to float
-  %168 = fpext float %167 to double
-  %169 = add nsw i32 %1, -2
+  %167 = add nsw i32 %1, -2
   br label %.lr.ph640.preheader
 
 .loopexit590:                                     ; preds = %.lr.ph640
-  %170 = add nsw i64 %174, 1
-  %171 = add nsw i64 %170, %172
+  %168 = zext i32 %indvars.iv793 to i64
+  %169 = add nsw i64 %172, 1
+  %170 = add nsw i64 %169, %168
   %indvars.iv.next794 = add i32 %indvars.iv793, -1
-  %exitcond797.not = icmp eq i32 %173, %147
+  %exitcond797.not = icmp eq i32 %171, %147
   br i1 %exitcond797.not, label %.lr.ph652, label %.lr.ph640.preheader, !llvm.loop !34
 
 .lr.ph640.preheader:                              ; preds = %.loopexit590, %.lr.ph647.preheader
-  %indvars.iv793 = phi i32 [ %169, %.lr.ph647.preheader ], [ %indvars.iv.next794, %.loopexit590 ]
-  %.0434645 = phi i64 [ 0, %.lr.ph647.preheader ], [ %171, %.loopexit590 ]
-  %.0438644 = phi double [ 0.000000e+00, %.lr.ph647.preheader ], [ %180, %.loopexit590 ]
-  %.6643 = phi i32 [ 0, %.lr.ph647.preheader ], [ %173, %.loopexit590 ]
-  %172 = zext i32 %indvars.iv793 to i64
-  %173 = add nuw nsw i32 %.6643, 1
+  %indvars.iv793 = phi i32 [ %167, %.lr.ph647.preheader ], [ %indvars.iv.next794, %.loopexit590 ]
+  %.0434645 = phi i64 [ 0, %.lr.ph647.preheader ], [ %170, %.loopexit590 ]
+  %.0438644 = phi double [ 0.000000e+00, %.lr.ph647.preheader ], [ %178, %.loopexit590 ]
+  %.6643 = phi i32 [ 0, %.lr.ph647.preheader ], [ %171, %.loopexit590 ]
+  %171 = add nuw nsw i32 %.6643, 1
   %.1435635 = shl i64 %.0434645, 32
   %sext = add i64 %.1435635, 4294967296
-  %174 = ashr exact i64 %sext, 32
+  %172 = ashr exact i64 %sext, 32
   br label %.lr.ph640
 
 .lr.ph640:                                        ; preds = %.lr.ph640.preheader, %.lr.ph640
-  %indvars.iv791 = phi i64 [ %174, %.lr.ph640.preheader ], [ %indvars.iv.next792, %.lr.ph640 ]
-  %.0433637 = phi i32 [ %173, %.lr.ph640.preheader ], [ %181, %.lr.ph640 ]
-  %.1439636 = phi double [ %.0438644, %.lr.ph640.preheader ], [ %180, %.lr.ph640 ]
-  %175 = call double @distance_kD(ptr noundef %2, i32 noundef %4, i32 noundef %.6643, i32 noundef %.0433637) #11
-  %176 = getelementptr inbounds float, ptr %.1477, i64 %indvars.iv791
-  %177 = load float, ptr %176, align 4, !tbaa !15
-  %178 = fpext float %177 to double
-  %179 = fdiv double %175, %178
-  %180 = fadd double %.1439636, %179
-  %181 = add nuw i32 %.0433637, 1
+  %indvars.iv791 = phi i64 [ %172, %.lr.ph640.preheader ], [ %indvars.iv.next792, %.lr.ph640 ]
+  %.0433637 = phi i32 [ %171, %.lr.ph640.preheader ], [ %179, %.lr.ph640 ]
+  %.1439636 = phi double [ %.0438644, %.lr.ph640.preheader ], [ %178, %.lr.ph640 ]
+  %173 = call double @distance_kD(ptr noundef %2, i32 noundef %4, i32 noundef %.6643, i32 noundef %.0433637) #11
+  %174 = getelementptr inbounds float, ptr %.1477, i64 %indvars.iv791
+  %175 = load float, ptr %174, align 4, !tbaa !15
+  %176 = fpext float %175 to double
+  %177 = fdiv double %173, %176
+  %178 = fadd double %.1439636, %177
+  %179 = add nuw i32 %.0433637, 1
   %indvars.iv.next792 = add nsw i64 %indvars.iv791, 1
-  %exitcond796.not = icmp eq i32 %181, %1
+  %exitcond796.not = icmp eq i32 %179, %1
   br i1 %exitcond796.not, label %.loopexit590, label %.lr.ph640, !llvm.loop !35
 
 .lr.ph652:                                        ; preds = %.loopexit590
-  %182 = fdiv double %180, %168
+  %180 = uitofp nneg i32 %149 to float
+  %181 = fpext float %180 to double
+  %182 = fdiv double %178, %181
   %183 = fptrunc double %182 to float
   %wide.trip.count801 = zext nneg i32 %150 to i64
   br label %184

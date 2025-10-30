@@ -28321,8 +28321,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(pt
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !146
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !146
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -37867,50 +37867,50 @@ define linkonce_odr dso_local void @_ZN4asio6detail18signal_set_service14deliver
   %14 = load ptr, ptr %13, align 8, !tbaa !1021
   %15 = load ptr, ptr %14, align 8, !tbaa !342
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %21, label %.preheader
+  br i1 %16, label %20, label %.preheader.preheader
 
-.preheader:                                       ; preds = %.lr.ph
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store i32 %0, ptr %18, align 8, !tbaa !1028
-  %19 = load ptr, ptr %15, align 8, !tbaa !281
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit, label %thread-pre-split
+.preheader.preheader:                             ; preds = %.lr.ph
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store i32 %0, ptr %17, align 8, !tbaa !1028
+  %18 = load ptr, ptr %15, align 8, !tbaa !281
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %.loopexit, label %thread-pre-split
 
-21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw i8, ptr %.02036, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !1030
-  %24 = add i64 %23, 1
-  store i64 %24, ptr %22, align 8, !tbaa !1030
+20:                                               ; preds = %.lr.ph
+  %21 = getelementptr inbounds nuw i8, ptr %.02036, i64 16
+  %22 = load i64, ptr %21, align 8, !tbaa !1030
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %21, align 8, !tbaa !1030
   br label %33
 
 _ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit: ; preds = %._crit_edge
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4asio6detail8op_queueINS0_19scheduler_operationEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %26 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN4asio6detail16get_signal_stateEvE5state) #37
-  resume { ptr, i32 } %25
+  %25 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN4asio6detail16get_signal_stateEvE5state) #37
+  resume { ptr, i32 } %24
 
-thread-pre-split:                                 ; preds = %.preheader, %thread-pre-split
-  %27 = phi ptr [ %31, %thread-pre-split ], [ %19, %.preheader ]
-  %28 = phi ptr [ %27, %thread-pre-split ], [ %15, %.preheader ]
-  %29 = phi ptr [ %28, %thread-pre-split ], [ %12, %.preheader ]
-  store ptr null, ptr %28, align 8, !tbaa !281
-  %.not.i27 = icmp eq ptr %29, null
-  %..i = select i1 %.not.i27, ptr %3, ptr %29
-  store ptr %28, ptr %..i, align 8, !tbaa !300
-  store ptr %28, ptr %7, align 8, !tbaa !297
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  store i32 %0, ptr %30, align 8, !tbaa !1028
-  %31 = load ptr, ptr %27, align 8, !tbaa !281
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %.loopexit, label %thread-pre-split
+thread-pre-split:                                 ; preds = %.preheader.preheader, %thread-pre-split
+  %26 = phi ptr [ %30, %thread-pre-split ], [ %18, %.preheader.preheader ]
+  %27 = phi ptr [ %26, %thread-pre-split ], [ %15, %.preheader.preheader ]
+  %28 = phi ptr [ %27, %thread-pre-split ], [ %12, %.preheader.preheader ]
+  store ptr null, ptr %27, align 8, !tbaa !281
+  %.not.i27 = icmp eq ptr %28, null
+  %..i = select i1 %.not.i27, ptr %3, ptr %28
+  store ptr %27, ptr %..i, align 8, !tbaa !300
+  store ptr %27, ptr %7, align 8, !tbaa !297
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  store i32 %0, ptr %29, align 8, !tbaa !1028
+  %30 = load ptr, ptr %26, align 8, !tbaa !281
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %.loopexit, label %thread-pre-split
 
-.loopexit:                                        ; preds = %thread-pre-split, %.preheader
-  %.lcssa49 = phi ptr [ %12, %.preheader ], [ %28, %thread-pre-split ]
-  %.lcssa = phi ptr [ %15, %.preheader ], [ %27, %thread-pre-split ]
-  store ptr null, ptr %17, align 8, !tbaa !343
+.loopexit:                                        ; preds = %thread-pre-split, %.preheader.preheader
+  %.lcssa49 = phi ptr [ %12, %.preheader.preheader ], [ %27, %thread-pre-split ]
+  %.lcssa = phi ptr [ %15, %.preheader.preheader ], [ %26, %thread-pre-split ]
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr null, ptr %32, align 8, !tbaa !343
   %.not.i2746 = icmp eq ptr %.lcssa49, null
   %..i47 = select i1 %.not.i2746, ptr %3, ptr %.lcssa49
   store ptr %.lcssa, ptr %..i47, align 8, !tbaa !300
@@ -37918,8 +37918,8 @@ thread-pre-split:                                 ; preds = %.preheader, %thread
   store ptr null, ptr %14, align 8, !tbaa !342
   br label %33
 
-33:                                               ; preds = %.loopexit, %21
-  %34 = phi ptr [ %.lcssa, %.loopexit ], [ %12, %21 ]
+33:                                               ; preds = %.loopexit, %20
+  %34 = phi ptr [ %.lcssa, %.loopexit ], [ %12, %20 ]
   %35 = getelementptr inbounds nuw i8, ptr %.02036, i64 24
   %.020 = load ptr, ptr %35, align 8, !tbaa !348
   %.not24 = icmp eq ptr %.020, null
@@ -40141,8 +40141,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPN4crow6detail10task_timerESaIS
 
 _ZSt6fill_nIPPN4crow6detail10task_timerEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !1058
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !1058
   br label %_ZSt27__uninitialized_default_n_aIPPN4crow6detail10task_timerEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN4crow6detail10task_timerEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN4crow6detail10task_timerEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i
@@ -59054,8 +59054,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPcSaIS0_EE17_M_default_appendEm
 
 _ZSt6fill_nIPPcmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !436
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !436
   br label %_ZSt27__uninitialized_default_n_aIPPcmS0_ET_S2_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPcmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPcmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i

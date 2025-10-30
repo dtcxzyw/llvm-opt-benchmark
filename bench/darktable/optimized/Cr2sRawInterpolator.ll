@@ -181,32 +181,32 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_
   tail call void @llvm.assume(i1 %34)
   %35 = icmp ne i32 %28, 0
   tail call void @llvm.assume(i1 %35)
-  %36 = udiv i32 %25, 6
-  %37 = icmp samesign ugt i32 %25, 11
-  tail call void @llvm.assume(i1 %37)
-  %38 = icmp samesign ugt i32 %28, 1
+  %36 = icmp samesign ugt i32 %25, 11
+  tail call void @llvm.assume(i1 %36)
+  %37 = icmp samesign ugt i32 %28, 1
   %indvars.iv242.sroa.gep295 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %indvars.iv254.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 24
   %indvars.iv239.sroa.gep297 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %indvars.iv263.sroa.gep298 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %indvars.iv269.sroa.gep299 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %indvars.iv275.sroa.gep300 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br i1 %38, label %.lr.ph, label %.lr.ph226
+  br i1 %37, label %.lr.ph, label %.lr.ph226
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.051215 = phi i32 [ %39, %.lr.ph ], [ 0, %1 ]
+  %.051215 = phi i32 [ %38, %.lr.ph ], [ 0, %1 ]
   tail call void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi1EEEvi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %.051215)
-  %39 = add nuw nsw i32 %.051215, 1
-  %40 = load i32, ptr %27, align 8, !tbaa !105
-  %41 = icmp sgt i32 %40, -1
-  tail call void @llvm.assume(i1 %41)
-  %42 = add nsw i32 %40, -1
-  %43 = icmp slt i32 %39, %42
-  br i1 %43, label %.lr.ph, label %.lr.ph226, !llvm.loop !107
+  %38 = add nuw nsw i32 %.051215, 1
+  %39 = load i32, ptr %27, align 8, !tbaa !105
+  %40 = icmp sgt i32 %39, -1
+  tail call void @llvm.assume(i1 %40)
+  %41 = add nsw i32 %39, -1
+  %42 = icmp slt i32 %38, %41
+  br i1 %42, label %.lr.ph, label %.lr.ph226, !llvm.loop !107
 
 .lr.ph226:                                        ; preds = %.lr.ph, %1
-  %.051.lcssa = phi i32 [ 0, %1 ], [ %39, %.lr.ph ]
-  %44 = add nsw i32 %36, -1
+  %.051.lcssa = phi i32 [ 0, %1 ], [ %38, %.lr.ph ]
+  %43 = udiv i32 %25, 6
+  %44 = add nsw i32 %43, -1
   %45 = icmp samesign ult i32 %.051.lcssa, %28
   tail call void @llvm.assume(i1 %45), !noalias !108
   %46 = mul nuw nsw i32 %.051.lcssa, %31
@@ -232,7 +232,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_
   %66 = zext nneg i32 %58 to i64
   %67 = zext nneg i32 %18 to i64
   %68 = zext nneg i32 %15 to i64
-  %69 = zext nneg i32 %36 to i64
+  %69 = zext nneg i32 %43 to i64
   %wide.trip.count = zext nneg i32 %44 to i64
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -595,32 +595,32 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_
   tail call void @llvm.assume(i1 %34)
   %35 = icmp ne i32 %28, 0
   tail call void @llvm.assume(i1 %35)
-  %36 = udiv i32 %25, 6
-  %37 = icmp samesign ugt i32 %25, 11
-  tail call void @llvm.assume(i1 %37)
-  %38 = icmp samesign ugt i32 %28, 1
+  %36 = icmp samesign ugt i32 %25, 11
+  tail call void @llvm.assume(i1 %36)
+  %37 = icmp samesign ugt i32 %28, 1
   %indvars.iv240.sroa.gep293 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %indvars.iv252.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 24
   %indvars.iv237.sroa.gep295 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %indvars.iv261.sroa.gep296 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %indvars.iv267.sroa.gep297 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %indvars.iv273.sroa.gep298 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br i1 %38, label %.lr.ph, label %.lr.ph224
+  br i1 %37, label %.lr.ph, label %.lr.ph224
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.051213 = phi i32 [ %39, %.lr.ph ], [ 0, %1 ]
+  %.051213 = phi i32 [ %38, %.lr.ph ], [ 0, %1 ]
   tail call void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi2EEEvi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %.051213)
-  %39 = add nuw nsw i32 %.051213, 1
-  %40 = load i32, ptr %27, align 8, !tbaa !105
-  %41 = icmp sgt i32 %40, -1
-  tail call void @llvm.assume(i1 %41)
-  %42 = add nsw i32 %40, -1
-  %43 = icmp slt i32 %39, %42
-  br i1 %43, label %.lr.ph, label %.lr.ph224, !llvm.loop !133
+  %38 = add nuw nsw i32 %.051213, 1
+  %39 = load i32, ptr %27, align 8, !tbaa !105
+  %40 = icmp sgt i32 %39, -1
+  tail call void @llvm.assume(i1 %40)
+  %41 = add nsw i32 %39, -1
+  %42 = icmp slt i32 %38, %41
+  br i1 %42, label %.lr.ph, label %.lr.ph224, !llvm.loop !133
 
 .lr.ph224:                                        ; preds = %.lr.ph, %1
-  %.051.lcssa = phi i32 [ 0, %1 ], [ %39, %.lr.ph ]
-  %44 = add nsw i32 %36, -1
+  %.051.lcssa = phi i32 [ 0, %1 ], [ %38, %.lr.ph ]
+  %43 = udiv i32 %25, 6
+  %44 = add nsw i32 %43, -1
   %45 = icmp samesign ult i32 %.051.lcssa, %28
   tail call void @llvm.assume(i1 %45), !noalias !134
   %46 = mul nuw nsw i32 %.051.lcssa, %31
@@ -646,7 +646,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_
   %66 = zext nneg i32 %58 to i64
   %67 = zext nneg i32 %18 to i64
   %68 = zext nneg i32 %15 to i64
-  %69 = zext nneg i32 %36 to i64
+  %69 = zext nneg i32 %43 to i64
   %wide.trip.count = zext nneg i32 %44 to i64
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1019,7 +1019,6 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %35 = lshr exact i32 %24, 2
   %36 = icmp samesign ugt i32 %24, 4
   tail call void @llvm.assume(i1 %36)
-  %indvars.iv.i22.sroa.gep27 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %indvars.iv.i.sroa.gep28 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %37 = add nsw i32 %35, -1
   %38 = icmp sgt i32 %1, -1
@@ -1182,6 +1181,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator19interpolate_422_rowILi0EEEviENKUliE_clEi.exi
   %136 = getelementptr inbounds nuw i16, ptr %128, i64 %134
   %137 = load i16, ptr %136, align 2, !tbaa !113, !noalias !155
   %138 = zext i16 %137 to i32
+  %indvars.iv.i22.sroa.gep27 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %139 = icmp samesign ult i32 %129, %24
   tail call void @llvm.assume(i1 %139)
   %140 = getelementptr inbounds nuw i16, ptr %128, i64 %130
@@ -1317,7 +1317,6 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %35 = lshr exact i32 %24, 2
   %36 = icmp samesign ugt i32 %24, 4
   tail call void @llvm.assume(i1 %36)
-  %indvars.iv.i22.sroa.gep29 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %indvars.iv.i.sroa.gep30 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %37 = add nsw i32 %35, -1
   %38 = icmp sgt i32 %1, -1
@@ -1487,6 +1486,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator19interpolate_422_rowILi1EEEviENKUliE_clEi.exi
   %141 = getelementptr inbounds nuw i16, ptr %133, i64 %139
   %142 = load i16, ptr %141, align 2, !tbaa !113, !noalias !167
   %143 = zext i16 %142 to i32
+  %indvars.iv.i22.sroa.gep29 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %144 = icmp samesign ult i32 %134, %24
   tail call void @llvm.assume(i1 %144)
   %145 = getelementptr inbounds nuw i16, ptr %133, i64 %135
@@ -1624,7 +1624,6 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %35 = lshr exact i32 %24, 2
   %36 = icmp samesign ugt i32 %24, 4
   tail call void @llvm.assume(i1 %36)
-  %indvars.iv.i22.sroa.gep27 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %indvars.iv.i.sroa.gep28 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %37 = add nsw i32 %35, -1
   %38 = icmp sgt i32 %1, -1
@@ -1786,6 +1785,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator19interpolate_422_rowILi2EEEviENKUliE_clEi.exi
   %135 = getelementptr inbounds nuw i16, ptr %127, i64 %133
   %136 = load i16, ptr %135, align 2, !tbaa !113, !noalias !179
   %137 = zext i16 %136 to i32
+  %indvars.iv.i22.sroa.gep27 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %138 = icmp samesign ult i32 %128, %24
   tail call void @llvm.assume(i1 %138)
   %139 = getelementptr inbounds nuw i16, ptr %127, i64 %129
@@ -1954,13 +1954,10 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %71 = zext nneg i32 %16 to i64
   %72 = zext nneg i32 %34 to i64
   %wide.trip.count = zext nneg i32 %37 to i64
-  %indvars.iv258.sroa.gep282 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %indvars.iv270.sroa.gep283 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %indvars.iv234.sroa.gep284 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %indvars.iv246.sroa.gep285 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %indvars.iv240.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 96
   %indvars.iv228.sroa.gep287 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %indvars.iv255.sroa.gep288 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %73
 
 73:                                               ; preds = %.lr.ph, %_ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi1EEEviENKUlRKSt5arrayIS2_INS0_5YCbCrELm2EELm2EEiiE_clES7_ii.exit
@@ -2154,6 +2151,8 @@ _ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi1EEEviENKUlRKSt5arrayI
   br i1 %exitcond.not, label %._crit_edge, label %73, !llvm.loop !194
 
 ._crit_edge:                                      ; preds = %_ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi1EEEviENKUlRKSt5arrayIS2_INS0_5YCbCrELm2EELm2EEiiE_clES7_ii.exit
+  %indvars.iv258.sroa.gep282 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %indvars.iv255.sroa.gep288 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %5, i8 0, i64 96, i1 false), !tbaa !112
   %180 = mul nuw nsw i32 %37, 6
@@ -2170,6 +2169,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi1EEEviENKUlRKSt5arrayI
   br label %238
 
 .preheader204:                                    ; preds = %_ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi1EEEviENKUliiE_clEii.exit57
+  %indvars.iv270.sroa.gep283 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %190 = load i32, ptr %189, align 4, !tbaa !111
   %191 = add i32 %190, -16384
@@ -2434,13 +2434,10 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %71 = zext nneg i32 %16 to i64
   %72 = zext nneg i32 %34 to i64
   %wide.trip.count = zext nneg i32 %37 to i64
-  %indvars.iv256.sroa.gep280 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %indvars.iv268.sroa.gep281 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %indvars.iv232.sroa.gep282 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %indvars.iv244.sroa.gep283 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %indvars.iv238.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 96
   %indvars.iv226.sroa.gep285 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %indvars.iv253.sroa.gep286 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %73
 
 73:                                               ; preds = %.lr.ph, %_ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi2EEEviENKUlRKSt5arrayIS2_INS0_5YCbCrELm2EELm2EEiiE_clES7_ii.exit
@@ -2626,6 +2623,8 @@ _ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi2EEEviENKUlRKSt5arrayI
   br i1 %exitcond.not, label %._crit_edge, label %73, !llvm.loop !211
 
 ._crit_edge:                                      ; preds = %_ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi2EEEviENKUlRKSt5arrayIS2_INS0_5YCbCrELm2EELm2EEiiE_clES7_ii.exit
+  %indvars.iv256.sroa.gep280 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %indvars.iv253.sroa.gep286 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %5, i8 0, i64 96, i1 false), !tbaa !112
   %174 = mul nuw nsw i32 %37, 6
@@ -2642,6 +2641,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi2EEEviENKUlRKSt5arrayI
   br label %232
 
 .preheader202:                                    ; preds = %_ZZN8rawspeed19Cr2sRawInterpolator19interpolate_420_rowILi2EEEviENKUliiE_clEii.exit57
+  %indvars.iv268.sroa.gep281 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %184 = load i32, ptr %183, align 4, !tbaa !111
   %185 = add i32 %184, -16384

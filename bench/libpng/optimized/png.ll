@@ -4941,14 +4941,14 @@ png_gamma_16bit_correct.exit.i:                   ; preds = %._crit_edge.i, %.pr
   store i16 %153, ptr %171, align 2, !tbaa !48
   %172 = add i32 %.13541.i, 1
   %exitcond48.not.i = icmp eq i32 %.13541.i, %164
-  br i1 %exitcond48.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !188
+  br i1 %exitcond48.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !188
 
-._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %173 = add nuw nsw i32 %164, 1
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %png_gamma_16bit_correct.exit.i
-  %.135.lcssa.i = phi i32 [ %.03442.i, %png_gamma_16bit_correct.exit.i ], [ %173, %._crit_edge.i.loopexit ]
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %png_gamma_16bit_correct.exit.i
+  %.135.lcssa.i = phi i32 [ %.03442.i, %png_gamma_16bit_correct.exit.i ], [ %173, %._crit_edge.loopexit.i ]
   %174 = add nuw nsw i32 %.143.i, 1
   %exitcond49.not.i = icmp eq i32 %174, 255
   br i1 %exitcond49.not.i, label %.preheader.i105, label %png_gamma_16bit_correct.exit.i, !llvm.loop !189

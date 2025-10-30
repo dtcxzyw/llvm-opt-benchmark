@@ -94,20 +94,20 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %73, label %.loopexit849, label %._crit_edge943
 
 ._crit_edge943:                                   ; preds = %71
-  %74 = shl nuw i32 %69, 1
-  %75 = or disjoint i32 %74, 1
-  %76 = mul nuw nsw i32 %69, 3
-  %77 = add nuw nsw i32 %76, 1
-  %78 = mul i32 %69, 12
-  %79 = tail call i32 @llvm.umax.i32(i32 %78, i32 1)
-  %umax = zext i32 %79 to i64
-  %80 = shl nuw nsw i64 %umax, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, i8 0, i64 %80, i1 false), !tbaa !7
-  %81 = mul i32 %69, 7
-  %82 = zext i32 %81 to i64
-  %83 = shl nuw nsw i64 %82, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %83, i1 false), !tbaa !3
+  %74 = mul i32 %69, 12
+  %75 = tail call i32 @llvm.umax.i32(i32 %74, i32 1)
+  %umax = zext i32 %75 to i64
+  %76 = shl nuw nsw i64 %umax, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, i8 0, i64 %76, i1 false), !tbaa !7
+  %77 = mul i32 %69, 7
+  %78 = zext i32 %77 to i64
+  %79 = shl nuw nsw i64 %78, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %79, i1 false), !tbaa !3
   %.pre = load i32, ptr %7, align 4, !tbaa !3
+  %80 = shl nuw i32 %69, 1
+  %81 = or disjoint i32 %80, 1
+  %82 = mul nuw nsw i32 %69, 3
+  %83 = add nuw nsw i32 %82, 1
   %84 = load i32, ptr %8, align 4, !tbaa !3
   %85 = tail call i32 @llvm.smax.i32(i32 %84, i32 2)
   %spec.select = add nsw i32 %85, -1
@@ -154,13 +154,13 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %108 = getelementptr i32, ptr %68, i64 %107
   %109 = getelementptr i8, ptr %108, i64 4
   %110 = getelementptr i8, ptr %108, i64 8
-  %111 = zext nneg i32 %77 to i64
+  %111 = zext nneg i32 %83 to i64
   %112 = getelementptr inbounds nuw double, ptr %67, i64 %111
   %113 = getelementptr inbounds nuw i32, ptr %68, i64 %111
   %114 = fmul double %94, 3.000000e+00
   %115 = fmul double %94, 4.000000e+00
   %116 = zext nneg i32 %69 to i64
-  %117 = sext i32 %74 to i64
+  %117 = sext i32 %80 to i64
   %118 = shl nsw i64 %64, 3
   %scevgep = getelementptr i8, ptr %19, i64 %118
   %119 = add nuw i32 %106, 1
@@ -340,7 +340,7 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %200 = getelementptr inbounds double, ptr %55, i64 %198
   %201 = add nsw i32 %122, -1
   %202 = getelementptr inbounds nuw i32, ptr %61, i64 %189
-  %203 = add nsw i32 %.07181027, %75
+  %203 = add nsw i32 %.07181027, %81
   %204 = sext i32 %203 to i64
   %205 = getelementptr double, ptr %67, i64 %204
   %206 = getelementptr i8, ptr %205, i64 -8
@@ -369,8 +369,8 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 217:                                              ; preds = %213
   %218 = xor i32 %.06881017, 1
   %219 = icmp eq i32 %.06881017, 1
-  %. = select i1 %219, i32 %69, i32 %74
-  %.826 = select i1 %219, i32 %74, i32 %69
+  %. = select i1 %219, i32 %69, i32 %80
+  %.826 = select i1 %219, i32 %80, i32 %69
   %.not798994 = icmp slt i32 %.07401013, 1
   br i1 %.not798994, label %._crit_edge1004, label %.lr.ph1003
 

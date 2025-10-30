@@ -105,31 +105,31 @@ bytestream2_get_byte.exit133.i:                   ; preds = %bytestream2_get_byt
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %62 = load i8, ptr %57, align 1, !tbaa !22
   %63 = zext i8 %62 to i32
-  %64 = lshr i32 %63, 7
-  %65 = lshr i32 %63, 6
-  %66 = and i32 %65, 1
-  %67 = icmp samesign ugt i8 %51, 1
-  br i1 %67, label %bytestream2_get_byte.exit139.preheader.i, label %._crit_edge.i
+  %64 = icmp samesign ugt i8 %51, 1
+  br i1 %64, label %bytestream2_get_byte.exit139.preheader.i, label %._crit_edge.i
 
 bytestream2_get_byte.exit139.preheader.i:         ; preds = %bytestream2_get_byte.exit133.i
-  %68 = add nsw i32 %52, -2
+  %65 = add nsw i32 %52, -2
   br label %bytestream2_get_byte.exit139.i
 
 bytestream2_get_byte.exit139.i:                   ; preds = %bytestream2_get_byte.exit139.i, %bytestream2_get_byte.exit139.preheader.i
-  %.0108258.i = phi i32 [ %73, %bytestream2_get_byte.exit139.i ], [ 0, %bytestream2_get_byte.exit139.preheader.i ]
+  %.0108258.i = phi i32 [ %70, %bytestream2_get_byte.exit139.i ], [ 0, %bytestream2_get_byte.exit139.preheader.i ]
   %.sroa.0.1257.i = phi ptr [ %spec.select.i, %bytestream2_get_byte.exit139.i ], [ %61, %bytestream2_get_byte.exit139.preheader.i ]
-  %69 = ptrtoint ptr %.sroa.0.1257.i to i64
-  %70 = sub i64 %35, %69
-  %71 = icmp slt i64 %70, 1
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.1257.i, i64 1
-  %spec.select.i = select i1 %71, ptr %34, ptr %72
-  %73 = add nuw nsw i32 %.0108258.i, 1
-  %exitcond.not.i = icmp eq i32 %.0108258.i, %68
+  %66 = ptrtoint ptr %.sroa.0.1257.i to i64
+  %67 = sub i64 %35, %66
+  %68 = icmp slt i64 %67, 1
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.1257.i, i64 1
+  %spec.select.i = select i1 %68, ptr %34, ptr %69
+  %70 = add nuw nsw i32 %.0108258.i, 1
+  %exitcond.not.i = icmp eq i32 %.0108258.i, %65
   br i1 %exitcond.not.i, label %._crit_edge.i, label %bytestream2_get_byte.exit139.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %bytestream2_get_byte.exit139.i, %bytestream2_get_byte.exit133.i
   %.sroa.0.1.lcssa.i = phi ptr [ %61, %bytestream2_get_byte.exit133.i ], [ %spec.select.i, %bytestream2_get_byte.exit139.i ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.5, i32 noundef %66, i32 noundef %64) #7
+  %71 = lshr i32 %63, 7
+  %72 = lshr i32 %63, 6
+  %73 = and i32 %72, 1
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.5, i32 noundef %73, i32 noundef %71) #7
   %74 = icmp samesign ugt i32 %44, 1
   %75 = ptrtoint ptr %.sroa.0.1.lcssa.i to i64
   %76 = sub i64 %35, %75

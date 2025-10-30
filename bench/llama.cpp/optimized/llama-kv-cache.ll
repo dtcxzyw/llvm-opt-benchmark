@@ -3478,29 +3478,29 @@ define void @_Z26llama_kv_cache_view_updateP19llama_kv_cache_viewRK14llama_kv_ca
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %58
   %.080.lcssa = phi i32 [ 0, %58 ], [ %.080.lcssa.ph, %._crit_edge.loopexit ]
-  %.not106 = icmp ne i32 %.080.lcssa, 0
-  %69 = zext i1 %.not106 to i32
-  %spec.select109 = add nuw nsw i32 %.095126, %69
-  %70 = load i32, ptr %37, align 4, !tbaa !168
-  %71 = icmp slt i32 %.080.lcssa, %70
-  br i1 %71, label %.lr.ph123.preheader, label %._crit_edge124
+  %69 = load i32, ptr %37, align 4, !tbaa !168
+  %70 = icmp slt i32 %.080.lcssa, %69
+  br i1 %70, label %.lr.ph123.preheader, label %._crit_edge124
 
 .lr.ph123.preheader:                              ; preds = %._crit_edge
-  %72 = zext i32 %.080.lcssa to i64
+  %71 = zext i32 %.080.lcssa to i64
   br label %.lr.ph123
 
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %.lr.ph123
-  %indvars.iv145 = phi i64 [ %72, %.lr.ph123.preheader ], [ %indvars.iv.next146, %.lr.ph123 ]
-  %73 = getelementptr inbounds nuw i32, ptr %.081132, i64 %indvars.iv145
-  store i32 -1, ptr %73, align 4, !tbaa !115
+  %indvars.iv145 = phi i64 [ %71, %.lr.ph123.preheader ], [ %indvars.iv.next146, %.lr.ph123 ]
+  %72 = getelementptr inbounds nuw i32, ptr %.081132, i64 %indvars.iv145
+  store i32 -1, ptr %72, align 4, !tbaa !115
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %74 = load i32, ptr %37, align 4, !tbaa !168
-  %75 = trunc nuw i64 %indvars.iv.next146 to i32
-  %76 = icmp sgt i32 %74, %75
-  br i1 %76, label %.lr.ph123, label %._crit_edge124, !llvm.loop !177
+  %73 = load i32, ptr %37, align 4, !tbaa !168
+  %74 = trunc nuw i64 %indvars.iv.next146 to i32
+  %75 = icmp sgt i32 %73, %74
+  br i1 %75, label %.lr.ph123, label %._crit_edge124, !llvm.loop !177
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %._crit_edge
-  %.lcssa = phi i32 [ %70, %._crit_edge ], [ %74, %.lr.ph123 ]
+  %.lcssa = phi i32 [ %69, %._crit_edge ], [ %73, %.lr.ph123 ]
+  %.not106 = icmp ne i32 %.080.lcssa, 0
+  %76 = zext i1 %.not106 to i32
+  %spec.select109 = add nuw nsw i32 %.095126, %76
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %77 = getelementptr inbounds nuw i8, ptr %.0133, i64 4
   %78 = sext i32 %.lcssa to i64

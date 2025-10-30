@@ -1078,8 +1078,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %350
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc46.i
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %359, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %358, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false)
   %361 = getelementptr inbounds nuw i8, ptr %358, i64 %.idx.i.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %358, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc46.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i

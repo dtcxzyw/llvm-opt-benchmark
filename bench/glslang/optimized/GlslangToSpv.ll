@@ -19450,8 +19450,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %51
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %57, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %56, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %56, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false)
   br label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -21003,8 +21003,8 @@ define linkonce_odr void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_
 
 _ZSt6fill_nIPPN3spv11InstructionEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPPN3spv11InstructionEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN3spv11InstructionEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN3spv11InstructionEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i
@@ -35126,8 +35126,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -45089,24 +45089,24 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit406: ; preds = %.lr
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 .lr.ph.i.i.i.i.i414.preheader:                    ; preds = %459
-  %479 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %480 = load i32, ptr %338, align 4
-  %481 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-  %482 = getelementptr inbounds nuw i8, ptr %481, i64 8
-  %.sroa.3784.0.insert.ext786 = zext i32 %480 to i64
+  %479 = load i32, ptr %338, align 4
+  %480 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
+  %481 = getelementptr inbounds nuw i8, ptr %480, i64 8
+  %.sroa.3784.0.insert.ext786 = zext i32 %479 to i64
   %.sroa.3784.0.insert.shift787 = shl nuw i64 %.sroa.3784.0.insert.ext786, 32
   %.sroa.0770.0.insert.insert774 = or disjoint i64 %.sroa.3784.0.insert.shift787, 1
-  store i64 %.sroa.0770.0.insert.insert774, ptr %482, align 4
+  store i64 %.sroa.0770.0.insert.insert774, ptr %481, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !263)
   call void @llvm.experimental.noalias.scope.decl(metadata !266)
-  %483 = load i64, ptr %342, align 4, !alias.scope !266, !noalias !263
-  store i64 %483, ptr %481, align 4, !alias.scope !263, !noalias !266
-  %484 = getelementptr inbounds nuw i8, ptr %481, i64 16
+  %482 = load i64, ptr %342, align 4, !alias.scope !266, !noalias !263
+  store i64 %482, ptr %480, align 4, !alias.scope !263, !noalias !266
+  %483 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %484 = getelementptr inbounds nuw i8, ptr %480, i64 16
   call void @_ZdlPvm(ptr noundef nonnull %342, i64 noundef 8) #23
   %.pre1031.pre = load i32, ptr %40, align 8
-  store ptr %481, ptr %16, align 8
+  store ptr %480, ptr %16, align 8
   store ptr %484, ptr %339, align 8
-  %485 = getelementptr inbounds nuw i8, ptr %481, i64 16
+  %485 = getelementptr inbounds nuw i8, ptr %480, i64 16
   store ptr %485, ptr %340, align 8
   switch i32 %.pre1031.pre, label %826 [
     i32 604, label %486
@@ -45239,7 +45239,7 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cx
 
 531:                                              ; preds = %.split
   %532 = getelementptr inbounds nuw i8, ptr %163, i64 12
-  %533 = load i32, ptr %479, align 4
+  %533 = load i32, ptr %483, align 4
   %534 = load ptr, ptr %340, align 8
   %.not.i443 = icmp eq ptr %529, %534
   br i1 %.not.i443, label %538, label %535
@@ -45315,7 +45315,7 @@ _ZNSt6vectorIN3spv11IdImmediateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cx
   br label %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit456
 
 _ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit456: ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit428", %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i455, %535, %.split
-  %.sroa.0911.0 = phi ptr [ %479, %.split ], [ %532, %535 ], [ %532, %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i455 ], [ %479, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit428" ]
+  %.sroa.0911.0 = phi ptr [ %483, %.split ], [ %532, %535 ], [ %532, %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i455 ], [ %483, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit428" ]
   %559 = and i32 %496, 2
   %.not288 = icmp eq i32 %559, 0
   br i1 %.not288, label %_ZNSt6vectorIN3spv11IdImmediateESaIS1_EE9push_backERKS1_.exit470, label %560
@@ -45595,7 +45595,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit490:                 ; preds = %665, %_ZN3spv7Build
   br i1 %or.cond6, label %687, label %.thread958
 
 .thread958:                                       ; preds = %679
-  %685 = load i32, ptr %479, align 4
+  %685 = load i32, ptr %483, align 4
   store i8 1, ptr %20, align 4
   %686 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %685, ptr %686, align 4
@@ -45661,7 +45661,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit490:                 ; preds = %665, %_ZN3spv7Build
 
 708:                                              ; preds = %.split255
   %709 = getelementptr inbounds nuw i8, ptr %163, i64 12
-  %710 = load i32, ptr %479, align 4
+  %710 = load i32, ptr %483, align 4
   store i8 1, ptr %22, align 4
   %711 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %710, ptr %711, align 4
@@ -45669,7 +45669,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit490:                 ; preds = %665, %_ZN3spv7Build
   br label %.split255.thread
 
 .split255.thread:                                 ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit496", %708, %.split255
-  %.sroa.0911.1 = phi ptr [ %479, %.split255 ], [ %709, %708 ], [ %479, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit496" ]
+  %.sroa.0911.1 = phi ptr [ %483, %.split255 ], [ %709, %708 ], [ %483, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit496" ]
   %712 = and i32 %699, 2
   %.not284 = icmp eq i32 %712, 0
   br i1 %.not284, label %716, label %713
@@ -45847,7 +45847,7 @@ _ZNK3spv7Builder12getImageTypeEj.exit500:         ; preds = %_ZNK3spv7Builder9ge
 
 802:                                              ; preds = %.split259
   %803 = getelementptr inbounds nuw i8, ptr %163, i64 12
-  %804 = load i32, ptr %479, align 4
+  %804 = load i32, ptr %483, align 4
   store i8 1, ptr %26, align 4
   %805 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 %804, ptr %805, align 4
@@ -45855,7 +45855,7 @@ _ZNK3spv7Builder12getImageTypeEj.exit500:         ; preds = %_ZNK3spv7Builder9ge
   br label %.split259.thread
 
 .split259.thread:                                 ; preds = %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit506", %802, %.split259
-  %.sroa.0911.2 = phi ptr [ %479, %.split259 ], [ %803, %802 ], [ %479, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit506" ]
+  %.sroa.0911.2 = phi ptr [ %483, %.split259 ], [ %803, %802 ], [ %483, %"_ZZN12_GLOBAL__N_122TGlslangToSpvTraverser30createImageTextureFunctionCallEPN7glslang15TIntermOperatorEENK3$_0clEv.exit506" ]
   %806 = and i32 %793, 2
   %.not280 = icmp eq i32 %806, 0
   br i1 %.not280, label %811, label %807
@@ -45904,7 +45904,7 @@ _ZNK3spv7Builder12getImageTypeEj.exit500:         ; preds = %_ZNK3spv7Builder9ge
 
 828:                                              ; preds = %826
   %829 = getelementptr inbounds nuw i8, ptr %163, i64 12
-  %830 = load i32, ptr %479, align 4
+  %830 = load i32, ptr %483, align 4
   br label %833
 
 831:                                              ; preds = %826
@@ -45912,7 +45912,7 @@ _ZNK3spv7Builder12getImageTypeEj.exit500:         ; preds = %_ZNK3spv7Builder9ge
   br label %833
 
 833:                                              ; preds = %831, %828
-  %.sroa.0911.4 = phi ptr [ %829, %828 ], [ %479, %831 ]
+  %.sroa.0911.4 = phi ptr [ %829, %828 ], [ %483, %831 ]
   %834 = phi i32 [ %830, %828 ], [ %832, %831 ]
   store i8 1, ptr %29, align 4
   %835 = getelementptr inbounds nuw i8, ptr %29, i64 4

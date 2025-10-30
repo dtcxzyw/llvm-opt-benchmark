@@ -667,22 +667,22 @@ define hidden void @lj_record_ret(ptr noundef %0, i32 noundef %1, i64 noundef %2
   %7 = load ptr, ptr %6, align 8, !tbaa !44
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !45
-  %10 = getelementptr inbounds i8, ptr %9, i64 -8
-  %11 = icmp sgt i64 %2, 0
-  br i1 %11, label %.lr.ph, label %.preheader
+  %10 = icmp sgt i64 %2, 0
+  br i1 %10, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 186
-  %.pre = load ptr, ptr %12, align 8, !tbaa !43
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %12 = zext i32 %1 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 186
+  %.pre = load ptr, ptr %11, align 8, !tbaa !43
   br label %25
 
 .preheader:                                       ; preds = %53, %3
-  %18 = load i64, ptr %10, align 8, !tbaa !4
+  %17 = getelementptr inbounds i8, ptr %9, i64 -8
+  %18 = load i64, ptr %17, align 8, !tbaa !4
   %19 = and i64 %18, 6
   %20 = icmp eq i64 %19, 6
   br i1 %20, label %.lr.ph249, label %._crit_edge
@@ -697,7 +697,7 @@ define hidden void @lj_record_ret(ptr noundef %0, i32 noundef %1, i64 noundef %2
 25:                                               ; preds = %.lr.ph, %53
   %26 = phi ptr [ %.pre, %.lr.ph ], [ %54, %53 ]
   %.0204244 = phi i64 [ 0, %.lr.ph ], [ %55, %53 ]
-  %27 = add nuw nsw i64 %.0204244, %13
+  %27 = add nuw nsw i64 %.0204244, %12
   %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !37
   %.not232 = icmp eq i32 %29, 0
@@ -719,18 +719,18 @@ define hidden void @lj_record_ret(ptr noundef %0, i32 noundef %1, i64 noundef %2
   %.0.i.i = select i1 %39, i32 14, i32 %41
   %42 = trunc nuw nsw i32 %.0.i.i to i16
   %43 = or disjoint i16 %42, 18304
-  %44 = load i32, ptr %14, align 8, !tbaa !35
+  %44 = load i32, ptr %13, align 8, !tbaa !35
   %45 = add nsw i32 %44, %31
   %46 = trunc i32 %45 to i16
-  store i16 %43, ptr %16, align 4, !tbaa !4
-  store i16 %46, ptr %15, align 8, !tbaa !4
-  store i16 4, ptr %17, align 2, !tbaa !4
+  store i16 %43, ptr %15, align 4, !tbaa !4
+  store i16 %46, ptr %14, align 8, !tbaa !4
+  store i16 4, ptr %16, align 2, !tbaa !4
   %47 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #8
   %48 = icmp samesign ult i32 %.0.i.i, 3
   %49 = mul nuw nsw i32 %.0.i.i, 16777217
   %50 = xor i32 %49, 32767
   %.0.i = select i1 %48, i32 %50, i32 %47
-  %51 = load ptr, ptr %12, align 8, !tbaa !43
+  %51 = load ptr, ptr %11, align 8, !tbaa !43
   %52 = getelementptr inbounds i32, ptr %51, i64 %35
   store i32 %.0.i, ptr %52, align 4, !tbaa !37
   br label %53
@@ -745,7 +745,7 @@ define hidden void @lj_record_ret(ptr noundef %0, i32 noundef %1, i64 noundef %2
   %57 = phi i64 [ %18, %.lr.ph249 ], [ %81, %62 ]
   %.0248 = phi i32 [ %1, %.lr.ph249 ], [ %74, %62 ]
   %.0201247 = phi i64 [ %2, %.lr.ph249 ], [ %65, %62 ]
-  %.0202246 = phi ptr [ %10, %.lr.ph249 ], [ %80, %62 ]
+  %.0202246 = phi ptr [ %17, %.lr.ph249 ], [ %80, %62 ]
   %.0206245 = phi i32 [ 0, %.lr.ph249 ], [ %66, %62 ]
   %58 = load i32, ptr %21, align 4, !tbaa !31
   %59 = add nsw i32 %58, -1
@@ -787,7 +787,7 @@ define hidden void @lj_record_ret(ptr noundef %0, i32 noundef %1, i64 noundef %2
 
 ._crit_edge:                                      ; preds = %62, %.preheader
   %.0206.lcssa = phi i32 [ 0, %.preheader ], [ %66, %62 ]
-  %.0202.lcssa = phi ptr [ %10, %.preheader ], [ %80, %62 ]
+  %.0202.lcssa = phi ptr [ %17, %.preheader ], [ %80, %62 ]
   %.0201.lcssa = phi i64 [ %2, %.preheader ], [ %65, %62 ]
   %.0.lcssa = phi i32 [ %1, %.preheader ], [ %74, %62 ]
   %.lcssa = phi i64 [ %18, %.preheader ], [ %81, %62 ]
@@ -8533,68 +8533,68 @@ define internal noalias noundef ptr @rec_mm_concat_cp(ptr readnone captures(none
   %9 = load i32, ptr %8, align 4, !tbaa !74
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %11 = load ptr, ptr %10, align 8, !tbaa !43
-  %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not93 = icmp ugt i32 %7, %9
   br i1 %.not93, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 188
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 186
-  br label %19
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 176
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 188
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 186
+  br label %17
 
-19:                                               ; preds = %.lr.ph, %46
-  %20 = phi ptr [ %11, %.lr.ph ], [ %47, %46 ]
-  %.08094 = phi i32 [ %7, %.lr.ph ], [ %48, %46 ]
-  %21 = zext i32 %.08094 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !37
-  %.not87 = icmp eq i32 %23, 0
-  br i1 %.not87, label %24, label %46
+17:                                               ; preds = %.lr.ph, %44
+  %18 = phi ptr [ %11, %.lr.ph ], [ %45, %44 ]
+  %.08094 = phi i32 [ %7, %.lr.ph ], [ %46, %44 ]
+  %19 = zext i32 %.08094 to i64
+  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %21 = load i32, ptr %20, align 4, !tbaa !37
+  %.not87 = icmp eq i32 %21, 0
+  br i1 %.not87, label %22, label %44
 
-24:                                               ; preds = %19
-  %25 = load ptr, ptr %14, align 8, !tbaa !44
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !45
-  %28 = sext i32 %.08094 to i64
-  %29 = getelementptr inbounds %union.TValue, ptr %27, i64 %28
-  %30 = load i64, ptr %29, align 8, !tbaa !4
-  %31 = ashr i64 %30, 47
-  %32 = icmp ult i64 %31, -14
-  %33 = trunc nsw i64 %31 to i32
-  %34 = xor i32 %33, -1
-  %.0.i.i = select i1 %32, i32 14, i32 %34
-  %35 = trunc nuw nsw i32 %.0.i.i to i16
-  %36 = or disjoint i16 %35, 18304
-  %37 = load i32, ptr %15, align 8, !tbaa !35
-  %38 = add nsw i32 %37, %.08094
-  %39 = trunc i32 %38 to i16
-  store i16 %36, ptr %17, align 4, !tbaa !4
-  store i16 %39, ptr %16, align 8, !tbaa !4
-  store i16 4, ptr %18, align 2, !tbaa !4
-  %40 = tail call i32 @lj_ir_emit(ptr noundef nonnull %5) #8
-  %41 = icmp samesign ult i32 %.0.i.i, 3
-  %42 = mul nuw nsw i32 %.0.i.i, 16777217
-  %43 = xor i32 %42, 32767
-  %.0.i = select i1 %41, i32 %43, i32 %40
-  %44 = load ptr, ptr %10, align 8, !tbaa !43
-  %45 = getelementptr inbounds i32, ptr %44, i64 %28
-  store i32 %.0.i, ptr %45, align 4, !tbaa !37
-  br label %46
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %12, align 8, !tbaa !44
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !45
+  %26 = sext i32 %.08094 to i64
+  %27 = getelementptr inbounds %union.TValue, ptr %25, i64 %26
+  %28 = load i64, ptr %27, align 8, !tbaa !4
+  %29 = ashr i64 %28, 47
+  %30 = icmp ult i64 %29, -14
+  %31 = trunc nsw i64 %29 to i32
+  %32 = xor i32 %31, -1
+  %.0.i.i = select i1 %30, i32 14, i32 %32
+  %33 = trunc nuw nsw i32 %.0.i.i to i16
+  %34 = or disjoint i16 %33, 18304
+  %35 = load i32, ptr %13, align 8, !tbaa !35
+  %36 = add nsw i32 %35, %.08094
+  %37 = trunc i32 %36 to i16
+  store i16 %34, ptr %15, align 4, !tbaa !4
+  store i16 %37, ptr %14, align 8, !tbaa !4
+  store i16 4, ptr %16, align 2, !tbaa !4
+  %38 = tail call i32 @lj_ir_emit(ptr noundef nonnull %5) #8
+  %39 = icmp samesign ult i32 %.0.i.i, 3
+  %40 = mul nuw nsw i32 %.0.i.i, 16777217
+  %41 = xor i32 %40, 32767
+  %.0.i = select i1 %39, i32 %41, i32 %38
+  %42 = load ptr, ptr %10, align 8, !tbaa !43
+  %43 = getelementptr inbounds i32, ptr %42, i64 %26
+  store i32 %.0.i, ptr %43, align 4, !tbaa !37
+  br label %44
 
-46:                                               ; preds = %24, %19
-  %47 = phi ptr [ %44, %24 ], [ %20, %19 ]
-  %48 = add i32 %.08094, 1
-  %.not = icmp ugt i32 %48, %9
-  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !188
+44:                                               ; preds = %22, %17
+  %45 = phi ptr [ %42, %22 ], [ %18, %17 ]
+  %46 = add i32 %.08094, 1
+  %.not = icmp ugt i32 %46, %9
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !188
 
-._crit_edge:                                      ; preds = %46, %3
-  %49 = phi ptr [ %11, %3 ], [ %47, %46 ]
-  %50 = load i32, ptr %13, align 4, !tbaa !37
+._crit_edge:                                      ; preds = %44, %3
+  %47 = phi ptr [ %11, %3 ], [ %45, %44 ]
+  %48 = zext i32 %9 to i64
+  %49 = getelementptr inbounds nuw i32, ptr %11, i64 %48
+  %50 = load i32, ptr %49, align 4, !tbaa !37
   %51 = lshr i32 %50, 24
   %52 = and i32 %51, 30
   %53 = add nsw i32 %52, -14
@@ -8605,7 +8605,7 @@ define internal noalias noundef ptr @rec_mm_concat_cp(ptr readnone captures(none
   br i1 %or.cond, label %57, label %120
 
 57:                                               ; preds = %._crit_edge
-  %58 = getelementptr inbounds i8, ptr %13, i64 -4
+  %58 = getelementptr inbounds i8, ptr %49, i64 -4
   %59 = load i32, ptr %58, align 4, !tbaa !37
   %60 = lshr i32 %59, 24
   %61 = and i32 %60, 30
@@ -8618,8 +8618,8 @@ define internal noalias noundef ptr @rec_mm_concat_cp(ptr readnone captures(none
 
 66:                                               ; preds = %57
   %67 = zext i32 %7 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %49, i64 %67
-  %.not8495 = icmp ult ptr %13, %68
+  %68 = getelementptr inbounds nuw i32, ptr %47, i64 %67
+  %.not8495 = icmp ult ptr %49, %68
   br i1 %.not8495, label %._crit_edge99, label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %66
@@ -8629,7 +8629,7 @@ define internal noalias noundef ptr @rec_mm_concat_cp(ptr readnone captures(none
   br label %72
 
 72:                                               ; preds = %.lr.ph98, %87
-  %.07596 = phi ptr [ %13, %.lr.ph98 ], [ %88, %87 ]
+  %.07596 = phi ptr [ %49, %.lr.ph98 ], [ %88, %87 ]
   %73 = load i32, ptr %.07596, align 4, !tbaa !37
   %74 = lshr i32 %73, 24
   %75 = and i32 %74, 30
@@ -8660,7 +8660,7 @@ define internal noalias noundef ptr @rec_mm_concat_cp(ptr readnone captures(none
   br i1 %.not84, label %._crit_edge99, label %72, !llvm.loop !189
 
 ._crit_edge99:                                    ; preds = %87, %84, %66
-  %.075.lcssa = phi ptr [ %13, %66 ], [ %.07596, %84 ], [ %88, %87 ]
+  %.075.lcssa = phi ptr [ %49, %66 ], [ %.07596, %84 ], [ %88, %87 ]
   %89 = getelementptr inbounds nuw i8, ptr %.075.lcssa, i64 4
   %90 = getelementptr inbounds i8, ptr %5, i64 -536
   %91 = tail call i32 @lj_ir_kptr_(ptr noundef %5, i32 noundef 25, ptr noundef nonnull %90) #8
@@ -8685,7 +8685,7 @@ define internal noalias noundef ptr @rec_mm_concat_cp(ptr readnone captures(none
   store i16 %98, ptr %93, align 8, !tbaa !4
   store i16 %101, ptr %95, align 2, !tbaa !4
   %102 = tail call i32 @lj_opt_fold(ptr noundef nonnull %5) #8
-  %.not85 = icmp ugt ptr %99, %13
+  %.not85 = icmp ugt ptr %99, %49
   br i1 %.not85, label %103, label %97, !llvm.loop !190
 
 103:                                              ; preds = %97
@@ -8730,7 +8730,7 @@ define internal noalias noundef ptr @rec_mm_concat_cp(ptr readnone captures(none
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 32
   %127 = load ptr, ptr %126, align 8, !tbaa !45
-  %128 = getelementptr inbounds nuw %union.TValue, ptr %127, i64 %12
+  %128 = getelementptr inbounds nuw %union.TValue, ptr %127, i64 %48
   %129 = load i64, ptr %128, align 8, !tbaa !4
   store i64 %129, ptr %125, align 8, !tbaa !4
   br label %130
@@ -8738,7 +8738,7 @@ define internal noalias noundef ptr @rec_mm_concat_cp(ptr readnone captures(none
 130:                                              ; preds = %114, %120
   %.pre-phi = phi i32 [ %115, %114 ], [ %121, %120 ]
   %131 = phi ptr [ %.pre103, %114 ], [ %127, %120 ]
-  %.178 = phi ptr [ %89, %114 ], [ %13, %120 ]
+  %.178 = phi ptr [ %89, %114 ], [ %49, %120 ]
   %132 = zext i32 %.pre-phi to i64
   %133 = getelementptr inbounds nuw %union.TValue, ptr %131, i64 %132
   %134 = load i64, ptr %133, align 8, !tbaa !4

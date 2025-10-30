@@ -210,9 +210,8 @@ define hidden void @_ZN10phf_shared4hash17h905183aa0b0b0ccfE.llvm.85372212612730
   %5 = load i64, ptr %3, align 8, !noundef !12
   %6 = xor i64 %5, 7237128888997146499
   %7 = xor i64 %5, 8387220255154660723
-  %8 = and i64 %2, 7
-  %9 = and i64 %2, -8
-  %.not = icmp eq i64 %9, 0
+  %8 = and i64 %2, -8
+  %.not = icmp eq i64 %8, 0
   br i1 %.not, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %4
@@ -221,7 +220,8 @@ define hidden void @_ZN10phf_shared4hash17h905183aa0b0b0ccfE.llvm.85372212612730
   %.sroa.8.1 = phi i64 [ 7816392313619706465, %4 ], [ %55, %.lr.ph.i.i.i ]
   %.sroa.0.1 = phi i64 [ 8317987319222330741, %4 ], [ %56, %.lr.ph.i.i.i ]
   %.sroa.01.1.lcssa.i.i.i = phi i64 [ 0, %4 ], [ %57, %.lr.ph.i.i.i ]
-  %10 = icmp samesign ugt i64 %8, 3
+  %9 = and i64 %2, 7
+  %10 = icmp samesign ugt i64 %9, 3
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %._crit_edge.i.i.i
@@ -234,7 +234,7 @@ define hidden void @_ZN10phf_shared4hash17h905183aa0b0b0ccfE.llvm.85372212612730
   %.sroa.03.0.i10.i.i.i = phi i64 [ 4, %11 ], [ 0, %._crit_edge.i.i.i ]
   %.sroa.0.0.i11.i.i.i = phi i64 [ %13, %11 ], [ 0, %._crit_edge.i.i.i ]
   %15 = or disjoint i64 %.sroa.03.0.i10.i.i.i, 1
-  %16 = icmp samesign ult i64 %15, %8
+  %16 = icmp samesign ult i64 %15, %9
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %14
@@ -251,7 +251,7 @@ define hidden void @_ZN10phf_shared4hash17h905183aa0b0b0ccfE.llvm.85372212612730
 25:                                               ; preds = %17, %14
   %.sroa.03.1.i12.i.i.i = phi i64 [ %24, %17 ], [ %.sroa.03.0.i10.i.i.i, %14 ]
   %.sroa.0.1.i13.i.i.i = phi i64 [ %23, %17 ], [ %.sroa.0.0.i11.i.i.i, %14 ]
-  %26 = icmp samesign ult i64 %.sroa.03.1.i12.i.i.i, %8
+  %26 = icmp samesign ult i64 %.sroa.03.1.i12.i.i.i, %9
   br i1 %26, label %27, label %"_ZN43_$LT$str$u20$as$u20$phf_shared..PhfHash$GT$8phf_hash17h7c53e0c190c8bc72E.exit"
 
 27:                                               ; preds = %25
@@ -291,7 +291,7 @@ define hidden void @_ZN10phf_shared4hash17h905183aa0b0b0ccfE.llvm.85372212612730
   %55 = tail call i64 @llvm.fshl.i64(i64 %52, i64 %52, i64 32)
   %56 = xor i64 %49, %.sroa.0.0.copyload.i.i.i
   %57 = add nuw i64 %.sroa.01.118.i.i.i, 8
-  %58 = icmp ult i64 %57, %9
+  %58 = icmp ult i64 %57, %8
   br i1 %58, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 "_ZN43_$LT$str$u20$as$u20$phf_shared..PhfHash$GT$8phf_hash17h7c53e0c190c8bc72E.exit": ; preds = %25, %27

@@ -3043,35 +3043,35 @@ _ZN3ue2L13getShengStateI5shengEEhRNS_6dstateERNS_8dfa_infoERSt3mapItNS_11AccelSc
   %422 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %384, i64 %421
   %423 = getelementptr i8, ptr %422, i64 26
   %.val.i92.i = load i16, ptr %423, align 2, !noalias !171
-  %424 = getelementptr i8, ptr %422, i64 40
-  %.val15.i.i = load i64, ptr %424, align 8, !noalias !171
   %.26.val.fr.i.i93.i = freeze i16 %.val.i92.i
-  %425 = add i16 %.26.val.fr.i.i93.i, %173
+  %424 = add i16 %.26.val.fr.i.i93.i, %173
   br label %.lr.ph.i.i.i.i.i94.i
 
 .lr.ph.i.i.i.i.i94.i:                             ; preds = %.lr.ph.i.i.i.i.i94.i, %.lr.ph.i.i.i.i.preheader.i.i
   %.012.i.i.i.i.i95.i = phi ptr [ %.1.i.i.i.i.i100.i, %.lr.ph.i.i.i.i.i94.i ], [ %393, %.lr.ph.i.i.i.i.preheader.i.i ]
   %.0811.i.i.i.i.i96.i = phi ptr [ %.19.i.i.i.i.i97.i, %.lr.ph.i.i.i.i.i94.i ], [ %177, %.lr.ph.i.i.i.i.preheader.i.i ]
-  %426 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i95.i, i64 32
-  %427 = load i16, ptr %426, align 2, !noalias !171
-  %428 = icmp ult i16 %427, %425
-  %.19.i.i.i.i.i97.i = select i1 %428, ptr %.0811.i.i.i.i.i96.i, ptr %.012.i.i.i.i.i95.i
-  %.1.in.v.i.i.i.i.i98.i = select i1 %428, i64 24, i64 16
+  %425 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i95.i, i64 32
+  %426 = load i16, ptr %425, align 2, !noalias !171
+  %427 = icmp ult i16 %426, %424
+  %.19.i.i.i.i.i97.i = select i1 %427, ptr %.0811.i.i.i.i.i96.i, ptr %.012.i.i.i.i.i95.i
+  %.1.in.v.i.i.i.i.i98.i = select i1 %427, i64 24, i64 16
   %.1.in.i.i.i.i.i99.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i95.i, i64 %.1.in.v.i.i.i.i.i98.i
   %.1.i.i.i.i.i100.i = load ptr, ptr %.1.in.i.i.i.i.i99.i, align 8, !noalias !171
   %.not.i.i.i.i.i101.i = icmp eq ptr %.1.i.i.i.i.i100.i, null
   br i1 %.not.i.i.i.i.i101.i, label %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i102.i, label %.lr.ph.i.i.i.i.i94.i, !llvm.loop !178
 
 _ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i102.i: ; preds = %.lr.ph.i.i.i.i.i94.i
+  %428 = getelementptr i8, ptr %422, i64 40
+  %.val15.i.i = load i64, ptr %428, align 8, !noalias !171
   %429 = icmp eq ptr %.19.i.i.i.i.i97.i, %177
   br i1 %429, label %_ZN3ue2L13getShengStateI5shengEEhRNS_6dstateERNS_8dfa_infoERSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE.exit.i104.i, label %430
 
 430:                                              ; preds = %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i102.i
-  %.19.i.i.i.i.i97.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %428, ptr %.0811.i.i.i.i.i96.i, ptr %.012.i.i.i.i.i95.i
+  %.19.i.i.i.i.i97.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %427, ptr %.0811.i.i.i.i.i96.i, ptr %.012.i.i.i.i.i95.i
   %.19.i.i.i.i.i97.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i97.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %431 = load i16, ptr %.19.i.i.i.i.i97.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel, align 2, !noalias !171
   %.fr.i.i103.i = freeze i16 %431
-  %432 = icmp ult i16 %425, %.fr.i.i103.i
+  %432 = icmp ult i16 %424, %.fr.i.i103.i
   br label %_ZN3ue2L13getShengStateI5shengEEhRNS_6dstateERNS_8dfa_infoERSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE.exit.i104.i
 
 _ZN3ue2L13getShengStateI5shengEEhRNS_6dstateERNS_8dfa_infoERSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE.exit.i104.i: ; preds = %430, %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i102.i
@@ -4055,35 +4055,35 @@ _ZN3ue2L13getShengStateI7sheng32EEhRNS_6dstateERNS_8dfa_infoERSt3mapItNS_11Accel
   %427 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %389, i64 %426
   %428 = getelementptr i8, ptr %427, i64 26
   %.val.i92.i = load i16, ptr %428, align 2, !noalias !184
-  %429 = getelementptr i8, ptr %427, i64 40
-  %.val17.i.i = load i64, ptr %429, align 8, !noalias !184
   %.26.val.fr.i.i93.i = freeze i16 %.val.i92.i
-  %430 = add i16 %.26.val.fr.i.i93.i, %177
+  %429 = add i16 %.26.val.fr.i.i93.i, %177
   br label %.lr.ph.i.i.i.i.i94.i
 
 .lr.ph.i.i.i.i.i94.i:                             ; preds = %.lr.ph.i.i.i.i.i94.i, %.lr.ph.i.i.i.i.preheader.i.i
   %.012.i.i.i.i.i95.i = phi ptr [ %.1.i.i.i.i.i100.i, %.lr.ph.i.i.i.i.i94.i ], [ %386, %.lr.ph.i.i.i.i.preheader.i.i ]
   %.0811.i.i.i.i.i96.i = phi ptr [ %.19.i.i.i.i.i97.i, %.lr.ph.i.i.i.i.i94.i ], [ %181, %.lr.ph.i.i.i.i.preheader.i.i ]
-  %431 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i95.i, i64 32
-  %432 = load i16, ptr %431, align 2, !noalias !184
-  %433 = icmp ult i16 %432, %430
-  %.19.i.i.i.i.i97.i = select i1 %433, ptr %.0811.i.i.i.i.i96.i, ptr %.012.i.i.i.i.i95.i
-  %.1.in.v.i.i.i.i.i98.i = select i1 %433, i64 24, i64 16
+  %430 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i95.i, i64 32
+  %431 = load i16, ptr %430, align 2, !noalias !184
+  %432 = icmp ult i16 %431, %429
+  %.19.i.i.i.i.i97.i = select i1 %432, ptr %.0811.i.i.i.i.i96.i, ptr %.012.i.i.i.i.i95.i
+  %.1.in.v.i.i.i.i.i98.i = select i1 %432, i64 24, i64 16
   %.1.in.i.i.i.i.i99.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i95.i, i64 %.1.in.v.i.i.i.i.i98.i
   %.1.i.i.i.i.i100.i = load ptr, ptr %.1.in.i.i.i.i.i99.i, align 8, !noalias !184
   %.not.i.i.i.i.i101.i = icmp eq ptr %.1.i.i.i.i.i100.i, null
   br i1 %.not.i.i.i.i.i101.i, label %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i102.i, label %.lr.ph.i.i.i.i.i94.i, !llvm.loop !178
 
 _ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i102.i: ; preds = %.lr.ph.i.i.i.i.i94.i
+  %433 = getelementptr i8, ptr %427, i64 40
+  %.val17.i.i = load i64, ptr %433, align 8, !noalias !184
   %434 = icmp eq ptr %.19.i.i.i.i.i97.i, %181
   br i1 %434, label %_ZN3ue2L13getShengStateI7sheng32EEhRNS_6dstateERNS_8dfa_infoERSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE.exit.i104.i, label %435
 
 435:                                              ; preds = %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i102.i
-  %.19.i.i.i.i.i97.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %433, ptr %.0811.i.i.i.i.i96.i, ptr %.012.i.i.i.i.i95.i
+  %.19.i.i.i.i.i97.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %432, ptr %.0811.i.i.i.i.i96.i, ptr %.012.i.i.i.i.i95.i
   %.19.i.i.i.i.i97.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i97.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %436 = load i16, ptr %.19.i.i.i.i.i97.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel, align 2, !noalias !184
   %.fr.i.i103.i = freeze i16 %436
-  %437 = icmp ult i16 %430, %.fr.i.i103.i
+  %437 = icmp ult i16 %429, %.fr.i.i103.i
   br label %_ZN3ue2L13getShengStateI7sheng32EEhRNS_6dstateERNS_8dfa_infoERSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE.exit.i104.i
 
 _ZN3ue2L13getShengStateI7sheng32EEhRNS_6dstateERNS_8dfa_infoERSt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS7_EEE.exit.i104.i: ; preds = %435, %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i102.i

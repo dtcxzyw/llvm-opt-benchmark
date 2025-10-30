@@ -783,35 +783,35 @@ define internal i32 @rtl_init_one(ptr noundef %0, ptr noundef readonly captures(
   %79 = lshr i32 %74, 20
   %80 = trunc nuw nsw i32 %79 to i16
   %81 = and i16 %80, 4047
-  %82 = load i8, ptr %15, align 8
-  br label %83
+  br label %82
 
-83:                                               ; preds = %83, %78
-  %84 = phi ptr [ @rtl8169_get_mac_version.mac_info, %78 ], [ %90, %83 ]
-  %85 = load i16, ptr %84, align 4
-  %86 = and i16 %81, %85
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 2
-  %88 = load i16, ptr %87, align 2
-  %89 = icmp eq i16 %86, %88
-  %90 = getelementptr i8, ptr %84, i64 8
-  br i1 %89, label %91, label %83, !llvm.loop !23
+82:                                               ; preds = %82, %78
+  %83 = phi ptr [ @rtl8169_get_mac_version.mac_info, %78 ], [ %89, %82 ]
+  %84 = load i16, ptr %83, align 4
+  %85 = and i16 %81, %84
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 2
+  %87 = load i16, ptr %86, align 2
+  %88 = icmp eq i16 %85, %87
+  %89 = getelementptr i8, ptr %83, i64 8
+  br i1 %88, label %90, label %82, !llvm.loop !23
 
-91:                                               ; preds = %83
-  %92 = and i8 %82, 1
+90:                                               ; preds = %82
+  %91 = load i8, ptr %15, align 8
+  %92 = and i8 %91, 1
   %93 = icmp ne i8 %92, 0
-  %94 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %95, 44
   %97 = or i1 %93, %96
   br i1 %97, label %99, label %98
 
-98:                                               ; preds = %91
+98:                                               ; preds = %90
   switch i32 %95, label %.thread14 [
     i32 34, label %.thread14.thread
     i32 37, label %.thread14.thread.fold.split
   ]
 
-99:                                               ; preds = %91
+99:                                               ; preds = %90
   br i1 %96, label %100, label %.thread14
 
 100:                                              ; preds = %99

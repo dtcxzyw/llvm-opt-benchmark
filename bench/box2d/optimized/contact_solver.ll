@@ -556,37 +556,37 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %.sroa.092.0.copyload = load <2 x float>, ptr %47, align 4
   %.sroa.0.4.vec.extract.i198 = extractelement <2 x float> %.sroa.092.0.copyload, i64 1
   %.sroa.0.0.vec.extract.i199 = extractelement <2 x float> %.sroa.092.0.copyload, i64 0
-  %48 = fneg float %.sroa.0.0.vec.extract.i199
-  %49 = getelementptr inbounds nuw i8, ptr %21, i64 120
-  %50 = load float, ptr %49, align 4, !tbaa !95
-  %51 = getelementptr inbounds nuw i8, ptr %21, i64 144
-  %.sroa.088.0.copyload = load float, ptr %51, align 4, !tbaa !36
+  %48 = getelementptr inbounds nuw i8, ptr %21, i64 120
+  %49 = load float, ptr %48, align 4, !tbaa !95
+  %50 = getelementptr inbounds nuw i8, ptr %21, i64 144
+  %.sroa.088.0.copyload = load float, ptr %50, align 4, !tbaa !36
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 148
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !36
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 152
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !36
-  %52 = getelementptr inbounds nuw i8, ptr %21, i64 156
-  %53 = load i32, ptr %52, align 4, !tbaa !104
-  %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %.lr.ph, label %._crit_edge
+  %51 = getelementptr inbounds nuw i8, ptr %21, i64 156
+  %52 = load i32, ptr %51, align 4, !tbaa !104
+  %53 = icmp sgt i32 %52, 0
+  br i1 %53, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.cont346
   %.sroa.gep339 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %.sroa.sel340 = select i1 %38, ptr %.sroa.9, ptr %.sroa.gep339
   %.sroa.097.0.copyload = load <2 x float>, ptr %.sroa.sel340, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.05.0.vec.extract.i = extractelement <2 x float> %.sroa.097.0.copyload, i64 0
   %.sroa.05.4.vec.extract.i = extractelement <2 x float> %.sroa.097.0.copyload, i64 1
   %.sroa.05.0.vec.extract.i202 = extractelement <2 x float> %.sroa.0116.0.copyload, i64 0
   %.sroa.05.4.vec.extract.i204 = extractelement <2 x float> %.sroa.0116.0.copyload, i64 1
-  %wide.trip.count = zext nneg i32 %53 to i64
+  %wide.trip.count = zext nneg i32 %52 to i64
   br label %59
 
-.lr.ph370:                                        ; preds = %94
+.preheader:                                       ; preds = %94
+  %55 = fneg float %.sroa.0.0.vec.extract.i199
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %58 = load float, ptr %57, align 4, !tbaa !103
-  %wide.trip.count388 = zext nneg i32 %53 to i64
+  %wide.trip.count388 = zext nneg i32 %52 to i64
   br label %167
 
 59:                                               ; preds = %.lr.ph, %94
@@ -596,7 +596,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %.sroa.0105.0358 = phi <2 x float> [ %.sroa.0105.0.copyload, %.lr.ph ], [ %.sroa.03.4.vec.insert.i269, %94 ]
   %.0185357 = phi float [ %42, %.lr.ph ], [ %146, %94 ]
   %.0187356 = phi float [ 0.000000e+00, %.lr.ph ], [ %126, %94 ]
-  %60 = getelementptr inbounds nuw %struct.b2ContactConstraintPoint, ptr %55, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw %struct.b2ContactConstraintPoint, ptr %54, i64 %indvars.iv
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load <2 x float>, ptr %61, align 4
   %.sroa.0.0.vec.extract.i200 = extractelement <2 x float> %62, i64 0
@@ -712,7 +712,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %146 = fadd float %.0185357, %145
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph370, label %59, !llvm.loop !143
+  br i1 %exitcond.not, label %.preheader, label %59, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %167, %.cont346
   %.0187.lcssa403 = phi float [ 0.000000e+00, %.cont346 ], [ %126, %167 ]
@@ -763,12 +763,12 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %exitcond394.not = icmp eq i64 %indvars.iv.next391, %wide.trip.count393
   br i1 %exitcond394.not, label %._crit_edge379, label %20, !llvm.loop !144
 
-167:                                              ; preds = %.lr.ph370, %167
-  %indvars.iv385 = phi i64 [ 0, %.lr.ph370 ], [ %indvars.iv.next386, %167 ]
-  %.sroa.0124.1369 = phi <2 x float> [ %.sroa.03.4.vec.insert.i, %.lr.ph370 ], [ %.sroa.03.4.vec.insert.i313, %167 ]
-  %.1368 = phi float [ %137, %.lr.ph370 ], [ %209, %167 ]
-  %.sroa.0105.1367 = phi <2 x float> [ %.sroa.03.4.vec.insert.i269, %.lr.ph370 ], [ %.sroa.03.4.vec.insert.i323, %167 ]
-  %.1186366 = phi float [ %146, %.lr.ph370 ], [ %218, %167 ]
+167:                                              ; preds = %.preheader, %167
+  %indvars.iv385 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next386, %167 ]
+  %.sroa.0124.1369 = phi <2 x float> [ %.sroa.03.4.vec.insert.i, %.preheader ], [ %.sroa.03.4.vec.insert.i313, %167 ]
+  %.1368 = phi float [ %137, %.preheader ], [ %209, %167 ]
+  %.sroa.0105.1367 = phi <2 x float> [ %.sroa.03.4.vec.insert.i269, %.preheader ], [ %.sroa.03.4.vec.insert.i323, %167 ]
+  %.1186366 = phi float [ %146, %.preheader ], [ %218, %167 ]
   %168 = getelementptr inbounds nuw %struct.b2ContactConstraintPoint, ptr %56, i64 %indvars.iv385
   %.sroa.026.0.copyload = load <2 x float>, ptr %168, align 4
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
@@ -799,7 +799,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %185 = load float, ptr %184, align 4, !tbaa !129
   %186 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %187 = load float, ptr %186, align 4, !tbaa !121
-  %188 = fmul float %50, %187
+  %188 = fmul float %49, %187
   %189 = getelementptr inbounds nuw i8, ptr %168, i64 28
   %190 = load float, ptr %189, align 4, !tbaa !124
   %191 = fmul float %185, %183
@@ -812,7 +812,7 @@ define hidden void @b2SolveOverflowContacts(ptr noundef readonly captures(none) 
   %198 = fsub float %197, %190
   store float %197, ptr %189, align 4, !tbaa !124
   %199 = fmul float %.sroa.0.4.vec.extract.i198, %198
-  %200 = fmul float %198, %48
+  %200 = fmul float %198, %55
   %201 = fmul float %23, %199
   %202 = fsub float %.sroa.01.0.vec.extract.i288, %201
   %.sroa.03.0.vec.insert.i310 = insertelement <2 x float> poison, float %202, i64 0

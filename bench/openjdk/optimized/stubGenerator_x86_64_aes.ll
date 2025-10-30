@@ -3325,10 +3325,10 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   store i8 0, ptr %98, align 8
   %.add = add nuw nsw i64 %.idx, 40
   %99 = icmp eq i64 %.add, 120
-  br i1 %99, label %.preheader595, label %95
+  br i1 %99, label %.preheader583, label %95
 
-.preheader595:                                    ; preds = %95, %.preheader595
-  %.idx513 = phi i64 [ %.add514, %.preheader595 ], [ 0, %95 ]
+.preheader583:                                    ; preds = %95, %.preheader583
+  %.idx513 = phi i64 [ %.add514, %.preheader583 ], [ 0, %95 ]
   %.ptr515 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx513
   store i32 -1, ptr %.ptr515, align 8
   %100 = getelementptr inbounds nuw i8, ptr %.ptr515, i64 20
@@ -3339,10 +3339,10 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   store i8 0, ptr %102, align 8
   %.add514 = add nuw nsw i64 %.idx513, 40
   %103 = icmp eq i64 %.add514, 120
-  br i1 %103, label %.preheader594, label %.preheader595
+  br i1 %103, label %.preheader582, label %.preheader583
 
-.preheader594:                                    ; preds = %.preheader595, %.preheader594
-  %.idx517 = phi i64 [ %.add518, %.preheader594 ], [ 0, %.preheader595 ]
+.preheader582:                                    ; preds = %.preheader583, %.preheader582
+  %.idx517 = phi i64 [ %.add518, %.preheader582 ], [ 0, %.preheader583 ]
   %.ptr519 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx517
   store i32 -1, ptr %.ptr519, align 8
   %104 = getelementptr inbounds nuw i8, ptr %.ptr519, i64 20
@@ -3353,10 +3353,10 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   store i8 0, ptr %106, align 8
   %.add518 = add nuw nsw i64 %.idx517, 40
   %107 = icmp eq i64 %.add518, 120
-  br i1 %107, label %.preheader593, label %.preheader594
+  br i1 %107, label %.preheader581, label %.preheader582
 
-.preheader593:                                    ; preds = %.preheader594, %.preheader593
-  %.idx521 = phi i64 [ %.add522, %.preheader593 ], [ 0, %.preheader594 ]
+.preheader581:                                    ; preds = %.preheader582, %.preheader581
+  %.idx521 = phi i64 [ %.add522, %.preheader581 ], [ 0, %.preheader582 ]
   %.ptr523 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx521
   store i32 -1, ptr %.ptr523, align 8
   %108 = getelementptr inbounds nuw i8, ptr %.ptr523, i64 20
@@ -3367,10 +3367,10 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   store i8 0, ptr %110, align 8
   %.add522 = add nuw nsw i64 %.idx521, 40
   %111 = icmp eq i64 %.add522, 120
-  br i1 %111, label %.preheader, label %.preheader593
+  br i1 %111, label %.preheader580, label %.preheader581
 
-.preheader:                                       ; preds = %.preheader593, %.preheader
-  %.idx525 = phi i64 [ %.add526, %.preheader ], [ 0, %.preheader593 ]
+.preheader580:                                    ; preds = %.preheader581, %.preheader580
+  %.idx525 = phi i64 [ %.add526, %.preheader580 ], [ 0, %.preheader581 ]
   %.ptr527 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx525
   store i32 -1, ptr %.ptr527, align 8
   %112 = getelementptr inbounds nuw i8, ptr %.ptr527, i64 20
@@ -3381,9 +3381,9 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   store i8 0, ptr %114, align 8
   %.add526 = add nuw nsw i64 %.idx525, 40
   %115 = icmp eq i64 %.add526, 120
-  br i1 %115, label %116, label %.preheader
+  br i1 %115, label %116, label %.preheader580
 
-116:                                              ; preds = %.preheader
+116:                                              ; preds = %.preheader580
   call void @_ZN14MacroAssembler5enterEv(ptr noundef nonnull align 8 dereferenceable(40) %87) #7
   %117 = load ptr, ptr %83, align 8
   call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %117, i32 8) #7
@@ -4238,8 +4238,8 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   %607 = load ptr, ptr %83, align 8
   call void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %607, i32 4, i32 %spec.select.i534) #7
   %608 = add nuw nsw i32 %.0503575, 1
-  %exitcond584.not = icmp eq i32 %608, 10
-  br i1 %exitcond584.not, label %.sink.split, label %.lr.ph576, !llvm.loop !12
+  %exitcond588.not = icmp eq i32 %608, 10
+  br i1 %exitcond588.not, label %.sink.split, label %.lr.ph576, !llvm.loop !12
 
 609:                                              ; preds = %594
   br i1 %582, label %.lr.ph573.preheader, label %625
@@ -4248,7 +4248,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   %610 = getelementptr inbounds nuw i32, ptr @__const._ZN13StubGenerator53generate_cipherBlockChaining_decryptAESCrypt_ParallelEv.ROUNDS, i64 %indvars.iv
   %611 = load i32, ptr %610, align 4
   %612 = add i32 %611, -2
-  %smax581 = call i32 @llvm.smax.i32(i32 %612, i32 1)
+  %smax585 = call i32 @llvm.smax.i32(i32 %612, i32 1)
   br label %.lr.ph573
 
 .lr.ph573:                                        ; preds = %.lr.ph573.preheader, %.lr.ph573
@@ -4265,8 +4265,8 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   %617 = load ptr, ptr %83, align 8
   call void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %617, i32 4, i32 %spec.select.i542) #7
   %618 = add nuw i32 %.0504572, 1
-  %exitcond582.not = icmp eq i32 %.0504572, %smax581
-  br i1 %exitcond582.not, label %._crit_edge574, label %.lr.ph573, !llvm.loop !13
+  %exitcond586.not = icmp eq i32 %.0504572, %smax585
+  br i1 %exitcond586.not, label %._crit_edge574, label %.lr.ph573, !llvm.loop !13
 
 ._crit_edge574:                                   ; preds = %.lr.ph573
   %619 = load ptr, ptr %83, align 8
@@ -4319,8 +4319,8 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   %631 = load ptr, ptr %83, align 8
   call void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %631, i32 4, i32 %spec.select.i550) #7
   %632 = add nuw i32 %.0505570, 1
-  %exitcond580.not = icmp eq i32 %632, 11
-  br i1 %exitcond580.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  %exitcond584.not = icmp eq i32 %632, 11
+  br i1 %exitcond584.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %633 = load ptr, ptr %83, align 8
@@ -4522,19 +4522,19 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %671, ptr noundef nonnull align 8 dereferenceable(33) %587, i1 noundef zeroext true) #7
   %672 = load ptr, ptr %83, align 8
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %672, ptr noundef nonnull align 8 dereferenceable(33) %590) #7
-  br i1 %582, label %.sink.split590, label %673
+  br i1 %582, label %.sink.split594, label %673
 
 673:                                              ; preds = %664
   %674 = icmp eq i64 %indvars.iv, 2
-  br i1 %674, label %.sink.split590, label %676
+  br i1 %674, label %.sink.split594, label %676
 
-.sink.split590:                                   ; preds = %673, %664
-  %.sink591 = phi i32 [ 48, %664 ], [ 80, %673 ]
+.sink.split594:                                   ; preds = %673, %664
+  %.sink595 = phi i32 [ 48, %664 ], [ 80, %673 ]
   %675 = load ptr, ptr %83, align 8
-  call void @_ZN14MacroAssembler6addptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %675, i32 4, i32 noundef %.sink591) #7
+  call void @_ZN14MacroAssembler6addptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %675, i32 4, i32 noundef %.sink595) #7
   br label %676
 
-676:                                              ; preds = %.sink.split590, %673
+676:                                              ; preds = %.sink.split594, %673
   %677 = load ptr, ptr %83, align 8
   call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %677, i32 8, i32 noundef 0) #7
   %678 = load ptr, ptr %83, align 8
@@ -4658,8 +4658,8 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   %711 = add nuw nsw i32 %.0506578, 5
   call void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %710, i32 0, i32 %711) #7
   %712 = add nuw nsw i32 %.0506578, 1
-  %exitcond585.not = icmp eq i32 %712, 10
-  br i1 %exitcond585.not, label %713, label %709, !llvm.loop !15
+  %exitcond589.not = icmp eq i32 %712, 10
+  br i1 %exitcond589.not, label %713, label %709, !llvm.loop !15
 
 713:                                              ; preds = %709
   br i1 %582, label %.thread560, label %715
@@ -4667,7 +4667,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
 .thread560:                                       ; preds = %713
   %714 = load ptr, ptr %83, align 8
   call void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %714, i32 0, i32 3) #7
-  br label %.sink.split592
+  br label %.sink.split596
 
 715:                                              ; preds = %713
   br i1 %693, label %716, label %736
@@ -4754,14 +4754,14 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.sink.split592
+  br label %.sink.split596
 
-.sink.split592:                                   ; preds = %716, %.thread560
+.sink.split596:                                   ; preds = %716, %.thread560
   %735 = load ptr, ptr %83, align 8
   call void @_ZN9Assembler6aesdecE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %735, i32 0, i32 4) #7
   br label %736
 
-736:                                              ; preds = %.sink.split592, %715
+736:                                              ; preds = %.sink.split596, %715
   %737 = load ptr, ptr %83, align 8
   call void @_ZN9Assembler10aesdeclastE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %737, i32 0, i32 15) #7
   %738 = load ptr, ptr %83, align 8
@@ -4784,14 +4784,14 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   %743 = load ptr, ptr %83, align 8
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %743, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %705, i1 noundef zeroext true) #7
   %744 = load ptr, ptr %83, align 8
-  br i1 %693, label %.preheader563.preheader, label %745
+  br i1 %693, label %.preheader563, label %745
 
 745:                                              ; preds = %736
   call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %744, ptr noundef nonnull align 8 dereferenceable(33) %41, i1 noundef zeroext true) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %532
 
-.preheader563.preheader:                          ; preds = %736
+.preheader563:                                    ; preds = %736
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %744, ptr noundef nonnull align 8 dereferenceable(33) %41) #7
   %746 = load ptr, ptr %83, align 8
   store i32 1, ptr %82, align 8
@@ -5141,10 +5141,10 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %89, align 8
   %.add = add nuw nsw i64 %.idx, 40
   %90 = icmp eq i64 %.add, 120
-  br i1 %90, label %.preheader684, label %86
+  br i1 %90, label %.preheader683, label %86
 
-.preheader684:                                    ; preds = %86, %.preheader684
-  %.idx587 = phi i64 [ %.add588, %.preheader684 ], [ 0, %86 ]
+.preheader683:                                    ; preds = %86, %.preheader683
+  %.idx587 = phi i64 [ %.add588, %.preheader683 ], [ 0, %86 ]
   %.ptr589 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx587
   store i32 -1, ptr %.ptr589, align 8
   %91 = getelementptr inbounds nuw i8, ptr %.ptr589, i64 20
@@ -5155,10 +5155,10 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %93, align 8
   %.add588 = add nuw nsw i64 %.idx587, 40
   %94 = icmp eq i64 %.add588, 120
-  br i1 %94, label %.preheader683, label %.preheader684
+  br i1 %94, label %.preheader682, label %.preheader683
 
-.preheader683:                                    ; preds = %.preheader684, %.preheader683
-  %.idx591 = phi i64 [ %.add592, %.preheader683 ], [ 0, %.preheader684 ]
+.preheader682:                                    ; preds = %.preheader683, %.preheader682
+  %.idx591 = phi i64 [ %.add592, %.preheader682 ], [ 0, %.preheader683 ]
   %.ptr593 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx591
   store i32 -1, ptr %.ptr593, align 8
   %95 = getelementptr inbounds nuw i8, ptr %.ptr593, i64 20
@@ -5169,10 +5169,10 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %97, align 8
   %.add592 = add nuw nsw i64 %.idx591, 40
   %98 = icmp eq i64 %.add592, 720
-  br i1 %98, label %.preheader682, label %.preheader683
+  br i1 %98, label %.preheader681, label %.preheader682
 
-.preheader682:                                    ; preds = %.preheader683, %.preheader682
-  %.idx595 = phi i64 [ %.add596, %.preheader682 ], [ 0, %.preheader683 ]
+.preheader681:                                    ; preds = %.preheader682, %.preheader681
+  %.idx595 = phi i64 [ %.add596, %.preheader681 ], [ 0, %.preheader682 ]
   %.ptr597 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx595
   store i32 -1, ptr %.ptr597, align 8
   %99 = getelementptr inbounds nuw i8, ptr %.ptr597, i64 20
@@ -5183,10 +5183,10 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %101, align 8
   %.add596 = add nuw nsw i64 %.idx595, 40
   %102 = icmp eq i64 %.add596, 120
-  br i1 %102, label %.preheader681, label %.preheader682
+  br i1 %102, label %.preheader680, label %.preheader681
 
-.preheader681:                                    ; preds = %.preheader682, %.preheader681
-  %.idx599 = phi i64 [ %.add600, %.preheader681 ], [ 0, %.preheader682 ]
+.preheader680:                                    ; preds = %.preheader681, %.preheader680
+  %.idx599 = phi i64 [ %.add600, %.preheader680 ], [ 0, %.preheader681 ]
   %.ptr601 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx599
   store i32 -1, ptr %.ptr601, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.ptr601, i64 20
@@ -5197,10 +5197,10 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %105, align 8
   %.add600 = add nuw nsw i64 %.idx599, 40
   %106 = icmp eq i64 %.add600, 120
-  br i1 %106, label %.preheader680, label %.preheader681
+  br i1 %106, label %.preheader679, label %.preheader680
 
-.preheader680:                                    ; preds = %.preheader681, %.preheader680
-  %.idx603 = phi i64 [ %.add604, %.preheader680 ], [ 0, %.preheader681 ]
+.preheader679:                                    ; preds = %.preheader680, %.preheader679
+  %.idx603 = phi i64 [ %.add604, %.preheader679 ], [ 0, %.preheader680 ]
   %.ptr605 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx603
   store i32 -1, ptr %.ptr605, align 8
   %107 = getelementptr inbounds nuw i8, ptr %.ptr605, i64 20
@@ -5211,10 +5211,10 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %109, align 8
   %.add604 = add nuw nsw i64 %.idx603, 40
   %110 = icmp eq i64 %.add604, 120
-  br i1 %110, label %.preheader679, label %.preheader680
+  br i1 %110, label %.preheader678, label %.preheader679
 
-.preheader679:                                    ; preds = %.preheader680, %.preheader679
-  %.idx607 = phi i64 [ %.add608, %.preheader679 ], [ 0, %.preheader680 ]
+.preheader678:                                    ; preds = %.preheader679, %.preheader678
+  %.idx607 = phi i64 [ %.add608, %.preheader678 ], [ 0, %.preheader679 ]
   %.ptr609 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx607
   store i32 -1, ptr %.ptr609, align 8
   %111 = getelementptr inbounds nuw i8, ptr %.ptr609, i64 20
@@ -5225,10 +5225,10 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %113, align 8
   %.add608 = add nuw nsw i64 %.idx607, 40
   %114 = icmp eq i64 %.add608, 120
-  br i1 %114, label %.preheader678, label %.preheader679
+  br i1 %114, label %.preheader677, label %.preheader678
 
-.preheader678:                                    ; preds = %.preheader679, %.preheader678
-  %.idx611 = phi i64 [ %.add612, %.preheader678 ], [ 0, %.preheader679 ]
+.preheader677:                                    ; preds = %.preheader678, %.preheader677
+  %.idx611 = phi i64 [ %.add612, %.preheader677 ], [ 0, %.preheader678 ]
   %.ptr613 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx611
   store i32 -1, ptr %.ptr613, align 8
   %115 = getelementptr inbounds nuw i8, ptr %.ptr613, i64 20
@@ -5239,10 +5239,10 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %117, align 8
   %.add612 = add nuw nsw i64 %.idx611, 40
   %118 = icmp eq i64 %.add612, 120
-  br i1 %118, label %.preheader677, label %.preheader678
+  br i1 %118, label %.preheader676, label %.preheader677
 
-.preheader677:                                    ; preds = %.preheader678, %.preheader677
-  %.idx615 = phi i64 [ %.add616, %.preheader677 ], [ 0, %.preheader678 ]
+.preheader676:                                    ; preds = %.preheader677, %.preheader676
+  %.idx615 = phi i64 [ %.add616, %.preheader676 ], [ 0, %.preheader677 ]
   %.ptr617 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx615
   store i32 -1, ptr %.ptr617, align 8
   %119 = getelementptr inbounds nuw i8, ptr %.ptr617, i64 20
@@ -5253,10 +5253,10 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %121, align 8
   %.add616 = add nuw nsw i64 %.idx615, 40
   %122 = icmp eq i64 %.add616, 120
-  br i1 %122, label %.preheader676, label %.preheader677
+  br i1 %122, label %.preheader675, label %.preheader676
 
-.preheader676:                                    ; preds = %.preheader677, %.preheader676
-  %.idx619 = phi i64 [ %.add620, %.preheader676 ], [ 0, %.preheader677 ]
+.preheader675:                                    ; preds = %.preheader676, %.preheader675
+  %.idx619 = phi i64 [ %.add620, %.preheader675 ], [ 0, %.preheader676 ]
   %.ptr621 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx619
   store i32 -1, ptr %.ptr621, align 8
   %123 = getelementptr inbounds nuw i8, ptr %.ptr621, i64 20
@@ -5267,10 +5267,10 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %125, align 8
   %.add620 = add nuw nsw i64 %.idx619, 40
   %126 = icmp eq i64 %.add620, 120
-  br i1 %126, label %.preheader675, label %.preheader676
+  br i1 %126, label %.preheader674, label %.preheader675
 
-.preheader675:                                    ; preds = %.preheader676, %.preheader675
-  %.idx623 = phi i64 [ %.add624, %.preheader675 ], [ 0, %.preheader676 ]
+.preheader674:                                    ; preds = %.preheader675, %.preheader674
+  %.idx623 = phi i64 [ %.add624, %.preheader674 ], [ 0, %.preheader675 ]
   %.ptr625 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx623
   store i32 -1, ptr %.ptr625, align 8
   %127 = getelementptr inbounds nuw i8, ptr %.ptr625, i64 20
@@ -5281,10 +5281,10 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %129, align 8
   %.add624 = add nuw nsw i64 %.idx623, 40
   %130 = icmp eq i64 %.add624, 120
-  br i1 %130, label %.preheader674, label %.preheader675
+  br i1 %130, label %.preheader673, label %.preheader674
 
-.preheader674:                                    ; preds = %.preheader675, %.preheader674
-  %.idx627 = phi i64 [ %.add628, %.preheader674 ], [ 0, %.preheader675 ]
+.preheader673:                                    ; preds = %.preheader674, %.preheader673
+  %.idx627 = phi i64 [ %.add628, %.preheader673 ], [ 0, %.preheader674 ]
   %.ptr629 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx627
   store i32 -1, ptr %.ptr629, align 8
   %131 = getelementptr inbounds nuw i8, ptr %.ptr629, i64 20
@@ -5295,10 +5295,10 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %133, align 8
   %.add628 = add nuw nsw i64 %.idx627, 40
   %134 = icmp eq i64 %.add628, 120
-  br i1 %134, label %.preheader, label %.preheader674
+  br i1 %134, label %.preheader672, label %.preheader673
 
-.preheader:                                       ; preds = %.preheader674, %.preheader
-  %.idx631 = phi i64 [ %.add632, %.preheader ], [ 0, %.preheader674 ]
+.preheader672:                                    ; preds = %.preheader673, %.preheader672
+  %.idx631 = phi i64 [ %.add632, %.preheader672 ], [ 0, %.preheader673 ]
   %.ptr633 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx631
   store i32 -1, ptr %.ptr633, align 8
   %135 = getelementptr inbounds nuw i8, ptr %.ptr633, i64 20
@@ -5309,9 +5309,9 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   store i8 0, ptr %137, align 8
   %.add632 = add nuw nsw i64 %.idx631, 40
   %138 = icmp eq i64 %.add632, 120
-  br i1 %138, label %139, label %.preheader
+  br i1 %138, label %139, label %.preheader672
 
-139:                                              ; preds = %.preheader
+139:                                              ; preds = %.preheader672
   store i32 -1, ptr %25, align 8
   %140 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i32 0, ptr %140, align 4
@@ -6435,10 +6435,10 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   %681 = load ptr, ptr %63, align 8
   call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %681, ptr noundef nonnull align 8 dereferenceable(33) %25, i1 noundef zeroext true) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond673.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond673.not, label %.preheader665.preheader, label %.lr.ph.preheader, !llvm.loop !18
+  %exitcond685.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond685.not, label %.preheader665, label %.lr.ph.preheader, !llvm.loop !18
 
-.preheader665.preheader:                          ; preds = %._crit_edge670
+.preheader665:                                    ; preds = %._crit_edge670
   %682 = load ptr, ptr %63, align 8
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %682, ptr noundef nonnull align 8 dereferenceable(33) %25) #7
   %683 = load ptr, ptr %63, align 8

@@ -459,7 +459,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %.6163.lcssa = phi i32 [ %.2159, %.preheader205 ], [ %124, %.lr.ph254 ]
   %.6143.lcssa = phi ptr [ %.2139, %.preheader205 ], [ %123, %.lr.ph254 ]
   %.6.lcssa = phi ptr [ %.2, %.preheader205 ], [ %122, %.lr.ph254 ]
-  %116 = add nsw i32 %.6163.lcssa, 3
+  %116 = add nuw nsw i32 %.6163.lcssa, 3
   %117 = icmp slt i32 %116, %6
   br i1 %117, label %.lr.ph261, label %.loopexit204
 
@@ -474,8 +474,8 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   store <8 x float> %121, ptr %.6253, align 1, !tbaa !45
   %122 = getelementptr inbounds nuw i8, ptr %.6253, i64 32
   %123 = getelementptr inbounds nuw i8, ptr %.6143252, i64 32
-  %124 = add nsw i32 %.6163251, 8
-  %125 = add nsw i32 %.6163251, 15
+  %124 = add nuw nsw i32 %.6163251, 8
+  %125 = add nuw nsw i32 %.6163251, 15
   %126 = icmp slt i32 %125, %6
   br i1 %126, label %.lr.ph254, label %.preheader203, !llvm.loop !54
 
@@ -490,8 +490,8 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   store <4 x float> %130, ptr %.7260, align 1, !tbaa !45
   %131 = getelementptr inbounds nuw i8, ptr %.7260, i64 16
   %132 = getelementptr inbounds nuw i8, ptr %.7144259, i64 16
-  %133 = add nsw i32 %.7164258, 4
-  %134 = add nsw i32 %.7164258, 7
+  %133 = add nuw nsw i32 %.7164258, 4
+  %134 = add nuw nsw i32 %.7164258, 7
   %135 = icmp slt i32 %134, %6
   br i1 %135, label %.lr.ph261, label %.loopexit204, !llvm.loop !55
 
@@ -513,7 +513,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   store float %140, ptr %.8267, align 4, !tbaa !49
   %141 = getelementptr inbounds nuw i8, ptr %.8267, i64 4
   %142 = getelementptr inbounds nuw i8, ptr %.8145266, i64 4
-  %143 = add nsw i32 %.8165265, 1
+  %143 = add nuw nsw i32 %.8165265, 1
   %exitcond309.not = icmp eq i32 %143, %6
   br i1 %exitcond309.not, label %.loopexit, label %.lr.ph269, !llvm.loop !56
 
@@ -974,7 +974,7 @@ define internal void @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatERKNS_
   %.6163.lcssa.i = phi i32 [ %.2159.i, %.preheader205.i ], [ %166, %.lr.ph254.i ]
   %.6143.lcssa.i = phi ptr [ %.2139.i, %.preheader205.i ], [ %165, %.lr.ph254.i ]
   %.6.lcssa.i = phi ptr [ %.2.i, %.preheader205.i ], [ %164, %.lr.ph254.i ]
-  %158 = add nsw i32 %.6163.lcssa.i, 3
+  %158 = add nuw nsw i32 %.6163.lcssa.i, 3
   %159 = icmp slt i32 %158, %48
   br i1 %159, label %.lr.ph261.i, label %.loopexit204.i
 
@@ -989,8 +989,8 @@ define internal void @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatERKNS_
   store <8 x float> %163, ptr %.6253.i, align 1, !tbaa !45
   %164 = getelementptr inbounds nuw i8, ptr %.6253.i, i64 32
   %165 = getelementptr inbounds nuw i8, ptr %.6143252.i, i64 32
-  %166 = add nsw i32 %.6163251.i, 8
-  %167 = add nsw i32 %.6163251.i, 15
+  %166 = add nuw nsw i32 %.6163251.i, 8
+  %167 = add nuw nsw i32 %.6163251.i, 15
   %168 = icmp slt i32 %167, %48
   br i1 %168, label %.lr.ph254.i, label %.preheader203.i, !llvm.loop !54
 
@@ -1005,8 +1005,8 @@ define internal void @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatERKNS_
   store <4 x float> %172, ptr %.7260.i, align 1, !tbaa !45
   %173 = getelementptr inbounds nuw i8, ptr %.7260.i, i64 16
   %174 = getelementptr inbounds nuw i8, ptr %.7144259.i, i64 16
-  %175 = add nsw i32 %.7164258.i, 4
-  %176 = add nsw i32 %.7164258.i, 7
+  %175 = add nuw nsw i32 %.7164258.i, 4
+  %176 = add nuw nsw i32 %.7164258.i, 7
   %177 = icmp slt i32 %176, %48
   br i1 %177, label %.lr.ph261.i, label %.loopexit204.i, !llvm.loop !55
 
@@ -1028,7 +1028,7 @@ define internal void @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatERKNS_
   store float %182, ptr %.8267.i, align 4, !tbaa !49
   %183 = getelementptr inbounds nuw i8, ptr %.8267.i, i64 4
   %184 = getelementptr inbounds nuw i8, ptr %.8145266.i, i64 4
-  %185 = add nsw i32 %.8165265.i, 1
+  %185 = add nuw nsw i32 %.8165265.i, 1
   %exitcond309.not.i = icmp eq i32 %185, %48
   br i1 %exitcond309.not.i, label %_ZN4ncnnL7rmsnormEPfPKffii.exit, label %.lr.ph269.i, !llvm.loop !56
 

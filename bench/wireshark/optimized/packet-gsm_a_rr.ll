@@ -7603,7 +7603,7 @@ define internal noundef zeroext i16 @de_rr_mult_all(ptr noundef %0, ptr noundef 
 16:                                               ; preds = %._crit_edge52
   %17 = add i32 %3, 1
   %.not = icmp sgt i8 %8, -1
-  br i1 %.not, label %.loopexit, label %18
+  br i1 %.not, label %28, label %18
 
 18:                                               ; preds = %16
   %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %17)
@@ -7626,31 +7626,31 @@ define internal noundef zeroext i16 @de_rr_mult_all(ptr noundef %0, ptr noundef 
 
 ._crit_edge51:                                    ; preds = %23, %26
   %exitcond49.not = icmp eq i32 %.pre53, 7
-  br i1 %exitcond49.not, label %.loopexit.loopexit, label %23, !llvm.loop !35
+  br i1 %exitcond49.not, label %.loopexit, label %23, !llvm.loop !35
 
-.loopexit.loopexit:                               ; preds = %._crit_edge51
+.loopexit:                                        ; preds = %._crit_edge51
   %27 = add i32 %3, 2
-  br label %.loopexit
+  br label %28
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %16
-  %.036 = phi i32 [ %17, %16 ], [ %27, %.loopexit.loopexit ]
-  %28 = add i32 %4, %3
-  %29 = icmp ult i32 %.036, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge
+28:                                               ; preds = %.loopexit, %16
+  %.036 = phi i32 [ %17, %16 ], [ %27, %.loopexit ]
+  %29 = add i32 %4, %3
+  %30 = icmp ult i32 %.036, %29
+  br i1 %30, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.loopexit, %.lr.ph
-  %.13744 = phi i32 [ %32, %.lr.ph ], [ %.036, %.loopexit ]
-  %30 = load i32, ptr @hf_gsm_a_rr_ma_channel_set, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %30, ptr noundef %0, i32 noundef %.13744, i32 noundef 1, i32 noundef 0)
-  %32 = add i32 %.13744, 1
-  %exitcond50.not = icmp eq i32 %32, %28
+.lr.ph:                                           ; preds = %28, %.lr.ph
+  %.13744 = phi i32 [ %33, %.lr.ph ], [ %.036, %28 ]
+  %31 = load i32, ptr @hf_gsm_a_rr_ma_channel_set, align 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %31, ptr noundef %0, i32 noundef %.13744, i32 noundef 1, i32 noundef 0)
+  %33 = add i32 %.13744, 1
+  %exitcond50.not = icmp eq i32 %33, %29
   br i1 %exitcond50.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
-  %.137.lcssa = phi i32 [ %.036, %.loopexit ], [ %28, %.lr.ph ]
-  %33 = sub i32 %.137.lcssa, %3
-  %34 = trunc i32 %33 to i16
-  ret i16 %34
+._crit_edge:                                      ; preds = %.lr.ph, %28
+  %.137.lcssa = phi i32 [ %.036, %28 ], [ %29, %.lr.ph ]
+  %34 = sub i32 %.137.lcssa, %3
+  %35 = trunc i32 %34 to i16
+  ret i16 %35
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

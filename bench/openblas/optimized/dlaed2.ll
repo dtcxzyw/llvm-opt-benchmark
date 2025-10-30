@@ -603,46 +603,46 @@ define void @dlaed2_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef 
   br i1 %exitcond618.not, label %._crit_edge520, label %.lr.ph519, !llvm.loop !18
 
 ._crit_edge520:                                   ; preds = %.lr.ph519, %._crit_edge515
-  %316 = add nsw i32 %288, %289
-  %317 = load i32, ptr %2, align 4, !tbaa !3
-  %318 = mul nsw i32 %317, %316
-  %319 = add nsw i32 %318, 1
+  %316 = load i32, ptr %2, align 4, !tbaa !3
   store i32 %289, ptr %18, align 4, !tbaa !3
   %.not448521 = icmp slt i32 %289, 1
   br i1 %.not448521, label %._crit_edge527, label %.lr.ph526
 
 .lr.ph526:                                        ; preds = %._crit_edge520, %.lr.ph526
   %indvars.iv619 = phi i64 [ %indvars.iv.next620, %.lr.ph526 ], [ 1, %._crit_edge520 ]
-  %.0406524 = phi i32 [ %333, %.lr.ph526 ], [ 1, %._crit_edge520 ]
+  %.0406524 = phi i32 [ %330, %.lr.ph526 ], [ 1, %._crit_edge520 ]
   %indvars621 = trunc i64 %indvars.iv619 to i32
-  %320 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv619
-  %321 = load i32, ptr %320, align 4, !tbaa !3
-  %322 = mul nsw i32 %321, %26
-  %323 = sext i32 %322 to i64
-  %324 = getelementptr double, ptr %28, i64 %323
-  %325 = getelementptr i8, ptr %324, i64 8
-  %326 = sext i32 %.0406524 to i64
-  %327 = getelementptr inbounds double, ptr %33, i64 %326
-  call void @dcopy_(ptr noundef nonnull %2, ptr noundef %325, ptr noundef nonnull @c__1, ptr noundef nonnull %327, ptr noundef nonnull @c__1) #7
-  %328 = sext i32 %321 to i64
-  %329 = getelementptr inbounds double, ptr %25, i64 %328
-  %330 = load double, ptr %329, align 8, !tbaa !7
-  %331 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv619
-  store double %330, ptr %331, align 8, !tbaa !7
+  %317 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv619
+  %318 = load i32, ptr %317, align 4, !tbaa !3
+  %319 = mul nsw i32 %318, %26
+  %320 = sext i32 %319 to i64
+  %321 = getelementptr double, ptr %28, i64 %320
+  %322 = getelementptr i8, ptr %321, i64 8
+  %323 = sext i32 %.0406524 to i64
+  %324 = getelementptr inbounds double, ptr %33, i64 %323
+  call void @dcopy_(ptr noundef nonnull %2, ptr noundef %322, ptr noundef nonnull @c__1, ptr noundef nonnull %324, ptr noundef nonnull @c__1) #7
+  %325 = sext i32 %318 to i64
+  %326 = getelementptr inbounds double, ptr %25, i64 %325
+  %327 = load double, ptr %326, align 8, !tbaa !7
+  %328 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv619
+  store double %327, ptr %328, align 8, !tbaa !7
   %indvars.iv.next620 = add nuw nsw i64 %indvars.iv619, 1
-  %332 = load i32, ptr %2, align 4, !tbaa !3
-  %333 = add nsw i32 %332, %.0406524
-  %334 = load i32, ptr %18, align 4, !tbaa !3
-  %.not448.not = icmp sgt i32 %334, %indvars621
+  %329 = load i32, ptr %2, align 4, !tbaa !3
+  %330 = add nsw i32 %329, %.0406524
+  %331 = load i32, ptr %18, align 4, !tbaa !3
+  %.not448.not = icmp sgt i32 %331, %indvars621
   br i1 %.not448.not, label %.lr.ph526, label %._crit_edge527.loopexit, !llvm.loop !19
 
 ._crit_edge527.loopexit:                          ; preds = %.lr.ph526
-  %335 = trunc nuw i64 %indvars.iv.next620 to i32
+  %332 = trunc nuw i64 %indvars.iv.next620 to i32
   br label %._crit_edge527
 
 ._crit_edge527:                                   ; preds = %._crit_edge527.loopexit, %._crit_edge520
-  %.6424.lcssa = phi i32 [ 1, %._crit_edge520 ], [ %335, %._crit_edge527.loopexit ]
-  %.0406.lcssa = phi i32 [ 1, %._crit_edge520 ], [ %333, %._crit_edge527.loopexit ]
+  %.6424.lcssa = phi i32 [ 1, %._crit_edge520 ], [ %332, %._crit_edge527.loopexit ]
+  %.0406.lcssa = phi i32 [ 1, %._crit_edge520 ], [ %330, %._crit_edge527.loopexit ]
+  %333 = add nsw i32 %288, %289
+  %334 = mul nsw i32 %316, %333
+  %335 = add nsw i32 %334, 1
   %336 = load i32, ptr %292, align 4, !tbaa !3
   store i32 %336, ptr %18, align 4, !tbaa !3
   %.not449530 = icmp slt i32 %336, 1
@@ -654,7 +654,7 @@ define void @dlaed2_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef 
 
 .lr.ph536:                                        ; preds = %.lr.ph536.preheader, %.lr.ph536
   %indvars.iv624 = phi i64 [ %337, %.lr.ph536.preheader ], [ %indvars.iv.next625, %.lr.ph536 ]
-  %.1534 = phi i32 [ %319, %.lr.ph536.preheader ], [ %360, %.lr.ph536 ]
+  %.1534 = phi i32 [ %335, %.lr.ph536.preheader ], [ %360, %.lr.ph536 ]
   %.1407533 = phi i32 [ %.0406.lcssa, %.lr.ph536.preheader ], [ %358, %.lr.ph536 ]
   %.7532 = phi i32 [ 1, %.lr.ph536.preheader ], [ %361, %.lr.ph536 ]
   %338 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv624
@@ -695,7 +695,7 @@ define void @dlaed2_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef 
 
 ._crit_edge537:                                   ; preds = %._crit_edge537.loopexit, %._crit_edge527
   %.7425.lcssa = phi i32 [ %.6424.lcssa, %._crit_edge527 ], [ %363, %._crit_edge537.loopexit ]
-  %.1.lcssa = phi i32 [ %319, %._crit_edge527 ], [ %360, %._crit_edge537.loopexit ]
+  %.1.lcssa = phi i32 [ %335, %._crit_edge527 ], [ %360, %._crit_edge537.loopexit ]
   %364 = load i32, ptr %295, align 8, !tbaa !3
   store i32 %364, ptr %18, align 4, !tbaa !3
   %.not450540 = icmp slt i32 %364, 1

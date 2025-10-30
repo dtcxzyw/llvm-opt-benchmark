@@ -104374,7 +104374,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %8, %_
 
 20:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   store ptr getelementptr inbounds nuw inrange(-16, 296) (i8, ptr @_ZTV12AstTypeTable, i64 16), ptr %17, align 8, !tbaa !24
-  %.ptr5.i = getelementptr inbounds nuw i8, ptr %17, i64 152
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %17, i64 152
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 376
   store i32 0, ptr %21, align 8, !tbaa !488
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 384
@@ -104384,7 +104384,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %8, %_
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 400
   store ptr %21, ptr %24, align 8, !tbaa !490
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 408
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.ptr5.i, i8 0, i64 216, i1 false), !tbaa !491
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %scevgep.i, i8 0, i64 216, i1 false), !tbaa !491
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, i8 0, i64 48, i1 false)
   store ptr %17, ptr %16, align 8, !tbaa !276
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -119360,7 +119360,7 @@ _ZN7AstNode9privateAsI10AstSenItemPS_EEPT_S2_.exit.thread: ; preds = %10, %.preh
 define dso_local void @_ZN12AstTypeTableC2EP8FileLine(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %0, i16 44, ptr noundef %1)
   store ptr getelementptr inbounds nuw inrange(-16, 296) (i8, ptr @_ZTV12AstTypeTable, i64 16), ptr %0, align 8, !tbaa !24
-  %.ptr5 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i32 0, ptr %3, align 8, !tbaa !488
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -119370,7 +119370,7 @@ define dso_local void @_ZN12AstTypeTableC2EP8FileLine(ptr noundef nonnull align 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr %3, ptr %6, align 8, !tbaa !490
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.ptr5, i8 0, i64 216, i1 false), !tbaa !491
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %scevgep, i8 0, i64 216, i1 false), !tbaa !491
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   ret void
 }
@@ -145669,8 +145669,8 @@ _ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit: ; preds = %8, %162
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %81
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %83, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %82, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !235
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %82, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !235
   br label %"_ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZNK12AstNodeFTask16getPurityRecurseEvE3$_0EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit.i"
 
 86:                                               ; preds = %70
@@ -211492,8 +211492,8 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_default_a
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !235
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !235
   br label %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i

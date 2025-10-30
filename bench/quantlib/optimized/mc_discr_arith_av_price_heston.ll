@@ -533,27 +533,27 @@ ehcleanup25:                                      ; preds = %_ZNKSt7__cxx1112bas
 do.end:                                           ; preds = %entry
   %runningSum_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %20 = load double, ptr %runningSum_, align 8, !tbaa !36
-  %pastFixings_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %21 = load i64, ptr %pastFixings_, align 8, !tbaa !37
   %fixingIndices_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %22 = load ptr, ptr %_M_finish.i, align 8, !tbaa !34
-  %23 = load ptr, ptr %fixingIndices_, align 8, !tbaa !33
-  %cmp.i.not44 = icmp eq ptr %23, %22
+  %21 = load ptr, ptr %_M_finish.i, align 8, !tbaa !34
+  %22 = load ptr, ptr %fixingIndices_, align 8, !tbaa !33
+  %cmp.i.not44 = icmp eq ptr %22, %21
   br i1 %cmp.i.not44, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.end
   %values_.i = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = load ptr, ptr %values_.i, align 8, !tbaa !43
+  %23 = load ptr, ptr %values_.i, align 8, !tbaa !43
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %do.end
   %sum.0.lcssa = phi double [ %20, %do.end ], [ %add35, %for.body ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %22 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %23 to i64
+  %pastFixings_ = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %24 = load i64, ptr %pastFixings_, align 8, !tbaa !37
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %add = add i64 %sub.ptr.div.i, %21
+  %add = add i64 %sub.ptr.div.i, %24
   %conv = uitofp i64 %add to double
   %div = fdiv double %sum.0.lcssa, %conv
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -565,13 +565,13 @@ for.cond.cleanup:                                 ; preds = %for.body, %do.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %sum.046 = phi double [ %20, %for.body.lr.ph ], [ %add35, %for.body ]
-  %__begin1.sroa.0.045 = phi ptr [ %23, %for.body.lr.ph ], [ %incdec.ptr.i, %for.body ]
+  %__begin1.sroa.0.045 = phi ptr [ %22, %for.body.lr.ph ], [ %incdec.ptr.i, %for.body ]
   %26 = load i64, ptr %__begin1.sroa.0.045, align 8, !tbaa !8
-  %arrayidx.i.i = getelementptr inbounds nuw double, ptr %24, i64 %26
+  %arrayidx.i.i = getelementptr inbounds nuw double, ptr %23, i64 %26
   %27 = load double, ptr %arrayidx.i.i, align 8, !tbaa !44
   %add35 = fadd double %sum.046, %27
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.045, i64 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %22
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %21
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 
 unreachable:                                      ; preds = %invoke.cont15

@@ -217,6 +217,9 @@ sub_1:                                            ; preds = %sub_0
   %.not76 = icmp eq i8 %29, 116
   br i1 %.not76, label %.tail, label %.lr.ph.preheader
 
+.lr.ph.preheader:                                 ; preds = %sub_0, %.tail, %sub_1
+  br label %.lr.ph
+
 .tail:                                            ; preds = %sub_1
   %30 = getelementptr inbounds nuw i8, ptr %.058, i64 2
   %31 = load i8, ptr %30, align 1
@@ -278,36 +281,33 @@ sub_1:                                            ; preds = %sub_0
   call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.12) #13
   br label %setboolfield.exit
 
-.lr.ph.preheader:                                 ; preds = %sub_0, %.tail, %sub_1
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = load i64, ptr %65, align 8, !tbaa !28
-  %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 200
-  br label %.lr.ph
-
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %69 = phi i8 [ %74, %.lr.ph ], [ %27, %.lr.ph.preheader ]
-  %.06073 = phi ptr [ %73, %.lr.ph ], [ %.058, %.lr.ph.preheader ]
-  %.06272 = phi i32 [ %72, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %70 = icmp eq i8 %69, 37
-  %71 = select i1 %70, i32 30, i32 1
-  %72 = add i32 %71, %.06272
-  %73 = getelementptr inbounds nuw i8, ptr %.06073, i64 1
-  %74 = load i8, ptr %73, align 1, !tbaa !14
-  %.not65 = icmp eq i8 %74, 0
-  br i1 %.not65, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  %65 = phi i8 [ %70, %.lr.ph ], [ %27, %.lr.ph.preheader ]
+  %.06073 = phi ptr [ %69, %.lr.ph ], [ %.058, %.lr.ph.preheader ]
+  %.06272 = phi i32 [ %68, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %66 = icmp eq i8 %65, 37
+  %67 = select i1 %66, i32 30, i32 1
+  %68 = add i32 %67, %.06272
+  %69 = getelementptr inbounds nuw i8, ptr %.06073, i64 1
+  %70 = load i8, ptr %69, align 1, !tbaa !14
+  %.not65 = icmp eq i8 %70, 0
+  br i1 %.not65, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %72 = load i64, ptr %71, align 8, !tbaa !30
+  %73 = inttoptr i64 %72 to ptr
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 200
   %75 = ptrtoint ptr %0 to i64
-  %76 = getelementptr inbounds nuw i8, ptr %67, i64 224
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 224
   store i64 %75, ptr %76, align 8, !tbaa !31
-  %77 = getelementptr inbounds nuw i8, ptr %67, i64 208
-  %78 = getelementptr inbounds nuw i8, ptr %67, i64 216
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 208
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 216
   br label %79
 
 79:                                               ; preds = %._crit_edge, %107
   %80 = phi i32 [ 3, %._crit_edge ], [ %110, %107 ]
-  %.174 = phi i32 [ %72, %._crit_edge ], [ %109, %107 ]
+  %.174 = phi i32 [ %68, %._crit_edge ], [ %109, %107 ]
   %81 = load ptr, ptr %77, align 8, !tbaa !33
   %82 = load ptr, ptr %78, align 8, !tbaa !34
   %83 = ptrtoint ptr %81 to i64
@@ -318,7 +318,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %87, label %88, label %lj_buf_need.exit, !prof !35
 
 88:                                               ; preds = %79
-  %89 = call ptr @lj_buf_need2(ptr noundef nonnull %68, i32 noundef %.174) #13
+  %89 = call ptr @lj_buf_need2(ptr noundef nonnull %74, i32 noundef %.174) #13
   %.pre = load ptr, ptr %77, align 8, !tbaa !33
   %.pre80 = load ptr, ptr %78, align 8, !tbaa !34
   %.pre81 = ptrtoint ptr %.pre to i64
@@ -343,7 +343,7 @@ lj_buf_need.exit:                                 ; preds = %79, %88
   %97 = ptrtoint ptr %96 to i64
   %98 = or i64 %97, -703687441776640
   store i64 %98, ptr %94, align 8, !tbaa !14
-  %99 = load i64, ptr %65, align 8, !tbaa !28
+  %99 = load i64, ptr %71, align 8, !tbaa !30
   %100 = inttoptr i64 %99 to ptr
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load i64, ptr %101, align 8, !tbaa !36
@@ -369,7 +369,7 @@ lj_buf_need.exit:                                 ; preds = %79, %88
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %114, ptr %112, align 8, !tbaa !4
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %116 = load i64, ptr %115, align 8, !tbaa !28
+  %116 = load i64, ptr %115, align 8, !tbaa !30
   %117 = add nuw i64 %116, 120
   %118 = or i64 %117, -703687441776640
   store i64 %118, ptr %113, align 8, !tbaa !14
@@ -703,9 +703,9 @@ attributes #15 = { nounwind willreturn memory(none) }
 !25 = !{!18, !13, i64 24}
 !26 = !{!18, !13, i64 28}
 !27 = !{!18, !13, i64 32}
-!28 = !{!5, !7, i64 16}
-!29 = distinct !{!29, !30}
-!30 = !{!"llvm.loop.mustprogress"}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.mustprogress"}
+!30 = !{!5, !7, i64 16}
 !31 = !{!32, !7, i64 24}
 !32 = !{!"SBuf", !19, i64 0, !19, i64 8, !19, i64 16, !10, i64 24}
 !33 = !{!32, !19, i64 8}

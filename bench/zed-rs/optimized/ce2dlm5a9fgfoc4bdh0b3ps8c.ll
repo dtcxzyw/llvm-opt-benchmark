@@ -29143,14 +29143,14 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit: ; pr
   %.val9 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6406)
-  %19 = icmp sgt i64 %.val8, -1
   %.sroa.0.0.i.i.i.i = tail call i64 @llvm.abs.i64(i64 %.val8, i1 false)
-  %20 = icmp ugt i64 %.sroa.0.0.i.i.i.i, 9999
-  br i1 %20, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %19 = icmp ugt i64 %.sroa.0.0.i.i.i.i, 9999
+  br i1 %19, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit
   %.sroa.010.0.lcssa.i.i.i.i = phi i64 [ 20, %_ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit ], [ %30, %.lr.ph.i.i.i.i ]
   %.sroa.0.1.lcssa.i.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i, %_ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit ], [ %23, %.lr.ph.i.i.i.i ]
+  %20 = icmp sgt i64 %.val8, -1
   %21 = icmp samesign ugt i64 %.sroa.0.1.lcssa.i.i.i.i, 99
   br i1 %21, label %39, label %48
 
@@ -29218,7 +29218,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h1736c99c702e5a38E.exit: ; pr
 
 61:                                               ; preds = %56, %50
   %.sroa.010.2.i.i.i.i = phi i64 [ %57, %56 ], [ %52, %50 ]
-  br i1 %19, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h72e7b9e36ce973e9E.exit.i.i.i", label %62
+  br i1 %20, label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h72e7b9e36ce973e9E.exit.i.i.i", label %62
 
 62:                                               ; preds = %61
   %63 = add i64 %.sroa.010.2.i.i.i.i, -1

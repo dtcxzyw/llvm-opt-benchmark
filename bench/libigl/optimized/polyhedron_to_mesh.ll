@@ -423,23 +423,23 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %6 = load ptr, ptr %1, align 8
-  %7 = ptrtoint ptr %6 to i64
-  br label %8
+  br label %7
 
-8:                                                ; preds = %8, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %.1.i.i.i, %8 ]
-  %.0811.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %.19.i.i.i, %8 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !33
-  %11 = icmp ult ptr %10, %6
-  %.19.i.i.i = select i1 %11, ptr %.0811.i.i.i, ptr %.012.i.i.i
-  %.1.in.v.i.i.i = select i1 %11, i64 24, i64 16
+7:                                                ; preds = %7, %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %.1.i.i.i, %7 ]
+  %.0811.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %.19.i.i.i, %7 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %10 = icmp ult ptr %9, %6
+  %.19.i.i.i = select i1 %10, ptr %.0811.i.i.i, ptr %.012.i.i.i
+  %.1.in.v.i.i.i = select i1 %10, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !45
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEEmSt4lessISL_ESaISt4pairIKSL_mEEE11lower_boundERSP_.exit, label %8, !llvm.loop !46
+  br i1 %.not.i.i.i, label %_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEEmSt4lessISL_ESaISt4pairIKSL_mEEE11lower_boundERSP_.exit, label %7, !llvm.loop !46
 
-_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEEmSt4lessISL_ESaISt4pairIKSL_mEEE11lower_boundERSP_.exit: ; preds = %8
+_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEEmSt4lessISL_ESaISt4pairIKSL_mEEE11lower_boundERSP_.exit: ; preds = %7
+  %11 = ptrtoint ptr %6 to i64
   %12 = icmp eq ptr %.19.i.i.i, %5
   br i1 %12, label %.critedge, label %13
 
@@ -450,7 +450,7 @@ _ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_plac
   br i1 %16, label %.critedge, label %_ZNSt8_Rb_treeIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEESt4pairIKSL_mESt10_Select1stISO_ESt4lessISL_ESaISO_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRSN_EESZ_IJEEEEESt17_Rb_tree_iteratorISO_ESt23_Rb_tree_const_iteratorISO_EDpOT_.exit
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEEmSt4lessISL_ESaISt4pairIKSL_mEEE11lower_boundERSP_.exit, %13
-  %17 = phi i64 [ %7, %13 ], [ %7, %_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEEmSt4lessISL_ESaISt4pairIKSL_mEEE11lower_boundERSP_.exit ], [ %.pre, %..critedge_crit_edge ]
+  %17 = phi i64 [ %11, %13 ], [ %11, %_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEEmSt4lessISL_ESaISt4pairIKSL_mEEE11lower_boundERSP_.exit ], [ %.pre, %..critedge_crit_edge ]
   %.08.lcssa.i.i.i14 = phi ptr [ %.19.i.i.i, %13 ], [ %.19.i.i.i, %_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_22HalfedgeDS_vertex_baseINS0_21HalfedgeDS_list_typesINS0_5EpickENS0_28I_Polyhedron_derived_items_3INS0_18Polyhedron_items_3EEESaIiEEESt17integral_constantIbLb1EENS0_7Point_3IS7_EEEEEEEESaISJ_EEEmSt4lessISL_ESaISt4pairIKSL_mEEE11lower_boundERSP_.exit ], [ %5, %..critedge_crit_edge ]
   %18 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -1064,23 +1064,23 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 .lr.ph.i.i.i:                                     ; preds = %2
   %6 = load ptr, ptr %1, align 8
-  %7 = ptrtoint ptr %6 to i64
-  br label %8
+  br label %7
 
-8:                                                ; preds = %8, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %.1.i.i.i, %8 ]
-  %.0811.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %.19.i.i.i, %8 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !74
-  %11 = icmp ult ptr %10, %6
-  %.19.i.i.i = select i1 %11, ptr %.0811.i.i.i, ptr %.012.i.i.i
-  %.1.in.v.i.i.i = select i1 %11, i64 24, i64 16
+7:                                                ; preds = %7, %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %.1.i.i.i, %7 ]
+  %.0811.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %.19.i.i.i, %7 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  %9 = load ptr, ptr %8, align 8, !tbaa !74
+  %10 = icmp ult ptr %9, %6
+  %.19.i.i.i = select i1 %10, ptr %.0811.i.i.i, ptr %.012.i.i.i
+  %.1.in.v.i.i.i = select i1 %10, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !45
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEEmSt4lessISK_ESaISt4pairIKSK_mEEE11lower_boundERSO_.exit, label %8, !llvm.loop !83
+  br i1 %.not.i.i.i, label %_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEEmSt4lessISK_ESaISt4pairIKSK_mEEE11lower_boundERSO_.exit, label %7, !llvm.loop !83
 
-_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEEmSt4lessISK_ESaISt4pairIKSK_mEEE11lower_boundERSO_.exit: ; preds = %8
+_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEEmSt4lessISK_ESaISt4pairIKSK_mEEE11lower_boundERSO_.exit: ; preds = %7
+  %11 = ptrtoint ptr %6 to i64
   %12 = icmp eq ptr %.19.i.i.i, %5
   br i1 %12, label %.critedge, label %13
 
@@ -1091,7 +1091,7 @@ _ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_plac
   br i1 %16, label %.critedge, label %_ZNSt8_Rb_treeIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESt4pairIKSK_mESt10_Select1stISN_ESt4lessISK_ESaISN_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRSM_EESY_IJEEEEESt17_Rb_tree_iteratorISN_ESt23_Rb_tree_const_iteratorISN_EDpOT_.exit
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEEmSt4lessISK_ESaISt4pairIKSK_mEEE11lower_boundERSO_.exit, %13
-  %17 = phi i64 [ %7, %13 ], [ %7, %_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEEmSt4lessISK_ESaISt4pairIKSK_mEEE11lower_boundERSO_.exit ], [ %.pre, %..critedge_crit_edge ]
+  %17 = phi i64 [ %11, %13 ], [ %11, %_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEEmSt4lessISK_ESaISt4pairIKSK_mEEE11lower_boundERSO_.exit ], [ %.pre, %..critedge_crit_edge ]
   %.08.lcssa.i.i.i14 = phi ptr [ %.19.i.i.i, %13 ], [ %.19.i.i.i, %_ZNSt3mapIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEEmSt4lessISK_ESaISt4pairIKSK_mEEE11lower_boundERSO_.exit ], [ %5, %..critedge_crit_edge ]
   %18 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32

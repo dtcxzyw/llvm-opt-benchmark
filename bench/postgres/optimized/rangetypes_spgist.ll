@@ -147,40 +147,43 @@ define dso_local noundef i64 @spg_range_quad_picksplit(ptr noundef %0) local_unn
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
-  %14 = inttoptr i64 %13 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i64, ptr %16, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %19 = tail call ptr @pg_detoast_datum(ptr noundef %18) #5
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %21 = load i32, ptr %20, align 4
-  %22 = tail call ptr @range_get_typcache(ptr noundef %0, i32 noundef %21) #5
-  %23 = load i32, ptr %11, align 8
-  %24 = sext i32 %23 to i64
-  %25 = shl nsw i64 %24, 4
-  %26 = tail call ptr @palloc(i64 noundef %25) #5
-  %27 = load i32, ptr %11, align 8
-  %28 = sext i32 %27 to i64
-  %29 = shl nsw i64 %28, 4
-  %30 = tail call ptr @palloc(i64 noundef %29) #5
-  %31 = load i32, ptr %11, align 8
-  %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph, label %._crit_edge.thread
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load i64, ptr %15, align 8
+  %17 = inttoptr i64 %16 to ptr
+  %18 = tail call ptr @pg_detoast_datum(ptr noundef %17) #5
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %20 = load i32, ptr %19, align 4
+  %21 = tail call ptr @range_get_typcache(ptr noundef %0, i32 noundef %20) #5
+  %22 = load i32, ptr %11, align 8
+  %23 = sext i32 %22 to i64
+  %24 = shl nsw i64 %23, 4
+  %25 = tail call ptr @palloc(i64 noundef %24) #5
+  %26 = load i32, ptr %11, align 8
+  %27 = sext i32 %26 to i64
+  %28 = shl nsw i64 %27, 4
+  %29 = tail call ptr @palloc(i64 noundef %28) #5
+  %30 = load i32, ptr %11, align 8
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %.lr.ph, label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %1
+  %32 = inttoptr i64 %13 to ptr
+  br label %49
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %.07376 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %1 ]
-  %33 = load ptr, ptr %15, align 8
+  %33 = load ptr, ptr %14, align 8
   %34 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
   %36 = inttoptr i64 %35 to ptr
   %37 = call ptr @pg_detoast_datum(ptr noundef %36) #5
   %38 = sext i32 %.07376 to i64
-  %39 = getelementptr inbounds %struct.RangeBound, ptr %26, i64 %38
-  %40 = getelementptr inbounds %struct.RangeBound, ptr %30, i64 %38
-  call void @range_deserialize(ptr noundef %22, ptr noundef %37, ptr noundef %39, ptr noundef %40, ptr noundef nonnull %8) #5
+  %39 = getelementptr inbounds %struct.RangeBound, ptr %25, i64 %38
+  %40 = getelementptr inbounds %struct.RangeBound, ptr %29, i64 %38
+  call void @range_deserialize(ptr noundef %21, ptr noundef %37, ptr noundef %39, ptr noundef %40, ptr noundef nonnull %8) #5
   %41 = load i8, ptr %8, align 1, !range !4, !noundef !5
   %42 = xor i8 %41, 1
   %43 = zext nneg i8 %42 to i32
@@ -192,147 +195,149 @@ define dso_local noundef i64 @spg_range_quad_picksplit(ptr noundef %0) local_unn
   br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %47 = icmp eq i32 %spec.select, 0
-  br i1 %47, label %._crit_edge.thread, label %76
+  %47 = inttoptr i64 %13 to ptr
+  %48 = icmp eq i32 %spec.select, 0
+  br i1 %48, label %49, label %79
 
-._crit_edge.thread:                               ; preds = %1, %._crit_edge
-  %48 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i32 2, ptr %48, align 8
-  store i8 0, ptr %14, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 0, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr null, ptr %50, align 8
-  %51 = load i32, ptr %11, align 8
-  %52 = sext i32 %51 to i64
-  %53 = shl nsw i64 %52, 2
-  %54 = call ptr @palloc(i64 noundef %53) #5
-  %55 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr %54, ptr %55, align 8
-  %56 = load i32, ptr %11, align 8
-  %57 = sext i32 %56 to i64
-  %58 = shl nsw i64 %57, 3
-  %59 = call ptr @palloc(i64 noundef %58) #5
-  %60 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr %59, ptr %60, align 8
-  %61 = load i32, ptr %11, align 8
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph83, label %.loopexit
+49:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %50 = phi ptr [ %32, %._crit_edge.thread ], [ %47, %._crit_edge ]
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  store i32 2, ptr %51, align 8
+  store i8 0, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i64 0, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  store ptr null, ptr %53, align 8
+  %54 = load i32, ptr %11, align 8
+  %55 = sext i32 %54 to i64
+  %56 = shl nsw i64 %55, 2
+  %57 = call ptr @palloc(i64 noundef %56) #5
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  store ptr %57, ptr %58, align 8
+  %59 = load i32, ptr %11, align 8
+  %60 = sext i32 %59 to i64
+  %61 = shl nsw i64 %60, 3
+  %62 = call ptr @palloc(i64 noundef %61) #5
+  %63 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  store ptr %62, ptr %63, align 8
+  %64 = load i32, ptr %11, align 8
+  %65 = icmp sgt i32 %64, 0
+  br i1 %65, label %.lr.ph83, label %.loopexit
 
-.lr.ph83:                                         ; preds = %._crit_edge.thread, %.lr.ph83
-  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.lr.ph83 ], [ 0, %._crit_edge.thread ]
-  %63 = load ptr, ptr %15, align 8
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv89
-  %65 = load i64, ptr %64, align 8
-  %66 = inttoptr i64 %65 to ptr
-  %67 = call ptr @pg_detoast_datum(ptr noundef %66) #5
-  %68 = ptrtoint ptr %67 to i64
-  %69 = load ptr, ptr %60, align 8
-  %70 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv89
-  store i64 %68, ptr %70, align 8
-  %71 = load ptr, ptr %55, align 8
-  %72 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv89
-  store i32 0, ptr %72, align 4
+.lr.ph83:                                         ; preds = %49, %.lr.ph83
+  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.lr.ph83 ], [ 0, %49 ]
+  %66 = load ptr, ptr %14, align 8
+  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv89
+  %68 = load i64, ptr %67, align 8
+  %69 = inttoptr i64 %68 to ptr
+  %70 = call ptr @pg_detoast_datum(ptr noundef %69) #5
+  %71 = ptrtoint ptr %70 to i64
+  %72 = load ptr, ptr %63, align 8
+  %73 = getelementptr inbounds nuw i64, ptr %72, i64 %indvars.iv89
+  store i64 %71, ptr %73, align 8
+  %74 = load ptr, ptr %58, align 8
+  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv89
+  store i32 0, ptr %75, align 4
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
-  %73 = load i32, ptr %11, align 8
-  %74 = sext i32 %73 to i64
-  %75 = icmp slt i64 %indvars.iv.next90, %74
-  br i1 %75, label %.lr.ph83, label %.loopexit, !llvm.loop !8
+  %76 = load i32, ptr %11, align 8
+  %77 = sext i32 %76 to i64
+  %78 = icmp slt i64 %indvars.iv.next90, %77
+  br i1 %78, label %.lr.ph83, label %.loopexit, !llvm.loop !8
 
-76:                                               ; preds = %._crit_edge
-  %77 = sext i32 %spec.select to i64
-  call void @qsort_arg(ptr noundef %26, i64 noundef %77, i64 noundef 16, ptr noundef nonnull @bound_cmp, ptr noundef %22) #5
-  call void @qsort_arg(ptr noundef %30, i64 noundef %77, i64 noundef 16, ptr noundef nonnull @bound_cmp, ptr noundef %22) #5
-  %78 = sdiv i32 %spec.select, 2
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds %struct.RangeBound, ptr %26, i64 %79
-  %81 = getelementptr inbounds %struct.RangeBound, ptr %30, i64 %79
-  %82 = call ptr @range_serialize(ptr noundef %22, ptr noundef %80, ptr noundef %81, i1 noundef zeroext false, ptr noundef null) #5
-  store i8 1, ptr %14, align 8
-  %83 = ptrtoint ptr %82 to i64
-  %84 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 %83, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %86 = load i32, ptr %85, align 8
-  %87 = icmp eq i32 %86, 0
-  %88 = select i1 %87, i32 5, i32 4
-  %89 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i32 %88, ptr %89, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr null, ptr %90, align 8
-  %91 = load i32, ptr %11, align 8
-  %92 = sext i32 %91 to i64
-  %93 = shl nsw i64 %92, 2
-  %94 = call ptr @palloc(i64 noundef %93) #5
-  %95 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr %94, ptr %95, align 8
-  %96 = load i32, ptr %11, align 8
-  %97 = sext i32 %96 to i64
-  %98 = shl nsw i64 %97, 3
-  %99 = call ptr @palloc(i64 noundef %98) #5
-  %100 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr %99, ptr %100, align 8
-  %101 = load i32, ptr %11, align 8
-  %102 = icmp sgt i32 %101, 0
-  br i1 %102, label %.lr.ph80, label %.loopexit
+79:                                               ; preds = %._crit_edge
+  %80 = sext i32 %spec.select to i64
+  call void @qsort_arg(ptr noundef %25, i64 noundef %80, i64 noundef 16, ptr noundef nonnull @bound_cmp, ptr noundef %21) #5
+  call void @qsort_arg(ptr noundef %29, i64 noundef %80, i64 noundef 16, ptr noundef nonnull @bound_cmp, ptr noundef %21) #5
+  %81 = sdiv i32 %spec.select, 2
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds %struct.RangeBound, ptr %25, i64 %82
+  %84 = getelementptr inbounds %struct.RangeBound, ptr %29, i64 %82
+  %85 = call ptr @range_serialize(ptr noundef %21, ptr noundef %83, ptr noundef %84, i1 noundef zeroext false, ptr noundef null) #5
+  store i8 1, ptr %47, align 8
+  %86 = ptrtoint ptr %85 to i64
+  %87 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store i64 %86, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %89 = load i32, ptr %88, align 8
+  %90 = icmp eq i32 %89, 0
+  %91 = select i1 %90, i32 5, i32 4
+  %92 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  store i32 %91, ptr %92, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  store ptr null, ptr %93, align 8
+  %94 = load i32, ptr %11, align 8
+  %95 = sext i32 %94 to i64
+  %96 = shl nsw i64 %95, 2
+  %97 = call ptr @palloc(i64 noundef %96) #5
+  %98 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  store ptr %97, ptr %98, align 8
+  %99 = load i32, ptr %11, align 8
+  %100 = sext i32 %99 to i64
+  %101 = shl nsw i64 %100, 3
+  %102 = call ptr @palloc(i64 noundef %101) #5
+  %103 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  store ptr %102, ptr %103, align 8
+  %104 = load i32, ptr %11, align 8
+  %105 = icmp sgt i32 %104, 0
+  br i1 %105, label %.lr.ph80, label %.loopexit
 
-.lr.ph80:                                         ; preds = %76, %getQuadrant.exit
-  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %getQuadrant.exit ], [ 0, %76 ]
-  %103 = load ptr, ptr %15, align 8
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %indvars.iv86
-  %105 = load i64, ptr %104, align 8
-  %106 = inttoptr i64 %105 to ptr
-  %107 = call ptr @pg_detoast_datum(ptr noundef %106) #5
+.lr.ph80:                                         ; preds = %79, %getQuadrant.exit
+  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %getQuadrant.exit ], [ 0, %79 ]
+  %106 = load ptr, ptr %14, align 8
+  %107 = getelementptr inbounds nuw i64, ptr %106, i64 %indvars.iv86
+  %108 = load i64, ptr %107, align 8
+  %109 = inttoptr i64 %108 to ptr
+  %110 = call ptr @pg_detoast_datum(ptr noundef %109) #5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @range_deserialize(ptr noundef %22, ptr noundef %82, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
-  call void @range_deserialize(ptr noundef %22, ptr noundef %107, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
-  %108 = load i8, ptr %7, align 1, !range !4, !noundef !5
-  %109 = trunc nuw i8 %108 to i1
-  br i1 %109, label %getQuadrant.exit, label %110
+  call void @range_deserialize(ptr noundef %21, ptr noundef %85, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
+  call void @range_deserialize(ptr noundef %21, ptr noundef %110, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
+  %111 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %112 = trunc nuw i8 %111 to i1
+  br i1 %112, label %getQuadrant.exit, label %113
 
-110:                                              ; preds = %.lr.ph80
-  %111 = call i32 @range_cmp_bounds(ptr noundef %22, ptr noundef nonnull %5, ptr noundef nonnull %2) #5
-  %112 = icmp sgt i32 %111, -1
-  %113 = call i32 @range_cmp_bounds(ptr noundef %22, ptr noundef nonnull %6, ptr noundef nonnull %3) #5
-  %114 = icmp sgt i32 %113, -1
-  br i1 %112, label %115, label %116
+113:                                              ; preds = %.lr.ph80
+  %114 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %5, ptr noundef nonnull %2) #5
+  %115 = icmp sgt i32 %114, -1
+  %116 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %6, ptr noundef nonnull %3) #5
+  %117 = icmp sgt i32 %116, -1
+  br i1 %115, label %118, label %119
 
-115:                                              ; preds = %110
-  %..i = select i1 %114, i32 1, i32 2
+118:                                              ; preds = %113
+  %..i = select i1 %117, i32 1, i32 2
   br label %getQuadrant.exit
 
-116:                                              ; preds = %110
-  %.7.i = select i1 %114, i32 4, i32 3
+119:                                              ; preds = %113
+  %.7.i = select i1 %117, i32 4, i32 3
   br label %getQuadrant.exit
 
-getQuadrant.exit:                                 ; preds = %.lr.ph80, %115, %116
-  %.0.i = phi i32 [ 5, %.lr.ph80 ], [ %..i, %115 ], [ %.7.i, %116 ]
+getQuadrant.exit:                                 ; preds = %.lr.ph80, %118, %119
+  %.0.i = phi i32 [ 5, %.lr.ph80 ], [ %..i, %118 ], [ %.7.i, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %117 = ptrtoint ptr %107 to i64
-  %118 = load ptr, ptr %100, align 8
-  %119 = getelementptr inbounds nuw i64, ptr %118, i64 %indvars.iv86
-  store i64 %117, ptr %119, align 8
-  %120 = add nsw i32 %.0.i, -1
-  %121 = load ptr, ptr %95, align 8
-  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv86
-  store i32 %120, ptr %122, align 4
+  %120 = ptrtoint ptr %110 to i64
+  %121 = load ptr, ptr %103, align 8
+  %122 = getelementptr inbounds nuw i64, ptr %121, i64 %indvars.iv86
+  store i64 %120, ptr %122, align 8
+  %123 = add nsw i32 %.0.i, -1
+  %124 = load ptr, ptr %98, align 8
+  %125 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv86
+  store i32 %123, ptr %125, align 4
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %123 = load i32, ptr %11, align 8
-  %124 = sext i32 %123 to i64
-  %125 = icmp slt i64 %indvars.iv.next87, %124
-  br i1 %125, label %.lr.ph80, label %.loopexit, !llvm.loop !9
+  %126 = load i32, ptr %11, align 8
+  %127 = sext i32 %126 to i64
+  %128 = icmp slt i64 %indvars.iv.next87, %127
+  br i1 %128, label %.lr.ph80, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %getQuadrant.exit, %.lr.ph83, %76, %._crit_edge.thread
+.loopexit:                                        ; preds = %getQuadrant.exit, %.lr.ph83, %79, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 0
 }

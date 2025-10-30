@@ -10149,7 +10149,6 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt13ZSobolSampler5Get1DEv(ptr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !112
   %4 = and i32 %3, 1
-  %.not.not.i = icmp eq i32 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !491
   %.not.not2021.i = icmp sgt i32 %6, %4
@@ -10168,6 +10167,7 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt13ZSobolSampler5Get1DEv(ptr
 
 ._crit_edge.i:                                    ; preds = %15, %1
   %.0.lcssa.i = phi i64 [ 0, %1 ], [ %39, %15 ]
+  %.not.not.i = icmp eq i32 %4, 0
   br i1 %.not.not.i, label %._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge, label %40
 
 ._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge: ; preds = %._crit_edge.i
@@ -11025,7 +11025,6 @@ define linkonce_odr dso_local <2 x float> @_ZN4pbrt13ZSobolSampler5Get2DEv(ptr n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !112
   %4 = and i32 %3, 1
-  %.not.not.i = icmp eq i32 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !491
   %.not.not2021.i = icmp sgt i32 %6, %4
@@ -11044,6 +11043,7 @@ define linkonce_odr dso_local <2 x float> @_ZN4pbrt13ZSobolSampler5Get2DEv(ptr n
 
 ._crit_edge.i:                                    ; preds = %15, %1
   %.0.lcssa.i = phi i64 [ 0, %1 ], [ %39, %15 ]
+  %.not.not.i = icmp eq i32 %4, 0
   br i1 %.not.not.i, label %._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge, label %40
 
 ._crit_edge.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge: ; preds = %._crit_edge.i
@@ -22598,28 +22598,28 @@ _ZN4pbrt21SubsurfaceFromDiffuseERKNS_11BSSRDFTableERKNS_15SampledSpectrumES5_PS3
   store float %.sroa.28.0.copyload, ptr %.sroa.218.0..sroa_idx.i, align 8
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store float %129, ptr %133, align 4, !tbaa !880
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %130, ptr %135, align 8, !tbaa !885
-  br label %136
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %130, ptr %134, align 8, !tbaa !885
+  br label %135
 
-136:                                              ; preds = %136, %125
-  %indvars.iv.i.i.i = phi i64 [ 0, %125 ], [ %indvars.iv.next.i.i.i, %136 ]
-  %137 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv.i.i.i
-  %138 = load float, ptr %137, align 4, !tbaa !74
-  %139 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i.i.i
-  %140 = load float, ptr %139, align 4
-  %141 = fadd float %138, %140
-  store float %141, ptr %139, align 4
+135:                                              ; preds = %135, %125
+  %indvars.iv.i.i.i = phi i64 [ 0, %125 ], [ %indvars.iv.next.i.i.i, %135 ]
+  %136 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv.i.i.i
+  %137 = load float, ptr %136, align 4, !tbaa !74
+  %138 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i.i.i
+  %139 = load float, ptr %138, align 4
+  %140 = fadd float %137, %139
+  store float %140, ptr %138, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit.i, label %136, !llvm.loop !886
+  br i1 %exitcond.not.i.i.i, label %_ZNK4pbrt15SampledSpectrumplERKS0_.exit.i, label %135, !llvm.loop !886
 
-_ZNK4pbrt15SampledSpectrumplERKS0_.exit.i:        ; preds = %136
+_ZNK4pbrt15SampledSpectrumplERKS0_.exit.i:        ; preds = %135
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %16, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.2.0.copyload.i.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %134, align 8
+  store <2 x float> %.sroa.0.0.copyload.i.i, ptr %141, align 8
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   store <2 x float> %.sroa.2.0.copyload.i.i, ptr %.sroa.45.0..sroa_idx.i, align 8, !tbaa !35
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %17, align 8

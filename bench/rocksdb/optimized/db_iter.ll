@@ -559,58 +559,58 @@ _ZN7rocksdb19IteratorWrapperBaseINS_5SliceEEC2EPNS_20InternalIteratorBaseIS1_EE.
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store ptr @.str, ptr %102, align 8, !tbaa !148
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %106 = getelementptr inbounds nuw i8, ptr %3, i64 584
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 584
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %103, i8 0, i64 32, i1 false)
-  %107 = load ptr, ptr %106, align 8, !tbaa !194
-  store ptr %107, ptr %105, align 8, !tbaa !195
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store i64 %10, ptr %108, align 8, !tbaa !196
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %110 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %111 = load i64, ptr %110, align 8, !tbaa !197
-  store i64 %111, ptr %109, align 8, !tbaa !198
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  store i64 0, ptr %112, align 8, !tbaa !199
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %114 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %115 = load ptr, ptr %114, align 8, !tbaa !200
-  store ptr %115, ptr %113, align 8, !tbaa !201
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %117 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %118 = load ptr, ptr %117, align 8, !tbaa !202
-  store ptr %118, ptr %116, align 8, !tbaa !203
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  store ptr %120, ptr %119, align 8, !tbaa !185
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  store ptr %120, ptr %121, align 8, !tbaa !186
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  store i64 0, ptr %122, align 8, !tbaa !187
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  store i64 39, ptr %123, align 8, !tbaa !188
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 711
-  store i8 1, ptr %124, align 1, !tbaa !189
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  store ptr %126, ptr %125, align 8, !tbaa !190
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  store i64 39, ptr %127, align 8, !tbaa !191
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  br label %129
+  %106 = load ptr, ptr %105, align 8, !tbaa !194
+  store ptr %106, ptr %104, align 8, !tbaa !195
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  store i64 %10, ptr %107, align 8, !tbaa !196
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %110 = load i64, ptr %109, align 8, !tbaa !197
+  store i64 %110, ptr %108, align 8, !tbaa !198
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  store i64 0, ptr %111, align 8, !tbaa !199
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %114 = load ptr, ptr %113, align 8, !tbaa !200
+  store ptr %114, ptr %112, align 8, !tbaa !201
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %117 = load ptr, ptr %116, align 8, !tbaa !202
+  store ptr %117, ptr %115, align 8, !tbaa !203
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  store ptr %119, ptr %118, align 8, !tbaa !185
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  store ptr %119, ptr %120, align 8, !tbaa !186
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  store i64 0, ptr %121, align 8, !tbaa !187
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  store i64 39, ptr %122, align 8, !tbaa !188
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 711
+  store i8 1, ptr %123, align 1, !tbaa !189
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  store ptr %125, ptr %124, align 8, !tbaa !190
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  store i64 39, ptr %126, align 8, !tbaa !191
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  br label %128
 
-129:                                              ; preds = %129, %92
-  %.idx.i.i50 = phi i64 [ 0, %92 ], [ %.add.i.i52, %129 ]
-  %.ptr.i.i51 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx.i.i50
+128:                                              ; preds = %128, %92
+  %.idx.i.i50 = phi i64 [ 0, %92 ], [ %.add.i.i52, %128 ]
+  %.ptr.i.i51 = getelementptr inbounds nuw i8, ptr %127, i64 %.idx.i.i50
   store ptr @.str, ptr %.ptr.i.i51, align 8, !tbaa !148
-  %130 = getelementptr inbounds nuw i8, ptr %.ptr.i.i51, i64 8
-  store i64 0, ptr %130, align 8, !tbaa !149
+  %129 = getelementptr inbounds nuw i8, ptr %.ptr.i.i51, i64 8
+  store i64 0, ptr %129, align 8, !tbaa !149
   %.add.i.i52 = add nuw nsw i64 %.idx.i.i50, 16
-  %131 = icmp eq i64 %.add.i.i52, 80
-  br i1 %131, label %132, label %129
+  %130 = icmp eq i64 %.add.i.i52, 80
+  br i1 %130, label %131, label %128
 
-132:                                              ; preds = %129
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 856
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, i8 0, i64 6, i1 false)
@@ -659,7 +659,7 @@ _ZN7rocksdb19IteratorWrapperBaseINS_5SliceEEC2EPNS_20InternalIteratorBaseIS1_EE.
   invoke void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %161)
           to label %162 unwind label %193
 
-162:                                              ; preds = %132
+162:                                              ; preds = %131
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store i8 0, ptr %163, align 8, !tbaa !214
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 1024
@@ -692,7 +692,7 @@ _ZN7rocksdb19IteratorWrapperBaseINS_5SliceEEC2EPNS_20InternalIteratorBaseIS1_EE.
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store i64 0, ptr %180, align 8, !tbaa !175
   store i8 0, ptr %179, align 8, !tbaa !16
-  %181 = load ptr, ptr %105, align 8, !tbaa !195
+  %181 = load ptr, ptr %104, align 8, !tbaa !195
   %.not.i = icmp eq ptr %181, null
   br i1 %.not.i, label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit, label %182
 
@@ -722,7 +722,7 @@ _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit: ; preds = %176, %182
           cleanup
   br label %221
 
-193:                                              ; preds = %132
+193:                                              ; preds = %131
   %194 = landingpad { ptr, i32 }
           cleanup
   br label %208
@@ -772,8 +772,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %208, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   store ptr null, ptr %134, align 8, !tbaa !154
-  tail call void @_ZN7rocksdb7IterKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %119) #25
-  %210 = load ptr, ptr %104, align 8, !tbaa !221
+  tail call void @_ZN7rocksdb7IterKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %118) #25
+  %210 = load ptr, ptr %132, align 8, !tbaa !221
   %.not.i.i.i = icmp eq ptr %210, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EED2Ev.exit, label %211
 

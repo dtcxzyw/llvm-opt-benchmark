@@ -4836,7 +4836,6 @@ define internal fastcc range(i32 0, 6) i32 @init_quantization_noise(ptr noundef 
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %dca_vlc_calc_alloc_bits.exit.i ], [ 0, %70 ]
   %.037.i = phi i32 [ %spec.select32.i, %dca_vlc_calc_alloc_bits.exit.i ], [ 160, %70 ]
   %.02336.i = phi i32 [ %spec.select.i, %dca_vlc_calc_alloc_bits.exit.i ], [ 6, %70 ]
-  %indvars187 = trunc i64 %indvars.iv40.i to i32
   %76 = getelementptr inbounds nuw [13 x [2 x i16]], ptr @bitalloc_12_table, i64 %indvars.iv40.i
   br label %77
 
@@ -4856,6 +4855,7 @@ define internal fastcc range(i32 0, 6) i32 @init_quantization_noise(ptr noundef 
   br i1 %exitcond.not.i.i, label %dca_vlc_calc_alloc_bits.exit.i, label %77, !llvm.loop !175
 
 dca_vlc_calc_alloc_bits.exit.i:                   ; preds = %77
+  %indvars187 = trunc i64 %indvars.iv40.i to i32
   %86 = icmp ult i32 %85, %.037.i
   %spec.select.i = select i1 %86, i32 %indvars187, i32 %.02336.i
   %spec.select32.i = tail call i32 @llvm.umin.i32(i32 %85, i32 %.037.i)

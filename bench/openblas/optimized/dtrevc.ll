@@ -250,59 +250,59 @@ define void @dtrevc_(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) 
   %123 = call double @dlamch_(ptr noundef nonnull @.str.7) #6
   %124 = load double, ptr %20, align 8, !tbaa !7
   %125 = load i32, ptr %3, align 4, !tbaa !3
-  %126 = sitofp i32 %125 to double
-  %127 = fdiv double %126, %123
-  %128 = fmul double %124, %127
-  %129 = fsub double 1.000000e+00, %123
-  %130 = fdiv double %129, %128
   store double 0.000000e+00, ptr %12, align 8, !tbaa !7
   %.not11271261 = icmp slt i32 %125, 2
-  br i1 %.not11271261, label %144, label %.lr.ph1263.preheader
+  br i1 %.not11271261, label %139, label %.lr.ph1263.preheader
 
 .lr.ph1263.preheader:                             ; preds = %120
-  %131 = sext i32 %32 to i64
-  %132 = add nuw i32 %125, 1
-  %wide.trip.count1387 = zext i32 %132 to i64
+  %126 = sext i32 %32 to i64
+  %127 = add nuw i32 %125, 1
+  %wide.trip.count1387 = zext i32 %127 to i64
   br label %.lr.ph1263
 
-.lr.ph1263:                                       ; preds = %.lr.ph1263.preheader, %142
-  %indvars.iv1384 = phi i64 [ 2, %.lr.ph1263.preheader ], [ %indvars.iv.next1385, %142 ]
-  %133 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv1384
-  store double 0.000000e+00, ptr %133, align 8, !tbaa !7
-  %134 = mul nsw i64 %indvars.iv1384, %131
-  %invariant.gep = getelementptr double, ptr %34, i64 %134
-  br label %135
+.lr.ph1263:                                       ; preds = %.lr.ph1263.preheader, %137
+  %indvars.iv1384 = phi i64 [ 2, %.lr.ph1263.preheader ], [ %indvars.iv.next1385, %137 ]
+  %128 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv1384
+  store double 0.000000e+00, ptr %128, align 8, !tbaa !7
+  %129 = mul nsw i64 %indvars.iv1384, %126
+  %invariant.gep = getelementptr double, ptr %34, i64 %129
+  br label %130
 
-135:                                              ; preds = %.lr.ph1263, %135
-  %indvars.iv1379 = phi i64 [ 1, %.lr.ph1263 ], [ %indvars.iv.next1380, %135 ]
-  %136 = phi double [ 0.000000e+00, %.lr.ph1263 ], [ %141, %135 ]
+130:                                              ; preds = %.lr.ph1263, %130
+  %indvars.iv1379 = phi i64 [ 1, %.lr.ph1263 ], [ %indvars.iv.next1380, %130 ]
+  %131 = phi double [ 0.000000e+00, %.lr.ph1263 ], [ %136, %130 ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv1379
-  %137 = load double, ptr %gep, align 8, !tbaa !7
-  %138 = fcmp oge double %137, 0.000000e+00
-  %139 = fneg double %137
-  %140 = select i1 %138, double %137, double %139
-  %141 = fadd double %136, %140
-  store double %141, ptr %133, align 8, !tbaa !7
+  %132 = load double, ptr %gep, align 8, !tbaa !7
+  %133 = fcmp oge double %132, 0.000000e+00
+  %134 = fneg double %132
+  %135 = select i1 %133, double %132, double %134
+  %136 = fadd double %131, %135
+  store double %136, ptr %128, align 8, !tbaa !7
   %indvars.iv.next1380 = add nuw nsw i64 %indvars.iv1379, 1
   %exitcond1383.not = icmp eq i64 %indvars.iv.next1380, %indvars.iv1384
-  br i1 %exitcond1383.not, label %142, label %135, !llvm.loop !11
+  br i1 %exitcond1383.not, label %137, label %130, !llvm.loop !11
 
-142:                                              ; preds = %135
+137:                                              ; preds = %130
   %indvars.iv.next1385 = add nuw nsw i64 %indvars.iv1384, 1
   %exitcond1388.not = icmp eq i64 %indvars.iv.next1385, %wide.trip.count1387
   br i1 %exitcond1388.not, label %._crit_edge, label %.lr.ph1263, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %142
-  %143 = add nsw i32 %125, -1
-  store i32 %143, ptr %16, align 4, !tbaa !3
-  store double %137, ptr %18, align 8, !tbaa !7
-  br label %144
+._crit_edge:                                      ; preds = %137
+  %138 = add nsw i32 %125, -1
+  store i32 %138, ptr %16, align 4, !tbaa !3
+  store double %132, ptr %18, align 8, !tbaa !7
+  br label %139
 
-144:                                              ; preds = %._crit_edge, %120
+139:                                              ; preds = %._crit_edge, %120
+  %140 = sitofp i32 %125 to double
+  %141 = fdiv double %140, %123
+  %142 = fmul double %124, %141
+  %143 = fsub double 1.000000e+00, %123
+  %144 = fdiv double %143, %142
   %145 = shl i32 %125, 1
   br i1 %46, label %146, label %.loopexit1255
 
-146:                                              ; preds = %144
+146:                                              ; preds = %139
   %147 = load i32, ptr %11, align 4, !tbaa !3
   store i32 %125, ptr %27, align 4, !tbaa !3
   %148 = icmp sgt i32 %125, 0
@@ -419,8 +419,8 @@ define void @dtrevc_(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) 
   %217 = fadd double %213, %216
   %218 = fmul double %123, %217
   store double %218, ptr %18, align 8, !tbaa !7
-  %219 = fcmp oge double %218, %128
-  %220 = select i1 %219, double %218, double %128
+  %219 = fcmp oge double %218, %142
+  %220 = select i1 %219, double %218, double %142
   store double %220, ptr %22, align 8, !tbaa !7
   br i1 %.not11461559, label %221, label %404
 
@@ -505,7 +505,7 @@ define void @dtrevc_(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) 
 257:                                              ; preds = %246
   %258 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv1419
   %259 = load double, ptr %258, align 8, !tbaa !7
-  %260 = fdiv double %130, %255
+  %260 = fdiv double %144, %255
   %261 = fcmp ogt double %259, %260
   br i1 %261, label %262, label %thread-pre-split1177
 
@@ -568,7 +568,7 @@ thread-pre-split1177:                             ; preds = %246, %257
   %296 = load double, ptr %295, align 8, !tbaa !7
   %297 = fcmp oge double %294, %296
   %298 = select i1 %297, double %294, double %296
-  %299 = fdiv double %130, %290
+  %299 = fdiv double %144, %290
   %300 = fcmp ogt double %298, %299
   br i1 %300, label %301, label %thread-pre-split1179
 
@@ -882,7 +882,7 @@ thread-pre-split1179:                             ; preds = %283, %292
 486:                                              ; preds = %474
   %487 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv1394
   %488 = load double, ptr %487, align 8, !tbaa !7
-  %489 = fdiv double %130, %484
+  %489 = fdiv double %144, %484
   %490 = fcmp ogt double %488, %489
   br i1 %490, label %491, label %thread-pre-split1186
 
@@ -959,7 +959,7 @@ thread-pre-split1186:                             ; preds = %474, %486
   %533 = load double, ptr %532, align 8, !tbaa !7
   %534 = fcmp oge double %531, %533
   %535 = select i1 %534, double %531, double %533
-  %536 = fdiv double %130, %527
+  %536 = fdiv double %144, %527
   %537 = fcmp ogt double %535, %536
   br i1 %537, label %538, label %thread-pre-split1188
 
@@ -1283,7 +1283,7 @@ thread-pre-split1188:                             ; preds = %520, %529
   %696 = icmp sgt i32 %694, 1
   br i1 %696, label %158, label %.loopexit1255, !llvm.loop !20
 
-.loopexit1255:                                    ; preds = %693, %146, %144
+.loopexit1255:                                    ; preds = %693, %146, %139
   br i1 %49, label %697, label %.loopexit1251
 
 697:                                              ; preds = %.loopexit1255
@@ -1392,8 +1392,8 @@ thread-pre-split1188:                             ; preds = %520, %529
   %760 = fadd double %756, %759
   %761 = fmul double %123, %760
   store double %761, ptr %18, align 8, !tbaa !7
-  %762 = fcmp oge double %761, %128
-  %763 = select i1 %762, double %761, double %128
+  %762 = fcmp oge double %761, %142
+  %763 = select i1 %762, double %761, double %142
   store double %763, ptr %22, align 8, !tbaa !7
   br i1 %.not1132, label %1019, label %764
 
@@ -1438,7 +1438,7 @@ thread-pre-split1188:                             ; preds = %520, %529
 .lr.ph1322:                                       ; preds = %.lr.ph1322.preheader, %934
   %776 = phi i32 [ %765, %.lr.ph1322.preheader ], [ %935, %934 ]
   %indvars.iv1431 = phi i64 [ %775, %.lr.ph1322.preheader ], [ %indvars.iv.next1432, %934 ]
-  %.010611319 = phi double [ %130, %.lr.ph1322.preheader ], [ %.11062, %934 ]
+  %.010611319 = phi double [ %144, %.lr.ph1322.preheader ], [ %.11062, %934 ]
   %.610841317 = phi i32 [ %774, %.lr.ph1322.preheader ], [ %.81086, %934 ]
   %.010901316 = phi double [ 1.000000e+00, %.lr.ph1322.preheader ], [ %.31093, %934 ]
   %indvars1433 = trunc i64 %indvars.iv1431 to i32
@@ -1545,7 +1545,7 @@ thread-pre-split1188:                             ; preds = %520, %529
   %842 = select i1 %840, double %835, double %841
   %843 = fcmp oge double %842, %.11091
   %844 = select i1 %843, double %842, double %.11091
-  %845 = fdiv double %130, %844
+  %845 = fdiv double %144, %844
   br label %934
 
 846:                                              ; preds = %784
@@ -1658,7 +1658,7 @@ thread-pre-split1188:                             ; preds = %520, %529
   %928 = select i1 %927, double %923, double %926
   %929 = fcmp oge double %928, %.21092
   %930 = select i1 %929, double %928, double %.21092
-  %931 = fdiv double %130, %930
+  %931 = fdiv double %144, %930
   %932 = trunc i64 %indvars.iv1431 to i32
   %933 = add i32 %932, 3
   br label %934
@@ -1893,7 +1893,7 @@ thread-pre-split1188:                             ; preds = %520, %529
 .lr.ph1339:                                       ; preds = %.lr.ph1339.preheader, %.lr.ph1339._crit_edge
   %1081 = phi i32 [ %1048, %.lr.ph1339.preheader ], [ %1334, %.lr.ph1339._crit_edge ]
   %indvars.iv1445 = phi i64 [ %1080, %.lr.ph1339.preheader ], [ %.pre1510, %.lr.ph1339._crit_edge ]
-  %.210631337 = phi double [ %130, %.lr.ph1339.preheader ], [ %.31064, %.lr.ph1339._crit_edge ]
+  %.210631337 = phi double [ %144, %.lr.ph1339.preheader ], [ %.31064, %.lr.ph1339._crit_edge ]
   %.910871335 = phi i32 [ %1058, %.lr.ph1339.preheader ], [ %.111089, %.lr.ph1339._crit_edge ]
   %.410941334 = phi double [ 1.000000e+00, %.lr.ph1339.preheader ], [ %.71097, %.lr.ph1339._crit_edge ]
   %indvars1448 = trunc i64 %indvars.iv1445 to i32
@@ -2047,7 +2047,7 @@ thread-pre-split1188:                             ; preds = %520, %529
   %1186 = select i1 %1185, double %1181, double %1184
   %1187 = fcmp oge double %1186, %.51095
   %1188 = select i1 %1187, double %1186, double %.51095
-  %1189 = fdiv double %130, %1188
+  %1189 = fdiv double %144, %1188
   br label %.lr.ph1339._crit_edge
 
 1190:                                             ; preds = %1088
@@ -2229,7 +2229,7 @@ thread-pre-split1188:                             ; preds = %520, %529
   store double %1328, ptr %18, align 8, !tbaa !7
   %1329 = fcmp oge double %1328, %.61096
   %1330 = select i1 %1329, double %1328, double %.61096
-  %1331 = fdiv double %130, %1330
+  %1331 = fdiv double %144, %1330
   %1332 = trunc nsw i64 %indvars.iv1445 to i32
   %1333 = add i32 %1332, 2
   br label %.lr.ph1339._crit_edge

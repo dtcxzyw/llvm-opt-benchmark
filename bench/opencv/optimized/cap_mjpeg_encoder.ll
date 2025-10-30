@@ -2085,8 +2085,8 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeperixEi.exit:       ; preds = %152, %160
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i242.us: ; preds = %274
   %.idx.i.i.i.i.i.i243.us = shl nuw nsw i64 %276, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %275, i8 0, i64 %.idx.i.i.i.i.i.i243.us, i1 false), !tbaa !48
   %278 = getelementptr inbounds nuw i8, ptr %275, i64 %.idx.i.i.i.i.i.i243.us
+  call void @llvm.memset.p0.i64(ptr align 4 %275, i8 0, i64 %.idx.i.i.i.i.i.i243.us, i1 false), !tbaa !48
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i244.us
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i244.us: ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i242.us, %274
@@ -2256,8 +2256,8 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit185.us: ; preds = %313, %304
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.us: ; preds = %359
   %.idx.i.i.i.i.i.i.us = shl nuw nsw i64 %361, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %360, i8 0, i64 %.idx.i.i.i.i.i.i.us, i1 false), !tbaa !48
   %363 = getelementptr inbounds nuw i8, ptr %360, i64 %.idx.i.i.i.i.i.i.us
+  call void @llvm.memset.p0.i64(ptr align 4 %360, i8 0, i64 %.idx.i.i.i.i.i.i.us, i1 false), !tbaa !48
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i.us
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i.us: ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.us, %359
@@ -2429,8 +2429,8 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit.us:   ; preds = %396, %387
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i296.us: ; preds = %448
   %.idx.i.i.i.i.i.i297.us = shl nuw nsw i64 %450, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %449, i8 0, i64 %.idx.i.i.i.i.i.i297.us, i1 false), !tbaa !48
   %452 = getelementptr inbounds nuw i8, ptr %449, i64 %.idx.i.i.i.i.i.i297.us
+  call void @llvm.memset.p0.i64(ptr align 4 %449, i8 0, i64 %.idx.i.i.i.i.i.i297.us, i1 false), !tbaa !48
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i298.us
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i298.us: ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i296.us, %448
@@ -2638,8 +2638,8 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit239.us: ; preds = %485, %476, %413
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i278.us: ; preds = %563
   %.idx.i.i.i.i.i.i279.us = shl nuw nsw i64 %565, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %564, i8 0, i64 %.idx.i.i.i.i.i.i279.us, i1 false), !tbaa !48
   %567 = getelementptr inbounds nuw i8, ptr %564, i64 %.idx.i.i.i.i.i.i279.us
+  call void @llvm.memset.p0.i64(ptr align 4 %564, i8 0, i64 %.idx.i.i.i.i.i.i279.us, i1 false), !tbaa !48
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i280.us
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i280.us: ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i278.us, %563
@@ -2814,8 +2814,8 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit209.us: ; preds = %606, %597
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i212.us: ; preds = %653
   %.idx.i.i.i.i.i.i213.us = shl nuw nsw i64 %655, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %654, i8 0, i64 %.idx.i.i.i.i.i.i213.us, i1 false), !tbaa !48
   %657 = getelementptr inbounds nuw i8, ptr %654, i64 %.idx.i.i.i.i.i.i213.us
+  call void @llvm.memset.p0.i64(ptr align 4 %654, i8 0, i64 %.idx.i.i.i.i.i.i213.us, i1 false), !tbaa !48
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i214.us
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i214.us: ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i212.us, %653
@@ -2988,8 +2988,8 @@ _ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i168.us: ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i260.us: ; preds = %747
   %.idx.i.i.i.i.i.i261.us = shl nuw nsw i64 %749, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %748, i8 0, i64 %.idx.i.i.i.i.i.i261.us, i1 false), !tbaa !48
   %751 = getelementptr inbounds nuw i8, ptr %748, i64 %.idx.i.i.i.i.i.i261.us
+  call void @llvm.memset.p0.i64(ptr align 4 %748, i8 0, i64 %.idx.i.i.i.i.i.i261.us, i1 false), !tbaa !48
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i262.us
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i262.us: ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i260.us, %747
@@ -3686,8 +3686,8 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !48
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !48
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i

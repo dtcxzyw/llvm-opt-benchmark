@@ -366,14 +366,14 @@ define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %0, pt
   %28 = load i32, ptr %27, align 4, !tbaa !6
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load i32, ptr %29, align 4, !tbaa !6
+  br label %36
+
+.preheader:                                       ; preds = %36
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  br label %36
-
-.preheader:                                       ; preds = %36
   store i32 %57, ptr %5, align 16, !tbaa !6
   store i32 %59, ptr %31, align 4, !tbaa !6
   store i32 %61, ptr %32, align 8, !tbaa !6
@@ -1460,7 +1460,7 @@ define void @stb_compress_dxt_block(ptr noundef writeonly captures(none) %0, ptr
   %5 = alloca [16 x [4 x i8]], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %.loopexit, label %6
+  br i1 %.not, label %58, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 3
@@ -1562,15 +1562,15 @@ stb__CompressAlphaBlock.exit:                     ; preds = %53
   store i8 -1, ptr %56, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %54, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %54, !llvm.loop !28
 
-.loopexit.loopexit:                               ; preds = %54
+.loopexit:                                        ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %.loopexit
+  br label %58
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %4
-  %.011 = phi ptr [ %1, %4 ], [ %5, %.loopexit.loopexit ]
-  %.010 = phi ptr [ %0, %4 ], [ %57, %.loopexit.loopexit ]
+58:                                               ; preds = %.loopexit, %4
+  %.011 = phi ptr [ %1, %4 ], [ %5, %.loopexit ]
+  %.010 = phi ptr [ %0, %4 ], [ %57, %.loopexit ]
   call void @stb__CompressColorBlock(ptr noundef %.010, ptr noundef %.011, i32 noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

@@ -1728,16 +1728,16 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i:            ; preds = %_ZNK4llvm19MachineR
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i: ; preds = %158, %153
   %.sroa.04.0.i.i.i = phi i64 [ %161, %158 ], [ 0, %153 ]
-  %162 = getelementptr inbounds nuw i8, ptr %154, i64 24
-  %163 = load ptr, ptr %162, align 8, !tbaa !516
-  %164 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %165 = load ptr, ptr %164, align 8, !tbaa !501
-  %166 = getelementptr inbounds nuw i8, ptr %163, i64 48
-  %.not10.i.i = icmp eq ptr %165, %166
+  %162 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  %163 = load ptr, ptr %162, align 8, !tbaa !501
+  %164 = getelementptr inbounds nuw i8, ptr %154, i64 24
+  %165 = load ptr, ptr %164, align 8, !tbaa !516
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 48
+  %.not10.i.i = icmp eq ptr %163, %166
   br i1 %.not10.i.i, label %.critedge.i.i, label %167
 
 167:                                              ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i
-  %168 = getelementptr inbounds nuw i8, ptr %165, i64 68
+  %168 = getelementptr inbounds nuw i8, ptr %163, i64 68
   %169 = load i16, ptr %168, align 4, !tbaa !502
   switch i16 %169, label %.critedge.i.i [
     i16 68, label %170
@@ -1745,13 +1745,13 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i: ; preds = %158, %
   ]
 
 170:                                              ; preds = %167, %167
-  %171 = call ptr @_ZN4llvm17MachineBasicBlock14getFirstNonPHIEv(ptr noundef nonnull align 8 dereferenceable(288) %163) #25
-  %.pre.i.i = load ptr, ptr %162, align 8, !tbaa !516
+  %171 = call ptr @_ZN4llvm17MachineBasicBlock14getFirstNonPHIEv(ptr noundef nonnull align 8 dereferenceable(288) %165) #25
+  %.pre.i.i = load ptr, ptr %164, align 8, !tbaa !516
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %170, %167, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i
-  %172 = phi ptr [ %.pre.i.i, %170 ], [ %163, %167 ], [ %163, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i ]
-  %.sroa.03.0.i.i = phi ptr [ %171, %170 ], [ %165, %167 ], [ %165, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i ]
+  %172 = phi ptr [ %.pre.i.i, %170 ], [ %165, %167 ], [ %165, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i ]
+  %.sroa.03.0.i.i = phi ptr [ %171, %170 ], [ %163, %167 ], [ %163, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i ]
   store ptr %172, ptr %40, align 8, !tbaa !517
   store ptr %.sroa.03.0.i.i, ptr %41, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

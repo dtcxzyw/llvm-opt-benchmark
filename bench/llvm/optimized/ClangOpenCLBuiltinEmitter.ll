@@ -1719,8 +1719,8 @@ _ZN12_GLOBAL__N_118BuiltinNameEmitter12GetOverloadsEv.exit: ; preds = %_ZNSt6vec
   %471 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %472 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %473 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %474 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %475 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %474 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %475 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %476 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %477 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %478 = getelementptr inbounds nuw i8, ptr %21, i64 96
@@ -2079,13 +2079,13 @@ _ZN4llvm11SmallVectorIjLj11EED2Ev.exit.i:         ; preds = %656, %._crit_edge88
 .critedge.i:                                      ; preds = %._crit_edge88.i, %_ZN4llvm4sortIRNS_11SmallVectorIjLj11EEEEEvOT_.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %473, ptr %21, align 8, !tbaa !10
-  store i32 4, ptr %475, align 4, !tbaa !17
+  store i32 4, ptr %474, align 4, !tbaa !17
   %.sroa.0.0.copyload.i.i = load ptr, ptr %.093.i, align 8, !tbaa !123
   %.sroa.2.0..sroa_idx.i26.i = getelementptr inbounds nuw i8, ptr %.093.i, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i26.i, align 8, !tbaa !124
   store ptr %.sroa.0.0.copyload.i.i, ptr %473, align 8, !tbaa !123
   store i64 %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..09.i.i.i.sroa_idx.i.i.i, align 8, !tbaa !124
-  store i32 1, ptr %474, align 8, !tbaa !16
+  store i32 1, ptr %475, align 8, !tbaa !16
   %657 = load ptr, ptr %502, align 8, !tbaa !186
   %658 = load ptr, ptr %500, align 8, !tbaa !18
   %659 = ptrtoint ptr %657 to i64
@@ -2313,17 +2313,17 @@ _ZN4llvm15SmallVectorImplINS_9StringRefEE12assignRemoteEOS2_.exit.i.i: ; preds =
   %744 = phi ptr [ %737, %739 ], [ %.pre.i36.i, %743 ]
   %745 = getelementptr inbounds nuw i8, ptr %733, i64 16
   store ptr %744, ptr %734, align 8, !tbaa !10
-  %746 = load i32, ptr %474, align 8, !tbaa !16
+  %746 = load i32, ptr %475, align 8, !tbaa !16
   store i32 %746, ptr %745, align 8, !tbaa !16
-  %747 = load i32, ptr %475, align 4, !tbaa !17
+  %747 = load i32, ptr %474, align 4, !tbaa !17
   %748 = getelementptr inbounds nuw i8, ptr %733, i64 20
   store i32 %747, ptr %748, align 4, !tbaa !17
   store ptr %473, ptr %21, align 8, !tbaa !10
-  store i32 0, ptr %475, align 4, !tbaa !17
+  store i32 0, ptr %474, align 4, !tbaa !17
   br label %_ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_.exit.sink.split.i
 
 749:                                              ; preds = %736
-  %750 = load i32, ptr %474, align 8, !tbaa !16
+  %750 = load i32, ptr %475, align 8, !tbaa !16
   %751 = zext i32 %750 to i64
   %752 = getelementptr inbounds nuw i8, ptr %733, i64 16
   %753 = load i32, ptr %752, align 8, !tbaa !16
@@ -2369,7 +2369,7 @@ _ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit.i.i: ; preds = %756, %755
 
 _ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35.i.i: ; preds = %765, %764, %762
   %.026.i.i = phi i64 [ 0, %762 ], [ 0, %764 ], [ %754, %765 ]
-  %767 = load i32, ptr %474, align 8, !tbaa !16
+  %767 = load i32, ptr %475, align 8, !tbaa !16
   %768 = zext i32 %767 to i64
   %.not.i.i.i39.i = icmp samesign eq i64 %.026.i.i, %768
   br i1 %.not.i.i.i39.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i.i, label %769
@@ -2390,7 +2390,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18uninitialized_moveIPS1_S4
   br label %_ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_.exit.sink.split.i
 
 _ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_.exit.sink.split.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i.i, %_ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit.i.i, %_ZN4llvm15SmallVectorImplINS_9StringRefEE12assignRemoteEOS2_.exit.i.i
-  store i32 0, ptr %474, align 8, !tbaa !16
+  store i32 0, ptr %475, align 8, !tbaa !16
   br label %_ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_.exit.i
 
 _ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_.exit.i: ; preds = %_ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_.exit.sink.split.i, %_ZN4llvm9MapVectorIPNS_11SmallVectorIjLj11EEEN12_GLOBAL__N_119BuiltinTableEntriesENS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEENS1_ISt4pairIS3_S5_ELj0EEEEixERKS3_.exit.i

@@ -2298,8 +2298,8 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !85
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !85
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -9816,19 +9816,18 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i150: ; preds = %.lr.ph.i.i.
 
 .noexc158:                                        ; preds = %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i150
   store ptr %46, ptr %7, align 8, !tbaa !37
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %48 = getelementptr inbounds nuw %"class.cv::Mat", ptr %46, i64 %40
-  %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %48, ptr %49, align 8, !tbaa !114
+  %47 = getelementptr inbounds nuw %"class.cv::Mat", ptr %46, i64 %40
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %47, ptr %48, align 8, !tbaa !114
   br label %.lr.ph.i.i.i.i.i151
 
 .lr.ph.i.i.i.i.i151:                              ; preds = %.lr.ph.i.i.i.i.i151, %.noexc158
-  %.08.i.i.i.i.i152 = phi ptr [ %51, %.lr.ph.i.i.i.i.i151 ], [ %46, %.noexc158 ]
-  %.057.i.i.i.i.i153 = phi i64 [ %50, %.lr.ph.i.i.i.i.i151 ], [ %40, %.noexc158 ]
+  %.08.i.i.i.i.i152 = phi ptr [ %50, %.lr.ph.i.i.i.i.i151 ], [ %46, %.noexc158 ]
+  %.057.i.i.i.i.i153 = phi i64 [ %49, %.lr.ph.i.i.i.i.i151 ], [ %40, %.noexc158 ]
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.08.i.i.i.i.i152) #22
-  %50 = add i64 %.057.i.i.i.i.i153, -1
-  %51 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i152, i64 96
-  %.not.i.i.i.i.i154 = icmp eq i64 %50, 0
+  %49 = add i64 %.057.i.i.i.i.i153, -1
+  %50 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i152, i64 96
+  %.not.i.i.i.i.i154 = icmp eq i64 %49, 0
   br i1 %.not.i.i.i.i.i154, label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i162, label %.lr.ph.i.i.i.i.i151, !llvm.loop !115
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.thread.i168: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
@@ -9837,7 +9836,8 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.thread.i168: ; preds = %_ZNS
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EEC2EmRKS2_.exit171
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i162: ; preds = %.lr.ph.i.i.i.i.i151
-  store ptr %51, ptr %47, align 8, !tbaa !40
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %50, ptr %51, align 8, !tbaa !40
   %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
           to label %.lr.ph.i.i.i.i.i163 unwind label %117
 
@@ -10774,10 +10774,9 @@ define linkonce_odr hidden void @_ZN2cv2ml11ANN_MLPImpl16calc_input_scaleERKNS_3
   %15 = load ptr, ptr %14, align 8, !tbaa !74
   %16 = load i32, ptr %15, align 4, !tbaa !85
   %17 = load i32, ptr %1, align 8, !tbaa !154
-  %18 = and i32 %17, 4095
-  %19 = select i1 %.not, double 0.000000e+00, double 1.000000e+00
-  %20 = icmp sgt i32 %16, 0
-  br i1 %20, label %.lr.ph.preheader, label %._crit_edge
+  %18 = select i1 %.not, double 0.000000e+00, double 1.000000e+00
+  %19 = icmp sgt i32 %16, 0
+  br i1 %19, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %13
   %wide.trip.count = zext nneg i32 %16 to i64
@@ -10786,15 +10785,16 @@ define linkonce_odr hidden void @_ZN2cv2ml11ANN_MLPImpl16calc_input_scaleERKNS_3
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
-  store double %19, ptr %21, align 8, !tbaa !97
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store double 0.000000e+00, ptr %22, align 8, !tbaa !97
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
+  store double %18, ptr %20, align 8, !tbaa !97
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store double 0.000000e+00, ptr %21, align 8, !tbaa !97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !256
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
+  %22 = and i32 %17, 4095
   br i1 %.not, label %.preheader65, label %.critedge
 
 .preheader65:                                     ; preds = %._crit_edge
@@ -10807,10 +10807,10 @@ define linkonce_odr hidden void @_ZN2cv2ml11ANN_MLPImpl16calc_input_scaleERKNS_3
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %27 = load ptr, ptr %26, align 8, !tbaa !82
   %28 = load i64, ptr %27, align 8, !tbaa !36
-  br i1 %20, label %.lr.ph72.split.us, label %.critedge
+  br i1 %19, label %.lr.ph72.split.us, label %.critedge
 
 .lr.ph72.split.us:                                ; preds = %.lr.ph72
-  %29 = icmp eq i32 %18, 5
+  %29 = icmp eq i32 %22, 5
   %wide.trip.count99 = zext nneg i32 %12 to i64
   %wide.trip.count94 = zext nneg i32 %16 to i64
   br i1 %29, label %.lr.ph69.us.us, label %.lr.ph69.us
@@ -10873,7 +10873,7 @@ define linkonce_odr hidden void @_ZN2cv2ml11ANN_MLPImpl16calc_input_scaleERKNS_3
   br i1 %exitcond90.not, label %.preheader, label %.lr.ph69.us, !llvm.loop !258
 
 .preheader:                                       ; preds = %._crit_edge70.split.us74, %._crit_edge70.split.us.us.us, %.preheader65
-  br i1 %20, label %.lr.ph77, label %.critedge
+  br i1 %19, label %.lr.ph77, label %.critedge
 
 .lr.ph77:                                         ; preds = %.preheader
   %53 = sitofp i32 %12 to double
@@ -11791,8 +11791,8 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !97
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !97
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i

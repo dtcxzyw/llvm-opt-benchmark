@@ -39769,7 +39769,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit:  ; preds = %100, %111, %114
   %217 = or i8 %214, %216
   %218 = getelementptr inbounds nuw i8, ptr %.14152.i, i64 1
   store i8 %217, ptr %.14152.i, align 1, !tbaa !95
-  %219 = icmp sgt i64 %.in.i, 1
+  %219 = icmp samesign ugt i64 %.in.i, 1
   br i1 %219, label %.preheader46.i, label %._crit_edge53.i, !llvm.loop !848
 
 220:                                              ; preds = %220, %.preheader46.i
@@ -52136,7 +52136,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_18TypedBu
   %82 = or i8 %79, %81
   %83 = getelementptr inbounds nuw i8, ptr %.14154, i64 1
   store i8 %82, ptr %.14154, align 1, !tbaa !95
-  %84 = icmp sgt i64 %.in, 1
+  %84 = icmp samesign ugt i64 %.in, 1
   br i1 %84, label %.preheader48, label %._crit_edge55, !llvm.loop !1112
 
 85:                                               ; preds = %.preheader48, %85

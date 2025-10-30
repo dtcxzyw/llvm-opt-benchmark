@@ -3583,42 +3583,42 @@ sub_01740:                                        ; preds = %1399, %1395
   %1492 = load ptr, ptr %.21379, align 8
   call fastcc void @check_declared_list(ptr noundef %1492)
   %1493 = load ptr, ptr @connection, align 8
-  %.not1504 = icmp eq ptr %1493, null
-  %1494 = select i1 %.not1504, ptr @.str.2, ptr %1493
   %.014121780 = load ptr, ptr @cur, align 8
   %.not15051781 = icmp eq ptr %.014121780, null
   br i1 %.not15051781, label %._crit_edge1785, label %.lr.ph1784
 
-.lr.ph1784:                                       ; preds = %1491, %1506
-  %.014121782 = phi ptr [ %.01412, %1506 ], [ %.014121780, %1491 ]
-  %1495 = load ptr, ptr %1476, align 8
-  %1496 = load ptr, ptr %.014121782, align 8
-  %1497 = call i32 %1482(ptr noundef %1495, ptr noundef %1496) #16, !callees !10
-  %1498 = icmp eq i32 %1497, 0
-  br i1 %1498, label %1499, label %1506
+.lr.ph1784:                                       ; preds = %1491, %1505
+  %.014121782 = phi ptr [ %.01412, %1505 ], [ %.014121780, %1491 ]
+  %1494 = load ptr, ptr %1476, align 8
+  %1495 = load ptr, ptr %.014121782, align 8
+  %1496 = call i32 %1482(ptr noundef %1494, ptr noundef %1495) #16, !callees !10
+  %1497 = icmp eq i32 %1496, 0
+  br i1 %1497, label %1498, label %1505
 
-1499:                                             ; preds = %.lr.ph1784
-  %1500 = load ptr, ptr %1476, align 8
-  %1501 = load i8, ptr %1500, align 1
-  %1502 = icmp eq i8 %1501, 58
-  br i1 %1502, label %1503, label %1505
+1498:                                             ; preds = %.lr.ph1784
+  %1499 = load ptr, ptr %1476, align 8
+  %1500 = load i8, ptr %1499, align 1
+  %1501 = icmp eq i8 %1500, 58
+  br i1 %1501, label %1502, label %1504
 
-1503:                                             ; preds = %1499
-  %1504 = getelementptr inbounds nuw i8, ptr %1500, i64 1
-  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.50, ptr noundef nonnull %1504) #16
-  br label %1506
+1502:                                             ; preds = %1498
+  %1503 = getelementptr inbounds nuw i8, ptr %1499, i64 1
+  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.50, ptr noundef nonnull %1503) #16
+  br label %1505
 
-1505:                                             ; preds = %1499
-  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.51, ptr noundef nonnull %1500) #16
-  br label %1506
+1504:                                             ; preds = %1498
+  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.51, ptr noundef nonnull %1499) #16
+  br label %1505
 
-1506:                                             ; preds = %.lr.ph1784, %1505, %1503
-  %1507 = getelementptr inbounds nuw i8, ptr %.014121782, i64 72
-  %.01412 = load ptr, ptr %1507, align 8
+1505:                                             ; preds = %.lr.ph1784, %1504, %1502
+  %1506 = getelementptr inbounds nuw i8, ptr %.014121782, i64 72
+  %.01412 = load ptr, ptr %1506, align 8
   %.not1505 = icmp eq ptr %.01412, null
   br i1 %.not1505, label %._crit_edge1785, label %.lr.ph1784, !llvm.loop !15
 
-._crit_edge1785:                                  ; preds = %1506, %1491
+._crit_edge1785:                                  ; preds = %1505, %1491
+  %.not1504 = icmp eq ptr %1493, null
+  %1507 = select i1 %.not1504, ptr @.str.2, ptr %1493
   %1508 = call ptr @mm_alloc(i64 noundef 80) #16
   %1509 = load ptr, ptr @cur, align 8
   %1510 = getelementptr inbounds nuw i8, ptr %1508, i64 72
@@ -3668,7 +3668,7 @@ sub_01740:                                        ; preds = %1399, %1395
   store i32 0, ptr %1535, align 8
   %1536 = getelementptr inbounds nuw i8, ptr %1483, i64 24
   store ptr null, ptr %1536, align 8
-  %1537 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1494) #17
+  %1537 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1507) #17
   %1538 = add i64 %1537, 37
   %1539 = load ptr, ptr %.21379, align 8
   %1540 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1539) #17
@@ -3676,7 +3676,7 @@ sub_01740:                                        ; preds = %1399, %1395
   %1542 = call ptr @mm_alloc(i64 noundef %1541) #16
   store ptr %1542, ptr %1483, align 8
   %1543 = load ptr, ptr %.21379, align 8
-  %1544 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %1542, ptr noundef nonnull @.str.107, ptr noundef nonnull %1494, ptr noundef %1543) #16
+  %1544 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %1542, ptr noundef nonnull @.str.107, ptr noundef nonnull %1507, ptr noundef %1543) #16
   %1545 = getelementptr inbounds nuw i8, ptr %1508, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1545, i8 0, i64 16, i1 false)
   %1546 = load ptr, ptr %1476, align 8
@@ -4387,41 +4387,41 @@ sub_01740:                                        ; preds = %1399, %1395
   %1951 = getelementptr inbounds i8, ptr %.21367, i64 -192
   %1952 = load ptr, ptr %1951, align 8
   %1953 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1952, ptr noundef nonnull dereferenceable(7) @.str.113) #17
-  %1954 = icmp eq i32 %1953, 0
-  %.1586 = select i1 %1954, i32 22, i32 23
-  %1955 = getelementptr inbounds i8, ptr %.21367, i64 -184
-  %1956 = load ptr, ptr %1955, align 8
-  %1957 = call ptr @cat2_str(ptr noundef nonnull %1952, ptr noundef %1956) #16
-  %1958 = load ptr, ptr @forward_name, align 8
-  call void @free(ptr noundef %1958) #16
+  %1954 = getelementptr inbounds i8, ptr %.21367, i64 -184
+  %1955 = load ptr, ptr %1954, align 8
+  %1956 = call ptr @cat2_str(ptr noundef nonnull %1952, ptr noundef %1955) #16
+  %1957 = load ptr, ptr @forward_name, align 8
+  call void @free(ptr noundef %1957) #16
   store ptr null, ptr @forward_name, align 8
   %.013961777 = load ptr, ptr @types, align 8
   %.not14901778 = icmp eq ptr %.013961777, null
   br i1 %.not14901778, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1942, %1963
-  %.013961779 = phi ptr [ %.01396, %1963 ], [ %.013961777, %1942 ]
-  %1959 = load ptr, ptr %.013961779, align 8
-  %1960 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1957, ptr noundef nonnull dereferenceable(1) %1959) #17
-  %1961 = icmp eq i32 %1960, 0
-  br i1 %1961, label %1962, label %1963
+.lr.ph:                                           ; preds = %1942, %1962
+  %.013961779 = phi ptr [ %.01396, %1962 ], [ %.013961777, %1942 ]
+  %1958 = load ptr, ptr %.013961779, align 8
+  %1959 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1956, ptr noundef nonnull dereferenceable(1) %1958) #17
+  %1960 = icmp eq i32 %1959, 0
+  br i1 %1960, label %1961, label %1962
 
-1962:                                             ; preds = %.lr.ph
-  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.131, ptr noundef nonnull %1957) #16
-  br label %1963
+1961:                                             ; preds = %.lr.ph
+  call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.131, ptr noundef nonnull %1956) #16
+  br label %1962
 
-1963:                                             ; preds = %.lr.ph, %1962
-  %1964 = getelementptr inbounds nuw i8, ptr %.013961779, i64 32
-  %.01396 = load ptr, ptr %1964, align 8
+1962:                                             ; preds = %.lr.ph, %1961
+  %1963 = getelementptr inbounds nuw i8, ptr %.013961779, i64 32
+  %.01396 = load ptr, ptr %1963, align 8
   %.not1490 = icmp eq ptr %.01396, null
   br i1 %.not1490, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %1963, %1942
+._crit_edge:                                      ; preds = %1962, %1942
+  %1964 = icmp eq i32 %1953, 0
+  %.1586 = select i1 %1964, i32 22, i32 23
   %1965 = call ptr @mm_alloc(i64 noundef 40) #16
   %1966 = load ptr, ptr @types, align 8
   %1967 = getelementptr inbounds nuw i8, ptr %1965, i64 32
   store ptr %1966, ptr %1967, align 8
-  %1968 = call ptr @mm_strdup(ptr noundef %1957) #16
+  %1968 = call ptr @mm_strdup(ptr noundef %1956) #16
   store ptr %1968, ptr %1965, align 8
   %1969 = load i32, ptr @braces_open, align 4
   %1970 = getelementptr inbounds nuw i8, ptr %1965, i64 24
@@ -4433,7 +4433,7 @@ sub_01740:                                        ; preds = %1399, %1395
   %1973 = load ptr, ptr %1972, align 8
   %1974 = getelementptr inbounds nuw i8, ptr %1973, i64 8
   store i32 %.1586, ptr %1974, align 8
-  %1975 = call ptr @mm_strdup(ptr noundef %1957) #16
+  %1975 = call ptr @mm_strdup(ptr noundef %1956) #16
   %1976 = load ptr, ptr %1972, align 8
   %1977 = getelementptr inbounds nuw i8, ptr %1976, i64 16
   store ptr %1975, ptr %1977, align 8
@@ -4468,7 +4468,7 @@ sub_01740:                                        ; preds = %1399, %1395
   store ptr %1965, ptr @types, align 8
   %1997 = getelementptr inbounds i8, ptr %.21379, i64 -8
   %1998 = load ptr, ptr %1997, align 8
-  %1999 = call ptr (i32, ...) @cat_str(i32 noundef 4, ptr noundef %1957, ptr noundef nonnull @.str.69, ptr noundef %1998, ptr noundef nonnull @.str.19) #16
+  %1999 = call ptr (i32, ...) @cat_str(i32 noundef 4, ptr noundef %1956, ptr noundef nonnull @.str.69, ptr noundef %1998, ptr noundef nonnull @.str.19) #16
   br label %.thread1651
 
 2000:                                             ; preds = %yylloc_default.exit

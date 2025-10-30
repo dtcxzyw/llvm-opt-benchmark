@@ -1232,34 +1232,34 @@ enqueue_lr_jobs.exit.i:                           ; preds = %.loopexit.i.i
 .lr.ph.i:                                         ; preds = %enqueue_lr_jobs.exit.i
   %227 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %228 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %229 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %230 = zext nneg i32 %4 to i64
-  %indvars.iv.next91.i13 = add nsw i64 %230, -1
-  %231 = getelementptr inbounds nuw %struct.AVxWorker, ptr %3, i64 %indvars.iv.next91.i13
-  %232 = load ptr, ptr %227, align 8
-  %233 = getelementptr inbounds nuw %struct.LoopRestorationWorkerData, ptr %232, i64 %indvars.iv.next91.i13
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
-  store ptr %6, ptr %234, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %231, i64 24
-  store ptr @loop_restoration_row_worker, ptr %235, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %231, i64 32
-  store ptr %5, ptr %236, align 8
-  %237 = load ptr, ptr %227, align 8
-  %238 = getelementptr inbounds nuw %struct.LoopRestorationWorkerData, ptr %237, i64 %indvars.iv.next91.i13
-  %239 = getelementptr inbounds nuw i8, ptr %231, i64 40
-  store ptr %238, ptr %239, align 8
-  %240 = icmp eq i64 %indvars.iv.next91.i13, 0
-  br i1 %240, label %.preheader.i, label %.lr.ph
+  %229 = zext nneg i32 %4 to i64
+  %indvars.iv.next91.i13 = add nsw i64 %229, -1
+  %230 = getelementptr inbounds nuw %struct.AVxWorker, ptr %3, i64 %indvars.iv.next91.i13
+  %231 = load ptr, ptr %227, align 8
+  %232 = getelementptr inbounds nuw %struct.LoopRestorationWorkerData, ptr %231, i64 %indvars.iv.next91.i13
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
+  store ptr %6, ptr %233, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %230, i64 24
+  store ptr @loop_restoration_row_worker, ptr %234, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %230, i64 32
+  store ptr %5, ptr %235, align 8
+  %236 = load ptr, ptr %227, align 8
+  %237 = getelementptr inbounds nuw %struct.LoopRestorationWorkerData, ptr %236, i64 %indvars.iv.next91.i13
+  %238 = getelementptr inbounds nuw i8, ptr %230, i64 40
+  store ptr %237, ptr %238, align 8
+  %239 = icmp eq i64 %indvars.iv.next91.i13, 0
+  br i1 %239, label %.preheader.i, label %.lr.ph
 
 .preheader.i:                                     ; preds = %.lr.ph, %.lr.ph.i
-  %.lcssa = phi ptr [ %231, %.lr.ph.i ], [ %3, %.lr.ph ]
-  %241 = load ptr, ptr %229, align 8
+  %.lcssa = phi ptr [ %230, %.lr.ph.i ], [ %3, %.lr.ph ]
+  %240 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %241 = load ptr, ptr %240, align 8
   tail call void %241(ptr noundef nonnull %.lcssa) #7
   %242 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br label %255
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %.lr.ph
-  %243 = phi ptr [ %245, %.lr.ph ], [ %231, %.lr.ph.i ]
+  %243 = phi ptr [ %245, %.lr.ph ], [ %230, %.lr.ph.i ]
   %indvars.iv.next91.i14 = phi i64 [ %indvars.iv.next91.i, %.lr.ph ], [ %indvars.iv.next91.i13, %.lr.ph.i ]
   %244 = load ptr, ptr %228, align 8
   tail call void %244(ptr noundef nonnull %243) #7
@@ -1286,7 +1286,7 @@ enqueue_lr_jobs.exit.i:                           ; preds = %.loopexit.i.i
   %257 = getelementptr inbounds nuw %struct.AVxWorker, ptr %3, i64 %indvars.iv93.i
   %258 = tail call i32 %256(ptr noundef %257) #7
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
-  %exitcond97.not.i = icmp eq i64 %indvars.iv.next94.i, %230
+  %exitcond97.not.i = icmp eq i64 %indvars.iv.next94.i, %229
   br i1 %exitcond97.not.i, label %foreach_rest_unit_in_planes_mt.exit, label %255, !llvm.loop !36
 
 foreach_rest_unit_in_planes_mt.exit:              ; preds = %255, %enqueue_lr_jobs.exit.i

@@ -5220,8 +5220,6 @@ declare void @_ZN18G1BlockOffsetTable21update_for_block_workEPP12HeapWordImplS2_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN20G1ParScanThreadState22start_partial_objarrayE16G1HeapRegionAttrP7oopDescS2_(ptr noundef nonnull align 8 dereferenceable(632) %0, i24 %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 {
-  %.sroa.1.0.extract.shift = lshr i24 %1, 8
-  %.sroa.1.0.extract.trunc = trunc i24 %.sroa.1.0.extract.shift to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %6 = load i32, ptr %5, align 4
   %7 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -5328,6 +5326,8 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i: ; preds = %_ZN5StackI11S
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %4
+  %.sroa.1.0.extract.shift = lshr i24 %1, 8
+  %.sroa.1.0.extract.trunc = trunc i24 %.sroa.1.0.extract.shift to i8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %64 = icmp eq i8 %.sroa.1.0.extract.trunc, 0
   %65 = zext i1 %64 to i32

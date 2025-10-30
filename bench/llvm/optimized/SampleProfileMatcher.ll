@@ -2342,25 +2342,28 @@ _ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEES
 _ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i: ; preds = %26
   %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #21
   store ptr %30, ptr %7, align 8, !tbaa !197
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %22
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %32, ptr %33, align 8, !tbaa !198
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %22
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %31, ptr %32, align 8, !tbaa !198
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i, %.lr.ph.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i ], [ %30, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %19, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i ]
+  %.09.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %30, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %19, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.08.i.i.i.i.i, i64 24, i1 false)
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 24
-  %35 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %34, %18
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !200
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %33, %18
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !200
 
-_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i.thread
-  %36 = phi ptr [ %25, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i.thread ], [ %33, %.lr.ph.i.i.i.i.i ]
-  %37 = phi ptr [ %23, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i.thread ], [ %31, %.lr.ph.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i.thread ], [ %35, %.lr.ph.i.i.i.i.i ]
+_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  br label %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit
+
+_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit: ; preds = %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit.loopexit, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i.thread
+  %36 = phi ptr [ %25, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i.thread ], [ %32, %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit.loopexit ]
+  %37 = phi ptr [ %23, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i.thread ], [ %35, %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit.loopexit ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i.thread ], [ %34, %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit.loopexit ]
   store ptr %.0.lcssa.i.i.i.i.i, ptr %37, align 8, !tbaa !194
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !194
@@ -2392,25 +2395,28 @@ _ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEES
 _ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i6: ; preds = %47
   %51 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #21
   store ptr %51, ptr %8, align 8, !tbaa !197
-  %52 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 %43
-  %54 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %53, ptr %54, align 8, !tbaa !198
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %43
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %52, ptr %53, align 8, !tbaa !198
   br label %.lr.ph.i.i.i.i.i8
 
 .lr.ph.i.i.i.i.i8:                                ; preds = %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i6, %.lr.ph.i.i.i.i.i8
-  %.09.i.i.i.i.i9 = phi ptr [ %56, %.lr.ph.i.i.i.i.i8 ], [ %51, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i6 ]
-  %.sroa.04.08.i.i.i.i.i10 = phi ptr [ %55, %.lr.ph.i.i.i.i.i8 ], [ %40, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i6 ]
+  %.09.i.i.i.i.i9 = phi ptr [ %55, %.lr.ph.i.i.i.i.i8 ], [ %51, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i6 ]
+  %.sroa.04.08.i.i.i.i.i10 = phi ptr [ %54, %.lr.ph.i.i.i.i.i8 ], [ %40, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i6 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i9, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.08.i.i.i.i.i10, i64 24, i1 false)
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i10, i64 24
-  %56 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i9, i64 24
-  %.not.i.i.i.i.i11 = icmp eq ptr %55, %39
-  br i1 %.not.i.i.i.i.i11, label %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit13, label %.lr.ph.i.i.i.i.i8, !llvm.loop !200
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i10, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i9, i64 24
+  %.not.i.i.i.i.i11 = icmp eq ptr %54, %39
+  br i1 %.not.i.i.i.i.i11, label %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit13.loopexit, label %.lr.ph.i.i.i.i.i8, !llvm.loop !200
 
-_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit13: ; preds = %.lr.ph.i.i.i.i.i8, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i6.thread
-  %57 = phi ptr [ %46, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i6.thread ], [ %54, %.lr.ph.i.i.i.i.i8 ]
-  %58 = phi ptr [ %44, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i6.thread ], [ %52, %.lr.ph.i.i.i.i.i8 ]
-  %.0.lcssa.i.i.i.i.i12 = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i6.thread ], [ %56, %.lr.ph.i.i.i.i.i8 ]
+_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit13.loopexit: ; preds = %.lr.ph.i.i.i.i.i8
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  br label %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit13
+
+_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit13: ; preds = %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit13.loopexit, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i6.thread
+  %57 = phi ptr [ %46, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i6.thread ], [ %53, %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit13.loopexit ]
+  %58 = phi ptr [ %44, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i6.thread ], [ %56, %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit13.loopexit ]
+  %.0.lcssa.i.i.i.i.i12 = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2EmRKS6_.exit.i6.thread ], [ %55, %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EEC2ERKS7_.exit13.loopexit ]
   store ptr %.0.lcssa.i.i.i.i.i12, ptr %58, align 8, !tbaa !194
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %1, ptr %9, align 8, !tbaa !201
@@ -2496,8 +2502,8 @@ define linkonce_odr void @_ZN4llvm21longestCommonSequenceINS_10sampleprof12LineL
   %36 = getelementptr inbounds nuw i32, ptr %35, i64 %32
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %36, ptr %37, align 8, !tbaa !209
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %35, i8 -1, i64 %34, i1 false), !tbaa !49
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 %34
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %35, i8 -1, i64 %34, i1 false), !tbaa !49
   store ptr %38, ptr %33, align 8, !tbaa !210
   %39 = zext nneg i32 %25 to i64
   %40 = getelementptr inbounds nuw i32, ptr %35, i64 %39
@@ -7392,16 +7398,16 @@ _ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdEPNS_8Function
   %76 = phi ptr [ %.pre42, %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdEPNS_8FunctionEJEE4findERKS3_.exit.loopexit ], [ %60, %63 ], [ %60, %68 ]
   %77 = phi i64 [ %.pre, %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdEPNS_8FunctionEJEE4findERKS3_.exit.loopexit ], [ %58, %63 ], [ %58, %68 ]
   %.sroa.0.0.i = phi ptr [ %.sroa.06.0.i.i.i, %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdEPNS_8FunctionEJEE4findERKS3_.exit.loopexit ], [ %64, %63 ], [ %70, %68 ]
-  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %.pre-phi
-  br label %79
+  br label %78
 
-79:                                               ; preds = %79, %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdEPNS_8FunctionEJEE4findERKS3_.exit
-  %.0.i.i.i.i.i = phi ptr [ %75, %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdEPNS_8FunctionEJEE4findERKS3_.exit ], [ %80, %79 ]
-  %80 = load ptr, ptr %.0.i.i.i.i.i, align 8, !tbaa !143
-  %.not.i.i.i.i.i = icmp eq ptr %80, %.sroa.0.0.i
-  br i1 %.not.i.i.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmPN4llvm8FunctionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i.i, label %79, !llvm.loop !485
+78:                                               ; preds = %78, %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdEPNS_8FunctionEJEE4findERKS3_.exit
+  %.0.i.i.i.i.i = phi ptr [ %75, %_ZN4llvm10sampleprof10HashKeyMapISt13unordered_mapNS0_10FunctionIdEPNS_8FunctionEJEE4findERKS3_.exit ], [ %79, %78 ]
+  %79 = load ptr, ptr %.0.i.i.i.i.i, align 8, !tbaa !143
+  %.not.i.i.i.i.i = icmp eq ptr %79, %.sroa.0.0.i
+  br i1 %.not.i.i.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmPN4llvm8FunctionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i.i, label %78, !llvm.loop !485
 
-_ZNSt10_HashtableImSt4pairIKmPN4llvm8FunctionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i.i: ; preds = %79
+_ZNSt10_HashtableImSt4pairIKmPN4llvm8FunctionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i.i: ; preds = %78
+  %80 = getelementptr inbounds nuw ptr, ptr %76, i64 %.pre-phi
   %81 = icmp eq ptr %.0.i.i.i.i.i, %75
   %82 = load ptr, ptr %.sroa.0.0.i, align 8, !tbaa !143
   %.not18.i.i.i.i.i = icmp eq ptr %82, null
@@ -7432,7 +7438,7 @@ _ZNSt10_HashtableImSt4pairIKmPN4llvm8FunctionEESaIS5_ENSt8__detail10_Select1stES
   br label %93
 
 93:                                               ; preds = %92, %._crit_edge.i.i.i.i.i.i
-  store ptr null, ptr %78, align 8, !tbaa !157
+  store ptr null, ptr %80, align 8, !tbaa !157
   br label %_ZNSt13unordered_mapImPN4llvm8FunctionESt4hashImESt8equal_toImESaISt4pairIKmS2_EEE5eraseENSt8__detail14_Node_iteratorIS9_Lb0ELb0EEE.exit.i
 
 94:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmPN4llvm8FunctionEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit.i.i.i.i

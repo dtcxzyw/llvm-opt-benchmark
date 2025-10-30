@@ -1454,12 +1454,12 @@ _ZNK4cvc58internal6theory5arith6linear7Tableau7isBasicEj.exit: ; preds = %49
   br i1 %.not65.i, label %102, label %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit69.thread.i
 
 _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit69.thread.i: ; preds = %93
-  %99 = shl nuw nsw i64 %91, 2
-  %100 = sub i64 %99, %87
-  call void @llvm.memset.p0.i64(ptr align 4 %83, i8 -1, i64 %100, i1 false), !tbaa !9
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %94, 2
-  %101 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx.i.i.i.i.i.i
-  store ptr %101, ptr %41, align 8, !tbaa !73
+  %99 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx.i.i.i.i.i.i
+  %100 = shl nuw nsw i64 %91, 2
+  %101 = sub i64 %100, %87
+  call void @llvm.memset.p0.i64(ptr align 4 %83, i8 -1, i64 %101, i1 false), !tbaa !9
+  store ptr %99, ptr %41, align 8, !tbaa !73
   br label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i.i
 
 102:                                              ; preds = %93
@@ -1512,7 +1512,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %110, %108
 
 _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit.i.i:        ; preds = %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit69.thread.i, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i, %117, %115, %113
   %118 = phi ptr [ %84, %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit69.thread.i ], [ %105, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %84, %117 ], [ %84, %115 ], [ %84, %113 ]
-  %119 = phi ptr [ %101, %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit69.thread.i ], [ %109, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %116, %117 ], [ %83, %115 ], [ %83, %113 ]
+  %119 = phi ptr [ %99, %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit69.thread.i ], [ %109, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %116, %117 ], [ %83, %115 ], [ %83, %113 ]
   %120 = load ptr, ptr %44, align 8, !tbaa !92
   %121 = load ptr, ptr %43, align 8, !tbaa !67
   %122 = ptrtoint ptr %120 to i64
@@ -2998,8 +2998,8 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !9
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !9
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i

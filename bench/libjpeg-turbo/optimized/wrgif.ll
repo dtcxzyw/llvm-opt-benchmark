@@ -545,7 +545,6 @@ define internal fastcc void @emit_header(ptr noundef captures(none) %0, i32 noun
   br i1 %19, label %17, label %21, !llvm.loop !83
 
 21:                                               ; preds = %17
-  %..071 = tail call i32 @llvm.umax.i32(i32 %.071, i32 2)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !70
   %24 = tail call i32 @putc(i32 noundef 71, ptr noundef %23)
@@ -689,6 +688,7 @@ define internal fastcc void @emit_header(ptr noundef captures(none) %0, i32 noun
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %118, %76, %21
+  %..071 = tail call i32 @llvm.umax.i32(i32 %.071, i32 2)
   %121 = load ptr, ptr %22, align 8, !tbaa !70
   %122 = tail call i32 @putc(i32 noundef 44, ptr noundef %121)
   %123 = load ptr, ptr %22, align 8, !tbaa !70

@@ -1302,68 +1302,68 @@ define internal fastcc void @ExecAppendAsyncEventWait(ptr noundef captures(none)
   %5 = add i32 %4, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %7 = load i8, ptr %6, align 4, !range !4, !noundef !5
-  %8 = zext nneg i8 %7 to i64
-  %9 = sub nsw i64 0, %8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %10 = load ptr, ptr @CurrentResourceOwner, align 8
-  %11 = tail call ptr @CreateWaitEventSet(ptr noundef %10, i32 noundef %5) #6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store ptr %11, ptr %12, align 8
-  %13 = tail call i32 @AddWaitEventToSet(ptr noundef %11, i32 noundef 32, i32 noundef -1, ptr noundef null, ptr noundef null) #6
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @bms_next_member(ptr noundef %15, i32 noundef -1) #6
-  %17 = icmp sgt i32 %16, -1
-  br i1 %17, label %.lr.ph, label %._crit_edge
+  %8 = load ptr, ptr @CurrentResourceOwner, align 8
+  %9 = tail call ptr @CreateWaitEventSet(ptr noundef %8, i32 noundef %5) #6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store ptr %9, ptr %10, align 8
+  %11 = tail call i32 @AddWaitEventToSet(ptr noundef %9, i32 noundef 32, i32 noundef -1, ptr noundef null, ptr noundef null) #6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call i32 @bms_next_member(ptr noundef %13, i32 noundef -1) #6
+  %15 = icmp sgt i32 %14, -1
+  br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  br label %19
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  br label %17
 
-19:                                               ; preds = %.lr.ph, %29
-  %20 = phi i32 [ %16, %.lr.ph ], [ %31, %29 ]
-  %21 = load ptr, ptr %18, align 8
-  %22 = zext nneg i32 %20 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  %26 = load i8, ptr %25, align 4, !range !4, !noundef !5
-  %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %28, label %29
+17:                                               ; preds = %.lr.ph, %27
+  %18 = phi i32 [ %14, %.lr.ph ], [ %29, %27 ]
+  %19 = load ptr, ptr %16, align 8
+  %20 = zext nneg i32 %18 to i64
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 20
+  %24 = load i8, ptr %23, align 4, !range !4, !noundef !5
+  %25 = trunc nuw i8 %24 to i1
+  br i1 %25, label %26, label %27
 
-28:                                               ; preds = %19
-  tail call void @ExecAsyncConfigureWait(ptr noundef nonnull %24) #6
-  br label %29
+26:                                               ; preds = %17
+  tail call void @ExecAsyncConfigureWait(ptr noundef nonnull %22) #6
+  br label %27
 
-29:                                               ; preds = %28, %19
-  %30 = load ptr, ptr %14, align 8
-  %31 = tail call i32 @bms_next_member(ptr noundef %30, i32 noundef %20) #6
-  %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %19, label %._crit_edge, !llvm.loop !19
+27:                                               ; preds = %26, %17
+  %28 = load ptr, ptr %12, align 8
+  %29 = tail call i32 @bms_next_member(ptr noundef %28, i32 noundef %18) #6
+  %30 = icmp sgt i32 %29, -1
+  br i1 %30, label %17, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %29, %1
-  %33 = load ptr, ptr %12, align 8
-  %34 = tail call i32 @GetNumRegisteredWaitEvents(ptr noundef %33) #6
-  %35 = icmp eq i32 %34, 1
-  br i1 %35, label %36, label %38
+._crit_edge:                                      ; preds = %27, %1
+  %31 = load ptr, ptr %10, align 8
+  %32 = tail call i32 @GetNumRegisteredWaitEvents(ptr noundef %31) #6
+  %33 = icmp eq i32 %32, 1
+  br i1 %33, label %34, label %36
 
-36:                                               ; preds = %._crit_edge
-  %37 = load ptr, ptr %12, align 8
-  tail call void @FreeWaitEventSet(ptr noundef %37) #6
-  store ptr null, ptr %12, align 8
+34:                                               ; preds = %._crit_edge
+  %35 = load ptr, ptr %10, align 8
+  tail call void @FreeWaitEventSet(ptr noundef %35) #6
+  store ptr null, ptr %10, align 8
   br label %.loopexit
 
-38:                                               ; preds = %._crit_edge
+36:                                               ; preds = %._crit_edge
+  %37 = zext nneg i8 %7 to i64
+  %38 = sub nsw i64 0, %37
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %5, i32 16)
-  %39 = load ptr, ptr %12, align 8
-  %40 = call i32 @WaitEventSetWait(ptr noundef %39, i64 noundef %9, ptr noundef nonnull %2, i32 noundef %spec.store.select, i32 noundef 134217728) #6
-  %41 = load ptr, ptr %12, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = call i32 @WaitEventSetWait(ptr noundef %39, i64 noundef %38, ptr noundef nonnull %2, i32 noundef %spec.store.select, i32 noundef 134217728) #6
+  %41 = load ptr, ptr %10, align 8
   call void @FreeWaitEventSet(ptr noundef %41) #6
-  store ptr null, ptr %12, align 8
+  store ptr null, ptr %10, align 8
   %42 = icmp sgt i32 %40, 0
   br i1 %42, label %.lr.ph32.preheader, label %.loopexit
 
-.lr.ph32.preheader:                               ; preds = %38
+.lr.ph32.preheader:                               ; preds = %36
   %wide.trip.count = zext nneg i32 %40 to i64
   br label %.lr.ph32
 
@@ -1394,7 +1394,7 @@ define internal fastcc void @ExecAppendAsyncEventWait(ptr noundef captures(none)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph32, !llvm.loop !20
 
-.loopexit:                                        ; preds = %54, %38, %36
+.loopexit:                                        ; preds = %54, %36, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

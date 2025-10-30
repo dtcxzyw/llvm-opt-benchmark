@@ -453,6 +453,7 @@ gv_calloc.exit67.i:                               ; preds = %164, %.thread.i66.i
   br i1 %.not9.i27.i.i, label %topsort.exit.i, label %.lr.ph.i.preheader.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %findSource.exit.i.i
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %187 = call ptr @agfstnode(ptr noundef %141) #23
   %.not9.i.i.i = icmp eq ptr %187, null
   br i1 %.not9.i.i.i, label %topsort.exit.i, label %.lr.ph.i.preheader.i.i, !llvm.loop !64
@@ -478,7 +479,6 @@ findSource.exit.i.i:                              ; preds = %.lr.ph.i.i.i
   %194 = load ptr, ptr %193, align 8, !tbaa !3
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 32
   %196 = load ptr, ptr %195, align 8, !tbaa !59
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %197 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv.i.i
   store ptr %196, ptr %197, align 8, !tbaa !38
   %198 = call i32 @agdelnode(ptr noundef %141, ptr noundef nonnull %.010.i.i.i) #23

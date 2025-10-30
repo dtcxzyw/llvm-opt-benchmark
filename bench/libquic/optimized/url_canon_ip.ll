@@ -301,11 +301,10 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28: ; preds = %_ZN3url12CanonOu
   %67 = load i8, ptr %66, align 1, !tbaa !3
   %68 = zext i8 %67 to i32
   %69 = or disjoint i32 %65, %68
-  %70 = add nsw i32 %.01966, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %71 = call noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %69, ptr noundef nonnull align 1 dereferenceable(5) %3, i64 noundef 5, i32 noundef 16)
-  %72 = load i8, ptr %3, align 1, !tbaa !3
-  %.not64 = icmp eq i8 %72, 0
+  %70 = call noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %69, ptr noundef nonnull align 1 dereferenceable(5) %3, i64 noundef 5, i32 noundef 16)
+  %71 = load i8, ptr %3, align 1, !tbaa !3
+  %.not64 = icmp eq i8 %71, 0
   br i1 %.not64, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %60
@@ -313,13 +312,14 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28: ; preds = %_ZN3url12CanonOu
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit42, %60
+  %72 = add nsw i32 %.01966, 2
   %.not20 = icmp eq i32 %.01966, 14
   br i1 %.not20, label %_ZN3url12CanonOutputTIcE9push_backEc.exit52, label %93
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3url12CanonOutputTIcE9push_backEc.exit42
   %73 = phi i32 [ %.pre, %.lr.ph.preheader ], [ %90, %_ZN3url12CanonOutputTIcE9push_backEc.exit42 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3url12CanonOutputTIcE9push_backEc.exit42 ]
-  %74 = phi i8 [ %72, %.lr.ph.preheader ], [ %92, %_ZN3url12CanonOutputTIcE9push_backEc.exit42 ]
+  %74 = phi i8 [ %71, %.lr.ph.preheader ], [ %92, %_ZN3url12CanonOutputTIcE9push_backEc.exit42 ]
   %75 = load i32, ptr %22, align 8, !tbaa !11
   %76 = icmp slt i32 %73, %75
   br i1 %76, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i38, label %select.unfold.i.preheader.i33
@@ -411,7 +411,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit52:      ; preds = %select.unfold.i.i45
   br label %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit
 
 _ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit: ; preds = %select.unfold.i.i25, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28, %_ZN3url12CanonOutputTIcE9push_backEc.exit52
-  %.1 = phi i32 [ %70, %_ZN3url12CanonOutputTIcE9push_backEc.exit52 ], [ %23, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28 ], [ %23, %select.unfold.i.i25 ]
+  %.1 = phi i32 [ %72, %_ZN3url12CanonOutputTIcE9push_backEc.exit52 ], [ %23, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28 ], [ %23, %select.unfold.i.i25 ]
   %110 = icmp slt i32 %.1, 15
   br i1 %110, label %26, label %25, !llvm.loop !21
 }

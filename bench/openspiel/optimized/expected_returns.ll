@@ -338,8 +338,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %73 = getelementptr inbounds nuw double, ptr %71, i64 %67
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %73, ptr %74, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %71, i8 0, i64 %70, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 %70
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %71, i8 0, i64 %70, i1 false)
   %76 = ptrtoint ptr %73 to i64
   br label %.loopexit243
 
@@ -1660,8 +1660,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %67 = getelementptr inbounds nuw double, ptr %65, i64 %61
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %67, ptr %68, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %65, i8 0, i64 %64, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 %64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %65, i8 0, i64 %64, i1 false)
   %70 = ptrtoint ptr %67 to i64
   br label %.loopexit230
 
@@ -3141,8 +3141,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %44 = getelementptr inbounds nuw double, ptr %42, i64 %38
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %44, ptr %45, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %42, i8 0, i64 %41, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 %41
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %42, i8 0, i64 %41, i1 false)
   br label %.loopexit188
 
 .loopexit188:                                     ; preds = %.noexc87, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i

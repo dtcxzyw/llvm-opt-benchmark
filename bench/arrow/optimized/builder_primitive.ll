@@ -2303,7 +2303,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %5
   %87 = or i8 %84, %86
   %88 = getelementptr inbounds nuw i8, ptr %.14159.i.i, i64 1
   store i8 %87, ptr %.14159.i.i, align 1, !tbaa !39
-  %89 = icmp sgt i64 %.in.i.i, 1
+  %89 = icmp samesign ugt i64 %.in.i.i, 1
   br i1 %89, label %.preheader53.i.i, label %._crit_edge60.i.i, !llvm.loop !178
 
 90:                                               ; preds = %90, %.preheader53.i.i
@@ -2657,7 +2657,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %5
   %84 = or i8 %81, %83
   %85 = getelementptr inbounds nuw i8, ptr %.14159.i.i, i64 1
   store i8 %84, ptr %.14159.i.i, align 1, !tbaa !39
-  %86 = icmp sgt i64 %.in.i.i, 1
+  %86 = icmp samesign ugt i64 %.in.i.i, 1
   br i1 %86, label %.preheader53.i.i, label %._crit_edge60.i.i, !llvm.loop !211
 
 87:                                               ; preds = %87, %.preheader53.i.i
@@ -2902,7 +2902,7 @@ _ZN5arrow6StatusD2Ev.exit11:                      ; preds = %_ZN5arrow6StatusD2E
   %96 = or i8 %93, %95
   %97 = getelementptr inbounds nuw i8, ptr %.14163.i.i, i64 1
   store i8 %96, ptr %.14163.i.i, align 1, !tbaa !39
-  %98 = icmp sgt i64 %.in.i.i, 1
+  %98 = icmp samesign ugt i64 %.in.i.i, 1
   br i1 %98, label %.preheader57.i.i, label %._crit_edge64.i.i, !llvm.loop !230
 
 99:                                               ; preds = %99, %.preheader57.i.i
@@ -3140,7 +3140,7 @@ _ZN5arrow6StatusD2Ev.exit11:                      ; preds = %_ZN5arrow6StatusD2E
   %95 = or i8 %92, %94
   %96 = getelementptr inbounds nuw i8, ptr %.14163.i.i, i64 1
   store i8 %95, ptr %.14163.i.i, align 1, !tbaa !39
-  %97 = icmp sgt i64 %.in.i.i, 1
+  %97 = icmp samesign ugt i64 %.in.i.i, 1
   br i1 %97, label %.preheader57.i.i, label %._crit_edge64.i.i, !llvm.loop !243
 
 98:                                               ; preds = %98, %.preheader57.i.i
@@ -5989,7 +5989,7 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_18TypedBu
   %82 = or i8 %79, %81
   %83 = getelementptr inbounds nuw i8, ptr %.14154, i64 1
   store i8 %82, ptr %.14154, align 1, !tbaa !39
-  %84 = icmp sgt i64 %.in, 1
+  %84 = icmp samesign ugt i64 %.in, 1
   br i1 %84, label %.preheader48, label %._crit_edge55, !llvm.loop !410
 
 85:                                               ; preds = %.preheader48, %85

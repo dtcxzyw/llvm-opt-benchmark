@@ -938,13 +938,13 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr noundef readonly captures(none) %0,
   %.not103 = icmp eq i32 %2, 0
   br label %13
 
-13:                                               ; preds = %.loopexit130, %.loopexit132
-  %.0119 = phi ptr [ %10, %.loopexit132 ], [ %.3.ph, %.loopexit130 ]
-  %.090 = phi i32 [ %8, %.loopexit132 ], [ %.393.ph, %.loopexit130 ]
-  %.084 = phi i32 [ 0, %.loopexit132 ], [ %.387.ph, %.loopexit130 ]
-  %.282 = phi i32 [ %.080, %.loopexit132 ], [ %.7.ph, %.loopexit130 ]
-  %.076 = phi i1 [ true, %.loopexit132 ], [ %.177.ph, %.loopexit130 ]
-  %.070 = phi i32 [ %1, %.loopexit132 ], [ %.1.ph, %.loopexit130 ]
+13:                                               ; preds = %75, %.loopexit132
+  %.0119 = phi ptr [ %10, %.loopexit132 ], [ %.3.ph, %75 ]
+  %.090 = phi i32 [ %8, %.loopexit132 ], [ %.393.ph, %75 ]
+  %.084 = phi i32 [ 0, %.loopexit132 ], [ %.387.ph, %75 ]
+  %.282 = phi i32 [ %.080, %.loopexit132 ], [ %.7.ph, %75 ]
+  %.076 = phi i1 [ true, %.loopexit132 ], [ %.177.ph, %75 ]
+  %.070 = phi i32 [ %1, %.loopexit132 ], [ %.1.ph, %75 ]
   %14 = sext i32 %.084 to i64
   br label %15
 
@@ -1055,63 +1055,63 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr noundef readonly captures(none) %0,
   %58 = add i32 %.072.lcssa, 1
   %.not102 = icmp slt i32 %.072.lcssa, %2
   %or.cond107 = select i1 %.not101, i1 true, i1 %.not102
-  br i1 %or.cond107, label %.loopexit130, label %59
+  br i1 %or.cond107, label %75, label %59
 
 59:                                               ; preds = %.thread175
   %60 = sext i32 %.072.lcssa to i64
   %61 = getelementptr inbounds i8, ptr %.1120.lcssa, i64 %60
   store i8 10, ptr %61, align 1, !tbaa !4
-  br i1 %.not103, label %.loopexit130, label %62
+  br i1 %.not103, label %75, label %62
 
 62:                                               ; preds = %59
-  %63 = select i1 %.076, i32 %2, i32 0
-  %spec.select109 = sub nsw i32 %.070, %63
-  %64 = add nsw i32 %.191.lcssa, %2
-  %65 = sext i32 %64 to i64
-  %66 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 472, ptr noundef nonnull %.1120.lcssa, i64 noundef range(i64 -2147483648, 2147483648) %65, i64 noundef 1)
+  %63 = add nsw i32 %.191.lcssa, %2
+  %64 = sext i32 %63 to i64
+  %65 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 472, ptr noundef nonnull %.1120.lcssa, i64 noundef range(i64 -2147483648, 2147483648) %64, i64 noundef 1)
   br i1 %11, label %.lr.ph147.preheader, label %.preheader
 
 .lr.ph147.preheader:                              ; preds = %62
-  %67 = sext i32 %58 to i64
-  %scevgep155 = getelementptr i8, ptr %66, i64 %67
+  %66 = sext i32 %58 to i64
+  %scevgep155 = getelementptr i8, ptr %65, i64 %66
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep155, i8 32, i64 %12, i1 false), !tbaa !4
-  %68 = add i32 %2, %58
+  %67 = add i32 %2, %58
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph147.preheader, %62
-  %.9.lcssa = phi i32 [ %58, %62 ], [ %68, %.lr.ph147.preheader ]
-  %69 = sext i32 %57 to i64
-  br label %70
+  %.9.lcssa = phi i32 [ %58, %62 ], [ %67, %.lr.ph147.preheader ]
+  %68 = sext i32 %57 to i64
+  br label %69
 
-70:                                               ; preds = %70, %.preheader
-  %indvars.iv160 = phi i64 [ %indvars.iv.next161, %70 ], [ %69, %.preheader ]
-  %71 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv160
-  %72 = load i8, ptr %71, align 1, !tbaa !4
-  %73 = icmp eq i8 %72, 32
+69:                                               ; preds = %69, %.preheader
+  %indvars.iv160 = phi i64 [ %indvars.iv.next161, %69 ], [ %68, %.preheader ]
+  %70 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv160
+  %71 = load i8, ptr %70, align 1, !tbaa !4
+  %72 = icmp eq i8 %71, 32
   %indvars.iv.next161 = add nsw i64 %indvars.iv160, 1
-  br i1 %73, label %70, label %.loopexit130.loopexit, !llvm.loop !33
+  br i1 %72, label %69, label %.loopexit130, !llvm.loop !33
 
-.loopexit130.loopexit:                            ; preds = %70
-  %74 = trunc nsw i64 %indvars.iv160 to i32
-  br label %.loopexit130
+.loopexit130:                                     ; preds = %69
+  %73 = trunc nsw i64 %indvars.iv160 to i32
+  %74 = select i1 %.076, i32 %2, i32 0
+  %spec.select109 = sub nsw i32 %.070, %74
+  br label %75
 
-.loopexit130:                                     ; preds = %.loopexit130.loopexit, %.thread175, %59
-  %.3.ph = phi ptr [ %.1120.lcssa, %59 ], [ %.1120.lcssa, %.thread175 ], [ %66, %.loopexit130.loopexit ]
-  %.393.ph = phi i32 [ %.191.lcssa, %59 ], [ %.191.lcssa, %.thread175 ], [ %64, %.loopexit130.loopexit ]
-  %.387.ph = phi i32 [ %57, %59 ], [ %57, %.thread175 ], [ %74, %.loopexit130.loopexit ]
-  %.7.ph = phi i32 [ %58, %59 ], [ %58, %.thread175 ], [ %.9.lcssa, %.loopexit130.loopexit ]
-  %.177.ph = phi i1 [ %.076, %59 ], [ %.076, %.thread175 ], [ false, %.loopexit130.loopexit ]
-  %.1.ph = phi i32 [ %.070, %59 ], [ %.070, %.thread175 ], [ %spec.select109, %.loopexit130.loopexit ]
+75:                                               ; preds = %.loopexit130, %.thread175, %59
+  %.3.ph = phi ptr [ %.1120.lcssa, %59 ], [ %.1120.lcssa, %.thread175 ], [ %65, %.loopexit130 ]
+  %.393.ph = phi i32 [ %.191.lcssa, %59 ], [ %.191.lcssa, %.thread175 ], [ %63, %.loopexit130 ]
+  %.387.ph = phi i32 [ %57, %59 ], [ %57, %.thread175 ], [ %73, %.loopexit130 ]
+  %.7.ph = phi i32 [ %58, %59 ], [ %58, %.thread175 ], [ %.9.lcssa, %.loopexit130 ]
+  %.177.ph = phi i1 [ %.076, %59 ], [ %.076, %.thread175 ], [ false, %.loopexit130 ]
+  %.1.ph = phi i32 [ %.070, %59 ], [ %.070, %.thread175 ], [ %spec.select109, %.loopexit130 ]
   %.pr = load i8, ptr %55, align 1, !tbaa !4
   %.not104 = icmp eq i8 %.pr, 0
   br i1 %.not104, label %.thread, label %13, !llvm.loop !34
 
-.thread:                                          ; preds = %53, %.loopexit130
-  %.7129 = phi i32 [ %.7.ph, %.loopexit130 ], [ %.6, %53 ]
-  %.3128 = phi ptr [ %.3.ph, %.loopexit130 ], [ %.1120.lcssa, %53 ]
-  %75 = sext i32 %.7129 to i64
-  %76 = getelementptr inbounds i8, ptr %.3128, i64 %75
-  store i8 0, ptr %76, align 1, !tbaa !4
+.thread:                                          ; preds = %53, %75
+  %.7129 = phi i32 [ %.7.ph, %75 ], [ %.6, %53 ]
+  %.3128 = phi ptr [ %.3.ph, %75 ], [ %.1120.lcssa, %53 ]
+  %76 = sext i32 %.7129 to i64
+  %77 = getelementptr inbounds i8, ptr %.3128, i64 %76
+  store i8 0, ptr %77, align 1, !tbaa !4
   ret ptr %.3128
 }
 

@@ -1214,8 +1214,8 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %div, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !27
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i, i1 false), !tbaa !27
   br label %if.then.i.i.i.i.i45
 
 if.then.i.i.i.i.i45:                              ; preds = %call5.i.i.i.i2.i.i.noexc, %if.end.i.i.i.i.i.i.i
@@ -1237,8 +1237,8 @@ call5.i.i.i.i2.i.i.noexc59:                       ; preds = %if.then.i.i.i.i.i45
 
 if.end.i.i.i.i.i.i.i51:                           ; preds = %call5.i.i.i.i2.i.i.noexc59
   %add.ptr.idx.i.i.i.i.i.i.i52 = shl nuw nsw i64 %div, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i49, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i52, i1 false), !tbaa !27
   %add.ptr.i.i.i.i.i.i.i53 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i49, i64 %add.ptr.idx.i.i.i.i.i.i.i52
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i49, i8 0, i64 %add.ptr.idx.i.i.i.i.i.i.i52, i1 false), !tbaa !27
   br label %for.body.lr.ph
 
 invoke.cont33:                                    ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i

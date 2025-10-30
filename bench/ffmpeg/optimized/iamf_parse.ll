@@ -65,49 +65,49 @@ define range(i32 0, -1094995528) i32 @ff_iamf_parse_obu_header(ptr noundef reado
   %16 = lshr i32 %15, 3
   %17 = and i32 %16, 31
   store i32 %17, ptr %4, align 4, !tbaa !7
-  %18 = load i8, ptr %0, align 1, !tbaa !4
-  br label %19
+  br label %18
 
-19:                                               ; preds = %19, %14
-  %20 = phi i32 [ 8, %14 ], [ %30, %19 ]
-  %.011.i = phi i32 [ 0, %14 ], [ %.1.i, %19 ]
-  %.010.i = phi i32 [ 0, %14 ], [ %36, %19 ]
-  %21 = lshr i32 %20, 3
-  %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
-  %24 = load i32, ptr %23, align 1, !tbaa !4
-  %25 = tail call i32 @llvm.bswap.i32(i32 %24)
-  %26 = and i32 %20, 7
-  %27 = shl i32 %25, %26
-  %28 = lshr i32 %27, 24
-  %29 = add nuw nsw i32 %20, 8
-  %30 = tail call i32 @llvm.umin.i32(i32 %13, i32 %29)
-  %31 = icmp samesign ult i32 %.010.i, 5
-  %32 = and i32 %28, 127
-  %33 = mul nuw nsw i32 %.010.i, 7
-  %34 = shl i32 %32, %33
-  %35 = select i1 %31, i32 %34, i32 0
-  %.1.i = or i32 %35, %.011.i
-  %36 = add nuw nsw i32 %.010.i, 1
-  %37 = icmp eq i32 %36, 8
-  %.not.i = icmp sgt i32 %27, -1
-  %or.cond.i45 = select i1 %37, i1 true, i1 %.not.i
-  br i1 %or.cond.i45, label %get_leb.exit, label %19, !llvm.loop !9
+18:                                               ; preds = %18, %14
+  %19 = phi i32 [ 8, %14 ], [ %29, %18 ]
+  %.011.i = phi i32 [ 0, %14 ], [ %.1.i, %18 ]
+  %.010.i = phi i32 [ 0, %14 ], [ %35, %18 ]
+  %20 = lshr i32 %19, 3
+  %21 = zext nneg i32 %20 to i64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
+  %23 = load i32, ptr %22, align 1, !tbaa !4
+  %24 = tail call i32 @llvm.bswap.i32(i32 %23)
+  %25 = and i32 %19, 7
+  %26 = shl i32 %24, %25
+  %27 = lshr i32 %26, 24
+  %28 = add nuw nsw i32 %19, 8
+  %29 = tail call i32 @llvm.umin.i32(i32 %13, i32 %28)
+  %30 = icmp samesign ult i32 %.010.i, 5
+  %31 = and i32 %27, 127
+  %32 = mul nuw nsw i32 %.010.i, 7
+  %33 = shl i32 %31, %32
+  %34 = select i1 %30, i32 %33, i32 0
+  %.1.i = or i32 %34, %.011.i
+  %35 = add nuw nsw i32 %.010.i, 1
+  %36 = icmp eq i32 %35, 8
+  %.not.i = icmp sgt i32 %26, -1
+  %or.cond.i45 = select i1 %36, i1 true, i1 %.not.i
+  br i1 %or.cond.i45, label %get_leb.exit, label %18, !llvm.loop !9
 
-get_leb.exit:                                     ; preds = %19
-  %38 = and i8 %18, 1
+get_leb.exit:                                     ; preds = %18
+  %37 = load i8, ptr %0, align 1, !tbaa !4
+  %38 = and i8 %37, 1
   store i32 %.1.i, ptr %2, align 4, !tbaa !7
   %39 = icmp slt i32 %.1.i, 0
   br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %get_leb.exit
-  %41 = lshr i32 %30, 3
-  %42 = and i8 %18, 2
+  %41 = lshr i32 %29, 3
+  %42 = and i8 %37, 2
   %.not = icmp eq i8 %42, 0
   br i1 %.not, label %get_leb.exit59, label %.preheader96
 
 .preheader96:                                     ; preds = %40, %.preheader96
-  %43 = phi i32 [ %53, %.preheader96 ], [ %30, %40 ]
+  %43 = phi i32 [ %53, %.preheader96 ], [ %29, %40 ]
   %.011.i47 = phi i32 [ %.1.i49, %.preheader96 ], [ 0, %40 ]
   %.010.i48 = phi i32 [ %59, %.preheader96 ], [ 0, %40 ]
   %44 = lshr i32 %43, 3
@@ -159,7 +159,7 @@ get_leb.exit52:                                   ; preds = %.preheader96, %get_
   br i1 %or.cond.i58, label %get_leb.exit59, label %get_leb.exit52, !llvm.loop !9
 
 get_leb.exit59:                                   ; preds = %get_leb.exit52, %40
-  %.sroa.12.0 = phi i32 [ %30, %40 ], [ %71, %get_leb.exit52 ]
+  %.sroa.12.0 = phi i32 [ %29, %40 ], [ %71, %get_leb.exit52 ]
   %.030 = phi i32 [ 0, %40 ], [ %.1.i49, %get_leb.exit52 ]
   %.029 = phi i32 [ 0, %40 ], [ %.1.i56, %get_leb.exit52 ]
   %.not36 = icmp eq ptr %5, null

@@ -2543,7 +2543,6 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit964:       ; preds = %_ZL13gmx_snew_implI
           to label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit966 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit966:       ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit964
-  %. = select i1 %850, float 1.000000e+10, float 0.000000e+00
   %980 = icmp sgt i32 %.2, 0
   br i1 %980, label %.lr.ph1588, label %._crit_edge1589
 
@@ -2565,6 +2564,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit966:       ; preds = %_ZL13gmx_snew_implI
   br i1 %exitcond1838.not, label %._crit_edge1589, label %983, !llvm.loop !107
 
 ._crit_edge1589:                                  ; preds = %983, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit966
+  %. = select i1 %850, float 1.000000e+10, float 0.000000e+00
   br i1 %254, label %988, label %.loopexit1422
 
 988:                                              ; preds = %._crit_edge1589
@@ -3016,6 +3016,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit980:       ; preds = %1046
   br label %.lr.ph1645.preheader
 
 .loopexit1412:                                    ; preds = %._crit_edge1646.split
+  %indvars.iv.next1885 = add nuw nsw i64 %indvars.iv1884, 1
   %indvars.iv.next1876 = add nuw nsw i64 %indvars.iv1875, 1
   %exitcond1888.not = icmp eq i64 %indvars.iv.next1885, %wide.trip.count1887
   br i1 %exitcond1888.not, label %.loopexit1414, label %.lr.ph1645.preheader, !llvm.loop !115
@@ -3024,7 +3025,6 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit980:       ; preds = %1046
   %indvars.iv1884 = phi i64 [ 0, %.lr.ph1657 ], [ %indvars.iv.next1885, %.loopexit1412 ]
   %indvars.iv1875 = phi i64 [ 1, %.lr.ph1657 ], [ %indvars.iv.next1876, %.loopexit1412 ]
   %.58101655 = phi float [ 0.000000e+00, %.lr.ph1657 ], [ %.7812, %.loopexit1412 ]
-  %indvars.iv.next1885 = add nuw nsw i64 %indvars.iv1884, 1
   %1193 = getelementptr inbounds nuw ptr, ptr %.01395, i64 %indvars.iv1884
   %1194 = load ptr, ptr %1193, align 8, !tbaa !65
   %1195 = trunc nuw nsw i64 %indvars.iv1884 to i32

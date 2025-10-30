@@ -4615,8 +4615,8 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i.thread: ; preds = %_ZNSt
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc10.i
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %46, 1
-  tail call void @llvm.memset.p0.i64(ptr align 2 %45, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx.i.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 2 %45, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i.i
 
 _ZNSt12_Vector_baseItSaItEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i.thread, %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc10.i
@@ -5048,8 +5048,8 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit46.i.i: ; preds = %209, %207
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i124: ; preds = %235
   %.idx.i.i.i.i.i.i125 = shl nuw nsw i64 %237, 1
-  call void @llvm.memset.p0.i64(ptr align 2 %236, i8 0, i64 %.idx.i.i.i.i.i.i125, i1 false)
   %239 = getelementptr inbounds nuw i8, ptr %236, i64 %.idx.i.i.i.i.i.i125
+  call void @llvm.memset.p0.i64(ptr align 2 %236, i8 0, i64 %.idx.i.i.i.i.i.i125, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit.i126
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit.i126: ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i124, %235
@@ -5173,8 +5173,8 @@ _ZNSt6vectorItSaItEE6resizeEm.exit.i.i:           ; preds = %259, %257, %255, %.
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %280
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %282, 1
-  call void @llvm.memset.p0.i64(ptr align 2 %281, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false)
   %284 = getelementptr inbounds nuw i8, ptr %281, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 2 %281, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %280
@@ -6930,8 +6930,8 @@ _ZNSt13unordered_mapISt6vectorItSaItEEtN3ue210ue2_hasherESt8equal_toIS2_ESaISt4p
   %52 = getelementptr inbounds nuw i16, ptr %51, i64 %24
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %52, ptr %53, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 2 %51, i8 0, i64 %50, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 %50
+  call void @llvm.memset.p0.i64(ptr nonnull align 2 %51, i8 0, i64 %50, i1 false)
   br label %55
 
 55:                                               ; preds = %.noexc, %_ZNSt13unordered_mapISt6vectorItSaItEEtN3ue210ue2_hasherESt8equal_toIS2_ESaISt4pairIKS2_tEEE7emplaceIJRS2_RKtEEES7_INSt8__detail14_Node_iteratorIS9_Lb0ELb1EEEbEDpOT_.exit
@@ -7399,8 +7399,8 @@ _ZNSt13unordered_mapISt6vectorItSaItEEtN3ue210ue2_hasherESt8equal_toIS2_ESaISt4p
   store ptr %245, ptr %12, align 8
   %246 = getelementptr inbounds nuw i16, ptr %245, i64 %24
   store ptr %246, ptr %161, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 2 %245, i8 0, i64 %160, i1 false)
   %247 = getelementptr inbounds nuw i8, ptr %245, i64 %160
+  call void @llvm.memset.p0.i64(ptr nonnull align 2 %245, i8 0, i64 %160, i1 false)
   br label %248
 
 248:                                              ; preds = %.noexc180, %_ZNSt13unordered_mapISt6vectorItSaItEEtN3ue210ue2_hasherESt8equal_toIS2_ESaISt4pairIKS2_tEEE7emplaceIJRS8_mEEES7_INSt8__detail14_Node_iteratorIS9_Lb0ELb1EEEbEDpOT_.exit
@@ -7705,8 +7705,8 @@ _ZN3ue212_GLOBAL__N_120Automaton_Haig_Merge10reportsEodERKSt6vectorItSaItEERNS_8
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %376
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %378, 1
-  call void @llvm.memset.p0.i64(ptr align 2 %377, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false)
   %380 = getelementptr inbounds nuw i8, ptr %377, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 2 %377, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %376
@@ -8108,8 +8108,8 @@ _ZNSt13unordered_mapISt6vectorItSaItEEtN3ue210ue2_hasherESt8equal_toIS2_ESaISt4p
   store ptr %552, ptr %16, align 8
   %553 = getelementptr inbounds nuw i16, ptr %552, i64 %24
   store ptr %553, ptr %296, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 2 %552, i8 0, i64 %295, i1 false)
   %554 = getelementptr inbounds nuw i8, ptr %552, i64 %295
+  call void @llvm.memset.p0.i64(ptr nonnull align 2 %552, i8 0, i64 %295, i1 false)
   br label %555
 
 555:                                              ; preds = %.noexc207, %_ZNSt13unordered_mapISt6vectorItSaItEEtN3ue210ue2_hasherESt8equal_toIS2_ESaISt4pairIKS2_tEEE7emplaceIJRS2_RtEEES7_INSt8__detail14_Node_iteratorIS9_Lb0ELb1EEEbEDpOT_.exit
@@ -10117,8 +10117,8 @@ _ZNSt13unordered_mapIN3ue28bitfieldILm256EEEtSt4hashIS2_ESt8equal_toIS2_ESaISt4p
   %50 = getelementptr inbounds nuw i16, ptr %49, i64 %22
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %50, ptr %51, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 2 %49, i8 0, i64 %48, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 %48
+  call void @llvm.memset.p0.i64(ptr nonnull align 2 %49, i8 0, i64 %48, i1 false)
   br label %53
 
 53:                                               ; preds = %.noexc, %_ZNSt13unordered_mapIN3ue28bitfieldILm256EEEtSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_tEEE7emplaceIJRS2_RKtEEES7_INSt8__detail14_Node_iteratorIS9_Lb0ELb1EEEbEDpOT_.exit
@@ -10406,8 +10406,8 @@ _ZNSt13unordered_mapIN3ue28bitfieldILm256EEEtSt4hashIS2_ESt8equal_toIS2_ESaISt4p
   store ptr %167, ptr %11, align 8
   %168 = getelementptr inbounds nuw i16, ptr %167, i64 %22
   store ptr %168, ptr %113, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 2 %167, i8 0, i64 %112, i1 false)
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 %112
+  call void @llvm.memset.p0.i64(ptr nonnull align 2 %167, i8 0, i64 %112, i1 false)
   br label %170
 
 170:                                              ; preds = %.noexc165, %_ZNSt13unordered_mapIN3ue28bitfieldILm256EEEtSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_tEEE7emplaceIJRS8_mEEES7_INSt8__detail14_Node_iteratorIS9_Lb0ELb1EEEbEDpOT_.exit
@@ -11746,8 +11746,8 @@ _ZNKSt10_HashtableIN3ue28bitfieldILm256EEESt4pairIKS2_tESaIS5_ENSt8__detail10_Se
   store ptr %706, ptr %14, align 8
   %707 = getelementptr inbounds nuw i16, ptr %706, i64 %22
   store ptr %707, ptr %231, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 2 %706, i8 0, i64 %230, i1 false)
   %708 = getelementptr inbounds nuw i8, ptr %706, i64 %230
+  call void @llvm.memset.p0.i64(ptr nonnull align 2 %706, i8 0, i64 %230, i1 false)
   br label %709
 
 709:                                              ; preds = %.noexc192, %705
@@ -16307,8 +16307,8 @@ _ZNSt13unordered_mapIN5boost14dynamic_bitsetImSaImEEEtN3ue219hash_dynamic_bitset
   %51 = getelementptr inbounds nuw i16, ptr %50, i64 %23
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %51, ptr %52, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 2 %50, i8 0, i64 %49, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 %49
+  call void @llvm.memset.p0.i64(ptr nonnull align 2 %50, i8 0, i64 %49, i1 false)
   br label %54
 
 54:                                               ; preds = %.noexc, %_ZNSt13unordered_mapIN5boost14dynamic_bitsetImSaImEEEtN3ue219hash_dynamic_bitsetESt8equal_toIS3_ESaISt4pairIKS3_tEEE7emplaceIJRS3_RKtEEES8_INSt8__detail14_Node_iteratorISA_Lb0ELb1EEEbEDpOT_.exit
@@ -16869,8 +16869,8 @@ _ZNSt13unordered_mapIN5boost14dynamic_bitsetImSaImEEEtN3ue219hash_dynamic_bitset
   store ptr %283, ptr %11, align 8
   %284 = getelementptr inbounds nuw i16, ptr %283, i64 %23
   store ptr %284, ptr %198, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 2 %283, i8 0, i64 %197, i1 false)
   %285 = getelementptr inbounds nuw i8, ptr %283, i64 %197
+  call void @llvm.memset.p0.i64(ptr nonnull align 2 %283, i8 0, i64 %197, i1 false)
   br label %286
 
 286:                                              ; preds = %.noexc184, %_ZNSt13unordered_mapIN5boost14dynamic_bitsetImSaImEEEtN3ue219hash_dynamic_bitsetESt8equal_toIS3_ESaISt4pairIKS3_tEEE7emplaceIJRS9_mEEES8_INSt8__detail14_Node_iteratorISA_Lb0ELb1EEEbEDpOT_.exit
@@ -19494,8 +19494,8 @@ _ZNSt13unordered_mapIN5boost14dynamic_bitsetImSaImEEEtN3ue219hash_dynamic_bitset
   store ptr %1292, ptr %15, align 8
   %1293 = getelementptr inbounds nuw i16, ptr %1292, i64 %23
   store ptr %1293, ptr %346, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 2 %1292, i8 0, i64 %345, i1 false)
   %1294 = getelementptr inbounds nuw i8, ptr %1292, i64 %345
+  call void @llvm.memset.p0.i64(ptr nonnull align 2 %1292, i8 0, i64 %345, i1 false)
   br label %1295
 
 1295:                                             ; preds = %.noexc222, %_ZNSt13unordered_mapIN5boost14dynamic_bitsetImSaImEEEtN3ue219hash_dynamic_bitsetESt8equal_toIS3_ESaISt4pairIKS3_tEEE7emplaceIJRS3_RtEEES8_INSt8__detail14_Node_iteratorISA_Lb0ELb1EEEbEDpOT_.exit

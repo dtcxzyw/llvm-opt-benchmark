@@ -122,7 +122,6 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br i1 %53, label %64, label %.preheader
 
 .preheader:                                       ; preds = %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread"
-  %.ptr.ptr.le = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.0112.0.add
   %54 = icmp sgt i64 %52, -1
   br i1 %54, label %.lr.ph163, label %._crit_edge.thread
 
@@ -156,6 +155,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br i1 %70, label %.lr.ph163, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph163
+  %.ptr.ptr.le = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.0112.0.add
   %71 = add i64 %68, %.079160
   %72 = icmp eq i64 %.sroa.11.0158, 7
   %73 = icmp eq i64 %68, 0

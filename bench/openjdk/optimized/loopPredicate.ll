@@ -4377,67 +4377,67 @@ define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop39loop_predication_should_f
   br i1 %5, label %6, label %_ZNK19BaseCountedLoopNode3phiEv.exit.thread
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.03045 = load ptr, ptr %9, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.03045 = load ptr, ptr %7, align 8
   %.not47 = icmp eq ptr %.03045, null
-  br i1 %.not47, label %.critedge, label %.lr.ph
+  br i1 %.not47, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %23
-  %.03046 = phi ptr [ %.030, %23 ], [ %.03045, %6 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.03046, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %.not33 = icmp eq ptr %11, null
-  br i1 %.not33, label %.thread, label %12
+.lr.ph:                                           ; preds = %6, %21
+  %.03046 = phi ptr [ %.030, %21 ], [ %.03045, %6 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.03046, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %.not33 = icmp eq ptr %9, null
+  br i1 %.not33, label %.thread, label %10
 
-12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.03046, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 44
-  %16 = load i32, ptr %15, align 4
-  %17 = and i32 %16, 1023
-  %18 = icmp eq i32 %17, 608
-  %spec.select = select i1 %18, ptr %11, ptr %.03046
+10:                                               ; preds = %.lr.ph
+  %11 = getelementptr inbounds nuw i8, ptr %.03046, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 44
+  %14 = load i32, ptr %13, align 4
+  %15 = and i32 %14, 1023
+  %16 = icmp eq i32 %15, 608
+  %spec.select = select i1 %16, ptr %9, ptr %.03046
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %19 = icmp eq ptr %.pre, null
-  br i1 %19, label %.thread, label %_ZNK19BaseCountedLoopNode3phiEv.exit.thread
+  %17 = icmp eq ptr %.pre, null
+  br i1 %17, label %.thread, label %_ZNK19BaseCountedLoopNode3phiEv.exit.thread
 
-.thread:                                          ; preds = %.lr.ph, %12
-  %.03155 = phi ptr [ %spec.select, %12 ], [ %.03046, %.lr.ph ]
-  %20 = getelementptr inbounds nuw i8, ptr %.03155, i64 90
-  %21 = load i8, ptr %20, align 2
-  %22 = and i8 %21, 1
-  %.not35 = icmp eq i8 %22, 0
-  br i1 %.not35, label %23, label %_ZNK19BaseCountedLoopNode3phiEv.exit.thread
+.thread:                                          ; preds = %.lr.ph, %10
+  %.03155 = phi ptr [ %spec.select, %10 ], [ %.03046, %.lr.ph ]
+  %18 = getelementptr inbounds nuw i8, ptr %.03155, i64 90
+  %19 = load i8, ptr %18, align 2
+  %20 = and i8 %19, 1
+  %.not35 = icmp eq i8 %20, 0
+  br i1 %.not35, label %21, label %_ZNK19BaseCountedLoopNode3phiEv.exit.thread
 
-23:                                               ; preds = %.thread
-  %24 = getelementptr inbounds nuw i8, ptr %.03046, i64 8
-  %.030 = load ptr, ptr %24, align 8
+21:                                               ; preds = %.thread
+  %22 = getelementptr inbounds nuw i8, ptr %.03046, i64 8
+  %.030 = load ptr, ptr %22, align 8
   %.not61 = icmp eq ptr %.030, null
-  br i1 %.not61, label %.critedge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not61, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
-.critedge:                                        ; preds = %23, %6
+.loopexit:                                        ; preds = %21, %6
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %24 = load ptr, ptr %23, align 8
   tail call void @_ZN13IdealLoopTree24compute_profile_trip_cntEP14PhaseIdealLoop(ptr noundef nonnull align 8 dereferenceable(113) %1, ptr noundef nonnull %0) #10
-  %25 = getelementptr inbounds nuw i8, ptr %8, i64 60
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 60
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 16384
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %28, label %_ZNK19BaseCountedLoopNode3phiEv.exit.thread
 
-28:                                               ; preds = %.critedge
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 68
+28:                                               ; preds = %.loopexit
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 68
   %30 = load float, ptr %29, align 4
   store float %30, ptr %2, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 44
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, 1023
   %34 = icmp eq i32 %33, 864
   br i1 %34, label %35, label %_ZNK19BaseCountedLoopNode3phiEv.exit.thread
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
@@ -4459,10 +4459,10 @@ define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop39loop_predication_should_f
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 208
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noundef zeroext i8 %52(ptr noundef nonnull align 8 dereferenceable(60) %44) #10
-  %54 = load ptr, ptr %8, align 8
+  %54 = load ptr, ptr %24, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 232
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef zeroext i8 %56(ptr noundef nonnull align 8 dereferenceable(72) %8) #10
+  %57 = tail call noundef zeroext i8 %56(ptr noundef nonnull align 8 dereferenceable(72) %24) #10
   %.not.i.i = icmp eq i8 %53, %57
   br i1 %.not.i.i, label %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i, label %_ZNK19BaseCountedLoopNode3phiEv.exit.thread
 
@@ -4528,10 +4528,10 @@ _ZNK19BaseCountedLoopNode3phiEv.exit:             ; preds = %81
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 208
   %100 = load ptr, ptr %99, align 8
   %101 = tail call noundef zeroext i8 %100(ptr noundef nonnull align 8 dereferenceable(60) %97) #10
-  %102 = load ptr, ptr %8, align 8
+  %102 = load ptr, ptr %24, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 232
   %104 = load ptr, ptr %103, align 8
-  %105 = tail call noundef zeroext i8 %104(ptr noundef nonnull align 8 dereferenceable(72) %8) #10
+  %105 = tail call noundef zeroext i8 %104(ptr noundef nonnull align 8 dereferenceable(72) %24) #10
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
@@ -4564,7 +4564,7 @@ _ZNK19BaseCountedLoopNode3phiEv.exit:             ; preds = %81
   %135 = load i32, ptr %134, align 8
   %136 = sitofp i32 %135 to float
   %137 = fsub float %133, %136
-  %138 = tail call noundef i32 @_ZNK15CountedLoopNode10stride_conEv(ptr noundef nonnull align 8 dereferenceable(92) %8) #10
+  %138 = tail call noundef i32 @_ZNK15CountedLoopNode10stride_conEv(ptr noundef nonnull align 8 dereferenceable(92) %24) #10
   %139 = sitofp i32 %138 to float
   %140 = icmp slt i32 %138, 0
   %141 = fneg float %139
@@ -4578,8 +4578,8 @@ _ZNK19BaseCountedLoopNode3phiEv.exit:             ; preds = %81
   store float %143, ptr %2, align 4
   br label %_ZNK19BaseCountedLoopNode3phiEv.exit.thread
 
-_ZNK19BaseCountedLoopNode3phiEv.exit.thread:      ; preds = %.thread, %12, %28, %_ZNK19BaseCountedLoopNode3phiEv.exit, %146, %.critedge, %77, %_ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i, %69, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i.i, %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i, %81, %35, %41, %49, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %146 ], [ true, %_ZNK19BaseCountedLoopNode3phiEv.exit ], [ true, %28 ], [ false, %.critedge ], [ true, %77 ], [ true, %_ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i ], [ true, %69 ], [ true, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i.i ], [ true, %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i ], [ true, %81 ], [ true, %35 ], [ true, %41 ], [ true, %49 ], [ false, %12 ], [ false, %.thread ]
+_ZNK19BaseCountedLoopNode3phiEv.exit.thread:      ; preds = %.thread, %10, %28, %_ZNK19BaseCountedLoopNode3phiEv.exit, %146, %.loopexit, %77, %_ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i, %69, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i.i, %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i, %81, %35, %41, %49, %3
+  %.0 = phi i1 [ false, %3 ], [ true, %146 ], [ true, %_ZNK19BaseCountedLoopNode3phiEv.exit ], [ true, %28 ], [ false, %.loopexit ], [ true, %77 ], [ true, %_ZNK22BaseCountedLoopEndNode4incrEv.exit.i.i ], [ true, %69 ], [ true, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i.i ], [ true, %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i ], [ true, %81 ], [ true, %35 ], [ true, %41 ], [ true, %49 ], [ false, %10 ], [ false, %.thread ]
   ret i1 %.0
 }
 

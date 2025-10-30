@@ -310,8 +310,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
           to label %.noexc41 unwind label %164
 
 .noexc41:                                         ; preds = %._crit_edge
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %115, i8 0, i64 %114, i1 false), !tbaa !24
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 %114
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %115, i8 0, i64 %114, i1 false), !tbaa !24
   %117 = load ptr, ptr %105, align 8, !tbaa !12
   %118 = load ptr, ptr %8, align 8, !tbaa !16
   %119 = ptrtoint ptr %117 to i64

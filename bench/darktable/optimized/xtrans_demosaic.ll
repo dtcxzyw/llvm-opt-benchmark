@@ -1941,14 +1941,14 @@ define void @_ZN6LibRaw18xtrans_interpolateEi(ptr noundef nonnull align 8 derefe
   %exitcond1579.not = icmp eq i64 %indvars.iv.next1575, %wide.trip.count1578
   br i1 %exitcond1579.not, label %._crit_edge1325.us, label %.lr.ph1324.us, !llvm.loop !142
 
-1066:                                             ; preds = %1068, %1016
-  %indvars.iv1569 = phi i64 [ %indvars.iv.next1570, %1068 ], [ 0, %1016 ]
-  %1067 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv1569
+1066:                                             ; preds = %1067, %1016
+  %indvars.iv1569 = phi i64 [ %indvars.iv.next1570, %1067 ], [ 0, %1016 ]
   %gep1674 = getelementptr [512 x [512 x i8]], ptr %invariant.gep1673, i64 %indvars.iv1569
   br label %.preheader.us
 
-1068:                                             ; preds = %1069
-  store i32 %1074, ptr %1067, align 4, !tbaa !74
+1067:                                             ; preds = %1069
+  %1068 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv1569
+  store i32 %1074, ptr %1068, align 4, !tbaa !74
   %indvars.iv.next1570 = add nuw nsw i64 %indvars.iv1569, 1
   %exitcond1573.not = icmp eq i64 %indvars.iv.next1570, %wide.trip.count
   br i1 %exitcond1573.not, label %.preheader1124.us, label %1066, !llvm.loop !143
@@ -1956,7 +1956,7 @@ define void @_ZN6LibRaw18xtrans_interpolateEi(ptr noundef nonnull align 8 derefe
 1069:                                             ; preds = %1070
   %indvars.iv.next1566 = add nsw i64 %indvars.iv1565, 1
   %exitcond1568.not = icmp eq i64 %indvars.iv.next1566, 3
-  br i1 %exitcond1568.not, label %1068, label %.preheader.us, !llvm.loop !144
+  br i1 %exitcond1568.not, label %1067, label %.preheader.us, !llvm.loop !144
 
 1070:                                             ; preds = %.preheader.us, %1070
   %indvars.iv1561 = phi i64 [ -2, %.preheader.us ], [ %indvars.iv.next1562, %1070 ]
@@ -1983,7 +1983,7 @@ define void @_ZN6LibRaw18xtrans_interpolateEi(ptr noundef nonnull align 8 derefe
   %1075 = add nuw nsw i64 %indvars.iv1599, %indvars.iv1421
   br label %1024
 
-.preheader1124.us:                                ; preds = %1068
+.preheader1124.us:                                ; preds = %1067
   br i1 %71, label %.lr.ph1324.us, label %._crit_edge1325.us
 
 ._crit_edge1338.us:                               ; preds = %1022

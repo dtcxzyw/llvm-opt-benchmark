@@ -42151,15 +42151,15 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 64
-  br i1 %cmp, label %for.body.lr.ph.i, label %if.else
+  br i1 %cmp, label %for.body.i.preheader, label %if.else
 
-for.body.lr.ph.i:                                 ; preds = %entry
+for.body.i.preheader:                             ; preds = %entry
   %scevgep = getelementptr i8, ptr %__first.coerce, i64 4
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %__i.sroa.0.012.i.idx = phi i64 [ 4, %for.body.lr.ph.i ], [ %__i.sroa.0.012.i.add, %for.inc.i ]
-  %__first.coerce.pn11.i = phi ptr [ %__first.coerce, %for.body.lr.ph.i ], [ %__i.sroa.0.012.i.ptr, %for.inc.i ]
+for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
+  %__i.sroa.0.012.i.idx = phi i64 [ %__i.sroa.0.012.i.add, %for.inc.i ], [ 4, %for.body.i.preheader ]
+  %__first.coerce.pn11.i = phi ptr [ %__i.sroa.0.012.i.ptr, %for.inc.i ], [ %__first.coerce, %for.body.i.preheader ]
   %__i.sroa.0.012.i.ptr = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 %__i.sroa.0.012.i.idx
   %0 = load i32, ptr %__i.sroa.0.012.i.ptr, align 4
   %1 = load i32, ptr %__first.coerce, align 4
@@ -141902,11 +141902,11 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_SH_T0_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit, ptr %__comp.coerce0, ptr %__comp.coerce1) local_unnamed_addr #0 comdat {
 entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
-  %sub.ptr.lhs.cast.i17 = ptrtoint ptr %__last.coerce to i64
-  %sub.ptr.sub.i18 = sub i64 %sub.ptr.lhs.cast.i17, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i19 = ashr exact i64 %sub.ptr.sub.i18, 2
-  %cmp20 = icmp sgt i64 %sub.ptr.div.i19, 16
-  br i1 %cmp20, label %while.body.lr.ph, label %while.end
+  %sub.ptr.lhs.cast.i16 = ptrtoint ptr %__last.coerce to i64
+  %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i16, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i18 = ashr exact i64 %sub.ptr.sub.i17, 2
+  %cmp19 = icmp sgt i64 %sub.ptr.div.i18, 16
+  br i1 %cmp19, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr.i1.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 4
@@ -141915,14 +141915,14 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit
-  %sub.ptr.div.i23 = phi i64 [ %sub.ptr.div.i19, %while.body.lr.ph ], [ %sub.ptr.div.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit ]
-  %__depth_limit.addr.022 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit ]
-  %storemerge21 = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %.us-phi3379.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit ]
-  %cmp2 = icmp eq i64 %__depth_limit.addr.022, 0
+  %sub.ptr.div.i22 = phi i64 [ %sub.ptr.div.i18, %while.body.lr.ph ], [ %sub.ptr.div.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit ]
+  %__depth_limit.addr.021 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit ]
+  %storemerge20 = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %.us-phi3379.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit ]
+  %cmp2 = icmp eq i64 %__depth_limit.addr.021, 0
   br i1 %cmp2, label %if.end.i.i.i, label %if.end
 
 if.end.i.i.i:                                     ; preds = %while.body
-  %sub.i.i.i = add nsw i64 %sub.ptr.div.i23, -2
+  %sub.i.i.i = add nsw i64 %sub.ptr.div.i22, -2
   %div1617.i.i.i = lshr i64 %sub.i.i.i, 1
   br label %while.body.i.i.i
 
@@ -141930,13 +141930,13 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %__parent.0.i.i.i = phi i64 [ %div1617.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
   %phi.call.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__parent.0.i.i.i
   %0 = load i32, ptr %phi.call.i.i.i, align 4
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_T0_SI_T1_T2_(ptr %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i23, i32 noundef %0, ptr %__comp.coerce0, ptr %__comp.coerce1)
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_T0_SI_T1_T2_(ptr %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i22, i32 noundef %0, ptr %__comp.coerce0, ptr %__comp.coerce1)
   %cmp8.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
   br i1 %cmp8.i.i.i, label %while.body.i.i, label %while.body.i.i.i, !llvm.loop !1308
 
 while.body.i.i:                                   ; preds = %while.body.i.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge21, %while.body.i.i.i ]
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge20, %while.body.i.i.i ]
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -4
   %1 = load i32, ptr %incdec.ptr.i.i1.i, align 4
   %2 = load i32, ptr %__first.coerce, align 4
@@ -141949,14 +141949,14 @@ while.body.i.i:                                   ; preds = %while.body.i.i.i, %
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !1309
 
 if.end:                                           ; preds = %while.body
-  %div.i56 = lshr i64 %sub.ptr.div.i23, 1
+  %div.i56 = lshr i64 %sub.ptr.div.i22, 1
   %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %div.i56
-  %add.ptr.i2.i = getelementptr inbounds i8, ptr %storemerge21, i64 -4
+  %add.ptr.i2.i = getelementptr inbounds i8, ptr %storemerge20, i64 -4
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_SH_SH_SH_T0_(ptr %__first.coerce, ptr nonnull %add.ptr.i1.i, ptr %add.ptr.i.i, ptr nonnull %add.ptr.i2.i, ptr %__comp.coerce0, ptr %__comp.coerce1)
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %if.end
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge21, %if.end ], [ %.us-phi59.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge20, %if.end ], [ %.us-phi59.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %if.end ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
   %3 = load i32, ptr %__first.coerce, align 4
   %4 = load ptr, ptr %rawValues_.i.i.i.i.i, align 8
@@ -141999,7 +141999,7 @@ while.cond10.i.preheader.i:                       ; preds = %while.cond3.us.i.i,
   br label %while.cond10.i.i
 
 while.body.split.i.i:                             ; preds = %while.body.i.i3
-  br i1 %tobool.i.i.i.i, label %while.cond3.us37.i.i, label %while.cond10.preheader.split58.us.thread.i.i
+  br i1 %tobool.i.i.i.i, label %while.cond3.us37.i.i, label %while.cond10.us.i.i
 
 while.cond3.us37.i.i:                             ; preds = %while.body.split.i.i, %while.cond3.us37.i.i
   %__first.sroa.0.1.us38.i.i = phi ptr [ %incdec.ptr.i.us47.i.i, %while.cond3.us37.i.i ], [ %__first.sroa.0.0.i.i, %while.body.split.i.i ]
@@ -142011,24 +142011,20 @@ while.cond3.us37.i.i:                             ; preds = %while.body.split.i.
   %incdec.ptr.i.us47.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.us38.i.i, i64 4
   br i1 %14, label %while.cond3.us37.i.i, label %while.cond10.us.us.i.i, !llvm.loop !1310
 
-while.cond10.preheader.split58.us.thread.i.i:     ; preds = %while.body.split.i.i
-  %.pre.i.i = load i32, ptr %__first.sroa.0.0.i.i, align 4
-  br label %while.cond10.us.i.i
-
 while.cond10.us.us.i.i:                           ; preds = %while.cond3.us37.i.i
   %__last.sroa.0.1.us.us.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i, i64 -4
   %15 = load i32, ptr %__last.sroa.0.1.us.us.i.i, align 4
   br label %while.end18.i.i
 
-while.cond10.us.i.i:                              ; preds = %while.cond10.us.i.i, %while.cond10.preheader.split58.us.thread.i.i
-  %__last.sroa.0.0.pn.us.i.i = phi ptr [ %__last.sroa.0.1.us.i.i, %while.cond10.us.i.i ], [ %__last.sroa.0.0.i.i, %while.cond10.preheader.split58.us.thread.i.i ]
+while.cond10.us.i.i:                              ; preds = %while.body.split.i.i, %while.cond10.us.i.i
+  %__last.sroa.0.0.pn.us.i.i = phi ptr [ %__last.sroa.0.1.us.i.i, %while.cond10.us.i.i ], [ %__last.sroa.0.0.i.i, %while.body.split.i.i ]
   %__last.sroa.0.1.us.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.us.i.i, i64 -4
   %16 = load i32, ptr %__last.sroa.0.1.us.i.i, align 4
   %idxprom.i3.i.i5.us.i.i = sext i32 %16 to i64
   %arrayidx.i4.i.i6.us.i.i = getelementptr inbounds float, ptr %4, i64 %idxprom.i3.i.i5.us.i.i
   %17 = load float, ptr %arrayidx.i4.i.i6.us.i.i, align 4
   %18 = fcmp ord float %17, 0.000000e+00
-  br i1 %18, label %while.cond10.us.i.i, label %while.end18.i.i, !llvm.loop !1311
+  br i1 %18, label %while.cond10.us.i.i, label %while.end18.i.loopexit18.i, !llvm.loop !1311
 
 while.cond10.i.i:                                 ; preds = %while.cond10.i.i, %while.cond10.i.preheader.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond10.i.preheader.i ]
@@ -142048,11 +142044,15 @@ while.cond10.i.i:                                 ; preds = %while.cond10.i.i, %
   %cmp.i.i13.i.i = icmp slt i32 %cond.i.i12.i.i, 0
   br i1 %cmp.i.i13.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !1311
 
-while.end18.i.i:                                  ; preds = %while.cond10.us.i.i, %while.cond10.i.i, %while.cond10.us.us.i.i
-  %.us-phi3482.i.i = phi i32 [ %12, %while.cond10.us.us.i.i ], [ %.us-phi22.i, %while.cond10.i.i ], [ %.pre.i.i, %while.cond10.us.i.i ]
-  %.us-phi3379.i.i = phi ptr [ %__first.sroa.0.1.us38.i.i, %while.cond10.us.us.i.i ], [ %.us-phi.i, %while.cond10.i.i ], [ %__first.sroa.0.0.i.i, %while.cond10.us.i.i ]
-  %.us-phi59.i.i = phi ptr [ %__last.sroa.0.1.us.us.i.i, %while.cond10.us.us.i.i ], [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.1.us.i.i, %while.cond10.us.i.i ]
-  %.us-phi60.i.i = phi i32 [ %15, %while.cond10.us.us.i.i ], [ %19, %while.cond10.i.i ], [ %16, %while.cond10.us.i.i ]
+while.end18.i.loopexit18.i:                       ; preds = %while.cond10.us.i.i
+  %.pre.i.i = load i32, ptr %__first.sroa.0.0.i.i, align 4
+  br label %while.end18.i.i
+
+while.end18.i.i:                                  ; preds = %while.cond10.i.i, %while.end18.i.loopexit18.i, %while.cond10.us.us.i.i
+  %.us-phi3482.i.i = phi i32 [ %12, %while.cond10.us.us.i.i ], [ %.pre.i.i, %while.end18.i.loopexit18.i ], [ %.us-phi22.i, %while.cond10.i.i ]
+  %.us-phi3379.i.i = phi ptr [ %__first.sroa.0.1.us38.i.i, %while.cond10.us.us.i.i ], [ %__first.sroa.0.0.i.i, %while.end18.i.loopexit18.i ], [ %.us-phi.i, %while.cond10.i.i ]
+  %.us-phi59.i.i = phi ptr [ %__last.sroa.0.1.us.us.i.i, %while.cond10.us.us.i.i ], [ %__last.sroa.0.1.us.i.i, %while.end18.i.loopexit18.i ], [ %__last.sroa.0.1.i.i, %while.cond10.i.i ]
+  %.us-phi60.i.i = phi i32 [ %15, %while.cond10.us.us.i.i ], [ %16, %while.end18.i.loopexit18.i ], [ %19, %while.cond10.i.i ]
   %cmp.i.i.i4 = icmp ult ptr %.us-phi3379.i.i, %.us-phi59.i.i
   br i1 %cmp.i.i.i4, label %if.end.i.i, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit
 
@@ -142063,8 +142063,8 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   br label %while.body.i.i3, !llvm.loop !1312
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit: ; preds = %while.end18.i.i
-  %dec = add nsw i64 %__depth_limit.addr.022, -1
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_SH_T0_T1_(ptr nonnull %.us-phi3379.i.i, ptr %storemerge21, i64 noundef %dec, ptr nonnull %__comp.coerce0, ptr nonnull %__comp.coerce1)
+  %dec = add nsw i64 %__depth_limit.addr.021, -1
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_SH_T0_T1_(ptr nonnull %.us-phi3379.i.i, ptr %storemerge20, i64 noundef %dec, ptr nonnull %__comp.coerce0, ptr nonnull %__comp.coerce1)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %.us-phi3379.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
@@ -144495,7 +144495,7 @@ while.cond3.us.i:                                 ; preds = %while.body.i, %whil
   br i1 %cmp.i.i.us.i, label %while.cond3.us.i, label %while.cond10.i, !llvm.loop !1336
 
 while.body.split.i:                               ; preds = %while.body.i
-  br i1 %tobool.i.i.i, label %while.cond3.us41.i, label %while.cond10.preheader.split66.us.thread.i
+  br i1 %tobool.i.i.i, label %while.cond3.us41.i, label %while.cond10.us.i
 
 while.cond3.us41.i:                               ; preds = %while.body.split.i, %while.cond3.us41.i
   %__first.sroa.0.1.us42.i = phi ptr [ %incdec.ptr.i.us53.i, %while.cond3.us41.i ], [ %__first.sroa.0.0.i, %while.body.split.i ]
@@ -144510,17 +144510,13 @@ while.cond3.us41.i:                               ; preds = %while.body.split.i,
   %incdec.ptr.i.us53.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.us42.i, i64 4
   br i1 %14, label %while.cond3.us41.i, label %while.cond10.us.us.i, !llvm.loop !1336
 
-while.cond10.preheader.split66.us.thread.i:       ; preds = %while.body.split.i
-  %.pre.i = load i32, ptr %__first.sroa.0.0.i, align 4
-  br label %while.cond10.us.i
-
 while.cond10.us.us.i:                             ; preds = %while.cond3.us41.i
   %__last.sroa.0.1.us.us.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i, i64 -4
   %15 = load i32, ptr %__last.sroa.0.1.us.us.i, align 4
   br label %while.end18.i
 
-while.cond10.us.i:                                ; preds = %while.cond10.us.i, %while.cond10.preheader.split66.us.thread.i
-  %__last.sroa.0.0.pn.us.i = phi ptr [ %__last.sroa.0.1.us.i, %while.cond10.us.i ], [ %__last.sroa.0.0.i, %while.cond10.preheader.split66.us.thread.i ]
+while.cond10.us.i:                                ; preds = %while.body.split.i, %while.cond10.us.i
+  %__last.sroa.0.0.pn.us.i = phi ptr [ %__last.sroa.0.1.us.i, %while.cond10.us.i ], [ %__last.sroa.0.0.i, %while.body.split.i ]
   %__last.sroa.0.1.us.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.us.i, i64 -4
   %16 = load i32, ptr %__last.sroa.0.1.us.i, align 4
   %idxprom2.i.i7.us.i = sext i32 %16 to i64
@@ -144530,7 +144526,7 @@ while.cond10.us.i:                                ; preds = %while.cond10.us.i, 
   %arrayidx.i4.i.i10.us.i = getelementptr inbounds float, ptr %2, i64 %idxprom.i3.i.i9.us.i
   %18 = load float, ptr %arrayidx.i4.i.i10.us.i, align 4
   %19 = fcmp ord float %18, 0.000000e+00
-  br i1 %19, label %while.cond10.us.i, label %while.end18.i, !llvm.loop !1337
+  br i1 %19, label %while.cond10.us.i, label %while.end18.i.loopexit19, !llvm.loop !1337
 
 while.cond10.i:                                   ; preds = %while.cond3.us.i, %while.cond10.i
   %__last.sroa.0.0.pn.i = phi ptr [ %__last.sroa.0.1.i, %while.cond10.i ], [ %__last.sroa.0.0.i, %while.cond3.us.i ]
@@ -144553,11 +144549,15 @@ while.cond10.i:                                   ; preds = %while.cond3.us.i, %
   %cmp.i.i17.i = icmp slt i32 %cond.i.i16.i, 0
   br i1 %cmp.i.i17.i, label %while.cond10.i, label %while.end18.i, !llvm.loop !1337
 
-while.end18.i:                                    ; preds = %while.cond10.us.i, %while.cond10.i, %while.cond10.us.us.i
-  %.us-phi3791.i = phi i32 [ %11, %while.cond10.us.us.i ], [ %7, %while.cond10.i ], [ %.pre.i, %while.cond10.us.i ]
-  %.us-phi3688.i = phi ptr [ %__first.sroa.0.1.us42.i, %while.cond10.us.us.i ], [ %__first.sroa.0.1.us.i, %while.cond10.i ], [ %__first.sroa.0.0.i, %while.cond10.us.i ]
-  %.us-phi67.i = phi ptr [ %__last.sroa.0.1.us.us.i, %while.cond10.us.us.i ], [ %__last.sroa.0.1.i, %while.cond10.i ], [ %__last.sroa.0.1.us.i, %while.cond10.us.i ]
-  %.us-phi68.i = phi i32 [ %15, %while.cond10.us.us.i ], [ %20, %while.cond10.i ], [ %16, %while.cond10.us.i ]
+while.end18.i.loopexit19:                         ; preds = %while.cond10.us.i
+  %.pre.i = load i32, ptr %__first.sroa.0.0.i, align 4
+  br label %while.end18.i
+
+while.end18.i:                                    ; preds = %while.cond10.i, %while.end18.i.loopexit19, %while.cond10.us.us.i
+  %.us-phi3791.i = phi i32 [ %11, %while.cond10.us.us.i ], [ %.pre.i, %while.end18.i.loopexit19 ], [ %7, %while.cond10.i ]
+  %.us-phi3688.i = phi ptr [ %__first.sroa.0.1.us42.i, %while.cond10.us.us.i ], [ %__first.sroa.0.0.i, %while.end18.i.loopexit19 ], [ %__first.sroa.0.1.us.i, %while.cond10.i ]
+  %.us-phi67.i = phi ptr [ %__last.sroa.0.1.us.us.i, %while.cond10.us.us.i ], [ %__last.sroa.0.1.us.i, %while.end18.i.loopexit19 ], [ %__last.sroa.0.1.i, %while.cond10.i ]
+  %.us-phi68.i = phi i32 [ %15, %while.cond10.us.us.i ], [ %16, %while.end18.i.loopexit19 ], [ %20, %while.cond10.i ]
   %cmp.i.i = icmp ult ptr %.us-phi3688.i, %.us-phi67.i
   br i1 %cmp.i.i, label %if.end.i, label %_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIfE11sortIndicesERS5_PKiNSA_12CompareFlagsEEUliiE_EEET_SJ_SJ_SJ_T0_.exit
 
@@ -155794,11 +155794,11 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_SH_T0_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit, ptr %__comp.coerce0, ptr %__comp.coerce1) local_unnamed_addr #0 comdat {
 entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
-  %sub.ptr.lhs.cast.i17 = ptrtoint ptr %__last.coerce to i64
-  %sub.ptr.sub.i18 = sub i64 %sub.ptr.lhs.cast.i17, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i19 = ashr exact i64 %sub.ptr.sub.i18, 2
-  %cmp20 = icmp sgt i64 %sub.ptr.div.i19, 16
-  br i1 %cmp20, label %while.body.lr.ph, label %while.end
+  %sub.ptr.lhs.cast.i16 = ptrtoint ptr %__last.coerce to i64
+  %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i16, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i18 = ashr exact i64 %sub.ptr.sub.i17, 2
+  %cmp19 = icmp sgt i64 %sub.ptr.div.i18, 16
+  br i1 %cmp19, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr.i1.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 4
@@ -155807,14 +155807,14 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit
-  %sub.ptr.div.i23 = phi i64 [ %sub.ptr.div.i19, %while.body.lr.ph ], [ %sub.ptr.div.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit ]
-  %__depth_limit.addr.022 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit ]
-  %storemerge21 = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %.us-phi3379.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit ]
-  %cmp2 = icmp eq i64 %__depth_limit.addr.022, 0
+  %sub.ptr.div.i22 = phi i64 [ %sub.ptr.div.i18, %while.body.lr.ph ], [ %sub.ptr.div.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit ]
+  %__depth_limit.addr.021 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit ]
+  %storemerge20 = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %.us-phi3379.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit ]
+  %cmp2 = icmp eq i64 %__depth_limit.addr.021, 0
   br i1 %cmp2, label %if.end.i.i.i, label %if.end
 
 if.end.i.i.i:                                     ; preds = %while.body
-  %sub.i.i.i = add nsw i64 %sub.ptr.div.i23, -2
+  %sub.i.i.i = add nsw i64 %sub.ptr.div.i22, -2
   %div1617.i.i.i = lshr i64 %sub.i.i.i, 1
   br label %while.body.i.i.i
 
@@ -155822,13 +155822,13 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %__parent.0.i.i.i = phi i64 [ %div1617.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
   %phi.call.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__parent.0.i.i.i
   %0 = load i32, ptr %phi.call.i.i.i, align 4
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_T0_SI_T1_T2_(ptr %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i23, i32 noundef %0, ptr %__comp.coerce0, ptr %__comp.coerce1)
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_T0_SI_T1_T2_(ptr %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i22, i32 noundef %0, ptr %__comp.coerce0, ptr %__comp.coerce1)
   %cmp8.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
   br i1 %cmp8.i.i.i, label %while.body.i.i, label %while.body.i.i.i, !llvm.loop !1418
 
 while.body.i.i:                                   ; preds = %while.body.i.i.i, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge21, %while.body.i.i.i ]
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge20, %while.body.i.i.i ]
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -4
   %1 = load i32, ptr %incdec.ptr.i.i1.i, align 4
   %2 = load i32, ptr %__first.coerce, align 4
@@ -155841,14 +155841,14 @@ while.body.i.i:                                   ; preds = %while.body.i.i.i, %
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !1419
 
 if.end:                                           ; preds = %while.body
-  %div.i56 = lshr i64 %sub.ptr.div.i23, 1
+  %div.i56 = lshr i64 %sub.ptr.div.i22, 1
   %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %div.i56
-  %add.ptr.i2.i = getelementptr inbounds i8, ptr %storemerge21, i64 -4
+  %add.ptr.i2.i = getelementptr inbounds i8, ptr %storemerge20, i64 -4
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_SH_SH_SH_T0_(ptr %__first.coerce, ptr nonnull %add.ptr.i1.i, ptr %add.ptr.i.i, ptr nonnull %add.ptr.i2.i, ptr %__comp.coerce0, ptr %__comp.coerce1)
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %if.end
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge21, %if.end ], [ %.us-phi59.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge20, %if.end ], [ %.us-phi59.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %if.end ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
   %3 = load i32, ptr %__first.coerce, align 4
   %4 = load ptr, ptr %rawValues_.i.i.i.i.i, align 8
@@ -155891,7 +155891,7 @@ while.cond10.i.preheader.i:                       ; preds = %while.cond3.us.i.i,
   br label %while.cond10.i.i
 
 while.body.split.i.i:                             ; preds = %while.body.i.i3
-  br i1 %tobool.i.i.i.i, label %while.cond3.us37.i.i, label %while.cond10.preheader.split58.us.thread.i.i
+  br i1 %tobool.i.i.i.i, label %while.cond3.us37.i.i, label %while.cond10.us.i.i
 
 while.cond3.us37.i.i:                             ; preds = %while.body.split.i.i, %while.cond3.us37.i.i
   %__first.sroa.0.1.us38.i.i = phi ptr [ %incdec.ptr.i.us47.i.i, %while.cond3.us37.i.i ], [ %__first.sroa.0.0.i.i, %while.body.split.i.i ]
@@ -155903,24 +155903,20 @@ while.cond3.us37.i.i:                             ; preds = %while.body.split.i.
   %incdec.ptr.i.us47.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.us38.i.i, i64 4
   br i1 %14, label %while.cond3.us37.i.i, label %while.cond10.us.us.i.i, !llvm.loop !1420
 
-while.cond10.preheader.split58.us.thread.i.i:     ; preds = %while.body.split.i.i
-  %.pre.i.i = load i32, ptr %__first.sroa.0.0.i.i, align 4
-  br label %while.cond10.us.i.i
-
 while.cond10.us.us.i.i:                           ; preds = %while.cond3.us37.i.i
   %__last.sroa.0.1.us.us.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i.i, i64 -4
   %15 = load i32, ptr %__last.sroa.0.1.us.us.i.i, align 4
   br label %while.end18.i.i
 
-while.cond10.us.i.i:                              ; preds = %while.cond10.us.i.i, %while.cond10.preheader.split58.us.thread.i.i
-  %__last.sroa.0.0.pn.us.i.i = phi ptr [ %__last.sroa.0.1.us.i.i, %while.cond10.us.i.i ], [ %__last.sroa.0.0.i.i, %while.cond10.preheader.split58.us.thread.i.i ]
+while.cond10.us.i.i:                              ; preds = %while.body.split.i.i, %while.cond10.us.i.i
+  %__last.sroa.0.0.pn.us.i.i = phi ptr [ %__last.sroa.0.1.us.i.i, %while.cond10.us.i.i ], [ %__last.sroa.0.0.i.i, %while.body.split.i.i ]
   %__last.sroa.0.1.us.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.us.i.i, i64 -4
   %16 = load i32, ptr %__last.sroa.0.1.us.i.i, align 4
   %idxprom.i3.i.i5.us.i.i = sext i32 %16 to i64
   %arrayidx.i4.i.i6.us.i.i = getelementptr inbounds double, ptr %4, i64 %idxprom.i3.i.i5.us.i.i
   %17 = load double, ptr %arrayidx.i4.i.i6.us.i.i, align 8
   %18 = fcmp ord double %17, 0.000000e+00
-  br i1 %18, label %while.cond10.us.i.i, label %while.end18.i.i, !llvm.loop !1421
+  br i1 %18, label %while.cond10.us.i.i, label %while.end18.i.loopexit18.i, !llvm.loop !1421
 
 while.cond10.i.i:                                 ; preds = %while.cond10.i.i, %while.cond10.i.preheader.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond10.i.preheader.i ]
@@ -155940,11 +155936,15 @@ while.cond10.i.i:                                 ; preds = %while.cond10.i.i, %
   %cmp.i.i13.i.i = icmp slt i32 %cond.i.i12.i.i, 0
   br i1 %cmp.i.i13.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !1421
 
-while.end18.i.i:                                  ; preds = %while.cond10.us.i.i, %while.cond10.i.i, %while.cond10.us.us.i.i
-  %.us-phi3482.i.i = phi i32 [ %12, %while.cond10.us.us.i.i ], [ %.us-phi22.i, %while.cond10.i.i ], [ %.pre.i.i, %while.cond10.us.i.i ]
-  %.us-phi3379.i.i = phi ptr [ %__first.sroa.0.1.us38.i.i, %while.cond10.us.us.i.i ], [ %.us-phi.i, %while.cond10.i.i ], [ %__first.sroa.0.0.i.i, %while.cond10.us.i.i ]
-  %.us-phi59.i.i = phi ptr [ %__last.sroa.0.1.us.us.i.i, %while.cond10.us.us.i.i ], [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.1.us.i.i, %while.cond10.us.i.i ]
-  %.us-phi60.i.i = phi i32 [ %15, %while.cond10.us.us.i.i ], [ %19, %while.cond10.i.i ], [ %16, %while.cond10.us.i.i ]
+while.end18.i.loopexit18.i:                       ; preds = %while.cond10.us.i.i
+  %.pre.i.i = load i32, ptr %__first.sroa.0.0.i.i, align 4
+  br label %while.end18.i.i
+
+while.end18.i.i:                                  ; preds = %while.cond10.i.i, %while.end18.i.loopexit18.i, %while.cond10.us.us.i.i
+  %.us-phi3482.i.i = phi i32 [ %12, %while.cond10.us.us.i.i ], [ %.pre.i.i, %while.end18.i.loopexit18.i ], [ %.us-phi22.i, %while.cond10.i.i ]
+  %.us-phi3379.i.i = phi ptr [ %__first.sroa.0.1.us38.i.i, %while.cond10.us.us.i.i ], [ %__first.sroa.0.0.i.i, %while.end18.i.loopexit18.i ], [ %.us-phi.i, %while.cond10.i.i ]
+  %.us-phi59.i.i = phi ptr [ %__last.sroa.0.1.us.us.i.i, %while.cond10.us.us.i.i ], [ %__last.sroa.0.1.us.i.i, %while.end18.i.loopexit18.i ], [ %__last.sroa.0.1.i.i, %while.cond10.i.i ]
+  %.us-phi60.i.i = phi i32 [ %15, %while.cond10.us.us.i.i ], [ %16, %while.end18.i.loopexit18.i ], [ %19, %while.cond10.i.i ]
   %cmp.i.i.i4 = icmp ult ptr %.us-phi3379.i.i, %.us-phi59.i.i
   br i1 %cmp.i.i.i4, label %if.end.i.i, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit
 
@@ -155955,8 +155955,8 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   br label %while.body.i.i3, !llvm.loop !1422
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEET_SH_SH_T0_.exit: ; preds = %while.end18.i.i
-  %dec = add nsw i64 %__depth_limit.addr.022, -1
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_SH_T0_T1_(ptr nonnull %.us-phi3379.i.i, ptr %storemerge21, i64 noundef %dec, ptr nonnull %__comp.coerce0, ptr nonnull %__comp.coerce1)
+  %dec = add nsw i64 %__depth_limit.addr.021, -1
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_SH_T0_T1_(ptr nonnull %.us-phi3379.i.i, ptr %storemerge20, i64 noundef %dec, ptr nonnull %__comp.coerce0, ptr nonnull %__comp.coerce1)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %.us-phi3379.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
@@ -158387,7 +158387,7 @@ while.cond3.us.i:                                 ; preds = %while.body.i, %whil
   br i1 %cmp.i.i.us.i, label %while.cond3.us.i, label %while.cond10.i, !llvm.loop !1446
 
 while.body.split.i:                               ; preds = %while.body.i
-  br i1 %tobool.i.i.i, label %while.cond3.us41.i, label %while.cond10.preheader.split66.us.thread.i
+  br i1 %tobool.i.i.i, label %while.cond3.us41.i, label %while.cond10.us.i
 
 while.cond3.us41.i:                               ; preds = %while.body.split.i, %while.cond3.us41.i
   %__first.sroa.0.1.us42.i = phi ptr [ %incdec.ptr.i.us53.i, %while.cond3.us41.i ], [ %__first.sroa.0.0.i, %while.body.split.i ]
@@ -158402,17 +158402,13 @@ while.cond3.us41.i:                               ; preds = %while.body.split.i,
   %incdec.ptr.i.us53.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.us42.i, i64 4
   br i1 %14, label %while.cond3.us41.i, label %while.cond10.us.us.i, !llvm.loop !1446
 
-while.cond10.preheader.split66.us.thread.i:       ; preds = %while.body.split.i
-  %.pre.i = load i32, ptr %__first.sroa.0.0.i, align 4
-  br label %while.cond10.us.i
-
 while.cond10.us.us.i:                             ; preds = %while.cond3.us41.i
   %__last.sroa.0.1.us.us.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.i, i64 -4
   %15 = load i32, ptr %__last.sroa.0.1.us.us.i, align 4
   br label %while.end18.i
 
-while.cond10.us.i:                                ; preds = %while.cond10.us.i, %while.cond10.preheader.split66.us.thread.i
-  %__last.sroa.0.0.pn.us.i = phi ptr [ %__last.sroa.0.1.us.i, %while.cond10.us.i ], [ %__last.sroa.0.0.i, %while.cond10.preheader.split66.us.thread.i ]
+while.cond10.us.i:                                ; preds = %while.body.split.i, %while.cond10.us.i
+  %__last.sroa.0.0.pn.us.i = phi ptr [ %__last.sroa.0.1.us.i, %while.cond10.us.i ], [ %__last.sroa.0.0.i, %while.body.split.i ]
   %__last.sroa.0.1.us.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.us.i, i64 -4
   %16 = load i32, ptr %__last.sroa.0.1.us.i, align 4
   %idxprom2.i.i7.us.i = sext i32 %16 to i64
@@ -158422,7 +158418,7 @@ while.cond10.us.i:                                ; preds = %while.cond10.us.i, 
   %arrayidx.i4.i.i10.us.i = getelementptr inbounds double, ptr %2, i64 %idxprom.i3.i.i9.us.i
   %18 = load double, ptr %arrayidx.i4.i.i10.us.i, align 8
   %19 = fcmp ord double %18, 0.000000e+00
-  br i1 %19, label %while.cond10.us.i, label %while.end18.i, !llvm.loop !1447
+  br i1 %19, label %while.cond10.us.i, label %while.end18.i.loopexit19, !llvm.loop !1447
 
 while.cond10.i:                                   ; preds = %while.cond3.us.i, %while.cond10.i
   %__last.sroa.0.0.pn.i = phi ptr [ %__last.sroa.0.1.i, %while.cond10.i ], [ %__last.sroa.0.0.i, %while.cond3.us.i ]
@@ -158445,11 +158441,15 @@ while.cond10.i:                                   ; preds = %while.cond3.us.i, %
   %cmp.i.i17.i = icmp slt i32 %cond.i.i16.i, 0
   br i1 %cmp.i.i17.i, label %while.cond10.i, label %while.end18.i, !llvm.loop !1447
 
-while.end18.i:                                    ; preds = %while.cond10.us.i, %while.cond10.i, %while.cond10.us.us.i
-  %.us-phi3791.i = phi i32 [ %11, %while.cond10.us.us.i ], [ %7, %while.cond10.i ], [ %.pre.i, %while.cond10.us.i ]
-  %.us-phi3688.i = phi ptr [ %__first.sroa.0.1.us42.i, %while.cond10.us.us.i ], [ %__first.sroa.0.1.us.i, %while.cond10.i ], [ %__first.sroa.0.0.i, %while.cond10.us.i ]
-  %.us-phi67.i = phi ptr [ %__last.sroa.0.1.us.us.i, %while.cond10.us.us.i ], [ %__last.sroa.0.1.i, %while.cond10.i ], [ %__last.sroa.0.1.us.i, %while.cond10.us.i ]
-  %.us-phi68.i = phi i32 [ %15, %while.cond10.us.us.i ], [ %20, %while.cond10.i ], [ %16, %while.cond10.us.i ]
+while.end18.i.loopexit19:                         ; preds = %while.cond10.us.i
+  %.pre.i = load i32, ptr %__first.sroa.0.0.i, align 4
+  br label %while.end18.i
+
+while.end18.i:                                    ; preds = %while.cond10.i, %while.end18.i.loopexit19, %while.cond10.us.us.i
+  %.us-phi3791.i = phi i32 [ %11, %while.cond10.us.us.i ], [ %.pre.i, %while.end18.i.loopexit19 ], [ %7, %while.cond10.i ]
+  %.us-phi3688.i = phi ptr [ %__first.sroa.0.1.us42.i, %while.cond10.us.us.i ], [ %__first.sroa.0.0.i, %while.end18.i.loopexit19 ], [ %__first.sroa.0.1.us.i, %while.cond10.i ]
+  %.us-phi67.i = phi ptr [ %__last.sroa.0.1.us.us.i, %while.cond10.us.us.i ], [ %__last.sroa.0.1.us.i, %while.end18.i.loopexit19 ], [ %__last.sroa.0.1.i, %while.cond10.i ]
+  %.us-phi68.i = phi i32 [ %15, %while.cond10.us.us.i ], [ %16, %while.end18.i.loopexit19 ], [ %20, %while.cond10.i ]
   %cmp.i.i = icmp ult ptr %.us-phi3688.i, %.us-phi67.i
   br i1 %cmp.i.i, label %if.end.i, label %_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10FlatVectorIdE11sortIndicesERS5_PKiNSA_12CompareFlagsEEUliiE_EEET_SJ_SJ_SJ_T0_.exit
 
@@ -199436,8 +199436,8 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPP11ArrowSchemamS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPP11ArrowSchemamS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i

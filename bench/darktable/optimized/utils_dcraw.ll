@@ -173,36 +173,36 @@ define void @_ZN6LibRaw8initdataEv(ptr noundef nonnull writeonly align 8 derefer
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(334080) %19, i8 0, i64 334080, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  br label %20
+  br label %21
 
-20:                                               ; preds = %1, %25
-  %indvars.iv19 = phi i64 [ 0, %1 ], [ %indvars.iv.next20, %25 ]
-  %21 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %19, i64 %indvars.iv19
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 312
-  store i16 -1, ptr %22, align 8, !tbaa !84
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 144
+.preheader:                                       ; preds = %26
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 5504
+  br label %66
+
+21:                                               ; preds = %1, %26
+  %indvars.iv19 = phi i64 [ 0, %1 ], [ %indvars.iv.next20, %26 ]
+  %22 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %19, i64 %indvars.iv19
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 312
   store i16 -1, ptr %23, align 8, !tbaa !84
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 33364
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 144
+  store i16 -1, ptr %24, align 8, !tbaa !84
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 33364
   br label %27
 
-25:                                               ; preds = %27
+26:                                               ; preds = %27
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 10
-  br i1 %exitcond22.not, label %.preheader.preheader, label %20, !llvm.loop !86
+  br i1 %exitcond22.not, label %.preheader, label %21, !llvm.loop !86
 
-.preheader.preheader:                             ; preds = %25
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 5504
-  br label %.preheader
-
-27:                                               ; preds = %20, %27
-  %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
+27:                                               ; preds = %21, %27
+  %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %27 ]
+  %28 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
   store float 1.000000e+00, ptr %28, align 4, !tbaa !87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %25, label %27, !llvm.loop !88
+  br i1 %exitcond.not, label %26, label %27, !llvm.loop !88
 
-29:                                               ; preds = %.preheader
+29:                                               ; preds = %66
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 381480
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 192580
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %31, i8 0, i64 128, i1 false)
@@ -277,14 +277,14 @@ define void @_ZN6LibRaw8initdataEv(ptr noundef nonnull writeonly align 8 derefer
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %65, i8 0, i64 28, i1 false)
   ret void
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv23 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next24, %.preheader ]
-  %66 = trunc i64 %indvars.iv23 to i16
-  %67 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv23
-  store i16 %66, ptr %67, align 2, !tbaa !78
+66:                                               ; preds = %.preheader, %66
+  %indvars.iv23 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next24, %66 ]
+  %67 = trunc i64 %indvars.iv23 to i16
+  %68 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv23
+  store i16 %67, ptr %68, align 2, !tbaa !78
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 65536
-  br i1 %exitcond26.not, label %29, label %.preheader, !llvm.loop !115
+  br i1 %exitcond26.not, label %29, label %66, !llvm.loop !115
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1164,77 +1164,77 @@ define void @_ZN6LibRaw13cam_xyz_coeffEPA4_fPA3_d(ptr noundef nonnull align 8 ca
   %wide.trip.count100 = zext nneg i32 %invariant.smin to i64
   br label %.preheader54
 
-12:                                               ; preds = %.preheader56, %21
-  %indvars.iv80 = phi i64 [ 0, %.preheader56 ], [ %indvars.iv.next81, %21 ]
-  %13 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv80
+12:                                               ; preds = %.preheader56, %20
+  %indvars.iv80 = phi i64 [ 0, %.preheader56 ], [ %indvars.iv.next81, %20 ]
   %invariant.gep = getelementptr inbounds nuw double, ptr @_ZN16LibRaw_constants7xyz_rgbE, i64 %indvars.iv80
-  br label %14
+  br label %13
 
-14:                                               ; preds = %12, %14
-  %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %14 ]
-  %15 = phi double [ 0.000000e+00, %12 ], [ %20, %14 ]
-  %16 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
-  %17 = load double, ptr %16, align 8, !tbaa !116
+13:                                               ; preds = %12, %13
+  %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %13 ]
+  %14 = phi double [ 0.000000e+00, %12 ], [ %19, %13 ]
+  %15 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
+  %16 = load double, ptr %15, align 8, !tbaa !116
   %gep = getelementptr inbounds nuw [3 x double], ptr %invariant.gep, i64 %indvars.iv
-  %18 = load double, ptr %gep, align 8, !tbaa !116
-  %19 = fmul reassoc nsz arcp contract afn double %18, %17
-  %20 = fadd reassoc nsz arcp contract afn double %15, %19
+  %17 = load double, ptr %gep, align 8, !tbaa !116
+  %18 = fmul reassoc nsz arcp contract afn double %17, %16
+  %19 = fadd reassoc nsz arcp contract afn double %14, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %21, label %14, !llvm.loop !155
+  br i1 %exitcond.not, label %20, label %13, !llvm.loop !155
 
-21:                                               ; preds = %14
-  store double %20, ptr %13, align 8, !tbaa !116
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv80
+  store double %19, ptr %21, align 8, !tbaa !116
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next81, 3
   br i1 %exitcond83.not, label %22, label %12, !llvm.loop !156
 
-22:                                               ; preds = %21
+22:                                               ; preds = %20
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count
   br i1 %exitcond87.not, label %.preheader54.lr.ph, label %.preheader56, !llvm.loop !157
 
 .preheader54:                                     ; preds = %.preheader54.lr.ph, %38
   %indvar = phi i64 [ 0, %.preheader54.lr.ph ], [ %indvar.next, %38 ]
-  %23 = mul nuw nsw i64 %indvar, 24
-  %scevgep = getelementptr nuw i8, ptr %4, i64 %23
-  %24 = getelementptr inbounds nuw [3 x double], ptr %4, i64 %indvar
-  br label %25
+  %23 = getelementptr inbounds nuw [3 x double], ptr %4, i64 %indvar
+  br label %24
 
-25:                                               ; preds = %.preheader54, %25
-  %indvars.iv88 = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next89, %25 ]
-  %.05161 = phi double [ 0.000000e+00, %.preheader54 ], [ %28, %25 ]
-  %26 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv88
-  %27 = load double, ptr %26, align 8, !tbaa !116
-  %28 = fadd reassoc nsz arcp contract afn double %27, %.05161
+24:                                               ; preds = %.preheader54, %24
+  %indvars.iv88 = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next89, %24 ]
+  %.05161 = phi double [ 0.000000e+00, %.preheader54 ], [ %27, %24 ]
+  %25 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv88
+  %26 = load double, ptr %25, align 8, !tbaa !116
+  %27 = fadd reassoc nsz arcp contract afn double %26, %.05161
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, 3
-  br i1 %exitcond91.not, label %29, label %25, !llvm.loop !158
+  br i1 %exitcond91.not, label %28, label %24, !llvm.loop !158
 
-29:                                               ; preds = %25
-  %30 = fcmp reassoc nsz arcp contract afn ogt double %28, 1.000000e-05
-  br i1 %30, label %.preheader52.preheader, label %.preheader53
+28:                                               ; preds = %24
+  %29 = fcmp reassoc nsz arcp contract afn ogt double %27, 1.000000e-05
+  br i1 %29, label %.preheader52.preheader, label %.preheader53
 
-.preheader52.preheader:                           ; preds = %29
-  %31 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %28
+.preheader52.preheader:                           ; preds = %28
+  %30 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %27
   br label %.preheader52
 
-.preheader53:                                     ; preds = %29
+.preheader53:                                     ; preds = %28
+  %31 = mul nuw nsw i64 %indvar, 24
+  %scevgep = getelementptr nuw i8, ptr %4, i64 %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i8 0, i64 24, i1 false), !tbaa !116
   br label %38
 
 .preheader52:                                     ; preds = %.preheader52.preheader, %.preheader52
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %.preheader52 ], [ 0, %.preheader52.preheader ]
-  %32 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv95
+  %32 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv95
   %33 = load double, ptr %32, align 8, !tbaa !116
-  %34 = fmul reassoc nsz arcp contract afn double %33, %31
+  %34 = fmul reassoc nsz arcp contract afn double %33, %30
   store double %34, ptr %32, align 8, !tbaa !116
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, 3
   br i1 %exitcond98.not, label %35, label %.preheader52, !llvm.loop !159
 
 35:                                               ; preds = %.preheader52
-  %36 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %28
+  %36 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %27
   %37 = fptrunc reassoc nsz arcp contract afn double %36 to float
   br label %38
 

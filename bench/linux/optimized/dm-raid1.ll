@@ -2237,9 +2237,9 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 .loopexit47:                                      ; preds = %392, %313, %309
   %395 = load ptr, ptr %6, align 8
   %396 = icmp eq ptr %395, null
-  br i1 %396, label %.loopexit161, label %.preheader160
+  br i1 %396, label %.loopexit161, label %.preheader80
 
-.loopexit161:                                     ; preds = %.preheader160, %.loopexit47
+.loopexit161:                                     ; preds = %.preheader80, %.loopexit47
   %397 = load ptr, ptr %5, align 8
   %398 = icmp eq ptr %397, null
   br i1 %398, label %.loopexit45, label %399
@@ -2253,14 +2253,14 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %405 = getelementptr i8, ptr %0, i64 -16
   br label %410
 
-.preheader160:                                    ; preds = %.loopexit47, %.preheader160
-  %406 = phi ptr [ %407, %.preheader160 ], [ %395, %.loopexit47 ]
+.preheader80:                                     ; preds = %.loopexit47, %.preheader80
+  %406 = phi ptr [ %407, %.preheader80 ], [ %395, %.loopexit47 ]
   %407 = load ptr, ptr %406, align 8
   %408 = icmp eq ptr %407, null
   store ptr null, ptr %406, align 8
   %409 = load ptr, ptr %20, align 8
   call void @dm_rh_delay(ptr noundef %409, ptr noundef nonnull %406) #13
-  br i1 %408, label %.loopexit161, label %.preheader160, !llvm.loop !35
+  br i1 %408, label %.loopexit161, label %.preheader80, !llvm.loop !35
 
 410:                                              ; preds = %461, %399
   %411 = phi ptr [ %397, %399 ], [ %462, %461 ]

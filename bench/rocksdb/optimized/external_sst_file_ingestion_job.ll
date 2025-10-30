@@ -14623,7 +14623,7 @@ _ZN7rocksdb17EventLoggerStreamlsIA15_cEERS0_RKT_.exit: ; preds = %.noexc45
 .lr.ph:                                           ; preds = %26
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 9024
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  %.ptr13.i = getelementptr inbounds nuw i8, ptr %3, i64 132
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %3, i64 132
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 188
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -14663,7 +14663,7 @@ _ZN7rocksdb17EventLoggerStreamlsIA15_cEERS0_RKT_.exit: ; preds = %.noexc45
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %47, i8 0, i64 120, i1 false)
   store i32 1, ptr %40, align 8, !tbaa !846
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %.ptr13.i, i8 0, i64 80, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %scevgep.i, i8 0, i64 80, i1 false)
   store i32 1, ptr %41, align 4, !tbaa !411
   store i64 %11, ptr %3, align 8, !tbaa !848
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1012

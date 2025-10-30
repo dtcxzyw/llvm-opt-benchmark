@@ -928,36 +928,36 @@ define dso_local void @_ZN13GroupProbElemC2EbRKNSt7__cxx1112basic_stringIcSt11ch
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13GroupProbElemD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV13GroupProbElem, i64 16), ptr %0, align 8, !tbaa !4
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.not4 = icmp eq ptr %4, %5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.not4 = icmp eq ptr %3, %4
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %13
-  %.sroa.01.05 = phi ptr [ %14, %13 ], [ %4, %1 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.01.05, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %13, label %9
+.lr.ph:                                           ; preds = %1, %12
+  %.sroa.01.05 = phi ptr [ %13, %12 ], [ %3, %1 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.01.05, i64 40
+  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %12, label %8
 
-9:                                                ; preds = %.lr.ph
-  %10 = load ptr, ptr %7, align 8, !tbaa !4
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(52) %7) #27
-  br label %13
+8:                                                ; preds = %.lr.ph
+  %9 = load ptr, ptr %6, align 8, !tbaa !4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load ptr, ptr %10, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(52) %6) #27
+  br label %12
 
-13:                                               ; preds = %.lr.ph, %9
-  %14 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.05) #29
-  %.not = icmp eq ptr %14, %5
+12:                                               ; preds = %.lr.ph, %8
+  %13 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.05) #29
+  %.not = icmp eq ptr %13, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
-._crit_edge:                                      ; preds = %13, %1
+._crit_edge:                                      ; preds = %12, %1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !15
-  invoke void @_ZNSt8_Rb_treeI8ProbNameSt4pairIKS0_P14SingleProbElemESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %16)
+  invoke void @_ZNSt8_Rb_treeI8ProbNameSt4pairIKS0_P14SingleProbElemESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %16)
           to label %_ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEE5clearEv.exit unwind label %17
 
 17:                                               ; preds = %._crit_edge
@@ -969,12 +969,12 @@ define dso_local void @_ZN13GroupProbElemD2Ev(ptr noundef nonnull align 8 derefe
 
 _ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEE5clearEv.exit: ; preds = %._crit_edge
   store ptr null, ptr %15, align 8, !tbaa !15
-  store ptr %5, ptr %3, align 8, !tbaa !30
+  store ptr %4, ptr %2, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %5, ptr %20, align 8, !tbaa !47
+  store ptr %4, ptr %20, align 8, !tbaa !47
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 0, ptr %21, align 8, !tbaa !48
-  invoke void @_ZNSt8_Rb_treeI8ProbNameSt4pairIKS0_P14SingleProbElemESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef null)
+  invoke void @_ZNSt8_Rb_treeI8ProbNameSt4pairIKS0_P14SingleProbElemESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef null)
           to label %_ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit unwind label %22
 
 22:                                               ; preds = %_ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEE5clearEv.exit
@@ -9088,36 +9088,36 @@ _ZNSt3mapI8ProbNameP6FilterSt4lessIS0_ESaISt4pairIKS0_S2_EEE5clearEv.exit: ; pre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13ProbabilitiesD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.not13 = icmp eq ptr %4, %5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %.not13 = icmp eq ptr %3, %4
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %13
-  %.sroa.010.014 = phi ptr [ %14, %13 ], [ %4, %1 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !52
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %13, label %9
+.lr.ph:                                           ; preds = %1, %12
+  %.sroa.010.014 = phi ptr [ %13, %12 ], [ %3, %1 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 40
+  %6 = load ptr, ptr %5, align 8, !tbaa !52
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %12, label %8
 
-9:                                                ; preds = %.lr.ph
-  %10 = load ptr, ptr %7, align 8, !tbaa !4
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %7) #27
-  br label %13
+8:                                                ; preds = %.lr.ph
+  %9 = load ptr, ptr %6, align 8, !tbaa !4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load ptr, ptr %10, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
+  br label %12
 
-13:                                               ; preds = %9, %.lr.ph
-  %14 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.014) #29
-  %.not = icmp eq ptr %14, %5
+12:                                               ; preds = %8, %.lr.ph
+  %13 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.014) #29
+  %.not = icmp eq ptr %13, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !164
 
-._crit_edge:                                      ; preds = %13, %1
+._crit_edge:                                      ; preds = %12, %1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %16 = load ptr, ptr %15, align 8, !tbaa !15
-  invoke void @_ZNSt8_Rb_treeI8ProbNameSt4pairIKS0_P8ProbElemESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %16)
+  invoke void @_ZNSt8_Rb_treeI8ProbNameSt4pairIKS0_P8ProbElemESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %16)
           to label %_ZNSt3mapI8ProbNameP8ProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEE5clearEv.exit unwind label %17
 
 17:                                               ; preds = %._crit_edge
@@ -9129,9 +9129,9 @@ define dso_local void @_ZN13ProbabilitiesD2Ev(ptr noundef nonnull align 8 derefe
 
 _ZNSt3mapI8ProbNameP8ProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEE5clearEv.exit: ; preds = %._crit_edge
   store ptr null, ptr %15, align 8, !tbaa !15
-  store ptr %5, ptr %3, align 8, !tbaa !30
+  store ptr %4, ptr %2, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %5, ptr %20, align 8, !tbaa !47
+  store ptr %4, ptr %20, align 8, !tbaa !47
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 0, ptr %21, align 8, !tbaa !48
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -9250,7 +9250,7 @@ _ZNSt3mapI8ProbNameP6FilterSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit: ; preds =
 
 _ZNSt3mapI8ProbNameP6FilterSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit9: ; preds = %_ZNSt3mapI8ProbNameP6FilterSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit
   %67 = load ptr, ptr %15, align 8, !tbaa !15
-  invoke void @_ZNSt8_Rb_treeI8ProbNameSt4pairIKS0_P8ProbElemESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %67)
+  invoke void @_ZNSt8_Rb_treeI8ProbNameSt4pairIKS0_P8ProbElemESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %67)
           to label %_ZNSt3mapI8ProbNameP8ProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit unwind label %68
 
 68:                                               ; preds = %_ZNSt3mapI8ProbNameP6FilterSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit9

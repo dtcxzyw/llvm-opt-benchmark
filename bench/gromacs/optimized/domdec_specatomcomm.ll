@@ -514,10 +514,10 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
   %36 = load ptr, ptr %20, align 8, !tbaa !119
   %37 = getelementptr inbounds nuw [2 x %struct.gmx_specatsend_t], ptr %19, i64 %indvars.iv375
   %38 = getelementptr inbounds i32, ptr %22, i64 %31
-  %39 = icmp eq i32 %30, 0
-  %40 = getelementptr inbounds [3 x float], ptr %2, i64 %31
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %39 = getelementptr inbounds [3 x float], ptr %2, i64 %31
+  %40 = icmp eq i32 %30, 0
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   br label %66
 
 43:                                               ; preds = %.split318.us
@@ -558,7 +558,7 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
 
 71:                                               ; preds = %69
   %72 = load i8, ptr %21, align 1, !tbaa !122, !range !123, !noundef !124
-  %73 = load float, ptr %40, align 4, !tbaa !126
+  %73 = load float, ptr %39, align 4, !tbaa !126
   store float %73, ptr %7, align 4, !tbaa !126
   %74 = load float, ptr %41, align 4, !tbaa !126
   store float %74, ptr %10, align 4, !tbaa !126
@@ -578,7 +578,7 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
 
 82:                                               ; preds = %80, %82
   %indvars.iv358 = phi i64 [ 0, %80 ], [ %indvars.iv.next359, %82 ]
-  %83 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv358
+  %83 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv358
   %84 = load float, ptr %83, align 4, !tbaa !126
   %85 = fneg float %84
   %86 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv358
@@ -590,7 +590,7 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
 .split316.preheader:                              ; preds = %82, %71
   %.pn414.in = phi i8 [ %72, %71 ], [ %81, %82 ]
   %.pn414 = trunc nuw i8 %.pn414.in to i1
-  %.0219.shrunk.ph = and i1 %39, %.pn414
+  %.0219.shrunk.ph = and i1 %40, %.pn414
   %87 = getelementptr inbounds nuw %struct.gmx_specatsend_t, ptr %37, i64 %indvars.iv364
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   br label %.split316
@@ -1151,8 +1151,8 @@ define noundef i32 @_Z26setup_specat_communicationP12gmx_domdec_tPSt6vectorIiSaI
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %92
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %94, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %93, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !116
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 4 %93, i8 0, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !116
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %92

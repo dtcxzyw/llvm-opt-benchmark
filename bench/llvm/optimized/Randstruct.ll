@@ -2695,28 +2695,29 @@ define linkonce_odr void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull
   %32 = sub i64 %12, %31
   %33 = lshr i64 %32, 1
   %34 = add nuw i64 %33, %31
-  %35 = add nsw i64 %19, 1
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %35, i64 %12)
-  %36 = trunc i64 %19 to i32
-  %37 = add i32 %36, 1371501266
-  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %33
-  %39 = load i32, ptr %38, align 4, !tbaa !389
-  %40 = add i32 %39, 1371501266
-  store i32 %40, ptr %38, align 4, !tbaa !389
-  %41 = getelementptr inbounds nuw i32, ptr %1, i64 %34
-  %42 = load i32, ptr %41, align 4, !tbaa !389
-  %43 = add i32 %42, %37
-  store i32 %43, ptr %41, align 4, !tbaa !389
-  store i32 %37, ptr %1, align 4, !tbaa !389
+  %35 = trunc i64 %19 to i32
+  %36 = add i32 %35, 1371501266
+  %37 = getelementptr inbounds nuw i32, ptr %1, i64 %33
+  %38 = load i32, ptr %37, align 4, !tbaa !389
+  %39 = add i32 %38, 1371501266
+  store i32 %39, ptr %37, align 4, !tbaa !389
+  %40 = getelementptr inbounds nuw i32, ptr %1, i64 %34
+  %41 = load i32, ptr %40, align 4, !tbaa !389
+  %42 = add i32 %41, %36
+  store i32 %42, ptr %40, align 4, !tbaa !389
+  store i32 %36, ptr %1, align 4, !tbaa !389
   %.not130 = icmp eq ptr %14, %15
   br i1 %.not130, label %.preheader129, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %30
-  %umax = tail call i64 @llvm.umax.i64(i64 %35, i64 2)
+  %43 = add nsw i64 %19, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %43, i64 2)
   br label %.lr.ph
 
 .preheader129:                                    ; preds = %.lr.ph, %30
-  %44 = icmp ugt i64 %12, %35
+  %.pre-phi = phi i64 [ 1, %30 ], [ %43, %.lr.ph ]
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %.pre-phi, i64 %12)
+  %44 = icmp ugt i64 %12, %.pre-phi
   br i1 %44, label %.lr.ph133, label %.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2761,7 +2762,7 @@ define linkonce_odr void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull
   br i1 %74, label %.lr.ph135, label %.loopexit
 
 .lr.ph133:                                        ; preds = %.preheader129, %.lr.ph133
-  %.0114132 = phi i64 [ %99, %.lr.ph133 ], [ %35, %.preheader129 ]
+  %.0114132 = phi i64 [ %99, %.lr.ph133 ], [ %.pre-phi, %.preheader129 ]
   %75 = urem i64 %.0114132, %12
   %76 = add i64 %.0114132, %33
   %77 = urem i64 %76, %12

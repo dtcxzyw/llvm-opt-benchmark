@@ -593,58 +593,58 @@ define dso_local noundef i32 @run_add_i(ptr noundef %0, ptr noundef %1) local_un
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull align 8 dereferenceable(128) @__const.run_add_i.print_file_item_data, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  store ptr @print_file_item, ptr %23, align 8, !tbaa !23
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %7, ptr %24, align 8, !tbaa !24
-  %25 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  store ptr @choose_prompt_help, ptr %26, align 8, !tbaa !28
+  store ptr @print_file_item, ptr %22, align 8, !tbaa !23
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %7, ptr %23, align 8, !tbaa !24
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
+  store ptr @choose_prompt_help, ptr %25, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) @__const.list_and_choose.input, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, i8 0, i64 88, i1 false)
-  %27 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i8 1, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  store i64 1, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  store i64 4, ptr %29, align 8
-  br label %30
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i8 1, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 88
+  store i64 1, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  store i64 4, ptr %28, align 8
+  br label %29
 
-30:                                               ; preds = %2, %30
-  %.02259 = phi i64 [ 0, %2 ], [ %39, %30 ]
-  %31 = call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #18
-  %32 = getelementptr inbounds nuw %struct.anon, ptr @__const.run_add_i.command_list, i64 %.02259
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !29
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %34, ptr %35, align 8, !tbaa !31
-  %36 = load ptr, ptr %32, align 16, !tbaa !34
-  %37 = call ptr @string_list_append(ptr noundef nonnull %6, ptr noundef %36) #18
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %31, ptr %38, align 8, !tbaa !35
-  %39 = add nuw nsw i64 %.02259, 1
-  %exitcond.not = icmp eq i64 %39, 8
-  br i1 %exitcond.not, label %40, label %30, !llvm.loop !37
+29:                                               ; preds = %2, %29
+  %.02259 = phi i64 [ 0, %2 ], [ %38, %29 ]
+  %30 = call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #18
+  %31 = getelementptr inbounds nuw %struct.anon, ptr @__const.run_add_i.command_list, i64 %.02259
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !29
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr %33, ptr %34, align 8, !tbaa !31
+  %35 = load ptr, ptr %31, align 16, !tbaa !34
+  %36 = call ptr @string_list_append(ptr noundef nonnull %6, ptr noundef %35) #18
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store ptr %30, ptr %37, align 8, !tbaa !35
+  %38 = add nuw nsw i64 %.02259, 1
+  %exitcond.not = icmp eq i64 %38, 8
+  br i1 %exitcond.not, label %39, label %29, !llvm.loop !37
 
-40:                                               ; preds = %30
+39:                                               ; preds = %29
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @init_add_i_state(ptr noundef nonnull %3, ptr noundef %0)
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !13
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %._crit_edge, label %43
 
-._crit_edge:                                      ; preds = %40
+._crit_edge:                                      ; preds = %39
   %.pre = load ptr, ptr %4, align 8, !tbaa !39
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre60 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !41
   br label %47
 
-43:                                               ; preds = %40
+43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 162
   store ptr %44, ptr %4, align 8, !tbaa !39
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 312
@@ -688,7 +688,7 @@ _.exit34:                                         ; preds = %47, %_.exit, %_.exi
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %9, ptr noundef %52, ptr noundef %.0.i4449, ptr noundef %.0.i3050, ptr noundef %.0.i33) #18
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !48
-  store ptr %59, ptr %22, align 8, !tbaa !49
+  store ptr %59, ptr %40, align 8, !tbaa !49
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %61 = load ptr, ptr %60, align 8, !tbaa !50
   call void @discard_index(ptr noundef %61) #18

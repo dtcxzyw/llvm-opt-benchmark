@@ -13677,34 +13677,34 @@ roseCheckMediumLiteral.exit1050:                  ; preds = %7633, %7627, %._cri
   %7694 = load i32, ptr %7693, align 4
   %7695 = zext i32 %7694 to i64
   %7696 = getelementptr inbounds nuw i8, ptr %0, i64 %7695
-  %7697 = load i8, ptr %7683, align 1
-  %7698 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %7699 = load i64, ptr %7698, align 8
-  %7700 = sub nsw i64 0, %7699
-  br label %7701
+  %7697 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %7698 = load i64, ptr %7697, align 8
+  %7699 = sub nsw i64 0, %7698
+  br label %7700
 
-7701:                                             ; preds = %7701, %7692
-  %.059.i = phi ptr [ %7696, %7692 ], [ %.160.i, %7701 ]
-  %.055.i = phi ptr [ %7683, %7692 ], [ %.156.i, %7701 ]
-  %7702 = load i8, ptr %.055.i, align 1
-  %7703 = sext i8 %7702 to i64
-  %7704 = add nsw i64 %7688, %7703
-  %.not.i1051 = icmp slt i64 %7704, %7700
+7700:                                             ; preds = %7700, %7692
+  %.059.i = phi ptr [ %7696, %7692 ], [ %.160.i, %7700 ]
+  %.055.i = phi ptr [ %7683, %7692 ], [ %.156.i, %7700 ]
+  %7701 = load i8, ptr %.055.i, align 1
+  %7702 = sext i8 %7701 to i64
+  %7703 = add nsw i64 %7688, %7702
+  %.not.i1051 = icmp slt i64 %7703, %7699
   %.160.i.idx = select i1 %.not.i1051, i64 256, i64 0
   %.160.i = getelementptr inbounds nuw i8, ptr %.059.i, i64 %.160.i.idx
   %.156.i.idx = zext i1 %.not.i1051 to i64
   %.156.i = getelementptr inbounds nuw i8, ptr %.055.i, i64 %.156.i.idx
-  %7705 = icmp ult ptr %.156.i, %7685
-  %or.cond.i1052 = select i1 %.not.i1051, i1 %7705, i1 false
-  br i1 %or.cond.i1052, label %7701, label %.preheader4118
+  %7704 = icmp ult ptr %.156.i, %7685
+  %or.cond.i1052 = select i1 %.not.i1051, i1 %7704, i1 false
+  br i1 %or.cond.i1052, label %7700, label %.preheader4118
 
-.preheader4118:                                   ; preds = %7701
-  %7706 = sext i8 %7697 to i64
-  %7707 = sub nsw i64 %7703, %7706
+.preheader4118:                                   ; preds = %7700
+  %7705 = load i8, ptr %7683, align 1
+  %7706 = sext i8 %7705 to i64
+  %7707 = sub nsw i64 %7702, %7706
   %7708 = and i64 %7707, 4294967295
   %7709 = getelementptr inbounds nuw i8, ptr %7681, i64 %7708
   %7710 = load i8, ptr %7709, align 1
-  br i1 %7705, label %.lr.ph4909, label %._crit_edge4910
+  br i1 %7704, label %.lr.ph4909, label %._crit_edge4910
 
 .lr.ph4909:                                       ; preds = %.preheader4118
   %7711 = getelementptr inbounds nuw i8, ptr %1, i64 304
@@ -13722,7 +13722,7 @@ roseCheckMediumLiteral.exit1050:                  ; preds = %7633, %7627, %._cri
 
 7717:                                             ; preds = %7712
   %7718 = load ptr, ptr %7711, align 8
-  %7719 = getelementptr i8, ptr %7718, i64 %7699
+  %7719 = getelementptr i8, ptr %7718, i64 %7698
   %7720 = getelementptr i8, ptr %7719, i64 %7715
   %7721 = load i8, ptr %7720, align 1
   %7722 = zext i8 %7721 to i64

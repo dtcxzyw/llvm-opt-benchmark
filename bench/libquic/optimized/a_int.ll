@@ -597,38 +597,41 @@ define hidden range(i32 0, 2) i32 @ASN1_INTEGER_set(ptr noundef captures(none) i
   br label %.lr.ph
 
 .lr.ph40.preheader:                               ; preds = %.lr.ph
-  %18 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %19 = and i64 %indvars.iv.next, 4294967295
+  %18 = and i64 %indvars.iv.next, 4294967295
   br label %.lr.ph40
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.137 = phi i64 [ %22, %.lr.ph ], [ %.137.ph, %.lr.ph.preheader ]
-  %20 = trunc i64 %.137 to i8
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  store i8 %20, ptr %21, align 1, !tbaa !16
-  %22 = lshr i64 %.137, 8
+  %.137 = phi i64 [ %21, %.lr.ph ], [ %.137.ph, %.lr.ph.preheader ]
+  %19 = trunc i64 %.137 to i8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
+  store i8 %19, ptr %20, align 1, !tbaa !16
+  %21 = lshr i64 %.137, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = icmp samesign ugt i64 %indvars.iv, 6
-  %24 = icmp samesign ult i64 %.137, 256
-  %or.cond = select i1 %23, i1 true, i1 %24
+  %22 = icmp samesign ugt i64 %indvars.iv, 6
+  %23 = icmp samesign ult i64 %.137, 256
+  %or.cond = select i1 %22, i1 true, i1 %23
   br i1 %or.cond, label %.lr.ph40.preheader, label %.lr.ph, !llvm.loop !28
 
 .lr.ph40:                                         ; preds = %.lr.ph40.preheader, %.lr.ph40
   %indvars.iv46 = phi i64 [ 0, %.lr.ph40.preheader ], [ %indvars.iv.next47, %.lr.ph40 ]
-  %indvars.iv44 = phi i64 [ %19, %.lr.ph40.preheader ], [ %indvars.iv.next45, %.lr.ph40 ]
+  %indvars.iv44 = phi i64 [ %18, %.lr.ph40.preheader ], [ %indvars.iv.next45, %.lr.ph40 ]
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, -1
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next45
-  %26 = load i8, ptr %25, align 1, !tbaa !16
-  %27 = load ptr, ptr %13, align 8, !tbaa !15
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next45
+  %25 = load i8, ptr %24, align 1, !tbaa !16
+  %26 = load ptr, ptr %13, align 8, !tbaa !15
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv46
-  store i8 %26, ptr %28, align 1, !tbaa !16
-  %exitcond.not = icmp eq i64 %indvars.iv.next47, %19
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph40, !llvm.loop !29
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv46
+  store i8 %25, ptr %27, align 1, !tbaa !16
+  %exitcond.not = icmp eq i64 %indvars.iv.next47, %18
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph40, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %.lr.ph40, %16
-  %.028.lcssa = phi i32 [ 0, %16 ], [ %18, %.lr.ph40 ]
+._crit_edge.loopexit:                             ; preds = %.lr.ph40
+  %28 = trunc nuw nsw i64 %indvars.iv.next to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %16
+  %.028.lcssa = phi i32 [ 0, %16 ], [ %28, %._crit_edge.loopexit ]
   store i32 %.028.lcssa, ptr %0, align 8, !tbaa !14
   br label %29
 

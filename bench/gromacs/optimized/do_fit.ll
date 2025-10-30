@@ -1118,31 +1118,31 @@ define void @_Z11do_fit_ndimiiPfPA3_KfPA3_f(i32 noundef %0, i32 noundef %1, ptr 
   %10 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvar
   br label %11
 
-11:                                               ; preds = %.preheader29, %21
-  %indvars.iv37 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next38, %21 ]
-  %12 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv37
-  %13 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv37
-  br label %14
+11:                                               ; preds = %.preheader29, %20
+  %indvars.iv37 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next38, %20 ]
+  %12 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv37
+  br label %13
 
-14:                                               ; preds = %11, %14
-  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %14 ]
-  %15 = phi float [ 0.000000e+00, %11 ], [ %20, %14 ]
-  %16 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
-  %17 = load float, ptr %16, align 4, !tbaa !4
-  %18 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
-  %19 = load float, ptr %18, align 4, !tbaa !4
-  %20 = tail call float @llvm.fmuladd.f32(float %17, float %19, float %15)
+13:                                               ; preds = %11, %13
+  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %13 ]
+  %14 = phi float [ 0.000000e+00, %11 ], [ %19, %13 ]
+  %15 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
+  %16 = load float, ptr %15, align 4, !tbaa !4
+  %17 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %18 = load float, ptr %17, align 4, !tbaa !4
+  %19 = tail call float @llvm.fmuladd.f32(float %16, float %18, float %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %21, label %14, !llvm.loop !47
+  br i1 %exitcond.not, label %20, label %13, !llvm.loop !47
 
-21:                                               ; preds = %14
-  store float %20, ptr %12, align 4, !tbaa !4
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv37
+  store float %19, ptr %21, align 4, !tbaa !4
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, 3
   br i1 %exitcond40.not, label %22, label %11, !llvm.loop !48
 
-22:                                               ; preds = %21
+22:                                               ; preds = %20
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond42.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond42.not, label %._crit_edge, label %.preheader29, !llvm.loop !49

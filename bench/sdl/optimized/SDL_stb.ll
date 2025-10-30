@@ -3079,12 +3079,12 @@ stbi__cleanup_jpeg.exit355.i:                     ; preds = %1415, %stbi__malloc
   br i1 %exitcond497.not.i, label %._crit_edge429.i, label %.lr.ph428.i, !llvm.loop !37
 
 ._crit_edge429.i:                                 ; preds = %1453
+  %.pre514.i = load ptr, ptr %8, align 16
+  %.pre515.i = load ptr, ptr %10, align 8
   %1454 = shl i32 %.0274443.i, 2
   %1455 = mul i32 %1454, %1418
   %1456 = zext i32 %1455 to i64
   %1457 = getelementptr inbounds nuw i8, ptr %1389, i64 %1456
-  %.pre514.i = load ptr, ptr %8, align 16
-  %.pre515.i = load ptr, ptr %10, align 8
   %1458 = getelementptr inbounds nuw i8, ptr %.pre515.i, i64 8
   %1459 = load i32, ptr %1458, align 8
   switch i32 %1459, label %.preheader.i [

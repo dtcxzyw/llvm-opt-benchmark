@@ -958,17 +958,20 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit291:          ; preds = %156
   br label %622
 
 .lr.ph:                                           ; preds = %162
-  %170 = getelementptr inbounds nuw i64, ptr %168, i64 %163
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %168, i8 0, i64 %.idx.i.i, i1 false)
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.pre403 = load ptr, ptr %171, align 8, !tbaa !22
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.pre403 = load ptr, ptr %170, align 8, !tbaa !22
   br label %205
 
-._crit_edge:                                      ; preds = %205, %145
-  %.sroa.29323.0479 = phi ptr [ null, %145 ], [ %170, %205 ]
-  %.sroa.0316.0478 = phi ptr [ null, %145 ], [ %168, %205 ]
-  %172 = phi ptr [ null, %145 ], [ %164, %205 ]
-  %173 = phi ptr [ null, %145 ], [ %160, %205 ]
+._crit_edge.loopexit:                             ; preds = %205
+  %171 = getelementptr inbounds nuw i64, ptr %168, i64 %163
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %145
+  %.sroa.29323.0479 = phi ptr [ null, %145 ], [ %171, %._crit_edge.loopexit ]
+  %.sroa.0316.0478 = phi ptr [ null, %145 ], [ %168, %._crit_edge.loopexit ]
+  %172 = phi ptr [ null, %145 ], [ %164, %._crit_edge.loopexit ]
+  %173 = phi ptr [ null, %145 ], [ %160, %._crit_edge.loopexit ]
   invoke void @_ZN2cv8tracking4impl10detect_allERKNS_3MatES4_RSt6vectorINS_5Rect_IdEESaIS7_EERS5_IS5_INS1_3tld11TLDDetector12LabeledPatchESaISD_EESaISF_EERS5_IbSaIbEERS5_INS_3PtrINS_6legacy8tracking7TrackerEEESaISQ_EE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(24) %31)
           to label %.preheader unwind label %265
 
@@ -1036,7 +1039,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit291:          ; preds = %156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %207, ptr noundef nonnull align 8 dereferenceable(32) %206, i64 32, i1 false), !tbaa.struct !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %208 = icmp slt i64 %indvars.iv.next, %123
-  br i1 %208, label %205, label %._crit_edge, !llvm.loop !105
+  br i1 %208, label %205, label %._crit_edge.loopexit, !llvm.loop !105
 
 ._crit_edge394:                                   ; preds = %611, %.preheader
   %.0105.lcssa = phi i1 [ false, %.preheader ], [ %.1106, %611 ]
@@ -2350,9 +2353,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %51, %49
 _ZNSt12__shared_ptrIN2cv6detail8tracking12TrackerModelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %6, %39, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %54
   %55 = getelementptr inbounds nuw i8, ptr %24, i64 456
   %.sroa.0.0.copyload.i = load i64, ptr %55, align 8
-  %.sroa.0599.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
-  %.sroa.10605.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
-  %.sroa.10605.0.extract.trunc = trunc nuw i64 %.sroa.10605.0.extract.shift to i32
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !29
   %58 = load ptr, ptr %5, align 8, !tbaa !54
@@ -2388,6 +2388,9 @@ _ZNSt6vectorIN2cv8tracking4impl3tld11TLDDetector12LabeledPatchESaIS5_EE5clearEv.
   br i1 %exitcond.not, label %._crit_edge, label %66, !llvm.loop !164
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv8tracking4impl3tld11TLDDetector12LabeledPatchESaIS5_EE5clearEv.exit, %_ZNSt12__shared_ptrIN2cv6detail8tracking12TrackerModelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  %.sroa.0599.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
+  %.sroa.10605.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
+  %.sroa.10605.0.extract.trunc = trunc nuw i64 %.sroa.10605.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %10, i32 noundef 15, i32 noundef 15, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)

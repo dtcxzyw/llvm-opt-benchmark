@@ -225,11 +225,11 @@ define hidden void @FLAC__lpc_compute_autocorrelation(ptr noundef readonly captu
   br i1 %.not, label %.preheader149.split.preheader, label %.lr.ph185.us.preheader
 
 .lr.ph185.us.preheader:                           ; preds = %7
-  %8 = sub i32 %1, %2
-  %9 = zext i32 %2 to i64
-  %10 = shl nuw nsw i64 %9, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %10, i1 false), !tbaa !18
-  %11 = zext i32 %8 to i64
+  %8 = zext i32 %2 to i64
+  %9 = shl nuw nsw i64 %8, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %9, i1 false), !tbaa !18
+  %10 = sub i32 %1, %2
+  %11 = zext i32 %10 to i64
   %wide.trip.count278 = zext i32 %2 to i64
   br label %.lr.ph185.us
 
@@ -651,10 +651,6 @@ define hidden void @FLAC__lpc_compute_lp_coefficients(ptr noundef readonly captu
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden range(i32 0, 3) i32 @FLAC__lpc_quantize_coefficients(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #2 {
   %6 = alloca i32, align 4
-  %7 = add i32 %2, -1
-  %8 = shl nuw i32 1, %7
-  %9 = sub nsw i32 0, %8
-  %10 = add nsw i32 %8, -1
   %.not96 = icmp eq i32 %1, 0
   br i1 %.not96, label %.loopexit, label %.lr.ph.preheader
 
@@ -665,17 +661,21 @@ define hidden range(i32 0, 3) i32 @FLAC__lpc_quantize_coefficients(ptr noundef r
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.07286 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %.173, %.lr.ph ]
-  %11 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  %12 = load float, ptr %11, align 4, !tbaa !7
-  %13 = tail call reassoc nsz arcp float @llvm.fabs.f32(float %12)
-  %14 = fpext float %13 to double
-  %15 = fcmp reassoc nsz arcp olt double %.07286, %14
-  %.173 = select nsz i1 %15, double %14, double %.07286
+  %7 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %8 = load float, ptr %7, align 4, !tbaa !7
+  %9 = tail call reassoc nsz arcp float @llvm.fabs.f32(float %8)
+  %10 = fpext float %9 to double
+  %11 = fcmp reassoc nsz arcp olt double %.07286, %10
+  %.173 = select nsz i1 %11, double %10, double %.07286
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph
+  %12 = add i32 %2, -1
+  %13 = shl nuw i32 1, %12
+  %14 = sub nsw i32 0, %13
+  %15 = add nsw i32 %13, -1
   %16 = fcmp reassoc nsz arcp ugt double %.173, 0.000000e+00
   br i1 %16, label %17, label %.loopexit
 
@@ -724,9 +724,9 @@ define hidden range(i32 0, 3) i32 @FLAC__lpc_quantize_coefficients(ptr noundef r
   %36 = fadd reassoc nsz arcp double %.06894, %35
   %37 = tail call i64 @lround(double noundef %36) #13, !tbaa !3
   %38 = trunc i64 %37 to i32
-  %.not84 = icmp sgt i32 %8, %38
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %38, i32 %9)
-  %.067 = select i1 %.not84, i32 %spec.select, i32 %10
+  %.not84 = icmp sgt i32 %13, %38
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %38, i32 %14)
+  %.067 = select i1 %.not84, i32 %spec.select, i32 %15
   %39 = sitofp i32 %.067 to double
   %40 = fsub reassoc nsz arcp double %36, %39
   %41 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv105
@@ -753,9 +753,9 @@ define hidden range(i32 0, 3) i32 @FLAC__lpc_quantize_coefficients(ptr noundef r
   %51 = fadd reassoc nsz arcp double %.06589, %50
   %52 = tail call i64 @lround(double noundef %51) #13, !tbaa !3
   %53 = trunc i64 %52 to i32
-  %.not = icmp sgt i32 %8, %53
-  %spec.select85 = tail call i32 @llvm.smax.i32(i32 %53, i32 %9)
-  %.0 = select i1 %.not, i32 %spec.select85, i32 %10
+  %.not = icmp sgt i32 %13, %53
+  %spec.select85 = tail call i32 @llvm.smax.i32(i32 %53, i32 %14)
+  %.0 = select i1 %.not, i32 %spec.select85, i32 %15
   %54 = sitofp i32 %.0 to double
   %55 = fsub reassoc nsz arcp double %51, %54
   %56 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv100

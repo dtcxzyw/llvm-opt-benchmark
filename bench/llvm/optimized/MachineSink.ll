@@ -21525,9 +21525,9 @@ _ZN4llvm12LiveRegUnits4initERKNS_18TargetRegisterInfoE.exit38: ; preds = %_ZN4ll
   %175 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %176 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %177 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %178 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %178 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 228
   br label %181

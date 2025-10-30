@@ -57,61 +57,61 @@ define hidden noundef double @_ZN11StringUtils10similarityEPKcmS1_m(ptr noundef 
   br i1 %or.cond, label %32, label %7
 
 7:                                                ; preds = %4
-  %8 = add i64 %3, %1
-  %9 = add i64 %1, -1
-  %.not = icmp eq i64 %9, 0
+  %8 = add i64 %1, -1
+  %.not = icmp eq i64 %8, 0
   br i1 %.not, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %7
-  %10 = add i64 %3, -1
-  %.not31 = icmp eq i64 %10, 0
+  %9 = add i64 %3, -1
+  %.not31 = icmp eq i64 %9, 0
   br i1 %.not31, label %._crit_edge, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %..loopexit_crit_edge.us
-  %.02229.us = phi i64 [ %27, %..loopexit_crit_edge.us ], [ 0, %.preheader.lr.ph ]
+  %.02229.us = phi i64 [ %26, %..loopexit_crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %.02328.us = phi i64 [ %.1.us, %..loopexit_crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 %.02229.us
-  %12 = load i8, ptr %11, align 1
-  %13 = getelementptr i8, ptr %11, i64 1
-  br label %14
+  %10 = getelementptr inbounds i8, ptr %0, i64 %.02229.us
+  %11 = load i8, ptr %10, align 1
+  %12 = getelementptr i8, ptr %10, i64 1
+  br label %13
 
-14:                                               ; preds = %.preheader.us, %23
-  %.027.us = phi i64 [ 0, %.preheader.us ], [ %24, %23 ]
-  %15 = getelementptr inbounds i8, ptr %2, i64 %.027.us
-  %16 = load i8, ptr %15, align 1
-  %17 = icmp eq i8 %12, %16
-  br i1 %17, label %18, label %23
+13:                                               ; preds = %.preheader.us, %22
+  %.027.us = phi i64 [ 0, %.preheader.us ], [ %23, %22 ]
+  %14 = getelementptr inbounds i8, ptr %2, i64 %.027.us
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %11, %15
+  br i1 %16, label %17, label %22
 
-18:                                               ; preds = %14
-  %19 = load i8, ptr %13, align 1
-  %20 = getelementptr i8, ptr %15, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = icmp eq i8 %19, %21
-  br i1 %22, label %25, label %23
+17:                                               ; preds = %13
+  %18 = load i8, ptr %12, align 1
+  %19 = getelementptr i8, ptr %14, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %18, %20
+  br i1 %21, label %24, label %22
 
-23:                                               ; preds = %18, %14
-  %24 = add nuw i64 %.027.us, 1
-  %exitcond.not = icmp eq i64 %24, %10
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %14, !llvm.loop !8
+22:                                               ; preds = %17, %13
+  %23 = add nuw i64 %.027.us, 1
+  %exitcond.not = icmp eq i64 %23, %9
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %13, !llvm.loop !8
 
-25:                                               ; preds = %18
-  %26 = add i64 %.02328.us, 1
+24:                                               ; preds = %17
+  %25 = add i64 %.02328.us, 1
   br label %..loopexit_crit_edge.us
 
-..loopexit_crit_edge.us:                          ; preds = %23, %25
-  %.1.us = phi i64 [ %26, %25 ], [ %.02328.us, %23 ]
-  %27 = add nuw i64 %.02229.us, 1
-  %exitcond33.not = icmp eq i64 %27, %9
+..loopexit_crit_edge.us:                          ; preds = %22, %24
+  %.1.us = phi i64 [ %25, %24 ], [ %.02328.us, %22 ]
+  %26 = add nuw i64 %.02229.us, 1
+  %exitcond33.not = icmp eq i64 %26, %8
   br i1 %exitcond33.not, label %._crit_edge.loopexit32, label %.preheader.us, !llvm.loop !9
 
 ._crit_edge.loopexit32:                           ; preds = %..loopexit_crit_edge.us
-  %28 = uitofp i64 %.1.us to double
-  %29 = fmul double %28, 2.000000e+00
+  %27 = uitofp i64 %.1.us to double
+  %28 = fmul double %27, 2.000000e+00
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader.lr.ph, %._crit_edge.loopexit32, %7
-  %.023.lcssa = phi double [ 0.000000e+00, %7 ], [ %29, %._crit_edge.loopexit32 ], [ 0.000000e+00, %.preheader.lr.ph ]
-  %30 = uitofp i64 %8 to double
+  %.023.lcssa = phi double [ 0.000000e+00, %7 ], [ %28, %._crit_edge.loopexit32 ], [ 0.000000e+00, %.preheader.lr.ph ]
+  %29 = add i64 %3, %1
+  %30 = uitofp i64 %29 to double
   %31 = fdiv double %.023.lcssa, %30
   br label %32
 

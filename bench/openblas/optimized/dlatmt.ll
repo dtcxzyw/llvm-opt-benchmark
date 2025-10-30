@@ -1219,7 +1219,6 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 556:                                              ; preds = %551
   %557 = add nsw i32 %219, 1
   %.0981 = select i1 %90, i32 %557, i32 %.0947
-  %.2951 = select i1 %90, i32 6, i32 1
   %558 = add i32 %555, %.0981
   %559 = sext i32 %558 to i64
   %560 = getelementptr inbounds double, ptr %47, i64 %559
@@ -1389,6 +1388,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 ._crit_edge1320:                                  ; preds = %._crit_edge1311, %556
   %.131024.lcssa = phi i32 [ undef, %556 ], [ %.141025.lcssa, %._crit_edge1311 ]
   %.13.lcssa = phi i32 [ undef, %556 ], [ %.14.lcssa, %._crit_edge1311 ]
+  %.2951 = select i1 %90, i32 6, i32 1
   %649 = icmp ne i32 %.0983, %.2951
   %or.cond15 = and i1 %93, %649
   br i1 %or.cond15, label %650, label %.loopexit1286
@@ -1498,7 +1498,6 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 692:                                              ; preds = %551
   %693 = and i1 %87, %90
   %.1982 = select i1 %693, i32 1, i32 %.0947
-  %.3952 = select i1 %90, i32 5, i32 2
   %694 = add i32 %555, %.1982
   %695 = sext i32 %694 to i64
   %696 = getelementptr inbounds double, ptr %47, i64 %695
@@ -1662,6 +1661,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 ._crit_edge1363:                                  ; preds = %._crit_edge1356, %692
   %.161027.lcssa = phi i32 [ undef, %692 ], [ %.171028.lcssa, %._crit_edge1356 ]
+  %.3952 = select i1 %90, i32 5, i32 2
   %781 = icmp ne i32 %.0983, %.3952
   %or.cond17 = and i1 %92, %781
   br i1 %or.cond17, label %782, label %.loopexit1286

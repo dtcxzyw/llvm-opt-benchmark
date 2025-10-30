@@ -398,9 +398,9 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
 
 236:                                              ; preds = %225
   %237 = icmp ugt i32 %233, %221
-  br i1 %237, label %322, label %.preheader117
+  br i1 %237, label %322, label %.preheader57
 
-.preheader117:                                    ; preds = %236, %250
+.preheader57:                                     ; preds = %236, %250
   %238 = phi i64 [ %253, %250 ], [ 0, %236 ]
   %239 = phi i32 [ %252, %250 ], [ 0, %236 ]
   %240 = getelementptr %struct.isoch_data, ptr %128, i64 %238
@@ -413,18 +413,18 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr noundef reado
   %246 = icmp ugt i32 %245, 1
   br i1 %246, label %247, label %250
 
-247:                                              ; preds = %.preheader117
+247:                                              ; preds = %.preheader57
   %248 = add i32 %245, -1
   %249 = shl i32 %242, %248
   store i32 %249, ptr %243, align 8
   br label %250
 
-250:                                              ; preds = %247, %.preheader117
-  %251 = phi i32 [ %249, %247 ], [ %242, %.preheader117 ]
+250:                                              ; preds = %247, %.preheader57
+  %251 = phi i32 [ %249, %247 ], [ %242, %.preheader57 ]
   %252 = add i32 %251, %239
   %253 = add nuw nsw i64 %238, 1
   %254 = icmp eq i64 %253, %126
-  br i1 %254, label %.thread28.loopexit, label %.preheader117, !llvm.loop !15
+  br i1 %254, label %.thread28.loopexit, label %.preheader57, !llvm.loop !15
 
 .thread28.loopexit:                               ; preds = %250
   %255 = sub nuw nsw i32 %221, %233

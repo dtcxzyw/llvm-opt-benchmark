@@ -34894,8 +34894,8 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZNSt7__cxx1
 
 413:                                              ; preds = %.noexc255
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %411, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %410, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !55, !noalias !736
   %414 = getelementptr inbounds nuw i8, ptr %410, i64 %.idx.i.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %410, i8 0, i64 %.idx.i.i.i.i.i.i.i.i, i1 false), !tbaa !55, !noalias !736
   br label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.noexc255, %413

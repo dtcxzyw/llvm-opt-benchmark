@@ -246,19 +246,19 @@ _ZN6google8protobuf5Arena11CleanupListEv.exit:    ; preds = %.lr.ph.i, %1
 .lr.ph.i2:                                        ; preds = %_ZN6google8protobuf5Arena11CleanupListEv.exit
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !19
-  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !28
-  %.not18.i4 = icmp eq ptr %18, null
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %15 = load i64, ptr %14, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %.not18.i4 = icmp eq ptr %17, null
   br i1 %.not18.i4, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.i2
   %.01720.i.lcssa = phi ptr [ %12, %.lr.ph.i2 ], [ %23, %.lr.ph ]
-  %.lcssa3 = phi i64 [ %16, %.lr.ph.i2 ], [ %28, %.lr.ph ]
-  %.lcssa = phi i64 [ %16, %.lr.ph.i2 ], [ %29, %.lr.ph ]
-  %19 = load i8, ptr %14, align 8, !tbaa !15, !range !40, !noundef !41
+  %.lcssa3 = phi i64 [ %15, %.lr.ph.i2 ], [ %28, %.lr.ph ]
+  %.lcssa = phi i64 [ %15, %.lr.ph.i2 ], [ %29, %.lr.ph ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = load i8, ptr %18, align 8, !tbaa !15, !range !40, !noundef !41
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %._crit_edge.i
 
@@ -268,9 +268,9 @@ _ZN6google8protobuf5Arena11CleanupListEv.exit:    ; preds = %.lr.ph.i, %1
   br label %._crit_edge.i
 
 .lr.ph:                                           ; preds = %.lr.ph.i2, %.lr.ph
-  %23 = phi ptr [ %31, %.lr.ph ], [ %18, %.lr.ph.i2 ]
-  %24 = phi i64 [ %29, %.lr.ph ], [ %16, %.lr.ph.i2 ]
-  %25 = phi i64 [ %28, %.lr.ph ], [ %16, %.lr.ph.i2 ]
+  %23 = phi ptr [ %31, %.lr.ph ], [ %17, %.lr.ph.i2 ]
+  %24 = phi i64 [ %29, %.lr.ph ], [ %15, %.lr.ph.i2 ]
+  %25 = phi i64 [ %28, %.lr.ph ], [ %15, %.lr.ph.i2 ]
   %.01720.i5 = phi ptr [ %23, %.lr.ph ], [ %12, %.lr.ph.i2 ]
   %26 = load ptr, ptr %13, align 8, !tbaa !42
   tail call void %26(ptr noundef nonnull %.01720.i5, i64 noundef %25)
@@ -395,19 +395,19 @@ define noundef i64 @_ZN6google8protobuf5Arena10FreeBlocksEv(ptr noundef nonnull 
 .lr.ph:                                           ; preds = %1
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %8 = load i64, ptr %7, align 8, !tbaa !19
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !28
-  %.not1829 = icmp eq ptr %10, null
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %7 = load i64, ptr %6, align 8, !tbaa !19
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
+  %.not1829 = icmp eq ptr %9, null
   br i1 %.not1829, label %._crit_edge32, label %.lr.ph31
 
 ._crit_edge32:                                    ; preds = %.lr.ph31, %.lr.ph
   %.01720.lcssa = phi ptr [ %4, %.lr.ph ], [ %15, %.lr.ph31 ]
-  %.lcssa28 = phi i64 [ %8, %.lr.ph ], [ %20, %.lr.ph31 ]
-  %.lcssa = phi i64 [ %8, %.lr.ph ], [ %21, %.lr.ph31 ]
-  %11 = load i8, ptr %6, align 8, !tbaa !15, !range !40, !noundef !41
+  %.lcssa28 = phi i64 [ %7, %.lr.ph ], [ %20, %.lr.ph31 ]
+  %.lcssa = phi i64 [ %7, %.lr.ph ], [ %21, %.lr.ph31 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = load i8, ptr %10, align 8, !tbaa !15, !range !40, !noundef !41
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %._crit_edge
 
@@ -417,9 +417,9 @@ define noundef i64 @_ZN6google8protobuf5Arena10FreeBlocksEv(ptr noundef nonnull 
   br label %._crit_edge
 
 .lr.ph31:                                         ; preds = %.lr.ph, %.lr.ph31
-  %15 = phi ptr [ %23, %.lr.ph31 ], [ %10, %.lr.ph ]
-  %16 = phi i64 [ %21, %.lr.ph31 ], [ %8, %.lr.ph ]
-  %17 = phi i64 [ %20, %.lr.ph31 ], [ %8, %.lr.ph ]
+  %15 = phi ptr [ %23, %.lr.ph31 ], [ %9, %.lr.ph ]
+  %16 = phi i64 [ %21, %.lr.ph31 ], [ %7, %.lr.ph ]
+  %17 = phi i64 [ %20, %.lr.ph31 ], [ %7, %.lr.ph ]
   %.0172030 = phi ptr [ %15, %.lr.ph31 ], [ %4, %.lr.ph ]
   %18 = load ptr, ptr %5, align 8, !tbaa !42
   tail call void %18(ptr noundef nonnull %.0172030, i64 noundef %17)

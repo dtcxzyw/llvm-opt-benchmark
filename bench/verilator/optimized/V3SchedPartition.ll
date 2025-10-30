@@ -1970,8 +1970,8 @@ _ZN12VNUser1InUseD2Ev.exit:                       ; preds = %_ZN12VNUser2InUseD2
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %412
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %414, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %413, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !182
   %416 = getelementptr inbounds nuw i8, ptr %413, i64 %.idx.i.i.i.i.i.i.i
+  call void @llvm.memset.p0.i64(ptr align 8 %413, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !182
   br label %"_ZZN7AstNode11foreachImplI13AstNodeVarRefZN7V3Sched9partitionERNS2_12LogicByScopeES4_S4_E3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i"
 
 417:                                              ; preds = %401
@@ -3075,8 +3075,8 @@ define internal fastcc void @"_ZZN7V3Sched9partitionERNS_12LogicByScopeES1_S1_EN
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %67
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %69, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %68, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !182
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %68, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !182
   br label %"_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched9partitionERNS2_12LogicByScopeES4_S4_ENK3$_0clEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i"
 
 72:                                               ; preds = %56
@@ -3825,8 +3825,8 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder5
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %77
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %79, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %78, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !182
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %78, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !182
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder5visitEP9AstActiveEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i
 
 82:                                               ; preds = %66
@@ -5770,8 +5770,8 @@ define internal fastcc void @_ZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visit
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %62
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %64, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %63, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !182
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %63, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !182
   br label %_ZZN7AstNode11foreachImplI10AstSenItemZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i
 
 67:                                               ; preds = %54
@@ -5997,8 +5997,8 @@ _ZN7AstNode7foreachIZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_E
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i43: ; preds = %144
   %.idx.i.i.i.i.i.i.i44 = shl nuw nsw i64 %146, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %145, i8 0, i64 %.idx.i.i.i.i.i.i.i44, i1 false), !tbaa !182
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 %.idx.i.i.i.i.i.i.i44
+  tail call void @llvm.memset.p0.i64(ptr align 8 %145, i8 0, i64 %.idx.i.i.i.i.i.i.i44, i1 false), !tbaa !182
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i
 
 149:                                              ; preds = %136
@@ -6300,8 +6300,8 @@ _ZZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEP7AstNodeENKUlPK8AstCC
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i72: ; preds = %257
   %.idx.i.i.i.i.i.i.i73 = shl nuw nsw i64 %259, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %258, i8 0, i64 %.idx.i.i.i.i.i.i.i73, i1 false), !tbaa !182
   %261 = getelementptr inbounds nuw i8, ptr %258, i64 %.idx.i.i.i.i.i.i.i73
+  tail call void @llvm.memset.p0.i64(ptr align 8 %258, i8 0, i64 %.idx.i.i.i.i.i.i.i73, i1 false), !tbaa !182
   br label %_ZZN7AstNode11foreachImplI8AstCCallZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i
 
 262:                                              ; preds = %249
@@ -7383,8 +7383,8 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder1
 
 _ZSt6fill_nIPP7AstNodemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %199
   %.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %201, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %200, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !182
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 %.idx.i.i.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %200, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !182
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder12getSenVertexEP10AstSenItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit31.i.i.i.i
 
 204:                                              ; preds = %191

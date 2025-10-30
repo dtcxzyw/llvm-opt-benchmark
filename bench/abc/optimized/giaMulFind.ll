@@ -7777,24 +7777,24 @@ Vec_IntFind.exit:                                 ; preds = %.lr.ph234.split, %V
   br i1 %121, label %.lr.ph.i136, label %Vec_IntCountEntry.exit.thread
 
 .lr.ph.i136:                                      ; preds = %.critedge6
-  %122 = getelementptr i8, ptr %78, i64 8
   %wide.trip.count.i137 = zext nneg i32 %76 to i64
-  br label %123
+  br label %122
 
-123:                                              ; preds = %123, %.lr.ph.i136
-  %indvars.iv.i138 = phi i64 [ 0, %.lr.ph.i136 ], [ %indvars.iv.next.i139, %123 ]
-  %.09.i = phi i32 [ 0, %.lr.ph.i136 ], [ %128, %123 ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv.i138
-  %125 = load i32, ptr %124, align 4, !tbaa !29
-  %126 = icmp eq i32 %125, 1
-  %127 = zext i1 %126 to i32
-  %128 = add nuw nsw i32 %.09.i, %127
+122:                                              ; preds = %122, %.lr.ph.i136
+  %indvars.iv.i138 = phi i64 [ 0, %.lr.ph.i136 ], [ %indvars.iv.next.i139, %122 ]
+  %.09.i = phi i32 [ 0, %.lr.ph.i136 ], [ %127, %122 ]
+  %123 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv.i138
+  %124 = load i32, ptr %123, align 4, !tbaa !29
+  %125 = icmp eq i32 %124, 1
+  %126 = zext i1 %125 to i32
+  %127 = add nuw nsw i32 %.09.i, %126
   %indvars.iv.next.i139 = add nuw nsw i64 %indvars.iv.i138, 1
   %exitcond.not.i140 = icmp eq i64 %indvars.iv.next.i139, %wide.trip.count.i137
-  br i1 %exitcond.not.i140, label %Vec_IntCountEntry.exit, label %123, !llvm.loop !124
+  br i1 %exitcond.not.i140, label %Vec_IntCountEntry.exit, label %122, !llvm.loop !124
 
-Vec_IntCountEntry.exit:                           ; preds = %123
-  %.not = icmp eq i32 %128, 2
+Vec_IntCountEntry.exit:                           ; preds = %122
+  %128 = getelementptr i8, ptr %78, i64 8
+  %.not = icmp eq i32 %127, 2
   br i1 %.not, label %.lr.ph.i143, label %Vec_IntCountEntry.exit.thread
 
 .lr.ph.i143:                                      ; preds = %Vec_IntCountEntry.exit, %.lr.ph.i143
@@ -8048,7 +8048,7 @@ Vec_WecPushLevel.exit179:                         ; preds = %Vec_WecPushLevel.ex
   %.val110 = load ptr, ptr %23, align 8, !tbaa !35
   %236 = getelementptr inbounds nuw i32, ptr %.val110, i64 %indvars.iv264
   %237 = load i32, ptr %236, align 4, !tbaa !29
-  %.val109 = load ptr, ptr %122, align 8, !tbaa !35
+  %.val109 = load ptr, ptr %128, align 8, !tbaa !35
   %238 = getelementptr inbounds nuw i32, ptr %.val109, i64 %indvars.iv264
   %239 = load i32, ptr %238, align 4, !tbaa !29
   %240 = icmp slt i32 %239, 3

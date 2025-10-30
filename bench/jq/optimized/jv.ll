@@ -5157,8 +5157,8 @@ jvp_object_new.exit:                              ; preds = %3
   br label %56
 
 ._crit_edge:                                      ; preds = %79, %jvp_object_new.exit
-  %.sroa.0.0.insert.insert.i58.in = and i64 %0, -4294967296
-  %.sroa.0.0.insert.insert.i58 = or disjoint i64 %.sroa.0.0.insert.insert.i58.in, 135
+  %.sroa.4.0.insert.shift.i = and i64 %0, -4294967296
+  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, 135
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = getelementptr inbounds %struct.object_slot, ptr %34, i64 %4
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -5269,7 +5269,7 @@ jv_copy.exit50:                                   ; preds = %jv_copy.exit, %76
   br i1 %exitcond.not, label %._crit_edge, label %56, !llvm.loop !71
 
 jvp_object_free.exit:                             ; preds = %2, %._crit_edge.i39, %._crit_edge
-  %.pn53 = phi i64 [ %.sroa.0.0.insert.insert.i58, %._crit_edge ], [ %.sroa.0.0.insert.insert.i58, %._crit_edge.i39 ], [ %0, %2 ]
+  %.pn53 = phi i64 [ %.sroa.0.0.insert.insert.i, %._crit_edge ], [ %.sroa.0.0.insert.insert.i, %._crit_edge.i39 ], [ %0, %2 ]
   %.pn51 = phi ptr [ %11, %._crit_edge ], [ %11, %._crit_edge.i39 ], [ %1, %2 ]
   %.pn = insertvalue { i64, ptr } poison, i64 %.pn53, 0
   %.fca.1.insert.merged = insertvalue { i64, ptr } %.pn, ptr %.pn51, 1

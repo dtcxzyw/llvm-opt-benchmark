@@ -684,58 +684,58 @@ define void @_ZN6colvar13groupcoordnum10calc_valueEv(ptr noundef nonnull align 8
   br i1 %42, label %60, label %43
 
 43:                                               ; preds = %.noexc
-  %44 = icmp sgt i32 %19, 1
   %.off.i = add i32 %19, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %43
-  %45 = call i32 @llvm.abs.i32(i32 %40, i1 true)
+  %44 = call i32 @llvm.abs.i32(i32 %40, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %48, %.lr.ph.i.i ], [ %45, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %49, %.lr.ph.i.i ], [ %39, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %47, %.lr.ph.i.i ], [ %44, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %48, %.lr.ph.i.i ], [ %39, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %46 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %46, 0
-  %47 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %47
-  %48 = lshr i32 %.023.i.i, 1
-  %49 = fmul double %.01522.i.i, %.01522.i.i
+  %45 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %45, 0
+  %46 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %46
+  %47 = lshr i32 %.023.i.i, 1
+  %48 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %43
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %43 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %49 = icmp sgt i32 %19, 1
   %50 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %51 = select i1 %44, double %.016.lcssa.i.i, double %50
-  %52 = icmp sgt i32 %21, 1
+  %51 = select i1 %49, double %.016.lcssa.i.i, double %50
   %.off40.i = add i32 %21, 1
   %.not20.i22.i = icmp ult i32 %.off40.i, 3
   br i1 %.not20.i22.i, label %._crit_edge.i31.i, label %.lr.ph.preheader.i23.i
 
 .lr.ph.preheader.i23.i:                           ; preds = %.loopexit.i
-  %53 = call i32 @llvm.abs.i32(i32 %41, i1 true)
+  %52 = call i32 @llvm.abs.i32(i32 %41, i1 true)
   br label %.lr.ph.i24.i
 
 .lr.ph.i24.i:                                     ; preds = %.lr.ph.i24.i, %.lr.ph.preheader.i23.i
-  %.023.i25.i = phi i32 [ %56, %.lr.ph.i24.i ], [ %53, %.lr.ph.preheader.i23.i ]
-  %.01522.i26.i = phi double [ %57, %.lr.ph.i24.i ], [ %39, %.lr.ph.preheader.i23.i ]
+  %.023.i25.i = phi i32 [ %55, %.lr.ph.i24.i ], [ %52, %.lr.ph.preheader.i23.i ]
+  %.01522.i26.i = phi double [ %56, %.lr.ph.i24.i ], [ %39, %.lr.ph.preheader.i23.i ]
   %.01621.i27.i = phi double [ %.1.i29.i, %.lr.ph.i24.i ], [ 1.000000e+00, %.lr.ph.preheader.i23.i ]
-  %54 = and i32 %.023.i25.i, 1
-  %.not19.i28.i = icmp eq i32 %54, 0
-  %55 = fmul double %.01522.i26.i, %.01621.i27.i
-  %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %55
-  %56 = lshr i32 %.023.i25.i, 1
-  %57 = fmul double %.01522.i26.i, %.01522.i26.i
+  %53 = and i32 %.023.i25.i, 1
+  %.not19.i28.i = icmp eq i32 %53, 0
+  %54 = fmul double %.01522.i26.i, %.01621.i27.i
+  %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %54
+  %55 = lshr i32 %.023.i25.i, 1
+  %56 = fmul double %.01522.i26.i, %.01522.i26.i
   %.not.i30.i = icmp samesign ult i32 %.023.i25.i, 2
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !121
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %.loopexit.i
   %.016.lcssa.i32.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i29.i, %.lr.ph.i24.i ]
+  %57 = icmp sgt i32 %21, 1
   %58 = fdiv double 1.000000e+00, %.016.lcssa.i32.i
-  %59 = select i1 %52, double %.016.lcssa.i32.i, double %58
+  %59 = select i1 %57, double %.016.lcssa.i32.i, double %58
   br label %60
 
 60:                                               ; preds = %._crit_edge.i31.i, %.noexc
@@ -784,58 +784,58 @@ define void @_ZN6colvar13groupcoordnum10calc_valueEv(ptr noundef nonnull align 8
   br i1 %85, label %103, label %86
 
 86:                                               ; preds = %.noexc33
-  %87 = icmp sgt i32 %19, 1
   %.off.i6 = add i32 %19, 1
   %.not20.i.i7 = icmp ult i32 %.off.i6, 3
   br i1 %.not20.i.i7, label %.loopexit.i16, label %.lr.ph.preheader.i.i8
 
 .lr.ph.preheader.i.i8:                            ; preds = %86
-  %88 = call i32 @llvm.abs.i32(i32 %83, i1 true)
+  %87 = call i32 @llvm.abs.i32(i32 %83, i1 true)
   br label %.lr.ph.i.i9
 
 .lr.ph.i.i9:                                      ; preds = %.lr.ph.i.i9, %.lr.ph.preheader.i.i8
-  %.023.i.i10 = phi i32 [ %91, %.lr.ph.i.i9 ], [ %88, %.lr.ph.preheader.i.i8 ]
-  %.01522.i.i11 = phi double [ %92, %.lr.ph.i.i9 ], [ %82, %.lr.ph.preheader.i.i8 ]
+  %.023.i.i10 = phi i32 [ %90, %.lr.ph.i.i9 ], [ %87, %.lr.ph.preheader.i.i8 ]
+  %.01522.i.i11 = phi double [ %91, %.lr.ph.i.i9 ], [ %82, %.lr.ph.preheader.i.i8 ]
   %.01621.i.i12 = phi double [ %.1.i.i14, %.lr.ph.i.i9 ], [ 1.000000e+00, %.lr.ph.preheader.i.i8 ]
-  %89 = and i32 %.023.i.i10, 1
-  %.not19.i.i13 = icmp eq i32 %89, 0
-  %90 = fmul double %.01522.i.i11, %.01621.i.i12
-  %.1.i.i14 = select i1 %.not19.i.i13, double %.01621.i.i12, double %90
-  %91 = lshr i32 %.023.i.i10, 1
-  %92 = fmul double %.01522.i.i11, %.01522.i.i11
+  %88 = and i32 %.023.i.i10, 1
+  %.not19.i.i13 = icmp eq i32 %88, 0
+  %89 = fmul double %.01522.i.i11, %.01621.i.i12
+  %.1.i.i14 = select i1 %.not19.i.i13, double %.01621.i.i12, double %89
+  %90 = lshr i32 %.023.i.i10, 1
+  %91 = fmul double %.01522.i.i11, %.01522.i.i11
   %.not.i.i15 = icmp samesign ult i32 %.023.i.i10, 2
   br i1 %.not.i.i15, label %.loopexit.i16, label %.lr.ph.i.i9, !llvm.loop !121
 
 .loopexit.i16:                                    ; preds = %.lr.ph.i.i9, %86
   %.016.lcssa.i.i17 = phi double [ 1.000000e+00, %86 ], [ %.1.i.i14, %.lr.ph.i.i9 ]
+  %92 = icmp sgt i32 %19, 1
   %93 = fdiv double 1.000000e+00, %.016.lcssa.i.i17
-  %94 = select i1 %87, double %.016.lcssa.i.i17, double %93
-  %95 = icmp sgt i32 %21, 1
+  %94 = select i1 %92, double %.016.lcssa.i.i17, double %93
   %.off40.i18 = add i32 %21, 1
   %.not20.i22.i19 = icmp ult i32 %.off40.i18, 3
   br i1 %.not20.i22.i19, label %._crit_edge.i31.i28, label %.lr.ph.preheader.i23.i20
 
 .lr.ph.preheader.i23.i20:                         ; preds = %.loopexit.i16
-  %96 = call i32 @llvm.abs.i32(i32 %84, i1 true)
+  %95 = call i32 @llvm.abs.i32(i32 %84, i1 true)
   br label %.lr.ph.i24.i21
 
 .lr.ph.i24.i21:                                   ; preds = %.lr.ph.i24.i21, %.lr.ph.preheader.i23.i20
-  %.023.i25.i22 = phi i32 [ %99, %.lr.ph.i24.i21 ], [ %96, %.lr.ph.preheader.i23.i20 ]
-  %.01522.i26.i23 = phi double [ %100, %.lr.ph.i24.i21 ], [ %82, %.lr.ph.preheader.i23.i20 ]
+  %.023.i25.i22 = phi i32 [ %98, %.lr.ph.i24.i21 ], [ %95, %.lr.ph.preheader.i23.i20 ]
+  %.01522.i26.i23 = phi double [ %99, %.lr.ph.i24.i21 ], [ %82, %.lr.ph.preheader.i23.i20 ]
   %.01621.i27.i24 = phi double [ %.1.i29.i26, %.lr.ph.i24.i21 ], [ 1.000000e+00, %.lr.ph.preheader.i23.i20 ]
-  %97 = and i32 %.023.i25.i22, 1
-  %.not19.i28.i25 = icmp eq i32 %97, 0
-  %98 = fmul double %.01522.i26.i23, %.01621.i27.i24
-  %.1.i29.i26 = select i1 %.not19.i28.i25, double %.01621.i27.i24, double %98
-  %99 = lshr i32 %.023.i25.i22, 1
-  %100 = fmul double %.01522.i26.i23, %.01522.i26.i23
+  %96 = and i32 %.023.i25.i22, 1
+  %.not19.i28.i25 = icmp eq i32 %96, 0
+  %97 = fmul double %.01522.i26.i23, %.01621.i27.i24
+  %.1.i29.i26 = select i1 %.not19.i28.i25, double %.01621.i27.i24, double %97
+  %98 = lshr i32 %.023.i25.i22, 1
+  %99 = fmul double %.01522.i26.i23, %.01522.i26.i23
   %.not.i30.i27 = icmp samesign ult i32 %.023.i25.i22, 2
   br i1 %.not.i30.i27, label %._crit_edge.i31.i28, label %.lr.ph.i24.i21, !llvm.loop !121
 
 ._crit_edge.i31.i28:                              ; preds = %.lr.ph.i24.i21, %.loopexit.i16
   %.016.lcssa.i32.i29 = phi double [ 1.000000e+00, %.loopexit.i16 ], [ %.1.i29.i26, %.lr.ph.i24.i21 ]
+  %100 = icmp sgt i32 %21, 1
   %101 = fdiv double 1.000000e+00, %.016.lcssa.i32.i29
-  %102 = select i1 %95, double %.016.lcssa.i32.i29, double %101
+  %102 = select i1 %100, double %.016.lcssa.i32.i29, double %101
   br label %103
 
 103:                                              ; preds = %._crit_edge.i31.i28, %.noexc33
@@ -1451,58 +1451,58 @@ define void @_ZN6colvar6h_bond10calc_valueEv(ptr noundef nonnull align 8 capture
   br i1 %29, label %_ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, label %30
 
 30:                                               ; preds = %1
-  %31 = icmp sgt i32 %5, 1
   %.off.i = add i32 %5, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %30
-  %32 = call i32 @llvm.abs.i32(i32 %27, i1 true)
+  %31 = call i32 @llvm.abs.i32(i32 %27, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %35, %.lr.ph.i.i ], [ %32, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %36, %.lr.ph.i.i ], [ %26, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %34, %.lr.ph.i.i ], [ %31, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %35, %.lr.ph.i.i ], [ %26, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %33 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %33, 0
-  %34 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %34
-  %35 = lshr i32 %.023.i.i, 1
-  %36 = fmul double %.01522.i.i, %.01522.i.i
+  %32 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %32, 0
+  %33 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %33
+  %34 = lshr i32 %.023.i.i, 1
+  %35 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %30
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %30 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %36 = icmp sgt i32 %5, 1
   %37 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %38 = select i1 %31, double %.016.lcssa.i.i, double %37
-  %39 = icmp sgt i32 %7, 1
+  %38 = select i1 %36, double %.016.lcssa.i.i, double %37
   %.off40.i = add i32 %7, 1
   %.not20.i22.i = icmp ult i32 %.off40.i, 3
   br i1 %.not20.i22.i, label %._crit_edge.i31.i, label %.lr.ph.preheader.i23.i
 
 .lr.ph.preheader.i23.i:                           ; preds = %.loopexit.i
-  %40 = call i32 @llvm.abs.i32(i32 %28, i1 true)
+  %39 = call i32 @llvm.abs.i32(i32 %28, i1 true)
   br label %.lr.ph.i24.i
 
 .lr.ph.i24.i:                                     ; preds = %.lr.ph.i24.i, %.lr.ph.preheader.i23.i
-  %.023.i25.i = phi i32 [ %43, %.lr.ph.i24.i ], [ %40, %.lr.ph.preheader.i23.i ]
-  %.01522.i26.i = phi double [ %44, %.lr.ph.i24.i ], [ %26, %.lr.ph.preheader.i23.i ]
+  %.023.i25.i = phi i32 [ %42, %.lr.ph.i24.i ], [ %39, %.lr.ph.preheader.i23.i ]
+  %.01522.i26.i = phi double [ %43, %.lr.ph.i24.i ], [ %26, %.lr.ph.preheader.i23.i ]
   %.01621.i27.i = phi double [ %.1.i29.i, %.lr.ph.i24.i ], [ 1.000000e+00, %.lr.ph.preheader.i23.i ]
-  %41 = and i32 %.023.i25.i, 1
-  %.not19.i28.i = icmp eq i32 %41, 0
-  %42 = fmul double %.01522.i26.i, %.01621.i27.i
-  %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %42
-  %43 = lshr i32 %.023.i25.i, 1
-  %44 = fmul double %.01522.i26.i, %.01522.i26.i
+  %40 = and i32 %.023.i25.i, 1
+  %.not19.i28.i = icmp eq i32 %40, 0
+  %41 = fmul double %.01522.i26.i, %.01621.i27.i
+  %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %41
+  %42 = lshr i32 %.023.i25.i, 1
+  %43 = fmul double %.01522.i26.i, %.01522.i26.i
   %.not.i30.i = icmp samesign ult i32 %.023.i25.i, 2
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !121
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %.loopexit.i
   %.016.lcssa.i32.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i29.i, %.lr.ph.i24.i ]
+  %44 = icmp sgt i32 %7, 1
   %45 = fdiv double 1.000000e+00, %.016.lcssa.i32.i
-  %46 = select i1 %39, double %.016.lcssa.i32.i, double %45
+  %46 = select i1 %44, double %.016.lcssa.i32.i, double %45
   br label %_ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
 _ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %1, %._crit_edge.i31.i
@@ -3380,58 +3380,58 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1793EEEvPPb(ptr nounde
   br i1 %111, label %_ZN12colvarmodule13integer_powerERKdi.exit49.i, label %112
 
 112:                                              ; preds = %86
-  %113 = icmp sgt i32 %87, 1
   %.off.i = add i32 %87, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %112
-  %114 = call i32 @llvm.abs.i32(i32 %109, i1 true)
+  %113 = call i32 @llvm.abs.i32(i32 %109, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %117, %.lr.ph.i.i ], [ %114, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %118, %.lr.ph.i.i ], [ %108, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %116, %.lr.ph.i.i ], [ %113, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %117, %.lr.ph.i.i ], [ %108, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %115 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %115, 0
-  %116 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %116
-  %117 = lshr i32 %.023.i.i, 1
-  %118 = fmul double %.01522.i.i, %.01522.i.i
+  %114 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %114, 0
+  %115 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %115
+  %116 = lshr i32 %.023.i.i, 1
+  %117 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %112
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %112 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %118 = icmp sgt i32 %87, 1
   %119 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %120 = select i1 %113, double %.016.lcssa.i.i, double %119
-  %121 = icmp sgt i32 %88, 1
+  %120 = select i1 %118, double %.016.lcssa.i.i, double %119
   %.off67.i = add i32 %88, 1
   %.not20.i37.i = icmp ult i32 %.off67.i, 3
   br i1 %.not20.i37.i, label %._crit_edge.i46.i, label %.lr.ph.preheader.i38.i
 
 .lr.ph.preheader.i38.i:                           ; preds = %.loopexit.i
-  %122 = call i32 @llvm.abs.i32(i32 %110, i1 true)
+  %121 = call i32 @llvm.abs.i32(i32 %110, i1 true)
   br label %.lr.ph.i39.i
 
 .lr.ph.i39.i:                                     ; preds = %.lr.ph.i39.i, %.lr.ph.preheader.i38.i
-  %.023.i40.i = phi i32 [ %125, %.lr.ph.i39.i ], [ %122, %.lr.ph.preheader.i38.i ]
-  %.01522.i41.i = phi double [ %126, %.lr.ph.i39.i ], [ %108, %.lr.ph.preheader.i38.i ]
+  %.023.i40.i = phi i32 [ %124, %.lr.ph.i39.i ], [ %121, %.lr.ph.preheader.i38.i ]
+  %.01522.i41.i = phi double [ %125, %.lr.ph.i39.i ], [ %108, %.lr.ph.preheader.i38.i ]
   %.01621.i42.i = phi double [ %.1.i44.i, %.lr.ph.i39.i ], [ 1.000000e+00, %.lr.ph.preheader.i38.i ]
-  %123 = and i32 %.023.i40.i, 1
-  %.not19.i43.i = icmp eq i32 %123, 0
-  %124 = fmul double %.01522.i41.i, %.01621.i42.i
-  %.1.i44.i = select i1 %.not19.i43.i, double %.01621.i42.i, double %124
-  %125 = lshr i32 %.023.i40.i, 1
-  %126 = fmul double %.01522.i41.i, %.01522.i41.i
+  %122 = and i32 %.023.i40.i, 1
+  %.not19.i43.i = icmp eq i32 %122, 0
+  %123 = fmul double %.01522.i41.i, %.01621.i42.i
+  %.1.i44.i = select i1 %.not19.i43.i, double %.01621.i42.i, double %123
+  %124 = lshr i32 %.023.i40.i, 1
+  %125 = fmul double %.01522.i41.i, %.01522.i41.i
   %.not.i45.i = icmp samesign ult i32 %.023.i40.i, 2
   br i1 %.not.i45.i, label %._crit_edge.i46.i, label %.lr.ph.i39.i, !llvm.loop !121
 
 ._crit_edge.i46.i:                                ; preds = %.lr.ph.i39.i, %.loopexit.i
   %.016.lcssa.i47.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i44.i, %.lr.ph.i39.i ]
+  %126 = icmp sgt i32 %88, 1
   %127 = fdiv double 1.000000e+00, %.016.lcssa.i47.i
-  %128 = select i1 %121, double %.016.lcssa.i47.i, double %127
+  %128 = select i1 %126, double %.016.lcssa.i47.i, double %127
   br label %_ZN12colvarmodule13integer_powerERKdi.exit49.i
 
 _ZN12colvarmodule13integer_powerERKdi.exit49.i:   ; preds = %._crit_edge.i46.i, %86
@@ -3702,58 +3702,58 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi769EEEvPPb(ptr noundef
   br i1 %119, label %_ZN12colvarmodule13integer_powerERKdi.exit49.i, label %120
 
 120:                                              ; preds = %97
-  %121 = icmp sgt i32 %90, 1
   %.off.i = add i32 %90, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %120
-  %122 = call i32 @llvm.abs.i32(i32 %117, i1 true)
+  %121 = call i32 @llvm.abs.i32(i32 %117, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %125, %.lr.ph.i.i ], [ %122, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %126, %.lr.ph.i.i ], [ %116, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %124, %.lr.ph.i.i ], [ %121, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %125, %.lr.ph.i.i ], [ %116, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %123 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %123, 0
-  %124 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %124
-  %125 = lshr i32 %.023.i.i, 1
-  %126 = fmul double %.01522.i.i, %.01522.i.i
+  %122 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %122, 0
+  %123 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %123
+  %124 = lshr i32 %.023.i.i, 1
+  %125 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %120
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %120 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %126 = icmp sgt i32 %90, 1
   %127 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %128 = select i1 %121, double %.016.lcssa.i.i, double %127
-  %129 = icmp sgt i32 %91, 1
+  %128 = select i1 %126, double %.016.lcssa.i.i, double %127
   %.off67.i = add i32 %91, 1
   %.not20.i37.i = icmp ult i32 %.off67.i, 3
   br i1 %.not20.i37.i, label %._crit_edge.i46.i, label %.lr.ph.preheader.i38.i
 
 .lr.ph.preheader.i38.i:                           ; preds = %.loopexit.i
-  %130 = call i32 @llvm.abs.i32(i32 %118, i1 true)
+  %129 = call i32 @llvm.abs.i32(i32 %118, i1 true)
   br label %.lr.ph.i39.i
 
 .lr.ph.i39.i:                                     ; preds = %.lr.ph.i39.i, %.lr.ph.preheader.i38.i
-  %.023.i40.i = phi i32 [ %133, %.lr.ph.i39.i ], [ %130, %.lr.ph.preheader.i38.i ]
-  %.01522.i41.i = phi double [ %134, %.lr.ph.i39.i ], [ %116, %.lr.ph.preheader.i38.i ]
+  %.023.i40.i = phi i32 [ %132, %.lr.ph.i39.i ], [ %129, %.lr.ph.preheader.i38.i ]
+  %.01522.i41.i = phi double [ %133, %.lr.ph.i39.i ], [ %116, %.lr.ph.preheader.i38.i ]
   %.01621.i42.i = phi double [ %.1.i44.i, %.lr.ph.i39.i ], [ 1.000000e+00, %.lr.ph.preheader.i38.i ]
-  %131 = and i32 %.023.i40.i, 1
-  %.not19.i43.i = icmp eq i32 %131, 0
-  %132 = fmul double %.01522.i41.i, %.01621.i42.i
-  %.1.i44.i = select i1 %.not19.i43.i, double %.01621.i42.i, double %132
-  %133 = lshr i32 %.023.i40.i, 1
-  %134 = fmul double %.01522.i41.i, %.01522.i41.i
+  %130 = and i32 %.023.i40.i, 1
+  %.not19.i43.i = icmp eq i32 %130, 0
+  %131 = fmul double %.01522.i41.i, %.01621.i42.i
+  %.1.i44.i = select i1 %.not19.i43.i, double %.01621.i42.i, double %131
+  %132 = lshr i32 %.023.i40.i, 1
+  %133 = fmul double %.01522.i41.i, %.01522.i41.i
   %.not.i45.i = icmp samesign ult i32 %.023.i40.i, 2
   br i1 %.not.i45.i, label %._crit_edge.i46.i, label %.lr.ph.i39.i, !llvm.loop !121
 
 ._crit_edge.i46.i:                                ; preds = %.lr.ph.i39.i, %.loopexit.i
   %.016.lcssa.i47.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i44.i, %.lr.ph.i39.i ]
+  %134 = icmp sgt i32 %91, 1
   %135 = fdiv double 1.000000e+00, %.016.lcssa.i47.i
-  %136 = select i1 %129, double %.016.lcssa.i47.i, double %135
+  %136 = select i1 %134, double %.016.lcssa.i47.i, double %135
   br label %_ZN12colvarmodule13integer_powerERKdi.exit49.i
 
 _ZN12colvarmodule13integer_powerERKdi.exit49.i:   ; preds = %._crit_edge.i46.i, %97
@@ -4011,58 +4011,58 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi257EEEvPPb(ptr noundef
   br i1 %111, label %_ZN12colvarmodule13integer_powerERKdi.exit45.i, label %112
 
 112:                                              ; preds = %86
-  %113 = icmp sgt i32 %87, 1
   %.off.i = add i32 %87, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %112
-  %114 = call i32 @llvm.abs.i32(i32 %109, i1 true)
+  %113 = call i32 @llvm.abs.i32(i32 %109, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %117, %.lr.ph.i.i ], [ %114, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %118, %.lr.ph.i.i ], [ %108, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %116, %.lr.ph.i.i ], [ %113, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %117, %.lr.ph.i.i ], [ %108, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %115 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %115, 0
-  %116 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %116
-  %117 = lshr i32 %.023.i.i, 1
-  %118 = fmul double %.01522.i.i, %.01522.i.i
+  %114 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %114, 0
+  %115 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %115
+  %116 = lshr i32 %.023.i.i, 1
+  %117 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %112
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %112 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %118 = icmp sgt i32 %87, 1
   %119 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %120 = select i1 %113, double %.016.lcssa.i.i, double %119
-  %121 = icmp sgt i32 %88, 1
+  %120 = select i1 %118, double %.016.lcssa.i.i, double %119
   %.off63.i = add i32 %88, 1
   %.not20.i33.i = icmp ult i32 %.off63.i, 3
   br i1 %.not20.i33.i, label %._crit_edge.i42.i, label %.lr.ph.preheader.i34.i
 
 .lr.ph.preheader.i34.i:                           ; preds = %.loopexit.i
-  %122 = call i32 @llvm.abs.i32(i32 %110, i1 true)
+  %121 = call i32 @llvm.abs.i32(i32 %110, i1 true)
   br label %.lr.ph.i35.i
 
 .lr.ph.i35.i:                                     ; preds = %.lr.ph.i35.i, %.lr.ph.preheader.i34.i
-  %.023.i36.i = phi i32 [ %125, %.lr.ph.i35.i ], [ %122, %.lr.ph.preheader.i34.i ]
-  %.01522.i37.i = phi double [ %126, %.lr.ph.i35.i ], [ %108, %.lr.ph.preheader.i34.i ]
+  %.023.i36.i = phi i32 [ %124, %.lr.ph.i35.i ], [ %121, %.lr.ph.preheader.i34.i ]
+  %.01522.i37.i = phi double [ %125, %.lr.ph.i35.i ], [ %108, %.lr.ph.preheader.i34.i ]
   %.01621.i38.i = phi double [ %.1.i40.i, %.lr.ph.i35.i ], [ 1.000000e+00, %.lr.ph.preheader.i34.i ]
-  %123 = and i32 %.023.i36.i, 1
-  %.not19.i39.i = icmp eq i32 %123, 0
-  %124 = fmul double %.01522.i37.i, %.01621.i38.i
-  %.1.i40.i = select i1 %.not19.i39.i, double %.01621.i38.i, double %124
-  %125 = lshr i32 %.023.i36.i, 1
-  %126 = fmul double %.01522.i37.i, %.01522.i37.i
+  %122 = and i32 %.023.i36.i, 1
+  %.not19.i39.i = icmp eq i32 %122, 0
+  %123 = fmul double %.01522.i37.i, %.01621.i38.i
+  %.1.i40.i = select i1 %.not19.i39.i, double %.01621.i38.i, double %123
+  %124 = lshr i32 %.023.i36.i, 1
+  %125 = fmul double %.01522.i37.i, %.01522.i37.i
   %.not.i41.i = icmp samesign ult i32 %.023.i36.i, 2
   br i1 %.not.i41.i, label %._crit_edge.i42.i, label %.lr.ph.i35.i, !llvm.loop !121
 
 ._crit_edge.i42.i:                                ; preds = %.lr.ph.i35.i, %.loopexit.i
   %.016.lcssa.i43.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i40.i, %.lr.ph.i35.i ]
+  %126 = icmp sgt i32 %88, 1
   %127 = fdiv double 1.000000e+00, %.016.lcssa.i43.i
-  %128 = select i1 %121, double %.016.lcssa.i43.i, double %127
+  %128 = select i1 %126, double %.016.lcssa.i43.i, double %127
   br label %_ZN12colvarmodule13integer_powerERKdi.exit45.i
 
 _ZN12colvarmodule13integer_powerERKdi.exit45.i:   ; preds = %._crit_edge.i42.i, %86
@@ -4305,58 +4305,58 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1537EEEvPPb(ptr nounde
   br i1 %101, label %_ZN12colvarmodule13integer_powerERKdi.exit55.i, label %102
 
 102:                                              ; preds = %84
-  %103 = icmp sgt i32 %85, 1
   %.off.i = add i32 %85, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %102
-  %104 = call i32 @llvm.abs.i32(i32 %99, i1 true)
+  %103 = call i32 @llvm.abs.i32(i32 %99, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %107, %.lr.ph.i.i ], [ %104, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %108, %.lr.ph.i.i ], [ %98, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %106, %.lr.ph.i.i ], [ %103, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %107, %.lr.ph.i.i ], [ %98, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %105 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %105, 0
-  %106 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %106
-  %107 = lshr i32 %.023.i.i, 1
-  %108 = fmul double %.01522.i.i, %.01522.i.i
+  %104 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %104, 0
+  %105 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %105
+  %106 = lshr i32 %.023.i.i, 1
+  %107 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %102
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %102 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %108 = icmp sgt i32 %85, 1
   %109 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %110 = select i1 %103, double %.016.lcssa.i.i, double %109
-  %111 = icmp sgt i32 %86, 1
+  %110 = select i1 %108, double %.016.lcssa.i.i, double %109
   %.off72.i = add i32 %86, 1
   %.not20.i43.i = icmp ult i32 %.off72.i, 3
   br i1 %.not20.i43.i, label %._crit_edge.i52.i, label %.lr.ph.preheader.i44.i
 
 .lr.ph.preheader.i44.i:                           ; preds = %.loopexit.i
-  %112 = call i32 @llvm.abs.i32(i32 %100, i1 true)
+  %111 = call i32 @llvm.abs.i32(i32 %100, i1 true)
   br label %.lr.ph.i45.i
 
 .lr.ph.i45.i:                                     ; preds = %.lr.ph.i45.i, %.lr.ph.preheader.i44.i
-  %.023.i46.i = phi i32 [ %115, %.lr.ph.i45.i ], [ %112, %.lr.ph.preheader.i44.i ]
-  %.01522.i47.i = phi double [ %116, %.lr.ph.i45.i ], [ %98, %.lr.ph.preheader.i44.i ]
+  %.023.i46.i = phi i32 [ %114, %.lr.ph.i45.i ], [ %111, %.lr.ph.preheader.i44.i ]
+  %.01522.i47.i = phi double [ %115, %.lr.ph.i45.i ], [ %98, %.lr.ph.preheader.i44.i ]
   %.01621.i48.i = phi double [ %.1.i50.i, %.lr.ph.i45.i ], [ 1.000000e+00, %.lr.ph.preheader.i44.i ]
-  %113 = and i32 %.023.i46.i, 1
-  %.not19.i49.i = icmp eq i32 %113, 0
-  %114 = fmul double %.01522.i47.i, %.01621.i48.i
-  %.1.i50.i = select i1 %.not19.i49.i, double %.01621.i48.i, double %114
-  %115 = lshr i32 %.023.i46.i, 1
-  %116 = fmul double %.01522.i47.i, %.01522.i47.i
+  %112 = and i32 %.023.i46.i, 1
+  %.not19.i49.i = icmp eq i32 %112, 0
+  %113 = fmul double %.01522.i47.i, %.01621.i48.i
+  %.1.i50.i = select i1 %.not19.i49.i, double %.01621.i48.i, double %113
+  %114 = lshr i32 %.023.i46.i, 1
+  %115 = fmul double %.01522.i47.i, %.01522.i47.i
   %.not.i51.i = icmp samesign ult i32 %.023.i46.i, 2
   br i1 %.not.i51.i, label %._crit_edge.i52.i, label %.lr.ph.i45.i, !llvm.loop !121
 
 ._crit_edge.i52.i:                                ; preds = %.lr.ph.i45.i, %.loopexit.i
   %.016.lcssa.i53.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i50.i, %.lr.ph.i45.i ]
+  %116 = icmp sgt i32 %86, 1
   %117 = fdiv double 1.000000e+00, %.016.lcssa.i53.i
-  %118 = select i1 %111, double %.016.lcssa.i53.i, double %117
+  %118 = select i1 %116, double %.016.lcssa.i53.i, double %117
   br label %_ZN12colvarmodule13integer_powerERKdi.exit55.i
 
 _ZN12colvarmodule13integer_powerERKdi.exit55.i:   ; preds = %._crit_edge.i52.i, %84
@@ -4616,58 +4616,58 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi513EEEvPPb(ptr noundef
   br i1 %109, label %_ZN12colvarmodule13integer_powerERKdi.exit55.i, label %110
 
 110:                                              ; preds = %95
-  %111 = icmp sgt i32 %88, 1
   %.off.i = add i32 %88, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %110
-  %112 = call i32 @llvm.abs.i32(i32 %107, i1 true)
+  %111 = call i32 @llvm.abs.i32(i32 %107, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %115, %.lr.ph.i.i ], [ %112, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %116, %.lr.ph.i.i ], [ %106, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %114, %.lr.ph.i.i ], [ %111, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %115, %.lr.ph.i.i ], [ %106, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %113 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %113, 0
-  %114 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %114
-  %115 = lshr i32 %.023.i.i, 1
-  %116 = fmul double %.01522.i.i, %.01522.i.i
+  %112 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %112, 0
+  %113 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %113
+  %114 = lshr i32 %.023.i.i, 1
+  %115 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %110
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %110 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %116 = icmp sgt i32 %88, 1
   %117 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %118 = select i1 %111, double %.016.lcssa.i.i, double %117
-  %119 = icmp sgt i32 %89, 1
+  %118 = select i1 %116, double %.016.lcssa.i.i, double %117
   %.off72.i = add i32 %89, 1
   %.not20.i43.i = icmp ult i32 %.off72.i, 3
   br i1 %.not20.i43.i, label %._crit_edge.i52.i, label %.lr.ph.preheader.i44.i
 
 .lr.ph.preheader.i44.i:                           ; preds = %.loopexit.i
-  %120 = call i32 @llvm.abs.i32(i32 %108, i1 true)
+  %119 = call i32 @llvm.abs.i32(i32 %108, i1 true)
   br label %.lr.ph.i45.i
 
 .lr.ph.i45.i:                                     ; preds = %.lr.ph.i45.i, %.lr.ph.preheader.i44.i
-  %.023.i46.i = phi i32 [ %123, %.lr.ph.i45.i ], [ %120, %.lr.ph.preheader.i44.i ]
-  %.01522.i47.i = phi double [ %124, %.lr.ph.i45.i ], [ %106, %.lr.ph.preheader.i44.i ]
+  %.023.i46.i = phi i32 [ %122, %.lr.ph.i45.i ], [ %119, %.lr.ph.preheader.i44.i ]
+  %.01522.i47.i = phi double [ %123, %.lr.ph.i45.i ], [ %106, %.lr.ph.preheader.i44.i ]
   %.01621.i48.i = phi double [ %.1.i50.i, %.lr.ph.i45.i ], [ 1.000000e+00, %.lr.ph.preheader.i44.i ]
-  %121 = and i32 %.023.i46.i, 1
-  %.not19.i49.i = icmp eq i32 %121, 0
-  %122 = fmul double %.01522.i47.i, %.01621.i48.i
-  %.1.i50.i = select i1 %.not19.i49.i, double %.01621.i48.i, double %122
-  %123 = lshr i32 %.023.i46.i, 1
-  %124 = fmul double %.01522.i47.i, %.01522.i47.i
+  %120 = and i32 %.023.i46.i, 1
+  %.not19.i49.i = icmp eq i32 %120, 0
+  %121 = fmul double %.01522.i47.i, %.01621.i48.i
+  %.1.i50.i = select i1 %.not19.i49.i, double %.01621.i48.i, double %121
+  %122 = lshr i32 %.023.i46.i, 1
+  %123 = fmul double %.01522.i47.i, %.01522.i47.i
   %.not.i51.i = icmp samesign ult i32 %.023.i46.i, 2
   br i1 %.not.i51.i, label %._crit_edge.i52.i, label %.lr.ph.i45.i, !llvm.loop !121
 
 ._crit_edge.i52.i:                                ; preds = %.lr.ph.i45.i, %.loopexit.i
   %.016.lcssa.i53.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i50.i, %.lr.ph.i45.i ]
+  %124 = icmp sgt i32 %89, 1
   %125 = fdiv double 1.000000e+00, %.016.lcssa.i53.i
-  %126 = select i1 %119, double %.016.lcssa.i53.i, double %125
+  %126 = select i1 %124, double %.016.lcssa.i53.i, double %125
   br label %_ZN12colvarmodule13integer_powerERKdi.exit55.i
 
 _ZN12colvarmodule13integer_powerERKdi.exit55.i:   ; preds = %._crit_edge.i52.i, %95
@@ -4914,58 +4914,58 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1EEEvPPb(ptr noundef n
   br i1 %101, label %_ZN12colvarmodule13integer_powerERKdi.exit51.i, label %102
 
 102:                                              ; preds = %84
-  %103 = icmp sgt i32 %85, 1
   %.off.i = add i32 %85, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %102
-  %104 = call i32 @llvm.abs.i32(i32 %99, i1 true)
+  %103 = call i32 @llvm.abs.i32(i32 %99, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %107, %.lr.ph.i.i ], [ %104, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %108, %.lr.ph.i.i ], [ %98, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %106, %.lr.ph.i.i ], [ %103, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %107, %.lr.ph.i.i ], [ %98, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %105 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %105, 0
-  %106 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %106
-  %107 = lshr i32 %.023.i.i, 1
-  %108 = fmul double %.01522.i.i, %.01522.i.i
+  %104 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %104, 0
+  %105 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %105
+  %106 = lshr i32 %.023.i.i, 1
+  %107 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %102
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %102 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %108 = icmp sgt i32 %85, 1
   %109 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %110 = select i1 %103, double %.016.lcssa.i.i, double %109
-  %111 = icmp sgt i32 %86, 1
+  %110 = select i1 %108, double %.016.lcssa.i.i, double %109
   %.off68.i = add i32 %86, 1
   %.not20.i39.i = icmp ult i32 %.off68.i, 3
   br i1 %.not20.i39.i, label %._crit_edge.i48.i, label %.lr.ph.preheader.i40.i
 
 .lr.ph.preheader.i40.i:                           ; preds = %.loopexit.i
-  %112 = call i32 @llvm.abs.i32(i32 %100, i1 true)
+  %111 = call i32 @llvm.abs.i32(i32 %100, i1 true)
   br label %.lr.ph.i41.i
 
 .lr.ph.i41.i:                                     ; preds = %.lr.ph.i41.i, %.lr.ph.preheader.i40.i
-  %.023.i42.i = phi i32 [ %115, %.lr.ph.i41.i ], [ %112, %.lr.ph.preheader.i40.i ]
-  %.01522.i43.i = phi double [ %116, %.lr.ph.i41.i ], [ %98, %.lr.ph.preheader.i40.i ]
+  %.023.i42.i = phi i32 [ %114, %.lr.ph.i41.i ], [ %111, %.lr.ph.preheader.i40.i ]
+  %.01522.i43.i = phi double [ %115, %.lr.ph.i41.i ], [ %98, %.lr.ph.preheader.i40.i ]
   %.01621.i44.i = phi double [ %.1.i46.i, %.lr.ph.i41.i ], [ 1.000000e+00, %.lr.ph.preheader.i40.i ]
-  %113 = and i32 %.023.i42.i, 1
-  %.not19.i45.i = icmp eq i32 %113, 0
-  %114 = fmul double %.01522.i43.i, %.01621.i44.i
-  %.1.i46.i = select i1 %.not19.i45.i, double %.01621.i44.i, double %114
-  %115 = lshr i32 %.023.i42.i, 1
-  %116 = fmul double %.01522.i43.i, %.01522.i43.i
+  %112 = and i32 %.023.i42.i, 1
+  %.not19.i45.i = icmp eq i32 %112, 0
+  %113 = fmul double %.01522.i43.i, %.01621.i44.i
+  %.1.i46.i = select i1 %.not19.i45.i, double %.01621.i44.i, double %113
+  %114 = lshr i32 %.023.i42.i, 1
+  %115 = fmul double %.01522.i43.i, %.01522.i43.i
   %.not.i47.i = icmp samesign ult i32 %.023.i42.i, 2
   br i1 %.not.i47.i, label %._crit_edge.i48.i, label %.lr.ph.i41.i, !llvm.loop !121
 
 ._crit_edge.i48.i:                                ; preds = %.lr.ph.i41.i, %.loopexit.i
   %.016.lcssa.i49.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i46.i, %.lr.ph.i41.i ]
+  %116 = icmp sgt i32 %86, 1
   %117 = fdiv double 1.000000e+00, %.016.lcssa.i49.i
-  %118 = select i1 %111, double %.016.lcssa.i49.i, double %117
+  %118 = select i1 %116, double %.016.lcssa.i49.i, double %117
   br label %_ZN12colvarmodule13integer_powerERKdi.exit51.i
 
 _ZN12colvarmodule13integer_powerERKdi.exit51.i:   ; preds = %._crit_edge.i48.i, %84
@@ -5076,58 +5076,58 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi17
   br i1 %36, label %_ZN12colvarmodule13integer_powerERKdi.exit49, label %37
 
 37:                                               ; preds = %8
-  %38 = icmp sgt i32 %2, 1
   %.off = add i32 %2, 1
   %.not20.i = icmp ult i32 %.off, 3
   br i1 %.not20.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %37
-  %39 = call i32 @llvm.abs.i32(i32 %34, i1 true)
+  %38 = call i32 @llvm.abs.i32(i32 %34, i1 true)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.023.i = phi i32 [ %42, %.lr.ph.i ], [ %39, %.lr.ph.preheader.i ]
-  %.01522.i = phi double [ %43, %.lr.ph.i ], [ %33, %.lr.ph.preheader.i ]
+  %.023.i = phi i32 [ %41, %.lr.ph.i ], [ %38, %.lr.ph.preheader.i ]
+  %.01522.i = phi double [ %42, %.lr.ph.i ], [ %33, %.lr.ph.preheader.i ]
   %.01621.i = phi double [ %.1.i, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.preheader.i ]
-  %40 = and i32 %.023.i, 1
-  %.not19.i = icmp eq i32 %40, 0
-  %41 = fmul double %.01522.i, %.01621.i
-  %.1.i = select i1 %.not19.i, double %.01621.i, double %41
-  %42 = lshr i32 %.023.i, 1
-  %43 = fmul double %.01522.i, %.01522.i
+  %39 = and i32 %.023.i, 1
+  %.not19.i = icmp eq i32 %39, 0
+  %40 = fmul double %.01522.i, %.01621.i
+  %.1.i = select i1 %.not19.i, double %.01621.i, double %40
+  %41 = lshr i32 %.023.i, 1
+  %42 = fmul double %.01522.i, %.01522.i
   %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
   %.016.lcssa.i = phi double [ 1.000000e+00, %37 ], [ %.1.i, %.lr.ph.i ]
+  %43 = icmp sgt i32 %2, 1
   %44 = fdiv double 1.000000e+00, %.016.lcssa.i
-  %45 = select i1 %38, double %.016.lcssa.i, double %44
-  %46 = icmp sgt i32 %3, 1
+  %45 = select i1 %43, double %.016.lcssa.i, double %44
   %.off67 = add i32 %3, 1
   %.not20.i37 = icmp ult i32 %.off67, 3
   br i1 %.not20.i37, label %._crit_edge.i46, label %.lr.ph.preheader.i38
 
 .lr.ph.preheader.i38:                             ; preds = %.loopexit
-  %47 = call i32 @llvm.abs.i32(i32 %35, i1 true)
+  %46 = call i32 @llvm.abs.i32(i32 %35, i1 true)
   br label %.lr.ph.i39
 
 .lr.ph.i39:                                       ; preds = %.lr.ph.i39, %.lr.ph.preheader.i38
-  %.023.i40 = phi i32 [ %50, %.lr.ph.i39 ], [ %47, %.lr.ph.preheader.i38 ]
-  %.01522.i41 = phi double [ %51, %.lr.ph.i39 ], [ %33, %.lr.ph.preheader.i38 ]
+  %.023.i40 = phi i32 [ %49, %.lr.ph.i39 ], [ %46, %.lr.ph.preheader.i38 ]
+  %.01522.i41 = phi double [ %50, %.lr.ph.i39 ], [ %33, %.lr.ph.preheader.i38 ]
   %.01621.i42 = phi double [ %.1.i44, %.lr.ph.i39 ], [ 1.000000e+00, %.lr.ph.preheader.i38 ]
-  %48 = and i32 %.023.i40, 1
-  %.not19.i43 = icmp eq i32 %48, 0
-  %49 = fmul double %.01522.i41, %.01621.i42
-  %.1.i44 = select i1 %.not19.i43, double %.01621.i42, double %49
-  %50 = lshr i32 %.023.i40, 1
-  %51 = fmul double %.01522.i41, %.01522.i41
+  %47 = and i32 %.023.i40, 1
+  %.not19.i43 = icmp eq i32 %47, 0
+  %48 = fmul double %.01522.i41, %.01621.i42
+  %.1.i44 = select i1 %.not19.i43, double %.01621.i42, double %48
+  %49 = lshr i32 %.023.i40, 1
+  %50 = fmul double %.01522.i41, %.01522.i41
   %.not.i45 = icmp samesign ult i32 %.023.i40, 2
   br i1 %.not.i45, label %._crit_edge.i46, label %.lr.ph.i39, !llvm.loop !121
 
 ._crit_edge.i46:                                  ; preds = %.lr.ph.i39, %.loopexit
   %.016.lcssa.i47 = phi double [ 1.000000e+00, %.loopexit ], [ %.1.i44, %.lr.ph.i39 ]
+  %51 = icmp sgt i32 %3, 1
   %52 = fdiv double 1.000000e+00, %.016.lcssa.i47
-  %53 = select i1 %46, double %.016.lcssa.i47, double %52
+  %53 = select i1 %51, double %.016.lcssa.i47, double %52
   br label %_ZN12colvarmodule13integer_powerERKdi.exit49
 
 _ZN12colvarmodule13integer_powerERKdi.exit49:     ; preds = %8, %._crit_edge.i46
@@ -5254,58 +5254,58 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi76
   br i1 %41, label %_ZN12colvarmodule13integer_powerERKdi.exit49, label %42
 
 42:                                               ; preds = %14
-  %43 = icmp sgt i32 %2, 1
   %.off = add i32 %2, 1
   %.not20.i = icmp ult i32 %.off, 3
   br i1 %.not20.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %42
-  %44 = call i32 @llvm.abs.i32(i32 %39, i1 true)
+  %43 = call i32 @llvm.abs.i32(i32 %39, i1 true)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.023.i = phi i32 [ %47, %.lr.ph.i ], [ %44, %.lr.ph.preheader.i ]
-  %.01522.i = phi double [ %48, %.lr.ph.i ], [ %38, %.lr.ph.preheader.i ]
+  %.023.i = phi i32 [ %46, %.lr.ph.i ], [ %43, %.lr.ph.preheader.i ]
+  %.01522.i = phi double [ %47, %.lr.ph.i ], [ %38, %.lr.ph.preheader.i ]
   %.01621.i = phi double [ %.1.i, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.preheader.i ]
-  %45 = and i32 %.023.i, 1
-  %.not19.i = icmp eq i32 %45, 0
-  %46 = fmul double %.01522.i, %.01621.i
-  %.1.i = select i1 %.not19.i, double %.01621.i, double %46
-  %47 = lshr i32 %.023.i, 1
-  %48 = fmul double %.01522.i, %.01522.i
+  %44 = and i32 %.023.i, 1
+  %.not19.i = icmp eq i32 %44, 0
+  %45 = fmul double %.01522.i, %.01621.i
+  %.1.i = select i1 %.not19.i, double %.01621.i, double %45
+  %46 = lshr i32 %.023.i, 1
+  %47 = fmul double %.01522.i, %.01522.i
   %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %42
   %.016.lcssa.i = phi double [ 1.000000e+00, %42 ], [ %.1.i, %.lr.ph.i ]
+  %48 = icmp sgt i32 %2, 1
   %49 = fdiv double 1.000000e+00, %.016.lcssa.i
-  %50 = select i1 %43, double %.016.lcssa.i, double %49
-  %51 = icmp sgt i32 %3, 1
+  %50 = select i1 %48, double %.016.lcssa.i, double %49
   %.off67 = add i32 %3, 1
   %.not20.i37 = icmp ult i32 %.off67, 3
   br i1 %.not20.i37, label %._crit_edge.i46, label %.lr.ph.preheader.i38
 
 .lr.ph.preheader.i38:                             ; preds = %.loopexit
-  %52 = call i32 @llvm.abs.i32(i32 %40, i1 true)
+  %51 = call i32 @llvm.abs.i32(i32 %40, i1 true)
   br label %.lr.ph.i39
 
 .lr.ph.i39:                                       ; preds = %.lr.ph.i39, %.lr.ph.preheader.i38
-  %.023.i40 = phi i32 [ %55, %.lr.ph.i39 ], [ %52, %.lr.ph.preheader.i38 ]
-  %.01522.i41 = phi double [ %56, %.lr.ph.i39 ], [ %38, %.lr.ph.preheader.i38 ]
+  %.023.i40 = phi i32 [ %54, %.lr.ph.i39 ], [ %51, %.lr.ph.preheader.i38 ]
+  %.01522.i41 = phi double [ %55, %.lr.ph.i39 ], [ %38, %.lr.ph.preheader.i38 ]
   %.01621.i42 = phi double [ %.1.i44, %.lr.ph.i39 ], [ 1.000000e+00, %.lr.ph.preheader.i38 ]
-  %53 = and i32 %.023.i40, 1
-  %.not19.i43 = icmp eq i32 %53, 0
-  %54 = fmul double %.01522.i41, %.01621.i42
-  %.1.i44 = select i1 %.not19.i43, double %.01621.i42, double %54
-  %55 = lshr i32 %.023.i40, 1
-  %56 = fmul double %.01522.i41, %.01522.i41
+  %52 = and i32 %.023.i40, 1
+  %.not19.i43 = icmp eq i32 %52, 0
+  %53 = fmul double %.01522.i41, %.01621.i42
+  %.1.i44 = select i1 %.not19.i43, double %.01621.i42, double %53
+  %54 = lshr i32 %.023.i40, 1
+  %55 = fmul double %.01522.i41, %.01522.i41
   %.not.i45 = icmp samesign ult i32 %.023.i40, 2
   br i1 %.not.i45, label %._crit_edge.i46, label %.lr.ph.i39, !llvm.loop !121
 
 ._crit_edge.i46:                                  ; preds = %.lr.ph.i39, %.loopexit
   %.016.lcssa.i47 = phi double [ 1.000000e+00, %.loopexit ], [ %.1.i44, %.lr.ph.i39 ]
+  %56 = icmp sgt i32 %3, 1
   %57 = fdiv double 1.000000e+00, %.016.lcssa.i47
-  %58 = select i1 %51, double %.016.lcssa.i47, double %57
+  %58 = select i1 %56, double %.016.lcssa.i47, double %57
   br label %_ZN12colvarmodule13integer_powerERKdi.exit49
 
 _ZN12colvarmodule13integer_powerERKdi.exit49:     ; preds = %14, %._crit_edge.i46
@@ -5411,58 +5411,58 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi25
   br i1 %36, label %_ZN12colvarmodule13integer_powerERKdi.exit45, label %37
 
 37:                                               ; preds = %8
-  %38 = icmp sgt i32 %2, 1
   %.off = add i32 %2, 1
   %.not20.i = icmp ult i32 %.off, 3
   br i1 %.not20.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %37
-  %39 = call i32 @llvm.abs.i32(i32 %34, i1 true)
+  %38 = call i32 @llvm.abs.i32(i32 %34, i1 true)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.023.i = phi i32 [ %42, %.lr.ph.i ], [ %39, %.lr.ph.preheader.i ]
-  %.01522.i = phi double [ %43, %.lr.ph.i ], [ %33, %.lr.ph.preheader.i ]
+  %.023.i = phi i32 [ %41, %.lr.ph.i ], [ %38, %.lr.ph.preheader.i ]
+  %.01522.i = phi double [ %42, %.lr.ph.i ], [ %33, %.lr.ph.preheader.i ]
   %.01621.i = phi double [ %.1.i, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.preheader.i ]
-  %40 = and i32 %.023.i, 1
-  %.not19.i = icmp eq i32 %40, 0
-  %41 = fmul double %.01522.i, %.01621.i
-  %.1.i = select i1 %.not19.i, double %.01621.i, double %41
-  %42 = lshr i32 %.023.i, 1
-  %43 = fmul double %.01522.i, %.01522.i
+  %39 = and i32 %.023.i, 1
+  %.not19.i = icmp eq i32 %39, 0
+  %40 = fmul double %.01522.i, %.01621.i
+  %.1.i = select i1 %.not19.i, double %.01621.i, double %40
+  %41 = lshr i32 %.023.i, 1
+  %42 = fmul double %.01522.i, %.01522.i
   %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %37
   %.016.lcssa.i = phi double [ 1.000000e+00, %37 ], [ %.1.i, %.lr.ph.i ]
+  %43 = icmp sgt i32 %2, 1
   %44 = fdiv double 1.000000e+00, %.016.lcssa.i
-  %45 = select i1 %38, double %.016.lcssa.i, double %44
-  %46 = icmp sgt i32 %3, 1
+  %45 = select i1 %43, double %.016.lcssa.i, double %44
   %.off63 = add i32 %3, 1
   %.not20.i33 = icmp ult i32 %.off63, 3
   br i1 %.not20.i33, label %._crit_edge.i42, label %.lr.ph.preheader.i34
 
 .lr.ph.preheader.i34:                             ; preds = %.loopexit
-  %47 = call i32 @llvm.abs.i32(i32 %35, i1 true)
+  %46 = call i32 @llvm.abs.i32(i32 %35, i1 true)
   br label %.lr.ph.i35
 
 .lr.ph.i35:                                       ; preds = %.lr.ph.i35, %.lr.ph.preheader.i34
-  %.023.i36 = phi i32 [ %50, %.lr.ph.i35 ], [ %47, %.lr.ph.preheader.i34 ]
-  %.01522.i37 = phi double [ %51, %.lr.ph.i35 ], [ %33, %.lr.ph.preheader.i34 ]
+  %.023.i36 = phi i32 [ %49, %.lr.ph.i35 ], [ %46, %.lr.ph.preheader.i34 ]
+  %.01522.i37 = phi double [ %50, %.lr.ph.i35 ], [ %33, %.lr.ph.preheader.i34 ]
   %.01621.i38 = phi double [ %.1.i40, %.lr.ph.i35 ], [ 1.000000e+00, %.lr.ph.preheader.i34 ]
-  %48 = and i32 %.023.i36, 1
-  %.not19.i39 = icmp eq i32 %48, 0
-  %49 = fmul double %.01522.i37, %.01621.i38
-  %.1.i40 = select i1 %.not19.i39, double %.01621.i38, double %49
-  %50 = lshr i32 %.023.i36, 1
-  %51 = fmul double %.01522.i37, %.01522.i37
+  %47 = and i32 %.023.i36, 1
+  %.not19.i39 = icmp eq i32 %47, 0
+  %48 = fmul double %.01522.i37, %.01621.i38
+  %.1.i40 = select i1 %.not19.i39, double %.01621.i38, double %48
+  %49 = lshr i32 %.023.i36, 1
+  %50 = fmul double %.01522.i37, %.01522.i37
   %.not.i41 = icmp samesign ult i32 %.023.i36, 2
   br i1 %.not.i41, label %._crit_edge.i42, label %.lr.ph.i35, !llvm.loop !121
 
 ._crit_edge.i42:                                  ; preds = %.lr.ph.i35, %.loopexit
   %.016.lcssa.i43 = phi double [ 1.000000e+00, %.loopexit ], [ %.1.i40, %.lr.ph.i35 ]
+  %51 = icmp sgt i32 %3, 1
   %52 = fdiv double 1.000000e+00, %.016.lcssa.i43
-  %53 = select i1 %46, double %.016.lcssa.i43, double %52
+  %53 = select i1 %51, double %.016.lcssa.i43, double %52
   br label %_ZN12colvarmodule13integer_powerERKdi.exit45
 
 _ZN12colvarmodule13integer_powerERKdi.exit45:     ; preds = %8, %._crit_edge.i42
@@ -5554,58 +5554,58 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi15
   br i1 %26, label %_ZN12colvarmodule13integer_powerERKdi.exit55, label %27
 
 27:                                               ; preds = %8
-  %28 = icmp sgt i32 %2, 1
   %.off = add i32 %2, 1
   %.not20.i = icmp ult i32 %.off, 3
   br i1 %.not20.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %27
-  %29 = call i32 @llvm.abs.i32(i32 %24, i1 true)
+  %28 = call i32 @llvm.abs.i32(i32 %24, i1 true)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.023.i = phi i32 [ %32, %.lr.ph.i ], [ %29, %.lr.ph.preheader.i ]
-  %.01522.i = phi double [ %33, %.lr.ph.i ], [ %23, %.lr.ph.preheader.i ]
+  %.023.i = phi i32 [ %31, %.lr.ph.i ], [ %28, %.lr.ph.preheader.i ]
+  %.01522.i = phi double [ %32, %.lr.ph.i ], [ %23, %.lr.ph.preheader.i ]
   %.01621.i = phi double [ %.1.i, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.preheader.i ]
-  %30 = and i32 %.023.i, 1
-  %.not19.i = icmp eq i32 %30, 0
-  %31 = fmul double %.01522.i, %.01621.i
-  %.1.i = select i1 %.not19.i, double %.01621.i, double %31
-  %32 = lshr i32 %.023.i, 1
-  %33 = fmul double %.01522.i, %.01522.i
+  %29 = and i32 %.023.i, 1
+  %.not19.i = icmp eq i32 %29, 0
+  %30 = fmul double %.01522.i, %.01621.i
+  %.1.i = select i1 %.not19.i, double %.01621.i, double %30
+  %31 = lshr i32 %.023.i, 1
+  %32 = fmul double %.01522.i, %.01522.i
   %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %27
   %.016.lcssa.i = phi double [ 1.000000e+00, %27 ], [ %.1.i, %.lr.ph.i ]
+  %33 = icmp sgt i32 %2, 1
   %34 = fdiv double 1.000000e+00, %.016.lcssa.i
-  %35 = select i1 %28, double %.016.lcssa.i, double %34
-  %36 = icmp sgt i32 %3, 1
+  %35 = select i1 %33, double %.016.lcssa.i, double %34
   %.off72 = add i32 %3, 1
   %.not20.i43 = icmp ult i32 %.off72, 3
   br i1 %.not20.i43, label %._crit_edge.i52, label %.lr.ph.preheader.i44
 
 .lr.ph.preheader.i44:                             ; preds = %.loopexit
-  %37 = call i32 @llvm.abs.i32(i32 %25, i1 true)
+  %36 = call i32 @llvm.abs.i32(i32 %25, i1 true)
   br label %.lr.ph.i45
 
 .lr.ph.i45:                                       ; preds = %.lr.ph.i45, %.lr.ph.preheader.i44
-  %.023.i46 = phi i32 [ %40, %.lr.ph.i45 ], [ %37, %.lr.ph.preheader.i44 ]
-  %.01522.i47 = phi double [ %41, %.lr.ph.i45 ], [ %23, %.lr.ph.preheader.i44 ]
+  %.023.i46 = phi i32 [ %39, %.lr.ph.i45 ], [ %36, %.lr.ph.preheader.i44 ]
+  %.01522.i47 = phi double [ %40, %.lr.ph.i45 ], [ %23, %.lr.ph.preheader.i44 ]
   %.01621.i48 = phi double [ %.1.i50, %.lr.ph.i45 ], [ 1.000000e+00, %.lr.ph.preheader.i44 ]
-  %38 = and i32 %.023.i46, 1
-  %.not19.i49 = icmp eq i32 %38, 0
-  %39 = fmul double %.01522.i47, %.01621.i48
-  %.1.i50 = select i1 %.not19.i49, double %.01621.i48, double %39
-  %40 = lshr i32 %.023.i46, 1
-  %41 = fmul double %.01522.i47, %.01522.i47
+  %37 = and i32 %.023.i46, 1
+  %.not19.i49 = icmp eq i32 %37, 0
+  %38 = fmul double %.01522.i47, %.01621.i48
+  %.1.i50 = select i1 %.not19.i49, double %.01621.i48, double %38
+  %39 = lshr i32 %.023.i46, 1
+  %40 = fmul double %.01522.i47, %.01522.i47
   %.not.i51 = icmp samesign ult i32 %.023.i46, 2
   br i1 %.not.i51, label %._crit_edge.i52, label %.lr.ph.i45, !llvm.loop !121
 
 ._crit_edge.i52:                                  ; preds = %.lr.ph.i45, %.loopexit
   %.016.lcssa.i53 = phi double [ 1.000000e+00, %.loopexit ], [ %.1.i50, %.lr.ph.i45 ]
+  %41 = icmp sgt i32 %3, 1
   %42 = fdiv double 1.000000e+00, %.016.lcssa.i53
-  %43 = select i1 %36, double %.016.lcssa.i53, double %42
+  %43 = select i1 %41, double %.016.lcssa.i53, double %42
   br label %_ZN12colvarmodule13integer_powerERKdi.exit55
 
 _ZN12colvarmodule13integer_powerERKdi.exit55:     ; preds = %8, %._crit_edge.i52
@@ -5711,58 +5711,58 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi51
   br i1 %31, label %_ZN12colvarmodule13integer_powerERKdi.exit55, label %32
 
 32:                                               ; preds = %14
-  %33 = icmp sgt i32 %2, 1
   %.off = add i32 %2, 1
   %.not20.i = icmp ult i32 %.off, 3
   br i1 %.not20.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %32
-  %34 = call i32 @llvm.abs.i32(i32 %29, i1 true)
+  %33 = call i32 @llvm.abs.i32(i32 %29, i1 true)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.023.i = phi i32 [ %37, %.lr.ph.i ], [ %34, %.lr.ph.preheader.i ]
-  %.01522.i = phi double [ %38, %.lr.ph.i ], [ %28, %.lr.ph.preheader.i ]
+  %.023.i = phi i32 [ %36, %.lr.ph.i ], [ %33, %.lr.ph.preheader.i ]
+  %.01522.i = phi double [ %37, %.lr.ph.i ], [ %28, %.lr.ph.preheader.i ]
   %.01621.i = phi double [ %.1.i, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.preheader.i ]
-  %35 = and i32 %.023.i, 1
-  %.not19.i = icmp eq i32 %35, 0
-  %36 = fmul double %.01522.i, %.01621.i
-  %.1.i = select i1 %.not19.i, double %.01621.i, double %36
-  %37 = lshr i32 %.023.i, 1
-  %38 = fmul double %.01522.i, %.01522.i
+  %34 = and i32 %.023.i, 1
+  %.not19.i = icmp eq i32 %34, 0
+  %35 = fmul double %.01522.i, %.01621.i
+  %.1.i = select i1 %.not19.i, double %.01621.i, double %35
+  %36 = lshr i32 %.023.i, 1
+  %37 = fmul double %.01522.i, %.01522.i
   %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %32
   %.016.lcssa.i = phi double [ 1.000000e+00, %32 ], [ %.1.i, %.lr.ph.i ]
+  %38 = icmp sgt i32 %2, 1
   %39 = fdiv double 1.000000e+00, %.016.lcssa.i
-  %40 = select i1 %33, double %.016.lcssa.i, double %39
-  %41 = icmp sgt i32 %3, 1
+  %40 = select i1 %38, double %.016.lcssa.i, double %39
   %.off72 = add i32 %3, 1
   %.not20.i43 = icmp ult i32 %.off72, 3
   br i1 %.not20.i43, label %._crit_edge.i52, label %.lr.ph.preheader.i44
 
 .lr.ph.preheader.i44:                             ; preds = %.loopexit
-  %42 = call i32 @llvm.abs.i32(i32 %30, i1 true)
+  %41 = call i32 @llvm.abs.i32(i32 %30, i1 true)
   br label %.lr.ph.i45
 
 .lr.ph.i45:                                       ; preds = %.lr.ph.i45, %.lr.ph.preheader.i44
-  %.023.i46 = phi i32 [ %45, %.lr.ph.i45 ], [ %42, %.lr.ph.preheader.i44 ]
-  %.01522.i47 = phi double [ %46, %.lr.ph.i45 ], [ %28, %.lr.ph.preheader.i44 ]
+  %.023.i46 = phi i32 [ %44, %.lr.ph.i45 ], [ %41, %.lr.ph.preheader.i44 ]
+  %.01522.i47 = phi double [ %45, %.lr.ph.i45 ], [ %28, %.lr.ph.preheader.i44 ]
   %.01621.i48 = phi double [ %.1.i50, %.lr.ph.i45 ], [ 1.000000e+00, %.lr.ph.preheader.i44 ]
-  %43 = and i32 %.023.i46, 1
-  %.not19.i49 = icmp eq i32 %43, 0
-  %44 = fmul double %.01522.i47, %.01621.i48
-  %.1.i50 = select i1 %.not19.i49, double %.01621.i48, double %44
-  %45 = lshr i32 %.023.i46, 1
-  %46 = fmul double %.01522.i47, %.01522.i47
+  %42 = and i32 %.023.i46, 1
+  %.not19.i49 = icmp eq i32 %42, 0
+  %43 = fmul double %.01522.i47, %.01621.i48
+  %.1.i50 = select i1 %.not19.i49, double %.01621.i48, double %43
+  %44 = lshr i32 %.023.i46, 1
+  %45 = fmul double %.01522.i47, %.01522.i47
   %.not.i51 = icmp samesign ult i32 %.023.i46, 2
   br i1 %.not.i51, label %._crit_edge.i52, label %.lr.ph.i45, !llvm.loop !121
 
 ._crit_edge.i52:                                  ; preds = %.lr.ph.i45, %.loopexit
   %.016.lcssa.i53 = phi double [ 1.000000e+00, %.loopexit ], [ %.1.i50, %.lr.ph.i45 ]
+  %46 = icmp sgt i32 %3, 1
   %47 = fdiv double 1.000000e+00, %.016.lcssa.i53
-  %48 = select i1 %41, double %.016.lcssa.i53, double %47
+  %48 = select i1 %46, double %.016.lcssa.i53, double %47
   br label %_ZN12colvarmodule13integer_powerERKdi.exit55
 
 _ZN12colvarmodule13integer_powerERKdi.exit55:     ; preds = %14, %._crit_edge.i52
@@ -5857,58 +5857,58 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi1E
   br i1 %26, label %_ZN12colvarmodule13integer_powerERKdi.exit51, label %27
 
 27:                                               ; preds = %8
-  %28 = icmp sgt i32 %2, 1
   %.off = add i32 %2, 1
   %.not20.i = icmp ult i32 %.off, 3
   br i1 %.not20.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %27
-  %29 = call i32 @llvm.abs.i32(i32 %24, i1 true)
+  %28 = call i32 @llvm.abs.i32(i32 %24, i1 true)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.023.i = phi i32 [ %32, %.lr.ph.i ], [ %29, %.lr.ph.preheader.i ]
-  %.01522.i = phi double [ %33, %.lr.ph.i ], [ %23, %.lr.ph.preheader.i ]
+  %.023.i = phi i32 [ %31, %.lr.ph.i ], [ %28, %.lr.ph.preheader.i ]
+  %.01522.i = phi double [ %32, %.lr.ph.i ], [ %23, %.lr.ph.preheader.i ]
   %.01621.i = phi double [ %.1.i, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.preheader.i ]
-  %30 = and i32 %.023.i, 1
-  %.not19.i = icmp eq i32 %30, 0
-  %31 = fmul double %.01522.i, %.01621.i
-  %.1.i = select i1 %.not19.i, double %.01621.i, double %31
-  %32 = lshr i32 %.023.i, 1
-  %33 = fmul double %.01522.i, %.01522.i
+  %29 = and i32 %.023.i, 1
+  %.not19.i = icmp eq i32 %29, 0
+  %30 = fmul double %.01522.i, %.01621.i
+  %.1.i = select i1 %.not19.i, double %.01621.i, double %30
+  %31 = lshr i32 %.023.i, 1
+  %32 = fmul double %.01522.i, %.01522.i
   %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %27
   %.016.lcssa.i = phi double [ 1.000000e+00, %27 ], [ %.1.i, %.lr.ph.i ]
+  %33 = icmp sgt i32 %2, 1
   %34 = fdiv double 1.000000e+00, %.016.lcssa.i
-  %35 = select i1 %28, double %.016.lcssa.i, double %34
-  %36 = icmp sgt i32 %3, 1
+  %35 = select i1 %33, double %.016.lcssa.i, double %34
   %.off68 = add i32 %3, 1
   %.not20.i39 = icmp ult i32 %.off68, 3
   br i1 %.not20.i39, label %._crit_edge.i48, label %.lr.ph.preheader.i40
 
 .lr.ph.preheader.i40:                             ; preds = %.loopexit
-  %37 = call i32 @llvm.abs.i32(i32 %25, i1 true)
+  %36 = call i32 @llvm.abs.i32(i32 %25, i1 true)
   br label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %.lr.ph.i41, %.lr.ph.preheader.i40
-  %.023.i42 = phi i32 [ %40, %.lr.ph.i41 ], [ %37, %.lr.ph.preheader.i40 ]
-  %.01522.i43 = phi double [ %41, %.lr.ph.i41 ], [ %23, %.lr.ph.preheader.i40 ]
+  %.023.i42 = phi i32 [ %39, %.lr.ph.i41 ], [ %36, %.lr.ph.preheader.i40 ]
+  %.01522.i43 = phi double [ %40, %.lr.ph.i41 ], [ %23, %.lr.ph.preheader.i40 ]
   %.01621.i44 = phi double [ %.1.i46, %.lr.ph.i41 ], [ 1.000000e+00, %.lr.ph.preheader.i40 ]
-  %38 = and i32 %.023.i42, 1
-  %.not19.i45 = icmp eq i32 %38, 0
-  %39 = fmul double %.01522.i43, %.01621.i44
-  %.1.i46 = select i1 %.not19.i45, double %.01621.i44, double %39
-  %40 = lshr i32 %.023.i42, 1
-  %41 = fmul double %.01522.i43, %.01522.i43
+  %37 = and i32 %.023.i42, 1
+  %.not19.i45 = icmp eq i32 %37, 0
+  %38 = fmul double %.01522.i43, %.01621.i44
+  %.1.i46 = select i1 %.not19.i45, double %.01621.i44, double %38
+  %39 = lshr i32 %.023.i42, 1
+  %40 = fmul double %.01522.i43, %.01522.i43
   %.not.i47 = icmp samesign ult i32 %.023.i42, 2
   br i1 %.not.i47, label %._crit_edge.i48, label %.lr.ph.i41, !llvm.loop !121
 
 ._crit_edge.i48:                                  ; preds = %.lr.ph.i41, %.loopexit
   %.016.lcssa.i49 = phi double [ 1.000000e+00, %.loopexit ], [ %.1.i46, %.lr.ph.i41 ]
+  %41 = icmp sgt i32 %3, 1
   %42 = fdiv double 1.000000e+00, %.016.lcssa.i49
-  %43 = select i1 %36, double %.016.lcssa.i49, double %42
+  %43 = select i1 %41, double %.016.lcssa.i49, double %42
   br label %_ZN12colvarmodule13integer_powerERKdi.exit51
 
 _ZN12colvarmodule13integer_powerERKdi.exit51:     ; preds = %8, %._crit_edge.i48
@@ -6143,58 +6143,58 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1792EEEvPPb(ptr nounde
   br i1 %102, label %_ZN6colvar8coordnum18switching_functionILi1792EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, label %103
 
 103:                                              ; preds = %83
-  %104 = icmp sgt i32 %84, 1
   %.off.i = add i32 %84, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %103
-  %105 = call i32 @llvm.abs.i32(i32 %100, i1 true)
+  %104 = call i32 @llvm.abs.i32(i32 %100, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %108, %.lr.ph.i.i ], [ %105, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %109, %.lr.ph.i.i ], [ %99, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %107, %.lr.ph.i.i ], [ %104, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %108, %.lr.ph.i.i ], [ %99, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %106 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %106, 0
-  %107 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %107
-  %108 = lshr i32 %.023.i.i, 1
-  %109 = fmul double %.01522.i.i, %.01522.i.i
+  %105 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %105, 0
+  %106 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %106
+  %107 = lshr i32 %.023.i.i, 1
+  %108 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %103
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %103 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %109 = icmp sgt i32 %84, 1
   %110 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %111 = select i1 %104, double %.016.lcssa.i.i, double %110
-  %112 = icmp sgt i32 %85, 1
+  %111 = select i1 %109, double %.016.lcssa.i.i, double %110
   %.off44.i = add i32 %85, 1
   %.not20.i26.i = icmp ult i32 %.off44.i, 3
   br i1 %.not20.i26.i, label %._crit_edge.i35.i, label %.lr.ph.preheader.i27.i
 
 .lr.ph.preheader.i27.i:                           ; preds = %.loopexit.i
-  %113 = call i32 @llvm.abs.i32(i32 %101, i1 true)
+  %112 = call i32 @llvm.abs.i32(i32 %101, i1 true)
   br label %.lr.ph.i28.i
 
 .lr.ph.i28.i:                                     ; preds = %.lr.ph.i28.i, %.lr.ph.preheader.i27.i
-  %.023.i29.i = phi i32 [ %116, %.lr.ph.i28.i ], [ %113, %.lr.ph.preheader.i27.i ]
-  %.01522.i30.i = phi double [ %117, %.lr.ph.i28.i ], [ %99, %.lr.ph.preheader.i27.i ]
+  %.023.i29.i = phi i32 [ %115, %.lr.ph.i28.i ], [ %112, %.lr.ph.preheader.i27.i ]
+  %.01522.i30.i = phi double [ %116, %.lr.ph.i28.i ], [ %99, %.lr.ph.preheader.i27.i ]
   %.01621.i31.i = phi double [ %.1.i33.i, %.lr.ph.i28.i ], [ 1.000000e+00, %.lr.ph.preheader.i27.i ]
-  %114 = and i32 %.023.i29.i, 1
-  %.not19.i32.i = icmp eq i32 %114, 0
-  %115 = fmul double %.01522.i30.i, %.01621.i31.i
-  %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %115
-  %116 = lshr i32 %.023.i29.i, 1
-  %117 = fmul double %.01522.i30.i, %.01522.i30.i
+  %113 = and i32 %.023.i29.i, 1
+  %.not19.i32.i = icmp eq i32 %113, 0
+  %114 = fmul double %.01522.i30.i, %.01621.i31.i
+  %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %114
+  %115 = lshr i32 %.023.i29.i, 1
+  %116 = fmul double %.01522.i30.i, %.01522.i30.i
   %.not.i34.i = icmp samesign ult i32 %.023.i29.i, 2
   br i1 %.not.i34.i, label %._crit_edge.i35.i, label %.lr.ph.i28.i, !llvm.loop !121
 
 ._crit_edge.i35.i:                                ; preds = %.lr.ph.i28.i, %.loopexit.i
   %.016.lcssa.i36.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i33.i, %.lr.ph.i28.i ]
+  %117 = icmp sgt i32 %85, 1
   %118 = fdiv double 1.000000e+00, %.016.lcssa.i36.i
-  %119 = select i1 %112, double %.016.lcssa.i36.i, double %118
+  %119 = select i1 %117, double %.016.lcssa.i36.i, double %118
   br label %_ZN6colvar8coordnum18switching_functionILi1792EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
 _ZN6colvar8coordnum18switching_functionILi1792EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %83, %._crit_edge.i35.i
@@ -6410,58 +6410,58 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi768EEEvPPb(ptr noundef
   br i1 %110, label %_ZN12colvarmodule13integer_powerERKdi.exit38.i, label %111
 
 111:                                              ; preds = %94
-  %112 = icmp sgt i32 %87, 1
   %.off.i = add i32 %87, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %111
-  %113 = call i32 @llvm.abs.i32(i32 %108, i1 true)
+  %112 = call i32 @llvm.abs.i32(i32 %108, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %116, %.lr.ph.i.i ], [ %113, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %117, %.lr.ph.i.i ], [ %107, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %115, %.lr.ph.i.i ], [ %112, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %116, %.lr.ph.i.i ], [ %107, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %114 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %114, 0
-  %115 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %115
-  %116 = lshr i32 %.023.i.i, 1
-  %117 = fmul double %.01522.i.i, %.01522.i.i
+  %113 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %113, 0
+  %114 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %114
+  %115 = lshr i32 %.023.i.i, 1
+  %116 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %111
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %111 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %117 = icmp sgt i32 %87, 1
   %118 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %119 = select i1 %112, double %.016.lcssa.i.i, double %118
-  %120 = icmp sgt i32 %88, 1
+  %119 = select i1 %117, double %.016.lcssa.i.i, double %118
   %.off44.i = add i32 %88, 1
   %.not20.i26.i = icmp ult i32 %.off44.i, 3
   br i1 %.not20.i26.i, label %._crit_edge.i35.i, label %.lr.ph.preheader.i27.i
 
 .lr.ph.preheader.i27.i:                           ; preds = %.loopexit.i
-  %121 = call i32 @llvm.abs.i32(i32 %109, i1 true)
+  %120 = call i32 @llvm.abs.i32(i32 %109, i1 true)
   br label %.lr.ph.i28.i
 
 .lr.ph.i28.i:                                     ; preds = %.lr.ph.i28.i, %.lr.ph.preheader.i27.i
-  %.023.i29.i = phi i32 [ %124, %.lr.ph.i28.i ], [ %121, %.lr.ph.preheader.i27.i ]
-  %.01522.i30.i = phi double [ %125, %.lr.ph.i28.i ], [ %107, %.lr.ph.preheader.i27.i ]
+  %.023.i29.i = phi i32 [ %123, %.lr.ph.i28.i ], [ %120, %.lr.ph.preheader.i27.i ]
+  %.01522.i30.i = phi double [ %124, %.lr.ph.i28.i ], [ %107, %.lr.ph.preheader.i27.i ]
   %.01621.i31.i = phi double [ %.1.i33.i, %.lr.ph.i28.i ], [ 1.000000e+00, %.lr.ph.preheader.i27.i ]
-  %122 = and i32 %.023.i29.i, 1
-  %.not19.i32.i = icmp eq i32 %122, 0
-  %123 = fmul double %.01522.i30.i, %.01621.i31.i
-  %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %123
-  %124 = lshr i32 %.023.i29.i, 1
-  %125 = fmul double %.01522.i30.i, %.01522.i30.i
+  %121 = and i32 %.023.i29.i, 1
+  %.not19.i32.i = icmp eq i32 %121, 0
+  %122 = fmul double %.01522.i30.i, %.01621.i31.i
+  %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %122
+  %123 = lshr i32 %.023.i29.i, 1
+  %124 = fmul double %.01522.i30.i, %.01522.i30.i
   %.not.i34.i = icmp samesign ult i32 %.023.i29.i, 2
   br i1 %.not.i34.i, label %._crit_edge.i35.i, label %.lr.ph.i28.i, !llvm.loop !121
 
 ._crit_edge.i35.i:                                ; preds = %.lr.ph.i28.i, %.loopexit.i
   %.016.lcssa.i36.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i33.i, %.lr.ph.i28.i ]
+  %125 = icmp sgt i32 %88, 1
   %126 = fdiv double 1.000000e+00, %.016.lcssa.i36.i
-  %127 = select i1 %120, double %.016.lcssa.i36.i, double %126
+  %127 = select i1 %125, double %.016.lcssa.i36.i, double %126
   br label %_ZN12colvarmodule13integer_powerERKdi.exit38.i
 
 _ZN12colvarmodule13integer_powerERKdi.exit38.i:   ; preds = %._crit_edge.i35.i, %94
@@ -6664,58 +6664,58 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi256EEEvPPb(ptr noundef
   br i1 %102, label %_ZN6colvar8coordnum18switching_functionILi256EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, label %103
 
 103:                                              ; preds = %83
-  %104 = icmp sgt i32 %84, 1
   %.off.i = add i32 %84, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %103
-  %105 = call i32 @llvm.abs.i32(i32 %100, i1 true)
+  %104 = call i32 @llvm.abs.i32(i32 %100, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %108, %.lr.ph.i.i ], [ %105, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %109, %.lr.ph.i.i ], [ %99, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %107, %.lr.ph.i.i ], [ %104, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %108, %.lr.ph.i.i ], [ %99, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %106 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %106, 0
-  %107 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %107
-  %108 = lshr i32 %.023.i.i, 1
-  %109 = fmul double %.01522.i.i, %.01522.i.i
+  %105 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %105, 0
+  %106 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %106
+  %107 = lshr i32 %.023.i.i, 1
+  %108 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %103
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %103 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %109 = icmp sgt i32 %84, 1
   %110 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %111 = select i1 %104, double %.016.lcssa.i.i, double %110
-  %112 = icmp sgt i32 %85, 1
+  %111 = select i1 %109, double %.016.lcssa.i.i, double %110
   %.off40.i = add i32 %85, 1
   %.not20.i22.i = icmp ult i32 %.off40.i, 3
   br i1 %.not20.i22.i, label %._crit_edge.i31.i, label %.lr.ph.preheader.i23.i
 
 .lr.ph.preheader.i23.i:                           ; preds = %.loopexit.i
-  %113 = call i32 @llvm.abs.i32(i32 %101, i1 true)
+  %112 = call i32 @llvm.abs.i32(i32 %101, i1 true)
   br label %.lr.ph.i24.i
 
 .lr.ph.i24.i:                                     ; preds = %.lr.ph.i24.i, %.lr.ph.preheader.i23.i
-  %.023.i25.i = phi i32 [ %116, %.lr.ph.i24.i ], [ %113, %.lr.ph.preheader.i23.i ]
-  %.01522.i26.i = phi double [ %117, %.lr.ph.i24.i ], [ %99, %.lr.ph.preheader.i23.i ]
+  %.023.i25.i = phi i32 [ %115, %.lr.ph.i24.i ], [ %112, %.lr.ph.preheader.i23.i ]
+  %.01522.i26.i = phi double [ %116, %.lr.ph.i24.i ], [ %99, %.lr.ph.preheader.i23.i ]
   %.01621.i27.i = phi double [ %.1.i29.i, %.lr.ph.i24.i ], [ 1.000000e+00, %.lr.ph.preheader.i23.i ]
-  %114 = and i32 %.023.i25.i, 1
-  %.not19.i28.i = icmp eq i32 %114, 0
-  %115 = fmul double %.01522.i26.i, %.01621.i27.i
-  %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %115
-  %116 = lshr i32 %.023.i25.i, 1
-  %117 = fmul double %.01522.i26.i, %.01522.i26.i
+  %113 = and i32 %.023.i25.i, 1
+  %.not19.i28.i = icmp eq i32 %113, 0
+  %114 = fmul double %.01522.i26.i, %.01621.i27.i
+  %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %114
+  %115 = lshr i32 %.023.i25.i, 1
+  %116 = fmul double %.01522.i26.i, %.01522.i26.i
   %.not.i30.i = icmp samesign ult i32 %.023.i25.i, 2
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !121
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %.loopexit.i
   %.016.lcssa.i32.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i29.i, %.lr.ph.i24.i ]
+  %117 = icmp sgt i32 %85, 1
   %118 = fdiv double 1.000000e+00, %.016.lcssa.i32.i
-  %119 = select i1 %112, double %.016.lcssa.i32.i, double %118
+  %119 = select i1 %117, double %.016.lcssa.i32.i, double %118
   br label %_ZN6colvar8coordnum18switching_functionILi256EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
 _ZN6colvar8coordnum18switching_functionILi256EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %83, %._crit_edge.i31.i
@@ -6909,58 +6909,58 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi1536EEEvPPb(ptr nounde
   br i1 %98, label %_ZN6colvar8coordnum18switching_functionILi1536EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, label %99
 
 99:                                               ; preds = %81
-  %100 = icmp sgt i32 %82, 1
   %.off.i = add i32 %82, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %99
-  %101 = call i32 @llvm.abs.i32(i32 %96, i1 true)
+  %100 = call i32 @llvm.abs.i32(i32 %96, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %104, %.lr.ph.i.i ], [ %101, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %105, %.lr.ph.i.i ], [ %95, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %103, %.lr.ph.i.i ], [ %100, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %104, %.lr.ph.i.i ], [ %95, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %102 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %102, 0
-  %103 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %103
-  %104 = lshr i32 %.023.i.i, 1
-  %105 = fmul double %.01522.i.i, %.01522.i.i
+  %101 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %101, 0
+  %102 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %102
+  %103 = lshr i32 %.023.i.i, 1
+  %104 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %99
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %99 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %105 = icmp sgt i32 %82, 1
   %106 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %107 = select i1 %100, double %.016.lcssa.i.i, double %106
-  %108 = icmp sgt i32 %83, 1
+  %107 = select i1 %105, double %.016.lcssa.i.i, double %106
   %.off44.i = add i32 %83, 1
   %.not20.i26.i = icmp ult i32 %.off44.i, 3
   br i1 %.not20.i26.i, label %._crit_edge.i35.i, label %.lr.ph.preheader.i27.i
 
 .lr.ph.preheader.i27.i:                           ; preds = %.loopexit.i
-  %109 = call i32 @llvm.abs.i32(i32 %97, i1 true)
+  %108 = call i32 @llvm.abs.i32(i32 %97, i1 true)
   br label %.lr.ph.i28.i
 
 .lr.ph.i28.i:                                     ; preds = %.lr.ph.i28.i, %.lr.ph.preheader.i27.i
-  %.023.i29.i = phi i32 [ %112, %.lr.ph.i28.i ], [ %109, %.lr.ph.preheader.i27.i ]
-  %.01522.i30.i = phi double [ %113, %.lr.ph.i28.i ], [ %95, %.lr.ph.preheader.i27.i ]
+  %.023.i29.i = phi i32 [ %111, %.lr.ph.i28.i ], [ %108, %.lr.ph.preheader.i27.i ]
+  %.01522.i30.i = phi double [ %112, %.lr.ph.i28.i ], [ %95, %.lr.ph.preheader.i27.i ]
   %.01621.i31.i = phi double [ %.1.i33.i, %.lr.ph.i28.i ], [ 1.000000e+00, %.lr.ph.preheader.i27.i ]
-  %110 = and i32 %.023.i29.i, 1
-  %.not19.i32.i = icmp eq i32 %110, 0
-  %111 = fmul double %.01522.i30.i, %.01621.i31.i
-  %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %111
-  %112 = lshr i32 %.023.i29.i, 1
-  %113 = fmul double %.01522.i30.i, %.01522.i30.i
+  %109 = and i32 %.023.i29.i, 1
+  %.not19.i32.i = icmp eq i32 %109, 0
+  %110 = fmul double %.01522.i30.i, %.01621.i31.i
+  %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %110
+  %111 = lshr i32 %.023.i29.i, 1
+  %112 = fmul double %.01522.i30.i, %.01522.i30.i
   %.not.i34.i = icmp samesign ult i32 %.023.i29.i, 2
   br i1 %.not.i34.i, label %._crit_edge.i35.i, label %.lr.ph.i28.i, !llvm.loop !121
 
 ._crit_edge.i35.i:                                ; preds = %.lr.ph.i28.i, %.loopexit.i
   %.016.lcssa.i36.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i33.i, %.lr.ph.i28.i ]
+  %113 = icmp sgt i32 %83, 1
   %114 = fdiv double 1.000000e+00, %.016.lcssa.i36.i
-  %115 = select i1 %108, double %.016.lcssa.i36.i, double %114
+  %115 = select i1 %113, double %.016.lcssa.i36.i, double %114
   br label %_ZN6colvar8coordnum18switching_functionILi1536EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
 _ZN6colvar8coordnum18switching_functionILi1536EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %81, %._crit_edge.i35.i
@@ -7172,58 +7172,58 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi512EEEvPPb(ptr noundef
   br i1 %106, label %_ZN12colvarmodule13integer_powerERKdi.exit38.i, label %107
 
 107:                                              ; preds = %92
-  %108 = icmp sgt i32 %85, 1
   %.off.i = add i32 %85, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %107
-  %109 = call i32 @llvm.abs.i32(i32 %104, i1 true)
+  %108 = call i32 @llvm.abs.i32(i32 %104, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %112, %.lr.ph.i.i ], [ %109, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %113, %.lr.ph.i.i ], [ %103, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %111, %.lr.ph.i.i ], [ %108, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %112, %.lr.ph.i.i ], [ %103, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %110 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %110, 0
-  %111 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %111
-  %112 = lshr i32 %.023.i.i, 1
-  %113 = fmul double %.01522.i.i, %.01522.i.i
+  %109 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %109, 0
+  %110 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %110
+  %111 = lshr i32 %.023.i.i, 1
+  %112 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %107
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %107 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %113 = icmp sgt i32 %85, 1
   %114 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %115 = select i1 %108, double %.016.lcssa.i.i, double %114
-  %116 = icmp sgt i32 %86, 1
+  %115 = select i1 %113, double %.016.lcssa.i.i, double %114
   %.off44.i = add i32 %86, 1
   %.not20.i26.i = icmp ult i32 %.off44.i, 3
   br i1 %.not20.i26.i, label %._crit_edge.i35.i, label %.lr.ph.preheader.i27.i
 
 .lr.ph.preheader.i27.i:                           ; preds = %.loopexit.i
-  %117 = call i32 @llvm.abs.i32(i32 %105, i1 true)
+  %116 = call i32 @llvm.abs.i32(i32 %105, i1 true)
   br label %.lr.ph.i28.i
 
 .lr.ph.i28.i:                                     ; preds = %.lr.ph.i28.i, %.lr.ph.preheader.i27.i
-  %.023.i29.i = phi i32 [ %120, %.lr.ph.i28.i ], [ %117, %.lr.ph.preheader.i27.i ]
-  %.01522.i30.i = phi double [ %121, %.lr.ph.i28.i ], [ %103, %.lr.ph.preheader.i27.i ]
+  %.023.i29.i = phi i32 [ %119, %.lr.ph.i28.i ], [ %116, %.lr.ph.preheader.i27.i ]
+  %.01522.i30.i = phi double [ %120, %.lr.ph.i28.i ], [ %103, %.lr.ph.preheader.i27.i ]
   %.01621.i31.i = phi double [ %.1.i33.i, %.lr.ph.i28.i ], [ 1.000000e+00, %.lr.ph.preheader.i27.i ]
-  %118 = and i32 %.023.i29.i, 1
-  %.not19.i32.i = icmp eq i32 %118, 0
-  %119 = fmul double %.01522.i30.i, %.01621.i31.i
-  %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %119
-  %120 = lshr i32 %.023.i29.i, 1
-  %121 = fmul double %.01522.i30.i, %.01522.i30.i
+  %117 = and i32 %.023.i29.i, 1
+  %.not19.i32.i = icmp eq i32 %117, 0
+  %118 = fmul double %.01522.i30.i, %.01621.i31.i
+  %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %118
+  %119 = lshr i32 %.023.i29.i, 1
+  %120 = fmul double %.01522.i30.i, %.01522.i30.i
   %.not.i34.i = icmp samesign ult i32 %.023.i29.i, 2
   br i1 %.not.i34.i, label %._crit_edge.i35.i, label %.lr.ph.i28.i, !llvm.loop !121
 
 ._crit_edge.i35.i:                                ; preds = %.lr.ph.i28.i, %.loopexit.i
   %.016.lcssa.i36.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i33.i, %.lr.ph.i28.i ]
+  %121 = icmp sgt i32 %86, 1
   %122 = fdiv double 1.000000e+00, %.016.lcssa.i36.i
-  %123 = select i1 %116, double %.016.lcssa.i36.i, double %122
+  %123 = select i1 %121, double %.016.lcssa.i36.i, double %122
   br label %_ZN12colvarmodule13integer_powerERKdi.exit38.i
 
 _ZN12colvarmodule13integer_powerERKdi.exit38.i:   ; preds = %._crit_edge.i35.i, %92
@@ -7326,58 +7326,58 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi0EEEvPPb(ptr noundef n
   br i1 %46, label %64, label %47
 
 47:                                               ; preds = %.noexc
-  %48 = icmp sgt i32 %30, 1
   %.off.i = add i32 %30, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %47
-  %49 = call i32 @llvm.abs.i32(i32 %44, i1 true)
+  %48 = call i32 @llvm.abs.i32(i32 %44, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %52, %.lr.ph.i.i ], [ %49, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %53, %.lr.ph.i.i ], [ %43, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %51, %.lr.ph.i.i ], [ %48, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %52, %.lr.ph.i.i ], [ %43, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %50 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %50, 0
-  %51 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %51
-  %52 = lshr i32 %.023.i.i, 1
-  %53 = fmul double %.01522.i.i, %.01522.i.i
+  %49 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %49, 0
+  %50 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %50
+  %51 = lshr i32 %.023.i.i, 1
+  %52 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %47
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %47 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %53 = icmp sgt i32 %30, 1
   %54 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %55 = select i1 %48, double %.016.lcssa.i.i, double %54
-  %56 = icmp sgt i32 %31, 1
+  %55 = select i1 %53, double %.016.lcssa.i.i, double %54
   %.off40.i = add i32 %31, 1
   %.not20.i22.i = icmp ult i32 %.off40.i, 3
   br i1 %.not20.i22.i, label %._crit_edge.i31.i, label %.lr.ph.preheader.i23.i
 
 .lr.ph.preheader.i23.i:                           ; preds = %.loopexit.i
-  %57 = call i32 @llvm.abs.i32(i32 %45, i1 true)
+  %56 = call i32 @llvm.abs.i32(i32 %45, i1 true)
   br label %.lr.ph.i24.i
 
 .lr.ph.i24.i:                                     ; preds = %.lr.ph.i24.i, %.lr.ph.preheader.i23.i
-  %.023.i25.i = phi i32 [ %60, %.lr.ph.i24.i ], [ %57, %.lr.ph.preheader.i23.i ]
-  %.01522.i26.i = phi double [ %61, %.lr.ph.i24.i ], [ %43, %.lr.ph.preheader.i23.i ]
+  %.023.i25.i = phi i32 [ %59, %.lr.ph.i24.i ], [ %56, %.lr.ph.preheader.i23.i ]
+  %.01522.i26.i = phi double [ %60, %.lr.ph.i24.i ], [ %43, %.lr.ph.preheader.i23.i ]
   %.01621.i27.i = phi double [ %.1.i29.i, %.lr.ph.i24.i ], [ 1.000000e+00, %.lr.ph.preheader.i23.i ]
-  %58 = and i32 %.023.i25.i, 1
-  %.not19.i28.i = icmp eq i32 %58, 0
-  %59 = fmul double %.01522.i26.i, %.01621.i27.i
-  %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %59
-  %60 = lshr i32 %.023.i25.i, 1
-  %61 = fmul double %.01522.i26.i, %.01522.i26.i
+  %57 = and i32 %.023.i25.i, 1
+  %.not19.i28.i = icmp eq i32 %57, 0
+  %58 = fmul double %.01522.i26.i, %.01621.i27.i
+  %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %58
+  %59 = lshr i32 %.023.i25.i, 1
+  %60 = fmul double %.01522.i26.i, %.01522.i26.i
   %.not.i30.i = icmp samesign ult i32 %.023.i25.i, 2
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !121
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %.loopexit.i
   %.016.lcssa.i32.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i29.i, %.lr.ph.i24.i ]
+  %61 = icmp sgt i32 %31, 1
   %62 = fdiv double 1.000000e+00, %.016.lcssa.i32.i
-  %63 = select i1 %56, double %.016.lcssa.i32.i, double %62
+  %63 = select i1 %61, double %.016.lcssa.i32.i, double %62
   br label %64
 
 64:                                               ; preds = %._crit_edge.i31.i, %.noexc
@@ -7508,58 +7508,58 @@ define linkonce_odr void @_ZN6colvar8coordnum9main_loopILi0EEEvPPb(ptr noundef n
   br i1 %137, label %_ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit35, label %138
 
 138:                                              ; preds = %120
-  %139 = icmp sgt i32 %121, 1
   %.off.i8 = add i32 %121, 1
   %.not20.i.i9 = icmp ult i32 %.off.i8, 3
   br i1 %.not20.i.i9, label %.loopexit.i18, label %.lr.ph.preheader.i.i10
 
 .lr.ph.preheader.i.i10:                           ; preds = %138
-  %140 = call i32 @llvm.abs.i32(i32 %135, i1 true)
+  %139 = call i32 @llvm.abs.i32(i32 %135, i1 true)
   br label %.lr.ph.i.i11
 
 .lr.ph.i.i11:                                     ; preds = %.lr.ph.i.i11, %.lr.ph.preheader.i.i10
-  %.023.i.i12 = phi i32 [ %143, %.lr.ph.i.i11 ], [ %140, %.lr.ph.preheader.i.i10 ]
-  %.01522.i.i13 = phi double [ %144, %.lr.ph.i.i11 ], [ %134, %.lr.ph.preheader.i.i10 ]
+  %.023.i.i12 = phi i32 [ %142, %.lr.ph.i.i11 ], [ %139, %.lr.ph.preheader.i.i10 ]
+  %.01522.i.i13 = phi double [ %143, %.lr.ph.i.i11 ], [ %134, %.lr.ph.preheader.i.i10 ]
   %.01621.i.i14 = phi double [ %.1.i.i16, %.lr.ph.i.i11 ], [ 1.000000e+00, %.lr.ph.preheader.i.i10 ]
-  %141 = and i32 %.023.i.i12, 1
-  %.not19.i.i15 = icmp eq i32 %141, 0
-  %142 = fmul double %.01522.i.i13, %.01621.i.i14
-  %.1.i.i16 = select i1 %.not19.i.i15, double %.01621.i.i14, double %142
-  %143 = lshr i32 %.023.i.i12, 1
-  %144 = fmul double %.01522.i.i13, %.01522.i.i13
+  %140 = and i32 %.023.i.i12, 1
+  %.not19.i.i15 = icmp eq i32 %140, 0
+  %141 = fmul double %.01522.i.i13, %.01621.i.i14
+  %.1.i.i16 = select i1 %.not19.i.i15, double %.01621.i.i14, double %141
+  %142 = lshr i32 %.023.i.i12, 1
+  %143 = fmul double %.01522.i.i13, %.01522.i.i13
   %.not.i.i17 = icmp samesign ult i32 %.023.i.i12, 2
   br i1 %.not.i.i17, label %.loopexit.i18, label %.lr.ph.i.i11, !llvm.loop !121
 
 .loopexit.i18:                                    ; preds = %.lr.ph.i.i11, %138
   %.016.lcssa.i.i19 = phi double [ 1.000000e+00, %138 ], [ %.1.i.i16, %.lr.ph.i.i11 ]
+  %144 = icmp sgt i32 %121, 1
   %145 = fdiv double 1.000000e+00, %.016.lcssa.i.i19
-  %146 = select i1 %139, double %.016.lcssa.i.i19, double %145
-  %147 = icmp sgt i32 %122, 1
+  %146 = select i1 %144, double %.016.lcssa.i.i19, double %145
   %.off40.i20 = add i32 %122, 1
   %.not20.i22.i21 = icmp ult i32 %.off40.i20, 3
   br i1 %.not20.i22.i21, label %._crit_edge.i31.i30, label %.lr.ph.preheader.i23.i22
 
 .lr.ph.preheader.i23.i22:                         ; preds = %.loopexit.i18
-  %148 = call i32 @llvm.abs.i32(i32 %136, i1 true)
+  %147 = call i32 @llvm.abs.i32(i32 %136, i1 true)
   br label %.lr.ph.i24.i23
 
 .lr.ph.i24.i23:                                   ; preds = %.lr.ph.i24.i23, %.lr.ph.preheader.i23.i22
-  %.023.i25.i24 = phi i32 [ %151, %.lr.ph.i24.i23 ], [ %148, %.lr.ph.preheader.i23.i22 ]
-  %.01522.i26.i25 = phi double [ %152, %.lr.ph.i24.i23 ], [ %134, %.lr.ph.preheader.i23.i22 ]
+  %.023.i25.i24 = phi i32 [ %150, %.lr.ph.i24.i23 ], [ %147, %.lr.ph.preheader.i23.i22 ]
+  %.01522.i26.i25 = phi double [ %151, %.lr.ph.i24.i23 ], [ %134, %.lr.ph.preheader.i23.i22 ]
   %.01621.i27.i26 = phi double [ %.1.i29.i28, %.lr.ph.i24.i23 ], [ 1.000000e+00, %.lr.ph.preheader.i23.i22 ]
-  %149 = and i32 %.023.i25.i24, 1
-  %.not19.i28.i27 = icmp eq i32 %149, 0
-  %150 = fmul double %.01522.i26.i25, %.01621.i27.i26
-  %.1.i29.i28 = select i1 %.not19.i28.i27, double %.01621.i27.i26, double %150
-  %151 = lshr i32 %.023.i25.i24, 1
-  %152 = fmul double %.01522.i26.i25, %.01522.i26.i25
+  %148 = and i32 %.023.i25.i24, 1
+  %.not19.i28.i27 = icmp eq i32 %148, 0
+  %149 = fmul double %.01522.i26.i25, %.01621.i27.i26
+  %.1.i29.i28 = select i1 %.not19.i28.i27, double %.01621.i27.i26, double %149
+  %150 = lshr i32 %.023.i25.i24, 1
+  %151 = fmul double %.01522.i26.i25, %.01522.i26.i25
   %.not.i30.i29 = icmp samesign ult i32 %.023.i25.i24, 2
   br i1 %.not.i30.i29, label %._crit_edge.i31.i30, label %.lr.ph.i24.i23, !llvm.loop !121
 
 ._crit_edge.i31.i30:                              ; preds = %.lr.ph.i24.i23, %.loopexit.i18
   %.016.lcssa.i32.i31 = phi double [ 1.000000e+00, %.loopexit.i18 ], [ %.1.i29.i28, %.lr.ph.i24.i23 ]
+  %152 = icmp sgt i32 %122, 1
   %153 = fdiv double 1.000000e+00, %.016.lcssa.i32.i31
-  %154 = select i1 %147, double %.016.lcssa.i32.i31, double %153
+  %154 = select i1 %152, double %.016.lcssa.i32.i31, double %153
   br label %_ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit35
 
 _ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit35: ; preds = %120, %._crit_edge.i31.i30
@@ -7617,58 +7617,58 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi17
   br i1 %30, label %_ZN12colvarmodule13integer_powerERKdi.exit38, label %31
 
 31:                                               ; preds = %8
-  %32 = icmp sgt i32 %2, 1
   %.off = add i32 %2, 1
   %.not20.i = icmp ult i32 %.off, 3
   br i1 %.not20.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %31
-  %33 = call i32 @llvm.abs.i32(i32 %28, i1 true)
+  %32 = call i32 @llvm.abs.i32(i32 %28, i1 true)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.023.i = phi i32 [ %36, %.lr.ph.i ], [ %33, %.lr.ph.preheader.i ]
-  %.01522.i = phi double [ %37, %.lr.ph.i ], [ %27, %.lr.ph.preheader.i ]
+  %.023.i = phi i32 [ %35, %.lr.ph.i ], [ %32, %.lr.ph.preheader.i ]
+  %.01522.i = phi double [ %36, %.lr.ph.i ], [ %27, %.lr.ph.preheader.i ]
   %.01621.i = phi double [ %.1.i, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.preheader.i ]
-  %34 = and i32 %.023.i, 1
-  %.not19.i = icmp eq i32 %34, 0
-  %35 = fmul double %.01522.i, %.01621.i
-  %.1.i = select i1 %.not19.i, double %.01621.i, double %35
-  %36 = lshr i32 %.023.i, 1
-  %37 = fmul double %.01522.i, %.01522.i
+  %33 = and i32 %.023.i, 1
+  %.not19.i = icmp eq i32 %33, 0
+  %34 = fmul double %.01522.i, %.01621.i
+  %.1.i = select i1 %.not19.i, double %.01621.i, double %34
+  %35 = lshr i32 %.023.i, 1
+  %36 = fmul double %.01522.i, %.01522.i
   %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %31
   %.016.lcssa.i = phi double [ 1.000000e+00, %31 ], [ %.1.i, %.lr.ph.i ]
+  %37 = icmp sgt i32 %2, 1
   %38 = fdiv double 1.000000e+00, %.016.lcssa.i
-  %39 = select i1 %32, double %.016.lcssa.i, double %38
-  %40 = icmp sgt i32 %3, 1
+  %39 = select i1 %37, double %.016.lcssa.i, double %38
   %.off44 = add i32 %3, 1
   %.not20.i26 = icmp ult i32 %.off44, 3
   br i1 %.not20.i26, label %._crit_edge.i35, label %.lr.ph.preheader.i27
 
 .lr.ph.preheader.i27:                             ; preds = %.loopexit
-  %41 = call i32 @llvm.abs.i32(i32 %29, i1 true)
+  %40 = call i32 @llvm.abs.i32(i32 %29, i1 true)
   br label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %.lr.ph.i28, %.lr.ph.preheader.i27
-  %.023.i29 = phi i32 [ %44, %.lr.ph.i28 ], [ %41, %.lr.ph.preheader.i27 ]
-  %.01522.i30 = phi double [ %45, %.lr.ph.i28 ], [ %27, %.lr.ph.preheader.i27 ]
+  %.023.i29 = phi i32 [ %43, %.lr.ph.i28 ], [ %40, %.lr.ph.preheader.i27 ]
+  %.01522.i30 = phi double [ %44, %.lr.ph.i28 ], [ %27, %.lr.ph.preheader.i27 ]
   %.01621.i31 = phi double [ %.1.i33, %.lr.ph.i28 ], [ 1.000000e+00, %.lr.ph.preheader.i27 ]
-  %42 = and i32 %.023.i29, 1
-  %.not19.i32 = icmp eq i32 %42, 0
-  %43 = fmul double %.01522.i30, %.01621.i31
-  %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %43
-  %44 = lshr i32 %.023.i29, 1
-  %45 = fmul double %.01522.i30, %.01522.i30
+  %41 = and i32 %.023.i29, 1
+  %.not19.i32 = icmp eq i32 %41, 0
+  %42 = fmul double %.01522.i30, %.01621.i31
+  %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %42
+  %43 = lshr i32 %.023.i29, 1
+  %44 = fmul double %.01522.i30, %.01522.i30
   %.not.i34 = icmp samesign ult i32 %.023.i29, 2
   br i1 %.not.i34, label %._crit_edge.i35, label %.lr.ph.i28, !llvm.loop !121
 
 ._crit_edge.i35:                                  ; preds = %.lr.ph.i28, %.loopexit
   %.016.lcssa.i36 = phi double [ 1.000000e+00, %.loopexit ], [ %.1.i33, %.lr.ph.i28 ]
+  %45 = icmp sgt i32 %3, 1
   %46 = fdiv double 1.000000e+00, %.016.lcssa.i36
-  %47 = select i1 %40, double %.016.lcssa.i36, double %46
+  %47 = select i1 %45, double %.016.lcssa.i36, double %46
   br label %_ZN12colvarmodule13integer_powerERKdi.exit38
 
 _ZN12colvarmodule13integer_powerERKdi.exit38:     ; preds = %8, %._crit_edge.i35
@@ -7730,58 +7730,58 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi76
   br i1 %35, label %_ZN12colvarmodule13integer_powerERKdi.exit38, label %36
 
 36:                                               ; preds = %14
-  %37 = icmp sgt i32 %2, 1
   %.off = add i32 %2, 1
   %.not20.i = icmp ult i32 %.off, 3
   br i1 %.not20.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %36
-  %38 = call i32 @llvm.abs.i32(i32 %33, i1 true)
+  %37 = call i32 @llvm.abs.i32(i32 %33, i1 true)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.023.i = phi i32 [ %41, %.lr.ph.i ], [ %38, %.lr.ph.preheader.i ]
-  %.01522.i = phi double [ %42, %.lr.ph.i ], [ %32, %.lr.ph.preheader.i ]
+  %.023.i = phi i32 [ %40, %.lr.ph.i ], [ %37, %.lr.ph.preheader.i ]
+  %.01522.i = phi double [ %41, %.lr.ph.i ], [ %32, %.lr.ph.preheader.i ]
   %.01621.i = phi double [ %.1.i, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.preheader.i ]
-  %39 = and i32 %.023.i, 1
-  %.not19.i = icmp eq i32 %39, 0
-  %40 = fmul double %.01522.i, %.01621.i
-  %.1.i = select i1 %.not19.i, double %.01621.i, double %40
-  %41 = lshr i32 %.023.i, 1
-  %42 = fmul double %.01522.i, %.01522.i
+  %38 = and i32 %.023.i, 1
+  %.not19.i = icmp eq i32 %38, 0
+  %39 = fmul double %.01522.i, %.01621.i
+  %.1.i = select i1 %.not19.i, double %.01621.i, double %39
+  %40 = lshr i32 %.023.i, 1
+  %41 = fmul double %.01522.i, %.01522.i
   %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %36
   %.016.lcssa.i = phi double [ 1.000000e+00, %36 ], [ %.1.i, %.lr.ph.i ]
+  %42 = icmp sgt i32 %2, 1
   %43 = fdiv double 1.000000e+00, %.016.lcssa.i
-  %44 = select i1 %37, double %.016.lcssa.i, double %43
-  %45 = icmp sgt i32 %3, 1
+  %44 = select i1 %42, double %.016.lcssa.i, double %43
   %.off44 = add i32 %3, 1
   %.not20.i26 = icmp ult i32 %.off44, 3
   br i1 %.not20.i26, label %._crit_edge.i35, label %.lr.ph.preheader.i27
 
 .lr.ph.preheader.i27:                             ; preds = %.loopexit
-  %46 = call i32 @llvm.abs.i32(i32 %34, i1 true)
+  %45 = call i32 @llvm.abs.i32(i32 %34, i1 true)
   br label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %.lr.ph.i28, %.lr.ph.preheader.i27
-  %.023.i29 = phi i32 [ %49, %.lr.ph.i28 ], [ %46, %.lr.ph.preheader.i27 ]
-  %.01522.i30 = phi double [ %50, %.lr.ph.i28 ], [ %32, %.lr.ph.preheader.i27 ]
+  %.023.i29 = phi i32 [ %48, %.lr.ph.i28 ], [ %45, %.lr.ph.preheader.i27 ]
+  %.01522.i30 = phi double [ %49, %.lr.ph.i28 ], [ %32, %.lr.ph.preheader.i27 ]
   %.01621.i31 = phi double [ %.1.i33, %.lr.ph.i28 ], [ 1.000000e+00, %.lr.ph.preheader.i27 ]
-  %47 = and i32 %.023.i29, 1
-  %.not19.i32 = icmp eq i32 %47, 0
-  %48 = fmul double %.01522.i30, %.01621.i31
-  %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %48
-  %49 = lshr i32 %.023.i29, 1
-  %50 = fmul double %.01522.i30, %.01522.i30
+  %46 = and i32 %.023.i29, 1
+  %.not19.i32 = icmp eq i32 %46, 0
+  %47 = fmul double %.01522.i30, %.01621.i31
+  %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %47
+  %48 = lshr i32 %.023.i29, 1
+  %49 = fmul double %.01522.i30, %.01522.i30
   %.not.i34 = icmp samesign ult i32 %.023.i29, 2
   br i1 %.not.i34, label %._crit_edge.i35, label %.lr.ph.i28, !llvm.loop !121
 
 ._crit_edge.i35:                                  ; preds = %.lr.ph.i28, %.loopexit
   %.016.lcssa.i36 = phi double [ 1.000000e+00, %.loopexit ], [ %.1.i33, %.lr.ph.i28 ]
+  %50 = icmp sgt i32 %3, 1
   %51 = fdiv double 1.000000e+00, %.016.lcssa.i36
-  %52 = select i1 %45, double %.016.lcssa.i36, double %51
+  %52 = select i1 %50, double %.016.lcssa.i36, double %51
   br label %_ZN12colvarmodule13integer_powerERKdi.exit38
 
 _ZN12colvarmodule13integer_powerERKdi.exit38:     ; preds = %14, %._crit_edge.i35
@@ -7832,58 +7832,58 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi25
   br i1 %30, label %_ZN12colvarmodule13integer_powerERKdi.exit34, label %31
 
 31:                                               ; preds = %8
-  %32 = icmp sgt i32 %2, 1
   %.off = add i32 %2, 1
   %.not20.i = icmp ult i32 %.off, 3
   br i1 %.not20.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %31
-  %33 = call i32 @llvm.abs.i32(i32 %28, i1 true)
+  %32 = call i32 @llvm.abs.i32(i32 %28, i1 true)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.023.i = phi i32 [ %36, %.lr.ph.i ], [ %33, %.lr.ph.preheader.i ]
-  %.01522.i = phi double [ %37, %.lr.ph.i ], [ %27, %.lr.ph.preheader.i ]
+  %.023.i = phi i32 [ %35, %.lr.ph.i ], [ %32, %.lr.ph.preheader.i ]
+  %.01522.i = phi double [ %36, %.lr.ph.i ], [ %27, %.lr.ph.preheader.i ]
   %.01621.i = phi double [ %.1.i, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.preheader.i ]
-  %34 = and i32 %.023.i, 1
-  %.not19.i = icmp eq i32 %34, 0
-  %35 = fmul double %.01522.i, %.01621.i
-  %.1.i = select i1 %.not19.i, double %.01621.i, double %35
-  %36 = lshr i32 %.023.i, 1
-  %37 = fmul double %.01522.i, %.01522.i
+  %33 = and i32 %.023.i, 1
+  %.not19.i = icmp eq i32 %33, 0
+  %34 = fmul double %.01522.i, %.01621.i
+  %.1.i = select i1 %.not19.i, double %.01621.i, double %34
+  %35 = lshr i32 %.023.i, 1
+  %36 = fmul double %.01522.i, %.01522.i
   %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %31
   %.016.lcssa.i = phi double [ 1.000000e+00, %31 ], [ %.1.i, %.lr.ph.i ]
+  %37 = icmp sgt i32 %2, 1
   %38 = fdiv double 1.000000e+00, %.016.lcssa.i
-  %39 = select i1 %32, double %.016.lcssa.i, double %38
-  %40 = icmp sgt i32 %3, 1
+  %39 = select i1 %37, double %.016.lcssa.i, double %38
   %.off40 = add i32 %3, 1
   %.not20.i22 = icmp ult i32 %.off40, 3
   br i1 %.not20.i22, label %._crit_edge.i31, label %.lr.ph.preheader.i23
 
 .lr.ph.preheader.i23:                             ; preds = %.loopexit
-  %41 = call i32 @llvm.abs.i32(i32 %29, i1 true)
+  %40 = call i32 @llvm.abs.i32(i32 %29, i1 true)
   br label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %.lr.ph.i24, %.lr.ph.preheader.i23
-  %.023.i25 = phi i32 [ %44, %.lr.ph.i24 ], [ %41, %.lr.ph.preheader.i23 ]
-  %.01522.i26 = phi double [ %45, %.lr.ph.i24 ], [ %27, %.lr.ph.preheader.i23 ]
+  %.023.i25 = phi i32 [ %43, %.lr.ph.i24 ], [ %40, %.lr.ph.preheader.i23 ]
+  %.01522.i26 = phi double [ %44, %.lr.ph.i24 ], [ %27, %.lr.ph.preheader.i23 ]
   %.01621.i27 = phi double [ %.1.i29, %.lr.ph.i24 ], [ 1.000000e+00, %.lr.ph.preheader.i23 ]
-  %42 = and i32 %.023.i25, 1
-  %.not19.i28 = icmp eq i32 %42, 0
-  %43 = fmul double %.01522.i26, %.01621.i27
-  %.1.i29 = select i1 %.not19.i28, double %.01621.i27, double %43
-  %44 = lshr i32 %.023.i25, 1
-  %45 = fmul double %.01522.i26, %.01522.i26
+  %41 = and i32 %.023.i25, 1
+  %.not19.i28 = icmp eq i32 %41, 0
+  %42 = fmul double %.01522.i26, %.01621.i27
+  %.1.i29 = select i1 %.not19.i28, double %.01621.i27, double %42
+  %43 = lshr i32 %.023.i25, 1
+  %44 = fmul double %.01522.i26, %.01522.i26
   %.not.i30 = icmp samesign ult i32 %.023.i25, 2
   br i1 %.not.i30, label %._crit_edge.i31, label %.lr.ph.i24, !llvm.loop !121
 
 ._crit_edge.i31:                                  ; preds = %.lr.ph.i24, %.loopexit
   %.016.lcssa.i32 = phi double [ 1.000000e+00, %.loopexit ], [ %.1.i29, %.lr.ph.i24 ]
+  %45 = icmp sgt i32 %3, 1
   %46 = fdiv double 1.000000e+00, %.016.lcssa.i32
-  %47 = select i1 %40, double %.016.lcssa.i32, double %46
+  %47 = select i1 %45, double %.016.lcssa.i32, double %46
   br label %_ZN12colvarmodule13integer_powerERKdi.exit34
 
 _ZN12colvarmodule13integer_powerERKdi.exit34:     ; preds = %8, %._crit_edge.i31
@@ -7926,58 +7926,58 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi15
   br i1 %26, label %_ZN12colvarmodule13integer_powerERKdi.exit38, label %27
 
 27:                                               ; preds = %8
-  %28 = icmp sgt i32 %2, 1
   %.off = add i32 %2, 1
   %.not20.i = icmp ult i32 %.off, 3
   br i1 %.not20.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %27
-  %29 = call i32 @llvm.abs.i32(i32 %24, i1 true)
+  %28 = call i32 @llvm.abs.i32(i32 %24, i1 true)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.023.i = phi i32 [ %32, %.lr.ph.i ], [ %29, %.lr.ph.preheader.i ]
-  %.01522.i = phi double [ %33, %.lr.ph.i ], [ %23, %.lr.ph.preheader.i ]
+  %.023.i = phi i32 [ %31, %.lr.ph.i ], [ %28, %.lr.ph.preheader.i ]
+  %.01522.i = phi double [ %32, %.lr.ph.i ], [ %23, %.lr.ph.preheader.i ]
   %.01621.i = phi double [ %.1.i, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.preheader.i ]
-  %30 = and i32 %.023.i, 1
-  %.not19.i = icmp eq i32 %30, 0
-  %31 = fmul double %.01522.i, %.01621.i
-  %.1.i = select i1 %.not19.i, double %.01621.i, double %31
-  %32 = lshr i32 %.023.i, 1
-  %33 = fmul double %.01522.i, %.01522.i
+  %29 = and i32 %.023.i, 1
+  %.not19.i = icmp eq i32 %29, 0
+  %30 = fmul double %.01522.i, %.01621.i
+  %.1.i = select i1 %.not19.i, double %.01621.i, double %30
+  %31 = lshr i32 %.023.i, 1
+  %32 = fmul double %.01522.i, %.01522.i
   %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %27
   %.016.lcssa.i = phi double [ 1.000000e+00, %27 ], [ %.1.i, %.lr.ph.i ]
+  %33 = icmp sgt i32 %2, 1
   %34 = fdiv double 1.000000e+00, %.016.lcssa.i
-  %35 = select i1 %28, double %.016.lcssa.i, double %34
-  %36 = icmp sgt i32 %3, 1
+  %35 = select i1 %33, double %.016.lcssa.i, double %34
   %.off44 = add i32 %3, 1
   %.not20.i26 = icmp ult i32 %.off44, 3
   br i1 %.not20.i26, label %._crit_edge.i35, label %.lr.ph.preheader.i27
 
 .lr.ph.preheader.i27:                             ; preds = %.loopexit
-  %37 = call i32 @llvm.abs.i32(i32 %25, i1 true)
+  %36 = call i32 @llvm.abs.i32(i32 %25, i1 true)
   br label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %.lr.ph.i28, %.lr.ph.preheader.i27
-  %.023.i29 = phi i32 [ %40, %.lr.ph.i28 ], [ %37, %.lr.ph.preheader.i27 ]
-  %.01522.i30 = phi double [ %41, %.lr.ph.i28 ], [ %23, %.lr.ph.preheader.i27 ]
+  %.023.i29 = phi i32 [ %39, %.lr.ph.i28 ], [ %36, %.lr.ph.preheader.i27 ]
+  %.01522.i30 = phi double [ %40, %.lr.ph.i28 ], [ %23, %.lr.ph.preheader.i27 ]
   %.01621.i31 = phi double [ %.1.i33, %.lr.ph.i28 ], [ 1.000000e+00, %.lr.ph.preheader.i27 ]
-  %38 = and i32 %.023.i29, 1
-  %.not19.i32 = icmp eq i32 %38, 0
-  %39 = fmul double %.01522.i30, %.01621.i31
-  %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %39
-  %40 = lshr i32 %.023.i29, 1
-  %41 = fmul double %.01522.i30, %.01522.i30
+  %37 = and i32 %.023.i29, 1
+  %.not19.i32 = icmp eq i32 %37, 0
+  %38 = fmul double %.01522.i30, %.01621.i31
+  %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %38
+  %39 = lshr i32 %.023.i29, 1
+  %40 = fmul double %.01522.i30, %.01522.i30
   %.not.i34 = icmp samesign ult i32 %.023.i29, 2
   br i1 %.not.i34, label %._crit_edge.i35, label %.lr.ph.i28, !llvm.loop !121
 
 ._crit_edge.i35:                                  ; preds = %.lr.ph.i28, %.loopexit
   %.016.lcssa.i36 = phi double [ 1.000000e+00, %.loopexit ], [ %.1.i33, %.lr.ph.i28 ]
+  %41 = icmp sgt i32 %3, 1
   %42 = fdiv double 1.000000e+00, %.016.lcssa.i36
-  %43 = select i1 %36, double %.016.lcssa.i36, double %42
+  %43 = select i1 %41, double %.016.lcssa.i36, double %42
   br label %_ZN12colvarmodule13integer_powerERKdi.exit38
 
 _ZN12colvarmodule13integer_powerERKdi.exit38:     ; preds = %8, %._crit_edge.i35
@@ -8035,58 +8035,58 @@ define linkonce_odr noundef double @_ZN6colvar8coordnum18switching_functionILi51
   br i1 %31, label %_ZN12colvarmodule13integer_powerERKdi.exit38, label %32
 
 32:                                               ; preds = %14
-  %33 = icmp sgt i32 %2, 1
   %.off = add i32 %2, 1
   %.not20.i = icmp ult i32 %.off, 3
   br i1 %.not20.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %32
-  %34 = call i32 @llvm.abs.i32(i32 %29, i1 true)
+  %33 = call i32 @llvm.abs.i32(i32 %29, i1 true)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.023.i = phi i32 [ %37, %.lr.ph.i ], [ %34, %.lr.ph.preheader.i ]
-  %.01522.i = phi double [ %38, %.lr.ph.i ], [ %28, %.lr.ph.preheader.i ]
+  %.023.i = phi i32 [ %36, %.lr.ph.i ], [ %33, %.lr.ph.preheader.i ]
+  %.01522.i = phi double [ %37, %.lr.ph.i ], [ %28, %.lr.ph.preheader.i ]
   %.01621.i = phi double [ %.1.i, %.lr.ph.i ], [ 1.000000e+00, %.lr.ph.preheader.i ]
-  %35 = and i32 %.023.i, 1
-  %.not19.i = icmp eq i32 %35, 0
-  %36 = fmul double %.01522.i, %.01621.i
-  %.1.i = select i1 %.not19.i, double %.01621.i, double %36
-  %37 = lshr i32 %.023.i, 1
-  %38 = fmul double %.01522.i, %.01522.i
+  %34 = and i32 %.023.i, 1
+  %.not19.i = icmp eq i32 %34, 0
+  %35 = fmul double %.01522.i, %.01621.i
+  %.1.i = select i1 %.not19.i, double %.01621.i, double %35
+  %36 = lshr i32 %.023.i, 1
+  %37 = fmul double %.01522.i, %.01522.i
   %.not.i = icmp samesign ult i32 %.023.i, 2
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !121
 
 .loopexit:                                        ; preds = %.lr.ph.i, %32
   %.016.lcssa.i = phi double [ 1.000000e+00, %32 ], [ %.1.i, %.lr.ph.i ]
+  %38 = icmp sgt i32 %2, 1
   %39 = fdiv double 1.000000e+00, %.016.lcssa.i
-  %40 = select i1 %33, double %.016.lcssa.i, double %39
-  %41 = icmp sgt i32 %3, 1
+  %40 = select i1 %38, double %.016.lcssa.i, double %39
   %.off44 = add i32 %3, 1
   %.not20.i26 = icmp ult i32 %.off44, 3
   br i1 %.not20.i26, label %._crit_edge.i35, label %.lr.ph.preheader.i27
 
 .lr.ph.preheader.i27:                             ; preds = %.loopexit
-  %42 = call i32 @llvm.abs.i32(i32 %30, i1 true)
+  %41 = call i32 @llvm.abs.i32(i32 %30, i1 true)
   br label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %.lr.ph.i28, %.lr.ph.preheader.i27
-  %.023.i29 = phi i32 [ %45, %.lr.ph.i28 ], [ %42, %.lr.ph.preheader.i27 ]
-  %.01522.i30 = phi double [ %46, %.lr.ph.i28 ], [ %28, %.lr.ph.preheader.i27 ]
+  %.023.i29 = phi i32 [ %44, %.lr.ph.i28 ], [ %41, %.lr.ph.preheader.i27 ]
+  %.01522.i30 = phi double [ %45, %.lr.ph.i28 ], [ %28, %.lr.ph.preheader.i27 ]
   %.01621.i31 = phi double [ %.1.i33, %.lr.ph.i28 ], [ 1.000000e+00, %.lr.ph.preheader.i27 ]
-  %43 = and i32 %.023.i29, 1
-  %.not19.i32 = icmp eq i32 %43, 0
-  %44 = fmul double %.01522.i30, %.01621.i31
-  %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %44
-  %45 = lshr i32 %.023.i29, 1
-  %46 = fmul double %.01522.i30, %.01522.i30
+  %42 = and i32 %.023.i29, 1
+  %.not19.i32 = icmp eq i32 %42, 0
+  %43 = fmul double %.01522.i30, %.01621.i31
+  %.1.i33 = select i1 %.not19.i32, double %.01621.i31, double %43
+  %44 = lshr i32 %.023.i29, 1
+  %45 = fmul double %.01522.i30, %.01522.i30
   %.not.i34 = icmp samesign ult i32 %.023.i29, 2
   br i1 %.not.i34, label %._crit_edge.i35, label %.lr.ph.i28, !llvm.loop !121
 
 ._crit_edge.i35:                                  ; preds = %.lr.ph.i28, %.loopexit
   %.016.lcssa.i36 = phi double [ 1.000000e+00, %.loopexit ], [ %.1.i33, %.lr.ph.i28 ]
+  %46 = icmp sgt i32 %3, 1
   %47 = fdiv double 1.000000e+00, %.016.lcssa.i36
-  %48 = select i1 %41, double %.016.lcssa.i36, double %47
+  %48 = select i1 %46, double %.016.lcssa.i36, double %47
   br label %_ZN12colvarmodule13integer_powerERKdi.exit38
 
 _ZN12colvarmodule13integer_powerERKdi.exit38:     ; preds = %14, %._crit_edge.i35
@@ -8511,58 +8511,58 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
   br i1 %85, label %_ZN12colvarmodule13integer_powerERKdi.exit55.i, label %86
 
 86:                                               ; preds = %.lr.ph90
-  %87 = icmp sgt i32 %63, 1
   %.off.i = add i32 %63, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %86
-  %88 = call i32 @llvm.abs.i32(i32 %83, i1 true)
+  %87 = call i32 @llvm.abs.i32(i32 %83, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %91, %.lr.ph.i.i ], [ %88, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %92, %.lr.ph.i.i ], [ %82, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %90, %.lr.ph.i.i ], [ %87, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %91, %.lr.ph.i.i ], [ %82, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %89 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %89, 0
-  %90 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %90
-  %91 = lshr i32 %.023.i.i, 1
-  %92 = fmul double %.01522.i.i, %.01522.i.i
+  %88 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %88, 0
+  %89 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %89
+  %90 = lshr i32 %.023.i.i, 1
+  %91 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %86
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %86 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %92 = icmp sgt i32 %63, 1
   %93 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %94 = select i1 %87, double %.016.lcssa.i.i, double %93
-  %95 = icmp sgt i32 %64, 1
+  %94 = select i1 %92, double %.016.lcssa.i.i, double %93
   %.off72.i = add i32 %64, 1
   %.not20.i43.i = icmp ult i32 %.off72.i, 3
   br i1 %.not20.i43.i, label %._crit_edge.i52.i, label %.lr.ph.preheader.i44.i
 
 .lr.ph.preheader.i44.i:                           ; preds = %.loopexit.i
-  %96 = call i32 @llvm.abs.i32(i32 %84, i1 true)
+  %95 = call i32 @llvm.abs.i32(i32 %84, i1 true)
   br label %.lr.ph.i45.i
 
 .lr.ph.i45.i:                                     ; preds = %.lr.ph.i45.i, %.lr.ph.preheader.i44.i
-  %.023.i46.i = phi i32 [ %99, %.lr.ph.i45.i ], [ %96, %.lr.ph.preheader.i44.i ]
-  %.01522.i47.i = phi double [ %100, %.lr.ph.i45.i ], [ %82, %.lr.ph.preheader.i44.i ]
+  %.023.i46.i = phi i32 [ %98, %.lr.ph.i45.i ], [ %95, %.lr.ph.preheader.i44.i ]
+  %.01522.i47.i = phi double [ %99, %.lr.ph.i45.i ], [ %82, %.lr.ph.preheader.i44.i ]
   %.01621.i48.i = phi double [ %.1.i50.i, %.lr.ph.i45.i ], [ 1.000000e+00, %.lr.ph.preheader.i44.i ]
-  %97 = and i32 %.023.i46.i, 1
-  %.not19.i49.i = icmp eq i32 %97, 0
-  %98 = fmul double %.01522.i47.i, %.01621.i48.i
-  %.1.i50.i = select i1 %.not19.i49.i, double %.01621.i48.i, double %98
-  %99 = lshr i32 %.023.i46.i, 1
-  %100 = fmul double %.01522.i47.i, %.01522.i47.i
+  %96 = and i32 %.023.i46.i, 1
+  %.not19.i49.i = icmp eq i32 %96, 0
+  %97 = fmul double %.01522.i47.i, %.01621.i48.i
+  %.1.i50.i = select i1 %.not19.i49.i, double %.01621.i48.i, double %97
+  %98 = lshr i32 %.023.i46.i, 1
+  %99 = fmul double %.01522.i47.i, %.01522.i47.i
   %.not.i51.i = icmp samesign ult i32 %.023.i46.i, 2
   br i1 %.not.i51.i, label %._crit_edge.i52.i, label %.lr.ph.i45.i, !llvm.loop !121
 
 ._crit_edge.i52.i:                                ; preds = %.lr.ph.i45.i, %.loopexit.i
   %.016.lcssa.i53.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i50.i, %.lr.ph.i45.i ]
+  %100 = icmp sgt i32 %64, 1
   %101 = fdiv double 1.000000e+00, %.016.lcssa.i53.i
-  %102 = select i1 %95, double %.016.lcssa.i53.i, double %101
+  %102 = select i1 %100, double %.016.lcssa.i53.i, double %101
   br label %_ZN12colvarmodule13integer_powerERKdi.exit55.i
 
 _ZN12colvarmodule13integer_powerERKdi.exit55.i:   ; preds = %._crit_edge.i52.i, %.lr.ph90
@@ -8692,58 +8692,58 @@ _ZN6colvar8coordnum18switching_functionILi1537EEEdRKdRKN12colvarmodule7rvectorEi
   br i1 %183, label %_ZN12colvarmodule13integer_powerERKdi.exit55.i57, label %184
 
 184:                                              ; preds = %168
-  %185 = icmp sgt i32 %157, 1
   %.off.i33 = add i32 %157, 1
   %.not20.i.i34 = icmp ult i32 %.off.i33, 3
   br i1 %.not20.i.i34, label %.loopexit.i43, label %.lr.ph.preheader.i.i35
 
 .lr.ph.preheader.i.i35:                           ; preds = %184
-  %186 = call i32 @llvm.abs.i32(i32 %181, i1 true)
+  %185 = call i32 @llvm.abs.i32(i32 %181, i1 true)
   br label %.lr.ph.i.i36
 
 .lr.ph.i.i36:                                     ; preds = %.lr.ph.i.i36, %.lr.ph.preheader.i.i35
-  %.023.i.i37 = phi i32 [ %189, %.lr.ph.i.i36 ], [ %186, %.lr.ph.preheader.i.i35 ]
-  %.01522.i.i38 = phi double [ %190, %.lr.ph.i.i36 ], [ %180, %.lr.ph.preheader.i.i35 ]
+  %.023.i.i37 = phi i32 [ %188, %.lr.ph.i.i36 ], [ %185, %.lr.ph.preheader.i.i35 ]
+  %.01522.i.i38 = phi double [ %189, %.lr.ph.i.i36 ], [ %180, %.lr.ph.preheader.i.i35 ]
   %.01621.i.i39 = phi double [ %.1.i.i41, %.lr.ph.i.i36 ], [ 1.000000e+00, %.lr.ph.preheader.i.i35 ]
-  %187 = and i32 %.023.i.i37, 1
-  %.not19.i.i40 = icmp eq i32 %187, 0
-  %188 = fmul double %.01522.i.i38, %.01621.i.i39
-  %.1.i.i41 = select i1 %.not19.i.i40, double %.01621.i.i39, double %188
-  %189 = lshr i32 %.023.i.i37, 1
-  %190 = fmul double %.01522.i.i38, %.01522.i.i38
+  %186 = and i32 %.023.i.i37, 1
+  %.not19.i.i40 = icmp eq i32 %186, 0
+  %187 = fmul double %.01522.i.i38, %.01621.i.i39
+  %.1.i.i41 = select i1 %.not19.i.i40, double %.01621.i.i39, double %187
+  %188 = lshr i32 %.023.i.i37, 1
+  %189 = fmul double %.01522.i.i38, %.01522.i.i38
   %.not.i.i42 = icmp samesign ult i32 %.023.i.i37, 2
   br i1 %.not.i.i42, label %.loopexit.i43, label %.lr.ph.i.i36, !llvm.loop !121
 
 .loopexit.i43:                                    ; preds = %.lr.ph.i.i36, %184
   %.016.lcssa.i.i44 = phi double [ 1.000000e+00, %184 ], [ %.1.i.i41, %.lr.ph.i.i36 ]
+  %190 = icmp sgt i32 %157, 1
   %191 = fdiv double 1.000000e+00, %.016.lcssa.i.i44
-  %192 = select i1 %185, double %.016.lcssa.i.i44, double %191
-  %193 = icmp sgt i32 %158, 1
+  %192 = select i1 %190, double %.016.lcssa.i.i44, double %191
   %.off72.i45 = add i32 %158, 1
   %.not20.i43.i46 = icmp ult i32 %.off72.i45, 3
   br i1 %.not20.i43.i46, label %._crit_edge.i52.i55, label %.lr.ph.preheader.i44.i47
 
 .lr.ph.preheader.i44.i47:                         ; preds = %.loopexit.i43
-  %194 = call i32 @llvm.abs.i32(i32 %182, i1 true)
+  %193 = call i32 @llvm.abs.i32(i32 %182, i1 true)
   br label %.lr.ph.i45.i48
 
 .lr.ph.i45.i48:                                   ; preds = %.lr.ph.i45.i48, %.lr.ph.preheader.i44.i47
-  %.023.i46.i49 = phi i32 [ %197, %.lr.ph.i45.i48 ], [ %194, %.lr.ph.preheader.i44.i47 ]
-  %.01522.i47.i50 = phi double [ %198, %.lr.ph.i45.i48 ], [ %180, %.lr.ph.preheader.i44.i47 ]
+  %.023.i46.i49 = phi i32 [ %196, %.lr.ph.i45.i48 ], [ %193, %.lr.ph.preheader.i44.i47 ]
+  %.01522.i47.i50 = phi double [ %197, %.lr.ph.i45.i48 ], [ %180, %.lr.ph.preheader.i44.i47 ]
   %.01621.i48.i51 = phi double [ %.1.i50.i53, %.lr.ph.i45.i48 ], [ 1.000000e+00, %.lr.ph.preheader.i44.i47 ]
-  %195 = and i32 %.023.i46.i49, 1
-  %.not19.i49.i52 = icmp eq i32 %195, 0
-  %196 = fmul double %.01522.i47.i50, %.01621.i48.i51
-  %.1.i50.i53 = select i1 %.not19.i49.i52, double %.01621.i48.i51, double %196
-  %197 = lshr i32 %.023.i46.i49, 1
-  %198 = fmul double %.01522.i47.i50, %.01522.i47.i50
+  %194 = and i32 %.023.i46.i49, 1
+  %.not19.i49.i52 = icmp eq i32 %194, 0
+  %195 = fmul double %.01522.i47.i50, %.01621.i48.i51
+  %.1.i50.i53 = select i1 %.not19.i49.i52, double %.01621.i48.i51, double %195
+  %196 = lshr i32 %.023.i46.i49, 1
+  %197 = fmul double %.01522.i47.i50, %.01522.i47.i50
   %.not.i51.i54 = icmp samesign ult i32 %.023.i46.i49, 2
   br i1 %.not.i51.i54, label %._crit_edge.i52.i55, label %.lr.ph.i45.i48, !llvm.loop !121
 
 ._crit_edge.i52.i55:                              ; preds = %.lr.ph.i45.i48, %.loopexit.i43
   %.016.lcssa.i53.i56 = phi double [ 1.000000e+00, %.loopexit.i43 ], [ %.1.i50.i53, %.lr.ph.i45.i48 ]
+  %198 = icmp sgt i32 %158, 1
   %199 = fdiv double 1.000000e+00, %.016.lcssa.i53.i56
-  %200 = select i1 %193, double %.016.lcssa.i53.i56, double %199
+  %200 = select i1 %198, double %.016.lcssa.i53.i56, double %199
   br label %_ZN12colvarmodule13integer_powerERKdi.exit55.i57
 
 _ZN12colvarmodule13integer_powerERKdi.exit55.i57: ; preds = %._crit_edge.i52.i55, %168
@@ -8857,58 +8857,58 @@ _ZN6colvar8coordnum18switching_functionILi513EEEdRKdRKN12colvarmodule7rvectorEii
   br i1 %274, label %_ZN12colvarmodule13integer_powerERKdi.exit51.i, label %275
 
 275:                                              ; preds = %.lr.ph96
-  %276 = icmp sgt i32 %252, 1
   %.off.i60 = add i32 %252, 1
   %.not20.i.i61 = icmp ult i32 %.off.i60, 3
   br i1 %.not20.i.i61, label %.loopexit.i70, label %.lr.ph.preheader.i.i62
 
 .lr.ph.preheader.i.i62:                           ; preds = %275
-  %277 = call i32 @llvm.abs.i32(i32 %272, i1 true)
+  %276 = call i32 @llvm.abs.i32(i32 %272, i1 true)
   br label %.lr.ph.i.i63
 
 .lr.ph.i.i63:                                     ; preds = %.lr.ph.i.i63, %.lr.ph.preheader.i.i62
-  %.023.i.i64 = phi i32 [ %280, %.lr.ph.i.i63 ], [ %277, %.lr.ph.preheader.i.i62 ]
-  %.01522.i.i65 = phi double [ %281, %.lr.ph.i.i63 ], [ %271, %.lr.ph.preheader.i.i62 ]
+  %.023.i.i64 = phi i32 [ %279, %.lr.ph.i.i63 ], [ %276, %.lr.ph.preheader.i.i62 ]
+  %.01522.i.i65 = phi double [ %280, %.lr.ph.i.i63 ], [ %271, %.lr.ph.preheader.i.i62 ]
   %.01621.i.i66 = phi double [ %.1.i.i68, %.lr.ph.i.i63 ], [ 1.000000e+00, %.lr.ph.preheader.i.i62 ]
-  %278 = and i32 %.023.i.i64, 1
-  %.not19.i.i67 = icmp eq i32 %278, 0
-  %279 = fmul double %.01522.i.i65, %.01621.i.i66
-  %.1.i.i68 = select i1 %.not19.i.i67, double %.01621.i.i66, double %279
-  %280 = lshr i32 %.023.i.i64, 1
-  %281 = fmul double %.01522.i.i65, %.01522.i.i65
+  %277 = and i32 %.023.i.i64, 1
+  %.not19.i.i67 = icmp eq i32 %277, 0
+  %278 = fmul double %.01522.i.i65, %.01621.i.i66
+  %.1.i.i68 = select i1 %.not19.i.i67, double %.01621.i.i66, double %278
+  %279 = lshr i32 %.023.i.i64, 1
+  %280 = fmul double %.01522.i.i65, %.01522.i.i65
   %.not.i.i69 = icmp samesign ult i32 %.023.i.i64, 2
   br i1 %.not.i.i69, label %.loopexit.i70, label %.lr.ph.i.i63, !llvm.loop !121
 
 .loopexit.i70:                                    ; preds = %.lr.ph.i.i63, %275
   %.016.lcssa.i.i71 = phi double [ 1.000000e+00, %275 ], [ %.1.i.i68, %.lr.ph.i.i63 ]
+  %281 = icmp sgt i32 %252, 1
   %282 = fdiv double 1.000000e+00, %.016.lcssa.i.i71
-  %283 = select i1 %276, double %.016.lcssa.i.i71, double %282
-  %284 = icmp sgt i32 %253, 1
+  %283 = select i1 %281, double %.016.lcssa.i.i71, double %282
   %.off68.i = add i32 %253, 1
   %.not20.i39.i = icmp ult i32 %.off68.i, 3
   br i1 %.not20.i39.i, label %._crit_edge.i48.i, label %.lr.ph.preheader.i40.i
 
 .lr.ph.preheader.i40.i:                           ; preds = %.loopexit.i70
-  %285 = call i32 @llvm.abs.i32(i32 %273, i1 true)
+  %284 = call i32 @llvm.abs.i32(i32 %273, i1 true)
   br label %.lr.ph.i41.i
 
 .lr.ph.i41.i:                                     ; preds = %.lr.ph.i41.i, %.lr.ph.preheader.i40.i
-  %.023.i42.i = phi i32 [ %288, %.lr.ph.i41.i ], [ %285, %.lr.ph.preheader.i40.i ]
-  %.01522.i43.i = phi double [ %289, %.lr.ph.i41.i ], [ %271, %.lr.ph.preheader.i40.i ]
+  %.023.i42.i = phi i32 [ %287, %.lr.ph.i41.i ], [ %284, %.lr.ph.preheader.i40.i ]
+  %.01522.i43.i = phi double [ %288, %.lr.ph.i41.i ], [ %271, %.lr.ph.preheader.i40.i ]
   %.01621.i44.i = phi double [ %.1.i46.i, %.lr.ph.i41.i ], [ 1.000000e+00, %.lr.ph.preheader.i40.i ]
-  %286 = and i32 %.023.i42.i, 1
-  %.not19.i45.i = icmp eq i32 %286, 0
-  %287 = fmul double %.01522.i43.i, %.01621.i44.i
-  %.1.i46.i = select i1 %.not19.i45.i, double %.01621.i44.i, double %287
-  %288 = lshr i32 %.023.i42.i, 1
-  %289 = fmul double %.01522.i43.i, %.01522.i43.i
+  %285 = and i32 %.023.i42.i, 1
+  %.not19.i45.i = icmp eq i32 %285, 0
+  %286 = fmul double %.01522.i43.i, %.01621.i44.i
+  %.1.i46.i = select i1 %.not19.i45.i, double %.01621.i44.i, double %286
+  %287 = lshr i32 %.023.i42.i, 1
+  %288 = fmul double %.01522.i43.i, %.01522.i43.i
   %.not.i47.i = icmp samesign ult i32 %.023.i42.i, 2
   br i1 %.not.i47.i, label %._crit_edge.i48.i, label %.lr.ph.i41.i, !llvm.loop !121
 
 ._crit_edge.i48.i:                                ; preds = %.lr.ph.i41.i, %.loopexit.i70
   %.016.lcssa.i49.i = phi double [ 1.000000e+00, %.loopexit.i70 ], [ %.1.i46.i, %.lr.ph.i41.i ]
+  %289 = icmp sgt i32 %253, 1
   %290 = fdiv double 1.000000e+00, %.016.lcssa.i49.i
-  %291 = select i1 %284, double %.016.lcssa.i49.i, double %290
+  %291 = select i1 %289, double %.016.lcssa.i49.i, double %290
   br label %_ZN12colvarmodule13integer_powerERKdi.exit51.i
 
 _ZN12colvarmodule13integer_powerERKdi.exit51.i:   ; preds = %._crit_edge.i48.i, %.lr.ph96
@@ -9109,58 +9109,58 @@ define linkonce_odr noundef i32 @_ZN6colvar12selfcoordnum20compute_selfcoordnumI
   br i1 %85, label %_ZN6colvar8coordnum18switching_functionILi1536EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, label %86
 
 86:                                               ; preds = %.lr.ph90
-  %87 = icmp sgt i32 %63, 1
   %.off.i = add i32 %63, 1
   %.not20.i.i = icmp ult i32 %.off.i, 3
   br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %86
-  %88 = call i32 @llvm.abs.i32(i32 %83, i1 true)
+  %87 = call i32 @llvm.abs.i32(i32 %83, i1 true)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.023.i.i = phi i32 [ %91, %.lr.ph.i.i ], [ %88, %.lr.ph.preheader.i.i ]
-  %.01522.i.i = phi double [ %92, %.lr.ph.i.i ], [ %82, %.lr.ph.preheader.i.i ]
+  %.023.i.i = phi i32 [ %90, %.lr.ph.i.i ], [ %87, %.lr.ph.preheader.i.i ]
+  %.01522.i.i = phi double [ %91, %.lr.ph.i.i ], [ %82, %.lr.ph.preheader.i.i ]
   %.01621.i.i = phi double [ %.1.i.i, %.lr.ph.i.i ], [ 1.000000e+00, %.lr.ph.preheader.i.i ]
-  %89 = and i32 %.023.i.i, 1
-  %.not19.i.i = icmp eq i32 %89, 0
-  %90 = fmul double %.01522.i.i, %.01621.i.i
-  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %90
-  %91 = lshr i32 %.023.i.i, 1
-  %92 = fmul double %.01522.i.i, %.01522.i.i
+  %88 = and i32 %.023.i.i, 1
+  %.not19.i.i = icmp eq i32 %88, 0
+  %89 = fmul double %.01522.i.i, %.01621.i.i
+  %.1.i.i = select i1 %.not19.i.i, double %.01621.i.i, double %89
+  %90 = lshr i32 %.023.i.i, 1
+  %91 = fmul double %.01522.i.i, %.01522.i.i
   %.not.i.i = icmp samesign ult i32 %.023.i.i, 2
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !121
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %86
   %.016.lcssa.i.i = phi double [ 1.000000e+00, %86 ], [ %.1.i.i, %.lr.ph.i.i ]
+  %92 = icmp sgt i32 %63, 1
   %93 = fdiv double 1.000000e+00, %.016.lcssa.i.i
-  %94 = select i1 %87, double %.016.lcssa.i.i, double %93
-  %95 = icmp sgt i32 %64, 1
+  %94 = select i1 %92, double %.016.lcssa.i.i, double %93
   %.off44.i = add i32 %64, 1
   %.not20.i26.i = icmp ult i32 %.off44.i, 3
   br i1 %.not20.i26.i, label %._crit_edge.i35.i, label %.lr.ph.preheader.i27.i
 
 .lr.ph.preheader.i27.i:                           ; preds = %.loopexit.i
-  %96 = call i32 @llvm.abs.i32(i32 %84, i1 true)
+  %95 = call i32 @llvm.abs.i32(i32 %84, i1 true)
   br label %.lr.ph.i28.i
 
 .lr.ph.i28.i:                                     ; preds = %.lr.ph.i28.i, %.lr.ph.preheader.i27.i
-  %.023.i29.i = phi i32 [ %99, %.lr.ph.i28.i ], [ %96, %.lr.ph.preheader.i27.i ]
-  %.01522.i30.i = phi double [ %100, %.lr.ph.i28.i ], [ %82, %.lr.ph.preheader.i27.i ]
+  %.023.i29.i = phi i32 [ %98, %.lr.ph.i28.i ], [ %95, %.lr.ph.preheader.i27.i ]
+  %.01522.i30.i = phi double [ %99, %.lr.ph.i28.i ], [ %82, %.lr.ph.preheader.i27.i ]
   %.01621.i31.i = phi double [ %.1.i33.i, %.lr.ph.i28.i ], [ 1.000000e+00, %.lr.ph.preheader.i27.i ]
-  %97 = and i32 %.023.i29.i, 1
-  %.not19.i32.i = icmp eq i32 %97, 0
-  %98 = fmul double %.01522.i30.i, %.01621.i31.i
-  %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %98
-  %99 = lshr i32 %.023.i29.i, 1
-  %100 = fmul double %.01522.i30.i, %.01522.i30.i
+  %96 = and i32 %.023.i29.i, 1
+  %.not19.i32.i = icmp eq i32 %96, 0
+  %97 = fmul double %.01522.i30.i, %.01621.i31.i
+  %.1.i33.i = select i1 %.not19.i32.i, double %.01621.i31.i, double %97
+  %98 = lshr i32 %.023.i29.i, 1
+  %99 = fmul double %.01522.i30.i, %.01522.i30.i
   %.not.i34.i = icmp samesign ult i32 %.023.i29.i, 2
   br i1 %.not.i34.i, label %._crit_edge.i35.i, label %.lr.ph.i28.i, !llvm.loop !121
 
 ._crit_edge.i35.i:                                ; preds = %.lr.ph.i28.i, %.loopexit.i
   %.016.lcssa.i36.i = phi double [ 1.000000e+00, %.loopexit.i ], [ %.1.i33.i, %.lr.ph.i28.i ]
+  %100 = icmp sgt i32 %64, 1
   %101 = fdiv double 1.000000e+00, %.016.lcssa.i36.i
-  %102 = select i1 %95, double %.016.lcssa.i36.i, double %101
+  %102 = select i1 %100, double %.016.lcssa.i36.i, double %101
   br label %_ZN6colvar8coordnum18switching_functionILi1536EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
 _ZN6colvar8coordnum18switching_functionILi1536EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %.lr.ph90, %._crit_edge.i35.i
@@ -9242,58 +9242,58 @@ _ZN6colvar8coordnum18switching_functionILi1536EEEdRKdRKN12colvarmodule7rvectorEi
   br i1 %146, label %_ZN12colvarmodule13integer_powerERKdi.exit38.i, label %147
 
 147:                                              ; preds = %126
-  %148 = icmp sgt i32 %120, 1
   %.off.i33 = add i32 %120, 1
   %.not20.i.i34 = icmp ult i32 %.off.i33, 3
   br i1 %.not20.i.i34, label %.loopexit.i43, label %.lr.ph.preheader.i.i35
 
 .lr.ph.preheader.i.i35:                           ; preds = %147
-  %149 = call i32 @llvm.abs.i32(i32 %144, i1 true)
+  %148 = call i32 @llvm.abs.i32(i32 %144, i1 true)
   br label %.lr.ph.i.i36
 
 .lr.ph.i.i36:                                     ; preds = %.lr.ph.i.i36, %.lr.ph.preheader.i.i35
-  %.023.i.i37 = phi i32 [ %152, %.lr.ph.i.i36 ], [ %149, %.lr.ph.preheader.i.i35 ]
-  %.01522.i.i38 = phi double [ %153, %.lr.ph.i.i36 ], [ %143, %.lr.ph.preheader.i.i35 ]
+  %.023.i.i37 = phi i32 [ %151, %.lr.ph.i.i36 ], [ %148, %.lr.ph.preheader.i.i35 ]
+  %.01522.i.i38 = phi double [ %152, %.lr.ph.i.i36 ], [ %143, %.lr.ph.preheader.i.i35 ]
   %.01621.i.i39 = phi double [ %.1.i.i41, %.lr.ph.i.i36 ], [ 1.000000e+00, %.lr.ph.preheader.i.i35 ]
-  %150 = and i32 %.023.i.i37, 1
-  %.not19.i.i40 = icmp eq i32 %150, 0
-  %151 = fmul double %.01522.i.i38, %.01621.i.i39
-  %.1.i.i41 = select i1 %.not19.i.i40, double %.01621.i.i39, double %151
-  %152 = lshr i32 %.023.i.i37, 1
-  %153 = fmul double %.01522.i.i38, %.01522.i.i38
+  %149 = and i32 %.023.i.i37, 1
+  %.not19.i.i40 = icmp eq i32 %149, 0
+  %150 = fmul double %.01522.i.i38, %.01621.i.i39
+  %.1.i.i41 = select i1 %.not19.i.i40, double %.01621.i.i39, double %150
+  %151 = lshr i32 %.023.i.i37, 1
+  %152 = fmul double %.01522.i.i38, %.01522.i.i38
   %.not.i.i42 = icmp samesign ult i32 %.023.i.i37, 2
   br i1 %.not.i.i42, label %.loopexit.i43, label %.lr.ph.i.i36, !llvm.loop !121
 
 .loopexit.i43:                                    ; preds = %.lr.ph.i.i36, %147
   %.016.lcssa.i.i44 = phi double [ 1.000000e+00, %147 ], [ %.1.i.i41, %.lr.ph.i.i36 ]
+  %153 = icmp sgt i32 %120, 1
   %154 = fdiv double 1.000000e+00, %.016.lcssa.i.i44
-  %155 = select i1 %148, double %.016.lcssa.i.i44, double %154
-  %156 = icmp sgt i32 %121, 1
+  %155 = select i1 %153, double %.016.lcssa.i.i44, double %154
   %.off44.i45 = add i32 %121, 1
   %.not20.i26.i46 = icmp ult i32 %.off44.i45, 3
   br i1 %.not20.i26.i46, label %._crit_edge.i35.i55, label %.lr.ph.preheader.i27.i47
 
 .lr.ph.preheader.i27.i47:                         ; preds = %.loopexit.i43
-  %157 = call i32 @llvm.abs.i32(i32 %145, i1 true)
+  %156 = call i32 @llvm.abs.i32(i32 %145, i1 true)
   br label %.lr.ph.i28.i48
 
 .lr.ph.i28.i48:                                   ; preds = %.lr.ph.i28.i48, %.lr.ph.preheader.i27.i47
-  %.023.i29.i49 = phi i32 [ %160, %.lr.ph.i28.i48 ], [ %157, %.lr.ph.preheader.i27.i47 ]
-  %.01522.i30.i50 = phi double [ %161, %.lr.ph.i28.i48 ], [ %143, %.lr.ph.preheader.i27.i47 ]
+  %.023.i29.i49 = phi i32 [ %159, %.lr.ph.i28.i48 ], [ %156, %.lr.ph.preheader.i27.i47 ]
+  %.01522.i30.i50 = phi double [ %160, %.lr.ph.i28.i48 ], [ %143, %.lr.ph.preheader.i27.i47 ]
   %.01621.i31.i51 = phi double [ %.1.i33.i53, %.lr.ph.i28.i48 ], [ 1.000000e+00, %.lr.ph.preheader.i27.i47 ]
-  %158 = and i32 %.023.i29.i49, 1
-  %.not19.i32.i52 = icmp eq i32 %158, 0
-  %159 = fmul double %.01522.i30.i50, %.01621.i31.i51
-  %.1.i33.i53 = select i1 %.not19.i32.i52, double %.01621.i31.i51, double %159
-  %160 = lshr i32 %.023.i29.i49, 1
-  %161 = fmul double %.01522.i30.i50, %.01522.i30.i50
+  %157 = and i32 %.023.i29.i49, 1
+  %.not19.i32.i52 = icmp eq i32 %157, 0
+  %158 = fmul double %.01522.i30.i50, %.01621.i31.i51
+  %.1.i33.i53 = select i1 %.not19.i32.i52, double %.01621.i31.i51, double %158
+  %159 = lshr i32 %.023.i29.i49, 1
+  %160 = fmul double %.01522.i30.i50, %.01522.i30.i50
   %.not.i34.i54 = icmp samesign ult i32 %.023.i29.i49, 2
   br i1 %.not.i34.i54, label %._crit_edge.i35.i55, label %.lr.ph.i28.i48, !llvm.loop !121
 
 ._crit_edge.i35.i55:                              ; preds = %.lr.ph.i28.i48, %.loopexit.i43
   %.016.lcssa.i36.i56 = phi double [ 1.000000e+00, %.loopexit.i43 ], [ %.1.i33.i53, %.lr.ph.i28.i48 ]
+  %161 = icmp sgt i32 %121, 1
   %162 = fdiv double 1.000000e+00, %.016.lcssa.i36.i56
-  %163 = select i1 %156, double %.016.lcssa.i36.i56, double %162
+  %163 = select i1 %161, double %.016.lcssa.i36.i56, double %162
   br label %_ZN12colvarmodule13integer_powerERKdi.exit38.i
 
 _ZN12colvarmodule13integer_powerERKdi.exit38.i:   ; preds = %._crit_edge.i35.i55, %126
@@ -9359,58 +9359,58 @@ _ZN6colvar8coordnum18switching_functionILi512EEEdRKdRKN12colvarmodule7rvectorEii
   br i1 %199, label %_ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit, label %200
 
 200:                                              ; preds = %.lr.ph96
-  %201 = icmp sgt i32 %177, 1
   %.off.i60 = add i32 %177, 1
   %.not20.i.i61 = icmp ult i32 %.off.i60, 3
   br i1 %.not20.i.i61, label %.loopexit.i70, label %.lr.ph.preheader.i.i62
 
 .lr.ph.preheader.i.i62:                           ; preds = %200
-  %202 = call i32 @llvm.abs.i32(i32 %197, i1 true)
+  %201 = call i32 @llvm.abs.i32(i32 %197, i1 true)
   br label %.lr.ph.i.i63
 
 .lr.ph.i.i63:                                     ; preds = %.lr.ph.i.i63, %.lr.ph.preheader.i.i62
-  %.023.i.i64 = phi i32 [ %205, %.lr.ph.i.i63 ], [ %202, %.lr.ph.preheader.i.i62 ]
-  %.01522.i.i65 = phi double [ %206, %.lr.ph.i.i63 ], [ %196, %.lr.ph.preheader.i.i62 ]
+  %.023.i.i64 = phi i32 [ %204, %.lr.ph.i.i63 ], [ %201, %.lr.ph.preheader.i.i62 ]
+  %.01522.i.i65 = phi double [ %205, %.lr.ph.i.i63 ], [ %196, %.lr.ph.preheader.i.i62 ]
   %.01621.i.i66 = phi double [ %.1.i.i68, %.lr.ph.i.i63 ], [ 1.000000e+00, %.lr.ph.preheader.i.i62 ]
-  %203 = and i32 %.023.i.i64, 1
-  %.not19.i.i67 = icmp eq i32 %203, 0
-  %204 = fmul double %.01522.i.i65, %.01621.i.i66
-  %.1.i.i68 = select i1 %.not19.i.i67, double %.01621.i.i66, double %204
-  %205 = lshr i32 %.023.i.i64, 1
-  %206 = fmul double %.01522.i.i65, %.01522.i.i65
+  %202 = and i32 %.023.i.i64, 1
+  %.not19.i.i67 = icmp eq i32 %202, 0
+  %203 = fmul double %.01522.i.i65, %.01621.i.i66
+  %.1.i.i68 = select i1 %.not19.i.i67, double %.01621.i.i66, double %203
+  %204 = lshr i32 %.023.i.i64, 1
+  %205 = fmul double %.01522.i.i65, %.01522.i.i65
   %.not.i.i69 = icmp samesign ult i32 %.023.i.i64, 2
   br i1 %.not.i.i69, label %.loopexit.i70, label %.lr.ph.i.i63, !llvm.loop !121
 
 .loopexit.i70:                                    ; preds = %.lr.ph.i.i63, %200
   %.016.lcssa.i.i71 = phi double [ 1.000000e+00, %200 ], [ %.1.i.i68, %.lr.ph.i.i63 ]
+  %206 = icmp sgt i32 %177, 1
   %207 = fdiv double 1.000000e+00, %.016.lcssa.i.i71
-  %208 = select i1 %201, double %.016.lcssa.i.i71, double %207
-  %209 = icmp sgt i32 %178, 1
+  %208 = select i1 %206, double %.016.lcssa.i.i71, double %207
   %.off40.i = add i32 %178, 1
   %.not20.i22.i = icmp ult i32 %.off40.i, 3
   br i1 %.not20.i22.i, label %._crit_edge.i31.i, label %.lr.ph.preheader.i23.i
 
 .lr.ph.preheader.i23.i:                           ; preds = %.loopexit.i70
-  %210 = call i32 @llvm.abs.i32(i32 %198, i1 true)
+  %209 = call i32 @llvm.abs.i32(i32 %198, i1 true)
   br label %.lr.ph.i24.i
 
 .lr.ph.i24.i:                                     ; preds = %.lr.ph.i24.i, %.lr.ph.preheader.i23.i
-  %.023.i25.i = phi i32 [ %213, %.lr.ph.i24.i ], [ %210, %.lr.ph.preheader.i23.i ]
-  %.01522.i26.i = phi double [ %214, %.lr.ph.i24.i ], [ %196, %.lr.ph.preheader.i23.i ]
+  %.023.i25.i = phi i32 [ %212, %.lr.ph.i24.i ], [ %209, %.lr.ph.preheader.i23.i ]
+  %.01522.i26.i = phi double [ %213, %.lr.ph.i24.i ], [ %196, %.lr.ph.preheader.i23.i ]
   %.01621.i27.i = phi double [ %.1.i29.i, %.lr.ph.i24.i ], [ 1.000000e+00, %.lr.ph.preheader.i23.i ]
-  %211 = and i32 %.023.i25.i, 1
-  %.not19.i28.i = icmp eq i32 %211, 0
-  %212 = fmul double %.01522.i26.i, %.01621.i27.i
-  %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %212
-  %213 = lshr i32 %.023.i25.i, 1
-  %214 = fmul double %.01522.i26.i, %.01522.i26.i
+  %210 = and i32 %.023.i25.i, 1
+  %.not19.i28.i = icmp eq i32 %210, 0
+  %211 = fmul double %.01522.i26.i, %.01621.i27.i
+  %.1.i29.i = select i1 %.not19.i28.i, double %.01621.i27.i, double %211
+  %212 = lshr i32 %.023.i25.i, 1
+  %213 = fmul double %.01522.i26.i, %.01522.i26.i
   %.not.i30.i = icmp samesign ult i32 %.023.i25.i, 2
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i24.i, !llvm.loop !121
 
 ._crit_edge.i31.i:                                ; preds = %.lr.ph.i24.i, %.loopexit.i70
   %.016.lcssa.i32.i = phi double [ 1.000000e+00, %.loopexit.i70 ], [ %.1.i29.i, %.lr.ph.i24.i ]
+  %214 = icmp sgt i32 %178, 1
   %215 = fdiv double 1.000000e+00, %.016.lcssa.i32.i
-  %216 = select i1 %209, double %.016.lcssa.i32.i, double %215
+  %216 = select i1 %214, double %.016.lcssa.i32.i, double %215
   br label %_ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit
 
 _ZN6colvar8coordnum18switching_functionILi0EEEdRKdRKN12colvarmodule7rvectorEiiRNS4_4atomES9_PPbd.exit: ; preds = %.lr.ph96, %._crit_edge.i31.i

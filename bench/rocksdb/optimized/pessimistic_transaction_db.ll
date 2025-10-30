@@ -3752,17 +3752,17 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7rock
   br i1 %17, label %42, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %21 = load ptr, ptr %20, align 8, !tbaa !264
-  %22 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %.not7.i = icmp eq ptr %21, %22
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %20 = load ptr, ptr %19, align 8, !tbaa !264
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %.not7.i = icmp eq ptr %20, %21
   br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %40, %18
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %24 = load ptr, ptr %23, align 8, !tbaa !294
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb6DBImpl20RecoveredTransaction9BatchInfoEESt10_Select1stIS6_ESt4lessImESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef %24)
+  invoke void @_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb6DBImpl20RecoveredTransaction9BatchInfoEESt10_Select1stIS6_ESt4lessImESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef %24)
           to label %_ZNSt3mapImN7rocksdb6DBImpl20RecoveredTransaction9BatchInfoESt4lessImESaISt4pairIKmS3_EEED2Ev.exit.i unwind label %25
 
 25:                                               ; preds = %._crit_edge.i
@@ -3785,7 +3785,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN7rocksdb6DBImpl20RecoveredTransactionD2Ev.exit
 
 .lr.ph.i:                                         ; preds = %18, %40
-  %.sroa.04.08.i = phi ptr [ %41, %40 ], [ %21, %18 ]
+  %.sroa.04.08.i = phi ptr [ %41, %40 ], [ %20, %18 ]
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i, i64 48
   %34 = load ptr, ptr %33, align 8, !tbaa !295
   %35 = icmp eq ptr %34, null
@@ -3800,7 +3800,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 40:                                               ; preds = %36, %.lr.ph.i
   %41 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.08.i) #32
-  %.not.i = icmp eq ptr %41, %22
+  %.not.i = icmp eq ptr %41, %21
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 _ZN7rocksdb6DBImpl20RecoveredTransactionD2Ev.exit: ; preds = %_ZNSt3mapImN7rocksdb6DBImpl20RecoveredTransaction9BatchInfoESt4lessImESaISt4pairIKmS3_EEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -17348,8 +17348,8 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10lock_gu
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc34
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %29, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %28, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !194
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i.i.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %28, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !194
   br label %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i
 
 _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc34

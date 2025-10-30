@@ -1219,7 +1219,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr noundef nonnull 
 
 51:                                               ; preds = %.lr.ph42, %._crit_edge
   %indvars.iv61 = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next62, %._crit_edge ]
-  %.13040 = phi i32 [ 0, %.lr.ph42 ], [ %59, %._crit_edge ]
+  %.13040 = phi i32 [ 0, %.lr.ph42 ], [ %71, %._crit_edge ]
   %.03139 = phi i32 [ 0, %.lr.ph42 ], [ %.132.lcssa, %._crit_edge ]
   %52 = mul i32 %.13040, %23
   %53 = lshr i32 %52, 16
@@ -1229,33 +1229,33 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr noundef nonnull 
   %56 = load ptr, ptr %32, align 8
   %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv61
   %58 = load i32, ptr %57, align 4
-  %59 = add i32 %58, %.13040
-  %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv61
-  %62 = load i32, ptr %61, align 4
-  %63 = load i32, ptr %33, align 8
-  %64 = lshr i32 %62, %63
-  %65 = icmp ult i32 %.03139, %64
-  br i1 %65, label %.lr.ph38, label %._crit_edge
+  %59 = load ptr, ptr %0, align 8
+  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv61
+  %61 = load i32, ptr %60, align 4
+  %62 = load i32, ptr %33, align 8
+  %63 = lshr i32 %61, %62
+  %64 = icmp ult i32 %.03139, %63
+  br i1 %64, label %.lr.ph38, label %._crit_edge
 
 .lr.ph38:                                         ; preds = %51
-  %66 = trunc nuw i64 %indvars.iv61 to i32
-  %67 = add i32 %66, -1
-  %68 = zext i32 %.03139 to i64
-  %wide.trip.count = zext i32 %64 to i64
-  br label %69
+  %65 = trunc nuw i64 %indvars.iv61 to i32
+  %66 = add i32 %65, -1
+  %67 = zext i32 %.03139 to i64
+  %wide.trip.count = zext i32 %63 to i64
+  br label %68
 
-69:                                               ; preds = %.lr.ph38, %69
-  %indvars.iv58 = phi i64 [ %68, %.lr.ph38 ], [ %indvars.iv.next59, %69 ]
-  %70 = load ptr, ptr %34, align 8
+68:                                               ; preds = %.lr.ph38, %68
+  %indvars.iv58 = phi i64 [ %67, %.lr.ph38 ], [ %indvars.iv.next59, %68 ]
+  %69 = load ptr, ptr %34, align 8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv.next59
-  store i32 %67, ptr %71, align 4
+  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.next59
+  store i32 %66, ptr %70, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %69, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %69, %51
-  %.132.lcssa = phi i32 [ %.03139, %51 ], [ %64, %69 ]
+._crit_edge:                                      ; preds = %68, %51
+  %.132.lcssa = phi i32 [ %.03139, %51 ], [ %63, %68 ]
+  %71 = add i32 %58, %.13040
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %72 = load i32, ptr %28, align 4
   %73 = zext i32 %72 to i64

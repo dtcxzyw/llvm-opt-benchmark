@@ -536,37 +536,37 @@ get_rounded_direction.exit.us:                    ; preds = %79, %76, %73, %63
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_gaussian_blur_16(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
-  %8 = ashr i32 %6, 1
-  %9 = ashr i32 %5, 1
-  %10 = ashr i32 %3, 1
-  %11 = tail call i32 @llvm.smin.i32(i32 %1, i32 2)
-  %12 = icmp sgt i32 %1, 0
-  br i1 %12, label %.lr.ph, label %.preheader173
+  %8 = ashr i32 %5, 1
+  %9 = ashr i32 %3, 1
+  %10 = tail call i32 @llvm.smin.i32(i32 %1, i32 2)
+  %11 = icmp sgt i32 %1, 0
+  br i1 %11, label %.lr.ph, label %.preheader173
 
 .lr.ph:                                           ; preds = %7
-  %13 = sext i32 %0 to i64
-  %14 = shl nsw i64 %13, 1
-  %15 = sext i32 %10 to i64
-  %16 = sext i32 %9 to i64
+  %12 = sext i32 %0 to i64
+  %13 = shl nsw i64 %12, 1
+  %14 = sext i32 %9 to i64
+  %15 = sext i32 %8 to i64
   br label %29
 
 .preheader173:                                    ; preds = %29, %7
-  %.0155.lcssa = phi i32 [ 0, %7 ], [ %11, %29 ]
+  %.0155.lcssa = phi i32 [ 0, %7 ], [ %10, %29 ]
   %.0152.lcssa = phi ptr [ %4, %7 ], [ %31, %29 ]
   %.0149.lcssa = phi ptr [ %2, %7 ], [ %30, %29 ]
-  %17 = add nsw i32 %1, -2
-  %18 = icmp slt i32 %.0155.lcssa, %17
-  br i1 %18, label %.preheader172.lr.ph, label %.preheader
+  %16 = add nsw i32 %1, -2
+  %17 = icmp slt i32 %.0155.lcssa, %16
+  br i1 %17, label %.preheader172.lr.ph, label %.preheader
 
 .preheader172.lr.ph:                              ; preds = %.preheader173
+  %18 = ashr i32 %6, 1
   %19 = tail call i32 @llvm.smin.i32(i32 %0, i32 2)
   %20 = icmp sgt i32 %0, 0
   %21 = add i32 %0, -2
-  %22 = mul nsw i32 %9, -2
+  %22 = mul nsw i32 %8, -2
   %23 = and i32 %5, -2
-  %24 = sext i32 %10 to i64
-  %25 = sext i32 %9 to i64
-  %26 = sext i32 %8 to i64
+  %24 = sext i32 %9 to i64
+  %25 = sext i32 %8 to i64
+  %26 = sext i32 %18 to i64
   %27 = sext i32 %22 to i64
   %28 = sext i32 %23 to i64
   %wide.trip.count = zext nneg i32 %19 to i64
@@ -578,11 +578,11 @@ define void @ff_gaussian_blur_16(i32 noundef %0, i32 noundef %1, ptr noundef wri
   %.0149176 = phi ptr [ %2, %.lr.ph ], [ %30, %29 ]
   %.0152175 = phi ptr [ %4, %.lr.ph ], [ %31, %29 ]
   %.0155174 = phi i32 [ 0, %.lr.ph ], [ %32, %29 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.0149176, ptr align 2 %.0152175, i64 %14, i1 false)
-  %30 = getelementptr inbounds i16, ptr %.0149176, i64 %15
-  %31 = getelementptr inbounds i16, ptr %.0152175, i64 %16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.0149176, ptr align 2 %.0152175, i64 %13, i1 false)
+  %30 = getelementptr inbounds i16, ptr %.0149176, i64 %14
+  %31 = getelementptr inbounds i16, ptr %.0152175, i64 %15
   %32 = add nuw nsw i32 %.0155174, 1
-  %exitcond.not = icmp eq i32 %32, %11
+  %exitcond.not = icmp eq i32 %32, %10
   br i1 %exitcond.not, label %.preheader173, label %29, !llvm.loop !20
 
 .preheader172:                                    ; preds = %.preheader172.lr.ph, %._crit_edge
@@ -598,11 +598,11 @@ define void @ff_gaussian_blur_16(i32 noundef %0, i32 noundef %1, ptr noundef wri
 .lr.ph196:                                        ; preds = %._crit_edge, %.preheader
   %.1150.lcssa229 = phi ptr [ %.0149.lcssa, %.preheader ], [ %142, %._crit_edge ]
   %.1153.lcssa228 = phi ptr [ %.0152.lcssa, %.preheader ], [ %143, %._crit_edge ]
-  %.1156.lcssa227 = phi i32 [ %.0155.lcssa, %.preheader ], [ %17, %._crit_edge ]
+  %.1156.lcssa227 = phi i32 [ %.0155.lcssa, %.preheader ], [ %16, %._crit_edge ]
   %34 = sext i32 %0 to i64
   %35 = shl nsw i64 %34, 1
-  %36 = sext i32 %10 to i64
-  %37 = sext i32 %9 to i64
+  %36 = sext i32 %9 to i64
+  %37 = sext i32 %8 to i64
   br label %145
 
 .preheader171:                                    ; preds = %.lr.ph180, %.preheader172
@@ -792,7 +792,7 @@ define void @ff_gaussian_blur_16(i32 noundef %0, i32 noundef %1, ptr noundef wri
   %142 = getelementptr inbounds i16, ptr %.1150189, i64 %24
   %143 = getelementptr inbounds i16, ptr %.1153188, i64 %25
   %144 = add nuw nsw i32 %.1156187, 1
-  %exitcond217.not = icmp eq i32 %144, %17
+  %exitcond217.not = icmp eq i32 %144, %16
   br i1 %exitcond217.not, label %.lr.ph196, label %.preheader172, !llvm.loop !24
 
 145:                                              ; preds = %.lr.ph196, %145

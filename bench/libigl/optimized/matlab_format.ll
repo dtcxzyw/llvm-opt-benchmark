@@ -1637,14 +1637,14 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i: ; 
   %81 = sub i64 0, %80
   %82 = and i64 %81, 15
   %83 = call noundef i64 @llvm.smin.i64(i64 %82, i64 %78)
-  %84 = sub nsw i64 %78, %83
-  %85 = and i64 %84, -16
-  %86 = add nsw i64 %85, %83
-  %87 = icmp sgt i64 %83, 0
-  br i1 %87, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
+  %84 = icmp sgt i64 %83, 0
+  br i1 %84, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
 
 .preheader43.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %76
-  %88 = icmp sgt i64 %84, 15
+  %85 = sub nsw i64 %78, %83
+  %86 = and i64 %85, -16
+  %87 = add nsw i64 %86, %83
+  %88 = icmp sgt i64 %85, 15
   br i1 %88, label %.lr.ph46.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %76, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1658,7 +1658,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i: ; 
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !61
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %.lr.ph46.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
-  %93 = icmp slt i64 %86, %78
+  %93 = icmp slt i64 %87, %78
   br i1 %93, label %.lr.ph48.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIbLin1ELin1ELi0ELin1ELin1EEEElsINS1_IbLin1ELi1ELi0ELin1ELi1EEEEENS_16CommaInitializerIS2_EERKNS0_IT_EE.exit
 
 .lr.ph46.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph46.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1668,11 +1668,11 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i: ; 
   %96 = load <2 x i64>, ptr %95, align 1, !tbaa !10, !noalias !58
   store <2 x i64> %96, ptr %94, align 16, !tbaa !10, !noalias !58
   %97 = add nsw i64 %.03245.i.i.i.i.i.i.i.i.i.i.i.i, 16
-  %98 = icmp slt i64 %97, %86
+  %98 = icmp slt i64 %97, %87
   br i1 %98, label %.lr.ph46.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !62
 
 .lr.ph48.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph48.i.i.i.i.i.i.i.i.i.i.i.i
-  %.047.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %102, %.lr.ph48.i.i.i.i.i.i.i.i.i.i.i.i ], [ %86, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.047.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %102, %.lr.ph48.i.i.i.i.i.i.i.i.i.i.i.i ], [ %87, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i ]
   %99 = getelementptr i8, ptr %77, i64 %.047.i.i.i.i.i.i.i.i.i.i.i.i
   %100 = getelementptr i8, ptr %79, i64 %.047.i.i.i.i.i.i.i.i.i.i.i.i
   %101 = load i8, ptr %100, align 1, !tbaa !45, !range !59, !noalias !58, !noundef !60
@@ -37974,23 +37974,23 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %78
   %95 = lshr exact i64 %88, 3
   %96 = and i64 %95, 1
   %97 = call i64 @llvm.smin.i64(i64 %96, i64 %86)
-  %98 = sub nsw i64 %86, %97
-  %99 = and i64 %98, -2
-  %100 = add nsw i64 %99, %97
-  %101 = icmp sgt i64 %97, 0
-  br i1 %101, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
+  %98 = icmp sgt i64 %97, 0
+  br i1 %98, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph52.i.i.i.i.i.i.i.i.i.i.i.i
-  %102 = load double, ptr %87, align 8, !tbaa !1448, !noalias !1461
-  store double %102, ptr %85, align 8, !tbaa !1448, !noalias !1461
+  %99 = load double, ptr %87, align 8, !tbaa !1448, !noalias !1461
+  store double %99, ptr %85, align 8, !tbaa !1448, !noalias !1461
   br label %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
 
 .preheader43.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph52.i.i.i.i.i.i.i.i.i.i.i.i
-  %103 = icmp sgt i64 %98, 1
+  %100 = sub nsw i64 %86, %97
+  %101 = and i64 %100, -2
+  %102 = add nsw i64 %101, %97
+  %103 = icmp sgt i64 %100, 1
   br i1 %103, label %.lr.ph47.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %.lr.ph47.i.i.i.i.i.i.i.i.i.i.i.i, %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i
-  %104 = icmp slt i64 %100, %86
+  %104 = icmp slt i64 %102, %86
   br i1 %104, label %.lr.ph49.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEElsINS1_IdLin1ELi1ELi0ELin1ELi1EEEEENS_16CommaInitializerIS2_EERKNS0_IT_EE.exit
 
 .lr.ph47.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.preheader43.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph47.i.i.i.i.i.i.i.i.i.i.i.i
@@ -38000,11 +38000,11 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %78
   %107 = load <2 x double>, ptr %106, align 1, !tbaa !10, !noalias !1461
   store <2 x double> %107, ptr %105, align 16, !tbaa !10, !noalias !1461
   %108 = add nsw i64 %.03246.i.i.i.i.i.i.i.i.i.i.i.i, 2
-  %109 = icmp slt i64 %108, %100
+  %109 = icmp slt i64 %108, %102
   br i1 %109, label %.lr.ph47.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !1463
 
 .lr.ph49.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph49.i.i.i.i.i.i.i.i.i.i.i.i
-  %.048.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %113, %.lr.ph49.i.i.i.i.i.i.i.i.i.i.i.i ], [ %100, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %.048.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %113, %.lr.ph49.i.i.i.i.i.i.i.i.i.i.i.i ], [ %102, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i ]
   %110 = getelementptr double, ptr %85, i64 %.048.i.i.i.i.i.i.i.i.i.i.i.i
   %111 = getelementptr double, ptr %87, i64 %.048.i.i.i.i.i.i.i.i.i.i.i.i
   %112 = load double, ptr %111, align 8, !tbaa !1448, !noalias !1461
@@ -57136,31 +57136,31 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
 45:                                               ; preds = %.lr.ph52, %._crit_edge
   %.03451 = phi i64 [ 0, %.lr.ph52 ], [ %88, %._crit_edge ]
   %.03550 = phi i64 [ %43, %.lr.ph52 ], [ %.sroa.speculated, %._crit_edge ]
-  %46 = sub nsw i64 %30, %.03550
-  %47 = and i64 %46, -4
-  %48 = add nsw i64 %47, %.03550
-  %49 = icmp sgt i64 %.03550, 0
-  br i1 %49, label %.lr.ph, label %.preheader43
+  %46 = icmp sgt i64 %.03550, 0
+  br i1 %46, label %.lr.ph, label %.preheader43
 
 .lr.ph:                                           ; preds = %45
-  %50 = load ptr, ptr %0, align 8, !tbaa !2171
-  %51 = load ptr, ptr %50, align 8, !tbaa !180
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %53 = load i64, ptr %52, align 8, !tbaa !172
-  %54 = mul nsw i64 %53, %.03451
-  %55 = getelementptr i32, ptr %51, i64 %54
-  %56 = load ptr, ptr %44, align 8, !tbaa !2172
-  %57 = load ptr, ptr %56, align 8, !tbaa !2166
+  %47 = load ptr, ptr %0, align 8, !tbaa !2171
+  %48 = load ptr, ptr %47, align 8, !tbaa !180
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %50 = load i64, ptr %49, align 8, !tbaa !172
+  %51 = mul nsw i64 %50, %.03451
+  %52 = getelementptr i32, ptr %48, i64 %51
+  %53 = load ptr, ptr %44, align 8, !tbaa !2172
+  %54 = load ptr, ptr %53, align 8, !tbaa !2166
   br label %59
 
 .preheader43:                                     ; preds = %59, %45
-  %58 = icmp sgt i64 %46, 3
+  %55 = sub nsw i64 %30, %.03550
+  %56 = and i64 %55, -4
+  %57 = add nsw i64 %56, %.03550
+  %58 = icmp sgt i64 %55, 3
   br i1 %58, label %.lr.ph47, label %.preheader
 
 59:                                               ; preds = %.lr.ph, %59
   %.03345 = phi i64 [ 0, %.lr.ph ], [ %63, %59 ]
-  %60 = getelementptr i32, ptr %55, i64 %.03345
-  %61 = getelementptr i32, ptr %57, i64 %.03345
+  %60 = getelementptr i32, ptr %52, i64 %.03345
+  %61 = getelementptr i32, ptr %54, i64 %.03345
   %62 = load i32, ptr %61, align 4, !tbaa !155
   store i32 %62, ptr %60, align 4, !tbaa !155
   %63 = add nuw nsw i64 %.03345, 1
@@ -57168,7 +57168,7 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   br i1 %exitcond.not, label %.preheader43, label %59, !llvm.loop !2173
 
 .preheader:                                       ; preds = %.lr.ph47, %.preheader43
-  %64 = icmp slt i64 %48, %30
+  %64 = icmp slt i64 %57, %30
   br i1 %64, label %.lr.ph49, label %._crit_edge
 
 .lr.ph49:                                         ; preds = %.preheader
@@ -57197,7 +57197,7 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   %83 = load <2 x i64>, ptr %82, align 1, !tbaa !10
   store <2 x i64> %83, ptr %79, align 16, !tbaa !10
   %84 = add nsw i64 %.03246, 4
-  %85 = icmp slt i64 %84, %48
+  %85 = icmp slt i64 %84, %57
   br i1 %85, label %.lr.ph47, label %.preheader, !llvm.loop !2174
 
 ._crit_edge:                                      ; preds = %89, %.preheader
@@ -57209,7 +57209,7 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   br i1 %exitcond55.not, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEEEENS3_INS5_IiLin1ELi1ELi0ELin1ELi1EEEEENS0_9assign_opIiiEELi0EEELi0ELi0EE3runERSD_.exit, label %45, !llvm.loop !2175
 
 89:                                               ; preds = %.lr.ph49, %89
-  %.048 = phi i64 [ %48, %.lr.ph49 ], [ %93, %89 ]
+  %.048 = phi i64 [ %57, %.lr.ph49 ], [ %93, %89 ]
   %90 = getelementptr i32, ptr %70, i64 %.048
   %91 = getelementptr i32, ptr %72, i64 %.048
   %92 = load i32, ptr %91, align 4, !tbaa !155

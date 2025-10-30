@@ -2611,43 +2611,40 @@ entry:
   %mnSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %mnSize, align 8
   %tobool.not = icmp eq i64 %0, 0
-  %mpNodeLeft109 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %mpNodeLeft109, align 8
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %mpNodeParent = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load ptr, ptr %mpNodeParent, align 8
+  %1 = load ptr, ptr %mpNodeParent, align 8
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then
-  %pNodeBase.addr.0.i = phi ptr [ %2, %if.then ], [ %3, %while.cond.i ]
+  %pNodeBase.addr.0.i = phi ptr [ %1, %if.then ], [ %2, %while.cond.i ]
   %mpNodeLeft.i = getelementptr inbounds nuw i8, ptr %pNodeBase.addr.0.i, i64 8
-  %3 = load ptr, ptr %mpNodeLeft.i, align 8
-  %tobool.not.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %mpNodeLeft.i, align 8
+  %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit, label %while.cond.i, !llvm.loop !114
 
 _ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit: ; preds = %while.cond.i
-  %cmp.not = icmp eq ptr %1, %pNodeBase.addr.0.i
-  br i1 %cmp.not, label %if.end, label %return
+  %mpNodeLeft = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %3 = load ptr, ptr %mpNodeLeft, align 8
+  %cmp.not = icmp eq ptr %3, %pNodeBase.addr.0.i
+  br i1 %cmp.not, label %while.cond.i31, label %return
 
-if.end:                                           ; preds = %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit
-  %4 = load ptr, ptr %this, align 8
-  br label %while.cond.i31
-
-while.cond.i31:                                   ; preds = %while.cond.i31, %if.end
-  %pNodeBase.addr.0.i32 = phi ptr [ %2, %if.end ], [ %5, %while.cond.i31 ]
-  %5 = load ptr, ptr %pNodeBase.addr.0.i32, align 8
-  %tobool.not.i33 = icmp eq ptr %5, null
+while.cond.i31:                                   ; preds = %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit, %while.cond.i31
+  %pNodeBase.addr.0.i32 = phi ptr [ %4, %while.cond.i31 ], [ %1, %_ZN5eastl17RBTreeGetMinChildEPKNS_16rbtree_node_baseE.exit ]
+  %4 = load ptr, ptr %pNodeBase.addr.0.i32, align 8
+  %tobool.not.i33 = icmp eq ptr %4, null
   br i1 %tobool.not.i33, label %_ZN5eastl17RBTreeGetMaxChildEPKNS_16rbtree_node_baseE.exit, label %while.cond.i31, !llvm.loop !115
 
 _ZN5eastl17RBTreeGetMaxChildEPKNS_16rbtree_node_baseE.exit: ; preds = %while.cond.i31
-  %cmp8.not = icmp eq ptr %4, %pNodeBase.addr.0.i32
+  %5 = load ptr, ptr %this, align 8
+  %cmp8.not = icmp eq ptr %5, %pNodeBase.addr.0.i32
   br i1 %cmp8.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %_ZN5eastl17RBTreeGetMaxChildEPKNS_16rbtree_node_baseE.exit
-  %call15 = tail call noundef i64 @_ZN5eastl19RBTreeGetBlackCountEPKNS_16rbtree_node_baseES2_(ptr noundef %2, ptr noundef %1)
-  %6 = load ptr, ptr %mpNodeLeft109, align 8
+  %call15 = tail call noundef i64 @_ZN5eastl19RBTreeGetBlackCountEPKNS_16rbtree_node_baseES2_(ptr noundef %1, ptr noundef %3)
+  %6 = load ptr, ptr %mpNodeLeft, align 8
   %cmp.i.not140 = icmp eq ptr %6, %this
   br i1 %cmp.i.not140, label %for.end, label %for.body
 
@@ -2879,9 +2876,11 @@ for.end:                                          ; preds = %for.inc, %if.end10
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cmp111.not = icmp eq ptr %1, %this
-  %50 = load ptr, ptr %this, align 8
-  %cmp116.not = icmp eq ptr %50, %this
+  %mpNodeLeft109 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %50 = load ptr, ptr %mpNodeLeft109, align 8
+  %cmp111.not = icmp eq ptr %50, %this
+  %51 = load ptr, ptr %this, align 8
+  %cmp116.not = icmp eq ptr %51, %this
   %or.cond30 = select i1 %cmp111.not, i1 %cmp116.not, i1 false
   br label %return
 

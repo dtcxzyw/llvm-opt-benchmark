@@ -25935,11 +25935,11 @@ select.unfold.i107.split.us:                      ; preds = %.lr.ph.split.us
   %112 = trunc nuw i8 %.0157.lcssa to i1
   %113 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %114 = load i32, ptr %113, align 4, !range !433, !alias.scope !4231, !noalias !4236, !noundef !4
-  %trunc.i.i = trunc nuw i32 %114 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !4239)
   call void @llvm.experimental.noalias.scope.decl(metadata !4242), !noalias !4245
   %115 = load i32, ptr %111, align 4, !alias.scope !4250, !noalias !4251, !noundef !4
   call void @"_ZN6hir_ty3mir8borrowck20ever_initialized_map3dfs28_$u7b$$u7b$closure$u7d$$u7d$17h122787c225c665edE.llvm.371848337259013923"(ptr noalias noundef nonnull align 8 dereferenceable(40) %15, i32 noundef %115, i1 noundef zeroext %112), !noalias !4254
+  %trunc.i.i = trunc nuw i32 %114 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !4255)
   br i1 %trunc.i.i, label %.lr.ph.split.us.i, label %.critedge81
 
@@ -25996,27 +25996,27 @@ _ZN6hir_ty3mir12ProjectionId6lookup17h97c7a19d43dfb3e1E.exit: ; preds = %125
   %141 = load i32, ptr %140, align 8, !range !433, !noundef !4
   %trunc = trunc nuw i32 %141 to i1
   %142 = load i32, ptr %119, align 8, !range !433, !alias.scope !4280, !noalias !4285, !noundef !4
-  %trunc.i.i92 = trunc nuw i32 %142 to i1
-  %143 = getelementptr inbounds nuw i8, ptr %52, i64 20
   br i1 %trunc, label %select.unfold.us, label %_ZN4core4iter6traits8iterator8Iterator4fold17h3866a39041c99373E.llvm.13094975786070861856.exit
 
 select.unfold.us:                                 ; preds = %139
-  %144 = getelementptr inbounds nuw i8, ptr %52, i64 12
-  %145 = trunc nuw i8 %.2 to i1
+  %143 = getelementptr inbounds nuw i8, ptr %52, i64 12
+  %144 = trunc nuw i8 %.2 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !4288)
-  %146 = load i32, ptr %144, align 4, !alias.scope !4288, !noalias !4291, !noundef !4
-  call void @"_ZN6hir_ty3mir8borrowck20ever_initialized_map3dfs28_$u7b$$u7b$closure$u7d$$u7d$17h122787c225c665edE.llvm.371848337259013923"(ptr noalias noundef nonnull align 8 dereferenceable(40) %15, i32 noundef %146, i1 noundef zeroext %145), !noalias !4297
+  %145 = load i32, ptr %143, align 4, !alias.scope !4288, !noalias !4291, !noundef !4
+  call void @"_ZN6hir_ty3mir8borrowck20ever_initialized_map3dfs28_$u7b$$u7b$closure$u7d$$u7d$17h122787c225c665edE.llvm.371848337259013923"(ptr noalias noundef nonnull align 8 dereferenceable(40) %15, i32 noundef %145, i1 noundef zeroext %144), !noalias !4297
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h3866a39041c99373E.llvm.13094975786070861856.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h3866a39041c99373E.llvm.13094975786070861856.exit: ; preds = %select.unfold.us, %139
+  %trunc.i.i92 = trunc nuw i32 %142 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !4298)
   br i1 %trunc.i.i92, label %.lr.ph.split.us.i112, label %.critedge81
 
 .lr.ph.split.us.i112:                             ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h3866a39041c99373E.llvm.13094975786070861856.exit
+  %146 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %147 = trunc nuw i8 %.2 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !4301), !noalias !4304
   call void @llvm.experimental.noalias.scope.decl(metadata !4305), !noalias !4304
-  %148 = load i32, ptr %143, align 4, !alias.scope !4308, !noalias !4309, !noundef !4
+  %148 = load i32, ptr %146, align 4, !alias.scope !4308, !noalias !4309, !noundef !4
   call void @"_ZN6hir_ty3mir8borrowck20ever_initialized_map3dfs28_$u7b$$u7b$closure$u7d$$u7d$17h122787c225c665edE.llvm.13094975786070861856"(ptr noalias noundef nonnull align 8 dereferenceable(40) %15, i32 noundef %148, i1 noundef zeroext %147), !noalias !4314
   br label %.critedge81
 

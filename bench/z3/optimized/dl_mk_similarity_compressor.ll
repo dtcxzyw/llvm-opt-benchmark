@@ -4557,23 +4557,23 @@ define hidden noundef ptr @_ZN7datalog24mk_similarity_compressorclERKNS_8rule_se
 _ZNK7datalog8rule_set13get_num_rulesEv.exit:      ; preds = %2
   %7 = getelementptr inbounds i8, ptr %5, i64 -4
   %8 = load i32, ptr %7, align 4, !tbaa !220
-  %.not335 = icmp eq i32 %8, 0
-  br i1 %.not335, label %._crit_edge, label %.lr.ph
+  %.not336 = icmp eq i32 %8, 0
+  br i1 %.not336, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK7datalog8rule_set13get_num_rulesEv.exit
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %wide.trip.count = zext i32 %8 to i64
   %.pre = load ptr, ptr %9, align 8, !tbaa !215
-  br label %625
+  br label %624
 
 ._crit_edge:                                      ; preds = %2, %_ZNK7datalog8rule_set13get_num_rulesEv.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre398 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !215
-  %10 = icmp eq ptr %.pre398, null
-  br i1 %10, label %._crit_edge331, label %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit
+  %.pre399 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !215
+  %10 = icmp eq ptr %.pre399, null
+  br i1 %10, label %._crit_edge332, label %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit
 
 _ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit:     ; preds = %_ZN6vectorIPN7datalog4ruleELb0EjE9push_backEOS2_.exit, %._crit_edge
-  %11 = phi ptr [ %.pre398, %._crit_edge ], [ %638, %_ZN6vectorIPN7datalog4ruleELb0EjE9push_backEOS2_.exit ]
+  %11 = phi ptr [ %.pre399, %._crit_edge ], [ %637, %_ZN6vectorIPN7datalog4ruleELb0EjE9push_backEOS2_.exit ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = getelementptr inbounds i8, ptr %11, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !220
@@ -4590,1405 +4590,1405 @@ _ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit:     ; preds = %_ZN6vectorIPN7datal
   %22 = xor i64 %21, 126
   tail call void @_ZSt16__introsort_loopIPPN7datalog4ruleElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SA_T0_T1_(ptr noundef nonnull %11, ptr noundef nonnull %17, i64 noundef %22, ptr nonnull @_ZN7datalogL18initial_comparatorEPNS_4ruleES1_)
   %23 = icmp ugt i32 %14, 16
-  br i1 %23, label %24, label %459
+  br i1 %23, label %.preheader.i, label %458
 
-24:                                               ; preds = %18
+.preheader.i:                                     ; preds = %18
   %scevgep.i = getelementptr i8, ptr %11, i64 8
-  br label %25
+  br label %24
 
-25:                                               ; preds = %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i, %24
-  %.021.i.idx.i = phi i64 [ 8, %24 ], [ %.021.i.add.i, %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i ]
-  %.pn20.i.i = phi ptr [ %11, %24 ], [ %.021.i.ptr.i, %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i ]
+24:                                               ; preds = %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i, %.preheader.i
+  %.021.i.idx.i = phi i64 [ %.021.i.add.i, %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i ], [ 8, %.preheader.i ]
+  %.pn20.i.i = phi ptr [ %.021.i.ptr.i, %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i ], [ %11, %.preheader.i ]
   %.021.i.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 %.021.i.idx.i
-  %26 = load ptr, ptr %.021.i.ptr.i, align 8, !tbaa !221
-  %27 = load ptr, ptr %11, align 8, !tbaa !221
-  %28 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %26, ptr noundef readonly %27)
-  %.not.i185 = icmp eq i32 %28, 0
-  br i1 %.not.i185, label %29, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208
+  %25 = load ptr, ptr %.021.i.ptr.i, align 8, !tbaa !221
+  %26 = load ptr, ptr %11, align 8, !tbaa !221
+  %27 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %25, ptr noundef readonly %26)
+  %.not.i185 = icmp eq i32 %27, 0
+  br i1 %.not.i185, label %28, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %31 = load i32, ptr %30, align 8, !tbaa !245
-  %.not1732.i.i188 = icmp sgt i32 %31, -1
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %30 = load i32, ptr %29, align 8, !tbaa !245
+  %.not1732.i.i188 = icmp sgt i32 %30, -1
   br i1 %.not1732.i.i188, label %.lr.ph.i.i189, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208.thread
 
-.lr.ph.i.i189:                                    ; preds = %29
+.lr.ph.i.i189:                                    ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %35 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  br label %36
+  br label %35
 
-36:                                               ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i205, %.lr.ph.i.i189
-  %.01534.i.i190 = phi i32 [ -1, %.lr.ph.i.i189 ], [ %76, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i205 ]
+35:                                               ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i205, %.lr.ph.i.i189
+  %.01534.i.i190 = phi i32 [ -1, %.lr.ph.i.i189 ], [ %75, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i205 ]
   %.02033.i.i191 = phi i32 [ 2147483647, %.lr.ph.i.i189 ], [ %.329.i.i206, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i205 ]
-  %37 = icmp slt i32 %.01534.i.i190, 0
-  br i1 %37, label %38, label %41
+  %36 = icmp slt i32 %.01534.i.i190, 0
+  br i1 %36, label %37, label %40
 
-38:                                               ; preds = %36
+37:                                               ; preds = %35
+  %38 = load ptr, ptr %33, align 8, !tbaa !234
   %39 = load ptr, ptr %34, align 8, !tbaa !234
-  %40 = load ptr, ptr %35, align 8, !tbaa !234
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i192
 
-41:                                               ; preds = %36
-  %42 = zext nneg i32 %.01534.i.i190 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %42
-  %44 = load ptr, ptr %43, align 8, !tbaa !246
-  %45 = ptrtoint ptr %44 to i64
-  %46 = and i64 %45, -8
-  %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %42
-  %49 = load ptr, ptr %48, align 8, !tbaa !246
-  %50 = ptrtoint ptr %49 to i64
-  %51 = and i64 %50, -8
-  %52 = inttoptr i64 %51 to ptr
+40:                                               ; preds = %35
+  %41 = zext nneg i32 %.01534.i.i190 to i64
+  %42 = getelementptr inbounds nuw ptr, ptr %31, i64 %41
+  %43 = load ptr, ptr %42, align 8, !tbaa !246
+  %44 = ptrtoint ptr %43 to i64
+  %45 = and i64 %44, -8
+  %46 = inttoptr i64 %45 to ptr
+  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %41
+  %48 = load ptr, ptr %47, align 8, !tbaa !246
+  %49 = ptrtoint ptr %48 to i64
+  %50 = and i64 %49, -8
+  %51 = inttoptr i64 %50 to ptr
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i192
 
-_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i192: ; preds = %41, %38
-  %.0.i23.i.i193 = phi ptr [ %39, %38 ], [ %47, %41 ]
-  %.0.i18.i.i194 = phi ptr [ %40, %38 ], [ %52, %41 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i193, i64 24
-  %54 = load i32, ptr %53, align 8, !tbaa !238
-  %.not1721.not.i.i.i195 = icmp eq i32 %54, 0
+_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i192: ; preds = %40, %37
+  %.0.i23.i.i193 = phi ptr [ %38, %37 ], [ %46, %40 ]
+  %.0.i18.i.i194 = phi ptr [ %39, %37 ], [ %51, %40 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i193, i64 24
+  %53 = load i32, ptr %52, align 8, !tbaa !238
+  %.not1721.not.i.i.i195 = icmp eq i32 %53, 0
   br i1 %.not1721.not.i.i.i195, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i205, label %.lr.ph.i.i.i196
 
 .lr.ph.i.i.i196:                                  ; preds = %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i192
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i193, i64 32
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i194, i64 32
-  %wide.trip.count.i.i.i197 = zext i32 %54 to i64
-  br label %57
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i193, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i194, i64 32
+  %wide.trip.count.i.i.i197 = zext i32 %53 to i64
+  br label %56
 
-57:                                               ; preds = %73, %.lr.ph.i.i.i196
-  %.121.i.i198 = phi i32 [ %.02033.i.i191, %.lr.ph.i.i.i196 ], [ %.2.i.i202, %73 ]
-  %indvars.iv.i.i.i199 = phi i64 [ 0, %.lr.ph.i.i.i196 ], [ %indvars.iv.next.i.i.i203, %73 ]
-  %58 = phi i32 [ %.02033.i.i191, %.lr.ph.i.i.i196 ], [ %74, %73 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.i.i.i199
-  %60 = load ptr, ptr %59, align 8, !tbaa !242
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 65535
-  %64 = icmp eq i32 %63, 1
-  br i1 %64, label %73, label %65
+56:                                               ; preds = %72, %.lr.ph.i.i.i196
+  %.121.i.i198 = phi i32 [ %.02033.i.i191, %.lr.ph.i.i.i196 ], [ %.2.i.i202, %72 ]
+  %indvars.iv.i.i.i199 = phi i64 [ 0, %.lr.ph.i.i.i196 ], [ %indvars.iv.next.i.i.i203, %72 ]
+  %57 = phi i32 [ %.02033.i.i191, %.lr.ph.i.i.i196 ], [ %73, %72 ]
+  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.i.i.i199
+  %59 = load ptr, ptr %58, align 8, !tbaa !242
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  %61 = load i32, ptr %60, align 4
+  %62 = and i32 %61, 65535
+  %63 = icmp eq i32 %62, 1
+  br i1 %63, label %72, label %64
 
-65:                                               ; preds = %57
-  %66 = icmp eq i32 %58, 0
-  br i1 %66, label %73, label %67
+64:                                               ; preds = %56
+  %65 = icmp eq i32 %57, 0
+  br i1 %65, label %72, label %66
 
-67:                                               ; preds = %65
-  %68 = add nsw i32 %58, -1
-  %69 = load i32, ptr %60, align 4, !tbaa !333
-  %70 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i.i.i199
-  %71 = load ptr, ptr %70, align 8, !tbaa !242
-  %72 = load i32, ptr %71, align 4, !tbaa !333
-  %.not.i.i.i200 = icmp eq i32 %69, %72
-  br i1 %.not.i.i.i200, label %73, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i201
+66:                                               ; preds = %64
+  %67 = add nsw i32 %57, -1
+  %68 = load i32, ptr %59, align 4, !tbaa !333
+  %69 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.i.i.i199
+  %70 = load ptr, ptr %69, align 8, !tbaa !242
+  %71 = load i32, ptr %70, align 4, !tbaa !333
+  %.not.i.i.i200 = icmp eq i32 %68, %71
+  br i1 %.not.i.i.i200, label %72, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i201
 
-73:                                               ; preds = %67, %65, %57
-  %.2.i.i202 = phi i32 [ %.121.i.i198, %57 ], [ -1, %65 ], [ %68, %67 ]
-  %74 = phi i32 [ %58, %57 ], [ -1, %65 ], [ %68, %67 ]
+72:                                               ; preds = %66, %64, %56
+  %.2.i.i202 = phi i32 [ %.121.i.i198, %56 ], [ -1, %64 ], [ %67, %66 ]
+  %73 = phi i32 [ %57, %56 ], [ -1, %64 ], [ %67, %66 ]
   %indvars.iv.next.i.i.i203 = add nuw nsw i64 %indvars.iv.i.i.i199, 1
   %exitcond.not.i.i.i204 = icmp eq i64 %indvars.iv.next.i.i.i203, %wide.trip.count.i.i.i197
-  br i1 %exitcond.not.i.i.i204, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i205, label %57, !llvm.loop !334
+  br i1 %exitcond.not.i.i.i204, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i205, label %56, !llvm.loop !334
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i201: ; preds = %67
-  %75 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %69, i32 %72)
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i201: ; preds = %66
+  %74 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %68, i32 %71)
   br label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i205: ; preds = %73, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i192
-  %.329.i.i206 = phi i32 [ %.02033.i.i191, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i192 ], [ %.2.i.i202, %73 ]
-  %76 = add nsw i32 %.01534.i.i190, 1
-  %exitcond.not.i.i207 = icmp eq i32 %76, %31
-  br i1 %exitcond.not.i.i207, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208.thread, label %36, !llvm.loop !335
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i205: ; preds = %72, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i192
+  %.329.i.i206 = phi i32 [ %.02033.i.i191, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i192 ], [ %.2.i.i202, %72 ]
+  %75 = add nsw i32 %.01534.i.i190, 1
+  %exitcond.not.i.i207 = icmp eq i32 %75, %30
+  br i1 %exitcond.not.i.i207, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208.thread, label %35, !llvm.loop !335
 
-_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208: ; preds = %25, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i201
-  %.0.in.i186 = phi i32 [ %28, %25 ], [ %75, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i201 ]
+_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208: ; preds = %24, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i201
+  %.0.in.i186 = phi i32 [ %27, %24 ], [ %74, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i201 ]
   %.0.i187 = icmp sgt i32 %.0.in.i186, 0
-  br i1 %.0.i187, label %77, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208.thread
+  br i1 %.0.i187, label %76, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208.thread
 
-77:                                               ; preds = %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208
+76:                                               ; preds = %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %.021.i.idx.i, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i
 
-_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208.thread: ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i205, %29, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208
-  %78 = load ptr, ptr %.pn20.i.i, align 8, !tbaa !221
-  %79 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %26, ptr noundef readonly %78)
-  %.not.i161 = icmp eq i32 %79, 0
-  br i1 %.not.i161, label %80, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit184
+_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208.thread: ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i205, %28, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208
+  %77 = load ptr, ptr %.pn20.i.i, align 8, !tbaa !221
+  %78 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %25, ptr noundef readonly %77)
+  %.not.i161 = icmp eq i32 %78, 0
+  br i1 %.not.i161, label %79, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit184
 
-80:                                               ; preds = %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208.thread
-  %81 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %82 = load i32, ptr %81, align 8, !tbaa !245
-  %.not1732.i.i164 = icmp sgt i32 %82, -1
+79:                                               ; preds = %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208.thread
+  %80 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %81 = load i32, ptr %80, align 8, !tbaa !245
+  %.not1732.i.i164 = icmp sgt i32 %81, -1
   br i1 %.not1732.i.i164, label %.lr.ph.i.i165, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i
 
-.lr.ph.i.i165:                                    ; preds = %80
-  %83 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  %84 = getelementptr inbounds nuw i8, ptr %78, i64 80
-  %85 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %86 = getelementptr inbounds nuw i8, ptr %78, i64 40
-  br label %87
+.lr.ph.i.i165:                                    ; preds = %79
+  %82 = getelementptr inbounds nuw i8, ptr %25, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %77, i64 80
+  %84 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 40
+  br label %86
 
-87:                                               ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181, %.lr.ph.i.i165
-  %.01534.i.i166 = phi i32 [ -1, %.lr.ph.i.i165 ], [ %127, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181 ]
+86:                                               ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181, %.lr.ph.i.i165
+  %.01534.i.i166 = phi i32 [ -1, %.lr.ph.i.i165 ], [ %126, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181 ]
   %.02033.i.i167 = phi i32 [ 2147483647, %.lr.ph.i.i165 ], [ %.329.i.i182, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181 ]
-  %88 = icmp slt i32 %.01534.i.i166, 0
-  br i1 %88, label %89, label %92
+  %87 = icmp slt i32 %.01534.i.i166, 0
+  br i1 %87, label %88, label %91
 
-89:                                               ; preds = %87
+88:                                               ; preds = %86
+  %89 = load ptr, ptr %84, align 8, !tbaa !234
   %90 = load ptr, ptr %85, align 8, !tbaa !234
-  %91 = load ptr, ptr %86, align 8, !tbaa !234
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i168
 
-92:                                               ; preds = %87
-  %93 = zext nneg i32 %.01534.i.i166 to i64
-  %94 = getelementptr inbounds nuw ptr, ptr %83, i64 %93
-  %95 = load ptr, ptr %94, align 8, !tbaa !246
-  %96 = ptrtoint ptr %95 to i64
-  %97 = and i64 %96, -8
-  %98 = inttoptr i64 %97 to ptr
-  %99 = getelementptr inbounds nuw ptr, ptr %84, i64 %93
-  %100 = load ptr, ptr %99, align 8, !tbaa !246
-  %101 = ptrtoint ptr %100 to i64
-  %102 = and i64 %101, -8
-  %103 = inttoptr i64 %102 to ptr
+91:                                               ; preds = %86
+  %92 = zext nneg i32 %.01534.i.i166 to i64
+  %93 = getelementptr inbounds nuw ptr, ptr %82, i64 %92
+  %94 = load ptr, ptr %93, align 8, !tbaa !246
+  %95 = ptrtoint ptr %94 to i64
+  %96 = and i64 %95, -8
+  %97 = inttoptr i64 %96 to ptr
+  %98 = getelementptr inbounds nuw ptr, ptr %83, i64 %92
+  %99 = load ptr, ptr %98, align 8, !tbaa !246
+  %100 = ptrtoint ptr %99 to i64
+  %101 = and i64 %100, -8
+  %102 = inttoptr i64 %101 to ptr
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i168
 
-_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i168: ; preds = %92, %89
-  %.0.i23.i.i169 = phi ptr [ %90, %89 ], [ %98, %92 ]
-  %.0.i18.i.i170 = phi ptr [ %91, %89 ], [ %103, %92 ]
-  %104 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i169, i64 24
-  %105 = load i32, ptr %104, align 8, !tbaa !238
-  %.not1721.not.i.i.i171 = icmp eq i32 %105, 0
+_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i168: ; preds = %91, %88
+  %.0.i23.i.i169 = phi ptr [ %89, %88 ], [ %97, %91 ]
+  %.0.i18.i.i170 = phi ptr [ %90, %88 ], [ %102, %91 ]
+  %103 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i169, i64 24
+  %104 = load i32, ptr %103, align 8, !tbaa !238
+  %.not1721.not.i.i.i171 = icmp eq i32 %104, 0
   br i1 %.not1721.not.i.i.i171, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181, label %.lr.ph.i.i.i172
 
 .lr.ph.i.i.i172:                                  ; preds = %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i168
-  %106 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i169, i64 32
-  %107 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i170, i64 32
-  %wide.trip.count.i.i.i173 = zext i32 %105 to i64
-  br label %108
+  %105 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i169, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i170, i64 32
+  %wide.trip.count.i.i.i173 = zext i32 %104 to i64
+  br label %107
 
-108:                                              ; preds = %124, %.lr.ph.i.i.i172
-  %.121.i.i174 = phi i32 [ %.02033.i.i167, %.lr.ph.i.i.i172 ], [ %.2.i.i178, %124 ]
-  %indvars.iv.i.i.i175 = phi i64 [ 0, %.lr.ph.i.i.i172 ], [ %indvars.iv.next.i.i.i179, %124 ]
-  %109 = phi i32 [ %.02033.i.i167, %.lr.ph.i.i.i172 ], [ %125, %124 ]
-  %110 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv.i.i.i175
-  %111 = load ptr, ptr %110, align 8, !tbaa !242
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  %113 = load i32, ptr %112, align 4
-  %114 = and i32 %113, 65535
-  %115 = icmp eq i32 %114, 1
-  br i1 %115, label %124, label %116
+107:                                              ; preds = %123, %.lr.ph.i.i.i172
+  %.121.i.i174 = phi i32 [ %.02033.i.i167, %.lr.ph.i.i.i172 ], [ %.2.i.i178, %123 ]
+  %indvars.iv.i.i.i175 = phi i64 [ 0, %.lr.ph.i.i.i172 ], [ %indvars.iv.next.i.i.i179, %123 ]
+  %108 = phi i32 [ %.02033.i.i167, %.lr.ph.i.i.i172 ], [ %124, %123 ]
+  %109 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv.i.i.i175
+  %110 = load ptr, ptr %109, align 8, !tbaa !242
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  %112 = load i32, ptr %111, align 4
+  %113 = and i32 %112, 65535
+  %114 = icmp eq i32 %113, 1
+  br i1 %114, label %123, label %115
 
-116:                                              ; preds = %108
-  %117 = icmp eq i32 %109, 0
-  br i1 %117, label %124, label %118
+115:                                              ; preds = %107
+  %116 = icmp eq i32 %108, 0
+  br i1 %116, label %123, label %117
 
-118:                                              ; preds = %116
-  %119 = add nsw i32 %109, -1
-  %120 = load i32, ptr %111, align 4, !tbaa !333
-  %121 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv.i.i.i175
-  %122 = load ptr, ptr %121, align 8, !tbaa !242
-  %123 = load i32, ptr %122, align 4, !tbaa !333
-  %.not.i.i.i176 = icmp eq i32 %120, %123
-  br i1 %.not.i.i.i176, label %124, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i177
+117:                                              ; preds = %115
+  %118 = add nsw i32 %108, -1
+  %119 = load i32, ptr %110, align 4, !tbaa !333
+  %120 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv.i.i.i175
+  %121 = load ptr, ptr %120, align 8, !tbaa !242
+  %122 = load i32, ptr %121, align 4, !tbaa !333
+  %.not.i.i.i176 = icmp eq i32 %119, %122
+  br i1 %.not.i.i.i176, label %123, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i177
 
-124:                                              ; preds = %118, %116, %108
-  %.2.i.i178 = phi i32 [ %.121.i.i174, %108 ], [ -1, %116 ], [ %119, %118 ]
-  %125 = phi i32 [ %109, %108 ], [ -1, %116 ], [ %119, %118 ]
+123:                                              ; preds = %117, %115, %107
+  %.2.i.i178 = phi i32 [ %.121.i.i174, %107 ], [ -1, %115 ], [ %118, %117 ]
+  %124 = phi i32 [ %108, %107 ], [ -1, %115 ], [ %118, %117 ]
   %indvars.iv.next.i.i.i179 = add nuw nsw i64 %indvars.iv.i.i.i175, 1
   %exitcond.not.i.i.i180 = icmp eq i64 %indvars.iv.next.i.i.i179, %wide.trip.count.i.i.i173
-  br i1 %exitcond.not.i.i.i180, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181, label %108, !llvm.loop !334
+  br i1 %exitcond.not.i.i.i180, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181, label %107, !llvm.loop !334
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i177: ; preds = %118
-  %126 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %120, i32 %123)
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i177: ; preds = %117
+  %125 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %119, i32 %122)
   br label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit184
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181: ; preds = %124, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i168
-  %.329.i.i182 = phi i32 [ %.02033.i.i167, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i168 ], [ %.2.i.i178, %124 ]
-  %127 = add nsw i32 %.01534.i.i166, 1
-  %exitcond.not.i.i183 = icmp eq i32 %127, %82
-  br i1 %exitcond.not.i.i183, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i, label %87, !llvm.loop !335
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181: ; preds = %123, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i168
+  %.329.i.i182 = phi i32 [ %.02033.i.i167, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i168 ], [ %.2.i.i178, %123 ]
+  %126 = add nsw i32 %.01534.i.i166, 1
+  %exitcond.not.i.i183 = icmp eq i32 %126, %81
+  br i1 %exitcond.not.i.i183, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i, label %86, !llvm.loop !335
 
 _ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit184: ; preds = %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208.thread, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i177
-  %.0.in.i162 = phi i32 [ %79, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208.thread ], [ %126, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i177 ]
+  %.0.in.i162 = phi i32 [ %78, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit208.thread ], [ %125, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i177 ]
   %.0.i163 = icmp sgt i32 %.0.in.i162, 0
   br i1 %.0.i163, label %.lr.ph.i.i.i.preheader, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i
 
 .lr.ph.i.i.i.preheader:                           ; preds = %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit184
-  %128 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  %129 = load i32, ptr %128, align 8, !tbaa !293
-  %130 = getelementptr inbounds nuw i8, ptr %26, i64 68
-  %131 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %132 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  %133 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %127 = getelementptr inbounds nuw i8, ptr %25, i64 56
+  %128 = load i32, ptr %127, align 8, !tbaa !293
+  %129 = getelementptr inbounds nuw i8, ptr %25, i64 68
+  %130 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %131 = getelementptr inbounds nuw i8, ptr %25, i64 80
+  %132 = getelementptr inbounds nuw i8, ptr %25, i64 40
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160
-  %134 = phi ptr [ %135, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160 ], [ %78, %.lr.ph.i.i.i.preheader ]
+  %133 = phi ptr [ %134, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160 ], [ %77, %.lr.ph.i.i.i.preheader ]
   %.013.i.i.i = phi ptr [ %.0.i.i.i38, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160 ], [ %.pn20.i.i, %.lr.ph.i.i.i.preheader ]
   %.0912.i.i.i = phi ptr [ %.013.i.i.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160 ], [ %.021.i.ptr.i, %.lr.ph.i.i.i.preheader ]
-  store ptr %134, ptr %.0912.i.i.i, align 8, !tbaa !221
+  store ptr %133, ptr %.0912.i.i.i, align 8, !tbaa !221
   %.0.i.i.i38 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 -8
-  %135 = load ptr, ptr %.0.i.i.i38, align 8, !tbaa !221
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 56
-  %137 = load i32, ptr %136, align 8, !tbaa !293
-  %138 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %129, i32 %137)
-  %.not.i213 = icmp eq i32 %129, %137
-  br i1 %.not.i213, label %139, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250
+  %134 = load ptr, ptr %.0.i.i.i38, align 8, !tbaa !221
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 56
+  %136 = load i32, ptr %135, align 8, !tbaa !293
+  %137 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %128, i32 %136)
+  %.not.i214 = icmp eq i32 %128, %136
+  br i1 %.not.i214, label %138, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251
 
-139:                                              ; preds = %.lr.ph.i.i.i
-  %140 = load i32, ptr %130, align 4, !tbaa !346
-  %141 = getelementptr inbounds nuw i8, ptr %135, i64 68
-  %142 = load i32, ptr %141, align 4, !tbaa !346
-  %143 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %140, i32 %142)
-  %.not55.i215 = icmp eq i32 %140, %142
-  br i1 %.not55.i215, label %144, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250
+138:                                              ; preds = %.lr.ph.i.i.i
+  %139 = load i32, ptr %129, align 4, !tbaa !346
+  %140 = getelementptr inbounds nuw i8, ptr %134, i64 68
+  %141 = load i32, ptr %140, align 4, !tbaa !346
+  %142 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %139, i32 %141)
+  %.not55.i216 = icmp eq i32 %139, %141
+  br i1 %.not55.i216, label %143, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251
 
-144:                                              ; preds = %139
-  %145 = load i32, ptr %131, align 8, !tbaa !245
-  %146 = getelementptr inbounds nuw i8, ptr %135, i64 64
-  %147 = load i32, ptr %146, align 8, !tbaa !245
-  %148 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %145, i32 %147)
-  %.not56.i216 = icmp eq i32 %145, %147
-  br i1 %.not56.i216, label %.preheader.i217, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250
+143:                                              ; preds = %138
+  %144 = load i32, ptr %130, align 8, !tbaa !245
+  %145 = getelementptr inbounds nuw i8, ptr %134, i64 64
+  %146 = load i32, ptr %145, align 8, !tbaa !245
+  %147 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %144, i32 %146)
+  %.not56.i217 = icmp eq i32 %144, %146
+  br i1 %.not56.i217, label %.preheader.i218, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251
 
-.preheader.i217:                                  ; preds = %144
-  %.not5989.i218 = icmp sgt i32 %145, -1
-  br i1 %.not5989.i218, label %.lr.ph.i229, label %.thread76.preheader.i219
+.preheader.i218:                                  ; preds = %143
+  %.not5989.i219 = icmp sgt i32 %144, -1
+  br i1 %.not5989.i219, label %.lr.ph.i230, label %.thread76.preheader.i220
 
-.lr.ph.i229:                                      ; preds = %.preheader.i217
-  %149 = getelementptr inbounds nuw i8, ptr %135, i64 80
-  %150 = getelementptr inbounds nuw i8, ptr %135, i64 40
-  br label %153
+.lr.ph.i230:                                      ; preds = %.preheader.i218
+  %148 = getelementptr inbounds nuw i8, ptr %134, i64 80
+  %149 = getelementptr inbounds nuw i8, ptr %134, i64 40
+  br label %152
 
-.thread76.preheader.i219:                         ; preds = %.thread69.i244, %.preheader.i217
-  %.not6195.i220 = icmp ult i32 %145, %129
-  br i1 %.not6195.i220, label %.lr.ph97.i221, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250.thread
+.thread76.preheader.i220:                         ; preds = %.thread69.i245, %.preheader.i218
+  %.not6195.i221 = icmp ult i32 %144, %128
+  br i1 %.not6195.i221, label %.lr.ph97.i222, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251.thread
 
-.lr.ph97.i221:                                    ; preds = %.thread76.preheader.i219
-  %151 = getelementptr inbounds nuw i8, ptr %135, i64 80
-  %152 = zext i32 %145 to i64
-  br label %208
+.lr.ph97.i222:                                    ; preds = %.thread76.preheader.i220
+  %150 = getelementptr inbounds nuw i8, ptr %134, i64 80
+  %151 = zext i32 %144 to i64
+  br label %207
 
-153:                                              ; preds = %.thread69.i244, %.lr.ph.i229
-  %.04890.i230 = phi i32 [ -1, %.lr.ph.i229 ], [ %207, %.thread69.i244 ]
-  %154 = icmp slt i32 %.04890.i230, 0
-  br i1 %154, label %155, label %158
+152:                                              ; preds = %.thread69.i245, %.lr.ph.i230
+  %.04890.i231 = phi i32 [ -1, %.lr.ph.i230 ], [ %206, %.thread69.i245 ]
+  %153 = icmp slt i32 %.04890.i231, 0
+  br i1 %153, label %154, label %157
 
-155:                                              ; preds = %153
-  %156 = load ptr, ptr %133, align 8, !tbaa !234
-  %157 = load ptr, ptr %150, align 8, !tbaa !234
-  br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i231
+154:                                              ; preds = %152
+  %155 = load ptr, ptr %132, align 8, !tbaa !234
+  %156 = load ptr, ptr %149, align 8, !tbaa !234
+  br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i232
 
-158:                                              ; preds = %153
-  %159 = zext nneg i32 %.04890.i230 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr %132, i64 %159
-  %161 = load ptr, ptr %160, align 8, !tbaa !246
-  %162 = ptrtoint ptr %161 to i64
-  %163 = and i64 %162, -8
-  %164 = inttoptr i64 %163 to ptr
-  %165 = getelementptr inbounds nuw ptr, ptr %149, i64 %159
-  %166 = load ptr, ptr %165, align 8, !tbaa !246
-  %167 = ptrtoint ptr %166 to i64
-  %168 = and i64 %167, -8
-  %169 = inttoptr i64 %168 to ptr
-  br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i231
+157:                                              ; preds = %152
+  %158 = zext nneg i32 %.04890.i231 to i64
+  %159 = getelementptr inbounds nuw ptr, ptr %131, i64 %158
+  %160 = load ptr, ptr %159, align 8, !tbaa !246
+  %161 = ptrtoint ptr %160 to i64
+  %162 = and i64 %161, -8
+  %163 = inttoptr i64 %162 to ptr
+  %164 = getelementptr inbounds nuw ptr, ptr %148, i64 %158
+  %165 = load ptr, ptr %164, align 8, !tbaa !246
+  %166 = ptrtoint ptr %165 to i64
+  %167 = and i64 %166, -8
+  %168 = inttoptr i64 %167 to ptr
+  br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i232
 
-_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i231: ; preds = %158, %155
-  %.0.i65.i232 = phi ptr [ %156, %155 ], [ %164, %158 ]
-  %.0.i62.i233 = phi ptr [ %157, %155 ], [ %169, %158 ]
-  %170 = getelementptr inbounds nuw i8, ptr %.0.i65.i232, i64 16
-  %171 = load ptr, ptr %170, align 8, !tbaa !265
-  %172 = load i32, ptr %171, align 4, !tbaa !333
-  %173 = getelementptr inbounds nuw i8, ptr %.0.i62.i233, i64 16
-  %174 = load ptr, ptr %173, align 8, !tbaa !265
-  %175 = load i32, ptr %174, align 4, !tbaa !333
-  %.not57.i234 = icmp eq i32 %172, %175
-  br i1 %.not57.i234, label %176, label %.thread74.loopexit79.split.loop.exit.i235
+_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i232: ; preds = %157, %154
+  %.0.i65.i233 = phi ptr [ %155, %154 ], [ %163, %157 ]
+  %.0.i62.i234 = phi ptr [ %156, %154 ], [ %168, %157 ]
+  %169 = getelementptr inbounds nuw i8, ptr %.0.i65.i233, i64 16
+  %170 = load ptr, ptr %169, align 8, !tbaa !265
+  %171 = load i32, ptr %170, align 4, !tbaa !333
+  %172 = getelementptr inbounds nuw i8, ptr %.0.i62.i234, i64 16
+  %173 = load ptr, ptr %172, align 8, !tbaa !265
+  %174 = load i32, ptr %173, align 4, !tbaa !333
+  %.not57.i235 = icmp eq i32 %171, %174
+  br i1 %.not57.i235, label %175, label %.thread74.loopexit79.split.loop.exit.i236
 
-176:                                              ; preds = %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i231
-  %177 = getelementptr inbounds nuw i8, ptr %.0.i65.i232, i64 24
-  %178 = load i32, ptr %177, align 8, !tbaa !238
-  %179 = getelementptr inbounds nuw i8, ptr %.0.i65.i232, i64 32
-  %.not2634.not.i.i236 = icmp eq i32 %178, 0
-  br i1 %.not2634.not.i.i236, label %.thread69.i244, label %.lr.ph.i.i237
+175:                                              ; preds = %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i232
+  %176 = getelementptr inbounds nuw i8, ptr %.0.i65.i233, i64 24
+  %177 = load i32, ptr %176, align 8, !tbaa !238
+  %178 = getelementptr inbounds nuw i8, ptr %.0.i65.i233, i64 32
+  %.not2634.not.i.i237 = icmp eq i32 %177, 0
+  br i1 %.not2634.not.i.i237, label %.thread69.i245, label %.lr.ph.i.i238
 
-.lr.ph.i.i237:                                    ; preds = %176
-  %180 = getelementptr inbounds nuw i8, ptr %.0.i62.i233, i64 32
-  %wide.trip.count.i.i238 = zext i32 %178 to i64
-  br label %181
+.lr.ph.i.i238:                                    ; preds = %175
+  %179 = getelementptr inbounds nuw i8, ptr %.0.i62.i234, i64 32
+  %wide.trip.count.i.i239 = zext i32 %177 to i64
+  br label %180
 
-181:                                              ; preds = %205, %.lr.ph.i.i237
-  %indvars.iv.i.i239 = phi i64 [ 0, %.lr.ph.i.i237 ], [ %indvars.iv.next.i.i246, %205 ]
-  %182 = getelementptr inbounds nuw ptr, ptr %179, i64 %indvars.iv.i.i239
-  %183 = load ptr, ptr %182, align 8, !tbaa !242
-  %184 = getelementptr inbounds nuw ptr, ptr %180, i64 %indvars.iv.i.i239
-  %185 = load ptr, ptr %184, align 8, !tbaa !242
-  %186 = getelementptr inbounds nuw i8, ptr %183, i64 4
-  %187 = load i32, ptr %186, align 4
-  %188 = and i32 %187, 65535
-  %189 = icmp eq i32 %188, 1
-  %190 = getelementptr inbounds nuw i8, ptr %185, i64 4
-  %191 = load i32, ptr %190, align 4
-  %192 = and i32 %191, 65535
-  %193 = icmp eq i32 %192, 1
-  %194 = xor i1 %193, true
-  %195 = and i1 %189, %194
-  %196 = xor i1 %189, %193
-  %197 = sext i1 %196 to i32
-  %198 = select i1 %195, i32 1, i32 %197
-  %.not.i.i240 = icmp eq i32 %198, 0
-  br i1 %.not.i.i240, label %199, label %.loopexit.i241
+180:                                              ; preds = %204, %.lr.ph.i.i238
+  %indvars.iv.i.i240 = phi i64 [ 0, %.lr.ph.i.i238 ], [ %indvars.iv.next.i.i247, %204 ]
+  %181 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv.i.i240
+  %182 = load ptr, ptr %181, align 8, !tbaa !242
+  %183 = getelementptr inbounds nuw ptr, ptr %179, i64 %indvars.iv.i.i240
+  %184 = load ptr, ptr %183, align 8, !tbaa !242
+  %185 = getelementptr inbounds nuw i8, ptr %182, i64 4
+  %186 = load i32, ptr %185, align 4
+  %187 = and i32 %186, 65535
+  %188 = icmp eq i32 %187, 1
+  %189 = getelementptr inbounds nuw i8, ptr %184, i64 4
+  %190 = load i32, ptr %189, align 4
+  %191 = and i32 %190, 65535
+  %192 = icmp eq i32 %191, 1
+  %193 = xor i1 %192, true
+  %194 = and i1 %188, %193
+  %195 = xor i1 %188, %192
+  %196 = sext i1 %195 to i32
+  %197 = select i1 %194, i32 1, i32 %196
+  %.not.i.i241 = icmp eq i32 %197, 0
+  br i1 %.not.i.i241, label %198, label %.loopexit.i242
 
-199:                                              ; preds = %181
-  br i1 %189, label %200, label %205
+198:                                              ; preds = %180
+  br i1 %188, label %199, label %204
 
-200:                                              ; preds = %199
-  %201 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %202 = load i32, ptr %201, align 8, !tbaa !347
-  %203 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %204 = load i32, ptr %203, align 8, !tbaa !347
-  %.not25.i.i248 = icmp eq i32 %202, %204
-  br i1 %.not25.i.i248, label %205, label %.thread.split.loop.exit.i.i249
+199:                                              ; preds = %198
+  %200 = getelementptr inbounds nuw i8, ptr %182, i64 16
+  %201 = load i32, ptr %200, align 8, !tbaa !347
+  %202 = getelementptr inbounds nuw i8, ptr %184, i64 16
+  %203 = load i32, ptr %202, align 8, !tbaa !347
+  %.not25.i.i249 = icmp eq i32 %201, %203
+  br i1 %.not25.i.i249, label %204, label %.thread.split.loop.exit.i.i250
 
-205:                                              ; preds = %200, %199
-  %indvars.iv.next.i.i246 = add nuw nsw i64 %indvars.iv.i.i239, 1
-  %exitcond.not.i.i247 = icmp eq i64 %indvars.iv.next.i.i246, %wide.trip.count.i.i238
-  br i1 %exitcond.not.i.i247, label %.thread69.i244, label %181, !llvm.loop !349
+204:                                              ; preds = %199, %198
+  %indvars.iv.next.i.i247 = add nuw nsw i64 %indvars.iv.i.i240, 1
+  %exitcond.not.i.i248 = icmp eq i64 %indvars.iv.next.i.i247, %wide.trip.count.i.i239
+  br i1 %exitcond.not.i.i248, label %.thread69.i245, label %180, !llvm.loop !349
 
-.thread.split.loop.exit.i.i249:                   ; preds = %200
-  %206 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %202, i32 %204)
-  br label %.loopexit.i241
+.thread.split.loop.exit.i.i250:                   ; preds = %199
+  %205 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %201, i32 %203)
+  br label %.loopexit.i242
 
-.loopexit.i241:                                   ; preds = %181, %.thread.split.loop.exit.i.i249
-  %spec.select.i.i242 = phi i32 [ %206, %.thread.split.loop.exit.i.i249 ], [ %198, %181 ]
-  %.not58.i243 = icmp eq i32 %spec.select.i.i242, 0
-  br i1 %.not58.i243, label %.thread69.i244, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250
+.loopexit.i242:                                   ; preds = %180, %.thread.split.loop.exit.i.i250
+  %spec.select.i.i243 = phi i32 [ %205, %.thread.split.loop.exit.i.i250 ], [ %197, %180 ]
+  %.not58.i244 = icmp eq i32 %spec.select.i.i243, 0
+  br i1 %.not58.i244, label %.thread69.i245, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251
 
-.thread69.i244:                                   ; preds = %205, %.loopexit.i241, %176
-  %207 = add nsw i32 %.04890.i230, 1
-  %exitcond.not.i245 = icmp eq i32 %207, %145
-  br i1 %exitcond.not.i245, label %.thread76.preheader.i219, label %153, !llvm.loop !350
+.thread69.i245:                                   ; preds = %204, %.loopexit.i242, %175
+  %206 = add nsw i32 %.04890.i231, 1
+  %exitcond.not.i246 = icmp eq i32 %206, %144
+  br i1 %exitcond.not.i246, label %.thread76.preheader.i220, label %152, !llvm.loop !350
 
-.thread76.i225:                                   ; preds = %208
-  %indvars.iv.next.i226 = add nuw nsw i64 %indvars.iv.i222, 1
-  %lftr.wideiv.i227 = trunc i64 %indvars.iv.next.i226 to i32
-  %exitcond114.not.i228 = icmp eq i32 %129, %lftr.wideiv.i227
-  br i1 %exitcond114.not.i228, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250.thread, label %208, !llvm.loop !351
+.thread76.i226:                                   ; preds = %207
+  %indvars.iv.next.i227 = add nuw nsw i64 %indvars.iv.i223, 1
+  %lftr.wideiv.i228 = trunc i64 %indvars.iv.next.i227 to i32
+  %exitcond114.not.i229 = icmp eq i32 %128, %lftr.wideiv.i228
+  br i1 %exitcond114.not.i229, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251.thread, label %207, !llvm.loop !351
 
-208:                                              ; preds = %.thread76.i225, %.lr.ph97.i221
-  %indvars.iv.i222 = phi i64 [ %152, %.lr.ph97.i221 ], [ %indvars.iv.next.i226, %.thread76.i225 ]
-  %209 = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv.i222
-  %210 = load ptr, ptr %209, align 8, !tbaa !246
-  %211 = ptrtoint ptr %210 to i64
-  %212 = and i64 %211, -8
-  %213 = inttoptr i64 %212 to ptr
-  %214 = load i32, ptr %213, align 8, !tbaa !333
-  %215 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv.i222
-  %216 = load ptr, ptr %215, align 8, !tbaa !246
-  %217 = ptrtoint ptr %216 to i64
-  %218 = and i64 %217, -8
-  %219 = inttoptr i64 %218 to ptr
-  %220 = load i32, ptr %219, align 8, !tbaa !333
-  %.not60.i223 = icmp eq i32 %214, %220
-  br i1 %.not60.i223, label %.thread76.i225, label %.thread74.loopexit.split.loop.exit.i224
+207:                                              ; preds = %.thread76.i226, %.lr.ph97.i222
+  %indvars.iv.i223 = phi i64 [ %151, %.lr.ph97.i222 ], [ %indvars.iv.next.i227, %.thread76.i226 ]
+  %208 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv.i223
+  %209 = load ptr, ptr %208, align 8, !tbaa !246
+  %210 = ptrtoint ptr %209 to i64
+  %211 = and i64 %210, -8
+  %212 = inttoptr i64 %211 to ptr
+  %213 = load i32, ptr %212, align 8, !tbaa !333
+  %214 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv.i223
+  %215 = load ptr, ptr %214, align 8, !tbaa !246
+  %216 = ptrtoint ptr %215 to i64
+  %217 = and i64 %216, -8
+  %218 = inttoptr i64 %217 to ptr
+  %219 = load i32, ptr %218, align 8, !tbaa !333
+  %.not60.i224 = icmp eq i32 %213, %219
+  br i1 %.not60.i224, label %.thread76.i226, label %.thread74.loopexit.split.loop.exit.i225
 
-.thread74.loopexit.split.loop.exit.i224:          ; preds = %208
-  %221 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %214, i32 %220)
-  br label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250
+.thread74.loopexit.split.loop.exit.i225:          ; preds = %207
+  %220 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %213, i32 %219)
+  br label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251
 
-.thread74.loopexit79.split.loop.exit.i235:        ; preds = %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i231
-  %222 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %172, i32 %175)
-  br label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250
+.thread74.loopexit79.split.loop.exit.i236:        ; preds = %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i232
+  %221 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %171, i32 %174)
+  br label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251
 
-_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250: ; preds = %.loopexit.i241, %.lr.ph.i.i.i, %139, %144, %.thread74.loopexit.split.loop.exit.i224, %.thread74.loopexit79.split.loop.exit.i235
-  %.044.i214 = phi i32 [ %138, %.lr.ph.i.i.i ], [ %143, %139 ], [ %148, %144 ], [ %221, %.thread74.loopexit.split.loop.exit.i224 ], [ %222, %.thread74.loopexit79.split.loop.exit.i235 ], [ %spec.select.i.i242, %.loopexit.i241 ]
-  %.not.i137 = icmp eq i32 %.044.i214, 0
-  br i1 %.not.i137, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250._ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250.thread_crit_edge, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160
+_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251: ; preds = %.loopexit.i242, %.lr.ph.i.i.i, %138, %143, %.thread74.loopexit.split.loop.exit.i225, %.thread74.loopexit79.split.loop.exit.i236
+  %.044.i215 = phi i32 [ %137, %.lr.ph.i.i.i ], [ %142, %138 ], [ %147, %143 ], [ %220, %.thread74.loopexit.split.loop.exit.i225 ], [ %221, %.thread74.loopexit79.split.loop.exit.i236 ], [ %spec.select.i.i243, %.loopexit.i242 ]
+  %.not.i137 = icmp eq i32 %.044.i215, 0
+  br i1 %.not.i137, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251._ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251.thread_crit_edge, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160
 
-_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250._ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250.thread_crit_edge: ; preds = %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250
-  %.pre399 = load i32, ptr %131, align 8, !tbaa !245
-  br label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250.thread
+_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251._ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251.thread_crit_edge: ; preds = %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251
+  %.pre400 = load i32, ptr %130, align 8, !tbaa !245
+  br label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251.thread
 
-_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250.thread: ; preds = %.thread76.i225, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250._ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250.thread_crit_edge, %.thread76.preheader.i219
-  %223 = phi i32 [ %.pre399, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250._ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250.thread_crit_edge ], [ %145, %.thread76.preheader.i219 ], [ %145, %.thread76.i225 ]
-  %.not1732.i.i140 = icmp sgt i32 %223, -1
+_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251.thread: ; preds = %.thread76.i226, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251._ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251.thread_crit_edge, %.thread76.preheader.i220
+  %222 = phi i32 [ %.pre400, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251._ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251.thread_crit_edge ], [ %144, %.thread76.preheader.i220 ], [ %144, %.thread76.i226 ]
+  %.not1732.i.i140 = icmp sgt i32 %222, -1
   br i1 %.not1732.i.i140, label %.lr.ph.i.i141, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i
 
-.lr.ph.i.i141:                                    ; preds = %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250.thread
-  %224 = getelementptr inbounds nuw i8, ptr %135, i64 80
-  %225 = getelementptr inbounds nuw i8, ptr %135, i64 40
-  br label %226
+.lr.ph.i.i141:                                    ; preds = %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251.thread
+  %223 = getelementptr inbounds nuw i8, ptr %134, i64 80
+  %224 = getelementptr inbounds nuw i8, ptr %134, i64 40
+  br label %225
 
-226:                                              ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157, %.lr.ph.i.i141
-  %.01534.i.i142 = phi i32 [ -1, %.lr.ph.i.i141 ], [ %266, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157 ]
+225:                                              ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157, %.lr.ph.i.i141
+  %.01534.i.i142 = phi i32 [ -1, %.lr.ph.i.i141 ], [ %265, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157 ]
   %.02033.i.i143 = phi i32 [ 2147483647, %.lr.ph.i.i141 ], [ %.329.i.i158, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157 ]
-  %227 = icmp slt i32 %.01534.i.i142, 0
-  br i1 %227, label %228, label %231
+  %226 = icmp slt i32 %.01534.i.i142, 0
+  br i1 %226, label %227, label %230
 
-228:                                              ; preds = %226
-  %229 = load ptr, ptr %133, align 8, !tbaa !234
-  %230 = load ptr, ptr %225, align 8, !tbaa !234
+227:                                              ; preds = %225
+  %228 = load ptr, ptr %132, align 8, !tbaa !234
+  %229 = load ptr, ptr %224, align 8, !tbaa !234
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i144
 
-231:                                              ; preds = %226
-  %232 = zext nneg i32 %.01534.i.i142 to i64
-  %233 = getelementptr inbounds nuw ptr, ptr %132, i64 %232
-  %234 = load ptr, ptr %233, align 8, !tbaa !246
-  %235 = ptrtoint ptr %234 to i64
-  %236 = and i64 %235, -8
-  %237 = inttoptr i64 %236 to ptr
-  %238 = getelementptr inbounds nuw ptr, ptr %224, i64 %232
-  %239 = load ptr, ptr %238, align 8, !tbaa !246
-  %240 = ptrtoint ptr %239 to i64
-  %241 = and i64 %240, -8
-  %242 = inttoptr i64 %241 to ptr
+230:                                              ; preds = %225
+  %231 = zext nneg i32 %.01534.i.i142 to i64
+  %232 = getelementptr inbounds nuw ptr, ptr %131, i64 %231
+  %233 = load ptr, ptr %232, align 8, !tbaa !246
+  %234 = ptrtoint ptr %233 to i64
+  %235 = and i64 %234, -8
+  %236 = inttoptr i64 %235 to ptr
+  %237 = getelementptr inbounds nuw ptr, ptr %223, i64 %231
+  %238 = load ptr, ptr %237, align 8, !tbaa !246
+  %239 = ptrtoint ptr %238 to i64
+  %240 = and i64 %239, -8
+  %241 = inttoptr i64 %240 to ptr
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i144
 
-_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i144: ; preds = %231, %228
-  %.0.i23.i.i145 = phi ptr [ %229, %228 ], [ %237, %231 ]
-  %.0.i18.i.i146 = phi ptr [ %230, %228 ], [ %242, %231 ]
-  %243 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i145, i64 24
-  %244 = load i32, ptr %243, align 8, !tbaa !238
-  %.not1721.not.i.i.i147 = icmp eq i32 %244, 0
+_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i144: ; preds = %230, %227
+  %.0.i23.i.i145 = phi ptr [ %228, %227 ], [ %236, %230 ]
+  %.0.i18.i.i146 = phi ptr [ %229, %227 ], [ %241, %230 ]
+  %242 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i145, i64 24
+  %243 = load i32, ptr %242, align 8, !tbaa !238
+  %.not1721.not.i.i.i147 = icmp eq i32 %243, 0
   br i1 %.not1721.not.i.i.i147, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157, label %.lr.ph.i.i.i148
 
 .lr.ph.i.i.i148:                                  ; preds = %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i144
-  %245 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i145, i64 32
-  %246 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i146, i64 32
-  %wide.trip.count.i.i.i149 = zext i32 %244 to i64
-  br label %247
+  %244 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i145, i64 32
+  %245 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i146, i64 32
+  %wide.trip.count.i.i.i149 = zext i32 %243 to i64
+  br label %246
 
-247:                                              ; preds = %263, %.lr.ph.i.i.i148
-  %.121.i.i150 = phi i32 [ %.02033.i.i143, %.lr.ph.i.i.i148 ], [ %.2.i.i154, %263 ]
-  %indvars.iv.i.i.i151 = phi i64 [ 0, %.lr.ph.i.i.i148 ], [ %indvars.iv.next.i.i.i155, %263 ]
-  %248 = phi i32 [ %.02033.i.i143, %.lr.ph.i.i.i148 ], [ %264, %263 ]
-  %249 = getelementptr inbounds nuw ptr, ptr %245, i64 %indvars.iv.i.i.i151
-  %250 = load ptr, ptr %249, align 8, !tbaa !242
-  %251 = getelementptr inbounds nuw i8, ptr %250, i64 4
-  %252 = load i32, ptr %251, align 4
-  %253 = and i32 %252, 65535
-  %254 = icmp eq i32 %253, 1
-  br i1 %254, label %263, label %255
+246:                                              ; preds = %262, %.lr.ph.i.i.i148
+  %.121.i.i150 = phi i32 [ %.02033.i.i143, %.lr.ph.i.i.i148 ], [ %.2.i.i154, %262 ]
+  %indvars.iv.i.i.i151 = phi i64 [ 0, %.lr.ph.i.i.i148 ], [ %indvars.iv.next.i.i.i155, %262 ]
+  %247 = phi i32 [ %.02033.i.i143, %.lr.ph.i.i.i148 ], [ %263, %262 ]
+  %248 = getelementptr inbounds nuw ptr, ptr %244, i64 %indvars.iv.i.i.i151
+  %249 = load ptr, ptr %248, align 8, !tbaa !242
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 4
+  %251 = load i32, ptr %250, align 4
+  %252 = and i32 %251, 65535
+  %253 = icmp eq i32 %252, 1
+  br i1 %253, label %262, label %254
 
-255:                                              ; preds = %247
-  %256 = icmp eq i32 %248, 0
-  br i1 %256, label %263, label %257
+254:                                              ; preds = %246
+  %255 = icmp eq i32 %247, 0
+  br i1 %255, label %262, label %256
 
-257:                                              ; preds = %255
-  %258 = add nsw i32 %248, -1
-  %259 = load i32, ptr %250, align 4, !tbaa !333
-  %260 = getelementptr inbounds nuw ptr, ptr %246, i64 %indvars.iv.i.i.i151
-  %261 = load ptr, ptr %260, align 8, !tbaa !242
-  %262 = load i32, ptr %261, align 4, !tbaa !333
-  %.not.i.i.i152 = icmp eq i32 %259, %262
-  br i1 %.not.i.i.i152, label %263, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i153
+256:                                              ; preds = %254
+  %257 = add nsw i32 %247, -1
+  %258 = load i32, ptr %249, align 4, !tbaa !333
+  %259 = getelementptr inbounds nuw ptr, ptr %245, i64 %indvars.iv.i.i.i151
+  %260 = load ptr, ptr %259, align 8, !tbaa !242
+  %261 = load i32, ptr %260, align 4, !tbaa !333
+  %.not.i.i.i152 = icmp eq i32 %258, %261
+  br i1 %.not.i.i.i152, label %262, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i153
 
-263:                                              ; preds = %257, %255, %247
-  %.2.i.i154 = phi i32 [ %.121.i.i150, %247 ], [ -1, %255 ], [ %258, %257 ]
-  %264 = phi i32 [ %248, %247 ], [ -1, %255 ], [ %258, %257 ]
+262:                                              ; preds = %256, %254, %246
+  %.2.i.i154 = phi i32 [ %.121.i.i150, %246 ], [ -1, %254 ], [ %257, %256 ]
+  %263 = phi i32 [ %247, %246 ], [ -1, %254 ], [ %257, %256 ]
   %indvars.iv.next.i.i.i155 = add nuw nsw i64 %indvars.iv.i.i.i151, 1
   %exitcond.not.i.i.i156 = icmp eq i64 %indvars.iv.next.i.i.i155, %wide.trip.count.i.i.i149
-  br i1 %exitcond.not.i.i.i156, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157, label %247, !llvm.loop !334
+  br i1 %exitcond.not.i.i.i156, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157, label %246, !llvm.loop !334
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i153: ; preds = %257
-  %265 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %259, i32 %262)
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i153: ; preds = %256
+  %264 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %258, i32 %261)
   br label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157: ; preds = %263, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i144
-  %.329.i.i158 = phi i32 [ %.02033.i.i143, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i144 ], [ %.2.i.i154, %263 ]
-  %266 = add nsw i32 %.01534.i.i142, 1
-  %exitcond.not.i.i159 = icmp eq i32 %266, %223
-  br i1 %exitcond.not.i.i159, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i, label %226, !llvm.loop !335
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157: ; preds = %262, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i144
+  %.329.i.i158 = phi i32 [ %.02033.i.i143, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i144 ], [ %.2.i.i154, %262 ]
+  %265 = add nsw i32 %.01534.i.i142, 1
+  %exitcond.not.i.i159 = icmp eq i32 %265, %222
+  br i1 %exitcond.not.i.i159, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i, label %225, !llvm.loop !335
 
-_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160: ; preds = %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i153
-  %.0.in.i138 = phi i32 [ %.044.i214, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250 ], [ %265, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i153 ]
+_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160: ; preds = %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i153
+  %.0.in.i138 = phi i32 [ %.044.i215, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251 ], [ %264, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i153 ]
   %.0.i139 = icmp sgt i32 %.0.in.i138, 0
   br i1 %.0.i139, label %.lr.ph.i.i.i, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i, !llvm.loop !352
 
-_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i: ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250.thread, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157, %80, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit184, %77
-  %.sink.i.i = phi ptr [ %11, %77 ], [ %.021.i.ptr.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit184 ], [ %.021.i.ptr.i, %80 ], [ %.013.i.i.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157 ], [ %.013.i.i.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160 ], [ %.013.i.i.i, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit250.thread ], [ %.021.i.ptr.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181 ]
-  store ptr %26, ptr %.sink.i.i, align 8, !tbaa !221
+_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i: ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251.thread, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157, %79, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit184, %76
+  %.sink.i.i = phi ptr [ %11, %76 ], [ %.021.i.ptr.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit184 ], [ %.021.i.ptr.i, %79 ], [ %.013.i.i.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i157 ], [ %.013.i.i.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit160 ], [ %.013.i.i.i, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit251.thread ], [ %.021.i.ptr.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i181 ]
+  store ptr %25, ptr %.sink.i.i, align 8, !tbaa !221
   %.021.i.add.i = add nuw nsw i64 %.021.i.idx.i, 8
   %.not.i.i37 = icmp eq i64 %.021.i.add.i, 128
-  br i1 %.not.i.i37, label %_ZSt16__insertion_sortIPPN7datalog4ruleEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SA_T0_.exit.i, label %25, !llvm.loop !353
+  br i1 %.not.i.i37, label %_ZSt16__insertion_sortIPPN7datalog4ruleEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SA_T0_.exit.i, label %24, !llvm.loop !353
 
 _ZSt16__insertion_sortIPPN7datalog4ruleEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SA_T0_.exit.i: ; preds = %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i.i
-  %267 = getelementptr inbounds nuw i8, ptr %11, i64 128
+  %266 = getelementptr inbounds nuw i8, ptr %11, i64 128
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZSt16__insertion_sortIPPN7datalog4ruleEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SA_T0_.exit.i, %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i
-  %.08.i.i = phi ptr [ %458, %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i ], [ %267, %_ZSt16__insertion_sortIPPN7datalog4ruleEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SA_T0_.exit.i ]
-  %268 = load ptr, ptr %.08.i.i, align 8, !tbaa !221
+  %.08.i.i = phi ptr [ %457, %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i ], [ %266, %_ZSt16__insertion_sortIPPN7datalog4ruleEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SA_T0_.exit.i ]
+  %267 = load ptr, ptr %.08.i.i, align 8, !tbaa !221
   %.011.i.i.i = getelementptr inbounds i8, ptr %.08.i.i, i64 -8
-  %269 = load ptr, ptr %.011.i.i.i, align 8, !tbaa !221
-  %270 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %268, ptr noundef readonly %269)
-  %.not.i113 = icmp eq i32 %270, 0
-  br i1 %.not.i113, label %271, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit136
+  %268 = load ptr, ptr %.011.i.i.i, align 8, !tbaa !221
+  %269 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %267, ptr noundef readonly %268)
+  %.not.i113 = icmp eq i32 %269, 0
+  br i1 %.not.i113, label %270, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit136
 
-271:                                              ; preds = %.lr.ph.i.i
-  %272 = getelementptr inbounds nuw i8, ptr %268, i64 64
-  %273 = load i32, ptr %272, align 8, !tbaa !245
-  %.not1732.i.i116 = icmp sgt i32 %273, -1
+270:                                              ; preds = %.lr.ph.i.i
+  %271 = getelementptr inbounds nuw i8, ptr %267, i64 64
+  %272 = load i32, ptr %271, align 8, !tbaa !245
+  %.not1732.i.i116 = icmp sgt i32 %272, -1
   br i1 %.not1732.i.i116, label %.lr.ph.i.i117, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i
 
-.lr.ph.i.i117:                                    ; preds = %271
+.lr.ph.i.i117:                                    ; preds = %270
+  %273 = getelementptr inbounds nuw i8, ptr %267, i64 80
   %274 = getelementptr inbounds nuw i8, ptr %268, i64 80
-  %275 = getelementptr inbounds nuw i8, ptr %269, i64 80
+  %275 = getelementptr inbounds nuw i8, ptr %267, i64 40
   %276 = getelementptr inbounds nuw i8, ptr %268, i64 40
-  %277 = getelementptr inbounds nuw i8, ptr %269, i64 40
-  br label %278
+  br label %277
 
-278:                                              ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133, %.lr.ph.i.i117
-  %.01534.i.i118 = phi i32 [ -1, %.lr.ph.i.i117 ], [ %318, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133 ]
+277:                                              ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133, %.lr.ph.i.i117
+  %.01534.i.i118 = phi i32 [ -1, %.lr.ph.i.i117 ], [ %317, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133 ]
   %.02033.i.i119 = phi i32 [ 2147483647, %.lr.ph.i.i117 ], [ %.329.i.i134, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133 ]
-  %279 = icmp slt i32 %.01534.i.i118, 0
-  br i1 %279, label %280, label %283
+  %278 = icmp slt i32 %.01534.i.i118, 0
+  br i1 %278, label %279, label %282
 
-280:                                              ; preds = %278
+279:                                              ; preds = %277
+  %280 = load ptr, ptr %275, align 8, !tbaa !234
   %281 = load ptr, ptr %276, align 8, !tbaa !234
-  %282 = load ptr, ptr %277, align 8, !tbaa !234
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i120
 
-283:                                              ; preds = %278
-  %284 = zext nneg i32 %.01534.i.i118 to i64
-  %285 = getelementptr inbounds nuw ptr, ptr %274, i64 %284
-  %286 = load ptr, ptr %285, align 8, !tbaa !246
-  %287 = ptrtoint ptr %286 to i64
-  %288 = and i64 %287, -8
-  %289 = inttoptr i64 %288 to ptr
-  %290 = getelementptr inbounds nuw ptr, ptr %275, i64 %284
-  %291 = load ptr, ptr %290, align 8, !tbaa !246
-  %292 = ptrtoint ptr %291 to i64
-  %293 = and i64 %292, -8
-  %294 = inttoptr i64 %293 to ptr
+282:                                              ; preds = %277
+  %283 = zext nneg i32 %.01534.i.i118 to i64
+  %284 = getelementptr inbounds nuw ptr, ptr %273, i64 %283
+  %285 = load ptr, ptr %284, align 8, !tbaa !246
+  %286 = ptrtoint ptr %285 to i64
+  %287 = and i64 %286, -8
+  %288 = inttoptr i64 %287 to ptr
+  %289 = getelementptr inbounds nuw ptr, ptr %274, i64 %283
+  %290 = load ptr, ptr %289, align 8, !tbaa !246
+  %291 = ptrtoint ptr %290 to i64
+  %292 = and i64 %291, -8
+  %293 = inttoptr i64 %292 to ptr
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i120
 
-_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i120: ; preds = %283, %280
-  %.0.i23.i.i121 = phi ptr [ %281, %280 ], [ %289, %283 ]
-  %.0.i18.i.i122 = phi ptr [ %282, %280 ], [ %294, %283 ]
-  %295 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i121, i64 24
-  %296 = load i32, ptr %295, align 8, !tbaa !238
-  %.not1721.not.i.i.i123 = icmp eq i32 %296, 0
+_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i120: ; preds = %282, %279
+  %.0.i23.i.i121 = phi ptr [ %280, %279 ], [ %288, %282 ]
+  %.0.i18.i.i122 = phi ptr [ %281, %279 ], [ %293, %282 ]
+  %294 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i121, i64 24
+  %295 = load i32, ptr %294, align 8, !tbaa !238
+  %.not1721.not.i.i.i123 = icmp eq i32 %295, 0
   br i1 %.not1721.not.i.i.i123, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133, label %.lr.ph.i.i.i124
 
 .lr.ph.i.i.i124:                                  ; preds = %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i120
-  %297 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i121, i64 32
-  %298 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i122, i64 32
-  %wide.trip.count.i.i.i125 = zext i32 %296 to i64
-  br label %299
+  %296 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i121, i64 32
+  %297 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i122, i64 32
+  %wide.trip.count.i.i.i125 = zext i32 %295 to i64
+  br label %298
 
-299:                                              ; preds = %315, %.lr.ph.i.i.i124
-  %.121.i.i126 = phi i32 [ %.02033.i.i119, %.lr.ph.i.i.i124 ], [ %.2.i.i130, %315 ]
-  %indvars.iv.i.i.i127 = phi i64 [ 0, %.lr.ph.i.i.i124 ], [ %indvars.iv.next.i.i.i131, %315 ]
-  %300 = phi i32 [ %.02033.i.i119, %.lr.ph.i.i.i124 ], [ %316, %315 ]
-  %301 = getelementptr inbounds nuw ptr, ptr %297, i64 %indvars.iv.i.i.i127
-  %302 = load ptr, ptr %301, align 8, !tbaa !242
-  %303 = getelementptr inbounds nuw i8, ptr %302, i64 4
-  %304 = load i32, ptr %303, align 4
-  %305 = and i32 %304, 65535
-  %306 = icmp eq i32 %305, 1
-  br i1 %306, label %315, label %307
+298:                                              ; preds = %314, %.lr.ph.i.i.i124
+  %.121.i.i126 = phi i32 [ %.02033.i.i119, %.lr.ph.i.i.i124 ], [ %.2.i.i130, %314 ]
+  %indvars.iv.i.i.i127 = phi i64 [ 0, %.lr.ph.i.i.i124 ], [ %indvars.iv.next.i.i.i131, %314 ]
+  %299 = phi i32 [ %.02033.i.i119, %.lr.ph.i.i.i124 ], [ %315, %314 ]
+  %300 = getelementptr inbounds nuw ptr, ptr %296, i64 %indvars.iv.i.i.i127
+  %301 = load ptr, ptr %300, align 8, !tbaa !242
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 4
+  %303 = load i32, ptr %302, align 4
+  %304 = and i32 %303, 65535
+  %305 = icmp eq i32 %304, 1
+  br i1 %305, label %314, label %306
 
-307:                                              ; preds = %299
-  %308 = icmp eq i32 %300, 0
-  br i1 %308, label %315, label %309
+306:                                              ; preds = %298
+  %307 = icmp eq i32 %299, 0
+  br i1 %307, label %314, label %308
 
-309:                                              ; preds = %307
-  %310 = add nsw i32 %300, -1
-  %311 = load i32, ptr %302, align 4, !tbaa !333
-  %312 = getelementptr inbounds nuw ptr, ptr %298, i64 %indvars.iv.i.i.i127
-  %313 = load ptr, ptr %312, align 8, !tbaa !242
-  %314 = load i32, ptr %313, align 4, !tbaa !333
-  %.not.i.i.i128 = icmp eq i32 %311, %314
-  br i1 %.not.i.i.i128, label %315, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i129
+308:                                              ; preds = %306
+  %309 = add nsw i32 %299, -1
+  %310 = load i32, ptr %301, align 4, !tbaa !333
+  %311 = getelementptr inbounds nuw ptr, ptr %297, i64 %indvars.iv.i.i.i127
+  %312 = load ptr, ptr %311, align 8, !tbaa !242
+  %313 = load i32, ptr %312, align 4, !tbaa !333
+  %.not.i.i.i128 = icmp eq i32 %310, %313
+  br i1 %.not.i.i.i128, label %314, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i129
 
-315:                                              ; preds = %309, %307, %299
-  %.2.i.i130 = phi i32 [ %.121.i.i126, %299 ], [ -1, %307 ], [ %310, %309 ]
-  %316 = phi i32 [ %300, %299 ], [ -1, %307 ], [ %310, %309 ]
+314:                                              ; preds = %308, %306, %298
+  %.2.i.i130 = phi i32 [ %.121.i.i126, %298 ], [ -1, %306 ], [ %309, %308 ]
+  %315 = phi i32 [ %299, %298 ], [ -1, %306 ], [ %309, %308 ]
   %indvars.iv.next.i.i.i131 = add nuw nsw i64 %indvars.iv.i.i.i127, 1
   %exitcond.not.i.i.i132 = icmp eq i64 %indvars.iv.next.i.i.i131, %wide.trip.count.i.i.i125
-  br i1 %exitcond.not.i.i.i132, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133, label %299, !llvm.loop !334
+  br i1 %exitcond.not.i.i.i132, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133, label %298, !llvm.loop !334
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i129: ; preds = %309
-  %317 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %311, i32 %314)
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i129: ; preds = %308
+  %316 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %310, i32 %313)
   br label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit136
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133: ; preds = %315, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i120
-  %.329.i.i134 = phi i32 [ %.02033.i.i119, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i120 ], [ %.2.i.i130, %315 ]
-  %318 = add nsw i32 %.01534.i.i118, 1
-  %exitcond.not.i.i135 = icmp eq i32 %318, %273
-  br i1 %exitcond.not.i.i135, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i, label %278, !llvm.loop !335
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133: ; preds = %314, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i120
+  %.329.i.i134 = phi i32 [ %.02033.i.i119, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i120 ], [ %.2.i.i130, %314 ]
+  %317 = add nsw i32 %.01534.i.i118, 1
+  %exitcond.not.i.i135 = icmp eq i32 %317, %272
+  br i1 %exitcond.not.i.i135, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i, label %277, !llvm.loop !335
 
 _ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit136: ; preds = %.lr.ph.i.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i129
-  %.0.in.i114 = phi i32 [ %270, %.lr.ph.i.i ], [ %317, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i129 ]
+  %.0.in.i114 = phi i32 [ %269, %.lr.ph.i.i ], [ %316, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i129 ]
   %.0.i115 = icmp sgt i32 %.0.in.i114, 0
   br i1 %.0.i115, label %.lr.ph.i.i13.i.preheader, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i
 
 .lr.ph.i.i13.i.preheader:                         ; preds = %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit136
-  %319 = getelementptr inbounds nuw i8, ptr %268, i64 56
-  %320 = load i32, ptr %319, align 8, !tbaa !293
-  %321 = getelementptr inbounds nuw i8, ptr %268, i64 68
-  %322 = getelementptr inbounds nuw i8, ptr %268, i64 64
-  %323 = getelementptr inbounds nuw i8, ptr %268, i64 80
-  %324 = getelementptr inbounds nuw i8, ptr %268, i64 40
+  %318 = getelementptr inbounds nuw i8, ptr %267, i64 56
+  %319 = load i32, ptr %318, align 8, !tbaa !293
+  %320 = getelementptr inbounds nuw i8, ptr %267, i64 68
+  %321 = getelementptr inbounds nuw i8, ptr %267, i64 64
+  %322 = getelementptr inbounds nuw i8, ptr %267, i64 80
+  %323 = getelementptr inbounds nuw i8, ptr %267, i64 40
   br label %.lr.ph.i.i13.i
 
 .lr.ph.i.i13.i:                                   ; preds = %.lr.ph.i.i13.i.preheader, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112
-  %325 = phi ptr [ %326, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112 ], [ %269, %.lr.ph.i.i13.i.preheader ]
+  %324 = phi ptr [ %325, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112 ], [ %268, %.lr.ph.i.i13.i.preheader ]
   %.013.i.i14.i = phi ptr [ %.0.i.i16.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112 ], [ %.011.i.i.i, %.lr.ph.i.i13.i.preheader ]
   %.0912.i.i15.i = phi ptr [ %.013.i.i14.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112 ], [ %.08.i.i, %.lr.ph.i.i13.i.preheader ]
-  store ptr %325, ptr %.0912.i.i15.i, align 8, !tbaa !221
+  store ptr %324, ptr %.0912.i.i15.i, align 8, !tbaa !221
   %.0.i.i16.i = getelementptr inbounds i8, ptr %.013.i.i14.i, i64 -8
-  %326 = load ptr, ptr %.0.i.i16.i, align 8, !tbaa !221
-  %327 = getelementptr inbounds nuw i8, ptr %326, i64 56
-  %328 = load i32, ptr %327, align 8, !tbaa !293
-  %329 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %320, i32 %328)
-  %.not.i209 = icmp eq i32 %320, %328
-  br i1 %.not.i209, label %330, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit
+  %325 = load ptr, ptr %.0.i.i16.i, align 8, !tbaa !221
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 56
+  %327 = load i32, ptr %326, align 8, !tbaa !293
+  %328 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %319, i32 %327)
+  %.not.i209 = icmp eq i32 %319, %327
+  br i1 %.not.i209, label %329, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit
 
-330:                                              ; preds = %.lr.ph.i.i13.i
-  %331 = load i32, ptr %321, align 4, !tbaa !346
-  %332 = getelementptr inbounds nuw i8, ptr %326, i64 68
-  %333 = load i32, ptr %332, align 4, !tbaa !346
-  %334 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %331, i32 %333)
-  %.not55.i = icmp eq i32 %331, %333
-  br i1 %.not55.i, label %335, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit
+329:                                              ; preds = %.lr.ph.i.i13.i
+  %330 = load i32, ptr %320, align 4, !tbaa !346
+  %331 = getelementptr inbounds nuw i8, ptr %325, i64 68
+  %332 = load i32, ptr %331, align 4, !tbaa !346
+  %333 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %330, i32 %332)
+  %.not55.i = icmp eq i32 %330, %332
+  br i1 %.not55.i, label %334, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit
 
-335:                                              ; preds = %330
-  %336 = load i32, ptr %322, align 8, !tbaa !245
-  %337 = getelementptr inbounds nuw i8, ptr %326, i64 64
-  %338 = load i32, ptr %337, align 8, !tbaa !245
-  %339 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %336, i32 %338)
-  %.not56.i = icmp eq i32 %336, %338
-  br i1 %.not56.i, label %.preheader.i, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit
+334:                                              ; preds = %329
+  %335 = load i32, ptr %321, align 8, !tbaa !245
+  %336 = getelementptr inbounds nuw i8, ptr %325, i64 64
+  %337 = load i32, ptr %336, align 8, !tbaa !245
+  %338 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %335, i32 %337)
+  %.not56.i = icmp eq i32 %335, %337
+  br i1 %.not56.i, label %.preheader.i210, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit
 
-.preheader.i:                                     ; preds = %335
-  %.not5989.i = icmp sgt i32 %336, -1
+.preheader.i210:                                  ; preds = %334
+  %.not5989.i = icmp sgt i32 %335, -1
   br i1 %.not5989.i, label %.lr.ph.i, label %.thread76.preheader.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i
-  %340 = getelementptr inbounds nuw i8, ptr %326, i64 80
-  %341 = getelementptr inbounds nuw i8, ptr %326, i64 40
-  br label %344
+.lr.ph.i:                                         ; preds = %.preheader.i210
+  %339 = getelementptr inbounds nuw i8, ptr %325, i64 80
+  %340 = getelementptr inbounds nuw i8, ptr %325, i64 40
+  br label %343
 
-.thread76.preheader.i:                            ; preds = %.thread69.i, %.preheader.i
-  %.not6195.i = icmp ult i32 %336, %320
+.thread76.preheader.i:                            ; preds = %.thread69.i, %.preheader.i210
+  %.not6195.i = icmp ult i32 %335, %319
   br i1 %.not6195.i, label %.lr.ph97.i, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread
 
 .lr.ph97.i:                                       ; preds = %.thread76.preheader.i
-  %342 = getelementptr inbounds nuw i8, ptr %326, i64 80
-  %343 = zext i32 %336 to i64
-  br label %399
+  %341 = getelementptr inbounds nuw i8, ptr %325, i64 80
+  %342 = zext i32 %335 to i64
+  br label %398
 
-344:                                              ; preds = %.thread69.i, %.lr.ph.i
-  %.04890.i = phi i32 [ -1, %.lr.ph.i ], [ %398, %.thread69.i ]
-  %345 = icmp slt i32 %.04890.i, 0
-  br i1 %345, label %346, label %349
+343:                                              ; preds = %.thread69.i, %.lr.ph.i
+  %.04890.i = phi i32 [ -1, %.lr.ph.i ], [ %397, %.thread69.i ]
+  %344 = icmp slt i32 %.04890.i, 0
+  br i1 %344, label %345, label %348
 
-346:                                              ; preds = %344
-  %347 = load ptr, ptr %324, align 8, !tbaa !234
-  %348 = load ptr, ptr %341, align 8, !tbaa !234
+345:                                              ; preds = %343
+  %346 = load ptr, ptr %323, align 8, !tbaa !234
+  %347 = load ptr, ptr %340, align 8, !tbaa !234
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i
 
-349:                                              ; preds = %344
-  %350 = zext nneg i32 %.04890.i to i64
-  %351 = getelementptr inbounds nuw ptr, ptr %323, i64 %350
-  %352 = load ptr, ptr %351, align 8, !tbaa !246
-  %353 = ptrtoint ptr %352 to i64
-  %354 = and i64 %353, -8
-  %355 = inttoptr i64 %354 to ptr
-  %356 = getelementptr inbounds nuw ptr, ptr %340, i64 %350
-  %357 = load ptr, ptr %356, align 8, !tbaa !246
-  %358 = ptrtoint ptr %357 to i64
-  %359 = and i64 %358, -8
-  %360 = inttoptr i64 %359 to ptr
+348:                                              ; preds = %343
+  %349 = zext nneg i32 %.04890.i to i64
+  %350 = getelementptr inbounds nuw ptr, ptr %322, i64 %349
+  %351 = load ptr, ptr %350, align 8, !tbaa !246
+  %352 = ptrtoint ptr %351 to i64
+  %353 = and i64 %352, -8
+  %354 = inttoptr i64 %353 to ptr
+  %355 = getelementptr inbounds nuw ptr, ptr %339, i64 %349
+  %356 = load ptr, ptr %355, align 8, !tbaa !246
+  %357 = ptrtoint ptr %356 to i64
+  %358 = and i64 %357, -8
+  %359 = inttoptr i64 %358 to ptr
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i
 
-_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i: ; preds = %349, %346
-  %.0.i65.i = phi ptr [ %347, %346 ], [ %355, %349 ]
-  %.0.i62.i = phi ptr [ %348, %346 ], [ %360, %349 ]
-  %361 = getelementptr inbounds nuw i8, ptr %.0.i65.i, i64 16
-  %362 = load ptr, ptr %361, align 8, !tbaa !265
-  %363 = load i32, ptr %362, align 4, !tbaa !333
-  %364 = getelementptr inbounds nuw i8, ptr %.0.i62.i, i64 16
-  %365 = load ptr, ptr %364, align 8, !tbaa !265
-  %366 = load i32, ptr %365, align 4, !tbaa !333
-  %.not57.i = icmp eq i32 %363, %366
-  br i1 %.not57.i, label %367, label %.thread74.loopexit79.split.loop.exit.i
+_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i: ; preds = %348, %345
+  %.0.i65.i = phi ptr [ %346, %345 ], [ %354, %348 ]
+  %.0.i62.i = phi ptr [ %347, %345 ], [ %359, %348 ]
+  %360 = getelementptr inbounds nuw i8, ptr %.0.i65.i, i64 16
+  %361 = load ptr, ptr %360, align 8, !tbaa !265
+  %362 = load i32, ptr %361, align 4, !tbaa !333
+  %363 = getelementptr inbounds nuw i8, ptr %.0.i62.i, i64 16
+  %364 = load ptr, ptr %363, align 8, !tbaa !265
+  %365 = load i32, ptr %364, align 4, !tbaa !333
+  %.not57.i = icmp eq i32 %362, %365
+  br i1 %.not57.i, label %366, label %.thread74.loopexit79.split.loop.exit.i
 
-367:                                              ; preds = %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i
-  %368 = getelementptr inbounds nuw i8, ptr %.0.i65.i, i64 24
-  %369 = load i32, ptr %368, align 8, !tbaa !238
-  %370 = getelementptr inbounds nuw i8, ptr %.0.i65.i, i64 32
-  %.not2634.not.i.i = icmp eq i32 %369, 0
-  br i1 %.not2634.not.i.i, label %.thread69.i, label %.lr.ph.i.i210
+366:                                              ; preds = %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i
+  %367 = getelementptr inbounds nuw i8, ptr %.0.i65.i, i64 24
+  %368 = load i32, ptr %367, align 8, !tbaa !238
+  %369 = getelementptr inbounds nuw i8, ptr %.0.i65.i, i64 32
+  %.not2634.not.i.i = icmp eq i32 %368, 0
+  br i1 %.not2634.not.i.i, label %.thread69.i, label %.lr.ph.i.i211
 
-.lr.ph.i.i210:                                    ; preds = %367
-  %371 = getelementptr inbounds nuw i8, ptr %.0.i62.i, i64 32
-  %wide.trip.count.i.i = zext i32 %369 to i64
-  br label %372
+.lr.ph.i.i211:                                    ; preds = %366
+  %370 = getelementptr inbounds nuw i8, ptr %.0.i62.i, i64 32
+  %wide.trip.count.i.i = zext i32 %368 to i64
+  br label %371
 
-372:                                              ; preds = %396, %.lr.ph.i.i210
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i210 ], [ %indvars.iv.next.i.i, %396 ]
-  %373 = getelementptr inbounds nuw ptr, ptr %370, i64 %indvars.iv.i.i
-  %374 = load ptr, ptr %373, align 8, !tbaa !242
-  %375 = getelementptr inbounds nuw ptr, ptr %371, i64 %indvars.iv.i.i
-  %376 = load ptr, ptr %375, align 8, !tbaa !242
-  %377 = getelementptr inbounds nuw i8, ptr %374, i64 4
-  %378 = load i32, ptr %377, align 4
-  %379 = and i32 %378, 65535
-  %380 = icmp eq i32 %379, 1
-  %381 = getelementptr inbounds nuw i8, ptr %376, i64 4
-  %382 = load i32, ptr %381, align 4
-  %383 = and i32 %382, 65535
-  %384 = icmp eq i32 %383, 1
-  %385 = xor i1 %384, true
-  %386 = and i1 %380, %385
-  %387 = xor i1 %380, %384
-  %388 = sext i1 %387 to i32
-  %389 = select i1 %386, i32 1, i32 %388
-  %.not.i.i211 = icmp eq i32 %389, 0
-  br i1 %.not.i.i211, label %390, label %.loopexit.i
+371:                                              ; preds = %395, %.lr.ph.i.i211
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i211 ], [ %indvars.iv.next.i.i, %395 ]
+  %372 = getelementptr inbounds nuw ptr, ptr %369, i64 %indvars.iv.i.i
+  %373 = load ptr, ptr %372, align 8, !tbaa !242
+  %374 = getelementptr inbounds nuw ptr, ptr %370, i64 %indvars.iv.i.i
+  %375 = load ptr, ptr %374, align 8, !tbaa !242
+  %376 = getelementptr inbounds nuw i8, ptr %373, i64 4
+  %377 = load i32, ptr %376, align 4
+  %378 = and i32 %377, 65535
+  %379 = icmp eq i32 %378, 1
+  %380 = getelementptr inbounds nuw i8, ptr %375, i64 4
+  %381 = load i32, ptr %380, align 4
+  %382 = and i32 %381, 65535
+  %383 = icmp eq i32 %382, 1
+  %384 = xor i1 %383, true
+  %385 = and i1 %379, %384
+  %386 = xor i1 %379, %383
+  %387 = sext i1 %386 to i32
+  %388 = select i1 %385, i32 1, i32 %387
+  %.not.i.i212 = icmp eq i32 %388, 0
+  br i1 %.not.i.i212, label %389, label %.loopexit.i
 
-390:                                              ; preds = %372
-  br i1 %380, label %391, label %396
+389:                                              ; preds = %371
+  br i1 %379, label %390, label %395
 
-391:                                              ; preds = %390
-  %392 = getelementptr inbounds nuw i8, ptr %374, i64 16
-  %393 = load i32, ptr %392, align 8, !tbaa !347
-  %394 = getelementptr inbounds nuw i8, ptr %376, i64 16
-  %395 = load i32, ptr %394, align 8, !tbaa !347
-  %.not25.i.i = icmp eq i32 %393, %395
-  br i1 %.not25.i.i, label %396, label %.thread.split.loop.exit.i.i
+390:                                              ; preds = %389
+  %391 = getelementptr inbounds nuw i8, ptr %373, i64 16
+  %392 = load i32, ptr %391, align 8, !tbaa !347
+  %393 = getelementptr inbounds nuw i8, ptr %375, i64 16
+  %394 = load i32, ptr %393, align 8, !tbaa !347
+  %.not25.i.i = icmp eq i32 %392, %394
+  br i1 %.not25.i.i, label %395, label %.thread.split.loop.exit.i.i
 
-396:                                              ; preds = %391, %390
+395:                                              ; preds = %390, %389
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i212 = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i212, label %.thread69.i, label %372, !llvm.loop !349
+  %exitcond.not.i.i213 = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i213, label %.thread69.i, label %371, !llvm.loop !349
 
-.thread.split.loop.exit.i.i:                      ; preds = %391
-  %397 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %393, i32 %395)
+.thread.split.loop.exit.i.i:                      ; preds = %390
+  %396 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %392, i32 %394)
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %372, %.thread.split.loop.exit.i.i
-  %spec.select.i.i = phi i32 [ %397, %.thread.split.loop.exit.i.i ], [ %389, %372 ]
+.loopexit.i:                                      ; preds = %371, %.thread.split.loop.exit.i.i
+  %spec.select.i.i = phi i32 [ %396, %.thread.split.loop.exit.i.i ], [ %388, %371 ]
   %.not58.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %.not58.i, label %.thread69.i, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit
 
-.thread69.i:                                      ; preds = %396, %.loopexit.i, %367
-  %398 = add nsw i32 %.04890.i, 1
-  %exitcond.not.i = icmp eq i32 %398, %336
-  br i1 %exitcond.not.i, label %.thread76.preheader.i, label %344, !llvm.loop !350
+.thread69.i:                                      ; preds = %395, %.loopexit.i, %366
+  %397 = add nsw i32 %.04890.i, 1
+  %exitcond.not.i = icmp eq i32 %397, %335
+  br i1 %exitcond.not.i, label %.thread76.preheader.i, label %343, !llvm.loop !350
 
-.thread76.i:                                      ; preds = %399
+.thread76.i:                                      ; preds = %398
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond114.not.i = icmp eq i32 %320, %lftr.wideiv.i
-  br i1 %exitcond114.not.i, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread, label %399, !llvm.loop !351
+  %exitcond114.not.i = icmp eq i32 %319, %lftr.wideiv.i
+  br i1 %exitcond114.not.i, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread, label %398, !llvm.loop !351
 
-399:                                              ; preds = %.thread76.i, %.lr.ph97.i
-  %indvars.iv.i = phi i64 [ %343, %.lr.ph97.i ], [ %indvars.iv.next.i, %.thread76.i ]
-  %400 = getelementptr inbounds nuw ptr, ptr %323, i64 %indvars.iv.i
-  %401 = load ptr, ptr %400, align 8, !tbaa !246
-  %402 = ptrtoint ptr %401 to i64
-  %403 = and i64 %402, -8
-  %404 = inttoptr i64 %403 to ptr
-  %405 = load i32, ptr %404, align 8, !tbaa !333
-  %406 = getelementptr inbounds nuw ptr, ptr %342, i64 %indvars.iv.i
-  %407 = load ptr, ptr %406, align 8, !tbaa !246
-  %408 = ptrtoint ptr %407 to i64
-  %409 = and i64 %408, -8
-  %410 = inttoptr i64 %409 to ptr
-  %411 = load i32, ptr %410, align 8, !tbaa !333
-  %.not60.i = icmp eq i32 %405, %411
+398:                                              ; preds = %.thread76.i, %.lr.ph97.i
+  %indvars.iv.i = phi i64 [ %342, %.lr.ph97.i ], [ %indvars.iv.next.i, %.thread76.i ]
+  %399 = getelementptr inbounds nuw ptr, ptr %322, i64 %indvars.iv.i
+  %400 = load ptr, ptr %399, align 8, !tbaa !246
+  %401 = ptrtoint ptr %400 to i64
+  %402 = and i64 %401, -8
+  %403 = inttoptr i64 %402 to ptr
+  %404 = load i32, ptr %403, align 8, !tbaa !333
+  %405 = getelementptr inbounds nuw ptr, ptr %341, i64 %indvars.iv.i
+  %406 = load ptr, ptr %405, align 8, !tbaa !246
+  %407 = ptrtoint ptr %406 to i64
+  %408 = and i64 %407, -8
+  %409 = inttoptr i64 %408 to ptr
+  %410 = load i32, ptr %409, align 8, !tbaa !333
+  %.not60.i = icmp eq i32 %404, %410
   br i1 %.not60.i, label %.thread76.i, label %.thread74.loopexit.split.loop.exit.i
 
-.thread74.loopexit.split.loop.exit.i:             ; preds = %399
-  %412 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %405, i32 %411)
+.thread74.loopexit.split.loop.exit.i:             ; preds = %398
+  %411 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %404, i32 %410)
   br label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit
 
 .thread74.loopexit79.split.loop.exit.i:           ; preds = %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit63.i
-  %413 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %363, i32 %366)
+  %412 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %362, i32 %365)
   br label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit
 
-_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit:   ; preds = %.loopexit.i, %.lr.ph.i.i13.i, %330, %335, %.thread74.loopexit.split.loop.exit.i, %.thread74.loopexit79.split.loop.exit.i
-  %.044.i = phi i32 [ %329, %.lr.ph.i.i13.i ], [ %334, %330 ], [ %339, %335 ], [ %412, %.thread74.loopexit.split.loop.exit.i ], [ %413, %.thread74.loopexit79.split.loop.exit.i ], [ %spec.select.i.i, %.loopexit.i ]
+_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit:   ; preds = %.loopexit.i, %.lr.ph.i.i13.i, %329, %334, %.thread74.loopexit.split.loop.exit.i, %.thread74.loopexit79.split.loop.exit.i
+  %.044.i = phi i32 [ %328, %.lr.ph.i.i13.i ], [ %333, %329 ], [ %338, %334 ], [ %411, %.thread74.loopexit.split.loop.exit.i ], [ %412, %.thread74.loopexit79.split.loop.exit.i ], [ %spec.select.i.i, %.loopexit.i ]
   %.not.i89 = icmp eq i32 %.044.i, 0
   br i1 %.not.i89, label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit._ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread_crit_edge, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112
 
 _ZN7datalogL13rough_compareEPNS_4ruleES1_.exit._ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread_crit_edge: ; preds = %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit
-  %.pre400 = load i32, ptr %322, align 8, !tbaa !245
+  %.pre401 = load i32, ptr %321, align 8, !tbaa !245
   br label %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread
 
 _ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread: ; preds = %.thread76.i, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit._ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread_crit_edge, %.thread76.preheader.i
-  %414 = phi i32 [ %.pre400, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit._ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread_crit_edge ], [ %336, %.thread76.preheader.i ], [ %336, %.thread76.i ]
-  %.not1732.i.i92 = icmp sgt i32 %414, -1
+  %413 = phi i32 [ %.pre401, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit._ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread_crit_edge ], [ %335, %.thread76.preheader.i ], [ %335, %.thread76.i ]
+  %.not1732.i.i92 = icmp sgt i32 %413, -1
   br i1 %.not1732.i.i92, label %.lr.ph.i.i93, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i
 
 .lr.ph.i.i93:                                     ; preds = %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread
-  %415 = getelementptr inbounds nuw i8, ptr %326, i64 80
-  %416 = getelementptr inbounds nuw i8, ptr %326, i64 40
-  br label %417
+  %414 = getelementptr inbounds nuw i8, ptr %325, i64 80
+  %415 = getelementptr inbounds nuw i8, ptr %325, i64 40
+  br label %416
 
-417:                                              ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109, %.lr.ph.i.i93
-  %.01534.i.i94 = phi i32 [ -1, %.lr.ph.i.i93 ], [ %457, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109 ]
+416:                                              ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109, %.lr.ph.i.i93
+  %.01534.i.i94 = phi i32 [ -1, %.lr.ph.i.i93 ], [ %456, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109 ]
   %.02033.i.i95 = phi i32 [ 2147483647, %.lr.ph.i.i93 ], [ %.329.i.i110, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109 ]
-  %418 = icmp slt i32 %.01534.i.i94, 0
-  br i1 %418, label %419, label %422
+  %417 = icmp slt i32 %.01534.i.i94, 0
+  br i1 %417, label %418, label %421
 
-419:                                              ; preds = %417
-  %420 = load ptr, ptr %324, align 8, !tbaa !234
-  %421 = load ptr, ptr %416, align 8, !tbaa !234
+418:                                              ; preds = %416
+  %419 = load ptr, ptr %323, align 8, !tbaa !234
+  %420 = load ptr, ptr %415, align 8, !tbaa !234
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i96
 
-422:                                              ; preds = %417
-  %423 = zext nneg i32 %.01534.i.i94 to i64
-  %424 = getelementptr inbounds nuw ptr, ptr %323, i64 %423
-  %425 = load ptr, ptr %424, align 8, !tbaa !246
-  %426 = ptrtoint ptr %425 to i64
-  %427 = and i64 %426, -8
-  %428 = inttoptr i64 %427 to ptr
-  %429 = getelementptr inbounds nuw ptr, ptr %415, i64 %423
-  %430 = load ptr, ptr %429, align 8, !tbaa !246
-  %431 = ptrtoint ptr %430 to i64
-  %432 = and i64 %431, -8
-  %433 = inttoptr i64 %432 to ptr
+421:                                              ; preds = %416
+  %422 = zext nneg i32 %.01534.i.i94 to i64
+  %423 = getelementptr inbounds nuw ptr, ptr %322, i64 %422
+  %424 = load ptr, ptr %423, align 8, !tbaa !246
+  %425 = ptrtoint ptr %424 to i64
+  %426 = and i64 %425, -8
+  %427 = inttoptr i64 %426 to ptr
+  %428 = getelementptr inbounds nuw ptr, ptr %414, i64 %422
+  %429 = load ptr, ptr %428, align 8, !tbaa !246
+  %430 = ptrtoint ptr %429 to i64
+  %431 = and i64 %430, -8
+  %432 = inttoptr i64 %431 to ptr
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i96
 
-_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i96: ; preds = %422, %419
-  %.0.i23.i.i97 = phi ptr [ %420, %419 ], [ %428, %422 ]
-  %.0.i18.i.i98 = phi ptr [ %421, %419 ], [ %433, %422 ]
-  %434 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i97, i64 24
-  %435 = load i32, ptr %434, align 8, !tbaa !238
-  %.not1721.not.i.i.i99 = icmp eq i32 %435, 0
+_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i96: ; preds = %421, %418
+  %.0.i23.i.i97 = phi ptr [ %419, %418 ], [ %427, %421 ]
+  %.0.i18.i.i98 = phi ptr [ %420, %418 ], [ %432, %421 ]
+  %433 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i97, i64 24
+  %434 = load i32, ptr %433, align 8, !tbaa !238
+  %.not1721.not.i.i.i99 = icmp eq i32 %434, 0
   br i1 %.not1721.not.i.i.i99, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109, label %.lr.ph.i.i.i100
 
 .lr.ph.i.i.i100:                                  ; preds = %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i96
-  %436 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i97, i64 32
-  %437 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i98, i64 32
-  %wide.trip.count.i.i.i101 = zext i32 %435 to i64
-  br label %438
+  %435 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i97, i64 32
+  %436 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i98, i64 32
+  %wide.trip.count.i.i.i101 = zext i32 %434 to i64
+  br label %437
 
-438:                                              ; preds = %454, %.lr.ph.i.i.i100
-  %.121.i.i102 = phi i32 [ %.02033.i.i95, %.lr.ph.i.i.i100 ], [ %.2.i.i106, %454 ]
-  %indvars.iv.i.i.i103 = phi i64 [ 0, %.lr.ph.i.i.i100 ], [ %indvars.iv.next.i.i.i107, %454 ]
-  %439 = phi i32 [ %.02033.i.i95, %.lr.ph.i.i.i100 ], [ %455, %454 ]
-  %440 = getelementptr inbounds nuw ptr, ptr %436, i64 %indvars.iv.i.i.i103
-  %441 = load ptr, ptr %440, align 8, !tbaa !242
-  %442 = getelementptr inbounds nuw i8, ptr %441, i64 4
-  %443 = load i32, ptr %442, align 4
-  %444 = and i32 %443, 65535
-  %445 = icmp eq i32 %444, 1
-  br i1 %445, label %454, label %446
+437:                                              ; preds = %453, %.lr.ph.i.i.i100
+  %.121.i.i102 = phi i32 [ %.02033.i.i95, %.lr.ph.i.i.i100 ], [ %.2.i.i106, %453 ]
+  %indvars.iv.i.i.i103 = phi i64 [ 0, %.lr.ph.i.i.i100 ], [ %indvars.iv.next.i.i.i107, %453 ]
+  %438 = phi i32 [ %.02033.i.i95, %.lr.ph.i.i.i100 ], [ %454, %453 ]
+  %439 = getelementptr inbounds nuw ptr, ptr %435, i64 %indvars.iv.i.i.i103
+  %440 = load ptr, ptr %439, align 8, !tbaa !242
+  %441 = getelementptr inbounds nuw i8, ptr %440, i64 4
+  %442 = load i32, ptr %441, align 4
+  %443 = and i32 %442, 65535
+  %444 = icmp eq i32 %443, 1
+  br i1 %444, label %453, label %445
 
-446:                                              ; preds = %438
-  %447 = icmp eq i32 %439, 0
-  br i1 %447, label %454, label %448
+445:                                              ; preds = %437
+  %446 = icmp eq i32 %438, 0
+  br i1 %446, label %453, label %447
 
-448:                                              ; preds = %446
-  %449 = add nsw i32 %439, -1
-  %450 = load i32, ptr %441, align 4, !tbaa !333
-  %451 = getelementptr inbounds nuw ptr, ptr %437, i64 %indvars.iv.i.i.i103
-  %452 = load ptr, ptr %451, align 8, !tbaa !242
-  %453 = load i32, ptr %452, align 4, !tbaa !333
-  %.not.i.i.i104 = icmp eq i32 %450, %453
-  br i1 %.not.i.i.i104, label %454, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i105
+447:                                              ; preds = %445
+  %448 = add nsw i32 %438, -1
+  %449 = load i32, ptr %440, align 4, !tbaa !333
+  %450 = getelementptr inbounds nuw ptr, ptr %436, i64 %indvars.iv.i.i.i103
+  %451 = load ptr, ptr %450, align 8, !tbaa !242
+  %452 = load i32, ptr %451, align 4, !tbaa !333
+  %.not.i.i.i104 = icmp eq i32 %449, %452
+  br i1 %.not.i.i.i104, label %453, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i105
 
-454:                                              ; preds = %448, %446, %438
-  %.2.i.i106 = phi i32 [ %.121.i.i102, %438 ], [ -1, %446 ], [ %449, %448 ]
-  %455 = phi i32 [ %439, %438 ], [ -1, %446 ], [ %449, %448 ]
+453:                                              ; preds = %447, %445, %437
+  %.2.i.i106 = phi i32 [ %.121.i.i102, %437 ], [ -1, %445 ], [ %448, %447 ]
+  %454 = phi i32 [ %438, %437 ], [ -1, %445 ], [ %448, %447 ]
   %indvars.iv.next.i.i.i107 = add nuw nsw i64 %indvars.iv.i.i.i103, 1
   %exitcond.not.i.i.i108 = icmp eq i64 %indvars.iv.next.i.i.i107, %wide.trip.count.i.i.i101
-  br i1 %exitcond.not.i.i.i108, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109, label %438, !llvm.loop !334
+  br i1 %exitcond.not.i.i.i108, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109, label %437, !llvm.loop !334
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i105: ; preds = %448
-  %456 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %450, i32 %453)
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i105: ; preds = %447
+  %455 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %449, i32 %452)
   br label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109: ; preds = %454, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i96
-  %.329.i.i110 = phi i32 [ %.02033.i.i95, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i96 ], [ %.2.i.i106, %454 ]
-  %457 = add nsw i32 %.01534.i.i94, 1
-  %exitcond.not.i.i111 = icmp eq i32 %457, %414
-  br i1 %exitcond.not.i.i111, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i, label %417, !llvm.loop !335
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109: ; preds = %453, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i96
+  %.329.i.i110 = phi i32 [ %.02033.i.i95, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i96 ], [ %.2.i.i106, %453 ]
+  %456 = add nsw i32 %.01534.i.i94, 1
+  %exitcond.not.i.i111 = icmp eq i32 %456, %413
+  br i1 %exitcond.not.i.i111, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i, label %416, !llvm.loop !335
 
 _ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112: ; preds = %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i105
-  %.0.in.i90 = phi i32 [ %.044.i, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit ], [ %456, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i105 ]
+  %.0.in.i90 = phi i32 [ %.044.i, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit ], [ %455, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i105 ]
   %.0.i91 = icmp sgt i32 %.0.in.i90, 0
   br i1 %.0.i91, label %.lr.ph.i.i13.i, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i, !llvm.loop !352
 
-_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i: ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109, %271, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit136
-  %.09.lcssa.i.i.i = phi ptr [ %.08.i.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit136 ], [ %.08.i.i, %271 ], [ %.013.i.i14.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109 ], [ %.013.i.i14.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112 ], [ %.013.i.i14.i, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread ], [ %.08.i.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133 ]
-  store ptr %268, ptr %.09.lcssa.i.i.i, align 8, !tbaa !221
-  %458 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
-  %.not.i12.i = icmp eq ptr %458, %17
+_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i: ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109, %270, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit136
+  %.09.lcssa.i.i.i = phi ptr [ %.08.i.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit136 ], [ %.08.i.i, %270 ], [ %.013.i.i14.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i109 ], [ %.013.i.i14.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit112 ], [ %.013.i.i14.i, %_ZN7datalogL13rough_compareEPNS_4ruleES1_.exit.thread ], [ %.08.i.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i133 ]
+  store ptr %267, ptr %.09.lcssa.i.i.i, align 8, !tbaa !221
+  %457 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
+  %.not.i12.i = icmp eq ptr %457, %17
   br i1 %.not.i12.i, label %_ZSt4sortIPPN7datalog4ruleEPFbS2_S2_EEvT_S6_T0_.exit, label %.lr.ph.i.i, !llvm.loop !354
 
-459:                                              ; preds = %18
+458:                                              ; preds = %18
   %.not19.i.i = icmp eq i32 %14, 1
   br i1 %.not19.i.i, label %_ZSt4sortIPPN7datalog4ruleEPFbS2_S2_EEvT_S6_T0_.exit, label %.lr.ph.i18.i.preheader
 
-.lr.ph.i18.i.preheader:                           ; preds = %459
+.lr.ph.i18.i.preheader:                           ; preds = %458
   %.018.i17.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %.lr.ph.i18.i
 
 .lr.ph.i18.i:                                     ; preds = %.lr.ph.i18.i.preheader, %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i
   %.021.i19.i = phi ptr [ %.0.i23.i, %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i ], [ %.018.i17.i, %.lr.ph.i18.i.preheader ]
   %.pn20.i20.i = phi ptr [ %.021.i19.i, %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i ], [ %11, %.lr.ph.i18.i.preheader ]
-  %460 = load ptr, ptr %.021.i19.i, align 8, !tbaa !221
-  %461 = load ptr, ptr %11, align 8, !tbaa !221
-  %462 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %460, ptr noundef readonly %461)
-  %.not.i65 = icmp eq i32 %462, 0
-  br i1 %.not.i65, label %463, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88
+  %459 = load ptr, ptr %.021.i19.i, align 8, !tbaa !221
+  %460 = load ptr, ptr %11, align 8, !tbaa !221
+  %461 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %459, ptr noundef readonly %460)
+  %.not.i65 = icmp eq i32 %461, 0
+  br i1 %.not.i65, label %462, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88
 
-463:                                              ; preds = %.lr.ph.i18.i
-  %464 = getelementptr inbounds nuw i8, ptr %460, i64 64
-  %465 = load i32, ptr %464, align 8, !tbaa !245
-  %.not1732.i.i68 = icmp sgt i32 %465, -1
+462:                                              ; preds = %.lr.ph.i18.i
+  %463 = getelementptr inbounds nuw i8, ptr %459, i64 64
+  %464 = load i32, ptr %463, align 8, !tbaa !245
+  %.not1732.i.i68 = icmp sgt i32 %464, -1
   br i1 %.not1732.i.i68, label %.lr.ph.i.i69, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88.thread
 
-.lr.ph.i.i69:                                     ; preds = %463
+.lr.ph.i.i69:                                     ; preds = %462
+  %465 = getelementptr inbounds nuw i8, ptr %459, i64 80
   %466 = getelementptr inbounds nuw i8, ptr %460, i64 80
-  %467 = getelementptr inbounds nuw i8, ptr %461, i64 80
+  %467 = getelementptr inbounds nuw i8, ptr %459, i64 40
   %468 = getelementptr inbounds nuw i8, ptr %460, i64 40
-  %469 = getelementptr inbounds nuw i8, ptr %461, i64 40
-  br label %470
+  br label %469
 
-470:                                              ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i85, %.lr.ph.i.i69
-  %.01534.i.i70 = phi i32 [ -1, %.lr.ph.i.i69 ], [ %510, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i85 ]
+469:                                              ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i85, %.lr.ph.i.i69
+  %.01534.i.i70 = phi i32 [ -1, %.lr.ph.i.i69 ], [ %509, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i85 ]
   %.02033.i.i71 = phi i32 [ 2147483647, %.lr.ph.i.i69 ], [ %.329.i.i86, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i85 ]
-  %471 = icmp slt i32 %.01534.i.i70, 0
-  br i1 %471, label %472, label %475
+  %470 = icmp slt i32 %.01534.i.i70, 0
+  br i1 %470, label %471, label %474
 
-472:                                              ; preds = %470
+471:                                              ; preds = %469
+  %472 = load ptr, ptr %467, align 8, !tbaa !234
   %473 = load ptr, ptr %468, align 8, !tbaa !234
-  %474 = load ptr, ptr %469, align 8, !tbaa !234
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i72
 
-475:                                              ; preds = %470
-  %476 = zext nneg i32 %.01534.i.i70 to i64
-  %477 = getelementptr inbounds nuw ptr, ptr %466, i64 %476
-  %478 = load ptr, ptr %477, align 8, !tbaa !246
-  %479 = ptrtoint ptr %478 to i64
-  %480 = and i64 %479, -8
-  %481 = inttoptr i64 %480 to ptr
-  %482 = getelementptr inbounds nuw ptr, ptr %467, i64 %476
-  %483 = load ptr, ptr %482, align 8, !tbaa !246
-  %484 = ptrtoint ptr %483 to i64
-  %485 = and i64 %484, -8
-  %486 = inttoptr i64 %485 to ptr
+474:                                              ; preds = %469
+  %475 = zext nneg i32 %.01534.i.i70 to i64
+  %476 = getelementptr inbounds nuw ptr, ptr %465, i64 %475
+  %477 = load ptr, ptr %476, align 8, !tbaa !246
+  %478 = ptrtoint ptr %477 to i64
+  %479 = and i64 %478, -8
+  %480 = inttoptr i64 %479 to ptr
+  %481 = getelementptr inbounds nuw ptr, ptr %466, i64 %475
+  %482 = load ptr, ptr %481, align 8, !tbaa !246
+  %483 = ptrtoint ptr %482 to i64
+  %484 = and i64 %483, -8
+  %485 = inttoptr i64 %484 to ptr
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i72
 
-_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i72: ; preds = %475, %472
-  %.0.i23.i.i73 = phi ptr [ %473, %472 ], [ %481, %475 ]
-  %.0.i18.i.i74 = phi ptr [ %474, %472 ], [ %486, %475 ]
-  %487 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i73, i64 24
-  %488 = load i32, ptr %487, align 8, !tbaa !238
-  %.not1721.not.i.i.i75 = icmp eq i32 %488, 0
+_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i72: ; preds = %474, %471
+  %.0.i23.i.i73 = phi ptr [ %472, %471 ], [ %480, %474 ]
+  %.0.i18.i.i74 = phi ptr [ %473, %471 ], [ %485, %474 ]
+  %486 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i73, i64 24
+  %487 = load i32, ptr %486, align 8, !tbaa !238
+  %.not1721.not.i.i.i75 = icmp eq i32 %487, 0
   br i1 %.not1721.not.i.i.i75, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i85, label %.lr.ph.i.i.i76
 
 .lr.ph.i.i.i76:                                   ; preds = %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i72
-  %489 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i73, i64 32
-  %490 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i74, i64 32
-  %wide.trip.count.i.i.i77 = zext i32 %488 to i64
-  br label %491
+  %488 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i73, i64 32
+  %489 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i74, i64 32
+  %wide.trip.count.i.i.i77 = zext i32 %487 to i64
+  br label %490
 
-491:                                              ; preds = %507, %.lr.ph.i.i.i76
-  %.121.i.i78 = phi i32 [ %.02033.i.i71, %.lr.ph.i.i.i76 ], [ %.2.i.i82, %507 ]
-  %indvars.iv.i.i.i79 = phi i64 [ 0, %.lr.ph.i.i.i76 ], [ %indvars.iv.next.i.i.i83, %507 ]
-  %492 = phi i32 [ %.02033.i.i71, %.lr.ph.i.i.i76 ], [ %508, %507 ]
-  %493 = getelementptr inbounds nuw ptr, ptr %489, i64 %indvars.iv.i.i.i79
-  %494 = load ptr, ptr %493, align 8, !tbaa !242
-  %495 = getelementptr inbounds nuw i8, ptr %494, i64 4
-  %496 = load i32, ptr %495, align 4
-  %497 = and i32 %496, 65535
-  %498 = icmp eq i32 %497, 1
-  br i1 %498, label %507, label %499
+490:                                              ; preds = %506, %.lr.ph.i.i.i76
+  %.121.i.i78 = phi i32 [ %.02033.i.i71, %.lr.ph.i.i.i76 ], [ %.2.i.i82, %506 ]
+  %indvars.iv.i.i.i79 = phi i64 [ 0, %.lr.ph.i.i.i76 ], [ %indvars.iv.next.i.i.i83, %506 ]
+  %491 = phi i32 [ %.02033.i.i71, %.lr.ph.i.i.i76 ], [ %507, %506 ]
+  %492 = getelementptr inbounds nuw ptr, ptr %488, i64 %indvars.iv.i.i.i79
+  %493 = load ptr, ptr %492, align 8, !tbaa !242
+  %494 = getelementptr inbounds nuw i8, ptr %493, i64 4
+  %495 = load i32, ptr %494, align 4
+  %496 = and i32 %495, 65535
+  %497 = icmp eq i32 %496, 1
+  br i1 %497, label %506, label %498
 
-499:                                              ; preds = %491
-  %500 = icmp eq i32 %492, 0
-  br i1 %500, label %507, label %501
+498:                                              ; preds = %490
+  %499 = icmp eq i32 %491, 0
+  br i1 %499, label %506, label %500
 
-501:                                              ; preds = %499
-  %502 = add nsw i32 %492, -1
-  %503 = load i32, ptr %494, align 4, !tbaa !333
-  %504 = getelementptr inbounds nuw ptr, ptr %490, i64 %indvars.iv.i.i.i79
-  %505 = load ptr, ptr %504, align 8, !tbaa !242
-  %506 = load i32, ptr %505, align 4, !tbaa !333
-  %.not.i.i.i80 = icmp eq i32 %503, %506
-  br i1 %.not.i.i.i80, label %507, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i81
+500:                                              ; preds = %498
+  %501 = add nsw i32 %491, -1
+  %502 = load i32, ptr %493, align 4, !tbaa !333
+  %503 = getelementptr inbounds nuw ptr, ptr %489, i64 %indvars.iv.i.i.i79
+  %504 = load ptr, ptr %503, align 8, !tbaa !242
+  %505 = load i32, ptr %504, align 4, !tbaa !333
+  %.not.i.i.i80 = icmp eq i32 %502, %505
+  br i1 %.not.i.i.i80, label %506, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i81
 
-507:                                              ; preds = %501, %499, %491
-  %.2.i.i82 = phi i32 [ %.121.i.i78, %491 ], [ -1, %499 ], [ %502, %501 ]
-  %508 = phi i32 [ %492, %491 ], [ -1, %499 ], [ %502, %501 ]
+506:                                              ; preds = %500, %498, %490
+  %.2.i.i82 = phi i32 [ %.121.i.i78, %490 ], [ -1, %498 ], [ %501, %500 ]
+  %507 = phi i32 [ %491, %490 ], [ -1, %498 ], [ %501, %500 ]
   %indvars.iv.next.i.i.i83 = add nuw nsw i64 %indvars.iv.i.i.i79, 1
   %exitcond.not.i.i.i84 = icmp eq i64 %indvars.iv.next.i.i.i83, %wide.trip.count.i.i.i77
-  br i1 %exitcond.not.i.i.i84, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i85, label %491, !llvm.loop !334
+  br i1 %exitcond.not.i.i.i84, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i85, label %490, !llvm.loop !334
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i81: ; preds = %501
-  %509 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %503, i32 %506)
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i81: ; preds = %500
+  %508 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %502, i32 %505)
   br label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i85: ; preds = %507, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i72
-  %.329.i.i86 = phi i32 [ %.02033.i.i71, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i72 ], [ %.2.i.i82, %507 ]
-  %510 = add nsw i32 %.01534.i.i70, 1
-  %exitcond.not.i.i87 = icmp eq i32 %510, %465
-  br i1 %exitcond.not.i.i87, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88.thread, label %470, !llvm.loop !335
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i85: ; preds = %506, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i72
+  %.329.i.i86 = phi i32 [ %.02033.i.i71, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i72 ], [ %.2.i.i82, %506 ]
+  %509 = add nsw i32 %.01534.i.i70, 1
+  %exitcond.not.i.i87 = icmp eq i32 %509, %464
+  br i1 %exitcond.not.i.i87, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88.thread, label %469, !llvm.loop !335
 
 _ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88: ; preds = %.lr.ph.i18.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i81
-  %.0.in.i66 = phi i32 [ %462, %.lr.ph.i18.i ], [ %509, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i81 ]
+  %.0.in.i66 = phi i32 [ %461, %.lr.ph.i18.i ], [ %508, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i81 ]
   %.0.i67 = icmp sgt i32 %.0.in.i66, 0
-  br i1 %.0.i67, label %511, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88.thread
+  br i1 %.0.i67, label %510, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88.thread
 
-511:                                              ; preds = %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88
-  %512 = getelementptr inbounds nuw i8, ptr %.pn20.i20.i, i64 16
-  %513 = ptrtoint ptr %.021.i19.i to i64
-  %514 = sub i64 %513, %19
-  %515 = ashr exact i64 %514, 3
-  %516 = sub nsw i64 0, %515
-  %517 = getelementptr inbounds ptr, ptr %512, i64 %516
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %517, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %514, i1 false)
+510:                                              ; preds = %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88
+  %511 = getelementptr inbounds nuw i8, ptr %.pn20.i20.i, i64 16
+  %512 = ptrtoint ptr %.021.i19.i to i64
+  %513 = sub i64 %512, %19
+  %514 = ashr exact i64 %513, 3
+  %515 = sub nsw i64 0, %514
+  %516 = getelementptr inbounds ptr, ptr %511, i64 %515
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %516, ptr noundef nonnull align 8 dereferenceable(1) %11, i64 %513, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i
 
-_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88.thread: ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i85, %463, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88
-  %518 = load ptr, ptr %.pn20.i20.i, align 8, !tbaa !221
-  %519 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %460, ptr noundef readonly %518)
-  %.not.i41 = icmp eq i32 %519, 0
-  br i1 %.not.i41, label %520, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit64
+_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88.thread: ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i85, %462, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88
+  %517 = load ptr, ptr %.pn20.i20.i, align 8, !tbaa !221
+  %518 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %459, ptr noundef readonly %517)
+  %.not.i41 = icmp eq i32 %518, 0
+  br i1 %.not.i41, label %519, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit64
 
-520:                                              ; preds = %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88.thread
-  %521 = getelementptr inbounds nuw i8, ptr %460, i64 64
-  %522 = load i32, ptr %521, align 8, !tbaa !245
-  %.not1732.i.i44 = icmp sgt i32 %522, -1
+519:                                              ; preds = %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88.thread
+  %520 = getelementptr inbounds nuw i8, ptr %459, i64 64
+  %521 = load i32, ptr %520, align 8, !tbaa !245
+  %.not1732.i.i44 = icmp sgt i32 %521, -1
   br i1 %.not1732.i.i44, label %.lr.ph.i.i45, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i
 
-.lr.ph.i.i45:                                     ; preds = %520
-  %523 = getelementptr inbounds nuw i8, ptr %460, i64 80
-  %524 = getelementptr inbounds nuw i8, ptr %518, i64 80
-  %525 = getelementptr inbounds nuw i8, ptr %460, i64 40
-  %526 = getelementptr inbounds nuw i8, ptr %518, i64 40
-  br label %527
+.lr.ph.i.i45:                                     ; preds = %519
+  %522 = getelementptr inbounds nuw i8, ptr %459, i64 80
+  %523 = getelementptr inbounds nuw i8, ptr %517, i64 80
+  %524 = getelementptr inbounds nuw i8, ptr %459, i64 40
+  %525 = getelementptr inbounds nuw i8, ptr %517, i64 40
+  br label %526
 
-527:                                              ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61, %.lr.ph.i.i45
-  %.01534.i.i46 = phi i32 [ -1, %.lr.ph.i.i45 ], [ %567, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61 ]
+526:                                              ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61, %.lr.ph.i.i45
+  %.01534.i.i46 = phi i32 [ -1, %.lr.ph.i.i45 ], [ %566, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61 ]
   %.02033.i.i47 = phi i32 [ 2147483647, %.lr.ph.i.i45 ], [ %.329.i.i62, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61 ]
-  %528 = icmp slt i32 %.01534.i.i46, 0
-  br i1 %528, label %529, label %532
+  %527 = icmp slt i32 %.01534.i.i46, 0
+  br i1 %527, label %528, label %531
 
-529:                                              ; preds = %527
+528:                                              ; preds = %526
+  %529 = load ptr, ptr %524, align 8, !tbaa !234
   %530 = load ptr, ptr %525, align 8, !tbaa !234
-  %531 = load ptr, ptr %526, align 8, !tbaa !234
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i48
 
-532:                                              ; preds = %527
-  %533 = zext nneg i32 %.01534.i.i46 to i64
-  %534 = getelementptr inbounds nuw ptr, ptr %523, i64 %533
-  %535 = load ptr, ptr %534, align 8, !tbaa !246
-  %536 = ptrtoint ptr %535 to i64
-  %537 = and i64 %536, -8
-  %538 = inttoptr i64 %537 to ptr
-  %539 = getelementptr inbounds nuw ptr, ptr %524, i64 %533
-  %540 = load ptr, ptr %539, align 8, !tbaa !246
-  %541 = ptrtoint ptr %540 to i64
-  %542 = and i64 %541, -8
-  %543 = inttoptr i64 %542 to ptr
+531:                                              ; preds = %526
+  %532 = zext nneg i32 %.01534.i.i46 to i64
+  %533 = getelementptr inbounds nuw ptr, ptr %522, i64 %532
+  %534 = load ptr, ptr %533, align 8, !tbaa !246
+  %535 = ptrtoint ptr %534 to i64
+  %536 = and i64 %535, -8
+  %537 = inttoptr i64 %536 to ptr
+  %538 = getelementptr inbounds nuw ptr, ptr %523, i64 %532
+  %539 = load ptr, ptr %538, align 8, !tbaa !246
+  %540 = ptrtoint ptr %539 to i64
+  %541 = and i64 %540, -8
+  %542 = inttoptr i64 %541 to ptr
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i48
 
-_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i48: ; preds = %532, %529
-  %.0.i23.i.i49 = phi ptr [ %530, %529 ], [ %538, %532 ]
-  %.0.i18.i.i50 = phi ptr [ %531, %529 ], [ %543, %532 ]
-  %544 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i49, i64 24
-  %545 = load i32, ptr %544, align 8, !tbaa !238
-  %.not1721.not.i.i.i51 = icmp eq i32 %545, 0
+_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i48: ; preds = %531, %528
+  %.0.i23.i.i49 = phi ptr [ %529, %528 ], [ %537, %531 ]
+  %.0.i18.i.i50 = phi ptr [ %530, %528 ], [ %542, %531 ]
+  %543 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i49, i64 24
+  %544 = load i32, ptr %543, align 8, !tbaa !238
+  %.not1721.not.i.i.i51 = icmp eq i32 %544, 0
   br i1 %.not1721.not.i.i.i51, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61, label %.lr.ph.i.i.i52
 
 .lr.ph.i.i.i52:                                   ; preds = %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i48
-  %546 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i49, i64 32
-  %547 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i50, i64 32
-  %wide.trip.count.i.i.i53 = zext i32 %545 to i64
-  br label %548
+  %545 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i49, i64 32
+  %546 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i50, i64 32
+  %wide.trip.count.i.i.i53 = zext i32 %544 to i64
+  br label %547
 
-548:                                              ; preds = %564, %.lr.ph.i.i.i52
-  %.121.i.i54 = phi i32 [ %.02033.i.i47, %.lr.ph.i.i.i52 ], [ %.2.i.i58, %564 ]
-  %indvars.iv.i.i.i55 = phi i64 [ 0, %.lr.ph.i.i.i52 ], [ %indvars.iv.next.i.i.i59, %564 ]
-  %549 = phi i32 [ %.02033.i.i47, %.lr.ph.i.i.i52 ], [ %565, %564 ]
-  %550 = getelementptr inbounds nuw ptr, ptr %546, i64 %indvars.iv.i.i.i55
-  %551 = load ptr, ptr %550, align 8, !tbaa !242
-  %552 = getelementptr inbounds nuw i8, ptr %551, i64 4
-  %553 = load i32, ptr %552, align 4
-  %554 = and i32 %553, 65535
-  %555 = icmp eq i32 %554, 1
-  br i1 %555, label %564, label %556
+547:                                              ; preds = %563, %.lr.ph.i.i.i52
+  %.121.i.i54 = phi i32 [ %.02033.i.i47, %.lr.ph.i.i.i52 ], [ %.2.i.i58, %563 ]
+  %indvars.iv.i.i.i55 = phi i64 [ 0, %.lr.ph.i.i.i52 ], [ %indvars.iv.next.i.i.i59, %563 ]
+  %548 = phi i32 [ %.02033.i.i47, %.lr.ph.i.i.i52 ], [ %564, %563 ]
+  %549 = getelementptr inbounds nuw ptr, ptr %545, i64 %indvars.iv.i.i.i55
+  %550 = load ptr, ptr %549, align 8, !tbaa !242
+  %551 = getelementptr inbounds nuw i8, ptr %550, i64 4
+  %552 = load i32, ptr %551, align 4
+  %553 = and i32 %552, 65535
+  %554 = icmp eq i32 %553, 1
+  br i1 %554, label %563, label %555
 
-556:                                              ; preds = %548
-  %557 = icmp eq i32 %549, 0
-  br i1 %557, label %564, label %558
+555:                                              ; preds = %547
+  %556 = icmp eq i32 %548, 0
+  br i1 %556, label %563, label %557
 
-558:                                              ; preds = %556
-  %559 = add nsw i32 %549, -1
-  %560 = load i32, ptr %551, align 4, !tbaa !333
-  %561 = getelementptr inbounds nuw ptr, ptr %547, i64 %indvars.iv.i.i.i55
-  %562 = load ptr, ptr %561, align 8, !tbaa !242
-  %563 = load i32, ptr %562, align 4, !tbaa !333
-  %.not.i.i.i56 = icmp eq i32 %560, %563
-  br i1 %.not.i.i.i56, label %564, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i57
+557:                                              ; preds = %555
+  %558 = add nsw i32 %548, -1
+  %559 = load i32, ptr %550, align 4, !tbaa !333
+  %560 = getelementptr inbounds nuw ptr, ptr %546, i64 %indvars.iv.i.i.i55
+  %561 = load ptr, ptr %560, align 8, !tbaa !242
+  %562 = load i32, ptr %561, align 4, !tbaa !333
+  %.not.i.i.i56 = icmp eq i32 %559, %562
+  br i1 %.not.i.i.i56, label %563, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i57
 
-564:                                              ; preds = %558, %556, %548
-  %.2.i.i58 = phi i32 [ %.121.i.i54, %548 ], [ -1, %556 ], [ %559, %558 ]
-  %565 = phi i32 [ %549, %548 ], [ -1, %556 ], [ %559, %558 ]
+563:                                              ; preds = %557, %555, %547
+  %.2.i.i58 = phi i32 [ %.121.i.i54, %547 ], [ -1, %555 ], [ %558, %557 ]
+  %564 = phi i32 [ %548, %547 ], [ -1, %555 ], [ %558, %557 ]
   %indvars.iv.next.i.i.i59 = add nuw nsw i64 %indvars.iv.i.i.i55, 1
   %exitcond.not.i.i.i60 = icmp eq i64 %indvars.iv.next.i.i.i59, %wide.trip.count.i.i.i53
-  br i1 %exitcond.not.i.i.i60, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61, label %548, !llvm.loop !334
+  br i1 %exitcond.not.i.i.i60, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61, label %547, !llvm.loop !334
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i57: ; preds = %558
-  %566 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %560, i32 %563)
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i57: ; preds = %557
+  %565 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %559, i32 %562)
   br label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit64
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61: ; preds = %564, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i48
-  %.329.i.i62 = phi i32 [ %.02033.i.i47, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i48 ], [ %.2.i.i58, %564 ]
-  %567 = add nsw i32 %.01534.i.i46, 1
-  %exitcond.not.i.i63 = icmp eq i32 %567, %522
-  br i1 %exitcond.not.i.i63, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i, label %527, !llvm.loop !335
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61: ; preds = %563, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i48
+  %.329.i.i62 = phi i32 [ %.02033.i.i47, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i48 ], [ %.2.i.i58, %563 ]
+  %566 = add nsw i32 %.01534.i.i46, 1
+  %exitcond.not.i.i63 = icmp eq i32 %566, %521
+  br i1 %exitcond.not.i.i63, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i, label %526, !llvm.loop !335
 
 _ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit64: ; preds = %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88.thread, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i57
-  %.0.in.i42 = phi i32 [ %519, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88.thread ], [ %566, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i57 ]
+  %.0.in.i42 = phi i32 [ %518, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit88.thread ], [ %565, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i57 ]
   %.0.i43 = icmp sgt i32 %.0.in.i42, 0
   br i1 %.0.i43, label %.lr.ph.i.i25.i.preheader, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i
 
 .lr.ph.i.i25.i.preheader:                         ; preds = %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit64
-  %568 = getelementptr inbounds nuw i8, ptr %460, i64 64
-  %569 = getelementptr inbounds nuw i8, ptr %460, i64 80
-  %570 = getelementptr inbounds nuw i8, ptr %460, i64 40
+  %567 = getelementptr inbounds nuw i8, ptr %459, i64 64
+  %568 = getelementptr inbounds nuw i8, ptr %459, i64 80
+  %569 = getelementptr inbounds nuw i8, ptr %459, i64 40
   br label %.lr.ph.i.i25.i
 
 .lr.ph.i.i25.i:                                   ; preds = %.lr.ph.i.i25.i.preheader, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit
-  %571 = phi ptr [ %572, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit ], [ %518, %.lr.ph.i.i25.i.preheader ]
+  %570 = phi ptr [ %571, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit ], [ %517, %.lr.ph.i.i25.i.preheader ]
   %.013.i.i26.i = phi ptr [ %.0.i.i28.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit ], [ %.pn20.i20.i, %.lr.ph.i.i25.i.preheader ]
   %.0912.i.i27.i = phi ptr [ %.013.i.i26.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit ], [ %.021.i19.i, %.lr.ph.i.i25.i.preheader ]
-  store ptr %571, ptr %.0912.i.i27.i, align 8, !tbaa !221
+  store ptr %570, ptr %.0912.i.i27.i, align 8, !tbaa !221
   %.0.i.i28.i = getelementptr inbounds i8, ptr %.013.i.i26.i, i64 -8
-  %572 = load ptr, ptr %.0.i.i28.i, align 8, !tbaa !221
-  %573 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %460, ptr noundef readonly %572)
-  %.not.i = icmp eq i32 %573, 0
-  br i1 %.not.i, label %574, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit
+  %571 = load ptr, ptr %.0.i.i28.i, align 8, !tbaa !221
+  %572 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef readonly %459, ptr noundef readonly %571)
+  %.not.i = icmp eq i32 %572, 0
+  br i1 %.not.i, label %573, label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit
 
-574:                                              ; preds = %.lr.ph.i.i25.i
-  %575 = load i32, ptr %568, align 8, !tbaa !245
-  %.not1732.i.i = icmp sgt i32 %575, -1
+573:                                              ; preds = %.lr.ph.i.i25.i
+  %574 = load i32, ptr %567, align 8, !tbaa !245
+  %.not1732.i.i = icmp sgt i32 %574, -1
   br i1 %.not1732.i.i, label %.lr.ph.i.i39, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i
 
-.lr.ph.i.i39:                                     ; preds = %574
-  %576 = getelementptr inbounds nuw i8, ptr %572, i64 80
-  %577 = getelementptr inbounds nuw i8, ptr %572, i64 40
-  br label %578
+.lr.ph.i.i39:                                     ; preds = %573
+  %575 = getelementptr inbounds nuw i8, ptr %571, i64 80
+  %576 = getelementptr inbounds nuw i8, ptr %571, i64 40
+  br label %577
 
-578:                                              ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i, %.lr.ph.i.i39
-  %.01534.i.i = phi i32 [ -1, %.lr.ph.i.i39 ], [ %618, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i ]
+577:                                              ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i, %.lr.ph.i.i39
+  %.01534.i.i = phi i32 [ -1, %.lr.ph.i.i39 ], [ %617, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i ]
   %.02033.i.i = phi i32 [ 2147483647, %.lr.ph.i.i39 ], [ %.329.i.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i ]
-  %579 = icmp slt i32 %.01534.i.i, 0
-  br i1 %579, label %580, label %583
+  %578 = icmp slt i32 %.01534.i.i, 0
+  br i1 %578, label %579, label %582
 
-580:                                              ; preds = %578
-  %581 = load ptr, ptr %570, align 8, !tbaa !234
-  %582 = load ptr, ptr %577, align 8, !tbaa !234
+579:                                              ; preds = %577
+  %580 = load ptr, ptr %569, align 8, !tbaa !234
+  %581 = load ptr, ptr %576, align 8, !tbaa !234
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i
 
-583:                                              ; preds = %578
-  %584 = zext nneg i32 %.01534.i.i to i64
-  %585 = getelementptr inbounds nuw ptr, ptr %569, i64 %584
-  %586 = load ptr, ptr %585, align 8, !tbaa !246
-  %587 = ptrtoint ptr %586 to i64
-  %588 = and i64 %587, -8
-  %589 = inttoptr i64 %588 to ptr
-  %590 = getelementptr inbounds nuw ptr, ptr %576, i64 %584
-  %591 = load ptr, ptr %590, align 8, !tbaa !246
-  %592 = ptrtoint ptr %591 to i64
-  %593 = and i64 %592, -8
-  %594 = inttoptr i64 %593 to ptr
+582:                                              ; preds = %577
+  %583 = zext nneg i32 %.01534.i.i to i64
+  %584 = getelementptr inbounds nuw ptr, ptr %568, i64 %583
+  %585 = load ptr, ptr %584, align 8, !tbaa !246
+  %586 = ptrtoint ptr %585 to i64
+  %587 = and i64 %586, -8
+  %588 = inttoptr i64 %587 to ptr
+  %589 = getelementptr inbounds nuw ptr, ptr %575, i64 %583
+  %590 = load ptr, ptr %589, align 8, !tbaa !246
+  %591 = ptrtoint ptr %590 to i64
+  %592 = and i64 %591, -8
+  %593 = inttoptr i64 %592 to ptr
   br label %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i
 
-_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i: ; preds = %583, %580
-  %.0.i23.i.i = phi ptr [ %581, %580 ], [ %589, %583 ]
-  %.0.i18.i.i = phi ptr [ %582, %580 ], [ %594, %583 ]
-  %595 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i, i64 24
-  %596 = load i32, ptr %595, align 8, !tbaa !238
-  %.not1721.not.i.i.i = icmp eq i32 %596, 0
+_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i: ; preds = %582, %579
+  %.0.i23.i.i = phi ptr [ %580, %579 ], [ %588, %582 ]
+  %.0.i18.i.i = phi ptr [ %581, %579 ], [ %593, %582 ]
+  %594 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i, i64 24
+  %595 = load i32, ptr %594, align 8, !tbaa !238
+  %.not1721.not.i.i.i = icmp eq i32 %595, 0
   br i1 %.not1721.not.i.i.i, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i, label %.lr.ph.i.i.i40
 
 .lr.ph.i.i.i40:                                   ; preds = %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i
-  %597 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i, i64 32
-  %598 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i, i64 32
-  %wide.trip.count.i.i.i = zext i32 %596 to i64
-  br label %599
+  %596 = getelementptr inbounds nuw i8, ptr %.0.i23.i.i, i64 32
+  %597 = getelementptr inbounds nuw i8, ptr %.0.i18.i.i, i64 32
+  %wide.trip.count.i.i.i = zext i32 %595 to i64
+  br label %598
 
-599:                                              ; preds = %615, %.lr.ph.i.i.i40
-  %.121.i.i = phi i32 [ %.02033.i.i, %.lr.ph.i.i.i40 ], [ %.2.i.i, %615 ]
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i40 ], [ %indvars.iv.next.i.i.i, %615 ]
-  %600 = phi i32 [ %.02033.i.i, %.lr.ph.i.i.i40 ], [ %616, %615 ]
-  %601 = getelementptr inbounds nuw ptr, ptr %597, i64 %indvars.iv.i.i.i
-  %602 = load ptr, ptr %601, align 8, !tbaa !242
-  %603 = getelementptr inbounds nuw i8, ptr %602, i64 4
-  %604 = load i32, ptr %603, align 4
-  %605 = and i32 %604, 65535
-  %606 = icmp eq i32 %605, 1
-  br i1 %606, label %615, label %607
+598:                                              ; preds = %614, %.lr.ph.i.i.i40
+  %.121.i.i = phi i32 [ %.02033.i.i, %.lr.ph.i.i.i40 ], [ %.2.i.i, %614 ]
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i40 ], [ %indvars.iv.next.i.i.i, %614 ]
+  %599 = phi i32 [ %.02033.i.i, %.lr.ph.i.i.i40 ], [ %615, %614 ]
+  %600 = getelementptr inbounds nuw ptr, ptr %596, i64 %indvars.iv.i.i.i
+  %601 = load ptr, ptr %600, align 8, !tbaa !242
+  %602 = getelementptr inbounds nuw i8, ptr %601, i64 4
+  %603 = load i32, ptr %602, align 4
+  %604 = and i32 %603, 65535
+  %605 = icmp eq i32 %604, 1
+  br i1 %605, label %614, label %606
 
-607:                                              ; preds = %599
-  %608 = icmp eq i32 %600, 0
-  br i1 %608, label %615, label %609
+606:                                              ; preds = %598
+  %607 = icmp eq i32 %599, 0
+  br i1 %607, label %614, label %608
 
-609:                                              ; preds = %607
-  %610 = add nsw i32 %600, -1
-  %611 = load i32, ptr %602, align 4, !tbaa !333
-  %612 = getelementptr inbounds nuw ptr, ptr %598, i64 %indvars.iv.i.i.i
-  %613 = load ptr, ptr %612, align 8, !tbaa !242
-  %614 = load i32, ptr %613, align 4, !tbaa !333
-  %.not.i.i.i = icmp eq i32 %611, %614
-  br i1 %.not.i.i.i, label %615, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i
+608:                                              ; preds = %606
+  %609 = add nsw i32 %599, -1
+  %610 = load i32, ptr %601, align 4, !tbaa !333
+  %611 = getelementptr inbounds nuw ptr, ptr %597, i64 %indvars.iv.i.i.i
+  %612 = load ptr, ptr %611, align 8, !tbaa !242
+  %613 = load i32, ptr %612, align 4, !tbaa !333
+  %.not.i.i.i = icmp eq i32 %610, %613
+  br i1 %.not.i.i.i, label %614, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i
 
-615:                                              ; preds = %609, %607, %599
-  %.2.i.i = phi i32 [ %.121.i.i, %599 ], [ -1, %607 ], [ %610, %609 ]
-  %616 = phi i32 [ %600, %599 ], [ -1, %607 ], [ %610, %609 ]
+614:                                              ; preds = %608, %606, %598
+  %.2.i.i = phi i32 [ %.121.i.i, %598 ], [ -1, %606 ], [ %609, %608 ]
+  %615 = phi i32 [ %599, %598 ], [ -1, %606 ], [ %609, %608 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i, label %599, !llvm.loop !334
+  br i1 %exitcond.not.i.i.i, label %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i, label %598, !llvm.loop !334
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i:   ; preds = %609
-  %617 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %611, i32 %614)
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i:   ; preds = %608
+  %616 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %610, i32 %613)
   br label %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit
 
-_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i: ; preds = %615, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i
-  %.329.i.i = phi i32 [ %.02033.i.i, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i ], [ %.2.i.i, %615 ]
-  %618 = add nsw i32 %.01534.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %618, %575
-  br i1 %exitcond.not.i.i, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i, label %578, !llvm.loop !335
+_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i: ; preds = %614, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i
+  %.329.i.i = phi i32 [ %.02033.i.i, %_ZN7datalogL17get_by_tail_indexEPNS_4ruleEi.exit19.i.i ], [ %.2.i.i, %614 ]
+  %617 = add nsw i32 %.01534.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %617, %574
+  br i1 %exitcond.not.i.i, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i, label %577, !llvm.loop !335
 
 _ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit: ; preds = %.lr.ph.i.i25.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i
-  %.0.in.i = phi i32 [ %573, %.lr.ph.i.i25.i ], [ %617, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i ]
+  %.0.in.i = phi i32 [ %572, %.lr.ph.i.i25.i ], [ %616, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.i.i ]
   %.0.i = icmp sgt i32 %.0.in.i, 0
   br i1 %.0.i, label %.lr.ph.i.i25.i, label %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i, !llvm.loop !352
 
-_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i: ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61, %574, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i, %520, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit64, %511
-  %.sink.i22.i = phi ptr [ %11, %511 ], [ %.021.i19.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit64 ], [ %.021.i19.i, %520 ], [ %.013.i.i26.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i ], [ %.013.i.i26.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit ], [ %.013.i.i26.i, %574 ], [ %.021.i19.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61 ]
-  store ptr %460, ptr %.sink.i22.i, align 8, !tbaa !221
+_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i: ; preds = %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61, %573, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i, %519, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit64, %510
+  %.sink.i22.i = phi ptr [ %11, %510 ], [ %.021.i19.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit64 ], [ %.021.i19.i, %519 ], [ %.013.i.i26.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i ], [ %.013.i.i26.i, %_ZN7datalogL18initial_comparatorEPNS_4ruleES1_.exit ], [ %.013.i.i26.i, %573 ], [ %.021.i19.i, %_ZN7datalogL12compare_argsEP3appS1_Ri.exit.thread.i.i61 ]
+  store ptr %459, ptr %.sink.i22.i, align 8, !tbaa !221
   %.0.i23.i = getelementptr inbounds nuw i8, ptr %.021.i19.i, i64 8
   %.not.i24.i = icmp eq ptr %.0.i23.i, %17
   br i1 %.not.i24.i, label %_ZSt4sortIPPN7datalog4ruleEPFbS2_S2_EEvT_S6_T0_.exit, label %.lr.ph.i18.i, !llvm.loop !353
 
-_ZSt4sortIPPN7datalog4ruleEPFbS2_S2_EEvT_S6_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i, %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i, %459, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit
+_ZSt4sortIPPN7datalog4ruleEPFbS2_S2_EEvT_S6_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i21.i, %_ZSt25__unguarded_linear_insertIPPN7datalog4ruleEN9__gnu_cxx5__ops14_Val_comp_iterIPFbS2_S2_EEEEvT_T0_.exit.i11.i, %458, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit
   %.pr = load ptr, ptr %12, align 8, !tbaa !215
-  %619 = icmp eq ptr %.pr, null
-  br i1 %619, label %._crit_edge331, label %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit35
+  %618 = icmp eq ptr %.pr, null
+  br i1 %618, label %._crit_edge332, label %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit35
 
 _ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit35:   ; preds = %_ZSt4sortIPPN7datalog4ruleEPFbS2_S2_EEvT_S6_T0_.exit
-  %620 = getelementptr inbounds i8, ptr %.pr, i64 -4
-  %621 = load i32, ptr %620, align 4, !tbaa !220
-  %622 = zext i32 %621 to i64
-  %623 = shl nuw nsw i64 %622, 3
-  %624 = getelementptr inbounds nuw i8, ptr %.pr, i64 %623
-  %.not327 = icmp eq i32 %621, 0
-  br i1 %.not327, label %._crit_edge331, label %.lr.ph330
+  %619 = getelementptr inbounds i8, ptr %.pr, i64 -4
+  %620 = load i32, ptr %619, align 4, !tbaa !220
+  %621 = zext i32 %620 to i64
+  %622 = shl nuw nsw i64 %621, 3
+  %623 = getelementptr inbounds nuw i8, ptr %.pr, i64 %622
+  %.not328 = icmp eq i32 %620, 0
+  br i1 %.not328, label %._crit_edge332, label %.lr.ph331
 
-625:                                              ; preds = %.lr.ph, %_ZN6vectorIPN7datalog4ruleELb0EjE9push_backEOS2_.exit
-  %626 = phi ptr [ %.pre, %.lr.ph ], [ %638, %_ZN6vectorIPN7datalog4ruleELb0EjE9push_backEOS2_.exit ]
+624:                                              ; preds = %.lr.ph, %_ZN6vectorIPN7datalog4ruleELb0EjE9push_backEOS2_.exit
+  %625 = phi ptr [ %.pre, %.lr.ph ], [ %637, %_ZN6vectorIPN7datalog4ruleELb0EjE9push_backEOS2_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6vectorIPN7datalog4ruleELb0EjE9push_backEOS2_.exit ]
-  %627 = load ptr, ptr %4, align 8, !tbaa !215
-  %628 = getelementptr inbounds nuw ptr, ptr %627, i64 %indvars.iv
-  %629 = load ptr, ptr %628, align 8, !tbaa !221
-  %630 = icmp eq ptr %626, null
-  br i1 %630, label %637, label %631
+  %626 = load ptr, ptr %4, align 8, !tbaa !215
+  %627 = getelementptr inbounds nuw ptr, ptr %626, i64 %indvars.iv
+  %628 = load ptr, ptr %627, align 8, !tbaa !221
+  %629 = icmp eq ptr %625, null
+  br i1 %629, label %636, label %630
 
-631:                                              ; preds = %625
-  %632 = getelementptr inbounds i8, ptr %626, i64 -4
-  %633 = load i32, ptr %632, align 4, !tbaa !220
-  %634 = getelementptr inbounds i8, ptr %626, i64 -8
-  %635 = load i32, ptr %634, align 4, !tbaa !220
-  %636 = icmp eq i32 %633, %635
-  br i1 %636, label %637, label %_ZN6vectorIPN7datalog4ruleELb0EjE9push_backEOS2_.exit
+630:                                              ; preds = %624
+  %631 = getelementptr inbounds i8, ptr %625, i64 -4
+  %632 = load i32, ptr %631, align 4, !tbaa !220
+  %633 = getelementptr inbounds i8, ptr %625, i64 -8
+  %634 = load i32, ptr %633, align 4, !tbaa !220
+  %635 = icmp eq i32 %632, %634
+  br i1 %635, label %636, label %_ZN6vectorIPN7datalog4ruleELb0EjE9push_backEOS2_.exit
 
-637:                                              ; preds = %631, %625
+636:                                              ; preds = %630, %624
   tail call void @_ZN6vectorIPN7datalog4ruleELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !215
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !220
   br label %_ZN6vectorIPN7datalog4ruleELb0EjE9push_backEOS2_.exit
 
-_ZN6vectorIPN7datalog4ruleELb0EjE9push_backEOS2_.exit: ; preds = %631, %637
-  %638 = phi ptr [ %.pre.i, %637 ], [ %626, %631 ]
-  %639 = phi i32 [ %.pre2.i, %637 ], [ %633, %631 ]
-  %640 = getelementptr inbounds i8, ptr %638, i64 -4
-  %641 = zext i32 %639 to i64
-  %642 = getelementptr inbounds nuw ptr, ptr %638, i64 %641
-  store ptr %629, ptr %642, align 8, !tbaa !221
-  %643 = add i32 %639, 1
-  store i32 %643, ptr %640, align 4, !tbaa !220
+_ZN6vectorIPN7datalog4ruleELb0EjE9push_backEOS2_.exit: ; preds = %630, %636
+  %637 = phi ptr [ %.pre.i, %636 ], [ %625, %630 ]
+  %638 = phi i32 [ %.pre2.i, %636 ], [ %632, %630 ]
+  %639 = getelementptr inbounds i8, ptr %637, i64 -4
+  %640 = zext i32 %638 to i64
+  %641 = getelementptr inbounds nuw ptr, ptr %637, i64 %640
+  store ptr %628, ptr %641, align 8, !tbaa !221
+  %642 = add i32 %638, 1
+  store i32 %642, ptr %639, align 4, !tbaa !220
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit, label %625, !llvm.loop !355
+  br i1 %exitcond.not, label %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit, label %624, !llvm.loop !355
 
-.lr.ph330:                                        ; preds = %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit35, %651
-  %.029329 = phi ptr [ %644, %651 ], [ %.pr, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit35 ]
-  %.030328 = phi ptr [ %.1, %651 ], [ %.pr, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit35 ]
-  %644 = getelementptr inbounds nuw i8, ptr %.029329, i64 8
-  %645 = icmp eq ptr %644, %624
-  br i1 %645, label %650, label %646
+.lr.ph331:                                        ; preds = %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit35, %650
+  %.029330 = phi ptr [ %643, %650 ], [ %.pr, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit35 ]
+  %.030329 = phi ptr [ %.1, %650 ], [ %.pr, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit35 ]
+  %643 = getelementptr inbounds nuw i8, ptr %.029330, i64 8
+  %644 = icmp eq ptr %643, %623
+  br i1 %644, label %649, label %645
 
-646:                                              ; preds = %.lr.ph330
-  %647 = load ptr, ptr %.029329, align 8, !tbaa !221
-  %648 = load ptr, ptr %644, align 8, !tbaa !221
-  %649 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef %647, ptr noundef %648)
-  %.not33 = icmp eq i32 %649, 0
-  br i1 %.not33, label %651, label %650
+645:                                              ; preds = %.lr.ph331
+  %646 = load ptr, ptr %.029330, align 8, !tbaa !221
+  %647 = load ptr, ptr %643, align 8, !tbaa !221
+  %648 = tail call fastcc noundef i32 @_ZN7datalogL13rough_compareEPNS_4ruleES1_(ptr noundef %646, ptr noundef %647)
+  %.not33 = icmp eq i32 %648, 0
+  br i1 %.not33, label %650, label %649
 
-650:                                              ; preds = %646, %.lr.ph330
-  tail call void @_ZN7datalog24mk_similarity_compressor13process_classERKNS_8rule_setEPPNS_4ruleES6_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef %.030328, ptr noundef nonnull %644)
-  br label %651
+649:                                              ; preds = %645, %.lr.ph331
+  tail call void @_ZN7datalog24mk_similarity_compressor13process_classERKNS_8rule_setEPPNS_4ruleES6_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef %.030329, ptr noundef nonnull %643)
+  br label %650
 
-651:                                              ; preds = %650, %646
-  %.1 = phi ptr [ %644, %650 ], [ %.030328, %646 ]
-  br i1 %645, label %._crit_edge331, label %.lr.ph330, !llvm.loop !356
+650:                                              ; preds = %649, %645
+  %.1 = phi ptr [ %643, %649 ], [ %.030329, %645 ]
+  br i1 %644, label %._crit_edge332, label %.lr.ph331, !llvm.loop !356
 
-._crit_edge331:                                   ; preds = %651, %._crit_edge, %_ZSt4sortIPPN7datalog4ruleEPFbS2_S2_EEvT_S6_T0_.exit, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit35
-  %652 = load i8, ptr %3, align 8, !tbaa !217, !range !323, !noundef !324
-  %653 = trunc nuw i8 %652 to i1
-  br i1 %653, label %654, label %666
+._crit_edge332:                                   ; preds = %650, %._crit_edge, %_ZSt4sortIPPN7datalog4ruleEPFbS2_S2_EEvT_S6_T0_.exit, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit35
+  %651 = load i8, ptr %3, align 8, !tbaa !217, !range !323, !noundef !324
+  %652 = trunc nuw i8 %651 to i1
+  br i1 %652, label %653, label %665
 
-654:                                              ; preds = %._crit_edge331
-  %655 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 248)
-  %656 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %657 = load ptr, ptr %656, align 8, !tbaa !285
-  tail call void @_ZN7datalog8rule_setC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(248) %655, ptr noundef nonnull align 8 dereferenceable(3028) %657)
-  %658 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %659 = load ptr, ptr %658, align 8, !tbaa !215
-  %660 = icmp eq ptr %659, null
-  br i1 %660, label %._crit_edge334, label %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit
+653:                                              ; preds = %._crit_edge332
+  %654 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 248)
+  %655 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %656 = load ptr, ptr %655, align 8, !tbaa !285
+  tail call void @_ZN7datalog8rule_setC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(248) %654, ptr noundef nonnull align 8 dereferenceable(3028) %656)
+  %657 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %658 = load ptr, ptr %657, align 8, !tbaa !215
+  %659 = icmp eq ptr %658, null
+  br i1 %659, label %._crit_edge335, label %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit
 
-_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit: ; preds = %654
-  %661 = getelementptr inbounds i8, ptr %659, i64 -4
-  %662 = load i32, ptr %661, align 4, !tbaa !220
-  %.not336 = icmp eq i32 %662, 0
-  br i1 %.not336, label %._crit_edge334, label %.lr.ph333.preheader
+_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit: ; preds = %653
+  %660 = getelementptr inbounds i8, ptr %658, i64 -4
+  %661 = load i32, ptr %660, align 4, !tbaa !220
+  %.not337 = icmp eq i32 %661, 0
+  br i1 %.not337, label %._crit_edge335, label %.lr.ph334.preheader
 
-.lr.ph333.preheader:                              ; preds = %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit
-  %wide.trip.count396 = zext i32 %662 to i64
-  br label %.lr.ph333
+.lr.ph334.preheader:                              ; preds = %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit
+  %wide.trip.count397 = zext i32 %661 to i64
+  br label %.lr.ph334
 
-._crit_edge334:                                   ; preds = %.lr.ph333, %654, %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit
-  tail call void @_ZN7datalog8rule_set18inherit_predicatesERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %655, ptr noundef nonnull align 8 dereferenceable(248) %1)
-  br label %666
+._crit_edge335:                                   ; preds = %.lr.ph334, %653, %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit
+  tail call void @_ZN7datalog8rule_set18inherit_predicatesERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %654, ptr noundef nonnull align 8 dereferenceable(248) %1)
+  br label %665
 
-.lr.ph333:                                        ; preds = %.lr.ph333.preheader, %.lr.ph333
-  %indvars.iv393 = phi i64 [ 0, %.lr.ph333.preheader ], [ %indvars.iv.next394, %.lr.ph333 ]
-  %663 = load ptr, ptr %658, align 8, !tbaa !215
-  %664 = getelementptr inbounds nuw ptr, ptr %663, i64 %indvars.iv393
-  %665 = load ptr, ptr %664, align 8, !tbaa !221
-  tail call void @_ZN7datalog8rule_set8add_ruleEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(248) %655, ptr noundef %665)
-  %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
-  %exitcond397.not = icmp eq i64 %indvars.iv.next394, %wide.trip.count396
-  br i1 %exitcond397.not, label %._crit_edge334, label %.lr.ph333, !llvm.loop !357
+.lr.ph334:                                        ; preds = %.lr.ph334.preheader, %.lr.ph334
+  %indvars.iv394 = phi i64 [ 0, %.lr.ph334.preheader ], [ %indvars.iv.next395, %.lr.ph334 ]
+  %662 = load ptr, ptr %657, align 8, !tbaa !215
+  %663 = getelementptr inbounds nuw ptr, ptr %662, i64 %indvars.iv394
+  %664 = load ptr, ptr %663, align 8, !tbaa !221
+  tail call void @_ZN7datalog8rule_set8add_ruleEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(248) %654, ptr noundef %664)
+  %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
+  %exitcond398.not = icmp eq i64 %indvars.iv.next395, %wide.trip.count397
+  br i1 %exitcond398.not, label %._crit_edge335, label %.lr.ph334, !llvm.loop !357
 
-666:                                              ; preds = %._crit_edge334, %._crit_edge331
-  %.028 = phi ptr [ %655, %._crit_edge334 ], [ null, %._crit_edge331 ]
+665:                                              ; preds = %._crit_edge335, %._crit_edge332
+  %.028 = phi ptr [ %654, %._crit_edge335 ], [ null, %._crit_edge332 ]
   tail call void @_ZN7datalog24mk_similarity_compressor5resetEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
   ret ptr %.028
 }

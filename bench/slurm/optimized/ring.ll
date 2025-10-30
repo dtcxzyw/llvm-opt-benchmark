@@ -542,14 +542,8 @@ define dso_local noundef i32 @pmix_ring_in(i32 noundef %0, i32 noundef %1, ptr n
 
 21:                                               ; preds = %9
   %22 = load ptr, ptr @pmix_ring_msgs, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = sext i32 %18 to i64
-  %26 = getelementptr %struct.pmix_ring_msg, ptr %22, i64 %25
-  %27 = getelementptr i8, ptr %26, i64 -8
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp sgt i32 %17, -1
-  br i1 %29, label %.lr.ph.preheader, label %._crit_edge
+  %23 = icmp sgt i32 %17, -1
+  br i1 %23, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %21
   %wide.trip.count = zext nneg i32 %18 to i64
@@ -557,16 +551,22 @@ define dso_local noundef i32 @pmix_ring_in(i32 noundef %0, i32 noundef %1, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.04654 = phi i32 [ 0, %.lr.ph.preheader ], [ %32, %.lr.ph ]
-  %30 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %22, i64 %indvars.iv
-  %31 = load i32, ptr %30, align 8
-  %32 = add i32 %31, %.04654
+  %.04654 = phi i32 [ 0, %.lr.ph.preheader ], [ %26, %.lr.ph ]
+  %24 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %22, i64 %indvars.iv
+  %25 = load i32, ptr %24, align 8
+  %26 = add i32 %25, %.04654
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
-  %.046.lcssa = phi i32 [ 0, %21 ], [ %32, %.lr.ph ]
+  %.046.lcssa = phi i32 [ 0, %21 ], [ %26, %.lr.ph ]
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = sext i32 %18 to i64
+  %30 = getelementptr %struct.pmix_ring_msg, ptr %22, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 -8
+  %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr @pmix_stepd_rank, align 4
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %35, label %61
@@ -576,30 +576,30 @@ define dso_local noundef i32 @pmix_ring_in(i32 noundef %0, i32 noundef %1, ptr n
   tail call void @slurm_pack16(i16 noundef zeroext 7, ptr noundef %36) #9
   tail call void @slurm_pack32(i32 noundef %33, ptr noundef %36) #9
   tail call void @slurm_pack32(i32 noundef %.046.lcssa, ptr noundef %36) #9
-  %.not = icmp eq ptr %24, null
+  %.not = icmp eq ptr %28, null
   br i1 %.not, label %41, label %37
 
 37:                                               ; preds = %35
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #10
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #10
   %39 = trunc i64 %38 to i32
   %40 = add i32 %39, 1
   br label %41
 
 41:                                               ; preds = %37, %35
   %.044 = phi i32 [ %40, %37 ], [ 0, %35 ]
-  tail call void @slurm_packmem(ptr noundef %24, i32 noundef %.044, ptr noundef %36) #9
-  %.not52 = icmp eq ptr %28, null
+  tail call void @slurm_packmem(ptr noundef %28, i32 noundef %.044, ptr noundef %36) #9
+  %.not52 = icmp eq ptr %32, null
   br i1 %.not52, label %46, label %42
 
 42:                                               ; preds = %41
-  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #10
+  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #10
   %44 = trunc i64 %43 to i32
   %45 = add i32 %44, 1
   br label %46
 
 46:                                               ; preds = %42, %41
   %.043 = phi i32 [ %45, %42 ], [ 0, %41 ]
-  tail call void @slurm_packmem(ptr noundef %28, i32 noundef %.043, ptr noundef %36) #9
+  tail call void @slurm_packmem(ptr noundef %32, i32 noundef %.043, ptr noundef %36) #9
   %47 = load i32, ptr @pmix_stepd_rank, align 4
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %49, label %pmix_stepd_rank_parent.exit
@@ -617,7 +617,7 @@ pmix_stepd_rank_parent.exit:                      ; preds = %46, %49
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %pmix_stepd_rank_parent.exit
-  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.14, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.pmix_ring_in, i32 noundef %33, i32 noundef %.0.i, i32 noundef %1, ptr noundef %24, ptr noundef %28) #9
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.14, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.pmix_ring_in, i32 noundef %33, i32 noundef %.0.i, i32 noundef %1, ptr noundef %28, ptr noundef %32) #9
   br label %56
 
 56:                                               ; preds = %pmix_stepd_rank_parent.exit, %55
@@ -630,7 +630,7 @@ pmix_stepd_rank_parent.exit:                      ; preds = %46, %49
   br label %63
 
 61:                                               ; preds = %._crit_edge
-  %62 = tail call i32 @pmix_ring_out(i32 noundef 0, ptr noundef %28, ptr noundef %24)
+  %62 = tail call i32 @pmix_ring_out(i32 noundef 0, ptr noundef %32, ptr noundef %28)
   br label %63
 
 63:                                               ; preds = %61, %56, %9

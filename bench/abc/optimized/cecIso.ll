@@ -313,25 +313,25 @@ Gia_ManIsoSimulate.exit.loopexit.critedge:        ; preds = %101
   %.sink238 = phi i32 [ %76, %.preheader5.i ], [ %84, %.preheader3.i ], [ %94, %.preheader1.i ], [ %100, %.preheader.i114 ]
   %115 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 %.sink238, ptr %115, align 4, !tbaa !32
-  %.val41.i = load ptr, ptr %38, align 8, !tbaa !3
-  %116 = getelementptr inbounds nuw %struct.Gia_Rpr_t_, ptr %.val41.i, i64 %indvars.iv169
-  %117 = load i32, ptr %116, align 4
-  br label %118
+  br label %116
 
-118:                                              ; preds = %118, %.loopexit
-  %119 = phi i1 [ true, %.loopexit ], [ false, %118 ]
-  %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ 1, %118 ]
-  %.01112.i.i = phi i32 [ 0, %.loopexit ], [ %125, %118 ]
-  %120 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.i.i
+116:                                              ; preds = %116, %.loopexit
+  %117 = phi i1 [ true, %.loopexit ], [ false, %116 ]
+  %indvars.iv.i.i = phi i64 [ 0, %.loopexit ], [ 1, %116 ]
+  %.01112.i.i = phi i32 [ 0, %.loopexit ], [ %123, %116 ]
+  %118 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.i.i
+  %119 = load i32, ptr %118, align 4, !tbaa !32
+  %120 = getelementptr inbounds nuw i32, ptr @Gia_ManIsoHashKey.s_Primes, i64 %indvars.iv.i.i
   %121 = load i32, ptr %120, align 4, !tbaa !32
-  %122 = getelementptr inbounds nuw i32, ptr @Gia_ManIsoHashKey.s_Primes, i64 %indvars.iv.i.i
-  %123 = load i32, ptr %122, align 4, !tbaa !32
-  %124 = mul i32 %123, %121
-  %125 = xor i32 %124, %.01112.i.i
-  br i1 %119, label %118, label %Gia_ManIsoHashKey.exit.i, !llvm.loop !38
+  %122 = mul i32 %121, %119
+  %123 = xor i32 %122, %.01112.i.i
+  br i1 %117, label %116, label %Gia_ManIsoHashKey.exit.i, !llvm.loop !38
 
-Gia_ManIsoHashKey.exit.i:                         ; preds = %118
-  %126 = urem i32 %125, %26
+Gia_ManIsoHashKey.exit.i:                         ; preds = %116
+  %.val41.i = load ptr, ptr %38, align 8, !tbaa !3
+  %124 = getelementptr inbounds nuw %struct.Gia_Rpr_t_, ptr %.val41.i, i64 %indvars.iv169
+  %125 = load i32, ptr %124, align 4
+  %126 = urem i32 %123, %26
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds i32, ptr %34, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !32
@@ -344,7 +344,7 @@ Gia_ManIsoHashKey.exit.i:                         ; preds = %118
   %.048.i = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val103, i64 %.pn
   %130 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val41.i, i64 %.pn
   %131 = load i32, ptr %130, align 4
-  %.not35.unshifted.i = xor i32 %131, %117
+  %.not35.unshifted.i = xor i32 %131, %125
   %.not35.i = icmp ult i32 %.not35.unshifted.i, 1073741824
   br i1 %.not35.i, label %132, label %Gia_ManIsoEqual.exit.thread.i
 

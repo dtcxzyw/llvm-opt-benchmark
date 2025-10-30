@@ -1188,9 +1188,9 @@ define noundef float @_Z16fbposres_wrapperN3gmx8ArrayRefIKiEENS0_IK9t_iparamsEER
 138:                                              ; preds = %132, %131
   %indvars.iv.next45.i.i = add nuw nsw i64 %indvars.iv44.i.i, 1
   %exitcond47.not.i.i = icmp eq i64 %indvars.iv.next45.i.i, 3
-  br i1 %exitcond47.not.i.i, label %.loopexit.loopexit.i.i, label %131, !llvm.loop !190
+  br i1 %exitcond47.not.i.i, label %.loopexit.i.i, label %131, !llvm.loop !190
 
-.loopexit.loopexit.i.i:                           ; preds = %138
+.loopexit.i.i:                                    ; preds = %138
   %139 = fpext float %80 to double
   %140 = fmul double %139, 5.000000e-01
   %141 = fmul float %128, %128
@@ -1257,9 +1257,9 @@ define noundef float @_Z16fbposres_wrapperN3gmx8ArrayRefIKiEENS0_IK9t_iparamsEER
 170:                                              ; preds = %164, %163
   %indvars.iv.next45.i156.i = add nuw nsw i64 %indvars.iv44.i154.i, 1
   %exitcond47.not.i157.i = icmp eq i64 %indvars.iv.next45.i156.i, 3
-  br i1 %exitcond47.not.i157.i, label %.loopexit.loopexit.i158.i, label %163, !llvm.loop !190
+  br i1 %exitcond47.not.i157.i, label %.loopexit.i158.i, label %163, !llvm.loop !190
 
-.loopexit.loopexit.i158.i:                        ; preds = %170
+.loopexit.i158.i:                                 ; preds = %170
   %171 = fpext float %80 to double
   %172 = fmul double %171, 5.000000e-01
   %173 = fmul float %160, %160
@@ -1311,9 +1311,9 @@ define noundef float @_Z16fbposres_wrapperN3gmx8ArrayRefIKiEENS0_IK9t_iparamsEER
   store float %198, ptr %199, align 4, !tbaa !10
   %indvars.iv.next45.i173.i = add nuw nsw i64 %indvars.iv44.i17117.i, 1
   %.not.i172.i = icmp eq i64 %indvars.iv.next45.i173.i, 2
-  br i1 %.not.i172.i, label %.loopexit.loopexit.i175.i, label %194
+  br i1 %.not.i172.i, label %.loopexit.i175.i, label %194
 
-.loopexit.loopexit.i175.i:                        ; preds = %194
+.loopexit.i175.i:                                 ; preds = %194
   %200 = fpext float %80 to double
   %201 = fmul double %200, 5.000000e-01
   %202 = fmul float %191, %191
@@ -1379,8 +1379,8 @@ define noundef float @_Z16fbposres_wrapperN3gmx8ArrayRefIKiEENS0_IK9t_iparamsEER
   store float %242, ptr %243, align 4, !tbaa !10
   br label %_ZN12_GLOBAL__N_120do_fbposres_cylinderEiPfS0_ffb.exit.i
 
-_ZN12_GLOBAL__N_120do_fbposres_cylinderEiPfS0_ffb.exit.i: ; preds = %233, %230, %216, %.loopexit.loopexit.i175.i, %184, %182, %.loopexit.loopexit.i158.i, %153, %151, %.loopexit.loopexit.i.i, %121, %119, %99, %96, %88, %._crit_edge37.i
-  %.0131.i = phi float [ 0.000000e+00, %._crit_edge37.i ], [ %106, %99 ], [ 0.000000e+00, %88 ], [ %223, %216 ], [ %240, %233 ], [ 0.000000e+00, %230 ], [ 0.000000e+00, %96 ], [ 0.000000e+00, %119 ], [ 0.000000e+00, %121 ], [ %144, %.loopexit.loopexit.i.i ], [ 0.000000e+00, %151 ], [ 0.000000e+00, %153 ], [ %176, %.loopexit.loopexit.i158.i ], [ 0.000000e+00, %182 ], [ 0.000000e+00, %184 ], [ %205, %.loopexit.loopexit.i175.i ]
+_ZN12_GLOBAL__N_120do_fbposres_cylinderEiPfS0_ffb.exit.i: ; preds = %233, %230, %216, %.loopexit.i175.i, %184, %182, %.loopexit.i158.i, %153, %151, %.loopexit.i.i, %121, %119, %99, %96, %88, %._crit_edge37.i
+  %.0131.i = phi float [ 0.000000e+00, %._crit_edge37.i ], [ %106, %99 ], [ 0.000000e+00, %88 ], [ %223, %216 ], [ %240, %233 ], [ 0.000000e+00, %230 ], [ 0.000000e+00, %96 ], [ 0.000000e+00, %119 ], [ 0.000000e+00, %121 ], [ %144, %.loopexit.i.i ], [ 0.000000e+00, %151 ], [ 0.000000e+00, %153 ], [ %176, %.loopexit.i158.i ], [ 0.000000e+00, %182 ], [ 0.000000e+00, %184 ], [ %205, %.loopexit.i175.i ]
   %244 = getelementptr inbounds [4 x float], ptr %21, i64 %.pre.i
   br label %245
 

@@ -1567,8 +1567,8 @@ read10in32.exit465.us:                            ; preds = %653, %651
   %exitcond744.not = icmp eq i32 %667, %574
   br i1 %exitcond744.not, label %.loopexit, label %.lr.ph714.split.split.us, !llvm.loop !55
 
-668:                                              ; preds = %.lr.ph714.split.split.us, %668
-  %indvars.iv739 = phi i64 [ 0, %.lr.ph714.split.split.us ], [ %indvars.iv.next740, %668 ]
+668:                                              ; preds = %668, %.lr.ph714.split.split.us
+  %indvars.iv739 = phi i64 [ %indvars.iv.next740, %668 ], [ 0, %.lr.ph714.split.split.us ]
   %669 = getelementptr inbounds nuw i32, ptr %586, i64 %indvars.iv739
   %670 = load i32, ptr %669, align 4, !tbaa !33
   %671 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv739

@@ -6056,9 +6056,9 @@ if.end473:                                        ; preds = %_ZN9struct_pb8inter
 while.cond.i6583.preheader:                       ; preds = %if.end473, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6578
   %pos.855527 = phi i64 [ %add500, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6578 ], [ %pos.80, %if.end473 ]
   %__begin3478.sroa.0.05526 = phi ptr [ %incdec.ptr.i3221, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6578 ], [ %181, %if.end473 ]
+  %183 = add i64 %pos.855527, 1
   %arrayidx.i6592 = getelementptr inbounds i8, ptr %data, i64 %pos.855527
   store i8 -126, ptr %arrayidx.i6592, align 1
-  %183 = add i64 %pos.855527, 1
   %arrayidx3.i6587 = getelementptr inbounds i8, ptr %data, i64 %183
   store i8 3, ptr %arrayidx3.i6587, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3172)
@@ -6157,9 +6157,9 @@ if.end504:                                        ; preds = %_ZN9struct_pb8inter
 while.cond.i6551.preheader:                       ; preds = %if.end504, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3300
   %pos.895538 = phi i64 [ %add532, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3300 ], [ %pos.84, %if.end504 ]
   %__begin3509.sroa.0.05537 = phi ptr [ %incdec.ptr.i3301, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3300 ], [ %188, %if.end504 ]
+  %190 = add i64 %pos.895538, 1
   %arrayidx.i6560 = getelementptr inbounds i8, ptr %data, i64 %pos.895538
   store i8 -118, ptr %arrayidx.i6560, align 1
-  %190 = add i64 %pos.895538, 1
   %arrayidx3.i6555 = getelementptr inbounds i8, ptr %data, i64 %190
   store i8 3, ptr %arrayidx3.i6555, align 1
   %_M_engaged.i.i.i3243 = getelementptr inbounds nuw i8, ptr %__begin3509.sroa.0.05537, i64 4
@@ -6469,10 +6469,10 @@ if.end630:                                        ; preds = %_ZN9struct_pb8inter
 for.body641:                                      ; preds = %if.end630, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6322
   %pos.1085604 = phi i64 [ %inc2.i6314, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6322 ], [ %pos.104, %if.end630 ]
   %__begin2632.sroa.0.05603 = phi ptr [ %call.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6322 ], [ %220, %if.end630 ]
+  %221 = add i64 %pos.1085604, 1
   %arrayidx.i6400 = getelementptr inbounds i8, ptr %data, i64 %pos.1085604
   store i8 -62, ptr %arrayidx.i6400, align 1
   %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__begin2632.sroa.0.05603, i64 32
-  %221 = add i64 %pos.1085604, 1
   %arrayidx3.i6395 = getelementptr inbounds i8, ptr %data, i64 %221
   store i8 3, ptr %arrayidx3.i6395, align 1
   %222 = load i32, ptr %_M_storage.i.i, align 4
@@ -6596,10 +6596,10 @@ for.end658:                                       ; preds = %_ZN9struct_pb8inter
 for.body669:                                      ; preds = %for.end658, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6226
   %pos.1135627 = phi i64 [ %inc2.i6218, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6226 ], [ %pos.108.lcssa, %for.end658 ]
   %__begin2660.sroa.0.05626 = phi ptr [ %call.i3340, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6226 ], [ %230, %for.end658 ]
+  %231 = add i64 %pos.1135627, 1
   %arrayidx.i6304 = getelementptr inbounds i8, ptr %data, i64 %pos.1135627
   store i8 -54, ptr %arrayidx.i6304, align 1
   %_M_storage.i.i3339 = getelementptr inbounds nuw i8, ptr %__begin2660.sroa.0.05626, i64 32
-  %231 = add i64 %pos.1135627, 1
   %arrayidx3.i6299 = getelementptr inbounds i8, ptr %data, i64 %231
   store i8 3, ptr %arrayidx3.i6299, align 1
   %232 = load i64, ptr %_M_storage.i.i3339, align 8
@@ -6719,10 +6719,10 @@ for.end685:                                       ; preds = %_ZN9struct_pb8inter
 for.body696:                                      ; preds = %for.end685, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6130
   %pos.1185650 = phi i64 [ %inc2.i6122, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6130 ], [ %pos.113.lcssa, %for.end685 ]
   %__begin2687.sroa.0.05649 = phi ptr [ %call.i3345, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6130 ], [ %240, %for.end685 ]
+  %241 = add i64 %pos.1185650, 1
   %arrayidx.i6208 = getelementptr inbounds i8, ptr %data, i64 %pos.1185650
   store i8 -46, ptr %arrayidx.i6208, align 1
   %_M_storage.i.i3344 = getelementptr inbounds nuw i8, ptr %__begin2687.sroa.0.05649, i64 32
-  %241 = add i64 %pos.1185650, 1
   %arrayidx3.i6203 = getelementptr inbounds i8, ptr %data, i64 %241
   store i8 3, ptr %arrayidx3.i6203, align 1
   %242 = load i32, ptr %_M_storage.i.i3344, align 4
@@ -6846,10 +6846,10 @@ for.end716:                                       ; preds = %_ZN9struct_pb8inter
 for.body727:                                      ; preds = %for.end716, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6034
   %pos.1235673 = phi i64 [ %inc2.i6026, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6034 ], [ %pos.118.lcssa, %for.end716 ]
   %__begin2718.sroa.0.05672 = phi ptr [ %call.i3350, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6034 ], [ %250, %for.end716 ]
+  %251 = add i64 %pos.1235673, 1
   %arrayidx.i6112 = getelementptr inbounds i8, ptr %data, i64 %pos.1235673
   store i8 -38, ptr %arrayidx.i6112, align 1
   %_M_storage.i.i3349 = getelementptr inbounds nuw i8, ptr %__begin2718.sroa.0.05672, i64 32
-  %251 = add i64 %pos.1235673, 1
   %arrayidx3.i6107 = getelementptr inbounds i8, ptr %data, i64 %251
   store i8 3, ptr %arrayidx3.i6107, align 1
   %252 = load i64, ptr %_M_storage.i.i3349, align 8
@@ -6969,10 +6969,10 @@ for.end743:                                       ; preds = %_ZN9struct_pb8inter
 for.body754:                                      ; preds = %for.end743, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5938
   %pos.1285696 = phi i64 [ %inc2.i5930, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5938 ], [ %pos.123.lcssa, %for.end743 ]
   %__begin2745.sroa.0.05695 = phi ptr [ %call.i3355, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5938 ], [ %260, %for.end743 ]
+  %261 = add i64 %pos.1285696, 1
   %arrayidx.i6016 = getelementptr inbounds i8, ptr %data, i64 %pos.1285696
   store i8 -30, ptr %arrayidx.i6016, align 1
   %_M_storage.i.i3354 = getelementptr inbounds nuw i8, ptr %__begin2745.sroa.0.05695, i64 32
-  %261 = add i64 %pos.1285696, 1
   %arrayidx3.i6011 = getelementptr inbounds i8, ptr %data, i64 %261
   store i8 3, ptr %arrayidx3.i6011, align 1
   %262 = load i32, ptr %_M_storage.i.i3354, align 4
@@ -7108,10 +7108,10 @@ for.end778:                                       ; preds = %_ZN9struct_pb8inter
 for.body789:                                      ; preds = %for.end778, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5842
   %pos.1335719 = phi i64 [ %inc2.i5834, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5842 ], [ %pos.128.lcssa, %for.end778 ]
   %__begin2780.sroa.0.05718 = phi ptr [ %call.i3360, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5842 ], [ %270, %for.end778 ]
+  %271 = add i64 %pos.1335719, 1
   %arrayidx.i5920 = getelementptr inbounds i8, ptr %data, i64 %pos.1335719
   store i8 -22, ptr %arrayidx.i5920, align 1
   %_M_storage.i.i3359 = getelementptr inbounds nuw i8, ptr %__begin2780.sroa.0.05718, i64 32
-  %271 = add i64 %pos.1335719, 1
   %arrayidx3.i5915 = getelementptr inbounds i8, ptr %data, i64 %271
   store i8 3, ptr %arrayidx3.i5915, align 1
   %272 = load i64, ptr %_M_storage.i.i3359, align 8
@@ -7383,10 +7383,10 @@ for.end909:                                       ; preds = %for.body895, %for.e
 for.body920:                                      ; preds = %for.end909, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5522
   %pos.1465761 = phi i64 [ %add934, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5522 ], [ %pos.144.lcssa, %for.end909 ]
   %__begin2911.sroa.0.05760 = phi ptr [ %call.i3387, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5522 ], [ %296, %for.end909 ]
+  %297 = add i64 %pos.1465761, 1
   %arrayidx.i5568 = getelementptr inbounds i8, ptr %data, i64 %pos.1465761
   store i8 -110, ptr %arrayidx.i5568, align 1
   %_M_storage.i.i3386 = getelementptr inbounds nuw i8, ptr %__begin2911.sroa.0.05760, i64 32
-  %297 = add i64 %pos.1465761, 1
   %arrayidx3.i5563 = getelementptr inbounds i8, ptr %data, i64 %297
   store i8 4, ptr %arrayidx3.i5563, align 1
   %298 = load i32, ptr %_M_storage.i.i3386, align 4
@@ -7475,10 +7475,10 @@ for.end937:                                       ; preds = %_ZN9struct_pb8inter
 for.body948:                                      ; preds = %for.end937, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5442
   %pos.1505779 = phi i64 [ %add962, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5442 ], [ %pos.146.lcssa, %for.end937 ]
   %__begin2939.sroa.0.05778 = phi ptr [ %call.i3392, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5442 ], [ %304, %for.end937 ]
+  %305 = add i64 %pos.1505779, 1
   %arrayidx.i5488 = getelementptr inbounds i8, ptr %data, i64 %pos.1505779
   store i8 -102, ptr %arrayidx.i5488, align 1
   %_M_storage.i.i3391 = getelementptr inbounds nuw i8, ptr %__begin2939.sroa.0.05778, i64 32
-  %305 = add i64 %pos.1505779, 1
   %arrayidx3.i5483 = getelementptr inbounds i8, ptr %data, i64 %305
   store i8 4, ptr %arrayidx3.i5483, align 1
   %306 = load i32, ptr %_M_storage.i.i3391, align 8
@@ -7604,9 +7604,9 @@ for.end1000:                                      ; preds = %for.body976, %for.e
 for.body1011:                                     ; preds = %for.end1000, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5234
   %pos.1565810 = phi i64 [ %add1050, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5234 ], [ %pos.154.lcssa, %for.end1000 ]
   %__begin21002.sroa.0.05809 = phi ptr [ %call.i3413, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5234 ], [ %316, %for.end1000 ]
+  %317 = add i64 %pos.1565810, 1
   %arrayidx.i5312 = getelementptr inbounds i8, ptr %data, i64 %pos.1565810
   store i8 -86, ptr %arrayidx.i5312, align 1
-  %317 = add i64 %pos.1565810, 1
   %arrayidx3.i5307 = getelementptr inbounds i8, ptr %data, i64 %317
   store i8 4, ptr %arrayidx3.i5307, align 1
   %_M_string_length.i3403 = getelementptr inbounds nuw i8, ptr %__begin21002.sroa.0.05809, i64 40
@@ -7635,8 +7635,6 @@ do.body.i2435:                                    ; preds = %do.body.i2435, %_ZN
   br i1 %cmp.i2438.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2439, label %do.body.i2435, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2439: ; preds = %do.body.i2435
-  %_M_storage.i.i3402 = getelementptr inbounds nuw i8, ptr %__begin21002.sroa.0.05809, i64 32
-  %second1023 = getelementptr inbounds nuw i8, ptr %__begin21002.sroa.0.05809, i64 64
   %add1029 = add i64 %318, 4
   %add1018 = add i64 %add1029, %ret.i2441.0
   %add1021 = add i64 %add1018, %319
@@ -7687,6 +7685,7 @@ while.body.i5260:                                 ; preds = %_ZN9struct_pb8inter
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5266: ; preds = %while.body.i5260, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5298
   %pos.159.lcssa = phi i64 [ %inc2.i5274, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5298 ], [ %inc.i5263, %while.body.i5260 ]
   %v.addr.i5254.0.lcssa = phi i64 [ %322, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5298 ], [ %shr.i5265, %while.body.i5260 ]
+  %_M_storage.i.i3402 = getelementptr inbounds nuw i8, ptr %__begin21002.sroa.0.05809, i64 32
   %conv1.i5257 = trunc nuw nsw i64 %v.addr.i5254.0.lcssa to i8
   %inc2.i5258 = add i64 %pos.159.lcssa, 1
   %arrayidx3.i5259 = getelementptr inbounds i8, ptr %data, i64 %pos.159.lcssa
@@ -7720,6 +7719,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5234: ; preds = %while.body.
   %pos.160.in.lcssa = phi i64 [ %add1040, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5266 ], [ %pos.1605804, %while.body.i5228 ]
   %v.addr.i5222.0.lcssa = phi i64 [ %327, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5266 ], [ %shr.i5233, %while.body.i5228 ]
   %pos.160.lcssa = phi i64 [ %pos.1605801, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5266 ], [ %pos.160, %while.body.i5228 ]
+  %second1023 = getelementptr inbounds nuw i8, ptr %__begin21002.sroa.0.05809, i64 64
   %conv1.i5225 = trunc nuw nsw i64 %v.addr.i5222.0.lcssa to i8
   %inc2.i5226 = add i64 %pos.160.in.lcssa, 2
   %arrayidx3.i5227 = getelementptr inbounds i8, ptr %data, i64 %pos.160.lcssa
@@ -7745,9 +7745,9 @@ for.end1053:                                      ; preds = %_ZN9struct_pb8inter
 for.body1064:                                     ; preds = %for.end1053, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5138
   %pos.1615835 = phi i64 [ %add1103, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5138 ], [ %pos.156.lcssa, %for.end1053 ]
   %__begin21055.sroa.0.05834 = phi ptr [ %call.i3429, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5138 ], [ %332, %for.end1053 ]
+  %333 = add i64 %pos.1615835, 1
   %arrayidx.i5216 = getelementptr inbounds i8, ptr %data, i64 %pos.1615835
   store i8 -78, ptr %arrayidx.i5216, align 1
-  %333 = add i64 %pos.1615835, 1
   %arrayidx3.i5211 = getelementptr inbounds i8, ptr %data, i64 %333
   store i8 4, ptr %arrayidx3.i5211, align 1
   %_M_string_length.i3419 = getelementptr inbounds nuw i8, ptr %__begin21055.sroa.0.05834, i64 40
@@ -7776,8 +7776,6 @@ do.body.i2421:                                    ; preds = %do.body.i2421, %_ZN
   br i1 %cmp.i2424.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2425, label %do.body.i2421, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2425: ; preds = %do.body.i2421
-  %_M_storage.i.i3418 = getelementptr inbounds nuw i8, ptr %__begin21055.sroa.0.05834, i64 32
-  %second1076 = getelementptr inbounds nuw i8, ptr %__begin21055.sroa.0.05834, i64 64
   %add1082 = add i64 %334, 4
   %add1071 = add i64 %add1082, %ret.i2427.0
   %add1074 = add i64 %add1071, %335
@@ -7828,6 +7826,7 @@ while.body.i5164:                                 ; preds = %_ZN9struct_pb8inter
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5170: ; preds = %while.body.i5164, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5202
   %pos.164.lcssa = phi i64 [ %inc2.i5178, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5202 ], [ %inc.i5167, %while.body.i5164 ]
   %v.addr.i5158.0.lcssa = phi i64 [ %338, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5202 ], [ %shr.i5169, %while.body.i5164 ]
+  %_M_storage.i.i3418 = getelementptr inbounds nuw i8, ptr %__begin21055.sroa.0.05834, i64 32
   %conv1.i5161 = trunc nuw nsw i64 %v.addr.i5158.0.lcssa to i8
   %inc2.i5162 = add i64 %pos.164.lcssa, 1
   %arrayidx3.i5163 = getelementptr inbounds i8, ptr %data, i64 %pos.164.lcssa
@@ -7861,6 +7860,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5138: ; preds = %while.body.
   %pos.165.in.lcssa = phi i64 [ %add1093, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5170 ], [ %pos.1655829, %while.body.i5132 ]
   %v.addr.i5126.0.lcssa = phi i64 [ %343, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5170 ], [ %shr.i5137, %while.body.i5132 ]
   %pos.165.lcssa = phi i64 [ %pos.1655826, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5170 ], [ %pos.165, %while.body.i5132 ]
+  %second1076 = getelementptr inbounds nuw i8, ptr %__begin21055.sroa.0.05834, i64 64
   %conv1.i5129 = trunc nuw nsw i64 %v.addr.i5126.0.lcssa to i8
   %inc2.i5130 = add i64 %pos.165.in.lcssa, 2
   %arrayidx3.i5131 = getelementptr inbounds i8, ptr %data, i64 %pos.165.lcssa
@@ -7886,9 +7886,9 @@ for.end1106:                                      ; preds = %_ZN9struct_pb8inter
 for.body1117:                                     ; preds = %for.end1106, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5042
   %pos.1665860 = phi i64 [ %add1163, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5042 ], [ %pos.161.lcssa, %for.end1106 ]
   %__begin21108.sroa.0.05859 = phi ptr [ %call.i3536, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit5042 ], [ %348, %for.end1106 ]
+  %349 = add i64 %pos.1665860, 1
   %arrayidx.i5120 = getelementptr inbounds i8, ptr %data, i64 %pos.1665860
   store i8 -70, ptr %arrayidx.i5120, align 1
-  %349 = add i64 %pos.1665860, 1
   %arrayidx3.i5115 = getelementptr inbounds i8, ptr %data, i64 %349
   store i8 4, ptr %arrayidx3.i5115, align 1
   %_M_string_length.i3435 = getelementptr inbounds nuw i8, ptr %__begin21108.sroa.0.05859, i64 40
@@ -8124,9 +8124,9 @@ for.end1166:                                      ; preds = %_ZN9struct_pb8inter
 for.body1177:                                     ; preds = %for.end1166, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3653
   %pos.1715885 = phi i64 [ %add1223, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3653 ], [ %pos.166.lcssa, %for.end1166 ]
   %__begin21168.sroa.0.05884 = phi ptr [ %call.i3654, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3653 ], [ %365, %for.end1166 ]
+  %366 = add i64 %pos.1715885, 1
   %arrayidx.i5024 = getelementptr inbounds i8, ptr %data, i64 %pos.1715885
   store i8 -62, ptr %arrayidx.i5024, align 1
-  %366 = add i64 %pos.1715885, 1
   %arrayidx3.i5019 = getelementptr inbounds i8, ptr %data, i64 %366
   store i8 4, ptr %arrayidx3.i5019, align 1
   %_M_string_length.i3550 = getelementptr inbounds nuw i8, ptr %__begin21168.sroa.0.05884, i64 40
@@ -8347,9 +8347,9 @@ for.end1226:                                      ; preds = %_ZN9struct_pb13Unkn
 for.body1237:                                     ; preds = %for.end1226, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4850
   %pos.1765910 = phi i64 [ %inc2.i4842, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4850 ], [ %pos.171.lcssa, %for.end1226 ]
   %__begin21228.sroa.0.05909 = phi ptr [ %call.i3673, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4850 ], [ %384, %for.end1226 ]
+  %385 = add i64 %pos.1765910, 1
   %arrayidx.i4928 = getelementptr inbounds i8, ptr %data, i64 %pos.1765910
   store i8 -54, ptr %arrayidx.i4928, align 1
-  %385 = add i64 %pos.1765910, 1
   %arrayidx3.i4923 = getelementptr inbounds i8, ptr %data, i64 %385
   store i8 4, ptr %arrayidx3.i4923, align 1
   %_M_string_length.i3668 = getelementptr inbounds nuw i8, ptr %__begin21228.sroa.0.05909, i64 40
@@ -8379,7 +8379,6 @@ do.body.i2379:                                    ; preds = %do.body.i2379, %_ZN
   br i1 %cmp.i2382.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2383, label %do.body.i2379, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2383: ; preds = %do.body.i2379
-  %_M_storage.i.i3667 = getelementptr inbounds nuw i8, ptr %__begin21228.sroa.0.05909, i64 32
   %add1244 = add i64 %386, 4
   %add1247 = add i64 %add1244, %ret.i2385.0
   %add1253 = add i64 %add1247, %ret.i2378.0
@@ -8429,6 +8428,7 @@ while.body.i4876:                                 ; preds = %_ZN9struct_pb8inter
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4882: ; preds = %while.body.i4876, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4914
   %pos.179.lcssa = phi i64 [ %inc2.i4890, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4914 ], [ %inc.i4879, %while.body.i4876 ]
   %v.addr.i4870.0.lcssa = phi i64 [ %390, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4914 ], [ %shr.i4881, %while.body.i4876 ]
+  %_M_storage.i.i3667 = getelementptr inbounds nuw i8, ptr %__begin21228.sroa.0.05909, i64 32
   %conv1.i4873 = trunc nuw nsw i64 %v.addr.i4870.0.lcssa to i8
   %inc2.i4874 = add i64 %pos.179.lcssa, 1
   %arrayidx3.i4875 = getelementptr inbounds i8, ptr %data, i64 %pos.179.lcssa
@@ -8482,9 +8482,9 @@ for.end1268:                                      ; preds = %_ZN9struct_pb8inter
 for.body1279:                                     ; preds = %for.end1268, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4754
   %pos.1815935 = phi i64 [ %inc2.i4746, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4754 ], [ %pos.176.lcssa, %for.end1268 ]
   %__begin21270.sroa.0.05934 = phi ptr [ %call.i3683, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4754 ], [ %397, %for.end1268 ]
+  %398 = add i64 %pos.1815935, 1
   %arrayidx.i4832 = getelementptr inbounds i8, ptr %data, i64 %pos.1815935
   store i8 -46, ptr %arrayidx.i4832, align 1
-  %398 = add i64 %pos.1815935, 1
   %arrayidx3.i4827 = getelementptr inbounds i8, ptr %data, i64 %398
   store i8 4, ptr %arrayidx3.i4827, align 1
   %_M_string_length.i3678 = getelementptr inbounds nuw i8, ptr %__begin21270.sroa.0.05934, i64 40
@@ -8514,7 +8514,6 @@ do.body.i2365:                                    ; preds = %do.body.i2365, %_ZN
   br i1 %cmp.i2368.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2369, label %do.body.i2365, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2369: ; preds = %do.body.i2365
-  %_M_storage.i.i3677 = getelementptr inbounds nuw i8, ptr %__begin21270.sroa.0.05934, i64 32
   %add1286 = add i64 %399, 4
   %add1289 = add i64 %add1286, %ret.i2371.0
   %add1295 = add i64 %add1289, %ret.i2364.0
@@ -8564,6 +8563,7 @@ while.body.i4780:                                 ; preds = %_ZN9struct_pb8inter
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4786: ; preds = %while.body.i4780, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4818
   %pos.184.lcssa = phi i64 [ %inc2.i4794, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4818 ], [ %inc.i4783, %while.body.i4780 ]
   %v.addr.i4774.0.lcssa = phi i64 [ %403, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit4818 ], [ %shr.i4785, %while.body.i4780 ]
+  %_M_storage.i.i3677 = getelementptr inbounds nuw i8, ptr %__begin21270.sroa.0.05934, i64 32
   %conv1.i4777 = trunc nuw nsw i64 %v.addr.i4774.0.lcssa to i8
   %inc2.i4778 = add i64 %pos.184.lcssa, 1
   %arrayidx3.i4779 = getelementptr inbounds i8, ptr %data, i64 %pos.184.lcssa
@@ -8616,9 +8616,9 @@ for.end1310:                                      ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i3685, label %if.end1351, label %while.body.i4732.preheader
 
 while.body.i4732.preheader:                       ; preds = %for.end1310
+  %412 = add i64 %pos.181.lcssa, 1
   %arrayidx.i4736 = getelementptr inbounds i8, ptr %data, i64 %pos.181.lcssa
   store i8 -38, ptr %arrayidx.i4736, align 1
-  %412 = add i64 %pos.181.lcssa, 1
   %arrayidx3.i4731 = getelementptr inbounds i8, ptr %data, i64 %412
   store i8 4, ptr %arrayidx3.i4731, align 1
   %413 = load ptr, ptr %packed_int32, align 8
@@ -8722,9 +8722,9 @@ if.end1351:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i3693, label %if.end1391, label %while.body.i4684.preheader
 
 while.body.i4684.preheader:                       ; preds = %if.end1351
+  %423 = add i64 %pos.186, 1
   %arrayidx.i4688 = getelementptr inbounds i8, ptr %data, i64 %pos.186
   store i8 -30, ptr %arrayidx.i4688, align 1
-  %423 = add i64 %pos.186, 1
   %arrayidx3.i4683 = getelementptr inbounds i8, ptr %data, i64 %423
   store i8 4, ptr %arrayidx3.i4683, align 1
   %424 = load ptr, ptr %packed_int64, align 8
@@ -8826,9 +8826,9 @@ if.end1391:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i3701, label %if.end1433, label %while.body.i4636.preheader
 
 while.body.i4636.preheader:                       ; preds = %if.end1391
+  %434 = add i64 %pos.191, 1
   %arrayidx.i4640 = getelementptr inbounds i8, ptr %data, i64 %pos.191
   store i8 -22, ptr %arrayidx.i4640, align 1
-  %434 = add i64 %pos.191, 1
   %arrayidx3.i4635 = getelementptr inbounds i8, ptr %data, i64 %434
   store i8 4, ptr %arrayidx3.i4635, align 1
   %435 = load ptr, ptr %packed_uint32, align 8
@@ -8932,9 +8932,9 @@ if.end1433:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i3709, label %if.end1473, label %while.body.i4588.preheader
 
 while.body.i4588.preheader:                       ; preds = %if.end1433
+  %445 = add i64 %pos.196, 1
   %arrayidx.i4592 = getelementptr inbounds i8, ptr %data, i64 %pos.196
   store i8 -14, ptr %arrayidx.i4592, align 1
-  %445 = add i64 %pos.196, 1
   %arrayidx3.i4587 = getelementptr inbounds i8, ptr %data, i64 %445
   store i8 4, ptr %arrayidx3.i4587, align 1
   %446 = load ptr, ptr %packed_uint64, align 8
@@ -9036,9 +9036,9 @@ if.end1473:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i3717, label %if.end1517, label %while.body.i4540.preheader
 
 while.body.i4540.preheader:                       ; preds = %if.end1473
+  %456 = add i64 %pos.201, 1
   %arrayidx.i4544 = getelementptr inbounds i8, ptr %data, i64 %pos.201
   store i8 -6, ptr %arrayidx.i4544, align 1
-  %456 = add i64 %pos.201, 1
   %arrayidx3.i4539 = getelementptr inbounds i8, ptr %data, i64 %456
   store i8 4, ptr %arrayidx3.i4539, align 1
   %457 = load ptr, ptr %packed_sint32, align 8
@@ -9148,9 +9148,9 @@ if.end1517:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i3725, label %if.end1559, label %while.body.i4492.preheader
 
 while.body.i4492.preheader:                       ; preds = %if.end1517
+  %467 = add i64 %pos.206, 1
   %arrayidx.i4496 = getelementptr inbounds i8, ptr %data, i64 %pos.206
   store i8 -126, ptr %arrayidx.i4496, align 1
-  %467 = add i64 %pos.206, 1
   %arrayidx3.i4491 = getelementptr inbounds i8, ptr %data, i64 %467
   store i8 5, ptr %arrayidx3.i4491, align 1
   %468 = load ptr, ptr %packed_sint64, align 8
@@ -9556,9 +9556,9 @@ if.end1618:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %515, label %if.end1662, label %while.body.i4252.preheader
 
 while.body.i4252.preheader:                       ; preds = %if.end1618
+  %516 = add i64 %pos.231, 1
   %arrayidx.i4256 = getelementptr inbounds i8, ptr %data, i64 %pos.231
   store i8 -70, ptr %arrayidx.i4256, align 1
-  %516 = add i64 %pos.231, 1
   %arrayidx3.i4251 = getelementptr inbounds i8, ptr %data, i64 %516
   store i8 5, ptr %arrayidx3.i4251, align 1
   %517 = load ptr, ptr %packed_bool, align 8
@@ -9653,9 +9653,9 @@ if.end1662:                                       ; preds = %for.body1652, %_ZN9
   br i1 %cmp.i.i3815, label %if.end1704, label %while.body.i4204.preheader
 
 while.body.i4204.preheader:                       ; preds = %if.end1662
+  %533 = add i64 %pos.234, 1
   %arrayidx.i4208 = getelementptr inbounds i8, ptr %data, i64 %pos.234
   store i8 -62, ptr %arrayidx.i4208, align 1
-  %533 = add i64 %pos.234, 1
   %arrayidx3.i4203 = getelementptr inbounds i8, ptr %data, i64 %533
   store i8 5, ptr %arrayidx3.i4203, align 1
   %534 = load ptr, ptr %packed_nested_enum, align 8
@@ -10280,9 +10280,9 @@ if.end1952:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp, label %while.body.i3804.preheader, label %if.end1958
 
 while.body.i3804.preheader:                       ; preds = %if.end1952
+  %604 = add i64 %pos.275, 1
   %arrayidx.i3808 = getelementptr inbounds i8, ptr %data, i64 %pos.275
   store i8 -8, ptr %arrayidx.i3808, align 1
-  %604 = add i64 %pos.275, 1
   %arrayidx3.i3803 = getelementptr inbounds i8, ptr %data, i64 %604
   store i8 6, ptr %arrayidx3.i3803, align 1
   %605 = load i8, ptr %_M_index.i, align 8
@@ -10467,9 +10467,9 @@ if.end1986:                                       ; preds = %_ZSt3getILm2EJSt9mo
   ]
 
 while.body.i3724.preheader:                       ; preds = %if.end1986
+  %618 = add i64 %pos.282, 1
   %arrayidx.i3728 = getelementptr inbounds i8, ptr %data, i64 %pos.282
   store i8 -118, ptr %arrayidx.i3728, align 1
-  %618 = add i64 %pos.282, 1
   %arrayidx3.i3723 = getelementptr inbounds i8, ptr %data, i64 %618
   store i8 7, ptr %arrayidx3.i3723, align 1
   %619 = load i8, ptr %_M_index.i, align 8
@@ -10546,9 +10546,9 @@ if.end2005.thread:                                ; preds = %_ZSt3getILm3EJSt9mo
   br label %if.end2066
 
 while.body.i3692.preheader:                       ; preds = %if.end1986
+  %627 = add i64 %pos.282, 1
   %arrayidx.i3696 = getelementptr inbounds i8, ptr %data, i64 %pos.282
   store i8 -110, ptr %arrayidx.i3696, align 1
-  %627 = add i64 %pos.282, 1
   %arrayidx3.i3691 = getelementptr inbounds i8, ptr %data, i64 %627
   store i8 7, ptr %arrayidx3.i3691, align 1
   %628 = load i8, ptr %_M_index.i, align 8
@@ -10658,9 +10658,9 @@ if.end2033:                                       ; preds = %if.end1986, %_ZSt3g
   br i1 %cmp2036, label %while.body.i3628.preheader, label %if.end2040
 
 while.body.i3628.preheader:                       ; preds = %if.end2033
+  %640 = add i64 %pos.291, 1
   %arrayidx.i3632 = getelementptr inbounds i8, ptr %data, i64 %pos.291
   store i8 -96, ptr %arrayidx.i3632, align 1
-  %640 = add i64 %pos.291, 1
   %arrayidx3.i3627 = getelementptr inbounds i8, ptr %data, i64 %640
   store i8 7, ptr %arrayidx3.i3627, align 1
   %641 = load i8, ptr %_M_index.i, align 8
@@ -10775,9 +10775,9 @@ if.end2058:                                       ; preds = %_ZSt3getILm8EJSt9mo
   br i1 %cmp2061, label %while.body.i3564.preheader, label %if.end2066
 
 while.body.i3564.preheader:                       ; preds = %if.end2058
+  %653 = add i64 %pos.298, 1
   %arrayidx.i3568 = getelementptr inbounds i8, ptr %data, i64 %pos.298
   store i8 -72, ptr %arrayidx.i3568, align 1
-  %653 = add i64 %pos.298, 1
   %arrayidx3.i3563 = getelementptr inbounds i8, ptr %data, i64 %653
   store i8 7, ptr %arrayidx3.i3563, align 1
   %654 = load i8, ptr %_M_index.i, align 8
@@ -10829,9 +10829,9 @@ if.end2066:                                       ; preds = %if.end2005.thread, 
   br i1 %cmp.i4070.not, label %if.end2086, label %while.body.i3532.preheader
 
 while.body.i3532.preheader:                       ; preds = %if.end2066
+  %658 = add i64 %pos.300, 1
   %arrayidx.i3536 = getelementptr inbounds i8, ptr %data, i64 %pos.300
   store i8 -54, ptr %arrayidx.i3536, align 1
-  %658 = add i64 %pos.300, 1
   %arrayidx3.i3531 = getelementptr inbounds i8, ptr %data, i64 %658
   store i8 12, ptr %arrayidx3.i3531, align 1
   %659 = load ptr, ptr %data2067, align 8
@@ -11020,9 +11020,9 @@ if.end2086:                                       ; preds = %_ZN9struct_pb13Unkn
   br i1 %tobool.i.i4144, label %while.body.i3500.preheader, label %if.end2092
 
 while.body.i3500.preheader:                       ; preds = %if.end2086
+  %676 = add i64 %pos.303, 1
   %arrayidx.i3504 = getelementptr inbounds i8, ptr %data, i64 %pos.303
   store i8 -120, ptr %arrayidx.i3504, align 1
-  %676 = add i64 %pos.303, 1
   %arrayidx3.i3499 = getelementptr inbounds i8, ptr %data, i64 %676
   store i8 15, ptr %arrayidx3.i3499, align 1
   %677 = load i8, ptr %_M_engaged.i.i4143, align 4
@@ -11071,9 +11071,9 @@ if.end2092:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4151, label %while.body.i3468.preheader, label %if.end2097
 
 while.body.i3468.preheader:                       ; preds = %if.end2092
+  %681 = add i64 %pos.306, 1
   %arrayidx.i3472 = getelementptr inbounds i8, ptr %data, i64 %pos.306
   store i8 -112, ptr %arrayidx.i3472, align 1
-  %681 = add i64 %pos.306, 1
   %arrayidx3.i3467 = getelementptr inbounds i8, ptr %data, i64 %681
   store i8 15, ptr %arrayidx3.i3467, align 1
   %682 = load i8, ptr %_M_engaged.i.i4150, align 8
@@ -11121,9 +11121,9 @@ if.end2097:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4158, label %while.body.i3436.preheader, label %if.end2103
 
 while.body.i3436.preheader:                       ; preds = %if.end2097
+  %686 = add i64 %pos.309, 1
   %arrayidx.i3440 = getelementptr inbounds i8, ptr %data, i64 %pos.309
   store i8 -104, ptr %arrayidx.i3440, align 1
-  %686 = add i64 %pos.309, 1
   %arrayidx3.i3435 = getelementptr inbounds i8, ptr %data, i64 %686
   store i8 15, ptr %arrayidx3.i3435, align 1
   %687 = load i8, ptr %_M_engaged.i.i4157, align 4
@@ -11172,9 +11172,9 @@ if.end2103:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4165, label %while.body.i3404.preheader, label %if.end2108
 
 while.body.i3404.preheader:                       ; preds = %if.end2103
+  %691 = add i64 %pos.312, 1
   %arrayidx.i3408 = getelementptr inbounds i8, ptr %data, i64 %pos.312
   store i8 -96, ptr %arrayidx.i3408, align 1
-  %691 = add i64 %pos.312, 1
   %arrayidx3.i3403 = getelementptr inbounds i8, ptr %data, i64 %691
   store i8 15, ptr %arrayidx3.i3403, align 1
   %692 = load i8, ptr %_M_engaged.i.i4164, align 8
@@ -11222,9 +11222,9 @@ if.end2108:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4172, label %while.body.i3372.preheader, label %if.end2115
 
 while.body.i3372.preheader:                       ; preds = %if.end2108
+  %696 = add i64 %pos.315, 1
   %arrayidx.i3376 = getelementptr inbounds i8, ptr %data, i64 %pos.315
   store i8 -88, ptr %arrayidx.i3376, align 1
-  %696 = add i64 %pos.315, 1
   %arrayidx3.i3371 = getelementptr inbounds i8, ptr %data, i64 %696
   store i8 15, ptr %arrayidx3.i3371, align 1
   %697 = load i8, ptr %_M_engaged.i.i4171, align 4
@@ -11276,9 +11276,9 @@ if.end2115:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4179, label %while.body.i3340.preheader, label %if.end2121
 
 while.body.i3340.preheader:                       ; preds = %if.end2115
+  %701 = add i64 %pos.318, 1
   %arrayidx.i3344 = getelementptr inbounds i8, ptr %data, i64 %pos.318
   store i8 -80, ptr %arrayidx.i3344, align 1
-  %701 = add i64 %pos.318, 1
   %arrayidx3.i3339 = getelementptr inbounds i8, ptr %data, i64 %701
   store i8 15, ptr %arrayidx3.i3339, align 1
   %702 = load i8, ptr %_M_engaged.i.i4178, align 8
@@ -11533,9 +11533,9 @@ if.end2170:                                       ; preds = %_ZNKRSt8optionalIbE
   br i1 %tobool.i.i4235, label %while.body.i3180.preheader, label %if.end2187
 
 while.body.i3180.preheader:                       ; preds = %if.end2170
+  %734 = add i64 %pos.336, 1
   %arrayidx.i3184 = getelementptr inbounds i8, ptr %data, i64 %pos.336
   store i8 -14, ptr %arrayidx.i3184, align 1
-  %734 = add i64 %pos.336, 1
   %arrayidx3.i3179 = getelementptr inbounds i8, ptr %data, i64 %734
   store i8 15, ptr %arrayidx3.i3179, align 1
   %735 = load i8, ptr %_M_engaged.i.i4234, align 8
@@ -11608,9 +11608,9 @@ if.end2187:                                       ; preds = %_ZNKRSt8optionalINS
   br i1 %tobool.i.i4260, label %while.body.i3148.preheader, label %if.end2204
 
 while.body.i3148.preheader:                       ; preds = %if.end2187
+  %744 = add i64 %pos.338, 1
   %arrayidx.i3152 = getelementptr inbounds i8, ptr %data, i64 %pos.338
   store i8 -6, ptr %arrayidx.i3152, align 1
-  %744 = add i64 %pos.338, 1
   %arrayidx3.i3147 = getelementptr inbounds i8, ptr %data, i64 %744
   store i8 15, ptr %arrayidx3.i3147, align 1
   %745 = load i8, ptr %_M_engaged.i.i4259, align 8
@@ -11683,9 +11683,9 @@ if.end2204:                                       ; preds = %_ZNKRSt8optionalINS
   br i1 %tobool.i.i4285, label %while.body.i3116.preheader, label %if.end2210
 
 while.body.i3116.preheader:                       ; preds = %if.end2204
+  %754 = add i64 %pos.341, 1
   %arrayidx.i3120 = getelementptr inbounds i8, ptr %data, i64 %pos.341
   store i8 -120, ptr %arrayidx.i3120, align 1
-  %754 = add i64 %pos.341, 1
   %arrayidx3.i3115 = getelementptr inbounds i8, ptr %data, i64 %754
   store i8 25, ptr %arrayidx3.i3115, align 1
   %755 = load i8, ptr %_M_engaged.i.i4284, align 4
@@ -11734,9 +11734,9 @@ if.end2210:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4292, label %while.body.i3084.preheader, label %if.end2216
 
 while.body.i3084.preheader:                       ; preds = %if.end2210
+  %759 = add i64 %pos.344, 1
   %arrayidx.i3088 = getelementptr inbounds i8, ptr %data, i64 %pos.344
   store i8 -112, ptr %arrayidx.i3088, align 1
-  %759 = add i64 %pos.344, 1
   %arrayidx3.i3083 = getelementptr inbounds i8, ptr %data, i64 %759
   store i8 25, ptr %arrayidx3.i3083, align 1
   %760 = load i8, ptr %_M_engaged.i.i4291, align 4
@@ -11785,9 +11785,9 @@ if.end2216:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4299, label %while.body.i3052.preheader, label %if.end2222
 
 while.body.i3052.preheader:                       ; preds = %if.end2216
+  %764 = add i64 %pos.347, 1
   %arrayidx.i3056 = getelementptr inbounds i8, ptr %data, i64 %pos.347
   store i8 -104, ptr %arrayidx.i3056, align 1
-  %764 = add i64 %pos.347, 1
   %arrayidx3.i3051 = getelementptr inbounds i8, ptr %data, i64 %764
   store i8 25, ptr %arrayidx3.i3051, align 1
   %765 = load i8, ptr %_M_engaged.i.i4298, align 4
@@ -11836,9 +11836,9 @@ if.end2222:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4306, label %while.body.i3020.preheader, label %if.end2228
 
 while.body.i3020.preheader:                       ; preds = %if.end2222
+  %769 = add i64 %pos.350, 1
   %arrayidx.i3024 = getelementptr inbounds i8, ptr %data, i64 %pos.350
   store i8 -96, ptr %arrayidx.i3024, align 1
-  %769 = add i64 %pos.350, 1
   %arrayidx3.i3019 = getelementptr inbounds i8, ptr %data, i64 %769
   store i8 25, ptr %arrayidx3.i3019, align 1
   %770 = load i8, ptr %_M_engaged.i.i4305, align 4
@@ -11887,9 +11887,9 @@ if.end2228:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4313, label %while.body.i2988.preheader, label %if.end2234
 
 while.body.i2988.preheader:                       ; preds = %if.end2228
+  %774 = add i64 %pos.353, 1
   %arrayidx.i2992 = getelementptr inbounds i8, ptr %data, i64 %pos.353
   store i8 -88, ptr %arrayidx.i2992, align 1
-  %774 = add i64 %pos.353, 1
   %arrayidx3.i2987 = getelementptr inbounds i8, ptr %data, i64 %774
   store i8 25, ptr %arrayidx3.i2987, align 1
   %775 = load i8, ptr %_M_engaged.i.i4312, align 4
@@ -11938,9 +11938,9 @@ if.end2234:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4320, label %while.body.i2956.preheader, label %if.end2240
 
 while.body.i2956.preheader:                       ; preds = %if.end2234
+  %779 = add i64 %pos.356, 1
   %arrayidx.i2960 = getelementptr inbounds i8, ptr %data, i64 %pos.356
   store i8 -80, ptr %arrayidx.i2960, align 1
-  %779 = add i64 %pos.356, 1
   %arrayidx3.i2955 = getelementptr inbounds i8, ptr %data, i64 %779
   store i8 25, ptr %arrayidx3.i2955, align 1
   %780 = load i8, ptr %_M_engaged.i.i4319, align 4
@@ -11989,9 +11989,9 @@ if.end2240:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4327, label %while.body.i2924.preheader, label %if.end2246
 
 while.body.i2924.preheader:                       ; preds = %if.end2240
+  %784 = add i64 %pos.359, 1
   %arrayidx.i2928 = getelementptr inbounds i8, ptr %data, i64 %pos.359
   store i8 -72, ptr %arrayidx.i2928, align 1
-  %784 = add i64 %pos.359, 1
   %arrayidx3.i2923 = getelementptr inbounds i8, ptr %data, i64 %784
   store i8 25, ptr %arrayidx3.i2923, align 1
   %785 = load i8, ptr %_M_engaged.i.i4326, align 4
@@ -12040,9 +12040,9 @@ if.end2246:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4334, label %while.body.i2892.preheader, label %if.end2252
 
 while.body.i2892.preheader:                       ; preds = %if.end2246
+  %789 = add i64 %pos.362, 1
   %arrayidx.i2896 = getelementptr inbounds i8, ptr %data, i64 %pos.362
   store i8 -64, ptr %arrayidx.i2896, align 1
-  %789 = add i64 %pos.362, 1
   %arrayidx3.i2891 = getelementptr inbounds i8, ptr %data, i64 %789
   store i8 25, ptr %arrayidx3.i2891, align 1
   %790 = load i8, ptr %_M_engaged.i.i4333, align 4
@@ -12091,9 +12091,9 @@ if.end2252:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4341, label %while.body.i2860.preheader, label %if.end2258
 
 while.body.i2860.preheader:                       ; preds = %if.end2252
+  %794 = add i64 %pos.365, 1
   %arrayidx.i2864 = getelementptr inbounds i8, ptr %data, i64 %pos.365
   store i8 -56, ptr %arrayidx.i2864, align 1
-  %794 = add i64 %pos.365, 1
   %arrayidx3.i2859 = getelementptr inbounds i8, ptr %data, i64 %794
   store i8 25, ptr %arrayidx3.i2859, align 1
   %795 = load i8, ptr %_M_engaged.i.i4340, align 4
@@ -12142,9 +12142,9 @@ if.end2258:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4348, label %while.body.i2828.preheader, label %if.end2264
 
 while.body.i2828.preheader:                       ; preds = %if.end2258
+  %799 = add i64 %pos.368, 1
   %arrayidx.i2832 = getelementptr inbounds i8, ptr %data, i64 %pos.368
   store i8 -48, ptr %arrayidx.i2832, align 1
-  %799 = add i64 %pos.368, 1
   %arrayidx3.i2827 = getelementptr inbounds i8, ptr %data, i64 %799
   store i8 25, ptr %arrayidx3.i2827, align 1
   %800 = load i8, ptr %_M_engaged.i.i4347, align 4
@@ -12193,9 +12193,9 @@ if.end2264:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4355, label %while.body.i2796.preheader, label %if.end2270
 
 while.body.i2796.preheader:                       ; preds = %if.end2264
+  %804 = add i64 %pos.371, 1
   %arrayidx.i2800 = getelementptr inbounds i8, ptr %data, i64 %pos.371
   store i8 -40, ptr %arrayidx.i2800, align 1
-  %804 = add i64 %pos.371, 1
   %arrayidx3.i2795 = getelementptr inbounds i8, ptr %data, i64 %804
   store i8 25, ptr %arrayidx3.i2795, align 1
   %805 = load i8, ptr %_M_engaged.i.i4354, align 4
@@ -12244,9 +12244,9 @@ if.end2270:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4362, label %while.body.i2764.preheader, label %if.end2276
 
 while.body.i2764.preheader:                       ; preds = %if.end2270
+  %809 = add i64 %pos.374, 1
   %arrayidx.i2768 = getelementptr inbounds i8, ptr %data, i64 %pos.374
   store i8 -32, ptr %arrayidx.i2768, align 1
-  %809 = add i64 %pos.374, 1
   %arrayidx3.i2763 = getelementptr inbounds i8, ptr %data, i64 %809
   store i8 25, ptr %arrayidx3.i2763, align 1
   %810 = load i8, ptr %_M_engaged.i.i4361, align 4
@@ -12295,9 +12295,9 @@ if.end2276:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4369, label %while.body.i2732.preheader, label %if.end2282
 
 while.body.i2732.preheader:                       ; preds = %if.end2276
+  %814 = add i64 %pos.377, 1
   %arrayidx.i2736 = getelementptr inbounds i8, ptr %data, i64 %pos.377
   store i8 -24, ptr %arrayidx.i2736, align 1
-  %814 = add i64 %pos.377, 1
   %arrayidx3.i2731 = getelementptr inbounds i8, ptr %data, i64 %814
   store i8 25, ptr %arrayidx3.i2731, align 1
   %815 = load i8, ptr %_M_engaged.i.i4368, align 4
@@ -12346,9 +12346,9 @@ if.end2282:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4376, label %while.body.i2700.preheader, label %if.end2288
 
 while.body.i2700.preheader:                       ; preds = %if.end2282
+  %819 = add i64 %pos.380, 1
   %arrayidx.i2704 = getelementptr inbounds i8, ptr %data, i64 %pos.380
   store i8 -16, ptr %arrayidx.i2704, align 1
-  %819 = add i64 %pos.380, 1
   %arrayidx3.i2699 = getelementptr inbounds i8, ptr %data, i64 %819
   store i8 25, ptr %arrayidx3.i2699, align 1
   %820 = load i8, ptr %_M_engaged.i.i4375, align 4
@@ -12397,9 +12397,9 @@ if.end2288:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4383, label %while.body.i2668.preheader, label %if.end2294
 
 while.body.i2668.preheader:                       ; preds = %if.end2288
+  %824 = add i64 %pos.383, 1
   %arrayidx.i2672 = getelementptr inbounds i8, ptr %data, i64 %pos.383
   store i8 -8, ptr %arrayidx.i2672, align 1
-  %824 = add i64 %pos.383, 1
   %arrayidx3.i2667 = getelementptr inbounds i8, ptr %data, i64 %824
   store i8 25, ptr %arrayidx3.i2667, align 1
   %825 = load i8, ptr %_M_engaged.i.i4382, align 4
@@ -12448,9 +12448,9 @@ if.end2294:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4390, label %while.body.i2636.preheader, label %if.end2300
 
 while.body.i2636.preheader:                       ; preds = %if.end2294
+  %829 = add i64 %pos.386, 1
   %arrayidx.i2640 = getelementptr inbounds i8, ptr %data, i64 %pos.386
   store i8 -128, ptr %arrayidx.i2640, align 1
-  %829 = add i64 %pos.386, 1
   %arrayidx3.i2635 = getelementptr inbounds i8, ptr %data, i64 %829
   store i8 26, ptr %arrayidx3.i2635, align 1
   %830 = load i8, ptr %_M_engaged.i.i4389, align 4
@@ -12499,9 +12499,9 @@ if.end2300:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4397, label %while.body.i2604.preheader, label %if.end2306
 
 while.body.i2604.preheader:                       ; preds = %if.end2300
+  %834 = add i64 %pos.389, 1
   %arrayidx.i2608 = getelementptr inbounds i8, ptr %data, i64 %pos.389
   store i8 -120, ptr %arrayidx.i2608, align 1
-  %834 = add i64 %pos.389, 1
   %arrayidx3.i2603 = getelementptr inbounds i8, ptr %data, i64 %834
   store i8 26, ptr %arrayidx3.i2603, align 1
   %835 = load i8, ptr %_M_engaged.i.i4396, align 4
@@ -12550,9 +12550,9 @@ if.end2306:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i4404, label %while.body.i2572.preheader, label %if.end2312
 
 while.body.i2572.preheader:                       ; preds = %if.end2306
+  %839 = add i64 %pos.392, 1
   %arrayidx.i2576 = getelementptr inbounds i8, ptr %data, i64 %pos.392
   store i8 -112, ptr %arrayidx.i2576, align 1
-  %839 = add i64 %pos.392, 1
   %arrayidx3.i2571 = getelementptr inbounds i8, ptr %data, i64 %839
   store i8 26, ptr %arrayidx3.i2571, align 1
   %840 = load i8, ptr %_M_engaged.i.i4403, align 4
@@ -14059,9 +14059,9 @@ if.end:                                           ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i35, label %while.body.i18.preheader, label %if.end8
 
 while.body.i18.preheader:                         ; preds = %if.end
+  %6 = add nuw nsw i64 %pos.0, 1
   %arrayidx.i22 = getelementptr inbounds i8, ptr %data, i64 %pos.0
   store i8 -40, ptr %arrayidx.i22, align 1
-  %6 = add nuw nsw i64 %pos.0, 1
   %arrayidx3.i17 = getelementptr inbounds i8, ptr %data, i64 %6
   store i8 12, ptr %arrayidx3.i17, align 1
   %7 = load i8, ptr %_M_engaged.i.i34, align 4
@@ -66156,9 +66156,9 @@ if.end:                                           ; preds = %_ZN9struct_pb8inter
   br i1 %tobool.i.i112, label %while.body.i202.preheader, label %if.end17
 
 while.body.i202.preheader:                        ; preds = %if.end
+  %6 = add nuw nsw i64 %pos.0, 1
   %arrayidx.i206 = getelementptr inbounds i8, ptr %data, i64 %pos.0
   store i8 -46, ptr %arrayidx.i206, align 1
-  %6 = add nuw nsw i64 %pos.0, 1
   %arrayidx3.i201 = getelementptr inbounds i8, ptr %data, i64 %6
   store i8 62, ptr %arrayidx3.i201, align 1
   %7 = load i8, ptr %_M_engaged.i.i111, align 8
@@ -66230,9 +66230,9 @@ if.end17:                                         ; preds = %_ZNKRSt8optionalINS
   br i1 %cmp.i130.not, label %if.end31, label %while.body.i170.preheader
 
 while.body.i170.preheader:                        ; preds = %if.end17
+  %16 = add i64 %pos.3, 1
   %arrayidx.i174 = getelementptr inbounds i8, ptr %data, i64 %pos.3
   store i8 -38, ptr %arrayidx.i174, align 1
-  %16 = add i64 %pos.3, 1
   %arrayidx3.i169 = getelementptr inbounds i8, ptr %data, i64 %16
   store i8 62, ptr %arrayidx3.i169, align 1
   %17 = load ptr, ptr %nested_message, align 8
@@ -66340,9 +66340,9 @@ if.end31:                                         ; preds = %_ZN9struct_pb13Unkn
   br i1 %cmp.i155.not, label %if.end50, label %while.body.i138.preheader
 
 while.body.i138.preheader:                        ; preds = %if.end31
+  %27 = add i64 %pos.6, 1
   %arrayidx.i142 = getelementptr inbounds i8, ptr %data, i64 %pos.6
   store i8 -30, ptr %arrayidx.i142, align 1
-  %27 = add i64 %pos.6, 1
   %arrayidx3.i137 = getelementptr inbounds i8, ptr %data, i64 %27
   store i8 62, ptr %arrayidx3.i137, align 1
   %28 = load ptr, ptr %optionalgroup, align 8
@@ -71948,8 +71948,8 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -72051,8 +72051,8 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -72150,8 +72150,8 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -72249,8 +72249,8 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -72348,8 +72348,8 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -72447,8 +72447,8 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %add.ptr.idx.i.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i

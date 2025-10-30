@@ -2679,21 +2679,21 @@ _ZL9ParseLineRKN4llvm9StringRefER8LineTypeRjRmS5_S5_RS0_RNS_8DenseMapIS0_mNS_12D
 
 _ZNK4llvm10sampleprof19SampleProfileReader20getDiscriminatorMaskEv.exit: ; preds = %.thread334, %353
   %.0.i107 = phi i32 [ %.0.i.i108, %353 ], [ -1, %.thread334 ]
-  %358 = and i32 %.0.i107, %.5228305329
   %.promoted = load i32, ptr %36, align 8, !tbaa !26
-  %359 = icmp ugt i32 %.promoted, %storemerge.i
-  br i1 %359, label %.lr.ph.preheader, label %_ZNK4llvm10sampleprof19SampleProfileReader20getDiscriminatorMaskEv.exit._crit_edge
+  %358 = icmp ugt i32 %.promoted, %storemerge.i
+  br i1 %358, label %.lr.ph.preheader, label %_ZNK4llvm10sampleprof19SampleProfileReader20getDiscriminatorMaskEv.exit._crit_edge
 
 _ZNK4llvm10sampleprof19SampleProfileReader20getDiscriminatorMaskEv.exit._crit_edge: ; preds = %_ZNK4llvm10sampleprof19SampleProfileReader20getDiscriminatorMaskEv.exit
   %.pre = zext i32 %.promoted to i64
-  br label %360
+  br label %359
 
 .lr.ph.preheader:                                 ; preds = %_ZNK4llvm10sampleprof19SampleProfileReader20getDiscriminatorMaskEv.exit
   store i32 %storemerge.i, ptr %36, align 8, !tbaa !26
-  br label %360
+  br label %359
 
-360:                                              ; preds = %_ZNK4llvm10sampleprof19SampleProfileReader20getDiscriminatorMaskEv.exit._crit_edge, %.lr.ph.preheader
+359:                                              ; preds = %_ZNK4llvm10sampleprof19SampleProfileReader20getDiscriminatorMaskEv.exit._crit_edge, %.lr.ph.preheader
   %.pre-phi492 = phi i64 [ %.pre, %_ZNK4llvm10sampleprof19SampleProfileReader20getDiscriminatorMaskEv.exit._crit_edge ], [ %185, %.lr.ph.preheader ]
+  %360 = and i32 %.0.i107, %.5228305329
   %361 = load ptr, ptr %23, align 8, !tbaa !25
   %362 = getelementptr inbounds nuw ptr, ptr %361, i64 %.pre-phi492
   %363 = getelementptr inbounds i8, ptr %362, i64 -8
@@ -2704,10 +2704,10 @@ _ZNK4llvm10sampleprof19SampleProfileReader20getDiscriminatorMaskEv.exit._crit_ed
     i32 2, label %407
   ]
 
-.else.i.i115:                                     ; preds = %360
+.else.i.i115:                                     ; preds = %359
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 %.4222306328, ptr %29, align 4, !tbaa !118
-  store i32 %358, ptr %79, align 4, !tbaa !120
+  store i32 %360, ptr %79, align 4, !tbaa !120
   %365 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm10sampleprof15FunctionSamples17functionSamplesAtERKNS0_12LineLocationE(ptr noundef nonnull align 8 dereferenceable(176) %364, ptr noundef nonnull align 4 dereferenceable(8) %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr %.sroa.0171.3308326, ptr %30, align 8, !tbaa !145
@@ -2754,7 +2754,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_b
   store i32 %385, ptr %36, align 8, !tbaa !26
   br label %_ZN4llvm21mergeSampleProfErrorsERNS_16sampleprof_errorES0_.exit125
 
-.preheader396:                                    ; preds = %360
+.preheader396:                                    ; preds = %359
   %386 = load i32, ptr %77, align 8, !tbaa !240
   %387 = icmp eq i32 %386, 0
   %388 = load ptr, ptr %26, align 8, !tbaa !243
@@ -2792,7 +2792,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEmNS_12DenseMapInfoIS2_vEENS_6d
 
 ._crit_edge444:                                   ; preds = %_ZN4llvm16DenseMapIteratorINS_9StringRefEmNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_mEELb0EEppEv.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEEEES2_mS4_S7_E5beginEv.exit
   %.5204.lcssa = phi i32 [ %.0200455, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEEEES2_mS4_S7_E5beginEv.exit ], [ %spec.select386, %_ZN4llvm16DenseMapIteratorINS_9StringRefEmNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_mEELb0EEppEv.exit ]
-  %397 = call noundef i32 @_ZN4llvm10sampleprof15FunctionSamples14addBodySamplesEjjmm(ptr noundef nonnull align 8 dereferenceable(176) %364, i32 noundef %.4222306328, i32 noundef %358, i64 noundef %.3217309325, i64 noundef 1)
+  %397 = call noundef i32 @_ZN4llvm10sampleprof15FunctionSamples14addBodySamplesEjjmm(ptr noundef nonnull align 8 dereferenceable(176) %364, i32 noundef %.4222306328, i32 noundef %360, i64 noundef %.3217309325, i64 noundef 1)
   %398 = icmp eq i32 %.5204.lcssa, 0
   %399 = icmp ne i32 %397, 0
   %or.cond.i124 = and i1 %398, %399
@@ -2807,7 +2807,7 @@ _ZN4llvm21mergeSampleProfErrorsERNS_16sampleprof_errorES0_.exit127: ; preds = %_
   %.sroa.28.0.copyload = load i64, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !55
   %400 = getelementptr inbounds nuw i8, ptr %.sroa.0143.0442, i64 16
   %401 = load i64, ptr %400, align 8, !tbaa !246
-  %402 = call noundef i32 @_ZN4llvm10sampleprof15FunctionSamples22addCalledTargetSamplesEjjNS0_10FunctionIdEmm(ptr noundef nonnull align 8 dereferenceable(176) %364, i32 noundef %.4222306328, i32 noundef %358, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, i64 noundef %401, i64 noundef 1)
+  %402 = call noundef i32 @_ZN4llvm10sampleprof15FunctionSamples22addCalledTargetSamplesEjjNS0_10FunctionIdEmm(ptr noundef nonnull align 8 dereferenceable(176) %364, i32 noundef %.4222306328, i32 noundef %360, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, i64 noundef %401, i64 noundef 1)
   %403 = icmp eq i32 %.5204443, 0
   %404 = icmp ne i32 %402, 0
   %or.cond.i126 = and i1 %403, %404
@@ -2832,7 +2832,7 @@ _ZN4llvm16DenseMapIteratorINS_9StringRefEmNS_12DenseMapInfoIS1_vEENS_6detail12De
   %.not390 = icmp eq ptr %.sroa.0143.2, %396
   br i1 %.not390, label %._crit_edge444, label %_ZN4llvm21mergeSampleProfErrorsERNS_16sampleprof_errorES0_.exit127
 
-407:                                              ; preds = %360
+407:                                              ; preds = %359
   %.not47 = icmp eq i64 %.1233302332, 0
   br i1 %.not47, label %412, label %408
 
@@ -2944,13 +2944,13 @@ _ZNSt6vectorIPN4llvm10sampleprof13SampleContextESaIS3_EE17_M_realloc_insertIJS3_
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %_ZN4llvm21mergeSampleProfErrorsERNS_16sampleprof_errorES0_.exit125
 
-default.unreachable:                              ; preds = %360
+default.unreachable:                              ; preds = %359
   unreachable
 
 _ZN4llvm21mergeSampleProfErrorsERNS_16sampleprof_errorES0_.exit125: ; preds = %._crit_edge444, %_ZNSt6vectorIPN4llvm10sampleprof13SampleContextESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %421, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit123, %442, %417, %340, %_ZL9ParseLineRKN4llvm9StringRefER8LineTypeRjRmS5_S5_RS0_RNS_8DenseMapIS0_mNS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_mEEEES6_S5_Rb.exit.thread
   %.3217280 = phi i64 [ %.3217.ph289, %340 ], [ %.3217309325, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit123 ], [ %.3217309325, %442 ], [ %.3217309325, %417 ], [ %.3217281, %_ZL9ParseLineRKN4llvm9StringRefER8LineTypeRjRmS5_S5_RS0_RNS_8DenseMapIS0_mNS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_mEEEES6_S5_Rb.exit.thread ], [ %.3217309325, %421 ], [ %.3217309325, %_ZNSt6vectorIPN4llvm10sampleprof13SampleContextESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.3217309325, %._crit_edge444 ]
   %.4222274 = phi i32 [ %.3221, %340 ], [ %.4222306328, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit123 ], [ %.4222306328, %442 ], [ %.4222306328, %417 ], [ %.4222275, %_ZL9ParseLineRKN4llvm9StringRefER8LineTypeRjRmS5_S5_RS0_RNS_8DenseMapIS0_mNS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_mEEEES6_S5_Rb.exit.thread ], [ %.4222306328, %421 ], [ %.4222306328, %_ZNSt6vectorIPN4llvm10sampleprof13SampleContextESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.4222306328, %._crit_edge444 ]
-  %.3226 = phi i32 [ %.4227, %340 ], [ %358, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit123 ], [ %358, %442 ], [ %358, %417 ], [ %.5228273, %_ZL9ParseLineRKN4llvm9StringRefER8LineTypeRjRmS5_S5_RS0_RNS_8DenseMapIS0_mNS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_mEEEES6_S5_Rb.exit.thread ], [ %358, %421 ], [ %358, %_ZNSt6vectorIPN4llvm10sampleprof13SampleContextESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %358, %._crit_edge444 ]
+  %.3226 = phi i32 [ %.4227, %340 ], [ %360, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit123 ], [ %360, %442 ], [ %360, %417 ], [ %.5228273, %_ZL9ParseLineRKN4llvm9StringRefER8LineTypeRjRmS5_S5_RS0_RNS_8DenseMapIS0_mNS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_mEEEES6_S5_Rb.exit.thread ], [ %360, %421 ], [ %360, %_ZNSt6vectorIPN4llvm10sampleprof13SampleContextESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %360, %._crit_edge444 ]
   %.sroa.11.3 = phi ptr [ %.sroa.11.0449, %340 ], [ %.sroa.11.0449, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit123 ], [ %.sroa.11.0449, %442 ], [ %.sroa.11.0449, %417 ], [ %.sroa.11.0449, %_ZL9ParseLineRKN4llvm9StringRefER8LineTypeRjRmS5_S5_RS0_RNS_8DenseMapIS0_mNS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_mEEEES6_S5_Rb.exit.thread ], [ %.sroa.11.0449, %421 ], [ %441, %_ZNSt6vectorIPN4llvm10sampleprof13SampleContextESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.11.0449, %._crit_edge444 ]
   %.sroa.7.3 = phi ptr [ %.sroa.7.0451, %340 ], [ %.sroa.7.0451, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit123 ], [ %.sroa.7.0451, %442 ], [ %.sroa.7.0451, %417 ], [ %.sroa.7.0451, %_ZL9ParseLineRKN4llvm9StringRefER8LineTypeRjRmS5_S5_RS0_RNS_8DenseMapIS0_mNS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_mEEEES6_S5_Rb.exit.thread ], [ %422, %421 ], [ %439, %_ZNSt6vectorIPN4llvm10sampleprof13SampleContextESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.7.0451, %._crit_edge444 ]
   %.sroa.0186.3 = phi ptr [ %.sroa.0186.0453, %340 ], [ %.sroa.0186.0453, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit123 ], [ %.sroa.0186.0453, %442 ], [ %.sroa.0186.0453, %417 ], [ %.sroa.0186.0453, %_ZL9ParseLineRKN4llvm9StringRefER8LineTypeRjRmS5_S5_RS0_RNS_8DenseMapIS0_mNS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_mEEEES6_S5_Rb.exit.thread ], [ %.sroa.0186.0453, %421 ], [ %435, %_ZNSt6vectorIPN4llvm10sampleprof13SampleContextESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.0186.0453, %._crit_edge444 ]
@@ -21736,8 +21736,8 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef 
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !55
   br label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i

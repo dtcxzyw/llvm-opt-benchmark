@@ -6280,33 +6280,33 @@ define range(i32 -2147483648, 1) i32 @ff_dca_core_filter_frame(ptr noundef initi
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 9668
   %93 = load i32, ptr %92, align 4, !tbaa !126
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 9680
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %96 = load i32, ptr %95, align 4, !tbaa !42
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i8, ptr @ff_dca_channels, i64 %97
-  %99 = load i8, ptr %98, align 1, !tbaa !66
-  %100 = zext i8 %99 to i32
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 9652
-  %102 = load i32, ptr %101, align 4, !tbaa !122
-  %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %.lr.ph.i, label %.preheader131.i
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %95 = load i32, ptr %94, align 4, !tbaa !42
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 9652
+  %97 = load i32, ptr %96, align 4, !tbaa !122
+  %98 = icmp sgt i32 %97, 0
+  br i1 %98, label %.lr.ph.i, label %.preheader131.i
 
 .lr.ph.i:                                         ; preds = %91
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 9656
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 45760
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 45880
-  %107 = sext i32 %57 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 9656
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 45760
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 45880
+  %102 = sext i32 %57 to i64
   br label %119
 
 .preheader131.i:                                  ; preds = %131, %91
-  %108 = phi i32 [ %102, %91 ], [ %132, %131 ]
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %110 = load i32, ptr %109, align 8, !tbaa !119
-  %.not122138.i = icmp sgt i32 %110, %100
+  %103 = phi i32 [ %97, %91 ], [ %132, %131 ]
+  %104 = sext i32 %95 to i64
+  %105 = getelementptr inbounds i8, ptr @ff_dca_channels, i64 %104
+  %106 = load i8, ptr %105, align 1, !tbaa !66
+  %107 = zext i8 %106 to i32
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %109 = load i32, ptr %108, align 8, !tbaa !119
+  %.not122138.i = icmp sgt i32 %109, %107
   br i1 %.not122138.i, label %.lr.ph141.i, label %.critedge128.i
 
 .lr.ph141.i:                                      ; preds = %.preheader131.i
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 9680
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 9660
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 9656
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 9672
@@ -6314,13 +6314,13 @@ define range(i32 -2147483648, 1) i32 @ff_dca_core_filter_frame(ptr noundef initi
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 45760
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 45880
   %117 = sext i32 %57 to i64
-  %118 = zext i8 %99 to i64
+  %118 = zext i8 %106 to i64
   br label %135
 
 119:                                              ; preds = %131, %.lr.ph.i
-  %120 = phi i32 [ %102, %.lr.ph.i ], [ %132, %131 ]
+  %120 = phi i32 [ %97, %.lr.ph.i ], [ %132, %131 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %131 ]
-  %121 = load i32, ptr %104, align 8, !tbaa !124
+  %121 = load i32, ptr %99, align 8, !tbaa !124
   %122 = trunc nuw nsw i64 %indvars.iv.i to i32
   %123 = shl nuw i32 1, %122
   %124 = and i32 %123, %121
@@ -6328,13 +6328,13 @@ define range(i32 -2147483648, 1) i32 @ff_dca_core_filter_frame(ptr noundef initi
   br i1 %.not127.i, label %131, label %125
 
 125:                                              ; preds = %119
-  %126 = load ptr, ptr %105, align 16, !tbaa !160
+  %126 = load ptr, ptr %100, align 16, !tbaa !160
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 128
   %128 = load ptr, ptr %127, align 8, !tbaa !241
-  %129 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv.i
+  %129 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i
   %130 = load ptr, ptr %129, align 8, !tbaa !75
-  tail call void %128(ptr noundef %130, i32 noundef %93, i64 noundef %107) #11
-  %.pre.i = load i32, ptr %101, align 4, !tbaa !122
+  tail call void %128(ptr noundef %130, i32 noundef %93, i64 noundef %102) #11
+  %.pre.i = load i32, ptr %96, align 4, !tbaa !122
   br label %131
 
 131:                                              ; preds = %125, %119
@@ -6345,12 +6345,12 @@ define range(i32 -2147483648, 1) i32 @ff_dca_core_filter_frame(ptr noundef initi
   br i1 %134, label %119, label %.preheader131.i, !llvm.loop !242
 
 135:                                              ; preds = %._crit_edge.i, %.lr.ph141.i
-  %136 = phi i32 [ %110, %.lr.ph141.i ], [ %210, %._crit_edge.i ]
-  %137 = phi i32 [ %108, %.lr.ph141.i ], [ %211, %._crit_edge.i ]
-  %138 = phi i32 [ %108, %.lr.ph141.i ], [ %212, %._crit_edge.i ]
+  %136 = phi i32 [ %109, %.lr.ph141.i ], [ %210, %._crit_edge.i ]
+  %137 = phi i32 [ %103, %.lr.ph141.i ], [ %211, %._crit_edge.i ]
+  %138 = phi i32 [ %103, %.lr.ph141.i ], [ %212, %._crit_edge.i ]
   %indvars.iv157.i = phi i64 [ %118, %.lr.ph141.i ], [ %indvars.iv.next158.i, %._crit_edge.i ]
-  %.0103139.i = phi ptr [ %94, %.lr.ph141.i ], [ %.2105.lcssa.i, %._crit_edge.i ]
-  %139 = load i32, ptr %95, align 4, !tbaa !42
+  %.0103139.i = phi ptr [ %110, %.lr.ph141.i ], [ %.2105.lcssa.i, %._crit_edge.i ]
+  %139 = load i32, ptr %94, align 4, !tbaa !42
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds i8, ptr @ff_dca_channels, i64 %140
   %142 = load i8, ptr %141, align 1, !tbaa !66
@@ -6476,7 +6476,7 @@ map_prm_ch_to_spkr.exit.i:                        ; preds = %174, %153, %146
   %204 = load ptr, ptr %203, align 8, !tbaa !75
   %205 = load ptr, ptr %185, align 8, !tbaa !75
   tail call void %202(ptr noundef %204, ptr noundef %205, i32 noundef %.0.i.i.i.i, i64 noundef %117) #11
-  %.pre166.i = load i32, ptr %101, align 4, !tbaa !122
+  %.pre166.i = load i32, ptr %96, align 4, !tbaa !122
   br label %206
 
 206:                                              ; preds = %199, %192, %186
@@ -6488,7 +6488,7 @@ map_prm_ch_to_spkr.exit.i:                        ; preds = %174, %153, %146
   br i1 %209, label %186, label %._crit_edge.loopexit.i, !llvm.loop !244
 
 ._crit_edge.loopexit.i:                           ; preds = %206
-  %.pre167.i = load i32, ptr %109, align 8, !tbaa !119
+  %.pre167.i = load i32, ptr %108, align 8, !tbaa !119
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i

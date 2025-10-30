@@ -63140,20 +63140,20 @@ define hidden noundef zeroext i1 @_ZN11polars_lazy13physical_plan9streaming4tree
   %7 = alloca [8 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = icmp eq i64 %1, 0
-  br i1 %9, label %18, label %.preheader
+  br i1 %9, label %18, label %.preheader68
 
-.preheader:                                       ; preds = %2, %.preheader
-  %.sroa.07.0.i = phi i32 [ %12, %.preheader ], [ 0, %2 ]
-  %.sroa.09.0.i = phi i64 [ %13, %.preheader ], [ 0, %2 ]
+.preheader68:                                     ; preds = %2, %.preheader68
+  %.sroa.07.0.i = phi i32 [ %12, %.preheader68 ], [ 0, %2 ]
+  %.sroa.09.0.i = phi i64 [ %13, %.preheader68 ], [ 0, %2 ]
   %10 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i32, i32, i8, [7 x i8] }, ptr %0, i64 %.sroa.09.0.i
   %11 = getelementptr i8, ptr %10, i64 52
   %.val.i = load i32, ptr %11, align 4, !noundef !6
   %12 = add i32 %.val.i, %.sroa.07.0.i
   %13 = add nuw i64 %.sroa.09.0.i, 1
   %14 = icmp eq i64 %13, %1
-  br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcd8e2757a5887ad2E.exit", label %.preheader
+  br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcd8e2757a5887ad2E.exit", label %.preheader68
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcd8e2757a5887ad2E.exit": ; preds = %.preheader
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcd8e2757a5887ad2E.exit": ; preds = %.preheader68
   %.idx = shl nuw nsw i64 %1, 6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %16 = trunc i64 %1 to i32

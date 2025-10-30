@@ -35524,41 +35524,41 @@ define internal fastcc void @"_ZN9regalloc23ion7process63_$LT$impl$u20$regalloc2
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %58 = load i64, ptr %57, align 8, !noundef !14
   %59 = icmp ugt i64 %58, %56
-  br i1 %59, label %61, label %74, !prof !351
+  br i1 %59, label %61, label %72, !prof !351
 
 60:                                               ; preds = %31
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %33, i64 noundef %35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a70c3bba080ff995173e00f409efd0d2.1136) #20
   unreachable
 
 61:                                               ; preds = %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h16e59e9b67bfc3acE.exit"
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %63 = load ptr, ptr %62, align 8, !nonnull !14, !noundef !14
   %.idx.i = mul nsw i64 %.sink4.i.i, 12
-  %64 = getelementptr inbounds i8, ptr %.sink5.i.i, i64 %.idx.i
+  %62 = getelementptr inbounds i8, ptr %.sink5.i.i, i64 %.idx.i
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit.i": ; preds = %61, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit.i"
-  %.04.i232 = phi i32 [ %72, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit.i" ], [ 0, %61 ]
-  %.sroa.0.03.i = phi ptr [ %65, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit.i" ], [ %.sink5.i.i, %61 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i, i64 12
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i, i64 4
-  %67 = load i32, ptr %66, align 4, !noundef !14
+  %.04.i232 = phi i32 [ %70, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit.i" ], [ 0, %61 ]
+  %.sroa.0.03.i = phi ptr [ %63, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit.i" ], [ %.sink5.i.i, %61 ]
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i, i64 4
+  %65 = load i32, ptr %64, align 4, !noundef !14
+  %66 = ashr i32 %65, 1
+  %67 = load i32, ptr %.sroa.0.03.i, align 4, !noundef !14
   %68 = ashr i32 %67, 1
-  %69 = load i32, ptr %.sroa.0.03.i, align 4, !noundef !14
-  %70 = ashr i32 %69, 1
-  %71 = add i32 %68, %.04.i232
-  %72 = sub i32 %71, %70
-  %73 = icmp eq ptr %65, %64
-  br i1 %73, label %"_ZN9regalloc23ion5merge63_$LT$impl$u20$regalloc2..ion..data_structures..Env$LT$F$GT$$GT$19compute_bundle_prio17hb14176d557f1919bE.exit", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit.i"
+  %69 = add i32 %66, %.04.i232
+  %70 = sub i32 %69, %68
+  %71 = icmp eq ptr %63, %62
+  br i1 %71, label %"_ZN9regalloc23ion5merge63_$LT$impl$u20$regalloc2..ion..data_structures..Env$LT$F$GT$$GT$19compute_bundle_prio17hb14176d557f1919bE.exit", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit.i"
 
-74:                                               ; preds = %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h16e59e9b67bfc3acE.exit"
+72:                                               ; preds = %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h16e59e9b67bfc3acE.exit"
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %56, i64 noundef %58, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a70c3bba080ff995173e00f409efd0d2.1138) #20
   unreachable
 
 "_ZN9regalloc23ion5merge63_$LT$impl$u20$regalloc2..ion..data_structures..Env$LT$F$GT$$GT$19compute_bundle_prio17hb14176d557f1919bE.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit.i"
-  %75 = getelementptr inbounds nuw { { i32, i32 }, { { [6 x i64] }, i64 }, i32, i32, i32, [1 x i32] }, ptr %63, i64 %56
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %74 = load ptr, ptr %73, align 8, !nonnull !14, !noundef !14
+  %75 = getelementptr inbounds nuw { { i32, i32 }, { { [6 x i64] }, i64 }, i32, i32, i32, [1 x i32] }, ptr %74, i64 %56
   %76 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  store i32 %72, ptr %76, align 8
+  store i32 %70, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 64
   %78 = load i32, ptr %77, align 8, !noundef !14
   %79 = icmp eq i32 %78, -1
@@ -36047,7 +36047,7 @@ _ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit230: ; preds = %143
   br i1 %275, label %312, label %321, !prof !351
 
 276:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit"
-  %277 = getelementptr inbounds nuw { { i32, i32 }, { { [6 x i64] }, i64 }, i32, i32, i32, [1 x i32] }, ptr %63, i64 %248
+  %277 = getelementptr inbounds nuw { { i32, i32 }, { { [6 x i64] }, i64 }, i32, i32, i32, [1 x i32] }, ptr %74, i64 %248
   %278 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %279 = icmp ult i64 %278, 6
   call void @llvm.assume(i1 %279)

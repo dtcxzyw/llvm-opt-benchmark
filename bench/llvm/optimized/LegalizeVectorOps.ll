@@ -183,9 +183,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm12SelectionDAG15LegalizeVectorsEv(p
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !121
 
 _ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit: ; preds = %.lr.ph.i.i.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %19 = load ptr, ptr %18, align 8, !tbaa !123
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %18 = load ptr, ptr %17, align 8, !tbaa !123
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -193,9 +193,9 @@ _ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit: ; preds = %.lr
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !124
-  %.sroa.028.0.i21 = load ptr, ptr %17, align 8, !tbaa !124
+  %.sroa.028.0.i21 = load ptr, ptr %19, align 8, !tbaa !124
   %.not.i22 = icmp eq ptr %.sroa.028.0.i21, %.pre.i
   br i1 %.not.i22, label %_ZN12_GLOBAL__N_115VectorLegalizer3RunEv.exit, label %.lr.ph
 
@@ -435,9 +435,9 @@ _ZN12_GLOBAL__N_115VectorLegalizerC2ERN4llvm12SelectionDAGE.exit: ; preds = %.lr
 
 .lr.ph.i.i.i12.i:                                 ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPKNS_3EVTEEEZN12_GLOBAL__N_115VectorLegalizer3RunEvE3$_0EEbOT_T0_.exit.i"
   %89 = call noundef i32 @_ZN4llvm12SelectionDAG22AssignTopologicalOrderEv(ptr noundef nonnull align 8 dereferenceable(952) %0) #15
-  %90 = load ptr, ptr %18, align 8, !tbaa !123
+  %90 = load ptr, ptr %17, align 8, !tbaa !123
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %.sroa.023.0.i24 = load ptr, ptr %17, align 8, !tbaa !124
+  %.sroa.023.0.i24 = load ptr, ptr %19, align 8, !tbaa !124
   %92 = load ptr, ptr %91, align 8, !tbaa !124
   %.not37.i25 = icmp eq ptr %.sroa.023.0.i24, %92
   br i1 %.not37.i25, label %_ZSt4prevIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_6SDNodeELb0ELb0EvLb0EvEELb0ELb0EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit15.i._crit_edge, label %_ZSt4prevIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_6SDNodeELb0ELb0EvLb0EvEELb0ELb0EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit15.i

@@ -9,11 +9,8 @@ target triple = "x86_64-pc-linux-gnu"
 define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   store i8 0, ptr %0, align 1, !tbaa !3
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %1, i32 128)
-  %5 = icmp slt i32 %3, 1
-  %6 = tail call i32 @llvm.umin.i32(i32 %3, i32 1024)
-  %spec.store.select1 = select i1 %5, i32 1024, i32 %6
-  %7 = icmp sgt i32 %1, 0
-  br i1 %7, label %.lr.ph.preheader, label %.lr.ph59.preheader
+  %5 = icmp sgt i32 %1, 0
+  br i1 %5, label %.lr.ph.preheader, label %.lr.ph59.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
   %wide.trip.count = zext nneg i32 %spec.store.select to i64
@@ -21,46 +18,49 @@ define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %9 = load i8, ptr %8, align 1, !tbaa !3
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %9, ptr %10, align 1, !tbaa !3
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
+  %7 = load i8, ptr %6, align 1, !tbaa !3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %7, ptr %8, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %11 = icmp samesign ult i32 %1, 128
-  br i1 %11, label %.lr.ph59.preheader, label %._crit_edge60
+  %9 = icmp samesign ult i32 %1, 128
+  br i1 %9, label %.lr.ph59.preheader, label %._crit_edge60
 
 .lr.ph59.preheader:                               ; preds = %4, %._crit_edge
-  %12 = sext i32 %spec.store.select to i64
-  %13 = getelementptr i8, ptr %0, i64 %12
-  %14 = getelementptr i8, ptr %13, i64 -1
-  %15 = load i8, ptr %14, align 1, !tbaa !3
-  %16 = sext i32 %1 to i64
-  %17 = sub i32 128, %spec.store.select
-  %wide.trip.count74 = zext i32 %17 to i64
+  %10 = sext i32 %spec.store.select to i64
+  %11 = getelementptr i8, ptr %0, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 -1
+  %13 = load i8, ptr %12, align 1, !tbaa !3
+  %14 = sext i32 %1 to i64
+  %15 = sub i32 128, %spec.store.select
+  %wide.trip.count74 = zext i32 %15 to i64
   br label %.lr.ph59
 
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
-  %indvars.iv72 = phi i64 [ %16, %.lr.ph59.preheader ], [ %indvars.iv.next73, %.lr.ph59 ]
+  %indvars.iv72 = phi i64 [ %14, %.lr.ph59.preheader ], [ %indvars.iv.next73, %.lr.ph59 ]
   %indvars.iv70 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next71, %.lr.ph59 ]
-  %.0.in57 = phi i8 [ %15, %.lr.ph59.preheader ], [ %22, %.lr.ph59 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv70
-  %19 = load i8, ptr %18, align 1, !tbaa !3
-  %.narrow = add i8 %19, %.0.in57
-  %20 = zext i8 %.narrow to i64
-  %21 = getelementptr inbounds nuw i8, ptr @key_table, i64 %20
-  %22 = load i8, ptr %21, align 1, !tbaa !3
-  %23 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv72
-  store i8 %22, ptr %23, align 1, !tbaa !3
+  %.0.in57 = phi i8 [ %13, %.lr.ph59.preheader ], [ %20, %.lr.ph59 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv70
+  %17 = load i8, ptr %16, align 1, !tbaa !3
+  %.narrow = add i8 %17, %.0.in57
+  %18 = zext i8 %.narrow to i64
+  %19 = getelementptr inbounds nuw i8, ptr @key_table, i64 %18
+  %20 = load i8, ptr %19, align 1, !tbaa !3
+  %21 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv72
+  store i8 %20, ptr %21, align 1, !tbaa !3
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, 1
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count74
   br i1 %exitcond75.not, label %._crit_edge60, label %.lr.ph59, !llvm.loop !8
 
 ._crit_edge60:                                    ; preds = %.lr.ph59, %._crit_edge
+  %22 = icmp slt i32 %3, 1
+  %23 = tail call i32 @llvm.umin.i32(i32 %3, i32 1024)
+  %spec.store.select1 = select i1 %22, i32 1024, i32 %23
   %24 = add nuw nsw i32 %spec.store.select1, 7
   %25 = lshr i32 %24, 3
   %26 = sub nuw nsw i32 128, %25

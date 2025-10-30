@@ -1320,7 +1320,6 @@ invoke.cont249:                                   ; preds = %_ZNSt6vectorIdSaIdE
   %lambda.sroa.0.3 = phi ptr [ %call5.i.i.i.i.i.i271, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %lambda.sroa.0.0478, %if.then.i.i263 ]
   %add.ptr.i.i.i267.pn = phi ptr [ %add.ptr.i.i.i267, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %lambda.sroa.10.0479, %if.then.i.i263 ]
   %lambda.sroa.14.3 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %lambda.sroa.14.0480, %if.then.i.i263 ]
-  %lambda.sroa.10.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i267.pn, i64 8
   %128 = load i64, ptr %factors_.i, align 8, !tbaa !23
   %cmp253475.not = icmp eq i64 %128, 0
   br i1 %cmp253475.not, label %for.cond.cleanup254, label %invoke.cont264.lr.ph
@@ -1336,6 +1335,7 @@ invoke.cont264.lr.ph:                             ; preds = %invoke.cont249
   br label %invoke.cont264
 
 for.cond.cleanup254:                              ; preds = %invoke.cont264, %invoke.cont249
+  %lambda.sroa.10.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i267.pn, i64 8
   %inc275 = add nuw i64 %i190.0481, 1
   %131 = load i64, ptr %size_.i, align 8, !tbaa !21
   %cmp193 = icmp ult i64 %inc275, %131

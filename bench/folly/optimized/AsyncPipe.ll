@@ -2766,74 +2766,74 @@ _ZNKSt8functionIFvN5folly13NetworkSocketEEEclES1_.exit: ; preds = %58
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly15AsyncPipeWriter13failAllWritesERKNS_20AsyncSocketExceptionE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %5 = load i32, ptr %4, align 8, !tbaa !7
-  %6 = add i32 %5, 1
-  store i32 %6, ptr %4, align 8, !tbaa !7
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %8 = load ptr, ptr %7, align 8, !tbaa !74
-  %9 = icmp eq ptr %8, %7
-  br i1 %9, label %._crit_edge, label %.lr.ph
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %4 = load i32, ptr %3, align 8, !tbaa !7
+  %5 = add i32 %4, 1
+  store i32 %5, ptr %3, align 8, !tbaa !7
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %7 = load ptr, ptr %6, align 8, !tbaa !74
+  %8 = icmp eq ptr %7, %6
+  br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  br label %11
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  br label %10
 
-11:                                               ; preds = %.lr.ph, %19
-  %12 = phi ptr [ %8, %.lr.ph ], [ %24, %19 ]
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  %14 = load ptr, ptr %13, align 8, !tbaa !93
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %19, label %15
+10:                                               ; preds = %.lr.ph, %18
+  %11 = phi ptr [ %7, %.lr.ph ], [ %23, %18 ]
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  %13 = load ptr, ptr %12, align 8, !tbaa !93
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %18, label %14
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %14, align 8, !tbaa !41
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %1) #21
-  %.pre = load ptr, ptr %7, align 8, !tbaa !74
-  br label %19
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %13, align 8, !tbaa !41
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %17 = load ptr, ptr %16, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %1) #21
+  %.pre = load ptr, ptr %6, align 8, !tbaa !74
+  br label %18
 
-19:                                               ; preds = %15, %11
-  %20 = phi ptr [ %.pre, %15 ], [ %12, %11 ]
-  %21 = load i64, ptr %10, align 8, !tbaa !105
-  %22 = add i64 %21, -1
-  store i64 %22, ptr %10, align 8, !tbaa !105
-  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %23) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 88) #22
-  %24 = load ptr, ptr %7, align 8, !tbaa !74
-  %25 = icmp eq ptr %24, %7
-  br i1 %25, label %._crit_edge.loopexit, label %11, !llvm.loop !121
+18:                                               ; preds = %14, %10
+  %19 = phi ptr [ %.pre, %14 ], [ %11, %10 ]
+  %20 = load i64, ptr %9, align 8, !tbaa !105
+  %21 = add i64 %20, -1
+  store i64 %21, ptr %9, align 8, !tbaa !105
+  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #21
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %22) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 88) #22
+  %23 = load ptr, ptr %6, align 8, !tbaa !74
+  %24 = icmp eq ptr %23, %6
+  br i1 %24, label %._crit_edge.loopexit, label %10, !llvm.loop !121
 
-._crit_edge.loopexit:                             ; preds = %19
-  %.pre2 = load i32, ptr %4, align 8, !tbaa !7
-  %26 = add i32 %.pre2, -1
+._crit_edge.loopexit:                             ; preds = %18
+  %.pre2 = load i32, ptr %3, align 8, !tbaa !7
+  %25 = add i32 %.pre2, -1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %27 = phi i32 [ %26, %._crit_edge.loopexit ], [ %5, %2 ]
-  store i32 %27, ptr %4, align 8, !tbaa !7
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit
+  %26 = phi i32 [ %25, %._crit_edge.loopexit ], [ %4, %2 ]
+  store i32 %26, ptr %3, align 8, !tbaa !7
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit
 
-29:                                               ; preds = %._crit_edge
-  %30 = load ptr, ptr %3, align 8, !tbaa !41
+28:                                               ; preds = %._crit_edge
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %30 = load ptr, ptr %29, align 8, !tbaa !41
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
-  invoke void %32(ptr noundef nonnull align 8 dereferenceable(12) %3, i1 noundef zeroext true)
+  invoke void %32(ptr noundef nonnull align 8 dereferenceable(12) %29, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %33
 
-33:                                               ; preds = %29
+33:                                               ; preds = %28
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
   tail call void @__clang_call_terminate(ptr %35) #23
   unreachable
 
-_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %._crit_edge, %29
+_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %._crit_edge, %28
   ret void
 }
 

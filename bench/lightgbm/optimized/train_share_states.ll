@@ -5640,7 +5640,6 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %289, %_ZNSt6vectorI
   %335 = trunc nuw i8 %334 to i1
   %.pre = load i32, ptr %332, align 8, !tbaa !120
   %spec.select671 = select i1 %335, i32 %.pre, i32 1
-  %.1153 = add nsw i32 %spec.select671, %.0152432
   %336 = icmp sgt i32 %.pre, 0
   br i1 %336, label %.lr.ph, label %._crit_edge
 
@@ -5652,6 +5651,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %289, %_ZNSt6vectorI
 
 ._crit_edge:                                      ; preds = %339, %.lr.ph435
   %.1149.lcssa = phi double [ %.0148434, %.lr.ph435 ], [ %345, %339 ]
+  %.1153 = add nsw i32 %spec.select671, %.0152432
   %indvars.iv.next514 = add nuw nsw i64 %indvars.iv513, 1
   %exitcond517.not = icmp eq i64 %indvars.iv.next514, %wide.trip.count516
   br i1 %exitcond517.not, label %._crit_edge436, label %.lr.ph435, !llvm.loop !157
