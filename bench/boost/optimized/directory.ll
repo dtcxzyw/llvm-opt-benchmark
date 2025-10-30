@@ -2509,10 +2509,9 @@ _ZN5boost10filesystem6detail17recur_dir_itr_impD2Ev.exit.i.i.i: ; preds = %36, %
 42:                                               ; preds = %.lr.ph, %_ZN5boost10filesystem18directory_iteratorD2Ev.exit
   %43 = phi ptr [ %17, %.lr.ph ], [ %78, %_ZN5boost10filesystem18directory_iteratorD2Ev.exit ]
   %44 = getelementptr inbounds i8, ptr %43, i64 -8
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @_ZN5boost10filesystem6detail28directory_iterator_incrementERNS0_18directory_iteratorEPNS_6system10error_codeE(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %3)
-  %45 = load i64, ptr %19, align 8, !tbaa !55
+  %45 = load i64, ptr %19, align 8
   %46 = and i64 %45, 1
   %.not.i.i20 = icmp eq i64 %46, 0
   br i1 %.not.i.i20, label %_ZNK5boost6system10error_codecvbEv.exit.thread26, label %47
@@ -2558,12 +2557,11 @@ _ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %47
   %64 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr nonnull %61) #30
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %64
 
 65:                                               ; preds = %59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !62
-  br label %_ZN5boost10filesystem18directory_iteratorD2Ev.exit.thread29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  br label %_ZN5boost13intrusive_ptrINS_10filesystem6detail17recur_dir_itr_impEE5resetEv.exit
 
 _ZNK5boost6system10error_codecvbEv.exit.thread26: ; preds = %47, %42
   %66 = load ptr, ptr %44, align 8, !tbaa !63
@@ -2574,7 +2572,7 @@ _ZNK5boost10filesystem18directory_iterator6is_endEv.exit.i.i.i: ; preds = %_ZNK5
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %69 = load ptr, ptr %68, align 8, !tbaa !37
   %.not.i.i.i.i = icmp eq ptr %69, null
-  br i1 %.not.i.i.i.i, label %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.thread.i.i.i, label %_ZN5boost10filesystem18directory_iteratorD2Ev.exit.thread29
+  br i1 %.not.i.i.i.i, label %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.thread.i.i.i, label %_ZN5boost13intrusive_ptrINS_10filesystem6detail17recur_dir_itr_impEE5resetEv.exit
 
 _ZNK5boost10filesystem18directory_iterator6is_endEv.exit.thread.i.i.i: ; preds = %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.i.i.i, %_ZNK5boost6system10error_codecvbEv.exit.thread26
   %70 = load ptr, ptr %8, align 8, !tbaa !96
@@ -2594,18 +2592,13 @@ _ZNK5boost10filesystem18directory_iterator6is_endEv.exit.thread.i.i.i: ; preds =
   call void @free(ptr noundef nonnull %72) #30
   br label %_ZN5boost10filesystem18directory_iteratorD2Ev.exit
 
-_ZN5boost10filesystem18directory_iteratorD2Ev.exit.thread29: ; preds = %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.i.i.i, %65
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %_ZN5boost13intrusive_ptrINS_10filesystem6detail17recur_dir_itr_impEE5resetEv.exit
-
 _ZN5boost10filesystem18directory_iteratorD2Ev.exit: ; preds = %76, %73, %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %77 = load ptr, ptr %7, align 8, !tbaa !112
   %78 = load ptr, ptr %8, align 8, !tbaa !112
   %79 = icmp eq ptr %77, %78
   br i1 %79, label %._crit_edge, label %42
 
-_ZN5boost13intrusive_ptrINS_10filesystem6detail17recur_dir_itr_impEE5resetEv.exit: ; preds = %_ZN5boost10filesystem18directory_iteratorD2Ev.exit.thread29, %_ZN5boost10filesystem6detail17recur_dir_itr_impD2Ev.exit.i.i.i, %21, %._crit_edge
+_ZN5boost13intrusive_ptrINS_10filesystem6detail17recur_dir_itr_impEE5resetEv.exit: ; preds = %_ZNK5boost10filesystem18directory_iterator6is_endEv.exit.i.i.i, %65, %_ZN5boost10filesystem6detail17recur_dir_itr_impD2Ev.exit.i.i.i, %21, %._crit_edge
   ret void
 }
 

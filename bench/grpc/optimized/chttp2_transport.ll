@@ -30653,7 +30653,6 @@ define internal fastcc void @"_ZZL14close_from_apiP21grpc_chttp2_transportP18grp
   %17 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30666,9 +30665,9 @@ define internal fastcc void @"_ZZL14close_from_apiP21grpc_chttp2_transportP18grp
 21:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @grpc_slice_malloc(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %8, i64 noundef 13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !964
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %22 = load ptr, ptr %5, align 8, !tbaa !320
+  %22 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %22, null
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -30678,54 +30677,54 @@ define internal fastcc void @"_ZZL14close_from_apiP21grpc_chttp2_transportP18grp
   %.sroa.gep329 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %.sroa.gep330 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %.sroa.sel331 = select i1 %.not, ptr %.sroa.gep329, ptr %.sroa.gep330
-  store i8 0, ptr %27, align 1, !tbaa !32
+  store i8 0, ptr %27, align 1
   %.sroa.gep332 = getelementptr inbounds nuw i8, ptr %5, i64 11
   %.sroa.gep333 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %.sroa.sel334 = select i1 %.not, ptr %.sroa.gep332, ptr %.sroa.gep333
-  store i8 7, ptr %.sroa.sel331, align 1, !tbaa !32
+  store i8 7, ptr %.sroa.sel331, align 1
   %.sroa.gep335 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %.sroa.gep336 = getelementptr inbounds nuw i8, ptr %25, i64 3
   %.sroa.sel337 = select i1 %.not, ptr %.sroa.gep335, ptr %.sroa.gep336
-  store i8 58, ptr %.sroa.sel334, align 1, !tbaa !32
+  store i8 58, ptr %.sroa.sel334, align 1
   %.sroa.gep338 = getelementptr inbounds nuw i8, ptr %5, i64 13
   %.sroa.gep339 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.sel340 = select i1 %.not, ptr %.sroa.gep338, ptr %.sroa.gep339
-  store i8 115, ptr %.sroa.sel337, align 1, !tbaa !32
+  store i8 115, ptr %.sroa.sel337, align 1
   %.sroa.gep341 = getelementptr inbounds nuw i8, ptr %5, i64 14
   %.sroa.gep342 = getelementptr inbounds nuw i8, ptr %25, i64 5
   %.sroa.sel343 = select i1 %.not, ptr %.sroa.gep341, ptr %.sroa.gep342
-  store i8 116, ptr %.sroa.sel340, align 1, !tbaa !32
+  store i8 116, ptr %.sroa.sel340, align 1
   %.sroa.gep344 = getelementptr inbounds nuw i8, ptr %5, i64 15
   %.sroa.gep345 = getelementptr inbounds nuw i8, ptr %25, i64 6
   %.sroa.sel346 = select i1 %.not, ptr %.sroa.gep344, ptr %.sroa.gep345
-  store i8 97, ptr %.sroa.sel343, align 1, !tbaa !32
+  store i8 97, ptr %.sroa.sel343, align 1
   %.sroa.gep348 = getelementptr inbounds nuw i8, ptr %25, i64 7
   %.sroa.sel349 = select i1 %.not, ptr %24, ptr %.sroa.gep348
-  store i8 116, ptr %.sroa.sel346, align 1, !tbaa !32
+  store i8 116, ptr %.sroa.sel346, align 1
   %.sroa.gep350 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %.sroa.gep351 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.sel352 = select i1 %.not, ptr %.sroa.gep350, ptr %.sroa.gep351
-  store i8 117, ptr %.sroa.sel349, align 1, !tbaa !32
+  store i8 117, ptr %.sroa.sel349, align 1
   %.sroa.gep353 = getelementptr inbounds nuw i8, ptr %5, i64 18
   %.sroa.gep354 = getelementptr inbounds nuw i8, ptr %25, i64 9
   %.sroa.sel355 = select i1 %.not, ptr %.sroa.gep353, ptr %.sroa.gep354
-  store i8 115, ptr %.sroa.sel352, align 1, !tbaa !32
+  store i8 115, ptr %.sroa.sel352, align 1
   %.sroa.gep356 = getelementptr inbounds nuw i8, ptr %5, i64 19
   %.sroa.gep357 = getelementptr inbounds nuw i8, ptr %25, i64 10
   %.sroa.sel358 = select i1 %.not, ptr %.sroa.gep356, ptr %.sroa.gep357
-  store i8 3, ptr %.sroa.sel355, align 1, !tbaa !32
+  store i8 3, ptr %.sroa.sel355, align 1
   %.sroa.gep359 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %.sroa.gep360 = getelementptr inbounds nuw i8, ptr %25, i64 11
   %.sroa.sel361 = select i1 %.not, ptr %.sroa.gep359, ptr %.sroa.gep360
-  store i8 50, ptr %.sroa.sel358, align 1, !tbaa !32
+  store i8 50, ptr %.sroa.sel358, align 1
   %.sroa.gep362 = getelementptr inbounds nuw i8, ptr %5, i64 21
   %.sroa.gep363 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %.sroa.sel364 = select i1 %.not, ptr %.sroa.gep362, ptr %.sroa.gep363
-  store i8 48, ptr %.sroa.sel361, align 1, !tbaa !32
+  store i8 48, ptr %.sroa.sel361, align 1
   %.sroa.gep365 = getelementptr inbounds nuw i8, ptr %5, i64 22
   %.sroa.gep366 = getelementptr inbounds nuw i8, ptr %25, i64 13
   %.sroa.sel367 = select i1 %.not, ptr %.sroa.gep365, ptr %.sroa.gep366
-  store i8 48, ptr %.sroa.sel364, align 1, !tbaa !32
+  store i8 48, ptr %.sroa.sel364, align 1
   %28 = load ptr, ptr %24, align 8
   %29 = select i1 %.not, ptr %26, ptr %28
   %30 = load i64, ptr %23, align 8
@@ -31304,7 +31303,6 @@ _Z28grpc_chttp2_reset_ping_clockP21grpc_chttp2_transport.exit: ; preds = %_ZNSt7
   call void @_Z26grpc_chttp2_initiate_writeP21grpc_chttp2_transport33grpc_chttp2_initiate_write_reason(ptr noundef nonnull %1, i32 noundef 9)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -31325,7 +31323,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174: ; preds = %180, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i172
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %181

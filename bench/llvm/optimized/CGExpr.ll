@@ -3626,7 +3626,6 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit.thread: ; preds = %_ZNK5clang24Mater
   br label %413
 
 187:                                              ; preds = %175, %._crit_edge
-  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %188 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -3684,7 +3683,7 @@ _ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit: ; preds = %204
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 200
   %214 = load ptr, ptr %213, align 8, !tbaa !323
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 288
-  %216 = load ptr, ptr %188, align 8, !tbaa !54
+  %216 = load ptr, ptr %188, align 8
   %217 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %215, ptr noundef %216)
   %.fca.0.extract.i13.i = extractvalue { i64, i8 } %217, 0
   %.fca.1.extract.i14.i = extractvalue { i64, i8 } %217, 1
@@ -3788,7 +3787,7 @@ _ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit.thread: ; preds 
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 200
   %271 = load ptr, ptr %270, align 8, !tbaa !323
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 288
-  %273 = load ptr, ptr %188, align 8, !tbaa !54
+  %273 = load ptr, ptr %188, align 8
   %274 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %272, ptr noundef %273)
   %.fca.0.extract.i13.i188 = extractvalue { i64, i8 } %274, 0
   %.fca.1.extract.i14.i189 = extractvalue { i64, i8 } %274, 1
@@ -4000,7 +3999,6 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %413
 
 347:                                              ; preds = %.lr.ph494, %410
