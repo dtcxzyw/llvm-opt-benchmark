@@ -551,11 +551,11 @@ define internal void @pxp_is_ready(ptr noundef captures(none) %0) #1 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %7 = load i8, ptr %6, align 8
   switch i32 %5, label %10 [
-    i32 3, label %8
-    i32 0, label %8
+    i32 3, label %6
+    i32 0, label %6
   ]
 
-8:                                                ; preds = %1, %1
+6:                                                ; preds = %1, %1
   %9 = or i8 %7, 1
   br label %12
 
@@ -563,7 +563,7 @@ define internal void @pxp_is_ready(ptr noundef captures(none) %0) #1 align 16 {
   %11 = and i8 %7, -2
   br label %12
 
-12:                                               ; preds = %10, %8
+14:                                               ; preds = %10, %6
   %.sink = phi i8 [ %11, %10 ], [ %9, %8 ]
   store i8 %.sink, ptr %6, align 8
   ret void

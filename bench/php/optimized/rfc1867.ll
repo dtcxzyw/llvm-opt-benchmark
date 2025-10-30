@@ -1899,18 +1899,18 @@ define internal noalias ptr @php_ap_getword(ptr readnone captures(none) %0, ptr 
   %.03756 = phi ptr [ %.3, %20 ], [ %4, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03756, i64 1
   switch i8 %6, label %20 [
-    i8 39, label %8
-    i8 34, label %8
+    i8 39, label %7
+    i8 34, label %7
   ]
 
-8:                                                ; preds = %.lr.ph57, %.lr.ph57
+7:                                                ; preds = %.lr.ph57, %.lr.ph57
   %9 = load i8, ptr %7, align 1, !tbaa !32
   %.not4248 = icmp eq i8 %9, 0
   %.not4349 = icmp eq i8 %9, %6
   %or.cond50 = or i1 %.not4248, %.not4349
   br i1 %or.cond50, label %.critedge4, label %.lr.ph
 
-.lr.ph:                                           ; preds = %8, %17
+.lr.ph:                                           ; preds = %7, %17
   %10 = phi i8 [ %19, %17 ], [ %9, %8 ]
   %.151 = phi ptr [ %18, %17 ], [ %7, %8 ]
   %11 = icmp eq i8 %10, 92
@@ -1934,7 +1934,7 @@ define internal noalias ptr @php_ap_getword(ptr readnone captures(none) %0, ptr 
   %or.cond = or i1 %.not42, %.not43
   br i1 %or.cond, label %.critedge4, label %.lr.ph
 
-.critedge4:                                       ; preds = %17, %8
+.critedge4:                                       ; preds = %17, %7
   %.1.lcssa = phi ptr [ %7, %8 ], [ %18, %17 ]
   %.not42.lcssa = phi i1 [ %.not4248, %8 ], [ %.not42, %17 ]
   %not..not42 = xor i1 %.not42.lcssa, true
@@ -1953,32 +1953,32 @@ define internal noalias ptr @php_ap_getword(ptr readnone captures(none) %0, ptr 
 .critedge:                                        ; preds = %20, %3
   %.037.lcssa = phi ptr [ %4, %3 ], [ %.3, %20 ]
   %.not.lcssa = phi i1 [ %.not53, %3 ], [ %.not, %20 ]
-  br i1 %.not.lcssa, label %22, label %27
+  br i1 %.not.lcssa, label %24, label %29
 
-22:                                               ; preds = %.critedge
-  %23 = tail call noalias ptr @_estrdup(ptr noundef nonnull %4) #21
-  %24 = load ptr, ptr %1, align 8, !tbaa !62
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #22
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %25
+24:                                               ; preds = %.critedge
+  %25 = tail call noalias ptr @_estrdup(ptr noundef nonnull %4) #21
+  %26 = load ptr, ptr %1, align 8, !tbaa !62
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #22
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
   br label %.loopexit
 
-27:                                               ; preds = %.critedge
-  %28 = ptrtoint ptr %.037.lcssa to i64
-  %29 = ptrtoint ptr %4 to i64
-  %30 = sub i64 %28, %29
-  %31 = tail call noalias ptr @_estrndup(ptr noundef nonnull %4, i64 noundef %30) #21
-  br label %32
+29:                                               ; preds = %.critedge
+  %30 = ptrtoint ptr %.037.lcssa to i64
+  %31 = ptrtoint ptr %4 to i64
+  %32 = sub i64 %30, %31
+  %33 = tail call noalias ptr @_estrndup(ptr noundef nonnull %4, i64 noundef %32) #21
+  br label %34
 
-32:                                               ; preds = %32, %27
-  %.4 = phi ptr [ %.037.lcssa, %27 ], [ %35, %32 ]
-  %33 = load i8, ptr %.4, align 1, !tbaa !32
-  %34 = icmp eq i8 %33, %2
-  %35 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  br i1 %34, label %32, label %.loopexit
+34:                                               ; preds = %34, %29
+  %.4 = phi ptr [ %.037.lcssa, %27 ], [ %37, %32 ]
+  %35 = load i8, ptr %.4, align 1, !tbaa !32
+  %36 = icmp eq i8 %35, %2
+  %37 = getelementptr inbounds nuw i8, ptr %.4, i64 1
+  br i1 %36, label %34, label %.loopexit
 
-.loopexit:                                        ; preds = %32, %22
-  %storemerge = phi ptr [ %26, %22 ], [ %.4, %32 ]
-  %.0 = phi ptr [ %23, %22 ], [ %31, %32 ]
+.loopexit:                                        ; preds = %34, %24
+  %storemerge = phi ptr [ %28, %22 ], [ %.4, %32 ]
+  %.0 = phi ptr [ %25, %22 ], [ %33, %32 ]
   store ptr %storemerge, ptr %1, align 8, !tbaa !62
   ret ptr %.0
 }

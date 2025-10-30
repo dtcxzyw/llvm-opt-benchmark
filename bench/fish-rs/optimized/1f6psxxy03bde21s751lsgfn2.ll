@@ -27129,7 +27129,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8d668dd10ad51f49E.exit.i.i: ; preds = %
 _ZN4fish6reader17reader_data_stack17h899af5e0eec84906E.exit.i: ; preds = %15
   %20 = load i64, ptr @_ZN4fish6reader17reader_data_stack17READER_DATA_STACK17h5835b3bdecb795eaE.2, align 8, !noundef !12
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %57, label %31
+  br i1 %.not.i, label %58, label %31
 
 21:                                               ; preds = %2
   %22 = load i64, ptr %1, align 8, !range !110, !alias.scope !2381, !noundef !12
@@ -27156,11 +27156,11 @@ _ZN4fish6reader17reader_data_stack17h899af5e0eec84906E.exit.i: ; preds = %15
   tail call void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30)
   br label %"_ZN4core3ptr50drop_in_place$LT$fish..input_common..CharEvent$GT$17h93255d0e75c3776eE.exit"
 
-.thread23:                                        ; preds = %42, %_ZN4core3ops8function6FnOnce9call_once17h8d668dd10ad51f49E.exit.i.i, %13, %18, %19, %49
+.thread23:                                        ; preds = %42, %_ZN4core3ops8function6FnOnce9call_once17h8d668dd10ad51f49E.exit.i.i, %13, %18, %19, %50
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$fish..input_common..CharEvent$GT$17h93255d0e75c3776eE"(ptr noalias noundef align 8 dereferenceable(40) %1) #35
-          to label %67 unwind label %52
+          to label %67 unwind label %53
 
 31:                                               ; preds = %_ZN4fish6reader17reader_data_stack17h899af5e0eec84906E.exit.i
   %32 = load ptr, ptr @_ZN4fish6reader17reader_data_stack17READER_DATA_STACK17h5835b3bdecb795eaE.1, align 8, !nonnull !12, !noundef !12
@@ -27194,19 +27194,19 @@ _ZN4fish6reader17reader_data_stack17h899af5e0eec84906E.exit.i: ; preds = %15
   store i8 1, ptr %.phi.trans.insert, align 8
   br label %54
 
-43:                                               ; preds = %39
+44:                                               ; preds = %39
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !27
-  %44 = trunc nuw i8 %.pre to i1
-  br i1 %44, label %54, label %45
+  %45 = trunc nuw i8 %.pre to i1
+  br i1 %45, label %55, label %46
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 1952
-  %47 = load i64, ptr %46, align 8, !range !145, !noundef !12
-  %.not6 = icmp eq i64 %47, -9223372036854775808
-  br i1 %.not6, label %48, label %49
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds nuw i8, ptr %35, i64 1952
+  %48 = load i64, ptr %47, align 8, !range !145, !noundef !12
+  %.not6 = icmp eq i64 %48, -9223372036854775808
+  br i1 %.not6, label %49, label %50
 
-48:                                               ; preds = %45
-  store i64 0, ptr %46, align 8
+49:                                               ; preds = %46
+  store i64 0, ptr %47, align 8
   %.sroa.4.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %35, i64 1960
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx33, align 8
   %.sroa.5.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %35, i64 1968
@@ -27217,68 +27217,68 @@ _ZN4fish6reader17reader_data_stack17h899af5e0eec84906E.exit.i: ; preds = %15
   store i8 0, ptr %.sroa.9.0..sroa_idx38, align 1
   %.sroa.10.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %35, i64 1994
   store i8 93, ptr %.sroa.10.0..sroa_idx39, align 2
-  br label %49
+  br label %50
 
-49:                                               ; preds = %45, %48
-  %50 = getelementptr inbounds nuw i8, ptr %35, i64 920
-  invoke void @_ZN4fish6screen6Screen11save_status17h9c205e72ad0adaafE(ptr noalias noundef nonnull align 8 dereferenceable(224) %50)
+50:                                               ; preds = %46, %49
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 920
+  invoke void @_ZN4fish6screen6Screen11save_status17h9c205e72ad0adaafE(ptr noalias noundef nonnull align 8 dereferenceable(224) %51)
           to label %_ZN4fish6reader10ReaderData17save_screen_state17hc74c45cdd6951ca2E.exit unwind label %.thread23
 
-_ZN4fish6reader10ReaderData17save_screen_state17hc74c45cdd6951ca2E.exit: ; preds = %49
+_ZN4fish6reader10ReaderData17save_screen_state17hc74c45cdd6951ca2E.exit: ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  %51 = call fastcc noundef zeroext i1 @_ZN4fish6reader6Reader17handle_char_event17h3ac59970592dc17bE(ptr noalias noundef align 8 dereferenceable(16) %5, ptr noalias noundef align 8 captures(none) dereferenceable(40) %3)
+  %52 = call fastcc noundef zeroext i1 @_ZN4fish6reader6Reader17handle_char_event17h3ac59970592dc17bE(ptr noalias noundef align 8 dereferenceable(16) %5, ptr noalias noundef align 8 captures(none) dereferenceable(40) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZN4core3ptr50drop_in_place$LT$fish..input_common..CharEvent$GT$17h93255d0e75c3776eE.exit"
 
-"_ZN4core3ptr50drop_in_place$LT$fish..input_common..CharEvent$GT$17h93255d0e75c3776eE.exit": ; preds = %65, %63, %62, %57, %29, %27, %26, %21, %54, %_ZN4fish6reader10ReaderData17save_screen_state17hc74c45cdd6951ca2E.exit
+"_ZN4core3ptr50drop_in_place$LT$fish..input_common..CharEvent$GT$17h93255d0e75c3776eE.exit": ; preds = %66, %64, %63, %58, %29, %27, %26, %21, %55, %_ZN4fish6reader10ReaderData17save_screen_state17hc74c45cdd6951ca2E.exit
   ret void
 
-52:                                               ; preds = %.thread23
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %.thread23
+  %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #36
   unreachable
 
-54:                                               ; preds = %.thread, %43
-  %55 = getelementptr inbounds nuw i8, ptr %35, i64 1328
+55:                                               ; preds = %.thread, %44
+  %56 = getelementptr inbounds nuw i8, ptr %35, i64 1328
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  call void @_ZN4fish12input_common9InputData10queue_char17h50f54ad14b35155bE(ptr noalias noundef nonnull align 8 dereferenceable(112) %55, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4)
+  call void @_ZN4fish12input_common9InputData10queue_char17h50f54ad14b35155bE(ptr noalias noundef nonnull align 8 dereferenceable(112) %56, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZN4core3ptr50drop_in_place$LT$fish..input_common..CharEvent$GT$17h93255d0e75c3776eE.exit"
 
-56:                                               ; preds = %42
+57:                                               ; preds = %42
   unreachable
 
-57:                                               ; preds = %_ZN4fish6reader17reader_data_stack17h899af5e0eec84906E.exit.i
-  %58 = load i64, ptr %1, align 8, !range !110, !alias.scope !2384, !noundef !12
-  %59 = icmp slt i64 %58, -9223372036854775804
-  %60 = add i64 %58, -9223372036854775807
-  %61 = select i1 %59, i64 %60, i64 0
-  switch i64 %61, label %"_ZN4core3ptr50drop_in_place$LT$fish..input_common..CharEvent$GT$17h93255d0e75c3776eE.exit" [
-    i64 0, label %62
-    i64 1, label %63
-    i64 2, label %65
+58:                                               ; preds = %_ZN4fish6reader17reader_data_stack17h899af5e0eec84906E.exit.i
+  %59 = load i64, ptr %1, align 8, !range !110, !alias.scope !2384, !noundef !12
+  %60 = icmp slt i64 %59, -9223372036854775804
+  %61 = add i64 %59, -9223372036854775807
+  %62 = select i1 %60, i64 %61, i64 0
+  switch i64 %62, label %"_ZN4core3ptr50drop_in_place$LT$fish..input_common..CharEvent$GT$17h93255d0e75c3776eE.exit" [
+    i64 0, label %63
+    i64 1, label %64
+    i64 2, label %66
   ]
 
-62:                                               ; preds = %57
+63:                                               ; preds = %58
   tail call void @"_ZN4core3ptr54drop_in_place$LT$fish..input_common..KeyInputEvent$GT$17hfc06722c154d2859E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   br label %"_ZN4core3ptr50drop_in_place$LT$fish..input_common..CharEvent$GT$17h93255d0e75c3776eE.exit"
 
-63:                                               ; preds = %57
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @"_ZN4core3ptr57drop_in_place$LT$fish..input_common..ReadlineCmdEvent$GT$17h824ccc55d2c17decE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %64)
+64:                                               ; preds = %58
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @"_ZN4core3ptr57drop_in_place$LT$fish..input_common..ReadlineCmdEvent$GT$17h824ccc55d2c17decE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %65)
   br label %"_ZN4core3ptr50drop_in_place$LT$fish..input_common..CharEvent$GT$17h93255d0e75c3776eE.exit"
 
-65:                                               ; preds = %57
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %66)
+66:                                               ; preds = %58
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %67)
   br label %"_ZN4core3ptr50drop_in_place$LT$fish..input_common..CharEvent$GT$17h93255d0e75c3776eE.exit"
 
-67:                                               ; preds = %.thread23
+68:                                               ; preds = %.thread23
   resume { ptr, i32 } %lpad.thr_comm
 }
 

@@ -7525,8 +7525,8 @@ define void @_ZN7rocksdb13SstFileDumper23ShowAllCompressionSizesEmRKSt6vectorISt
   br i1 %33, label %switch.lookup, label %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us
 
 switch.lookup:                                    ; preds = %.lr.ph49.split.us
-  %34 = zext nneg i8 %29 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7rocksdb13SstFileDumper23ShowAllCompressionSizesEmRKSt6vectorISt4pairINS_15CompressionTypeEPKcESaIS6_EEiijjmb, i64 %34
+  %31 = zext nneg i8 %29 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7rocksdb13SstFileDumper23ShowAllCompressionSizesEmRKSt6vectorISt4pairINS_15CompressionTypeEPKcESaIS6_EEiijjmb, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us
 
@@ -7581,7 +7581,7 @@ _ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us: ; preds = %
   call void @_ZN7rocksdb13SstFileDumper19ShowCompressionSizeEmNS_15CompressionTypeERKNS_18CompressionOptionsE(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(3336) %1, i64 noundef %2, i8 noundef zeroext %45, ptr noundef nonnull align 8 dereferenceable(49) %11)
   %46 = load i8, ptr %0, align 8, !tbaa !206
   %47 = icmp eq i8 %46, 0
-  br i1 %47, label %48, label %54
+  br i1 %47, label %48, label %57
 
 48:                                               ; preds = %42
   %49 = load ptr, ptr %28, align 8, !tbaa !214
@@ -7602,22 +7602,22 @@ _ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit: ; preds = %.lr
   %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.47, ptr noundef %40) #27
   br label %52
 
-52:                                               ; preds = %..critedge.thread_crit_edge, %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit
+52:; preds = %..critedge.thread_crit_edge, %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.035.048, i64 16
   %.not44 = icmp eq ptr %53, %17
   br i1 %.not44, label %._crit_edge, label %.lr.ph49.split
 
-54:                                               ; preds = %42
+57:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %56
+  br label %59
 
 ._crit_edge:                                      ; preds = %52, %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit.us, %10
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %55, align 8, !tbaa !539, !alias.scope !683
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %58, align 8, !tbaa !539, !alias.scope !683
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !683
-  br label %56
+  br label %59
 
-56:                                               ; preds = %54, %._crit_edge
+59:                                               ; preds = %57, %._crit_edge
   ret void
 }
 

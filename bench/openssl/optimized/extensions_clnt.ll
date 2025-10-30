@@ -4304,7 +4304,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2100, ptr noundef nonnull @__func__.tls_parse_stoc_psk) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 50, i32 noundef 159, ptr noundef null) #10
-  br label %52
+  br label %56
 
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2872
@@ -4316,7 +4316,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2105, ptr noundef nonnull @__func__.tls_parse_stoc_psk) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 47, i32 noundef 114, ptr noundef null) #10
-  br label %52
+  br label %56
 
 23:                                               ; preds = %19
   %24 = icmp eq i32 %16, 0
@@ -4335,7 +4335,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
   store i32 1, ptr %31, align 8, !tbaa !179
   tail call void @SSL_SESSION_free(ptr noundef %26) #10
   store ptr null, ptr %25, align 8, !tbaa !152
-  br label %52
+  br label %56
 
 32:                                               ; preds = %23
   br i1 %27, label %33, label %.thread
@@ -4344,7 +4344,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 2123, ptr noundef nonnull @__func__.tls_parse_stoc_psk) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
-  br label %52
+  br label %56
 
 .thread:                                          ; preds = %28, %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2312
@@ -4363,7 +4363,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
   %.not31 = icmp eq i32 %39, 0
   br i1 %.not31, label %40, label %._crit_edge40
 
-40:                                               ; preds = %37
+40:; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 836
   %42 = load i32, ptr %41, align 4, !tbaa !156
   %43 = icmp eq i32 %42, 0
@@ -4375,22 +4375,22 @@ PACKET_get_net_2.exit.thread:                     ; preds = %5, %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %44, ptr noundef nonnull align 8 dereferenceable(64) %45, i64 64, i1 false)
   br label %46
 
-46:                                               ; preds = %._crit_edge40, %40
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 2304
+42:                                               ; preds = %._crit_edge40, %40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2304
   tail call void @SSL_SESSION_free(ptr noundef %.pre39.pre) #10
   %48 = load ptr, ptr %34, align 8, !tbaa !152
   store ptr %48, ptr %47, align 8, !tbaa !95
   store ptr null, ptr %34, align 8, !tbaa !152
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  store i32 1, ptr %49, align 8, !tbaa !179
-  br i1 %24, label %52, label %50
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1288
+  store i32 1, ptr %53, align 8, !tbaa !179
+  br i1 %24, label %56, label %54
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 2844
-  store i32 0, ptr %51, align 4, !tbaa !164
-  br label %52
+54:                                               ; preds = %46
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 2844
+  store i32 0, ptr %55, align 4, !tbaa !164
+  br label %56
 
-52:                                               ; preds = %46, %50, %33, %30, %22, %PACKET_get_net_2.exit.thread
+56:                                               ; preds = %46, %54, %33, %30, %22, %PACKET_get_net_2.exit.thread
   %.0 = phi i32 [ 0, %PACKET_get_net_2.exit.thread ], [ 0, %22 ], [ 1, %30 ], [ 0, %33 ], [ 1, %50 ], [ 1, %46 ]
   ret i32 %.0
 }

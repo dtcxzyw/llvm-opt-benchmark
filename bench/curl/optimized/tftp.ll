@@ -80,19 +80,19 @@ define internal noundef i32 @tftp_setup_connection(ptr noundef captures(none) %0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 5036
   %15 = load i32, ptr %14, align 4
   switch i8 %13, label %18 [
-    i8 65, label %16
-    i8 78, label %16
+    i8 65, label %14
+    i8 78, label %14
   ]
 
-16:                                               ; preds = %.thread, %.thread
+14:                                               ; preds = %.thread, %.thread
   %17 = or i32 %15, 16384
-  br label %.sink.split
+  br label %22
 
 18:                                               ; preds = %.thread
   %19 = and i32 %15, -16385
-  br label %.sink.split
+  br label %22
 
-.sink.split:                                      ; preds = %18, %16
+22:                                               ; preds = %18, %16
   %.sink = phi i32 [ %17, %16 ], [ %19, %18 ]
   store i32 %.sink, ptr %14, align 4
   br label %20

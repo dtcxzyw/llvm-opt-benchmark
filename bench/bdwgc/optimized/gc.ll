@@ -18118,7 +18118,7 @@ define range(i32 0, 2) i32 @GC_calloc_prepare_explicitly_typed(ptr noundef captu
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 -1, i64 16, i1 false)
-  br label %41
+  br label %43
 
 16:                                               ; preds = %13, %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -18129,16 +18129,16 @@ define range(i32 0, 2) i32 @GC_calloc_prepare_explicitly_typed(ptr noundef captu
   store i64 %20, ptr %21, align 8, !tbaa !257
   %22 = mul i64 %.029, %.030
   switch i32 %19, label %default.unreachable39 [
-    i32 -1, label %23
-    i32 0, label %23
+    i32 -1, label %22
+    i32 0, label %22
     i32 1, label %25
-    i32 2, label %33
+    i32 2, label %34
   ]
 
-23:                                               ; preds = %16, %16
+22:                                               ; preds = %16, %16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %22, ptr %24, align 8, !tbaa !261
-  br label %41
+  br label %43
 
 25:                                               ; preds = %16
   %26 = load i32, ptr @GC_all_interior_pointers, align 4, !tbaa !3
@@ -18152,7 +18152,7 @@ define range(i32 0, 2) i32 @GC_calloc_prepare_explicitly_typed(ptr noundef captu
   store i64 %31, ptr %32, align 8, !tbaa !261
   br label %41
 
-33:                                               ; preds = %16
+34:                                               ; preds = %16
   %34 = load i32, ptr @GC_all_interior_pointers, align 4, !tbaa !3
   %35 = sext i32 %34 to i64
   %36 = add nsw i64 %35, -9
@@ -18167,7 +18167,7 @@ define range(i32 0, 2) i32 @GC_calloc_prepare_explicitly_typed(ptr noundef captu
 default.unreachable39:                            ; preds = %16
   unreachable
 
-41:                                               ; preds = %23, %25, %33, %14
+43:                                               ; preds = %22, %25, %34, %14
   %.0 = phi i32 [ 0, %14 ], [ 1, %33 ], [ 1, %25 ], [ 1, %23 ]
   ret i32 %.0
 }
@@ -18763,13 +18763,13 @@ define noalias ptr @GC_calloc_explicitly_typed(i64 noundef %0, i64 noundef %1, i
   store i64 %19, ptr %20, align 8, !tbaa !257
   %21 = mul i64 %.029.i, %.030.i
   switch i32 %18, label %default.unreachable [
-    i32 -1, label %22
-    i32 0, label %22
+    i32 -1, label %21
+    i32 0, label %21
     i32 1, label %24
-    i32 2, label %32
+    i32 2, label %33
   ]
 
-22:                                               ; preds = %15, %15
+21:                                               ; preds = %15, %15
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %21, ptr %23, align 8, !tbaa !261
   br label %GC_calloc_prepare_explicitly_typed.exit
@@ -18786,7 +18786,7 @@ define noalias ptr @GC_calloc_explicitly_typed(i64 noundef %0, i64 noundef %1, i
   store i64 %30, ptr %31, align 8, !tbaa !261
   br label %GC_calloc_prepare_explicitly_typed.exit
 
-32:                                               ; preds = %15
+33:                                               ; preds = %15
   %33 = load i32, ptr @GC_all_interior_pointers, align 4, !tbaa !3
   %34 = sext i32 %33 to i64
   %35 = add nsw i64 %34, -9
@@ -18801,10 +18801,10 @@ define noalias ptr @GC_calloc_explicitly_typed(i64 noundef %0, i64 noundef %1, i
 default.unreachable:                              ; preds = %15
   unreachable
 
-GC_calloc_prepare_explicitly_typed.exit:          ; preds = %13, %22, %24, %32
-  %40 = call noalias ptr @GC_calloc_do_explicitly_typed(ptr noundef nonnull %4, i64 poison)
+GC_calloc_prepare_explicitly_typed.exit:          ; preds = %13, %21, %24, %33
+  %42 = call noalias ptr @GC_calloc_do_explicitly_typed(ptr noundef nonnull %4, i64 poison)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %40
+  ret ptr %42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

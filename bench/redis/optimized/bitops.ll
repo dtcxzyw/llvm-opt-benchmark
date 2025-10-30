@@ -1311,12 +1311,12 @@ define dso_local void @getbitCommand(ptr noundef %0) local_unnamed_addr #3 {
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   switch i32 %23, label %50 [
-    i32 0, label %26
-    i32 8, label %26
+    i32 0, label %24
+    i32 8, label %24
   ]
 
-26:                                               ; preds = %18, %18
-  %27 = getelementptr inbounds i8, ptr %25, i64 -1
+24:                                               ; preds = %18, %18
+  %25 = getelementptr inbounds i8, ptr %25, i64 -1
   %28 = load i8, ptr %27, align 1, !tbaa !5
   %29 = zext i8 %28 to i32
   %30 = and i32 %29, 7
@@ -1328,30 +1328,30 @@ define dso_local void @getbitCommand(ptr noundef %0) local_unnamed_addr #3 {
     i32 4, label %46
   ]
 
-31:                                               ; preds = %26
+31:                                               ; preds = %24
   %32 = lshr i32 %29, 3
   %33 = zext nneg i32 %32 to i64
   br label %sdslen.exit
 
-34:                                               ; preds = %26
+34:                                               ; preds = %24
   %35 = getelementptr inbounds i8, ptr %25, i64 -3
   %36 = load i8, ptr %35, align 1, !tbaa !5
   %37 = zext i8 %36 to i64
   br label %sdslen.exit
 
-38:                                               ; preds = %26
+38:                                               ; preds = %24
   %39 = getelementptr inbounds i8, ptr %25, i64 -5
   %40 = load i16, ptr %39, align 1, !tbaa !29
   %41 = zext i16 %40 to i64
   br label %sdslen.exit
 
-42:                                               ; preds = %26
+42:                                               ; preds = %24
   %43 = getelementptr inbounds i8, ptr %25, i64 -9
   %44 = load i32, ptr %43, align 1, !tbaa !14
   %45 = zext i32 %44 to i64
   br label %sdslen.exit
 
-46:                                               ; preds = %26
+46:                                               ; preds = %24
   %47 = getelementptr inbounds i8, ptr %25, i64 -17
   %48 = load i64, ptr %47, align 1, !tbaa !11
   br label %sdslen.exit
@@ -1368,11 +1368,11 @@ sdslen.exit:                                      ; preds = %31, %34, %38, %42, 
   %54 = icmp ult i64 %20, %53
   br i1 %54, label %56, label %.thread
 
-.thread:                                          ; preds = %sdslen.exit, %50, %26
+.thread:; preds = %sdslen.exit, %50, %26
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
   br label %67
 
-56:                                               ; preds = %50, %sdslen.exit
+56:; preds = %50, %sdslen.exit
   %.sink = phi ptr [ %25, %sdslen.exit ], [ %2, %50 ]
   %57 = getelementptr inbounds nuw i8, ptr %.sink, i64 %20
   %58 = load i8, ptr %57, align 1, !tbaa !5

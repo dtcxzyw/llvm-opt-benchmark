@@ -4268,29 +4268,29 @@ define linkonce_odr void @_ZNK10open_spiel5twixt10TwixTState7ReturnsEv(ptr dead_
     i32 1, label %10
   ]
 
-8:                                                ; preds = %2, %2
+5:                                                ; preds = %2, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr %6, ptr %9, align 8
-  br label %14
+  br label %20
 
 10:                                               ; preds = %2
   store double 1.000000e+00, ptr %5, align 8
-  %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 5
   store double -1.000000e+00, ptr %.sroa.228.0..sroa_idx, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %6, ptr %11, align 8
-  br label %14
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %6, ptr %14, align 8
+  br label %20
 
-12:                                               ; preds = %2
+15:                                               ; preds = %2
   store double -1.000000e+00, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 5
   store double 1.000000e+00, ptr %.sroa.2.0..sroa_idx, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %6, ptr %13, align 8
-  br label %14
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %6, ptr %19, align 8
+  br label %20
 
-14:                                               ; preds = %12, %10, %8
+20:                                               ; preds = %15, %10, %5
   ret void
 }
 

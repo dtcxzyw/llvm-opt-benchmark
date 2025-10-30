@@ -392,8 +392,8 @@ if.then18.i:                                      ; preds = %if.end12.i
   br label %_ZL8getDigitch.exit
 
 if.end21.i:                                       ; preds = %for.body, %if.end12.i
-  %radix.addr.0.i = phi i32 [ 10, %if.end12.i ], [ %conv.i14, %for.body ]
-  %cmp25.i = icmp ult i32 %.pre15.i, %radix.addr.0.i
+  %sub23.pre-phi.i = phi i32 [ 10, %if.end12.i ], [ %conv.i14, %for.body ]
+  %cmp25.i = icmp ult i32 %.pre15.i, %sub23.pre-phi.i
   %sub23..i = select i1 %cmp25.i, i32 %.pre15.i, i32 -1
   br label %_ZL8getDigitch.exit
 

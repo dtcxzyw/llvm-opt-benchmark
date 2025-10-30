@@ -366,10 +366,10 @@ _ZN6icu_77L17smpdtfmt_initSetsER10UErrorCode.exit: ; preds = %10, %11
 19:                                               ; preds = %15, %_ZN6icu_77L17smpdtfmt_initSetsER10UErrorCode.exit
   %20 = load ptr, ptr @_ZN6icu_7711gStaticSetsE, align 8, !tbaa !17
   switch i32 %0, label %26 [
-    i32 1, label %21
-    i32 2, label %21
-    i32 3, label %21
-    i32 25, label %21
+    i32 1, label %20
+    i32 2, label %20
+    i32 3, label %20
+    i32 25, label %20
     i32 26, label %21
     i32 4, label %23
     i32 5, label %23
@@ -379,8 +379,8 @@ _ZN6icu_77L17smpdtfmt_initSetsER10UErrorCode.exit: ; preds = %10, %11
     i32 16, label %23
   ]
 
-21:                                               ; preds = %19, %19, %19, %19, %19
-  %22 = load ptr, ptr %20, align 8, !tbaa !9
+20:                                               ; preds = %19, %19, %19, %19, %19
+  %21 = load ptr, ptr %20, align 8, !tbaa !9
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread
 
 23:                                               ; preds = %19, %19, %19, %19, %19, %19
@@ -388,12 +388,12 @@ _ZN6icu_77L17smpdtfmt_initSetsER10UErrorCode.exit: ; preds = %10, %11
   %25 = load ptr, ptr %24, align 8, !tbaa !13
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread
 
-26:                                               ; preds = %19
+27:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !14
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread
 
-_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread: ; preds = %15, %_ZN6icu_77L17smpdtfmt_initSetsER10UErrorCode.exit, %26, %23, %21
+_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread: ; preds = %15, %_ZN6icu_77L17smpdtfmt_initSetsER10UErrorCode.exit, %27, %23, %20
   %.0 = phi ptr [ %28, %26 ], [ %22, %21 ], [ %25, %23 ], [ null, %_ZN6icu_77L17smpdtfmt_initSetsER10UErrorCode.exit ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0

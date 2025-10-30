@@ -6657,10 +6657,10 @@ is_ebml_id_valid.exit:                            ; preds = %3
     i32 290298740, label %.lr.ph.split.us.preheader
   ]
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph, %.lr.ph
+.lr.ph.split.preheader:                           ; preds = %.lr.ph, %.lr.ph
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %29
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.preheader, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %.lr.ph.split.us.preheader ]
   %22 = getelementptr inbounds nuw %struct.MatroskaLevel1Element, ptr %21, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -6668,54 +6668,54 @@ is_ebml_id_valid.exit:                            ; preds = %3
   %25 = icmp eq i32 %24, %1
   br i1 %25, label %26, label %29
 
-26:                                               ; preds = %.lr.ph.split.us
+22:                                               ; preds = %.lr.ph.split.us
   %27 = load i64, ptr %22, align 8, !tbaa !67
   %28 = icmp eq i64 %27, %2
   br i1 %28, label %is_ebml_id_valid.exit.thread, label %29
 
-29:                                               ; preds = %26, %.lr.ph.split.us
+30:                                               ; preds = %26, %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count45
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !416
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %34
+.lr.ph.split:                                     ; preds = %.lr.ph, %35
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %34 ], [ 0, %.lr.ph ]
-  %30 = getelementptr inbounds nuw %struct.MatroskaLevel1Element, ptr %21, i64 %indvars.iv42
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load i32, ptr %31, align 8, !tbaa !64
-  %33 = icmp eq i32 %32, %1
-  br i1 %33, label %is_ebml_id_valid.exit.thread, label %34
+  %31 = getelementptr inbounds nuw %struct.MatroskaLevel1Element, ptr %21, i64 %indvars.iv42
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load i32, ptr %32, align 8, !tbaa !64
+  %34 = icmp eq i32 %33, %1
+  br i1 %34, label %is_ebml_id_valid.exit.thread, label %35
 
-34:                                               ; preds = %.lr.ph.split
+35:                                               ; preds = %.lr.ph.split
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
   br i1 %exitcond46.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !416
 
-._crit_edge:                                      ; preds = %29, %34, %.preheader
-  %35 = icmp ugt i32 %19, 63
-  br i1 %35, label %36, label %39
+._crit_edge:                                      ; preds = %30, %35, %.preheader
+  %36 = icmp ugt i32 %19, 63
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %._crit_edge
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !58
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %38, i32 noundef 16, ptr noundef nonnull @.str.45) #15
+37:                                               ; preds = %._crit_edge
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !58
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %39, i32 noundef 16, ptr noundef nonnull @.str.45) #15
   br label %is_ebml_id_valid.exit.thread
 
-39:                                               ; preds = %._crit_edge
-  %40 = zext nneg i32 %19 to i64
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %42 = add nuw nsw i32 %19, 1
-  store i32 %42, ptr %18, align 8, !tbaa !63
-  %43 = getelementptr inbounds nuw %struct.MatroskaLevel1Element, ptr %41, i64 %40
-  store i64 0, ptr %43, align 8, !tbaa !61
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
+40:                                               ; preds = %._crit_edge
+  %41 = zext nneg i32 %19 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %43 = add nuw nsw i32 %19, 1
+  store i32 %43, ptr %18, align 8, !tbaa !63
+  %44 = getelementptr inbounds nuw %struct.MatroskaLevel1Element, ptr %42, i64 %41
+  store i64 0, ptr %44, align 8, !tbaa !61
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 %1, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !211
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 12
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i32 0, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !211
   br label %is_ebml_id_valid.exit.thread
 
-is_ebml_id_valid.exit.thread:                     ; preds = %26, %.lr.ph.split, %3, %is_ebml_id_valid.exit, %39, %36
-  %.0 = phi ptr [ null, %36 ], [ %43, %39 ], [ null, %is_ebml_id_valid.exit ], [ null, %3 ], [ %30, %.lr.ph.split ], [ %22, %26 ]
+is_ebml_id_valid.exit.thread:                     ; preds = %26, %.lr.ph.split, %3, %is_ebml_id_valid.exit, %40, %37
+  %.0 = phi ptr [ null, %36 ], [ %44, %39 ], [ null, %is_ebml_id_valid.exit ], [ null, %3 ], [ %31, %.lr.ph.split ], [ %22, %26 ]
   ret ptr %.0
 }
 

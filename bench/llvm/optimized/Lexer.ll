@@ -3106,10 +3106,10 @@ define dso_local noundef i32 @_ZN5clang5Lexer20getTokenPrefixLengthENS_14SourceL
 .preheader:                                       ; preds = %13, %13
   br i1 %15, label %._crit_edge, label %.lr.ph
 
-16:                                               ; preds = %13
+15:                                               ; preds = %13
   br i1 %15, label %.loopexit, label %17
 
-17:                                               ; preds = %16
+17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %.027, i64 1
   %19 = add i32 %.023, -1
   %20 = add i32 %.025, 1
@@ -3234,7 +3234,7 @@ _ZN5clang5Lexer19SkipEscapedNewLinesEPKc.exit:    ; preds = %30, %32, %35, %_ZN5
   %61 = add i32 %.126.lcssa, %60
   br label %.loopexit
 
-.loopexit:                                        ; preds = %16, %._crit_edge, %11, %_ZN5clang5Lexer19SkipEscapedNewLinesEPKc.exit, %4
+.loopexit:                                        ; preds = %15, %._crit_edge, %11, %_ZN5clang5Lexer19SkipEscapedNewLinesEPKc.exit, %4
   %.0 = phi i32 [ 0, %11 ], [ 0, %4 ], [ %.126.lcssa, %._crit_edge ], [ %61, %_ZN5clang5Lexer19SkipEscapedNewLinesEPKc.exit ], [ %1, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

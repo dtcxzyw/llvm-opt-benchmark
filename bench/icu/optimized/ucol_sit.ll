@@ -2053,13 +2053,13 @@ define internal noundef nonnull ptr @_ZL21_processLocaleElementP12CollatorSpecjP
   switch i32 %1, label %.split [
     i32 5, label %.split.us.preheader
     i32 4, label %.split.us.preheader
-    i32 0, label %.split.us.preheader
+    i32 0, label %7
   ]
 
-.split.us.preheader:                              ; preds = %4, %4, %4
+7:                                                ; preds = %4, %4, %4
   br label %.split.us
 
-.split.us:                                        ; preds = %.split.us.preheader, %12
+.split.us:; preds = %.split.us.preheader, %12
   %7 = phi i8 [ %11, %12 ], [ %.pre22, %.split.us.preheader ]
   %.0.us = phi ptr [ %10, %12 ], [ %2, %.split.us.preheader ]
   %8 = tail call signext i8 @uprv_asciitolower_77(i8 noundef signext %7)
@@ -2071,29 +2071,29 @@ define internal noundef nonnull ptr @_ZL21_processLocaleElementP12CollatorSpecjP
     i8 0, label %.critedge
   ]
 
-12:                                               ; preds = %.split.us
-  %13 = load i32, ptr %3, align 4, !tbaa !13
-  %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.critedge, label %.split.us, !llvm.loop !48
+13:                                               ; preds = %.split.us
+  %14 = load i32, ptr %3, align 4, !tbaa !13
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %.critedge, label %.split.us, !llvm.loop !48
 
-.split:                                           ; preds = %4, %19
-  %15 = phi i8 [ %18, %19 ], [ %.pre22, %4 ]
-  %.0 = phi ptr [ %17, %19 ], [ %2, %4 ]
-  %16 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %6, i8 noundef signext %15, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %18 = load i8, ptr %17, align 1, !tbaa !22
-  switch i8 %18, label %19 [
+.split:                                           ; preds = %4, %20
+  %16 = phi i8 [ %19, %19 ], [ %.pre22, %4 ]
+  %.0 = phi ptr [ %18, %19 ], [ %2, %4 ]
+  %17 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %6, i8 noundef signext %16, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  %19 = load i8, ptr %18, align 1, !tbaa !22
+  switch i8 %19, label %19 [
     i8 95, label %.critedge
     i8 0, label %.critedge
   ]
 
-19:                                               ; preds = %.split
-  %20 = load i32, ptr %3, align 4, !tbaa !13
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.critedge, label %.split, !llvm.loop !48
+20:                                               ; preds = %.split
+  %21 = load i32, ptr %3, align 4, !tbaa !13
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %.critedge, label %.split, !llvm.loop !48
 
-.critedge:                                        ; preds = %.split.us, %.split.us, %12, %19, %.split, %.split
-  %.us-phi = phi ptr [ %17, %.split ], [ %17, %.split ], [ %17, %19 ], [ %10, %12 ], [ %10, %.split.us ], [ %10, %.split.us ]
+.critedge:                                        ; preds = %.split.us, %.split.us, %13, %20, %.split, %.split
+  %.us-phi = phi ptr [ %18, %.split ], [ %18, %.split ], [ %18, %19 ], [ %10, %12 ], [ %10, %.split.us ], [ %10, %.split.us ]
   ret ptr %.us-phi
 }
 

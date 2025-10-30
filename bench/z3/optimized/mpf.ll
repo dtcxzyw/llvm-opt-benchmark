@@ -18840,11 +18840,11 @@ define hidden void @_ZN11mpf_manager12mk_round_infE17mpf_rounding_modeR3mpf(ptr 
 44:                                               ; preds = %3
   %45 = and i32 %4, 32767
   switch i32 %1, label %71 [
-    i32 4, label %46
-    i32 2, label %46
+    i32 4, label %45
+    i32 2, label %45
   ]
 
-46:                                               ; preds = %44, %44
+45:                                               ; preds = %44, %44
   %47 = lshr i32 %4, 15
   %48 = and i32 %47, 65535
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 728
@@ -18866,7 +18866,7 @@ define hidden void @_ZN11mpf_manager12mk_round_infE17mpf_rounding_modeR3mpf(ptr 
   %64 = icmp eq i8 %63, 0
   br i1 %64, label %65, label %70
 
-65:                                               ; preds = %46
+65:                                               ; preds = %45
   %66 = load i32, ptr %60, align 8, !tbaa !3
   store i32 %66, ptr %58, align 8, !tbaa !3
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -18875,7 +18875,7 @@ define hidden void @_ZN11mpf_manager12mk_round_infE17mpf_rounding_modeR3mpf(ptr 
   store i8 %69, ptr %67, align 4
   br label %_ZN11mpf_manager12mk_max_valueEjjbR3mpf.exit
 
-70:                                               ; preds = %46
+70:                                               ; preds = %45
   tail call void @_ZN11mpz_managerILb0EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %57, ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %60)
   br label %_ZN11mpf_manager12mk_max_valueEjjbR3mpf.exit
 

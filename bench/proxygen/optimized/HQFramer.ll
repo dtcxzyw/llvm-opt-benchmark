@@ -533,8 +533,8 @@ entry:
   call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %buf) #25
   %length18 = getelementptr inbounds nuw i8, ptr %header, i64 8
   %0 = load i64, ptr %length18, align 8
-  %cmp.not36 = icmp eq i64 %0, 0
-  br i1 %cmp.not36, label %while.end45, label %while.body20.lr.ph
+  %cmp.not48 = icmp eq i64 %0, 0
+  br i1 %cmp.not48, label %while.end45, label %while.body20.lr.ph
 
 while.body20.lr.ph:                               ; preds = %entry
   %hasValue.i.i = getelementptr inbounds nuw i8, ptr %settingIdRes, i64 16
@@ -548,8 +548,8 @@ while.body20.lr.ph:                               ; preds = %entry
   br label %while.body20
 
 while.body20:                                     ; preds = %while.body20.lr.ph, %cleanup
-  %frameLength.037 = phi i64 [ %0, %while.body20.lr.ph ], [ %sub.i, %cleanup ]
-  invoke void @_ZN4quic17decodeQuicIntegerERN5folly2io6CursorEm(ptr nonnull sret(%"class.folly::Optional.7") align 8 %settingIdRes, ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef %frameLength.037)
+  %frameLength.049 = phi i64 [ %0, %while.body20.lr.ph ], [ %sub.i, %cleanup ]
+  invoke void @_ZN4quic17decodeQuicIntegerERN5folly2io6CursorEm(ptr nonnull sret(%"class.folly::Optional.7") align 8 %settingIdRes, ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef %frameLength.049)
           to label %invoke.cont21 unwind label %terminate.lpad
 
 invoke.cont21:                                    ; preds = %while.body20
@@ -565,7 +565,7 @@ if.then:                                          ; preds = %invoke.cont21
 
 invoke.cont26:                                    ; preds = %invoke.cont21
   %2 = load i64, ptr %second, align 8
-  %sub = sub i64 %frameLength.037, %2
+  %sub = sub i64 %frameLength.049, %2
   %3 = load i64, ptr %settingIdRes, align 8
   store i64 %3, ptr %settingId, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
@@ -624,9 +624,9 @@ invoke.cont40:                                    ; preds = %invoke.cont34
   %8 = load ptr, ptr %_M_last.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 -16
   %cmp.not.i = icmp eq ptr %7, %add.ptr.i
-  br i1 %cmp.not.i, label %if.else.i, label %if.then.i26
+  br i1 %cmp.not.i, label %if.else.i, label %if.then.i25
 
-if.then.i26:                                      ; preds = %invoke.cont40
+if.then.i25:                                      ; preds = %invoke.cont40
   %9 = load i64, ptr %settingId, align 8
   store i64 %9, ptr %7, align 8
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -641,15 +641,15 @@ if.else.i:                                        ; preds = %invoke.cont40
   invoke void @_ZNSt5dequeISt4pairIN8proxygen2hq9SettingIdEmESaIS4_EE16_M_push_back_auxIJRS3_RmEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %settings, ptr noundef nonnull align 8 dereferenceable(8) %settingId, ptr noundef nonnull align 8 dereferenceable(8) %settingValue)
           to label %cleanup unwind label %terminate.lpad
 
-cleanup:                                          ; preds = %if.else.i, %if.then.i26, %invoke.cont34
+cleanup:                                          ; preds = %if.else.i, %if.then.i25, %invoke.cont34
   store i8 0, ptr %which_.i.i.i.i, align 8
   %cmp.not = icmp eq i64 %sub.i, 0
   br i1 %cmp.not, label %while.end45, label %while.body20, !llvm.loop !16
 
 while.end45:                                      ; preds = %cleanup, %entry
   store i8 0, ptr %agg.result, align 8
-  %hasValue.i.i31 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i8 0, ptr %hasValue.i.i31, align 8
+  %hasValue.i.i30 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i8 0, ptr %hasValue.i.i30, align 8
   br label %cleanup46
 
 cleanup46:                                        ; preds = %cleanup.thread, %while.end45, %if.then
@@ -657,10 +657,10 @@ cleanup46:                                        ; preds = %cleanup.thread, %wh
   ret void
 
 terminate.lpad:                                   ; preds = %if.else.i, %invoke.cont26, %while.body20
-  %lpad.loopexit = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %lpad.loopexit, 0
-  call void @__clang_call_terminate(ptr %12) #26
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #26
   unreachable
 }
 

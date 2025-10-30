@@ -30898,17 +30898,17 @@ bsearch.exit:                                     ; preds = %14, %bsearch.exit.l
   %18 = load i8, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   switch i8 %18, label %20 [
-    i8 105, label %36
+    i8 105, label %.sink.split
     i8 73, label %36
   ]
 
-20:                                               ; preds = %bsearch.exit
+19:                                               ; preds = %bsearch.exit
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.897, i32 noundef %1) #13
   %21 = load i32, ptr %19, align 4
   %.not27 = icmp eq i32 %21, 0
   br i1 %.not27, label %25, label %22
 
-22:                                               ; preds = %20
+22:                                               ; preds = %19
   %23 = load i8, ptr %17, align 4
   %.not28 = icmp eq i8 %23, 112
   br i1 %.not28, label %25, label %24
@@ -30917,7 +30917,7 @@ bsearch.exit:                                     ; preds = %14, %bsearch.exit.l
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.716, i32 noundef %21) #13
   br label %25
 
-25:                                               ; preds = %24, %22, %20
+25:                                               ; preds = %24, %22, %19
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %27 = load i32, ptr %26, align 4
   %.not29 = icmp eq i32 %27, 0
@@ -30939,11 +30939,11 @@ bsearch.exit:                                     ; preds = %14, %bsearch.exit.l
   %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   br label %.sink.split
 
-36:                                               ; preds = %bsearch.exit, %bsearch.exit
+.sink.split:                                      ; preds = %bsearch.exit, %bsearch.exit
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.900, i32 noundef %1) #13
   br label %.sink.split
 
-.sink.split:                                      ; preds = %36, %30
+.sink.split:; preds = %.sink.split, %30
   %.sink.in = phi ptr [ %35, %30 ], [ %19, %36 ]
   %.sink = load i32, ptr %.sink.in, align 4
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.717, i32 noundef %.sink) #13

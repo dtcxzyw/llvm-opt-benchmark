@@ -46906,7 +46906,7 @@ define internal fastcc void @_ZN11ide_assists8handlers15add_return_type16ret_ty_
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %34)
           to label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0f6b849c6d556ca0E.exit" unwind label %66
 
-40:                                               ; preds = %140, %69, %42, %31, %29, %22, %16
+40:                                               ; preds = %141, %69, %42, %31, %29, %22, %16
   %41 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0f6b849c6d556ca0E.exit35"
@@ -46969,7 +46969,7 @@ define internal fastcc void @_ZN11ide_assists8handlers15add_return_type16ret_ty_
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %43)
           to label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0f6b849c6d556ca0E.exit35" unwind label %66
 
-66:                                               ; preds = %93, %82, %65, %39
+66:                                               ; preds = %92, %82, %65, %39
   %67 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20
@@ -47012,8 +47012,8 @@ define internal fastcc void @_ZN11ide_assists8handlers15add_return_type16ret_ty_
 "_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0f6b849c6d556ca0E.exit38": ; preds = %70, %76
   ret void
 
-"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Type$GT$$GT$17ha04fe30b1bcb91b9E.exit": ; preds = %90, %93, %83
-  %.pn = phi { ptr, i32 } [ %84, %83 ], [ %91, %93 ], [ %91, %90 ]
+"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Type$GT$$GT$17ha04fe30b1bcb91b9E.exit": ; preds = %89, %92, %83
+  %.pn = phi { ptr, i32 } [ %84, %83 ], [ %90, %93 ], [ %90, %90 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13531)
   call void @llvm.experimental.noalias.scope.decl(metadata !13534)
   call void @llvm.experimental.noalias.scope.decl(metadata !13537)
@@ -47044,39 +47044,39 @@ define internal fastcc void @_ZN11ide_assists8handlers15add_return_type16ret_ty_
   %89 = load atomic i64, ptr @_ZN8cov_mark4__rt5LEVEL17hb6c01697fd339c13E monotonic, align 8
   %.not = icmp eq i64 %89, 0
   switch i64 %86, label %129 [
-    i64 14, label %94
-    i64 5, label %94
+    i64 14, label %93
+    i64 5, label %93
   ]
 
-90:                                               ; preds = %124, %122, %115, %109, %133, %130, %99, %98, %95
-  %91 = landingpad { ptr, i32 }
+89:                                               ; preds = %124, %122, %115, %109, %134, %131, %99, %98, %95
+  %90 = landingpad { ptr, i32 }
           cleanup
-  %92 = icmp eq i64 %86, 14
-  br i1 %92, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Type$GT$$GT$17ha04fe30b1bcb91b9E.exit", label %93
+  %91 = icmp eq i64 %86, 14
+  br i1 %91, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Type$GT$$GT$17ha04fe30b1bcb91b9E.exit", label %92
 
-93:                                               ; preds = %90
+92:                                               ; preds = %89
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h65f6279d8c97e388E.llvm.15310660258042884294"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
           to label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Type$GT$$GT$17ha04fe30b1bcb91b9E.exit" unwind label %66
 
-94:                                               ; preds = %85, %85
+93:                                               ; preds = %85, %85
   br i1 %.not, label %96, label %95
 
-95:                                               ; preds = %94
+95:                                               ; preds = %93
   invoke void @_ZN8cov_mark4__rt3hit8hit_cold17h01c28ecb730e6d15E(ptr noalias noundef nonnull readonly align 1 @anon.bed1d66be63dd231e8b8b1711bb97b08.312, i64 noundef 23)
-          to label %96 unwind label %90
+          to label %96 unwind label %89
 
-96:                                               ; preds = %94, %95
+96:                                               ; preds = %93, %95
   %97 = load atomic i64, ptr @_ZN8cov_mark4__rt5LEVEL17hb6c01697fd339c13E monotonic, align 8
   %.not22 = icmp eq i64 %97, 0
   br i1 %.not22, label %99, label %98
 
 98:                                               ; preds = %96
   invoke void @_ZN8cov_mark4__rt3hit8hit_cold17h01c28ecb730e6d15E(ptr noalias noundef nonnull readonly align 1 @anon.bed1d66be63dd231e8b8b1711bb97b08.313, i64 noundef 31)
-          to label %99 unwind label %90
+          to label %99 unwind label %89
 
 99:                                               ; preds = %98, %96
   %100 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN79_$LT$syntax..ast..generated..nodes..RetType$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h5b58f95368e74f75E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
-          to label %101 unwind label %90
+          to label %101 unwind label %89
 
 101:                                              ; preds = %99
   call void @llvm.experimental.noalias.scope.decl(metadata !13544)
@@ -47093,7 +47093,7 @@ define internal fastcc void @_ZN11ide_assists8handlers15add_return_type16ret_ty_
 
 109:                                              ; preds = %101
   %110 = invoke noundef i32 @_ZN5rowan6cursor8NodeData10offset_mut17h4d35d478d3a0a51cE(ptr noundef nonnull align 8 %102)
-          to label %.noexc50 unwind label %90
+          to label %.noexc50 unwind label %89
 
 .noexc50:                                         ; preds = %109, %106
   %.0.i.i44 = phi i32 [ %108, %106 ], [ %110, %109 ]
@@ -47111,7 +47111,7 @@ define internal fastcc void @_ZN11ide_assists8handlers15add_return_type16ret_ty_
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i.i46, i64 8
   %117 = load i64, ptr %116, align 8, !noalias !13544, !noundef !4
   %118 = invoke { i32, i32 } @"_ZN81_$LT$text_size..size..TextSize$u20$as$u20$core..convert..TryFrom$LT$usize$GT$$GT$8try_from17ha1c8b6c82649711cE.llvm.14339125420948612040"(i64 noundef %117)
-          to label %.noexc51 unwind label %90
+          to label %.noexc51 unwind label %89
 
 .noexc51:                                         ; preds = %115
   %119 = extractvalue { i32, i32 } %118, 0
@@ -47121,7 +47121,7 @@ define internal fastcc void @_ZN11ide_assists8handlers15add_return_type16ret_ty_
 
 122:                                              ; preds = %.noexc51
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.445f4f40c32bd3871152d3a7c4401c1a.50.llvm.14339125420948612040, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.445f4f40c32bd3871152d3a7c4401c1a.51.llvm.14339125420948612040, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.445f4f40c32bd3871152d3a7c4401c1a.56.llvm.14339125420948612040) #22
-          to label %.noexc52 unwind label %90
+          to label %.noexc52 unwind label %89
 
 .noexc52:                                         ; preds = %122
   unreachable
@@ -47134,7 +47134,7 @@ define internal fastcc void @_ZN11ide_assists8handlers15add_return_type16ret_ty_
 
 124:                                              ; preds = %"_ZN5rowan5green7element138_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$$RF$rowan..green..node..GreenNodeData$C$$RF$rowan..green..token..GreenTokenData$GT$$GT$8text_len17h99fb7657d751ae4dE.llvm.14339125420948612040.exit.i.i47"
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.445f4f40c32bd3871152d3a7c4401c1a.57.llvm.14339125420948612040, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.445f4f40c32bd3871152d3a7c4401c1a.59.llvm.14339125420948612040) #22
-          to label %.noexc53 unwind label %90
+          to label %.noexc53 unwind label %89
 
 .noexc53:                                         ; preds = %124
   unreachable
@@ -47147,7 +47147,7 @@ define internal fastcc void @_ZN11ide_assists8handlers15add_return_type16ret_ty_
   store i32 %123, ptr %.sroa.5.0..sroa_idx, align 4
   br label %126
 
-126:                                              ; preds = %134, %125
+126:                                              ; preds = %135, %125
   %127 = icmp eq i64 %86, 14
   br i1 %127, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Type$GT$$GT$17ha04fe30b1bcb91b9E.exit55", label %128
 
@@ -47156,22 +47156,22 @@ define internal fastcc void @_ZN11ide_assists8handlers15add_return_type16ret_ty_
           to label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Type$GT$$GT$17ha04fe30b1bcb91b9E.exit55" unwind label %83
 
 129:                                              ; preds = %85
-  br i1 %.not, label %131, label %130
+  br i1 %.not, label %131, label %131
 
-130:                                              ; preds = %129
+131:                                              ; preds = %129
   invoke void @_ZN8cov_mark4__rt3hit8hit_cold17h01c28ecb730e6d15E(ptr noalias noundef nonnull readonly align 1 @anon.bed1d66be63dd231e8b8b1711bb97b08.314, i64 noundef 17)
-          to label %131 unwind label %90
+          to label %131 unwind label %89
 
-131:                                              ; preds = %129, %130
-  %132 = load atomic i64, ptr @_ZN8cov_mark4__rt5LEVEL17hb6c01697fd339c13E monotonic, align 8
-  %.not20 = icmp eq i64 %132, 0
-  br i1 %.not20, label %134, label %133
+132:                                              ; preds = %129, %131
+  %133 = load atomic i64, ptr @_ZN8cov_mark4__rt5LEVEL17hb6c01697fd339c13E monotonic, align 8
+  %.not20 = icmp eq i64 %133, 0
+  br i1 %.not20, label %135, label %134
 
-133:                                              ; preds = %131
+134:                                              ; preds = %132
   invoke void @_ZN8cov_mark4__rt3hit8hit_cold17h01c28ecb730e6d15E(ptr noalias noundef nonnull readonly align 1 @anon.bed1d66be63dd231e8b8b1711bb97b08.315, i64 noundef 25)
-          to label %134 unwind label %90
+          to label %134 unwind label %89
 
-134:                                              ; preds = %133, %131
+135:                                              ; preds = %134, %132
   store i8 2, ptr %0, align 4
   br label %126
 
@@ -47181,19 +47181,19 @@ define internal fastcc void @_ZN11ide_assists8handlers15add_return_type16ret_ty_
   call void @llvm.experimental.noalias.scope.decl(metadata !13550)
   call void @llvm.experimental.noalias.scope.decl(metadata !13553)
   call void @llvm.experimental.noalias.scope.decl(metadata !13556)
-  %135 = load ptr, ptr %6, align 8, !alias.scope !13559, !nonnull !4, !noundef !4
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 48
-  %137 = load i32, ptr %136, align 4, !noalias !13559, !noundef !4
-  %138 = add i32 %137, -1
-  store i32 %138, ptr %136, align 4, !noalias !13559
-  %139 = icmp eq i32 %138, 0
-  br i1 %139, label %140, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..RetType$GT$17h5f5d3d36506653dbE.exit58"
+  %136 = load ptr, ptr %6, align 8, !alias.scope !13559, !nonnull !4, !noundef !4
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 48
+  %138 = load i32, ptr %137, align 4, !noalias !13559, !noundef !4
+  %139 = add i32 %138, -1
+  store i32 %139, ptr %137, align 4, !noalias !13559
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %141, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..RetType$GT$17h5f5d3d36506653dbE.exit58"
 
-140:                                              ; preds = %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Type$GT$$GT$17ha04fe30b1bcb91b9E.exit55"
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %135)
+141:                                              ; preds = %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Type$GT$$GT$17ha04fe30b1bcb91b9E.exit55"
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %136)
           to label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..RetType$GT$17h5f5d3d36506653dbE.exit58" unwind label %40
 
-"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..RetType$GT$17h5f5d3d36506653dbE.exit58": ; preds = %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Type$GT$$GT$17ha04fe30b1bcb91b9E.exit55", %140
+"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..RetType$GT$17h5f5d3d36506653dbE.exit58": ; preds = %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Type$GT$$GT$17ha04fe30b1bcb91b9E.exit55", %141
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %70
 

@@ -3933,13 +3933,13 @@ _ZNK20PlayerHPChangeReason15getTypeAsStringB5cxx11Ev.exit: ; preds = %sw.default
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK20PlayerHPChangeReason15getTypeAsStringB5cxx11Ev.exit
-  %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
-  %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  %cmp.i.i.i = icmp eq ptr %3, %4
+  %10 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %cmp.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef %3) #28
+  call void @_ZdlPv(ptr noundef %10) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -3948,48 +3948,48 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invok
   br label %if.end6
 
 lpad:                                             ; preds = %_ZNK20PlayerHPChangeReason15getTypeAsStringB5cxx11Ev.exit
-  %5 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
-  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  %cmp.i.i.i40 = icmp eq ptr %6, %7
+  %13 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %cmp.i.i.i40 = icmp eq ptr %13, %14
   br i1 %cmp.i.i.i40, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45, label %if.then.i.i41
 
 if.then.i.i41:                                    ; preds = %lpad
-  call void @_ZdlPv(ptr noundef %6) #28
+  call void @_ZdlPv(ptr noundef %13) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %lpad, %if.then.i.i41
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %12
 
 if.end6:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.end
   %from_mod = getelementptr inbounds nuw i8, ptr %reason, i64 1
-  %8 = load i8, ptr %from_mod, align 1, !tbaa !226, !range !79, !noundef !80
-  %tobool7.not = icmp eq i8 %8, 0
+  %15 = load i8, ptr %from_mod, align 1, !tbaa !226, !range !79, !noundef !80
+  %tobool7.not = icmp eq i8 %15, 0
   %cond = select i1 %tobool7.not, ptr @.str.70, ptr @.str.69
   call void @lua_pushstring(ptr noundef %L, ptr noundef nonnull %cond)
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.71)
   %object = getelementptr inbounds nuw i8, ptr %reason, i64 8
-  %9 = load ptr, ptr %object, align 8, !tbaa !227
-  %tobool8.not = icmp eq ptr %9, null
+  %16 = load ptr, ptr %object, align 8, !tbaa !227
+  %tobool8.not = icmp eq ptr %16, null
   br i1 %tobool8.not, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
-  call void @_ZN13ScriptApiBase20objectrefGetOrCreateEP9lua_StateP18ServerActiveObject(ptr nonnull align 8 poison, ptr noundef %L, ptr noundef nonnull %9)
+  call void @_ZN13ScriptApiBase20objectrefGetOrCreateEP9lua_StateP18ServerActiveObject(ptr nonnull align 8 poison, ptr noundef %L, ptr noundef nonnull %16)
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.72)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.end6
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %reason, i64 24
-  %10 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !19
-  %cmp.i46 = icmp eq i64 %10, 0
+  %17 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !19
+  %cmp.i46 = icmp eq i64 %17, 0
   br i1 %cmp.i46, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
   %node = getelementptr inbounds nuw i8, ptr %reason, i64 16
-  %11 = load ptr, ptr %node, align 8, !tbaa !4
-  call void @lua_pushstring(ptr noundef %L, ptr noundef %11)
+  %18 = load ptr, ptr %node, align 8, !tbaa !4
+  call void @lua_pushstring(ptr noundef %L, ptr noundef %18)
   call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.73)
   %node_pos = getelementptr inbounds nuw i8, ptr %reason, i64 48
   %agg.tmp.sroa.0.0.copyload = load i48, ptr %node_pos, align 8, !tbaa.struct !228

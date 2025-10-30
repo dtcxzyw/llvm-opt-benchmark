@@ -1158,7 +1158,7 @@ define noundef zeroext i1 @_Z12IsNameUsablePKw(ptr noundef readonly %0) local_un
   %.not1417 = icmp eq i32 %3, 0
   br i1 %.not1417, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %._crit_edge19
+.lr.ph:                                           ; preds = %.preheader, %11
   %4 = phi i32 [ %.pre, %._crit_edge19 ], [ %3, %.preheader ]
   %.01118 = phi ptr [ %9, %._crit_edge19 ], [ %0, %.preheader ]
   %5 = icmp ult i32 %4, 32
@@ -1174,20 +1174,20 @@ define noundef zeroext i1 @_Z12IsNameUsablePKw(ptr noundef readonly %0) local_un
 
 7:                                                ; preds = %6, %6
   %8 = icmp eq i32 %.pre, 47
-  br i1 %8, label %.thread, label %._crit_edge19
+  br i1 %8, label %.thread, label %11
 
-._crit_edge19:                                    ; preds = %6, %7
+11:                                               ; preds = %6, %7
   %9 = getelementptr inbounds nuw i8, ptr %.01118, i64 4
   %.not14 = icmp eq i32 %.pre, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %._crit_edge19
-  %10 = tail call ptr @wcspbrk(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #19
-  %11 = icmp eq ptr %10, null
+._crit_edge:                                      ; preds = %11
+  %14 = tail call ptr @wcspbrk(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #19
+  %15 = icmp eq ptr %14, null
   br label %.thread
 
 .thread:                                          ; preds = %7, %.lr.ph, %.preheader, %._crit_edge, %1
-  %.012 = phi i1 [ false, %1 ], [ %11, %._crit_edge ], [ false, %.preheader ], [ false, %.lr.ph ], [ false, %7 ]
+  %.012 = phi i1 [ false, %1 ], [ %15, %._crit_edge ], [ false, %.preheader ], [ false, %.lr.ph ], [ false, %7 ]
   ret i1 %.012
 }
 

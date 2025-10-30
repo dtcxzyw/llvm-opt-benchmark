@@ -26963,7 +26963,7 @@ _ZN4toml2v34impl7impl_ex6parser25consume_expected_sequenceESt17basic_string_view
   store ptr @.str.98, ptr %52, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 3, ptr %4, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %54 = add i32 %42, -73
   %switch.and32 = and i32 %54, -33
   %switch.selectcmp33 = icmp eq i32 %switch.and32, 0

@@ -303,9 +303,9 @@ define noundef range(i32 -255, 256) i32 @_ZN5folly7LogName3cmpENS_5RangeIPKcEES4
   %.sroa.12.1 = phi ptr [ %.sroa.12.1.ph, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5.loopexit" ], [ %3, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit" ]
   br label %21
 
-21:                                               ; preds = %55, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5"
-  %.sroa.014.0 = phi ptr [ %2, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %57, %55 ]
-  %.sroa.024.0 = phi ptr [ %0, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %56, %55 ]
+21:                                               ; preds = %56, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5"
+  %.sroa.014.0 = phi ptr [ %2, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %58, %55 ]
+  %.sroa.024.0 = phi ptr [ %0, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %57, %55 ]
   %.0 = phi i1 [ true, %"_ZZN5folly7LogName3cmpENS_5RangeIPKcEES4_ENK3$_0clERS4_.exit5" ], [ %spec.select.i, %55 ]
   %.sroa.014.050 = ptrtoint ptr %.sroa.014.0 to i64
   %.sroa.024.046 = ptrtoint ptr %.sroa.024.0 to i64
@@ -383,19 +383,19 @@ define noundef range(i32 -255, 256) i32 @_ZN5folly7LogName3cmpENS_5RangeIPKcEES4
   %spec.select.i = or i1 %44, %or.cond.i
   %45 = load i8, ptr %.sroa.014.1, align 1, !tbaa !16
   switch i8 %42, label %50 [
-    i8 92, label %46
-    i8 47, label %46
-    i8 46, label %46
+    i8 92, label %45
+    i8 47, label %45
+    i8 46, label %45
   ]
 
-46:                                               ; preds = %41, %41, %41
+45:                                               ; preds = %41, %41, %41
   switch i8 %45, label %47 [
     i8 92, label %55
-    i8 47, label %55
-    i8 46, label %55
+    i8 47, label %56
+    i8 46, label %56
   ]
 
-47:                                               ; preds = %46
+47:                                               ; preds = %45
   %48 = sext i8 %45 to i32
   %49 = sub nsw i32 46, %48
   br label %.loopexit
@@ -410,9 +410,9 @@ define noundef range(i32 -255, 256) i32 @_ZN5folly7LogName3cmpENS_5RangeIPKcEES4
   %54 = sub nsw i32 %52, %53
   br label %.loopexit
 
-55:                                               ; preds = %46, %46, %46, %50
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.024.1, i64 1
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.014.1, i64 1
+56:                                               ; preds = %45, %45, %45, %50
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.024.1, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.014.1, i64 1
   br label %21, !llvm.loop !25
 
 .loopexit:                                        ; preds = %39, %51, %47, %36

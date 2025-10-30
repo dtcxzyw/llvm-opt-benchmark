@@ -17383,19 +17383,19 @@ define void @ImageResizeNN(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
 define void @ImageResize(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %47, label %6
+  br i1 %5, label %50, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %47, label %10
+  br i1 %9, label %50, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %47, label %14
+  br i1 %13, label %50, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -17413,7 +17413,7 @@ GetPixelDataSize.exit.thread69:                   ; preds = %14
   %19 = sext i32 %18 to i64
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #55
   %21 = tail call ptr @stbir_resize_uint8_linear(ptr noundef nonnull %4, i32 noundef %8, i32 noundef %12, i32 noundef 0, ptr noundef %20, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 4)
-  br label %34
+  br label %36
 
 GetPixelDataSize.exit.thread:                     ; preds = %14
   %22 = mul nsw i32 %17, 3
@@ -17423,36 +17423,36 @@ GetPixelDataSize.exit.thread:                     ; preds = %14
   br label %34
 
 GetPixelDataSize.exit:                            ; preds = %14, %14
-  %26 = mul nsw i32 %17, %16
-  %27 = sext i32 %26 to i64
+  %27 = mul nsw i32 %17, %16
+  %27 = sext i32 %27 to i64
   %28 = tail call noalias ptr @malloc(i64 noundef %27) #55
   %29 = icmp eq i32 %16, 1
   br i1 %29, label %30, label %32
 
-30:                                               ; preds = %GetPixelDataSize.exit
-  %31 = tail call ptr @stbir_resize_uint8_linear(ptr noundef nonnull %4, i32 noundef %8, i32 noundef %12, i32 noundef 0, ptr noundef %28, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 1)
-  br label %34
-
 32:                                               ; preds = %GetPixelDataSize.exit
-  %33 = tail call ptr @stbir_resize_uint8_linear(ptr noundef nonnull %4, i32 noundef %8, i32 noundef %12, i32 noundef 0, ptr noundef %28, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 2)
-  br label %34
+  %33 = tail call ptr @stbir_resize_uint8_linear(ptr noundef nonnull %4, i32 noundef %8, i32 noundef %12, i32 noundef 0, ptr noundef %28, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 1)
+  br label %36
 
-34:                                               ; preds = %GetPixelDataSize.exit.thread69, %GetPixelDataSize.exit.thread, %32, %30
-  %35 = phi ptr [ %20, %GetPixelDataSize.exit.thread69 ], [ %24, %GetPixelDataSize.exit.thread ], [ %28, %32 ], [ %28, %30 ]
-  %36 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %36) #54
-  store ptr %35, ptr %0, align 8
+34:                                               ; preds = %GetPixelDataSize.exit
+  %35 = tail call ptr @stbir_resize_uint8_linear(ptr noundef nonnull %4, i32 noundef %8, i32 noundef %12, i32 noundef 0, ptr noundef %28, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 2)
+  br label %36
+
+36:                                               ; preds = %GetPixelDataSize.exit.thread69, %GetPixelDataSize.exit.thread, %34, %32
+  %37 = phi ptr [ %20, %GetPixelDataSize.exit.thread69 ], [ %24, %GetPixelDataSize.exit.thread ], [ %28, %32 ], [ %28, %30 ]
+  %38 = load ptr, ptr %0, align 8
+  tail call void @free(ptr noundef %38) #54
+  store ptr %37, ptr %0, align 8
   store i32 %1, ptr %7, align 8
   store i32 %2, ptr %11, align 4
-  br label %47
+  br label %50
 
-37:                                               ; preds = %14
-  %38 = tail call ptr @LoadImageColors(ptr noundef nonnull byval(%struct.Image) align 8 %0)
+39:                                               ; preds = %14
+  %40 = tail call ptr @LoadImageColors(ptr noundef nonnull byval(%struct.Image) align 8 %0)
   %39 = sext i32 %17 to i64
   %40 = shl nsw i64 %39, 2
   %41 = tail call noalias ptr @malloc(i64 noundef %40) #55
   %42 = load i32, ptr %7, align 8
-  %43 = load i32, ptr %11, align 4
+  %45 = load i32, ptr %11, align 4
   %44 = tail call ptr @stbir_resize_uint8_linear(ptr noundef %38, i32 noundef %42, i32 noundef %43, i32 noundef 0, ptr noundef %41, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 4)
   %45 = load i32, ptr %15, align 4
   tail call void @free(ptr noundef %38) #54
@@ -17463,9 +17463,9 @@ GetPixelDataSize.exit:                            ; preds = %14, %14
   store i32 %2, ptr %11, align 4
   store i32 7, ptr %15, align 4
   tail call void @ImageFormat(ptr noundef nonnull %0, i32 noundef %45)
-  br label %47
+  br label %50
 
-47:                                               ; preds = %3, %6, %10, %37, %34
+50:                                               ; preds = %3, %6, %10, %39, %36
   ret void
 }
 

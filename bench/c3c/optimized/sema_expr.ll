@@ -27757,7 +27757,7 @@ type_property_by_name.exit113:                    ; preds = %24, %.split.loop.ex
 
 29:                                               ; preds = %27
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %30, label %157
+  br i1 %.not, label %30, label %160
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -27819,7 +27819,7 @@ sema_expr_analyse_enum_constant.exit:             ; preds = %44
 
 62:                                               ; preds = %42, %44
   %.not107 = icmp eq ptr %4, null
-  br i1 %.not107, label %63, label %157
+  br i1 %.not107, label %63, label %160
 
 63:                                               ; preds = %62
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -27868,7 +27868,7 @@ sema_expr_analyse_enum_constant.exit116:          ; preds = %72
 
 90:                                               ; preds = %70, %72
   %.not97 = icmp eq ptr %4, null
-  br i1 %.not97, label %91, label %157
+  br i1 %.not97, label %91, label %160
 
 91:                                               ; preds = %90
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -27900,7 +27900,7 @@ sema_expr_analyse_enum_constant.exit116:          ; preds = %72
 
 105:                                              ; preds = %98
   %.not104 = icmp eq ptr %4, null
-  br i1 %.not104, label %106, label %157
+  br i1 %.not104, label %106, label %160
 
 106:                                              ; preds = %105
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -27941,7 +27941,7 @@ sema_expr_analyse_enum_constant.exit116:          ; preds = %72
 
 127:                                              ; preds = %126
   %.not106 = icmp eq ptr %4, null
-  br i1 %.not106, label %128, label %157
+  br i1 %.not106, label %128, label %160
 
 128:                                              ; preds = %127
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -27961,13 +27961,13 @@ sema_expr_analyse_enum_constant.exit116:          ; preds = %72
   %138 = load i16, ptr %137, align 8
   %139 = and i16 %138, -256
   switch i32 %136, label %150 [
-    i32 26, label %140
-    i32 25, label %140
-    i32 23, label %140
-    i32 2, label %140
+    i32 26, label %137
+    i32 25, label %137
+    i32 23, label %137
+    i32 2, label %137
   ]
 
-140:                                              ; preds = %.thread, %.thread, %.thread, %.thread
+137:                                              ; preds = %.thread, %.thread, %.thread, %.thread
   %141 = or disjoint i16 %139, 14
   store i16 %141, ptr %137, align 8
   %142 = getelementptr inbounds nuw i8, ptr %36, i64 72
@@ -27975,7 +27975,7 @@ sema_expr_analyse_enum_constant.exit116:          ; preds = %72
   %144 = call zeroext i1 @sema_resolve_type_decl(ptr noundef %0, ptr noundef %143) #12
   br i1 %144, label %145, label %.critedge
 
-145:                                              ; preds = %140
+145:                                              ; preds = %137
   %146 = call i32 @type_abi_alignment(ptr noundef %143) #12
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %148 = call i32 @decl_find_member_offset(ptr noundef nonnull %36, ptr noundef nonnull %.091121) #12
@@ -27997,19 +27997,19 @@ sema_expr_analyse_enum_constant.exit116:          ; preds = %72
   store ptr %.091121, ptr %152, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %.091121, i64 72
-  %154 = load ptr, ptr %153, align 8
-  store ptr %154, ptr %1, align 8
-  %155 = and i16 %151, -4062
-  %156 = or disjoint i16 %155, 512
-  store i16 %156, ptr %137, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %.091121, i64 72
+  %157 = load ptr, ptr %156, align 8
+  store ptr %157, ptr %1, align 8
+  %158 = and i16 %151, -4062
+  %159 = or disjoint i16 %158, 512
+  store i16 %159, ptr %137, align 8
   br label %.critedge
 
-157:                                              ; preds = %127, %105, %90, %62, %29
+160:                                              ; preds = %127, %105, %90, %62, %29
   store i8 1, ptr %4, align 1
   br label %.critedge
 
-.critedge:                                        ; preds = %sema_expr_analyse_enum_constant.exit116, %sema_expr_analyse_enum_constant.exit, %140, %157, %150, %145, %128, %111, %106, %91, %63, %30, %type_property_by_name.exit113
+.critedge:                                        ; preds = %sema_expr_analyse_enum_constant.exit116, %sema_expr_analyse_enum_constant.exit, %137, %160, %150, %145, %128, %111, %106, %91, %63, %30, %type_property_by_name.exit113
   %.090 = phi i1 [ false, %157 ], [ false, %63 ], [ true, %145 ], [ true, %150 ], [ false, %128 ], [ false, %106 ], [ false, %111 ], [ false, %91 ], [ false, %30 ], [ %26, %type_property_by_name.exit113 ], [ true, %sema_expr_analyse_enum_constant.exit ], [ true, %sema_expr_analyse_enum_constant.exit116 ], [ false, %140 ]
   ret i1 %.090
 }

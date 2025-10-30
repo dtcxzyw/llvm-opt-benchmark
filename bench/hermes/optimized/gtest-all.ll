@@ -3635,8 +3635,8 @@ tailrecurse.outer:                                ; preds = %tailrecurse.outer.b
 
 tailrecurse:                                      ; preds = %tailrecurse.outer, %lor.rhs
   %pattern.tr = phi ptr [ %add.ptr11, %lor.rhs ], [ %pattern.tr.ph, %tailrecurse.outer ]
-  %1 = load i8, ptr %pattern.tr, align 1
-  switch i8 %1, label %sw.default [
+  %0 = load i8, ptr %pattern.tr, align 1
+  switch i8 %0, label %sw.default [
     i8 0, label %sw.bb
     i8 58, label %sw.bb
     i8 63, label %sw.bb2

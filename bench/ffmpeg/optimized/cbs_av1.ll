@@ -18474,30 +18474,30 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_av1_write_frame_refere
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 782
   %7 = load i8, ptr %6, align 2, !tbaa !376
   switch i8 %5, label %12 [
-    i8 2, label %8
-    i8 0, label %8
+    i8 2, label %6
+    i8 0, label %6
   ]
 
-8:                                                ; preds = %3, %3
+6:                                                ; preds = %3, %3
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %16, label %9
 
-9:                                                ; preds = %8
+9:                                                ; preds = %6
   %10 = load ptr, ptr %0, align 8, !tbaa !19
   %11 = zext i8 %7 to i64
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %10, i32 noundef 16, ptr noundef nonnull @.str.317, ptr noundef nonnull @.str.212, i64 noundef %11, i64 noundef 0) #8
-  br label %17
+  br label %19
 
 12:                                               ; preds = %3
   %13 = zext i8 %7 to i32
-  %14 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.212, i32 noundef %13) #8
+  %14 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.212, i32 noundef %13) #6
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %17, label %16
+  br i1 %15, label %17, label %18
 
-16:                                               ; preds = %12, %8
-  br label %17
+18:                                               ; preds = %12, %6
+  br label %19
 
-17:                                               ; preds = %12, %16, %9
+19:                                               ; preds = %12, %18, %9
   %.0 = phi i32 [ -1094995529, %9 ], [ 0, %16 ], [ %14, %12 ]
   ret i32 %.0
 }

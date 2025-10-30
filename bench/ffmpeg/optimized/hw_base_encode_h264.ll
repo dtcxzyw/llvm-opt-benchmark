@@ -601,12 +601,12 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h264(ptr noundef rea
   store i8 %329, ptr %330, align 4, !tbaa !157
   %331 = getelementptr inbounds nuw i8, ptr %2, i64 2593
   switch i8 %315, label %333 [
-    i8 66, label %332
-    i8 88, label %332
-    i8 77, label %332
+    i8 66, label %331
+    i8 88, label %331
+    i8 77, label %331
   ]
 
-332:                                              ; preds = %319, %319, %319
+331:                                              ; preds = %319, %319, %319
   store i8 0, ptr %331, align 1, !tbaa !158
   br label %335
 

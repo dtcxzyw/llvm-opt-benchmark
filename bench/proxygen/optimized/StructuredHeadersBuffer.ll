@@ -2945,7 +2945,7 @@ _ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt
 
 if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i47.i.i, %land.lhs.true.i34.i.i, %entry, %if.end.i.i, %if.then11.i.i, %lor.lhs.false22.i.i, %if.end17.i.i, %if.else35.i.i
   %call2.i.i.i.i = call noundef zeroext i1 @_ZN5boost6detail27lexical_ostream_limited_srcIcSt11char_traitsIcEE20shr_using_base_classIdEEbRT_(ptr noundef nonnull align 8 dereferenceable(16) %out.i.i, ptr noundef nonnull align 8 dereferenceable(8) %result)
-  br i1 %call2.i.i.i.i, label %land.lhs.true.i.i.i.i, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit
+  br i1 %call2.i.i.i.i, label %land.lhs.true.i.i.i.i, label %if.then
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end.i.i.i.i
   %13 = load ptr, ptr %finish.i6.i.i, align 8
@@ -2964,7 +2964,7 @@ _ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt
   %.pre = load double, ptr %result, align 8
   br label %if.end
 
-_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit: ; preds = %if.end.i.i.i.i
+if.then:                                          ; preds = %if.end.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %i_interpreter.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %out.i.i)
   br label %if.then

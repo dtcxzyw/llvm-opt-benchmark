@@ -683,8 +683,8 @@ define hidden void @lexbor_str_strip_collapse_whitespace(ptr noundef captures(no
 .lr.ph.preheader:                                 ; preds = %6, %8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
-  %.055 = phi i64 [ %20, %19 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
+  %.055 = phi i64 [ %22, %19 ], [ 0, %.lr.ph.preheader ]
   %.04454 = phi i64 [ %.2, %19 ], [ 0, %.lr.ph.preheader ]
   %.04553 = phi i64 [ %.146, %19 ], [ 0, %.lr.ph.preheader ]
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 %.055
@@ -693,61 +693,61 @@ define hidden void @lexbor_str_strip_collapse_whitespace(ptr noundef captures(no
   %13 = load i8, ptr %12, align 1, !tbaa !12
   %14 = icmp eq i8 %13, 32
   switch i8 %11, label %16 [
-    i8 32, label %15
-    i8 9, label %15
+    i8 32, label %12
+    i8 9, label %12
     i8 10, label %15
     i8 12, label %15
     i8 13, label %15
   ]
 
-15:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  br i1 %14, label %19, label %.sink.split
+12:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  br i1 %14, label %21, label %.sink.split
 
-16:                                               ; preds = %.lr.ph
+15:                                               ; preds = %.lr.ph
   %spec.select = select i1 %14, i64 %.04553, i64 %.04454
   br label %.sink.split
 
-.sink.split:                                      ; preds = %15, %16
+.sink.split:                                      ; preds = %12, %15
   %.sink = phi i8 [ %11, %16 ], [ 32, %15 ]
   %.2.ph = phi i64 [ %spec.select, %16 ], [ %.04553, %15 ]
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %.04553
-  store i8 %.sink, ptr %17, align 1, !tbaa !12
-  %18 = add i64 %.04553, 1
-  br label %19
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 %.04553
+  store i8 %.sink, ptr %19, align 1, !tbaa !12
+  %20 = add i64 %.04553, 1
+  br label %21
 
-19:                                               ; preds = %.sink.split, %15
-  %.146 = phi i64 [ %.04553, %15 ], [ %18, %.sink.split ]
+21:                                               ; preds = %.sink.split, %12
+  %.146 = phi i64 [ %.04553, %15 ], [ %20, %.sink.split ]
   %.2 = phi i64 [ %.04454, %15 ], [ %.2.ph, %.sink.split ]
-  %20 = add nuw i64 %.055, 1
-  %21 = load i64, ptr %3, align 8, !tbaa !11
-  %22 = icmp ult i64 %20, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge
+  %22 = add nuw i64 %.055, 1
+  %23 = load i64, ptr %3, align 8, !tbaa !11
+  %24 = icmp ult i64 %22, %23
+  br i1 %24, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %19
-  %23 = icmp eq i64 %.146, %20
-  br i1 %23, label %._crit_edge.thread, label %24
+._crit_edge:                                      ; preds = %21
+  %25 = icmp eq i64 %.146, %22
+  br i1 %25, label %._crit_edge.thread, label %26
 
-24:                                               ; preds = %._crit_edge
+26:                                               ; preds = %._crit_edge
   %.not50 = icmp eq i64 %.146, 0
-  br i1 %.not50, label %31, label %25
+  br i1 %.not50, label %33, label %27
 
-25:                                               ; preds = %24
-  %26 = getelementptr i8, ptr %2, i64 %.146
-  %27 = getelementptr i8, ptr %26, i64 -1
-  %28 = load i8, ptr %27, align 1, !tbaa !12
-  %29 = icmp eq i8 %28, 32
-  %30 = sext i1 %29 to i64
-  %spec.select52 = add i64 %.146, %30
-  br label %31
+27:                                               ; preds = %26
+  %28 = getelementptr i8, ptr %2, i64 %.146
+  %29 = getelementptr i8, ptr %28, i64 -1
+  %30 = load i8, ptr %29, align 1, !tbaa !12
+  %31 = icmp eq i8 %30, 32
+  %32 = sext i1 %31 to i64
+  %spec.select52 = add i64 %.146, %32
+  br label %33
 
-31:                                               ; preds = %25, %24
+33:                                               ; preds = %27, %26
   %.247 = phi i64 [ 0, %24 ], [ %spec.select52, %25 ]
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 %.247
-  store i8 0, ptr %32, align 1, !tbaa !12
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %.247
+  store i8 0, ptr %34, align 1, !tbaa !12
   store i64 %.247, ptr %3, align 8, !tbaa !11
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %8, %._crit_edge, %31, %1
+._crit_edge.thread:                               ; preds = %8, %._crit_edge, %33, %1
   ret void
 }
 

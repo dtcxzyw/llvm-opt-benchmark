@@ -79,7 +79,7 @@ define hidden void @_ZNKSt3__123__future_error_category7messageEi(ptr dead_on_un
   ]
 
 .thread.i.i:                                      ; preds = %3, %3
-  %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #20
+  %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #20
   store ptr %6, ptr %4, align 8, !tbaa !4
   store i64 97, ptr %0, align 8
   store i64 88, ptr %5, align 8, !tbaa !4
@@ -94,12 +94,12 @@ define hidden void @_ZNKSt3__123__future_error_category7messageEi(ptr dead_on_un
   store i64 81, ptr %0, align 8
   store i64 72, ptr %5, align 8, !tbaa !4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %8, ptr noundef nonnull align 1 dereferenceable(72) @.str.2, i64 72, i1 false)
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i8 0, ptr %9, align 1, !tbaa !4
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store i8 0, ptr %11, align 1, !tbaa !4
   br label %16
 
 .thread.i.i6:                                     ; preds = %3
-  %10 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
+  %12 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
   store ptr %10, ptr %4, align 8, !tbaa !4
   store i64 49, ptr %0, align 8
   store i64 46, ptr %5, align 8, !tbaa !4
@@ -109,17 +109,17 @@ define hidden void @_ZNKSt3__123__future_error_category7messageEi(ptr dead_on_un
   br label %16
 
 .thread.i.i11:                                    ; preds = %3
-  %12 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
+  %16 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
   store ptr %12, ptr %4, align 8, !tbaa !4
   store i64 73, ptr %0, align 8
   store i64 65, ptr %5, align 8, !tbaa !4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %12, ptr noundef nonnull align 1 dereferenceable(65) @.str.4, i64 65, i1 false)
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 65
+  %13 = getelementptr inbounds nuw i8, ptr %16, i64 65
   store i8 0, ptr %13, align 1, !tbaa !4
   br label %16
 
 .thread.i.i16:                                    ; preds = %3
-  %14 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
+  %20 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   store ptr %14, ptr %4, align 8, !tbaa !4
   store i64 33, ptr %0, align 8
   store i64 30, ptr %5, align 8, !tbaa !4

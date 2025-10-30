@@ -18280,12 +18280,12 @@ define dso_local i64 @job_get_tres_mem(ptr noundef readonly captures(address_is_
 21:                                               ; preds = %19
   %22 = icmp eq ptr %5, null
   %or.cond.not = or i1 %22, %6
-  br i1 %or.cond.not, label %67, label %23
+  br i1 %or.cond.not, label %68, label %23
 
 23:                                               ; preds = %21
   %24 = tail call i32 @slurm_select_cr_type() #27
   %25 = icmp eq i32 %24, 2
-  br i1 %25, label %26, label %67
+  br i1 %25, label %26, label %68
 
 26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -18294,7 +18294,7 @@ define dso_local i64 @job_get_tres_mem(ptr noundef readonly captures(address_is_
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %29 = load i64, ptr %28, align 8
   %.not = icmp eq i64 %29, 0
-  br i1 %.not, label %66, label %30
+  br i1 %.not, label %67, label %30
 
 30:                                               ; preds = %26
   %31 = icmp eq i32 %3, -2
@@ -18324,7 +18324,7 @@ define dso_local i64 @job_get_tres_mem(ptr noundef readonly captures(address_is_
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %45 = load i64, ptr %44, align 8
   %.not62 = icmp eq i64 %45, 0
-  br i1 %.not62, label %56, label %46
+  br i1 %.not62, label %57, label %46
 
 46:                                               ; preds = %43
   %47 = zext i32 %spec.store.select to i64
@@ -18333,7 +18333,7 @@ define dso_local i64 @job_get_tres_mem(ptr noundef readonly captures(address_is_
     i16 0, label %53
   ]
 
-48:                                               ; preds = %46
+47:                                               ; preds = %46
   %49 = zext i16 %7 to i64
   %50 = mul nuw nsw i64 %49, %47
   %51 = mul i64 %50, %29
@@ -18345,98 +18345,98 @@ define dso_local i64 @job_get_tres_mem(ptr noundef readonly captures(address_is_
   %55 = mul i64 %54, %45
   br label %.thread
 
-56:                                               ; preds = %43
-  %57 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %58 = load i64, ptr %57, align 8
-  %.not63 = icmp eq i64 %58, 0
-  br i1 %.not63, label %.thread, label %59
+57:                                               ; preds = %43
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %59 = load i64, ptr %58, align 8
+  %.not63 = icmp eq i64 %59, 0
+  br i1 %.not63, label %.thread, label %60
 
-59:                                               ; preds = %56
+60:                                               ; preds = %57
   switch i32 %8, label %60 [
-    i32 -2, label %64
-    i32 0, label %64
+    i32 -2, label %65
+    i32 0, label %65
   ]
 
-60:                                               ; preds = %59
-  %61 = zext i32 %8 to i64
-  %62 = mul i64 %29, %61
-  %63 = mul i64 %62, %58
+61:                                               ; preds = %60
+  %62 = zext i32 %8 to i64
+  %63 = mul i64 %29, %62
+  %64 = mul i64 %63, %59
   br label %.thread
 
-64:                                               ; preds = %59, %59
-  %65 = mul i64 %58, %29
+65:                                               ; preds = %60, %60
+  %66 = mul i64 %59, %29
   br label %.thread
 
-.thread:                                          ; preds = %56, %64, %60, %53, %48, %39, %34
-  %.144.ph = phi i64 [ 0, %56 ], [ %65, %64 ], [ %63, %60 ], [ %55, %53 ], [ %52, %48 ], [ %42, %39 ], [ %35, %34 ]
+.thread:                                          ; preds = %57, %65, %61, %53, %47, %39, %34
+  %.144.ph = phi i64 [ 0, %56 ], [ %66, %64 ], [ %64, %60 ], [ %55, %53 ], [ %52, %48 ], [ %42, %39 ], [ %35, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
 
-66:                                               ; preds = %26
+67:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %67
+  br label %68
 
-67:                                               ; preds = %66, %23, %21
-  %68 = icmp eq i64 %1, 0
-  br i1 %68, label %69, label %_mem_per_node_part.exit
+68:                                               ; preds = %67, %23, %21
+  %69 = icmp eq i64 %1, 0
+  br i1 %69, label %70, label %_mem_per_node_part.exit
 
-69:                                               ; preds = %67
+70:                                               ; preds = %68
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %_mem_per_node_part.exit.thread, label %70
+  br i1 %.not.i, label %_mem_per_node_part.exit.thread, label %71
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %4, i64 240
-  %72 = load ptr, ptr %71, align 8
-  %.not10.i = icmp eq ptr %72, null
-  br i1 %.not10.i, label %_mem_per_node_part.exit.thread, label %73
+71:                                               ; preds = %70
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 240
+  %73 = load ptr, ptr %72, align 8
+  %.not10.i = icmp eq ptr %73, null
+  br i1 %.not10.i, label %_mem_per_node_part.exit.thread, label %74
 
-73:                                               ; preds = %70
-  %74 = call i64 @bit_ffs(ptr noundef nonnull %72) #27
-  %75 = and i64 %74, 2147483648
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %77, label %_mem_per_node_part.exit.thread
+74:                                               ; preds = %71
+  %75 = call i64 @bit_ffs(ptr noundef nonnull %73) #27
+  %76 = and i64 %75, 2147483648
+  %77 = icmp eq i64 %76, 0
+  br i1 %77, label %78, label %_mem_per_node_part.exit.thread
 
-77:                                               ; preds = %73
-  %78 = load ptr, ptr @node_record_table_ptr, align 8
-  %79 = and i64 %74, 2147483647
-  %80 = getelementptr inbounds nuw ptr, ptr %78, i64 %79
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 72
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 80
-  %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %81, i64 264
-  %87 = load i64, ptr %86, align 8
-  %88 = sub i64 %85, %87
+78:                                               ; preds = %74
+  %79 = load ptr, ptr @node_record_table_ptr, align 8
+  %80 = and i64 %75, 2147483647
+  %81 = getelementptr inbounds nuw ptr, ptr %79, i64 %80
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 72
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 80
+  %86 = load i64, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 264
+  %88 = load i64, ptr %87, align 8
+  %89 = sub i64 %86, %88
   br label %_mem_per_node_part.exit
 
-_mem_per_node_part.exit:                          ; preds = %77, %67
-  %.045 = phi i64 [ %1, %67 ], [ %88, %77 ]
+_mem_per_node_part.exit:                          ; preds = %78, %68
+  %.045 = phi i64 [ %1, %67 ], [ %89, %77 ]
   %.not64 = icmp sgt i64 %.045, -1
-  br i1 %.not64, label %_mem_per_node_part.exit.thread, label %89
+  br i1 %.not64, label %_mem_per_node_part.exit.thread, label %90
 
-89:                                               ; preds = %_mem_per_node_part.exit
+90:                                               ; preds = %_mem_per_node_part.exit
   %.not66 = icmp eq i32 %2, -2
-  br i1 %.not66, label %.loopexit, label %90
+  br i1 %.not66, label %.loopexit, label %91
 
-90:                                               ; preds = %89
-  %91 = and i64 %.045, 9223372036854775807
-  %92 = zext i32 %2 to i64
-  %93 = mul i64 %91, %92
+91:                                               ; preds = %90
+  %92 = and i64 %.045, 9223372036854775807
+  %93 = zext i32 %2 to i64
+  %94 = mul i64 %92, %93
   br label %.loopexit
 
-_mem_per_node_part.exit.thread:                   ; preds = %70, %73, %69, %_mem_per_node_part.exit
+_mem_per_node_part.exit.thread:                   ; preds = %71, %74, %70, %_mem_per_node_part.exit
   %.04571 = phi i64 [ %.045, %_mem_per_node_part.exit ], [ 0, %69 ], [ 0, %73 ], [ 0, %70 ]
   %.not65 = icmp eq i32 %3, -2
-  br i1 %.not65, label %.loopexit, label %94
+  br i1 %.not65, label %.loopexit, label %95
 
-94:                                               ; preds = %_mem_per_node_part.exit.thread
-  %95 = zext i32 %3 to i64
-  %96 = mul i64 %.04571, %95
+95:                                               ; preds = %_mem_per_node_part.exit.thread
+  %96 = zext i32 %3 to i64
+  %97 = mul i64 %.04571, %96
   br label %.loopexit
 
-.loopexit:                                        ; preds = %15, %.preheader, %.thread, %90, %89, %94, %_mem_per_node_part.exit.thread, %19
-  %.043 = phi i64 [ 0, %19 ], [ %93, %90 ], [ 0, %89 ], [ %96, %94 ], [ 0, %_mem_per_node_part.exit.thread ], [ %.144.ph, %.thread ], [ 0, %.preheader ], [ %18, %15 ]
+.loopexit:                                        ; preds = %15, %.preheader, %.thread, %91, %90, %95, %_mem_per_node_part.exit.thread, %19
+  %.043 = phi i64 [ 0, %19 ], [ %94, %90 ], [ 0, %89 ], [ %97, %94 ], [ 0, %_mem_per_node_part.exit.thread ], [ %.144.ph, %.thread ], [ 0, %.preheader ], [ %18, %15 ]
   ret i64 %.043
 }
 

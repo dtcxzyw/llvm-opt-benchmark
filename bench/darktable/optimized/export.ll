@@ -339,36 +339,36 @@ define internal fastcc void @_size_in_px_update(ptr noundef readonly captures(no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !72
   switch i32 %4, label %8 [
-    i32 3, label %7
-    i32 0, label %7
+    i32 3, label %5
+    i32 0, label %5
   ]
 
-7:                                                ; preds = %1, %1
+5:                                                ; preds = %1, %1
   tail call void @gtk_widget_hide(ptr noundef %6) #19
   br label %23
 
 8:                                                ; preds = %1
   tail call void @gtk_widget_show(ptr noundef %6) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %9 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.123, i32 noundef 5) #19
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !67
-  %12 = tail call i64 @gtk_entry_get_type() #20
-  %13 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %12) #19
-  %14 = tail call ptr @gtk_entry_get_text(ptr noundef %13) #19
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !68
-  %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %12) #19
-  %18 = tail call ptr @gtk_entry_get_text(ptr noundef %17) #19
-  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 120, ptr noundef %9, ptr noundef %14, ptr noundef %18) #19
-  %20 = load ptr, ptr %5, align 8, !tbaa !72
-  %21 = tail call i64 @gtk_label_get_type() #20
-  %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %21) #19
-  call void @gtk_label_set_text(ptr noundef %22, ptr noundef nonnull %2) #19
+  %11 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.123, i32 noundef 5) #19
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %13 = load ptr, ptr %12, align 8, !tbaa !67
+  %14 = tail call i64 @gtk_entry_get_type() #20
+  %15 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef %14) #19
+  %16 = tail call ptr @gtk_entry_get_text(ptr noundef %15) #19
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %18 = load ptr, ptr %17, align 8, !tbaa !68
+  %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %18, i64 noundef %14) #19
+  %20 = tail call ptr @gtk_entry_get_text(ptr noundef %19) #19
+  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 120, ptr noundef %11, ptr noundef %16, ptr noundef %20) #19
+  %22 = load ptr, ptr %5, align 8, !tbaa !72
+  %23 = tail call i64 @gtk_label_get_type() #20
+  %24 = tail call ptr @g_type_check_instance_cast(ptr noundef %22, i64 noundef %23) #19
+  call void @gtk_label_set_text(ptr noundef %24, ptr noundef nonnull %2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %23
+  br label %25
 
-23:                                               ; preds = %8, %7
+25:                                               ; preds = %8, %5
   ret void
 }
 

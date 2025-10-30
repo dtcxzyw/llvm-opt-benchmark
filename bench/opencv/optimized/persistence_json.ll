@@ -654,7 +654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %68
+  br label %74
 
 20:                                               ; preds = %4
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
@@ -696,7 +696,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %29,
   %.pn55 = phi { ptr, i32 } [ %28, %27 ], [ %30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %68
+  br label %74
 
 34:                                               ; preds = %20
   %35 = icmp eq i32 %22, 0
@@ -715,8 +715,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %29,
 
 42:                                               ; preds = %36
   switch i8 %37, label %43 [
-    i8 34, label %64
-    i8 39, label %64
+    i8 34, label %70
+    i8 39, label %70
   ]
 
 43:                                               ; preds = %42, %36, %34
@@ -729,86 +729,86 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %29,
   %wide.trip.count = and i64 %21, 2147483647
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %62
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %62 ]
   %.162 = phi ptr [ %44, %.lr.ph.preheader ], [ %.2, %62 ]
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %47 = load i8, ptr %46, align 1, !tbaa !41
   %48 = getelementptr inbounds nuw i8, ptr %.162, i64 1
   switch i8 %47, label %61 [
-    i8 92, label %49
-    i8 34, label %49
+    i8 92, label %48
+    i8 34, label %48
     i8 39, label %49
     i8 10, label %51
-    i8 13, label %53
-    i8 9, label %55
-    i8 8, label %57
-    i8 12, label %59
+    i8 13, label %54
+    i8 9, label %57
+    i8 8, label %60
+    i8 12, label %63
   ]
 
-49:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
+48:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   store i8 92, ptr %.162, align 1, !tbaa !41
   %50 = getelementptr inbounds nuw i8, ptr %.162, i64 2
   store i8 %47, ptr %48, align 1, !tbaa !41
-  br label %62
+  br label %68
 
 51:                                               ; preds = %.lr.ph
   store i8 92, ptr %.162, align 1, !tbaa !41
-  %52 = getelementptr inbounds nuw i8, ptr %.162, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %.162, i64 2
   store i8 110, ptr %48, align 1, !tbaa !41
-  br label %62
+  br label %68
 
-53:                                               ; preds = %.lr.ph
-  store i8 92, ptr %.162, align 1, !tbaa !41
-  %54 = getelementptr inbounds nuw i8, ptr %.162, i64 2
-  store i8 114, ptr %48, align 1, !tbaa !41
-  br label %62
-
-55:                                               ; preds = %.lr.ph
+54:                                               ; preds = %.lr.ph
   store i8 92, ptr %.162, align 1, !tbaa !41
   %56 = getelementptr inbounds nuw i8, ptr %.162, i64 2
-  store i8 116, ptr %48, align 1, !tbaa !41
-  br label %62
+  store i8 114, ptr %48, align 1, !tbaa !41
+  br label %68
 
 57:                                               ; preds = %.lr.ph
   store i8 92, ptr %.162, align 1, !tbaa !41
-  %58 = getelementptr inbounds nuw i8, ptr %.162, i64 2
-  store i8 98, ptr %48, align 1, !tbaa !41
-  br label %62
+  %59 = getelementptr inbounds nuw i8, ptr %.162, i64 2
+  store i8 116, ptr %48, align 1, !tbaa !41
+  br label %68
 
-59:                                               ; preds = %.lr.ph
+60:                                               ; preds = %.lr.ph
   store i8 92, ptr %.162, align 1, !tbaa !41
-  %60 = getelementptr inbounds nuw i8, ptr %.162, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %.162, i64 2
+  store i8 98, ptr %48, align 1, !tbaa !41
+  br label %68
+
+63:                                               ; preds = %.lr.ph
+  store i8 92, ptr %.162, align 1, !tbaa !41
+  %65 = getelementptr inbounds nuw i8, ptr %.162, i64 2
   store i8 102, ptr %48, align 1, !tbaa !41
-  br label %62
+  br label %68
 
-61:                                               ; preds = %.lr.ph
+66:                                               ; preds = %.lr.ph
   store i8 %47, ptr %.162, align 1, !tbaa !41
-  br label %62
+  br label %68
 
-62:                                               ; preds = %61, %59, %57, %55, %53, %51, %49
-  %.2 = phi ptr [ %48, %61 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ]
+68:                                               ; preds = %66, %63, %60, %57, %54, %51, %48
+  %.2 = phi ptr [ %48, %61 ], [ %50, %49 ], [ %53, %51 ], [ %56, %53 ], [ %59, %55 ], [ %62, %57 ], [ %65, %59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
-._crit_edge:                                      ; preds = %62, %43
+._crit_edge:                                      ; preds = %68, %43
   %.1.lcssa = phi ptr [ %44, %43 ], [ %.2, %62 ]
-  %63 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 1
   store i8 34, ptr %.1.lcssa, align 1, !tbaa !41
-  store i8 0, ptr %63, align 1, !tbaa !41
-  br label %64
+  store i8 0, ptr %69, align 1, !tbaa !41
+  br label %70
 
-64:                                               ; preds = %42, %42, %._crit_edge
+70:                                               ; preds = %42, %42, %._crit_edge
   %.0 = phi ptr [ %5, %._crit_edge ], [ %2, %42 ], [ %2, %42 ]
-  %65 = load ptr, ptr %0, align 8, !tbaa !14
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 64
-  %67 = load ptr, ptr %66, align 8
+  %71 = load ptr, ptr %0, align 8, !tbaa !14
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 64
+  %73 = load ptr, ptr %72, align 8
   call void %67(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull %.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-68:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+74:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn55.pn = phi { ptr, i32 } [ %.pn55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn55.pn

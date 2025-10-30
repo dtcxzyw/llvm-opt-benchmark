@@ -19724,7 +19724,7 @@ define void @rlDrawRenderBatch(ptr noundef captures(none) %0) local_unnamed_addr
 ._crit_edge:                                      ; preds = %591, %554
   %568 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8, !range !3, !noundef !4
   %569 = trunc nuw i8 %568 to i1
-  br i1 %569, label %606, label %603
+  br i1 %569, label %606, label %605
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %591
   %570 = phi ptr [ %.pre397, %.lr.ph.preheader ], [ %592, %591 ]
@@ -19741,12 +19741,12 @@ define void @rlDrawRenderBatch(ptr noundef captures(none) %0) local_unnamed_addr
   %578 = getelementptr inbounds nuw i8, ptr %576, i64 4
   %579 = load i32, ptr %578, align 4
   switch i32 %577, label %582 [
-    i32 1, label %580
-    i32 4, label %580
+    i32 1, label %578
+    i32 4, label %578
   ]
 
-580:                                              ; preds = %.lr.ph, %.lr.ph
-  %581 = load ptr, ptr @glad_glDrawArrays, align 8
+578:                                              ; preds = %.lr.ph, %.lr.ph
+  %579 = load ptr, ptr @glad_glDrawArrays, align 8
   call void %581(i32 noundef %577, i32 noundef %.082377, i32 noundef %579) #60
   br label %591
 
@@ -19762,7 +19762,7 @@ define void @rlDrawRenderBatch(ptr noundef captures(none) %0) local_unnamed_addr
   call void %583(i32 noundef 4, i32 noundef %585, i32 noundef 5125, ptr noundef %590) #60
   br label %591
 
-591:                                              ; preds = %582, %580
+591:; preds = %582, %580
   %592 = load ptr, ptr %182, align 8
   %593 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %592, i64 %indvars.iv382
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 4
@@ -19772,15 +19772,15 @@ define void @rlDrawRenderBatch(ptr noundef captures(none) %0) local_unnamed_addr
   %598 = add i32 %595, %.082377
   %599 = add i32 %598, %597
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
-  %600 = load i32, ptr %181, align 8
-  %601 = sext i32 %600 to i64
-  %602 = icmp slt i64 %indvars.iv.next383, %601
-  br i1 %602, label %.lr.ph, label %._crit_edge
+  %602 = load i32, ptr %181, align 8
+  %603 = sext i32 %602 to i64
+  %604 = icmp slt i64 %indvars.iv.next383, %603
+  br i1 %604, label %.lr.ph, label %._crit_edge
 
-603:                                              ; preds = %._crit_edge
-  %604 = load ptr, ptr @glad_glBindBuffer, align 8
+605:                                              ; preds = %._crit_edge
+  %606 = load ptr, ptr @glad_glBindBuffer, align 8
   call void %604(i32 noundef 34962, i32 noundef 0) #60
-  %605 = load ptr, ptr @glad_glBindBuffer, align 8
+  %607 = load ptr, ptr @glad_glBindBuffer, align 8
   call void %605(i32 noundef 34963, i32 noundef 0) #60
   br label %606
 
@@ -19792,10 +19792,10 @@ define void @rlDrawRenderBatch(ptr noundef captures(none) %0) local_unnamed_addr
 608:                                              ; preds = %606, %260
   %609 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2696), align 8, !range !3, !noundef !4
   %610 = trunc nuw i8 %609 to i1
-  br i1 %610, label %611, label %613
+  br i1 %610, label %610, label %613
 
-611:                                              ; preds = %608
-  %612 = load ptr, ptr @glad_glBindVertexArray, align 8
+610:                                              ; preds = %608
+  %611 = load ptr, ptr @glad_glBindVertexArray, align 8
   call void %612(i32 noundef 0) #60
   br label %613
 
@@ -19805,7 +19805,7 @@ define void @rlDrawRenderBatch(ptr noundef captures(none) %0) local_unnamed_addr
   %615 = and i1 %185, %103
   br i1 %615, label %184, label %183
 
-616:                                              ; preds = %183
+622:                                              ; preds = %183
   %617 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2688), align 8
   %618 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2692), align 4
   %619 = load ptr, ptr @glad_glViewport, align 8
@@ -19814,8 +19814,8 @@ define void @rlDrawRenderBatch(ptr noundef captures(none) %0) local_unnamed_addr
 
 620:                                              ; preds = %616, %183
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 40), align 8
-  %621 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float -1.000000e+00, ptr %621, align 4
+  %623 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float -1.000000e+00, ptr %623, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds nuw (i8, ptr @RLGL, i64 144), ptr noundef nonnull align 4 dereferenceable(64) %2, i64 64, i1 false)
   store float %.sroa.0159.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 80), align 8
   store float %.sroa.5161.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 84), align 4
@@ -19833,9 +19833,9 @@ define void @rlDrawRenderBatch(ptr noundef captures(none) %0) local_unnamed_addr
   store float %.sroa.17185.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 132), align 4
   store float %.sroa.18187.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 136), align 8
   store float %.sroa.19.0.copyload, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 140), align 4
-  br label %622
+  br label %624
 
-622:                                              ; preds = %620, %622
+624:                                              ; preds = %620, %624
   %indvars.iv388 = phi i64 [ 0, %620 ], [ %indvars.iv.next389, %622 ]
   %623 = load ptr, ptr %182, align 8
   %624 = getelementptr inbounds nuw %struct.rlDrawCall, ptr %623, i64 %indvars.iv388
@@ -19851,16 +19851,16 @@ define void @rlDrawRenderBatch(ptr noundef captures(none) %0) local_unnamed_addr
   store i32 %628, ptr %631, align 4
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
   %exitcond391.not = icmp eq i64 %indvars.iv.next389, 256
-  br i1 %exitcond391.not, label %.preheader.preheader, label %622
+  br i1 %exitcond391.not, label %.preheader.preheader, label %624
 
-.preheader.preheader:                             ; preds = %622
+.preheader.preheader:                             ; preds = %624
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 2332), i8 0, i64 16, i1 false)
   store i32 1, ptr %181, align 8
-  %632 = load i32, ptr %180, align 4
-  %633 = add nsw i32 %632, 1
-  %634 = load i32, ptr %0, align 8
-  %.not = icmp slt i32 %633, %634
-  %spec.store.select96 = select i1 %.not, i32 %633, i32 0
+  %634 = load i32, ptr %180, align 4
+  %635 = add nsw i32 %634, 1
+  %636 = load i32, ptr %0, align 8
+  %.not = icmp slt i32 %635, %636
+  %spec.store.select96 = select i1 %.not, i32 %635, i32 0
   store i32 %spec.store.select96, ptr %180, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

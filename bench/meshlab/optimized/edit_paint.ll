@@ -2108,28 +2108,28 @@ define void @_ZN15EditPaintPlugin11setToolTypeE8ToolType(ptr noundef nonnull ali
     i32 4, label %6
     i32 3, label %6
     i32 8, label %6
-    i32 10, label %7
-    i32 9, label %7
+    i32 10, label %8
+    i32 9, label %8
   ]
 
-5:                                                ; preds = %2
+4:                                                ; preds = %2
   store i32 9, ptr %4, align 4
   tail call void @_ZN15EditPaintPlugin21setSelectionRenderingEb(ptr noundef nonnull align 8 dereferenceable(704) %0, i1 noundef zeroext true)
-  br label %9
+  br label %12
 
 6:                                                ; preds = %2, %2, %2, %2, %2
   store i32 11, ptr %4, align 4
   br label %9
 
-7:                                                ; preds = %2, %2
+8:                                                ; preds = %2, %2
   store i32 15, ptr %4, align 4
   br label %9
 
-8:                                                ; preds = %2
+10:                                               ; preds = %2
   store i32 0, ptr %4, align 4
   br label %9
 
-9:                                                ; preds = %8, %7, %6, %5
+12:                                               ; preds = %10, %8, %6, %4
   ret void
 }
 

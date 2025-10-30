@@ -11582,12 +11582,12 @@ Abc_TtMask.exit.thread:                           ; preds = %5
 
 .lr.ph.i39.us:                                    ; preds = %.lr.ph.i39.us, %.lr.ph.preheader.i37.us
   %indvars.iv.i40.us = phi i64 [ 0, %.lr.ph.preheader.i37.us ], [ %indvars.iv.next.i41.us, %.lr.ph.i39.us ]
-  %34 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i40.us
-  %35 = load i64, ptr %34, align 8, !tbaa !3
-  %36 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv.i40.us
-  %37 = load i64, ptr %36, align 8, !tbaa !3
-  %38 = and i64 %37, %35
-  store i64 %38, ptr %34, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i40.us
+  %38 = load i64, ptr %37, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv.i40.us
+  %40 = load i64, ptr %39, align 8, !tbaa !3
+  %41 = and i64 %40, %38
+  store i64 %41, ptr %37, align 8, !tbaa !3
   %indvars.iv.next.i41.us = add nuw nsw i64 %indvars.iv.i40.us, 1
   %exitcond.not.i42.us = icmp eq i64 %indvars.iv.next.i41.us, %wide.trip.count.i45
   br i1 %exitcond.not.i42.us, label %Abc_TtAnd.exit.us, label %.lr.ph.i39.us, !llvm.loop !321
@@ -11598,12 +11598,12 @@ Abc_TtMask.exit.thread:                           ; preds = %5
 
 .lr.ph.i33.us:                                    ; preds = %.lr.ph.i33.us, %.lr.ph.preheader.i31.us
   %indvars.iv.i34.us = phi i64 [ 0, %.lr.ph.preheader.i31.us ], [ %indvars.iv.next.i35.us, %.lr.ph.i33.us ]
-  %40 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i34.us
-  %41 = load i64, ptr %40, align 8, !tbaa !3
-  %42 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv.i34.us
-  %43 = load i64, ptr %42, align 8, !tbaa !3
-  %44 = and i64 %43, %41
-  store i64 %44, ptr %40, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i34.us
+  %47 = load i64, ptr %46, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv.i34.us
+  %49 = load i64, ptr %48, align 8, !tbaa !3
+  %50 = and i64 %49, %47
+  store i64 %50, ptr %46, align 8, !tbaa !3
   %indvars.iv.next.i35.us = add nuw nsw i64 %indvars.iv.i34.us, 1
   %exitcond.not.i36.us = icmp eq i64 %indvars.iv.next.i35.us, %wide.trip.count.i45
   br i1 %exitcond.not.i36.us, label %Abc_TtAnd.exit.us, label %.lr.ph.i33.us, !llvm.loop !321
@@ -11615,15 +11615,15 @@ Abc_TtAnd.exit.us:                                ; preds = %.lr.ph.i46.us, %.lr
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %Abc_TtAnd.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %Abc_TtAnd.exit ]
-  %45 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %46 = load i32, ptr %45, align 4, !tbaa !7
-  %47 = call fastcc i32 @Abc_TtIsTopDecomposable(ptr noundef nonnull %7, ptr noundef %6, i32 noundef %1, i32 noundef %46)
-  %.not = icmp eq i32 %47, 0
+  %51 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %52 = load i32, ptr %51, align 4, !tbaa !7
+  %53 = call fastcc i32 @Abc_TtIsTopDecomposable(ptr noundef nonnull %7, ptr noundef %6, i32 noundef %1, i32 noundef %52)
+  %.not = icmp eq i32 %53, 0
   br i1 %.not, label %._crit_edge, label %Abc_TtAnd.exit
 
 Abc_TtAnd.exit:                                   ; preds = %.lr.ph.split
-  %48 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  store i32 %47, ptr %48, align 4, !tbaa !7
+  %54 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  store i32 %53, ptr %54, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !322

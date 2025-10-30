@@ -1781,29 +1781,29 @@ _ZN6Assimp14IOStreamBufferIcE13readNextBlockEv.exit21.thread: ; preds = %119, %1
   store i8 10, ptr %90, align 1
   %131 = load i64, ptr %3, align 8
   %.promoted = load i64, ptr %5, align 8
-  %132 = icmp ult i64 %.promoted, %131
-  br i1 %132, label %.lr.ph, label %.critedge
+  %134 = icmp ult i64 %.promoted, %131
+  br i1 %134, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %130
-  %133 = load ptr, ptr %39, align 8
-  br label %134
+  %135 = load ptr, ptr %39, align 8
+  br label %136
 
-134:                                              ; preds = %.lr.ph, %.critedge2
-  %135 = phi i64 [ %.promoted, %.lr.ph ], [ %138, %.critedge2 ]
-  %136 = getelementptr inbounds nuw i8, ptr %133, i64 %135
-  %137 = load i8, ptr %136, align 1
-  switch i8 %137, label %.critedge [
+136:                                              ; preds = %.lr.ph, %.critedge2
+  %137 = phi i64 [ %.promoted, %.lr.ph ], [ %140, %.critedge2 ]
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 %137
+  %139 = load i8, ptr %138, align 1
+  switch i8 %139, label %.critedge [
     i8 13, label %.critedge2
     i8 10, label %.critedge2
   ]
 
-.critedge2:                                       ; preds = %134, %134
-  %138 = add i64 %135, 1
-  store i64 %138, ptr %5, align 8
-  %exitcond.not = icmp eq i64 %138, %131
-  br i1 %exitcond.not, label %.critedge, label %134, !llvm.loop !15
+.critedge2:                                       ; preds = %136, %136
+  %140 = add i64 %137, 1
+  store i64 %140, ptr %5, align 8
+  %exitcond.not = icmp eq i64 %140, %131
+  br i1 %exitcond.not, label %.critedge, label %136, !llvm.loop !15
 
-.critedge:                                        ; preds = %51, %105, %.critedge2, %134, %130, %11
+.critedge:                                        ; preds = %51, %105, %.critedge2, %136, %130, %11
   %.013 = phi i1 [ false, %11 ], [ true, %130 ], [ true, %134 ], [ true, %.critedge2 ], [ false, %105 ], [ false, %51 ]
   ret i1 %.013
 }

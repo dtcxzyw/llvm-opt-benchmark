@@ -2550,7 +2550,7 @@ define dso_local void @_ZN7VString5aOrAnB5cxx11EPKc(ptr dead_on_unwind noalias w
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8, !tbaa !24
   store i8 0, ptr %4, align 8, !tbaa !13
-  br label %10
+  br label %12
 
 ._crit_edge.i.i4:                                 ; preds = %2, %2, %2, %2, %2
   store i16 28257, ptr %4, align 8
@@ -2564,11 +2564,11 @@ define dso_local void @_ZN7VString5aOrAnB5cxx11EPKc(ptr dead_on_unwind noalias w
   store i8 97, ptr %4, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %8, align 8, !tbaa !24
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 0, ptr %9, align 1, !tbaa !13
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  store i8 0, ptr %10, align 1, !tbaa !13
   br label %10
 
-10:                                               ; preds = %._crit_edge.i.i8, %._crit_edge.i.i4, %._crit_edge.i.i
+12:                                               ; preds = %._crit_edge.i.i8, %._crit_edge.i.i4, %._crit_edge.i.i
   ret void
 }
 

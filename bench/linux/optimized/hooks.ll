@@ -2398,24 +2398,24 @@ define internal i32 @selinux_syslog(i32 noundef %0) #1 align 16 {
     i32 8, label %3
   ]
 
-3:                                                ; preds = %1, %1, %1
+2:                                                ; preds = %1, %1, %1
   br label %5
 
-4:                                                ; preds = %1
+6:                                                ; preds = %1
   br label %5
 
-5:                                                ; preds = %1, %1, %4, %3
-  %6 = phi i32 [ 4, %4 ], [ 8, %3 ], [ 2, %1 ], [ 2, %1 ]
+8:                                                ; preds = %1, %1, %4, %2
+  %9 = phi i32 [ 6, %4 ], [ 8, %3 ], [ 2, %1 ], [ 2, %1 ]
   %7 = inttoptr i64 %2 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1784
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = load ptr, ptr %10, align 8
-  %12 = load i32, ptr @selinux_blob_sizes, align 4
+  %15 = load i32, ptr @selinux_blob_sizes, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = load i32, ptr %15, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %16 = load i32, ptr %18, align 4
   %17 = tail call i32 @avc_has_perm(i32 noundef %16, i32 noundef 1, i16 noundef zeroext 4, i32 noundef %6, ptr noundef null) #24
   ret i32 %17
 }

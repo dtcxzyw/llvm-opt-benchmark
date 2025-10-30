@@ -1242,16 +1242,16 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %wide.trip.count151.i = zext nneg i32 %3 to i64
   br i1 %.not59.i, label %.preheader.lr.ph.split.us.i, label %.preheader.i.preheader
 
-.preheader.i.preheader:                           ; preds = %.preheader.lr.ph.i
+.preheader.preheader.i:                           ; preds = %.preheader.lr.ph.i
   br i1 %.not66.i, label %.preheader.i.preheader.split.us, label %.preheader.i.preheader.split
 
-.preheader.i.preheader.split.us:                  ; preds = %.preheader.i.preheader
+.preheader.preheader.i.split.us:                  ; preds = %.preheader.preheader.i
   switch i32 %.fr.i, label %.preheader.i.us [
     i32 2, label %.preheader.i.us.us.preheader
     i32 0, label %.preheader.i.us.us.preheader
   ]
 
-.preheader.i.us.us.preheader:                     ; preds = %.preheader.i.preheader.split.us, %.preheader.i.preheader.split.us
+.preheader.i.us.us.preheader:                     ; preds = %.preheader.preheader.i.split.us, %.preheader.preheader.i.split.us
   br label %.preheader.i.us.us
 
 .preheader.i.us.us:                               ; preds = %.preheader.i.us.us.preheader, %.split.i.split.us.us.split.us.us
@@ -1299,7 +1299,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %exitcond125.not.i.us.us = icmp eq i64 %indvars.iv.next122.i.us.us, %wide.trip.count151.i
   br i1 %exitcond125.not.i.us.us, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i.us.us, !llvm.loop !143
 
-.preheader.i.us:                                  ; preds = %.preheader.i.preheader.split.us, %.split.i.split.us.us.split
+.preheader.i.us:                                  ; preds = %.preheader.preheader.i.split.us, %.split.i.split.us.us.split
   %indvars.iv121.i.us = phi i64 [ %indvars.iv.next122.i.us, %.split.i.split.us.us.split ], [ 0, %.preheader.i.preheader.split.us ]
   %.080.i.us = phi i32 [ %.2.i.us.us, %.split.i.split.us.us.split ], [ 0, %.preheader.i.preheader.split.us ]
   %.04478.i.us = phi i32 [ %.246.i.us.us, %.split.i.split.us.us.split ], [ -1, %.preheader.i.preheader.split.us ]
@@ -1349,13 +1349,13 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %exitcond125.not.i.us = icmp eq i64 %indvars.iv.next122.i.us, %wide.trip.count151.i
   br i1 %exitcond125.not.i.us, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i.us, !llvm.loop !143
 
-.preheader.i.preheader.split:                     ; preds = %.preheader.i.preheader
+.preheader.preheader.i.split:                     ; preds = %.preheader.preheader.i
   switch i32 %.fr.i, label %.preheader.i [
     i32 2, label %.preheader.i.us40.preheader
     i32 0, label %.preheader.i.us40.preheader
   ]
 
-.preheader.i.us40.preheader:                      ; preds = %.preheader.i.preheader.split, %.preheader.i.preheader.split
+.preheader.i.us40.preheader:                      ; preds = %.preheader.preheader.i.split, %.preheader.preheader.i.split
   br label %.preheader.i.us40
 
 .preheader.i.us40:                                ; preds = %.preheader.i.us40.preheader, %.split.i.split.split.us.us
@@ -1409,15 +1409,15 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   br i1 %exitcond125.not.i.us45, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.i.us40, !llvm.loop !143
 
 .preheader.lr.ph.split.us.i:                      ; preds = %.preheader.lr.ph.i
-  br i1 %.not66.i, label %.preheader.lr.ph.split.us.split.us.i, label %.preheader.us.i.preheader
+  br i1 %.not66.i, label %.preheader.lr.ph.split.us.split.us.i, label %.preheader.us.preheader.i
 
-.preheader.us.i.preheader:                        ; preds = %.preheader.lr.ph.split.us.i
+.preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.split.us.i
   switch i32 %.fr.i, label %.preheader.us.i [
     i32 2, label %.preheader.us.i.us.preheader
     i32 0, label %.preheader.us.i.us.preheader
   ]
 
-.preheader.us.i.us.preheader:                     ; preds = %.preheader.us.i.preheader, %.preheader.us.i.preheader
+.preheader.us.i.us.preheader:                     ; preds = %.preheader.us.preheader.i, %.preheader.us.preheader.i
   br label %.preheader.us.i.us
 
 .preheader.us.i.us:                               ; preds = %.preheader.us.i.us.preheader, %.split.us.split.us92.i.split.us.us
@@ -1471,10 +1471,10 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
     i32 0, label %.preheader.us.us.us.i.preheader
   ]
 
-.preheader.us.us.us.i.preheader:                  ; preds = %.preheader.lr.ph.split.us.split.us.i, %.preheader.lr.ph.split.us.split.us.i
+.preheader.us.us.preheader.i:                     ; preds = %.preheader.lr.ph.split.us.split.us.i, %.preheader.lr.ph.split.us.split.us.i
   br label %.preheader.us.us.us.i
 
-.preheader.us.us.us.i:                            ; preds = %.preheader.us.us.us.i.preheader, %.split.us.split.us.split.us.us.us.us.i
+.preheader.us.us.us.i:                            ; preds = %.preheader.us.us.preheader.i, %.split.us.split.us.split.us.us.us.us.i
   %indvars.iv139.i = phi i64 [ %indvars.iv.next140.i, %.split.us.split.us.split.us.us.us.us.i ], [ 0, %.preheader.us.us.us.i.preheader ]
   %.080.us.us.us.i = phi i32 [ %.2.us.us.us.us.us.us.i, %.split.us.split.us.split.us.us.us.us.i ], [ 0, %.preheader.us.us.us.i.preheader ]
   %.04478.us.us.us.i = phi i32 [ %.246.us.us.us.us.us.us.i, %.split.us.split.us.split.us.us.us.us.i ], [ -1, %.preheader.us.us.us.i.preheader ]
@@ -1547,7 +1547,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %exitcond152.not.i = icmp eq i64 %indvars.iv.next149.i, %wide.trip.count151.i
   br i1 %exitcond152.not.i, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.us.us.i, !llvm.loop !143
 
-.preheader.us.i:                                  ; preds = %.preheader.us.i.preheader, %.split.us.split.us92.i.split
+.preheader.us.i:                                  ; preds = %.preheader.us.preheader.i, %.split.us.split.us92.i.split
   %indvars.iv130.i = phi i64 [ %indvars.iv.next131.i, %.split.us.split.us92.i.split ], [ 0, %.preheader.us.i.preheader ]
   %.080.us.i = phi i32 [ %.2.us.us91.i, %.split.us.split.us92.i.split ], [ 0, %.preheader.us.i.preheader ]
   %.04478.us.i = phi i32 [ %.246.us.us90.i, %.split.us.split.us92.i.split ], [ -1, %.preheader.us.i.preheader ]
@@ -1597,7 +1597,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %exitcond134.not.i = icmp eq i64 %indvars.iv.next131.i, %wide.trip.count151.i
   br i1 %exitcond134.not.i, label %vaapi_vpp_fill_colour_standard.exit, label %.preheader.us.i, !llvm.loop !143
 
-.preheader.i:                                     ; preds = %.preheader.i.preheader.split, %.split.i.split.split
+.preheader.i:                                     ; preds = %.preheader.preheader.i.split, %.split.i.split.split
   %indvars.iv121.i = phi i64 [ %indvars.iv.next122.i, %.split.i.split.split ], [ 0, %.preheader.i.preheader.split ]
   %.080.i = phi i32 [ %.2.i, %.split.i.split.split ], [ 0, %.preheader.i.preheader.split ]
   %.04478.i = phi i32 [ %.246.i, %.split.i.split.split ], [ -1, %.preheader.i.preheader.split ]

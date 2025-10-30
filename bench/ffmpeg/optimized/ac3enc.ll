@@ -8916,7 +8916,7 @@ define internal fastcc void @set_channel_info(ptr noundef %0) unnamed_addr #3 {
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 5024
   switch i64 %17, label %._crit_edge [
     i64 4, label %18
-    i64 3, label %19
+    i64 3, label %20
     i64 7, label %20
     i64 259, label %21
     i64 263, label %22
@@ -8934,31 +8934,31 @@ define internal fastcc void @set_channel_info(ptr noundef %0) unnamed_addr #3 {
   store i32 1, ptr %.phi.trans.insert, align 16, !tbaa !105
   br label %25
 
-19:                                               ; preds = %1
+20:                                               ; preds = %1
   store i32 2, ptr %.phi.trans.insert, align 16, !tbaa !105
   br label %25
 
-20:                                               ; preds = %1
+24:                                               ; preds = %1
   store i32 3, ptr %.phi.trans.insert, align 16, !tbaa !105
   br label %25
 
-21:                                               ; preds = %1
+30:                                               ; preds = %1
   store i32 4, ptr %.phi.trans.insert, align 16, !tbaa !105
   br label %25
 
-22:                                               ; preds = %1
+32:                                               ; preds = %1
   store i32 5, ptr %.phi.trans.insert, align 16, !tbaa !105
   br label %25
 
-23:                                               ; preds = %1, %1
+23:; preds = %1, %1
   store i32 6, ptr %.phi.trans.insert, align 16, !tbaa !105
   br label %25
 
-24:                                               ; preds = %1, %1
+24: ; preds = %1, %1
   store i32 7, ptr %.phi.trans.insert, align 16, !tbaa !105
   br label %25
 
-25:                                               ; preds = %._crit_edge, %24, %23, %22, %21, %20, %19, %18
+25:; preds = %._crit_edge, %24, %23, %22, %30, %20, %19, %18
   %26 = phi i32 [ %.pre, %._crit_edge ], [ 7, %24 ], [ 6, %23 ], [ 5, %22 ], [ 4, %21 ], [ 3, %20 ], [ 2, %19 ], [ 1, %18 ]
   %27 = and i32 %26, 1
   %.not28 = icmp ne i32 %27, 0

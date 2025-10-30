@@ -79032,30 +79032,30 @@ define internal fastcc void @_ZN9workspace10pane_group6Member8new_axis17hd9ff556
   switch i8 %3, label %17 [
     i8 0, label %18
     i8 1, label %86
-    i8 2, label %18
+    i8 2, label %15
     i8 3, label %86
   ]
 
-17:                                               ; preds = %4
+14:                                               ; preds = %4
   unreachable
 
-18:                                               ; preds = %4, %4
+15:                                               ; preds = %4, %4
   br i1 %16, label %.invoke, label %19
 
-.invoke:                                          ; preds = %86, %18
+.invoke:                                          ; preds = %86, %15
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef 96) #48
-          to label %.cont unwind label %89
+          to label %.cont unwind label %92
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-19:                                               ; preds = %18, %86
-  %.sink32 = phi ptr [ %1, %86 ], [ %2, %18 ]
-  %.sink = phi ptr [ %2, %86 ], [ %1, %18 ]
+19:                                               ; preds = %15, %86
+  %.sink39 = phi ptr [ %1, %86 ], [ %2, %18 ]
+  %.sink38 = phi ptr [ %2, %86 ], [ %1, %18 ]
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.46.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sink32, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.46.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sink39, i64 32, i1 false)
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.49.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sink, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.49.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sink38, i64 32, i1 false)
   store i64 -9223372036854775808, ptr %15, align 8
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store i64 -9223372036854775808, ptr %20, align 8
@@ -79248,7 +79248,7 @@ define internal fastcc void @_ZN9workspace10pane_group6Member8new_axis17hd9ff556
   %76 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !20555
   %77 = call noalias noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 48, i64 noundef 8) #43, !noalias !20555
   %78 = icmp eq ptr %77, null
-  br i1 %78, label %79, label %87
+  br i1 %78, label %79, label %90
 
 79:                                               ; preds = %73
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef 48) #48
@@ -79278,41 +79278,41 @@ define internal fastcc void @_ZN9workspace10pane_group6Member8new_axis17hd9ff556
 86:                                               ; preds = %4, %4
   br i1 %16, label %.invoke, label %19
 
-87:                                               ; preds = %73
+90:                                               ; preds = %73
   %switch = icmp samesign ugt i8 %3, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false), !noalias !20506
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !20506
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.421.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  %88 = zext i1 %switch to i8
+  %91 = zext i1 %switch to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !20506
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %44, ptr %.sroa.422.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %77, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %88, ptr %.sroa.6.0..sroa_idx, align 8
+  store i8 %91, ptr %.sroa.6.0..sroa_idx, align 8
   ret void
 
-89:                                               ; preds = %.invoke
-  %90 = landingpad { ptr, i32 }
+92:                                               ; preds = %.invoke
+  %93 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2) #49
-          to label %93 unwind label %91
+          to label %93 unwind label %94
 
-91:                                               ; preds = %93, %89
-  %92 = landingpad { ptr, i32 }
+94:                                               ; preds = %96, %92
+  %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
   unreachable
 
-.critedge:                                        ; preds = %.body.i, %93
-  %eh.lpad-body26 = phi { ptr, i32 } [ %90, %93 ], [ %.pn.i, %.body.i ]
+.critedge:                                        ; preds = %.body.i, %96
+  %eh.lpad-body26 = phi { ptr, i32 } [ %93, %93 ], [ %.pn.i, %.body.i ]
   resume { ptr, i32 } %eh.lpad-body26
 
-93:                                               ; preds = %89
+96:                                               ; preds = %92
   invoke void @"_ZN4core3ptr66drop_in_place$LT$gpui..view..View$LT$workspace..pane..Pane$GT$$GT$17hf5ab9ebd8ceed6caE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #49
-          to label %.critedge unwind label %91
+          to label %.critedge unwind label %94
 }
 
 ; Function Attrs: nonlazybind uwtable

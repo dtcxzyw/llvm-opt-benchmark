@@ -2006,7 +2006,7 @@ for.cond.cleanup:                                 ; preds = %cleanup, %entry
   ret void
 
 for.body:                                         ; preds = %cleanup, %for.body.lr.ph
-  %3 = phi ptr [ %1, %for.body.lr.ph ], [ %50, %cleanup ]
+  %3 = phi ptr [ %1, %for.body.lr.ph ], [ %51, %cleanup ]
   %ctr.0233 = phi i32 [ 0, %for.body.lr.ph ], [ %ctr.1, %cleanup ]
   %packed_idx.0231 = phi i64 [ 0, %for.body.lr.ph ], [ %inc111, %cleanup ]
   %add.ptr.i = getelementptr inbounds %struct.PackedInstr, ptr %3, i64 %packed_idx.0231
@@ -2301,8 +2301,8 @@ if.then93:                                        ; preds = %if.end89, %if.end89
 
 if.else98:                                        ; preds = %if.end89
   %sdata102 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
-  %48 = load ptr, ptr %sdata102, align 8, !tbaa !14
-  call void @lua_setfield(ptr noundef %L, i32 noundef %add101, ptr noundef %48)
+  %49 = load ptr, ptr %sdata102, align 8, !tbaa !14
+  call void @lua_setfield(ptr noundef %L, i32 noundef %add101, ptr noundef %49)
   br label %cleanup
 
 if.else105:                                       ; preds = %if.end82
@@ -2314,10 +2314,10 @@ if.then108:                                       ; preds = %if.else105
 
 cleanup:                                          ; preds = %if.then108, %if.else105, %if.else98, %if.then93, %if.else52, %if.then47, %if.end4.i, %if.then.i, %if.then34, %sw.bb29, %if.else, %if.then16, %sw.bb
   %inc111 = add nuw i64 %packed_idx.0231, 1
-  %49 = load ptr, ptr %_M_finish.i, align 8, !tbaa !57
-  %50 = load ptr, ptr %pv, align 8, !tbaa !58
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %49 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %50 to i64
+  %50 = load ptr, ptr %_M_finish.i, align 8, !tbaa !57
+  %51 = load ptr, ptr %pv, align 8, !tbaa !58
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %50 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %51 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp = icmp ult i64 %inc111, %sub.ptr.div.i

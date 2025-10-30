@@ -578,7 +578,7 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
 14:                                               ; preds = %62, %27, %23, %20, %16
   %15 = landingpad { ptr, i32 }
           cleanup
-  br label %166
+  br label %167
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -665,7 +665,7 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
   %60 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %166
+  br label %167
 
 .critedge:                                        ; preds = %58, %53, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -706,10 +706,10 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
   store i8 1, ptr %64, align 8, !tbaa !35
   br label %82
 
-80:                                               ; preds = %125, %122, %114, %153, %.thread, %89, %72
+80:                                               ; preds = %125, %122, %114, %154, %.thread, %89, %72
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %166
+  br label %167
 
 82:                                               ; preds = %79, %67, %63
   %83 = load i8, ptr %33, align 1, !tbaa !116, !range !67, !noundef !68
@@ -793,7 +793,7 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
 113:                                              ; preds = %.loopexit, %.loopexit.split-lp, %107
   %.pn = phi { ptr, i32 } [ %108, %107 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %166
+  br label %167
 
 114:                                              ; preds = %109, %82
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -860,69 +860,69 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
 142:                                              ; preds = %133, %133
   store i8 1, ptr %.phi.trans.insert, align 1, !tbaa !130
   %143 = icmp eq i32 %139, 73
-  br i1 %143, label %144, label %.thread
+  br i1 %143, label %145, label %.thread
 
-144:                                              ; preds = %142
-  %145 = getelementptr inbounds nuw i8, ptr %137, i64 57428
-  store i8 1, ptr %145, align 4, !tbaa !131
-  br label %148
+145:                                              ; preds = %142
+  %146 = getelementptr inbounds nuw i8, ptr %137, i64 57428
+  store i8 1, ptr %146, align 4, !tbaa !131
+  br label %149
 
 .thread:                                          ; preds = %..thread_crit_edge, %142
-  %146 = phi i1 [ %141, %..thread_crit_edge ], [ false, %142 ]
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  invoke void @_Z21uiStartArchiveExtractbPKw(i1 noundef zeroext %146, ptr noundef nonnull %147)
+  %147 = phi i1 [ %141, %..thread_crit_edge ], [ false, %142 ]
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  invoke void @_Z21uiStartArchiveExtractbPKw(i1 noundef zeroext %147, ptr noundef nonnull %148)
           to label %148 unwind label %80
 
-148:                                              ; preds = %.thread, %144
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %150 = load ptr, ptr %149, align 8, !tbaa !36
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8192
-  %152 = load i64, ptr %151, align 8, !tbaa !132
-  %.not32 = icmp eq i64 %152, 0
-  br i1 %.not32, label %.preheader56, label %153
+149:                                              ; preds = %.thread, %145
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %151 = load ptr, ptr %150, align 8, !tbaa !36
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8192
+  %153 = load i64, ptr %152, align 8, !tbaa !132
+  %.not32 = icmp eq i64 %153, 0
+  br i1 %.not32, label %.preheader56, label %154
 
-153:                                              ; preds = %148
-  invoke void @_ZN7Archive4SeekEli(ptr noundef nonnull align 8 dereferenceable(57108) %2, i64 noundef %152, i32 noundef 0)
+154:                                              ; preds = %149
+  invoke void @_ZN7Archive4SeekEli(ptr noundef nonnull align 8 dereferenceable(57108) %2, i64 noundef %153, i32 noundef 0)
           to label %154 unwind label %80
 
-154:                                              ; preds = %153
-  %155 = load ptr, ptr %149, align 8, !tbaa !36
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8192
-  store i64 0, ptr %156, align 8, !tbaa !132
+155:                                              ; preds = %154
+  %156 = load ptr, ptr %150, align 8, !tbaa !36
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8192
+  store i64 0, ptr %157, align 8, !tbaa !132
   br label %.preheader56
 
-.preheader56:                                     ; preds = %154, %148
-  br label %157
+.preheader56:                                     ; preds = %155, %149
+  br label %158
 
-157:                                              ; preds = %.preheader56, %161
-  %158 = invoke noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %2)
-          to label %159 unwind label %162
+158:                                              ; preds = %.preheader56, %162
+  %159 = invoke noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %2)
+          to label %159 unwind label %163
 
-159:                                              ; preds = %157
-  %160 = invoke noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr noundef nonnull align 8 dereferenceable(16800) %0, ptr noundef nonnull align 8 dereferenceable(57108) %2, i64 noundef %158, ptr nonnull align 1 poison)
-          to label %161 unwind label %164
+160:                                              ; preds = %158
+  %161 = invoke noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr noundef nonnull align 8 dereferenceable(16800) %0, ptr noundef nonnull align 8 dereferenceable(57108) %2, i64 noundef %159, ptr nonnull align 1 poison)
+          to label %161 unwind label %165
 
-161:                                              ; preds = %159
-  br i1 %160, label %157, label %.loopexit53
+162:                                              ; preds = %160
+  br i1 %161, label %158, label %.loopexit53
 
-162:                                              ; preds = %157
-  %163 = landingpad { ptr, i32 }
+163:                                              ; preds = %158
+  %164 = landingpad { ptr, i32 }
           cleanup
-  br label %166
+  br label %167
 
-164:                                              ; preds = %159
-  %165 = landingpad { ptr, i32 }
+165:                                              ; preds = %160
+  %166 = landingpad { ptr, i32 }
           cleanup
-  br label %166
+  br label %167
 
-.loopexit53:                                      ; preds = %161, %91, %61, %28, %26, %27, %19
+.loopexit53:                                      ; preds = %162, %91, %61, %28, %26, %27, %19
   %.0 = phi i32 [ 0, %61 ], [ 0, %19 ], [ 0, %27 ], [ 0, %26 ], [ 0, %28 ], [ 1, %91 ], [ 0, %161 ]
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %2) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 
-166:                                              ; preds = %80, %113, %164, %162, %59, %14
-  %.pn36.pn = phi { ptr, i32 } [ %15, %14 ], [ %60, %59 ], [ %81, %80 ], [ %.pn, %113 ], [ %165, %164 ], [ %163, %162 ]
+167:                                              ; preds = %80, %113, %165, %163, %59, %14
+  %.pn36.pn = phi { ptr, i32 } [ %15, %14 ], [ %60, %59 ], [ %81, %80 ], [ %.pn, %113 ], [ %166, %164 ], [ %164, %162 ]
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %2) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn36.pn

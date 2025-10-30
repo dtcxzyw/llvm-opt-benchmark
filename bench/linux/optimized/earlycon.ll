@@ -354,25 +354,25 @@ define internal fastcc void @earlycon_print_info() unnamed_addr #0 section ".ini
     i8 6, label %6
   ]
 
-6:                                                ; preds = %0, %0
+3:                                                ; preds = %0, %0
   %7 = icmp eq i8 %2, 3
-  %8 = select i1 %7, ptr @.str.6, ptr @.str.7
+  %8 = select i1 %7, ptr @.str.3, ptr @.str.7
   br label %10
 
-9:                                                ; preds = %0
-  br label %10
+10:                                               ; preds = %0
+  br label %11
 
-10:                                               ; preds = %0, %9, %6
-  %11 = phi ptr [ %8, %6 ], [ @.str.5, %9 ], [ @.str.4, %0 ]
-  %12 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %1, i32 noundef %5, ptr noundef nonnull %11, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 336), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 536)) #8
-  br label %16
+11:                                               ; preds = %0, %9, %3
+  %12 = phi ptr [ %8, %6 ], [ @.str.5, %9 ], [ @.str.4, %0 ]
+  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %1, i32 noundef %5, ptr noundef nonnull %12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 336), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 536)) #8
+  br label %20
 
-13:                                               ; preds = %0
+14:                                               ; preds = %0
   %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 16), align 8
   %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef %1, i32 noundef %5, i64 noundef %14, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @early_console_dev, i64 536)) #8
   br label %16
 
-16:                                               ; preds = %13, %10
+20:                                               ; preds = %14, %11
   ret void
 }
 

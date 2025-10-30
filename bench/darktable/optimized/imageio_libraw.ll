@@ -290,12 +290,12 @@ _supported_image.exit:                            ; preds = %13, %16
 25:                                               ; preds = %23
   %26 = tail call i32 @libraw_open_file(ptr noundef nonnull %24, ptr noundef %1) #5
   %.not149 = icmp eq i32 %26, 0
-  br i1 %.not149, label %27, label %174
+  br i1 %.not149, label %27, label %176
 
 27:                                               ; preds = %25
   %28 = tail call i32 @libraw_unpack(ptr noundef nonnull %24) #5
   %.not150 = icmp eq i32 %28, 0
-  br i1 %.not150, label %29, label %174
+  br i1 %.not150, label %29, label %176
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 342016
@@ -465,7 +465,7 @@ _supported_image.exit:                            ; preds = %13, %16
 123:                                              ; preds = %77
   %124 = tail call i32 @libraw_dcraw_process(ptr noundef nonnull %24) #5
   %.not156 = icmp eq i32 %124, 0
-  br i1 %.not156, label %125, label %174
+  br i1 %.not156, label %125, label %176
 
 125:                                              ; preds = %123
   %126 = getelementptr inbounds nuw i8, ptr %24, i64 536
@@ -537,57 +537,57 @@ _supported_image.exit:                            ; preds = %13, %16
 
 .thread:                                          ; preds = %156, %156, %156, %156, %156, %156, %156, %156
   %161 = or i32 %160, 16384
-  br label %164
+  br label %166
 
 162:                                              ; preds = %156
   %163 = and i32 %160, -16385
   %.not158 = icmp eq i32 %158, 0
-  br i1 %.not158, label %169, label %164
+  br i1 %.not158, label %171, label %166
 
-164:                                              ; preds = %.thread, %162
-  %165 = phi i32 [ %161, %.thread ], [ %163, %162 ]
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 1420
-  %167 = and i32 %165, -225
-  %168 = or disjoint i32 %167, 64
-  store i32 %168, ptr %166, align 4, !tbaa !136
-  br label %172
+166:                                              ; preds = %.thread, %162
+  %167 = phi i32 [ %161, %.thread ], [ %163, %162 ]
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 1420
+  %169 = and i32 %167, -225
+  %170 = or disjoint i32 %169, 64
+  store i32 %170, ptr %168, align 4, !tbaa !136
+  br label %174
 
-169:                                              ; preds = %162
-  %170 = and i32 %160, -16609
-  %171 = or disjoint i32 %170, 32
-  store i32 %171, ptr %159, align 4, !tbaa !136
-  br label %172
+171:                                              ; preds = %162
+  %172 = and i32 %160, -16609
+  %173 = or disjoint i32 %172, 32
+  store i32 %173, ptr %159, align 4, !tbaa !136
+  br label %174
 
-172:                                              ; preds = %169, %164
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  store i32 14, ptr %173, align 16, !tbaa !137
+174:                                              ; preds = %171, %166
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  store i32 14, ptr %175, align 16, !tbaa !137
   br label %.thread163
 
-174:                                              ; preds = %25, %27, %123
+176:                                              ; preds = %25, %27, %123
   %.0129 = phi i32 [ %26, %25 ], [ %28, %27 ], [ %124, %123 ]
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 1116
-  %176 = tail call ptr @libraw_strerror(i32 noundef %.0129) #5
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.70, ptr noundef nonnull %175, ptr noundef %176) #5
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 1116
+  %178 = tail call ptr @libraw_strerror(i32 noundef %.0129) #5
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.70, ptr noundef nonnull %177, ptr noundef %178) #5
   switch i32 %.0129, label %180 [
     i32 -2, label %.thread163
-    i32 -8, label %177
-    i32 -100008, label %178
-    i32 -100009, label %179
+    i32 -8, label %179
+    i32 -100008, label %180
+    i32 -100009, label %181
   ]
 
-177:                                              ; preds = %174
+179:                                              ; preds = %176
   br label %.thread163
 
-178:                                              ; preds = %174
+180:                                              ; preds = %176
   br label %.thread163
 
-179:                                              ; preds = %174
+181:                                              ; preds = %176
   br label %.thread163
 
-180:                                              ; preds = %174
+182:                                              ; preds = %176
   br label %.thread163
 
-.thread163:                                       ; preds = %37, %134, %172, %35, %174, %177, %178, %179, %180
+.thread163:                                       ; preds = %37, %134, %174, %35, %176, %179, %180, %181, %182
   %.1128 = phi i32 [ 2, %180 ], [ 5, %177 ], [ 6, %178 ], [ 7, %179 ], [ 3, %174 ], [ 2, %37 ], [ 8, %134 ], [ 0, %172 ], [ 5, %35 ]
   tail call void @libraw_close(ptr noundef nonnull %24) #5
   br label %_supported_image.exit.thread

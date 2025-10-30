@@ -50930,7 +50930,7 @@ define range(i32 -10, 1) i32 @ma_dr_wav_uninit(ptr noundef readonly captures(add
   %switch.selectcmp.case1 = icmp eq i32 %15, 0
   %switch.selectcmp.case2 = icmp eq i32 %15, 3
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %19 = select i1 %switch.selectcmp, i32 1, i32 7
+  %16 = select i1 %switch.selectcmp, i32 1, i32 7
   %20 = and i32 %19, %18
   %.not67 = icmp eq i32 %20, 0
   br i1 %.not67, label %25, label %21
