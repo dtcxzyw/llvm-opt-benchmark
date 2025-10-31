@@ -3904,15 +3904,15 @@ _ZN3nix3refINS_5StoreEED2Ev.exit:                 ; preds = %31, %49, %62, %_ZNS
   %114 = load ptr, ptr %.sroa.0124.0190, align 8
   %115 = load i32, ptr %114, align 8
   %116 = icmp ult i32 %115, 3
-  br i1 %116, label %switch.lookup, label %118
+  br i1 %116, label %.fold.split, label %118
 
-switch.lookup:                                    ; preds = %.lr.ph
+.fold.split:                                      ; preds = %.lr.ph
   %117 = zext nneg i32 %115 to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN15CmdRegistryList3runEN3nix3refINS0_5StoreEEE, i64 %117
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %118
 
-118:                                              ; preds = %.lr.ph, %switch.lookup
+118:                                              ; preds = %.lr.ph, %.fold.split
   %119 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.19, %.lr.ph ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   store ptr %71, ptr %73, align 8

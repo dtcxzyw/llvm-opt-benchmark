@@ -2724,10 +2724,10 @@ _ZN4absl7debian26c_findIKSt5arrayIN10open_spiel5chess9PieceTypeELm3EERKS5_EEDTcl
 
 switch.lookup:                                    ; preds = %.critedge
   %110 = load i16, ptr %5, align 2
-  %trunc.i = trunc i16 %110 to i8
-  %switch.tableidx72 = add i8 %trunc.i, 1
-  %111 = icmp ult i8 %switch.tableidx72, 3
-  br i1 %111, label %switch.lookup73, label %"_ZN4absl7debian29c_find_ifIKSt5arrayIN10open_spiel12chess_common6OffsetELm3EEZNS3_5chess12MoveToActionERKNS8_4MoveEiE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESE_OT0_.exit"
+  %trunc = trunc i16 %110 to i8
+  %switch.tableidx74 = add i8 %trunc, 1
+  %111 = icmp ult i8 %switch.tableidx74, 3
+  br i1 %111, label %switch.lookup75, label %"_ZN4absl7debian29c_find_ifIKSt5arrayIN10open_spiel12chess_common6OffsetELm3EEZNS3_5chess12MoveToActionERKNS8_4MoveEiE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESE_OT0_.exit"
 
 "_ZN4absl7debian29c_find_ifIKSt5arrayIN10open_spiel12chess_common6OffsetELm3EEZNS3_5chess12MoveToActionERKNS8_4MoveEiE3$_0EEDTcl5beginclsr3stdE7declvalIRT_EEEESE_OT0_.exit": ; preds = %switch.lookup
   store i32 272, ptr %15, align 4
@@ -2744,16 +2744,16 @@ switch.lookup:                                    ; preds = %.critedge
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #30
   br label %139
 
-switch.lookup73:                                  ; preds = %switch.lookup
+switch.lookup75:                                  ; preds = %switch.lookup
   %115 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN10open_spiel5chess12MoveToActionERKNS0_4MoveEi, i64 %115
   %switch.load = load ptr, ptr %switch.gep, align 8
   %116 = ptrtoint ptr %switch.load to i64
   %117 = sub i64 %116, ptrtoint (ptr @_ZN10open_spiel5chess26kUnderPromotionIndexToTypeE to i64)
-  %118 = zext nneg i8 %switch.tableidx72 to i64
-  %switch.gep74 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN10open_spiel5chess12MoveToActionERKNS0_4MoveEi.14, i64 %118
-  %switch.load75 = load ptr, ptr %switch.gep74, align 8
-  %119 = ptrtoint ptr %switch.load75 to i64
+  %118 = zext nneg i8 %switch.tableidx74 to i64
+  %switch.gep76 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN10open_spiel5chess12MoveToActionERKNS0_4MoveEi.14, i64 %118
+  %switch.load77 = load ptr, ptr %switch.gep76, align 8
+  %119 = ptrtoint ptr %switch.load77 to i64
   %120 = sub i64 %119, ptrtoint (ptr @_ZN10open_spiel5chess32kUnderPromotionDirectionToOffsetE to i64)
   %121 = sext i32 %81 to i64
   %sext = shl i64 %117, 32
@@ -2791,7 +2791,7 @@ switch.lookup73:                                  ; preds = %switch.lookup
   %137 = sext i32 %136 to i64
   br label %138
 
-138:                                              ; preds = %_ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread, %_ZNK10open_spiel5chess4MoveeqERKS1_.exit, %134, %switch.lookup73, %57
+138:                                              ; preds = %_ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread, %_ZNK10open_spiel5chess4MoveeqERKS1_.exit, %134, %switch.lookup75, %57
   %.0 = phi i64 [ 4673, %57 ], [ %126, %switch.lookup73 ], [ %137, %134 ], [ 0, %_ZNK10open_spiel5chess4MoveeqERKS1_.exit ], [ 4672, %_ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread ]
   ret i64 %.0
 

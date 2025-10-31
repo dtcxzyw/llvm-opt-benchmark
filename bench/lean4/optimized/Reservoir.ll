@@ -136,7 +136,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.29 = private unnamed_addr constant [62 x i8] c": Reservoir lookup failed; server returned unsupported JSON: \00", align 1
 @.str.30 = private unnamed_addr constant [28 x i8] c": Reservoir lookup failed: \00", align 1
 @.str.31 = private unnamed_addr constant [26 x i8] c": Reservoir lookup failed\00", align 1
-@switch.table.l_Lake_hexEncodeByte___boxed = private unnamed_addr constant [16 x i64] [i64 97, i64 99, i64 101, i64 103, i64 105, i64 107, i64 109, i64 111, i64 113, i64 115, i64 131, i64 133, i64 135, i64 137, i64 139, i64 141], align 8
+@switch.table.l_Lake_hexEncodeByte = private unnamed_addr constant [16 x i64] [i64 97, i64 99, i64 101, i64 103, i64 105, i64 107, i64 109, i64 111, i64 113, i64 115, i64 131, i64 133, i64 135, i64 137, i64 139, i64 141], align 8
 @switch.table.l_Lake_uriEscapeByte.11 = private unnamed_addr constant [16 x i32] [i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -7915,12 +7915,12 @@ define range(i32 42, 71) i32 @l_Lake_hexEncodeByte(i8 noundef zeroext %0) local_
   br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.l_Lake_uriEscapeByte.11, i64 %3
+  %4 = zext nneg i8 %0 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.l_Lake_uriEscapeByte.11, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %4
+  br label %5
 
-4:                                                ; preds = %1, %switch.lookup
+5:                                                ; preds = %1, %switch.lookup
   %.15 = phi i32 [ %switch.load, %switch.lookup ], [ 42, %1 ]
   ret i32 %.15
 }
@@ -7933,39 +7933,39 @@ define noundef nonnull ptr @l_Lake_hexEncodeByte___boxed(ptr noundef %0) local_u
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %lean_dec.exit
 
-5:                                                ; preds = %1
-  %6 = load i32, ptr %0, align 4, !tbaa !4
-  %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %10, !prof !9
+6:                                                ; preds = %1
+  %7 = load i32, ptr %0, align 4, !tbaa !4
+  %8 = icmp sgt i32 %7, 1
+  br i1 %8, label %9, label %11, !prof !9
 
-8:                                                ; preds = %5
-  %9 = add nsw i32 %6, -1
-  store i32 %9, ptr %0, align 4, !tbaa !4
+9:                                                ; preds = %6
+  %10 = add nsw i32 %7, -1
+  store i32 %10, ptr %0, align 4, !tbaa !4
   br label %lean_dec.exit
 
-10:                                               ; preds = %5
-  %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %lean_dec.exit, label %11
+11:                                               ; preds = %6
+  %.not.i = icmp eq i32 %7, 0
+  br i1 %.not.i, label %lean_dec.exit, label %12
 
-11:                                               ; preds = %10
+12:                                               ; preds = %11
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #7
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %11, %10, %8, %1
+lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   %12 = and i64 %2, 480
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %switch.lookup, label %l_Lake_hexEncodeByte.exit
 
 switch.lookup:                                    ; preds = %lean_dec.exit
-  %14 = and i64 %3, 15
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.l_Lake_hexEncodeByte___boxed, i64 %14
+  %16 = and i64 %3, 15
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.l_Lake_hexEncodeByte___boxed, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %l_Lake_hexEncodeByte.exit
 
 l_Lake_hexEncodeByte.exit:                        ; preds = %lean_dec.exit, %switch.lookup
   %.15.i = phi i64 [ %switch.load, %switch.lookup ], [ 85, %lean_dec.exit ]
-  %15 = inttoptr i64 %.15.i to ptr
-  ret ptr %15
+  %17 = inttoptr i64 %.15.i to ptr
+  ret ptr %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7979,9 +7979,9 @@ switch.lookup:
   %5 = tail call ptr @lean_string_push(ptr noundef %2, i32 noundef %switch.load) #7
   %6 = and i8 %0, 15
   %7 = zext nneg i8 %6 to i64
-  %switch.gep32 = getelementptr inbounds nuw i32, ptr @switch.table.l_Lake_uriEscapeByte.11, i64 %7
-  %switch.load33 = load i32, ptr %switch.gep32, align 4
-  %8 = tail call ptr @lean_string_push(ptr noundef %5, i32 noundef %switch.load33) #7
+  %switch.gep31 = getelementptr inbounds nuw i32, ptr @switch.table.l_Lake_uriEscapeByte.11, i64 %7
+  %switch.load32 = load i32, ptr %switch.gep31, align 4
+  %8 = tail call ptr @lean_string_push(ptr noundef %5, i32 noundef %switch.load32) #7
   ret ptr %8
 }
 
@@ -9775,8 +9775,8 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 l_Lake_isUriUnreservedMark.exit:                  ; preds = %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %13
   %.7.i = phi i64 [ 1, %13 ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ]
-  %14 = inttoptr i64 %.7.i to ptr
-  ret ptr %14
+  %16 = inttoptr i64 %.7.i to ptr
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable

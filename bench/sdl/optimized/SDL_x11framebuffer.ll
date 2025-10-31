@@ -106,7 +106,7 @@ X11_DestroyWindowFramebuffer.exit:                ; preds = %5, %40, %43
 
 52:                                               ; preds = %X11_DestroyWindowFramebuffer.exit
   %53 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str) #4
-  br label %152
+  br label %155
 
 54:                                               ; preds = %X11_DestroyWindowFramebuffer.exit
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -116,7 +116,7 @@ X11_DestroyWindowFramebuffer.exit:                ; preds = %5, %40, %43
 
 58:                                               ; preds = %54
   %59 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #4
-  br label %152
+  br label %155
 
 60:                                               ; preds = %54
   %61 = call i32 @X11_GetPixelFormatFromVisualInfo(ptr noundef %14, ptr noundef nonnull %7) #4
@@ -126,7 +126,7 @@ X11_DestroyWindowFramebuffer.exit:                ; preds = %5, %40, %43
 
 63:                                               ; preds = %60
   %64 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #4
-  br label %152
+  br label %155
 
 65:                                               ; preds = %60
   %66 = load i32, ptr %8, align 4
@@ -145,11 +145,11 @@ X11_DestroyWindowFramebuffer.exit:                ; preds = %5, %40, %43
 68:                                               ; preds = %67
   br label %switch.edge
 
-69:                                               ; preds = %65
+69:; preds = %65
   %70 = and i32 %61, 255
   br label %switch.edge
 
-switch.edge:                                      ; preds = %67, %68, %67, %67, %67, %69
+switch.edge:; preds = %67, %68, %67, %67, %67, %69
   %71 = phi i32 [ %70, %69 ], [ 2, %67 ], [ 1, %68 ], [ 2, %67 ], [ 2, %67 ], [ 2, %67 ]
   %72 = mul i32 %71, %66
   %73 = add i32 %72, 3
@@ -159,16 +159,16 @@ switch.edge:                                      ; preds = %67, %68, %67, %67, 
   %76 = call i32 %75(ptr noundef %14) #4
   %.not.i73 = icmp ne i32 %76, 0
   %77 = load i32, ptr @SDL_X11_HAVE_SHM, align 4
-  %78 = icmp ne i32 %77, 0
+  %.not.i73 = icmp ne i32 %77, 0
   %79 = select i1 %.not.i73, i1 %78, i1 false
   br i1 %79, label %80, label %131
 
-80:                                               ; preds = %switch.edge
+80:; preds = %switch.edge
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %82 = load i32, ptr %9, align 4
   %83 = sext i32 %82 to i64
-  %84 = load i32, ptr %4, align 4
-  %85 = sext i32 %84 to i64
+  %85 = load i32, ptr %4, align 4
+  %86 = sext i32 %85 to i64
   %86 = mul nsw i64 %85, %83
   %87 = call i32 @shmget(i32 noundef 0, i64 noundef %86, i32 noundef 1023) #4
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -176,118 +176,118 @@ switch.edge:                                      ; preds = %67, %68, %67, %67, 
   %89 = icmp sgt i32 %87, -1
   br i1 %89, label %90, label %.thread
 
-90:                                               ; preds = %80
+90:   ; preds = %80
   %91 = call ptr @shmat(i32 noundef %87, ptr noundef null, i32 noundef 0) #4
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %91, ptr %92, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store i32 0, ptr %93, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  store i32 0, ptr %95, align 8
   %.not69 = icmp eq ptr %91, inttoptr (i64 -1 to ptr)
-  br i1 %.not69, label %107, label %94
+  br i1 %.not69, label %110, label %94
 
-94:                                               ; preds = %90
+94:  ; preds = %90
   store i1 false, ptr @shm_error, align 4
-  %95 = load ptr, ptr @X11_XSetErrorHandler, align 8
-  %96 = call ptr %95(ptr noundef nonnull @shm_errhandler) #4
-  store ptr %96, ptr @X_handler, align 8
-  %97 = load ptr, ptr @X11_XShmAttach, align 8
-  %98 = call i32 %97(ptr noundef %14, ptr noundef nonnull %81) #4
-  %99 = load ptr, ptr @X11_XSync, align 8
-  %100 = call i32 %99(ptr noundef %14, i32 noundef 0) #4
-  %101 = load ptr, ptr @X11_XSetErrorHandler, align 8
-  %102 = load ptr, ptr @X_handler, align 8
-  %103 = call ptr %101(ptr noundef %102) #4
+  %98 = load ptr, ptr @X11_XSetErrorHandler, align 8
+  %99 = call ptr %95(ptr noundef nonnull @shm_errhandler) #4
+  store ptr %99, ptr @X_handler, align 8
+  %100 = load ptr, ptr @X11_XShmAttach, align 8
+  %101 = call i32 %97(ptr noundef %14, ptr noundef nonnull %81) #4
+  %102 = load ptr, ptr @X11_XSync, align 8
+  %103 = call i32 %99(ptr noundef %14, i32 noundef 0) #4
+  %104 = load ptr, ptr @X11_XSetErrorHandler, align 8
+  %105 = load ptr, ptr @X_handler, align 8
+  %106 = call ptr %101(ptr noundef %105) #4
   %.b67 = load i1, ptr @shm_error, align 4
-  br i1 %.b67, label %104, label %108
+  br i1 %.b67, label %107, label %111
 
-104:                                              ; preds = %94
-  %105 = load ptr, ptr %92, align 8
-  %106 = call i32 @shmdt(ptr noundef %105) #4
-  br label %108
+107:                                              ; preds = %94
+  %108 = load ptr, ptr %92, align 8
+  %109 = call i32 @shmdt(ptr noundef %108) #4
+  br label %111
 
-107:                                              ; preds = %90
+110:                                              ; preds = %90
   store i1 true, ptr @shm_error, align 4
-  br label %108
+  br label %111
 
 .thread:                                          ; preds = %80
   store i1 true, ptr @shm_error, align 4
-  br label %131
+  br label %134
 
-108:                                              ; preds = %107, %104, %94
-  %109 = load i32, ptr %88, align 8
-  %110 = call i32 @shmctl(i32 noundef %109, i32 noundef 0, ptr noundef null) #4
+111:                                              ; preds = %110, %107, %94
+  %112 = load i32, ptr %88, align 8
+  %113 = call i32 @shmctl(i32 noundef %112, i32 noundef 0, ptr noundef null) #4
   %.b.pr = load i1, ptr @shm_error, align 4
-  br i1 %.b.pr, label %131, label %111
+  br i1 %.b.pr, label %134, label %114
 
-111:                                              ; preds = %108
-  %112 = load ptr, ptr @X11_XShmCreateImage, align 8
-  %113 = load ptr, ptr %55, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %115 = load i32, ptr %114, align 4
-  %116 = load ptr, ptr %92, align 8
-  %117 = load i32, ptr %8, align 4
-  %118 = load i32, ptr %9, align 4
-  %119 = call ptr %112(ptr noundef %14, ptr noundef %113, i32 noundef %115, i32 noundef 2, ptr noundef %116, ptr noundef nonnull %81, i32 noundef %117, i32 noundef %118) #4
-  %120 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store ptr %119, ptr %120, align 8
-  %.not70 = icmp eq ptr %119, null
-  br i1 %.not70, label %121, label %.critedge
+114:                                              ; preds = %111
+  %115 = load ptr, ptr @X11_XShmCreateImage, align 8
+  %116 = load ptr, ptr %55, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %118 = load i32, ptr %117, align 4
+  %119 = load ptr, ptr %92, align 8
+  %120 = load i32, ptr %8, align 4
+  %121 = load i32, ptr %9, align 4
+  %122 = call ptr %112(ptr noundef %14, ptr noundef %116, i32 noundef %118, i32 noundef 2, ptr noundef %119, ptr noundef nonnull %81, i32 noundef %120, i32 noundef %121) #4
+  %123 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store ptr %122, ptr %123, align 8
+  %.not70 = icmp eq ptr %122, null
+  br i1 %.not70, label %124, label %.critedge
 
-121:                                              ; preds = %111
-  %122 = load ptr, ptr @X11_XShmDetach, align 8
-  %123 = call i32 %122(ptr noundef %14, ptr noundef nonnull %81) #4
-  %124 = load ptr, ptr @X11_XSync, align 8
-  %125 = call i32 %124(ptr noundef %14, i32 noundef 0) #4
-  %126 = load ptr, ptr %92, align 8
-  %127 = call i32 @shmdt(ptr noundef %126) #4
-  br label %131
+124:                                              ; preds = %114
+  %125 = load ptr, ptr @X11_XShmDetach, align 8
+  %126 = call i32 %122(ptr noundef %14, ptr noundef nonnull %81) #4
+  %127 = load ptr, ptr @X11_XSync, align 8
+  %128 = call i32 %124(ptr noundef %14, i32 noundef 0) #4
+  %129 = load ptr, ptr %92, align 8
+  %130 = call i32 @shmdt(ptr noundef %129) #4
+  br label %134
 
-.critedge:                                        ; preds = %111
-  %128 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  store i32 0, ptr %128, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i8 1, ptr %129, align 8
-  %130 = load ptr, ptr %92, align 8
-  store ptr %130, ptr %3, align 8
-  br label %152
+.critedge:                                        ; preds = %114
+  %131 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  store i32 0, ptr %131, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store i8 1, ptr %132, align 8
+  %133 = load ptr, ptr %92, align 8
+  store ptr %133, ptr %3, align 8
+  br label %155
 
-131:                                              ; preds = %.thread, %121, %108, %switch.edge
-  %132 = load i32, ptr %9, align 4
-  %133 = sext i32 %132 to i64
-  %134 = load i32, ptr %4, align 4
-  %135 = sext i32 %134 to i64
-  %136 = mul nsw i64 %135, %133
-  %137 = call noalias ptr @SDL_malloc_REAL(i64 noundef %136) #4
-  store ptr %137, ptr %3, align 8
-  %.not71 = icmp eq ptr %137, null
-  br i1 %.not71, label %152, label %138
+134:                                              ; preds = %.thread, %124, %111, %switch.edge
+  %135 = load i32, ptr %9, align 4
+  %136 = sext i32 %135 to i64
+  %137 = load i32, ptr %4, align 4
+  %138 = sext i32 %137 to i64
+  %139 = mul nsw i64 %138, %136
+  %140 = call noalias ptr @SDL_malloc_REAL(i64 noundef %139) #4
+  store ptr %140, ptr %3, align 8
+  %.not71 = icmp eq ptr %140, null
+  br i1 %.not71, label %155, label %141
 
-138:                                              ; preds = %131
-  %139 = load ptr, ptr @X11_XCreateImage, align 8
-  %140 = load ptr, ptr %55, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %142 = load i32, ptr %141, align 4
-  %143 = load i32, ptr %8, align 4
-  %144 = load i32, ptr %9, align 4
-  %145 = call ptr %139(ptr noundef %14, ptr noundef %140, i32 noundef %142, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %137, i32 noundef %143, i32 noundef %144, i32 noundef 32, i32 noundef 0) #4
-  %146 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store ptr %145, ptr %146, align 8
-  %.not72 = icmp eq ptr %145, null
-  br i1 %.not72, label %147, label %150
+141:                                              ; preds = %134
+  %142 = load ptr, ptr @X11_XCreateImage, align 8
+  %143 = load ptr, ptr %55, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %145 = load i32, ptr %144, align 4
+  %146 = load i32, ptr %8, align 4
+  %147 = load i32, ptr %9, align 4
+  %148 = call ptr %139(ptr noundef %14, ptr noundef %143, i32 noundef %145, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %140, i32 noundef %146, i32 noundef %147, i32 noundef 32, i32 noundef 0) #4
+  %149 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store ptr %148, ptr %149, align 8
+  %.not72 = icmp eq ptr %148, null
+  br i1 %.not72, label %150, label %153
 
-147:                                              ; preds = %138
-  %148 = load ptr, ptr %3, align 8
-  call void @SDL_free_REAL(ptr noundef %148) #4
-  %149 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #4
-  br label %152
+150:                                              ; preds = %141
+  %151 = load ptr, ptr %3, align 8
+  call void @SDL_free_REAL(ptr noundef %151) #4
+  %152 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #4
+  br label %155
 
-150:                                              ; preds = %138
-  %151 = getelementptr inbounds nuw i8, ptr %145, i64 24
-  store i32 0, ptr %151, align 8
-  br label %152
+153:                                              ; preds = %141
+  %154 = getelementptr inbounds nuw i8, ptr %148, i64 24
+  store i32 0, ptr %154, align 8
+  br label %155
 
-152:                                              ; preds = %131, %.critedge, %150, %147, %63, %58, %52
-  %.0 = phi i1 [ %64, %63 ], [ true, %150 ], [ %149, %147 ], [ %59, %58 ], [ %53, %52 ], [ true, %.critedge ], [ false, %131 ]
+155:                                              ; preds = %134, %.critedge, %153, %150, %63, %58, %52
+  %.0 = phi i1 [ %64, %63 ], [ true, %150 ], [ %152, %147 ], [ %59, %58 ], [ %53, %52 ], [ true, %.critedge ], [ false, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

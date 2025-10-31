@@ -762,125 +762,125 @@ define void @_ZNK4LIEF3ELF15NoteGnuProperty10propertiesEv(ptr dead_on_unwind noa
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %2, %2, %2, %2
-  %18 = phi i64 [ 8, %2 ], [ 4, %17 ], [ 8, %2 ], [ 8, %2 ], [ 8, %2 ]
+  %20 = phi i64 [ 8, %2 ], [ 4, %17 ], [ 8, %2 ], [ 8, %2 ], [ 8, %2 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %21
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %23
 
-21:                                               ; preds = %.lr.ph, %_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit
+23:                                               ; preds = %.lr.ph, %_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit
   %22 = phi ptr [ null, %.lr.ph ], [ %52, %_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit ]
   %23 = phi ptr [ null, %.lr.ph ], [ %53, %_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit ]
   %24 = phi ptr [ null, %.lr.ph ], [ %54, %_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %25 = load i32, ptr %15, align 8, !tbaa !21
-  call void @_ZN4LIEF3ELF14parse_propertyENS0_4ARCHERNS_10SpanStreamE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.49") align 8 %4, i32 noundef %25, ptr noundef nonnull align 8 dereferenceable(40) %3)
-  %26 = load ptr, ptr %4, align 8
-  %.not = icmp eq ptr %26, null
-  %27 = ptrtoint ptr %26 to i64
-  br i1 %.not, label %_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit.thread, label %28
+  %27 = load i32, ptr %15, align 8, !tbaa !21
+  call void @_ZN4LIEF3ELF14parse_propertyENS0_4ARCHERNS_10SpanStreamE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.49") align 8 %4, i32 noundef %27, ptr noundef nonnull align 8 dereferenceable(40) %3)
+  %28 = load ptr, ptr %4, align 8
+  %.not = icmp eq ptr %28, null
+  %29 = ptrtoint ptr %28 to i64
+  br i1 %.not, label %_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit.thread, label %30
 
-_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit.thread: ; preds = %21
+_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit.thread: ; preds = %23
   store ptr %24, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %61
+  br label %63
 
-28:                                               ; preds = %21
+30:                                               ; preds = %23
   %.not.i.i = icmp eq ptr %23, %22
-  br i1 %.not.i.i, label %31, label %29
+  br i1 %.not.i.i, label %33, label %31
 
-29:                                               ; preds = %28
-  store i64 %27, ptr %23, align 8, !tbaa !34
+31:                                               ; preds = %30
+  store i64 %29, ptr %23, align 8, !tbaa !34
   store ptr null, ptr %4, align 8, !tbaa !34
-  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %30, ptr %19, align 8, !tbaa !36
-  br label %51
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr %32, ptr %21, align 8, !tbaa !36
+  br label %53
 
-31:                                               ; preds = %28
-  %32 = ptrtoint ptr %22 to i64
-  %33 = ptrtoint ptr %24 to i64
-  %34 = sub i64 %32, %33
-  %35 = icmp eq i64 %34, 9223372036854775800
-  br i1 %35, label %36, label %_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
+33:                                               ; preds = %30
+  %34 = ptrtoint ptr %22 to i64
+  %35 = ptrtoint ptr %24 to i64
+  %36 = sub i64 %34, %35
+  %37 = icmp eq i64 %36, 9223372036854775800
+  br i1 %37, label %38, label %_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
 
-36:                                               ; preds = %31
+38:                                               ; preds = %33
   store ptr %24, ptr %0, align 8
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.64) #22
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i: ; preds = %31
-  %37 = ashr exact i64 %34, 3
-  %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %37, i64 1)
-  %38 = add nsw i64 %.sroa.speculated.i.i, %37
-  %39 = icmp ult i64 %38, %37
-  %40 = call i64 @llvm.umin.i64(i64 %38, i64 1152921504606846975)
-  %41 = select i1 %39, i64 1152921504606846975, i64 %40
-  %.not.i.i4 = icmp ne i64 %41, 0
+_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i: ; preds = %33
+  %39 = ashr exact i64 %36, 3
+  %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %39, i64 1)
+  %40 = add nsw i64 %.sroa.speculated.i.i, %39
+  %41 = icmp ult i64 %40, %39
+  %42 = call i64 @llvm.umin.i64(i64 %40, i64 1152921504606846975)
+  %43 = select i1 %41, i64 1152921504606846975, i64 %42
+  %.not.i.i4 = icmp ne i64 %43, 0
   call void @llvm.assume(i1 %.not.i.i4)
-  %42 = shl nuw nsw i64 %41, 3
-  %43 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #23
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %34
-  store i64 %27, ptr %44, align 8, !tbaa !34
+  %44 = shl nuw nsw i64 %43, 3
+  %45 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #23
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %36
+  store i64 %29, ptr %46, align 8, !tbaa !34
   store ptr null, ptr %4, align 8, !tbaa !34
   %.not10.i.i.i.i = icmp eq ptr %24, %22
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %43, %_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i ]
-  %.0911.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %24, %_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i ]
+  %.012.i.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i ], [ %45, %_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i ]
+  %.0911.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i ], [ %24, %_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  %45 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !34, !alias.scope !42, !noalias !39
-  store i64 %45, ptr %.012.i.i.i.i, align 8, !tbaa !34, !alias.scope !39, !noalias !42
+  %47 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !34, !alias.scope !42, !noalias !39
+  store i64 %47, ptr %.012.i.i.i.i, align 8, !tbaa !34, !alias.scope !39, !noalias !42
   store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !34, !alias.scope !42, !noalias !39
-  %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
-  %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %46, %22
+  %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %48, %22
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !44
 
 _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
-  %.0.lcssa.i.i.i.i = phi ptr [ %43, %_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i ], [ %47, %.lr.ph.i.i.i.i ]
-  %48 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %.0.lcssa.i.i.i.i = phi ptr [ %45, %_ZNKSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i ], [ %49, %.lr.ph.i.i.i.i ]
+  %50 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %24, null
-  br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, label %49
+  br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, label %51
 
-49:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i
-  call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %34) #24
+51:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i
+  call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %36) #24
   br label %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit
 
-_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i, %49
-  store ptr %48, ptr %19, align 8, !tbaa !36
-  %50 = getelementptr inbounds nuw %"class.std::unique_ptr.49", ptr %43, i64 %41
-  store ptr %50, ptr %20, align 8, !tbaa !46
-  br label %51
+_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i, %51
+  store ptr %50, ptr %21, align 8, !tbaa !36
+  %52 = getelementptr inbounds nuw %"class.std::unique_ptr.49", ptr %45, i64 %43
+  store ptr %52, ptr %22, align 8, !tbaa !46
+  br label %53
 
-51:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, %29
-  %52 = phi ptr [ %50, %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit ], [ %22, %29 ]
-  %53 = phi ptr [ %48, %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit ], [ %30, %29 ]
-  %54 = phi ptr [ %43, %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit ], [ %24, %29 ]
-  %55 = call noundef i64 @_ZNK4LIEF12BinaryStream5alignEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %18) #25
+53:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, %31
+  %54 = phi ptr [ %52, %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit ], [ %22, %29 ]
+  %55 = phi ptr [ %50, %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit ], [ %32, %29 ]
+  %56 = phi ptr [ %45, %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit ], [ %24, %29 ]
+  %57 = call noundef i64 @_ZNK4LIEF12BinaryStream5alignEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %20) #25
   %.pr = load ptr, ptr %4, align 8, !tbaa !34
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4LIEF3ELF15NoteGnuProperty8PropertyEEclEPS3_.exit.i
 
-_ZNKSt14default_deleteIN4LIEF3ELF15NoteGnuProperty8PropertyEEclEPS3_.exit.i: ; preds = %51
-  %56 = load ptr, ptr %.pr, align 8, !tbaa !13
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = load ptr, ptr %57, align 8
+_ZNKSt14default_deleteIN4LIEF3ELF15NoteGnuProperty8PropertyEEclEPS3_.exit.i: ; preds = %53
+  %58 = load ptr, ptr %.pr, align 8, !tbaa !13
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %60 = load ptr, ptr %59, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(12) %.pr) #25
   br label %_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit: ; preds = %51, %_ZNKSt14default_deleteIN4LIEF3ELF15NoteGnuProperty8PropertyEEclEPS3_.exit.i
+_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit: ; preds = %53, %_ZNKSt14default_deleteIN4LIEF3ELF15NoteGnuProperty8PropertyEEclEPS3_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %59 = load i8, ptr %14, align 8, !tbaa !18, !range !47, !noundef !48
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %21, label %.loopexit
+  %61 = load i8, ptr %14, align 8, !tbaa !18, !range !47, !noundef !48
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %23, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit
-  store ptr %54, ptr %0, align 8
-  br label %61
+  store ptr %56, ptr %0, align 8
+  br label %63
 
-61:                                               ; preds = %.loopexit, %_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit.thread
+63:                                               ; preds = %.loopexit, %_ZNSt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS3_EED2Ev.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

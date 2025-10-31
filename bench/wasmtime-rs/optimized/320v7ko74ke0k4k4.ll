@@ -11196,7 +11196,7 @@ _ZN13wasmtime_wasi10filesystem4File15_spawn_blocking17hfd40c5348da9ab23E.exit.i.
   %.sroa.010.0.i = phi i64 [ %.sroa.0.0.copyload.i.i, %105 ], [ %.sroa.0.0.copyload.i.i, %.noexc6.i ], [ %.sroa.010.0.copyload.i, %73 ]
   store i8 1, ptr %115, align 8, !noalias !1776
   %116 = icmp eq i32 %.sroa.3.0.i, 1000000001
-  br i1 %116, label %117, label %_ZN13wasmtime_wasi4host10filesystem19descriptortype_from17h9fd69df99357e0f9E.exit
+  br i1 %116, label %117, label %120
 
 117:                                              ; preds = %114
   %118 = inttoptr i64 %.sroa.010.0.i to ptr
@@ -11205,8 +11205,8 @@ _ZN13wasmtime_wasi10filesystem4File15_spawn_blocking17hfd40c5348da9ab23E.exit.i.
   invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h30c281365ab59433E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, ptr noundef nonnull %118)
           to label %11 unwind label %.body21
 
-_ZN13wasmtime_wasi4host10filesystem19descriptortype_from17h9fd69df99357e0f9E.exit: ; preds = %114
-  %120 = icmp ult i8 %.sroa.5.i.sroa.5.0, 7
+120:                                              ; preds = %114
+  %121 = icmp ult i8 %.sroa.5.i.sroa.5.0, 7
   %switch.cast = zext i8 %.sroa.5.i.sroa.5.0 to i56
   %switch.shiftamt = shl nuw nsw i56 %switch.cast, 3
   %switch.downshift = lshr i56 1692148395278597, %switch.shiftamt
@@ -11217,13 +11217,13 @@ _ZN13wasmtime_wasi4host10filesystem19descriptortype_from17h9fd69df99357e0f9E.exi
   br label %.sink.split
 
 .body:                                            ; preds = %110, %.body8.i
-  %122 = phi ptr [ %49, %110 ], [ %69, %.body8.i ]
+  %126 = phi ptr [ %49, %110 ], [ %69, %.body8.i ]
   %.pn6 = phi { ptr, i32 } [ %111, %110 ], [ %.pn2.i, %.body8.i ]
-  invoke fastcc void @"_ZN4core3ptr437drop_in_place$LT$wasmtime_wasi..filesystem..File..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_type..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a6403d880890d23E"(ptr noundef nonnull align 8 %122) #21
-          to label %45 unwind label %123
+  invoke fastcc void @"_ZN4core3ptr437drop_in_place$LT$wasmtime_wasi..filesystem..File..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_type..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7a6403d880890d23E"(ptr noundef nonnull align 8 %126) #21
+          to label %45 unwind label %127
 
-123:                                              ; preds = %.body
-  %124 = landingpad { ptr, i32 }
+127:                                              ; preds = %.body
+  %128 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #22
   unreachable

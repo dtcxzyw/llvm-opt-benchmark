@@ -306,7 +306,7 @@ define hidden i32 @mbedtls_ssl_tls13_process_certificate_verify(ptr noundef %0) 
 
 31:                                               ; preds = %18
   call void @mbedtls_ssl_pend_fatal_alert(ptr noundef nonnull %0, i8 noundef zeroext 80, i32 noundef -27648) #8
-  br label %120
+  br label %124
 
 32:                                               ; preds = %18
   %33 = load i64, ptr %7, align 8, !tbaa !20
@@ -486,7 +486,7 @@ switch.lookup.i.i:                                ; preds = %75
   %104 = icmp ult i8 %switch.tableidx, 17
   br i1 %104, label %switch.lookup, label %106
 
-switch.lookup:                                    ; preds = %103
+121:                                              ; preds = %103
   %105 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mbedtls_ssl_tls13_process_certificate_verify, i64 %105
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -524,20 +524,20 @@ ssl_tls13_parse_certificate_verify.exit.thread:   ; preds = %48, %mbedtls_ssl_ge
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread
 
-118:                                              ; preds = %109
+122:                                              ; preds = %109
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %119 = call i32 @mbedtls_ssl_add_hs_msg_to_checksum(ptr noundef nonnull %0, i32 noundef 15, ptr noundef nonnull %19, i64 noundef %22) #8
+  %123 = call i32 @mbedtls_ssl_add_hs_msg_to_checksum(ptr noundef nonnull %0, i32 noundef 15, ptr noundef nonnull %19, i64 noundef %22) #8
   br label %mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread
 
-mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread: ; preds = %17, %9, %ssl_tls13_parse_certificate_verify.exit.thread, %118
-  %.0 = phi i32 [ %119, %118 ], [ %.055.i.ph, %ssl_tls13_parse_certificate_verify.exit.thread ], [ -30464, %17 ], [ %8, %9 ]
+mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread: ; preds = %17, %9, %ssl_tls13_parse_certificate_verify.exit.thread, %122
+  %.0 = phi i32 [ %123, %118 ], [ %.055.i.ph, %ssl_tls13_parse_certificate_verify.exit.thread ], [ -30464, %17 ], [ %8, %9 ]
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 402, ptr noundef nonnull @.str.7) #8
   call void @mbedtls_debug_print_ret(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 403, ptr noundef nonnull @.str.8, i32 noundef %.0) #8
-  br label %120
+  br label %124
 
-120:                                              ; preds = %mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread, %31
+124:                                              ; preds = %mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread, %31
   %.017 = phi i32 [ %.0, %mbedtls_ssl_tls13_fetch_handshake_msg.exit.thread ], [ %30, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

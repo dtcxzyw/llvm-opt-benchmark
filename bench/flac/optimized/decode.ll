@@ -915,7 +915,7 @@ switch.lookup:                                    ; preds = %283
   %374 = load i32, ptr %51, align 4, !tbaa !41
   %switch.tableidx76 = add i32 %374, -1
   %375 = icmp ult i32 %switch.tableidx76, 3
-  br i1 %375, label %switch.lookup77, label %377
+  br i1 %375, label %switch.lookup77, label %.fold.split.i
 
 switch.lookup77:                                  ; preds = %373
   %376 = zext nneg i32 %switch.tableidx76 to i64
@@ -923,130 +923,130 @@ switch.lookup77:                                  ; preds = %373
   %switch.load79 = load ptr, ptr %switch.gep78, align 8
   br label %377
 
-377:                                              ; preds = %373, %switch.lookup77
+.fold.split.i:                                    ; preds = %373, %switch.lookup77
   %378 = phi ptr [ %switch.load79, %switch.lookup77 ], [ @.str.76, %373 ]
   call fastcc void @print_error_with_state(ptr noundef nonnull %8, ptr noundef nonnull %378)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %326, %377, %347, %306, %297, %print_error_with_state.exit, %277, %319, %._crit_edge, %234, %246
-  %379 = load ptr, ptr %83, align 8, !tbaa !70
-  %.not.i19 = icmp eq ptr %379, null
-  br i1 %.not.i19, label %383, label %380
+  %380 = load ptr, ptr %83, align 8, !tbaa !70
+  %.not.i19 = icmp eq ptr %380, null
+  br i1 %.not.i19, label %384, label %381
 
-380:                                              ; preds = %.loopexit
-  %381 = call i32 @FLAC__stream_decoder_finish(ptr noundef nonnull %379) #15
-  %382 = load ptr, ptr %83, align 8, !tbaa !70
-  call void @FLAC__stream_decoder_delete(ptr noundef %382) #15
-  br label %383
+381:                                              ; preds = %.loopexit
+  %382 = call i32 @FLAC__stream_decoder_finish(ptr noundef nonnull %380) #15
+  %383 = load ptr, ptr %83, align 8, !tbaa !70
+  call void @FLAC__stream_decoder_delete(ptr noundef %383) #15
+  br label %384
 
-383:                                              ; preds = %380, %.loopexit
-  %384 = load i32, ptr %62, align 4, !tbaa !50
-  %.not6.i20 = icmp eq i32 %384, 0
-  br i1 %.not6.i20, label %387, label %385
+384:                                              ; preds = %381, %.loopexit
+  %385 = load i32, ptr %62, align 4, !tbaa !50
+  %.not6.i20 = icmp eq i32 %385, 0
+  br i1 %.not6.i20, label %388, label %386
 
-385:                                              ; preds = %383
-  %386 = load i64, ptr %63, align 8
-  call void @flac__analyze_finish(i64 %386) #15
-  br label %387
+386:                                              ; preds = %384
+  %387 = load i64, ptr %63, align 8
+  call void @flac__analyze_finish(i64 %387) #15
+  br label %388
 
-387:                                              ; preds = %385, %383
-  %388 = load ptr, ptr %84, align 8, !tbaa !67
-  %.not.i.i21 = icmp eq ptr %388, null
-  %389 = load ptr, ptr @stdout, align 8
-  %.not4.i.i22 = icmp eq ptr %388, %389
+388:                                              ; preds = %386, %384
+  %389 = load ptr, ptr %84, align 8, !tbaa !67
+  %.not.i.i21 = icmp eq ptr %389, null
+  %390 = load ptr, ptr @stdout, align 8
+  %.not4.i.i22 = icmp eq ptr %389, %390
   %or.cond.i.i23 = select i1 %.not.i.i21, i1 true, i1 %.not4.i.i22
-  br i1 %or.cond.i.i23, label %DecoderSession_finish_error.exit, label %390
+  br i1 %or.cond.i.i23, label %DecoderSession_finish_error.exit, label %391
 
-390:                                              ; preds = %387
-  %391 = call i32 @fclose(ptr noundef nonnull %388)
-  %392 = load ptr, ptr %70, align 8, !tbaa !56
-  %393 = call i32 @unlink(ptr noundef %392) #15
+391:                                              ; preds = %388
+  %392 = call i32 @fclose(ptr noundef nonnull %389)
+  %393 = load ptr, ptr %70, align 8, !tbaa !56
+  %394 = call i32 @unlink(ptr noundef %393) #15
   br label %DecoderSession_finish_error.exit
 
 DecoderSession_process.exit:                      ; preds = %369, %354, %352, %349
-  %394 = load ptr, ptr %83, align 8, !tbaa !70
-  %.not.i25 = icmp eq ptr %394, null
-  br i1 %.not.i25, label %400, label %395
+  %395 = load ptr, ptr %83, align 8, !tbaa !70
+  %.not.i25 = icmp eq ptr %395, null
+  br i1 %.not.i25, label %401, label %396
 
-395:                                              ; preds = %DecoderSession_process.exit
-  %396 = call i32 @FLAC__stream_decoder_finish(ptr noundef nonnull %394) #15
-  %.not38.i = icmp eq i32 %396, 0
-  %397 = load i32, ptr %339, align 4
-  %.not39.i = icmp eq i32 %397, 0
+396:                                              ; preds = %DecoderSession_process.exit
+  %397 = call i32 @FLAC__stream_decoder_finish(ptr noundef nonnull %395) #15
+  %.not38.i = icmp eq i32 %397, 0
+  %398 = load i32, ptr %339, align 4
+  %.not39.i = icmp eq i32 %398, 0
   %narrow57 = select i1 %.not38.i, i1 %.not39.i, i1 false
-  %398 = zext i1 %narrow57 to i32
+  %399 = zext i1 %narrow57 to i32
   call fastcc void @print_stats(ptr noundef nonnull %8)
-  %399 = load ptr, ptr %83, align 8, !tbaa !70
-  call void @FLAC__stream_decoder_delete(ptr noundef %399) #15
-  br label %400
+  %400 = load ptr, ptr %83, align 8, !tbaa !70
+  call void @FLAC__stream_decoder_delete(ptr noundef %400) #15
+  br label %401
 
-400:                                              ; preds = %395, %DecoderSession_process.exit
-  %.035.i = phi i32 [ %398, %395 ], [ 0, %DecoderSession_process.exit ]
-  %401 = load i32, ptr %62, align 4, !tbaa !50
-  %.not40.i = icmp eq i32 %401, 0
-  br i1 %.not40.i, label %404, label %402
+401:                                              ; preds = %396, %DecoderSession_process.exit
+  %.035.i = phi i32 [ %399, %395 ], [ 0, %DecoderSession_process.exit ]
+  %402 = load i32, ptr %62, align 4, !tbaa !50
+  %.not40.i = icmp eq i32 %402, 0
+  br i1 %.not40.i, label %405, label %403
 
-402:                                              ; preds = %400
-  %403 = load i64, ptr %63, align 8
-  call void @flac__analyze_finish(i64 %403) #15
-  br label %404
+403:                                              ; preds = %401
+  %404 = load i64, ptr %63, align 8
+  call void @flac__analyze_finish(i64 %404) #15
+  br label %405
 
-404:                                              ; preds = %402, %400
-  %405 = call fastcc i32 @verify_streaminfo(ptr noundef nonnull %8, i32 noundef %.035.i)
-  %.not41.i = icmp eq i32 %405, 0
-  %406 = load ptr, ptr %84, align 8, !tbaa !67
-  %.not.i.i26 = icmp eq ptr %406, null
-  %407 = load ptr, ptr @stdout, align 8
-  %.not4.i.i27 = icmp eq ptr %406, %407
+405:                                              ; preds = %403, %401
+  %406 = call fastcc i32 @verify_streaminfo(ptr noundef nonnull %8, i32 noundef %.035.i)
+  %.not41.i = icmp eq i32 %406, 0
+  %407 = load ptr, ptr %84, align 8, !tbaa !67
+  %.not.i.i26 = icmp eq ptr %407, null
+  %408 = load ptr, ptr @stdout, align 8
+  %.not4.i.i27 = icmp eq ptr %407, %408
   %or.cond.i.i28 = select i1 %.not.i.i26, i1 true, i1 %.not4.i.i27
-  br i1 %or.cond.i.i28, label %DecoderSession_destroy.exit.i, label %408
+  br i1 %or.cond.i.i28, label %DecoderSession_destroy.exit.i, label %409
 
-408:                                              ; preds = %404
-  %409 = call i32 @fclose(ptr noundef nonnull %406)
-  br i1 %.not41.i, label %410, label %DecoderSession_destroy.exit.i
+409:                                              ; preds = %405
+  %410 = call i32 @fclose(ptr noundef nonnull %407)
+  br i1 %.not41.i, label %411, label %DecoderSession_destroy.exit.i
 
-410:                                              ; preds = %408
-  %411 = load ptr, ptr %70, align 8, !tbaa !56
-  %412 = call i32 @unlink(ptr noundef %411) #15
+411:                                              ; preds = %409
+  %412 = load ptr, ptr %70, align 8, !tbaa !56
+  %413 = call i32 @unlink(ptr noundef %412) #15
   br label %DecoderSession_destroy.exit.i
 
-DecoderSession_destroy.exit.i:                    ; preds = %410, %408, %404
-  %413 = load i32, ptr %62, align 4, !tbaa !50
-  %.not42.i = icmp eq i32 %413, 0
-  %414 = load i32, ptr %61, align 8
-  %.not43.i = icmp eq i32 %414, 0
+DecoderSession_destroy.exit.i:                    ; preds = %411, %409, %405
+  %414 = load i32, ptr %62, align 4, !tbaa !50
+  %.not42.i = icmp eq i32 %414, 0
+  %415 = load i32, ptr %61, align 8
+  %.not43.i = icmp eq i32 %415, 0
   %or.cond55 = select i1 %.not42.i, i1 %.not43.i, i1 false
-  br i1 %or.cond55, label %415, label %DecoderSession_finish_ok.exit
+  br i1 %or.cond55, label %416, label %DecoderSession_finish_ok.exit
 
-415:                                              ; preds = %DecoderSession_destroy.exit.i
-  %416 = load i32, ptr %51, align 4, !tbaa !41
-  %.not44.i = icmp eq i32 %416, 0
-  br i1 %.not44.i, label %DecoderSession_finish_ok.exit, label %417
+416:                                              ; preds = %DecoderSession_destroy.exit.i
+  %417 = load i32, ptr %51, align 4, !tbaa !41
+  %.not44.i = icmp eq i32 %417, 0
+  br i1 %.not44.i, label %DecoderSession_finish_ok.exit, label %418
 
-417:                                              ; preds = %415
-  %418 = load i32, ptr %77, align 4, !tbaa !61
-  %.not45.i = icmp eq i32 %418, 0
-  br i1 %.not45.i, label %419, label %.tail.thread.i29
+418:                                              ; preds = %416
+  %419 = load i32, ptr %77, align 4, !tbaa !61
+  %.not45.i = icmp eq i32 %419, 0
+  br i1 %.not45.i, label %420, label %.tail.thread.i29
 
-419:                                              ; preds = %417
-  %420 = load i32, ptr %78, align 8, !tbaa !79
-  %.not46.i = icmp eq i32 %420, 0
-  br i1 %.not46.i, label %sub_0.i31, label %442
+420:                                              ; preds = %418
+  %421 = load i32, ptr %78, align 8, !tbaa !79
+  %.not46.i = icmp eq i32 %421, 0
+  br i1 %.not46.i, label %sub_0.i31, label %443
 
-sub_0.i31:                                        ; preds = %419
-  %421 = load ptr, ptr %70, align 8, !tbaa !56
-  %422 = load i8, ptr %421, align 1
-  %.not54.i = icmp eq i8 %422, 45
+sub_0.i31:                                        ; preds = %420
+  %422 = load ptr, ptr %70, align 8, !tbaa !56
+  %423 = load i8, ptr %422, align 1
+  %.not54.i = icmp eq i8 %423, 45
   br i1 %.not54.i, label %.tail.i32, label %.tail.thread.i29
 
 .tail.i32:                                        ; preds = %sub_0.i31
-  %423 = getelementptr inbounds nuw i8, ptr %421, i64 1
-  %424 = load i8, ptr %423, align 1
-  %425 = icmp eq i8 %424, 0
-  br i1 %425, label %442, label %.tail.thread.i29
+  %424 = getelementptr inbounds nuw i8, ptr %422, i64 1
+  %425 = load i8, ptr %424, align 1
+  %426 = icmp eq i8 %425, 0
+  br i1 %426, label %443, label %.tail.thread.i29
 
-.tail.thread.i29:                                 ; preds = %.tail.i32, %sub_0.i31, %417
-  %426 = icmp ult i32 %416, 4
+.tail.thread.i29:                                 ; preds = %.tail.i32, %sub_0.i31, %418
+  %426 = icmp ult i32 %417, 4
   br i1 %426, label %switch.lookup81, label %429
 
 switch.lookup81:                                  ; preds = %.tail.thread.i29
@@ -1056,85 +1056,85 @@ switch.lookup81:                                  ; preds = %.tail.thread.i29
   %switch.load83 = load ptr, ptr %switch.gep82, align 8
   br label %429
 
-429:                                              ; preds = %.tail.thread.i29, %switch.lookup81
+.fold.split.i.i:                                  ; preds = %.tail.thread.i29, %switch.lookup81
   %430 = phi ptr [ %switch.load83, %switch.lookup81 ], [ @.str.82, %.tail.thread.i29 ]
   %431 = load ptr, ptr %70, align 8, !tbaa !56
   %432 = call noalias ptr @fopen64(ptr noundef %431, ptr noundef nonnull @.str.117)
   %433 = icmp eq ptr %432, null
   br i1 %433, label %fixup_iff_headers.exit.thread.i, label %fixup_iff_headers.exit.i
 
-fixup_iff_headers.exit.thread.i:                  ; preds = %429
+fixup_iff_headers.exit.thread.i:; preds = %.fold.split.i.i
   %434 = load ptr, ptr @stderr, align 8, !tbaa !68
   %435 = load ptr, ptr %70, align 8, !tbaa !56
   %436 = tail call ptr @__errno_location() #16
-  %437 = load i32, ptr %436, align 4, !tbaa !69
+  %435 = load i32, ptr %436, align 4, !tbaa !69
   %438 = call ptr @strerror(i32 noundef %437) #15
-  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %434, i32 noundef 1, ptr noundef nonnull @.str.118, ptr noundef %435, ptr noundef nonnull %430, ptr noundef %438) #15
+  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %434, i32 noundef 1, ptr noundef nonnull @.str.118, ptr noundef %435, ptr noundef nonnull %430, ptr noundef %438) #16
   br label %DecoderSession_finish_ok.exit
 
 fixup_iff_headers.exit.i:                         ; preds = %429
-  %439 = load i64, ptr %71, align 8, !tbaa !57
-  %440 = call fastcc i32 @write_iff_headers(ptr noundef nonnull %432, ptr noundef nonnull %8, i64 noundef %439)
-  %441 = call i32 @fclose(ptr noundef nonnull %432)
-  %.not48.i = icmp eq i32 %440, 0
-  br i1 %.not48.i, label %DecoderSession_finish_ok.exit, label %442
+  %440 = load i64, ptr %71, align 8, !tbaa !57
+  %441 = call fastcc i32 @write_iff_headers(ptr noundef nonnull %432, ptr noundef nonnull %8, i64 noundef %440)
+  %442 = call i32 @fclose(ptr noundef nonnull %432)
+  %.not48.i = icmp eq i32 %441, 0
+  br i1 %.not48.i, label %DecoderSession_finish_ok.exit, label %443
 
-442:                                              ; preds = %fixup_iff_headers.exit.i, %.tail.i32, %419
-  %443 = load ptr, ptr %85, align 8, !tbaa !66
-  %.not49.i = icmp eq ptr %443, null
-  br i1 %.not49.i, label %DecoderSession_finish_ok.exit, label %444
+443:                                              ; preds = %fixup_iff_headers.exit.i, %.tail.i32, %420
+  %444 = load ptr, ptr %85, align 8, !tbaa !66
+  %.not49.i = icmp eq ptr %444, null
+  br i1 %.not49.i, label %DecoderSession_finish_ok.exit, label %445
 
-444:                                              ; preds = %442
+445:                                              ; preds = %443
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %445 = load ptr, ptr %69, align 8, !tbaa !55
-  %446 = load ptr, ptr %70, align 8, !tbaa !56
-  %447 = getelementptr inbounds nuw i8, ptr %8, i64 1416
-  %448 = load i64, ptr %447, align 8, !tbaa !82
-  %449 = getelementptr inbounds nuw i8, ptr %8, i64 1424
-  %450 = load i64, ptr %449, align 8, !tbaa !83
-  %451 = getelementptr inbounds nuw i8, ptr %8, i64 1432
-  %452 = load i64, ptr %451, align 8, !tbaa !84
-  %453 = call i32 @flac__foreign_metadata_write_to_iff(ptr noundef nonnull %443, ptr noundef %445, ptr noundef %446, i64 noundef %448, i64 noundef %450, i64 noundef %452, ptr noundef nonnull %6) #15
-  %.not50.i = icmp eq i32 %453, 0
-  %454 = load ptr, ptr %69, align 8, !tbaa !55
-  %455 = load ptr, ptr %70, align 8, !tbaa !56
-  br i1 %.not50.i, label %456, label %459
+  %446 = load ptr, ptr %69, align 8, !tbaa !55
+  %447 = load ptr, ptr %70, align 8, !tbaa !56
+  %448 = getelementptr inbounds nuw i8, ptr %8, i64 1416
+  %449 = load i64, ptr %448, align 8, !tbaa !82
+  %450 = getelementptr inbounds nuw i8, ptr %8, i64 1424
+  %451 = load i64, ptr %450, align 8, !tbaa !83
+  %452 = getelementptr inbounds nuw i8, ptr %8, i64 1432
+  %453 = load i64, ptr %452, align 8, !tbaa !84
+  %454 = call i32 @flac__foreign_metadata_write_to_iff(ptr noundef nonnull %444, ptr noundef %446, ptr noundef %447, i64 noundef %449, i64 noundef %451, i64 noundef %453, ptr noundef nonnull %6) #15
+  %.not50.i = icmp eq i32 %454, 0
+  %455 = load ptr, ptr %69, align 8, !tbaa !55
+  %456 = load ptr, ptr %70, align 8, !tbaa !56
+  br i1 %.not50.i, label %457, label %460
 
-456:                                              ; preds = %444
-  %457 = load ptr, ptr @stderr, align 8, !tbaa !68
-  %458 = load ptr, ptr %6, align 8, !tbaa !72
-  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %457, i32 noundef 1, ptr noundef nonnull @.str.115, ptr noundef %454, ptr noundef %455, ptr noundef %458) #15
+457:                                              ; preds = %445
+  %458 = load ptr, ptr @stderr, align 8, !tbaa !68
+  %459 = load ptr, ptr %6, align 8, !tbaa !72
+  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %458, i32 noundef 1, ptr noundef nonnull @.str.115, ptr noundef %455, ptr noundef %456, ptr noundef %459) #15
   br label %.critedge.i30
 
-459:                                              ; preds = %444
-  %460 = load ptr, ptr %85, align 8, !tbaa !66
-  %461 = load i64, ptr %451, align 8, !tbaa !84
-  %462 = call i32 @flac__foreign_metadata_compare_with_iff(ptr noundef %460, ptr noundef %454, ptr noundef %455, i64 noundef %461, ptr noundef nonnull %6) #15
-  %.not51.i = icmp eq i32 %462, 0
-  br i1 %.not51.i, label %463, label %468
+460:                                              ; preds = %445
+  %461 = load ptr, ptr %85, align 8, !tbaa !66
+  %462 = load i64, ptr %452, align 8, !tbaa !84
+  %463 = call i32 @flac__foreign_metadata_compare_with_iff(ptr noundef %461, ptr noundef %455, ptr noundef %456, i64 noundef %462, ptr noundef nonnull %6) #15
+  %.not51.i = icmp eq i32 %463, 0
+  br i1 %.not51.i, label %464, label %469
 
-463:                                              ; preds = %459
-  %464 = load ptr, ptr @stderr, align 8, !tbaa !68
-  %465 = load ptr, ptr %69, align 8, !tbaa !55
-  %466 = load ptr, ptr %70, align 8, !tbaa !56
-  %467 = load ptr, ptr %6, align 8, !tbaa !72
-  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %464, i32 noundef 1, ptr noundef nonnull @.str.116, ptr noundef %465, ptr noundef %466, ptr noundef %467) #15
+464:                                              ; preds = %460
+  %465 = load ptr, ptr @stderr, align 8, !tbaa !68
+  %466 = load ptr, ptr %69, align 8, !tbaa !55
+  %467 = load ptr, ptr %70, align 8, !tbaa !56
+  %468 = load ptr, ptr %6, align 8, !tbaa !72
+  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %465, i32 noundef 1, ptr noundef nonnull @.str.116, ptr noundef %466, ptr noundef %467, ptr noundef %468) #15
   br label %.critedge.i30
 
-468:                                              ; preds = %459
+469:                                              ; preds = %460
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %DecoderSession_finish_ok.exit
 
-.critedge.i30:                                    ; preds = %463, %456
+.critedge.i30:                                    ; preds = %464, %457
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %DecoderSession_finish_ok.exit
 
-DecoderSession_finish_ok.exit:                    ; preds = %DecoderSession_destroy.exit.i, %415, %fixup_iff_headers.exit.thread.i, %fixup_iff_headers.exit.i, %442, %468, %.critedge.i30
+DecoderSession_finish_ok.exit:                    ; preds = %DecoderSession_destroy.exit.i, %416, %fixup_iff_headers.exit.thread.i, %fixup_iff_headers.exit.i, %443, %469, %.critedge.i30
   %.036.shrunk.i = phi i1 [ true, %fixup_iff_headers.exit.i ], [ true, %.critedge.i30 ], [ true, %fixup_iff_headers.exit.thread.i ], [ %.not41.i, %468 ], [ %.not41.i, %442 ], [ %.not41.i, %415 ], [ %.not41.i, %DecoderSession_destroy.exit.i ]
   %.036.i = zext i1 %.036.shrunk.i to i32
   br label %DecoderSession_finish_error.exit
 
-DecoderSession_finish_error.exit:                 ; preds = %104, %96, %390, %387, %228, %225, %DecoderSession_finish_ok.exit
+DecoderSession_finish_error.exit:                 ; preds = %104, %96, %391, %388, %228, %225, %DecoderSession_finish_ok.exit
   %.0 = phi i32 [ %.036.i, %DecoderSession_finish_ok.exit ], [ 1, %225 ], [ 1, %228 ], [ 1, %387 ], [ 1, %390 ], [ 1, %96 ], [ 1, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0

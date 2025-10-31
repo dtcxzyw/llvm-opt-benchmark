@@ -9528,10 +9528,10 @@ define linkonce_odr noundef i64 @_ZN5folly21EDFThreadPoolExecutor9TaskQueue16fin
   br label %11
 
 11:                                               ; preds = %2, %.thread
-  %.059 = phi i64 [ undef, %2 ], [ %.247, %.thread ]
-  %.02458 = phi i64 [ -1, %2 ], [ %.22646, %.thread ]
-  %.02957 = phi i64 [ 0, %2 ], [ %76, %.thread ]
-  %12 = add i64 %.02957, %1
+  %.063 = phi i64 [ undef, %2 ], [ %.247, %.thread ]
+  %.02462 = phi i64 [ -1, %2 ], [ %.22646, %.thread ]
+  %.02961 = phi i64 [ 0, %2 ], [ %76, %.thread ]
+  %12 = add i64 %.02961, %1
   %13 = and i64 %12, 63
   %14 = getelementptr inbounds nuw %"struct.folly::EDFThreadPoolExecutor::TaskQueue::Bucket", ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -9590,7 +9590,7 @@ _ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolic
   %38 = load ptr, ptr %33, align 8, !tbaa !106
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load i64, ptr %39, align 16, !tbaa !336
-  %spec.select = call i64 @llvm.umin.i64(i64 %40, i64 %.02458)
+  %spec.select = call i64 @llvm.umin.i64(i64 %40, i64 %.02462)
   %.not38 = icmp ule i64 %40, %1
   %41 = sub nuw i64 %40, %1
   %42 = icmp ult i64 %41, 64
@@ -9600,8 +9600,8 @@ _ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolic
 
 43:                                               ; preds = %31, %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEEC2ERS4_.exit, %37
   %.232 = phi i32 [ %.333, %37 ], [ 1, %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEEC2ERS4_.exit ], [ 4, %31 ]
-  %.327 = phi i64 [ %spec.select, %37 ], [ %.02458, %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEEC2ERS4_.exit ], [ %.02458, %31 ]
-  %.3 = phi i64 [ %.059, %37 ], [ %30, %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEEC2ERS4_.exit ], [ %.059, %31 ]
+  %.327 = phi i64 [ %spec.select, %37 ], [ %.02462, %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEEC2ERS4_.exit ], [ %.02462, %31 ]
+  %.3 = phi i64 [ %.063, %37 ], [ %30, %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEEC2ERS4_.exit ], [ %.063, %31 ]
   %44 = load i16, ptr %8, align 8, !tbaa !387
   %.not.i = icmp eq i16 %44, 0
   br i1 %.not.i, label %75, label %45
@@ -9690,18 +9690,18 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   ]
 
 .thread:                                          ; preds = %75, %75, %11
-  %.247 = phi i64 [ %.3, %75 ], [ %.3, %75 ], [ %.059, %11 ]
-  %.22646 = phi i64 [ %.327, %75 ], [ %.327, %75 ], [ %.02458, %11 ]
-  %76 = add nuw nsw i64 %.02957, 1
+  %.247 = phi i64 [ %.3, %75 ], [ %.3, %75 ], [ %.063, %11 ]
+  %.22646 = phi i64 [ %.327, %75 ], [ %.327, %75 ], [ %.02462, %11 ]
+  %76 = add nuw nsw i64 %.02961, 1
   %exitcond.not = icmp eq i64 %76, 64
   br i1 %exitcond.not, label %.thread48, label %11, !llvm.loop !391
 
-.thread48.loopexit:                               ; preds = %75
+77:                                               ; preds = %75
   br label %.thread48
 
-.thread48:                                        ; preds = %.thread, %75, %.thread48.loopexit
-  %77 = phi i64 [ %.3, %75 ], [ %.22646, %.thread ], [ %.327, %.thread48.loopexit ]
-  ret i64 %77
+.thread48:                                        ; preds = %.thread, %75, %77
+  %78 = phi i64 [ %.3, %75 ], [ %.22646, %.thread ], [ %.327, %.thread48.loopexit ]
+  ret i64 %78
 }
 
 ; Function Attrs: mustprogress uwtable

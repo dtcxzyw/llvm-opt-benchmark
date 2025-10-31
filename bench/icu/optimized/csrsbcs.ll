@@ -702,7 +702,7 @@ define noundef range(i32 0, 87) i32 @_ZN6icu_7718NGramParser_IBM4209isLamAlefEi(
   %3 = and i32 %1, -2
   %switch.tableidx = add i32 %3, -178
   %4 = icmp ult i32 %switch.tableidx, 7
-  br i1 %4, label %switch.lookup, label %6
+  br i1 %4, label %switch.lookup, label %.fold.split
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %switch.tableidx to i64
@@ -710,7 +710,7 @@ switch.lookup:                                    ; preds = %2
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
-6:                                                ; preds = %2, %switch.lookup
+.fold.split:                                      ; preds = %2, %switch.lookup
   %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %2 ]
   ret i32 %.0
 }
@@ -737,16 +737,16 @@ define noundef range(i32 -1, 256) i32 @_ZN6icu_7718NGramParser_IBM4208nextByteEP
   switch i8 %14, label %16 [
     i8 -78, label %_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread
     i8 -76, label %.fold.split.i
-    i8 -72, label %switch.edge.i
+    i8 -72, label %_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread.fold.split
   ]
-
-switch.edge.i:                                    ; preds = %13
-  br label %_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread
 
 .fold.split.i:                                    ; preds = %13
   br label %_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread
 
-_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread: ; preds = %13, %.fold.split.i, %switch.edge.i
+_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread.fold.split: ; preds = %13
+  br label %_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread
+
+_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread: ; preds = %13, %_ZN6icu_7718NGramParser_IBM4209isLamAlefEi.exit.thread.fold.split, %.fold.split.i
   %.0.i.ph = phi i32 [ 86, %switch.edge.i ], [ 73, %.fold.split.i ], [ 71, %13 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %.0.i.ph, ptr %15, align 8, !tbaa !26

@@ -8236,7 +8236,7 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat17parseOffsetFieldsERKNS_13Unicod
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 960
   br label %13
 
-13:                                               ; preds = %5, %switch.edge
+13:                                               ; preds = %5, %23
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %switch.edge ]
   %14 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L22PARSE_GMT_OFFSET_TYPESE, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !12
@@ -8245,30 +8245,30 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat17parseOffsetFieldsERKNS_13Unicod
   %18 = load ptr, ptr %17, align 8, !tbaa !38
   %19 = call noundef i32 @_ZNK6icu_7714TimeZoneFormat28parseOffsetFieldsWithPatternERKNS_13UnicodeStringEiPNS_7UVectorEaRiS6_S6_(ptr noundef nonnull align 8 dereferenceable(1024) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, ptr noundef %18, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %20 = icmp slt i32 %19, 1
-  br i1 %20, label %switch.edge, label %21
+  br i1 %20, label %23, label %21
 
 21:                                               ; preds = %13
   %22 = icmp samesign ult i64 %indvars.iv, 5
-  br i1 %22, label %switch.lookup, label %23
+  br i1 %22, label %27, label %23
 
-switch.edge:                                      ; preds = %13
+23:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %.not, label %.thread70, label %13, !llvm.loop !98
+  br i1 %.not, label %.thread72, label %13, !llvm.loop !98
 
-switch.lookup:                                    ; preds = %21
+27:                                               ; preds = %21
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK6icu_7714TimeZoneFormat17parseOffsetFieldsERKNS_13UnicodeStringEiaRi.2, i64 %indvars.iv
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %23
 
-23:                                               ; preds = %21, %switch.lookup
+23:   ; preds = %21, %27
   %.248.ph = phi i32 [ %switch.load, %switch.lookup ], [ -1, %21 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %25 = load i8, ptr %24, align 8
   %.not55 = icmp eq i8 %25, 0
   br i1 %.not55, label %.thread65, label %26
 
-26:                                               ; preds = %23
+30:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -8277,7 +8277,7 @@ switch.lookup:                                    ; preds = %21
   store i32 0, ptr %11, align 4, !tbaa !12
   br label %27
 
-27:                                               ; preds = %26, %switch.edge58
+44:                                               ; preds = %30, %switch.edge58
   %indvars.iv85 = phi i64 [ 0, %26 ], [ %indvars.iv.next86, %switch.edge58 ]
   %28 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L22PARSE_GMT_OFFSET_TYPESE, i64 %indvars.iv85
   %29 = load i32, ptr %28, align 4, !tbaa !12
@@ -8288,11 +8288,11 @@ switch.lookup:                                    ; preds = %21
   %34 = icmp slt i32 %33, 1
   br i1 %34, label %switch.edge58, label %35
 
-35:                                               ; preds = %27
+35:; preds = %27
   %36 = icmp samesign ult i64 %indvars.iv85, 5
   br i1 %36, label %switch.lookup99, label %switch.edge58.thread
 
-switch.edge58:                                    ; preds = %27
+switch.edge58:; preds = %27
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %.not56 = icmp eq i64 %indvars.iv.next86, 6
   br i1 %.not56, label %switch.edge58.thread, label %27, !llvm.loop !99
@@ -8316,31 +8316,31 @@ switch.edge58.thread:                             ; preds = %switch.edge58, %35,
   store i32 %41, ptr %8, align 4, !tbaa !12
   br label %42
 
-42:                                               ; preds = %switch.edge58.thread, %38
+50:                                               ; preds = %switch.edge58.thread, %38
   %.4 = phi i32 [ %.142, %38 ], [ %.248.ph, %switch.edge58.thread ]
   %.3 = phi i32 [ %33, %38 ], [ %19, %switch.edge58.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread65
+  br label %.thread67
 
-.thread65:                                        ; preds = %42, %23
-  %.269 = phi i32 [ %.3, %42 ], [ %19, %23 ]
-  %.34968 = phi i32 [ %.4, %42 ], [ %.248.ph, %23 ]
-  %43 = load i32, ptr %6, align 4, !tbaa !12
-  %44 = mul nsw i32 %43, 60
-  %45 = load i32, ptr %7, align 4, !tbaa !12
-  %46 = add nsw i32 %44, %45
-  %47 = mul nsw i32 %46, 60
-  %48 = load i32, ptr %8, align 4, !tbaa !12
-  %49 = add nsw i32 %47, %48
-  %50 = mul i32 %.34968, 1000
-  %51 = mul i32 %50, %49
-  store i32 %.269, ptr %4, align 4, !tbaa !12
-  br label %.thread70
+.thread67:                                        ; preds = %50, %23
+  %.271 = phi i32 [ %.3, %42 ], [ %19, %23 ]
+  %.34970 = phi i32 [ %.4, %42 ], [ %.248.ph, %23 ]
+  %51 = load i32, ptr %6, align 4, !tbaa !12
+  %52 = mul nsw i32 %51, 60
+  %53 = load i32, ptr %7, align 4, !tbaa !12
+  %54 = add nsw i32 %52, %53
+  %55 = mul nsw i32 %54, 60
+  %56 = load i32, ptr %8, align 4, !tbaa !12
+  %57 = add nsw i32 %55, %56
+  %58 = mul i32 %.34970, 1000
+  %59 = mul i32 %58, %57
+  store i32 %.271, ptr %4, align 4, !tbaa !12
+  br label %.thread72
 
-.thread70:                                        ; preds = %switch.edge, %.thread65
-  %.039 = phi i32 [ %51, %.thread65 ], [ 0, %switch.edge ]
+.thread72:                                        ; preds = %23, %.thread67
+  %.039 = phi i32 [ %59, %.thread65 ], [ 0, %switch.edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

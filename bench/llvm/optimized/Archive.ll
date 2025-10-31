@@ -6928,15 +6928,15 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit.thread.fold.split.i: ; preds = %14
 
 _ZN4llvm6object7Archive23getDefaultKindForTripleERKNS_6TripleE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %14, %14, %14, %14, %14, %switch.edge.i, %15, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread.fold.split.i
   %.0.i = phi i32 [ 0, %15 ], [ 3, %14 ], [ 3, %14 ], [ 3, %14 ], [ 3, %14 ], [ 3, %14 ], [ 3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 6, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread.fold.split.i ], [ 5, %switch.edge.i ]
-  %16 = load ptr, ptr %1, align 8, !tbaa !44
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %18 = icmp eq ptr %16, %17
-  br i1 %18, label %_ZN4llvm6TripleD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %17 = load ptr, ptr %1, align 8, !tbaa !44
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %19 = icmp eq ptr %17, %18
+  br i1 %19, label %_ZN4llvm6TripleD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN4llvm6object7Archive23getDefaultKindForTripleERKNS_6TripleE.exit
-  %19 = load i64, ptr %17, align 8, !tbaa !25
-  %20 = add i64 %19, 1
-  call void @_ZdlPvm(ptr noundef %16, i64 noundef %20) #25
+  %20 = load i64, ptr %18, align 8, !tbaa !25
+  %21 = add i64 %20, 1
+  call void @_ZdlPvm(ptr noundef %17, i64 noundef %21) #25
   br label %_ZN4llvm6TripleD2Ev.exit
 
 _ZN4llvm6TripleD2Ev.exit:                         ; preds = %_ZN4llvm6object7Archive23getDefaultKindForTripleERKNS_6TripleE.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i

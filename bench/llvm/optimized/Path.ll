@@ -10135,60 +10135,60 @@ define dso_local { i32, ptr } @_ZN4llvm3sys2fs8openFileERKNS_5TwineERiNS1_19Crea
   %.not.i = icmp eq i32 %8, 0
   %spec.select24.i = select i1 %.not.i, i32 %2, i32 3
   switch i32 %spec.select24.i, label %_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit [
-    i32 1, label %9
-    i32 0, label %11
-    i32 3, label %13
+    i32 1, label %13
+    i32 0, label %15
+    i32 3, label %17
   ]
 
-9:                                                ; preds = %6
-  %10 = or disjoint i32 %switch.select27.i, 192
-  br label %_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit
-
-11:                                               ; preds = %6
-  %12 = or disjoint i32 %switch.select27.i, 576
-  br label %_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit
-
 13:                                               ; preds = %6
-  %14 = or disjoint i32 %switch.select27.i, 64
+  %14 = or disjoint i32 %switch.select27.i, 192
   br label %_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit
 
-_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit: ; preds = %6, %9, %11, %13
-  %.1.i = phi i32 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %switch.select27.i, %6 ]
-  %15 = shl nuw nsw i32 %8, 8
-  %16 = shl i32 %4, 15
-  %17 = and i32 %16, 524288
-  %18 = or disjoint i32 %17, %15
-  %spec.select25.i = xor i32 %18, 524288
+15:                                               ; preds = %6
+  %16 = or disjoint i32 %switch.select27.i, 576
+  br label %_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit
+
+17:                                               ; preds = %6
+  %18 = or disjoint i32 %switch.select27.i, 64
+  br label %_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit
+
+_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit: ; preds = %6, %13, %15, %17
+  %.1.i = phi i32 [ %14, %9 ], [ %16, %11 ], [ %18, %13 ], [ %switch.select27.i, %6 ]
+  %19 = shl nuw nsw i32 %8, 8
+  %20 = shl i32 %4, 15
+  %21 = and i32 %20, 524288
+  %22 = or disjoint i32 %21, %19
+  %spec.select25.i = xor i32 %22, 524288
   %.3.i = or i32 %.1.i, %spec.select25.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %19, ptr %7, align 8, !tbaa !34
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %20, align 8, !tbaa !36
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 128, ptr %21, align 8, !tbaa !37
-  %22 = call { ptr, i64 } @_ZNK4llvm5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  %23 = extractvalue { ptr, i64 } %22, 0
-  %24 = tail call ptr @__errno_location() #36
-  br label %25
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %113, ptr %7, align 8, !tbaa !34
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 0, ptr %24, align 8, !tbaa !36
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 128, ptr %25, align 8, !tbaa !37
+  %26 = call { ptr, i64 } @_ZNK4llvm5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(24) %7) #32
+  %27 = extractvalue { ptr, i64 } %26, 0
+  %28 = tail call ptr @__errno_location() #36
+  br label %29
 
-25:                                               ; preds = %28, %_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit
-  store i32 0, ptr %24, align 4, !tbaa !99
-  %26 = call noundef i32 (ptr, i32, ...) @open(ptr noundef %23, i32 noundef %.3.i, i32 noundef %5) #32
-  %27 = icmp eq i32 %26, -1
-  br i1 %27, label %28, label %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit"
+29:                                               ; preds = %32, %_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit
+  store i32 0, ptr %28, align 4, !tbaa !99
+  %30 = call noundef i32 (ptr, i32, ...) @open(ptr noundef %27, i32 noundef %.3.i, i32 noundef %5) #32
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %32, label %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit"
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %24, align 4, !tbaa !99
-  %30 = icmp eq i32 %29, 4
-  br i1 %30, label %25, label %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread", !llvm.loop !218
+32:                                               ; preds = %29
+  %33 = load i32, ptr %28, align 4, !tbaa !99
+  %34 = icmp eq i32 %213, 4
+  br i1 %34, label %29, label %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread", !llvm.loop !218
 
-"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread": ; preds = %28
+"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread": ; preds = %32
   store i32 -1, ptr %1, align 4, !tbaa !99
   br label %32
 
-"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit": ; preds = %25
-  store i32 %26, ptr %1, align 4, !tbaa !99
+44:                                               ; preds = %25
+  store i32 %26, ptr %1, align 4, !tbaa !913
   %31 = icmp slt i32 %26, 0
   br i1 %31, label %32, label %35
 

@@ -6828,7 +6828,7 @@ set_stream_options.exit:                          ; preds = %75, %.thread.i, %81
 
 112:                                              ; preds = %106, %96
   %113 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
-  br i1 %113, label %114, label %124
+  br i1 %113, label %114, label %126
 
 114:                                              ; preds = %112
   %115 = load ptr, ptr @MySubscription, align 8
@@ -6837,7 +6837,7 @@ set_stream_options.exit:                          ; preds = %75, %.thread.i, %81
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %119 = load i8, ptr %118, align 8
   switch i8 %119, label %120 [
-    i8 100, label %121
+    i8 100, label %123
     i8 112, label %.fold.split
     i8 101, label %switch.edge
   ]
@@ -6846,18 +6846,18 @@ switch.edge:                                      ; preds = %114
   br label %121
 
 120:                                              ; preds = %114
-  br label %121
+  br label %123
 
 .fold.split:                                      ; preds = %114
-  br label %121
+  br label %123
 
-121:                                              ; preds = %switch.edge, %114, %.fold.split, %120
-  %122 = phi ptr [ @.str.79, %114 ], [ @.str.82, %120 ], [ @.str.80, %.fold.split ], [ @.str.81, %switch.edge ]
-  %123 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.78, ptr noundef %117, ptr noundef nonnull %122) #16
+123:                                              ; preds = %switch.edge, %114, %.fold.split, %120
+  %124 = phi ptr [ @.str.79, %114 ], [ @.str.82, %120 ], [ @.str.80, %.fold.split ], [ @.str.81, %switch.edge ]
+  %125 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.78, ptr noundef %117, ptr noundef nonnull %124) #16
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4626, ptr noundef nonnull @__func__.run_apply_worker) #16
-  br label %124
+  br label %126
 
-124:                                              ; preds = %121, %112
+126:                                              ; preds = %123, %112
   call void @start_apply(i64 noundef %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

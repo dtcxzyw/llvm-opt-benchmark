@@ -198,46 +198,46 @@ switch.lookup:                                    ; preds = %9
   %25 = load i32, ptr %14, align 4, !tbaa !29
   %26 = load i64, ptr %0, align 8, !tbaa !35
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.11, i32 noundef %24, ptr noundef nonnull @.str.5, i32 noundef %25, ptr noundef nonnull @.str.12, i64 noundef %26) #5
-  %28 = load ptr, ptr %10, align 8, !tbaa !27
-  %29 = load i32, ptr %12, align 8, !tbaa !28
-  %30 = load i32, ptr %14, align 4, !tbaa !29
+  %25 = load ptr, ptr %10, align 8, !tbaa !27
+  %26 = load i32, ptr %12, align 8, !tbaa !28
+  %27 = load i32, ptr %14, align 4, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !36
+  %29 = load i64, ptr %31, align 8, !tbaa !36
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.11, i32 noundef %29, ptr noundef nonnull @.str.5, i32 noundef %30, ptr noundef nonnull @.str.13, i64 noundef %32) #5
-  %34 = load ptr, ptr %10, align 8, !tbaa !27
+  %31 = load ptr, ptr %10, align 8, !tbaa !27
   %35 = load i32, ptr %12, align 8, !tbaa !28
-  %36 = load i32, ptr %14, align 4, !tbaa !29
+  %33 = load i32, ptr %14, align 4, !tbaa !29
   %37 = load i64, ptr %0, align 8, !tbaa !35
-  %38 = load i64, ptr %31, align 8, !tbaa !36
+  %35 = load i64, ptr %31, align 8, !tbaa !36
   %39 = add i64 %37, -1
   %40 = add i64 %39, %38
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.11, i32 noundef %35, ptr noundef nonnull @.str.5, i32 noundef %36, ptr noundef nonnull @.str.14, i64 noundef %40) #5
-  %42 = load ptr, ptr %10, align 8, !tbaa !27
+  %39 = load ptr, ptr %10, align 8, !tbaa !27
   %43 = load i32, ptr %12, align 8, !tbaa !28
   %44 = load i32, ptr %14, align 4, !tbaa !29
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %46 = load i32, ptr %45, align 4, !tbaa !37
+  %43 = load i32, ptr %45, align 4, !tbaa !37
   %47 = icmp eq i32 %46, 0
   %48 = select i1 %47, ptr @.str.16, ptr @.str.17
   %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.4, i32 noundef %43, ptr noundef nonnull @.str.5, i32 noundef %44, ptr noundef nonnull @.str.15, ptr noundef nonnull %48) #5
-  %50 = load ptr, ptr %1, align 8, !tbaa !24
+  %47 = load ptr, ptr %1, align 8, !tbaa !24
   %51 = load ptr, ptr %10, align 8, !tbaa !27
   %52 = load i32, ptr %12, align 8, !tbaa !28
   %53 = add nsw i32 %52, 3
-  %54 = load i32, ptr %14, align 4, !tbaa !29
+  %51 = load i32, ptr %14, align 4, !tbaa !29
   %55 = tail call i32 @llvm.smax.i32(i32 %54, i32 3)
   %spec.select = add nsw i32 %55, -3
   %56 = tail call i32 @H5FS_sect_debug(ptr noundef %50, ptr noundef nonnull %0, ptr noundef %51, i32 noundef %53, i32 noundef %spec.select) #5
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %62
 
-58:                                               ; preds = %20
+58:; preds = %20
   %59 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !3
   %60 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !3
   %61 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__sects_debug_cb, i32 noundef 119, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.18) #5
   br label %62
 
-62:                                               ; preds = %58, %20, %2
+62:; preds = %58, %20, %2
   %.0 = phi i32 [ -1, %58 ], [ 0, %20 ], [ 0, %2 ]
   ret i32 %.0
 }

@@ -10555,22 +10555,22 @@ define hidden noundef range(i32 0, 3) i32 @_ZNK5clang6driver10toolchains5MinGW26
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZNK4llvm3opt6Option7matchesENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 1745) #19
-  br i1 %5, label %switch.edge, label %6
+  br i1 %5, label %11, label %6
 
 6:                                                ; preds = %4, %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i32, ptr %7, align 8, !tbaa !15
   switch i32 %8, label %9 [
-    i32 38, label %switch.edge
-    i32 1, label %switch.edge
-    i32 35, label %switch.edge
+    i32 38, label %11
+    i32 1, label %11
+    i32 35, label %11
     i32 3, label %switch.edge
   ]
 
 9:                                                ; preds = %6
-  br label %switch.edge
+  br label %7
 
-switch.edge:                                      ; preds = %6, %6, %6, %6, %9, %4
+11:                                               ; preds = %6, %6, %6, %6, %9, %4
   %.0 = phi i32 [ 2, %4 ], [ 2, %6 ], [ 0, %9 ], [ 2, %6 ], [ 2, %6 ], [ 2, %6 ]
   ret i32 %.0
 }
@@ -10725,16 +10725,16 @@ define hidden noundef range(i32 1, 5) i32 @_ZNK5clang6driver10toolchains5MinGW17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8, !tbaa !15
   switch i32 %4, label %5 [
-    i32 38, label %switch.edge
-    i32 3, label %switch.edge
-    i32 1, label %switch.edge
+    i32 38, label %7
+    i32 3, label %7
+    i32 1, label %7
     i32 35, label %switch.edge
   ]
 
 5:                                                ; preds = %2
-  br label %switch.edge
+  br label %7
 
-switch.edge:                                      ; preds = %2, %2, %2, %2, %5
+7:                                                ; preds = %2, %2, %2, %2, %5
   %.0 = phi i32 [ 4, %2 ], [ 1, %5 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ]
   ret i32 %.0
 }
