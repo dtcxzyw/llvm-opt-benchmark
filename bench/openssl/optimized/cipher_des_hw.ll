@@ -269,10 +269,10 @@ define internal noundef i32 @cipher_hw_des_cfb1_cipher(ptr noundef %0, ptr nound
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %.041 = phi ptr [ %1, %.preheader.lr.ph ], [ %40, %._crit_edge ]
+  %.041 = phi ptr [ %1, %.preheader.lr.ph ], [ %39, %._crit_edge ]
   %.140 = phi i64 [ %spec.select, %.preheader.lr.ph ], [ %spec.select36, %._crit_edge ]
-  %.03239 = phi i64 [ %3, %.preheader.lr.ph ], [ %38, %._crit_edge ]
-  %.03338 = phi ptr [ %2, %.preheader.lr.ph ], [ %39, %._crit_edge ]
+  %.03239 = phi i64 [ %3, %.preheader.lr.ph ], [ %37, %._crit_edge ]
+  %.03338 = phi ptr [ %2, %.preheader.lr.ph ], [ %38, %._crit_edge ]
   %.not44 = icmp eq i64 %.140, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph.preheader
 
@@ -317,11 +317,11 @@ define internal noundef i32 @cipher_hw_des_cfb1_cipher(ptr noundef %0, ptr nound
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %38 = sub i64 %.03239, %.140
-  %39 = getelementptr inbounds nuw i8, ptr %.03338, i64 %.140
-  %40 = getelementptr inbounds nuw i8, ptr %.041, i64 %.140
-  %spec.select36 = call i64 @llvm.umin.i64(i64 %38, i64 %.140)
-  %.not45 = icmp eq i64 %38, 0
+  %37 = sub i64 %.03239, %.140
+  %38 = getelementptr inbounds nuw i8, ptr %.03338, i64 %.140
+  %39 = getelementptr inbounds nuw i8, ptr %.041, i64 %.140
+  %spec.select36 = call i64 @llvm.umin.i64(i64 %37, i64 %.140)
+  %.not45 = icmp eq i64 %37, 0
   br i1 %.not45, label %._crit_edge42, label %.preheader, !llvm.loop !29
 
 ._crit_edge42:                                    ; preds = %._crit_edge, %4

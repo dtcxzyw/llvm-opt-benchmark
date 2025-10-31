@@ -164,10 +164,10 @@ Abc_TruthStoreAlloc.exit:                         ; preds = %49, %Abc_TruthGetPa
   %59 = zext nneg i32 %58 to i64
   br label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i10, %95
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i10, %96
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %95 ], [ 0, %.lr.ph.i10 ]
-  %60 = phi i8 [ %98, %95 ], [ %54, %.lr.ph.i10 ]
-  %61 = phi ptr [ %97, %95 ], [ %52, %.lr.ph.i10 ]
+  %60 = phi i8 [ %99, %95 ], [ %54, %.lr.ph.i10 ]
+  %61 = phi ptr [ %98, %95 ], [ %52, %.lr.ph.i10 ]
   %.01216.us.i = phi i64 [ %indvars.iv.next24.i, %95 ], [ 0, %.lr.ph.i10 ]
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %62 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv26.i
@@ -235,31 +235,31 @@ Abc_TruthReadHexDigit.exit.i.us.i:                ; preds = %82, %80, %77
 
 Abc_TruthReadHex.exit.loopexit.us.preheader.i:    ; preds = %Abc_TruthReadHexDigit.exit.i.us.i
   %sext31.i = shl i64 %.01216.us.i, 32
-  %92 = ashr exact i64 %sext31.i, 32
+  %93 = ashr exact i64 %sext31.i, 32
   br label %Abc_TruthReadHex.exit.loopexit.us.i
 
 Abc_TruthReadHex.exit.loopexit.us.i:              ; preds = %Abc_TruthReadHex.exit.loopexit.us.i, %Abc_TruthReadHex.exit.loopexit.us.preheader.i
-  %indvars.iv23.i = phi i64 [ %92, %Abc_TruthReadHex.exit.loopexit.us.preheader.i ], [ %indvars.iv.next24.i, %Abc_TruthReadHex.exit.loopexit.us.i ]
+  %indvars.iv23.i = phi i64 [ %93, %Abc_TruthReadHex.exit.loopexit.us.preheader.i ], [ %indvars.iv.next24.i, %Abc_TruthReadHex.exit.loopexit.us.i ]
   %indvars.iv.next24.i = add nsw i64 %indvars.iv23.i, 1
-  %93 = getelementptr inbounds i8, ptr %52, i64 %indvars.iv23.i
-  %94 = load i8, ptr %93, align 1, !tbaa !12
-  %.not14.us.i = icmp eq i8 %94, 10
-  br i1 %.not14.us.i, label %95, label %Abc_TruthReadHex.exit.loopexit.us.i, !llvm.loop !24
+  %94 = getelementptr inbounds i8, ptr %52, i64 %indvars.iv23.i
+  %95 = load i8, ptr %94, align 1, !tbaa !12
+  %.not14.us.i = icmp eq i8 %95, 10
+  br i1 %.not14.us.i, label %96, label %Abc_TruthReadHex.exit.loopexit.us.i, !llvm.loop !24
 
-95:                                               ; preds = %Abc_TruthReadHex.exit.loopexit.us.i
+96:                                               ; preds = %Abc_TruthReadHex.exit.loopexit.us.i
   %sext32.i = shl i64 %indvars.iv.next24.i, 32
-  %96 = ashr exact i64 %sext32.i, 32
-  %97 = getelementptr inbounds i8, ptr %52, i64 %96
-  %98 = load i8, ptr %97, align 1, !tbaa !12
-  %.not.us.i = icmp eq i8 %98, 10
+  %97 = ashr exact i64 %sext32.i, 32
+  %98 = getelementptr inbounds i8, ptr %52, i64 %97
+  %99 = load i8, ptr %98, align 1, !tbaa !12
+  %.not.us.i = icmp eq i8 %99, 10
   br i1 %.not.us.i, label %._crit_edge.loopexit.i, label %.lr.ph.split.us.i, !llvm.loop !25
 
-._crit_edge.loopexit.i:                           ; preds = %95
-  %99 = trunc nuw i64 %indvars.iv.next27.i to i32
+._crit_edge.loopexit.i:                           ; preds = %96
+  %100 = trunc nuw i64 %indvars.iv.next27.i to i32
   br label %._crit_edge.i13
 
 ._crit_edge.i13:                                  ; preds = %._crit_edge.loopexit.i, %.preheader.i9
-  %.0.lcssa.i14 = phi i32 [ 0, %.preheader.i9 ], [ %99, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i14 = phi i32 [ 0, %.preheader.i9 ], [ %100, %._crit_edge.loopexit.i ]
   store i32 %.0.lcssa.i14, ptr %38, align 8, !tbaa !19
   br label %Abc_TruthStoreRead.exit
 

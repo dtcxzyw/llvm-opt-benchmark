@@ -10897,8 +10897,8 @@ define internal fastcc range(i32 0, 2054) i32 @_valid_job_access_resv(ptr nounde
   %.fr = freeze i32 %140
   %141 = and i32 %.fr, 1
   %.not102 = icmp eq i32 %141, 0
-  %.not105153 = xor i1 %2, true
-  %brmerge154 = or i1 %.not102, %.not105153
+  %brmerge154 = xor i1 %2, true
+  %brmerge154 = or i1 %.not102, %brmerge154
   br i1 %.not102, label %146, label %147
 
 142:                                              ; preds = %._crit_edge135, %131

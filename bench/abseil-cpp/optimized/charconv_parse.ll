@@ -771,18 +771,18 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi16EEENS
   %44 = getelementptr inbounds nuw i8, ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !4
   %46 = icmp sgt i8 %45, -1
-  br i1 %46, label %47, label %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit
+  br i1 %46, label %47, label %.critedge4.i
 
 47:                                               ; preds = %.lr.ph62.i
   %48 = icmp ne i8 %42, 48
   %spec.select.i = or i1 %.061.i, %48
   %49 = getelementptr inbounds nuw i8, ptr %.260.i, i64 1
   %exitcond72.not.i = icmp eq ptr %49, %scevgep71.i
-  br i1 %exitcond72.not.i, label %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit, label %.lr.ph62.i, !llvm.loop !34
+  br i1 %exitcond72.not.i, label %.critedge4.i, label %.lr.ph62.i, !llvm.loop !34
 
-_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.lr.ph62.i, %47, %.critedge2.i
-  %.1147 = phi i1 [ false, %.critedge2.i ], [ %spec.select.i, %47 ], [ %.061.i, %.lr.ph62.i ]
-  %.2.lcssa80.i = phi ptr [ %.1.lcssa.i, %.critedge2.i ], [ %scevgep71.i, %47 ], [ %.260.i, %.lr.ph62.i ]
+.critedge4.i:                                     ; preds = %.lr.ph62.i, %47, %.critedge2.i
+  %.2.lcssa.i = phi i1 [ false, %.critedge2.i ], [ %spec.select.i, %47 ], [ %.061.i, %.lr.ph62.i ]
+  %.0.lcssa.i = phi ptr [ %.1.lcssa.i, %.critedge2.i ], [ %scevgep71.i, %47 ], [ %.260.i, %.lr.ph62.i ]
   %50 = ptrtoint ptr %.2.lcssa80.i to i64
   %51 = sub i64 %50, %.pre-phi
   %52 = trunc i64 %51 to i32

@@ -2026,9 +2026,9 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %230, %224
   br label %.thread140
 
 239:                                              ; preds = %199
-  br i1 %181, label %.thread142, label %.thread142.sink.split.loopexit169.critedge
+  br i1 %181, label %.thread142, label %.thread142.sink.split.loopexit170.critedge
 
-.thread142.sink.split.loopexit169.critedge:       ; preds = %239
+.thread142.sink.split.loopexit170.critedge:       ; preds = %239
   store i32 -1, ptr %98, align 8
   store i32 0, ptr %11, align 4
   store i32 0, ptr %.04.i70.sroa.gep72, align 4
@@ -2037,7 +2037,7 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %230, %224
 240:                                              ; preds = %177
   br i1 %3, label %.thread140, label %.thread142
 
-.thread142.sink.split:                            ; preds = %.thread142.sink.split.loopexit169.critedge, %.thread142.sink.split.loopexit.critedge
+.thread142.sink.split:                            ; preds = %.thread142.sink.split.loopexit170.critedge, %.thread142.sink.split.loopexit.critedge
   %.sink = phi ptr [ %10, %.thread142.sink.split.loopexit.critedge ], [ %11, %.thread142.sink.split.loopexit169.critedge ]
   %241 = load ptr, ptr %0, align 8
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 40

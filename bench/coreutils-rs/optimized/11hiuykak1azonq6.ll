@@ -6759,8 +6759,8 @@ define internal fastcc void @_ZN7uu_expr11syntax_tree6Parser23parse_simple_expre
 
 76:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit287"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1225)
-  %.not.i419 = icmp ult i64 %44, %34
-  br i1 %.not.i419, label %129, label %141
+  %.not.i417 = icmp ult i64 %44, %34
+  br i1 %.not.i417, label %129, label %141
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit291.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit287", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit279.thread.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit279", %42
   %77 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hfef4e9b746795e2fE"(i64 noundef %47, i1 noundef zeroext false)
@@ -6854,8 +6854,8 @@ define internal fastcc void @_ZN7uu_expr11syntax_tree6Parser23parse_simple_expre
   br label %124
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit295": ; preds = %100
-  %lhsc418 = load i8, ptr %97, align 1
-  %103 = icmp eq i8 %lhsc418, 41
+  %lhsc410 = load i8, ptr %97, align 1
+  %103 = icmp eq i8 %lhsc410, 41
   br i1 %103, label %104, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit295.thread"
 
 104:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit295"

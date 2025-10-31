@@ -843,20 +843,20 @@ thread-pre-split286:                              ; preds = %98, %99, %104, %108
 
 .preheader319.outer:                              ; preds = %145, %.preheader319.preheader
   %.7.ph = phi ptr [ %113, %.preheader319.preheader ], [ %.13, %145 ]
-  %.0124.ph = phi i1 [ false, %.preheader319.preheader ], [ %.1125396, %145 ]
+  %.0124.ph = phi i1 [ false, %.preheader319.preheader ], [ %.1125397, %145 ]
   %.0122.ph = phi i64 [ 86400, %.preheader319.preheader ], [ %141, %145 ]
-  %.0120.ph = phi i8 [ 0, %.preheader319.preheader ], [ %.0120.ph460, %145 ]
-  br label %.preheader319.outer457
+  %.0120.ph = phi i8 [ 0, %.preheader319.preheader ], [ %.0120.ph461, %145 ]
+  br label %.preheader319.outer458
 
-.preheader319.outer457:                           ; preds = %.preheader319.outer, %147
-  %.7.ph458 = phi ptr [ %.7.ph, %.preheader319.outer ], [ %.13, %147 ]
-  %.0124.ph459 = phi i1 [ %.0124.ph, %.preheader319.outer ], [ %.1125396, %147 ]
-  %.0120.ph460 = phi i8 [ %.0120.ph, %.preheader319.outer ], [ %spec.select, %147 ]
+.preheader319.outer458:                           ; preds = %.preheader319.outer, %147
+  %.7.ph459 = phi ptr [ %.7.ph, %.preheader319.outer ], [ %.13, %147 ]
+  %.0124.ph460 = phi i1 [ %.0124.ph, %.preheader319.outer ], [ %.1125397, %147 ]
+  %.0120.ph461 = phi i8 [ %.0120.ph, %.preheader319.outer ], [ %spec.select, %147 ]
   br label %.preheader319
 
-.preheader319:                                    ; preds = %.preheader319.outer457, %.critedge20
-  %.7 = phi ptr [ %.13, %.critedge20 ], [ %.7.ph458, %.preheader319.outer457 ]
-  %.0124 = phi i1 [ %.1125396, %.critedge20 ], [ %.0124.ph459, %.preheader319.outer457 ]
+.preheader319:                                    ; preds = %.preheader319.outer458, %.critedge20
+  %.7 = phi ptr [ %.13, %.critedge20 ], [ %.7.ph459, %.preheader319.outer457 ]
+  %.0124 = phi i1 [ %.1125397, %.critedge20 ], [ %.0124.ph460, %.preheader319.outer457 ]
   br label %114
 
 114:                                              ; preds = %.critedge8, %.preheader319
@@ -923,16 +923,16 @@ getalnum.exit221.thread:                          ; preds = %.critedge4.i215
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 1 %.0.i210, i64 %127, i1 false)
   %128 = getelementptr inbounds nuw i8, ptr %8, i64 %127
   store i8 0, ptr %128, align 1, !tbaa !14
-  br label %.preheader453
+  br label %.preheader454
 
 getalnum.exit221:                                 ; preds = %.critedge4.i215
   store i8 0, ptr %8, align 16, !tbaa !14
-  br label %.preheader453
+  br label %.preheader454
 
-.preheader453:                                    ; preds = %getalnum.exit221.thread, %getalnum.exit221
+.preheader454:                                    ; preds = %getalnum.exit221.thread, %getalnum.exit221
   br label %129
 
-129:                                              ; preds = %.preheader453, %.critedge12
+129:                                              ; preds = %.preheader454, %.critedge12
   %.10 = phi ptr [ %131, %.critedge12 ], [ %.1.i214, %.preheader453 ]
   %130 = load i8, ptr %.10, align 1, !tbaa !14
   switch i8 %130, label %.loopexit314 [
@@ -967,11 +967,11 @@ getalnum.exit221:                                 ; preds = %.critedge4.i215
   br i1 %.0124, label %.preheader.preheader, label %.preheader312
 
 .preheader.preheader:                             ; preds = %.loopexit.thread, %.loopexit
-  %.11395 = phi ptr [ %133, %.loopexit.thread ], [ %storemerge, %.loopexit ]
+  %.11396 = phi ptr [ %133, %.loopexit.thread ], [ %storemerge, %.loopexit ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %135
-  %.12 = phi ptr [ %136, %135 ], [ %.11395, %.preheader.preheader ]
+  %.12 = phi ptr [ %136, %135 ], [ %.11396, %.preheader.preheader ]
   %134 = load i8, ptr %.12, align 1, !tbaa !14
   switch i8 %134, label %135 [
     i8 0, label %.critedge18
@@ -1003,12 +1003,12 @@ getalnum.exit221:                                 ; preds = %.critedge4.i215
   br label %.preheader312, !llvm.loop !120
 
 .critedge20:                                      ; preds = %.preheader312, %.preheader312, %.preheader312, %.preheader312, %.preheader312, %.critedge18
-  %.1125396 = phi i1 [ true, %.critedge18 ], [ false, %.preheader312 ], [ false, %.preheader312 ], [ false, %.preheader312 ], [ false, %.preheader312 ], [ false, %.preheader312 ]
-  %.11394 = phi ptr [ %.11395, %.critedge18 ], [ %storemerge, %.preheader312 ], [ %storemerge, %.preheader312 ], [ %storemerge, %.preheader312 ], [ %storemerge, %.preheader312 ], [ %storemerge, %.preheader312 ]
+  %.1125397 = phi i1 [ true, %.critedge18 ], [ false, %.preheader312 ], [ false, %.preheader312 ], [ false, %.preheader312 ], [ false, %.preheader312 ], [ false, %.preheader312 ]
+  %.11395 = phi ptr [ %.11396, %.critedge18 ], [ %storemerge, %.preheader312 ], [ %storemerge, %.preheader312 ], [ %storemerge, %.preheader312 ], [ %storemerge, %.preheader312 ], [ %storemerge, %.preheader312 ]
   %.13 = phi ptr [ %137, %.critedge18 ], [ %.14, %.preheader312 ], [ %.14, %.preheader312 ], [ %.14, %.preheader312 ], [ %.14, %.preheader312 ], [ %.14, %.preheader312 ]
-  %141 = call i64 @strtoul(ptr noundef nonnull %.11394, ptr noundef nonnull %9, i32 noundef 10) #12
+  %141 = call i64 @strtoul(ptr noundef nonnull %.11395, ptr noundef nonnull %9, i32 noundef 10) #12
   %142 = load ptr, ptr %9, align 8, !tbaa !17
-  %143 = icmp ne ptr %142, %.11394
+  %143 = icmp ne ptr %142, %.11395
   %144 = icmp ne i64 %141, -1
   %or.cond22 = select i1 %143, i1 %144, i1 false
   br i1 %or.cond22, label %145, label %.preheader319
@@ -1023,8 +1023,8 @@ getalnum.exit221:                                 ; preds = %.critedge4.i215
   %149 = icmp ne i32 %148, 0
   %150 = icmp eq i64 %141, 1
   %or.cond24 = select i1 %149, i1 %150, i1 false
-  %spec.select = select i1 %or.cond24, i8 1, i8 %.0120.ph460
-  br label %.preheader319.outer457
+  %spec.select = select i1 %or.cond24, i8 1, i8 %.0120.ph461
+  br label %.preheader319.outer458
 
 .loopexit317:                                     ; preds = %117, %117, %117, %114
   %.9 = phi ptr [ %.8, %114 ], [ %118, %117 ], [ %118, %117 ], [ %118, %117 ]
@@ -1052,11 +1052,11 @@ getalnum.exit221:                                 ; preds = %.critedge4.i215
   %160 = sub nsw i64 9223372036854775807, %159
   %161 = icmp sgt i64 %.0122.ph, %160
   %162 = add nsw i64 %159, %.0122.ph
-  %spec.select425 = select i1 %161, i64 9223372036854775807, i64 %162
+  %spec.select426 = select i1 %161, i64 9223372036854775807, i64 %162
   %163 = getelementptr inbounds nuw i8, ptr %157, i64 32
-  store i64 %spec.select425, ptr %163, align 8, !tbaa !22
+  store i64 %spec.select426, ptr %163, align 8, !tbaa !22
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 40
-  store i8 %.0120.ph460, ptr %164, align 8, !tbaa !31
+  store i8 %.0120.ph461, ptr %164, align 8, !tbaa !31
   %165 = getelementptr inbounds nuw i8, ptr %157, i64 48
   call void @Curl_llist_append(ptr noundef nonnull %42, ptr noundef nonnull %157, ptr noundef nonnull %165) #12
   br i1 %.not170, label %180, label %166

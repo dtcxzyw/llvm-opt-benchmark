@@ -4299,7 +4299,7 @@ slot_getattr.exit157:                             ; preds = %slot_getattr.exit, 
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %248 = load ptr, ptr %247, align 8
   %249 = icmp eq ptr %248, null
-  br i1 %249, label %.critedge154, label %.lr.ph
+  br i1 %249, label %.critedge155, label %.lr.ph
 
 .lr.ph:                                           ; preds = %245
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 624
@@ -4313,12 +4313,12 @@ slot_getattr.exit157:                             ; preds = %slot_getattr.exit, 
   %256 = load i16, ptr %255, align 4
   %257 = and i16 %256, 2
   %258 = icmp eq i16 %257, 0
-  br i1 %258, label %259, label %.critedge154
+  br i1 %258, label %259, label %.critedge155
 
 259:                                              ; preds = %253
   %260 = load i64, ptr %246, align 8
   %.not144 = icmp slt i64 %260, %.0
-  br i1 %.not144, label %261, label %.critedge154
+  br i1 %.not144, label %261, label %.critedge155
 
 261:                                              ; preds = %259
   %262 = load ptr, ptr %250, align 8
@@ -4334,7 +4334,7 @@ slot_getattr.exit157:                             ; preds = %slot_getattr.exit, 
   %269 = load ptr, ptr %224, align 8
   %270 = load ptr, ptr %247, align 8
   %271 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %269, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %270) #8
-  br i1 %271, label %272, label %.critedge154
+  br i1 %271, label %272, label %.critedge155
 
 272:                                              ; preds = %261
   %273 = load ptr, ptr %4, align 8
@@ -4387,9 +4387,9 @@ are_peers.exit161:                                ; preds = %277
 are_peers.exit161.thread:                         ; preds = %272, %are_peers.exit161.thread168, %294, %are_peers.exit161
   %297 = load ptr, ptr %247, align 8
   %298 = icmp eq ptr %297, null
-  br i1 %298, label %.critedge154, label %253, !llvm.loop !28
+  br i1 %298, label %.critedge155, label %253, !llvm.loop !28
 
-.critedge154:                                     ; preds = %253, %259, %261, %are_peers.exit161.thread, %245
+.critedge155:                                     ; preds = %253, %259, %261, %are_peers.exit161.thread, %245
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %300 = load ptr, ptr %299, align 8
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
@@ -4399,7 +4399,7 @@ are_peers.exit161.thread:                         ; preds = %272, %are_peers.exi
   call void %304(ptr noundef %300) #8
   br label %.sink.split188.sink.split
 
-.sink.split188.sink.split:                        ; preds = %71, %63, %92, %are_peers.exit, %66, %209, %201, %200, %199, %165, %168, %24, %.critedge154, %18, %are_peers.exit.thread164, %.sink.split, %112, %115, %34
+.sink.split188.sink.split:                        ; preds = %71, %63, %92, %are_peers.exit, %66, %209, %201, %200, %199, %165, %168, %24, %.critedge155, %18, %are_peers.exit.thread164, %.sink.split, %112, %115, %34
   store i8 1, ptr %8, align 4
   br label %.sink.split188
 
@@ -4967,7 +4967,7 @@ slot_getattr.exit156:                             ; preds = %slot_getattr.exit, 
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %257 = load ptr, ptr %256, align 8
   %258 = icmp eq ptr %257, null
-  br i1 %258, label %.critedge153, label %.lr.ph
+  br i1 %258, label %.critedge154, label %.lr.ph
 
 .lr.ph:                                           ; preds = %254
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 624
@@ -4981,12 +4981,12 @@ slot_getattr.exit156:                             ; preds = %slot_getattr.exit, 
   %265 = load i16, ptr %264, align 4
   %266 = and i16 %265, 2
   %267 = icmp eq i16 %266, 0
-  br i1 %267, label %268, label %.critedge153
+  br i1 %267, label %268, label %.critedge154
 
 268:                                              ; preds = %262
   %269 = load i64, ptr %255, align 8
   %270 = icmp sgt i64 %269, %.0
-  br i1 %270, label %.critedge153, label %271
+  br i1 %270, label %.critedge154, label %271
 
 271:                                              ; preds = %268
   %272 = load ptr, ptr %259, align 8
@@ -5002,7 +5002,7 @@ slot_getattr.exit156:                             ; preds = %slot_getattr.exit, 
   %279 = load ptr, ptr %233, align 8
   %280 = load ptr, ptr %256, align 8
   %281 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %279, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %280) #8
-  br i1 %281, label %282, label %.critedge153
+  br i1 %281, label %282, label %.critedge154
 
 282:                                              ; preds = %271
   %283 = load ptr, ptr %4, align 8
@@ -5055,9 +5055,9 @@ are_peers.exit160:                                ; preds = %287
 are_peers.exit160.thread:                         ; preds = %282, %are_peers.exit160.thread167, %304, %are_peers.exit160
   %307 = load ptr, ptr %256, align 8
   %308 = icmp eq ptr %307, null
-  br i1 %308, label %.critedge153, label %262, !llvm.loop !30
+  br i1 %308, label %.critedge154, label %262, !llvm.loop !30
 
-.critedge153:                                     ; preds = %262, %268, %271, %are_peers.exit160.thread, %254
+.critedge154:                                     ; preds = %262, %268, %271, %are_peers.exit160.thread, %254
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %310 = load ptr, ptr %309, align 8
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
@@ -5067,7 +5067,7 @@ are_peers.exit160.thread:                         ; preds = %282, %are_peers.exi
   call void %314(ptr noundef %310) #8
   br label %.sink.split187.sink.split
 
-.sink.split187.sink.split:                        ; preds = %69, %are_peers.exit.thread, %are_peers.exit, %72, %218, %210, %209, %208, %174, %177, %26, %.critedge153, %18, %.sink.split, %122, %125, %37
+.sink.split187.sink.split:                        ; preds = %69, %are_peers.exit.thread, %are_peers.exit, %72, %218, %210, %209, %208, %174, %177, %26, %.critedge154, %18, %.sink.split, %122, %125, %37
   store i8 1, ptr %8, align 1
   br label %.sink.split187
 

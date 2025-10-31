@@ -25122,7 +25122,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h988ad945460ec732E.llvm.16702486
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb173e8889283780eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %50) #26
           to label %.body146 unwind label %179
 
-245:                                              ; preds = %.thread355, %552, %551
+245:                                              ; preds = %.thread350, %552, %551
   %.8 = phi i8 [ %.10266, %552 ], [ %.10266, %551 ], [ %.16, %.thread355 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn270, %552 ], [ %.pn.pn.pn.pn270, %551 ], [ %lpad.thr_comm.split-lp, %.thread355 ]
   br i1 %.1102, label %554, label %508
@@ -25432,7 +25432,7 @@ _ZN14ide_completion6render13RenderContext12source_range17h251998eb486cab67E.exit
           cleanup
   br label %.thread291
 
-.thread355:                                       ; preds = %488
+.thread350:                                       ; preds = %488
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %245
@@ -25810,7 +25810,7 @@ _ZN14ide_completion4item7Builder10add_import17ha97a60a20fcdd9b9E.exit: ; preds =
   %.16 = phi i8 [ 0, %_ZN14ide_completion4item7Builder10add_import17ha97a60a20fcdd9b9E.exit ], [ 1, %464 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(320) %40, i64 320, i1 false)
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h9a8233173dd3770bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37)
-          to label %489 unwind label %.thread355
+          to label %489 unwind label %.thread350
 
 489:                                              ; preds = %488
   call void @llvm.lifetime.end.p0(ptr nonnull %37)

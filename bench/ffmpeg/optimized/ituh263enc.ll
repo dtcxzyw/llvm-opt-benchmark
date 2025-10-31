@@ -6289,7 +6289,7 @@ define internal fastcc void @init_mv_penalty_and_fcode() unnamed_addr #7 {
   %14 = ashr i32 %13, %3
   %15 = add nsw i32 %14, 1
   %16 = icmp slt i32 %14, 32
-  br i1 %16, label %17, label %23
+  br i1 %16, label %17, label %24
 
 17:                                               ; preds = %11
   %18 = zext nneg i32 %15 to i64
@@ -6299,21 +6299,21 @@ define internal fastcc void @init_mv_penalty_and_fcode() unnamed_addr #7 {
   %22 = add i8 %21, %6
   br label %31
 
-23:                                               ; preds = %11
+24:                                               ; preds = %11
   %.not.i = icmp samesign ult i32 %15, 2097152
   %spec.select.i.v = select i1 %.not.i, i32 5, i32 21
   %spec.select.i = lshr i32 %15, %spec.select.i.v
   %spec.select12.i = select i1 %.not.i, i8 0, i8 16
   %.not11.i = icmp samesign ult i32 %spec.select.i, 256
-  %24 = lshr i32 %spec.select.i, 8
-  %25 = or disjoint i8 %spec.select12.i, 8
-  %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %24
-  %.1.i = select i1 %.not11.i, i8 %spec.select12.i, i8 %25
-  %26 = zext nneg i32 %.110.i to i64
-  %27 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !14
+  %25 = lshr i32 %spec.select.i, 8
+  %26 = or disjoint i8 %spec.select12.i, 8
+  %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %25
+  %.1.i = select i1 %.not11.i, i8 %spec.select12.i, i8 %26
+  %27 = zext nneg i32 %.110.i to i64
+  %28 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !14
   %29 = add i8 %5, %.1.i
-  %30 = add i8 %29, %28
+  %31 = add i8 %29, %28
   br label %31
 
 31:                                               ; preds = %17, %23, %9

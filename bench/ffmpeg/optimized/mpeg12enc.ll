@@ -243,7 +243,7 @@ define void @ff_mpeg1_init_uni_ac_vlc(ptr noundef readonly captures(none) %0, pt
   %26 = trunc i16 %25 to i8
   br label %37
 
-27:                                               ; preds = %19
+27:; preds = %19
   %28 = sext i32 %23 to i64
   %29 = getelementptr [2 x i16], ptr %2, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -2
@@ -252,12 +252,12 @@ define void @ff_mpeg1_init_uni_ac_vlc(ptr noundef readonly captures(none) %0, pt
   %33 = add i8 %32, 1
   br label %42
 
-34:                                               ; preds = %14
+34:; preds = %14
   %35 = load i16, ptr %5, align 2, !tbaa !7
   %36 = trunc i16 %35 to i8
   br i1 %13, label %37, label %40
 
-37:                                               ; preds = %.thread31, %34
+37:; preds = %.thread31, %34
   %38 = phi i8 [ %26, %.thread31 ], [ %36, %34 ]
   %39 = add i8 %38, 14
   br label %42
@@ -266,7 +266,7 @@ define void @ff_mpeg1_init_uni_ac_vlc(ptr noundef readonly captures(none) %0, pt
   %41 = add i8 %36, 22
   br label %42
 
-42:                                               ; preds = %37, %40, %27
+42:; preds = %37, %40, %27
   %.026 = phi i8 [ %33, %27 ], [ %39, %37 ], [ %41, %40 ]
   %43 = shl nuw nsw i64 %indvars.iv, 7
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %43
@@ -278,9 +278,9 @@ define void @ff_mpeg1_init_uni_ac_vlc(ptr noundef readonly captures(none) %0, pt
 .loopexit:                                        ; preds = %42, %6
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next36, 128
-  br i1 %exitcond38.not, label %44, label %6, !llvm.loop !11
+  br i1 %exitcond38.not, label %42, label %6, !llvm.loop !11
 
-44:                                               ; preds = %.loopexit
+42:                                               ; preds = %.loopexit
   ret void
 }
 

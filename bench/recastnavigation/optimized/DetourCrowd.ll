@@ -1676,51 +1676,51 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %122, %123
   %132 = load i32, ptr %131, align 4
   %.not55 = icmp ne i32 %130, %132
   %spec.select57 = or i1 %spec.select, %.not55
-  br i1 %spec.select57, label %.thread, label %_ZN7dtCrowd23requestMoveTargetReplanEijPKf.exit
+  br i1 %spec.select57, label %134, label %_ZN7dtCrowd23requestMoveTargetReplanEijPKf.exit
 
 133:                                              ; preds = %116, %119, %108
   %.not56 = icmp ne i8 %114, 0
   %or.cond.not = and i1 %spec.select, %.not56
-  br i1 %or.cond.not, label %.thread, label %_ZN7dtCrowd23requestMoveTargetReplanEijPKf.exit
+  br i1 %or.cond.not, label %134, label %_ZN7dtCrowd23requestMoveTargetReplanEijPKf.exit
 
-.thread:                                          ; preds = %133, %_ZNK14dtPathCorridor11getLastPolyEv.exit
-  %134 = icmp sgt i32 %34, -1
-  %135 = load i32, ptr %0, align 8
-  %.not.i59 = icmp sgt i32 %135, %34
-  %or.cond.i = select i1 %134, i1 %.not.i59, i1 false
+134:                                              ; preds = %133, %_ZNK14dtPathCorridor11getLastPolyEv.exit
+  %135 = icmp sgt i32 %34, -1
+  %136 = load i32, ptr %0, align 8
+  %.not.i59 = icmp sgt i32 %136, %34
+  %or.cond.i = select i1 %135, i1 %.not.i59, i1 false
   br i1 %or.cond.i, label %.sink.split.i, label %_ZN7dtCrowd23requestMoveTargetReplanEijPKf.exit
 
-.sink.split.i:                                    ; preds = %.thread
-  %136 = getelementptr inbounds nuw i8, ptr %22, i64 600
-  %137 = getelementptr inbounds nuw i8, ptr %22, i64 596
-  %138 = load i32, ptr %137, align 4
-  %139 = load ptr, ptr %10, align 8
-  %140 = and i64 %33, 2147483647
-  %141 = getelementptr inbounds nuw %struct.dtCrowdAgent, ptr %139, i64 %140
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 596
-  store i32 %138, ptr %142, align 4
-  %143 = getelementptr inbounds nuw i8, ptr %141, i64 600
-  %144 = load float, ptr %136, align 4
-  store float %144, ptr %143, align 4
-  %145 = getelementptr inbounds nuw i8, ptr %22, i64 604
-  %146 = load float, ptr %145, align 4
-  %147 = getelementptr inbounds nuw i8, ptr %141, i64 604
-  store float %146, ptr %147, align 4
-  %148 = getelementptr inbounds nuw i8, ptr %22, i64 608
-  %149 = load float, ptr %148, align 4
-  %150 = getelementptr inbounds nuw i8, ptr %141, i64 608
-  store float %149, ptr %150, align 4
-  %151 = getelementptr inbounds nuw i8, ptr %141, i64 612
-  store i32 0, ptr %151, align 4
-  %152 = getelementptr inbounds nuw i8, ptr %141, i64 616
-  store i8 1, ptr %152, align 8
-  %.not14.i = icmp eq i32 %138, 0
-  %153 = getelementptr inbounds nuw i8, ptr %141, i64 592
+.sink.split.i:                                    ; preds = %134
+  %137 = getelementptr inbounds nuw i8, ptr %22, i64 600
+  %138 = getelementptr inbounds nuw i8, ptr %22, i64 596
+  %139 = load i32, ptr %138, align 4
+  %140 = load ptr, ptr %10, align 8
+  %141 = and i64 %33, 2147483647
+  %142 = getelementptr inbounds nuw %struct.dtCrowdAgent, ptr %140, i64 %141
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 596
+  store i32 %139, ptr %143, align 4
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 600
+  %145 = load float, ptr %137, align 4
+  store float %145, ptr %144, align 4
+  %146 = getelementptr inbounds nuw i8, ptr %22, i64 604
+  %147 = load float, ptr %146, align 4
+  %148 = getelementptr inbounds nuw i8, ptr %142, i64 604
+  store float %147, ptr %148, align 4
+  %149 = getelementptr inbounds nuw i8, ptr %22, i64 608
+  %150 = load float, ptr %149, align 4
+  %151 = getelementptr inbounds nuw i8, ptr %142, i64 608
+  store float %150, ptr %151, align 4
+  %152 = getelementptr inbounds nuw i8, ptr %142, i64 612
+  store i32 0, ptr %152, align 4
+  %153 = getelementptr inbounds nuw i8, ptr %142, i64 616
+  store i8 1, ptr %153, align 8
+  %.not14.i = icmp eq i32 %139, 0
+  %154 = getelementptr inbounds nuw i8, ptr %142, i64 592
   %..i = select i1 %.not14.i, i8 1, i8 3
-  store i8 %..i, ptr %153, align 8
+  store i8 %..i, ptr %154, align 8
   br label %_ZN7dtCrowd23requestMoveTargetReplanEijPKf.exit
 
-_ZN7dtCrowd23requestMoveTargetReplanEijPKf.exit:  ; preds = %.sink.split.i, %.thread, %_ZNK14dtPathCorridor11getLastPolyEv.exit, %77, %77, %133, %20, %68
+_ZN7dtCrowd23requestMoveTargetReplanEijPKf.exit:  ; preds = %.sink.split.i, %134, %_ZNK14dtPathCorridor11getLastPolyEv.exit, %77, %77, %133, %20, %68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !17

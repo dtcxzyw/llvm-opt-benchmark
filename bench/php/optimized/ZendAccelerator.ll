@@ -1819,12 +1819,12 @@ define hidden range(i32 -1, 1) i32 @zend_accel_invalidate(ptr noundef %0, i1 nou
   %4 = alloca %struct._zend_file_handle, align 8
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 3), align 1, !tbaa !147, !range !37, !noundef !38
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %105
+  br i1 %6, label %7, label %107
 
 7:                                                ; preds = %2
   %8 = tail call i32 @accelerator_shm_read_lock()
   %.not19 = icmp eq i32 %8, 0
-  br i1 %.not19, label %9, label %105
+  br i1 %.not19, label %9, label %107
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr @accelerator_orig_zend_resolve_path, align 8, !tbaa !39
@@ -2020,11 +2020,11 @@ accelerator_shm_read_unlock.exit:                 ; preds = %80, %accel_deactiva
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %accelerator_shm_read_unlock.exit, %98, %103
-  %not..1 = xor i1 %.1, true
-  %104 = sext i1 %not..1 to i32
+  %104 = xor i1 %.1, true
+  %104 = sext i1 %104 to i32
   br label %105
 
-105:                                              ; preds = %2, %7, %zend_string_release_ex.exit
+107:                                              ; preds = %2, %7, %zend_string_release_ex.exit
   %.015 = phi i32 [ %104, %zend_string_release_ex.exit ], [ -1, %7 ], [ -1, %2 ]
   ret i32 %.015
 }

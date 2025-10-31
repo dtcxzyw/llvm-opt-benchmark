@@ -4493,35 +4493,35 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %4, 
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %21 = load ptr, ptr %20, align 8
   %22 = call noundef ptr @_ZN10Dictionary10find_classEP6ThreadP6Symbol(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull %3, ptr noundef %17) #14
-  %.not.not = icmp eq ptr %22, null
-  br i1 %.not.not, label %.critedge, label %23
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %24, label %23
 
 23:                                               ; preds = %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit
   %.not35 = icmp ne ptr %0, %22
   %or.cond.not = or i1 %2, %.not35
-  br i1 %or.cond.not, label %.critedge44, label %.critedge40
+  br i1 %or.cond.not, label %.critedge44, label %.critedge
 
-.critedge:                                        ; preds = %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit
-  %24 = call noundef zeroext i1 @_ZN21LoaderConstraintTable15check_or_updateEP13InstanceKlassP15ClassLoaderDataP6Symbol(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %17) #14
+24:                                               ; preds = %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit
+  %25 = call noundef zeroext i1 @_ZN21LoaderConstraintTable15check_or_updateEP13InstanceKlassP15ClassLoaderDataP6Symbol(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %17) #14
   br i1 %24, label %40, label %25
 
-25:                                               ; preds = %.critedge
-  %26 = call noundef ptr @_ZNK15ClassLoaderData18loader_name_and_idEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #14
+25:; preds = %.critedge
+  %28 = call noundef ptr @_ZNK15ClassLoaderData18loader_name_and_idEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #14
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.15, ptr noundef %26) #14
   %27 = call noundef ptr @_ZNK5Klass13external_kindEv(ptr noundef nonnull align 8 dereferenceable(196) %0) #14
   %28 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %0) #14
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.16, ptr noundef %27, ptr noundef %28) #14
-  %29 = call noundef ptr @_ZN21LoaderConstraintTable22find_constrained_klassEP6SymbolP15ClassLoaderData(ptr noundef %17, ptr noundef nonnull %1) #14
+  %30 = call noundef ptr @_ZN21LoaderConstraintTable22find_constrained_klassEP6SymbolP15ClassLoaderData(ptr noundef %17, ptr noundef nonnull %1) #14
   %.not36 = icmp eq ptr %29, null
   br i1 %.not36, label %38, label %30
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 152
+30:; preds = %25
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 152
   %32 = load ptr, ptr %31, align 8
   %.not37 = icmp eq ptr %32, %1
-  br i1 %.not37, label %38, label %33
+  br i1 %.not37, label %38, label %47
 
-33:                                               ; preds = %30
+47:                                               ; preds = %30
   %34 = call noundef ptr @_ZNK5Klass13external_kindEv(ptr noundef nonnull align 8 dereferenceable(196) %29) #14
   %35 = load ptr, ptr %31, align 8
   %36 = call noundef ptr @_ZNK15ClassLoaderData18loader_name_and_idEv(ptr noundef nonnull align 8 dereferenceable(160) %35) #14
@@ -4541,8 +4541,8 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %4, 
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #14
   br label %_ZN11MutexLockerD2Ev.exit
 
-.critedge42:                                      ; preds = %38, %33
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit47, label %_ZN11MutexLockerD2Ev.exit47.sink.split
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %38, %47
+  br i1 %.not.i.i, label %48, label %_ZN11MutexLockerD2Ev.exit47.sink.split
 
 .critedge44:                                      ; preds = %23
   %42 = call noundef ptr @_ZNK15ClassLoaderData18loader_name_and_idEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #14
@@ -4557,42 +4557,42 @@ _ZN11MutexLockerD2Ev.exit47.sink.split:           ; preds = %.critedge44, %.crit
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #14
   br label %_ZN11MutexLockerD2Ev.exit47
 
-_ZN11MutexLockerD2Ev.exit47:                      ; preds = %_ZN11MutexLockerD2Ev.exit47.sink.split, %.critedge44, %.critedge42
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1176), align 8
-  %47 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %5, i1 noundef zeroext false) #14
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 1684, ptr noundef %46, ptr noundef %47) #14
-  br label %_ZN11MutexLockerD2Ev.exit
+48:                                               ; preds = %_ZN11MutexLockerD2Ev.exit47.sink.split, %.critedge44, %.critedge42
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1176), align 8
+  %50 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %5, i1 noundef zeroext false) #14
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 1684, ptr noundef %49, ptr noundef %50) #14
+  br label %_ZN11MutexLockerD2Ev.exit41
 
-.critedge40:                                      ; preds = %23
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %48
+.critedge:                                        ; preds = %23
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit41, label %51
 
-48:                                               ; preds = %.critedge40
+51:                                               ; preds = %.critedge
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %18) #14
-  br label %_ZN11MutexLockerD2Ev.exit
+  br label %_ZN11MutexLockerD2Ev.exit41
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %48, %.critedge40, %41, %40, %_ZN11MutexLockerD2Ev.exit47
+_ZN11MutexLockerD2Ev.exit41:                      ; preds = %51, %.critedge, %41, %40, %_ZN11MutexLockerD2Ev.exit47
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %5) #14
-  %49 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i.i.i, label %51, label %50
+  %52 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %52, null
+  br i1 %.not.i.i.i.i, label %54, label %53
 
-50:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
+53:                                               ; preds = %_ZN11MutexLockerD2Ev.exit41
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #14
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #14
-  br label %51
+  br label %54
 
-51:                                               ; preds = %50, %_ZN11MutexLockerD2Ev.exit
-  %52 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %52, %11
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %53
+54:                                               ; preds = %53, %_ZN11MutexLockerD2Ev.exit41
+  %55 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %55, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %56
 
-53:                                               ; preds = %51
+56:                                               ; preds = %54
   store ptr %9, ptr %8, align 8
   store ptr %11, ptr %10, align 8
   store ptr %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %51, %53
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %54, %56
   ret void
 }
 

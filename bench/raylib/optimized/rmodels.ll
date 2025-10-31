@@ -31882,21 +31882,21 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
   %.4166246.i = phi i32 [ 0, %.lr.ph254.i ], [ %spec.select190.i, %._crit_edge243.i ]
   %174 = zext i32 %.9247.i to i64
   %.not179.i = icmp samesign uge i64 %indvars.iv290.i, %174
-  br i1 %.not179.i, label %175, label %183
+  br i1 %.not179.i, label %175, label %._crit_edge301.i
 
 175:                                              ; preds = %173
   %176 = add i32 %.4251.i, 1
   %177 = icmp ult i32 %176, %60
-  br i1 %177, label %178, label %183
+  br i1 %177, label %178, label %._crit_edge301.i
 
 178:                                              ; preds = %175
   %179 = zext i32 %176 to i64
   %180 = getelementptr inbounds nuw %struct.tinyobj_shape_t, ptr %160, i64 %179
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load i32, ptr %181, align 8, !noalias !7
-  br label %183
+  br label %._crit_edge301.i
 
-183:                                              ; preds = %178, %175, %173
+._crit_edge301.i:                                 ; preds = %178, %175, %173
   %.10.i = phi i32 [ %.9247.i, %173 ], [ %182, %178 ], [ %59, %175 ]
   %.5.i = phi i32 [ %.4251.i, %173 ], [ %176, %178 ], [ %176, %175 ]
   %.not180.i = icmp eq i32 %.2146249.i, -1
@@ -31904,7 +31904,7 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !noalias !7
   br i1 %.not180.i, label %._crit_edge301.i, label %184
 
-184:                                              ; preds = %183
+184:; preds = %._crit_edge301.i
   %.not181.i = icmp ne i32 %.pre.i, %.2146249.i
   %spec.select189.i = or i1 %.not179.i, %.not181.i
   br label %._crit_edge301.i

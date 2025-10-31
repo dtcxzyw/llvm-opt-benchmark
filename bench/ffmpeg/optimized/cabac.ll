@@ -182,9 +182,9 @@ define range(i32 -1094995529, 1) i32 @ff_vvc_cabac_init(ptr noundef readonly cap
   store i8 %108, ptr %109, align 2, !tbaa !97
   %110 = and i8 %93, 3
   %narrow.i = add nuw nsw i8 %110, 3
-  %narrow32.i = add nuw nsw i8 %narrow.i, %108
+  %narrow.i = add nuw nsw i8 %narrow.i, %108
   %111 = getelementptr inbounds nuw i8, ptr %88, i64 5
-  store i8 %narrow32.i, ptr %111, align 1, !tbaa !97
+  store i8 %narrow.i, ptr %111, align 1, !tbaa !97
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 378
   br i1 %exitcond.not.i, label %cabac_reinit.exit, label %85, !llvm.loop !98

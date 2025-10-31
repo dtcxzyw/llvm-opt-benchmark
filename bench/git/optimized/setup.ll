@@ -228,7 +228,7 @@ define dso_local ptr @prefix_path_gently(ptr noundef %0, i32 noundef %1, ptr nou
   %5 = alloca %struct.strbuf, align 8
   %.val = load i8, ptr %3, align 1, !tbaa !4
   %.not = icmp eq i8 %.val, 47
-  br i1 %.not, label %6, label %63
+  br i1 %.not, label %6, label %65
 
 6:                                                ; preds = %4
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #24
@@ -247,7 +247,7 @@ define dso_local ptr @prefix_path_gently(ptr noundef %0, i32 noundef %1, ptr nou
 
 12:                                               ; preds = %10
   tail call void @free(ptr noundef %8) #25
-  br label %70
+  br label %72
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr @the_repository, align 8, !tbaa !9
@@ -255,7 +255,7 @@ define dso_local ptr @prefix_path_gently(ptr noundef %0, i32 noundef %1, ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.create_object_directory.path, i64 24, i1 false)
   %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %62, label %16
+  br i1 %.not.i, label %64, label %16
 
 16:                                               ; preds = %13
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #24
@@ -307,91 +307,91 @@ define dso_local ptr @prefix_path_gently(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not5256.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph.i
-  %.04557.i = phi ptr [ %39, %.lr.ph.i ], [ %42, %.backedge.backedge ]
-  %42 = getelementptr inbounds nuw i8, ptr %.04557.i, i64 1
-  %43 = load i8, ptr %42, align 1, !tbaa !4
-  switch i8 %43, label %.backedge.backedge [
-    i8 47, label %44
+  %.04557.i = phi ptr [ %39, %.lr.ph.i ], [ %44, %.backedge.backedge ]
+  %44 = getelementptr inbounds nuw i8, ptr %.04557.i, i64 1
+  %45 = load i8, ptr %44, align 1, !tbaa !4
+  switch i8 %45, label %.backedge.backedge [
+    i8 47, label %46
     i8 0, label %._crit_edge.i
   ]
 
-.backedge.backedge:                               ; preds = %.backedge, %54
+.backedge.backedge:                               ; preds = %.backedge, %56
   br label %.backedge, !llvm.loop !12
 
-44:                                               ; preds = %.backedge
-  store i8 0, ptr %42, align 1, !tbaa !4
-  %45 = call ptr @strbuf_realpath(ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef 1) #25
-  %46 = load ptr, ptr %41, align 8, !tbaa !14
-  %47 = call i32 @git_fspathcmp(ptr noundef %46, ptr noundef nonnull %15) #25
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %54
+46:                                               ; preds = %.backedge
+  store i8 0, ptr %44, align 1, !tbaa !4
+  %47 = call ptr @strbuf_realpath(ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef 1) #25
+  %48 = load ptr, ptr %43, align 8, !tbaa !14
+  %49 = call i32 @git_fspathcmp(ptr noundef %48, ptr noundef nonnull %15) #25
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %56
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw i8, ptr %.04557.i, i64 2
-  %51 = ptrtoint ptr %42 to i64
-  %52 = ptrtoint ptr %8 to i64
-  %.neg.i = add i64 %18, %52
-  %53 = sub i64 %.neg.i, %51
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull align 1 %50, i64 %53, i1 false)
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds nuw i8, ptr %.04557.i, i64 2
+  %53 = ptrtoint ptr %44 to i64
+  %54 = ptrtoint ptr %8 to i64
+  %.neg.i = add i64 %18, %54
+  %55 = sub i64 %.neg.i, %53
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %8, ptr nonnull align 1 %52, i64 %55, i1 false)
   call void @strbuf_release(ptr noundef nonnull %5) #25
   br label %abspath_part_inside_repo.exit.thread
 
-54:                                               ; preds = %44
-  store i8 47, ptr %42, align 1, !tbaa !4
+56:                                               ; preds = %46
+  store i8 47, ptr %44, align 1, !tbaa !4
   br label %.backedge.backedge
 
 ._crit_edge.i:                                    ; preds = %.backedge, %37
-  %55 = call ptr @strbuf_realpath(ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef 1) #25
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !14
-  %58 = call i32 @git_fspathcmp(ptr noundef %57, ptr noundef nonnull %15) #25
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %61
+  %57 = call ptr @strbuf_realpath(ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef 1) #25
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %59 = load ptr, ptr %58, align 8, !tbaa !14
+  %60 = call i32 @git_fspathcmp(ptr noundef %59, ptr noundef nonnull %15) #25
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %63
 
-60:                                               ; preds = %._crit_edge.i
+62:                                               ; preds = %._crit_edge.i
   store i8 0, ptr %8, align 1, !tbaa !4
   call void @strbuf_release(ptr noundef nonnull %5) #25
   br label %abspath_part_inside_repo.exit.thread
 
-61:                                               ; preds = %._crit_edge.i
+63:                                               ; preds = %._crit_edge.i
   call void @strbuf_release(ptr noundef nonnull %5) #25
-  br label %62
+  br label %64
 
-abspath_part_inside_repo.exit.thread:             ; preds = %49, %60, %27, %35
+abspath_part_inside_repo.exit.thread:             ; preds = %51, %62, %27, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %70
+  br label %72
 
-62:                                               ; preds = %61, %13
+64:                                               ; preds = %63, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @free(ptr noundef %8) #25
-  br label %70
+  br label %72
 
-63:                                               ; preds = %4
+65:                                               ; preds = %4
   %.not25 = icmp eq i32 %1, 0
-  %64 = select i1 %.not25, ptr @.str.1, ptr %0
-  %65 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str, i32 noundef %1, ptr noundef %64, ptr noundef nonnull %3) #25
+  %66 = select i1 %.not25, ptr @.str.1, ptr %0
+  %67 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str, i32 noundef %1, ptr noundef %66, ptr noundef nonnull %3) #25
   %.not26 = icmp eq ptr %2, null
-  br i1 %.not26, label %67, label %66
+  br i1 %.not26, label %69, label %68
 
-66:                                               ; preds = %63
+68:                                               ; preds = %65
   store i32 %1, ptr %2, align 4, !tbaa !7
-  br label %67
+  br label %69
 
-67:                                               ; preds = %66, %63
-  %68 = tail call i32 @normalize_path_copy_len(ptr noundef %65, ptr noundef %65, ptr noundef %2) #25
-  %.not27 = icmp eq i32 %68, 0
-  br i1 %.not27, label %70, label %69
+69:                                               ; preds = %68, %65
+  %70 = tail call i32 @normalize_path_copy_len(ptr noundef %67, ptr noundef %67, ptr noundef %2) #25
+  %.not27 = icmp eq i32 %70, 0
+  br i1 %.not27, label %72, label %71
 
-69:                                               ; preds = %67
-  tail call void @free(ptr noundef %65) #25
-  br label %70
+71:                                               ; preds = %69
+  tail call void @free(ptr noundef %67) #25
+  br label %72
 
-70:                                               ; preds = %abspath_part_inside_repo.exit.thread, %67, %69, %62, %12
-  %.023 = phi ptr [ null, %12 ], [ null, %62 ], [ null, %69 ], [ %65, %67 ], [ %8, %abspath_part_inside_repo.exit.thread ]
+72:                                               ; preds = %abspath_part_inside_repo.exit.thread, %69, %71, %64, %12
+  %.023 = phi ptr [ null, %12 ], [ null, %62 ], [ null, %69 ], [ %67, %67 ], [ %8, %abspath_part_inside_repo.exit.thread ]
   ret ptr %.023
 }
 

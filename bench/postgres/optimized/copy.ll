@@ -796,7 +796,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   %9 = icmp slt i32 %8, 3
   %10 = select i1 %9, ptr null, ptr @.str.15
   %11 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %10) #11
-  br label %87
+  br label %88
 
 12:                                               ; preds = %4
   %13 = call i32 @fileno(ptr noundef %1) #11
@@ -945,61 +945,61 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   %77 = call i32 @ferror(ptr noundef %1) #11
   %.not76 = icmp eq i32 %77, 0
   %spec.select = select i1 %.not76, i8 %.3, i8 0
-  %78 = trunc nuw i8 %spec.select to i1
-  br i1 %78, label %83, label %79
+  %79 = trunc nuw i8 %spec.select to i1
+  br i1 %79, label %84, label %80
 
-79:                                               ; preds = %.thread
-  %80 = call i32 @PQprotocolVersion(ptr noundef %0) #11
-  %81 = icmp slt i32 %80, 3
-  %82 = select i1 %81, ptr null, ptr @.str.19
-  br label %83
+80:                                               ; preds = %.thread
+  %81 = call i32 @PQprotocolVersion(ptr noundef %0) #11
+  %82 = icmp slt i32 %81, 3
+  %83 = select i1 %82, ptr null, ptr @.str.19
+  br label %84
 
-83:                                               ; preds = %79, %.thread
-  %84 = phi ptr [ null, %.thread ], [ %82, %79 ]
-  %85 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %84) #11
-  %86 = icmp slt i32 %85, 1
-  %spec.select83 = select i1 %86, i8 0, i8 %spec.select
-  br label %87
+84:                                               ; preds = %80, %.thread
+  %85 = phi ptr [ null, %.thread ], [ %83, %79 ]
+  %86 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %85) #11
+  %87 = icmp slt i32 %86, 1
+  %spec.select83 = select i1 %87, i8 0, i8 %spec.select
+  br label %88
 
-87:                                               ; preds = %83, %7
+88:                                               ; preds = %84, %7
   %.0 = phi i8 [ 0, %7 ], [ %spec.select83, %83 ]
   call void @clearerr(ptr noundef %1) #11
-  %88 = call ptr @PQgetResult(ptr noundef %0) #11
-  store ptr %88, ptr %3, align 8
-  %89 = call i32 @PQresultStatus(ptr noundef %88) #11
-  %90 = icmp eq i32 %89, 4
-  br i1 %90, label %.lr.ph, label %._crit_edge
+  %89 = call ptr @PQgetResult(ptr noundef %0) #11
+  store ptr %89, ptr %3, align 8
+  %90 = call i32 @PQresultStatus(ptr noundef %89) #11
+  %91 = icmp eq i32 %90, 4
+  br i1 %91, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %87, %.lr.ph
-  %91 = load ptr, ptr %3, align 8
-  call void @PQclear(ptr noundef %91) #11
-  %92 = call i32 @PQprotocolVersion(ptr noundef %0) #11
-  %93 = icmp slt i32 %92, 3
-  %94 = select i1 %93, ptr null, ptr @.str.20
-  %95 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %94) #11
-  %96 = call ptr @PQgetResult(ptr noundef %0) #11
-  store ptr %96, ptr %3, align 8
-  %97 = call i32 @PQresultStatus(ptr noundef %96) #11
-  %98 = icmp eq i32 %97, 4
-  br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+.lr.ph:                                           ; preds = %88, %.lr.ph
+  %92 = load ptr, ptr %3, align 8
+  call void @PQclear(ptr noundef %92) #11
+  %93 = call i32 @PQprotocolVersion(ptr noundef %0) #11
+  %94 = icmp slt i32 %93, 3
+  %95 = select i1 %94, ptr null, ptr @.str.20
+  %96 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %95) #11
+  %97 = call ptr @PQgetResult(ptr noundef %0) #11
+  store ptr %97, ptr %3, align 8
+  %98 = call i32 @PQresultStatus(ptr noundef %97) #11
+  %99 = icmp eq i32 %98, 4
+  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %87
+._crit_edge:                                      ; preds = %.lr.ph, %88
   %.8.lcssa = phi i8 [ %.0, %87 ], [ 0, %.lr.ph ]
-  %99 = load ptr, ptr %3, align 8
-  %100 = call i32 @PQresultStatus(ptr noundef %99) #11
-  %.not77 = icmp eq i32 %100, 1
-  br i1 %.not77, label %103, label %101
+  %100 = load ptr, ptr %3, align 8
+  %101 = call i32 @PQresultStatus(ptr noundef %100) #11
+  %.not77 = icmp eq i32 %101, 1
+  br i1 %.not77, label %104, label %102
 
-101:                                              ; preds = %._crit_edge
-  %102 = call ptr @PQerrorMessage(ptr noundef %0) #11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %102) #11
-  br label %103
+102:                                              ; preds = %._crit_edge
+  %103 = call ptr @PQerrorMessage(ptr noundef %0) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %103) #11
+  br label %104
 
-103:                                              ; preds = %101, %._crit_edge
+104:                                              ; preds = %102, %._crit_edge
   %.9 = phi i8 [ 0, %101 ], [ %.8.lcssa, %._crit_edge ]
-  %104 = trunc nuw i8 %.9 to i1
+  %105 = trunc nuw i8 %.9 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %104
+  ret i1 %105
 }
 
 ; Function Attrs: nounwind returns_twice

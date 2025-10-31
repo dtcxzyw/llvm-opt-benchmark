@@ -369,13 +369,13 @@ define internal noundef zeroext i1 @SDL_SoftBlit(ptr noundef %0, ptr noundef rea
   %.not47 = icmp eq i32 %10, 0
   br i1 %.not47, label %15, label %13
 
-.thread:                                          ; preds = %4
+.thread:; preds = %4
   %11 = load i32, ptr %0, align 8
   %12 = and i32 %11, 2
   %.not4759 = icmp eq i32 %12, 0
   br i1 %.not4759, label %.thread66, label %13
 
-13:                                               ; preds = %.thread, %7
+13:; preds = %.thread, %7
   %.064 = phi i1 [ true, %.thread ], [ %8, %7 ]
   %.not4862 = phi i1 [ true, %.thread ], [ %not., %7 ]
   %14 = tail call zeroext i1 @SDL_LockSurface_REAL(ptr noundef nonnull %0) #2
@@ -473,8 +473,8 @@ define internal noundef zeroext i1 @SDL_SoftBlit(ptr noundef %0, ptr noundef rea
   br i1 %.not4861, label %88, label %87
 
 86:                                               ; preds = %13, %15
-  %.not4860 = phi i1 [ %.not4862, %13 ], [ %not., %15 ]
-  %.not4952 = phi i1 [ %not.56, %13 ], [ true, %15 ]
+  %.155 = phi i1 [ %.not4862, %13 ], [ %not., %15 ]
+  %.not4953 = phi i1 [ %not.56, %13 ], [ true, %15 ]
   br i1 %.not4860, label %88, label %87
 
 87:                                               ; preds = %.thread66, %86

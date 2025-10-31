@@ -1691,7 +1691,7 @@ define range(i32 -1, 1) i32 @H5F__super_ext_write_msg(ptr noundef %0, i32 nounde
   %11 = trunc nuw i8 %10 to i1
   %12 = xor i1 %11, true
   %13 = select i1 %9, i1 true, i1 %12
-  br i1 %13, label %14, label %102, !prof !9
+  br i1 %13, label %14, label %103, !prof !9
 
 14:                                               ; preds = %5
   call void @H5AC_set_ring(i32 noundef 4, ptr noundef nonnull %6) #6
@@ -1815,38 +1815,38 @@ H5F__super_ext_open.exit.thread:                  ; preds = %21, %28, %40
   br i1 %.030, label %84, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %83
-  br i1 %.028, label %92, label %102
+  br i1 %.028, label %93, label %103
 
-84:                                               ; preds = %83
-  %85 = call i32 @H5F__super_ext_close(ptr noundef nonnull %0, ptr noundef nonnull %7, i1 noundef zeroext %.028)
-  %86 = icmp slt i32 %85, 0
-  br i1 %86, label %87, label %91
+85:                                               ; preds = %83
+  %86 = call i32 @H5F__super_ext_close(ptr noundef nonnull %0, ptr noundef nonnull %7, i1 noundef zeroext %.028)
+  %87 = icmp slt i32 %86, 0
+  br i1 %87, label %88, label %92
 
-87:                                               ; preds = %84
-  %88 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !16
-  %89 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !16
-  %90 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5F__super_ext_write_msg, i32 noundef 1720, i64 noundef %88, i64 noundef %89, ptr noundef nonnull @.str.58) #6
-  br i1 %.028, label %92, label %102
+88:                                               ; preds = %85
+  %89 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !16
+  %90 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !16
+  %91 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5F__super_ext_write_msg, i32 noundef 1720, i64 noundef %89, i64 noundef %90, ptr noundef nonnull @.str.58) #6
+  br i1 %.028, label %93, label %103
 
-91:                                               ; preds = %84
-  br i1 %.028, label %92, label %102
+92:                                               ; preds = %85
+  br i1 %.028, label %93, label %103
 
-92:                                               ; preds = %87, %._crit_edge, %91
+93:                                               ; preds = %88, %._crit_edge, %92
   %.241 = phi i32 [ %.1, %._crit_edge ], [ %.1, %91 ], [ -1, %87 ]
-  %93 = load ptr, ptr %15, align 8, !tbaa !25
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !102
-  %96 = call i32 @H5AC_mark_entry_dirty(ptr noundef %95) #6
-  %97 = icmp slt i32 %96, 0
-  br i1 %97, label %98, label %102
+  %94 = load ptr, ptr %15, align 8, !tbaa !25
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %96 = load ptr, ptr %95, align 8, !tbaa !102
+  %97 = call i32 @H5AC_mark_entry_dirty(ptr noundef %96) #6
+  %98 = icmp slt i32 %97, 0
+  br i1 %98, label %99, label %103
 
-98:                                               ; preds = %92
-  %99 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !16
-  %100 = load i64, ptr @H5E_CANTMARKDIRTY_g, align 8, !tbaa !16
-  %101 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5F__super_ext_write_msg, i32 noundef 1724, i64 noundef %99, i64 noundef %100, ptr noundef nonnull @.str.89) #6
-  br label %102
+99:                                               ; preds = %93
+  %100 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !16
+  %101 = load i64, ptr @H5E_CANTMARKDIRTY_g, align 8, !tbaa !16
+  %102 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5F__super_ext_write_msg, i32 noundef 1724, i64 noundef %100, i64 noundef %101, ptr noundef nonnull @.str.89) #6
+  br label %103
 
-102:                                              ; preds = %87, %._crit_edge, %91, %92, %98, %5
+103:                                              ; preds = %88, %._crit_edge, %92, %93, %99, %5
   %.0 = phi i32 [ -1, %98 ], [ %.241, %92 ], [ %.1, %91 ], [ 0, %5 ], [ %.1, %._crit_edge ], [ -1, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

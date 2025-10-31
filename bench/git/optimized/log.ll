@@ -7596,44 +7596,44 @@ define internal fastcc void @add_header(ptr noundef %0, ptr noundef %1) unnamed_
   %7 = getelementptr i8, ptr %6, i64 -1
   %8 = load i8, ptr %7, align 1, !tbaa !77
   %9 = icmp eq i8 %8, 10
-  br i1 %9, label %10, label %.critedge
+  br i1 %9, label %10, label %.critedge.loopexit.split.loop.exit24
 
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !325
 
-.critedge:                                        ; preds = %.lr.ph, %10, %2
+.critedge.loopexit.split.loop.exit24:             ; preds = %.lr.ph, %10, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ 0, %10 ], [ %indvars.iv, %.lr.ph ]
   %11 = tail call i32 @strncasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.201, i64 noundef 4) #24
   %.not17 = icmp eq i32 %11, 0
   br i1 %.not17, label %12, label %17
 
-12:                                               ; preds = %.critedge
+12:; preds = %.critedge.loopexit.split.loop.exit24
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = tail call ptr @string_list_append(ptr noundef nonnull %13, ptr noundef nonnull %14) #23
   %16 = add i64 %.0.lcssa, -4
   br label %27
 
-17:                                               ; preds = %.critedge
+17:; preds = %.critedge.loopexit.split.loop.exit24
   %18 = tail call i32 @strncasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.202, i64 noundef 4) #24
   %.not18 = icmp eq i32 %18, 0
   br i1 %.not18, label %19, label %24
 
-19:                                               ; preds = %17
+19:; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %22 = tail call ptr @string_list_append(ptr noundef nonnull %20, ptr noundef nonnull %21) #23
   %23 = add i64 %.0.lcssa, -4
   br label %27
 
-24:                                               ; preds = %17
+24:; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %26 = tail call ptr @string_list_append(ptr noundef nonnull %25, ptr noundef nonnull %1) #23
   br label %27
 
-27:                                               ; preds = %19, %24, %12
+27: ; preds = %19, %24, %12
   %.016 = phi ptr [ %26, %24 ], [ %22, %19 ], [ %15, %12 ]
   %.1 = phi i64 [ %.0.lcssa, %24 ], [ %23, %19 ], [ %16, %12 ]
   %28 = load ptr, ptr %.016, align 8, !tbaa !191

@@ -678,14 +678,14 @@ define void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element..Rende
   invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbe66930c6c9e3dddE.llvm.13949071745391659084"(ptr noalias noundef nonnull align 8 dereferenceable(8) %189)
           to label %"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h61a818424aa0d07bE.exit" unwind label %163
 
-"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h61a818424aa0d07bE.exit": ; preds = %188
+190:                                              ; preds = %188
   br i1 %.sroa.09.2113, label %.body60.thread97, label %190
 
 190:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h61a818424aa0d07bE.exit", %.body60.thread97, %.body60, %.body63
   %.pn35.pn = phi { ptr, i32 } [ %.pn35, %.body63 ], [ %.pn33100, %.body60.thread97 ], [ %.pn31115, %.body60 ], [ %.pn31115, %"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h61a818424aa0d07bE.exit" ]
   resume { ptr, i32 } %.pn35.pn
 
-.body60.thread97:                                 ; preds = %152, %161, %"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h61a818424aa0d07bE.exit", %.body60
+.body60.thread97:                                 ; preds = %152, %161, %190, %.body60
   %.pn33100 = phi { ptr, i32 } [ %.pn31115, %.body60 ], [ %.pn31115, %"_ZN4core3ptr63drop_in_place$LT$gpui..view..WeakView$LT$editor..Editor$GT$$GT$17h61a818424aa0d07bE.exit" ], [ %153, %152 ], [ %162, %161 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17hef5780e2de7f6d62E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %26) #16
           to label %190 unwind label %163

@@ -80562,7 +80562,7 @@ define void @_ZN14deltalake_core10operations6create13CreateBuilder22into_table_a
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48608139814a74e0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %58)
           to label %.noexc328 unwind label %174
 
-174:                                              ; preds = %766, %753, %729, %723, %587, %181, %173, %769, %767, %762, %755, %747, %744, %740, %734, %730, %724, %718, %716, %712, %678, %650, %614, %610, %609, %608, %607, %.thread599, %590, %.thread621, %589, %582, %581, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit405", %515, %485, %482, %472, %334, %.body363, %.critedge, %.body, %199, %.noexc328, %145
+174:                                              ; preds = %767, %753, %729, %723, %587, %181, %173, %770, %768, %763, %756, %747, %744, %740, %734, %730, %724, %718, %716, %712, %678, %650, %614, %610, %609, %608, %607, %.thread599, %590, %.thread621, %589, %582, %581, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit405", %515, %485, %482, %472, %334, %.body363, %.critedge, %.body, %199, %.noexc328, %145
   %175 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #65
@@ -81815,10 +81815,10 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.82263
   br label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit405"
 
 "_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17h9a7a3b6231162428E.llvm.8226331118977765550.exit.sink.split": ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit403", %"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h6dd0457013f72378E.exit"
-  %.sink722 = phi ptr [ %699, %"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h6dd0457013f72378E.exit" ], [ %567, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit403" ]
+  %.sink723 = phi ptr [ %699, %"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h6dd0457013f72378E.exit" ], [ %567, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit403" ]
   %580 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h94bf61025fa74a86E.llvm.240573438051967091(ptr noalias noundef nonnull align 8 dereferenceable(48) %.sink722), !noalias !4
-  call void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h18f8a73f8f6af598E.llvm.240573438051967091(ptr noalias noundef nonnull align 8 dereferenceable(48) %.sink722, ptr noalias noundef nonnull readonly align 1 %580, i64 noundef 56, i64 noundef 16)
+  call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h94bf61025fa74a86E.llvm.240573438051967091(ptr noalias noundef nonnull align 8 dereferenceable(48) %.sink723), !noalias !4
+  call void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h18f8a73f8f6af598E.llvm.240573438051967091(ptr noalias noundef nonnull align 8 dereferenceable(48) %.sink723, ptr noalias noundef nonnull readonly align 1 %580, i64 noundef 56, i64 noundef 16)
   br label %"_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17h9a7a3b6231162428E.llvm.8226331118977765550.exit"
 
 "_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17h9a7a3b6231162428E.llvm.8226331118977765550.exit": ; preds = %"_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17h9a7a3b6231162428E.llvm.8226331118977765550.exit.sink.split", %"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h6dd0457013f72378E.exit", %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit403"
@@ -81843,7 +81843,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.82263
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48608139814a74e0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %95)
           to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit405" unwind label %174
 
-588:                                              ; preds = %767, %712, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit405"
+588:                                              ; preds = %768, %712, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit405"
   %.pn309.pn = phi { ptr, i32 } [ %.pn309, %712 ], [ %.pn293, %767 ], [ %.pn284, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit405" ]
   resume { ptr, i32 } %.pn309.pn
 
@@ -82322,7 +82322,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.82263
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h4be47992871ca0d1E.llvm.8226331118977765550.exit433": ; preds = %749, %753, %745
   %748 = trunc nuw i8 %.1197 to i1
-  br i1 %748, label %755, label %754
+  br i1 %748, label %756, label %754
 
 749:                                              ; preds = %745
   %750 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -82334,47 +82334,47 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.82263
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h24994ca8a9f000f6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %750)
           to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h4be47992871ca0d1E.llvm.8226331118977765550.exit433" unwind label %174
 
-754:                                              ; preds = %755, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h4be47992871ca0d1E.llvm.8226331118977765550.exit433"
+754:                                              ; preds = %756, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h4be47992871ca0d1E.llvm.8226331118977765550.exit433"
   br i1 %.0177, label %762, label %757
 
-755:                                              ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h4be47992871ca0d1E.llvm.8226331118977765550.exit433"
-  %756 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17hc8a827dc02783a8bE"(ptr noalias noundef align 8 dereferenceable(48) %756) #64
+756:                                              ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h4be47992871ca0d1E.llvm.8226331118977765550.exit433"
+  %757 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17hc8a827dc02783a8bE"(ptr noalias noundef align 8 dereferenceable(48) %757) #64
           to label %754 unwind label %174
 
-757:                                              ; preds = %762, %754
-  %758 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %759 = load ptr, ptr %758, align 8, !noundef !4
-  %760 = icmp ne ptr %759, null
-  %761 = trunc nuw i8 %.1205 to i1
-  %or.cond19 = select i1 %760, i1 %761, i1 false
-  br i1 %or.cond19, label %763, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit435"
+758:                                              ; preds = %763, %754
+  %759 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %760 = load ptr, ptr %759, align 8, !noundef !4
+  %761 = icmp ne ptr %760, null
+  %762 = trunc nuw i8 %.1205 to i1
+  %or.cond19 = select i1 %761, i1 %762, i1 false
+  br i1 %or.cond19, label %764, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit435"
 
-762:                                              ; preds = %754
+763:                                              ; preds = %754
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$deltalake_core..kernel..models..Action$GT$$GT$17h30c0b44d1061daa0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %66) #64
           to label %757 unwind label %174
 
-"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit435": ; preds = %763, %766, %757
-  br i1 %746, label %769, label %767
+"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit435": ; preds = %764, %767, %758
+  br i1 %746, label %770, label %768
 
-763:                                              ; preds = %757
-  %764 = atomicrmw sub ptr %759, i64 1 release, align 8, !noalias !17041
-  %765 = icmp eq i64 %764, 1
-  br i1 %765, label %766, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit435"
+764:                                              ; preds = %758
+  %765 = atomicrmw sub ptr %760, i64 1 release, align 8, !noalias !17041
+  %766 = icmp eq i64 %765, 1
+  br i1 %766, label %767, label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit435"
 
-766:                                              ; preds = %763
+767:                                              ; preds = %764
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48608139814a74e0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %758)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48608139814a74e0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %759)
           to label %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit435" unwind label %174
 
-767:                                              ; preds = %769, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit435"
-  %768 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  invoke void @"_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17h9a7a3b6231162428E.llvm.8226331118977765550"(ptr noalias noundef nonnull align 8 dereferenceable(48) %768) #64
+768:                                              ; preds = %770, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit435"
+  %769 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  invoke void @"_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$GT$17h9a7a3b6231162428E.llvm.8226331118977765550"(ptr noalias noundef nonnull align 8 dereferenceable(48) %769) #64
           to label %588 unwind label %174
 
-769:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit435"
-  %770 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  invoke void @"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h6dd0457013f72378E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %770) #64
+770:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStore$GT$$GT$17hd733535e0c787fc9E.llvm.8226331118977765550.exit435"
+  %771 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  invoke void @"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17h6dd0457013f72378E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %771) #64
           to label %767 unwind label %174
 }
 

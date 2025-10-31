@@ -40,7 +40,7 @@ _ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit: ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load i64, ptr %20, align 8, !alias.scope !4, !noundef !7
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %137, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread
+  br i1 %22, label %138, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread
 
 23:                                               ; preds = %1
   %24 = icmp eq i64 %3, -9223372036854775808
@@ -53,7 +53,7 @@ _ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit: ; preds = %1
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
   %or.cond145 = select i1 %or.cond14.i97, i1 %27, i1 false
-  br i1 %or.cond145, label %137, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread
+  br i1 %or.cond145, label %138, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread
 
 _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit, %23
   %28 = phi i64 [ %21, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit ], [ %26, %23 ]
@@ -234,7 +234,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   %107 = sub i32 0, %.068
   %.0.i108 = select i1 %.not, i32 %.068, i32 %107
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %137
+  br label %138
 
 108:                                              ; preds = %104
   %109 = icmp eq i32 %.065, 30
@@ -283,7 +283,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   %136 = add i32 %135, %130
   br label %106
 
-137:                                              ; preds = %23, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit, %106
+138:                                              ; preds = %23, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit, %106
   %.0 = phi i32 [ %.0.i108, %106 ], [ 0, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit ], [ -2147483648, %23 ]
   ret i32 %.0
 }

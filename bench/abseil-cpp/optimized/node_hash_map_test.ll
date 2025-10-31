@@ -18272,7 +18272,7 @@ _ZN7testing8internal11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4a
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  br label %3006
+  br label %3007
 
 322:                                              ; preds = %165
   %323 = landingpad { ptr, i32 }
@@ -18280,7 +18280,7 @@ _ZN7testing8internal11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4a
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br label %3006
+  br label %3007
 
 324:                                              ; preds = %166
   %325 = landingpad { ptr, i32 }
@@ -18288,7 +18288,7 @@ _ZN7testing8internal11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4a
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  br label %3006
+  br label %3007
 
 326:                                              ; preds = %167
   %327 = landingpad { ptr, i32 }
@@ -18296,7 +18296,7 @@ _ZN7testing8internal11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4a
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  br label %3006
+  br label %3007
 
 328:                                              ; preds = %168
   %329 = landingpad { ptr, i32 }
@@ -18777,7 +18777,7 @@ _ZN7testing8internal11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4a
 526:                                              ; preds = %_ZN7testing7MessageD2Ev.exit299, %341
   %.pn129.pn.pn = phi { ptr, i32 } [ %.pn129.pn, %_ZN7testing7MessageD2Ev.exit299 ], [ %.pn.pn.pn.pn, %341 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
-  br label %3006
+  br label %3007
 
 527:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   %528 = landingpad { ptr, i32 }
@@ -20869,17 +20869,17 @@ _ZN7testing8internal11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4a
 1357:                                             ; preds = %_ZN7testing7MessageD2Ev.exit324, %540
   %.pn138.pn.pn = phi { ptr, i32 } [ %.pn138.pn, %_ZN7testing7MessageD2Ev.exit324 ], [ %.pn133.pn.pn.pn, %540 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  br label %3006
+  br label %3007
 
 .loopexit:                                        ; preds = %_ZSt4nextIN4absl18container_internal12raw_hash_setINS1_17NodeHashMapPolicyINS1_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorEET_SF_NSt15iterator_traitsISF_E15difference_typeE.exit.i, %628
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %3006
+  br label %3007
 
 .loopexit.split-lp:                               ; preds = %577
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %3006
+  br label %3007
 
 1358:                                             ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS3_17NonMovableKeyHashENS3_15NonMovableKeyEqESaISt4pairIKS4_iEEE5mergeIS6_S7_EEvRNS1_IS5_T_T0_SB_EE.exit
   %1359 = landingpad { ptr, i32 }
@@ -21212,7 +21212,7 @@ _ZN7testing8internal11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4a
 1480:                                             ; preds = %_ZN7testing7MessageD2Ev.exit401, %1368
   %.pn148.pn.pn = phi { ptr, i32 } [ %.pn148.pn, %_ZN7testing7MessageD2Ev.exit401 ], [ %.pn142.pn.pn.pn.pn, %1368 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
-  br label %3006
+  br label %3007
 
 1481:                                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit406
   %1482 = landingpad { ptr, i32 }
@@ -21371,7 +21371,7 @@ _ZN7testing15AssertionResultD2Ev.exit435:         ; preds = %1516, %_ZNKSt14defa
 1529:                                             ; preds = %_ZN7testing7MessageD2Ev.exit430, %1491
   %.pn156.pn.pn = phi { ptr, i32 } [ %.pn156.pn, %_ZN7testing7MessageD2Ev.exit430 ], [ %.pn152.pn.pn, %1491 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
-  br label %3006
+  br label %3007
 
 1530:                                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit435
   %1531 = landingpad { ptr, i32 }
@@ -25554,28 +25554,28 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL
 .thread1088:                                      ; preds = %3001, %.thread1081
   %.pn260.pn.pn.pn1087 = phi { ptr, i32 } [ %.pn244.pn.pn, %.thread1081 ], [ %.pn260.pn.pn.pn, %3001 ]
   %.sroa.321048.01085 = phi i64 [ %spec.select10921535, %.thread1081 ], [ %.sroa.321048.0, %3001 ]
-  %3002 = inttoptr i64 %.sroa.321048.01085 to ptr
-  call void @_ZdlPvm(ptr noundef %3002, i64 noundef 8) #39
+  %3003 = inttoptr i64 %.sroa.321048.01085 to ptr
+  call void @_ZdlPvm(ptr noundef %3003, i64 noundef 8) #39
   br label %_ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879
 
 _ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879: ; preds = %_ZN7testing7MessageD2Ev.exit538, %_ZN7testing7MessageD2Ev.exit555, %1873, %3001, %.thread1088, %1872, %1809, %1622, %_ZN7testing7MessageD2Ev.exit444
   %.pn260.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn177.pn.pn, %1872 ], [ %.pn168.pn.pn, %1809 ], [ %.pn164.pn.pn, %1622 ], [ %.pn160.pn.pn, %_ZN7testing7MessageD2Ev.exit444 ], [ %1874, %1873 ], [ %.pn260.pn.pn.pn, %3001 ], [ %.pn260.pn.pn.pn1087, %.thread1088 ], [ %.pn185.pn.pn, %_ZN7testing7MessageD2Ev.exit538 ], [ %.pn189.pn.pn, %_ZN7testing7MessageD2Ev.exit555 ]
   %.val.i.i880 = load i8, ptr %1526, align 1, !tbaa !671, !range !23, !noundef !24
-  %3003 = trunc nuw i8 %.val.i.i880 to i1
-  br i1 %3003, label %3004, label %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882
+  %3004 = trunc nuw i8 %.val.i.i880 to i1
+  br i1 %3004, label %3005, label %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882
 
-3004:                                             ; preds = %_ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879
-  %3005 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %.val1.i.i881 = load ptr, ptr %3005, align 8, !tbaa !583
+3005:                                             ; preds = %_ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879
+  %3006 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %.val1.i.i881 = load ptr, ptr %3006, align 8, !tbaa !583
   call void @_ZdlPvm(ptr noundef %.val1.i.i881, i64 noundef 8) #39
   br label %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882
 
-_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882: ; preds = %3004, %_ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879, %1530
+_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882: ; preds = %3005, %_ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879, %1530
   %.pn260.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1531, %1530 ], [ %.pn260.pn.pn.pn.pn.pn, %_ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879 ], [ %.pn260.pn.pn.pn.pn.pn, %3004 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
-  br label %3006
+  br label %3007
 
-3006:                                             ; preds = %.loopexit, %.loopexit.split-lp, %526, %1357, %1480, %1529, %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882, %326, %324, %322, %320
+3007:                                             ; preds = %.loopexit, %.loopexit.split-lp, %526, %1357, %1480, %1529, %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882, %326, %324, %322, %320
   %.pn260.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %327, %326 ], [ %325, %324 ], [ %323, %322 ], [ %321, %320 ], [ %.pn260.pn.pn.pn.pn.pn.pn, %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882 ], [ %.pn156.pn.pn, %1529 ], [ %.pn148.pn.pn, %1480 ], [ %.pn138.pn.pn, %1357 ], [ %.pn129.pn.pn, %526 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS3_17NonMovableKeyHashENS3_15NonMovableKeyEqESaISt4pairIKS4_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %34)

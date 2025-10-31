@@ -115,9 +115,9 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
 
 ._crit_edge:                                      ; preds = %12
   %.pre = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7
-  %.pre119 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre122 = trunc nuw i8 %.pre to i1
-  %.pre123 = trunc nuw i8 %.pre119 to i1
+  %.pre118 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %.pre119 = trunc nuw i8 %.pre to i1
+  %.pre120 = trunc nuw i8 %.pre118 to i1
   br label %19
 
 15:                                               ; preds = %12
@@ -128,9 +128,9 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   br label %230
 
 19:                                               ; preds = %._crit_edge, %2
-  %.pre-phi124 = phi i1 [ %.pre123, %._crit_edge ], [ %10, %2 ]
-  %.pre-phi = phi i1 [ %.pre122, %._crit_edge ], [ %8, %2 ]
-  %20 = xor i1 %.pre-phi124, true
+  %.pre-phi121 = phi i1 [ %.pre120, %._crit_edge ], [ %10, %2 ]
+  %.pre-phi = phi i1 [ %.pre119, %._crit_edge ], [ %8, %2 ]
+  %20 = xor i1 %.pre-phi121, true
   %21 = select i1 %.pre-phi, i1 true, i1 %20
   br i1 %21, label %22, label %.thread115, !prof !9
 
@@ -533,13 +533,13 @@ define range(i32 -1, 1) i32 @H5G_mkroot(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %.071.ph, label %260, label %.thread115
 
 260:                                              ; preds = %._crit_edge120, %251, %259
-  %261 = phi ptr [ %257, %251 ], [ null, %259 ], [ %.pre121, %._crit_edge120 ]
-  %.068113118 = phi i32 [ -1, %251 ], [ -1, %259 ], [ 0, %._crit_edge120 ]
+  %.068113129 = phi ptr [ %257, %251 ], [ null, %259 ], [ %.pre121, %._crit_edge120 ]
+  %261 = phi i32 [ -1, %251 ], [ -1, %259 ], [ 0, %._crit_edge120 ]
   %262 = call i32 @H5AC_mark_entry_dirty(ptr noundef %261) #6
   %263 = icmp slt i32 %262, 0
   br i1 %263, label %264, label %.thread115
 
-264:                                              ; preds = %260
+264:; preds = %260
   %265 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !49
   %266 = load i64, ptr @H5E_CANTMARKDIRTY_g, align 8, !tbaa !49
   %267 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G_mkroot, i32 noundef 302, i64 noundef %265, i64 noundef %266, ptr noundef nonnull @.str.13) #6

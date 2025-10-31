@@ -12615,7 +12615,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 13:                                               ; preds = %12, %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %83
+  br label %87
 
 15:                                               ; preds = %7
   %.not36 = icmp eq ptr %3, null
@@ -12631,7 +12631,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 19:                                               ; preds = %18, %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %83
+  br label %87
 
 21:                                               ; preds = %7
   %.not35 = icmp eq ptr %3, null
@@ -12647,7 +12647,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 25:                                               ; preds = %24, %22
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %83
+  br label %87
 
 27:                                               ; preds = %7
   %.not34 = icmp eq ptr %3, null
@@ -12663,7 +12663,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 31:                                               ; preds = %30, %28
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %83
+  br label %87
 
 33:                                               ; preds = %7
   %.not33 = icmp eq ptr %3, null
@@ -12679,7 +12679,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 37:                                               ; preds = %36, %34
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %83
+  br label %87
 
 39:                                               ; preds = %7
   %.not32 = icmp eq ptr %3, null
@@ -12695,7 +12695,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 43:                                               ; preds = %42, %40
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %83
+  br label %87
 
 45:                                               ; preds = %7
   %.not31 = icmp eq ptr %3, null
@@ -12711,7 +12711,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 49:                                               ; preds = %48, %46
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %83
+  br label %87
 
 51:                                               ; preds = %7
   %.not = icmp eq ptr %3, null
@@ -12727,12 +12727,12 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 55:                                               ; preds = %54, %52
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %83
+  br label %87
 
 57:                                               ; preds = %7
   %58 = and i8 %8, -8
   %or.cond = icmp eq i8 %58, 48
-  br i1 %or.cond, label %59, label %82
+  br i1 %or.cond, label %59, label %86
 
 59:                                               ; preds = %57
   %60 = add nsw i8 %8, -48
@@ -12740,27 +12740,27 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %.not68 = icmp eq ptr %61, %2
   br i1 %.not68, label %78, label %62
 
-62:                                               ; preds = %59
-  %63 = load i8, ptr %61, align 1
-  %64 = and i8 %63, -8
-  %or.cond66 = icmp eq i8 %64, 48
-  br i1 %or.cond66, label %65, label %78
+63:                                               ; preds = %59
+  %64 = load i8, ptr %61, align 1
+  %65 = and i8 %64, -8
+  %or.cond66 = icmp eq i8 %65, 48
+  br i1 %or.cond66, label %66, label %78
 
-65:                                               ; preds = %62
-  %66 = shl nuw nsw i8 %60, 3
+66:                                               ; preds = %63
+  %67 = shl nuw nsw i8 %60, 3
   %67 = add nsw i8 %66, -48
-  %68 = add i8 %67, %63
+  %69 = add i8 %67, %64
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.not69 = icmp eq ptr %69, %2
   br i1 %.not69, label %78, label %70
 
-70:                                               ; preds = %65
+75:                                               ; preds = %65
   %71 = load i8, ptr %69, align 1
   %72 = and i8 %71, -8
   %or.cond67 = icmp eq i8 %72, 48
   br i1 %or.cond67, label %73, label %78
 
-73:                                               ; preds = %70
+81:                                               ; preds = %75
   %74 = shl i8 %68, 3
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %76 = add i8 %74, -48
@@ -12773,19 +12773,19 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %81, label %79
 
-79:                                               ; preds = %78
-  %80 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSEc(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef signext %.0)
-  br label %83
+83:                                               ; preds = %78
+  %84 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSEc(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef signext %.0)
+  br label %87
 
-81:                                               ; preds = %78
+85:                                               ; preds = %78
   tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_charEc(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 noundef signext %.0)
-  br label %83
+  br label %87
 
-82:                                               ; preds = %57
+86:                                               ; preds = %57
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE3EEEvv() #31
   unreachable
 
-83:                                               ; preds = %81, %79, %55, %49, %43, %37, %31, %25, %19, %13
+87:                                               ; preds = %85, %83, %55, %49, %43, %37, %31, %25, %19, %13
   %.sroa.042.0 = phi ptr [ %.sroa.042.1, %81 ], [ %.sroa.042.1, %79 ], [ %14, %13 ], [ %20, %19 ], [ %26, %25 ], [ %32, %31 ], [ %38, %37 ], [ %44, %43 ], [ %50, %49 ], [ %56, %55 ]
   ret ptr %.sroa.042.0
 }

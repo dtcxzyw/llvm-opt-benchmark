@@ -17410,7 +17410,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   %or145 = and i8 %419, 1
   br label %if.end1242
 
-if.else1214:                                      ; preds = %if.end1193
+if.then1220:                                      ; preds = %if.end1193
   %cmp1219 = icmp eq i8 %414, 36
   br i1 %cmp1219, label %if.then1220, label %while.cond1226
 
@@ -17436,7 +17436,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   %423 = load ptr, ptr %m_position, align 8
   %incdec.ptr1222 = getelementptr inbounds nuw i8, ptr %423, i64 1
   store ptr %incdec.ptr1222, ptr %m_position, align 8
-  %.pre858 = load i8, ptr %m_has_case_change, align 8
+  %.pre857 = load i8, ptr %m_has_case_change, align 8
   br label %if.end1242
 
 while.cond1226:                                   ; preds = %if.else1214, %while.cond1226
@@ -17462,7 +17462,7 @@ while.end1235:                                    ; preds = %while.cond1226
   br label %return
 
 if.end1242:                                       ; preds = %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit
-  %428 = phi i8 [ %418, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit ], [ %.pre858, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649 ]
+  %428 = phi i8 [ %418, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit ], [ %.pre857, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649 ]
   %old_case_change.1 = phi i8 [ %or145, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit ], [ %frombool38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649 ]
   %tobool1244 = trunc i8 %428 to i1
   br i1 %tobool1244, label %if.then1245, label %sw.epilog
@@ -17721,8 +17721,8 @@ lpad1353:                                         ; preds = %invoke.cont1352
 
 if.end1358:                                       ; preds = %if.then1318, %if.end1316
   %cmp1359 = icmp eq i32 %markid.0, -4
-  %.pre865 = load ptr, ptr %this, align 8
-  %start.i.i698 = getelementptr inbounds nuw i8, ptr %.pre865, i64 352
+  %.pre864 = load ptr, ptr %this, align 8
+  %start.i.i698 = getelementptr inbounds nuw i8, ptr %.pre864, i64 352
   %465 = load ptr, ptr %start.i.i698, align 8
   br i1 %cmp1359, label %if.then1360, label %if.end1485
 
@@ -17742,18 +17742,18 @@ if.then1363:                                      ; preds = %if.then1360
   %sub1370 = sub i64 %sub.ptr.lhs.cast.i702, %sub.ptr.lhs.cast.i.i706
   %alt1371 = getelementptr inbounds nuw i8, ptr %call1365, i64 16
   store i64 %sub1370, ptr %alt1371, align 8
-  %.pre861 = load ptr, ptr %this, align 8
-  %start.i.i726.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre861, i64 352
-  %.pre862 = load ptr, ptr %start.i.i726.phi.trans.insert, align 8
-  %add.ptr.i.i727.phi.trans.insert = getelementptr inbounds i8, ptr %.pre862, i64 %sub.ptr.sub.i
+  %.pre860 = load ptr, ptr %this, align 8
+  %start.i.i726.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre860, i64 352
+  %.pre861 = load ptr, ptr %start.i.i726.phi.trans.insert, align 8
+  %add.ptr.i.i727.phi.trans.insert = getelementptr inbounds i8, ptr %.pre861, i64 %sub.ptr.sub.i
   %next1451.phi.trans.insert = getelementptr inbounds nuw i8, ptr %add.ptr.i.i727.phi.trans.insert, i64 8
-  %.pre863 = load i64, ptr %next1451.phi.trans.insert, align 8
-  %add.ptr.i728.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr.i.i727.phi.trans.insert, i64 %.pre863
-  %.pre864 = load i32, ptr %add.ptr.i728.phi.trans.insert, align 8
+  %.pre862 = load i64, ptr %next1451.phi.trans.insert, align 8
+  %add.ptr.i728.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr.i.i727.phi.trans.insert, i64 %.pre862
+  %.pre863 = load i32, ptr %add.ptr.i728.phi.trans.insert, align 8
   br label %if.end1449
 
 if.else1372:                                      ; preds = %if.then1360
-  %end.i709 = getelementptr inbounds nuw i8, ptr %.pre865, i64 360
+  %end.i709 = getelementptr inbounds nuw i8, ptr %.pre864, i64 360
   %469 = load ptr, ptr %end.i709, align 8
   %sub.ptr.lhs.cast.i711 = ptrtoint ptr %469 to i64
   %sub.ptr.rhs.cast.i712 = ptrtoint ptr %465 to i64
@@ -17883,9 +17883,9 @@ lpad1443:                                         ; preds = %invoke.cont1442
   br label %eh.resume
 
 if.end1449:                                       ; preds = %if.else1414, %if.then1363
-  %489 = phi i32 [ %480, %if.else1414 ], [ %.pre864, %if.then1363 ]
-  %490 = phi ptr [ %465, %if.else1414 ], [ %.pre862, %if.then1363 ]
-  %491 = phi ptr [ %.pre865, %if.else1414 ], [ %.pre861, %if.then1363 ]
+  %489 = phi i32 [ %480, %if.else1414 ], [ %.pre863, %if.then1363 ]
+  %490 = phi ptr [ %465, %if.else1414 ], [ %.pre861, %if.then1363 ]
+  %491 = phi ptr [ %.pre864, %if.else1414 ], [ %.pre860, %if.then1363 ]
   switch i32 %489, label %while.cond1461.preheader [
     i32 27, label %if.end1485
     i32 0, label %if.end1485
@@ -17941,7 +17941,7 @@ lpad1480:                                         ; preds = %invoke.cont1479
 
 if.end1485:                                       ; preds = %if.end1358, %land.lhs.true1418, %if.end1449, %if.end1449
   %499 = phi ptr [ %490, %if.end1449 ], [ %490, %if.end1449 ], [ %465, %land.lhs.true1418 ], [ %465, %if.end1358 ]
-  %500 = phi ptr [ %491, %if.end1449 ], [ %491, %if.end1449 ], [ %.pre865, %land.lhs.true1418 ], [ %.pre865, %if.end1358 ]
+  %500 = phi ptr [ %491, %if.end1449 ], [ %491, %if.end1449 ], [ %.pre864, %land.lhs.true1418 ], [ %.pre864, %if.end1358 ]
   %end.i.i733 = getelementptr inbounds nuw i8, ptr %500, i64 360
   %501 = load ptr, ptr %end.i.i733, align 8
   %sub.ptr.lhs.cast.i.i734 = ptrtoint ptr %501 to i64

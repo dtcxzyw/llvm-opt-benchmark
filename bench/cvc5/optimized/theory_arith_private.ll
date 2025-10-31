@@ -66918,26 +66918,26 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate18p
   %14 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables23strictlyBelowUpperBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %8, i32 noundef %1)
   br i1 %14, label %19, label %.thread19
 
-.thread21:                                        ; preds = %2
-  %15 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables23strictlyBelowUpperBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %8, i32 noundef %1)
-  br i1 %15, label %.thread22, label %.thread17
+.thread21:; preds = %2
+  %16 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables23strictlyBelowUpperBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %8, i32 noundef %1)
+  br i1 %16, label %17, label %33
 
-.thread22:                                        ; preds = %.thread21
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2760
-  %17 = tail call noundef ptr @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule13rowLacksBoundEjbj(ptr noundef nonnull align 8 dereferenceable(456) %16, i32 noundef %7, i1 noundef zeroext true, i32 noundef %1)
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %26, label %.thread17
+17:                                               ; preds = %.thread21
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2760
+  %19 = tail call noundef ptr @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule13rowLacksBoundEjbj(ptr noundef nonnull align 8 dereferenceable(456) %18, i32 noundef %7, i1 noundef zeroext true, i32 noundef %1)
+  %20 = icmp eq ptr %19, null
+  br i1 %18, label %26, label %33
 
-19:                                               ; preds = %10
+21:                                               ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2760
   %21 = tail call noundef ptr @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule13rowLacksBoundEjbj(ptr noundef nonnull align 8 dereferenceable(456) %20, i32 noundef %7, i1 noundef zeroext true, i32 noundef %1)
   %22 = icmp eq ptr %21, null
-  br i1 %13, label %24, label %.thread
+  br i1 %13, label %24, label %26
 
-.thread19:                                        ; preds = %10
+.thread19:; preds = %10
   br i1 %13, label %.thread20, label %.thread17
 
-.thread20:                                        ; preds = %.thread19
+.thread20:; preds = %.thread21
   %23 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate23propagateCandidateBoundEjb(ptr noundef nonnull align 8 dereferenceable(9440) %0, i32 noundef %1, i1 noundef zeroext false)
   br i1 %23, label %30, label %.thread17
 
@@ -66945,24 +66945,24 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate18p
   %25 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate23propagateCandidateBoundEjb(ptr noundef nonnull align 8 dereferenceable(9440) %0, i32 noundef %1, i1 noundef zeroext false)
   br i1 %22, label %26, label %29
 
-.thread:                                          ; preds = %19
+26:                                               ; preds = %21
   br i1 %22, label %26, label %.thread17
 
 26:                                               ; preds = %.thread22, %.thread, %24
   %.015 = phi i1 [ false, %.thread ], [ %25, %24 ], [ false, %.thread22 ]
   %27 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate23propagateCandidateBoundEjb(ptr noundef nonnull align 8 dereferenceable(9440) %0, i32 noundef %1, i1 noundef zeroext true)
   %28 = or i1 %.015, %27
-  br i1 %28, label %30, label %.thread17
+  br i1 %28, label %30, label %33
 
 29:                                               ; preds = %24
-  br i1 %25, label %30, label %.thread17
+  br i1 %25, label %30, label %33
 
 30:                                               ; preds = %.thread20, %26, %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8992
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStatppEv(ptr noundef nonnull align 8 dereferenceable(8) %31)
-  br label %.thread17
+  br label %33
 
-.thread17:                                        ; preds = %.thread22, %.thread21, %.thread19, %.thread20, %.thread, %26, %30, %29
+33:                                               ; preds = %17, %.thread21, %.thread19, %.thread20, %26, %26, %30, %29
   ret void
 }
 

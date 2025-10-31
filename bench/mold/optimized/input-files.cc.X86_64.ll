@@ -19538,7 +19538,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %_ZN
   switch i32 %.0142, label %.loopexit [
     i32 0, label %177
     i32 2, label %15
-    i32 6, label %.loopexit147
+    i32 6, label %.loopexit
   ]
 
 177:                                              ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit
@@ -19546,13 +19546,13 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %_ZN
   store ptr %.2141, ptr %178, align 8, !tbaa !429
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %8, ptr %179, align 8, !tbaa !893
-  br label %.loopexit147
+  br label %.loopexit
 
-.loopexit147:                                     ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %177
+.loopexit:                                        ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %177
   %.not49 = icmp eq i64 %.237140, 0
   br i1 %.not49, label %205, label %180
 
-180:                                              ; preds = %.loopexit147
+180:                                              ; preds = %.loopexit
   %181 = icmp ugt i64 %.237140, 7
   br i1 %181, label %182, label %193
 
@@ -19614,15 +19614,15 @@ _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_strin
   store atomic i64 %.037.i, ptr %9 release, align 8
   br label %205
 
-205:                                              ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold11ComdatGroupEEEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit, %.loopexit147
+205:                                              ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold11ComdatGroupEEEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit, %.loopexit
   %.not50 = icmp eq ptr %.3138, null
-  br i1 %.not50, label %.loopexit, label %206
+  br i1 %.not50, label %207, label %206
 
 206:                                              ; preds = %205
   tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %.3138) #15
-  br label %.loopexit
+  br label %207
 
-.loopexit:                                        ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %205, %206
+207:                                              ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %205, %206
   ret i1 %.140139
 }
 
@@ -24028,7 +24028,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %_ZN
   switch i32 %.0142, label %.loopexit [
     i32 0, label %177
     i32 2, label %15
-    i32 6, label %.loopexit147
+    i32 6, label %.loopexit
   ]
 
 177:                                              ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit
@@ -24036,13 +24036,13 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit: ; preds = %_ZN
   store ptr %.2141, ptr %178, align 8, !tbaa !483
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %8, ptr %179, align 8, !tbaa !1050
-  br label %.loopexit147
+  br label %.loopexit
 
-.loopexit147:                                     ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %177
+.loopexit:                                        ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %177
   %.not49 = icmp eq i64 %.237140, 0
   br i1 %.not49, label %205, label %180
 
-180:                                              ; preds = %.loopexit147
+180:                                              ; preds = %.loopexit
   %181 = icmp ugt i64 %.237140, 7
   br i1 %181, label %182, label %193
 
@@ -24104,15 +24104,15 @@ _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_strin
   store atomic i64 %.037.i, ptr %9 release, align 8
   br label %205
 
-205:                                              ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold6SymbolINSB_6X86_64EEEEEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit, %.loopexit147
+205:                                              ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEEN4mold6SymbolINSB_6X86_64EEEEEENS3_13spin_rw_mutexEE14enable_segmentEmb.exit, %.loopexit
   %.not50 = icmp eq ptr %.3138, null
-  br i1 %.not50, label %.loopexit, label %206
+  br i1 %.not50, label %207, label %206
 
 206:                                              ; preds = %205
   tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %.3138) #15
-  br label %.loopexit
+  br label %207
 
-.loopexit:                                        ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %205, %206
+207:                                              ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, %205, %206
   ret i1 %.140139
 }
 

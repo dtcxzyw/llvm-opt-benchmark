@@ -4487,7 +4487,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_obje
   %.094132 = phi i32 [ 18, %21 ], [ 0, %23 ], [ 0, %7 ], [ 4, %zend_parse_arg_str_ex.exit ]
   %.095131 = phi ptr [ null, %21 ], [ %26, %23 ], [ null, %7 ], [ null, %zend_parse_arg_str_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.092134, i32 noundef %.087135, ptr noundef %.095131, i32 noundef %.094132, ptr noundef %.093133) #11
-  br label %113
+  br label %111
 
 .critedge:                                        ; preds = %zend_parse_arg_str_ex.exit, %.thread143
   %33 = load ptr, ptr %4, align 8, !tbaa !13
@@ -4503,7 +4503,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_obje
   %41 = load ptr, ptr %40, align 8, !tbaa !47
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %42) #11
-  br label %113
+  br label %111
 
 43:                                               ; preds = %.critedge
   %44 = load ptr, ptr %35, align 8, !tbaa !60
@@ -4539,7 +4539,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_obje
 
 61:                                               ; preds = %58, %58, %54
   call void @php_dom_throw_error(i32 noundef 7, i1 noundef zeroext true) #11
-  br label %113
+  br label %111
 
 62:                                               ; preds = %43
   unreachable
@@ -4569,11 +4569,11 @@ zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_obje
   %76 = load ptr, ptr %75, align 8, !tbaa !65
   %77 = call ptr @xmlNewDocNode(ptr noundef %76, ptr noundef %74, ptr noundef nonnull @.str.15, ptr noundef null) #11
   %78 = icmp eq ptr %77, null
-  br i1 %78, label %.thread139, label %.thread137.thread, !prof !15
+  br i1 %78, label %.thread139, label %.thread137110, !prof !15
 
 .thread139:                                       ; preds = %72
   call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #11
-  br label %.thread
+  br label %110
 
 .thread137:                                       ; preds = %68, %66
   %79 = load ptr, ptr %3, align 8, !tbaa !24
@@ -4581,13 +4581,13 @@ zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_obje
   %81 = icmp eq ptr %80, null
   br i1 %81, label %113, label %85
 
-.thread137.thread:                                ; preds = %72
+82:                                               ; preds = %72
   %82 = load ptr, ptr %3, align 8, !tbaa !24
   %83 = call ptr @dom_parse_fragment(ptr noundef nonnull %34, ptr noundef nonnull %77, ptr noundef %82) #11
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %.thread, label %85
+  %.not.i108 = icmp eq ptr %83, null
+  br i1 %.not.i108, label %.thread, label %85
 
-85:                                               ; preds = %.thread137.thread, %.thread137
+85:                                               ; preds = %82, %.thread137
   %86 = phi ptr [ %83, %.thread137.thread ], [ %80, %.thread137 ]
   %.0157 = phi i1 [ true, %.thread137.thread ], [ false, %.thread137 ]
   %.189155 = phi ptr [ %77, %.thread137.thread ], [ %.088, %.thread137 ]
@@ -4604,26 +4604,26 @@ zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_obje
   br label %php_libxml_invalidate_node_list_cache.exit
 
 php_libxml_invalidate_node_list_cache.exit:       ; preds = %85, %89
-  %93 = load i64, ptr %48, align 8, !tbaa !29
-  %94 = load i8, ptr %50, align 2, !tbaa !13
-  %95 = sext i8 %94 to i64
-  %96 = add i64 %93, %95
-  switch i64 %96, label %112 [
+  %89 = load i64, ptr %48, align 8, !tbaa !29
+  %90 = load i8, ptr %50, align 2, !tbaa !13
+  %91 = sext i8 %90 to i64
+  %92 = add i64 %89, %91
+  switch i64 %92, label %112 [
     i64 113, label %97
     i64 124, label %101
     i64 126, label %107
-    i64 111, label %111
+    i64 111, label %108
   ]
 
 97:                                               ; preds = %php_libxml_invalidate_node_list_cache.exit
   %98 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %99 = load ptr, ptr %98, align 8, !tbaa !98
   %100 = call zeroext i1 @php_dom_pre_insert(ptr noundef %88, ptr noundef nonnull %86, ptr noundef %99, ptr noundef %44) #11
-  br i1 %.0157, label %.thread, label %113
+  br i1 %.0157, label %110, label %113
 
-101:                                              ; preds = %php_libxml_invalidate_node_list_cache.exit
-  %102 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %103 = load ptr, ptr %102, align 8, !tbaa !98
+103:                                              ; preds = %php_libxml_invalidate_node_list_cache.exit
+  %104 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %105 = load ptr, ptr %104, align 8, !tbaa !98
   %104 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %105 = load ptr, ptr %104, align 8, !tbaa !97
   %106 = call zeroext i1 @php_dom_pre_insert(ptr noundef %88, ptr noundef nonnull %86, ptr noundef %103, ptr noundef %105) #11
@@ -4635,19 +4635,19 @@ php_libxml_invalidate_node_list_cache.exit:       ; preds = %85, %89
   %110 = call zeroext i1 @php_dom_pre_insert(ptr noundef %88, ptr noundef nonnull %86, ptr noundef %44, ptr noundef %109) #11
   br i1 %.0157, label %.thread, label %113
 
-111:                                              ; preds = %php_libxml_invalidate_node_list_cache.exit
+108:                                              ; preds = %php_libxml_invalidate_node_list_cache.exit
   call void @php_dom_node_append(ptr noundef %88, ptr noundef nonnull %86, ptr noundef %44) #11
   br i1 %.0157, label %.thread, label %113
 
-112:                                              ; preds = %php_libxml_invalidate_node_list_cache.exit
+109:                                              ; preds = %php_libxml_invalidate_node_list_cache.exit
   unreachable
 
-.thread:                                          ; preds = %.thread137.thread, %111, %107, %101, %97, %.thread139
+110:                                              ; preds = %82, %111, %107, %101, %97, %.thread139
   %.2142 = phi ptr [ null, %.thread139 ], [ %.189155, %97 ], [ %.189155, %101 ], [ %.189155, %107 ], [ %.189155, %111 ], [ %77, %.thread137.thread ]
   call void @xmlFreeNode(ptr noundef %.2142) #11
-  br label %113
+  br label %111
 
-113:                                              ; preds = %.thread137, %111, %107, %101, %97, %.thread123, %61, %.thread, %37
+111:                                              ; preds = %.thread137, %111, %107, %101, %97, %.thread123, %61, %110, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

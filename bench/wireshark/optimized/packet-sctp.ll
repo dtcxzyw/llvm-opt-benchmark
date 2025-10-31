@@ -2521,7 +2521,7 @@ proto_item_set_hidden.exit119:                    ; preds = %163, %160, %proto_i
   store i16 %261, ptr %219, align 2
   %262 = call zeroext i8 @tvb_get_uint8(ptr noundef %240, i32 noundef 0)
   %263 = icmp eq i8 %262, 6
-  br i1 %263, label %264, label %.thread
+  br i1 %263, label %264, label %269
 
 264:                                              ; preds = %253
   %265 = call zeroext i8 @tvb_get_uint8(ptr noundef %240, i32 noundef 1)
@@ -2531,12 +2531,12 @@ proto_item_set_hidden.exit119:                    ; preds = %163, %160, %proto_i
   %268 = icmp eq i8 %267, 14
   br i1 %268, label %271, label %274
 
-.thread:                                          ; preds = %253
-  %269 = call zeroext i8 @tvb_get_uint8(ptr noundef %240, i32 noundef 0)
-  %270 = icmp eq i8 %269, 14
-  br i1 %270, label %271, label %.thread172
+269:                                              ; preds = %253
+  %270 = call zeroext i8 @tvb_get_uint8(ptr noundef %240, i32 noundef 0)
+  %270 = icmp eq i8 %270, 14
+  br i1 %270, label %271, label %276
 
-271:                                              ; preds = %.thread, %264
+271:; preds = %270, %264
   %.069.i171 = phi i1 [ false, %.thread ], [ %.not.i122, %264 ]
   %272 = call zeroext i8 @tvb_get_uint8(ptr noundef %240, i32 noundef 1)
   %273 = and i8 %272, 1
@@ -2549,16 +2549,16 @@ proto_item_set_hidden.exit119:                    ; preds = %163, %160, %proto_i
 
 275:                                              ; preds = %271, %274
   store i32 0, ptr %220, align 4
-  %276 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sctp_info, i64 64), align 8
+  %275 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sctp_info, i64 64), align 8
   br label %278
 
-.thread172:                                       ; preds = %.thread, %271, %274
+276:                                              ; preds = %270, %271, %274
   %277 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sctp_info, i64 64), align 8
   store i32 %277, ptr %220, align 4
   br label %278
 
-278:                                              ; preds = %.thread172, %275
-  %storemerge = phi i32 [ 0, %.thread172 ], [ %276, %275 ]
+278:                                              ; preds = %276, %275
+  %storemerge = phi i32 [ 0, %.thread172 ], [ %275, %275 ]
   store i32 %storemerge, ptr %221, align 8
   %279 = call zeroext i8 @tvb_get_uint8(ptr noundef %240, i32 noundef 0)
   %280 = icmp eq i8 %279, 1

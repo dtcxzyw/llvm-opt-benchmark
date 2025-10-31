@@ -9478,31 +9478,31 @@ Abc_TtReadHexDigit.exit.i:                        ; preds = %156, %154, %150
 
 Abc_TtReadHexNumber.exit:                         ; preds = %Abc_TtReadHexDigit.exit.i, %Vec_IntFill.exit99, %.preheader.i
   store i32 %8, ptr %3, align 4, !tbaa !36
-  br label %167
+  br label %168
 
-167:                                              ; preds = %Wlc_PrsIsChar.exit.thread, %Abc_TtReadHexNumber.exit
-  %.2 = phi ptr [ %105, %Abc_TtReadHexNumber.exit ], [ %172, %Wlc_PrsIsChar.exit.thread ]
+168:                                              ; preds = %Wlc_PrsIsChar.exit.thread, %Abc_TtReadHexNumber.exit
+  %.2 = phi ptr [ %105, %Abc_TtReadHexNumber.exit ], [ %173, %Wlc_PrsIsChar.exit.thread ]
   %.2.val = load i8, ptr %.2, align 1, !tbaa !39
-  %168 = and i8 %.2.val, -33
-  %169 = add i8 %168, -65
-  %or.cond1.i = icmp ult i8 %169, 26
-  %170 = add i8 %.2.val, -48
-  %or.cond13.i = icmp ult i8 %170, 10
+  %169 = and i8 %.2.val, -33
+  %170 = add i8 %169, -65
+  %or.cond1.i = icmp ult i8 %170, 26
+  %171 = add i8 %.2.val, -48
+  %or.cond13.i = icmp ult i8 %171, 10
   %or.cond2.i = or i1 %or.cond13.i, %or.cond1.i
-  br i1 %or.cond2.i, label %Wlc_PrsIsChar.exit.thread, label %171
+  br i1 %or.cond2.i, label %Wlc_PrsIsChar.exit.thread, label %172
 
-171:                                              ; preds = %167
+172:                                              ; preds = %168
   switch i8 %.2.val, label %.loopexit [
     i8 95, label %Wlc_PrsIsChar.exit.thread
     i8 36, label %Wlc_PrsIsChar.exit.thread
     i8 92, label %Wlc_PrsIsChar.exit.thread
   ]
 
-Wlc_PrsIsChar.exit.thread:                        ; preds = %171, %171, %171, %167
-  %172 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  br label %167, !llvm.loop !110
+Wlc_PrsIsChar.exit.thread:                        ; preds = %172, %172, %172, %168
+  %173 = getelementptr inbounds nuw i8, ptr %.2, i64 1
+  br label %168, !llvm.loop !110
 
-.loopexit:                                        ; preds = %171, %101, %._crit_edge, %94, %Vec_IntGrow.exit.i
+.loopexit:                                        ; preds = %172, %101, %._crit_edge, %94, %Vec_IntGrow.exit.i
   %.0 = phi ptr [ %.061, %Vec_IntGrow.exit.i ], [ null, %94 ], [ %100, %._crit_edge ], [ null, %101 ], [ %.2, %171 ]
   ret ptr %.0
 }

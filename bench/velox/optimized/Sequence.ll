@@ -9981,9 +9981,9 @@ _ZN8facebook5velox9functions8diffDateENS1_12_GLOBAL__N_112DateTimeUnitEii.exit: 
   %div207 = sdiv i32 %retval.i.0, %step
   %div.sext = sext i32 %div207 to i64
   %add = add nsw i64 %div.sext, 1
-  %13 = ashr i64 %add, 63
+  %14 = ashr i64 %add, 63
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %add, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %13, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %14, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -21183,9 +21183,9 @@ _ZN8facebook5velox9functions13diffTimestampENS1_12_GLOBAL__N_112DateTimeUnitERKN
   %div205 = sdiv i32 %retval.i.0, %step
   %div.sext = sext i32 %div205 to i64
   %add = add nsw i64 %div.sext, 1
-  %18 = ashr i64 %add, 63
+  %19 = ashr i64 %add, 63
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %add, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %18, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %19, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

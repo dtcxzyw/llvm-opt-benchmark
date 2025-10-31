@@ -17029,17 +17029,17 @@ bigfixize.exit._crit_edge:                        ; preds = %bigfixize.exit
   %.phi.trans.insert = inttoptr i64 %.022.i to ptr
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !11
   %.pre66 = and i64 %.pre, 8192
-  br label %128
+  br label %129
 
 bigfixize.exit.thread:                            ; preds = %21, %BIGNUM_DIGITS.exit.i, %bigfixize.exit
   %.022.i45 = phi i64 [ %.022.i, %bigfixize.exit ], [ 1, %BIGNUM_DIGITS.exit.i ], [ 1, %21 ]
   %44 = icmp slt i64 %.022.i45, %1
-  br i1 %44, label %130, label %45
+  br i1 %44, label %131, label %45
 
 45:                                               ; preds = %bigfixize.exit.thread
   %46 = icmp sgt i64 %.022.i45, %1
   %47 = select i1 %46, i64 3, i64 1
-  br label %130
+  br label %131
 
 48:                                               ; preds = %2
   %49 = icmp eq i64 %1, 0
@@ -17065,7 +17065,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %48
   %61 = and i64 %54, 8192
   %62 = icmp ne i64 %61, 0
   %63 = xor i1 %60, %62
-  br i1 %63, label %128, label %64
+  br i1 %63, label %129, label %64
 
 64:                                               ; preds = %56
   %65 = and i64 %58, 16384
@@ -17198,29 +17198,29 @@ bary_cmp.exit:                                    ; preds = %108, %.critedge2.i,
   %122 = select i1 %60, i64 %.032.i, i64 %121
   %123 = shl nsw i64 %122, 1
   %124 = or disjoint i64 %123, 1
-  br label %130
+  br label %131
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %48
-  %125 = and i64 %1, 2
-  %.not57 = icmp eq i64 %125, 0
+  %126 = and i64 %1, 2
+  %.not57 = icmp eq i64 %126, 0
   br i1 %.not57, label %RB_FLOAT_TYPE_P.exit.thread55, label %RB_FLOAT_TYPE_P.exit.thread
 
 RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit, %rbimpl_RB_TYPE_P_fastpath.exit.thread
-  %126 = tail call i64 @rb_integer_float_cmp(i64 noundef %0, i64 noundef %1)
-  br label %130
+  %127 = tail call i64 @rb_integer_float_cmp(i64 noundef %0, i64 noundef %1)
+  br label %131
 
 RB_FLOAT_TYPE_P.exit.thread55:                    ; preds = %rbimpl_RB_TYPE_P_fastpath.exit, %rbimpl_RB_TYPE_P_fastpath.exit.thread
-  %127 = tail call i64 @rb_num_coerce_cmp(i64 noundef %0, i64 noundef %1, i64 noundef 135) #26
-  br label %130
+  %128 = tail call i64 @rb_num_coerce_cmp(i64 noundef %0, i64 noundef %1, i64 noundef 135) #26
+  br label %131
 
-128:                                              ; preds = %bigfixize.exit._crit_edge, %56
+129:                                              ; preds = %bigfixize.exit._crit_edge, %56
   %.pre-phi67 = phi i64 [ %.pre66, %bigfixize.exit._crit_edge ], [ %59, %56 ]
   %.not59 = icmp eq i64 %.pre-phi67, 0
-  %129 = select i1 %.not59, i64 -1, i64 3
-  br label %130
+  %130 = select i1 %.not59, i64 -1, i64 3
+  br label %131
 
-130:                                              ; preds = %45, %bigfixize.exit.thread, %128, %RB_FLOAT_TYPE_P.exit.thread55, %RB_FLOAT_TYPE_P.exit.thread, %bary_cmp.exit
-  %.1 = phi i64 [ %129, %128 ], [ %124, %bary_cmp.exit ], [ %126, %RB_FLOAT_TYPE_P.exit.thread ], [ %127, %RB_FLOAT_TYPE_P.exit.thread55 ], [ %47, %45 ], [ -1, %bigfixize.exit.thread ]
+131:                                              ; preds = %45, %bigfixize.exit.thread, %129, %RB_FLOAT_TYPE_P.exit.thread55, %RB_FLOAT_TYPE_P.exit.thread, %bary_cmp.exit
+  %.1 = phi i64 [ %130, %128 ], [ %124, %bary_cmp.exit ], [ %127, %RB_FLOAT_TYPE_P.exit.thread ], [ %128, %RB_FLOAT_TYPE_P.exit.thread55 ], [ %47, %45 ], [ -1, %bigfixize.exit.thread ]
   ret i64 %.1
 }
 
